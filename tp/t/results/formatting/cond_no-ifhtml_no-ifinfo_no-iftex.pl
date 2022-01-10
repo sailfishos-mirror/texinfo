@@ -456,7 +456,7 @@ $result_converted{'html'}->{'cond_no-ifhtml_no-ifinfo_no-iftex'} = '<!DOCTYPE ht
 
 <style type="text/css">
 <!--
-span.smaller {font-size: smaller}
+span.program-in-footer {font-size: smaller}
 -->
 </style>
 
@@ -481,7 +481,7 @@ span.smaller {font-size: smaller}
 </p>
 <hr>
 <p>
-  <span class="smaller">This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
+  <span class="program-in-footer">This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
 </p>
 
 

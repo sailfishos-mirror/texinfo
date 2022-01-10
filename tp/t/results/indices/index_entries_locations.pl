@@ -578,12 +578,13 @@ end paragraph.
 
 <p>Last paragraph.
 </p>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-E"><b>E</b></a>
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-E"><b>E</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-L"><b>L</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-cp" border="0">
+<table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_cp_letter-E">E</th><td></td><td></td></tr>
@@ -595,11 +596,12 @@ end paragraph.
 <tr><td></td><td valign="top"><a href="#index-lone-entry">lone entry</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-E"><b>E</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-E"><b>E</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-L"><b>L</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 ';
 
 1;

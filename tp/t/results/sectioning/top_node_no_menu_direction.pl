@@ -526,7 +526,7 @@ $result_converted{'html'}->{'top_node_no_menu_direction'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<a class="node-anchor" id="Top"></a><div class="header">
+<a class="node-anchor" id="Top"></a><div class="nav-header">
 <p>
 Next: <a href="#second-node" accesskey="n" rel="next">second node</a> &nbsp; </p>
 </div>
@@ -534,7 +534,7 @@ Next: <a href="#second-node" accesskey="n" rel="next">second node</a> &nbsp; </p
 
 
 <hr>
-<a class="node-anchor" id="second-node"></a><div class="header">
+<a class="node-anchor" id="second-node"></a><div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>

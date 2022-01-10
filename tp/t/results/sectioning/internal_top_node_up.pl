@@ -703,7 +703,7 @@ $result_converted{'html'}->{'internal_top_node_up'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </div>
@@ -711,7 +711,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 
 
 <hr>
-<a class="node-anchor" id="first"></a><div class="header">
+<a class="node-anchor" id="first"></a><div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">internal top node up</a>, Up: <a href="#Top" accesskey="u" rel="up">internal top node up</a> &nbsp; </p>
 </div>

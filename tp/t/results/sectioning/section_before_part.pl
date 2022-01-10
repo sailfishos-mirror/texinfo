@@ -216,7 +216,7 @@ $result_converted{'html'}->{'section_before_part'} = '<!DOCTYPE html>
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
-ul.no-bullet {list-style: none}
+ul.toc-numbered-mark {list-style: none}
 -->
 </style>
 
@@ -232,11 +232,11 @@ ul.no-bullet {list-style: none}
 <h1 class="part">part</h1>
 <hr>
 
-<div class="contents-element" id="SEC_Contents">
+<div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
     <li><a id="toc-section" href="#section">1 section</a></li>
 <li><a id="toc-part" href="#part">part</a></li>
 

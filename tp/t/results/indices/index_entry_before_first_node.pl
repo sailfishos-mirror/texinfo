@@ -294,19 +294,21 @@ $result_converted{'html_text'}->{'index_entry_before_first_node'} = '<a class="i
 
 <h1 class="node-heading" id="Top">Top</h1>
 
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-B"><b>B</b></a>
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-B"><b>B</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-cp" border="0">
+<table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_cp_letter-B">B</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-before-nodes">before nodes</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-B"><b>B</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-B"><b>B</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 ';
 
 1;

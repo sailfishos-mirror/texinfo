@@ -782,18 +782,18 @@ Print fn
 $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="top" id="top">top</h1>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter-index" accesskey="1">index</a></li>
 </ul>
 <hr>
 <div class="chapter" id="chapter-index">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -808,12 +808,13 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 
 <p>Print cp
 </p>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-C"><b>C</b></a>
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-F"><b>F</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-cp" border="0">
+<table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_cp_letter-C">C</th><td></td><td></td></tr>
@@ -823,11 +824,12 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 <tr><td></td><td valign="top"><a href="#index-f_002d_002d_002dun"><code>f---un</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-C"><b>C</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-F"><b>F</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 </div>
 </div>

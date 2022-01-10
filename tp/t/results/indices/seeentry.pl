@@ -816,17 +816,17 @@ $result_converted{'plaintext'}->{'seeentry'} = '1 Index
 
 $result_converted{'html_text'}->{'seeentry'} = '
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a class="top-anchor" id="SEC_Top"></a>
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter-index" accesskey="1">Index</a></li>
 </ul>
 <hr>
 <div class="chapter" id="chapter-index">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>

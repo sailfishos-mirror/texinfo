@@ -794,16 +794,17 @@ $result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<h1 
 
 <a class="index-entry-anchor" id="index-ddi_0060_0060g"></a>
 
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>
+<div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-D"><b>D</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-D"><b>D</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-F"><b>F</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-V"><b>V</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_fn_letter-C">C</th><td></td><td></td></tr>
@@ -820,15 +821,16 @@ $result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<h1 
 <tr><td></td><td valign="top"><a href="#index-v_0060_0060j">v&ldquo;j</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-D"><b>D</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-D"><b>D</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-F"><b>F</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-V"><b>V</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 ';
 
 

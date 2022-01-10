@@ -722,7 +722,7 @@ $result_converted{'html'}->{'anchor_in_footnote_separate'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 </div>
@@ -731,12 +731,12 @@ Next: <a href="#chapter" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 <p>In top node<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">Chap</a></li>
 </ul>
 <hr>
 <div class="chapter" id="chapter">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -745,8 +745,8 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 <p><a class="ref" href="#Anchor-in-footnote">Anchor in footnote</a>.
 </p></div>
 </div>
-<div class="footnotes-element" id="SEC_Footnotes">
-<div class="header">
+<div class="element-footnotes" id="SEC_Footnotes">
+<div class="nav-header">
 <p>
  &nbsp; </p>
 </div>

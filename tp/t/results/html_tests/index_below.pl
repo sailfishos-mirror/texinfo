@@ -514,7 +514,7 @@ $result_converted{'html'}->{'index_below'} = '<!DOCTYPE html>
 <link href="#chap" rel="index" title="1 chap">
 <style type="text/css">
 <!--
-a.summary-letter {text-decoration: none}
+a.summary-letter-printindex {text-decoration: none}
 -->
 </style>
 
@@ -523,48 +523,50 @@ a.summary-letter {text-decoration: none}
 
 <body lang="en">
 <div class="top" id="top">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="top">top</h1>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chap" accesskey="1">chap</a></li>
 </ul>
 <hr>
 <div class="chapter" id="chap">
-<div class="header">
+<div class="nav-header">
 <p>
  Up : <a href="#top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <h2 class="chapter">1 chap</h2>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#sec" accesskey="1">sec</a></li>
 </ul>
 <hr>
 <div class="section" id="sec">
-<div class="header">
+<div class="nav-header">
 <p>
  Up : <a href="#chap" accesskey="u" rel="up">chap</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <h3 class="section">1.1 sec</h3>
 
 <a class="index-entry-anchor" id="index-entry"></a>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#sec_cp_letter-E"><b>E</b></a>
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#sec_cp_letter-E"><b>E</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-cp" border="0">
+<table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="sec_cp_letter-E">E</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-entry">entry</a>:</td><td>&nbsp;</td><td valign="top"><a href="#sec">1.1 sec</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#sec_cp_letter-E"><b>E</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#sec_cp_letter-E"><b>E</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 </div>
 </div>
 </div>

@@ -348,7 +348,7 @@ $result_converted{'html'}->{'appendix_translated'} = '<!DOCTYPE html>
 <link href="#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
 <style type="text/css">
 <!--
-ul.no-bullet {list-style: none}
+ul.toc-numbered-mark {list-style: none}
 -->
 </style>
 
@@ -360,12 +360,12 @@ ul.no-bullet {list-style: none}
 <div class="top" id="Top">
 <h1 class="top" id="top">top</h1>
 
-<div class="contents-element" id="SEC_Contents">
+<div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table des mati&egrave;res</h2>
 
 <div class="contents">
 
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
   <li><a id="toc-dernier" href="#dernier">Annexe A dernier</a></li>
 </ul>
 </div>

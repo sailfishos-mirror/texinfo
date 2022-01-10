@@ -5894,7 +5894,7 @@ $result_converted{'html'}->{'all_commands_printindex'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
+a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-anchor {visibility: visible}
 -->
 </style>
@@ -5905,27 +5905,27 @@ span:hover a.copiable-anchor {visibility: visible}
 <body lang="en">
 <h1 class="node-heading" id="Top">Top</h1>
 <dl class="first-defvr">
-<dt class="defvr" id="index-d_002d_002defvr_005fname"><span class="category">c--ategory: </span><span><strong class="strong">d--efvr_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defvr_005fname\'> &para;</a></span></dt>
+<dt class="defvr" id="index-d_002d_002defvr_005fname"><span class="category-def">c--ategory: </span><span><strong class="strong">d--efvr_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defvr_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efvr
 </p></dd></dl>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-n_002d_002dame"><span class="category">c--ategory: </span><span><strong class="strong">n--ame</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-n_002d_002dame\'> &para;</a></span></dt>
+<dt class="deffn" id="index-n_002d_002dame"><span class="category-def">c--ategory: </span><span><strong class="strong">n--ame</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-n_002d_002dame\'> &para;</a></span></dt>
 <dd><p>d&ndash;effn
 </p></dd></dl>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-n_002d_002dame-1"><span class="category">c--ategory: </span><span><strong class="strong">n--ame</strong><a class="copiable-anchor" href=\'#index-n_002d_002dame-1\'> &para;</a></span></dt>
+<dt class="deffn" id="index-n_002d_002dame-1"><span class="category-def">c--ategory: </span><span><strong class="strong">n--ame</strong><a class="copiable-anchor" href=\'#index-n_002d_002dame-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;effn no arg
 </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-d_002d_002deftypefn_005fname"><span class="category">c--ategory: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypefn_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftypefn_005fname\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-d_002d_002deftypefn_005fname"><span class="category-def">c--ategory: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypefn_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftypefn_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypefn
 </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-d_002d_002deftypefn_005fname-1"><span class="category">c--ategory: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypefn_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypefn_005fname-1\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-d_002d_002deftypefn_005fname-1"><span class="category-def">c--ategory: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypefn_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypefn_005fname-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypefn no arg
 </p></dd></dl>
 
@@ -5940,7 +5940,7 @@ span:hover a.copiable-anchor {visibility: visible}
 </p></dd></dl>
 
 <dl class="first-deftypevr">
-<dt class="deftypevr" id="index-d_002d_002deftypevr_005fname"><span class="category">c--ategory: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypevr_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypevr_005fname\'> &para;</a></span></dt>
+<dt class="deftypevr" id="index-d_002d_002deftypevr_005fname"><span class="category-def">c--ategory: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypevr_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypevr_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypevr
 </p></dd></dl>
 
@@ -5975,47 +5975,47 @@ span:hover a.copiable-anchor {visibility: visible}
 </p></dd></dl>
 
 <dl class="first-deftp">
-<dt class="deftp" id="index-d_002d_002deftp_005fname"><span class="category">c--ategory: </span><span><strong class="strong">d--eftp_name</strong> <em class="emph">a--ttributes...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftp_005fname\'> &para;</a></span></dt>
+<dt class="deftp" id="index-d_002d_002deftp_005fname"><span class="category-def">c--ategory: </span><span><strong class="strong">d--eftp_name</strong> <em class="emph">a--ttributes...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftp_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftp
 </p></dd></dl>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-d_002d_002defun_005fname"><span class="category">Function: </span><span><strong class="strong">d--efun_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defun_005fname\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-d_002d_002defun_005fname"><span class="category-def">Function: </span><span><strong class="strong">d--efun_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defun_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efun
 </p></dd></dl>
 
 <dl class="first-deffn first-defmac-alias-first-deffn">
-<dt class="deffn defmac-alias-deffn" id="index-d_002d_002defmac_005fname"><span class="category">Macro: </span><span><strong class="strong">d--efmac_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defmac_005fname\'> &para;</a></span></dt>
+<dt class="deffn defmac-alias-deffn" id="index-d_002d_002defmac_005fname"><span class="category-def">Macro: </span><span><strong class="strong">d--efmac_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defmac_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efmac
 </p></dd></dl>
 
 <dl class="first-deffn first-defspec-alias-first-deffn">
-<dt class="deffn defspec-alias-deffn" id="index-d_002d_002defspec_005fname"><span class="category">Special Form: </span><span><strong class="strong">d--efspec_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defspec_005fname\'> &para;</a></span></dt>
+<dt class="deffn defspec-alias-deffn" id="index-d_002d_002defspec_005fname"><span class="category-def">Special Form: </span><span><strong class="strong">d--efspec_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defspec_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efspec
 </p></dd></dl>
 
 <dl class="first-defvr first-defvar-alias-first-defvr">
-<dt class="defvr defvar-alias-defvr" id="index-d_002d_002defvar_005fname"><span class="category">Variable: </span><span><strong class="strong">d--efvar_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defvar_005fname\'> &para;</a></span></dt>
+<dt class="defvr defvar-alias-defvr" id="index-d_002d_002defvar_005fname"><span class="category-def">Variable: </span><span><strong class="strong">d--efvar_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defvar_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efvar
 </p></dd></dl>
 
 <dl class="first-defvr first-defvar-alias-first-defvr">
-<dt class="defvr defvar-alias-defvr" id="index-d_002d_002defvar_005fname-1"><span class="category">Variable: </span><span><strong class="strong">d--efvar_name</strong> <em class="emph">arg--var arg--var1</em><a class="copiable-anchor" href=\'#index-d_002d_002defvar_005fname-1\'> &para;</a></span></dt>
+<dt class="defvr defvar-alias-defvr" id="index-d_002d_002defvar_005fname-1"><span class="category-def">Variable: </span><span><strong class="strong">d--efvar_name</strong> <em class="emph">arg--var arg--var1</em><a class="copiable-anchor" href=\'#index-d_002d_002defvar_005fname-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;efvar with args
 </p></dd></dl>
 
 <dl class="first-defvr first-defopt-alias-first-defvr">
-<dt class="defvr defopt-alias-defvr" id="index-d_002d_002defopt_005fname"><span class="category">User Option: </span><span><strong class="strong">d--efopt_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defopt_005fname\'> &para;</a></span></dt>
+<dt class="defvr defopt-alias-defvr" id="index-d_002d_002defopt_005fname"><span class="category-def">User Option: </span><span><strong class="strong">d--efopt_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defopt_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efopt
 </p></dd></dl>
 
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-d_002d_002deftypefun_005fname"><span class="category">Function: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypefun_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftypefun_005fname\'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-d_002d_002deftypefun_005fname"><span class="category-def">Function: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypefun_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftypefun_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypefun
 </p></dd></dl>
 
 <dl class="first-deftypevr first-deftypevar-alias-first-deftypevr">
-<dt class="deftypevr deftypevar-alias-deftypevr" id="index-d_002d_002deftypevar_005fname"><span class="category">Variable: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypevar_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypevar_005fname\'> &para;</a></span></dt>
+<dt class="deftypevr deftypevar-alias-deftypevr" id="index-d_002d_002deftypevar_005fname"><span class="category-def">Variable: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypevar_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypevar_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypevar
 </p></dd></dl>
 
@@ -6040,12 +6040,13 @@ span:hover a.copiable-anchor {visibility: visible}
 </p></dd></dl>
 
 <h3 class="heading" id="Functions">Functions</h3>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_letter-D"><b>D</b></a>
+<div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_letter-D"><b>D</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_letter-N"><b>N</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-N"><b>N</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_fn_letter-D">D</th><td></td><td></td></tr>
@@ -6067,32 +6068,36 @@ span:hover a.copiable-anchor {visibility: visible}
 <tr><td></td><td valign="top"><a href="#index-n_002d_002dame-1"><code>n--ame</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_letter-D"><b>D</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_letter-D"><b>D</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_letter-N"><b>N</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-N"><b>N</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 <h3 class="heading" id="Types">Types</h3>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_tp_letter-D"><b>D</b></a>
+<div class="printindex tp-printindex">
+<table class="tp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_tp_letter-D"><b>D</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-tp" border="0">
+<table class="tp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_tp_letter-D">D</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftp_005fname"><code>d--eftp_name</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_tp_letter-D"><b>D</b></a>
+<table class="tp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_tp_letter-D"><b>D</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 <h3 class="heading" id="Variables">Variables</h3>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-D"><b>D</b></a>
+<div class="printindex vr-printindex">
+<table class="vr-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_vr_letter-D"><b>D</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-vr" border="0">
+<table class="vr-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_vr_letter-D">D</th><td></td><td></td></tr>
@@ -6110,9 +6115,10 @@ span:hover a.copiable-anchor {visibility: visible}
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defvr_005fname"><code>d--efvr_name</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-D"><b>D</b></a>
+<table class="vr-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_vr_letter-D"><b>D</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 
 

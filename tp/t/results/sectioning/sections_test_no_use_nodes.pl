@@ -741,51 +741,51 @@ $result_converted{'html'}->{'sections_test_no_use_nodes'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top" id="top">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#chapter-in-part" accesskey="n" rel="next">chapter in part</a> &nbsp; </p>
 </div>
 <h1 class="top">top</h1>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
 <hr>
 <div class="chapter" id="chapter">
-<div class="header">
+<div class="nav-header">
 <p>
  Up : <a href="#top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h2 class="chapter">1 chapter</h2>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#section" accesskey="1">section</a></li>
 </ul>
 <hr>
 <div class="section" id="section">
-<div class="header">
+<div class="nav-header">
 <p>
  Up : <a href="#chapter" accesskey="u" rel="up">chapter</a> &nbsp; </p>
 </div>
 <h3 class="section">1.1 section</h3>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#subsection" accesskey="1">subsection</a></li>
 </ul>
 <hr>
 <div class="subsection" id="subsection">
-<div class="header">
+<div class="nav-header">
 <p>
  Up : <a href="#section" accesskey="u" rel="up">section</a> &nbsp; </p>
 </div>
 <h4 class="subsection">1.1.1 subsection</h4>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#subsubsection" accesskey="1">subsubsection</a></li>
 </ul>
 <hr>
 <div class="subsubsection" id="subsubsection">
-<div class="header">
+<div class="nav-header">
 <p>
  Up : <a href="#subsection" accesskey="u" rel="up">subsection</a> &nbsp; </p>
 </div>
@@ -798,14 +798,14 @@ Next: <a href="#chapter-in-part" accesskey="n" rel="next">chapter in part</a> &n
 </div>
 </div>
 <div class="part" id="part">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#second-chapter-in-part" accesskey="n" rel="next">second chapter in part</a> &nbsp; </p>
 </div>
 <h1 class="part">part</h1>
 <hr>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter-in-part" accesskey="1">chapter in part</a></li>
 <li><a href="#second-chapter-in-part" accesskey="2">second chapter in part</a></li>
 <li><a href="#unnumbered" accesskey="3">unnumbered</a></li>
@@ -816,7 +816,7 @@ Next: <a href="#second-chapter-in-part" accesskey="n" rel="next">second chapter 
 <hr>
 </div>
 <div class="chapter" id="second-chapter-in-part">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#unnumbered" accesskey="n" rel="next">unnumbered</a>, Prev: <a href="#chapter-in-part" accesskey="p" rel="prev">chapter in part</a>,  Up : <a href="#chapter-in-part" accesskey="u" rel="up">chapter in part</a> &nbsp; </p>
 </div>
@@ -825,7 +825,7 @@ Next: <a href="#unnumbered" accesskey="n" rel="next">unnumbered</a>, Prev: <a hr
 <hr>
 </div>
 <div class="unnumbered" id="unnumbered">
-<div class="header">
+<div class="nav-header">
 <p>
 Prev: <a href="#second-chapter-in-part" accesskey="p" rel="prev">second chapter in part</a>,  Up : <a href="#chapter-in-part" accesskey="u" rel="up">chapter in part</a> &nbsp; </p>
 </div>
@@ -834,18 +834,18 @@ Prev: <a href="#second-chapter-in-part" accesskey="p" rel="prev">second chapter 
 <hr>
 </div>
 <div class="appendix" id="appendix">
-<div class="header">
+<div class="nav-header">
 <p>
 Prev: <a href="#chapter-in-part" accesskey="p" rel="prev">chapter in part</a> &nbsp; </p>
 </div>
 <h2 class="appendix">Appendix A appendix</h2>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#appendixsec" accesskey="1">appendixsec</a></li>
 </ul>
 <hr>
 <div class="appendixsec" id="appendixsec">
-<div class="header">
+<div class="nav-header">
 <p>
  Up : <a href="#appendix" accesskey="u" rel="up">appendix</a> &nbsp; </p>
 </div>

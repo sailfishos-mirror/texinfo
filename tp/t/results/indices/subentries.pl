@@ -1343,17 +1343,17 @@ $result_converted{'plaintext'}->{'subentries'} = '1 Index
 
 $result_converted{'html_text'}->{'subentries'} = '
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a class="top-anchor" id="SEC_Top"></a>
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter-index" accesskey="1">Index</a></li>
 </ul>
 <hr>
 <div class="chapter" id="chapter-index">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1369,16 +1369,17 @@ $result_converted{'html_text'}->{'subentries'} = '
 <a class="index-entry-anchor" id="index-f_002d_002d_002dddd"></a>
 <a class="index-entry-anchor" id="index-f_002d_002d_002dggg"></a>
 
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-B"><b>B</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-B"><b>B</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-D"><b>D</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-D"><b>D</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-G"><b>G</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-G"><b>G</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-cp" border="0">
+<table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_cp_letter-A">A</th><td></td><td></td></tr>
@@ -1394,19 +1395,21 @@ $result_converted{'html_text'}->{'subentries'} = '
 <tr><td></td><td valign="top"><a href="#index-g_002d_002d_002dgg">g&mdash;gg, h&mdash;hh jjj, k&mdash;kk, l&mdash;ll</a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-B"><b>B</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-B"><b>B</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-D"><b>D</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-D"><b>D</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-G"><b>G</b></a>
- &nbsp; 
-</td></tr></table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-G"><b>G</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+</div>
+<div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-F"><b>F</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_fn_letter-F">F</th><td></td><td></td></tr>
@@ -1416,9 +1419,10 @@ $result_converted{'html_text'}->{'subentries'} = '
 <tr><td></td><td valign="top"><a href="#index-f_002d_002d_002dggg"><code>f---ggg, f---hhh fjjj, f---kkk, f---lll</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-F"><b>F</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-F"><b>F</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 </div>
 </div>
 ';

@@ -312,7 +312,7 @@ $result_converted{'html'}->{'character_number_leading_toc_stoc'} = '<!DOCTYPE ht
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
-ul.no-bullet {list-style: none}
+ul.toc-numbered-mark {list-style: none}
 -->
 </style>
 
@@ -322,25 +322,25 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 <div class="top" id="top">
 <h1 class="top">top</h1>
-<div class="contents-element" id="SEC_Contents">
+<div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
 
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
   <li><a id="toc-0" href="#g_t0">1 0</a></li>
   <li><a id="toc-_005f" href="#g_t_005f">_</a>
-  <ul class="no-bullet">
+  <ul class="toc-numbered-mark">
     <li><a id="toc-_003f" href="#g_t_003f">?</a></li>
   </ul></li>
 </ul>
 </div>
 </div>
-<div class="shortcontents-element" id="SEC_Shortcontents">
+<div class="element-shortcontents" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
 <li><a id="stoc-0" href="#toc-0">1 0</a></li>
 <li><a id="stoc-_005f" href="#toc-_005f">_</a></li>
 </ul>
@@ -351,7 +351,7 @@ ul.no-bullet {list-style: none}
 </div>
 <div class="unnumbered" id="g_t_005f">
 <h2 class="unnumbered">_</h2>
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#g_t_003f" accesskey="1">?</a></li>
 </ul>
 <div class="section" id="g_t_003f">

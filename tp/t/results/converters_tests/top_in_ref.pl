@@ -4458,14 +4458,14 @@ name)Top::
 ';
 
 
-$result_converted{'html_text'}->{'top_in_ref'} = '<a class="node-anchor" id="Top"></a><div class="header">
+$result_converted{'html_text'}->{'top_in_ref'} = '<a class="node-anchor" id="Top"></a><div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
 <h1 class="node-heading">Top</h1>
 
 <hr>
-<a class="node-anchor" id="refs-node"></a><div class="header">
+<a class="node-anchor" id="refs-node"></a><div class="nav-header">
 <p>
  &nbsp; </p>
 </div>

@@ -301,7 +301,7 @@ $result_converted{'html'}->{'node_sectop_before_chapter_no_node'} = '<!DOCTYPE h
 <div class="top" id="Top">
 <h1 class="top" id="top-section">top section</h1>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chap" accesskey="1">chap</a></li>
 </ul>
 <div class="chapter" id="chap">

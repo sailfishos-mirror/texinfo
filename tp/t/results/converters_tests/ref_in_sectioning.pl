@@ -2511,22 +2511,22 @@ for example *note node:: (*note node::) (*note (file)Top::)
 
 $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
 <h1 class="top" id="for-example-node-_0028node_0029-_0028Top_0029">for example <a class="ref" href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)</h1>
 
 
-<div class="contents-element">
+<div class="element-contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
 
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
   <li><a id="toc-node_002e" href="#node">1 See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a></li>
   <li><a id="toc-node-just-node" href="#chap">2 <a class="ref" href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> just node</a>
-  <ul class="no-bullet">
+  <ul class="toc-numbered-mark">
     <li><a id="toc-node-node_002c-crossref-arg2" href="#node-node_002c-crossref-arg2">2.1 <a class="ref" href="#node">cross ref name</a>  node, crossref arg2</a></li>
     <li><a id="toc-node-code-node_002c-samptitle-arg3" href="#node-code-node_002c-samptitle-arg3">2.2 <a class="ref" href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
     <li><a id="toc-node-code-node_002c-file-name" href="#node-code-node_002c-file-name">2.3 <a data-manual="file name" href="file name.html#node">(file name)<code class="code">node</code></a> code node, file name</a></li>
@@ -2545,7 +2545,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 </div>
 <hr>
 <div class="chapter" id="node">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
@@ -2554,13 +2554,13 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <hr>
 </div>
 <div class="chapter" id="chap">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
 <h2 class="chapter" id="node-just-node">2 <a class="ref" href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> just node</h2>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#node-node_002c-crossref-arg2" accesskey="1"><a class="ref" href="#node">cross ref name</a>  node, crossref arg2</a></li>
 <li><a href="#node-code-node_002c-samptitle-arg3" accesskey="2"><a class="ref" href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
 <li><a href="#node-code-node_002c-file-name" accesskey="3"><a data-manual="file name" href="file name.html#node">(file name)<code class="code">node</code></a> code node, file name</a></li>

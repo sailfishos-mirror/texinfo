@@ -757,7 +757,7 @@ $result_converted{'html'}->{'node_up_external_node'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<a class="node-anchor" id="Top"></a><div class="header">
+<a class="node-anchor" id="Top"></a><div class="nav-header">
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </div>
@@ -765,7 +765,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 
 
 <hr>
-<a class="node-anchor" id="first"></a><div class="header">
+<a class="node-anchor" id="first"></a><div class="nav-header">
 <p>
 Next: <a href="manual1.html#Top" accesskey="n" rel="next">(manual1)</a>, Previous: <a href="manual2.html#Top" accesskey="p" rel="prev">(manual2)</a>, Up: <a href="manual3.html#Top" accesskey="u" rel="up">(manual3)</a> &nbsp; </p>
 </div>

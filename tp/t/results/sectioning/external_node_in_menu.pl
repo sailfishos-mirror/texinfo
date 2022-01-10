@@ -823,20 +823,20 @@ $result_converted{'html'}->{'external_node_in_menu'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#nchapter1" accesskey="n" rel="next">chap1</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top">top</h1>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#nchapter1" accesskey="1">chap1</a></li>
 <li><a href="#nchapter2" accesskey="2">chap2</a></li>
 </ul>
 <hr>
 <div class="chapter" id="nchapter1">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#nchapter2" accesskey="n" rel="next">chap2</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
@@ -845,7 +845,7 @@ Next: <a href="#nchapter2" accesskey="n" rel="next">chap2</a>, Previous: <a href
 <hr>
 </div>
 <div class="chapter" id="nchapter2">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#nchapter1" accesskey="p" rel="prev">chap1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>

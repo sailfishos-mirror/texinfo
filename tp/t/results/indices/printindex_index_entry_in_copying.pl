@@ -1419,7 +1419,7 @@ xftable xitem
 
 $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1430,8 +1430,8 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <a class="index-entry-anchor" id="index-copying-Copying-this-document"></a>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category">Function: </span><span><strong class="strong">fun</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-fun\'> &para;</a></span></dt>
-<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category">Function: </span><span><strong class="strong">xf</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-xf\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category-def">Function: </span><span><strong class="strong">fun</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-fun\'> &para;</a></span></dt>
+<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category-def">Function: </span><span><strong class="strong">xf</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-xf\'> &para;</a></span></dt>
 <dd><p>Defun
 </p></dd></dl>
 
@@ -1440,14 +1440,15 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <dt id=\'index-copying-xftable-xitem\'><span>xftable xitem<a class="copiable-anchor" href=\'#index-copying-xftable-xitem\'> &para;</a></span></dt>
 </dl>
 
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>
+<div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-F"><b>F</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-X"><b>X</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-X"><b>X</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_fn_letter-C">C</th><td></td><td></td></tr>
@@ -1462,22 +1463,23 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <tr><td></td><td valign="top"><a href="#index-copying-xftable-xitem"><code>xftable xitem</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-F"><b>F</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-X"><b>X</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-X"><b>X</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">Chapter</a></li>
 </ul>
 <hr>
 <div class="chapter" id="chapter">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1487,8 +1489,8 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <a class="index-entry-anchor" id="index-copying-Copying-this-document"></a>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category">Function: </span><span><strong class="strong">fun</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-fun\'> &para;</a></span></dt>
-<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category">Function: </span><span><strong class="strong">xf</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-xf\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category-def">Function: </span><span><strong class="strong">fun</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-fun\'> &para;</a></span></dt>
+<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category-def">Function: </span><span><strong class="strong">xf</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-xf\'> &para;</a></span></dt>
 <dd><p>Defun
 </p></dd></dl>
 
@@ -1497,14 +1499,15 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <dt id=\'index-copying-xftable-xitem\'><span>xftable xitem<a class="copiable-anchor" href=\'#index-copying-xftable-xitem\'> &para;</a></span></dt>
 </dl>
 
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>
+<div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-F"><b>F</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-X"><b>X</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-X"><b>X</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_fn_letter-C">C</th><td></td><td></td></tr>
@@ -1519,23 +1522,25 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <tr><td></td><td valign="top"><a href="#index-copying-xftable-xitem"><code>xftable xitem</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-F"><b>F</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-X"><b>X</b></a>
- &nbsp; 
-</td></tr></table>
-
-
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>
- &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-F"><b>F</b></a>
- &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-X"><b>X</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-X"><b>X</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+</div>
+
+
+<div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#t_h_fn_letter-F"><b>F</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#t_h_fn_letter-X"><b>X</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_fn_letter-C">C</th><td></td><td></td></tr>
@@ -1550,13 +1555,14 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <tr><td></td><td valign="top"><a href="#index-copying-xftable-xitem"><code>xftable xitem</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-F"><b>F</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-X"><b>X</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-X"><b>X</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 </div>
 </div>

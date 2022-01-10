@@ -1204,7 +1204,7 @@ erreur-> -->
 <style type="text/css">
 <!--
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
+a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-anchor {visibility: visible}
 -->
 </style>
@@ -1239,12 +1239,13 @@ span:hover a.copiable-anchor {visibility: visible}
 <dd><p>greška&rarr;
 </p></dd></dl>
 
-<table><tr><th valign="top">Preskoči na: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-A"><b>A</b></a>
+<div class="printindex vr-printindex">
+<table class="vr-letters-header-printindex"><tr><th valign="top">Preskoči na: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_vr_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_vr_letter-B"><b>B</b></a>
+<a class="summary-letter-printindex" href="#Top_vr_letter-B"><b>B</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-vr" border="0">
+<table class="vr-entries-printindex" border="0">
 <tr><td></td><th align="left">Stavka indeksa</th><td>&nbsp;</td><th align="left"> Odlomak</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_vr_letter-A">A</th><td></td><td></td></tr>
@@ -1255,11 +1256,12 @@ span:hover a.copiable-anchor {visibility: visible}
 <tr><td></td><td valign="top"><a href="#index-BBB-of-hr"><code>BBB od hr</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Preskoči na: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-A"><b>A</b></a>
+<table class="vr-letters-footer-printindex"><tr><th valign="top">Preskoči na: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_vr_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_vr_letter-B"><b>B</b></a>
+<a class="summary-letter-printindex" href="#Top_vr_letter-B"><b>B</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 
 

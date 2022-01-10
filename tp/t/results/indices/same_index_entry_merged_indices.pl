@@ -760,19 +760,20 @@ $result_converted{'html_text'}->{'same_index_entry_merged_indices'} = '
 <p>Text.
 </p>
 <dl class="first-deffn">
-<dt class="deffn" id="index-mmm_002dmode"><span class="category">Command: </span><span><strong class="strong">mmm-mode</strong> <em class="emph"><var class="var">arg</var></em><a class="copiable-anchor" href=\'#index-mmm_002dmode\'> &para;</a></span></dt>
+<dt class="deffn" id="index-mmm_002dmode"><span class="category-def">Command: </span><span><strong class="strong">mmm-mode</strong> <em class="emph"><var class="var">arg</var></em><a class="copiable-anchor" href=\'#index-mmm_002dmode\'> &para;</a></span></dt>
 <dd><p>Toggle the state of MMM Mode.
 </p></dd></dl>
 
 <dl class="first-defvr first-defvar-alias-first-defvr">
-<dt class="defvr defvar-alias-defvr" id="index-mmm_002dmode-1"><span class="category">Variable: </span><span><strong class="strong">mmm-mode</strong><a class="copiable-anchor" href=\'#index-mmm_002dmode-1\'> &para;</a></span></dt>
+<dt class="defvr defvar-alias-defvr" id="index-mmm_002dmode-1"><span class="category-def">Variable: </span><span><strong class="strong">mmm-mode</strong><a class="copiable-anchor" href=\'#index-mmm_002dmode-1\'> &para;</a></span></dt>
 <dd><p>This variable represents MMM Mode.
 </p></dd></dl>
 
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-M"><b>M</b></a>
+<div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-M"><b>M</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_fn_letter-M">M</th><td></td><td></td></tr>
@@ -780,9 +781,10 @@ $result_converted{'html_text'}->{'same_index_entry_merged_indices'} = '
 <tr><td></td><td valign="top"><a href="#index-mmm_002dmode-1"><code>mmm-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-M"><b>M</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-M"><b>M</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 </div>
 ';
 

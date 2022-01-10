@@ -1362,7 +1362,7 @@ $result_converted{'html'}->{'node_part_chapter_after_chapter'} = '<!DOCTYPE html
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
-ul.no-bullet {list-style: none}
+ul.toc-numbered-mark {list-style: none}
 -->
 </style>
 
@@ -1371,24 +1371,24 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter node</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <h1 class="top" id="top">top</h1>
 
 
-<div class="contents-element" id="SEC_Contents">
+<div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
 <li>
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
   <li><a id="toc-chapter-node-1" href="#chapter-node">1 chapter node</a></li>
 </ul></li>
 <li><a id="toc-part" href="#part">part</a>
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
   <li><a id="toc-chapter-with-part-node" href="#part-chapter-node">2 chapter with part node</a></li>
 </ul></li>
 
@@ -1397,7 +1397,7 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter node</a> &nbsp; [
 </div>
 <hr>
 <div class="chapter" id="chapter-node">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#part-chapter-node" accesskey="n" rel="next">chapter with part node</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -1407,7 +1407,7 @@ Next: <a href="#part-chapter-node" accesskey="n" rel="next">chapter with part no
 <hr>
 </div>
 <div class="chapter" id="part-chapter-node">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter node</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -1417,7 +1417,7 @@ Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter node</a>, Up:
 <h1 class="part">part</h1>
 <hr>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#part-chapter-node" accesskey="1">chapter with part node</a></li>
 </ul>
 <h2 class="chapter" id="chapter-with-part-node">2 chapter with part node</h2>

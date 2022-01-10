@@ -313,14 +313,14 @@ $result_floats{'contents_in_html_text'} = {};
 $result_converted{'html_text'}->{'contents_in_html_text'} = '<div class="top" id="top">
 <h1 class="top">top</h1>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Chap1" accesskey="1">Chap1</a></li>
 <li><a href="#Chap2" accesskey="2">Chap2</a></li>
 </ul>
 <div class="chapter" id="Chap1">
 <h2 class="chapter">1 Chap1</h2>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Sec-1" accesskey="1">Sec 1</a></li>
 </ul>
 <div class="section" id="Sec-1">
@@ -331,24 +331,24 @@ $result_converted{'html_text'}->{'contents_in_html_text'} = '<div class="top" id
 <div class="chapter" id="Chap2">
 <h2 class="chapter">2 Chap2</h2>
 
-<div class="shortcontents-element">
+<div class="element-shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
 <li><a id="stoc-Chap1" href="#toc-Chap1">1 Chap1</a></li>
 <li><a id="stoc-Chap2" href="#toc-Chap2">2 Chap2</a></li>
 </ul>
 </div>
 </div>
-<div class="contents-element">
+<div class="element-contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
 
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
   <li><a id="toc-Chap1" href="#Chap1">1 Chap1</a>
-  <ul class="no-bullet">
+  <ul class="toc-numbered-mark">
     <li><a id="toc-Sec-1" href="#Sec-1">1.1 Sec 1</a></li>
   </ul></li>
   <li><a id="toc-Chap2" href="#Chap2">2 Chap2</a></li>

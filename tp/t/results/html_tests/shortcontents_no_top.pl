@@ -243,7 +243,7 @@ $result_converted{'html'}->{'shortcontents_no_top'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-ul.no-bullet {list-style: none}
+ul.toc-numbered-mark {list-style: none}
 -->
 </style>
 
@@ -258,17 +258,17 @@ ul.no-bullet {list-style: none}
 <div class="chapter" id="chap2">
 <h2 class="chapter">2 chap2</h2>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#sec" accesskey="1">sec</a></li>
 </ul>
 <div class="section" id="sec">
 <h3 class="section">2.1 sec</h3>
 
-<div class="shortcontents-element" id="SEC_Shortcontents">
+<div class="element-shortcontents" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
 <li><a id="stoc-chap" href="#chap">1 chap</a></li>
 <li><a id="stoc-chap2" href="#chap2">2 chap2</a></li>
 

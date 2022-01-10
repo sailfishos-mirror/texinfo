@@ -913,7 +913,7 @@ $result_converted{'html'}->{'section_chapter_before_top_nodes'} = '<!DOCTYPE htm
 <body lang="en">
 
 <div class="section" id="section-node">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a>, Up: <a href="#chapter-node" accesskey="u" rel="up">chapter</a> &nbsp; </p>
 </div>
@@ -922,7 +922,7 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a>, Up: <a href=
 <hr>
 </div>
 <div class="chapter" id="chapter-node">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#section-node" accesskey="p" rel="prev">section</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
@@ -932,7 +932,7 @@ Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#secti
 <hr>
 </div>
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>

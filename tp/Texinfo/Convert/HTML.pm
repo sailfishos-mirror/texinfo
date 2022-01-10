@@ -1732,20 +1732,15 @@ sub converter_defaults($$)
   return %defaults;
 }
 
-my $NO_BULLET_LIST_STYLE = 'list-style: none';
-my $NO_BULLET_LIST_CLASS = 'no-bullet';
-
-my $MENU_PRE_STYLE = 'font-family: serif';
-
 my %css_map = (
      %css_rules_not_collected,
 
-     "ul.$NO_BULLET_LIST_CLASS" => "$NO_BULLET_LIST_STYLE",
-     'pre.menu-comment'       => "$MENU_PRE_STYLE",
-     'pre.menu-preformatted'  => "$MENU_PRE_STYLE",
-     'a.summary-letter'       => 'text-decoration: none',
+     'ul.toc-numbered-mark'   => 'list-style: none',
+     'pre.menu-comment'       => 'font-family: serif',
+     'pre.menu-preformatted'  => 'font-family: serif',
+     'a.summary-letter-printindex'  => 'text-decoration: none',
      'pre.display'            => 'font-family: inherit',
-     'span.smaller'           => 'font-size: smaller', # used with PROGRAM_NAME_IN_FOOTER
+     'span.program-in-footer' => 'font-size: smaller', # used with PROGRAM_NAME_IN_FOOTER
      'span.sansserif'     => 'font-family: sans-serif; font-weight: normal',
      'span.r'             => 'font-family: initial; font-weight: normal',
      'span.nolinebreak'   => 'white-space: nowrap',
@@ -3092,11 +3087,11 @@ sub _default_format_navigation_header_panel($$$$;$)
   my $first_button = 1;
   my $result = '';
   if ($self->get_conf('HEADER_IN_TABLE')) {
-    $result .= $self->html_attribute_class('table', 'header')
+    $result .= $self->html_attribute_class('table', 'nav-header')
         .' cellpadding="1" cellspacing="1" border="0">'."\n";
     $result .= "<tr>" unless $vertical;
   } else {
-    $result .= $self->html_attribute_class('div', 'header').">\n<p>\n";
+    $result .= $self->html_attribute_class('div', 'nav-header').">\n<p>\n";
   }
   foreach my $button (@$buttons) {
     if ($self->get_conf('HEADER_IN_TABLE')) {
@@ -3534,7 +3529,8 @@ sub _convert_preformatted_command($$$$)
         return $content."\n";
       }
     } else {
-      return $self->html_attribute_class('div', $main_cmdname, $extra_classes).">\n".$content.'</div>'."\n";
+      return $self->html_attribute_class('div', $main_cmdname, $extra_classes)
+                                                 .">\n".$content.'</div>'."\n";
     }
   } else {
     return $content;
@@ -4530,8 +4526,6 @@ sub _convert_printindex_command($$$$)
 
   $self->_new_document_context($cmdname);
 
-  my $result = '';
-
   # First do the summary letters linking to the letters done below
   my %letter_id;
   my @non_alpha = ();
@@ -4555,7 +4549,7 @@ sub _convert_printindex_command($$$$)
     }
     $letter_id{$letter} = $identifier;
     
-    my $summary_letter_link = $self->html_attribute_class('a', 'summary-letter')
+    my $summary_letter_link = $self->html_attribute_class('a', "summary-letter-$cmdname")
        ." href=\"#$identifier\"><b>".$self->protect_text($letter).'</b></a>';
     if ($is_symbol) {
       push @non_alpha, $summary_letter_link;
@@ -4577,15 +4571,19 @@ sub _convert_printindex_command($$$$)
     $alpha_text = join("\n $non_breaking_space \n", @alpha)
                     . "\n $non_breaking_space \n";
   }
+  my $result = $self->html_attribute_class('div', $cmdname,
+                                           ["$index_name-$cmdname"]).">\n";
   # format the summary
-  my $summary = "<table><tr><th valign=\"top\">" 
+  my $summary_header = $self->html_attribute_class('table',
+                 "$index_name-letters-header-$cmdname")."><tr><th valign=\"top\">"
     . $self->convert_tree($self->gdt('Jump to')) .": $non_breaking_space </th><td>" .
     $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
 
-  $result .= $summary;
+
+  $result .= $summary_header;
 
   # now format the index entries
-  $result .= $self->html_attribute_class('table', "index-$index_name")
+  $result .= $self->html_attribute_class('table', "$index_name-entries-$cmdname")
     ." border=\"0\">\n" . "<tr><td></td><th align=\"left\">"
     . $self->convert_tree($self->gdt('Index Entry'))
     . "</th><td>$non_breaking_space</td><th align=\"left\"> "
@@ -4637,16 +4635,16 @@ sub _convert_printindex_command($$$$)
       if ($self->get_conf('NODE_NAME_IN_INDEX')) {
         $associated_command = $index_entry_ref->{'node'};
         if (!defined($associated_command)) {
-          $associated_command 
+          $associated_command
             = $self->command_node($index_entry_ref->{'command'});
         }
       }
       if (!$associated_command) {
-        $associated_command 
+        $associated_command
           = $self->command_root_element_command($index_entry_ref->{'command'});
         if (!$associated_command) {
           # Use Top if not associated command found
-          $associated_command 
+          $associated_command
             = $self->element_command($self->global_element('Top'));
         }
       }
@@ -4656,26 +4654,30 @@ sub _convert_printindex_command($$$$)
         $associated_command_text = $self->command_text($associated_command);
       }
       
-      $entries_text .= '<tr><td></td><td valign="top">' 
-         . "<a href=\"$entry_href\">$entry</a>" . 
+      $entries_text .= '<tr><td></td><td valign="top">'
+         . "<a href=\"$entry_href\">$entry</a>" .
           $self->get_conf('INDEX_ENTRY_COLON') .
         '</td><td>'.$self->html_non_breaking_space().'</td><td valign="top">';
-      $entries_text .= "<a href=\"$associated_command_href\">$associated_command_text</a>" 
+      $entries_text .= "<a href=\"$associated_command_href\">$associated_command_text</a>"
          if ($associated_command_href);
        $entries_text .= "</td></tr>\n";
     }
     # a letter and associated indice entries
-    $result .= '<tr>' . 
-    "<th id=\"$letter_id{$letter}\">".$self->protect_text($letter)
-        .  "</th><td></td><td></td></tr>\n" . $entries_text .
-       "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')."</td></tr>\n";
+    $result .= '<tr>' .
+          "<th id=\"$letter_id{$letter}\">".$self->protect_text($letter)
+          .  "</th><td></td><td></td></tr>\n" . $entries_text .
+           "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')."</td></tr>\n";
 
   }
   $result .= "</table>\n";
   
   $self->_pop_document_context();
   
-  return $result .$summary;
+  my $summary_footer = $self->html_attribute_class('table',
+                 "$index_name-letters-footer-$cmdname")."><tr><th valign=\"top\">"
+    . $self->convert_tree($self->gdt('Jump to')) .": $non_breaking_space </th><td>" .
+    $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
+  return $result .$summary_footer . "</div>\n";
 }
 $default_commands_conversion{'printindex'} = \&_convert_printindex_command;
 
@@ -4694,8 +4696,8 @@ sub _contents_inline_element($$$)
     my $special_element
       = $self->special_element($special_element_direction);
     my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
-    # FIXME is -element the best suffix?
-    my $result = $self->html_attribute_class('div', "${class}-element");
+    # FIXME is element- the best prefix?
+    my $result = $self->html_attribute_class('div', "element-${class}");
     my $heading;
     if ($special_element) {
       my $id = $self->command_id($special_element);
@@ -4835,12 +4837,6 @@ foreach my $type ('empty_line_after_command', 'preamble_before_beginning',
   $default_types_conversion{$type} = undef;
 }
 
-my %paragraph_style = (
-      'center'     => 'center',
-      'flushleft'  => 'left',
-      'flushright' => 'right',
-      );
-
 sub _convert_paragraph_type($$$$)
 {
   my $self = shift;
@@ -4866,8 +4862,8 @@ sub _convert_paragraph_type($$$$)
   if ($content =~ /\S/) {
     my $align = $self->in_align();
     if ($align and $align_commands{$align}) {
-      return $self->html_attribute_class('p',
-                    $align.'-paragraph').">".$content."</p>";
+      return $self->html_attribute_class('p', $align.'-paragraph').">"
+                             .$content."</p>";
     } else {
       return "<p>".$content."</p>";
     }
@@ -5527,7 +5523,7 @@ sub _convert_def_line_type($$$$)
     }
 
     if ($category_result ne '') {
-      my $open = $self->html_attribute_class('span', 'category');
+      my $open = $self->html_attribute_class('span', 'category-def');
       if ($open ne '') {
         $category_result = $open.'>'.$category_result.'</span>';
       }
@@ -5752,7 +5748,7 @@ sub _convert_special_element_type($$$$)
   $result .= join('', $self->close_registered_sections_level(0));
   my $id = $self->command_id($element);
   my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
-  $result .= $self->html_attribute_class('div', "${class}-element");
+  $result .= $self->html_attribute_class('div', "element-${class}");
   if ($id ne '') {
     $result .= " id=\"$id\"";
   }
@@ -7540,7 +7536,7 @@ sub _mini_toc
 
   if ($command->{'structure'}->{'section_childs'}
       and @{$command->{'structure'}->{'section_childs'}}) {
-    $result .= $self->html_attribute_class('ul', 'section-toc').">\n";
+    $result .= $self->html_attribute_class('ul', 'mini-toc').">\n";
 
     foreach my $section (@{$command->{'structure'}->{'section_childs'}}) {
       my $tree = $self->command_text($section, 'tree_nonumber');
@@ -7599,7 +7595,7 @@ sub _default_format_contents($$;$$)
   $max_root_level = 1 if ($max_root_level < 1);
   #print STDERR "ROOT_LEVEL Max: $max_root_level, Min: $min_root_level\n";
   my $ul_class = '';
-  $ul_class = $NO_BULLET_LIST_CLASS if ($self->get_conf('NUMBER_SECTIONS'));
+  $ul_class = 'toc-numbered-mark' if ($self->get_conf('NUMBER_SECTIONS'));
 
   my $result = '';
   if ($contents and !defined($self->get_conf('BEFORE_TOC_LINES'))
@@ -7737,7 +7733,7 @@ sub _default_format_end_file($$)
   my $program_text = '';
   if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
     my $program_string = &{$self->{'format_program_string'}}($self);
-    my $open = $self->html_attribute_class('span', 'smaller');
+    my $open = $self->html_attribute_class('span', 'program-in-footer');
     if ($open ne '') {
       $program_string = $open.'>'.$program_string.'</span>';
     }

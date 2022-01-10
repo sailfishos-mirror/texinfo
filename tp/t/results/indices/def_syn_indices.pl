@@ -2049,18 +2049,18 @@ definedx truc after
 $result_converted{'html_text'}->{'def_syn_indices'} = '
 
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#Chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="top" id="top">top</h1>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Chapter-index" accesskey="1">Index</a></li>
 </ul>
 <hr>
 <div class="chapter" id="Chapter-index">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#Chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -2088,16 +2088,17 @@ after
 <a class="index-entry-anchor" id="index-abc-index-entry"></a>
 
 <p>pg
-</p><table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_pg_letter-A"><b>A</b></a>
+</p><div class="printindex pg-printindex">
+<table class="pg-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_pg_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_pg_letter-D"><b>D</b></a>
+<a class="summary-letter-printindex" href="#t_h_pg_letter-D"><b>D</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_pg_letter-P"><b>P</b></a>
+<a class="summary-letter-printindex" href="#t_h_pg_letter-P"><b>P</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_pg_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#t_h_pg_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-pg" border="0">
+<table class="pg-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_pg_letter-A">A</th><td></td><td></td></tr>
@@ -2113,15 +2114,16 @@ after
 <tr><td></td><td valign="top"><a href="#index-truc-kindex"><code>truc kindex</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Chapter-index">Chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_pg_letter-A"><b>A</b></a>
+<table class="pg-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_pg_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_pg_letter-D"><b>D</b></a>
+<a class="summary-letter-printindex" href="#t_h_pg_letter-D"><b>D</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_pg_letter-P"><b>P</b></a>
+<a class="summary-letter-printindex" href="#t_h_pg_letter-P"><b>P</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_pg_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#t_h_pg_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 <p>ky
 </p>
@@ -2138,12 +2140,13 @@ after
 <p>abc
 </p>
 <p>fn
-</p><table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>
+</p><div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-I"><b>I</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_fn_letter-C">C</th><td></td><td></td></tr>
@@ -2153,11 +2156,12 @@ after
 <tr><td></td><td valign="top"><a href="#index-index-truc">index truc</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Chapter-index">Chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-I"><b>I</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 </div>
 </div>
 ';

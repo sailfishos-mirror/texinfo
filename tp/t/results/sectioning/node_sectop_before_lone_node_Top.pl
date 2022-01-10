@@ -520,7 +520,7 @@ $result_converted{'html'}->{'node_sectop_before_lone_node_Top'} = '<!DOCTYPE htm
 <body lang="en">
 
 <div class="top" id="node-before">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#chap" accesskey="n" rel="next">chap</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
 </div>
@@ -528,11 +528,11 @@ Next: <a href="#chap" accesskey="n" rel="next">chap</a>, Previous: <a href="#Top
 
 <p>in node before
 </p>
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chap" accesskey="1">chap</a></li>
 </ul>
 <hr>
-<a class="node-anchor" id="Top"></a><div class="header">
+<a class="node-anchor" id="Top"></a><div class="nav-header">
 <p>
 Next: <a href="#node-before" accesskey="n" rel="next">top sectionning</a> &nbsp; </p>
 </div>
@@ -542,7 +542,7 @@ Next: <a href="#node-before" accesskey="n" rel="next">top sectionning</a> &nbsp;
 </p>
 <hr>
 <div class="chapter" id="chap">
-<div class="header">
+<div class="nav-header">
 <p>
 Up: <a href="#node-before" accesskey="u" rel="up">top sectionning</a> &nbsp; </p>
 </div>

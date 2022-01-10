@@ -543,7 +543,7 @@ $result_converted{'html'}->{'space_in_def_for_index'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
+a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-anchor {visibility: visible}
 -->
 </style>
@@ -555,16 +555,17 @@ span:hover a.copiable-anchor {visibility: visible}
 <h1 class="node-heading" id="Top">Top</h1>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-name"><span class="category">Category: </span><span><strong class="strong">name</strong> <em class="emph">argument argument2...</em><a class="copiable-anchor" href=\'#index-name\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-AAA2"><span class="category">AAA1: </span><span><strong class="strong">AAA2</strong> <em class="emph">arg3</em><a class="copiable-anchor" href=\'#index-AAA2\'> &para;</a></span></dt>
+<dt class="deffn" id="index-name"><span class="category-def">Category: </span><span><strong class="strong">name</strong> <em class="emph">argument argument2...</em><a class="copiable-anchor" href=\'#index-name\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-AAA2"><span class="category-def">AAA1: </span><span><strong class="strong">AAA2</strong> <em class="emph">arg3</em><a class="copiable-anchor" href=\'#index-AAA2\'> &para;</a></span></dt>
 </dl>
 
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_letter-A"><b>A</b></a>
+<div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_letter-N"><b>N</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-N"><b>N</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_fn_letter-A">A</th><td></td><td></td></tr>
@@ -574,11 +575,12 @@ span:hover a.copiable-anchor {visibility: visible}
 <tr><td></td><td valign="top"><a href="#index-name"><code>name</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_letter-A"><b>A</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_letter-N"><b>N</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-N"><b>N</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 
 

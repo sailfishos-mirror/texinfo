@@ -329,7 +329,7 @@ $result_converted{'html'}->{'text_before_top_and_contents_after_title'} = '<!DOC
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
-ul.no-bullet {list-style: none}
+ul.toc-numbered-mark {list-style: none}
 -->
 </style>
 
@@ -337,12 +337,12 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="contents-element" id="SEC_Contents">
+<div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
 
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
   <li><a id="toc-the-chap" href="#the-chap">1 the chap</a></li>
 </ul>
 </div>
@@ -356,7 +356,7 @@ ul.no-bullet {list-style: none}
 
 <p>In top.
 </p>
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#the-chap" accesskey="1">the chap</a></li>
 </ul>
 <div class="chapter" id="the-chap">

@@ -828,7 +828,7 @@ $result_converted{'html'}->{'two_footnotes_in_nodes'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
@@ -839,12 +839,12 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 <p>B<a class="footnote" id="DOCF2" href="#FOOT2"><sup>2</sup></a>
 </p>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
 <hr>
 <div class="chapter" id="chapter">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up: <a href="#Top" accesskey="u" rel="up">2 footnotes in 2 nodes</a> &nbsp; </p>
 </div>
@@ -988,7 +988,7 @@ C(1)
 
 
 $result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
@@ -999,12 +999,12 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top" i
 <p>B<a class="footnote" id="DOCF2" href="#FOOT2"><sup>2</sup></a>
 </p>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
 <hr>
 <div class="chapter" id="chapter">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; </p>
 </div>

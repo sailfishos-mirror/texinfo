@@ -642,7 +642,7 @@ $result_converted{'html'}->{'top_without_node_sections'} = '<!DOCTYPE html>
 <h1 class="top">top section</h1>
 <p>Top section
 </p>
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#second" accesskey="1">Chapter</a></li>
 </ul>
 <div class="chapter" id="second">

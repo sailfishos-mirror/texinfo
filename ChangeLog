@@ -1,5 +1,24 @@
 2022-01-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%css_map)
+	(_default_format_navigation_header_panel)
+	(_convert_printindex_command, _contents_inline_element)
+	(_convert_def_line_type, _convert_special_element_type)
+	(_mini_toc, _default_format_contents, _default_format_end_file):
+	rename no-bullet class as toc-numbered-mark. Rename
+	smaller class as program-in-footer. Rename header class
+	as nav-header. Rename summary-letter class as
+	summary-letter-printindex. Add a div for printindex with
+	additional class $index_name-printindex. Add a class 
+	$index_name-letters-header-printindex for the letters printindex
+	header and $index_name-letters-footer-printindex for the
+	letters footer. Rename index-$index_name class as
+	$index_name-entries-printindex. Rename special elements
+	${class}-element as element-${class}. Rename category class
+	in def* as category-def. Rename section-toc class as mini-toc.
+
+2022-01-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_def_command): use
 	first-def* as class for the main def* command container.
 	Also get alias information with first-def*-alias-first-def*.

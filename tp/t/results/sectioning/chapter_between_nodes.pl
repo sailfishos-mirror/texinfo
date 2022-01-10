@@ -747,7 +747,7 @@ $result_converted{'html'}->{'chapter_between_nodes'} = '<!DOCTYPE html>
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
-ul.no-bullet {list-style: none}
+ul.toc-numbered-mark {list-style: none}
 -->
 </style>
 
@@ -757,7 +757,7 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#section-node" accesskey="n" rel="next">section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -765,7 +765,7 @@ Next: <a href="#section-node" accesskey="n" rel="next">section</a> &nbsp; [<a hr
 <p>Top node
 </p>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Chapter" accesskey="1">Chapter</a></li>
 </ul>
 <div class="chapter" id="Chapter">
@@ -773,12 +773,12 @@ Next: <a href="#section-node" accesskey="n" rel="next">section</a> &nbsp; [<a hr
 
 <p>In chapter
 </p>
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#section-node" accesskey="1">section</a></li>
 </ul>
 <hr>
 <div class="section" id="section-node">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -786,14 +786,14 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="
 
 <p>section.
 </p>
-<div class="contents-element" id="SEC_Contents">
+<div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
 
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
   <li><a id="toc-Chapter" href="#Chapter">1 Chapter</a>
-  <ul class="no-bullet">
+  <ul class="toc-numbered-mark">
     <li><a id="toc-section" href="#section-node">1.1 section</a></li>
   </ul></li>
 </ul>

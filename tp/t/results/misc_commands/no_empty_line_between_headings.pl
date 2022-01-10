@@ -232,12 +232,12 @@ Subheading
 $result_converted{'html_text'}->{'no_empty_line_between_headings'} = '<div class="top" id="Top">
 <h1 class="top">Top</h1>
 <h4 class="subheading" id="Subheading">Subheading</h4>
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Chapter" accesskey="1">Chapter</a></li>
 </ul>
 <div class="chapter" id="Chapter">
 <h2 class="chapter">1 Chapter</h2>
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Section" accesskey="1">Section</a></li>
 </ul>
 <div class="section" id="Section">

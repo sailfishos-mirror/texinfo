@@ -167,7 +167,7 @@ $result_converted{'html'}->{'section_below_unnumbered_no_top'} = '<!DOCTYPE html
 <body lang="en">
 <div class="unnumbered" id="U">
 <h2 class="unnumbered">U</h2>
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#S" accesskey="1">S</a></li>
 </ul>
 <div class="section" id="S">

@@ -228,7 +228,7 @@ $result_converted{'html_text'}->{'part_before_section'} = '<div class="part" id=
 <h1 class="part">part</h1>
 <hr>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#section" accesskey="1">section</a></li>
 </ul>
 <div class="section" id="section">

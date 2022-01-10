@@ -4900,10 +4900,10 @@ $result_converted{'html'}->{'texi_formatting'} = '<!DOCTYPE html>
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
-a.summary-letter {text-decoration: none}
+a.summary-letter-printindex {text-decoration: none}
 div.example {margin-left: 3.2em}
 h2.centerchap {text-align:center}
-ul.no-bullet {list-style: none}
+ul.toc-numbered-mark {list-style: none}
 -->
 </style>
 
@@ -4913,7 +4913,7 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -4949,17 +4949,18 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 
 
 <p>cp
-</p><table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_cp_symbol-1"><b>.</b></a>
+</p><div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_cp_symbol-1"><b>.</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_cp_symbol-2"><b>?</b></a>
+<a class="summary-letter-printindex" href="#Top_cp_symbol-2"><b>?</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#Top_cp_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#Top_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_cp_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#Top_cp_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-cp" border="0">
+<table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_cp_symbol-1">.</th><td></td><td></td></tr>
@@ -4976,29 +4977,31 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc">T&ndash;ruc</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_cp_symbol-1"><b>.</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_cp_symbol-1"><b>.</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_cp_symbol-2"><b>?</b></a>
+<a class="summary-letter-printindex" href="#Top_cp_symbol-2"><b>?</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#Top_cp_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#Top_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_cp_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#Top_cp_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 <p>fn
-</p><table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_symbol-1"><b>.</b></a>
+</p><div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>.</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_symbol-2"><b>?</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_symbol-2"><b>?</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#Top_fn_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_fn_symbol-1">.</th><td></td><td></td></tr>
@@ -5015,16 +5018,17 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_symbol-1"><b>.</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>.</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_symbol-2"><b>?</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_symbol-2"><b>?</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#Top_fn_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 <p>vr
 </p>
@@ -5036,18 +5040,18 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 </p>
 
 
-<div class="contents-element" id="SEC_Contents">
+<div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
 
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
   <li><a id="toc-chapter-1" href="#chapter">1 chapter</a>
-  <ul class="no-bullet">
+  <ul class="toc-numbered-mark">
     <li><a id="toc-A-section" href="#s_002d_002dect_002cion">1.1 A section</a>
-    <ul class="no-bullet">
+    <ul class="toc-numbered-mark">
       <li><a id="toc-subsection-1" href="#subsection">1.1.1 subsection</a>
-      <ul class="no-bullet">
+      <ul class="toc-numbered-mark">
         <li><a id="toc-subsubsection-_0060_0060simple_002ddouble_002d_002d-1" href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></li>
         <li><a id="toc-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</a></li>
       </ul></li>
@@ -5057,11 +5061,11 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 </ul>
 </div>
 </div>
-<div class="shortcontents-element" id="SEC_Shortcontents">
+<div class="element-shortcontents" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
 <li><a id="stoc-chapter-1" href="#toc-chapter-1">1 chapter</a></li>
 <li><a id="stoc-chapter-2" href="#toc-chapter-2" rel="index">chapter 2</a></li>
 </ul>
@@ -5069,7 +5073,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 </div>
 <hr>
 <div class="chapter" id="chapter">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#chapter2" accesskey="n" rel="next">chapter 2</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top section</a>, Up: <a href="#Top" accesskey="u" rel="up">Top section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -5078,24 +5082,24 @@ Next: <a href="#chapter2" accesskey="n" rel="next">chapter 2</a>, Previous: <a h
 <p><a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#s_002d_002dect_002cion" accesskey="1">A section</a></li>
 </ul>
 <hr>
 <div class="section" id="s_002d_002dect_002cion">
-<div class="header">
+<div class="nav-header">
 <p>
 Up: <a href="#chapter" accesskey="u" rel="up">chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
 <h3 class="section" id="A-section">1.1 A section</h3>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#subsection" accesskey="1">subsection</a></li>
 </ul>
 <hr>
 <div class="subsection" id="subsection">
-<div class="header">
+<div class="nav-header">
 <p>
 Up: <a href="#s_002d_002dect_002cion" accesskey="u" rel="up">A section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -5103,13 +5107,13 @@ Up: <a href="#s_002d_002dect_002cion" accesskey="u" rel="up">A section</a> &nbsp
 
 
 <a class="anchor" id="anchor"></a>
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" accesskey="1">subsubsection &ldquo;simple-double&ndash;</a></li>
 <li><a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" accesskey="2">three&mdash;four&mdash;-&rdquo;</a></li>
 </ul>
 <hr>
 <div class="subsubsection" id="subsubsection-_0060_0060simple_002ddouble_002d_002d">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" accesskey="n" rel="next">three&mdash;four&mdash;-&rdquo;</a>, Up: <a href="#subsection" accesskey="u" rel="up">subsection</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -5118,7 +5122,7 @@ Next: <a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_
 <hr>
 </div>
 <div class="subsubsection" id="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" accesskey="p" rel="prev">subsubsection &ldquo;simple-double&ndash;</a>, Up: <a href="#subsection" accesskey="u" rel="up">subsection</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -5130,23 +5134,24 @@ Previous: <a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" accessk
 </div>
 </div>
 <div class="centerchap" id="chapter2">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">Top section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
 <h2 class="centerchap" id="chapter-2">chapter 2</h2>
 
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#chapter2_cp_symbol-1"><b>.</b></a>
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter2_cp_symbol-1"><b>.</b></a>
  &nbsp; 
-<a class="summary-letter" href="#chapter2_cp_symbol-2"><b>?</b></a>
+<a class="summary-letter-printindex" href="#chapter2_cp_symbol-2"><b>?</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#chapter2_cp_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#chapter2_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#chapter2_cp_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#chapter2_cp_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-cp" border="0">
+<table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter2_cp_symbol-1">.</th><td></td><td></td></tr>
@@ -5163,27 +5168,29 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc">T&ndash;ruc</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#chapter2_cp_symbol-1"><b>.</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter2_cp_symbol-1"><b>.</b></a>
  &nbsp; 
-<a class="summary-letter" href="#chapter2_cp_symbol-2"><b>?</b></a>
- &nbsp; 
-<br>
-<a class="summary-letter" href="#chapter2_cp_letter-A"><b>A</b></a>
- &nbsp; 
-<a class="summary-letter" href="#chapter2_cp_letter-T"><b>T</b></a>
- &nbsp; 
-</td></tr></table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#chapter2_fn_symbol-1"><b>.</b></a>
- &nbsp; 
-<a class="summary-letter" href="#chapter2_fn_symbol-2"><b>?</b></a>
+<a class="summary-letter-printindex" href="#chapter2_cp_symbol-2"><b>?</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#chapter2_fn_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#chapter2_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#chapter2_fn_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#chapter2_cp_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+</div>
+<div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter2_fn_symbol-1"><b>.</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#chapter2_fn_symbol-2"><b>?</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter-printindex" href="#chapter2_fn_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#chapter2_fn_letter-T"><b>T</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter2_fn_symbol-1">.</th><td></td><td></td></tr>
@@ -5200,16 +5207,17 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#chapter2_fn_symbol-1"><b>.</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter2_fn_symbol-1"><b>.</b></a>
  &nbsp; 
-<a class="summary-letter" href="#chapter2_fn_symbol-2"><b>?</b></a>
+<a class="summary-letter-printindex" href="#chapter2_fn_symbol-2"><b>?</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#chapter2_fn_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#chapter2_fn_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#chapter2_fn_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#chapter2_fn_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 </div>
 </div>
@@ -5230,7 +5238,7 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
 
 $result_converted{'html_text'}->{'texi_formatting'} = '
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -5266,17 +5274,18 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 
 
 <p>cp
-</p><table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_symbol-1"><b>.</b></a>
+</p><div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_symbol-1"><b>.</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_symbol-2"><b>?</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_symbol-2"><b>?</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-cp" border="0">
+<table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_cp_symbol-1">.</th><td></td><td></td></tr>
@@ -5293,29 +5302,31 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc">T&ndash;ruc</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_symbol-1"><b>.</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_symbol-1"><b>.</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_symbol-2"><b>?</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_symbol-2"><b>?</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 <p>fn
-</p><table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_symbol-1"><b>.</b></a>
+</p><div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_symbol-1"><b>.</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_symbol-2"><b>?</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_symbol-2"><b>?</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#t_h_fn_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_fn_symbol-1">.</th><td></td><td></td></tr>
@@ -5332,16 +5343,17 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_symbol-1"><b>.</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_symbol-1"><b>.</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_symbol-2"><b>?</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_symbol-2"><b>?</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#t_h_fn_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 <p>vr
 </p>
@@ -5353,18 +5365,18 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 </p>
 
 
-<div class="contents-element">
+<div class="element-contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
 
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
   <li><a id="toc-chapter-1" href="#chapter">1 chapter</a>
-  <ul class="no-bullet">
+  <ul class="toc-numbered-mark">
     <li><a id="toc-A-section" href="#s_002d_002dect_002cion">1.1 A section</a>
-    <ul class="no-bullet">
+    <ul class="toc-numbered-mark">
       <li><a id="toc-subsection-1" href="#subsection">1.1.1 subsection</a>
-      <ul class="no-bullet">
+      <ul class="toc-numbered-mark">
         <li><a id="toc-subsubsection-_0060_0060simple_002ddouble_002d_002d-1" href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></li>
         <li><a id="toc-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</a></li>
       </ul></li>
@@ -5374,11 +5386,11 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 </ul>
 </div>
 </div>
-<div class="shortcontents-element">
+<div class="element-shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
 <li><a id="stoc-chapter-1" href="#toc-chapter-1">1 chapter</a></li>
 <li><a id="stoc-chapter-2" href="#toc-chapter-2" rel="index">chapter 2</a></li>
 </ul>
@@ -5386,7 +5398,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 </div>
 <hr>
 <div class="chapter" id="chapter">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -5395,24 +5407,24 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 <p><a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#s_002d_002dect_002cion" accesskey="1">A section</a></li>
 </ul>
 <hr>
 <div class="section" id="s_002d_002dect_002cion">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
 <h3 class="section" id="A-section">1.1 A section</h3>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#subsection" accesskey="1">subsection</a></li>
 </ul>
 <hr>
 <div class="subsection" id="subsection">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -5420,13 +5432,13 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 
 
 <a class="anchor" id="anchor"></a>
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" accesskey="1">subsubsection &ldquo;simple-double&ndash;</a></li>
 <li><a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" accesskey="2">three&mdash;four&mdash;-&rdquo;</a></li>
 </ul>
 <hr>
 <div class="subsubsection" id="subsubsection-_0060_0060simple_002ddouble_002d_002d">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -5435,7 +5447,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 <hr>
 </div>
 <div class="subsubsection" id="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -5447,23 +5459,24 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 </div>
 </div>
 <div class="centerchap" id="chapter2">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
 <h2 class="centerchap" id="chapter-2">chapter 2</h2>
 
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_symbol-1"><b>.</b></a>
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_symbol-1"><b>.</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_symbol-2"><b>?</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_symbol-2"><b>?</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-cp" border="0">
+<table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_cp_symbol-1">.</th><td></td><td></td></tr>
@@ -5480,27 +5493,29 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc">T&ndash;ruc</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_symbol-1"><b>.</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_symbol-1"><b>.</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_symbol-2"><b>?</b></a>
- &nbsp; 
-<br>
-<a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
- &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-T"><b>T</b></a>
- &nbsp; 
-</td></tr></table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_symbol-1"><b>.</b></a>
- &nbsp; 
-<a class="summary-letter" href="#t_h_fn_symbol-2"><b>?</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_symbol-2"><b>?</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#t_h_fn_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+</div>
+<div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_symbol-1"><b>.</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#t_h_fn_symbol-2"><b>?</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#t_h_fn_letter-T"><b>T</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_fn_symbol-1">.</th><td></td><td></td></tr>
@@ -5517,16 +5532,17 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_symbol-1"><b>.</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_symbol-1"><b>.</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_symbol-2"><b>?</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_symbol-2"><b>?</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#t_h_fn_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_fn_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#t_h_fn_letter-T"><b>T</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 </div>
 </div>

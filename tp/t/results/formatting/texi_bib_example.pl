@@ -5614,7 +5614,7 @@ $result_converted{'html'}->{'texi_bib_example'} = '<!DOCTYPE html>
 <!--
 h1.settitle {text-align:center}
 pre.menu-comment {font-family: serif}
-span.smaller {font-size: smaller}
+span.program-in-footer {font-size: smaller}
 -->
 </style>
 
@@ -5671,7 +5671,7 @@ span.smaller {font-size: smaller}
 
 
 <div class="top" id="Top">
-<table class="header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt; ]</td>
 <td valign="middle" align="left">[<a href="#Introduction" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -5692,7 +5692,7 @@ span.smaller {font-size: smaller}
 
 <hr style="height: 6px;">
 <div class="chapter" id="Introduction">
-<table class="header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Up section"> Up </a>]</td>
@@ -5717,7 +5717,7 @@ currently supported in Texinfo.
 <hr>
 </div>
 <div class="chapter" id="References">
-<table class="header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Introduction" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Up section"> Up </a>]</td>
@@ -5745,8 +5745,8 @@ Massachusetts, 1994.
 </div>
 </div>
 <hr>
-<div class="about-element" id="SEC_About">
-<table class="header" cellpadding="1" cellspacing="1" border="0">
+<div class="element-about" id="SEC_About">
+<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[Contents]</td>
 <td valign="middle" align="left">[Index]</td>
@@ -5856,7 +5856,7 @@ Massachusetts, 1994.
 
 </div><hr>
 <p>
-  <span class="smaller">This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
+  <span class="program-in-footer">This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
 </p>
 
 

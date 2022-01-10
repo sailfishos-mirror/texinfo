@@ -2470,29 +2470,29 @@ $result_converted{'plaintext'}->{'def'} = ' -- c--ategory: d--effn_name a--rgume
 
 $result_converted{'html_text'}->{'def'} = '
 <dl class="first-deffn">
-<dt class="deffn" id="index-d_002d_002deffn_005fname"><span class="category">c--ategory: </span><span><strong class="strong">d--effn_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deffn_005fname\'> &para;</a></span></dt>
+<dt class="deffn" id="index-d_002d_002deffn_005fname"><span class="category-def">c--ategory: </span><span><strong class="strong">d--effn_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deffn_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;effn
 </p></dd></dl>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-de_002d_002dffn_005fname"><span class="category">cate--gory: </span><span><strong class="strong">de--ffn_name</strong> <em class="emph">ar--guments    more args <br> even more so</em><a class="copiable-anchor" href=\'#index-de_002d_002dffn_005fname\'> &para;</a></span></dt>
+<dt class="deffn" id="index-de_002d_002dffn_005fname"><span class="category-def">cate--gory: </span><span><strong class="strong">de--ffn_name</strong> <em class="emph">ar--guments    more args <br> even more so</em><a class="copiable-anchor" href=\'#index-de_002d_002dffn_005fname\'> &para;</a></span></dt>
 <dd><p>def&ndash;fn
 </p></dd></dl>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-i"><span class="category">fset: </span><span><strong class="strong"><var class="var">i</var></strong> <em class="emph">a g</em><a class="copiable-anchor" href=\'#index-i\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-truc"><span class="category">cmde: </span><span><strong class="strong">truc</strong> <em class="emph"></em><a class="copiable-anchor" href=\'#index-truc\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-log-trap"><span class="category">Command: </span><span><strong class="strong">log trap</strong> <em class="emph"></em><a class="copiable-anchor" href=\'#index-log-trap\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-log-trap1"><span class="category">Command: </span><span><strong class="strong">log trap1</strong> <em class="emph"></em><a class="copiable-anchor" href=\'#index-log-trap1\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-log-trap2"><span class="category">Command: </span><span><strong class="strong">log trap2</strong> <em class="emph"></em><a class="copiable-anchor" href=\'#index-log-trap2\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-id-ule"><span class="category">cmde: </span><span><strong class="strong"><b class="b">id ule</b></strong> <em class="emph">truc</em><a class="copiable-anchor" href=\'#index-id-ule\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-id-i-ule"><span class="category">cmde2: </span><span><strong class="strong"><b class="b">id &lsquo;<samp class="samp">i</samp>&rsquo; ule</b></strong> <em class="emph">truc</em><a class="copiable-anchor" href=\'#index-id-i-ule\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-machin"><span class="category">: </span><span><strong class="strong">machin</strong><a class="copiable-anchor" href=\'#index-machin\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-bidule-machin"><span class="category">: </span><span><strong class="strong">bidule machin</strong><a class="copiable-anchor" href=\'#index-bidule-machin\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-machin-1"><span class="category">truc: </span><span><strong class="strong">machin</strong><a class="copiable-anchor" href=\'#index-machin-1\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-followed"><span class="category">truc: </span><span><strong class="strong">followed</strong> <em class="emph">by a comment</em><a class="copiable-anchor" href=\'#index-followed\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-after"><span class="category">truc: </span><span><strong class="strong">after</strong> <em class="emph">a deff item</em><a class="copiable-anchor" href=\'#index-after\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-deffnx"><span class="category">truc: </span><span><strong class="strong">deffnx</strong> <em class="emph">before end deffn</em><a class="copiable-anchor" href=\'#index-deffnx\'> &para;</a></span></dt>
+<dt class="deffn" id="index-i"><span class="category-def">fset: </span><span><strong class="strong"><var class="var">i</var></strong> <em class="emph">a g</em><a class="copiable-anchor" href=\'#index-i\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-truc"><span class="category-def">cmde: </span><span><strong class="strong">truc</strong> <em class="emph"></em><a class="copiable-anchor" href=\'#index-truc\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-log-trap"><span class="category-def">Command: </span><span><strong class="strong">log trap</strong> <em class="emph"></em><a class="copiable-anchor" href=\'#index-log-trap\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-log-trap1"><span class="category-def">Command: </span><span><strong class="strong">log trap1</strong> <em class="emph"></em><a class="copiable-anchor" href=\'#index-log-trap1\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-log-trap2"><span class="category-def">Command: </span><span><strong class="strong">log trap2</strong> <em class="emph"></em><a class="copiable-anchor" href=\'#index-log-trap2\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-id-ule"><span class="category-def">cmde: </span><span><strong class="strong"><b class="b">id ule</b></strong> <em class="emph">truc</em><a class="copiable-anchor" href=\'#index-id-ule\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-id-i-ule"><span class="category-def">cmde2: </span><span><strong class="strong"><b class="b">id &lsquo;<samp class="samp">i</samp>&rsquo; ule</b></strong> <em class="emph">truc</em><a class="copiable-anchor" href=\'#index-id-i-ule\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-machin"><span class="category-def">: </span><span><strong class="strong">machin</strong><a class="copiable-anchor" href=\'#index-machin\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-bidule-machin"><span class="category-def">: </span><span><strong class="strong">bidule machin</strong><a class="copiable-anchor" href=\'#index-bidule-machin\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-machin-1"><span class="category-def">truc: </span><span><strong class="strong">machin</strong><a class="copiable-anchor" href=\'#index-machin-1\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-followed"><span class="category-def">truc: </span><span><strong class="strong">followed</strong> <em class="emph">by a comment</em><a class="copiable-anchor" href=\'#index-followed\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-after"><span class="category-def">truc: </span><span><strong class="strong">after</strong> <em class="emph">a deff item</em><a class="copiable-anchor" href=\'#index-after\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-deffnx"><span class="category-def">truc: </span><span><strong class="strong">deffnx</strong> <em class="emph">before end deffn</em><a class="copiable-anchor" href=\'#index-deffnx\'> &para;</a></span></dt>
 <dd><p>Various deff lines
 </p></dd></dl>
 ';

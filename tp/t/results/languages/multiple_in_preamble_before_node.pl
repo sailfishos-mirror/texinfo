@@ -1089,18 +1089,18 @@ span:hover a.copiable-anchor {visibility: visible}
 </p>
 
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
 Nächste: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top-section">top section</h1>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chap</a></li>
 </ul>
 <hr>
 <div class="chapter" id="chapter">
-<div class="header">
+<div class="nav-header">
 <p>
 Vorige: <a href="#Top" accesskey="p" rel="prev">top section</a>, Nach oben: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>
 </div>

@@ -935,18 +935,18 @@ $result_converted{'plaintext'}->{'double_seeentry_seealso'} = 'top
 
 $result_converted{'html_text'}->{'double_seeentry_seealso'} = '
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#node-index" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="top" id="top">top</h1>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#node-index" accesskey="1">Chapter Index</a></li>
 </ul>
 <hr>
 <div class="chapter" id="node-index">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; [<a href="#node-index" title="Index" rel="index">Index</a>]</p>
 </div>

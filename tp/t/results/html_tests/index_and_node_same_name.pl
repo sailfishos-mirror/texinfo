@@ -272,7 +272,7 @@ $result_converted{'html'}->{'index_and_node_same_name'} = '<!DOCTYPE html>
 <link href="#index-node" rel="index" title="index node">
 <style type="text/css">
 <!--
-a.summary-letter {text-decoration: none}
+a.summary-letter-printindex {text-decoration: none}
 -->
 </style>
 
@@ -285,19 +285,21 @@ a.summary-letter {text-decoration: none}
 <h4 class="node-heading" id="index-node">index node</h4>
 
 <a class="index-entry-anchor" id="index-node-1"></a>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#index-node_cp_letter-N"><b>N</b></a>
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#index-node_cp_letter-N"><b>N</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-cp" border="0">
+<table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="index-node_cp_letter-N">N</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-node-1">node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#index-node">index node</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#index-node_cp_letter-N"><b>N</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#index-node_cp_letter-N"><b>N</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 </div>
 

@@ -7959,7 +7959,7 @@ $result_converted{'html'}->{'section_in_unnumbered_plaintext'} = '<!DOCTYPE html
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
-ul.no-bullet {list-style: none}
+ul.toc-numbered-mark {list-style: none}
 -->
 </style>
 
@@ -7968,7 +7968,7 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -7978,38 +7978,38 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 <p>Menu:
 </p>
 
-<div class="contents-element" id="SEC_Contents">
+<div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
 
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
   <li><a id="toc-chapter-1" href="#chapter">1 chapter</a>
-  <ul class="no-bullet">
+  <ul class="toc-numbered-mark">
     <li><a id="toc-section-in-chapter-1" href="#section-in-chapter">1.1 section in chapter</a></li>
   </ul></li>
   <li><a id="toc-unnumbered-1" href="#unnumbered">unnumbered</a>
-  <ul class="no-bullet">
+  <ul class="toc-numbered-mark">
     <li><a id="toc-section-in-unnumbered-1" href="#section-in-unnumbered">section in unnumbered</a></li>
   </ul></li>
   <li><a id="toc-chapter-2-1" href="#chapter-2">2 chapter 2</a>
-  <ul class="no-bullet">
+  <ul class="toc-numbered-mark">
     <li><a id="toc-unnumbered-section-2" href="#unnumberedsec-2">unnumbered section 2</a>
-    <ul class="no-bullet">
+    <ul class="toc-numbered-mark">
       <li><a id="toc-unnumbered-subsection-2" href="#unnumbered-sub-2">unnumbered subsection 2</a></li>
       <li><a id="toc-numbered-subsection-2" href="#numbered-sub-2">numbered subsection 2</a></li>
       <li><a id="toc-unnumbered-subsection2-2" href="#unnumbered-sub2-2">unnumbered subsection2 2</a></li>
       <li><a id="toc-numbered-subsection2-2" href="#numbered-sub2-2">numbered subsection2 2</a></li>
     </ul></li>
     <li><a id="toc-unnumberedsec-2_002d1-1" href="#unnumberedsec-2_002d1">unnumberedsec 2-1</a>
-    <ul class="no-bullet">
+    <ul class="toc-numbered-mark">
       <li><a id="toc-numbered-subsection-2_002d1" href="#numbered-sub-2_002d1">numbered subsection 2-1</a></li>
     </ul></li>
   </ul></li>
   <li><a id="toc-chapter-3-1" href="#chapter-3">3 chapter 3</a>
-  <ul class="no-bullet">
+  <ul class="toc-numbered-mark">
     <li><a id="toc-unnumbered-section-3" href="#unnumberedsec-3">unnumbered section 3</a>
-    <ul class="no-bullet">
+    <ul class="toc-numbered-mark">
       <li><a id="toc-unnumbered-subsection-3" href="#unnumbered-sub-3">unnumbered subsection 3</a></li>
       <li><a id="toc-numbered-subsection-3" href="#numbered-sub-3">numbered subsection 3</a></li>
       <li><a id="toc-unnumbered-subsection2-3" href="#unnumbered-sub2-3">unnumbered subsection2 3</a></li>
@@ -8017,22 +8017,22 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
     </ul></li>
     <li><a id="toc-section-3_002d1-1" href="#section-3_002d1">3.1 section 3-1</a></li>
     <li><a id="toc-unnumberedsec-3_002d2-1" href="#unnumberedsec-3_002d2">unnumberedsec 3-2</a>
-    <ul class="no-bullet">
+    <ul class="toc-numbered-mark">
       <li><a id="toc-numbered-subsection-3_002d2" href="#numbered-sub-3_002d2">numbered subsection 3-2</a></li>
     </ul></li>
     <li><a id="toc-section-3_002d3-1" href="#section-3_002d3">3.2 section 3-3</a>
-    <ul class="no-bullet">
+    <ul class="toc-numbered-mark">
       <li><a id="toc-subsection-3_002d3-1" href="#subsection-3_002d3">3.2.1 subsection 3-3</a></li>
     </ul></li>
     <li><a id="toc-unnumberedsec-3_002d4-1" href="#unnumberedsec-3_002d4">unnumberedsec 3-4</a>
-    <ul class="no-bullet">
+    <ul class="toc-numbered-mark">
       <li><a id="toc-numbered-subsection-3_002d4" href="#numbered-sub-3_002d4">numbered subsection 3-4</a></li>
     </ul></li>
   </ul></li>
   <li><a id="toc-unnumbered-4-1" href="#unnumbered-4">unnumbered  4</a>
-  <ul class="no-bullet">
+  <ul class="toc-numbered-mark">
     <li><a id="toc-unnumbered-section-4" href="#unnumberedsec-4">unnumbered section 4</a>
-    <ul class="no-bullet">
+    <ul class="toc-numbered-mark">
       <li><a id="toc-unnumbered-subsection-4" href="#unnumbered-sub-4">unnumbered subsection 4</a></li>
       <li><a id="toc-numbered-subsection-4" href="#numbered-sub-4">numbered subsection 4</a></li>
       <li><a id="toc-unnumbered-subsection2-4" href="#unnumbered-sub2-4">unnumbered subsection2 4</a></li>
@@ -8044,19 +8044,19 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 </div>
 <hr>
 <div class="chapter" id="chapter">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#unnumbered" accesskey="n" rel="next">unnumbered</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Test section in unnumbered</a>, Up: <a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <h2 class="chapter" id="chapter-1">1 chapter</h2>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#section-in-chapter" accesskey="1">section in chapter</a></li>
 </ul>
 <hr>
 <div class="section" id="section-in-chapter">
-<div class="header">
+<div class="nav-header">
 <p>
 Up: <a href="#chapter" accesskey="u" rel="up">chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8066,19 +8066,19 @@ Up: <a href="#chapter" accesskey="u" rel="up">chapter</a> &nbsp; [<a href="#SEC_
 </div>
 </div>
 <div class="unnumbered" id="unnumbered">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#chapter-2" accesskey="n" rel="next">chapter 2</a>, Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <h2 class="unnumbered" id="unnumbered-1">unnumbered</h2>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#section-in-unnumbered" accesskey="1">section in unnumbered</a></li>
 </ul>
 <hr>
 <div class="section" id="section-in-unnumbered">
-<div class="header">
+<div class="nav-header">
 <p>
 Up: <a href="#unnumbered" accesskey="u" rel="up">unnumbered</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8088,27 +8088,27 @@ Up: <a href="#unnumbered" accesskey="u" rel="up">unnumbered</a> &nbsp; [<a href=
 </div>
 </div>
 <div class="chapter" id="chapter-2">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#chapter-3" accesskey="n" rel="next">chapter 3</a>, Previous: <a href="#unnumbered" accesskey="p" rel="prev">unnumbered</a>, Up: <a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <h2 class="chapter" id="chapter-2-1">2 chapter 2</h2>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#unnumberedsec-2" accesskey="1">unnumbered section 2</a></li>
 <li><a href="#unnumberedsec-2_002d1" accesskey="2">unnumberedsec 2-1</a></li>
 </ul>
 <hr>
 <div class="unnumberedsec" id="unnumberedsec-2">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#unnumberedsec-2_002d1" accesskey="n" rel="next">unnumberedsec 2-1</a>, Up: <a href="#chapter-2" accesskey="u" rel="up">chapter 2</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <h3 class="unnumberedsec" id="unnumbered-section-2">unnumbered section 2</h3>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#unnumbered-sub-2" accesskey="1">unnumbered subsection 2</a></li>
 <li><a href="#numbered-sub-2" accesskey="2">numbered subsection 2</a></li>
 <li><a href="#unnumbered-sub2-2" accesskey="3">unnumbered subsection2 2</a></li>
@@ -8116,7 +8116,7 @@ Next: <a href="#unnumberedsec-2_002d1" accesskey="n" rel="next">unnumberedsec 2-
 </ul>
 <hr>
 <div class="unnumberedsubsec" id="unnumbered-sub-2">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#numbered-sub-2" accesskey="n" rel="next">numbered subsection 2</a>, Up: <a href="#unnumberedsec-2" accesskey="u" rel="up">unnumbered section 2</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8125,7 +8125,7 @@ Next: <a href="#numbered-sub-2" accesskey="n" rel="next">numbered subsection 2</
 <hr>
 </div>
 <div class="subsection" id="numbered-sub-2">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#unnumbered-sub2-2" accesskey="n" rel="next">unnumbered subsection2 2</a>, Previous: <a href="#unnumbered-sub-2" accesskey="p" rel="prev">unnumbered subsection 2</a>, Up: <a href="#unnumberedsec-2" accesskey="u" rel="up">unnumbered section 2</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8134,7 +8134,7 @@ Next: <a href="#unnumbered-sub2-2" accesskey="n" rel="next">unnumbered subsectio
 <hr>
 </div>
 <div class="unnumberedsubsec" id="unnumbered-sub2-2">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#numbered-sub2-2" accesskey="n" rel="next">numbered subsection2 2</a>, Previous: <a href="#numbered-sub-2" accesskey="p" rel="prev">numbered subsection 2</a>, Up: <a href="#unnumberedsec-2" accesskey="u" rel="up">unnumbered section 2</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8143,7 +8143,7 @@ Next: <a href="#numbered-sub2-2" accesskey="n" rel="next">numbered subsection2 2
 <hr>
 </div>
 <div class="subsection" id="numbered-sub2-2">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#unnumbered-sub2-2" accesskey="p" rel="prev">unnumbered subsection2 2</a>, Up: <a href="#unnumberedsec-2" accesskey="u" rel="up">unnumbered section 2</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8153,19 +8153,19 @@ Previous: <a href="#unnumbered-sub2-2" accesskey="p" rel="prev">unnumbered subse
 </div>
 </div>
 <div class="unnumberedsec" id="unnumberedsec-2_002d1">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#unnumberedsec-2" accesskey="p" rel="prev">unnumbered section 2</a>, Up: <a href="#chapter-2" accesskey="u" rel="up">chapter 2</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <h3 class="unnumberedsec" id="unnumberedsec-2_002d1-1">unnumberedsec 2-1</h3>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#numbered-sub-2_002d1" accesskey="1">numbered subsection 2-1</a></li>
 </ul>
 <hr>
 <div class="subsection" id="numbered-sub-2_002d1">
-<div class="header">
+<div class="nav-header">
 <p>
 Up: <a href="#unnumberedsec-2_002d1" accesskey="u" rel="up">unnumberedsec 2-1</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8177,14 +8177,14 @@ Up: <a href="#unnumberedsec-2_002d1" accesskey="u" rel="up">unnumberedsec 2-1</a
 </div>
 </div>
 <div class="chapter" id="chapter-3">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#unnumbered-4" accesskey="n" rel="next">unnumbered  4</a>, Previous: <a href="#chapter-2" accesskey="p" rel="prev">chapter 2</a>, Up: <a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <h2 class="chapter" id="chapter-3-1">3 chapter 3</h2>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#unnumberedsec-3" accesskey="1">unnumbered section 3</a></li>
 <li><a href="#section-3_002d1" accesskey="2">section 3-1</a></li>
 <li><a href="#unnumberedsec-3_002d2" accesskey="3">unnumberedsec 3-2</a></li>
@@ -8193,14 +8193,14 @@ Next: <a href="#unnumbered-4" accesskey="n" rel="next">unnumbered  4</a>, Previo
 </ul>
 <hr>
 <div class="unnumberedsec" id="unnumberedsec-3">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#section-3_002d1" accesskey="n" rel="next">section 3-1</a>, Up: <a href="#chapter-3" accesskey="u" rel="up">chapter 3</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <h3 class="unnumberedsec" id="unnumbered-section-3">unnumbered section 3</h3>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#unnumbered-sub-3" accesskey="1">unnumbered subsection 3</a></li>
 <li><a href="#numbered-sub-3" accesskey="2">numbered subsection 3</a></li>
 <li><a href="#unnumbered-sub2-3" accesskey="3">unnumbered subsection2 3</a></li>
@@ -8208,7 +8208,7 @@ Next: <a href="#section-3_002d1" accesskey="n" rel="next">section 3-1</a>, Up: <
 </ul>
 <hr>
 <div class="unnumberedsubsec" id="unnumbered-sub-3">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#numbered-sub-3" accesskey="n" rel="next">numbered subsection 3</a>, Up: <a href="#unnumberedsec-3" accesskey="u" rel="up">unnumbered section 3</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8217,7 +8217,7 @@ Next: <a href="#numbered-sub-3" accesskey="n" rel="next">numbered subsection 3</
 <hr>
 </div>
 <div class="subsection" id="numbered-sub-3">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#unnumbered-sub2-3" accesskey="n" rel="next">unnumbered subsection2 3</a>, Previous: <a href="#unnumbered-sub-3" accesskey="p" rel="prev">unnumbered subsection 3</a>, Up: <a href="#unnumberedsec-3" accesskey="u" rel="up">unnumbered section 3</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8226,7 +8226,7 @@ Next: <a href="#unnumbered-sub2-3" accesskey="n" rel="next">unnumbered subsectio
 <hr>
 </div>
 <div class="unnumberedsubsec" id="unnumbered-sub2-3">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#numbered-sub2-3" accesskey="n" rel="next">numbered subsection2 3</a>, Previous: <a href="#numbered-sub-3" accesskey="p" rel="prev">numbered subsection 3</a>, Up: <a href="#unnumberedsec-3" accesskey="u" rel="up">unnumbered section 3</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8235,7 +8235,7 @@ Next: <a href="#numbered-sub2-3" accesskey="n" rel="next">numbered subsection2 3
 <hr>
 </div>
 <div class="subsection" id="numbered-sub2-3">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#unnumbered-sub2-3" accesskey="p" rel="prev">unnumbered subsection2 3</a>, Up: <a href="#unnumberedsec-3" accesskey="u" rel="up">unnumbered section 3</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8245,7 +8245,7 @@ Previous: <a href="#unnumbered-sub2-3" accesskey="p" rel="prev">unnumbered subse
 </div>
 </div>
 <div class="section" id="section-3_002d1">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#unnumberedsec-3_002d2" accesskey="n" rel="next">unnumberedsec 3-2</a>, Previous: <a href="#unnumberedsec-3" accesskey="p" rel="prev">unnumbered section 3</a>, Up: <a href="#chapter-3" accesskey="u" rel="up">chapter 3</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8254,19 +8254,19 @@ Next: <a href="#unnumberedsec-3_002d2" accesskey="n" rel="next">unnumberedsec 3-
 <hr>
 </div>
 <div class="unnumberedsec" id="unnumberedsec-3_002d2">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#section-3_002d3" accesskey="n" rel="next">section 3-3</a>, Previous: <a href="#section-3_002d1" accesskey="p" rel="prev">section 3-1</a>, Up: <a href="#chapter-3" accesskey="u" rel="up">chapter 3</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <h3 class="unnumberedsec" id="unnumberedsec-3_002d2-1">unnumberedsec 3-2</h3>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#numbered-sub-3_002d2" accesskey="1">numbered subsection 3-2</a></li>
 </ul>
 <hr>
 <div class="subsection" id="numbered-sub-3_002d2">
-<div class="header">
+<div class="nav-header">
 <p>
 Up: <a href="#unnumberedsec-3_002d2" accesskey="u" rel="up">unnumberedsec 3-2</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8276,19 +8276,19 @@ Up: <a href="#unnumberedsec-3_002d2" accesskey="u" rel="up">unnumberedsec 3-2</a
 </div>
 </div>
 <div class="section" id="section-3_002d3">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#unnumberedsec-3_002d4" accesskey="n" rel="next">unnumberedsec 3-4</a>, Previous: <a href="#unnumberedsec-3_002d2" accesskey="p" rel="prev">unnumberedsec 3-2</a>, Up: <a href="#chapter-3" accesskey="u" rel="up">chapter 3</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <h3 class="section" id="section-3_002d3-1">3.2 section 3-3</h3>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#subsection-3_002d3" accesskey="1">subsection 3-3</a></li>
 </ul>
 <hr>
 <div class="subsection" id="subsection-3_002d3">
-<div class="header">
+<div class="nav-header">
 <p>
 Up: <a href="#section-3_002d3" accesskey="u" rel="up">section 3-3</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8298,19 +8298,19 @@ Up: <a href="#section-3_002d3" accesskey="u" rel="up">section 3-3</a> &nbsp; [<a
 </div>
 </div>
 <div class="unnumberedsec" id="unnumberedsec-3_002d4">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#section-3_002d3" accesskey="p" rel="prev">section 3-3</a>, Up: <a href="#chapter-3" accesskey="u" rel="up">chapter 3</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <h3 class="unnumberedsec" id="unnumberedsec-3_002d4-1">unnumberedsec 3-4</h3>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#numbered-sub-3_002d4" accesskey="1">numbered subsection 3-4</a></li>
 </ul>
 <hr>
 <div class="subsection" id="numbered-sub-3_002d4">
-<div class="header">
+<div class="nav-header">
 <p>
 Up: <a href="#unnumberedsec-3_002d4" accesskey="u" rel="up">unnumberedsec 3-4</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8321,26 +8321,26 @@ Up: <a href="#unnumberedsec-3_002d4" accesskey="u" rel="up">unnumberedsec 3-4</a
 </div>
 </div>
 <div class="unnumbered" id="unnumbered-4">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#chapter-3" accesskey="p" rel="prev">chapter 3</a>, Up: <a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <h2 class="unnumbered" id="unnumbered-4-1">unnumbered  4</h2>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#unnumberedsec-4" accesskey="1">unnumbered section 4</a></li>
 </ul>
 <hr>
 <div class="unnumberedsec" id="unnumberedsec-4">
-<div class="header">
+<div class="nav-header">
 <p>
 Up: <a href="#unnumbered-4" accesskey="u" rel="up">unnumbered  4</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <h3 class="unnumberedsec" id="unnumbered-section-4">unnumbered section 4</h3>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#unnumbered-sub-4" accesskey="1">unnumbered subsection 4</a></li>
 <li><a href="#numbered-sub-4" accesskey="2">numbered subsection 4</a></li>
 <li><a href="#unnumbered-sub2-4" accesskey="3">unnumbered subsection2 4</a></li>
@@ -8348,7 +8348,7 @@ Up: <a href="#unnumbered-4" accesskey="u" rel="up">unnumbered  4</a> &nbsp; [<a 
 </ul>
 <hr>
 <div class="unnumberedsubsec" id="unnumbered-sub-4">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#numbered-sub-4" accesskey="n" rel="next">numbered subsection 4</a>, Up: <a href="#unnumberedsec-4" accesskey="u" rel="up">unnumbered section 4</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8357,7 +8357,7 @@ Next: <a href="#numbered-sub-4" accesskey="n" rel="next">numbered subsection 4</
 <hr>
 </div>
 <div class="subsection" id="numbered-sub-4">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#unnumbered-sub2-4" accesskey="n" rel="next">unnumbered subsection2 4</a>, Previous: <a href="#unnumbered-sub-4" accesskey="p" rel="prev">unnumbered subsection 4</a>, Up: <a href="#unnumberedsec-4" accesskey="u" rel="up">unnumbered section 4</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8366,7 +8366,7 @@ Next: <a href="#unnumbered-sub2-4" accesskey="n" rel="next">unnumbered subsectio
 <hr>
 </div>
 <div class="unnumberedsubsec" id="unnumbered-sub2-4">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#numbered-sub2-4" accesskey="n" rel="next">numbered subsection2 4</a>, Previous: <a href="#numbered-sub-4" accesskey="p" rel="prev">numbered subsection 4</a>, Up: <a href="#unnumberedsec-4" accesskey="u" rel="up">unnumbered section 4</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -8375,7 +8375,7 @@ Next: <a href="#numbered-sub2-4" accesskey="n" rel="next">numbered subsection2 4
 <hr>
 </div>
 <div class="subsection" id="numbered-sub2-4">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#unnumbered-sub2-4" accesskey="p" rel="prev">unnumbered subsection2 4</a>, Up: <a href="#unnumberedsec-4" accesskey="u" rel="up">unnumbered section 4</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>

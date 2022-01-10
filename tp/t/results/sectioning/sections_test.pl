@@ -742,25 +742,25 @@ $result_converted{'html'}->{'sections_test'} = '<!DOCTYPE html>
 <div class="top" id="top">
 <h1 class="top">top</h1>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
 <div class="chapter" id="chapter">
 <h2 class="chapter">1 chapter</h2>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#section" accesskey="1">section</a></li>
 </ul>
 <div class="section" id="section">
 <h3 class="section">1.1 section</h3>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#subsection" accesskey="1">subsection</a></li>
 </ul>
 <div class="subsection" id="subsection">
 <h4 class="subsection">1.1.1 subsection</h4>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#subsubsection" accesskey="1">subsubsection</a></li>
 </ul>
 <div class="subsubsection" id="subsubsection">
@@ -775,7 +775,7 @@ $result_converted{'html'}->{'sections_test'} = '<!DOCTYPE html>
 <h1 class="part">part</h1>
 <hr>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter-in-part" accesskey="1">chapter in part</a></li>
 <li><a href="#second-chapter-in-part" accesskey="2">second chapter in part</a></li>
 <li><a href="#unnumbered" accesskey="3">unnumbered</a></li>
@@ -795,7 +795,7 @@ $result_converted{'html'}->{'sections_test'} = '<!DOCTYPE html>
 <div class="appendix" id="appendix">
 <h2 class="appendix">Appendix A appendix</h2>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#appendixsec" accesskey="1">appendixsec</a></li>
 </ul>
 <div class="appendixsec" id="appendixsec">

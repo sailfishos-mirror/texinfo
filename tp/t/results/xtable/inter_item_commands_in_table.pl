@@ -3200,18 +3200,18 @@ D
 
 $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
 <h1 class="top" id="top">top</h1>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chap</a></li>
 </ul>
 <hr>
 <div class="chapter" id="chapter">
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; </p>
 </div>

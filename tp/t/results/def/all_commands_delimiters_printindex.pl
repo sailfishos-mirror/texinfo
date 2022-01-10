@@ -16061,7 +16061,7 @@ $result_converted{'html'}->{'all_commands_delimiters_printindex'} = '<!DOCTYPE h
 <style type="text/css">
 <!--
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
+a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-anchor {visibility: visible}
 -->
 </style>
@@ -16072,35 +16072,35 @@ span:hover a.copiable-anchor {visibility: visible}
 <body lang="en">
 <h1 class="node-heading" id="Top">Top</h1>
 <dl class="first-deffn">
-<dt class="deffn" id="index-forward_002d_002dchar"><span class="category">Command: </span><span><strong class="strong"><var class="var">forward--char</var></strong> <em class="emph"><var class="var">nchars</var> argument2 argument3         (arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</em><a class="copiable-anchor" href=\'#index-forward_002d_002dchar\'> &para;</a></span></dt>
+<dt class="deffn" id="index-forward_002d_002dchar"><span class="category-def">Command: </span><span><strong class="strong"><var class="var">forward--char</var></strong> <em class="emph"><var class="var">nchars</var> argument2 argument3         (arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</em><a class="copiable-anchor" href=\'#index-forward_002d_002dchar\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defvr">
-<dt class="defvr" id="index-fill_002dcolumn"><span class="category">Variable: </span><span><strong class="strong">fill-column</strong> <em class="emph">argument1 argument2         (arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</em><a class="copiable-anchor" href=\'#index-fill_002dcolumn\'> &para;</a></span></dt>
+<dt class="defvr" id="index-fill_002dcolumn"><span class="category-def">Variable: </span><span><strong class="strong">fill-column</strong> <em class="emph">argument1 argument2         (arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</em><a class="copiable-anchor" href=\'#index-fill_002dcolumn\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-foobar"><span class="category">Library Function: </span><span><em class="emph">int</em> <strong class="strong">foobar</strong> <em class="emph">(int <var class="var">foo</var>, float <var class="var">bar</var>)</em><a class="copiable-anchor" href=\'#index-foobar\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-foobar"><span class="category-def">Library Function: </span><span><em class="emph">int</em> <strong class="strong">foobar</strong> <em class="emph">(int <var class="var">foo</var>, float <var class="var">bar</var>)</em><a class="copiable-anchor" href=\'#index-foobar\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-foobar-1"><span class="category">Library Function: </span><span><em class="emph">int</em> <strong class="strong">foobar</strong> <em class="emph">(int <var class="var">foo</var>, float <var class="var">bar</var>)         (arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) ct<br><br> last</em><a class="copiable-anchor" href=\'#index-foobar-1\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-foobar-1"><span class="category-def">Library Function: </span><span><em class="emph">int</em> <strong class="strong">foobar</strong> <em class="emph">(int <var class="var">foo</var>, float <var class="var">bar</var>)         (arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) ct<br><br> last</em><a class="copiable-anchor" href=\'#index-foobar-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-foobug"><span class="category">Library Function: </span><span><em class="emph">int</em> <strong class="strong">foobug</strong> <em class="emph">[something</em><a class="copiable-anchor" href=\'#index-foobug\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-foobug"><span class="category-def">Library Function: </span><span><em class="emph">int</em> <strong class="strong">foobug</strong> <em class="emph">[something</em><a class="copiable-anchor" href=\'#index-foobug\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-push"><span class="category">stacks: </span><span><em class="emph">private</em> <strong class="strong">push</strong> <em class="emph">(<var class="var">s</var>:in out stack;                  <var class="var">n</var>:in integer) ; ;barg aarg; ; end</em><a class="copiable-anchor" href=\'#index-push\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-push"><span class="category-def">stacks: </span><span><em class="emph">private</em> <strong class="strong">push</strong> <em class="emph">(<var class="var">s</var>:in out stack;                  <var class="var">n</var>:in integer) ; ;barg aarg; ; end</em><a class="copiable-anchor" href=\'#index-push\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypevr">
-<dt class="deftypevr" id="index-enable"><span class="category">Global Flag: </span><span><em class="emph">int</em> <strong class="strong">enable</strong> <em class="emph">(arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</em><a class="copiable-anchor" href=\'#index-enable\'> &para;</a></span></dt>
+<dt class="deftypevr" id="index-enable"><span class="category-def">Global Flag: </span><span><em class="emph">int</em> <strong class="strong">enable</strong> <em class="emph">(arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</em><a class="copiable-anchor" href=\'#index-enable\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftp">
-<dt class="deftp" id="index-pair"><span class="category">Data type: </span><span><strong class="strong">pair</strong> <em class="emph">car cdr         (arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</em><a class="copiable-anchor" href=\'#index-pair\'> &para;</a></span></dt>
+<dt class="deftp" id="index-pair"><span class="category-def">Data type: </span><span><strong class="strong">pair</strong> <em class="emph">car cdr         (arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</em><a class="copiable-anchor" href=\'#index-pair\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defcv">
@@ -16176,47 +16176,47 @@ span:hover a.copiable-anchor {visibility: visible}
 </dl>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-apply"><span class="category">Function: </span><span><strong class="strong">apply</strong> <em class="emph">function &amp;rest arguments</em><a class="copiable-anchor" href=\'#index-apply\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-apply"><span class="category-def">Function: </span><span><strong class="strong">apply</strong> <em class="emph">function &amp;rest arguments</em><a class="copiable-anchor" href=\'#index-apply\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-A2"><span class="category"><var class="var">A1</var>: </span><span><strong class="strong"><var class="var">A2</var></strong> <em class="emph"><var class="var">A3</var> <var class="var">A4</var></em><a class="copiable-anchor" href=\'#index-A2\'> &para;</a></span></dt>
+<dt class="deffn" id="index-A2"><span class="category-def"><var class="var">A1</var>: </span><span><strong class="strong"><var class="var">A2</var></strong> <em class="emph"><var class="var">A3</var> <var class="var">A4</var></em><a class="copiable-anchor" href=\'#index-A2\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-A2-1"><span class="category"><code class="code">A1</code>: </span><span><strong class="strong"><code class="code">A2</code></strong> <em class="emph"><code class="code">A3</code> <code class="code">A4</code></em><a class="copiable-anchor" href=\'#index-A2-1\'> &para;</a></span></dt>
+<dt class="deffn" id="index-A2-1"><span class="category-def"><code class="code">A1</code>: </span><span><strong class="strong"><code class="code">A2</code></strong> <em class="emph"><code class="code">A3</code> <code class="code">A4</code></em><a class="copiable-anchor" href=\'#index-A2-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defvr">
-<dt class="defvr" id="index-A2-5"><span class="category"><var class="var">A1</var>: </span><span><strong class="strong"><var class="var">A2</var></strong> <em class="emph"><var class="var">A3</var> <var class="var">A4</var></em><a class="copiable-anchor" href=\'#index-A2-5\'> &para;</a></span></dt>
+<dt class="defvr" id="index-A2-5"><span class="category-def"><var class="var">A1</var>: </span><span><strong class="strong"><var class="var">A2</var></strong> <em class="emph"><var class="var">A3</var> <var class="var">A4</var></em><a class="copiable-anchor" href=\'#index-A2-5\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defvr">
-<dt class="defvr" id="index-A2-6"><span class="category"><code class="code">A1</code>: </span><span><strong class="strong"><code class="code">A2</code></strong> <em class="emph"><code class="code">A3</code> <code class="code">A4</code></em><a class="copiable-anchor" href=\'#index-A2-6\'> &para;</a></span></dt>
+<dt class="defvr" id="index-A2-6"><span class="category-def"><code class="code">A1</code>: </span><span><strong class="strong"><code class="code">A2</code></strong> <em class="emph"><code class="code">A3</code> <code class="code">A4</code></em><a class="copiable-anchor" href=\'#index-A2-6\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-A3"><span class="category"><var class="var">A1</var>: </span><span><em class="emph"><var class="var">A2</var></em> <strong class="strong"><var class="var">A3</var></strong> <em class="emph"><var class="var">A4</var> <var class="var">A5</var></em><a class="copiable-anchor" href=\'#index-A3\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-A3"><span class="category-def"><var class="var">A1</var>: </span><span><em class="emph"><var class="var">A2</var></em> <strong class="strong"><var class="var">A3</var></strong> <em class="emph"><var class="var">A4</var> <var class="var">A5</var></em><a class="copiable-anchor" href=\'#index-A3\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-A3-1"><span class="category"><code class="code">A1</code>: </span><span><em class="emph"><code class="code">A2</code></em> <strong class="strong"><code class="code">A3</code></strong> <em class="emph"><code class="code">A4</code> <code class="code">A5</code></em><a class="copiable-anchor" href=\'#index-A3-1\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-A3-1"><span class="category-def"><code class="code">A1</code>: </span><span><em class="emph"><code class="code">A2</code></em> <strong class="strong"><code class="code">A3</code></strong> <em class="emph"><code class="code">A4</code> <code class="code">A5</code></em><a class="copiable-anchor" href=\'#index-A3-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypevr">
-<dt class="deftypevr" id="index-A3-2"><span class="category"><var class="var">A1</var>: </span><span><em class="emph"><var class="var">A2</var></em> <strong class="strong"><var class="var">A3</var></strong> <em class="emph"><var class="var">A4</var> <var class="var">A5</var></em><a class="copiable-anchor" href=\'#index-A3-2\'> &para;</a></span></dt>
+<dt class="deftypevr" id="index-A3-2"><span class="category-def"><var class="var">A1</var>: </span><span><em class="emph"><var class="var">A2</var></em> <strong class="strong"><var class="var">A3</var></strong> <em class="emph"><var class="var">A4</var> <var class="var">A5</var></em><a class="copiable-anchor" href=\'#index-A3-2\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypevr">
-<dt class="deftypevr" id="index-A3-3"><span class="category"><code class="code">A1</code>: </span><span><em class="emph"><code class="t">A2</code></em> <strong class="strong"><code class="code">A3</code></strong> <em class="emph"><code class="code">A4</code> <code class="code">A5</code></em><a class="copiable-anchor" href=\'#index-A3-3\'> &para;</a></span></dt>
+<dt class="deftypevr" id="index-A3-3"><span class="category-def"><code class="code">A1</code>: </span><span><em class="emph"><code class="t">A2</code></em> <strong class="strong"><code class="code">A3</code></strong> <em class="emph"><code class="code">A4</code> <code class="code">A5</code></em><a class="copiable-anchor" href=\'#index-A3-3\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftp">
-<dt class="deftp" id="index-A2-2"><span class="category"><var class="var">A1</var>: </span><span><strong class="strong"><var class="var">A2</var></strong> <em class="emph"><var class="var">A3</var> <var class="var">A4</var></em><a class="copiable-anchor" href=\'#index-A2-2\'> &para;</a></span></dt>
+<dt class="deftp" id="index-A2-2"><span class="category-def"><var class="var">A1</var>: </span><span><strong class="strong"><var class="var">A2</var></strong> <em class="emph"><var class="var">A3</var> <var class="var">A4</var></em><a class="copiable-anchor" href=\'#index-A2-2\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftp">
-<dt class="deftp" id="index-A2-3"><span class="category"><code class="code">A1</code>: </span><span><strong class="strong"><code class="code">A2</code></strong> <em class="emph"><code class="code">A3</code> <code class="code">A4</code></em><a class="copiable-anchor" href=\'#index-A2-3\'> &para;</a></span></dt>
+<dt class="deftp" id="index-A2-3"><span class="category-def"><code class="code">A1</code>: </span><span><strong class="strong"><code class="code">A2</code></strong> <em class="emph"><code class="code">A3</code> <code class="code">A4</code></em><a class="copiable-anchor" href=\'#index-A2-3\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defcv">
@@ -16224,7 +16224,7 @@ span:hover a.copiable-anchor {visibility: visible}
 </dl>
 
 <dl class="first-deftp">
-<dt class="deftp" id="index-A2-4"><span class="category"><code class="code">A1</code>: </span><span><strong class="strong"><code class="code">A2</code></strong> <em class="emph"><code class="code">A3</code> <code class="code">A4</code> <code class="code">A5</code></em><a class="copiable-anchor" href=\'#index-A2-4\'> &para;</a></span></dt>
+<dt class="deftp" id="index-A2-4"><span class="category-def"><code class="code">A1</code>: </span><span><strong class="strong"><code class="code">A2</code></strong> <em class="emph"><code class="code">A3</code> <code class="code">A4</code> <code class="code">A5</code></em><a class="copiable-anchor" href=\'#index-A2-4\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypecv">
@@ -16252,33 +16252,34 @@ span:hover a.copiable-anchor {visibility: visible}
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-fun_005fname"><span class="category">code then var: </span><span><em class="emph">ret_type</em> <strong class="strong">fun_name</strong> <em class="emph"><code class="code">A1</code> <var class="var">A2</var> <code class="code">A3</code> <var class="var">A4</var></em><a class="copiable-anchor" href=\'#index-fun_005fname\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-fun_005fname"><span class="category-def">code then var: </span><span><em class="emph">ret_type</em> <strong class="strong">fun_name</strong> <em class="emph"><code class="code">A1</code> <var class="var">A2</var> <code class="code">A3</code> <var class="var">A4</var></em><a class="copiable-anchor" href=\'#index-fun_005fname\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-fun_005fname1"><span class="category">var then code: </span><span><em class="emph">ret_type1</em> <strong class="strong">fun_name1</strong> <em class="emph"><var class="var">A1</var> <code class="code">A2</code> <var class="var">A3</var> <code class="code">A4</code></em><a class="copiable-anchor" href=\'#index-fun_005fname1\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-fun_005fname1"><span class="category-def">var then code: </span><span><em class="emph">ret_type1</em> <strong class="strong">fun_name1</strong> <em class="emph"><var class="var">A1</var> <code class="code">A2</code> <var class="var">A3</var> <code class="code">A4</code></em><a class="copiable-anchor" href=\'#index-fun_005fname1\'> &para;</a></span></dt>
 </dl>
 
 <h3 class="heading" id="Functions">Functions</h3>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_symbol-1"><b>)</b></a>
+<div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>)</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_symbol-2"><b>,</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_symbol-2"><b>,</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_symbol-3"><b>;</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_symbol-3"><b>;</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#Top_fn_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_letter-E"><b>E</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-E"><b>E</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-F"><b>F</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_letter-N"><b>N</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-N"><b>N</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_letter-P"><b>P</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-P"><b>P</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_fn_symbol-1">)</th><td></td><td></td></tr>
@@ -16330,32 +16331,34 @@ span:hover a.copiable-anchor {visibility: visible}
 <tr><td></td><td valign="top"><a href="#index-push"><code>push</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_symbol-1"><b>)</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>)</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_symbol-2"><b>,</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_symbol-2"><b>,</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_symbol-3"><b>;</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_symbol-3"><b>;</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter" href="#Top_fn_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_letter-E"><b>E</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-E"><b>E</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-F"><b>F</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_letter-N"><b>N</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-N"><b>N</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_fn_letter-P"><b>P</b></a>
+<a class="summary-letter-printindex" href="#Top_fn_letter-P"><b>P</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 <h3 class="heading" id="Types">Types</h3>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_tp_letter-A"><b>A</b></a>
+<div class="printindex tp-printindex">
+<table class="tp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_tp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_tp_letter-P"><b>P</b></a>
+<a class="summary-letter-printindex" href="#Top_tp_letter-P"><b>P</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-tp" border="0">
+<table class="tp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_tp_letter-A">A</th><td></td><td></td></tr>
@@ -16367,23 +16370,25 @@ span:hover a.copiable-anchor {visibility: visible}
 <tr><td></td><td valign="top"><a href="#index-pair"><code>pair</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_tp_letter-A"><b>A</b></a>
+<table class="tp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_tp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_tp_letter-P"><b>P</b></a>
+<a class="summary-letter-printindex" href="#Top_tp_letter-P"><b>P</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 <h3 class="heading" id="Variables">Variables</h3>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-A"><b>A</b></a>
+<div class="printindex vr-printindex">
+<table class="vr-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_vr_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_vr_letter-B"><b>B</b></a>
+<a class="summary-letter-printindex" href="#Top_vr_letter-B"><b>B</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_vr_letter-E"><b>E</b></a>
+<a class="summary-letter-printindex" href="#Top_vr_letter-E"><b>E</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_vr_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#Top_vr_letter-F"><b>F</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-vr" border="0">
+<table class="vr-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_vr_letter-A">A</th><td></td><td></td></tr>
@@ -16406,15 +16411,16 @@ span:hover a.copiable-anchor {visibility: visible}
 <tr><td></td><td valign="top"><a href="#index-fill_002dcolumn"><code>fill-column</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-A"><b>A</b></a>
+<table class="vr-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_vr_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_vr_letter-B"><b>B</b></a>
+<a class="summary-letter-printindex" href="#Top_vr_letter-B"><b>B</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_vr_letter-E"><b>E</b></a>
+<a class="summary-letter-printindex" href="#Top_vr_letter-E"><b>E</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Top_vr_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#Top_vr_letter-F"><b>F</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 
 

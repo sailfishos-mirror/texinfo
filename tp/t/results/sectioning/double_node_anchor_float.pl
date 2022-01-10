@@ -860,14 +860,14 @@ $result_converted{'html'}->{'double_node_anchor_float'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<a class="node-anchor" id="node1"></a><div class="header">
+<a class="node-anchor" id="node1"></a><div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
 <h4 class="node-heading">node1</h4>
 
 <hr>
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
@@ -875,7 +875,7 @@ $result_converted{'html'}->{'double_node_anchor_float'} = '<!DOCTYPE html>
 
 <a class="anchor" id="anchor1"></a>
 <hr>
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
@@ -890,7 +890,7 @@ $result_converted{'html'}->{'double_node_anchor_float'} = '<!DOCTYPE html>
 <div class="type-number-float"><p><strong class="strong">Text 1
 </strong></p></div></div>
 <hr>
-<div class="header">
+<div class="nav-header">
 <p>
  &nbsp; </p>
 </div>

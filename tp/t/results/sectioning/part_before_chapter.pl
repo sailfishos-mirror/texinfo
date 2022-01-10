@@ -253,7 +253,7 @@ $result_converted{'html'}->{'part_before_chapter'} = '<!DOCTYPE html>
 <h1 class="part">part</h1>
 <hr>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
 <div class="chapter" id="chapter">

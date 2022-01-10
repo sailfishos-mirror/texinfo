@@ -759,7 +759,7 @@ $result_converted{'plaintext'}->{'index_entry_before_node'} = 'Para.
 ';
 
 
-$result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-anchor" id="Top"></a><div class="header">
+$result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-anchor" id="Top"></a><div class="nav-header">
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -767,7 +767,7 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-an
 
 
 <hr>
-<a class="node-anchor" id="first"></a><div class="header">
+<a class="node-anchor" id="first"></a><div class="nav-header">
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -778,25 +778,27 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-an
 <a class="index-entry-anchor" id="index-lone-entry"></a>
 
 <hr>
-<a class="node-anchor" id="second"></a><div class="header">
+<a class="node-anchor" id="second"></a><div class="nav-header">
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
 <h4 class="node-heading">second</h4>
 
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-L"><b>L</b></a>
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-cp" border="0">
+<table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_cp_letter-L">L</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lone-entry">lone entry</a>:</td><td>&nbsp;</td><td valign="top"><a href="#first">first</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-L"><b>L</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 ';
 
 1;

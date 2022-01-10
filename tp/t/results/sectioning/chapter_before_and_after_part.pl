@@ -406,7 +406,7 @@ $result_converted{'html'}->{'chapter_before_and_after_part'} = '<!DOCTYPE html>
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
-ul.no-bullet {list-style: none}
+ul.toc-numbered-mark {list-style: none}
 -->
 </style>
 
@@ -422,20 +422,20 @@ ul.no-bullet {list-style: none}
 <h1 class="part">part</h1>
 <hr>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter-2" accesskey="1">chapter 2</a></li>
 </ul>
 <div class="chapter" id="chapter-2">
 <h2 class="chapter">2 chapter 2</h2>
 
-<div class="contents-element" id="SEC_Contents">
+<div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
   <li><a id="toc-chapter" href="#chapter">1 chapter</a></li>
 <li><a id="toc-part" href="#part">part</a>
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
   <li><a id="toc-chapter-2" href="#chapter-2">2 chapter 2</a></li>
 </ul></li>
 

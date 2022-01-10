@@ -487,7 +487,7 @@ $result_converted{'html'}->{'section_before_after_top_node_last_node'} = '<!DOCT
 <body lang="en">
 
 <div class="unnumbered" id="before">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#node-after" accesskey="n" rel="next">node after</a> &nbsp; </p>
 </div>
@@ -504,7 +504,7 @@ Next: <a href="#node-after" accesskey="n" rel="next">node after</a> &nbsp; </p>
 <p>in chapter
 </p>
 <hr>
-<a class="node-anchor" id="node-after"></a><div class="header">
+<a class="node-anchor" id="node-after"></a><div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top section</a> &nbsp; </p>
 </div>

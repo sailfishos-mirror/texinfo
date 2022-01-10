@@ -662,7 +662,7 @@ $result_converted{'plaintext'}->{'index_entry_in_footnote_different_node_end'} =
 ';
 
 
-$result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} = '<a class="node-anchor" id="Top"></a><div class="header">
+$result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} = '<a class="node-anchor" id="Top"></a><div class="nav-header">
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -672,18 +672,19 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 <p>Top node<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 <hr>
-<a class="node-anchor" id="First"></a><div class="header">
+<a class="node-anchor" id="First"></a><div class="nav-header">
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
 <h4 class="node-heading">First</h4>
 
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-C"><b>C</b></a>
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-I"><b>I</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-cp" border="0">
+<table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_cp_letter-C">C</th><td></td><td></td></tr>
@@ -693,11 +694,12 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 <tr><td></td><td valign="top"><a href="#index-index-entry-in-footnote">index entry in footnote</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-C"><b>C</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter" href="#t_h_cp_letter-I"><b>I</b></a>
+<a class="summary-letter-printindex" href="#t_h_cp_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 <div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>

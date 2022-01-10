@@ -769,7 +769,7 @@ $result_converted{'html'}->{'shortcontents'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-ul.no-bullet {list-style: none}
+ul.toc-numbered-mark {list-style: none}
 -->
 </style>
 
@@ -780,15 +780,15 @@ ul.no-bullet {list-style: none}
 <div class="top" id="top">
 <h1 class="top">top</h1>
 
-<div class="shortcontents-element" id="SEC_Shortcontents">
+<div class="element-shortcontents" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
-<ul class="no-bullet">
-<li><ul class="no-bullet">
+<ul class="toc-numbered-mark">
+<li><ul class="toc-numbered-mark">
 <li><a id="stoc-chapter" href="#chapter">1 chapter</a></li>
 </ul></li>
-<li><a id="stoc-part" href="#part">part</a><ul class="no-bullet">
+<li><a id="stoc-part" href="#part">part</a><ul class="toc-numbered-mark">
 <li><a id="stoc-chapter-in-part" href="#chapter-in-part">2 chapter in part</a></li>
 <li><a id="stoc-second-chapter-in-part" href="#second-chapter-in-part">3 second chapter in part</a></li>
 <li><a id="stoc-unnumbered" href="#unnumbered">unnumbered</a></li>
@@ -801,19 +801,19 @@ ul.no-bullet {list-style: none}
 <div class="chapter" id="chapter">
 <h2 class="chapter">1 chapter</h2>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#section" accesskey="1">section</a></li>
 </ul>
 <div class="section" id="section">
 <h3 class="section">1.1 section</h3>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#subsection" accesskey="1">subsection</a></li>
 </ul>
 <div class="subsection" id="subsection">
 <h4 class="subsection">1.1.1 subsection</h4>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#subsubsection" accesskey="1">subsubsection</a></li>
 </ul>
 <div class="subsubsection" id="subsubsection">
@@ -828,7 +828,7 @@ ul.no-bullet {list-style: none}
 <h1 class="part">part</h1>
 <hr>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#chapter-in-part" accesskey="1">chapter in part</a></li>
 <li><a href="#second-chapter-in-part" accesskey="2">second chapter in part</a></li>
 <li><a href="#unnumbered" accesskey="3">unnumbered</a></li>
@@ -848,7 +848,7 @@ ul.no-bullet {list-style: none}
 <div class="appendix" id="appendix">
 <h2 class="appendix">Appendix A appendix</h2>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#appendixsec" accesskey="1">appendixsec</a></li>
 </ul>
 <div class="appendixsec" id="appendixsec">

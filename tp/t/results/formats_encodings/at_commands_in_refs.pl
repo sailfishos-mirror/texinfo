@@ -22886,14 +22886,14 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 
 <body lang="en">
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#-_007b-_007d" accesskey="n" rel="next"> { }</a> &nbsp; </p>
 </div>
 <h1 class="top" id="Top-1">Top</h1>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#-_007b-_007d" accesskey="1"> { }</a></li>
 <li><a href="#----_0021---_002e--_002e-_003f-_0040" accesskey="2">&nbsp; &nbsp; ! <br> .  . ? @</a></li>
 <li><a href="#g_t_0040-_007b-_007d-_005c-_0023" accesskey="3">@ { } \\ #</a></li>
@@ -22924,7 +22924,7 @@ Next: <a href="#-_007b-_007d" accesskey="n" rel="next"> { }</a> &nbsp; </p>
 </ul>
 <hr>
 <div class="chapter" id="-_007b-_007d">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#----_0021---_002e--_002e-_003f-_0040" accesskey="n" rel="next">&nbsp; &nbsp; ! <br> .  . ? @</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -22933,7 +22933,7 @@ Next: <a href="#----_0021---_002e--_002e-_003f-_0040" accesskey="n" rel="next">&
 <hr>
 </div>
 <div class="chapter" id="----_0021---_002e--_002e-_003f-_0040">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#g_t_0040-_007b-_007d-_005c-_0023" accesskey="n" rel="next">@ { } \\ #</a>, Previous: <a href="#-_007b-_007d" accesskey="p" rel="prev"> { }</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -22942,7 +22942,7 @@ Next: <a href="#g_t_0040-_007b-_007d-_005c-_0023" accesskey="n" rel="next">@ { }
 <hr>
 </div>
 <div class="chapter" id="g_t_0040-_007b-_007d-_005c-_0023">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e" accesskey="n" rel="next">LaTeX TeX &bull; , &copy; &hellip; <small class="enddots">...</small></a>, Previous: <a href="#----_0021---_002e--_002e-_003f-_0040" accesskey="p" rel="prev">&nbsp; &nbsp; ! <br> .  . ? @</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -22951,7 +22951,7 @@ Next: <a href="#LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e" accesskey="n"
 <hr>
 </div>
 <div class="chapter" id="LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212" accesskey="n" rel="next">&equiv; error&rarr; &euro; &iexcl; &rarr; -</a>, Previous: <a href="#g_t_0040-_007b-_007d-_005c-_0023" accesskey="p" rel="prev">@ { } \\ #</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -22960,7 +22960,7 @@ Next: <a href="#g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212" accesskey
 <hr>
 </div>
 <div class="chapter" id="g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#g_t_2265-_2264-_2192" accesskey="n" rel="next">&ge; &le; &rarr;</a>, Previous: <a href="#LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e" accesskey="p" rel="prev">LaTeX TeX &bull; , &copy; &hellip; <small class="enddots">...</small></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -22969,7 +22969,7 @@ Next: <a href="#g_t_2265-_2264-_2192" accesskey="n" rel="next">&ge; &le; &rarr;<
 <hr>
 </div>
 <div class="chapter" id="g_t_2265-_2264-_2192">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#g_t_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae" accesskey="n" rel="next">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a>, Previous: <a href="#g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212" accesskey="p" rel="prev">&equiv; error&rarr; &euro; &iexcl; &rarr; -</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -22978,7 +22978,7 @@ Next: <a href="#g_t_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae" accesskey="n" rel=
 <hr>
 </div>
 <div class="chapter" id="g_t_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#g_t_21d2-_00b0-a-b--_00e5" accesskey="n" rel="next">&rArr; &deg; a&nbsp;b a sunny day &aring;</a>, Previous: <a href="#g_t_2265-_2264-_2192" accesskey="p" rel="prev">&ge; &le; &rarr;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -22987,7 +22987,7 @@ Next: <a href="#g_t_21d2-_00b0-a-b--_00e5" accesskey="n" rel="next">&rArr; &deg;
 <hr>
 </div>
 <div class="chapter" id="g_t_21d2-_00b0-a-b--_00e5">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="n" rel="next">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a>, Previous: <a href="#g_t_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae" accesskey="p" rel="prev">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -22996,7 +22996,7 @@ Next: <a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_
 <hr>
 </div>
 <div class="chapter" id="g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119" accesskey="n" rel="next">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a>, Previous: <a href="#g_t_21d2-_00b0-a-b--_00e5" accesskey="p" rel="prev">&rArr; &deg; a&nbsp;b a sunny day &aring;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23005,7 +23005,7 @@ Next: <a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b
 <hr>
 </div>
 <div class="chapter" id="g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e" accesskey="n" rel="next">&#279; &#277; e&#818; &#7865; &#283; j e&#865;e</a>, Previous: <a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="p" rel="prev">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23014,7 +23014,7 @@ Next: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e" accesskey="n" rel="
 <hr>
 </div>
 <div class="chapter" id="g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#g_t_0131-_1e14-_1e08" accesskey="n" rel="next">i &#274;&#768; &#262;&#807;</a>, Previous: <a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119" accesskey="p" rel="prev">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23023,7 +23023,7 @@ Next: <a href="#g_t_0131-_1e14-_1e08" accesskey="n" rel="next">i &#274;&#768; &#
 <hr>
 </div>
 <div class="chapter" id="g_t_0131-_1e14-_1e08">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a" accesskey="n" rel="next">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a>, Previous: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e" accesskey="p" rel="prev">&#279; &#277; e&#818; &#7865; &#283; j e&#865;e</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23032,7 +23032,7 @@ Next: <a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a" accesskey="n" rel="next"
 <hr>
 </div>
 <div class="chapter" id="g_t_201c-_201d-_2018-_2019-_201e-_201a">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a" accesskey="n" rel="next">&laquo; &raquo; &laquo; &raquo; &lsaquo; &rsaquo;</a>, Previous: <a href="#g_t_0131-_1e14-_1e08" accesskey="p" rel="prev">i &#274;&#768; &#262;&#807;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23041,7 +23041,7 @@ Next: <a href="#g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a" accesskey="n" rel="next"
 <hr>
 </div>
 <div class="chapter" id="g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#g_t_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027" accesskey="n" rel="next">&ldquo; &rdquo; &mdash; &ndash; &lsquo; &rsquo;</a>, Previous: <a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a" accesskey="p" rel="prev">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23050,7 +23050,7 @@ Next: <a href="#g_t_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027"
 <hr>
 </div>
 <div class="chapter" id="g_t_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#AAA-AAA-BBB" accesskey="n" rel="next"><acronym class="acronym" title="fff">AAA</acronym> (fff) <acronym class="acronym" title="fff">AAA</acronym> <acronym class="acronym">BBB</acronym></a>, Previous: <a href="#g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a" accesskey="p" rel="prev">&laquo; &raquo; &laquo; &raquo; &lsaquo; &rsaquo;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23059,7 +23059,7 @@ Next: <a href="#AAA-AAA-BBB" accesskey="n" rel="next"><acronym class="acronym" t
 <hr>
 </div>
 <div class="chapter" id="AAA-AAA-BBB">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#CCC-CCC-DDD" accesskey="n" rel="next"><abbr class="abbr" title="rrr">CCC</abbr> (rrr) <abbr class="abbr" title="rrr">CCC</abbr> <abbr class="abbr">DDD</abbr></a>, Previous: <a href="#g_t_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027" accesskey="p" rel="prev">&ldquo; &rdquo; &mdash; &ndash; &lsquo; &rsquo;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23068,7 +23068,7 @@ Next: <a href="#CCC-CCC-DDD" accesskey="n" rel="next"><abbr class="abbr" title="
 <hr>
 </div>
 <div class="chapter" id="CCC-CCC-DDD">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#someone_0040somewher-no_005fexplain_0040there" accesskey="n" rel="next"><a class="email" href="mailto:someone@somewher">the someone</a> <a class="email" href="mailto:no_explain@there">no_explain@there</a></a>, Previous: <a href="#AAA-AAA-BBB" accesskey="p" rel="prev"><acronym class="acronym" title="fff">AAA</acronym> (fff) <acronym class="acronym" title="fff">AAA</acronym> <acronym class="acronym">BBB</acronym></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23077,7 +23077,7 @@ Next: <a href="#someone_0040somewher-no_005fexplain_0040there" accesskey="n" rel
 <hr>
 </div>
 <div class="chapter" id="someone_0040somewher-no_005fexplain_0040there">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#f_002d_002dile1-f_002d_002dile" accesskey="n" rel="next"><img class="image" src="f--ile1.jpg" alt="f--ile1">  <img class="image" src="f--ile.png" alt="alt"></a>, Previous: <a href="#CCC-CCC-DDD" accesskey="p" rel="prev"><abbr class="abbr" title="rrr">CCC</abbr> (rrr) <abbr class="abbr" title="rrr">CCC</abbr> <abbr class="abbr">DDD</abbr></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23086,7 +23086,7 @@ Next: <a href="#f_002d_002dile1-f_002d_002dile" accesskey="n" rel="next"><img cl
 <hr>
 </div>
 <div class="chapter" id="f_002d_002dile1-f_002d_002dile">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#-_0040-_007b_007d-_002e-" accesskey="n" rel="next"><tt class="verb"> @ {} . </tt></a>, Previous: <a href="#someone_0040somewher-no_005fexplain_0040there" accesskey="p" rel="prev"><a class="email" href="mailto:someone@somewher">the someone</a> <a class="email" href="mailto:no_explain@there">no_explain@there</a></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23095,7 +23095,7 @@ Next: <a href="#-_0040-_007b_007d-_002e-" accesskey="n" rel="next"><tt class="ve
 <hr>
 </div>
 <div class="chapter" id="-_0040-_007b_007d-_002e-">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i" accesskey="n" rel="next"><cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i></a>, Previous: <a href="#f_002d_002dile1-f_002d_002dile" accesskey="p" rel="prev"><img class="image" src="f--ile1.jpg" alt="f--ile1">  <img class="image" src="f--ile.png" alt="alt"></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23104,7 +23104,7 @@ Next: <a href="#cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i" accesskey="n" rel
 <hr>
 </div>
 <div class="chapter" id="cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#env-code-option-samp-command-file-C_002dx-ESC" accesskey="n" rel="next"><code class="env">env</code> <code class="code">code</code> <samp class="option">option</samp> &lsquo;<samp class="samp">samp</samp>&rsquo; <code class="command">command</code> <samp class="file">file</samp> <kbd class="kbd">C-x <kbd class="key">ESC</kbd></kbd></a>, Previous: <a href="#-_0040-_007b_007d-_002e-" accesskey="p" rel="prev"><tt class="verb"> @ {} . </tt></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23113,7 +23113,7 @@ Next: <a href="#env-code-option-samp-command-file-C_002dx-ESC" accesskey="n" rel
 <hr>
 </div>
 <div class="chapter" id="env-code-option-samp-command-file-C_002dx-ESC">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#g_t8_002e27in" accesskey="n" rel="next">8.27<span class="dmn">in</span></a>, Previous: <a href="#cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i" accesskey="p" rel="prev"><cite class="cite">cite asis</cite> in&nbsp;@w&nbsp;<b class="b">b</b><!-- /@w --> <span class="r">in r</span> <small class="sc">SC</small> <strong class="strong">str</strong> <code class="t">t</code> <var class="var">var</var> <em class="dfn">dfn</em> <i class="i">i</i></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23122,7 +23122,7 @@ Next: <a href="#g_t8_002e27in" accesskey="n" rel="next">8.27<span class="dmn">in
 <hr>
 </div>
 <div class="chapter" id="g_t8_002e27in">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#sansserif-slanted" accesskey="n" rel="next"><span class="sansserif">sansserif</span> <i class="slanted">slanted</i></a>, Previous: <a href="#env-code-option-samp-command-file-C_002dx-ESC" accesskey="p" rel="prev"><code class="env">env</code> <code class="code">code</code> <samp class="option">option</samp> &lsquo;<samp class="samp">samp</samp>&rsquo; <code class="command">command</code> <samp class="file">file</samp> <kbd class="kbd">C-x <kbd class="key">ESC</kbd></kbd></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23131,7 +23131,7 @@ Next: <a href="#sansserif-slanted" accesskey="n" rel="next"><span class="sansser
 <hr>
 </div>
 <div class="chapter" id="sansserif-slanted">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#indicateurl" accesskey="n" rel="next">&lsquo;<code class="indicateurl">indicateurl</code>&rsquo;</a>, Previous: <a href="#g_t8_002e27in" accesskey="p" rel="prev">8.27<span class="dmn">in</span></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23140,7 +23140,7 @@ Next: <a href="#indicateurl" accesskey="n" rel="next">&lsquo;<code class="indica
 <hr>
 </div>
 <div class="chapter" id="indicateurl">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#gH-3rd" accesskey="n" rel="next"><sub class="sub">g</sub>H 3<sup class="sup">rd</sup></a>, Previous: <a href="#sansserif-slanted" accesskey="p" rel="prev"><span class="sansserif">sansserif</span> <i class="slanted">slanted</i></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23149,7 +23149,7 @@ Next: <a href="#gH-3rd" accesskey="n" rel="next"><sub class="sub">g</sub>H 3<sup
 <hr>
 </div>
 <div class="chapter" id="gH-3rd">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" accesskey="n" rel="next"><a class="url" href="http://somewhere_aaa">http://somewhere_aaa</a> <a class="url" href="url">text</a> <a class="uref" href="/man.cgi/1/ls">ls</a></a>, Previous: <a href="#indicateurl" accesskey="p" rel="prev">&lsquo;<code class="indicateurl">indicateurl</code>&rsquo;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -23158,7 +23158,7 @@ Next: <a href="#http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_
 <hr>
 </div>
 <div class="chapter" id="http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#gH-3rd" accesskey="p" rel="prev"><sub class="sub">g</sub>H 3<sup class="sup">rd</sup></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>

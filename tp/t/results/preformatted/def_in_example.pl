@@ -297,7 +297,7 @@ $result_converted{'plaintext'}->{'def_in_example'} = '      -- Function: name ar
 
 $result_converted{'html_text'}->{'def_in_example'} = '<div class="example">
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-name"><span class="category">Function: </span><span><strong class="strong">name</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-name\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-name"><span class="category-def">Function: </span><span><strong class="strong">name</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-name\'> &para;</a></span></dt>
 <dd><pre class="example">in defun
 </pre></dd></dl>
 </div>

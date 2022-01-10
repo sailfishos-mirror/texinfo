@@ -1619,7 +1619,7 @@ the author abandon his copyright.
 <link href="#Copying-and-floats" rel="index" title="Copying and floats">
 <style type="text/css">
 <!--
-a.summary-letter {text-decoration: none}
+a.summary-letter-printindex {text-decoration: none}
 -->
 </style>
 
@@ -1629,7 +1629,7 @@ a.summary-letter {text-decoration: none}
 <body lang="en">
 
 <div class="top" id="Top">
-<div class="header">
+<div class="nav-header">
 <p>
 Next: <a href="#Copying-and-floats" accesskey="n" rel="next">Copying and floats</a> &nbsp; [<a href="#Copying-and-floats" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1647,12 +1647,12 @@ the author abandon his copyright.
 <a class="index-entry-anchor" id="index-copying-indexed-caption-function"></a>
 </div></div>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Copying-and-floats" accesskey="1">Copying and floats</a></li>
 </ul>
 <hr>
 <div class="appendix" id="Copying-and-floats">
-<div class="header">
+<div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Copying-and-floats" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1685,10 +1685,11 @@ the author abandon his copyright.
 </dd>
 </dl>
 
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Copying-and-floats_cp_letter-I"><b>I</b></a>
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Copying-and-floats_cp_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-cp" border="0">
+<table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Copying-and-floats_cp_letter-I">I</th><td></td><td></td></tr>
@@ -1696,15 +1697,17 @@ the author abandon his copyright.
 <tr><td></td><td valign="top"><a href="#index-copying-indexed-caption-copying-footnote">indexed caption copying footnote</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Copying-and-floats_cp_letter-I"><b>I</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Copying-and-floats_cp_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Copying-and-floats_fn_letter-I"><b>I</b></a>
+</div>
+<div class="printindex fn-printindex">
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Copying-and-floats_fn_letter-I"><b>I</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Copying-and-floats_fn_letter-P"><b>P</b></a>
+<a class="summary-letter-printindex" href="#Copying-and-floats_fn_letter-P"><b>P</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-fn" border="0">
+<table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Copying-and-floats_fn_letter-I">I</th><td></td><td></td></tr>
@@ -1714,11 +1717,12 @@ the author abandon his copyright.
 <tr><td></td><td valign="top"><a href="#index-copying-public-domain-function"><code>public domain function</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Copying-and-floats_fn_letter-I"><b>I</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Copying-and-floats_fn_letter-I"><b>I</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Copying-and-floats_fn_letter-P"><b>P</b></a>
+<a class="summary-letter-printindex" href="#Copying-and-floats_fn_letter-P"><b>P</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 </div>
 </div>
 <div class="footnote">

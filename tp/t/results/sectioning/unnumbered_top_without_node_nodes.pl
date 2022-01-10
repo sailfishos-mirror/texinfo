@@ -905,7 +905,7 @@ $result_converted{'html'}->{'unnumbered_top_without_node_nodes'} = '<!DOCTYPE ht
 
 <body lang="en">
 <div class="unnumbered" id="a-node">
-<div class="header">
+<div class="nav-header">
 <p>
 Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>
@@ -921,7 +921,7 @@ Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 <hr>
 </div>
 <div class="chapter" id="second">
-<div class="header">
+<div class="nav-header">
 <p>
 Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>

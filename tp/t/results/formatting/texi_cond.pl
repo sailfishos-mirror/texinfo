@@ -473,7 +473,7 @@ $result_converted{'html'}->{'texi_cond'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-span.smaller {font-size: smaller}
+span.program-in-footer {font-size: smaller}
 -->
 </style>
 
@@ -499,7 +499,7 @@ This is html text.
 </p>
 <hr>
 <p>
-  <span class="smaller">This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
+  <span class="program-in-footer">This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
 </p>
 
 
