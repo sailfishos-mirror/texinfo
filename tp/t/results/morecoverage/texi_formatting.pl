@@ -4902,7 +4902,7 @@ $result_converted{'html'}->{'texi_formatting'} = '<!DOCTYPE html>
 <!--
 a.summary-letter {text-decoration: none}
 div.example {margin-left: 3.2em}
-h2.center-align {text-align:center}
+h2.centerchap {text-align:center}
 kbd {font-style: oblique}
 ul.no-bullet {list-style: none}
 -->
@@ -5135,7 +5135,7 @@ Previous: <a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" accessk
 <p>
 Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">Top section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="centerchap center-align" id="chapter-2">chapter 2</h2>
+<h2 class="centerchap" id="chapter-2">chapter 2</h2>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#chapter2_cp_symbol-1"><b>.</b></a>
  &nbsp; 
@@ -5452,7 +5452,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<h2 class="centerchap center-align" id="chapter-2">chapter 2</h2>
+<h2 class="centerchap" id="chapter-2">chapter 2</h2>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_symbol-1"><b>.</b></a>
  &nbsp; 

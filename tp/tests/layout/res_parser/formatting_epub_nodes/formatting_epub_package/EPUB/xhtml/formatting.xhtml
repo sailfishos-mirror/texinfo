@@ -802,14 +802,14 @@ truc: after a deff item
 
 <style type="text/css">
 <!--
-div.center-align {text-align:center}
+div.center {text-align:center}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
 h3.subtitle {text-align:right}
 kbd {font-style: oblique}
 kbd.key {font-style: normal}
-p.left-align {text-align:left}
-p.right-align {text-align:right}
+p.flushleft-paragraph {text-align:left}
+p.flushright-paragraph {text-align:right}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -1175,7 +1175,7 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <blockquote>
 <p>aaa quotation
 </p></blockquote>
-<div class="center-align">&#8212; <em class="emph">quotation author</em>
+<div class="center">&#8212; <em class="emph">quotation author</em>
 </div>
 <blockquote>
 <p>indent in quotation
@@ -1678,19 +1678,19 @@ ref</a>
 <p>c&#8211;artouche
 </p></td></tr></table>
 
-<p>g&#8211;roupe
-</p>
-<p class="left-align">f&#8211;lushleft
+<div class="group"><p>g&#8211;roupe
+</p></div>
+<div class="flushleft"><p class="flushleft-paragraph">f&#8211;lushleft
 more text
-</p>
-<p class="right-align">f&#8211;lushright
+</p></div>
+<div class="flushright"><p class="flushright-paragraph">f&#8211;lushright
 more text
-</p>
-<div class="center-align">ce&#8211;ntered line
+</p></div>
+<div class="center">ce&#8211;ntered line
 </div>
-<p>r&#8211;raggedright
+<div class="raggedright"><p class="raggedright-paragraph">r&#8211;raggedright
 more text
-</p>
+</p></div>
 <pre class="verbatim">\input texinfo @c -*-texinfo-*-
 
 @c this file is used in tests in @verbatiminclude but not converted
@@ -2190,7 +2190,7 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <blockquote>
 <p>aaa quotation
 </p></blockquote>
-<div class="center-align">&#8212; <em class="emph">quotation author</em>
+<div class="center">&#8212; <em class="emph">quotation author</em>
 </div>
 <blockquote>
 <p>indent in quotation
@@ -2693,19 +2693,19 @@ ref</a>
 <p>c&#8211;artouche
 </p></td></tr></table>
 
-<p>g&#8211;roupe
-</p>
-<p class="left-align">f&#8211;lushleft
+<div class="group"><p>g&#8211;roupe
+</p></div>
+<div class="flushleft"><p class="flushleft-paragraph">f&#8211;lushleft
 more text
-</p>
-<p class="right-align">f&#8211;lushright
+</p></div>
+<div class="flushright"><p class="flushright-paragraph">f&#8211;lushright
 more text
-</p>
-<div class="center-align">ce&#8211;ntered line
+</p></div>
+<div class="center">ce&#8211;ntered line
 </div>
-<p>r&#8211;raggedright
+<div class="raggedright"><p class="raggedright-paragraph">r&#8211;raggedright
 more text
-</p>
+</p></div>
 <pre class="verbatim">\input texinfo @c -*-texinfo-*-
 
 @c this file is used in tests in @verbatiminclude but not converted

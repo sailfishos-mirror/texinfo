@@ -4899,7 +4899,7 @@ $result_converted{'html'}->{'formatting_fr'} = '<!DOCTYPE html>
 <!--
 a.summary-letter {text-decoration: none}
 div.example {margin-left: 3.2em}
-h1.center-align {text-align:center}
+h1.centerchap {text-align:center}
 h3.subtitle {text-align:right}
 kbd {font-style: oblique}
 pre.menu-comment {font-family: serif}
@@ -5215,7 +5215,7 @@ Menu comment
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
 </tr></table>
-<h1 class="centerchap center-align" id="chapter-2">chapter 2</h1>
+<h1 class="centerchap" id="chapter-2">chapter 2</h1>
 
 <table><tr><th valign="top">Aller &agrave;: &nbsp; </th><td><a class="summary-letter" href="#chapter-2_cp_symbol-1"><b>.</b></a>
  &nbsp; 
@@ -5772,7 +5772,7 @@ Menu comment
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
 </tr></table>
-<h1 class="centerchap center-align" id="chapter-2">chapter 2</h1>
+<h1 class="centerchap" id="chapter-2">chapter 2</h1>
 
 <table><tr><th valign="top">Aller &agrave;: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_symbol-1"><b>.</b></a>
  &nbsp; 

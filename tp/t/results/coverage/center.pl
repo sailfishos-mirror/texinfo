@@ -112,7 +112,7 @@ $result_converted{'plaintext'}->{'center'} = '                          in cente
 
 
 $result_converted{'html_text'}->{'center'} = '
-<div class="center-align">in center <code class="code">in code</code>
+<div class="center">in center <code class="code">in code</code>
 </div>
 ';
 

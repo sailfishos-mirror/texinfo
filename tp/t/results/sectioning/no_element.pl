@@ -969,7 +969,7 @@ $result_converted{'html'}->{'no_element'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-h1.center-align {text-align:center}
+h1.settitle {text-align:center}
 kbd {font-style: oblique}
 -->
 </style>
@@ -978,7 +978,7 @@ kbd {font-style: oblique}
 </head>
 
 <body lang="en">
-<h1 class="settitle center-align">no_element test</h1>
+<h1 class="settitle">no_element test</h1>
 
 
 <a class="anchor" id="An-anchor"></a>

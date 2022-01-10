@@ -252,8 +252,8 @@ $result_converted{'html_text'}->{'quotation_author'} = '<blockquote>
 quotation continues.
 </p>
 </blockquote>
-<div class="center-align">&mdash; <em class="emph">First Author</em>
-</div><div class="center-align">&mdash; <em class="emph">S&#7869;cond author</em>
+<div class="center">&mdash; <em class="emph">First Author</em>
+</div><div class="center">&mdash; <em class="emph">S&#7869;cond author</em>
 </div>';
 
 

@@ -353,16 +353,16 @@ $result_converted{'plaintext'}->{'flushright_example_nested'} = '               
 
 
 $result_converted{'html_text'}->{'flushright_example_nested'} = '<div class="example">
-<pre class="example">in   --- flushright
+<div class="flushright"><pre class="example">in   --- flushright
 
-</pre></div>
+</pre></div></div>
 
-<div class="example">
+<div class="flushright"><div class="example">
 <pre class="example">in   --- example
 
 flush then example
 </pre></div>
-';
+</div>';
 
 
 $result_converted{'xml'}->{'flushright_example_nested'} = '<example endspaces=" ">

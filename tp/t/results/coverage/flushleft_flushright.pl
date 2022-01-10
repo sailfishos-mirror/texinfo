@@ -297,18 +297,18 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbb
 
 
 $result_converted{'html_text'}->{'flushleft_flushright'} = '
-<p class="left-align">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb ccccccccccccccc
+<div class="flushleft"><p class="flushleft-paragraph">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb ccccccccccccccc
 ldskf dsflj
      lklsdlv l    lll. Bbb.
 </p>
-<p class="left-align">lhds
-</p>
-<p class="right-align">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb ccccccccccccccc
+<p class="flushleft-paragraph">lhds
+</p></div>
+<div class="flushright"><p class="flushright-paragraph">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb ccccccccccccccc
 ldskf dsflj
      lklsdlv l    lll. Bbb.
 </p>
-<p class="right-align">lhds
-</p>';
+<p class="flushright-paragraph">lhds
+</p></div>';
 
 
 $result_converted{'xml'}->{'flushleft_flushright'} = '

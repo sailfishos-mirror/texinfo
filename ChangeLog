@@ -1,5 +1,20 @@
 2022-01-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%css_map, _default_format_heading_text)
+	(_convert_command_simple_block, _convert_exdent_command)
+	(_convert_center_command, _convert_paragraph_type): use class for
+	headings alignement selector.  Use _convert_command_simple_block
+	to convert raggedright, flushleft, flushright and group, that
+	output a <div>.  Use classes line flushleft-paragraph to align
+	paragraphs.
+
+	* tp/Texinfo/Convert/HTML.pm (_new_document_context): do not set the
+	default 'composition_context' to be raggedright, such that it is
+	possible to know when the @-command was set, instead use an empty
+	string.
+
+2022-01-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%css_map, %style_commands_element)
 	(_convert_email_command, _convert_explained_command)
 	(_convert_footnote_command, _convert_uref_command)

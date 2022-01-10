@@ -1951,37 +1951,37 @@ quotation2
 </div>
 
 <blockquote>
-<p>exdented quotation line   and dash &mdash; in quotation
+<p class="exdent">exdented quotation line   and dash &mdash; in quotation
 </p></blockquote>
 
 <blockquote>
 <p>Not exdented followed by exdented
-</p><p>exdented quotation line
+</p><p class="exdent">exdented quotation line
 </p></blockquote>
 
 <blockquote>
-<p>exdented quotation line
+<p class="exdent">exdented quotation line
 </p><p>Followed by not exdented 
 </p></blockquote>
 
 <blockquote>
-<p>exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az
-</p><p>azeaz az az az az
+<p class="exdent">exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az
+</p><p class="exdent">azeaz az az az az
 </p></blockquote>
 
 <blockquote>
-<p>exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line
-</p><p>az az az az
+<p class="exdent">exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line
+</p><p class="exdent">az az az az
 </p></blockquote>
 
 <blockquote>
 <p>quotation line oidfjslsd aez a aze azaz aeae za eaz az zelef  aaa
-</p><p>ezkfjklezf
+</p><p class="exdent">ezkfjklezf
 </p></blockquote>
 
 <blockquote>
-<p>very loooooooooooooooooooooooooooooooooong exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line
-</p><p>az az az az
+<p class="exdent">very loooooooooooooooooooooooooooooooooong exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line
+</p><p class="exdent">az az az az
 </p></blockquote>
 ';
 

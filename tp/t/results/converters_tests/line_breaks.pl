@@ -614,8 +614,8 @@ $result_converted{'html'}->{'line_breaks'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-div.center-align {text-align:center}
-h1.center-align {text-align:center}
+div.center {text-align:center}
+h1.settitle {text-align:center}
 kbd {font-style: oblique}
 -->
 </style>
@@ -624,11 +624,11 @@ kbd {font-style: oblique}
 </head>
 
 <body lang="en">
-<h1 class="settitle center-align">the manual <br> new version</h1>
+<h1 class="settitle">the manual <br> new version</h1>
 
 <h1 class="title">AWK As A Major Systems Programming <br> Language&mdash;Revisited</h1>
 
-<div class="center-align">in center <br> line break
+<div class="center">in center <br> line break
 </div>
 <dl>
 <dt><strong class="strong">with break <br> after</strong></dt>

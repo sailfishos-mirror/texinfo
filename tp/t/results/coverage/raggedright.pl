@@ -121,8 +121,8 @@ $result_converted{'plaintext'}->{'raggedright'} = 'in raggedright
 
 
 $result_converted{'html_text'}->{'raggedright'} = '
-<p>in raggedright
-</p>';
+<div class="raggedright"><p class="raggedright-paragraph">in raggedright
+</p></div>';
 
 
 $result_converted{'xml'}->{'raggedright'} = '

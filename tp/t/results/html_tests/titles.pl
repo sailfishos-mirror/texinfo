@@ -419,7 +419,7 @@ $result_converted{'html'}->{'titles'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-h1.center-align {text-align:center}
+h1.settitle {text-align:center}
 kbd {font-style: oblique}
 -->
 </style>
@@ -428,7 +428,7 @@ kbd {font-style: oblique}
 </head>
 
 <body lang="en">
-<h1 class="settitle center-align">@title <small class="sc">HTML</small> <code class="code">test</code></h1>
+<h1 class="settitle">@title <small class="sc">HTML</small> <code class="code">test</code></h1>
 
 <div class="top" id="Top">
 <h1 class="top" id="Top-of-_0040title-HTML-test">Top of @title <small class="sc">HTML</small> <code class="code">test</code></h1>

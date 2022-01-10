@@ -1723,15 +1723,15 @@ my %css_map = (
      'span.r'             => 'font-family: initial; font-weight: normal',
      'span.nolinebreak'   => 'white-space: nowrap',
      'kbd.key'            => 'font-style: normal',
-     'p.center-align'     => 'text-align:center',
-     'p.left-align'       => 'text-align:left',
-     'p.right-align'      => 'text-align:right',
-     'h1.center-align'    => 'text-align:center',
-     'h2.center-align'    => 'text-align:center',
-     'h3.center-align'    => 'text-align:center',
+     'p.flushleft-paragraph'   => 'text-align:left',
+     'p.flushright-paragraph'  => 'text-align:right',
+     'h1.centerchap'      => 'text-align:center',
+     'h2.centerchap'      => 'text-align:center',
+     'h3.centerchap'      => 'text-align:center',
+     'h1.settitle'        => 'text-align:center',
      'h3.subtitle'        => 'text-align:right',
-     'h4.center-align'    => 'text-align:center',
-     'div.center-align'   => 'text-align:center',
+     'h4.centerchap'      => 'text-align:center',
+     'div.center'         => 'text-align:center',
      'blockquote.indentedblock' => 'margin-right: 0em',
 
      # The anchor element is wrapped in a <span> rather than a block level
@@ -2767,10 +2767,6 @@ sub _default_format_heading_text($$$$$;$)
     $class = $cmdname;
   }
 
-  my $extra_classes = [];
-  if ($cmdname eq 'centerchap' or $cmdname eq 'settitle') {
-    push @$extra_classes, 'center-align';
-  }
   if ($level < 1) {
     $level = 1;
   } elsif ($level > $self->get_conf('MAX_HEADER_LEVEL')) {
@@ -2780,7 +2776,7 @@ sub _default_format_heading_text($$$$$;$)
   if (defined($id)) {
     $id_str = " id=\"$id\"";
   }
-  my $result = $self->html_attribute_class("h$level", $class, $extra_classes)
+  my $result = $self->html_attribute_class("h$level", $class)
                     ."${id_str}>$text</h$level>";
   # titlefont appears inline in text, so no end of line is
   # added. The end of line should be added by the user if needed.
@@ -3632,20 +3628,21 @@ sub _convert_verbatiminclude_command($$$$)
 $default_commands_conversion{'verbatiminclude'} 
   = \&_convert_verbatiminclude_command;
 
-sub _convert_command_noop($$$$)
+sub _convert_command_simple_block($$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
   my $content = shift;
 
-  return $content;
+  return $self->html_attribute_class('div', $cmdname).'>'
+        .$content.'</div>';
 }
 
-$default_commands_conversion{'raggedright'} = \&_convert_command_noop;
-$default_commands_conversion{'flushleft'} = \&_convert_command_noop;
-$default_commands_conversion{'flushright'} = \&_convert_command_noop;
-$default_commands_conversion{'group'} = \&_convert_command_noop;
+$default_commands_conversion{'raggedright'} = \&_convert_command_simple_block;
+$default_commands_conversion{'flushleft'} = \&_convert_command_simple_block;
+$default_commands_conversion{'flushright'} = \&_convert_command_simple_block;
+$default_commands_conversion{'group'} = \&_convert_command_simple_block;
 
 sub _convert_sp_command($$$$)
 {
@@ -3681,7 +3678,8 @@ sub _convert_exdent_command($$$$)
                                              $args->[0]->{'normal'} ."\n");
   } else {
     # ignore alignment information
-    return "<p>".$args->[0]->{'normal'} ."\n</p>";
+    return $self->html_attribute_class('p', $cmdname).'>'
+                            .$args->[0]->{'normal'} ."\n</p>";
   }
 }
 
@@ -3698,7 +3696,7 @@ sub _convert_center_command($$$$)
     return $self->_convert_preformatted_type($cmdname, $command, 
                                              $args->[0]->{'normal'}."\n");
   } else {
-    return $self->html_attribute_class('div', 'center-align').">"
+    return $self->html_attribute_class('div', $cmdname).">"
                                  .$args->[0]->{'normal'}."\n</div>";
   }
 }
@@ -4847,9 +4845,9 @@ sub _convert_paragraph_type($$$$)
 
   if ($content =~ /\S/) {
     my $align = $self->in_align();
-    if ($align and $paragraph_style{$align}) {
+    if ($align and $align_commands{$align}) {
       return $self->html_attribute_class('p',
-                    $paragraph_style{$align}.'-align').">".$content."</p>";
+                    $align.'-paragraph').">".$content."</p>";
     } else {
       return "<p>".$content."</p>";
     }
@@ -5885,7 +5883,7 @@ sub _new_document_context($$;$)
   push @{$self->{'document_context'}},
           {'cmdname' => $cmdname,
            'formatting_context' => [{'cmdname' => $cmdname}],
-           'composition_context' => ['raggedright'],
+           'composition_context' => [''],
            'formats' => [],
            'monospace' => [0],
            'document_global_context' => $document_global_context,

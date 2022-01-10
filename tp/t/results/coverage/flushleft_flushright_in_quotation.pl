@@ -284,10 +284,10 @@ $result_converted{'plaintext'}->{'flushleft_flushright_in_quotation'} = '     f 
 
 $result_converted{'html_text'}->{'flushleft_flushright_in_quotation'} = '
 <blockquote>
-<p class="left-align">f l
-</p>
-<p class="right-align">f r
-</p></blockquote>
+<div class="flushleft"><p class="flushleft-paragraph">f l
+</p></div>
+<div class="flushright"><p class="flushright-paragraph">f r
+</p></div></blockquote>
 ';
 
 

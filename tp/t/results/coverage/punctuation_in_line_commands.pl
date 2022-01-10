@@ -1199,7 +1199,7 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 
 <blockquote>
 <p><b class="b">quotation arg! After punc:</b> In quotation
-</p><p>exdent quotation! After punc
+</p><p class="exdent">exdent quotation! After punc
 </p></blockquote>
 
 <div class="float" id="float-label_0021-After-punc">
@@ -1221,7 +1221,7 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 
 <h1 class="titlefont">titlefont! After punc</h1>
 
-<div class="center-align">center! After punc
+<div class="center">center! After punc
 </div>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-I"><b>I</b></a>
  &nbsp; 

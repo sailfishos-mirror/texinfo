@@ -458,8 +458,8 @@ in caption
 
 
 $result_converted{'html_text'}->{'block_commands'} = '
-<p>in group
-</p>
+<div class="group"><p>in group
+</p></div>
 <blockquote>
 <p><b class="b">warning:</b> in quotation
 </p></blockquote>

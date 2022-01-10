@@ -131,8 +131,8 @@ $result_converted{'plaintext'}->{'comment_on_group_line'} = 'in group.
 ';
 
 
-$result_converted{'html_text'}->{'comment_on_group_line'} = '<p>in group.
-</p>';
+$result_converted{'html_text'}->{'comment_on_group_line'} = '<div class="group"><p>in group.
+</p></div>';
 
 
 $result_converted{'xml'}->{'comment_on_group_line'} = '<group spaces=" " endspaces=" "><!-- c comment -->

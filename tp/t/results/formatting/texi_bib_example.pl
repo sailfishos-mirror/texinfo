@@ -5612,7 +5612,7 @@ $result_converted{'html'}->{'texi_bib_example'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-h1.center-align {text-align:center}
+h1.settitle {text-align:center}
 kbd {font-style: oblique}
 pre.menu-comment {font-family: serif}
 span.smaller {font-size: smaller}
@@ -5623,7 +5623,7 @@ span.smaller {font-size: smaller}
 </head>
 
 <body lang="en">
-<h1 class="settitle center-align">Texinfo with a Bibliography and References</h1>
+<h1 class="settitle">Texinfo with a Bibliography and References</h1>
 <hr>
 
 
