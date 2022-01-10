@@ -888,7 +888,8 @@ sub associate_other_nodes_to_sections($$)
 }
 
 # mark in the tree where the \begin{document} should be,
-# after the @-commands in preamble
+# after the @-commands in preamble.  It is not setup
+# when using parse_texi_piece only.
 my $latex_document_type = 'preamble_before_content';
 
 sub output($$)
@@ -914,46 +915,7 @@ sub output($$)
     }
   }
 
-  # FIXME is it a good thing to redo what could have been done after the
-  # parsing?  Should the preamble be setup after parse_texi_piece() too?
-  #
-  # check if preamble is already present and determine at which index it should
-  # be inserted.  Preamble is not set if parser was called with parse_texi_piece().
-  # We do not use Texinfo::Common::add_preamble_before_content as we already
-  # have the location as a side effect of checking if the preamble is there, and we do
-  # not seet a container for the preamble but simply add a marker, with less
-  # changes to the tree.
-  my $inserted_preamble_idx = -1;
-  foreach my $content (@{$root->{'contents'}->[0]->{'contents'}}) {
-    $inserted_preamble_idx++;
-    if ($content->{'type'}) {
-      if ($content->{'type'} eq $latex_document_type) {
-        $inserted_preamble_idx = undef;
-        last;
-      } elsif ($content->{'type'} eq 'paragraph') {
-        $inserted_preamble_idx--;
-        last;
-      }
-    }
-    if ($content->{'cmdname'} and not $preamble_commands{$content->{'cmdname'}}) {
-      $inserted_preamble_idx--;
-      last;
-    }
-  }
-
   my $modified_root;
-
-  if (defined($inserted_preamble_idx)) {
-    print STDERR "INSERT $latex_document_type: $inserted_preamble_idx\n"
-      if ($self->get_conf('DEBUG'));
-    $modified_root = {'contents' => [ @{$root->{'contents'}} ], 'type' => $root->{'type'}};
-    my $new_before_node_section = {'type' => $modified_root->{'contents'}->[0]->{'type'},
-                                   'parent' => $modified_root,
-            'contents' => [ @{$modified_root->{'contents'}->[0]->{'contents'}} ]};
-    splice @{$new_before_node_section->{'contents'}}, $inserted_preamble_idx +1, 0, 
-        {'type' => $latex_document_type, 'parent' => $new_before_node_section};
-    $modified_root->{'contents'}->[0] = $new_before_node_section;
-  }
 
   # determine if there is a Top node at the end of the document
   my $in_top_node = undef;
