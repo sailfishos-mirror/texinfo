@@ -1,5 +1,14 @@
 2022-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	TODO update
+
+	* TODO: Delete most of the entries to do with dir files.
+	Mention @dircategory recommendations in the Language section.
+	Move idea for Info to "will not be implemented".  Delete suggestion
+	to use old xinfo, saxinfo or tkinfo programs (all long gone).
+
+2022-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@group should be inside @example not vice versa
 
 	* doc/texinfo.texi (Texinfo Preamble): Fix nesting of
