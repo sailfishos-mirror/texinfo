@@ -322,7 +322,7 @@ $result_converted{'plaintext'}->{'empty_index_entry'} = ' -- :
 
 $result_converted{'html_text'}->{'empty_index_entry'} = '<h1 class="node-heading" id="Top">Top</h1>
 
-<dl class="def">
+<dl class="first-deffn">
 <dt class="deffn"><span class="category">: </span><strong class="strong"></strong></dt>
 </dl>
 

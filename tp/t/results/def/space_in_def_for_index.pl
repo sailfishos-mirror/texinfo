@@ -554,7 +554,7 @@ span:hover a.copiable-anchor {visibility: visible}
 <body lang="en">
 <h1 class="node-heading" id="Top">Top</h1>
 
-<dl class="def">
+<dl class="first-deffn">
 <dt class="deffn" id="index-name"><span class="category">Category: </span><span><strong class="strong">name</strong> <em class="emph">argument argument2...</em><a class="copiable-anchor" href=\'#index-name\'> &para;</a></span></dt>
 <dt class="deffnx def-cmd-deffn" id="index-AAA2"><span class="category">AAA1: </span><span><strong class="strong">AAA2</strong> <em class="emph">arg3</em><a class="copiable-anchor" href=\'#index-AAA2\'> &para;</a></span></dt>
 </dl>

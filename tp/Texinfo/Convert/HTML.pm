@@ -5627,12 +5627,23 @@ sub _convert_def_command($$$$) {
   my $content = shift;
 
   return $content if ($self->in_string());
-  my $class = 'def';
-  if (!$self->get_conf('DEF_TABLE')) {
-    return $self->html_attribute_class('dl', $class).">\n". $content ."</dl>\n";
+
+  my @additional_classes;
+  my $command_name;
+  if ($Texinfo::Common::def_aliases{$cmdname}) {
+    $command_name = $Texinfo::Common::def_aliases{$cmdname};
+    push @additional_classes, "first-$cmdname-alias-first-$command_name";
   } else {
-    return $self->html_attribute_class('table', $class)." width=\"100%\">\n"
-                                       . $content . "</table>\n";
+    $command_name = $cmdname;
+  }
+  my $class = "first-$command_name";
+
+  if (!$self->get_conf('DEF_TABLE')) {
+    return $self->html_attribute_class('dl', $class, \@additional_classes)
+                                              .">\n". $content ."</dl>\n";
+  } else {
+    return $self->html_attribute_class('table', $class, \@additional_classes)
+                    ." width=\"100%\">\n" . $content . "</table>\n";
   }
 }
 

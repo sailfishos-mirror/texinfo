@@ -1,9 +1,15 @@
 2022-01-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_command): use
+	first-def* as class for the main def* command container.
+	Also get alias information with first-def*-alias-first-def*.
+
+2022-01-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%def_aliases): add aliases for the
 	def*x forms too.
 
-	* tp/Texinfo/Common.pm (_convert_def_line_type): add classes
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): add classes
 	for def* commands, adding also information about alias
 	and information about command associated with def*x.
 

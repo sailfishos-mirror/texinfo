@@ -1451,12 +1451,12 @@ $result_converted{'html_text'}->{'complex_nestings'} = '<h1 class="node-heading"
 
 <div class="example">
 <pre class="example">deffs
-</pre><dl class="def">
+</pre><dl class="first-deffn first-defun-alias-first-deffn">
 <dt class="deffn defun-alias-deffn" id="index-my-def"><span class="category">Function: </span><span><strong class="strong">my def</strong> <em class="emph">args <var class="var">arg</var> &hellip;</em><a class="copiable-anchor" href=\'#index-my-def\'> &para;</a></span></dt>
 <dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-other-def"><span class="category">Function: </span><span><strong class="strong">other def</strong> <em class="emph">no args</em><a class="copiable-anchor" href=\'#index-other-def\'> &para;</a></span></dt>
-<dd><dl class="def">
+<dd><dl class="first-deffn">
 <dt class="deffn" id="index-name"><span class="category">type: </span><span><strong class="strong">name</strong> <em class="emph">and now the args</em><a class="copiable-anchor" href=\'#index-name\'> &para;</a></span></dt>
-<dd><dl class="def">
+<dd><dl class="first-defvr first-defvar-alias-first-defvr">
 <dt class="defvr defvar-alias-defvr" id="index-variables"><span class="category">Variable: </span><span><strong class="strong">variables</strong> <em class="emph">variable-name</em><a class="copiable-anchor" href=\'#index-variables\'> &para;</a></span></dt>
 <dd><pre class="example">
 

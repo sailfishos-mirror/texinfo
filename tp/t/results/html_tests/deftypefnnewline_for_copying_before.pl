@@ -741,7 +741,7 @@ span:hover a.copiable-anchor {visibility: visible}
 <div class="top" id="Top">
 <h1 class="top" id="top">top</h1>
 
-<dl class="def">
+<dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
 <dt class="deftypefn deftypefun-alias-deftypefn" id="index-something"><span class="category">Function:<br> </span><span><em class="emph">void</em><br> <strong class="strong">something</strong> <em class="emph">input</em><a class="copiable-anchor" href=\'#index-something\'> &para;</a></span></dt>
 <dd><p>do something with input
 </p></dd></dl>

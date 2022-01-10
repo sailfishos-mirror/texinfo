@@ -759,12 +759,12 @@ $result_converted{'html_text'}->{'same_index_entry_merged_indices'} = '
 <a class="top-anchor" id="SEC_Top"></a>
 <p>Text.
 </p>
-<dl class="def">
+<dl class="first-deffn">
 <dt class="deffn" id="index-mmm_002dmode"><span class="category">Command: </span><span><strong class="strong">mmm-mode</strong> <em class="emph"><var class="var">arg</var></em><a class="copiable-anchor" href=\'#index-mmm_002dmode\'> &para;</a></span></dt>
 <dd><p>Toggle the state of MMM Mode.
 </p></dd></dl>
 
-<dl class="def">
+<dl class="first-defvr first-defvar-alias-first-defvr">
 <dt class="defvr defvar-alias-defvr" id="index-mmm_002dmode-1"><span class="category">Variable: </span><span><strong class="strong">mmm-mode</strong><a class="copiable-anchor" href=\'#index-mmm_002dmode-1\'> &para;</a></span></dt>
 <dd><p>This variable represents MMM Mode.
 </p></dd></dl>

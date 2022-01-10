@@ -2469,17 +2469,17 @@ $result_converted{'plaintext'}->{'def'} = ' -- c--ategory: d--effn_name a--rgume
 
 
 $result_converted{'html_text'}->{'def'} = '
-<dl class="def">
+<dl class="first-deffn">
 <dt class="deffn" id="index-d_002d_002deffn_005fname"><span class="category">c--ategory: </span><span><strong class="strong">d--effn_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deffn_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;effn
 </p></dd></dl>
 
-<dl class="def">
+<dl class="first-deffn">
 <dt class="deffn" id="index-de_002d_002dffn_005fname"><span class="category">cate--gory: </span><span><strong class="strong">de--ffn_name</strong> <em class="emph">ar--guments    more args <br> even more so</em><a class="copiable-anchor" href=\'#index-de_002d_002dffn_005fname\'> &para;</a></span></dt>
 <dd><p>def&ndash;fn
 </p></dd></dl>
 
-<dl class="def">
+<dl class="first-deffn">
 <dt class="deffn" id="index-i"><span class="category">fset: </span><span><strong class="strong"><var class="var">i</var></strong> <em class="emph">a g</em><a class="copiable-anchor" href=\'#index-i\'> &para;</a></span></dt>
 <dt class="deffnx def-cmd-deffn" id="index-truc"><span class="category">cmde: </span><span><strong class="strong">truc</strong> <em class="emph"></em><a class="copiable-anchor" href=\'#index-truc\'> &para;</a></span></dt>
 <dt class="deffnx def-cmd-deffn" id="index-log-trap"><span class="category">Command: </span><span><strong class="strong">log trap</strong> <em class="emph"></em><a class="copiable-anchor" href=\'#index-log-trap\'> &para;</a></span></dt>

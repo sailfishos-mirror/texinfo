@@ -1106,7 +1106,7 @@ Vorige: <a href="#Top" accesskey="p" rel="prev">top section</a>, Nach oben: <a h
 </div>
 <h2 class="chapter" id="chap">1 chap</h2>
 
-<dl class="def">
+<dl class="first-defcv first-defivar-alias-first-defcv">
 <dt class="defcv defivar-alias-defcv" id="index-BBB-of-c"><span>Instanzvariable von c: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-anchor" href=\'#index-BBB-of-c\'> &para;</a></span></dt>
 <dd><p>error&rarr;
 </p></dd></dl>
