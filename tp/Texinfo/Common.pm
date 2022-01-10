@@ -858,6 +858,7 @@ foreach my $def_command(keys %def_map) {
     my ($real_command) = keys (%{$def_map{$def_command}});
     $command_index{$def_command} = $command_index{$real_command};
     $def_aliases{$def_command} = $real_command;
+    $def_aliases{$def_command.'x'} = $real_command.'x';
   }
   $block_commands{$def_command} = 'def';
   $line_commands{$def_command.'x'} = 'line';

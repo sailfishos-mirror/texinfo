@@ -5316,14 +5316,27 @@ sub _convert_def_line_type($$$$)
   my $arguments
     = Texinfo::Convert::Utils::definition_arguments_content($command);
 
+  my @additional_classes = ();
+  my $command_name;
+  if ($Texinfo::Common::def_aliases{$command->{'extra'}->{'def_command'}}) {
+    $command_name = $Texinfo::Common::def_aliases{$command->{'extra'}->{'def_command'}};
+  } else {
+    $command_name = $command->{'extra'}->{'def_command'};
+  }
+  my $original_command_name;
+  if ($Texinfo::Common::def_aliases{$command->{'extra'}->{'original_def_cmdname'}}) {
+    my $original_def_cmdname = $command->{'extra'}->{'original_def_cmdname'};
+    $original_command_name = $Texinfo::Common::def_aliases{$original_def_cmdname};
+    push @additional_classes, "$original_def_cmdname-alias-$original_command_name";
+  } else {
+    $original_command_name = $command->{'extra'}->{'original_def_cmdname'};
+  }
+  if ($command_name ne $original_command_name) {
+    push @additional_classes, "def-cmd-$command_name";
+  }
+
   if (!$self->get_conf('DEF_TABLE')) {
     my $tree;
-    my $command_name;
-    if ($Texinfo::Common::def_aliases{$command->{'extra'}->{'def_command'}}) {
-      $command_name = $Texinfo::Common::def_aliases{$command->{'extra'}->{'def_command'}};
-    } else {
-      $command_name = $command->{'extra'}->{'def_command'};
-    }
     my $name;
     if ($command->{'extra'}->{'def_parsed_hash'}->{'name'}) {
       $name = $command->{'extra'}->{'def_parsed_hash'}->{'name'};
@@ -5526,9 +5539,11 @@ sub _convert_def_line_type($$$$)
       $anchor_span_open = '<span>';
       $anchor_span_close = '</span>';
     }
-    return "<dt$index_label>".$category_result
-              .$anchor_span_open.$self->convert_tree({'type' => '_code',
-                           'contents' => [$tree]}) . "$anchor$anchor_span_close</dt>\n";
+    return $self->html_attribute_class('dt', $original_command_name,
+                                       \@additional_classes)
+         . "$index_label>" . $category_result . $anchor_span_open
+         . $self->convert_tree({'type' => '_code', 'contents' => [$tree]})
+         . "$anchor$anchor_span_close</dt>\n";
   } else {
     my $category_prepared = '';
     if ($command->{'extra'} and $command->{'extra'}->{'def_parsed_hash'}
@@ -5565,7 +5580,9 @@ sub _convert_def_line_type($$$$)
     $type_name .= ' <strong>' . $name . '</strong>' if ($name ne '');
     $type_name .= $arguments_text;
 
-    return "<tr$index_label><td align=\"left\">" . $type_name .
+    return $self->html_attribute_class('tr', $original_command_name,
+                                       \@additional_classes)
+       . "$index_label><td align=\"left\">" . $type_name .
        "</td><td align=\"right\">" . $category_prepared . "</td></tr>\n";
   }
 }
@@ -5610,10 +5627,12 @@ sub _convert_def_command($$$$) {
   my $content = shift;
 
   return $content if ($self->in_string());
+  my $class = 'def';
   if (!$self->get_conf('DEF_TABLE')) {
-    return $self->html_attribute_class('dl', 'def').">\n". $content ."</dl>\n";
+    return $self->html_attribute_class('dl', $class).">\n". $content ."</dl>\n";
   } else {
-    return "<table width=\"100%\">\n" . $content . "</table>\n";
+    return $self->html_attribute_class('table', $class)." width=\"100%\">\n"
+                                       . $content . "</table>\n";
   }
 }
 

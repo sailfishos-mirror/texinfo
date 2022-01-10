@@ -5905,137 +5905,137 @@ span:hover a.copiable-anchor {visibility: visible}
 <body lang="en">
 <h1 class="node-heading" id="Top">Top</h1>
 <dl class="def">
-<dt id="index-d_002d_002defvr_005fname"><span class="category">c--ategory: </span><span><strong class="strong">d--efvr_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defvr_005fname\'> &para;</a></span></dt>
+<dt class="defvr" id="index-d_002d_002defvr_005fname"><span class="category">c--ategory: </span><span><strong class="strong">d--efvr_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defvr_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efvr
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-n_002d_002dame"><span class="category">c--ategory: </span><span><strong class="strong">n--ame</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-n_002d_002dame\'> &para;</a></span></dt>
+<dt class="deffn" id="index-n_002d_002dame"><span class="category">c--ategory: </span><span><strong class="strong">n--ame</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-n_002d_002dame\'> &para;</a></span></dt>
 <dd><p>d&ndash;effn
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-n_002d_002dame-1"><span class="category">c--ategory: </span><span><strong class="strong">n--ame</strong><a class="copiable-anchor" href=\'#index-n_002d_002dame-1\'> &para;</a></span></dt>
+<dt class="deffn" id="index-n_002d_002dame-1"><span class="category">c--ategory: </span><span><strong class="strong">n--ame</strong><a class="copiable-anchor" href=\'#index-n_002d_002dame-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;effn no arg
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002deftypefn_005fname"><span class="category">c--ategory: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypefn_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftypefn_005fname\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-d_002d_002deftypefn_005fname"><span class="category">c--ategory: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypefn_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftypefn_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypefn
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002deftypefn_005fname-1"><span class="category">c--ategory: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypefn_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypefn_005fname-1\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-d_002d_002deftypefn_005fname-1"><span class="category">c--ategory: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypefn_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypefn_005fname-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypefn no arg
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <em class="emph">t--ype</em> <strong class="strong">d--eftypeop_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <em class="emph">t--ype</em> <strong class="strong">d--eftypeop_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypeop
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <em class="emph">t--ype</em> <strong class="strong">d--eftypeop_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <em class="emph">t--ype</em> <strong class="strong">d--eftypeop_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypeop no arg
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002deftypevr_005fname"><span class="category">c--ategory: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypevr_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypevr_005fname\'> &para;</a></span></dt>
+<dt class="deftypevr" id="index-d_002d_002deftypevr_005fname"><span class="category">c--ategory: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypevr_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypevr_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypevr
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002defcv_005fname"><span>c--ategory of c--lass: <strong class="strong">d--efcv_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defcv_005fname\'> &para;</a></span></dt>
+<dt class="defcv" id="index-d_002d_002defcv_005fname"><span>c--ategory of c--lass: <strong class="strong">d--efcv_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defcv_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efcv
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002defcv_005fname-1"><span>c--ategory of c--lass: <strong class="strong">d--efcv_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defcv_005fname-1\'> &para;</a></span></dt>
+<dt class="defcv" id="index-d_002d_002defcv_005fname-1"><span>c--ategory of c--lass: <strong class="strong">d--efcv_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defcv_005fname-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;efcv with arguments
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><span>c--ategory of c--lass: <em class="emph">t--ype</em> <strong class="strong">d--eftypecv_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass\'> &para;</a></span></dt>
+<dt class="deftypecv" id="index-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><span>c--ategory of c--lass: <em class="emph">t--ype</em> <strong class="strong">d--eftypecv_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypecv
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><span>c--ategory of c--lass: <em class="emph">t--ype</em> <strong class="strong">d--eftypecv_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1\'> &para;</a></span></dt>
+<dt class="deftypecv" id="index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><span>c--ategory of c--lass: <em class="emph">t--ype</em> <strong class="strong">d--eftypecv_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypecv with arguments
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002defop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <strong class="strong">d--efop_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defop_005fname-on-c_002d_002dlass\'> &para;</a></span></dt>
+<dt class="defop" id="index-d_002d_002defop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <strong class="strong">d--efop_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defop_005fname-on-c_002d_002dlass\'> &para;</a></span></dt>
 <dd><p>d&ndash;efop
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002defop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <strong class="strong">d--efop_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defop_005fname-on-c_002d_002dlass-1\'> &para;</a></span></dt>
+<dt class="defop" id="index-d_002d_002defop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <strong class="strong">d--efop_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defop_005fname-on-c_002d_002dlass-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;efop no arg
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002deftp_005fname"><span class="category">c--ategory: </span><span><strong class="strong">d--eftp_name</strong> <em class="emph">a--ttributes...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftp_005fname\'> &para;</a></span></dt>
+<dt class="deftp" id="index-d_002d_002deftp_005fname"><span class="category">c--ategory: </span><span><strong class="strong">d--eftp_name</strong> <em class="emph">a--ttributes...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftp_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftp
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002defun_005fname"><span class="category">Function: </span><span><strong class="strong">d--efun_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defun_005fname\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-d_002d_002defun_005fname"><span class="category">Function: </span><span><strong class="strong">d--efun_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defun_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efun
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002defmac_005fname"><span class="category">Macro: </span><span><strong class="strong">d--efmac_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defmac_005fname\'> &para;</a></span></dt>
+<dt class="deffn defmac-alias-deffn" id="index-d_002d_002defmac_005fname"><span class="category">Macro: </span><span><strong class="strong">d--efmac_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defmac_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efmac
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002defspec_005fname"><span class="category">Special Form: </span><span><strong class="strong">d--efspec_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defspec_005fname\'> &para;</a></span></dt>
+<dt class="deffn defspec-alias-deffn" id="index-d_002d_002defspec_005fname"><span class="category">Special Form: </span><span><strong class="strong">d--efspec_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defspec_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efspec
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002defvar_005fname"><span class="category">Variable: </span><span><strong class="strong">d--efvar_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defvar_005fname\'> &para;</a></span></dt>
+<dt class="defvr defvar-alias-defvr" id="index-d_002d_002defvar_005fname"><span class="category">Variable: </span><span><strong class="strong">d--efvar_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defvar_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efvar
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002defvar_005fname-1"><span class="category">Variable: </span><span><strong class="strong">d--efvar_name</strong> <em class="emph">arg--var arg--var1</em><a class="copiable-anchor" href=\'#index-d_002d_002defvar_005fname-1\'> &para;</a></span></dt>
+<dt class="defvr defvar-alias-defvr" id="index-d_002d_002defvar_005fname-1"><span class="category">Variable: </span><span><strong class="strong">d--efvar_name</strong> <em class="emph">arg--var arg--var1</em><a class="copiable-anchor" href=\'#index-d_002d_002defvar_005fname-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;efvar with args
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002defopt_005fname"><span class="category">User Option: </span><span><strong class="strong">d--efopt_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defopt_005fname\'> &para;</a></span></dt>
+<dt class="defvr defopt-alias-defvr" id="index-d_002d_002defopt_005fname"><span class="category">User Option: </span><span><strong class="strong">d--efopt_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defopt_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efopt
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002deftypefun_005fname"><span class="category">Function: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypefun_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftypefun_005fname\'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-d_002d_002deftypefun_005fname"><span class="category">Function: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypefun_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftypefun_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypefun
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002deftypevar_005fname"><span class="category">Variable: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypevar_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypevar_005fname\'> &para;</a></span></dt>
+<dt class="deftypevr deftypevar-alias-deftypevr" id="index-d_002d_002deftypevar_005fname"><span class="category">Variable: </span><span><em class="emph">t--ype</em> <strong class="strong">d--eftypevar_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypevar_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypevar
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002defivar_005fname-of-c_002d_002dlass"><span>Instance Variable of c--lass: <strong class="strong">d--efivar_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defivar_005fname-of-c_002d_002dlass\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-d_002d_002defivar_005fname-of-c_002d_002dlass"><span>Instance Variable of c--lass: <strong class="strong">d--efivar_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002defivar_005fname-of-c_002d_002dlass\'> &para;</a></span></dt>
 <dd><p>d&ndash;efivar
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002deftypeivar_005fname-of-c_002d_002dlass"><span>Instance Variable of c--lass: <em class="emph">t--ype</em> <strong class="strong">d--eftypeivar_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypeivar_005fname-of-c_002d_002dlass\'> &para;</a></span></dt>
+<dt class="deftypecv deftypeivar-alias-deftypecv" id="index-d_002d_002deftypeivar_005fname-of-c_002d_002dlass"><span>Instance Variable of c--lass: <em class="emph">t--ype</em> <strong class="strong">d--eftypeivar_name</strong><a class="copiable-anchor" href=\'#index-d_002d_002deftypeivar_005fname-of-c_002d_002dlass\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypeivar
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002defmethod_005fname-on-c_002d_002dlass"><span>Method on c--lass: <strong class="strong">d--efmethod_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defmethod_005fname-on-c_002d_002dlass\'> &para;</a></span></dt>
+<dt class="defop defmethod-alias-defop" id="index-d_002d_002defmethod_005fname-on-c_002d_002dlass"><span>Method on c--lass: <strong class="strong">d--efmethod_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002defmethod_005fname-on-c_002d_002dlass\'> &para;</a></span></dt>
 <dd><p>d&ndash;efmethod
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass"><span>Method on c--lass: <em class="emph">t--ype</em> <strong class="strong">d--eftypemethod_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass\'> &para;</a></span></dt>
+<dt class="deftypeop deftypemethod-alias-deftypeop" id="index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass"><span>Method on c--lass: <em class="emph">t--ype</em> <strong class="strong">d--eftypemethod_name</strong> <em class="emph">a--rguments...</em><a class="copiable-anchor" href=\'#index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypemethod
 </p></dd></dl>
 

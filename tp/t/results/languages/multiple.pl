@@ -1218,24 +1218,24 @@ span:hover a.copiable-anchor {visibility: visible}
 <h1 class="node-heading" id="Top">Top</h1>
 
 <dl class="def">
-<dt id="index-BBB-of-fr"><span>Variable d\'instance de fr&nbsp;: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-anchor" href=\'#index-BBB-of-fr\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-fr"><span>Variable d\'instance de fr&nbsp;: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-anchor" href=\'#index-BBB-of-fr\'> &para;</a></span></dt>
 <dd><p>erreur&rarr;
 </p></dd></dl>
 
 
 <dl class="def">
-<dt id="index-copying-a-of-copying"><span>Instanzvariable von copying: <strong class="strong">a</strong> <em class="emph">b</em><a class="copiable-anchor" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-copying-a-of-copying"><span>Instanzvariable von copying: <strong class="strong">a</strong> <em class="emph">b</em><a class="copiable-anchor" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
 <dd><p>error&rarr;
 </p></dd></dl>
 
 
 <dl class="def">
-<dt id="index-BBB-of-hr"><span>Primjer varijable od hr: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-anchor" href=\'#index-BBB-of-hr\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span>Primjer varijable od hr: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-anchor" href=\'#index-BBB-of-hr\'> &para;</a></span></dt>
 <dd><p>greška&rarr;
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-copying-a-of-copying"><span>Primjer varijable od copying: <strong class="strong">a</strong> <em class="emph">b</em><a class="copiable-anchor" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-copying-a-of-copying"><span>Primjer varijable od copying: <strong class="strong">a</strong> <em class="emph">b</em><a class="copiable-anchor" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
 <dd><p>greška&rarr;
 </p></dd></dl>
 
