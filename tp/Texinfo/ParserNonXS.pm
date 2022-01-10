@@ -6165,7 +6165,7 @@ to use only what is in common, so document only what is in common.
 
 =item $tree = parse_texi_piece ($parser, $text, $first_line_number)
 
-This function is used to parse some Texinfo fragments.
+This function is used to parse Texinfo fragments.
 
 I<$text> is the string containing the texinfo text.  I<$first_line_number> is
 the line number of the first text line, if undef, it will be set to 1.
@@ -6183,6 +6183,12 @@ not increased for the different lines, as if the text was the expansion
 of a macro.
 
 =end comment
+
+=begin comment
+
+The XS parser implements only part of the arguments and allows only a
+restricted set of arguments types compared to the perl parser.  We want users
+to use only what is in common, so document only what is in common.
 
 =item $tree = parse_texi_text ($parser, $text, $line_numbers_specification, $file_name, $macro_name, $fixed_line_number)
 

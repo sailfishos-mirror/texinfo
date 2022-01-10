@@ -1925,6 +1925,8 @@ upper cased.  The function returns the accents formatted as XML.
 
 Finally, there is:
 
+=over
+
 =item $result = $converter->output_internal_links()
 
 At this level, the method just returns undef.  It is used in the HTML
