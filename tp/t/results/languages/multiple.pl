@@ -182,6 +182,40 @@ $result_trees{'multiple'} = {
                       'type' => 'def_line'
                     },
                     {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'error',
+                              'contents' => [],
+                              'line_nr' => {
+                                'file_name' => '',
+                                'line_nr' => 5,
+                                'macro' => ''
+                              },
+                              'parent' => {}
+                            },
+                            {
+                              'parent' => {},
+                              'text' => '
+'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'paragraph'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'def_item'
+                    },
+                    {
                       'args' => [
                         {
                           'contents' => [
@@ -206,7 +240,7 @@ $result_trees{'multiple'} = {
                       },
                       'line_nr' => {
                         'file_name' => '',
-                        'line_nr' => 5,
+                        'line_nr' => 6,
                         'macro' => ''
                       },
                       'parent' => {}
@@ -248,7 +282,7 @@ $result_trees{'multiple'} = {
                   },
                   'line_nr' => {
                     'file_name' => '',
-                    'line_nr' => 6,
+                    'line_nr' => 7,
                     'macro' => ''
                   },
                   'parent' => {}
@@ -420,11 +454,45 @@ $result_trees{'multiple'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 10,
+                'line_nr' => 11,
                 'macro' => ''
               },
               'parent' => {},
               'type' => 'def_line'
+            },
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'error',
+                      'contents' => [],
+                      'line_nr' => {
+                        'file_name' => '',
+                        'line_nr' => 12,
+                        'macro' => ''
+                      },
+                      'parent' => {}
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
+'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'paragraph'
+                }
+              ],
+              'parent' => {},
+              'type' => 'def_item'
             },
             {
               'args' => [
@@ -451,7 +519,7 @@ $result_trees{'multiple'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 11,
+                'line_nr' => 13,
                 'macro' => ''
               },
               'parent' => {}
@@ -463,7 +531,7 @@ $result_trees{'multiple'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 10,
+            'line_nr' => 11,
             'macro' => ''
           },
           'parent' => {}
@@ -498,7 +566,7 @@ $result_trees{'multiple'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 13,
+            'line_nr' => 15,
             'macro' => ''
           },
           'parent' => {}
@@ -521,7 +589,7 @@ $result_trees{'multiple'} = {
           'cmdname' => 'insertcopying',
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 15,
+            'line_nr' => 17,
             'macro' => ''
           },
           'parent' => {}
@@ -538,7 +606,7 @@ $result_trees{'multiple'} = {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'pt'
+                  'text' => 'hr'
                 }
               ],
               'extra' => {
@@ -552,11 +620,11 @@ $result_trees{'multiple'} = {
           'cmdname' => 'documentlanguage',
           'extra' => {
             'spaces_before_argument' => ' ',
-            'text_arg' => 'pt'
+            'text_arg' => 'hr'
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 17,
+            'line_nr' => 19,
             'macro' => ''
           },
           'parent' => {}
@@ -578,7 +646,7 @@ $result_trees{'multiple'} = {
                       'contents' => [
                         {
                           'extra' => {
-                            'documentlanguage' => 'pt'
+                            'documentlanguage' => 'hr'
                           },
                           'parent' => {},
                           'text' => 'Instance Variable',
@@ -603,7 +671,7 @@ $result_trees{'multiple'} = {
                       'extra' => {
                         'def_role' => 'class'
                       },
-                      'text' => 'pt'
+                      'text' => 'hr'
                     },
                     {
                       'extra' => {
@@ -655,13 +723,13 @@ $result_trees{'multiple'} = {
                   'class' => {},
                   'name' => {}
                 },
-                'documentlanguage' => 'pt',
+                'documentlanguage' => 'hr',
                 'index_entry' => {
                   'command' => {},
                   'content' => [
                     {},
                     {
-                      'text' => ' da '
+                      'text' => ' od '
                     },
                     {}
                   ],
@@ -684,11 +752,45 @@ $result_trees{'multiple'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 19,
+                'line_nr' => 21,
                 'macro' => ''
               },
               'parent' => {},
               'type' => 'def_line'
+            },
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'error',
+                      'contents' => [],
+                      'line_nr' => {
+                        'file_name' => '',
+                        'line_nr' => 22,
+                        'macro' => ''
+                      },
+                      'parent' => {}
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
+'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'paragraph'
+                }
+              ],
+              'parent' => {},
+              'type' => 'def_item'
             },
             {
               'args' => [
@@ -715,7 +817,7 @@ $result_trees{'multiple'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 20,
+                'line_nr' => 23,
                 'macro' => ''
               },
               'parent' => {}
@@ -727,7 +829,7 @@ $result_trees{'multiple'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 19,
+            'line_nr' => 21,
             'macro' => ''
           },
           'parent' => {}
@@ -750,7 +852,7 @@ $result_trees{'multiple'} = {
           'cmdname' => 'insertcopying',
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 22,
+            'line_nr' => 25,
             'macro' => ''
           },
           'parent' => {}
@@ -787,7 +889,7 @@ $result_trees{'multiple'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 24,
+            'line_nr' => 27,
             'macro' => ''
           },
           'parent' => {}
@@ -811,7 +913,7 @@ $result_trees{'multiple'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 8,
+        'line_nr' => 9,
         'macro' => ''
       },
       'parent' => {}
@@ -843,10 +945,15 @@ $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents
 $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[2] = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'region'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2];
+$result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2];
 $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
 $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2];
@@ -877,10 +984,15 @@ $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[2] = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'node'} = $result_trees{'multiple'}{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[2];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[2];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[3]{'args'}[0];
@@ -912,10 +1024,15 @@ $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'extra'}{
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[2] = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'extra'}{'index_entry'}{'node'} = $result_trees{'multiple'}{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'contents'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'contents'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'extra'}{'end_command'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[2]{'args'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[2];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[2]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'extra'}{'end_command'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[2];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[10]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[11];
@@ -932,21 +1049,24 @@ $result_texis{'multiple'} = '@documentlanguage fr
 
 @copying
 @defivar copying a b
+@error{}
 @end defivar
 @end copying
 
 @node Top
 
 @defivar fr BBB CCC
+@error{}
 @end defivar
 
 @documentlanguage de
 
 @insertcopying
 
-@documentlanguage pt
+@documentlanguage hr
 
-@defivar pt BBB CCC
+@defivar hr BBB CCC
+@error{}
 @end defivar
 
 @insertcopying
@@ -959,11 +1079,13 @@ $result_texts{'multiple'} = '
 
 
 Instance Variable of fr: BBB CCC
+error-->
 
 
 
 
-Instance Variable of pt: BBB CCC
+Instance Variable of hr: BBB CCC
+error-->
 
 
 ';
@@ -993,26 +1115,30 @@ $result_floats{'multiple'} = {};
 $result_indices_sort_strings{'multiple'} = {
   'vr' => [
     'a de copying',
-    'BBB da pt',
-    'BBB de fr'
+    'BBB de fr',
+    'BBB od hr'
   ]
 };
 
 
 
 $result_converted{'plaintext'}->{'multiple'} = ' -- Variable d\'instance de fr : BBB CCC
+     erreur→
 
  -- Instanzvariable von copying: a b
+     error→
 
- -- Variável de instância da pt: BBB CCC
+ -- Primjer varijable od hr: BBB CCC
+     greška→
 
- -- Variável de instância da copying: a b
+ -- Primjer varijable od copying: a b
+     greška→
 
 * Menu:
 
-* a de copying:                          Top.                   (line 6)
-* BBB da pt:                             Top.                   (line 4)
+* a de copying:                          Top.                   (line 9)
 * BBB de fr:                             Top.                   (line 0)
+* BBB od hr:                             Top.                   (line 6)
 
 ';
 
@@ -1020,29 +1146,34 @@ $result_converted{'plaintext'}->{'multiple'} = ' -- Variable d\'instance de fr :
 $result_converted{'info'}->{'multiple'} = 'This is , produced from .
 
  -- Variable d\'instance de copying : a b
+     erreur→
 
 
 File: ,  Node: Top,  Up: (dir)
 
  -- Variable d\'instance de fr : BBB CCC
+     erreur→
 
  -- Instanzvariable von copying: a b
+     error→
 
- -- Variável de instância da pt: BBB CCC
+ -- Primjer varijable od hr: BBB CCC
+     greška→
 
- -- Variável de instância da copying: a b
+ -- Primjer varijable od copying: a b
+     greška→
 
  [index ]
 * Menu:
 
-* a de copying:                          Top.                   (line 9)
-* BBB da pt:                             Top.                   (line 7)
-* BBB de fr:                             Top.                   (line 3)
+* a de copying:                          Top.                  (line 12)
+* BBB de fr:                             Top.                  (line  3)
+* BBB od hr:                             Top.                  (line  9)
 
 
 
 Tag Table:
-Node: Top69
+Node: Top84
 
 End Tag Table
 
@@ -1058,7 +1189,8 @@ $result_converted{'html'}->{'multiple'} = '<!DOCTYPE html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- Variable d\'instance de copying: a b -->
+<!-- Variable d\'instance de copying: a b
+erreur-> -->
 <title>Document sans titre</title>
 
 <meta name="description" content="Document sans titre">
@@ -1088,39 +1220,43 @@ span:hover a.copiable-anchor {visibility: visible}
 
 <dl class="def">
 <dt id="index-BBB-of-fr"><span>Variable d\'instance de fr&nbsp;: <strong>BBB</strong> <em>CCC</em><a class="copiable-anchor" href=\'#index-BBB-of-fr\'> &para;</a></span></dt>
-</dl>
+<dd><p>erreur&rarr;
+</p></dd></dl>
 
 
 <dl class="def">
 <dt id="index-copying-a-of-copying"><span>Instanzvariable von copying: <strong>a</strong> <em>b</em><a class="copiable-anchor" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
-</dl>
+<dd><p>error&rarr;
+</p></dd></dl>
 
 
 <dl class="def">
-<dt id="index-BBB-of-pt"><span>Variável de instância da pt: <strong>BBB</strong> <em>CCC</em><a class="copiable-anchor" href=\'#index-BBB-of-pt\'> &para;</a></span></dt>
-</dl>
+<dt id="index-BBB-of-hr"><span>Primjer varijable od hr: <strong>BBB</strong> <em>CCC</em><a class="copiable-anchor" href=\'#index-BBB-of-hr\'> &para;</a></span></dt>
+<dd><p>greška&rarr;
+</p></dd></dl>
 
 <dl class="def">
-<dt id="index-copying-a-of-copying"><span>Variável de instância da copying: <strong>a</strong> <em>b</em><a class="copiable-anchor" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
-</dl>
+<dt id="index-copying-a-of-copying"><span>Primjer varijable od copying: <strong>a</strong> <em>b</em><a class="copiable-anchor" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
+<dd><p>greška&rarr;
+</p></dd></dl>
 
-<table><tr><th valign="top">Pular para: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-A"><b>A</b></a>
+<table><tr><th valign="top">Preskoči na: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Top_vr_letter-B"><b>B</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="index-vr" border="0">
-<tr><td></td><th align="left">Entrada de &Iacute;ndice</th><td>&nbsp;</td><th align="left"> Se&ccedil;&atilde;o</th></tr>
+<tr><td></td><th align="left">Stavka indeksa</th><td>&nbsp;</td><th align="left"> Odlomak</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_vr_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-a-of-copying"><code>a de copying</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_vr_letter-B">B</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-BBB-of-pt"><code>BBB da pt</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-BBB-of-fr"><code>BBB de fr</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-BBB-of-hr"><code>BBB od hr</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Pular para: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-A"><b>A</b></a>
+<table><tr><th valign="top">Preskoči na: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Top_vr_letter-B"><b>B</b></a>
  &nbsp; 
@@ -1147,26 +1283,53 @@ $result_converted{'xml'}->{'multiple'} = '<documentlanguage xml:lang="fr" spaces
 
 <copying endspaces=" ">
 <defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1">a de copying</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>copying</defclass> <defclassvar>a</defclassvar> <defparam>b</defparam></definitionterm>
-</defivar>
+<definitionitem><para>&errorglyph;
+</para></definitionitem></defivar>
 </copying>
 
 <node name="Top" spaces=" "><nodename>Top</nodename></node>
 
 <defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="2">BBB de fr</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>fr</defclass> <defclassvar>BBB</defclassvar> <defparam>CCC</defparam></definitionterm>
-</defivar>
+<definitionitem><para>&errorglyph;
+</para></definitionitem></defivar>
 
 <documentlanguage xml:lang="de" spaces=" ">de</documentlanguage>
 
 <insertcopying></insertcopying>
 
-<documentlanguage xml:lang="pt" spaces=" ">pt</documentlanguage>
+<documentlanguage xml:lang="hr" spaces=" ">hr</documentlanguage>
 
-<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="3">BBB da pt</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>pt</defclass> <defclassvar>BBB</defclassvar> <defparam>CCC</defparam></definitionterm>
-</defivar>
+<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="3">BBB od hr</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>hr</defclass> <defclassvar>BBB</defclassvar> <defparam>CCC</defparam></definitionterm>
+<definitionitem><para>&errorglyph;
+</para></definitionitem></defivar>
 
 <insertcopying></insertcopying>
 
 <printindex value="vr" line="vr"></printindex>
+';
+
+
+$result_converted{'docbook'}->{'multiple'} = '
+<bookinfo><legalnotice><synopsis><indexterm role="vr"><primary>a de copying</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>copying</classname></ooclass> <property>a</property> <replaceable>b</replaceable></synopsis>
+<blockquote><para>erreur&#8594;
+</para></blockquote></legalnotice></bookinfo>
+<anchor id="Top"/>
+
+<synopsis><indexterm role="vr"><primary>BBB de fr</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>fr</classname></ooclass> <property>BBB</property> <replaceable>CCC</replaceable></synopsis>
+<blockquote><para>erreur&#8594;
+</para></blockquote>
+
+<synopsis><indexterm role="vr"><primary>a de copying</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>copying</classname></ooclass> <property>a</property> <replaceable>b</replaceable></synopsis>
+<blockquote><para>error&#8594;
+</para></blockquote>
+
+<synopsis><indexterm role="vr"><primary>BBB od hr</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>hr</classname></ooclass> <property>BBB</property> <replaceable>CCC</replaceable></synopsis>
+<blockquote><para>greška&#8594;
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>a de copying</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>copying</classname></ooclass> <property>a</property> <replaceable>b</replaceable></synopsis>
+<blockquote><para>greška&#8594;
+</para></blockquote>
+<index role="vr"></index>
 ';
 
 1;

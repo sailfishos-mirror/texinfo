@@ -395,8 +395,13 @@ sub _convert($;$)
   if (defined($element->{'text'})) {
     if ($element->{'type'} and $element->{'type'} eq 'untranslated'
         and $options and $options->{'converter'}) {
-      my $tree = $options->{'converter'}->gdt($element->{'text'}, undef,
-                        undef, $element->{'extra'}->{'documentlanguage'});
+      # the tree documentlanguage corresponds to the documentlanguage
+      # at the place of the tree, but the converter may want to use
+      # another documentlanguage, for instance the documentlanguage at
+      # the end of th epreamble, so we let the converter set it.
+      #my $tree = $options->{'converter'}->gdt($element->{'text'}, undef,
+      #                  undef, $element->{'extra'}->{'documentlanguage'});
+      my $tree = $options->{'converter'}->gdt($element->{'text'});
       $result = _convert($tree, $options);
     } else {
       $result = $element->{'text'};

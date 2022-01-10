@@ -8517,10 +8517,17 @@ sub output($$)
   my $structure_status = $self->run_stage_handlers($root, 'structure');
   return undef unless($structure_status);
 
+  my $default_document_language = $self->get_conf('documentlanguage');
+
   $self->set_global_document_commands('preamble', ['documentlanguage']);
 
+  my $preamble_document_language = $self->get_conf('documentlanguage');
   $self->set_conf('BODYTEXT',
-                  'lang="' . $self->get_conf('documentlanguage') . '"');
+                  'lang="' . $preamble_document_language . '"');
+
+  if ($default_document_language ne $preamble_document_language) {
+    $self->_translate_names();
+  }
 
   # prepare title.  fulltitle uses more possibility than simpletitle for
   # title, including @-commands found in @titlepage only.  Therefore
@@ -8588,6 +8595,10 @@ sub output($$)
     }
   }
   $self->set_global_document_commands('before', ['documentlanguage']);
+
+  if ($default_document_language ne $preamble_document_language) {
+    $self->_translate_names();
+  }
 
   # documentdescription
   if (defined($self->get_conf('documentdescription'))) {

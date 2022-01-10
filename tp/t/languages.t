@@ -26,26 +26,80 @@ my @test_cases = (
 
 @copying
 @defivar copying a b
+@error{}
 @end defivar
 @end copying
 
 @node Top
 
 @defivar fr BBB CCC
+@error{}
 @end defivar
 
 @documentlanguage de
 
 @insertcopying
 
-@documentlanguage pt
+@documentlanguage hr
 
-@defivar pt BBB CCC
+@defivar hr BBB CCC
+@error{}
 @end defivar
 
 @insertcopying
 
 @printindex vr
+'],
+['multiple_in_preamble',
+'@documentlanguage fr
+
+@copying
+@defivar copying a b
+@error{}
+@end defivar
+@end copying
+
+@documentlanguage hr
+
+@node Top
+@top top section
+
+@node chapter
+@chapter chap
+
+@defivar hr BBB CCC
+@error{}
+@end defivar
+
+@documentlanguage de
+
+@defivar de FFF GGG
+@end defivar
+'],
+['multiple_in_preamble_before_node',
+'@documentlanguage fr
+
+@copying
+@defivar copying a b
+@error{}
+@end defivar
+@end copying
+
+@documentlanguage hr
+
+Text ending the preamble
+
+@documentlanguage de
+
+@node Top
+@top top section
+
+@node chapter
+@chapter chap
+
+@defivar c BBB CCC
+@error{}
+@end defivar
 '],
 ['appendix_translated',
 '@documentlanguage fr
@@ -165,6 +219,8 @@ $multiple_lang_chapters_text,
 
 my %info_tests = (
   'multiple' => 1,
+  'multiple_in_preamble' => 1,
+  'multiple_in_preamble_before_node' => 1,
   'appendix_translated' => 1,
   'command_translated' => 1,
   'unknown_language' => 1,
@@ -172,7 +228,15 @@ my %info_tests = (
 );
 
 my %xml_tests = (
- 'multiple' => 1,
+  'multiple' => 1,
+  'multiple_in_preamble' => 1,
+  'multiple_in_preamble_before_node' => 1,
+);
+
+my %docbook_tests = (
+  'multiple' => 1,
+  'multiple_in_preamble' => 1,
+  'multiple_in_preamble_before_node' => 1,
 );
 
 foreach my $test (@test_cases) {
@@ -183,6 +247,9 @@ foreach my $test (@test_cases) {
   }
   if ($xml_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'xml';
+  }
+  if ($docbook_tests{$test->[0]}) {
+    push @{$test->[2]->{'test_formats'}}, 'docbook';
   }
 
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));

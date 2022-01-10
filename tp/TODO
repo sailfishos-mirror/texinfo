@@ -13,6 +13,10 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
+Change in doc:
+The text of @copying is output as a comment at the beginning of Info, HTML, XML, and DocBook output files.
+Not true for docbook and XML, it is in elements.
+
 Bugs
 ====
 

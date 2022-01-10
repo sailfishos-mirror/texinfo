@@ -1,5 +1,16 @@
 2022-01-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (output): translate strings if
+	the end of preamble document language is not the same as the default
+	document language.
+
+	* tp/Texinfo/Convert/Text.pm (_convert): use the converter current
+	document language and not the documentlanguage from the tree, as the
+	converter document language may be different, for instance if the
+	document language from the end of the preamble is used.
+
+2022-01-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (output): do not add a preamble
 	if there is none.  The tree used should already contain a
 	preamble if needed.
