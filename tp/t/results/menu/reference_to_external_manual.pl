@@ -302,7 +302,6 @@ $result_converted{'html'}->{'reference_to_external_manual'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

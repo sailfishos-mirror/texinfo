@@ -897,7 +897,6 @@ $result_converted{'html'}->{'unnumbered_top_without_node_nodes'} = '<!DOCTYPE ht
 <link href="#a-node" rel="start" title="a node">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

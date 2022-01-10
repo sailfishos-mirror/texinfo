@@ -82,7 +82,6 @@ $result_converted{'html'}->{'empty_listoffloats'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

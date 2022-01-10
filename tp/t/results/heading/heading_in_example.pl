@@ -183,7 +183,6 @@ $result_converted{'html'}->{'heading_in_example'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
 -->
 </style>
 

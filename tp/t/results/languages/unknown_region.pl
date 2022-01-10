@@ -399,7 +399,6 @@ $result_converted{'html'}->{'unknown_region'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-kbd {font-style: oblique}
 span:hover a.copiable-anchor {visibility: visible}
 -->
 </style>

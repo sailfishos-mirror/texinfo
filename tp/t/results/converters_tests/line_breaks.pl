@@ -616,7 +616,6 @@ $result_converted{'html'}->{'line_breaks'} = '<!DOCTYPE html>
 <!--
 div.center {text-align:center}
 h1.settitle {text-align:center}
-kbd {font-style: oblique}
 -->
 </style>
 

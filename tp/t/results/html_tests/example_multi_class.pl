@@ -356,7 +356,6 @@ $result_converted{'html'}->{'example_multi_class'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
 -->
 </style>
 

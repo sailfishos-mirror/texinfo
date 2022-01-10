@@ -1090,7 +1090,6 @@ $result_converted{'html'}->{'placed_things_before_element'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

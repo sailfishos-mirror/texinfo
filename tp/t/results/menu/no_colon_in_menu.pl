@@ -212,7 +212,6 @@ $result_converted{'html'}->{'no_colon_in_menu'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 pre.menu-comment {font-family: serif}
 -->
 </style>

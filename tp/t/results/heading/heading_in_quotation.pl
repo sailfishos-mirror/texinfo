@@ -200,7 +200,6 @@ $result_converted{'html'}->{'heading_in_quotation'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

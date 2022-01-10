@@ -584,7 +584,6 @@ $result_converted{'html'}->{'float_with_at_commands'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

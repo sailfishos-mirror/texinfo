@@ -750,7 +750,6 @@ $result_converted{'html'}->{'node_up_external_node'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -435,7 +435,6 @@ $result_converted{'html'}->{'empty_top_node_up'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

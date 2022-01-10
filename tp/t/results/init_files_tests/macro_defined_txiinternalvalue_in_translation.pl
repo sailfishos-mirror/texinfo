@@ -136,7 +136,6 @@ $result_converted{'html'}->{'macro_defined_txiinternalvalue_in_translation'} = '
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

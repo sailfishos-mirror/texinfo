@@ -645,7 +645,6 @@ $result_converted{'html'}->{'simple'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 pre.menu-comment {font-family: serif}
 -->
 </style>

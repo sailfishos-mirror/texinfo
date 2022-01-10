@@ -242,7 +242,6 @@ $result_converted{'html'}->{'part_before_chapter'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -16062,7 +16062,6 @@ $result_converted{'html'}->{'all_commands_delimiters_printindex'} = '<!DOCTYPE h
 <!--
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
-kbd {font-style: oblique}
 span:hover a.copiable-anchor {visibility: visible}
 -->
 </style>

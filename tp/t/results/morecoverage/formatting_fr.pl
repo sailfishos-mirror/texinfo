@@ -4901,7 +4901,6 @@ a.summary-letter {text-decoration: none}
 div.example {margin-left: 3.2em}
 h1.centerchap {text-align:center}
 h3.subtitle {text-align:right}
-kbd {font-style: oblique}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
 span.smaller {font-size: smaller}

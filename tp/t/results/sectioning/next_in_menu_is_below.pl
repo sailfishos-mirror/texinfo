@@ -1200,7 +1200,6 @@ $result_converted{'html'}->{'next_in_menu_is_below'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -728,7 +728,6 @@ $result_converted{'html'}->{'menu_entry_name_comment'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -482,7 +482,6 @@ $result_converted{'html'}->{'menu_entry_node'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

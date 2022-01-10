@@ -340,7 +340,6 @@ $result_converted{'html'}->{'example_in_menu_comment'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
 pre.menu-comment {font-family: serif}
 -->
 </style>

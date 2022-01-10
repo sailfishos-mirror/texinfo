@@ -179,7 +179,6 @@ $result_converted{'html'}->{'top_no_argument_and_top_node'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -720,7 +720,6 @@ $result_converted{'html'}->{'nodes_no_node_top_explicit_directions'} = '<!DOCTYP
 <link href="#first" rel="start" title="first">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

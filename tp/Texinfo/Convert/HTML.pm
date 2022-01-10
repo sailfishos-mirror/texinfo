@@ -208,7 +208,6 @@ sub html_attribute_class($$$;$)
 # those rules cannot be collected during document output since they
 # are not associated with a class attribute element setting
 my %css_rules_not_collected = (
-     'kbd'                => 'font-style: oblique',
 );
 
 sub html_get_css_elements_classes($;$)
@@ -1723,6 +1722,7 @@ my %css_map = (
      'span.r'             => 'font-family: initial; font-weight: normal',
      'span.nolinebreak'   => 'white-space: nowrap',
      'kbd.key'            => 'font-style: normal',
+     'kbd.kbd'            => 'font-style: oblique',
      'p.flushleft-paragraph'   => 'text-align:left',
      'p.flushright-paragraph'  => 'text-align:right',
      'h1.centerchap'      => 'text-align:center',
@@ -2116,6 +2116,7 @@ $style_commands_element{'normal'} = {
       'slanted'     => 'i',
       'sansserif'   => 'span',
       'kbd'         => 'kbd',
+      'key'         => 'kbd',
       'option'      => 'samp',
       'r'           => 'span',
       'samp'        => 'samp',
@@ -2628,29 +2629,6 @@ sub _css_string_convert_accent_command($$$$)
 foreach my $command (keys(%accent_commands)) {
   $default_css_string_commands_conversion{$command} = \&_css_string_convert_accent_command;
 }
-
-# key is formatted as code since it is in code_style_commands
-sub _convert_key_command($$$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
-
-  my $text = $args->[0]->{'normal'};
-  if (!defined($text)) {
-    # happens with bogus @-commands without argument, like @strong something
-    return '';
-  }
-  if ($self->in_string()) {
-    return $text;
-  }
-  my $class = $cmdname;
-
-  return $self->html_attribute_class('kbd', $cmdname).'>'.$text.'</kbd>';
-}
-
-$default_commands_conversion{'key'} = \&_convert_key_command;
 
 # argument is formatted as code since indicateurl is in code_style_commands
 sub _convert_indicateurl_command($$$$)
@@ -3720,8 +3698,7 @@ sub _convert_author_command($$$$)
                 .">$args->[0]->{'normal'}</strong>"
                 .$self->html_line_break_element()."\n";
   } else {
-    return $self->html_attribute_class('span', $cmdname).'>'
-             .$args->[0]->{'normal'}."</span>\n";
+    return $args->[0]->{'normal'} . "\n";
   }
 }
 

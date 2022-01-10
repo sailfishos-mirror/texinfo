@@ -1380,7 +1380,6 @@ $result_converted{'html'}->{'part_node_part_node_appendix'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

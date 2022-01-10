@@ -3914,7 +3914,6 @@ In text f@i-le..  a@<"%@  < & @ % " . -->
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
 -->
 </style>
 

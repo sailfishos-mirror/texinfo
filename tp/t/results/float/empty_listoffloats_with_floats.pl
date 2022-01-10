@@ -667,7 +667,6 @@ $result_converted{'html'}->{'empty_listoffloats_with_floats'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

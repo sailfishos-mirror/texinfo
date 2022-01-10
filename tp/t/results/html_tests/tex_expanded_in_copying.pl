@@ -184,7 +184,6 @@ $result_converted{'html'}->{'tex_expanded_in_copying'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -820,7 +820,6 @@ $result_converted{'html'}->{'two_footnotes_in_nodes'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

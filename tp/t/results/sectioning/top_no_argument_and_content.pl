@@ -122,7 +122,6 @@ $result_converted{'html'}->{'top_no_argument_and_content'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

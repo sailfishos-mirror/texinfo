@@ -440,7 +440,6 @@ $result_converted{'html'}->{'ref_to_float'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

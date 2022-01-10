@@ -632,7 +632,6 @@ $result_converted{'html'}->{'simple_no_menu'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

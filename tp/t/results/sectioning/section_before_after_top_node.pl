@@ -403,7 +403,6 @@ $result_converted{'html'}->{'section_before_after_top_node'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -1131,7 +1131,6 @@ $result_converted{'html'}->{'sc_in_menu'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
 -->

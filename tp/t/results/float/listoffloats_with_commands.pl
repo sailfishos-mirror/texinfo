@@ -161,7 +161,6 @@ $result_converted{'html'}->{'listoffloats_with_commands'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

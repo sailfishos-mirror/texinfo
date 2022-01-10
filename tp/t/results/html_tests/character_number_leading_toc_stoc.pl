@@ -312,7 +312,6 @@ $result_converted{'html'}->{'character_number_leading_toc_stoc'} = '<!DOCTYPE ht
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 ul.no-bullet {list-style: none}
 -->
 </style>

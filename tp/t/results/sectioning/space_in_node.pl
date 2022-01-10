@@ -721,7 +721,6 @@ $result_converted{'html'}->{'space_in_node'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

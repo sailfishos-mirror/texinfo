@@ -733,7 +733,6 @@ $result_converted{'html'}->{'sections_test_no_use_nodes'} = '<!DOCTYPE html>
 <link href="#top" rel="start" title="top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

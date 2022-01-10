@@ -329,7 +329,6 @@ $result_converted{'html'}->{'text_before_top_and_contents_after_title'} = '<!DOC
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 ul.no-bullet {list-style: none}
 -->
 </style>

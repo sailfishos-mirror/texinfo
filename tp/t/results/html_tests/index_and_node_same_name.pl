@@ -273,7 +273,6 @@ $result_converted{'html'}->{'index_and_node_same_name'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-kbd {font-style: oblique}
 -->
 </style>
 

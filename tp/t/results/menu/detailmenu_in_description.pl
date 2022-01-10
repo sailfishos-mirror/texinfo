@@ -323,7 +323,6 @@ $result_converted{'html'}->{'detailmenu_in_description'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

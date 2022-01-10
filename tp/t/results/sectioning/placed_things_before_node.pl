@@ -1153,7 +1153,6 @@ $result_converted{'html'}->{'placed_things_before_node'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

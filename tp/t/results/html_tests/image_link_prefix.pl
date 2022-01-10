@@ -73,7 +73,6 @@ $result_converted{'html'}->{'image_link_prefix'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

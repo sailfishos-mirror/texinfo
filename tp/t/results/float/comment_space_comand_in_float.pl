@@ -401,7 +401,6 @@ $result_converted{'html'}->{'comment_space_comand_in_float'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

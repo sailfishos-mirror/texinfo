@@ -328,7 +328,6 @@ $result_converted{'html'}->{'text_before_top_and_summarycontents_after_title'} =
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 ul.no-bullet {list-style: none}
 -->
 </style>

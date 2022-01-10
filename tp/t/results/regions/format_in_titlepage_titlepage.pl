@@ -299,7 +299,6 @@ $result_converted{'html'}->{'format_in_titlepage_titlepage'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 pre.format {font-family: inherit}
 -->
 </style>

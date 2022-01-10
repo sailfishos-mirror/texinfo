@@ -436,7 +436,6 @@ $result_converted{'html'}->{'verb_in_menu_description'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 pre.menu-comment {font-family: serif}
 -->
 </style>

@@ -290,7 +290,6 @@ $result_converted{'html'}->{'node_sectop_before_chapter_no_node'} = '<!DOCTYPE h
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

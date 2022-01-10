@@ -822,7 +822,6 @@ $result_converted{'html'}->{'entry_after_detailmenu'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 pre.menu-comment {font-family: serif}
 -->
 </style>

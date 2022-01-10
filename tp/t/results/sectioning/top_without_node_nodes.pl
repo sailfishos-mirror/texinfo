@@ -493,7 +493,6 @@ $result_converted{'html'}->{'top_without_node_nodes'} = '<!DOCTYPE html>
 <link href="#second" rel="start" title="second">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

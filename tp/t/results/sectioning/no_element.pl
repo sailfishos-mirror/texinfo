@@ -970,7 +970,6 @@ $result_converted{'html'}->{'no_element'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 h1.settitle {text-align:center}
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -110,7 +110,6 @@ $result_converted{'html'}->{'one_subsection'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

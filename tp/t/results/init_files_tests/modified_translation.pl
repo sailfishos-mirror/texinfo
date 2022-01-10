@@ -268,7 +268,6 @@ $result_converted{'html'}->{'modified_translation'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -121,7 +121,6 @@ $result_converted{'html'}->{'raw_html'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

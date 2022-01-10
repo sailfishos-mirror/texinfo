@@ -250,7 +250,6 @@ $result_converted{'html'}->{'part_before_top'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

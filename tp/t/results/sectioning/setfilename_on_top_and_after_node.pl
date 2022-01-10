@@ -300,7 +300,6 @@ $result_converted{'html'}->{'setfilename_on_top_and_after_node'} = '<!DOCTYPE ht
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

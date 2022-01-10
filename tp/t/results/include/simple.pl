@@ -90,7 +90,6 @@ $result_converted{'html'}->{'simple'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -1586,7 +1586,6 @@ $result_converted{'html'}->{'texi_glossary'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 span.smaller {font-size: smaller}
 -->
 </style>

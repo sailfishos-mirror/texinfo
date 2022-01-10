@@ -4903,7 +4903,6 @@ $result_converted{'html'}->{'texi_formatting'} = '<!DOCTYPE html>
 a.summary-letter {text-decoration: none}
 div.example {margin-left: 3.2em}
 h2.centerchap {text-align:center}
-kbd {font-style: oblique}
 ul.no-bullet {list-style: none}
 -->
 </style>

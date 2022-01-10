@@ -191,7 +191,6 @@ $result_converted{'html'}->{'node_up_direction_for_top_with_manual'} = '<!DOCTYP
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

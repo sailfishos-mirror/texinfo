@@ -161,7 +161,6 @@ $result_converted{'html'}->{'two_unnumbered_no_argument'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -345,7 +345,6 @@ $result_converted{'html'}->{'double_top'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="ToP">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

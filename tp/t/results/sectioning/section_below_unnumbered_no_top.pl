@@ -158,7 +158,6 @@ $result_converted{'html'}->{'section_below_unnumbered_no_top'} = '<!DOCTYPE html
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -67,7 +67,6 @@ $result_converted{'html'}->{'one_line'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 span.smaller {font-size: smaller}
 -->
 </style>

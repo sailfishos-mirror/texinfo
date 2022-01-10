@@ -427,7 +427,6 @@ $result_converted{'html'}->{'anchor_in_caption'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

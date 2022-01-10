@@ -1360,7 +1360,6 @@ $result_converted{'html'}->{'things_before_setfilename_no_element'} = '<!DOCTYPE
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

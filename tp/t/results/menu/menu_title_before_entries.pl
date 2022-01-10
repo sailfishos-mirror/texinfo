@@ -370,7 +370,6 @@ $result_converted{'html'}->{'menu_title_before_entries'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 pre.menu-comment {font-family: serif}
 -->
 </style>

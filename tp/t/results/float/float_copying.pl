@@ -1620,7 +1620,6 @@ the author abandon his copyright.
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-kbd {font-style: oblique}
 -->
 </style>
 

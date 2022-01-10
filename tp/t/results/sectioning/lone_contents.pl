@@ -75,7 +75,6 @@ $result_converted{'html'}->{'lone_contents'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

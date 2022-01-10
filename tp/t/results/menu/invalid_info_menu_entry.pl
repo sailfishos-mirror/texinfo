@@ -889,7 +889,6 @@ $result_converted{'html'}->{'invalid_info_menu_entry'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -786,7 +786,6 @@ $result_converted{'html'}->{'subentry_and_sortas'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
-kbd {font-style: oblique}
 -->
 </style>
 

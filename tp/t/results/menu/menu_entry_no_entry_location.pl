@@ -385,7 +385,6 @@ $result_converted{'html'}->{'menu_entry_no_entry_location'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

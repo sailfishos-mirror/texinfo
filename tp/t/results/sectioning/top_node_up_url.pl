@@ -696,7 +696,6 @@ $result_converted{'html'}->{'top_node_up_url'} = '<!DOCTYPE html>
 <link href="http://www.gnu.org/manual/" rel="up" title="@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

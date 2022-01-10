@@ -243,7 +243,6 @@ $result_converted{'html'}->{'shortcontents_no_top'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 ul.no-bullet {list-style: none}
 -->
 </style>

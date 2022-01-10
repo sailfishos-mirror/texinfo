@@ -437,7 +437,6 @@ $result_converted{'html'}->{'footnote_in_caption'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

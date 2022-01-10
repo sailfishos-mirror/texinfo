@@ -835,7 +835,6 @@ $result_converted{'html'}->{'block_commands_in_menu_description'} = '<!DOCTYPE h
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 pre.menu-preformatted {font-family: serif}
 ul.mark-bullet {list-style-type: disc}
 -->

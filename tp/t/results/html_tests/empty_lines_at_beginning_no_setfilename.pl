@@ -264,7 +264,6 @@ $result_converted{'html'}->{'empty_lines_at_beginning_no_setfilename'} = '<!DOCT
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

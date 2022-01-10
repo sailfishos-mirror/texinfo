@@ -635,7 +635,6 @@ $result_converted{'html'}->{'chapter_node_before_and_after_part'} = '<!DOCTYPE h
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 ul.no-bullet {list-style: none}
 -->
 </style>

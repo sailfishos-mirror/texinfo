@@ -732,7 +732,6 @@ $result_converted{'html'}->{'sections_test'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -1928,7 +1928,6 @@ $result_converted{'html'}->{'detailmenu_on_subnodes'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 pre.menu-comment {font-family: serif}
 -->
 </style>

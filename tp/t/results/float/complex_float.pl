@@ -4871,7 +4871,6 @@ $result_converted{'html'}->{'complex_float'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
 ul.mark-minus {list-style-type: "\\2212"}
 -->
 </style>

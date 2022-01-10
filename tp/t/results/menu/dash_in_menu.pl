@@ -263,7 +263,6 @@ $result_converted{'html'}->{'dash_in_menu'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 pre.menu-comment {font-family: serif}
 -->
 </style>

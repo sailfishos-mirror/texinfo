@@ -425,7 +425,6 @@ $result_converted{'html'}->{'verbatim_in_multitable_in_example'} = '<!DOCTYPE ht
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
 -->
 </style>
 

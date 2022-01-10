@@ -511,7 +511,6 @@ $result_converted{'html'}->{'node_sectop_before_lone_node_Top'} = '<!DOCTYPE htm
 <link href="#node-before" rel="start" title="node before">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

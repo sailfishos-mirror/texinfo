@@ -1500,7 +1500,6 @@ $result_converted{'html'}->{'things_before_setfilename'} = '<!DOCTYPE html>
 <link href="#Top" rel="index" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

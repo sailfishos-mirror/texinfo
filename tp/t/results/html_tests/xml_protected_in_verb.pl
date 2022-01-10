@@ -182,7 +182,6 @@ $result_converted{'html'}->{'xml_protected_in_verb'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -456,7 +456,6 @@ $result_converted{'html'}->{'cond_no-ifhtml_no-ifinfo_no-iftex'} = '<!DOCTYPE ht
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 span.smaller {font-size: smaller}
 -->
 </style>

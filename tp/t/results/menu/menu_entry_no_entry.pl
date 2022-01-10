@@ -292,7 +292,6 @@ $result_converted{'html'}->{'menu_entry_no_entry'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 pre.menu-comment {font-family: serif}
 -->
 </style>

@@ -22873,7 +22873,7 @@ $result_converted{'html'}->{'at_commands_in_refs'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
+kbd.kbd {font-style: oblique}
 kbd.key {font-style: normal}
 span.nolinebreak {white-space: nowrap}
 span.r {font-family: initial; font-weight: normal}

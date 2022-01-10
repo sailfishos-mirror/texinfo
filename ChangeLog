@@ -1,5 +1,14 @@
 2022-01-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%css_rules_not_collected, %css_map)
+	(%style_commands_element): format key like other style commands.
+	Use kbd.kbd for the CSS selector for @kbd.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_author_command): return a
+	simple string if in_string.
+
+2022-01-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_exdent_command): use command
 	name as class for pre.
 

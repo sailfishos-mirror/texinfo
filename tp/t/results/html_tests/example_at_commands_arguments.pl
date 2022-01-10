@@ -321,7 +321,6 @@ $result_converted{'html'}->{'example_at_commands_arguments'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
 -->
 </style>
 

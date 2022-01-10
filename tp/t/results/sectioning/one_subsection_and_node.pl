@@ -205,7 +205,6 @@ $result_converted{'html'}->{'one_subsection_and_node'} = '<!DOCTYPE html>
 <link href="#one-node" rel="start" title="one node">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

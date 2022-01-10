@@ -366,7 +366,6 @@ $result_converted{'html'}->{'anchor_in_titlepage_titlepage'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

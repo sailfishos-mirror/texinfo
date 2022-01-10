@@ -274,7 +274,6 @@ $result_converted{'html'}->{'ref_to_top'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="ToP">
 <style type="text/css">
 <!--
-kbd {font-style: oblique}
 -->
 </style>
 

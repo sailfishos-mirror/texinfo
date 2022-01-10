@@ -420,7 +420,6 @@ $result_converted{'html'}->{'titles'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 h1.settitle {text-align:center}
-kbd {font-style: oblique}
 -->
 </style>
 

@@ -294,7 +294,6 @@ $result_converted{'html'}->{'commands_in_alt'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
 -->
 </style>
 

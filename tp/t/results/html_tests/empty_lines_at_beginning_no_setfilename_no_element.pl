@@ -164,7 +164,6 @@ $result_converted{'html'}->{'empty_lines_at_beginning_no_setfilename_no_element'
 <style type="text/css">
 <!--
 div.center {text-align:center}
-kbd {font-style: oblique}
 -->
 </style>
 
