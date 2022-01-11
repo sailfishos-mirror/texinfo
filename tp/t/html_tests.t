@@ -395,6 +395,17 @@ Top.
 
 Second paragraph.
 '],
+['shorttitlepage',
+'@setfilename html-shorttitlepage.info
+@shorttitlepage @@title @sc{html} @code{test}
+
+@node Top
+@top Top of @@title @sc{html} @code{test}
+
+Top.
+
+Second paragraph.
+'],
 ['html_in_copying',
 '
 @copying

@@ -1754,6 +1754,7 @@ my %css_map = (
      'h2.centerchap'      => 'text-align:center',
      'h3.centerchap'      => 'text-align:center',
      'h1.settitle'        => 'text-align:center',
+     'h1.shorttitlepage'  => 'text-align:center',
      'h3.subtitle'        => 'text-align:right',
      'h4.centerchap'      => 'text-align:center',
      'div.center'         => 'text-align:center',
@@ -2693,7 +2694,8 @@ sub _convert_titlefont_command($$$$)
     # happens with bogus @-commands without argument, like @strong something
     return '';
   }
-  return &{$self->{'format_heading_text'}}($self, 'titlefont', $text, 0, $command);
+  return &{$self->{'format_heading_text'}}($self, $cmdname, $cmdname,
+                                           $text, 0, $command);
 }
 $default_commands_conversion{'titlefont'} = \&_convert_titlefont_command;
 
@@ -2745,11 +2747,12 @@ sub _default_css_string_format_protect_text($$) {
 }
 
 # can be called on root commands, tree units, special elements
-# and title elements
-sub _default_format_heading_text($$$$$;$)
+# and title elements.  $cmdname can be undef for special elements.
+sub _default_format_heading_text($$$$$$;$)
 {
   my $self = shift;
   my $cmdname = shift;
+  my $class = shift;
   my $text = shift;
   my $level = shift;
   my $element = shift;
@@ -2759,15 +2762,8 @@ sub _default_format_heading_text($$$$$;$)
 
   # This should seldom happen.
   if ($self->in_string()) {
-    $text .= "\n" unless ($cmdname eq 'titlefont');
+    $text .= "\n" unless (defined($cmdname) and $cmdname eq 'titlefont');
     return $text;
-  }
-
-  my $class;
-  if ($cmdname eq 'node') {
-    $class = 'node-heading';
-  } else {
-    $class = $cmdname;
   }
 
   if ($level < 1) {
@@ -2783,10 +2779,10 @@ sub _default_format_heading_text($$$$$;$)
                     ."${id_str}>$text</h$level>";
   # titlefont appears inline in text, so no end of line is
   # added. The end of line should be added by the user if needed.
-  $result .= "\n" unless ($cmdname eq 'titlefont');
-  $result .= $self->get_conf('DEFAULT_RULE') . "\n" 
-     if ($cmdname eq 'part' 
-         and defined($self->get_conf('DEFAULT_RULE')) 
+  $result .= "\n" unless (defined($cmdname) and $cmdname eq 'titlefont');
+  $result .= $self->get_conf('DEFAULT_RULE') . "\n"
+     if (defined($cmdname) and $cmdname eq 'part'
+         and defined($self->get_conf('DEFAULT_RULE'))
          and $self->get_conf('DEFAULT_RULE') ne '');
   return $result;
 }
@@ -3394,9 +3390,14 @@ sub _convert_heading_command($$$$$)
       # FIXME for sectioning commands there is a class here but
       # it also was the opening section, possibly when encountering
       # the associated node element
-      $result .= &{$self->{'format_heading_text'}}($self, $level_corrected_cmdname,
-              $heading, $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
-                                              $element, $heading_id);
+      my $heading_class = $level_corrected_cmdname;
+      if ($cmdname eq 'node') {
+        $heading_class = 'node-heading';
+      }
+      $result .= &{$self->{'format_heading_text'}}($self,
+                     $level_corrected_cmdname, $heading_class, $heading,
+                     $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
+                     $element, $heading_id);
     }
   } elsif (defined($heading_id)) {
     # case of a lone node and no header, and case of an empty @top
@@ -4735,7 +4736,7 @@ sub _contents_inline_element($$$)
                               "convert $cmdname special heading");
     }
     $result .= ">\n";
-    $result .= &{$self->{'format_heading_text'}}($self, $class.'-heading',
+    $result .= &{$self->{'format_heading_text'}}($self, $cmdname, $class.'-heading',
                        $heading, $self->get_conf('CHAPTER_HEADER_LEVEL'))."\n";
     $result .= $content . "</div>\n";
     return $result;
@@ -5713,15 +5714,17 @@ sub _default_format_titlepage($)
 
   my $titlepage_text;
   if ($self->{'global_commands'}->{'titlepage'}) {
-    $titlepage_text = $self->convert_tree({'contents' 
+    $titlepage_text = $self->convert_tree({'contents'
                => $self->{'global_commands'}->{'titlepage'}->{'contents'}},
                                           'convert titlepage');
   } elsif ($self->{'simpletitle_tree'}) {
     my $title_text = $self->convert_tree_new_formatting_context(
-                   $self->{'simpletitle_tree'}, 'simpletitle_string');
-    $titlepage_text = &{$self->{'format_heading_text'}}($self, 'settitle', $title_text, 
-                                            0, {'cmdname' => 'settitle',
-                     'contents' => $self->{'simpletitle_tree'}->{'contents'}});
+     $self->{'simpletitle_tree'}, "$self->{'simpletitle_command_name'} simpletitle");
+    $titlepage_text = &{$self->{'format_heading_text'}}($self,
+                  $self->{'simpletitle_command_name'},
+                  $self->{'simpletitle_command_name'}, $title_text,
+                  0, {'cmdname' => $self->{'simpletitle_command_name'},
+                      'contents' => $self->{'simpletitle_tree'}->{'contents'}});
   }
   my $result = '';
   $result .= $titlepage_text.$self->get_conf('DEFAULT_RULE')."\n"
@@ -5741,10 +5744,12 @@ sub _print_title($)
     } else {
       if ($self->{'simpletitle_tree'}) {
         my $title_text = $self->convert_tree_new_formatting_context(
-                   $self->{'simpletitle_tree'}, 'simpletitle_string');
-        $result .= &{$self->{'format_heading_text'}}($self, 'settitle', $title_text, 
-                                            0, {'cmdname' => 'settitle',
-                     'contents' => $self->{'simpletitle_tree'}->{'contents'}});
+         $self->{'simpletitle_tree'}, "$self->{'simpletitle_command_name'} simpletitle");
+        $result .= &{$self->{'format_heading_text'}}($self,
+                  $self->{'simpletitle_command_name'},
+                  $self->{'simpletitle_command_name'}, $title_text,
+                  0, {'cmdname' => $self->{'simpletitle_command_name'},
+                      'contents' => $self->{'simpletitle_tree'}->{'contents'}});
       }
       $result .= $self->_contents_shortcontents_in_title();
     }
@@ -5786,7 +5791,7 @@ sub _convert_special_element_type($$$$)
   if ($special_element_type eq 'footnotes') {
     $level = $self->get_conf('FOOTNOTE_SEPARATE_HEADER_LEVEL');
   }
-  $result .= &{$self->{'format_heading_text'}}($self, $class.'-heading',
+  $result .= &{$self->{'format_heading_text'}}($self, undef, $class.'-heading',
                      $heading, $level)."\n";
 
   my $special_element_body .= &{$self->{'format_special_element_body'}}
@@ -5829,7 +5834,7 @@ sub _convert_tree_unit_type($$$$)
   if (!$tree_unit->{'structure'}->{'unit_prev'}) {
     $result .= $self->_print_title();
     if (!$tree_unit->{'structure'}->{'unit_next'}) {
-      # only one unit, use simplfied formatting
+      # only one unit, use simplified formatting
       $result .= $content;
       # if there is one unit it also means that there is no formatting
       # of footnotes in a separate unit.  And if footnotestyle is end
@@ -8090,7 +8095,7 @@ sub _default_format_footnotes_text($)
                           'convert footnotes special heading');
   my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{'footnotes'};
   my $level = $self->get_conf('FOOTNOTE_END_HEADER_LEVEL');
-  $result .= &{$self->{'format_heading_text'}}($self, $class.'-heading',
+  $result .= &{$self->{'format_heading_text'}}($self, undef, $class.'-heading',
                                         $footnote_heading, $level)."\n";
   $result .= &{$self->{'format_special_element_body'}}($self, 'footnotes',
                                               $self->{'current_root_element'});
@@ -8665,13 +8670,14 @@ sub output($$)
     $fulltitle = $self->{'global_commands'}->{'titlefont'}->[0];
   }
   # prepare simpletitle
-  foreach my $simpletitle_command('settitle', 'shorttitlepage') {
+  foreach my $simpletitle_command ('settitle', 'shorttitlepage') {
     if ($self->{'global_commands'}->{$simpletitle_command}) {
       my $command = $self->{'global_commands'}->{$simpletitle_command};
       next if ($command->{'extra'} 
                and $command->{'extra'}->{'missing_argument'});
       $self->{'simpletitle_tree'} = 
          {'contents' => $command->{'args'}->[0]->{'contents'}};
+      $self->{'simpletitle_command_name'} = $simpletitle_command;
       last;
     }
   }

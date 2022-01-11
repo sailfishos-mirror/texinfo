@@ -17,6 +17,9 @@ Change in doc:
 The text of @copying is output as a comment at the beginning of Info, HTML, XML, and DocBook output files.
 Not true for docbook and XML, it is in elements.
 
+In HTML the title is shown (using either @settitle or @shortitltpage). Not clear
+in the documentation.
+
 
 Test of ASCII_PUNCTUATION on texinfo like:
 
@@ -32,6 +35,9 @@ t/html_tests.t $test_accents_sc_no_brace_commands_quotes (also tests @sc and acc
 Test with @documentencoding ISO-8859-1, default (@documentencoding utf-8)
 and @documentencoding US-ASCII using files as there is an encoded character
 and test also OUTPUT_ENCODING (set to utf8) 
+
+
+
 
 
 Bugs

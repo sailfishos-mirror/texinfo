@@ -1,5 +1,20 @@
 2022-01-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%css_map, _convert_titlefont_command)
+	(_default_format_heading_text, _convert_heading_command)
+	(_contents_inline_element, _default_format_titlepage, _print_title)
+	(_convert_special_element_type, _convert_tree_unit_type)
+	(_default_format_footnotes_text), tp/init/book.pm: pass the
+	command name, possibly undef for special elements, and class to
+	format_heading_text formatting.
+
+	* tp/Texinfo/Convert/HTML.pm (output, _default_format_titlepage)
+	(_print_title): keep information on the @-command used for
+	simpletitle_tree in simpletitle_command_name and use it in the
+	formatting.
+
+2022-01-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command): use
 	command as class for anchors, as if it is a @node the
 	heading has another class name, and for an empty @top, there

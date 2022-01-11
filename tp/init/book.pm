@@ -219,7 +219,7 @@ sub book_convert_heading_command($$$$$)
   $result .= $element_header;
 
   my $heading_level;
-  my $cmdname_for_heading = $cmdname;
+  my $level_corrected_cmdname = $cmdname;
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
     # FIXME what to do if the $tree_unit extra does not contain any
@@ -240,7 +240,7 @@ sub book_convert_heading_command($$$$$)
   } elsif (defined $element->{'structure'}->{'section_level'}) {
     $heading_level = $element->{'structure'}->{'section_level'};
     # if the level was changed, set the command name right
-    $cmdname_for_heading
+    $level_corrected_cmdname
       = Texinfo::Structuring::section_level_adjusted_command_name($element);
   } else {
     # for *heading* @-commands which do not have a level
@@ -271,9 +271,14 @@ sub book_convert_heading_command($$$$$)
       }
       $result .= "<strong${id_str}>".$heading.'</strong>'."\n";
     } else {
-      $result .= &{$self->{'format_heading_text'}}($self, $cmdname_for_heading,
-              $heading, $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
-                                              $element, $heading_id);
+      my $heading_class = $level_corrected_cmdname;
+      if ($cmdname eq 'node') {
+        $heading_class = 'node-heading';
+      }
+      $result .= &{$self->{'format_heading_text'}}($self,
+                     $level_corrected_cmdname, $heading_class, $heading,
+                     $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
+                     $element, $heading_id);
     }
   } elsif (defined($heading_id)) {
     # case of a lone node and no header, and case of an empty @top
