@@ -540,7 +540,7 @@ a.summary-letter-printindex {text-decoration: none}
 <p>In float.
 </p>
 <div class="caption"><p><strong class="strong">fl 1: </strong>in caption
-<a class="index-entry-anchor" id="index-index-entry"></a>
+<a class="index-entry-id" id="index-index-entry"></a>
 </p></div></div>
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_cp_letter-I"><b>I</b></a>

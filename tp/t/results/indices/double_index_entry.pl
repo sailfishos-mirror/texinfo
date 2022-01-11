@@ -666,27 +666,27 @@ $result_converted{'plaintext'}->{'double_index_entry'} = 'Text
 ';
 
 
-$result_converted{'html_text'}->{'double_index_entry'} = '<a class="node-anchor" id="Top"></a><div class="nav-header">
+$result_converted{'html_text'}->{'double_index_entry'} = '<a class="node" id="Top"></a><div class="nav-header">
 <p>
  &nbsp; [<a href="#other-node" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="node-heading">Top</h1>
 
-<a class="index-entry-anchor" id="index-aaa"></a>
+<a class="index-entry-id" id="index-aaa"></a>
 
 <p>Text
 </p>
-<a class="index-entry-anchor" id="index-aaa-1"></a>
+<a class="index-entry-id" id="index-aaa-1"></a>
 
 
 <hr>
-<a class="node-anchor" id="other-node"></a><div class="nav-header">
+<a class="node" id="other-node"></a><div class="nav-header">
 <p>
  &nbsp; [<a href="#other-node" title="Index" rel="index">Index</a>]</p>
 </div>
 <h4 class="node-heading">other node</h4>
 
-<a class="index-entry-anchor" id="index-aaa-2"></a>
+<a class="index-entry-id" id="index-aaa-2"></a>
 
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-A"><b>A</b></a>

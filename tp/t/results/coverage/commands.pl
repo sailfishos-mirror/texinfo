@@ -579,7 +579,7 @@ File &rarr; Open.
 <a class="email" href="mailto:a">b</a> <code class="code">code --- -- \'\' ``</code>
 &mdash; &ndash; &rdquo; &ldquo;. <small class="sc">SMALL CAPS</small>.
 </p>
-<a class="index-entry-anchor" id="index-index-entry-_0060_0060in-text_0027_0027-LaTeX"></a>
+<a class="index-entry-id" id="index-index-entry-_0060_0060in-text_0027_0027-LaTeX"></a>
 
 <h2 class="majorheading" id="majorheading-in-b">majorheading <b class="b">in b</b></h2>
 ';

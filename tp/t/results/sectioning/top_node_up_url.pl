@@ -712,7 +712,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a>, Up: <a href="http://w
 
 
 <hr>
-<a class="node-anchor" id="first"></a><div class="nav-header">
+<a class="node" id="first"></a><div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">internal top node up</a>, Up: <a href="#Top" accesskey="u" rel="up">internal top node up</a> &nbsp; </p>
 </div>

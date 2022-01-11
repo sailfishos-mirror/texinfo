@@ -1518,33 +1518,33 @@ $result_converted{'html_text'}->{'inter_item_commands_in_enumerate'} = '
 
 <ol class="enumerate">
 <li>
-<a class="index-entry-anchor" id="index-index-inter-in-enumerate-between-lines"></a>
+<a class="index-entry-id" id="index-index-inter-in-enumerate-between-lines"></a>
 
 </li><li> enumerate item
 </li></ol>
 
 <ol class="enumerate">
 <li>
-<a class="index-entry-anchor" id="index-index-inter-in-enumerate-after-line"></a>
+<a class="index-entry-id" id="index-index-inter-in-enumerate-after-line"></a>
 </li><li> enumerate item
 </li></ol>
 
 <ol class="enumerate">
-<li><a class="index-entry-anchor" id="index-index-inter-in-enumerate-before-line"></a>
+<li><a class="index-entry-id" id="index-index-inter-in-enumerate-before-line"></a>
 
 </li><li> enumerate item
 </li></ol>
 
 <ol class="enumerate">
 <li>Title
-<a class="index-entry-anchor" id="index-cindex"></a>
+<a class="index-entry-id" id="index-cindex"></a>
 </li><li> enum
 </li></ol>
 
 <ol class="enumerate">
-<li><a class="index-entry-anchor" id="index-first-idx"></a>
-<a class="index-entry-anchor" id="index-sedond-idx"></a>
-<a class="index-entry-anchor" id="index-another"></a>
+<li><a class="index-entry-id" id="index-first-idx"></a>
+<a class="index-entry-id" id="index-sedond-idx"></a>
+<a class="index-entry-id" id="index-another"></a>
 </li><li> enum
 </li></ol>
 

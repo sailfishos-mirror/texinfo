@@ -780,19 +780,19 @@ $result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<h1 
 
 
 
-<a class="index-entry-anchor" id="index-c_0060_0060b"></a>
+<a class="index-entry-id" id="index-c_0060_0060b"></a>
 
-<a class="index-entry-anchor" id="index-v_0060_0060j"></a>
+<a class="index-entry-id" id="index-v_0060_0060j"></a>
 
-<a class="index-entry-anchor" id="index-f_0060_0060g"></a>
-
-
-
-<a class="index-entry-anchor" id="index-cdi_0060_0060h"></a>
+<a class="index-entry-id" id="index-f_0060_0060g"></a>
 
 
 
-<a class="index-entry-anchor" id="index-ddi_0060_0060g"></a>
+<a class="index-entry-id" id="index-cdi_0060_0060h"></a>
+
+
+
+<a class="index-entry-id" id="index-ddi_0060_0060g"></a>
 
 <div class="printindex fn-printindex">
 <table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_letter-C"><b>C</b></a>

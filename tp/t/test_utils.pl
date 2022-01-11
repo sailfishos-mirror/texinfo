@@ -795,7 +795,7 @@ sub test($$)
     delete $parser_options->{'test_file'};
   }
   my $full_document;
-  if ($parser_options->{'full_document'}) {
+  if (exists($parser_options->{'full_document'})) {
     $full_document = $parser_options->{'full_document'};
     delete $parser_options->{'full_document'};
   }

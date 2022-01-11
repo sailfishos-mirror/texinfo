@@ -1221,7 +1221,7 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<h1 class="node-headin
 <p>See <a class="xref" href="#anchor-in-html">anchor in html</a>.
 </p>
 <p>&lsquo;anchor in tex&rsquo;.
-<a class="index-entry-anchor" id="index-fentry2"></a>
+<a class="index-entry-id" id="index-fentry2"></a>
 </p>
 <p> newidx entry
 </p>

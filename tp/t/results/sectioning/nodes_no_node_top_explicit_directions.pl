@@ -727,7 +727,7 @@ $result_converted{'html'}->{'nodes_no_node_top_explicit_directions'} = '<!DOCTYP
 </head>
 
 <body lang="en">
-<a class="node-anchor" id="first"></a><div class="nav-header">
+<a class="node" id="first"></a><div class="nav-header">
 <p>
 Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>
@@ -736,7 +736,7 @@ Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </p>
 
 <hr>
-<a class="node-anchor" id="second-node"></a><div class="nav-header">
+<a class="node" id="second-node"></a><div class="nav-header">
 <p>
 Previous: <a href="#first" accesskey="p" rel="prev">first</a>, Up: <a href="#first" accesskey="u" rel="up">first</a> &nbsp; </p>
 </div>

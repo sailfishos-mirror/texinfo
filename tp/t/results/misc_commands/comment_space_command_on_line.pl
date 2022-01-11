@@ -834,7 +834,7 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 <h1 class="top" id="top-element-">top element&nbsp;</h1>
 
 
-<a class="index-entry-anchor" id="index-index-entry--"></a>
+<a class="index-entry-id" id="index-index-entry--"></a>
 
 <h3 class="heading" id="Heading--">Heading &nbsp;</h3>
 

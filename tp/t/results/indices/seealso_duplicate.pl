@@ -459,8 +459,8 @@ $result_converted{'plaintext'}->{'seealso_duplicate'} = '* Menu:
 
 $result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node-heading" id="Top">Top</h1>
 
-<a class="index-entry-anchor" id="index-awk"></a>
-<a class="index-entry-anchor" id="index-awk-1"></a>
+<a class="index-entry-id" id="index-awk"></a>
+<a class="index-entry-id" id="index-awk-1"></a>
 
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-A"><b>A</b></a>

@@ -551,7 +551,7 @@ a.summary-letter-printindex {text-decoration: none}
 </div>
 <h3 class="section">1.1 sec</h3>
 
-<a class="index-entry-anchor" id="index-entry"></a>
+<a class="index-entry-id" id="index-entry"></a>
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#sec_cp_letter-E"><b>E</b></a>
  &nbsp; 

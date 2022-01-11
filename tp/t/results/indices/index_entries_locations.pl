@@ -565,16 +565,16 @@ $result_converted{'html_text'}->{'index_entries_locations'} = '<h1 class="node-h
 <p>Initial paragraph.
 </p>
 <p>Paragraph
-<a class="index-entry-anchor" id="index-entry-in-paragraph"></a>
+<a class="index-entry-id" id="index-entry-in-paragraph"></a>
 end paragraph.
-<a class="index-entry-anchor" id="index-entry-at-end-of-paragraph_002e"></a>
+<a class="index-entry-id" id="index-entry-at-end-of-paragraph_002e"></a>
 </p>
 <p>New paragraph.
 </p>
-<a class="index-entry-anchor" id="index-Entry-before-paragraph"></a>
+<a class="index-entry-id" id="index-Entry-before-paragraph"></a>
 <p>Another paragraph.
 </p>
-<a class="index-entry-anchor" id="index-lone-entry"></a>
+<a class="index-entry-id" id="index-lone-entry"></a>
 
 <p>Last paragraph.
 </p>

@@ -4933,7 +4933,7 @@ A footnote 2.
 </p>
 
 <p>An index entry
-<a class="index-entry-anchor" id="index-float-example"></a>
+<a class="index-entry-id" id="index-float-example"></a>
 </p>
 <p>A table.
 </p><dl class="table">
@@ -4980,7 +4980,7 @@ An example.
 </tbody>
 </table>
 <p>An index entry
-<a class="index-entry-anchor" id="index-float-example-in-caption"></a>
+<a class="index-entry-id" id="index-float-example-in-caption"></a>
 </p>
 <p>An itemize.
 </p><ul class="itemize mark-minus">
@@ -5032,7 +5032,7 @@ An example 2.
 </tbody>
 </table>
 <p>An index entry 2
-<a class="index-entry-anchor" id="index-float-example-in-caption-2"></a>
+<a class="index-entry-id" id="index-float-example-in-caption-2"></a>
 </p>
 <p>An itemize 2.
 </p><ul class="itemize mark-minus">

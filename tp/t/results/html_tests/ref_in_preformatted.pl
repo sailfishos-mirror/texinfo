@@ -461,7 +461,7 @@ $result_floats{'ref_in_preformatted'} = {};
 
 
 
-$result_converted{'html_text'}->{'ref_in_preformatted'} = '<a class="node-anchor" id="Top"></a><div class="nav-header">
+$result_converted{'html_text'}->{'ref_in_preformatted'} = '<a class="node" id="Top"></a><div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
@@ -474,7 +474,7 @@ node name</a>
 </pre></div>
 
 <hr>
-<a class="node-anchor" id="nnn-the-node-name"></a><div class="nav-header">
+<a class="node" id="nnn-the-node-name"></a><div class="nav-header">
 <p>
  &nbsp; </p>
 </div>

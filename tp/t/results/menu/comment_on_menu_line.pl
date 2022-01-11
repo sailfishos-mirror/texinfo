@@ -458,7 +458,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 
 <h2 class="chapter" id="first-1">1 first</h2>
 <hr>
-<a class="node-anchor" id="first"></a><div class="nav-header">
+<a class="node" id="first"></a><div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">first</a>, Up: <a href="#Top" accesskey="u" rel="up">first</a> &nbsp; </p>
 </div>

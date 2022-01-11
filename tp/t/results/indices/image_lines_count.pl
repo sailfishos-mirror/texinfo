@@ -307,7 +307,7 @@ $result_converted{'html_text'}->{'image_lines_count'} = '<h1 class="node-heading
 
 <img class="image" src="count_image.png" alt="count_image">
 
-<a class="index-entry-anchor" id="index-index-entry"></a>
+<a class="index-entry-id" id="index-index-entry"></a>
 
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-I"><b>I</b></a>

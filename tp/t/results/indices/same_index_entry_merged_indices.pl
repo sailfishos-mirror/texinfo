@@ -756,7 +756,7 @@ $result_converted{'plaintext'}->{'same_index_entry_merged_indices'} = 'Text.
 
 $result_converted{'html_text'}->{'same_index_entry_merged_indices'} = '
 <div class="top" id="Top">
-<a class="top-anchor" id="SEC_Top"></a>
+<a class="top" id="SEC_Top"></a>
 <p>Text.
 </p>
 <dl class="first-deffn">

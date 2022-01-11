@@ -568,6 +568,8 @@ sub _get_target($$)
 }
 
 # API for elemnts directions formatting
+
+# This returns the id specific of the $COMMAND tree element
 sub command_id($$)
 {
   my $self = shift;
@@ -3265,21 +3267,37 @@ sub _convert_heading_command($$$$$)
   my $result = '';
 
   # not clear that it may really happen
-  if ($self->in_string) {
+  if ($self->in_string()) {
     $result .= $self->command_string($element) ."\n" if ($cmdname ne 'node');
     $result .= $content if (defined($content));
     return $result;
   }
 
   my $element_id = $self->command_id($element);
-  my $section;
+
+  my $level_corrected_cmdname = $cmdname;
+  if (defined $element->{'structure'}->{'section_level'}) {
+    # if the level was changed, use a consistent command name
+    $level_corrected_cmdname
+      = Texinfo::Structuring::section_level_adjusted_command_name($element);
+  }
+
+  # find the section starting here, can be through the associated node
+  # preceding the section, or the section itself
+  my $opening_section;
+  my $level_corrected_opening_section_cmdname;
   if ($cmdname eq 'node' and $element->{'extra'}->{'associated_section'}) {
-    $section = $element->{'extra'}->{'associated_section'};
+    $opening_section = $element->{'extra'}->{'associated_section'};
+    $level_corrected_opening_section_cmdname
+     = Texinfo::Structuring::section_level_adjusted_command_name($opening_section);
   } elsif ($cmdname ne 'node'
+           # if there is an associated node, it is not a section opening
+           # the section was opened before when the node was encountered
            and not $element->{'extra'}->{'associated_node'}
            # to avoid *heading* @-commands
            and $Texinfo::Common::root_commands{$cmdname}) {
-    $section = $element;
+    $opening_section = $element;
+    $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
   }
 
   print STDERR "CONVERT elt heading $element "
@@ -3298,12 +3316,16 @@ sub _convert_heading_command($$$$$)
 
   # if set, the id is associated to the heading text
   my $heading_id;
-  if ($section) {
-    my $level = $section->{'structure'}->{'section_level'};
+  if ($opening_section) {
+    my $level = $opening_section->{'structure'}->{'section_level'};
     $result .= join('', $self->close_registered_sections_level($level));
     $self->register_opened_section_level($level, "</div>\n");
 
-    $result .= $self->html_attribute_class('div', $section->{'cmdname'});
+    # FIXME if this is not the section element, it should not be the
+    # section as class
+    $result .= $self->html_attribute_class('div', $opening_section->{'cmdname'});
+                 #"${level_corrected_section_opening_cmdname}");
+                 #"${level_corrected_section_opening_cmdname}-level-extent");
 
     $result .= " id=\"$element_id\""
         if (defined($element_id) and $element_id ne '');
@@ -3311,9 +3333,9 @@ sub _convert_heading_command($$$$$)
   } elsif (defined($element_id) and $element_id ne '') {
     if ($element_header ne '') {
       # case of a @node without sectioning command and with a header.
-      # put the anchor element before the header
+      # put the node element anchor before the header
       $result .= &{$self->{'format_separate_anchor'}}($self, $element_id,
-                                                     "${cmdname}-anchor");
+                                                      $cmdname);
     } else {
       $heading_id = $element_id;
     }
@@ -3322,7 +3344,6 @@ sub _convert_heading_command($$$$$)
   $result .= $element_header;
 
   my $heading_level;
-  my $cmdname_for_heading = $cmdname;
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
     # FIXME what to do if the $tree_unit extra does not contain any
@@ -3331,8 +3352,7 @@ sub _convert_heading_command($$$$$)
          # or !$tree_unit->{'extra'}->{'unit_command'}
          or ($tree_unit->{'extra'}->{'unit_command'}
              and $tree_unit->{'extra'}->{'unit_command'} eq $element
-             and $tree_unit->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'
-             and not $tree_unit->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'}))
+             and not $element->{'extra'}->{'associated_section'}))
         and defined($element->{'extra'}->{'normalized'})) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
@@ -3342,9 +3362,6 @@ sub _convert_heading_command($$$$$)
     }
   } elsif (defined $element->{'structure'}->{'section_level'}) {
     $heading_level = $element->{'structure'}->{'section_level'};
-    # if the level was changed, set the command name right
-    $cmdname_for_heading
-      = Texinfo::Structuring::section_level_adjusted_command_name($element);
   } else {
     # for *heading* @-commands which do not have a level
     # in the document as they are not associated with the
@@ -3374,14 +3391,19 @@ sub _convert_heading_command($$$$$)
       }
       $result .= "<strong${id_str}>".$heading.'</strong>'."\n";
     } else {
-      $result .= &{$self->{'format_heading_text'}}($self, $cmdname_for_heading,
+      # FIXME for sectioning commands there is a class here but
+      # it also was the opening section, possibly when encountering
+      # the associated node element
+      $result .= &{$self->{'format_heading_text'}}($self, $level_corrected_cmdname,
               $heading, $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
                                               $element, $heading_id);
     }
   } elsif (defined($heading_id)) {
     # case of a lone node and no header, and case of an empty @top
+    # FIXME In case of an empty top there a class here and above
+    # as the empty top was also the $opening_section
     $result .= &{$self->{'format_separate_anchor'}}($self, $heading_id,
-                                                 "${cmdname}-anchor");
+                                                    $cmdname);
   }
   $result .= $content if (defined($content));
 
@@ -3939,7 +3961,7 @@ sub _convert_float_command($$$$$)
     $float_type_number_caption
       = $self->html_attribute_class('div',$caption_command_name). '>'
                        .$caption_text.'</div>';
-  } elsif ($prepended_text ne '') {
+  } elsif (defined($prepended) and $prepended_text ne '') {
     $float_type_number_caption
       = $self->html_attribute_class('div','type-number-float'). '>'
                        . $prepended_text .'</div>';
@@ -4163,7 +4185,7 @@ sub _convert_item_command($$$$)
           last;
         }
       }
-      my $index_id = $self->command_id ($command);
+      my $index_id = $self->command_id($command);
       my $anchor;
       my $anchor_span_open = '';
       my $anchor_span_close = '';
@@ -4486,7 +4508,7 @@ sub _convert_index_command($$$$)
       and !@{$self->{'multiple_pass'}} 
       and !$self->in_string()) {
     my $result = &{$self->{'format_separate_anchor'}}($self, $index_id,
-                                                      'index-entry-anchor');
+                                                      'index-entry-id');
     $result .= "\n" unless ($self->in_preformatted());
     return $result;
   }
@@ -6632,21 +6654,22 @@ sub _prepare_css($)
   $self->{'css_rule_lines'} = \@css_rule_lines;
 }
 
-# Get the name of a file containing a node, as well as the anchor within
-# that file to link to that node.  Argument is the 'extra' value on
-# an element hash, or something that looks like it.
-sub _node_id_file($$)
+# Get the name of a file containing a label, as well as the identifier within
+# that file to link to that label.  Argument is the 'extra' value on
+# an element hash, or something that looks like it.  Labels are typically
+# associated to @node, @anchor or @float.
+sub _normalized_label_id_file($$)
 {
   my $self = shift;
-  my $node_info = shift;
+  my $label_info = shift;
 
   my $target;
-  my $normalized; 
-  if ($node_info->{'normalized'}) {
-    $normalized = $node_info->{'normalized'};
-  } elsif ($node_info->{'node_content'}) {
-    $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node (
-      { 'contents' => $node_info->{'node_content'} });
+  my $normalized;
+  if ($label_info->{'normalized'}) {
+    $normalized = $label_info->{'normalized'};
+  } elsif ($label_info->{'node_content'}) {
+    $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
+      { 'contents' => $label_info->{'node_content'} });
   }
 
   if (defined($normalized)) {
@@ -6654,12 +6677,13 @@ sub _node_id_file($$)
   } else {
     $target = '';
   }
-  # to find out the Top node, one could check $node_info->{'normalized'}
+  # to find out the Top node, one could check $label_info->{'normalized'}
+  # FIXME change name?  It is not only for nodes
   if (defined($Texinfo::Config::node_target_name)) {
-    $target = &$Texinfo::Config::node_target_name($node_info, $target);
+    $target = &$Texinfo::Config::node_target_name($label_info, $target);
   }
 
-  my $filename = $self->node_information_filename($node_info);
+  my $filename = $self->node_information_filename($label_info);
 
   return ($filename, $target);
 }
@@ -6669,11 +6693,11 @@ sub _new_sectioning_command_target($$)
   my $self = shift;
   my $command = shift;
 
-  my ($normalized_name, $filename) 
+  my ($normalized_name, $filename)
     = $self->normalized_sectioning_command_filename($command);
 
   my $target_base = _normalized_to_id($normalized_name);
-  if ($target_base !~ /\S/ and $command->{'cmdname'} eq 'top' 
+  if ($target_base !~ /\S/ and $command->{'cmdname'} eq 'top'
       and defined($self->{'special_elements_targets'}->{'Top'})) {
     $target_base = $self->{'special_elements_targets'}->{'Top'};
   }
@@ -6720,8 +6744,8 @@ sub _new_sectioning_command_target($$)
 
   if (defined($Texinfo::Config::sectioning_command_target_name)) {
     ($target, $target_contents,
-     $target_shortcontents, $filename) 
-        = &$Texinfo::Config::sectioning_command_target_name($self, 
+     $target_shortcontents, $filename)
+        = &$Texinfo::Config::sectioning_command_target_name($self,
                                      $command, $target,
                                      $target_contents,
                                      $target_shortcontents,
@@ -6741,7 +6765,7 @@ sub _new_sectioning_command_target($$)
     $self->{'targets'}->{$command}->{'contents_target'} = '';
   }
   if (defined($target_shortcontents)) {
-    $self->{'targets'}->{$command}->{'shortcontents_target'} 
+    $self->{'targets'}->{$command}->{'shortcontents_target'}
        = $target_shortcontents;
   } else {
     $self->{'targets'}->{$command}->{'shortcontents_target'} = '';
@@ -6749,10 +6773,12 @@ sub _new_sectioning_command_target($$)
   return $self->{'targets'}->{$command};
 }
 
-# This set 2 unrelated things.  
-#  * The target informations of sectioning elements
+# This set with two different codes
 #  * the target information, id and normalized filename of 'labels',
 #    ie everything that may be the target of a ref, like @node, @float, @anchor...
+#  * The target informations of sectioning elements by going through tree units
+# @node and section commands targets are therefore both set.
+#
 # conversion to HTML is done on-demand, upon call to command_text
 # and similar functions.
 # Note that 'node_filename', which is set here for Top target information
@@ -6763,7 +6789,7 @@ sub _set_root_commands_targets_node_files($$)
   my $tree_units = shift;
 
   my $no_unidecode;
-  $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE')) 
+  $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
                         and !$self->get_conf('USE_UNIDECODE'));
 
   my $extension = '';
@@ -6771,17 +6797,18 @@ sub _set_root_commands_targets_node_files($$)
             if (defined($self->get_conf('EXTENSION'))
                 and $self->get_conf('EXTENSION') ne '');
   if ($self->{'labels'}) {
-    foreach my $root_command (values(%{$self->{'labels'}})) {
-      my ($filename, $target) = $self->_node_id_file($root_command->{'extra'});
+    foreach my $label_element (values(%{$self->{'labels'}})) {
+      my ($filename, $target)
+        = $self->_normalized_label_id_file($label_element->{'extra'});
       $filename .= $extension;
       if (defined($Texinfo::Config::node_file_name)) {
-        $filename = &$Texinfo::Config::node_file_name($self, $root_command,
+        $filename = &$Texinfo::Config::node_file_name($self, $label_element,
                                                      $filename);
       }
       if ($self->get_conf('DEBUG')) {
-        print STDERR "Register label($root_command) $target, $filename\n";
+        print STDERR "Label($label_element) \@$label_element->{'cmdname'} $target, $filename\n";
       }
-      $self->{'targets'}->{$root_command} = {'target' => $target, 
+      $self->{'targets'}->{$label_element} = {'target' => $target,
                                              'node_filename' => $filename};
       $self->{'seen_ids'}->{$target} = 1;
     }
@@ -6789,13 +6816,13 @@ sub _set_root_commands_targets_node_files($$)
 
   if ($tree_units) {
     foreach my $tree_unit (@$tree_units) {
-      foreach my $root_command(@{$tree_unit->{'contents'}}) {
+      foreach my $root_element(@{$tree_unit->{'contents'}}) {
         # this happens for types which would precede the root commands.
         # The target may already be set for the top node tree unit.
-        next if (!defined($root_command->{'cmdname'}) 
-                 or $self->{'targets'}->{$root_command});
-        if ($Texinfo::Common::sectioning_commands{$root_command->{'cmdname'}}) {
-          $self->_new_sectioning_command_target($root_command);
+        next if (!defined($root_element->{'cmdname'})
+                 or $self->{'targets'}->{$root_element});
+        if ($Texinfo::Common::sectioning_commands{$root_element->{'cmdname'}}) {
+          $self->_new_sectioning_command_target($root_element);
         }
       }
     }
@@ -7421,12 +7448,16 @@ sub _external_node_href($$$$)
   my $link_command = shift;
   
   #print STDERR "external_node: ".join('|', keys(%$external_node))."\n";
-  my ($target_filebase, $target) = $self->_node_id_file($external_node);
+  my ($target_filebase, $target)
+      = $self->_normalized_label_id_file($external_node);
 
   my $xml_target = _normalized_to_id($target);
 
   my $default_target_split = $self->get_conf('EXTERNAL_CROSSREF_SPLIT');
 
+  # FIXME it makes sense to have something different from the
+  # EXTENSION, for external manuals, but it would be better to
+  # be able to change it nonetheless.
   my $external_file_extension = '.html';
 
   my $target_split;

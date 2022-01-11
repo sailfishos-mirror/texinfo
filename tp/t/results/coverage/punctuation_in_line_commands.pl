@@ -1215,7 +1215,7 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 <dt><a href="#label-with-caption">float type! After punc 2</a></dt><dd><p>caption! After punc</p></dd>
 </dl>
 
-<a class="index-entry-anchor" id="index-index_0021-After-punc"></a>
+<a class="index-entry-id" id="index-index_0021-After-punc"></a>
 
 <h3 class="heading" id="heading_0021-After-punc">heading! After punc</h3>
 

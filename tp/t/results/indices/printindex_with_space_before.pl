@@ -262,7 +262,7 @@ $result_converted{'plaintext'}->{'printindex_with_space_before'} = 'Text.
 
 $result_converted{'html_text'}->{'printindex_with_space_before'} = '<h1 class="node-heading" id="Top">Top</h1>
 
-<a class="index-entry-anchor" id="index-index"></a>
+<a class="index-entry-id" id="index-index"></a>
 
 <p>Text.
 </p><div class="printindex cp-printindex">

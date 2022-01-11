@@ -820,7 +820,7 @@ $result_converted{'html_text'}->{'seeentry'} = '
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a class="top-anchor" id="SEC_Top"></a>
+<a class="top" id="SEC_Top"></a>
 <ul class="mini-toc">
 <li><a href="#chapter-index" accesskey="1">Index</a></li>
 </ul>

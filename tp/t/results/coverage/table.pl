@@ -709,11 +709,11 @@ $result_converted{'html_text'}->{'table'} = '
 </dl>
 
 <dl class="vtable">
-<dd><a class="index-entry-anchor" id="index-index-entry"></a>
+<dd><a class="index-entry-id" id="index-index-entry"></a>
 
 </dd>
 <dt id=\'index-vtable-item\'><span>&lsquo;<samp class="samp">vtable item</samp>&rsquo;<a class="copiable-anchor" href=\'#index-vtable-item\'> &para;</a></span></dt>
-<dd><a class="index-entry-anchor" id="index-key"></a>
+<dd><a class="index-entry-id" id="index-key"></a>
 </dd>
 <dt id=\'index-itemx-vtable\'><span>&lsquo;<samp class="samp">itemx vtable</samp>&rsquo;<a class="copiable-anchor" href=\'#index-itemx-vtable\'> &para;</a></span></dt>
 </dl>

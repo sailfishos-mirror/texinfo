@@ -496,10 +496,10 @@ $result_converted{'plaintext'}->{'transparent_sort_chars'} = '* Menu:
 
 $result_converted{'html_text'}->{'transparent_sort_chars'} = '
 <div class="top" id="Top">
-<a class="top-anchor" id="SEC_Top"></a>
-<a class="index-entry-anchor" id="index-_002d_002dversion_002c-for-install_002dinfo"></a>
-<a class="index-entry-anchor" id="index-Source-file-format"></a>
-<a class="index-entry-anchor" id="index-Semantic-markup"></a>
+<a class="top" id="SEC_Top"></a>
+<a class="index-entry-id" id="index-_002d_002dversion_002c-for-install_002dinfo"></a>
+<a class="index-entry-id" id="index-Source-file-format"></a>
+<a class="index-entry-id" id="index-Semantic-markup"></a>
 
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-S"><b>S</b></a>

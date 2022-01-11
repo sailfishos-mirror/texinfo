@@ -860,7 +860,7 @@ $result_converted{'html'}->{'double_node_anchor_float'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<a class="node-anchor" id="node1"></a><div class="nav-header">
+<a class="node" id="node1"></a><div class="nav-header">
 <p>
  &nbsp; </p>
 </div>

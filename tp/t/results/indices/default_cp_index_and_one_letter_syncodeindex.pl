@@ -388,8 +388,8 @@ $result_converted{'plaintext'}->{'default_cp_index_and_one_letter_syncodeindex'}
 $result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'} = '<h1 class="node-heading" id="Top">Top</h1>
 
 
-<a class="index-entry-anchor" id="index-_002d_002dcindex"></a>
-<a class="index-entry-anchor" id="index-_002d_002dcpindex"></a>
+<a class="index-entry-id" id="index-_002d_002dcindex"></a>
+<a class="index-entry-id" id="index-_002d_002dcpindex"></a>
 
 <div class="printindex fn-printindex">
 <table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_symbol-1"><b>-</b></a>

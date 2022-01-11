@@ -2249,7 +2249,7 @@ $result_converted{'html'}->{'simple_menu'} = '<!DOCTYPE html>
 <body lang="en">
 
 <div class="top" id="Top">
-<a class="top-anchor" id="SEC_Top"></a>
+<a class="top" id="SEC_Top"></a>
 </div>
 
 

@@ -698,7 +698,7 @@ $result_converted{'plaintext'}->{'index_entry_in_footnote_separate'} = 'Top node
 ';
 
 
-$result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<a class="node-anchor" id="Top"></a><div class="nav-header">
+$result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<a class="node" id="Top"></a><div class="nav-header">
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -708,7 +708,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<a class
 <p>Top node<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 <hr>
-<a class="node-anchor" id="First"></a><div class="nav-header">
+<a class="node" id="First"></a><div class="nav-header">
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -745,13 +745,13 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<a class
 
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>in footnote
-<a class="index-entry-anchor" id="index-index-entry-in-footnote"></a>
+<a class="index-entry-id" id="index-index-entry-in-footnote"></a>
 </p>
 <p>Blah
 </p>
 <p>Blih
 </p>
-<a class="index-entry-anchor" id="index-counting-entry"></a>
+<a class="index-entry-id" id="index-counting-entry"></a>
 </div>';
 
 1;

@@ -284,7 +284,7 @@ a.summary-letter-printindex {text-decoration: none}
 <h1 class="top">top</h1>
 <h4 class="node-heading" id="index-node">index node</h4>
 
-<a class="index-entry-anchor" id="index-node-1"></a>
+<a class="index-entry-id" id="index-node-1"></a>
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#index-node_cp_letter-N"><b>N</b></a>
  &nbsp; 

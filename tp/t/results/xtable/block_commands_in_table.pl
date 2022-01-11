@@ -1769,7 +1769,7 @@ end example.
 
 <dl class="vtable">
 <dt id=\'index-item-before-ignored-lines\'><span><strong class="strong">item before ignored lines</strong><a class="copiable-anchor" href=\'#index-item-before-ignored-lines\'> &para;</a></span></dt>
-<dd><a class="index-entry-anchor" id="index-vindex"></a>
+<dd><a class="index-entry-id" id="index-vindex"></a>
 </dd>
 <dt id=\'index-itemx-now\'><span><strong class="strong">itemx now</strong><a class="copiable-anchor" href=\'#index-itemx-now\'> &para;</a></span></dt>
 <dd>

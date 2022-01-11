@@ -997,7 +997,7 @@ h1.settitle {text-align:center}
 <a class="ref" href="#float-anchor">1</a>.
 </p>
 
-<a class="index-entry-anchor" id="index-index-entry"></a>
+<a class="index-entry-id" id="index-index-entry"></a>
 <div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>

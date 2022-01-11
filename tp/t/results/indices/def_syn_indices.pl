@@ -2069,23 +2069,23 @@ $result_converted{'html_text'}->{'def_syn_indices'} = '
 <p>definedx truc
 after
 </p>
-<a class="index-entry-anchor" id="index-index-truc"></a>
+<a class="index-entry-id" id="index-index-truc"></a>
 
 
-<a class="index-entry-anchor" id="index-a-index-entry-te-i"></a>
+<a class="index-entry-id" id="index-a-index-entry-te-i"></a>
 
-<a class="index-entry-anchor" id="index-cindex-entry"></a>
-
-
-<a class="index-entry-anchor" id="index-truc-kindex"></a>
-<a class="index-entry-anchor" id="index-pindex-codeidx"></a>
+<a class="index-entry-id" id="index-cindex-entry"></a>
 
 
+<a class="index-entry-id" id="index-truc-kindex"></a>
+<a class="index-entry-id" id="index-pindex-codeidx"></a>
 
 
-<a class="index-entry-anchor" id="index-defg-index-entry"></a>
 
-<a class="index-entry-anchor" id="index-abc-index-entry"></a>
+
+<a class="index-entry-id" id="index-defg-index-entry"></a>
+
+<a class="index-entry-id" id="index-abc-index-entry"></a>
 
 <p>pg
 </p><div class="printindex pg-printindex">

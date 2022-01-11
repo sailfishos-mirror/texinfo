@@ -542,7 +542,7 @@ $result_converted{'html'}->{'equivalent_nodes'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<a class="node-anchor" id="Top"></a><div class="nav-header">
+<a class="node" id="Top"></a><div class="nav-header">
 <p>
 Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp class="samp">node</samp>&rsquo;</a> &nbsp; </p>
 </div>
@@ -550,7 +550,7 @@ Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp class="samp">node</s
 
 
 <hr>
-<a class="node-anchor" id="node"></a><div class="nav-header">
+<a class="node" id="node"></a><div class="nav-header">
 <p>
 Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>

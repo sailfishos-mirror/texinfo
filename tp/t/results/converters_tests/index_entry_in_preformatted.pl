@@ -378,10 +378,10 @@ $result_converted{'plaintext'}->{'index_entry_in_preformatted'} = '     text
 $result_converted{'html_text'}->{'index_entry_in_preformatted'} = '<h1 class="node-heading" id="Top">Top</h1>
 
 <div class="example">
-<pre class="example-preformatted"><a class="index-entry-anchor" id="index-first"></a>text
+<pre class="example-preformatted"><a class="index-entry-id" id="index-first"></a>text
 
-<a class="index-entry-anchor" id="index-other"></a>text2
-<a class="index-entry-anchor" id="index-last"></a></pre></div>
+<a class="index-entry-id" id="index-other"></a>text2
+<a class="index-entry-id" id="index-last"></a></pre></div>
 ';
 
 

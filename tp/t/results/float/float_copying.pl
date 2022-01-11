@@ -1643,8 +1643,8 @@ the author abandon his copyright.
 </p>
 <div class="caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
-<a class="anchor" id="public-domain-anchor"></a><a class="index-entry-anchor" id="index-copying-indexed-caption"></a>
-<a class="index-entry-anchor" id="index-copying-indexed-caption-function"></a>
+<a class="anchor" id="public-domain-anchor"></a><a class="index-entry-id" id="index-copying-indexed-caption"></a>
+<a class="index-entry-id" id="index-copying-indexed-caption-function"></a>
 </div></div>
 
 <ul class="mini-toc">
@@ -1666,8 +1666,8 @@ the author abandon his copyright.
 </p>
 <div class="caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a class="footnote" id="DOCF1_2" href="#FOOT1_2"><sup>2</sup></a>
 </p>
-<a class="anchor" id="public-domain-anchor"></a><a class="index-entry-anchor" id="index-copying-indexed-caption"></a>
-<a class="index-entry-anchor" id="index-copying-indexed-caption-function"></a>
+<a class="anchor" id="public-domain-anchor"></a><a class="index-entry-id" id="index-copying-indexed-caption"></a>
+<a class="index-entry-id" id="index-copying-indexed-caption-function"></a>
 </div></div>
 <div class="float" id="public-domain">
 
@@ -1676,8 +1676,8 @@ the author abandon his copyright.
 </p>
 <div class="caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a class="footnote" id="DOCF1_3" href="#FOOT1_3"><sup>3</sup></a>
 </p>
-<a class="anchor" id="public-domain-anchor"></a><a class="index-entry-anchor" id="index-copying-indexed-caption"></a>
-<a class="index-entry-anchor" id="index-copying-indexed-caption-function"></a>
+<a class="anchor" id="public-domain-anchor"></a><a class="index-entry-id" id="index-copying-indexed-caption"></a>
+<a class="index-entry-id" id="index-copying-indexed-caption-function"></a>
 </div></div>
 <dl class="listoffloats">
 <dt><a href="#public-domain">Copyright notice 1</a></dt><dd><p>The Public Domain notice<a class="footnote" id="t_hlistoffloats_DOCF1_4" href="#t_hlistoffloats_FOOT1_4"><sup>4</sup></a>
@@ -1732,24 +1732,24 @@ the author abandon his copyright.
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>The caption copying footnote
 <a class="anchor" id="caption-copying-footnote-anchor"></a></p>
-<a class="index-entry-anchor" id="index-copying-indexed-caption-copying-footnote"></a>
-<a class="index-entry-anchor" id="index-copying-public-domain-function"></a>
+<a class="index-entry-id" id="index-copying-indexed-caption-copying-footnote"></a>
+<a class="index-entry-id" id="index-copying-public-domain-function"></a>
 
 <p>see <a class="ref" href="#Copying-and-floats">Copying and floats</a>.
 </p>
 <h5><a id="FOOT1_2" href="#DOCF1_2">(2)</a></h5>
 <p>The caption copying footnote
 <a class="anchor" id="caption-copying-footnote-anchor"></a></p>
-<a class="index-entry-anchor" id="index-copying-indexed-caption-copying-footnote"></a>
-<a class="index-entry-anchor" id="index-copying-public-domain-function"></a>
+<a class="index-entry-id" id="index-copying-indexed-caption-copying-footnote"></a>
+<a class="index-entry-id" id="index-copying-public-domain-function"></a>
 
 <p>see <a class="ref" href="#Copying-and-floats">Copying and floats</a>.
 </p>
 <h5><a id="FOOT1_3" href="#DOCF1_3">(3)</a></h5>
 <p>The caption copying footnote
 <a class="anchor" id="caption-copying-footnote-anchor"></a></p>
-<a class="index-entry-anchor" id="index-copying-indexed-caption-copying-footnote"></a>
-<a class="index-entry-anchor" id="index-copying-public-domain-function"></a>
+<a class="index-entry-id" id="index-copying-indexed-caption-copying-footnote"></a>
+<a class="index-entry-id" id="index-copying-public-domain-function"></a>
 
 <p>see <a class="ref" href="#Copying-and-floats">Copying and floats</a>.
 </p>

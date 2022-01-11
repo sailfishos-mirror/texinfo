@@ -720,7 +720,7 @@ $result_converted{'html'}->{'nodes_after_top_before_chapter_not_split_no_use_nod
 </head>
 
 <body lang="en">
-<a class="node-anchor" id="Top"></a><div class="nav-header">
+<a class="node" id="Top"></a><div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
@@ -728,7 +728,7 @@ $result_converted{'html'}->{'nodes_after_top_before_chapter_not_split_no_use_nod
 <p>Top node
 </p>
 <hr>
-<a class="node-anchor" id="second-node"></a><div class="nav-header">
+<a class="node" id="second-node"></a><div class="nav-header">
 <p>
  &nbsp; </p>
 </div>

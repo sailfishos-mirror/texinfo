@@ -499,7 +499,7 @@ span.program-in-footer {font-size: smaller}
 
 <body lang="en">
 
-<a class="node-anchor" id="Top"></a>
+<a class="node" id="Top"></a>
 This is html text.
 
 <p>This is ifhtml text.

@@ -1053,7 +1053,7 @@ thing
 $result_converted{'html_text'}->{'inter_item_commands_in_multitable'} = '<table class="multitable">
 <tbody><tr><td>truc
 
-<a class="index-entry-anchor" id="index-index-entry-between-empty-lines"></a></td></tr>
+<a class="index-entry-id" id="index-index-entry-between-empty-lines"></a></td></tr>
 <tr><td>trouc</td></tr>
 </tbody>
 </table>
@@ -1062,14 +1062,14 @@ $result_converted{'html_text'}->{'inter_item_commands_in_multitable'} = '<table 
 <thead><tr><th width="60%">mu&ndash;ltitable headitem</th><th width="40%">another tab</th></tr></thead>
 <tbody><tr><td width="60%">mu&ndash;ltitable item</td><td width="40%">multitable tab</td></tr>
 <tr><td width="60%">mu&ndash;ltitable item 2</td><td width="40%">multitable tab 2
-<a class="index-entry-anchor" id="index-index-entry-within-multitable"></a></td></tr>
+<a class="index-entry-id" id="index-index-entry-within-multitable"></a></td></tr>
 <tr><td width="60%">lone mu&ndash;ltitable item</td></tr>
 </tbody>
 </table>
 
 <table class="multitable">
 <tr><td>Title
-<a class="index-entry-anchor" id="index-cindex"></a></td></tr>
+<a class="index-entry-id" id="index-cindex"></a></td></tr>
 <tbody><tr><td>thing</td></tr>
 </tbody>
 </table>

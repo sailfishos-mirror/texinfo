@@ -1347,7 +1347,7 @@ $result_converted{'html_text'}->{'subentries'} = '
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a class="top-anchor" id="SEC_Top"></a>
+<a class="top" id="SEC_Top"></a>
 <ul class="mini-toc">
 <li><a href="#chapter-index" accesskey="1">Index</a></li>
 </ul>
@@ -1359,15 +1359,15 @@ $result_converted{'html_text'}->{'subentries'} = '
 </div>
 <h2 class="chapter" id="Index">1 Index</h2>
 
-<a class="index-entry-anchor" id="index-a_002d_002d_002da"></a>
-<a class="index-entry-anchor" id="index-b_002d_002d_002db"></a>
-<a class="index-entry-anchor" id="index-d_002d_002d_002ddd"></a>
-<a class="index-entry-anchor" id="index-g_002d_002d_002dgg"></a>
+<a class="index-entry-id" id="index-a_002d_002d_002da"></a>
+<a class="index-entry-id" id="index-b_002d_002d_002db"></a>
+<a class="index-entry-id" id="index-d_002d_002d_002ddd"></a>
+<a class="index-entry-id" id="index-g_002d_002d_002dgg"></a>
 
-<a class="index-entry-anchor" id="index-f_002d_002d_002daa"></a>
-<a class="index-entry-anchor" id="index-f_002d_002d_002dbb"></a>
-<a class="index-entry-anchor" id="index-f_002d_002d_002dddd"></a>
-<a class="index-entry-anchor" id="index-f_002d_002d_002dggg"></a>
+<a class="index-entry-id" id="index-f_002d_002d_002daa"></a>
+<a class="index-entry-id" id="index-f_002d_002d_002dbb"></a>
+<a class="index-entry-id" id="index-f_002d_002d_002dddd"></a>
+<a class="index-entry-id" id="index-f_002d_002d_002dggg"></a>
 
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-A"><b>A</b></a>

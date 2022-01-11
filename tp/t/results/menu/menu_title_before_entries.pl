@@ -378,7 +378,7 @@ pre.menu-comment-preformatted {font-family: serif}
 </head>
 
 <body lang="en">
-<a class="node-anchor" id="Top"></a><div class="nav-header">
+<a class="node" id="Top"></a><div class="nav-header">
 <p>
 Next: <a href="#subnode" accesskey="n" rel="next">subnode</a> &nbsp; </p>
 </div>
@@ -391,7 +391,7 @@ Next: <a href="#subnode" accesskey="n" rel="next">subnode</a> &nbsp; </p>
 </table>
 
 <hr>
-<a class="node-anchor" id="subnode"></a><div class="nav-header">
+<a class="node" id="subnode"></a><div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>

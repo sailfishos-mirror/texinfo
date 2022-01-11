@@ -1114,7 +1114,7 @@ $result_converted{'html'}->{'placed_things_before_element'} = '<!DOCTYPE html>
 <a class="ref" href="#float-anchor">1</a>.
 </p>
 
-<a class="index-entry-anchor" id="index-index-entry"></a>
+<a class="index-entry-id" id="index-index-entry"></a>
 
 <div class="section" id="section">
 <h3 class="section">1 section</h3>

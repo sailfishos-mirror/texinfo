@@ -290,7 +290,7 @@ $result_converted_errors{'plaintext'}->{'index_entry_before_first_node'} = [
 
 
 
-$result_converted{'html_text'}->{'index_entry_before_first_node'} = '<a class="index-entry-anchor" id="index-before-nodes"></a>
+$result_converted{'html_text'}->{'index_entry_before_first_node'} = '<a class="index-entry-id" id="index-before-nodes"></a>
 
 <h1 class="node-heading" id="Top">Top</h1>
 

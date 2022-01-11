@@ -1,3 +1,21 @@
+2022-01-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command): use
+	command as class for anchors, as if it is a @node the
+	heading has another class name, and for an empty @top, there
+	are two classes as for sectioning commands.
+	Move code around, change variable names, add comments for
+	clarity and add FIXMEs.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_index_command): use
+	index-entry-id as class name.
+
+	* tp/Texinfo/Convert/HTML.pm (_normalized_label_id_file):
+	rename _node_id_file() as _normalized_label_id_file().
+
+	* tp/Texinfo/Convert/HTML.pm: change variable names for better
+	code readibility.
+
 2022-01-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (%css_map, _protect_space):

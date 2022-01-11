@@ -333,7 +333,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote'} = '<h1 class="node-h
 
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>in footnote
-<a class="index-entry-anchor" id="index-index-entry-in-footnote"></a>
+<a class="index-entry-id" id="index-index-entry-in-footnote"></a>
 </p>
 </div>
 ';

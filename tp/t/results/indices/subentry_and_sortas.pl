@@ -799,7 +799,7 @@ a.summary-letter-printindex {text-decoration: none}
 <p>
 Next: <a href="#chapter-index" accesskey="n" rel="next">Index</a> &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a class="top-anchor" id="SEC_Top"></a>
+<a class="top" id="SEC_Top"></a>
 <ul class="mini-toc">
 <li><a href="#chapter-index" accesskey="1">Index</a></li>
 </ul>
@@ -811,9 +811,9 @@ Next: <a href="#chapter-index" accesskey="n" rel="next">Index</a> &nbsp; [<a hre
 </div>
 <h2 class="chapter" id="Index">1 Index</h2>
 
-<a class="index-entry-anchor" id="index-aaa"></a>
+<a class="index-entry-id" id="index-aaa"></a>
 
-<a class="index-entry-anchor" id="index-xxx"></a>
+<a class="index-entry-id" id="index-xxx"></a>
 
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-index_cp_letter-A"><b>A</b></a>
@@ -925,7 +925,7 @@ $result_converted{'html_text'}->{'subentry_and_sortas'} = '
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<a class="top-anchor" id="SEC_Top"></a>
+<a class="top" id="SEC_Top"></a>
 <ul class="mini-toc">
 <li><a href="#chapter-index" accesskey="1">Index</a></li>
 </ul>
@@ -937,9 +937,9 @@ $result_converted{'html_text'}->{'subentry_and_sortas'} = '
 </div>
 <h2 class="chapter" id="Index">1 Index</h2>
 
-<a class="index-entry-anchor" id="index-aaa"></a>
+<a class="index-entry-id" id="index-aaa"></a>
 
-<a class="index-entry-anchor" id="index-xxx"></a>
+<a class="index-entry-id" id="index-xxx"></a>
 
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-A"><b>A</b></a>
