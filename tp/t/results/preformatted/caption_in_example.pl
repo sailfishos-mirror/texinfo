@@ -320,9 +320,9 @@ float: caption
 $result_converted{'html_text'}->{'caption_in_example'} = '<div class="float">
 
 <div class="example">
-<pre class="example">in example 
+<pre class="example-preformatted">in example 
 
-</pre><pre class="example">
+</pre><pre class="example-preformatted">
 
 
 After caption

@@ -260,7 +260,7 @@ div.example {margin-left: 3.2em}
 
 <body lang="en">
 <div class="example perl">
-<pre class="example">foreach my $unclosed_file (keys(%unclosed_files)) {
+<pre class="example-preformatted">foreach my $unclosed_file (keys(%unclosed_files)) {
   if (!close($unclosed_files{$unclosed_file})) {
     warn(sprintf(&quot;%s: error on closing %s: %s\\n&quot;,
                      $real_command_name, $unclosed_file, $!));

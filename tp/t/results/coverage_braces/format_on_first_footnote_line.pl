@@ -305,7 +305,7 @@ $result_converted{'html_text'}->{'format_on_first_footnote_line'} = '<p>Texte<a 
 </p></blockquote>
 <h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
 <div class="example">
-<pre class="example">in example
+<pre class="example-preformatted">in example
 </pre></div>
 
 </div>

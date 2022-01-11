@@ -662,7 +662,7 @@ $result_converted{'plaintext'}->{'itemize_long_item'} = '   youhou itemize very 
 $result_converted{'html_text'}->{'itemize_long_item'} = '<ul class="itemize" style="list-style-type: \'youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc\'">
 <li>first item
 </li><li><div class="example">
-<pre class="example">In example
+<pre class="example-preformatted">In example
 
 end example.
 </pre></div>
@@ -670,7 +670,7 @@ end example.
 empty line.
 </li><li>
 <div class="example">
-<pre class="example">In second example
+<pre class="example-preformatted">In second example
 </pre></div>
 </li><li><blockquote class="quotation">
 <p>Quotation

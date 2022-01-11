@@ -442,11 +442,11 @@ $result_converted{'plaintext'}->{'text_on_example_command_line'} = '
 
 $result_converted{'html_text'}->{'text_on_example_command_line'} = '
 <div class="example text-on-line-followed-by-text">
-<pre class="example">normal text
+<pre class="example-preformatted">normal text
 </pre></div>
 
 <div class="example">
-<pre class="example">in example
+<pre class="example-preformatted">in example
 </pre></div>
 
 ';

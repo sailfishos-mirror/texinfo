@@ -347,7 +347,7 @@ $result_converted{'html'}->{'detailmenu'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-pre.menu-comment {font-family: serif}
+pre.menu-comment-preformatted {font-family: serif}
 -->
 </style>
 
@@ -359,7 +359,7 @@ pre.menu-comment {font-family: serif}
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; Copying Conditions:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Your rights.
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
 
 </pre></th></tr><tr><td align="left" valign="top">&bull; detailmenu:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>

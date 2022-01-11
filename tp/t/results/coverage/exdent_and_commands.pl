@@ -456,12 +456,12 @@ $result_converted{'html_text'}->{'exdent_and_commands'} = '<blockquote class="qu
 </p></blockquote>
 
 <div class="example">
-<pre class="example">example
+<pre class="example-preformatted">example
 </pre><pre class="exdent">in exdented protected eol &nbsp;
-</pre><pre class="example">following
+</pre><pre class="example-preformatted">following
 </pre><pre class="exdent">in exdented a @* 
  and following
-</pre><pre class="example">after exdented
+</pre><pre class="example-preformatted">after exdented
 </pre></div>
 ';
 

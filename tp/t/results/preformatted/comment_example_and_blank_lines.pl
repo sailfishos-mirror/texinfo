@@ -524,22 +524,22 @@ $result_converted{'plaintext'}->{'comment_example_and_blank_lines'} = 'Para.
 $result_converted{'html_text'}->{'comment_example_and_blank_lines'} = '<p>Para.
 </p>
 <div class="example">
-<pre class="example">comment, blank after </pre></div>
+<pre class="example-preformatted">comment, blank after </pre></div>
 
 <p>Para.
 </p>
 <div class="example">
-<pre class="example">comment, no blank after </pre></div>
+<pre class="example-preformatted">comment, no blank after </pre></div>
 <p>Para.
 </p>
 <div class="example">
-<pre class="example">no comment, blank after
+<pre class="example-preformatted">no comment, blank after
 </pre></div>
 
 <p>Para.
 </p>
 <div class="example">
-<pre class="example">no comment, no blank after
+<pre class="example-preformatted">no comment, no blank after
 </pre></div>
 <p>Para.
 </p>';

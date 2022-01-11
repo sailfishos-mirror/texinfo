@@ -612,24 +612,24 @@ $result_converted{'plaintext'}->{'itemize_in_example'} = '        • first
 
 $result_converted{'html_text'}->{'itemize_in_example'} = '<div class="example">
 <ul class="itemize mark-bullet">
-<li><pre class="example">first
+<li><pre class="example-preformatted">first
 
 more.
 </pre></li></ul>
-<pre class="example">
+<pre class="example-preformatted">
 
 </pre><ul class="itemize">
-<li><pre class="example">as is
+<li><pre class="example-preformatted">as is
 </pre></li></ul>
-<pre class="example">
+<pre class="example-preformatted">
 
 </pre><ul class="itemize" style="list-style-type: \'+\'">
-<li><pre class="example">item +
+<li><pre class="example-preformatted">item +
 </pre></li></ul>
-<pre class="example">
+<pre class="example-preformatted">
 
 </pre><ul class="itemize" style="list-style-type: \'\\2022  a\\2013 n itemize line\'">
-<li><pre class="example">in an itemize line
+<li><pre class="example-preformatted">in an itemize line
 </pre></li></ul>
 </div>
 ';

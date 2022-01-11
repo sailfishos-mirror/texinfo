@@ -404,7 +404,7 @@ $result_converted{'plaintext'}->{'preformatted'} = '     e--xample  some
 
 $result_converted{'html_text'}->{'preformatted'} = '
 <div class="example">
-<pre class="example">e--xample  some  
+<pre class="example-preformatted">e--xample  some  
 
    text
 </pre></div>
@@ -412,7 +412,7 @@ $result_converted{'html_text'}->{'preformatted'} = '
 <div class="format">
 <dl class="vtable">
 <dt id=\'index-item-in-table-in-format\'><span><code class="code">item in table in format</code><a class="copiable-anchor" href=\'#index-item-in-table-in-format\'> &para;</a></span></dt>
-<dd><pre class="format">
+<dd><pre class="format-preformatted">
 
 in table in format
 </pre></dd>

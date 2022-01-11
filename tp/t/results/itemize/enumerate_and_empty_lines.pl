@@ -759,7 +759,7 @@ $result_converted{'plaintext'}->{'enumerate_and_empty_lines'} = '  1. first item
 $result_converted{'html_text'}->{'enumerate_and_empty_lines'} = '<ol class="enumerate">
 <li> first item
 </li><li> <div class="example">
-<pre class="example">In example
+<pre class="example-preformatted">In example
 
 end example.
 </pre></div>
@@ -767,7 +767,7 @@ end example.
 empty line.
 </li><li> 
 <div class="example">
-<pre class="example">In second example
+<pre class="example-preformatted">In second example
 </pre></div>
 </li><li> <blockquote class="quotation">
 <p>Quotation

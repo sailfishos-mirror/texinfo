@@ -1667,7 +1667,7 @@ $result_converted{'html_text'}->{'kbdinputstyle'} = '
 </p>
 <p>in example
 </p><div class="example">
-<pre class="example"><code class="code">in code in example <code class="code">in nested code</code></code>.
+<pre class="example-preformatted"><code class="code">in code in example <code class="code">in nested code</code></code>.
 <code class="code as-code-kbd ">kbd in example</code>.
 <code class="code">kbd <code class="code as-code-kbd ">in code</code> in example</code>.
 </pre></div>
@@ -1681,7 +1681,7 @@ $result_converted{'html_text'}->{'kbdinputstyle'} = '
 </p>
 <p>in example
 </p><div class="example">
-<pre class="example"><code class="code">in code in example <code class="code">in nested code</code></code>.
+<pre class="example-preformatted"><code class="code">in code in example <code class="code">in nested code</code></code>.
 <code class="code as-code-kbd ">kbd in example</code>.
 <code class="code">kbd <code class="code as-code-kbd ">in code</code> in example</code>.
 </pre></div>
@@ -1695,7 +1695,7 @@ $result_converted{'html_text'}->{'kbdinputstyle'} = '
 </p>
 <p>in example
 </p><div class="example">
-<pre class="example"><code class="code">in code in example <code class="code">in nested code</code></code>.
+<pre class="example-preformatted"><code class="code">in code in example <code class="code">in nested code</code></code>.
 <kbd class="kbd">kbd in example</kbd>.
 <code class="code">kbd <kbd class="kbd">in code</kbd> in example</code>.
 </pre></div>

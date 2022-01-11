@@ -132,7 +132,7 @@ $result_converted{'plaintext'}->{'quote_dash_in_display'} = '     and now – ye
 
 $result_converted{'html_text'}->{'quote_dash_in_display'} = '
 <div class="display">
-<pre class="display">and now &ndash; yes&mdash;now and &ldquo;so&rdquo;.
+<pre class="display-preformatted">and now &ndash; yes&mdash;now and &ldquo;so&rdquo;.
 
 </pre></div>
 ';

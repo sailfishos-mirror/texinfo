@@ -2753,7 +2753,7 @@ Out of code &mdash; out-of-code.
 anc-hor<a class="anchor" id="A-node0"></a></samp>&rsquo;
 </p>
 <div class="example">
-<pre class="example"><code class="code">in-example</code>
+<pre class="example-preformatted"><code class="code">in-example</code>
 </pre></div>
 
 <p>After false
@@ -2765,14 +2765,14 @@ Out of code &mdash; out-of-code.
 anc-hor<a class="anchor" id="A-node1"></a></samp>&rsquo;
 </p>
 <div class="example">
-<pre class="example"><code class="code">in-example</code>
+<pre class="example-preformatted"><code class="code">in-example</code>
 </pre></div>
 
 <p>In w:
 Out&nbsp;of&nbsp;code&nbsp;&mdash;&nbsp;<span class="nolinebreak">out-of-code.</span>&nbsp;<code class="code">1aaa</code>&nbsp;<code class="code"><span class="nolinebreak">2aaa-</span></code>&nbsp;<code class="code"><span class="nolinebreak">-3bbb</span></code>&nbsp;<code class="code"><span class="nolinebreak">4aaa-bbb</span></code>&nbsp;&nbsp;<code class="code">&nbsp;<span class="nolinebreak">5aaa-bb</span></code>&nbsp;<code class="code"><span class="nolinebreak">6aaa-bb</span>&nbsp;</code>&nbsp;<code class="code">ccc&nbsp;<span class="nolinebreak">7aaa-bbb</span></code>&nbsp;<code class="code">ccc&nbsp;<span class="nolinebreak">8aaa-bbb</span>&nbsp;ddd</code>&nbsp;<code class="code"><span class="nolinebreak">9aaa-bbb</span>&nbsp;<span class="nolinebreak">rrr_vv</span></code>&nbsp;&lsquo;<samp class="samp"><span class="nolinebreak">fff--</span>&nbsp;<span class="nolinebreak">---</span>&nbsp;minus-b&nbsp;<span class="nolinebreak">aa-tt</span>&eacute;<span class="nolinebreak">ff_gg</span>&nbsp;aa<span class="r"><span class="nolinebreak">r-oman</span></span>&nbsp;&nbsp;<span class="nolinebreak">anc-hor</span><a class="anchor" id="A-nodew"></a></samp>&rsquo;&nbsp;<!-- /@w -->
 </p>
 <div class="example">
-<pre class="example"><code class="code">in-example</code><!-- /@w -->
+<pre class="example-preformatted"><code class="code">in-example</code><!-- /@w -->
 </pre></div>
 
 <p>After true
@@ -2784,7 +2784,7 @@ Out of code &mdash; out-of-code.
 anc-hor<a class="anchor" id="A-node2"></a></samp>&rsquo;
 </p>
 <div class="example">
-<pre class="example"><code class="code">in-example</code>
+<pre class="example-preformatted"><code class="code">in-example</code>
 </pre></div>
 ';
 

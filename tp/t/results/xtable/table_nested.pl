@@ -2713,31 +2713,31 @@ $result_converted{'html_text'}->{'table_nested'} = '
 <dl class="vtable">
 <dt id=\'index-first-item-1\'><span><tt>first item</tt><a class="copiable-anchor" href=\'#index-first-item-1\'> &para;</a></span></dt>
 <dt id=\'index-second-itemx-1\'><span><tt>second itemx</tt><a class="copiable-anchor" href=\'#index-second-itemx-1\'> &para;</a></span></dt>
-<dd><pre class="example">
+<dd><pre class="example-preformatted">
 
 Text.
 
 </pre></dd>
 <dt id=\'index-second-item-1\'><span><tt>second item</tt><a class="copiable-anchor" href=\'#index-second-item-1\'> &para;</a></span></dt>
-<dd><pre class="example">
+<dd><pre class="example-preformatted">
 
 Text 2
 
 </pre></dd>
 <dt id=\'index-last-1\'><span><tt>last</tt><a class="copiable-anchor" href=\'#index-last-1\'> &para;</a></span></dt>
 </dl>
-<pre class="example">
+<pre class="example-preformatted">
 
 Something.
 </pre><dl class="table">
 <dt><tt><em class="emph">in item</em></tt></dt>
-<dd><pre class="example">Text without blank line
+<dd><pre class="example-preformatted">Text without blank line
 </pre></dd>
 <dt><tt><em class="emph">second item</em></tt></dt>
-<dd><pre class="example">Text without blank line 2
+<dd><pre class="example-preformatted">Text without blank line 2
 </pre></dd>
 </dl>
-<pre class="example">After table.
+<pre class="example-preformatted">After table.
 </pre></div>
 
 <p>Double quotation

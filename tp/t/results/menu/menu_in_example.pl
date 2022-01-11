@@ -740,7 +740,7 @@ $result_converted{'html'}->{'menu_in_example'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-pre.menu-comment {font-family: serif}
+pre.menu-comment-preformatted {font-family: serif}
 pre.menu-preformatted {font-family: serif}
 -->
 </style>
@@ -758,12 +758,12 @@ pre.menu-preformatted {font-family: serif}
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-preformatted">in cartouche in description in menu in example
 </pre></td></tr></table>
-</pre><pre class="menu-comment">
+</pre><pre class="menu-comment-preformatted">
 
 </pre><table class="cartouche" border="1"><tr><td>
-<pre class="menu-comment">in cartouche in menu comment in menu in example
+<pre class="menu-comment-preformatted">in cartouche in menu comment in menu in example
 </pre></td></tr></table>
-<pre class="menu-comment">
+<pre class="menu-comment-preformatted">
 
 </pre><pre class="menu-preformatted">&bull; <a href="node.html#menu" accesskey="2">(node) menu</a>::      a node in menu
 </pre><pre class="menu-preformatted">&bull; a menu name:<a href="other.html#node" accesskey="3">(other) node</a>. 

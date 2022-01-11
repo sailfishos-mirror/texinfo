@@ -442,11 +442,11 @@ $result_converted{'plaintext'}->{'text_on_display_command_line'} = '
 
 $result_converted{'html_text'}->{'text_on_display_command_line'} = '
 <div class="display">
-<pre class="display">normal text
+<pre class="display-preformatted">normal text
 </pre></div>
 
 <div class="display">
-<pre class="display">in display
+<pre class="display-preformatted">in display
 </pre></div>
 
 ';

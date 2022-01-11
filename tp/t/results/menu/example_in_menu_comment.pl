@@ -340,7 +340,7 @@ $result_converted{'html'}->{'example_in_menu_comment'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-pre.menu-comment {font-family: serif}
+pre.menu-comment-preformatted {font-family: serif}
 -->
 </style>
 
@@ -351,14 +351,14 @@ pre.menu-comment {font-family: serif}
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; entry:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
 
 </pre><div class="example">
-<pre class="example">in 
+<pre class="example-preformatted">in 
 
 example
 </pre></div>
-<pre class="menu-comment">
+<pre class="menu-comment-preformatted">
 
 menu comment.
 

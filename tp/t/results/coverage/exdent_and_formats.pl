@@ -1903,19 +1903,19 @@ az az az az
 
 
 $result_converted{'html_text'}->{'exdent_and_formats'} = '<div class="example">
-<pre class="example"> Example   Hoho. TeX . 
+<pre class="example-preformatted"> Example   Hoho. TeX . 
  @.
 
 </pre><pre class="exdent">Other line
-</pre><pre class="example">not exdented
+</pre><pre class="example-preformatted">not exdented
 </pre></div>
 
 
 <div class="example">
 <pre class="exdent">exdented  and dash --- in example
-</pre><pre class="example">Not exdented
+</pre><pre class="example-preformatted">Not exdented
 </pre><pre class="exdent">exdented
-</pre><pre class="example">Not exdented
+</pre><pre class="example-preformatted">Not exdented
 </pre></div>
 
 <p>Para1.
@@ -1943,9 +1943,9 @@ quotation2
 </p></blockquote>
 
 <div class="example">
-<pre class="example">Example   Hoho.
+<pre class="example-preformatted">Example   Hoho.
 </pre><div class="example">
-<pre class="example">Nested Other line
+<pre class="example-preformatted">Nested Other line
 </pre><pre class="exdent">exdented nested other line
 </pre></div>
 </div>

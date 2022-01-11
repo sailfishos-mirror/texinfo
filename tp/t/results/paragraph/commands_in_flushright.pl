@@ -1591,11 +1591,11 @@ $result_converted{'html_text'}->{'commands_in_flushright'} = '<div class="flushr
 <br>
 
 <div class="example">
-<pre class="example">in example
+<pre class="example-preformatted">in example
 </pre></div>
 
 <div class="format">
-<pre class="format">in format
+<pre class="format-preformatted">in format
 </pre></div>
 
 <div class="flushleft"><p class="flushleft-paragraph">in flushleft

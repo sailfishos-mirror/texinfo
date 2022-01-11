@@ -304,7 +304,7 @@ div.example {margin-left: 3.2em}
 <img class="image" src="f--ile.png" alt="alt &ndash; in b">
 
 <div class="example">
-<pre class="example"><img class="image" src="f--ile.png" alt="alt &ndash; in b">
+<pre class="example-preformatted"><img class="image" src="f--ile.png" alt="alt &ndash; in b">
 </pre></div>
 
 

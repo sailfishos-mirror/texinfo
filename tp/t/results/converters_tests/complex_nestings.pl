@@ -1450,7 +1450,7 @@ $result_converted{'plaintext'}->{'complex_nestings'} = '     deffs
 $result_converted{'html_text'}->{'complex_nestings'} = '<h1 class="node-heading" id="Top">Top</h1>
 
 <div class="example">
-<pre class="example">deffs
+<pre class="example-preformatted">deffs
 </pre><dl class="first-deffn first-defun-alias-first-deffn">
 <dt class="deffn defun-alias-deffn" id="index-my-def"><span class="category-def">Function: </span><span><strong class="strong">my def</strong> <em class="emph">args <var class="var">arg</var> &hellip;</em><a class="copiable-anchor" href=\'#index-my-def\'> &para;</a></span></dt>
 <dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-other-def"><span class="category-def">Function: </span><span><strong class="strong">other def</strong> <em class="emph">no args</em><a class="copiable-anchor" href=\'#index-other-def\'> &para;</a></span></dt>
@@ -1458,27 +1458,27 @@ $result_converted{'html_text'}->{'complex_nestings'} = '<h1 class="node-heading"
 <dt class="deffn" id="index-name"><span class="category-def">type: </span><span><strong class="strong">name</strong> <em class="emph">and now the args</em><a class="copiable-anchor" href=\'#index-name\'> &para;</a></span></dt>
 <dd><dl class="first-defvr first-defvar-alias-first-defvr">
 <dt class="defvr defvar-alias-defvr" id="index-variables"><span class="category-def">Variable: </span><span><strong class="strong">variables</strong> <em class="emph">variable-name</em><a class="copiable-anchor" href=\'#index-variables\'> &para;</a></span></dt>
-<dd><pre class="example">
+<dd><pre class="example-preformatted">
 
 </pre></dd><dt class="defvrx defvarx-alias-defvrx def-cmd-defvr" id="index-variables-too"><span class="category-def">Variable: </span><span><strong class="strong">variables too</strong> <em class="emph">other-variable</em><a class="copiable-anchor" href=\'#index-variables-too\'> &para;</a></span></dt>
-<dd><pre class="example">THis is the defvar
+<dd><pre class="example-preformatted">THis is the defvar
 
 A table within the def
 </pre><dl class="table">
 <dt><tt>item</tt></dt>
-<dd><pre class="example">text
+<dd><pre class="example-preformatted">text
 
 more text
 </pre></dd>
 <dt><tt>second item</tt></dt>
 </dl>
-<pre class="example">
+<pre class="example-preformatted">
 
 explanation
 </pre></dd></dl>
 </dd></dl>
 </dd></dl>
-<pre class="example">
+<pre class="example-preformatted">
 
 </pre></div>
 ';

@@ -131,7 +131,7 @@ $result_converted{'plaintext'}->{'empty_line'} = '     example
 
 
 $result_converted{'html_text'}->{'empty_line'} = '<div class="example">
-<pre class="example">example
+<pre class="example-preformatted">example
 
 after empty line
 </pre></div>

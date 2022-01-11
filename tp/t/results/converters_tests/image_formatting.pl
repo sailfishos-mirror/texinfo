@@ -2584,7 +2584,7 @@ $result_converted{'html_text'}->{'image_formatting'} = '<h1 class="node-heading"
 <img class="image" src="image.jpg" alt="image"> <img class="image" src="image.jpg" alt="image">
 </p>
 <div class="example">
-<pre class="example"><code class="code">@image{f--ile}</code> <img class="image" src="f--ile.png" alt="f--ile">
+<pre class="example-preformatted"><code class="code">@image{f--ile}</code> <img class="image" src="f--ile.png" alt="f--ile">
 <code class="code">@image{f--ile,l--i}</code> <img class="image" src="f--ile.png" alt="f--ile">
 <code class="code">@image{f--ile,,l--e}</code> <img class="image" src="f--ile.png" alt="f--ile">
 <code class="code">@image{f--ile,,,alt}</code> <img class="image" src="f--ile.png" alt="alt">

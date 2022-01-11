@@ -434,7 +434,7 @@ div.example {margin-left: 3.2em}
 <body lang="en">
 <div class="example">
 <table class="multitable">
-<tbody><tr><td width="50%"><pre class="example">in item</pre></td><td width="50%"><pre class="example">in tab</pre></td></tr>
+<tbody><tr><td width="50%"><pre class="example-preformatted">in item</pre></td><td width="50%"><pre class="example-preformatted">in tab</pre></td></tr>
 <tr><td width="50%"><pre class="verbatim">in first column, verbatim
 </pre></td><td width="50%"><pre class="verbatim">In included file.
 </pre></td></tr>

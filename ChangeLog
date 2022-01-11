@@ -1,5 +1,12 @@
 2022-01-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%css_map, %pre_class_commands)
+	(_preformatted_class): only use command and type names in
+	'preformatted_classes', and prepend -preformatted systematically
+	for the corresponding pre class name.
+
+2022-01-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%css_map)
 	(_default_format_navigation_header_panel)
 	(_convert_printindex_command, _contents_inline_element)

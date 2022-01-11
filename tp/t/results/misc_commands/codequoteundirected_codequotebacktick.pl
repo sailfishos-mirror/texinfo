@@ -5310,7 +5310,7 @@ kbd: <kbd class="kbd">``simple-double--three---four----\'\' `simple\' quotedblle
 samp: &lsquo;<samp class="samp">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; <br>
 </p>
 <div class="example">
-<pre class="example">@codequoteundirected on
+<pre class="example-preformatted">@codequoteundirected on
 @codequotebacktick on
 </pre></div>
 <p>&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo; <br>
@@ -5321,7 +5321,7 @@ kbd: <kbd class="kbd">``simple-double--three---four----\'\' `simple\' quotedblle
 samp: &lsquo;<samp class="samp">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; <br>
 </p>
 <div class="example">
-<pre class="example">@codequoteundirected off
+<pre class="example-preformatted">@codequoteundirected off
 @codequotebacktick off
 </pre></div>
 <p>&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo; <br>
@@ -5332,7 +5332,7 @@ kbd: <kbd class="kbd">``simple-double--three---four----\'\' `simple\' quotedblle
 samp: &lsquo;<samp class="samp">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; <br>
 </p>
 <div class="example">
-<pre class="example">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo; 
+<pre class="example-preformatted">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo; 
 
 code: <code class="code">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> 
 
@@ -5346,10 +5346,10 @@ samp: &lsquo;<samp class="samp">``simple-double--three---four----\'\' `simple\' 
 
 
 </pre><div class="example">
-<pre class="example">@codequoteundirected on
+<pre class="example-preformatted">@codequoteundirected on
 @codequotebacktick on
 </pre></div>
-<pre class="example">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo; 
+<pre class="example-preformatted">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo; 
 
 code: <code class="code">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> 
 
@@ -5363,10 +5363,10 @@ samp: &lsquo;<samp class="samp">``simple-double--three---four----\'\' `simple\' 
 
 
 </pre><div class="example">
-<pre class="example">@codequoteundirected off
+<pre class="example-preformatted">@codequoteundirected off
 @codequotebacktick off
 </pre></div>
-<pre class="example">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo; 
+<pre class="example-preformatted">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo; 
 
 code: <code class="code">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> 
 

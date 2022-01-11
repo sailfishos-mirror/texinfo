@@ -287,7 +287,7 @@ div.example {margin-left: 3.2em}
 <p><abbr class="abbr" title="abbr &ndash; b">A</abbr> (<b class="b">abbr</b> &ndash; b).
 </p>
 <div class="example">
-<pre class="example"><abbr class="abbr" title="abbr &ndash; b">A</abbr> (<b class="b">abbr</b> -- b).
+<pre class="example-preformatted"><abbr class="abbr" title="abbr &ndash; b">A</abbr> (<b class="b">abbr</b> -- b).
 </pre></div>
 
 

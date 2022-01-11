@@ -453,15 +453,15 @@ div.example {margin-left: 3.2em}
 
 <body lang="en">
 <div class="example">
-<pre class="example">example with empty args
+<pre class="example-preformatted">example with empty args
 </pre></div>
 
 <div class="example">
-<pre class="example">example with empty args with spaces
+<pre class="example-preformatted">example with empty args with spaces
 </pre></div>
 
 <div class="example nonempty">
-<pre class="example">example with empty and non empty args mix
+<pre class="example-preformatted">example with empty and non empty args mix
 </pre></div>
 
 

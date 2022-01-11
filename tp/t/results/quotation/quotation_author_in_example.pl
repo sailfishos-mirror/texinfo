@@ -221,7 +221,7 @@ $result_converted{'plaintext'}->{'quotation_author_in_example'} = '          A q
 
 $result_converted{'html_text'}->{'quotation_author_in_example'} = '<div class="example">
 <blockquote class="quotation">
-<pre class="example">A quot---ation
+<pre class="example-preformatted">A quot---ation
 </pre></blockquote>
 <div class="center">--- <em class="emph">Some One</em>
 </div></div>

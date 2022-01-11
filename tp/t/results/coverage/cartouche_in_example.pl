@@ -206,11 +206,11 @@ $result_converted{'plaintext'}->{'cartouche_in_example'} = '     In example
 
 
 $result_converted{'html_text'}->{'cartouche_in_example'} = '<div class="example">
-<pre class="example">In example
+<pre class="example-preformatted">In example
 </pre><table class="cartouche" border="1"><tr><td>
-<pre class="example">In cartouche in example
+<pre class="example-preformatted">In cartouche in example
 </pre></td></tr></table>
-<pre class="example">end example
+<pre class="example-preformatted">end example
 </pre></div>
 ';
 

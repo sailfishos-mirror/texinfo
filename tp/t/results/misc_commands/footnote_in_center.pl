@@ -349,7 +349,7 @@ shows an important feature of the centered text.
 <div class="example">
 <dl class="table">
 <dt><tt>item</tt></dt>
-<dd><pre class="example">line
+<dd><pre class="example-preformatted">line
 </pre></dd>
 </dl>
 </div>

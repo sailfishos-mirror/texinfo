@@ -299,7 +299,7 @@ $result_converted{'html'}->{'format_in_titlepage_titlepage'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-pre.format {font-family: inherit}
+pre.format-preformatted {font-family: inherit}
 -->
 </style>
 
@@ -309,7 +309,7 @@ pre.format {font-family: inherit}
 <body lang="en">
 
 <div class="format">
-<pre class="format">Published
+<pre class="format-preformatted">Published
 </pre></div>
 
 <hr>

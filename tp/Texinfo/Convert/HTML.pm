@@ -1736,10 +1736,10 @@ my %css_map = (
      %css_rules_not_collected,
 
      'ul.toc-numbered-mark'   => 'list-style: none',
-     'pre.menu-comment'       => 'font-family: serif',
+     'pre.menu-comment-preformatted' => 'font-family: serif',
      'pre.menu-preformatted'  => 'font-family: serif',
      'a.summary-letter-printindex'  => 'text-decoration: none',
-     'pre.display'            => 'font-family: inherit',
+     'pre.display-preformatted'     => 'font-family: inherit',
      'span.program-in-footer' => 'font-size: smaller', # used with PROGRAM_NAME_IN_FOOTER
      'span.sansserif'     => 'font-family: sans-serif; font-weight: normal',
      'span.r'             => 'font-family: initial; font-weight: normal',
@@ -1767,7 +1767,7 @@ my %css_map = (
      'span:hover a.copiable-anchor'         => 'visibility: visible',
 );
 
-$css_map{'pre.format'} = $css_map{'pre.display'};
+$css_map{'pre.format-preformatted'} = $css_map{'pre.display-preformatted'};
 
 my %preformatted_commands_context = %preformatted_commands;
 $preformatted_commands_context{'verbatim'} = 1;
@@ -1781,7 +1781,7 @@ foreach my $preformatted_command (keys(%preformatted_commands_context)) {
     $pre_class_commands{$preformatted_command} = $preformatted_command;
   }
 }
-$pre_class_commands{'menu'} = 'menu-preformatted';
+$pre_class_commands{'menu'} = 'menu';
 $pre_class_types{'menu_comment'} = 'menu-comment';
 
 my %indented_preformatted_commands;
@@ -4899,14 +4899,14 @@ sub _preformatted_class()
   my $pre_class;
   my @pre_classes = $self->preformatted_classes_stack();
   foreach my $class (@pre_classes) {
-    # FIXME maybe add   or $pre_class eq 'menu-preformatted'  to override
-    # 'menu-preformatted' with 'menu-comment'?
+    # FIXME maybe add   or $pre_class eq 'menu'  to override
+    # 'menu' with 'menu-comment'?
     $pre_class = $class unless ($pre_class 
                            and $preformatted_code_commands{$pre_class}
                            and !($preformatted_code_commands{$class}
-                                 or $class eq 'menu-preformatted'));
+                                 or $class eq 'menu'));
   }
-  return $pre_class;
+  return $pre_class.'-preformatted';
 }
 
 sub _convert_preformatted_type($$$$)

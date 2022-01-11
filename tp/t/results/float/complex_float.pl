@@ -4892,7 +4892,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 <dt><a href="#float-with-a-lot-of-features-and-no-shortcaption">Text 1.1</a></dt><dd><p>An example of float caption<small class="enddots">...</small> 2
 An example 2.
 </p><div class="example">
-<pre class="example">example 2
+<pre class="example-preformatted">example 2
 </pre></div>
 
 <p>A table 2.
@@ -4962,7 +4962,7 @@ A footnote.
 <div class="caption"><p><strong class="strong">Text 1: </strong>An example of float caption<small class="enddots">...</small>
 An example.
 </p><div class="example">
-<pre class="example">example
+<pre class="example-preformatted">example
 </pre></div>
 
 <a class="anchor" id="Anchor-in-caption"></a>
@@ -5015,7 +5015,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a>, Up: <a href="
 <div class="caption"><p><strong class="strong">Text 1.1: </strong>An example of float caption<small class="enddots">...</small> 2
 An example 2.
 </p><div class="example">
-<pre class="example">example 2
+<pre class="example-preformatted">example 2
 </pre></div>
 
 <p>A table 2.

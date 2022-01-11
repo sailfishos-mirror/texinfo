@@ -810,9 +810,9 @@ kbd.kbd {font-style: oblique}
 kbd.key {font-style: normal}
 p.flushleft-paragraph {text-align:left}
 p.flushright-paragraph {text-align:right}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
+pre.display-preformatted {font-family: inherit}
+pre.format-preformatted {font-family: inherit}
+pre.menu-comment-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.program-in-footer {font-size: smaller}
 span.r {font-family: initial; font-weight: normal}
@@ -1077,7 +1077,7 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <dt id='index-titlepage-vtable-i_002d_002dtem-default-kbdinputstyle'><kbd class="kbd">vtable i--tem default kbdinputstyle</kbd></dt>
 </dl>
 <div class="example">
-<pre class="example"><kbd class="kbd">in example default kbdinputstyle</kbd>
+<pre class="example-preformatted"><kbd class="kbd">in example default kbdinputstyle</kbd>
 </pre><dl class="vtable">
 <dt id='index-titlepage-vtable-i_002d_002dtem-in-example-default-kbdinputstyle'><tt><kbd class="kbd">vtable i--tem in example default kbdinputstyle</kbd></tt></dt>
 </dl>
@@ -1088,7 +1088,7 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <dt id='index-titlepage-vtable-i_002d_002dtem-code-kbdinputstyle'><code class="code as-code-kbd ">vtable i--tem code kbdinputstyle</code></dt>
 </dl>
 <div class="example">
-<pre class="example"><code class="code as-code-kbd ">in example code kbdinputstyle</code>
+<pre class="example-preformatted"><code class="code as-code-kbd ">in example code kbdinputstyle</code>
 </pre><dl class="vtable">
 <dt id='index-titlepage-vtable-i_002d_002dtem-in-example-code-kbdinputstyle'><tt><code class="code as-code-kbd ">vtable i--tem in example code kbdinputstyle</code></tt></dt>
 </dl>
@@ -1099,7 +1099,7 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <dt id='index-titlepage-vtable-i_002d_002dtem-example-kbdinputstyle'><kbd class="kbd">vtable i--tem example kbdinputstyle</kbd></dt>
 </dl>
 <div class="example">
-<pre class="example"><code class="code as-code-kbd ">in example example kbdinputstyle</code>
+<pre class="example-preformatted"><code class="code as-code-kbd ">in example example kbdinputstyle</code>
 </pre><dl class="vtable">
 <dt id='index-titlepage-vtable-i_002d_002dtem-in-example-example-kbdinputstyle'><tt><code class="code as-code-kbd ">vtable i--tem in example example kbdinputstyle</code></tt></dt>
 </dl>
@@ -1110,7 +1110,7 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <dt id='index-titlepage-vtable-i_002d_002dtem-distinct-kbdinputstyle'><kbd class="kbd">vtable i--tem distinct kbdinputstyle</kbd></dt>
 </dl>
 <div class="example">
-<pre class="example"><kbd class="kbd">in example distinct kbdinputstyle</kbd>
+<pre class="example-preformatted"><kbd class="kbd">in example distinct kbdinputstyle</kbd>
 </pre><dl class="vtable">
 <dt id='index-titlepage-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle'><tt><kbd class="kbd">vtable i--tem in example distinct kbdinputstyle</kbd></tt></dt>
 </dl>
@@ -1267,79 +1267,79 @@ i&#8211;tem 1
 </table>
 
 <div class="example">
-<pre class="example">e--xample  some
+<pre class="example-preformatted">e--xample  some
    text
 </pre></div>
 
 <div class="example first-arg">
-<pre class="example">example one arg
+<pre class="example-preformatted">example one arg
 </pre></div>
 
 <div class="example first-arg second-arg">
-<pre class="example">example two args
+<pre class="example-preformatted">example two args
 </pre></div>
 
 <div class="example first-arg second-arg third-arg">
-<pre class="example">example three args
+<pre class="example-preformatted">example three args
 </pre></div>
 
 <div class="example first-arg second-arg third-arg fourth-arg">
-<pre class="example">example four args
+<pre class="example-preformatted">example four args
 </pre></div>
 
 <div class="example first-arg second-arg third-arg fourth-arg fifth-arg">
-<pre class="example">example five args
+<pre class="example-preformatted">example five args
 </pre></div>
 
 <div class="example something-é-TeX">
-<pre class="example">The something &#233; TeX is here.
+<pre class="example-preformatted">The something &#233; TeX is here.
 </pre></div>
 
 <div class="example @-at-the-end-of-line--">
-<pre class="example">A @ at the end of the @example line.
+<pre class="example-preformatted">A @ at the end of the @example line.
 </pre></div>
 
 <div class="example">
-<pre class="example">example with empty args
+<pre class="example-preformatted">example with empty args
 </pre></div>
 
 <div class="example nonempty">
-<pre class="example">example with empty and non empty args mix
+<pre class="example-preformatted">example with empty and non empty args mix
 </pre></div>
 
 <div class="example">
-<pre class="example">s--mallexample
+<pre class="example-preformatted">s--mallexample
 </pre></div>
 
 <p><code class="code">@noindent</code> after smallexample.
 </p><div class="example">
-<pre class="example">$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+<pre class="example-preformatted">$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
 $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
 </pre></div>
 <p>Less recent versions are also present.
 </p>
 <div class="display">
-<pre class="display">d&#8211;isplay
+<pre class="display-preformatted">d&#8211;isplay
 </pre></div>
 
 <div class="display">
-<pre class="display">s&#8211;malldisplay
+<pre class="display-preformatted">s&#8211;malldisplay
 </pre></div>
 
 <div class="example lisp">
-<pre class="lisp">l--isp
+<pre class="lisp-preformatted">l--isp
 </pre></div>
 
 <div class="example lisp">
-<pre class="lisp">s--malllisp
+<pre class="lisp-preformatted">s--malllisp
 </pre></div>
 
 <div class="format">
-<pre class="format">f&#8211;ormat
+<pre class="format-preformatted">f&#8211;ormat
 </pre></div>
 
 <div class="format">
-<pre class="format">s&#8211;mallformat
+<pre class="format-preformatted">s&#8211;mallformat
 </pre></div>
 
 <div class="displaymath"><em>disp--laymath
@@ -2092,7 +2092,7 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <dt id='index-copying-vtable-i_002d_002dtem-default-kbdinputstyle'><kbd class="kbd">vtable i--tem default kbdinputstyle</kbd></dt>
 </dl>
 <div class="example">
-<pre class="example"><kbd class="kbd">in example default kbdinputstyle</kbd>
+<pre class="example-preformatted"><kbd class="kbd">in example default kbdinputstyle</kbd>
 </pre><dl class="vtable">
 <dt id='index-copying-vtable-i_002d_002dtem-in-example-default-kbdinputstyle'><tt><kbd class="kbd">vtable i--tem in example default kbdinputstyle</kbd></tt></dt>
 </dl>
@@ -2103,7 +2103,7 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <dt id='index-copying-vtable-i_002d_002dtem-code-kbdinputstyle'><code class="code as-code-kbd ">vtable i--tem code kbdinputstyle</code></dt>
 </dl>
 <div class="example">
-<pre class="example"><code class="code as-code-kbd ">in example code kbdinputstyle</code>
+<pre class="example-preformatted"><code class="code as-code-kbd ">in example code kbdinputstyle</code>
 </pre><dl class="vtable">
 <dt id='index-copying-vtable-i_002d_002dtem-in-example-code-kbdinputstyle'><tt><code class="code as-code-kbd ">vtable i--tem in example code kbdinputstyle</code></tt></dt>
 </dl>
@@ -2114,7 +2114,7 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <dt id='index-copying-vtable-i_002d_002dtem-example-kbdinputstyle'><kbd class="kbd">vtable i--tem example kbdinputstyle</kbd></dt>
 </dl>
 <div class="example">
-<pre class="example"><code class="code as-code-kbd ">in example example kbdinputstyle</code>
+<pre class="example-preformatted"><code class="code as-code-kbd ">in example example kbdinputstyle</code>
 </pre><dl class="vtable">
 <dt id='index-copying-vtable-i_002d_002dtem-in-example-example-kbdinputstyle'><tt><code class="code as-code-kbd ">vtable i--tem in example example kbdinputstyle</code></tt></dt>
 </dl>
@@ -2125,7 +2125,7 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <dt id='index-copying-vtable-i_002d_002dtem-distinct-kbdinputstyle'><kbd class="kbd">vtable i--tem distinct kbdinputstyle</kbd></dt>
 </dl>
 <div class="example">
-<pre class="example"><kbd class="kbd">in example distinct kbdinputstyle</kbd>
+<pre class="example-preformatted"><kbd class="kbd">in example distinct kbdinputstyle</kbd>
 </pre><dl class="vtable">
 <dt id='index-copying-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle'><tt><kbd class="kbd">vtable i--tem in example distinct kbdinputstyle</kbd></tt></dt>
 </dl>
@@ -2282,79 +2282,79 @@ i&#8211;tem 1
 </table>
 
 <div class="example">
-<pre class="example">e--xample  some
+<pre class="example-preformatted">e--xample  some
    text
 </pre></div>
 
 <div class="example first-arg">
-<pre class="example">example one arg
+<pre class="example-preformatted">example one arg
 </pre></div>
 
 <div class="example first-arg second-arg">
-<pre class="example">example two args
+<pre class="example-preformatted">example two args
 </pre></div>
 
 <div class="example first-arg second-arg third-arg">
-<pre class="example">example three args
+<pre class="example-preformatted">example three args
 </pre></div>
 
 <div class="example first-arg second-arg third-arg fourth-arg">
-<pre class="example">example four args
+<pre class="example-preformatted">example four args
 </pre></div>
 
 <div class="example first-arg second-arg third-arg fourth-arg fifth-arg">
-<pre class="example">example five args
+<pre class="example-preformatted">example five args
 </pre></div>
 
 <div class="example something-é-TeX">
-<pre class="example">The something &#233; TeX is here.
+<pre class="example-preformatted">The something &#233; TeX is here.
 </pre></div>
 
 <div class="example @-at-the-end-of-line--">
-<pre class="example">A @ at the end of the @example line.
+<pre class="example-preformatted">A @ at the end of the @example line.
 </pre></div>
 
 <div class="example">
-<pre class="example">example with empty args
+<pre class="example-preformatted">example with empty args
 </pre></div>
 
 <div class="example nonempty">
-<pre class="example">example with empty and non empty args mix
+<pre class="example-preformatted">example with empty and non empty args mix
 </pre></div>
 
 <div class="example">
-<pre class="example">s--mallexample
+<pre class="example-preformatted">s--mallexample
 </pre></div>
 
 <p><code class="code">@noindent</code> after smallexample.
 </p><div class="example">
-<pre class="example">$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+<pre class="example-preformatted">$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
 $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
 </pre></div>
 <p>Less recent versions are also present.
 </p>
 <div class="display">
-<pre class="display">d&#8211;isplay
+<pre class="display-preformatted">d&#8211;isplay
 </pre></div>
 
 <div class="display">
-<pre class="display">s&#8211;malldisplay
+<pre class="display-preformatted">s&#8211;malldisplay
 </pre></div>
 
 <div class="example lisp">
-<pre class="lisp">l--isp
+<pre class="lisp-preformatted">l--isp
 </pre></div>
 
 <div class="example lisp">
-<pre class="lisp">s--malllisp
+<pre class="lisp-preformatted">s--malllisp
 </pre></div>
 
 <div class="format">
-<pre class="format">f&#8211;ormat
+<pre class="format-preformatted">f&#8211;ormat
 </pre></div>
 
 <div class="format">
-<pre class="format">s&#8211;mallformat
+<pre class="format-preformatted">s&#8211;mallformat
 </pre></div>
 
 <div class="displaymath"><em>disp--laymath
@@ -2875,7 +2875,7 @@ html ''
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="chapter.xhtml" rel="index">1 chapter</a></td><td>&#160;&#160;</td><td align="left" valign="top"></td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
 
 Menu comment
 

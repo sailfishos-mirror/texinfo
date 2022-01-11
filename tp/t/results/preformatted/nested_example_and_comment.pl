@@ -678,22 +678,22 @@ $result_converted{'plaintext'}->{'nested_example_and_comment'} = '     First lin
 
 
 $result_converted{'html_text'}->{'nested_example_and_comment'} = '<div class="example">
-<pre class="example">First line 0 </pre><div class="example">
-<pre class="example">Nested example
+<pre class="example-preformatted">First line 0 </pre><div class="example">
+<pre class="example-preformatted">Nested example
 </pre></div>
-<pre class="example">In first one
-</pre></div>
-
-<div class="example">
-<pre class="example">First line 1 </pre><div class="example">
-<pre class="example">Nested example </pre></div>
-<pre class="example">In first one
+<pre class="example-preformatted">In first one
 </pre></div>
 
 <div class="example">
-<pre class="example">First line 2 </pre><div class="example">
-<pre class="example">Nested example </pre></div>
-<pre class="example">In first one </pre></div>
+<pre class="example-preformatted">First line 1 </pre><div class="example">
+<pre class="example-preformatted">Nested example </pre></div>
+<pre class="example-preformatted">In first one
+</pre></div>
+
+<div class="example">
+<pre class="example-preformatted">First line 2 </pre><div class="example">
+<pre class="example-preformatted">Nested example </pre></div>
+<pre class="example-preformatted">In first one </pre></div>
 ';
 
 

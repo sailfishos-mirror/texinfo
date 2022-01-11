@@ -890,7 +890,7 @@ $result_converted{'html'}->{'submenu_in_example'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-pre.menu-comment {font-family: serif}
+pre.menu-comment-preformatted {font-family: serif}
 -->
 </style>
 
@@ -901,34 +901,34 @@ pre.menu-comment {font-family: serif}
 <h1 class="node-heading" id="Top">Top</h1>
 
 <div class="example">
-<pre class="example">
+<pre class="example-preformatted">
 
 in example
 
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
-<pre class="menu-comment">in submenu
+<pre class="menu-comment-preformatted">in submenu
 
-</pre><pre class="menu-comment">
+</pre><pre class="menu-comment-preformatted">
 
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
-<pre class="menu-comment">in submenu
+<pre class="menu-comment-preformatted">in submenu
 </pre></td></tr></table>
-<pre class="menu-comment">
+<pre class="menu-comment-preformatted">
 
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
 <blockquote class="quotation">
-<pre class="menu-comment">A quot---ation in submenu
+<pre class="menu-comment-preformatted">A quot---ation in submenu
 </pre></blockquote>
 </td></tr></table>
-<pre class="menu-comment">
+<pre class="menu-comment-preformatted">
 
 </pre><strong id="subheading-in-menu">subheading in menu</strong>
-<pre class="menu-comment">
+<pre class="menu-comment-preformatted">
 
 </pre><ol class="enumerate">
-<li> <pre class="menu-comment">e--numerate
+<li> <pre class="menu-comment-preformatted">e--numerate
 </pre></li></ol>
-<pre class="menu-comment">
+<pre class="menu-comment-preformatted">
 
 </pre></td></tr></table>
 </div>

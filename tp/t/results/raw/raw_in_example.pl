@@ -520,11 +520,11 @@ $result_converted{'plaintext'}->{'raw_in_example'} = '
 
 
 $result_converted{'html_text'}->{'raw_in_example'} = '<div class="example">
-<pre class="example">in html
+<pre class="example-preformatted">in html
 </pre></div>
 
 <div class="example">
-<pre class="example">
+<pre class="example-preformatted">
 
 
 Some html <code>some code</code>.

@@ -311,7 +311,7 @@ $result_converted{'html_text'}->{'table_in_display_in_example'} = '<div class="e
 <div class="display">
 <dl class="table">
 <dt><tt>item</tt></dt>
-<dd><pre class="example">Line
+<dd><pre class="example-preformatted">Line
 </pre></dd>
 </dl>
 </div>

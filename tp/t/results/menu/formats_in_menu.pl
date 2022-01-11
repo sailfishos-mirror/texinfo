@@ -1021,7 +1021,7 @@ $result_converted{'html'}->{'formats_in_menu'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-pre.menu-comment {font-family: serif}
+pre.menu-comment-preformatted {font-family: serif}
 pre.menu-preformatted {font-family: serif}
 -->
 </style>
@@ -1040,7 +1040,7 @@ pre.menu-preformatted {font-family: serif}
 </pre></dd>
 </dl>
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
 
 </pre></th></tr><tr><td align="left" valign="top">&bull; <a href="info.html#Top" accesskey="2">(info)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 <pre class="verbatim">some @ verb{x atim
@@ -1054,13 +1054,13 @@ Log$
 <tr><td align="left" valign="top">&bull; <a href="truc.html#Top" accesskey="4">(truc)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><acronym class="acronym">description
 * acronym::</acronym>
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
 
 </pre><div class="example">
-<pre class="example">* subsubsection::
+<pre class="example-preformatted">* subsubsection::
 Menu comment
 </pre></div>
-<pre class="menu-comment">
+<pre class="menu-comment-preformatted">
 
 </pre></th></tr></table>
 

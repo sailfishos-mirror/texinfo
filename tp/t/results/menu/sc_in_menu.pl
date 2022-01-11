@@ -1131,7 +1131,7 @@ $result_converted{'html'}->{'sc_in_menu'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 div.example {margin-left: 3.2em}
-pre.menu-comment {font-family: serif}
+pre.menu-comment-preformatted {font-family: serif}
 pre.menu-preformatted {font-family: serif}
 -->
 </style>
@@ -1150,12 +1150,12 @@ Next: <a href="#NODE" accesskey="n" rel="next"><small class="sc">NODE</small></a
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#NODE" accesskey="1"><small class="sc">VALUE</small></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><small class="sc">DESCRIP TION</small>
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
 
 <span class="sc">MENU COMMENT</span>
 
 </pre><div class="example">
-<pre class="example">* <span class="sc">MENU-EXAMPLE VALUE</span>:(dir)<span class="sc">MENU-EXAMPLE NODE</span>.   <span class="sc">MENU-EXAMPLE DESCRIP TION</span>
+<pre class="example-preformatted">* <span class="sc">MENU-EXAMPLE VALUE</span>:(dir)<span class="sc">MENU-EXAMPLE NODE</span>.   <span class="sc">MENU-EXAMPLE DESCRIP TION</span>
 
 <span class="sc">MENU-EXAMPLE COMMENT</span>
 </pre></div>
@@ -1171,7 +1171,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 <div class="example">
 <table class="menu" border="0" cellspacing="0"><tr><td>
 <pre class="menu-preformatted">&bull; <span class="sc">EXAMPLE VALUE</span>:<a href="dir.html#EXAMPLE-NODE" accesskey="1">(dir)<span class="sc">EXAMPLE NODE</span></a>.   <span class="sc">EXAMPLE DESCRIP TION</span>
-</pre><pre class="menu-comment">
+</pre><pre class="menu-comment-preformatted">
 
 <span class="sc">EXAMPLE COMMENT</span>
 </pre></td></tr></table>

@@ -1923,7 +1923,7 @@ $result_converted{'plaintext'}->{'itemize_and_empty_lines'} = '   youhou first i
 $result_converted{'html_text'}->{'itemize_and_empty_lines'} = '<ul class="itemize" style="list-style-type: \'youhou\'">
 <li>first item
 </li><li><div class="example">
-<pre class="example">In example
+<pre class="example-preformatted">In example
 
 end example.
 </pre></div>
@@ -1931,7 +1931,7 @@ end example.
 empty line.
 </li><li>
 <div class="example">
-<pre class="example">In second example
+<pre class="example-preformatted">In second example
 </pre></div>
 <blockquote class="quotation">
 <p>Quotation
@@ -1946,7 +1946,7 @@ empty line.
 <ul class="itemize mark-bullet">
 <li>first item
 </li><li><div class="example">
-<pre class="example">In example
+<pre class="example-preformatted">In example
 
 end example.
 </pre></div>
@@ -1954,7 +1954,7 @@ end example.
 empty line.
 </li><li>
 <div class="example">
-<pre class="example">In second example
+<pre class="example-preformatted">In second example
 </pre></div>
 </li><li><blockquote class="quotation">
 <p>Quotation

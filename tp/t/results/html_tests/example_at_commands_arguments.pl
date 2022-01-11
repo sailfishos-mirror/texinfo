@@ -329,7 +329,7 @@ div.example {margin-left: 3.2em}
 
 <body lang="en">
 <div class="example some-thing-ê-TeX-¡-----...-!_--_---_-&lt;-&quot;-&amp;--, @ 0">
-<pre class="example">example with @-commands and other special characters
+<pre class="example-preformatted">example with @-commands and other special characters
 </pre></div>
 
 

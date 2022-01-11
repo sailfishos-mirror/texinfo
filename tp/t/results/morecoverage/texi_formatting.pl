@@ -4932,7 +4932,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 </p>
 <p>In example.
 </p><div class="example">
-<pre class="example">
+<pre class="example-preformatted">
 
 </pre></div>
 
@@ -5257,7 +5257,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 </p>
 <p>In example.
 </p><div class="example">
-<pre class="example">
+<pre class="example-preformatted">
 
 </pre></div>
 

@@ -128,7 +128,7 @@ $result_converted{'plaintext'}->{'page_in_example'} = '     text
 
 
 $result_converted{'html_text'}->{'page_in_example'} = '<div class="example">
-<pre class="example">text
+<pre class="example-preformatted">text
 </pre></div>
 ';
 

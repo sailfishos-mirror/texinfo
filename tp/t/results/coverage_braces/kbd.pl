@@ -566,14 +566,14 @@ $result_converted{'html_text'}->{'kbd'} = '<p>kbd: <code class="code">in kbd</co
 <p>kbd in @example:
 </p>
 <div class="example">
-<pre class="example">in example
+<pre class="example-preformatted">in example
 <code class="code">in example in kbd</code>.
 </pre></div>
 
 <p>kbd in @format:
 </p>
 <div class="format">
-<pre class="format">in format
+<pre class="format-preformatted">in format
 <code class="code">in format in kbd</code>.
 </pre></div>
 ';

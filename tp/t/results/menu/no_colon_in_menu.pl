@@ -212,7 +212,7 @@ $result_converted{'html'}->{'no_colon_in_menu'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-pre.menu-comment {font-family: serif}
+pre.menu-comment-preformatted {font-family: serif}
 -->
 </style>
 
@@ -223,7 +223,7 @@ pre.menu-comment {font-family: serif}
 <h1 class="node-heading" id="Top">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">* a
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">* a
 </pre></th></tr></table>
 
 

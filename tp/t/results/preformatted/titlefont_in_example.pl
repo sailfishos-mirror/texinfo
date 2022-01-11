@@ -147,7 +147,7 @@ $result_converted{'plaintext'}->{'titlefont_in_example'} = '     Title
 
 
 $result_converted{'html_text'}->{'titlefont_in_example'} = '<div class="example">
-<h1 class="titlefont">Title</h1><pre class="example">
+<h1 class="titlefont">Title</h1><pre class="example-preformatted">
 
 Text.
 </pre></div>

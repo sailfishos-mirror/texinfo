@@ -469,7 +469,7 @@ $result_converted{'html_text'}->{'ref_in_preformatted'} = '<a class="node-anchor
 
 
 <div class="example">
-<pre class="example">Now <a class="ref" href="#nnn-the-node-name">nnn the
+<pre class="example-preformatted">Now <a class="ref" href="#nnn-the-node-name">nnn the
 node name</a>
 </pre></div>
 

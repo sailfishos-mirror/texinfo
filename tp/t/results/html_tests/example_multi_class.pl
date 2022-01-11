@@ -364,7 +364,7 @@ div.example {margin-left: 3.2em}
 
 <body lang="en">
 <div class="example C++ gothic purple embed">
-<pre class="example">void StateManager::deallocate() {
+<pre class="example-preformatted">void StateManager::deallocate() {
     if(buffer) {
         delete [] buffer;
         buffer = NULL;

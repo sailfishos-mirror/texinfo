@@ -405,7 +405,7 @@ $result_converted{'plaintext'}->{'sp_in_example'} = '     Para
 
 
 $result_converted{'html_text'}->{'sp_in_example'} = '<div class="example">
-<pre class="example">Para
+<pre class="example-preformatted">Para
 
 other para
 Now lone @sp:

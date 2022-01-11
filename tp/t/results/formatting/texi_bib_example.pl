@@ -5613,7 +5613,7 @@ $result_converted{'html'}->{'texi_bib_example'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 h1.settitle {text-align:center}
-pre.menu-comment {font-family: serif}
+pre.menu-comment-preformatted {font-family: serif}
 span.program-in-footer {font-size: smaller}
 -->
 </style>
@@ -5686,7 +5686,7 @@ span.program-in-footer {font-size: smaller}
 </td></tr>
 <tr><td align="left" valign="top"><a href="#References">2 References</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
 
 </pre></th></tr></table>
 

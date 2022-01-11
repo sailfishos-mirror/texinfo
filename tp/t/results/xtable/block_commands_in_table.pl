@@ -1744,7 +1744,7 @@ $result_converted{'html_text'}->{'block_commands_in_table'} = '<div class="top" 
 </dd>
 <dt><em class="emph">example</em></dt>
 <dd><div class="example">
-<pre class="example">In example
+<pre class="example-preformatted">In example
 
 end example.
 </pre></div>

@@ -3938,7 +3938,7 @@ div.example {margin-left: 3.2em}
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.
 </p>
 <div class="example">
-<pre class="example"><img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
+<pre class="example-preformatted"><img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
 
 In text <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="alt &icirc;&ndash;le..  a
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.
@@ -4179,7 +4179,7 @@ $result_converted{'html_text'}->{'test_image'} = '
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.
 </p>
 <div class="example">
-<pre class="example"><img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
+<pre class="example-preformatted"><img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
 
 In text <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="alt &icirc;&ndash;le..  a
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.

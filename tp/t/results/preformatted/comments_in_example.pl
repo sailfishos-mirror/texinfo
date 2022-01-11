@@ -435,15 +435,15 @@ $result_converted{'plaintext'}->{'comments_in_example'} = 'Example with comments
 
 $result_converted{'html_text'}->{'comments_in_example'} = '<p>Example with comments 2 lines
 </p><div class="example">
-<pre class="example">line second line </pre></div>
+<pre class="example-preformatted">line second line </pre></div>
 
 <p>Example with comments 1 line
 </p><div class="example">
-<pre class="example">line </pre></div>
+<pre class="example-preformatted">line </pre></div>
 
 <p>Example with newline after comment
 </p><div class="example">
-<pre class="example">line 
+<pre class="example-preformatted">line 
 second line
 </pre></div>
 ';

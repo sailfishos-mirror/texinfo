@@ -4901,7 +4901,7 @@ a.summary-letter-printindex {text-decoration: none}
 div.example {margin-left: 3.2em}
 h1.centerchap {text-align:center}
 h3.subtitle {text-align:right}
-pre.menu-comment {font-family: serif}
+pre.menu-comment-preformatted {font-family: serif}
 pre.menu-preformatted {font-family: serif}
 span.program-in-footer {font-size: smaller}
 ul.toc-numbered-mark {list-style: none}
@@ -4938,7 +4938,7 @@ ul.toc-numbered-mark {list-style: none}
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#chapter">1 chapter</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top"></td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
 
 Menu comment
 
@@ -4958,7 +4958,7 @@ Menu comment
 </p>
 <p>In example.
 </p><div class="example">
-<pre class="example">
+<pre class="example-preformatted">
 
 </pre></div>
 
@@ -5090,7 +5090,7 @@ Menu comment
 <div class="format">
 <table class="menu" border="0" cellspacing="0"><tr><td>
 <pre class="menu-preformatted">&bull; <a href="#s_002d_002dect_002cion">s--ect,ion</a>:: s&ndash;ect,ion
-</pre><pre class="menu-comment">
+</pre><pre class="menu-comment-preformatted">
 
 Menu comment
 &ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo;
@@ -5121,9 +5121,9 @@ Menu comment
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#subsection">1.1.1 subsection</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
 
-</pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">In detailmenu
+</pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">In detailmenu
 
 </pre></th></tr><tr><td align="left" valign="top"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -5503,7 +5503,7 @@ $result_converted{'html_text'}->{'formatting_fr'} = '<h1 class="title">title &nd
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#chapter">1 chapter</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top"></td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
 
 Menu comment
 
@@ -5523,7 +5523,7 @@ Menu comment
 </p>
 <p>In example.
 </p><div class="example">
-<pre class="example">
+<pre class="example-preformatted">
 
 </pre></div>
 
@@ -5655,7 +5655,7 @@ Menu comment
 <div class="format">
 <table class="menu" border="0" cellspacing="0"><tr><td>
 <pre class="menu-preformatted">&bull; <a href="#s_002d_002dect_002cion">s--ect,ion</a>:: s&ndash;ect,ion
-</pre><pre class="menu-comment">
+</pre><pre class="menu-comment-preformatted">
 
 Menu comment
 &ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo;
@@ -5686,9 +5686,9 @@ Menu comment
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#subsection">1.1.1 subsection</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
 
-</pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">In detailmenu
+</pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">In detailmenu
 
 </pre></th></tr><tr><td align="left" valign="top"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
