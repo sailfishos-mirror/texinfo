@@ -1,5 +1,12 @@
 2022-01-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%css_map, _protect_space):
+	rename nolinebreak class as w-nolinebreak-text.  Call
+	html_attribute_class() only if the element will be substituted
+	in the protected text.
+
+2022-01-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%css_map, %pre_class_commands)
 	(_preformatted_class): only use command and type names in
 	'preformatted_classes', and prepend -preformatted systematically
