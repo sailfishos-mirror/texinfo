@@ -190,21 +190,15 @@ sub html_attribute_class($$$;$)
       }
     }
     if (scalar(@styles) >  0) {
-      $style = ' style="'.join(';',@styles).'"';
+      $style = ' style="'.join(';', @styles).'"';
     }
   } else {
     foreach my $style_class (@all_classes) {
       $self->_collect_css_element_class("$element.$style_class");
     }
   }
-  my $extra_class_str = '';
-  if (defined($extra_classes)) {
-    my $extra_class_conversion = join(' ', map {$self->_protect_class_name($_)} @$extra_classes);
-    if ($extra_class_conversion ne '') {
-      $extra_class_str = ' '.$extra_class_conversion;
-    }
-  }
-  return "<$element class=\"$class$extra_class_str\"$style";
+  my $class_str = join(' ', map {$self->_protect_class_name($_)} @all_classes);
+  return "<$element class=\"$class_str\"$style";
 }
 
 # those rules cannot be collected during document output since they
@@ -2235,7 +2229,7 @@ sub _convert_style_command($$$$)
       my $class;
       ($style, $class, $attribute_text)
         = _parse_attribute ($attribute_hash->{$cmdname}->{'attribute'});
-      if (defined($class)) {
+      if (defined($class) and $class ne '') {
         push @additional_classes, $class;
       }
       my $open = $self->html_attribute_class($style, $cmdname, \@additional_classes);
