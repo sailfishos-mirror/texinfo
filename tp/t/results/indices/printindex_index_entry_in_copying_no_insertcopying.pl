@@ -1307,7 +1307,7 @@ Top.
 
 $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcopying'} = '
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -1321,7 +1321,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcop
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>

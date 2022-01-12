@@ -888,7 +888,7 @@ $result_converted{'html'}->{'part_chapter_after_top'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
@@ -898,7 +898,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 <hr>
 </div>
 <div class="part-level-extent" id="part">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>

@@ -722,7 +722,7 @@ $result_converted{'html'}->{'anchor_in_footnote_separate'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 </div>
@@ -736,7 +736,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -746,7 +746,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 </p></div>
 </div>
 <div class="element-footnotes" id="SEC_Footnotes">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>

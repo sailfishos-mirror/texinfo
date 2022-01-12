@@ -443,7 +443,7 @@ $result_converted{'html'}->{'empty_top_node_up'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </div>
@@ -451,7 +451,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 
 
 <hr>
-<a class="node-id" id="first"></a><div class="nav-header">
+<a class="node-id" id="first"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">empty top node up</a>, Up: <a href="#Top" accesskey="u" rel="up">empty top node up</a> &nbsp; </p>
 </div>

@@ -4880,7 +4880,7 @@ ul.mark-minus {list-style-type: "\\2212"}
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 </div>
@@ -5000,7 +5000,7 @@ A footnote.
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>

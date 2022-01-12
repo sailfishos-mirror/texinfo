@@ -1599,7 +1599,7 @@ span.program-in-footer {font-size: smaller}
 
 
 <div class="top-level-extent" id="Top">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt; ]</td>
 <td valign="middle" align="left">[<a href="#glossary" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -1621,7 +1621,7 @@ span.program-in-footer {font-size: smaller}
 </p>
 <hr style="height: 6px;">
 <div class="chapter-level-extent" id="glossary">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Up section"> Up </a>]</td>
@@ -1645,7 +1645,7 @@ span.program-in-footer {font-size: smaller}
 </div>
 <hr>
 <div class="element-about" id="SEC_About">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[Contents]</td>
 <td valign="middle" align="left">[Index]</td>

@@ -57,7 +57,7 @@ texinfo_set_from_init_file('USE_NODES', 0);
 
 texinfo_register_formatting_function('format_end_file', \&chm_format_end_file);
 texinfo_register_formatting_function('format_navigation_header', \&chm_noop);
-texinfo_register_formatting_function('format_navigation_header_panel', \&chm_noop);
+texinfo_register_formatting_function('format_navigation_panel', \&chm_noop);
 
 my %chm_languages = (
     'en'         => '0x409 English (United States)',

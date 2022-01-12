@@ -830,7 +830,7 @@ pre.menu-comment-preformatted {font-family: serif}
 </head>
 
 <body lang="en">
-<a class="node-id" id="Top"></a><div class="nav-header">
+<a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </div>
@@ -854,13 +854,13 @@ Menu comment
 </table>
 
 <hr>
-<a class="node-id" id="first"></a><div class="nav-header">
+<a class="node-id" id="first"></a><div class="nav-panel">
 <p>
 Next: <a href="#second" accesskey="n" rel="next">second</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h4 class="node">first</h4>
 <hr>
-<a class="node-id" id="second"></a><div class="nav-header">
+<a class="node-id" id="second"></a><div class="nav-panel">
 <p>
 Previous: <a href="#first" accesskey="p" rel="prev">first</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>

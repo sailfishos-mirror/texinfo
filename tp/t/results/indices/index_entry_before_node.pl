@@ -759,7 +759,7 @@ $result_converted{'plaintext'}->{'index_entry_before_node'} = 'Para.
 ';
 
 
-$result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id" id="Top"></a><div class="nav-header">
+$result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -767,7 +767,7 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id
 
 
 <hr>
-<a class="node-id" id="first"></a><div class="nav-header">
+<a class="node-id" id="first"></a><div class="nav-panel">
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -778,7 +778,7 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id
 <a class="index-entry-id" id="index-lone-entry"></a>
 
 <hr>
-<a class="node-id" id="second"></a><div class="nav-header">
+<a class="node-id" id="second"></a><div class="nav-panel">
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>

@@ -946,7 +946,7 @@ $result_converted{'plaintext'}->{'spaces_in_empty_node_names'} = '*note   ::
 ';
 
 
-$result_converted{'html_text'}->{'spaces_in_empty_node_names'} = '<a class="node-id" id="Top"></a><div class="nav-header">
+$result_converted{'html_text'}->{'spaces_in_empty_node_names'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -954,19 +954,19 @@ $result_converted{'html_text'}->{'spaces_in_empty_node_names'} = '<a class="node
 
 
 <hr>
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
 
 <hr>
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
 
 <hr>
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>

@@ -91,7 +91,7 @@ texinfo_set_from_init_file('BIG_RULE', '');
 texinfo_set_from_init_file('HEADERS', 0);
 
 texinfo_register_formatting_function('format_navigation_header', \&epub_noop);
-texinfo_register_formatting_function('format_navigation_header_panel', \&epub_noop);
+texinfo_register_formatting_function('format_navigation_panel', \&epub_noop);
 
 texinfo_register_command_formatting('image', \&epub_convert_image_command);
 

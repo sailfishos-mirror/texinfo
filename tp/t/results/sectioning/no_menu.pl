@@ -623,7 +623,7 @@ $result_converted{'html'}->{'no_menu'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#c1" accesskey="n" rel="next">c1</a> &nbsp; </p>
 </div>
@@ -635,7 +635,7 @@ Next: <a href="#c1" accesskey="n" rel="next">c1</a> &nbsp; </p>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="c1">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#c2" accesskey="n" rel="next">c2</a> &nbsp; </p>
 </div>
@@ -644,7 +644,7 @@ Next: <a href="#c2" accesskey="n" rel="next">c2</a> &nbsp; </p>
 <hr>
 </div>
 <div class="chapter-level-extent" id="c2">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#c3" accesskey="n" rel="next">c3</a>, Previous: <a href="#c1" accesskey="p" rel="prev">c1</a> &nbsp; </p>
 </div>
@@ -653,7 +653,7 @@ Next: <a href="#c3" accesskey="n" rel="next">c3</a>, Previous: <a href="#c1" acc
 <hr>
 </div>
 <div class="chapter-level-extent" id="c3">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Previous: <a href="#c2" accesskey="p" rel="prev">c2</a> &nbsp; </p>
 </div>

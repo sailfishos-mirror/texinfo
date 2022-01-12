@@ -700,7 +700,7 @@ $result_converted{'html'}->{'test_xrefautomaticsectiontitle_off_first'} = '<!DOC
 
 
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
@@ -712,7 +712,7 @@ Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>

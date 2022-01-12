@@ -1141,7 +1141,7 @@ pre.menu-preformatted {font-family: serif}
 
 <body lang="en">
 
-<a class="node-id" id="Top"></a><div class="nav-header">
+<a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
 Next: <a href="#NODE" accesskey="n" rel="next"><small class="sc">NODE</small></a> &nbsp; </p>
 </div>
@@ -1162,7 +1162,7 @@ Next: <a href="#NODE" accesskey="n" rel="next"><small class="sc">NODE</small></a
 </th></tr></table>
 
 <hr>
-<a class="node-id" id="NODE"></a><div class="nav-header">
+<a class="node-id" id="NODE"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>

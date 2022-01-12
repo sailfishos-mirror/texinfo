@@ -1,5 +1,15 @@
 2022-01-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_navigation_panel):
+	rename format_navigation_header_panel as format_navigation_panel
+	as it is used both for headers and footers.  Use nav-panel instead
+	of nav-header for the class.
+
+	* tp/Texinfo/Convert/HTML.pm (_indent_with_table): add a class
+	with the command name with COMPLEX_FORMAT_IN_TABLE.
+
+2022-01-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_style_command): comment
 	out the code parsing attributes in style command specification
 	as there is no need to specify attributes right now.

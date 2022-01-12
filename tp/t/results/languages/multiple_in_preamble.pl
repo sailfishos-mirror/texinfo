@@ -1263,7 +1263,7 @@ span:hover a.copiable-anchor {visibility: visible}
 
 
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Sljedeće: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
@@ -1274,7 +1274,7 @@ Sljedeće: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Prethodno: <a href="#Top" accesskey="p" rel="prev">top section</a>, Gore: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>
 </div>

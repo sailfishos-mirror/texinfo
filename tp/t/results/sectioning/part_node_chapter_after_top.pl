@@ -1191,7 +1191,7 @@ $result_converted{'html'}->{'part_node_chapter_after_top'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#a-node-after-part" accesskey="n" rel="next">a node after part</a> &nbsp; </p>
 </div>
@@ -1201,7 +1201,7 @@ Next: <a href="#a-node-after-part" accesskey="n" rel="next">a node after part</a
 <hr>
 </div>
 <div class="part-level-extent" id="part">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
@@ -1216,7 +1216,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a>, Previous: <a href
 </p>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#a-node-after-part" accesskey="n" rel="next">a node after part</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>

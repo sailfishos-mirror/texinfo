@@ -1398,7 +1398,7 @@ $result_converted{'html'}->{'part_node_node_part_appendix'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
@@ -1408,7 +1408,7 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 <hr>
 </div>
 <div class="part-level-extent" id="Part-1">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#appendix-part" accesskey="n" rel="next">Appendix</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
@@ -1424,7 +1424,7 @@ Next: <a href="#appendix-part" accesskey="n" rel="next">Appendix</a>, Previous: 
 <hr>
 </div>
 <div class="appendix-level-extent" id="appendix-part">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>

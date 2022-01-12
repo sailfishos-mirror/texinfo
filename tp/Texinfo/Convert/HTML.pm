@@ -2130,8 +2130,9 @@ $style_commands_element{'normal'} = {
       'emph'        => 'em',
       'env'         => 'code',
       'file'        => 'samp',
-      'headitemfont' => 'b', # not really that, in fact it is 
-                             # in <th> rather than <td>
+      'headitemfont' => 'b', # the @multitable prototypes are ignored
+                             # and headitem are in <th> rather than <td>.
+                             # The mapping is based on style used in other formats.
       'i'           => 'i',
       'slanted'     => 'i',
       'sansserif'   => 'span',
@@ -3071,7 +3072,7 @@ sub _default_format_button($$)
 }
 
 # called for special elements and tree units
-sub _default_format_navigation_header_panel($$$$;$)
+sub _default_format_navigation_panel($$$$;$)
 {
   my $self = shift;
   my $buttons = shift;
@@ -3083,15 +3084,16 @@ sub _default_format_navigation_header_panel($$$$;$)
   # is itself in the first column of a table opened in header_navigation
   #my $vertical = $self->get_conf('VERTICAL_HEAD_NAVIGATION');
 
-  my $first_button = 1;
   my $result = '';
   if ($self->get_conf('HEADER_IN_TABLE')) {
-    $result .= $self->html_attribute_class('table', 'nav-header')
+    $result .= $self->html_attribute_class('table', 'nav-panel')
         .' cellpadding="1" cellspacing="1" border="0">'."\n";
     $result .= "<tr>" unless $vertical;
   } else {
-    $result .= $self->html_attribute_class('div', 'nav-header').">\n<p>\n";
+    $result .= $self->html_attribute_class('div', 'nav-panel').">\n<p>\n";
   }
+
+  my $first_button = 1;
   foreach my $button (@$buttons) {
     if ($self->get_conf('HEADER_IN_TABLE')) {
       $result .= qq{<tr valign="top" align="left">\n} if $vertical;
@@ -3108,14 +3110,13 @@ sub _default_format_navigation_header_panel($$$$;$)
     my ($active, $passive, $need_delimiter) = &{$self->{'format_button'}}($self, $button);
     if ($self->get_conf('HEADER_IN_TABLE')) {
       if (defined($active)) {
-        $first_button = 0 if ($first_button);
         $result .= $active;
       } elsif (defined($passive)) {
-        $first_button = 0 if ($first_button);
         $result .= $passive;
       }
       $result .= "</td>\n";
       $result .= "</tr>\n" if $vertical;
+      $first_button = 0 if ($first_button);
     } elsif (defined($active)) {
       # only active buttons are print out when not in table
       if ($need_delimiter and !$first_button) {
@@ -3148,7 +3149,7 @@ sub _default_format_navigation_header($$$$)
 <td align="left">
 ';
   }
-  $result .= &{$self->{'format_navigation_header_panel'}}($self, $buttons,
+  $result .= &{$self->{'format_navigation_panel'}}($self, $buttons,
                                                    $cmdname, $element,
                                    $self->get_conf('VERTICAL_HEAD_NAVIGATION'));
   if ($self->get_conf('VERTICAL_HEAD_NAVIGATION')) {
@@ -3217,7 +3218,7 @@ sub _default_format_element_header($$$$)
       } elsif($self->get_conf('HEADERS') or $self->get_conf('SPLIT') eq 'node') {
         # got to do this here, as it isn't done otherwise since 
         # navigation_header is not called
-        $result .= &{$self->{'format_navigation_header_panel'}}($self,
+        $result .= &{$self->{'format_navigation_panel'}}($self,
                 $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
       }
     }
@@ -3503,12 +3504,14 @@ foreach my $command (keys(%inline_commands)) {
   $default_commands_conversion{$command} = \&_convert_inline_command;
 }
 
-sub _indent_with_table ($$)
+sub _indent_with_table($$$)
 {
   my $self = shift;
+  my $cmdname = shift;
   my $content = shift;
 
-  return '<table><tr><td>'.$self->html_non_breaking_space().'</td><td>'.$content
+  return $self->html_attribute_class('table', $cmdname)
+         .'><tr><td>'.$self->html_non_breaking_space().'</td><td>'.$content
                 ."</td></tr></table>\n";
 }
 
@@ -3550,12 +3553,9 @@ sub _convert_preformatted_command($$$$)
   }
 
   if ($content ne '' and !$self->in_string()) {
-    if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')) {
-      if ($indented_preformatted_commands{$cmdname}) {
-        return _indent_with_table($self, $content);
-      } else {
-        return $content."\n";
-      }
+    if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')
+        and $indented_preformatted_commands{$cmdname}) {
+      return _indent_with_table($self, $cmdname, $content);
     } else {
       return $self->html_attribute_class('div', $main_cmdname, $extra_classes)
                                                  .">\n".$content.'</div>'."\n";
@@ -3583,7 +3583,7 @@ sub _convert_indented_command($$$$)
   
   if ($content ne '' and !$self->in_string()) {
     if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')) {
-      return _indent_with_table($self, $content);
+      return _indent_with_table($self, $cmdname, $content);
     } else {
       return $self->html_attribute_class('blockquote', $cmdname).">\n"
              .$content.'</blockquote>'."\n";
@@ -5952,8 +5952,8 @@ sub _default_format_element_footer($$$$)
     $result .= "$rule\n" if ($rule);
   }
   if ($buttons) {
-    $result .= &{$self->{'format_navigation_header_panel'}}($self, $buttons,
-                                                          undef, $element);
+    $result .= &{$self->{'format_navigation_panel'}}($self, $buttons,
+                                                     undef, $element);
   }
   
   return $result;
@@ -5999,19 +5999,19 @@ our %default_formatting_references = (
      'format_comment' => \&_default_format_comment,
      'format_protect_text' => \&_default_format_protect_text,
      'format_css_lines' => \&_default_format_css_lines,
-     'format_begin_file' => \&_default_format_begin_file, 
-     'format_node_redirection_page' => \&_default_format_node_redirection_page, 
-     'format_end_file' => \&_default_format_end_file, 
+     'format_begin_file' => \&_default_format_begin_file,
+     'format_node_redirection_page' => \&_default_format_node_redirection_page,
+     'format_end_file' => \&_default_format_end_file,
      'format_special_element_body' => \&_default_format_special_element_body,
-     'format_footnotes_text' => \&_default_format_footnotes_text, 
-     'format_program_string' => \&_default_format_program_string, 
-     'format_titlepage' => \&_default_format_titlepage, 
-     'format_navigation_header' => \&_default_format_navigation_header, 
-     'format_navigation_header_panel' => \&_default_format_navigation_header_panel, 
+     'format_footnotes_text' => \&_default_format_footnotes_text,
+     'format_program_string' => \&_default_format_program_string,
+     'format_titlepage' => \&_default_format_titlepage,
+     'format_navigation_header' => \&_default_format_navigation_header,
+     'format_navigation_panel' => \&_default_format_navigation_panel,
      'format_element_header' => \&_default_format_element_header,
      'format_element_footer' => \&_default_format_element_footer,
-     'format_button' => \&_default_format_button, 
-     'format_button_icon_img' => \&_default_format_button_icon_img, 
+     'format_button' => \&_default_format_button,
+     'format_button_icon_img' => \&_default_format_button_icon_img,
      'format_separate_anchor' => \&_default_format_separate_anchor,
      'format_contents' => \&_default_format_contents,
      'format_frame_files' => \&_default_format_frame_files,

@@ -2511,7 +2511,7 @@ for example *note node:: (*note node::) (*note (file)Top::)
 
 $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -2545,7 +2545,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 </div>
 <hr>
 <div class="chapter-level-extent" id="node">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -2554,7 +2554,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <hr>
 </div>
 <div class="chapter-level-extent" id="chap">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>

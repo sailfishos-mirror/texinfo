@@ -741,7 +741,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 
 <body lang="en">
 <div class="top-level-extent" id="top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -752,7 +752,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -763,7 +763,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 </ul>
 <hr>
 <div class="section-level-extent" id="section">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -774,7 +774,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 </ul>
 <hr>
 <div class="subsection-level-extent" id="subsection">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -785,7 +785,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 </ul>
 <hr>
 <div class="subsubsection-level-extent" id="subsubsection">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -798,7 +798,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 </div>
 </div>
 <div class="part-level-extent" id="part">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -816,7 +816,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <hr>
 </div>
 <div class="chapter-level-extent" id="second-chapter-in-part">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -825,7 +825,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <hr>
 </div>
 <div class="unnumbered-level-extent" id="unnumbered">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -834,7 +834,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <hr>
 </div>
 <div class="appendix-level-extent" id="appendix">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -845,7 +845,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 </ul>
 <hr>
 <div class="appendixsec-level-extent" id="appendixsec">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>

@@ -935,7 +935,7 @@ $result_converted{'plaintext'}->{'double_seeentry_seealso'} = 'top
 
 $result_converted{'html_text'}->{'double_seeentry_seealso'} = '
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; [<a href="#node-index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -946,7 +946,7 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '
 </ul>
 <hr>
 <div class="chapter-level-extent" id="node-index">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; [<a href="#node-index" title="Index" rel="index">Index</a>]</p>
 </div>

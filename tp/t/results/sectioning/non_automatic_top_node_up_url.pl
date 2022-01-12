@@ -960,7 +960,7 @@ $result_converted{'html'}->{'non_automatic_top_node_up_url'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>
@@ -968,7 +968,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a>, Previous: <a href="di
 
 
 <hr>
-<a class="node-id" id="first"></a><div class="nav-header">
+<a class="node-id" id="first"></a><div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">internal top node up</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>

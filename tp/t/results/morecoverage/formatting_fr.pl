@@ -4926,7 +4926,7 @@ ul.toc-numbered-mark {list-style: none}
 </p><hr>
 
 <div class="top-level-extent" id="Top">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt; ]</td>
 <td valign="middle" align="left">[<a href="#chapter" title="Section suivante dans l&rsquo;ordre de lecture"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -5068,7 +5068,7 @@ Menu comment
 
 <hr style="height: 6px;">
 <div class="chapter-level-extent" id="chapter">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Section sup&eacute;rieure">Plus haut</a>]</td>
@@ -5101,7 +5101,7 @@ Menu comment
 
 <hr>
 <div class="section-level-extent" id="s_002d_002dect_002cion">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#chapter" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#chapter" title="Section sup&eacute;rieure">Plus haut</a>]</td>
@@ -5133,7 +5133,7 @@ Menu comment
 
 <hr>
 <div class="subsection-level-extent" id="subsection">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#s_002d_002dect_002cion" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#s_002d_002dect_002cion" title="Section sup&eacute;rieure">Plus haut</a>]</td>
@@ -5160,7 +5160,7 @@ Menu comment
 <a class="anchor" id="anchor"></a>
 <hr>
 <div class="subsubsection-level-extent" id="subsubsection-_0060_0060simple_002ddouble_002d_002d">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#subsection" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#subsection" title="Section sup&eacute;rieure">Plus haut</a>]</td>
@@ -5180,7 +5180,7 @@ Menu comment
 <hr>
 </div>
 <div class="subsubsection-level-extent" id="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#subsection" title="Section sup&eacute;rieure">Plus haut</a>]</td>
@@ -5203,7 +5203,7 @@ Menu comment
 </div>
 </div>
 <div class="centerchap-level-extent" id="chapter2">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Section sup&eacute;rieure">Plus haut</a>]</td>
@@ -5303,7 +5303,7 @@ Menu comment
 </div>
 <hr>
 <div class="element-footnotes" id="SEC_Footnotes">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
@@ -5315,7 +5315,7 @@ Menu comment
 <p>in footnote</p>
 </div><hr>
 <div class="element-contents" id="SEC_Contents">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
@@ -5342,7 +5342,7 @@ Menu comment
 </div>
 </div><hr>
 <div class="element-shortcontents" id="SEC_Shortcontents">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
@@ -5358,7 +5358,7 @@ Menu comment
 </div>
 </div><hr>
 <div class="element-about" id="SEC_About">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
@@ -5491,7 +5491,7 @@ $result_converted{'html_text'}->{'formatting_fr'} = '<h1 class="title">title &nd
 </p><hr>
 
 <div class="top-level-extent" id="Top">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt; ]</td>
 <td valign="middle" align="left">[ &gt; ]</td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -5633,7 +5633,7 @@ Menu comment
 
 <hr style="height: 6px;">
 <div class="chapter-level-extent" id="chapter">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
 <td valign="middle" align="left">[ &lt; ]</td>
 <td valign="middle" align="left">[Plus haut]</td>
@@ -5666,7 +5666,7 @@ Menu comment
 
 <hr>
 <div class="section-level-extent" id="s_002d_002dect_002cion">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
 <td valign="middle" align="left">[ &lt; ]</td>
 <td valign="middle" align="left">[Plus haut]</td>
@@ -5698,7 +5698,7 @@ Menu comment
 
 <hr>
 <div class="subsection-level-extent" id="subsection">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
 <td valign="middle" align="left">[ &lt; ]</td>
 <td valign="middle" align="left">[Plus haut]</td>
@@ -5725,7 +5725,7 @@ Menu comment
 <a class="anchor" id="anchor"></a>
 <hr>
 <div class="subsubsection-level-extent" id="subsubsection-_0060_0060simple_002ddouble_002d_002d">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
 <td valign="middle" align="left">[ &lt; ]</td>
 <td valign="middle" align="left">[Plus haut]</td>
@@ -5745,7 +5745,7 @@ Menu comment
 <hr>
 </div>
 <div class="subsubsection-level-extent" id="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
 <td valign="middle" align="left">[ &lt; ]</td>
 <td valign="middle" align="left">[Plus haut]</td>
@@ -5768,7 +5768,7 @@ Menu comment
 </div>
 </div>
 <div class="centerchap-level-extent" id="chapter2">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
 <td valign="middle" align="left">[ &lt; ]</td>
 <td valign="middle" align="left">[Plus haut]</td>
@@ -5868,7 +5868,7 @@ Menu comment
 </div>
 <hr>
 <div class="element-footnotes" id="SEC_Footnotes">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
@@ -5880,7 +5880,7 @@ Menu comment
 <p>in footnote</p>
 </div><hr>
 <div class="element-contents" id="SEC_Contents">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
@@ -5907,7 +5907,7 @@ Menu comment
 </div>
 </div><hr>
 <div class="element-shortcontents" id="SEC_Shortcontents">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
@@ -5923,7 +5923,7 @@ Menu comment
 </div>
 </div><hr>
 <div class="element-about" id="SEC_About">
-<table class="nav-header" cellpadding="1" cellspacing="1" border="0">
+<table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>

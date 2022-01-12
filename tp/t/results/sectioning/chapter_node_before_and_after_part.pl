@@ -645,7 +645,7 @@ ul.toc-numbered-mark {list-style: none}
 <body lang="en">
 
 <div class="chapter-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#after" accesskey="n" rel="next">chapter 2</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -655,7 +655,7 @@ Next: <a href="#after" accesskey="n" rel="next">chapter 2</a> &nbsp; [<a href="#
 <hr>
 </div>
 <div class="part-level-extent" id="part">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>

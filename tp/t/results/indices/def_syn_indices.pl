@@ -2049,7 +2049,7 @@ definedx truc after
 $result_converted{'html_text'}->{'def_syn_indices'} = '
 
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; [<a href="#Chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -2060,7 +2060,7 @@ $result_converted{'html_text'}->{'def_syn_indices'} = '
 </ul>
 <hr>
 <div class="chapter-level-extent" id="Chapter-index">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; [<a href="#Chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>

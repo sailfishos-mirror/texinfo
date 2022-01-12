@@ -1051,7 +1051,7 @@ $result_converted{'plaintext'}->{'spaces_in_node_names'} = '*note a  ::
 ';
 
 
-$result_converted{'html_text'}->{'spaces_in_node_names'} = '<a class="node-id" id="Top"></a><div class="nav-header">
+$result_converted{'html_text'}->{'spaces_in_node_names'} = '<a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -1059,21 +1059,21 @@ $result_converted{'html_text'}->{'spaces_in_node_names'} = '<a class="node-id" i
 
 
 <hr>
-<a class="node-id" id="a--"></a><div class="nav-header">
+<a class="node-id" id="a--"></a><div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
 <h4 class="node">a&nbsp;&nbsp;</h4>
 
 <hr>
-<a class="node-id" id="b-"></a><div class="nav-header">
+<a class="node-id" id="b-"></a><div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
 <h4 class="node">b<tt class="verb">  </tt></h4>
 
 <hr>
-<a class="node-id" id="c-"></a><div class="nav-header">
+<a class="node-id" id="c-"></a><div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>

@@ -1821,7 +1821,7 @@ see *note (manual)a *strong* ref with SC, a i trema ï, a dotless i trema
 
 $result_converted{'html_text'}->{'some_at_commands_in_ref_nodes'} = '
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -1833,7 +1833,7 @@ $result_converted{'html_text'}->{'some_at_commands_in_ref_nodes'} = '
 </ul>
 <hr>
 <div class="chapter-level-extent" id="A-SC-_00d1-_00c5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>

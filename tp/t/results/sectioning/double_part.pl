@@ -1164,7 +1164,7 @@ $result_converted{'html'}->{'double_part'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#node-chapter" accesskey="n" rel="next">chapter after 2 parts</a> &nbsp; </p>
 </div>
@@ -1180,7 +1180,7 @@ Next: <a href="#node-chapter" accesskey="n" rel="next">chapter after 2 parts</a>
 </p><hr>
 </div>
 <div class="part-level-extent" id="part-second">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>

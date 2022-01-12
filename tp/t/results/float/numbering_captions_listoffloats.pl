@@ -8052,7 +8052,7 @@ $result_converted{'html'}->{'numbering_captions_listoffloats'} = '<!DOCTYPE html
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 </div>
@@ -8113,7 +8113,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#Unnumbered" accesskey="n" rel="next">Unnumbered</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
@@ -8150,7 +8150,7 @@ Next: <a href="#Unnumbered" accesskey="n" rel="next">Unnumbered</a>, Previous: <
 </ul>
 <hr>
 <div class="section-level-extent" id="section">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Up: <a href="#chapter" accesskey="u" rel="up">A chapter</a> &nbsp; </p>
 </div>
@@ -8166,7 +8166,7 @@ Up: <a href="#chapter" accesskey="u" rel="up">A chapter</a> &nbsp; </p>
 </div>
 </div>
 <div class="unnumbered-level-extent" id="Unnumbered">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#Chapter-with-unnumbsubsec" accesskey="n" rel="next">Chapter with unnumbsubsec</a>, Previous: <a href="#chapter" accesskey="p" rel="prev">A chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
@@ -8188,7 +8188,7 @@ Next: <a href="#Chapter-with-unnumbsubsec" accesskey="n" rel="next">Chapter with
 </ul>
 <hr>
 <div class="section-level-extent" id="Section-within-unnumbered">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Up: <a href="#Unnumbered" accesskey="u" rel="up">Unnumbered</a> &nbsp; </p>
 </div>
@@ -8204,7 +8204,7 @@ Up: <a href="#Unnumbered" accesskey="u" rel="up">Unnumbered</a> &nbsp; </p>
 </div>
 </div>
 <div class="chapter-level-extent" id="Chapter-with-unnumbsubsec">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#Appendix-for-float" accesskey="n" rel="next">Appendix for float</a>, Previous: <a href="#Unnumbered" accesskey="p" rel="prev">Unnumbered</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
@@ -8220,7 +8220,7 @@ Next: <a href="#Appendix-for-float" accesskey="n" rel="next">Appendix for float<
 </ul>
 <hr>
 <div class="unnumberedsec-level-extent" id="unnumbered-sec">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Up: <a href="#Chapter-with-unnumbsubsec" accesskey="u" rel="up">Chapter with unnumbsubsec</a> &nbsp; </p>
 </div>
@@ -8241,7 +8241,7 @@ Up: <a href="#Chapter-with-unnumbsubsec" accesskey="u" rel="up">Chapter with unn
 </div>
 </div>
 <div class="appendix-level-extent" id="Appendix-for-float">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#list-of-floats" accesskey="n" rel="next">list of floats</a>, Previous: <a href="#Chapter-with-unnumbsubsec" accesskey="p" rel="prev">Chapter with unnumbsubsec</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
@@ -8256,7 +8256,7 @@ Next: <a href="#list-of-floats" accesskey="n" rel="next">list of floats</a>, Pre
 <hr>
 </div>
 <div class="unnumbered-level-extent" id="list-of-floats">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Appendix-for-float" accesskey="p" rel="prev">Appendix for float</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>

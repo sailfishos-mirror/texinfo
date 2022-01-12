@@ -1208,7 +1208,7 @@ $result_converted{'html'}->{'next_in_menu_is_below'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
@@ -1220,7 +1220,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
@@ -1232,7 +1232,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 </ul>
 <hr>
 <div class="section-level-extent" id="section">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#subsection" accesskey="n" rel="next">subsection</a>, Up: <a href="#chapter" accesskey="u" rel="up">chapter</a> &nbsp; </p>
 </div>
@@ -1244,7 +1244,7 @@ Next: <a href="#subsection" accesskey="n" rel="next">subsection</a>, Up: <a href
 </ul>
 <hr>
 <div class="subsection-level-extent" id="subsection">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Previous: <a href="#section" accesskey="p" rel="prev">section</a>, Up: <a href="#section" accesskey="u" rel="up">section</a> &nbsp; </p>
 </div>

@@ -864,7 +864,7 @@ $result_converted{'html'}->{'two_footnotes_in_nodes_separate'} = '<!DOCTYPE html
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
@@ -880,7 +880,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up: <a href="#Top" accesskey="u" rel="up">2 footnotes in 2 nodes</a> &nbsp; </p>
 </div>
@@ -893,7 +893,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up
 </div>
 </div>
 <div class="element-footnotes" id="SEC_Footnotes">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -1026,7 +1026,7 @@ C(1) (*note chapter-Footnote-1::)
 
 
 $result_converted{'html_text'}->{'two_footnotes_in_nodes_separate'} = '<div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -1042,7 +1042,7 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes_separate'} = '<div clas
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -1055,7 +1055,7 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes_separate'} = '<div clas
 </div>
 </div>
 <div class="element-footnotes" id="SEC_Footnotes">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>

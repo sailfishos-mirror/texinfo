@@ -757,7 +757,7 @@ ul.toc-numbered-mark {list-style: none}
 <body lang="en">
 
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#section-node" accesskey="n" rel="next">section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -778,7 +778,7 @@ Next: <a href="#section-node" accesskey="n" rel="next">section</a> &nbsp; [<a hr
 </ul>
 <hr>
 <div class="section-level-extent" id="section-node">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>

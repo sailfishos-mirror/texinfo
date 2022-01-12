@@ -722,14 +722,14 @@ $result_converted{'html'}->{'part_node_before_top'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<a class="node-id" id="part-node-before-top"></a><div class="nav-header">
+<a class="node-id" id="part-node-before-top"></a><div class="nav-panel">
 <p>
 Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h4 class="node">part node before top</h4>
 <hr>
 <div class="part-level-extent" id="part">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#part-node-before-top" accesskey="n" rel="next">part node before top</a> &nbsp; </p>
 </div>

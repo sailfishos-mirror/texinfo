@@ -3200,7 +3200,7 @@ D
 
 $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -3211,7 +3211,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>

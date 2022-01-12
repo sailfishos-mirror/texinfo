@@ -898,7 +898,7 @@ Copying(1).
 
 $result_converted{'html_text'}->{'printindex_index_entry_in_copying_in_footnote'} = '
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -931,7 +931,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_in_footnote'
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>

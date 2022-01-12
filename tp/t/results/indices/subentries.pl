@@ -1343,7 +1343,7 @@ $result_converted{'plaintext'}->{'subentries'} = '1 Index
 
 $result_converted{'html_text'}->{'subentries'} = '
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -1353,7 +1353,7 @@ $result_converted{'html_text'}->{'subentries'} = '
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter-index">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>

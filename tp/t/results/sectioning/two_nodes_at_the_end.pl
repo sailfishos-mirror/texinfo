@@ -1203,7 +1203,7 @@ $result_converted{'html'}->{'two_nodes_at_the_end'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="top-level-extent" id="Top">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#chapter-1" accesskey="n" rel="next">chapter c1</a> &nbsp; </p>
 </div>
@@ -1215,14 +1215,14 @@ Next: <a href="#chapter-1" accesskey="n" rel="next">chapter c1</a> &nbsp; </p>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter-1">
-<div class="nav-header">
+<div class="nav-panel">
 <p>
 Next: <a href="#node-after-chapter-1" accesskey="n" rel="next">node after chapter 1</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="chapter-c1">1 chapter c1</h2>
 
 <hr>
-<a class="node-id" id="node-after-chapter-1"></a><div class="nav-header">
+<a class="node-id" id="node-after-chapter-1"></a><div class="nav-panel">
 <p>
 Next: <a href="#node-after-chapter-2" accesskey="n" rel="next">node after chapter 2</a>, Previous: <a href="#chapter-1" accesskey="p" rel="prev">chapter c1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
@@ -1231,7 +1231,7 @@ Next: <a href="#node-after-chapter-2" accesskey="n" rel="next">node after chapte
 <p>in node after chapter 1
 </p>
 <hr>
-<a class="node-id" id="node-after-chapter-2"></a><div class="nav-header">
+<a class="node-id" id="node-after-chapter-2"></a><div class="nav-panel">
 <p>
 Previous: <a href="#node-after-chapter-1" accesskey="p" rel="prev">node after chapter 1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
