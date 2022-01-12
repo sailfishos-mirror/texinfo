@@ -168,6 +168,13 @@ marksource to proceed.
  https://bugzilla.redhat.com/show_bug.cgi?id=744878
 
 
+Some @-commands do not have an element with a class associated, or the
+association is not perfect.  There is @author in @quotation, @-command
+affected by @definfoenclose.  @pxref and similar @-commands have no class
+for references to external nodes, and don't have the 'See ' in the
+element for references to internal nodes.
+
+
 Missing tests
 =============
 
