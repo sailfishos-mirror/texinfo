@@ -2179,6 +2179,8 @@ foreach my $command(@all_style_commands) {
 
 $style_commands_formatting{'preformatted'}->{'sc'}->{'attribute'} = 'span';
 
+# currently unused, could be re-used if there is a need to have attributes
+# specified in %style_commands_element
 sub _parse_attribute($)
 {
   my $element = shift;
@@ -2226,17 +2228,21 @@ sub _convert_style_command($$$$)
     my $attribute_text = '';
     my $style;
     if (defined($attribute_hash->{$cmdname}->{'attribute'})) {
-      my $class;
-      ($style, $class, $attribute_text)
-        = _parse_attribute ($attribute_hash->{$cmdname}->{'attribute'});
-      if (defined($class) and $class ne '') {
-        push @additional_classes, $class;
-      }
+      # the commented out code is useful only if there are attributes in
+      # style_commands_element
+      #my $class;
+      #($style, $class, $attribute_text)
+      #  = _parse_attribute($attribute_hash->{$cmdname}->{'attribute'});
+      #if (defined($class) and $class ne '') {
+      #  push @additional_classes, $class;
+      #}
+      my $style = $attribute_hash->{$cmdname}->{'attribute'};
       my $open = $self->html_attribute_class($style, $cmdname, \@additional_classes);
       if ($open ne '') {
-        $text = $open . "$attribute_text>" . $text . "</$style>";
-      } elsif ($attribute_text ne '') {
-        $text = "<$style $attribute_text>". $text . "</$style>";
+        $text = $open . '>' . $text . "</$style>";
+      #  $text = $open . "$attribute_text>" . $text . "</$style>";
+      #} elsif ($attribute_text ne '') {
+      #  $text = "<$style $attribute_text>". $text . "</$style>";
       }
     }
     if (defined($attribute_hash->{$cmdname}->{'quote'})) {
