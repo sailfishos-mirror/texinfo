@@ -494,7 +494,7 @@ Next: <a href="#node-after" accesskey="n" rel="next">node after</a> &nbsp; </p>
 <h2 class="unnumbered">before</h2>
 
 </div>
-<div class="top" id="Top">
+<div class="unnumbered" id="Top">
 <h2 class="unnumbered" id="top-section">top section</h2>
 
 </div>

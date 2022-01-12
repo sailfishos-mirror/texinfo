@@ -1,5 +1,11 @@
 2022-01-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command):
+	use level corrected sectioning command name for the opening section
+	class.
+
+2022-01-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%css_map, _convert_titlefont_command)
 	(_default_format_heading_text, _convert_heading_command)
 	(_contents_inline_element, _default_format_titlepage, _print_title)

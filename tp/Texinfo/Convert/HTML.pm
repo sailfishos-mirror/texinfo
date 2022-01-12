@@ -3319,9 +3319,9 @@ sub _convert_heading_command($$$$$)
 
     # FIXME if this is not the section element, it should not be the
     # section as class
-    $result .= $self->html_attribute_class('div', $opening_section->{'cmdname'});
-                 #"${level_corrected_section_opening_cmdname}");
-                 #"${level_corrected_section_opening_cmdname}-level-extent");
+    $result .= $self->html_attribute_class('div',
+                                 $level_corrected_opening_section_cmdname);
+                 #"${level_corrected_opening_section_cmdname}-level-extent");
 
     $result .= " id=\"$element_id\""
         if (defined($element_id) and $element_id ne '');
@@ -6191,6 +6191,9 @@ sub _load_htmlxref_files {
 #  file_counters
 #  paragraph_symbol
 #  line_break_element
+#
+#  simpletitle_tree
+#  simpletitle_command_name
 #  
 #  commands_conversion
 
@@ -8282,8 +8285,8 @@ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating w
 
 # FIXME the file opening should be done in main program, only
 # the formatting should be done in customization function.  Frames
-# are deprecated in HTML and therefore there is no point in investing
-# time in producing them.
+# are deprecated in HTML, however, and therefore there is no point
+# in investing time in better code to produce them.
 sub _default_format_frame_files($$)
 {
   my $self = shift;
