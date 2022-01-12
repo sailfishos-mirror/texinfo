@@ -1,5 +1,15 @@
 2022-01-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command)
+	(_default_format_heading_text, _default_format_titlepage)
+	(_convert_titlefont_command, _print_title), tp/init/book.pm: add
+	a an $additional_classes argument for _default_format_heading_text,
+	and change argument order such that the element argument which is not
+	used, is last.  Do not set an element argument in calls to
+	format_heading_text except for the call from _convert_heading_command.
+
+2022-01-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command): use
 	a specific class for the opening section div, like
 	<section>-level-extent.  Always associate the class corresponding to a

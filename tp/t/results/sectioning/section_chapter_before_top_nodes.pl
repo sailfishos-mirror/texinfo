@@ -926,7 +926,7 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a>, Up: <a href=
 <p>
 Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#section-node" accesskey="p" rel="prev">section</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h3 class="section" id="chapter">2 chapter</h3>
+<h3 class="section chapter-level-set-section" id="chapter">2 chapter</h3>
 
 
 <hr>
@@ -936,7 +936,7 @@ Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#secti
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
-<h3 class="unnumberedsec" id="top">top</h3>
+<h3 class="unnumberedsec top-level-set-unnumberedsec" id="top">top</h3>
 
 
 </div>

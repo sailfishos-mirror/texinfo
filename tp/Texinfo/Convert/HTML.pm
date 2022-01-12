@@ -2695,7 +2695,7 @@ sub _convert_titlefont_command($$$$)
     return '';
   }
   return &{$self->{'format_heading_text'}}($self, $cmdname, $cmdname,
-                                           $text, 0, $command);
+                                           $text, 0);
 }
 $default_commands_conversion{'titlefont'} = \&_convert_titlefont_command;
 
@@ -2748,15 +2748,16 @@ sub _default_css_string_format_protect_text($$) {
 
 # can be called on root commands, tree units, special elements
 # and title elements.  $cmdname can be undef for special elements.
-sub _default_format_heading_text($$$$$$;$)
+sub _default_format_heading_text($$$$$;$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $class = shift;
   my $text = shift;
   my $level = shift;
-  my $element = shift;
   my $id = shift;
+  my $additional_classes = shift;
+  my $element = shift;
 
   return '' if ($text !~ /\S/ and not defined($id));
 
@@ -2775,7 +2776,7 @@ sub _default_format_heading_text($$$$$$;$)
   if (defined($id)) {
     $id_str = " id=\"$id\"";
   }
-  my $result = $self->html_attribute_class("h$level", $class)
+  my $result = $self->html_attribute_class("h$level", $class, $additional_classes)
                     ."${id_str}>$text</h$level>";
   # titlefont appears inline in text, so no end of line is
   # added. The end of line should be added by the user if needed.
@@ -3271,11 +3272,16 @@ sub _convert_heading_command($$$$$)
 
   my $element_id = $self->command_id($element);
 
+  my @additional_heading_classes;
   my $level_corrected_cmdname = $cmdname;
   if (defined $element->{'structure'}->{'section_level'}) {
     # if the level was changed, use a consistent command name
     $level_corrected_cmdname
       = Texinfo::Structuring::section_level_adjusted_command_name($element);
+    if ($level_corrected_cmdname ne $cmdname) {
+      push @additional_heading_classes,
+            "${cmdname}-level-set-${level_corrected_cmdname}";
+    }
   }
 
   # find the section starting here, can be through the associated node
@@ -3398,7 +3404,7 @@ sub _convert_heading_command($$$$$)
       $result .= &{$self->{'format_heading_text'}}($self,
                      $level_corrected_cmdname, $heading_class, $heading,
                      $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
-                     $element, $heading_id);
+                     $heading_id, \@additional_heading_classes, $element);
     }
   } elsif (defined($heading_id)) {
     # case of a lone node and no header, and case of an empty @top
@@ -5721,9 +5727,7 @@ sub _default_format_titlepage($)
      $self->{'simpletitle_tree'}, "$self->{'simpletitle_command_name'} simpletitle");
     $titlepage_text = &{$self->{'format_heading_text'}}($self,
                   $self->{'simpletitle_command_name'},
-                  $self->{'simpletitle_command_name'}, $title_text,
-                  0, {'cmdname' => $self->{'simpletitle_command_name'},
-                      'contents' => $self->{'simpletitle_tree'}->{'contents'}});
+                  $self->{'simpletitle_command_name'}, $title_text, 0);
   }
   my $result = '';
   $result .= $titlepage_text.$self->get_conf('DEFAULT_RULE')."\n"
@@ -5746,9 +5750,7 @@ sub _print_title($)
          $self->{'simpletitle_tree'}, "$self->{'simpletitle_command_name'} simpletitle");
         $result .= &{$self->{'format_heading_text'}}($self,
                   $self->{'simpletitle_command_name'},
-                  $self->{'simpletitle_command_name'}, $title_text,
-                  0, {'cmdname' => $self->{'simpletitle_command_name'},
-                      'contents' => $self->{'simpletitle_tree'}->{'contents'}});
+                  $self->{'simpletitle_command_name'}, $title_text, 0);
       }
       $result .= $self->_contents_shortcontents_in_title();
     }

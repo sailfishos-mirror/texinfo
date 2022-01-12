@@ -915,7 +915,7 @@ Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </p>
 </div>
 <div class="unnumbered-level-extent" id="top-section">
-<h2 class="unnumbered">top section</h2>
+<h2 class="unnumbered top-level-set-unnumbered">top section</h2>
 <p>Top section
 </p>
 <hr>

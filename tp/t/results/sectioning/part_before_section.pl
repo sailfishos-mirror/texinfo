@@ -232,7 +232,7 @@ $result_converted{'html_text'}->{'part_before_section'} = '<div class="part-leve
 <li><a href="#section" accesskey="1">section</a></li>
 </ul>
 <div class="chapter-level-extent" id="section">
-<h2 class="chapter">1 section</h2>
+<h2 class="chapter section-level-set-chapter">1 section</h2>
 </div>
 </div>
 ';

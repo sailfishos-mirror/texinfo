@@ -278,7 +278,7 @@ sub book_convert_heading_command($$$$$)
       $result .= &{$self->{'format_heading_text'}}($self,
                      $level_corrected_cmdname, $heading_class, $heading,
                      $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
-                     $element, $heading_id);
+                     $heading_id);
     }
   } elsif (defined($heading_id)) {
     # case of a lone node and no header, and case of an empty @top

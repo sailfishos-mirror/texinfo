@@ -416,7 +416,7 @@ $result_converted{'html'}->{'section_before_after_top_node'} = '<!DOCTYPE html>
 
 </div>
 <div class="unnumbered-level-extent" id="Top">
-<h2 class="unnumbered" id="top-section">top section</h2>
+<h2 class="unnumbered top-level-set-unnumbered" id="top-section">top section</h2>
 
 </div>
 <div class="chapter-level-extent" id="Chapter">
