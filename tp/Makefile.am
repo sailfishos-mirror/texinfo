@@ -216,6 +216,9 @@ test_files = \
  t/input_files/one_line.texi \
  t/input_files/one_line_no_content.texi \
  t/input_files/placed_things_before_element.texi \
+ t/input_files/punctuation_small_case_accents_latin1.texi \
+ t/input_files/punctuation_small_case_accents_us_ascii.texi \
+ t/input_files/punctuation_small_case_accents_utf8.texi \
  t/input_files/sample_utf8.texi \
  t/input_files/sectioning.texi \
  t/input_files/simplest.texi \

@@ -1,4 +1,13 @@
-2022-01-11  Patrice Dumas  <pertusus@free.fr>
+2022-01-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (%special_characters)
+	(converter_initialize): setup a structure holding information on
+	all the special characters (left quote, right quote, paragraph symbol,
+	non breaking space) that are added to output as part of formatting.
+	Set these characters to their encoded values if ENABLE_ENCODING
+	is set and they are in the output encoded characters set.
+
+2022-01-12  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (@code{@@settitle}, @code{@@titlepage}):
 	describe that @settitle is output at the very beginning of an
@@ -12,7 +21,7 @@
 
 	* doc/texinfo.texi (Texinfo Preamble): revise for more clarity.
 
-2022-01-11  Patrice Dumas  <pertusus@free.fr>
+2022-01-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (%css_map, _convert_preformatted_type):
 	set a class for menu entry description in preformatted in menu to
@@ -20,7 +29,7 @@
 	element.  Note that it does not seem to be rendered as intended, at
 	least in firefox there still seems to be a line break.
 
-2022-01-11  Patrice Dumas  <pertusus@free.fr>
+2022-01-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_listoffloats_command): add
 	a class for caption or shortcaption in listoffloats, like
@@ -32,7 +41,7 @@
 	In case of SIMPLE_MENU use the menu conversion command, but
 	use a <div> instead of a table.
 
-2022-01-11  Patrice Dumas  <pertusus@free.fr>
+2022-01-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_default_format_navigation_panel):
 	rename format_navigation_header_panel as format_navigation_panel

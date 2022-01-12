@@ -590,37 +590,27 @@ node name}
 
 @node nnn the node name
 '],
-# The following tests that are not HTML specific could also be
-# in converters_tests (need to check what is HTML specific,
-# and what applies to other converters based on XML).
+);
+
+my @test_cases_file_text = (
 ['test_accents_sc_default',
-'@documentencoding utf-8
-
-'.$test_accents_sc_no_brace_commands_quotes],
+undef, {'test_file' => 'punctuation_small_case_accents_utf8.texi'}],
 ['test_accents_sc_enable_encoding',
-'@documentencoding utf-8
-
-'.$test_accents_sc_no_brace_commands_quotes, {'ENABLE_ENCODING' => 1}],
+undef, {'test_file' => 'punctuation_small_case_accents_utf8.texi',
+        'ENABLE_ENCODING' => 1}],
 ['test_accents_sc_default_latin1',
-'@documentencoding ISO-8859-1
-
-'.$test_accents_sc_no_brace_commands_quotes],
+undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi'}],
 ['test_accents_sc_enable_encoding_latin1',
-'@documentencoding ISO-8859-1
-
-'.$test_accents_sc_no_brace_commands_quotes, {'ENABLE_ENCODING' => 1}],
+undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi',
+        'ENABLE_ENCODING' => 1}],
 ['test_accents_sc_default_usascii',
-'@documentencoding US-ASCII
-
-'.$test_accents_sc_no_brace_commands_quotes],
+undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi'}],
 ['test_accents_sc_enable_encoding_usascii',
-'@documentencoding US-ASCII
-
-'.$test_accents_sc_no_brace_commands_quotes, {'ENABLE_ENCODING' => 1}],
+undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi',
+        'ENABLE_ENCODING' => 1}],
 ['test_accents_sc_use_numeric_entity',
-'@documentencoding utf-8
-
-'.$test_accents_sc_no_brace_commands_quotes, {}, {'USE_NUMERIC_ENTITY' => 1}],
+undef, {'test_file' => 'punctuation_small_case_accents_utf8.texi'},
+       {'USE_NUMERIC_ENTITY' => 1}],
 );
 
 # test that the node name that goes in the redirection file is reproducible.
@@ -703,11 +693,15 @@ foreach my $test (@test_cases_text) {
 foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
 }
+foreach my $test (@test_cases_file_text) {
+  push @{$test->[2]->{'test_formats'}}, ('html_text', 'file_html');
+}
+
 
 our ($arg_test_case, $arg_generate, $arg_debug);
 
-run_all ('html_tests', [@test_cases, @test_cases_text, @file_tests], $arg_test_case,
-   $arg_generate, $arg_debug);
+run_all ('html_tests', [@test_cases, @test_cases_text, @test_cases_file_text,
+                        @file_tests], $arg_test_case, $arg_generate, $arg_debug);
 
 1;
 

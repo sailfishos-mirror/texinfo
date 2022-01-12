@@ -6215,6 +6215,14 @@ sub _load_htmlxref_files {
 #  
 #  commands_conversion
 
+my %special_characters = (
+  'paragraph_symbol' => ['&para;', '00B6'],
+  'left_quote' => ['&lsquo;', '2018'],
+  'right_quote' => ['&rsquo;', '2019'],
+  'bullet' => ['&bull;', '2022'],
+  'non_breaking_space' => [undef, '00A0'],
+);
+
 sub converter_initialize($)
 {
   my $self = shift;
@@ -6232,9 +6240,28 @@ sub converter_initialize($)
   my $conf_default_no_arg_commands_formatting_normal
     = Storable::dclone($default_no_arg_commands_formatting{'normal'});
 
-  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
-    $self->_set_non_breaking_space($xml_numeric_entity_nbsp);
-    $self->{'paragraph_symbol'} = '&#'.hex('00B6').';';
+  my %special_characters_set;
+
+  my $output_encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
+
+  foreach my $special_character (keys(%special_characters)) {
+    my ($default_entity, $unicode_point) = @{$special_characters{$special_character}};
+    if ($self->get_conf('ENABLE_ENCODING')
+        and $output_encoding
+        and ($output_encoding eq 'utf-8'
+             or ($Texinfo::Encoding::eight_bit_encoding_aliases{$output_encoding}
+                 and $Texinfo::Convert::Unicode::unicode_to_eight_bit{$Texinfo::Encoding::eight_bit_encoding_aliases{$output_encoding}}->{$unicode_point}))) {
+      $special_characters_set{$special_character} = chr(hex($unicode_point));
+    } elsif ($self->get_conf('USE_NUMERIC_ENTITY')) {
+      $special_characters_set{$special_character} = '&#'.hex($unicode_point).';';
+    } else {
+      $special_characters_set{$special_character} = $default_entity;
+    }
+  }
+
+  if (defined($special_characters_set{'non_breaking_space'})) {
+    my $non_breaking_space = $special_characters_set{'non_breaking_space'};
+    $self->_set_non_breaking_space($non_breaking_space);
     foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_entities)) {
       $conf_default_no_arg_commands_formatting_normal->{$command}->{'text'}
        = $Texinfo::Convert::Unicode::unicode_entities{$command};
@@ -6246,26 +6273,25 @@ sub converter_initialize($)
     $conf_default_no_arg_commands_formatting_normal->{'tie'}->{'text'}
       = $self->substitute_html_non_breaking_space(
            $default_no_arg_commands_formatting{'normal'}->{'tie'}->{'text'});
-    if (not defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
-      $self->set_conf('OPEN_QUOTE_SYMBOL', '&#'.hex('2018').';');
-    }
-    if (not defined($self->get_conf('CLOSE_QUOTE_SYMBOL'))) {
-      $self->set_conf('CLOSE_QUOTE_SYMBOL', '&#'.hex('201D').';');
-    }
-    if (not defined($self->get_conf('MENU_SYMBOL'))) {
-      $self->set_conf('MENU_SYMBOL', '&#'.hex('2022').';');
-    }
   } else {
     $self->_set_non_breaking_space($xml_named_entity_nbsp);
-    $self->{'paragraph_symbol'} = '&para;';
-    if (not defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
-      $self->set_conf('OPEN_QUOTE_SYMBOL', '&lsquo;');
-    }
-    if (not defined($self->get_conf('CLOSE_QUOTE_SYMBOL'))) {
-      $self->set_conf('CLOSE_QUOTE_SYMBOL', '&rsquo;');
-    }
-    if (not defined($self->get_conf('MENU_SYMBOL'))) {
-      $self->set_conf('MENU_SYMBOL', '&bull;');
+  }
+  $self->{'paragraph_symbol'} = $special_characters_set{'paragraph_symbol'};
+
+  if (not defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
+    $self->set_conf('OPEN_QUOTE_SYMBOL', $special_characters_set{'left_quote'});
+  }
+  if (not defined($self->get_conf('CLOSE_QUOTE_SYMBOL'))) {
+    $self->set_conf('CLOSE_QUOTE_SYMBOL', $special_characters_set{'right_quote'});
+  }
+  if (not defined($self->get_conf('MENU_SYMBOL'))) {
+    $self->set_conf('MENU_SYMBOL', $special_characters_set{'bullet'});
+  }
+
+  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
+    foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_entities)) {
+      $conf_default_no_arg_commands_formatting_normal->{$command}->{'text'}
+       = $Texinfo::Convert::Unicode::unicode_entities{$command};
     }
   }
 
