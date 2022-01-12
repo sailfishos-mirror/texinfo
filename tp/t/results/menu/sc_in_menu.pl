@@ -1132,6 +1132,7 @@ $result_converted{'html'}->{'sc_in_menu'} = '<!DOCTYPE html>
 <!--
 div.example {margin-left: 3.2em}
 pre.menu-comment-preformatted {font-family: serif}
+pre.menu-entry-description-preformatted {font-family: serif; display: inline}
 pre.menu-preformatted {font-family: serif}
 -->
 </style>
@@ -1170,7 +1171,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 
 <div class="example">
 <table class="menu" border="0" cellspacing="0"><tr><td>
-<pre class="menu-preformatted">&bull; <span class="sc">EXAMPLE VALUE</span>:<a href="dir.html#EXAMPLE-NODE" accesskey="1">(dir)<span class="sc">EXAMPLE NODE</span></a>.   </pre><pre class="menu-preformatted"><span class="sc">EXAMPLE DESCRIP TION</span>
+<pre class="menu-preformatted">&bull; <span class="sc">EXAMPLE VALUE</span>:<a href="dir.html#EXAMPLE-NODE" accesskey="1">(dir)<span class="sc">EXAMPLE NODE</span></a>.   </pre><pre class="menu-entry-description-preformatted"><span class="sc">EXAMPLE DESCRIP TION</span>
 </pre><pre class="menu-comment-preformatted">
 
 <span class="sc">EXAMPLE COMMENT</span>

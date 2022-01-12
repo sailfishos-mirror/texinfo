@@ -757,6 +757,7 @@ $result_converted{'html'}->{'simple_menu_in_example'} = '<!DOCTYPE html>
 <!--
 div.example {margin-left: 3.2em}
 pre.menu-comment-preformatted {font-family: serif}
+pre.menu-entry-description-preformatted {font-family: serif; display: inline}
 pre.menu-preformatted {font-family: serif}
 -->
 </style>
@@ -768,7 +769,7 @@ pre.menu-preformatted {font-family: serif}
 <h1 class="node" id="Top">Top</h1>
 
 <div class="example">
-<div class="menu">&bull; <a href="entry.html#Top" accesskey="1">(entry)</a>::<pre class="menu-preformatted">
+<div class="menu">&bull; <a href="entry.html#Top" accesskey="1">(entry)</a>::<pre class="menu-entry-description-preformatted">
 
 </pre><table class="cartouche" border="1"><tr><td>
 <pre class="menu-preformatted">in cartouche in description in menu in example
@@ -780,8 +781,8 @@ pre.menu-preformatted {font-family: serif}
 </pre></td></tr></table>
 <pre class="menu-comment-preformatted">
 
-</pre>&bull; <a href="node.html#menu" accesskey="2">(node) menu</a>::      <pre class="menu-preformatted">a node in menu
-</pre>&bull; a menu name:<a href="other.html#node" accesskey="3">(other) node</a>.<pre class="menu-preformatted">
+</pre>&bull; <a href="node.html#menu" accesskey="2">(node) menu</a>::      <pre class="menu-entry-description-preformatted">a node in menu
+</pre>&bull; a menu name:<a href="other.html#node" accesskey="3">(other) node</a>.<pre class="menu-entry-description-preformatted">
 
 </pre></div>
 </div>

@@ -1,5 +1,13 @@
 2022-01-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%css_map, _convert_preformatted_type):
+	set a class for menu entry description in preformatted in menu to
+	have it inline to avoid a line break caused by <pre> being a block
+	element.  Note that it does not seem to be rendered as intended, at
+	least in firefox there still seems to be a line break.
+
+2022-01-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_listoffloats_command): add
 	a class for caption or shortcaption in listoffloats, like
 	caption-in-listoffloats

@@ -1733,6 +1733,10 @@ my %css_map = (
 
      'ul.toc-numbered-mark'   => 'list-style: none',
      'pre.menu-comment-preformatted' => 'font-family: serif',
+     # using display: inline is an attempt to avoid a line break when in
+     # preformatted in menu.  In 2022 it does not seems to work in firefox, there
+     # is still a line break.
+     'pre.menu-entry-description-preformatted' => 'font-family: serif; display: inline',
      'pre.menu-preformatted'  => 'font-family: serif',
      'a.summary-letter-printindex'  => 'text-decoration: none',
      'pre.display-preformatted'     => 'font-family: inherit',
@@ -4976,14 +4980,18 @@ sub _convert_preformatted_type($$$$)
   # menu_entry_description is always in a preformatted container
   # in the tree, as the whole menu is meant to be an
   # environment where spaces and newlines are preserved.
-  #
-  # However, if not in preformatted block command (nor in SIMPLE_MENU),
-  # we don't preserve spaces and newlines in menu_entry_description,
-  # instead the whole menu_entry is in a table, so no <pre> in that situation
   if ($element->{'parent'}->{'type'}
-      and $element->{'parent'}->{'type'} eq 'menu_entry_description'
-      and !$self->_in_preformatted_in_menu()) {
-    return $content;
+      and $element->{'parent'}->{'type'} eq 'menu_entry_description') {
+    if (!$self->_in_preformatted_in_menu()) {
+      # If not in preformatted block command (nor in SIMPLE_MENU),
+      # we don't preserve spaces and newlines in menu_entry_description,
+      # instead the whole menu_entry is in a table, so no <pre> in that situation
+      return $content;
+    } else {
+      # if directly in description, we want to avoid the linebreak that
+      # comes with pre being a block level element, so set a special class
+      $pre_class = 'menu-entry-description-preformatted';
+    }
   }
 
   if ($self->in_string()) {

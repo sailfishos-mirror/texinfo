@@ -4902,6 +4902,7 @@ div.example {margin-left: 3.2em}
 h1.centerchap {text-align:center}
 h3.subtitle {text-align:right}
 pre.menu-comment-preformatted {font-family: serif}
+pre.menu-entry-description-preformatted {font-family: serif; display: inline}
 pre.menu-preformatted {font-family: serif}
 span.program-in-footer {font-size: smaller}
 ul.toc-numbered-mark {list-style: none}
@@ -5089,7 +5090,7 @@ Menu comment
 </p>
 <div class="format">
 <table class="menu" border="0" cellspacing="0"><tr><td>
-<pre class="menu-preformatted">&bull; <a href="#s_002d_002dect_002cion">s--ect,ion</a>:: </pre><pre class="menu-preformatted">s&ndash;ect,ion
+<pre class="menu-preformatted">&bull; <a href="#s_002d_002dect_002cion">s--ect,ion</a>:: </pre><pre class="menu-entry-description-preformatted">s&ndash;ect,ion
 </pre><pre class="menu-comment-preformatted">
 
 Menu comment
@@ -5654,7 +5655,7 @@ Menu comment
 </p>
 <div class="format">
 <table class="menu" border="0" cellspacing="0"><tr><td>
-<pre class="menu-preformatted">&bull; <a href="#s_002d_002dect_002cion">s--ect,ion</a>:: </pre><pre class="menu-preformatted">s&ndash;ect,ion
+<pre class="menu-preformatted">&bull; <a href="#s_002d_002dect_002cion">s--ect,ion</a>:: </pre><pre class="menu-entry-description-preformatted">s&ndash;ect,ion
 </pre><pre class="menu-comment-preformatted">
 
 Menu comment
