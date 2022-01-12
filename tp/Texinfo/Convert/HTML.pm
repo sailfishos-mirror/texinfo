@@ -3833,20 +3833,26 @@ sub _convert_listoffloats_command($$$$)
       }
       $result .= '</dt>';
       my $caption;
+      my $caption_cmdname;
       if ($float->{'extra'}->{'shortcaption'}) {
         $caption = $float->{'extra'}->{'shortcaption'};
+        $caption_cmdname = 'shortcaption';
       } elsif ($float->{'extra'}->{'caption'}) {
         $caption = $float->{'extra'}->{'caption'};
+        $caption_cmdname = 'caption';
       }
 
       my $caption_text;
+      my $caption_class;
       if ($caption) {
         $caption_text = $self->convert_tree_new_formatting_context(
           $caption->{'args'}->[0], $cmdname, 'listoffloats');
+        $caption_class = "${caption_cmdname}-in-${cmdname}";
       } else {
         $caption_text = '';
       }
-      $result .= '<dd>'.$caption_text.'</dd>'."\n";
+      $result .= $self->html_attribute_class('dd', $caption_class).'>'
+                                           .$caption_text.'</dd>'."\n";
     }
     return $result . "</dl>\n";
   } else {
@@ -3884,6 +3890,11 @@ sub _convert_menu_command($$$$)
   # FIXME check?
   if ($self->in_string()) {
     return $content;
+  }
+
+  if ($self->get_conf('SIMPLE_MENU')) {
+    return $self->html_attribute_class('div', $cmdname).'>'
+       .$content ."</div>\n";
   }
   my $begin_row = '';
   my $end_row = '';
@@ -3938,6 +3949,8 @@ sub _convert_float_command($$$$$)
   my $prepended_text;
   my $caption_text = '';
   if ($prepended) {
+    # FIXME add a span with a class name for the prependend information
+    # if not empty?
     $prepended_text = $self->convert_tree_new_formatting_context(
                                {'cmdname' => 'strong',
                                 'args' => [{'type' => 'brace_command_arg',
@@ -3990,7 +4003,7 @@ sub _convert_quotation_command($$$$$)
   my $attribution = '';
   if ($command->{'extra'} and $command->{'extra'}->{'authors'}) {
     # FIXME there is no easy way to mark with a class the @author
-    # @-command.  Add a span?
+    # @-command.  Add a span or a div (@center is in a div)?
     foreach my $author (@{$command->{'extra'}->{'authors'}}) {
       my $centered_author = $self->gdt("\@center --- \@emph{{author}}\n",
          {'author' => $author->{'args'}->[0]->{'contents'}});
@@ -4966,7 +4979,7 @@ sub _convert_preformatted_type($$$$)
   #
   # However, if not in preformatted block command (nor in SIMPLE_MENU),
   # we don't preserve spaces and newlines in menu_entry_description,
-  # instead the whole menu_entry is in a table, so here, not <pre>
+  # instead the whole menu_entry is in a table, so no <pre> in that situation
   if ($element->{'parent'}->{'type'}
       and $element->{'parent'}->{'type'} eq 'menu_entry_description'
       and !$self->_in_preformatted_in_menu()) {
@@ -5008,6 +5021,7 @@ sub _convert_definfoenclose_type($$$$) {
   my $command = shift;
   my $content = shift;
 
+  # FIXME add a span to mark the original command as a class?
   return $self->protect_text($command->{'extra'}->{'begin'}) . $content
          .$self->protect_text($command->{'extra'}->{'end'});
 }
@@ -5185,8 +5199,9 @@ sub _convert_menu_entry_type($$$)
   my $MENU_SYMBOL = $self->get_conf('MENU_SYMBOL');
   my $MENU_ENTRY_COLON = $self->get_conf('MENU_ENTRY_COLON');
 
-  if ($self->_in_preformatted_in_menu() or $self->in_string()) {
-    my $result = '';
+  my $in_string = $self->in_string();
+  if ($self->_in_preformatted_in_menu() or $in_string) {
+    my $result_name_node = '';
     my $i = 0;
     my @args = @{$command->{'args'}};
     while (@args) {
@@ -5197,18 +5212,18 @@ sub _convert_menu_entry_type($$$)
         my $name = $self->convert_tree(
            {'type' => '_code', 'contents' => $arg->{'contents'}},
                          "menu_arg menu_entry_node preformatted [$i]");
-        if ($href ne '' and !$self->in_string()) {
-          $result .= "<a href=\"$href\"$rel$accesskey>".$name."</a>";
+        if ($href ne '' and !$in_string) {
+          $result_name_node .= "<a href=\"$href\"$rel$accesskey>".$name."</a>";
         } else {
-          $result .= $name;
+          $result_name_node .= $name;
         }
       } elsif ($arg->{'type'} and $arg->{'type'} eq 'menu_entry_leading_text') {
         my $text = $arg->{'text'};
          
         $text =~ s/\*/$MENU_SYMBOL/;
-        $result .= $text;
+        $result_name_node .= $text;
       } else {
-        $result .= $self->convert_tree($arg, "menu_arg preformatted [$i]");
+        $result_name_node .= $self->convert_tree($arg, "menu_arg preformatted [$i]");
       }
       $i++;
     }
@@ -5218,18 +5233,12 @@ sub _convert_menu_entry_type($$$)
       $i++;
     }
 
-    if (!$self->get_conf('SIMPLE_MENU')) {
-      $description =~ s/^<pre[^>]*>//;
-      $description =~ s/<\/pre>$//;
-    }
-
-    $result = $result . $description;
-
-    if (!$self->get_conf('SIMPLE_MENU')) {
+    if (!$self->get_conf('SIMPLE_MENU') and not $in_string) {
       my $pre_class = $self->_preformatted_class();
-      $result = $self->html_attribute_class('pre', $pre_class).">".$result."</pre>";
+      $result_name_node = $self->html_attribute_class('pre', $pre_class).">"
+                                                 .$result_name_node."</pre>";
     }
-    return $result;
+    return $result_name_node . $description;
   }
 
   my $name;
@@ -6320,10 +6329,6 @@ sub converter_initialize($)
       } elsif (exists($default_commands_conversion{$command})) {
         $self->{'commands_conversion'}->{$command}
            = $default_commands_conversion{$command};
-        if ($command eq 'menu' and $self->get_conf('SIMPLE_MENU')) {
-          $self->{'commands_conversion'}->{$command}
-            = $default_commands_conversion{'example'};
-        }
       }
     }
   }

@@ -2240,6 +2240,8 @@ $result_converted{'html'}->{'simple_menu'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
+pre.menu-preformatted {font-family: serif}
+ul.mark-bullet {list-style-type: disc}
 -->
 </style>
 
@@ -2250,6 +2252,65 @@ $result_converted{'html'}->{'simple_menu'} = '<!DOCTYPE html>
 
 <div class="top-level-extent" id="Top">
 <a class="top" id="SEC_Top"></a>
+<div class="menu"><pre class="menu-preformatted">&bull; <a href="ggg.html#Top" accesskey="1">(ggg)</a>:: description
+</pre><ul class="itemize mark-bullet">
+<li><pre class="menu-preformatted">idescr
+</pre></li></ul>
+<pre class="menu-preformatted">in html
+AAA
+
+CCC
+
+</pre><ul class="itemize mark-bullet">
+<li><pre class="menu-preformatted">iaa
+</pre></li></ul>
+<pre class="menu-preformatted">
+
+in html title
+
+BBB
+
+</pre><ul class="itemize mark-bullet">
+<li><pre class="menu-preformatted">ibb
+</pre></li></ul>
+<pre class="menu-preformatted">&bull; <a href="manual.html#Top" accesskey="2">(manual)</a>::
+
+comment
+
+&bull; <a href="after_comment.html#Top" accesskey="3">(after_comment)</a>:: description
+in description
+&bull; <a href="after_description.html#Top" accesskey="4">(after_description)</a>::
+
+</pre><pre class="menu-preformatted">&bull; <a href="detailggg.html#Top" accesskey="5">(detailggg)</a>:: detaildescription
+</pre><ul class="itemize mark-bullet">
+<li><pre class="menu-preformatted">idetaildescr
+</pre></li></ul>
+<pre class="menu-preformatted">detailin detailhtml
+detailAAA
+
+detailCCC
+
+</pre><ul class="itemize mark-bullet">
+<li><pre class="menu-preformatted">detailiaa
+</pre></li></ul>
+<pre class="menu-preformatted">
+
+detailin html detailtitle
+
+detailBBB
+
+</pre><ul class="itemize mark-bullet">
+<li><pre class="menu-preformatted">detailibb
+</pre></li></ul>
+<pre class="menu-preformatted">&bull; <a href="detailmanual.html#Top" accesskey="6">(detailmanual)</a>::
+
+detailcomment
+
+&bull; <a href="detailafter_comment.html#Top" accesskey="7">(detailafter_comment)</a>:: detaildescription
+in detaildescription
+&bull; <a href="detailafter_description.html#Top" accesskey="8">(detailafter_description)</a>::
+
+</pre></div>
 </div>
 
 

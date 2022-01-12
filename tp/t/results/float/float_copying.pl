@@ -1680,7 +1680,7 @@ the author abandon his copyright.
 <a class="index-entry-id" id="index-copying-indexed-caption-function"></a>
 </div></div>
 <dl class="listoffloats">
-<dt><a href="#public-domain">Copyright notice 1</a></dt><dd><p>The Public Domain notice<a class="footnote" id="t_hlistoffloats_DOCF1_4" href="#t_hlistoffloats_FOOT1_4"><sup>4</sup></a>
+<dt><a href="#public-domain">Copyright notice 1</a></dt><dd class="caption-in-listoffloats"><p>The Public Domain notice<a class="footnote" id="t_hlistoffloats_DOCF1_4" href="#t_hlistoffloats_FOOT1_4"><sup>4</sup></a>
 </p>
 </dd>
 </dl>

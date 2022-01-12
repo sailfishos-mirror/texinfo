@@ -8278,18 +8278,18 @@ See <a class="xref" href="#text-with-a-lot-of-features">Text 1</a>.
 <p>A ref to float without type <a class="ref" href="#label-but-no-type">1</a>.
 </p>
 <dl class="listoffloats">
-<dt><a href="#text-with-a-lot-of-features">Text 1</a></dt><dd><p>TeX and someething</p></dd>
-<dt><a href="#text-in-chapter">Text 1.1</a></dt><dd><p>C Text in chapter</p></dd>
-<dt><a href="#float-with-a-lot-of-features-and-no-shortcaption">Text 1.2</a></dt><dd><p>An example of float caption, no shortcaption<small class="enddots">...</small></p></dd>
+<dt><a href="#text-with-a-lot-of-features">Text 1</a></dt><dd class="shortcaption-in-listoffloats"><p>TeX and someething</p></dd>
+<dt><a href="#text-in-chapter">Text 1.1</a></dt><dd class="caption-in-listoffloats"><p>C Text in chapter</p></dd>
+<dt><a href="#float-with-a-lot-of-features-and-no-shortcaption">Text 1.2</a></dt><dd class="caption-in-listoffloats"><p>An example of float caption, no shortcaption<small class="enddots">...</small></p></dd>
 <dt><a href="#text-in-section">Text 1.3</a></dt><dd></dd>
-<dt><a href="#unnumbered-float">Text 5</a></dt><dd><p>SC unnumbered float</p></dd>
-<dt><a href="#Section-within-unnumbered-float">Text 6</a></dt><dd><p>SC Section within unnumbered</p></dd>
-<dt><a href="#Chapter-with-subsec-float">Text 2.1</a></dt><dd><p>SC Chapter with subsec</p></dd>
-<dt><a href="#unnumbered-sec-float">Text 2.2</a></dt><dd><p>SC unnumbered sec float</p></dd>
-<dt><a href="#appendix-sec-float">Text A.1</a></dt><dd><p>SC appendix sec float</p></dd>
+<dt><a href="#unnumbered-float">Text 5</a></dt><dd class="shortcaption-in-listoffloats"><p>SC unnumbered float</p></dd>
+<dt><a href="#Section-within-unnumbered-float">Text 6</a></dt><dd class="shortcaption-in-listoffloats"><p>SC Section within unnumbered</p></dd>
+<dt><a href="#Chapter-with-subsec-float">Text 2.1</a></dt><dd class="shortcaption-in-listoffloats"><p>SC Chapter with subsec</p></dd>
+<dt><a href="#unnumbered-sec-float">Text 2.2</a></dt><dd class="shortcaption-in-listoffloats"><p>SC unnumbered sec float</p></dd>
+<dt><a href="#appendix-sec-float">Text A.1</a></dt><dd class="shortcaption-in-listoffloats"><p>SC appendix sec float</p></dd>
 </dl>
 <dl class="listoffloats">
-<dt><a href="#theoreme">th&eacute;or&egrave;me 1.1</a></dt><dd><p>C A th&eacute;or&egrave;me</p></dd>
+<dt><a href="#theoreme">th&eacute;or&egrave;me 1.1</a></dt><dd class="caption-in-listoffloats"><p>C A th&eacute;or&egrave;me</p></dd>
 </dl>
 
 </div>

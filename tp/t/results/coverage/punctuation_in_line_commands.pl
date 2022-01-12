@@ -1211,8 +1211,8 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 </p>
 <div class="caption"><p><strong class="strong">float type! After punc 2: </strong>caption! After punc</p></div></div>
 <dl class="listoffloats">
-<dt><a href="#float-label_0021-After-punc">float type! After punc 1</a></dt><dd><p>shortcaption! After punc</p></dd>
-<dt><a href="#label-with-caption">float type! After punc 2</a></dt><dd><p>caption! After punc</p></dd>
+<dt><a href="#float-label_0021-After-punc">float type! After punc 1</a></dt><dd class="shortcaption-in-listoffloats"><p>shortcaption! After punc</p></dd>
+<dt><a href="#label-with-caption">float type! After punc 2</a></dt><dd class="caption-in-listoffloats"><p>caption! After punc</p></dd>
 </dl>
 
 <a class="index-entry-id" id="index-index_0021-After-punc"></a>

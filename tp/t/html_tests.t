@@ -275,8 +275,26 @@ in detaildescription
 
 @end detailmenu
 @end menu
-' ,{'SIMPLE_MENU' => 1, 'test_formats' => ['info']}
-],
+', {'SIMPLE_MENU' => 1, 'test_formats' => ['info']}, {'FORMAT_MENU' => 'menu'}],
+['simple_menu_in_example',
+'@node Top
+
+@example
+@menu
+* (entry)::
+@cartouche
+in cartouche in description in menu in example
+@end cartouche
+
+@cartouche
+in cartouche in menu comment in menu in example
+@end cartouche
+
+* (node) menu::      a node in menu
+* a menu name:(other) node.
+@end menu
+@end example
+', {'SIMPLE_MENU' => 1, 'test_formats' => ['info']}, {'FORMAT_MENU' => 'menu'}],
 ['character_number_leading_toc_stoc',
 '@top top
 @chapter 0

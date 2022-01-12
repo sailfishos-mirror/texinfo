@@ -691,7 +691,7 @@ $result_converted{'html'}->{'empty_listoffloats_with_floats'} = '<!DOCTYPE html>
 <div class="caption"><p>caption no label</p></div></div>
 <dl class="listoffloats">
 <dt><a href="#label1">1</a></dt><dd></dd>
-<dt><a href="#label2">2</a></dt><dd><p>caption with label</p></dd>
+<dt><a href="#label2">2</a></dt><dd class="caption-in-listoffloats"><p>caption with label</p></dd>
 </dl>
 
 

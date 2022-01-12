@@ -437,7 +437,7 @@ $result_converted{'html'}->{'anchor_in_caption'} = '<!DOCTYPE html>
 <h1 class="node" id="Top">Top</h1>
 
 <dl class="listoffloats">
-<dt><a href="#label">fl 1</a></dt><dd><p>in caption</p></dd>
+<dt><a href="#label">fl 1</a></dt><dd class="caption-in-listoffloats"><p>in caption</p></dd>
 </dl>
 
 <div class="float" id="label">

@@ -1,5 +1,17 @@
 2022-01-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_listoffloats_command): add
+	a class for caption or shortcaption in listoffloats, like
+	caption-in-listoffloats
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_menu_command)
+	(_convert_menu_entry_type, converter_initialize): in preformatted
+	in menu, let the description be converted as preformatted.
+	In case of SIMPLE_MENU use the menu conversion command, but
+	use a <div> instead of a table.
+
+2022-01-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_default_format_navigation_panel):
 	rename format_navigation_header_panel as format_navigation_panel
 	as it is used both for headers and footers.  Use nav-panel instead

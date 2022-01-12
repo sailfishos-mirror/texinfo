@@ -3956,7 +3956,7 @@ In text <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot;
 <p><strong class="strong">Image 1: </strong>In text <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="alt &icirc;&ndash;le..  a
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.</p></div></div>
 <dl class="listoffloats">
-<dt><a href="#Image-with-commands">Image 1</a></dt><dd><img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
+<dt><a href="#Image-with-commands">Image 1</a></dt><dd class="caption-in-listoffloats"><img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
 
 <p>In text <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="alt &icirc;&ndash;le..  a
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.</p></dd>
@@ -4197,7 +4197,7 @@ In text <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot;
 <p><strong class="strong">Image 1: </strong>In text <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="alt &icirc;&ndash;le..  a
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.</p></div></div>
 <dl class="listoffloats">
-<dt><a href="#Image-with-commands">Image 1</a></dt><dd><img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
+<dt><a href="#Image-with-commands">Image 1</a></dt><dd class="caption-in-listoffloats"><img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
 
 <p>In text <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="alt &icirc;&ndash;le..  a
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.</p></dd>
