@@ -13,14 +13,6 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
-Change in doc:
-The text of @copying is output as a comment at the beginning of Info, HTML, XML, and DocBook output files.
-Not true for docbook and XML, it is in elements.
-
-In HTML the title is shown (using either @settitle or @shortitltpage). Not clear
-in the documentation.
-
-
 Test of ASCII_PUNCTUATION on texinfo like:
 
 ``in double q''. `in simple q'.

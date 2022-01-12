@@ -1,5 +1,19 @@
 2022-01-11  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (@code{@@settitle}, @code{@@titlepage}):
+	describe that @settitle is output at the very beginning of an
+	HTML document.  And that @shorttitlepage is used instead of @settitle
+	page if @settitle is not set.
+
+	* doc/texinfo.texi (@code{@@copying}, @code{@@insertcopying}):
+	clarify that in XML and DocBook @copying text is in appropriate
+	markup.  In @insertcopying node state explicitly that @insertcopying
+	is used to have the @copying test in normal text.
+
+	* doc/texinfo.texi (Texinfo Preamble): revise for more clarity.
+
+2022-01-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%css_map, _convert_preformatted_type):
 	set a class for menu entry description in preformatted in menu to
 	have it inline to avoid a line break caused by <pre> being a block

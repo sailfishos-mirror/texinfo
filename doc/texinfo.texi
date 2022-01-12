@@ -1780,16 +1780,17 @@ more on headings for @TeX{}, see @ref{Heading Generation}.
 
 @cindex @code{<title>} HTML tag
 In the HTML file produced by @command{makeinfo}, @var{title} serves as
-the document @samp{<title>}.  It also becomes the default document
-description in the @samp{<head>} part.
+the document @samp{<title>} and it becomes the default document
+description in the @samp{<head>} part.  It also appears at the very
+beginning of the output in an @code{<h1>} heading.
 
-When the title page is used in the output, the title in the
-@code{@@settitle} command does not affect the title as it appears on
-the title page.  Thus, the two do not need not to match exactly.  A
-practice we recommend is to include the version or edition number of
-the manual in the @code{@@settitle} title; on the title page, the
-version number generally appears as a @code{@@subtitle} so it would
-be omitted from the @code{@@title}.  @xref{@code{@@titlepage}}.
+When the title page is used in the output, as is generally the case for printed
+output, the title in the @code{@@settitle} command does not affect the title as
+it appears on the title page.  Thus, the two do not need not to match exactly.
+A practice we recommend is to include the version or edition number of the
+manual in the @code{@@settitle} title; on the title page, the version number
+generally appears as a @code{@@subtitle} so it would be omitted from the
+@code{@@title}.  @xref{@code{@@titlepage}}.
 
 
 @node End of Header
@@ -1817,13 +1818,14 @@ specifying the document permissions (@xref{@code{@@copying}}) and the
 @code{@@titlepage} (@pxref{Titlepage & Copyright Page}) specification.
 
 Commands that affects document formatting as a whole but do not produce
-any output such as @code{@@settitle} (@pxref{@code{@@settitle}}),
-@code{@@documentlanguage}, (@pxref{@code{@@documentlanguage}}), commands
-setting the headings, informations on indentation, on hyphenation or
-on table of contents (@pxref{Contents}) do not stop the the preamble.
-The preamble can also contain raw formatter commands (@pxref{Raw Formatter
-Commands}), but it is not checked that the content of these commands is
-actually preamble material and not regular output.  
+output, or do not produce output straight away, such as @code{@@settitle}
+(@pxref{@code{@@settitle}}), @code{@@documentlanguage},
+(@pxref{@code{@@documentlanguage}}), commands setting the headings,
+informations on indentation, on hyphenation or on table of contents
+(@pxref{Contents}) do not stop the the preamble.  The preamble can also contain
+raw formatter commands (@pxref{Raw Formatter Commands}), but it is not checked
+that the content of these commands is actually preamble material and not
+regular output.
 
 Any text that starts a paragraph, @@-commands that are formatted
 as quotations, tables, lists and so on, @code{@@node} (@pxref{Nodes})
@@ -1837,14 +1839,13 @@ the table of contents (@pxref{Contents}).  For @LaTeX{} output, the preamble
 is important as the @code{\begin@{document@}} line is output at the end
 of the preamble.
 
-In HTML and Info the preamble
-information is only used to get informations for the header formatting.  Some
-commands that affect formatting can have an effect on the header formatting,
-for example command specifying the indentation or the language
-(@pxref{@code{@@documentlanguage}}), the information current at the very end
-of the preamble is used for that formatting.
+In HTML and Info the preamble is not treated especially in the output. But
+it is also used to determine which information is set for some header formatting.
+Commands that affect header formatting are set to the information current at
+the very end of the preamble.  This concerns for example commands specifying
+the indentation or the language (@pxref{@code{@@documentlanguage}}).
 
-For example, for the following document, the HTML and Info copying comment is formatted
+For example, for the following document, the HTML and Info copying comments are formatted
 with @code{@@documentlanguage} set to @samp{pt}, as it is the last @code{@@documentlanguage}
 before the end of the preamble.
 
@@ -1984,11 +1985,12 @@ Permission is granted to @dots{}
 The @code{@@quotation} has no legal significance; it's there to improve
 readability in some contexts.
 
-The text of @code{@@copying} is output as a comment at the beginning
-of Info, HTML, XML, and DocBook output files.  It is @emph{not} output
-implicitly in plain text or @TeX{}; it's up to you to use
-@code{@@insertcopying} to emit the copying information.  See the next
-section for details.
+The text of @code{@@copying} appears at the beginning of the XML and
+DocBook output files using appropriate markup.  This information is also output
+as a comment at the beginning of Info and HTML output files.  It is @emph{not}
+output implicitly in plain text or @TeX{}; it's up to you to use
+@code{@@insertcopying} to emit the copying information.  See the next section
+for details.
 
 @findex copyright
 The @code{@@copyright@{@}} command generates a @samp{c} inside a
@@ -2059,15 +2061,19 @@ appear in an Info file @emph{before} the first node.  The text is also
 copied into the beginning of each split Info output file, as is legally
 necessary.  This location implies a human reading the manual using Info
 does @emph{not} see this text (except when using the advanced Info
-command @kbd{g *}), but this does not matter for legal purposes,
-because the text is present.
+command @kbd{g *}). This does not matter for legal purposes,
+because the text is present.  But to get a visible text in the output,
+@code{@@insertcopying} should be used.
 
 Similarly, the @code{@@copying} text is automatically included at the
 beginning of each HTML output file, as an HTML comment.  Again, this
-text is not visible (unless the reader views the HTML source).
+text is not visible without @code{@@insertcopying} (unless the reader views the
+HTML source).
 
 The permissions text defined by @code{@@copying} also appears
-automatically at the beginning of the XML and DocBook output files.
+automatically at the beginning of the XML and DocBook output files
+using appropriate markup.  @code{@@insertcopying} can be used
+to output the permission text within normal text.
 
 
 @node Titlepage & Copyright Page
@@ -2170,7 +2176,8 @@ For sufficiently simple documents, and for the bastard title page in
 traditional book frontmatter, Texinfo also provides a command
 @code{@@shorttitlepage} which takes the rest of the line as the title.
 The argument is typeset on a page by itself and followed by a blank
-page.
+page.  In HTML, @code{@@shorttitlepage} can play the same role as
+@code{@@settitle}, if @code{@@settitle} is not set.  @xref{@code{@@settitle}}.
 
 
 
@@ -2271,7 +2278,7 @@ have an especially long title.
 
 For HTML output, each @code{@@titlefont} command produces an
 @code{<h1>} heading, but the HTML document @code{<title>} is not
-affected.  For that, you must put a @code{@@settitle} command before
+affected.  For that, you could put a @code{@@settitle} command before
 the @code{@@titlefont} command (@pxref{@code{@@settitle}}).
 
 @need 700
