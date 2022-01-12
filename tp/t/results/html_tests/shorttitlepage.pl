@@ -429,7 +429,7 @@ h1.shorttitlepage {text-align:center}
 <body lang="en">
 <h1 class="shorttitlepage">@title <small class="sc">HTML</small> <code class="code">test</code></h1>
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <h1 class="top" id="Top-of-_0040title-HTML-test">Top of @title <small class="sc">HTML</small> <code class="code">test</code></h1>
 
 <p>Top.

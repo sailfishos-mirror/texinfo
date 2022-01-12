@@ -2510,7 +2510,7 @@ for example *note node:: (*note node::) (*note (file)Top::)
 
 
 $result_converted{'html_text'}->{'ref_in_sectioning'} = '
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
  &nbsp; </p>
@@ -2544,7 +2544,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 </div>
 </div>
 <hr>
-<div class="chapter" id="node">
+<div class="chapter-level-extent" id="node">
 <div class="nav-header">
 <p>
  &nbsp; </p>
@@ -2553,7 +2553,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 
 <hr>
 </div>
-<div class="chapter" id="chap">
+<div class="chapter-level-extent" id="chap">
 <div class="nav-header">
 <p>
  &nbsp; </p>
@@ -2574,51 +2574,51 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <li><a href="#Top_002c-xref-Top-filename-only_002c-no-spaces">See <a data-manual="filename" href="filename.html#Top">(filename)Top</a>, xref Top filename only, no spaces</a></li>
 <li><a href="#filename_002e-xref-filename-only_002c-no-spaces">See <a data-manual="filename" href="filename.html#Top">(filename)</a>. xref filename only, no spaces</a></li>
 </ul>
-<div class="section" id="node-node_002c-crossref-arg2">
+<div class="section-level-extent" id="node-node_002c-crossref-arg2">
 <h3 class="section">2.1 <a class="ref" href="#node">cross ref name</a>  node, crossref arg2</h3>
 
 </div>
-<div class="section" id="node-code-node_002c-samptitle-arg3">
+<div class="section-level-extent" id="node-code-node_002c-samptitle-arg3">
 <h3 class="section">2.2 <a class="ref" href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</h3>
 
 </div>
-<div class="section" id="node-code-node_002c-file-name">
+<div class="section-level-extent" id="node-code-node_002c-file-name">
 <h3 class="section">2.3 <a data-manual="file name" href="file name.html#node">(file name)<code class="code">node</code></a> code node, file name</h3>
 
 </div>
-<div class="section" id="node-node-and-manual">
+<div class="section-level-extent" id="node-node-and-manual">
 <h3 class="section">2.4 &lsquo;node&rsquo; in <cite class="cite">Manual</cite> node and manual</h3>
 
 </div>
-<div class="section" id="Top-Top-and-manual">
+<div class="section-level-extent" id="Top-Top-and-manual">
 <h3 class="section">2.5 <cite class="cite">Manual</cite> Top and manual</h3>
 
 </div>
-<div class="section" id="Manual-no-node-just-manual">
+<div class="section-level-extent" id="Manual-no-node-just-manual">
 <h3 class="section">2.6 <cite class="cite">Manual</cite> no node just manual</h3>
 
 </div>
-<div class="section" id="file-name-no-node-just-file-name">
+<div class="section-level-extent" id="file-name-no-node-just-file-name">
 <h3 class="section">2.7 <a data-manual="file name" href="file name.html#Top">(file name)</a> no node just file name</h3>
 
 </div>
-<div class="section" id="a-inforef-a-b-c">
+<div class="section-level-extent" id="a-inforef-a-b-c">
 <h3 class="section">2.8 See <a data-manual="c" href="c.html#a">(c)b</a> inforef a b c</h3>
 
 </div>
-<div class="section" id="g_t_0028Top_0029-pxref-Top-file-name_002c-spaces">
+<div class="section-level-extent" id="g_t_0028Top_0029-pxref-Top-file-name_002c-spaces">
 <h3 class="section">2.9 (see <a data-manual="file name" href="file name.html#Top">(file name)Top</a>) pxref Top file name, spaces</h3>
 
 </div>
-<div class="section" id="g_t_0028file-name_0029-pxref-file-name-only_002c-spaces">
+<div class="section-level-extent" id="g_t_0028file-name_0029-pxref-file-name-only_002c-spaces">
 <h3 class="section">2.10 (see <a data-manual="file name" href="file name.html#Top">(file name)</a>) pxref file name only, spaces</h3>
 
 </div>
-<div class="section" id="Top_002c-xref-Top-filename-only_002c-no-spaces">
+<div class="section-level-extent" id="Top_002c-xref-Top-filename-only_002c-no-spaces">
 <h3 class="section">2.11 See <a data-manual="filename" href="filename.html#Top">(filename)Top</a>, xref Top filename only, no spaces</h3>
 
 </div>
-<div class="section" id="filename_002e-xref-filename-only_002c-no-spaces">
+<div class="section-level-extent" id="filename_002e-xref-filename-only_002c-no-spaces">
 <h3 class="section">2.12 See <a data-manual="filename" href="filename.html#Top">(filename)</a>. xref filename only, no spaces</h3>
 
 </div>

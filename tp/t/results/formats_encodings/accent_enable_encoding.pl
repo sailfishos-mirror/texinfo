@@ -3254,7 +3254,7 @@ should be e‘: è è
 ';
 
 
-$result_converted{'html_text'}->{'accent_enable_encoding'} = '<div class="top" id="Top-node">
+$result_converted{'html_text'}->{'accent_enable_encoding'} = '<div class="top-level-extent" id="Top-node">
 <h1 class="top" id="top">top</h1>
 
 <p>should be e‘: è è

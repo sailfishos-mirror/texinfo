@@ -1936,7 +1936,7 @@ pre.menu-comment-preformatted {font-family: serif}
 </head>
 
 <body lang="en">
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
@@ -1963,7 +1963,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </table>
 
 <hr>
-<div class="chapter" id="chapter">
+<div class="chapter-level-extent" id="chapter">
 <div class="nav-header">
 <p>
 Next: <a href="#chapter-2" accesskey="n" rel="next">chapter 2</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
@@ -1976,7 +1976,7 @@ Next: <a href="#chapter-2" accesskey="n" rel="next">chapter 2</a>, Previous: <a 
 </table>
 
 <hr>
-<div class="section" id="section">
+<div class="section-level-extent" id="section">
 <div class="nav-header">
 <p>
 Up: <a href="#chapter" accesskey="u" rel="up">chapter</a> &nbsp; </p>
@@ -1986,7 +1986,7 @@ Up: <a href="#chapter" accesskey="u" rel="up">chapter</a> &nbsp; </p>
 <hr>
 </div>
 </div>
-<div class="chapter" id="chapter-2">
+<div class="chapter-level-extent" id="chapter-2">
 <div class="nav-header">
 <p>
 Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
@@ -2001,7 +2001,7 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
 </table>
 
 <hr>
-<div class="section" id="section-chap-2">
+<div class="section-level-extent" id="section-chap-2">
 <div class="nav-header">
 <p>
 Next: <a href="#unnumberedsec" accesskey="n" rel="next">unnumberedsec</a>, Up: <a href="#chapter-2" accesskey="u" rel="up">chapter 2</a> &nbsp; </p>
@@ -2010,7 +2010,7 @@ Next: <a href="#unnumberedsec" accesskey="n" rel="next">unnumberedsec</a>, Up: <
 
 <hr>
 </div>
-<div class="unnumberedsec" id="unnumberedsec">
+<div class="unnumberedsec-level-extent" id="unnumberedsec">
 <div class="nav-header">
 <p>
 Previous: <a href="#section-chap-2" accesskey="p" rel="prev">section chap 2</a>, Up: <a href="#chapter-2" accesskey="u" rel="up">chapter 2</a> &nbsp; </p>

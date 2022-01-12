@@ -239,7 +239,7 @@ ul.toc-numbered-mark {list-style: none}
 
 <body lang="en">
 
-<div class="top" id="for-example">
+<div class="top-level-extent" id="for-example">
 <h1 class="top">for example</h1>
 
 <div class="element-contents" id="SEC_Contents">
@@ -252,7 +252,7 @@ ul.toc-numbered-mark {list-style: none}
 </ul>
 </div>
 </div>
-<div class="chapter">
+<div class="chapter-level-extent">
 <h2 class="chapter">1 </h2>
 
 </div>

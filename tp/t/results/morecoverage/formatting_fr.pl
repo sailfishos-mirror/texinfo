@@ -4925,7 +4925,7 @@ ul.toc-numbered-mark {list-style: none}
 
 </p><hr>
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt; ]</td>
 <td valign="middle" align="left">[<a href="#chapter" title="Section suivante dans l&rsquo;ordre de lecture"> &gt; </a>]</td>
@@ -5067,7 +5067,7 @@ Menu comment
 
 
 <hr style="height: 6px;">
-<div class="chapter" id="chapter">
+<div class="chapter-level-extent" id="chapter">
 <table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
@@ -5100,7 +5100,7 @@ Menu comment
 </div>
 
 <hr>
-<div class="section" id="s_002d_002dect_002cion">
+<div class="section-level-extent" id="s_002d_002dect_002cion">
 <table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#chapter" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
@@ -5132,7 +5132,7 @@ Menu comment
 </table>
 
 <hr>
-<div class="subsection" id="subsection">
+<div class="subsection-level-extent" id="subsection">
 <table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#s_002d_002dect_002cion" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
@@ -5159,7 +5159,7 @@ Menu comment
 
 <a class="anchor" id="anchor"></a>
 <hr>
-<div class="subsubsection" id="subsubsection-_0060_0060simple_002ddouble_002d_002d">
+<div class="subsubsection-level-extent" id="subsubsection-_0060_0060simple_002ddouble_002d_002d">
 <table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#subsection" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
@@ -5179,7 +5179,7 @@ Menu comment
 
 <hr>
 </div>
-<div class="subsubsection" id="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
+<div class="subsubsection-level-extent" id="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
 <table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
@@ -5202,7 +5202,7 @@ Menu comment
 </div>
 </div>
 </div>
-<div class="centerchap" id="chapter2">
+<div class="centerchap-level-extent" id="chapter2">
 <table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
@@ -5490,7 +5490,7 @@ $result_converted{'html_text'}->{'formatting_fr'} = '<h1 class="title">title &nd
 
 </p><hr>
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt; ]</td>
 <td valign="middle" align="left">[ &gt; ]</td>
@@ -5632,7 +5632,7 @@ Menu comment
 
 
 <hr style="height: 6px;">
-<div class="chapter" id="chapter">
+<div class="chapter-level-extent" id="chapter">
 <table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
 <td valign="middle" align="left">[ &lt; ]</td>
@@ -5665,7 +5665,7 @@ Menu comment
 </div>
 
 <hr>
-<div class="section" id="s_002d_002dect_002cion">
+<div class="section-level-extent" id="s_002d_002dect_002cion">
 <table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
 <td valign="middle" align="left">[ &lt; ]</td>
@@ -5697,7 +5697,7 @@ Menu comment
 </table>
 
 <hr>
-<div class="subsection" id="subsection">
+<div class="subsection-level-extent" id="subsection">
 <table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
 <td valign="middle" align="left">[ &lt; ]</td>
@@ -5724,7 +5724,7 @@ Menu comment
 
 <a class="anchor" id="anchor"></a>
 <hr>
-<div class="subsubsection" id="subsubsection-_0060_0060simple_002ddouble_002d_002d">
+<div class="subsubsection-level-extent" id="subsubsection-_0060_0060simple_002ddouble_002d_002d">
 <table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
 <td valign="middle" align="left">[ &lt; ]</td>
@@ -5744,7 +5744,7 @@ Menu comment
 
 <hr>
 </div>
-<div class="subsubsection" id="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
+<div class="subsubsection-level-extent" id="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
 <table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
 <td valign="middle" align="left">[ &lt; ]</td>
@@ -5767,7 +5767,7 @@ Menu comment
 </div>
 </div>
 </div>
-<div class="centerchap" id="chapter2">
+<div class="centerchap-level-extent" id="chapter2">
 <table class="nav-header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
 <td valign="middle" align="left">[ &lt; ]</td>

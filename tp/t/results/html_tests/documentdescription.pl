@@ -431,7 +431,7 @@ $result_converted{'html'}->{'documentdescription'} = '<!DOCTYPE html>
 
 <body lang="en">
 
-<div class="top" id="top">
+<div class="top-level-extent" id="top">
 <h1 class="top">top</h1>
 </div>
 

@@ -2571,7 +2571,7 @@ Image description""\\.
 ';
 
 
-$result_converted{'html_text'}->{'image_formatting'} = '<h1 class="node-heading" id="Top">Top</h1>
+$result_converted{'html_text'}->{'image_formatting'} = '<h1 class="node" id="Top">Top</h1>
 
 <p><code class="code">@image{f--ile}</code> <img class="image" src="f--ile.png" alt="f--ile">
 <code class="code">@image{f--ile,l--i}</code> <img class="image" src="f--ile.png" alt="f--ile">

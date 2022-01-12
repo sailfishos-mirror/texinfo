@@ -444,7 +444,7 @@ $result_converted{'html'}->{'footnote_in_caption'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 <dl class="listoffloats">
 <dt><a href="#label">fl 1</a></dt><dd><p>in caption<a class="footnote" id="t_hlistoffloats_DOCF1_1" href="#t_hlistoffloats_FOOT1_1"><sup>1</sup></a></p></dd>

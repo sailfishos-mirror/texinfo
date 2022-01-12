@@ -411,15 +411,15 @@ $result_converted{'html'}->{'section_before_after_top_node'} = '<!DOCTYPE html>
 
 <body lang="en">
 
-<div class="unnumbered" id="before">
+<div class="unnumbered-level-extent" id="before">
 <h2 class="unnumbered">before</h2>
 
 </div>
-<div class="unnumbered" id="Top">
+<div class="unnumbered-level-extent" id="Top">
 <h2 class="unnumbered" id="top-section">top section</h2>
 
 </div>
-<div class="chapter" id="Chapter">
+<div class="chapter-level-extent" id="Chapter">
 <h2 class="chapter">1 Chapter</h2>
 
 <p>in chapter

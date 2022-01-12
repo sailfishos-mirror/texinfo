@@ -292,7 +292,7 @@ $result_converted_errors{'plaintext'}->{'index_entry_before_first_node'} = [
 
 $result_converted{'html_text'}->{'index_entry_before_first_node'} = '<a class="index-entry-id" id="index-before-nodes"></a>
 
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-B"><b>B</b></a>

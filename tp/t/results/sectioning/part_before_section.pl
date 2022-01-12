@@ -224,14 +224,14 @@ $result_directions_text{'part_before_section'} = 'element: @section section
 ';
 
 
-$result_converted{'html_text'}->{'part_before_section'} = '<div class="part" id="part">
+$result_converted{'html_text'}->{'part_before_section'} = '<div class="part-level-extent" id="part">
 <h1 class="part">part</h1>
 <hr>
 
 <ul class="mini-toc">
 <li><a href="#section" accesskey="1">section</a></li>
 </ul>
-<div class="chapter" id="section">
+<div class="chapter-level-extent" id="section">
 <h2 class="chapter">1 section</h2>
 </div>
 </div>

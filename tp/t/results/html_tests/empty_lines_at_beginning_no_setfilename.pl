@@ -272,7 +272,7 @@ $result_converted{'html'}->{'empty_lines_at_beginning_no_setfilename'} = '<!DOCT
 
 <body lang="en">
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <h1 class="top" id="top">top</h1>
 
 </div>

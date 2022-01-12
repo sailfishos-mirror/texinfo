@@ -500,14 +500,14 @@ $result_converted{'html'}->{'top_without_node_nodes'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<div class="top" id="top-section">
+<div class="top-level-extent" id="top-section">
 <h1 class="top">top section</h1>
 <p>Top section
 </p>
 <ul class="mini-toc">
 <li><a href="#second" accesskey="1">Chapter</a></li>
 </ul>
-<div class="chapter" id="second">
+<div class="chapter-level-extent" id="second">
 <h2 class="chapter" id="Chapter">1 Chapter</h2>
 
 <p>Text of chapter

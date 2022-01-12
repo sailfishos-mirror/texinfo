@@ -794,7 +794,7 @@ a.summary-letter-printindex {text-decoration: none}
 
 <body lang="en">
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="#chapter-index" accesskey="n" rel="next">Index</a> &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
@@ -804,7 +804,7 @@ Next: <a href="#chapter-index" accesskey="n" rel="next">Index</a> &nbsp; [<a hre
 <li><a href="#chapter-index" accesskey="1">Index</a></li>
 </ul>
 <hr>
-<div class="chapter" id="chapter-index">
+<div class="chapter-level-extent" id="chapter-index">
 <div class="nav-header">
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
@@ -920,7 +920,7 @@ $result_converted{'plaintext'}->{'subentry_and_sortas'} = '1 Index
 
 
 $result_converted{'html_text'}->{'subentry_and_sortas'} = '
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
@@ -930,7 +930,7 @@ $result_converted{'html_text'}->{'subentry_and_sortas'} = '
 <li><a href="#chapter-index" accesskey="1">Index</a></li>
 </ul>
 <hr>
-<div class="chapter" id="chapter-index">
+<div class="chapter-level-extent" id="chapter-index">
 <div class="nav-header">
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>

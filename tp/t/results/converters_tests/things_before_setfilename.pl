@@ -1508,7 +1508,7 @@ $result_converted{'html'}->{'things_before_setfilename'} = '<!DOCTYPE html>
 
 <body lang="en">
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <h1 class="top" id="top-section">top section</h1>
 
 <p>Ref to anchor

@@ -463,7 +463,7 @@ $result_converted{'html'}->{'unknown_language'} = '<!DOCTYPE html>
 
 <body lang="unknown">
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <h1 class="top" id="unknkown-language">unknkown language</h1>
 
 <p>Unknown language. See <a class="xref" href="#Top">unknkown language</a>.

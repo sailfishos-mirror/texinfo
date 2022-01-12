@@ -1141,11 +1141,11 @@ pre.menu-preformatted {font-family: serif}
 
 <body lang="en">
 
-<a class="node" id="Top"></a><div class="nav-header">
+<a class="node-id" id="Top"></a><div class="nav-header">
 <p>
 Next: <a href="#NODE" accesskey="n" rel="next"><small class="sc">NODE</small></a> &nbsp; </p>
 </div>
-<h1 class="node-heading">Top</h1>
+<h1 class="node">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#NODE" accesskey="1"><small class="sc">VALUE</small></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><small class="sc">DESCRIP TION</small>
@@ -1162,11 +1162,11 @@ Next: <a href="#NODE" accesskey="n" rel="next"><small class="sc">NODE</small></a
 </th></tr></table>
 
 <hr>
-<a class="node" id="NODE"></a><div class="nav-header">
+<a class="node-id" id="NODE"></a><div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node-heading"><small class="sc">NODE</small></h4>
+<h4 class="node"><small class="sc">NODE</small></h4>
 
 <div class="example">
 <table class="menu" border="0" cellspacing="0"><tr><td>

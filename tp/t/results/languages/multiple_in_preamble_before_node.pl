@@ -1088,7 +1088,7 @@ span:hover a.copiable-anchor {visibility: visible}
 <p>Text ending the preamble
 </p>
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Nächste: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
@@ -1099,7 +1099,7 @@ Nächste: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
 <li><a href="#chapter" accesskey="1">chap</a></li>
 </ul>
 <hr>
-<div class="chapter" id="chapter">
+<div class="chapter-level-extent" id="chapter">
 <div class="nav-header">
 <p>
 Vorige: <a href="#Top" accesskey="p" rel="prev">top section</a>, Nach oben: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>

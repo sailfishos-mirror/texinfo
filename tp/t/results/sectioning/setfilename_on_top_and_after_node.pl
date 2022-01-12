@@ -307,7 +307,7 @@ $result_converted{'html'}->{'setfilename_on_top_and_after_node'} = '<!DOCTYPE ht
 </head>
 
 <body lang="en">
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <h1 class="top" id="In-top-">In top </h1>
 
 </div>

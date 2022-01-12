@@ -357,7 +357,7 @@ ul.toc-numbered-mark {list-style: none}
 
 <body lang="fr">
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <h1 class="top" id="top">top</h1>
 
 <div class="element-contents" id="SEC_Contents">
@@ -370,7 +370,7 @@ ul.toc-numbered-mark {list-style: none}
 </ul>
 </div>
 </div>
-<div class="appendix" id="dernier">
+<div class="appendix-level-extent" id="dernier">
 <h2 class="appendix">Annexe A dernier</h2>
 
 </div>

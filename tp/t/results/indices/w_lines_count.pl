@@ -453,7 +453,7 @@ $result_converted{'plaintext'}->{'w_lines_count'} = 'xzcompilationxdmbufferxmsub
 ';
 
 
-$result_converted{'html_text'}->{'w_lines_count'} = '<div class="top" id="Top">
+$result_converted{'html_text'}->{'w_lines_count'} = '<div class="top-level-extent" id="Top">
 <a class="top" id="SEC_Top"></a>
 <p>xzcompilationxdmbufferxmsubsequentmxCtxaxxmcommandsmadvancemfrommthere.  
 <code class="code"><span class="w-nolinebreak-text">C-u</span></code><!-- /@w --> starts again from the beginning

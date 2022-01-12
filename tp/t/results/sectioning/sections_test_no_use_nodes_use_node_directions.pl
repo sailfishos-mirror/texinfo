@@ -740,7 +740,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 </head>
 
 <body lang="en">
-<div class="top" id="top">
+<div class="top-level-extent" id="top">
 <div class="nav-header">
 <p>
  &nbsp; </p>
@@ -751,7 +751,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
 <hr>
-<div class="chapter" id="chapter">
+<div class="chapter-level-extent" id="chapter">
 <div class="nav-header">
 <p>
  &nbsp; </p>
@@ -762,7 +762,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <li><a href="#section" accesskey="1">section</a></li>
 </ul>
 <hr>
-<div class="section" id="section">
+<div class="section-level-extent" id="section">
 <div class="nav-header">
 <p>
  &nbsp; </p>
@@ -773,7 +773,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <li><a href="#subsection" accesskey="1">subsection</a></li>
 </ul>
 <hr>
-<div class="subsection" id="subsection">
+<div class="subsection-level-extent" id="subsection">
 <div class="nav-header">
 <p>
  &nbsp; </p>
@@ -784,7 +784,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <li><a href="#subsubsection" accesskey="1">subsubsection</a></li>
 </ul>
 <hr>
-<div class="subsubsection" id="subsubsection">
+<div class="subsubsection-level-extent" id="subsubsection">
 <div class="nav-header">
 <p>
  &nbsp; </p>
@@ -797,7 +797,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 </div>
 </div>
 </div>
-<div class="part" id="part">
+<div class="part-level-extent" id="part">
 <div class="nav-header">
 <p>
  &nbsp; </p>
@@ -810,12 +810,12 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <li><a href="#second-chapter-in-part" accesskey="2">second chapter in part</a></li>
 <li><a href="#unnumbered" accesskey="3">unnumbered</a></li>
 </ul>
-<div class="chapter" id="chapter-in-part">
+<div class="chapter-level-extent" id="chapter-in-part">
 <h2 class="chapter">2 chapter in part</h2>
 
 <hr>
 </div>
-<div class="chapter" id="second-chapter-in-part">
+<div class="chapter-level-extent" id="second-chapter-in-part">
 <div class="nav-header">
 <p>
  &nbsp; </p>
@@ -824,7 +824,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 
 <hr>
 </div>
-<div class="unnumbered" id="unnumbered">
+<div class="unnumbered-level-extent" id="unnumbered">
 <div class="nav-header">
 <p>
  &nbsp; </p>
@@ -833,7 +833,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 
 <hr>
 </div>
-<div class="appendix" id="appendix">
+<div class="appendix-level-extent" id="appendix">
 <div class="nav-header">
 <p>
  &nbsp; </p>
@@ -844,7 +844,7 @@ $result_converted{'html'}->{'sections_test_no_use_nodes_use_node_directions'} = 
 <li><a href="#appendixsec" accesskey="1">appendixsec</a></li>
 </ul>
 <hr>
-<div class="appendixsec" id="appendixsec">
+<div class="appendixsec-level-extent" id="appendixsec">
 <div class="nav-header">
 <p>
  &nbsp; </p>

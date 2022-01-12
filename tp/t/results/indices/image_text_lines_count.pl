@@ -302,7 +302,7 @@ ff
 ';
 
 
-$result_converted{'html_text'}->{'image_text_lines_count'} = '<h1 class="node-heading" id="Top">Top</h1>
+$result_converted{'html_text'}->{'image_text_lines_count'} = '<h1 class="node" id="Top">Top</h1>
 
 <img class="image" src="count_image_text.jpg" alt="count_image_text">
 

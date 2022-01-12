@@ -552,7 +552,7 @@ $result_converted{'html'}->{'section_before_top'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<div class="section" id="section-node">
+<div class="section-level-extent" id="section-node">
 <div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
@@ -561,7 +561,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 
 <hr>
 </div>
-<div class="unnumberedsec" id="Top">
+<div class="unnumberedsec-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="#section-node" accesskey="n" rel="next">section</a> &nbsp; </p>

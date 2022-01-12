@@ -295,11 +295,11 @@ $result_converted{'html'}->{'chapter_before_part'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<div class="chapter" id="chapter">
+<div class="chapter-level-extent" id="chapter">
 <h2 class="chapter">1 chapter</h2>
 
 </div>
-<div class="part" id="part">
+<div class="part-level-extent" id="part">
 <h1 class="part">part</h1>
 <hr>
 </div>

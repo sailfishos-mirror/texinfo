@@ -522,7 +522,7 @@ a.summary-letter-printindex {text-decoration: none}
 </head>
 
 <body lang="en">
-<div class="top" id="top">
+<div class="top-level-extent" id="top">
 <div class="nav-header">
 <p>
  &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
@@ -533,7 +533,7 @@ a.summary-letter-printindex {text-decoration: none}
 <li><a href="#chap" accesskey="1">chap</a></li>
 </ul>
 <hr>
-<div class="chapter" id="chap">
+<div class="chapter-level-extent" id="chap">
 <div class="nav-header">
 <p>
  Up : <a href="#top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
@@ -544,7 +544,7 @@ a.summary-letter-printindex {text-decoration: none}
 <li><a href="#sec" accesskey="1">sec</a></li>
 </ul>
 <hr>
-<div class="section" id="sec">
+<div class="section-level-extent" id="sec">
 <div class="nav-header">
 <p>
  Up : <a href="#chap" accesskey="u" rel="up">chap</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>

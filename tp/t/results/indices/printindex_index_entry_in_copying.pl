@@ -1418,7 +1418,7 @@ xftable xitem
 
 
 $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
@@ -1478,7 +1478,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <li><a href="#chapter" accesskey="1">Chapter</a></li>
 </ul>
 <hr>
-<div class="chapter" id="chapter">
+<div class="chapter-level-extent" id="chapter">
 <div class="nav-header">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>

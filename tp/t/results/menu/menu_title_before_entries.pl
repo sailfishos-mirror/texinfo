@@ -378,11 +378,11 @@ pre.menu-comment-preformatted {font-family: serif}
 </head>
 
 <body lang="en">
-<a class="node" id="Top"></a><div class="nav-header">
+<a class="node-id" id="Top"></a><div class="nav-header">
 <p>
 Next: <a href="#subnode" accesskey="n" rel="next">subnode</a> &nbsp; </p>
 </div>
-<h1 class="node-heading">Top</h1>
+<h1 class="node">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">Horizontal space
@@ -391,11 +391,11 @@ Next: <a href="#subnode" accesskey="n" rel="next">subnode</a> &nbsp; </p>
 </table>
 
 <hr>
-<a class="node" id="subnode"></a><div class="nav-header">
+<a class="node-id" id="subnode"></a><div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node-heading">subnode</h4>
+<h4 class="node">subnode</h4>
 
 
 

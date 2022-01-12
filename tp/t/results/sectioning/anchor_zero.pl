@@ -253,7 +253,7 @@ $result_converted{'html'}->{'anchor_zero'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 <a class="anchor" id="g_t0"></a><p>.
 </p>

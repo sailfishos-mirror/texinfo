@@ -675,7 +675,7 @@ $result_converted{'html'}->{'protected_node_parentheses'} = '<!DOCTYPE html>
 
 <body lang="en">
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="#g_t_0028manual_0029-name" accesskey="n" rel="next">(manual) name</a> &nbsp; </p>
@@ -684,11 +684,11 @@ Next: <a href="#g_t_0028manual_0029-name" accesskey="n" rel="next">(manual) name
 
 
 <hr>
-<a class="node" id="g_t_0028manual_0029-name"></a><div class="nav-header">
+<a class="node-id" id="g_t_0028manual_0029-name"></a><div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h4 class="node-heading">(manual) name</h4>
+<h4 class="node">(manual) name</h4>
 
 <a class="anchor" id="g_t_0028manual2_0029-name2"></a>
 <p><a class="ref" href="#g_t_0028manual2_0029-name2">(manual2) name2</a>.

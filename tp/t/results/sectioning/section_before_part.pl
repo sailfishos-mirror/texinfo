@@ -224,11 +224,11 @@ ul.toc-numbered-mark {list-style: none}
 </head>
 
 <body lang="en">
-<div class="section" id="section">
+<div class="section-level-extent" id="section">
 <h3 class="section">1 section</h3>
 
 </div>
-<div class="part" id="part">
+<div class="part-level-extent" id="part">
 <h1 class="part">part</h1>
 <hr>
 

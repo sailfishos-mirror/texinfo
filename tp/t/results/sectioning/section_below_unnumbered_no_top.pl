@@ -165,12 +165,12 @@ $result_converted{'html'}->{'section_below_unnumbered_no_top'} = '<!DOCTYPE html
 </head>
 
 <body lang="en">
-<div class="unnumbered" id="U">
+<div class="unnumbered-level-extent" id="U">
 <h2 class="unnumbered">U</h2>
 <ul class="mini-toc">
 <li><a href="#S" accesskey="1">S</a></li>
 </ul>
-<div class="section" id="S">
+<div class="section-level-extent" id="S">
 <h3 class="section">S</h3>
 </div>
 </div>

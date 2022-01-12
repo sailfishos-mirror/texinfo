@@ -557,13 +557,13 @@ $result_converted{'html'}->{'unnumbered_before_node_top_top'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<div class="unnumbered" id="before-nodes">
+<div class="unnumbered-level-extent" id="before-nodes">
 <h2 class="unnumbered">before nodes</h2>
 
 <p>in unnumbered
 </p>
 </div>
-<div class="unnumbered" id="Top">
+<div class="unnumbered-level-extent" id="Top">
 <h2 class="unnumbered" id="top-section">top section</h2>
 <p>Top node
 </p></div>

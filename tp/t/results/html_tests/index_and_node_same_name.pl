@@ -280,9 +280,9 @@ a.summary-letter-printindex {text-decoration: none}
 </head>
 
 <body lang="en">
-<div class="top" id="top">
+<div class="top-level-extent" id="top">
 <h1 class="top">top</h1>
-<h4 class="node-heading" id="index-node">index node</h4>
+<h4 class="node" id="index-node">index node</h4>
 
 <a class="index-entry-id" id="index-node-1"></a>
 <div class="printindex cp-printindex">

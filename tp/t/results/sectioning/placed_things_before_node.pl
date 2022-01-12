@@ -1179,7 +1179,7 @@ $result_converted{'html'}->{'placed_things_before_node'} = '<!DOCTYPE html>
 
 <a class="index-entry-id" id="index-index-entry"></a>
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <h1 class="top" id="top-section">top section</h1>
 
 <p>Ref to anchor

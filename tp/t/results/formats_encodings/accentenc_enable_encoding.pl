@@ -3214,7 +3214,7 @@ $result_floats{'accentenc_enable_encoding'} = {};
 
 
 $result_converted{'html_text'}->{'accentenc_enable_encoding'} = '
-<div class="top" id="Top-node">
+<div class="top-level-extent" id="Top-node">
 <h1 class="top" id="top">top</h1>
 
 <p>should be e&lsquo;: è è

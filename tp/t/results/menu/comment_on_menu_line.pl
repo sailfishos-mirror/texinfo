@@ -445,7 +445,7 @@ $result_converted{'html'}->{'comment_on_menu_line'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<div class="chapter" id="Top">
+<div class="chapter-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
@@ -458,11 +458,11 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 
 <h2 class="chapter" id="first-1">1 first</h2>
 <hr>
-<a class="node" id="first"></a><div class="nav-header">
+<a class="node-id" id="first"></a><div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">first</a>, Up: <a href="#Top" accesskey="u" rel="up">first</a> &nbsp; </p>
 </div>
-<h4 class="node-heading">first</h4>
+<h4 class="node">first</h4>
 </div>
 
 

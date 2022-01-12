@@ -678,7 +678,7 @@ $result_converted{'html'}->{'ref_in_copying'} = '<!DOCTYPE html>
 
 <body lang="en">
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="#GFDL" accesskey="n" rel="next">GFDL</a> &nbsp; </p>
@@ -692,7 +692,7 @@ Next: <a href="#GFDL" accesskey="n" rel="next">GFDL</a> &nbsp; </p>
 <li><a href="#GFDL" accesskey="1">GFDL</a></li>
 </ul>
 <hr>
-<div class="chapter" id="GFDL">
+<div class="chapter-level-extent" id="GFDL">
 <div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>

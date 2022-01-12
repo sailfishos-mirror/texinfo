@@ -314,7 +314,7 @@ pre.format-preformatted {font-family: inherit}
 
 <hr>
 
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 
 

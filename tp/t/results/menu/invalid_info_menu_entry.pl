@@ -896,7 +896,7 @@ $result_converted{'html'}->{'invalid_info_menu_entry'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="f.html#a_003a" accesskey="1">(f)a:</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">

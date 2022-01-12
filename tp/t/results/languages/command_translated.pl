@@ -321,7 +321,7 @@ $result_converted{'html'}->{'command_translated'} = '<!DOCTYPE html>
 
 <body lang="fr">
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <h1 class="top" id="top-error_002d_002d_003e">top erreur&rarr;</h1>
 
 <p>erreur&rarr;

@@ -552,7 +552,7 @@ span:hover a.copiable-anchor {visibility: visible}
 </head>
 
 <body lang="en">
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 <dl class="first-deffn">
 <dt class="deffn" id="index-name"><span class="category-def">Category: </span><span><strong class="strong">name</strong> <em class="emph">argument argument2...</em><a class="copiable-anchor" href=\'#index-name\'> &para;</a></span></dt>

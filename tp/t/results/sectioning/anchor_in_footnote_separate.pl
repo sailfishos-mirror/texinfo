@@ -721,7 +721,7 @@ $result_converted{'html'}->{'anchor_in_footnote_separate'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">Chap</a> &nbsp; </p>
@@ -735,7 +735,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 <li><a href="#chapter" accesskey="1">Chap</a></li>
 </ul>
 <hr>
-<div class="chapter" id="chapter">
+<div class="chapter-level-extent" id="chapter">
 <div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>

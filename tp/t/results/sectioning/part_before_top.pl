@@ -257,12 +257,12 @@ $result_converted{'html'}->{'part_before_top'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<div class="part" id="part">
+<div class="part-level-extent" id="part">
 <h1 class="part">part</h1>
 <hr>
 
 </div>
-<div class="top" id="top">
+<div class="top-level-extent" id="top">
 <h1 class="top">top</h1>
 </div>
 

@@ -286,11 +286,11 @@ $result_converted{'html'}->{'section_node_before_part'} = '<!DOCTYPE html>
 
 <body lang="en">
 
-<div class="section" id="Top">
+<div class="section-level-extent" id="Top">
 <h3 class="section" id="section">1 section</h3>
 
 </div>
-<div class="part" id="part">
+<div class="part-level-extent" id="part">
 <h1 class="part">part</h1>
 <hr>
 </div>

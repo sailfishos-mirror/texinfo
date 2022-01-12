@@ -307,7 +307,7 @@ $result_converted{'html'}->{'format_in_titlepage'} = '<!DOCTYPE html>
 
 <body lang="en">
 
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 
 

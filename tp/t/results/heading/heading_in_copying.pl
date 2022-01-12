@@ -437,7 +437,7 @@ second in copying @ subheading
 
 <body lang="en">
 
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 
 <h3 class="heading" id="in-copying-_0040-heading">in copying @ <em class="emph">heading</em></h3>

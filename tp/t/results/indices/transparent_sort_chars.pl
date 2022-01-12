@@ -495,7 +495,7 @@ $result_converted{'plaintext'}->{'transparent_sort_chars'} = '* Menu:
 
 
 $result_converted{'html_text'}->{'transparent_sort_chars'} = '
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <a class="top" id="SEC_Top"></a>
 <a class="index-entry-id" id="index-_002d_002dversion_002c-for-install_002dinfo"></a>
 <a class="index-entry-id" id="index-Source-file-format"></a>

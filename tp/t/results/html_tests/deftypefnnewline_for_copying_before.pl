@@ -738,7 +738,7 @@ span:hover a.copiable-anchor {visibility: visible}
 
 
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <h1 class="top" id="top">top</h1>
 
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">

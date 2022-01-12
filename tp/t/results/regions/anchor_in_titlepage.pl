@@ -374,9 +374,9 @@ $result_converted{'html'}->{'anchor_in_titlepage'} = '<!DOCTYPE html>
 
 <body lang="en">
 
-<div class="top" id="top">
+<div class="top-level-extent" id="top">
 <h1 class="top">top</h1>
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 <p>See <a class="xref" href="#in-titlepage">in titlepage</a>.
 </p></div>

@@ -662,21 +662,21 @@ $result_converted{'plaintext'}->{'index_entry_in_footnote_different_node_end'} =
 ';
 
 
-$result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} = '<a class="node" id="Top"></a><div class="nav-header">
+$result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} = '<a class="node-id" id="Top"></a><div class="nav-header">
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="node-heading">Top</h1>
+<h1 class="node">Top</h1>
 
 
 <p>Top node<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 <hr>
-<a class="node" id="First"></a><div class="nav-header">
+<a class="node-id" id="First"></a><div class="nav-header">
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node-heading">First</h4>
+<h4 class="node">First</h4>
 
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-C"><b>C</b></a>

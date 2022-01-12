@@ -1370,7 +1370,7 @@ ul.toc-numbered-mark {list-style: none}
 </head>
 
 <body lang="en">
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter node</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
@@ -1396,7 +1396,7 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter node</a> &nbsp; [
 </div>
 </div>
 <hr>
-<div class="chapter" id="chapter-node">
+<div class="chapter-level-extent" id="chapter-node">
 <div class="nav-header">
 <p>
 Next: <a href="#part-chapter-node" accesskey="n" rel="next">chapter with part node</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
@@ -1406,14 +1406,14 @@ Next: <a href="#part-chapter-node" accesskey="n" rel="next">chapter with part no
 
 <hr>
 </div>
-<div class="chapter" id="part-chapter-node">
+<div class="chapter-level-extent" id="part-chapter-node">
 <div class="nav-header">
 <p>
 Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter node</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 </div>
 </div>
-<div class="part" id="part">
+<div class="part-level-extent" id="part">
 <h1 class="part">part</h1>
 <hr>
 

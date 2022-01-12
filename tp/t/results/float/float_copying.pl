@@ -1628,7 +1628,7 @@ a.summary-letter-printindex {text-decoration: none}
 
 <body lang="en">
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="#Copying-and-floats" accesskey="n" rel="next">Copying and floats</a> &nbsp; [<a href="#Copying-and-floats" title="Index" rel="index">Index</a>]</p>
@@ -1651,7 +1651,7 @@ the author abandon his copyright.
 <li><a href="#Copying-and-floats" accesskey="1">Copying and floats</a></li>
 </ul>
 <hr>
-<div class="appendix" id="Copying-and-floats">
+<div class="appendix-level-extent" id="Copying-and-floats">
 <div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Copying-and-floats" title="Index" rel="index">Index</a>]</p>

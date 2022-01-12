@@ -668,7 +668,7 @@ $result_converted{'html'}->{'equivalent_labels'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 <a class="anchor" id="anch"></a><p>.
 </p>

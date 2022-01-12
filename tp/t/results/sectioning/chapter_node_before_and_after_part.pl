@@ -644,7 +644,7 @@ ul.toc-numbered-mark {list-style: none}
 
 <body lang="en">
 
-<div class="chapter" id="Top">
+<div class="chapter-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="#after" accesskey="n" rel="next">chapter 2</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
@@ -654,7 +654,7 @@ Next: <a href="#after" accesskey="n" rel="next">chapter 2</a> &nbsp; [<a href="#
 
 <hr>
 </div>
-<div class="part" id="part">
+<div class="part-level-extent" id="part">
 <div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
@@ -665,7 +665,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top
 <ul class="mini-toc">
 <li><a href="#after" accesskey="1">chapter 2</a></li>
 </ul>
-<div class="chapter" id="after">
+<div class="chapter-level-extent" id="after">
 <h2 class="chapter" id="chapter-2">2 chapter 2</h2>
 
 <div class="element-contents" id="SEC_Contents">

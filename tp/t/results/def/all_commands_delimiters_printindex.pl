@@ -16070,7 +16070,7 @@ span:hover a.copiable-anchor {visibility: visible}
 </head>
 
 <body lang="en">
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 <dl class="first-deffn">
 <dt class="deffn" id="index-forward_002d_002dchar"><span class="category-def">Command: </span><span><strong class="strong"><var class="var">forward--char</var></strong> <em class="emph"><var class="var">nchars</var> argument2 argument3         (arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</em><a class="copiable-anchor" href=\'#index-forward_002d_002dchar\'> &para;</a></span></dt>
 </dl>

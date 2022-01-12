@@ -729,33 +729,33 @@ $result_converted{'html'}->{'space_in_node'} = '<!DOCTYPE html>
 
 <body lang="en">
 
-<a class="node" id="Top"></a><div class="nav-header">
+<a class="node-id" id="Top"></a><div class="nav-header">
 <p>
 Next: <a href="#Chap-first-here" accesskey="n" rel="next">Chap first  here</a> &nbsp; </p>
 </div>
-<h1 class="node-heading">Top</h1>
+<h1 class="node">Top</h1>
 
 
 <hr>
-<a class="node" id="Chap-first-here"></a><div class="nav-header">
+<a class="node-id" id="Chap-first-here"></a><div class="nav-header">
 <p>
 Next: <a href="#Test-title" accesskey="n" rel="next">Test               title</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node-heading">Chap first  here</h4>
+<h4 class="node">Chap first  here</h4>
 
 <hr>
-<a class="node" id="Test-title"></a><div class="nav-header">
+<a class="node-id" id="Test-title"></a><div class="nav-header">
 <p>
 Next: <a href="#Last-with-spaces" accesskey="n" rel="next">Last with spaces</a>, Previous: <a href="#Chap-first-here" accesskey="p" rel="prev">Chap first  here</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node-heading">Test               title</h4>
+<h4 class="node">Test               title</h4>
 
 <hr>
-<a class="node" id="Last-with-spaces"></a><div class="nav-header">
+<a class="node-id" id="Last-with-spaces"></a><div class="nav-header">
 <p>
 Previous: <a href="#Test-title" accesskey="p" rel="prev">Test               title</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node-heading">Last with spaces</h4>
+<h4 class="node">Last with spaces</h4>
 
 
 

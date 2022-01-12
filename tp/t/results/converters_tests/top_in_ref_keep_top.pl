@@ -4420,18 +4420,18 @@ $result_floats{'top_in_ref_keep_top'} = {};
 
 
 
-$result_converted{'html_text'}->{'top_in_ref_keep_top'} = '<a class="node" id="Top"></a><div class="nav-header">
+$result_converted{'html_text'}->{'top_in_ref_keep_top'} = '<a class="node-id" id="Top"></a><div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
-<h1 class="node-heading">Top</h1>
+<h1 class="node">Top</h1>
 
 <hr>
-<a class="node" id="refs-node"></a><div class="nav-header">
+<a class="node-id" id="refs-node"></a><div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node-heading">refs node</h4>
+<h4 class="node">refs node</h4>
 
 <p><code class="code">@ref{Top,cross ref name}</code> <a class="ref" href="#Top">cross ref name</a>
 <code class="code">@ref{Top,,title}</code> <a class="ref" href="#Top">title</a>

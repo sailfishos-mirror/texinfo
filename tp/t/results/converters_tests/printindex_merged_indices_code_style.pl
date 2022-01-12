@@ -776,7 +776,7 @@ $result_converted{'plaintext'}->{'printindex_merged_indices_code_style'} = '* Me
 ';
 
 
-$result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<h1 class="node-heading" id="Top">Top</h1>
+$result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<h1 class="node" id="Top">Top</h1>
 
 
 

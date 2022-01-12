@@ -339,7 +339,7 @@ $result_converted{'html'}->{'today_in_copying'} = '<!DOCTYPE html>
 
 <body lang="en">
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <h1 class="top" id="top">top</h1>
 
 <p>a sunny day.

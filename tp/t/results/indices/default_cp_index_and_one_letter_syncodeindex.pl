@@ -385,7 +385,7 @@ $result_converted{'plaintext'}->{'default_cp_index_and_one_letter_syncodeindex'}
 ';
 
 
-$result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'} = '<h1 class="node-heading" id="Top">Top</h1>
+$result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'} = '<h1 class="node" id="Top">Top</h1>
 
 
 <a class="index-entry-id" id="index-_002d_002dcindex"></a>

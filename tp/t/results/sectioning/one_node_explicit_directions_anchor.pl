@@ -345,7 +345,7 @@ $result_converted{'html'}->{'one_node_explicit_directions_anchor'} = '<!DOCTYPE 
 </head>
 
 <body lang="en">
-<h4 class="node-heading" id="one-node">one node</h4>
+<h4 class="node" id="one-node">one node</h4>
 <p>Top node
 </p>
 <p>anchor ref <a class="anchor" id="ref"></a>.

@@ -1306,7 +1306,7 @@ Top.
 
 
 $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcopying'} = '
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
  &nbsp; </p>
@@ -1320,7 +1320,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcop
 <li><a href="#chapter" accesskey="1">Chapter</a></li>
 </ul>
 <hr>
-<div class="chapter" id="chapter">
+<div class="chapter-level-extent" id="chapter">
 <div class="nav-header">
 <p>
  &nbsp; </p>

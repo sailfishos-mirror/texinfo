@@ -781,7 +781,7 @@ Print fn
 
 $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
@@ -792,7 +792,7 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 <li><a href="#chapter-index" accesskey="1">index</a></li>
 </ul>
 <hr>
-<div class="chapter" id="chapter-index">
+<div class="chapter-level-extent" id="chapter-index">
 <div class="nav-header">
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>

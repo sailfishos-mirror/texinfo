@@ -529,7 +529,7 @@ a.summary-letter-printindex {text-decoration: none}
 </head>
 
 <body lang="en">
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 <dl class="listoffloats">
 <dt><a href="#label">fl 1</a></dt><dd><p>in caption

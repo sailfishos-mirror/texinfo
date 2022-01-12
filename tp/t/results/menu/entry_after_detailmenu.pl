@@ -830,11 +830,11 @@ pre.menu-comment-preformatted {font-family: serif}
 </head>
 
 <body lang="en">
-<a class="node" id="Top"></a><div class="nav-header">
+<a class="node-id" id="Top"></a><div class="nav-header">
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </div>
-<h1 class="node-heading">Top</h1>
+<h1 class="node">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#second" accesskey="1">second</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -854,17 +854,17 @@ Menu comment
 </table>
 
 <hr>
-<a class="node" id="first"></a><div class="nav-header">
+<a class="node-id" id="first"></a><div class="nav-header">
 <p>
 Next: <a href="#second" accesskey="n" rel="next">second</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node-heading">first</h4>
+<h4 class="node">first</h4>
 <hr>
-<a class="node" id="second"></a><div class="nav-header">
+<a class="node-id" id="second"></a><div class="nav-header">
 <p>
 Previous: <a href="#first" accesskey="p" rel="prev">first</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node-heading">second</h4>
+<h4 class="node">second</h4>
 
 
 

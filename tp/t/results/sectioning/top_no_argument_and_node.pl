@@ -196,7 +196,7 @@ $result_converted{'html'}->{'top_no_argument_and_node'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<div class="top" id="start">
+<div class="top-level-extent" id="start">
 <a class="top" id="SEC_Top"></a></div>
 
 

@@ -352,11 +352,11 @@ $result_converted{'html'}->{'double_top'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<a class="node" id="Top"></a><div class="nav-header">
+<a class="node-id" id="Top"></a><div class="nav-header">
 <p>
 Next: <a href="#Top" accesskey="n" rel="next">ToP</a> &nbsp; </p>
 </div>
-<h1 class="node-heading">ToP</h1>
+<h1 class="node">ToP</h1>
 
 <hr>
 <div class="nav-header">

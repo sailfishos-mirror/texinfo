@@ -1048,7 +1048,7 @@ $result_converted{'html'}->{'non_automatic_top_node_up_and_url'} = '<!DOCTYPE ht
 </head>
 
 <body lang="en">
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a>, Up: <a href="http://www.gnu.org/manual/" accesskey="u" rel="up">@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals</a> &nbsp; </p>
@@ -1057,11 +1057,11 @@ Next: <a href="#first" accesskey="n" rel="next">first</a>, Up: <a href="http://w
 
 
 <hr>
-<a class="node" id="first"></a><div class="nav-header">
+<a class="node-id" id="first"></a><div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">internal top node up</a> &nbsp; </p>
 </div>
-<h4 class="node-heading">first</h4>
+<h4 class="node">first</h4>
 </div>
 
 

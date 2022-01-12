@@ -1046,7 +1046,7 @@ $result_converted{'html'}->{'unnumbered_top_without_node_sections'} = '<!DOCTYPE
 </head>
 
 <body lang="en">
-<div class="unnumbered" id="a-node">
+<div class="unnumbered-level-extent" id="a-node">
 <div class="nav-header">
 <p>
 Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
@@ -1056,13 +1056,13 @@ Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 <p>in unnumbered
 </p>
 </div>
-<div class="unnumbered" id="top-section">
+<div class="unnumbered-level-extent" id="top-section">
 <h2 class="unnumbered">top section</h2>
 <p>Top section
 </p>
 <hr>
 </div>
-<div class="chapter" id="second">
+<div class="chapter-level-extent" id="second">
 <div class="nav-header">
 <p>
 Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>

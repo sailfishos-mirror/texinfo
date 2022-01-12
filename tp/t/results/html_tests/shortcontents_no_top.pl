@@ -251,17 +251,17 @@ ul.toc-numbered-mark {list-style: none}
 </head>
 
 <body lang="en">
-<div class="chapter" id="chap">
+<div class="chapter-level-extent" id="chap">
 <h2 class="chapter">1 chap</h2>
 
 </div>
-<div class="chapter" id="chap2">
+<div class="chapter-level-extent" id="chap2">
 <h2 class="chapter">2 chap2</h2>
 
 <ul class="mini-toc">
 <li><a href="#sec" accesskey="1">sec</a></li>
 </ul>
-<div class="section" id="sec">
+<div class="section-level-extent" id="sec">
 <h3 class="section">2.1 sec</h3>
 
 <div class="element-shortcontents" id="SEC_Shortcontents">

@@ -759,30 +759,30 @@ $result_converted{'plaintext'}->{'index_entry_before_node'} = 'Para.
 ';
 
 
-$result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node" id="Top"></a><div class="nav-header">
+$result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id" id="Top"></a><div class="nav-header">
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="node-heading">Top</h1>
+<h1 class="node">Top</h1>
 
 
 <hr>
-<a class="node" id="first"></a><div class="nav-header">
+<a class="node-id" id="first"></a><div class="nav-header">
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node-heading">first</h4>
+<h4 class="node">first</h4>
 
 <p>Para.
 </p>
 <a class="index-entry-id" id="index-lone-entry"></a>
 
 <hr>
-<a class="node" id="second"></a><div class="nav-header">
+<a class="node-id" id="second"></a><div class="nav-header">
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="node-heading">second</h4>
+<h4 class="node">second</h4>
 
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-L"><b>L</b></a>

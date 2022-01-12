@@ -2248,7 +2248,7 @@ $result_converted{'html'}->{'simple_menu'} = '<!DOCTYPE html>
 
 <body lang="en">
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <a class="top" id="SEC_Top"></a>
 </div>
 

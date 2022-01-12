@@ -156,7 +156,7 @@ End:
 $result_converted{'plaintext'}->{'empty_cindex_entry'} = '';
 
 
-$result_converted{'html_text'}->{'empty_cindex_entry'} = '<h1 class="node-heading" id="Top">Top</h1>
+$result_converted{'html_text'}->{'empty_cindex_entry'} = '<h1 class="node" id="Top">Top</h1>
 ';
 
 1;

@@ -749,7 +749,7 @@ pre.menu-preformatted {font-family: serif}
 </head>
 
 <body lang="en">
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 <div class="example">
 <table class="menu" border="0" cellspacing="0"><tr><td>

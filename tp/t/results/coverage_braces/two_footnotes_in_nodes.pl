@@ -827,7 +827,7 @@ $result_converted{'html'}->{'two_footnotes_in_nodes'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
@@ -843,7 +843,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
 <hr>
-<div class="chapter" id="chapter">
+<div class="chapter-level-extent" id="chapter">
 <div class="nav-header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up: <a href="#Top" accesskey="u" rel="up">2 footnotes in 2 nodes</a> &nbsp; </p>
@@ -987,7 +987,7 @@ C(1)
 ';
 
 
-$result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top" id="Top">
+$result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
  &nbsp; </p>
@@ -1003,7 +1003,7 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top" i
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
 <hr>
-<div class="chapter" id="chapter">
+<div class="chapter-level-extent" id="chapter">
 <div class="nav-header">
 <p>
  &nbsp; </p>

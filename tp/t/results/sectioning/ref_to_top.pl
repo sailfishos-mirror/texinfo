@@ -282,7 +282,7 @@ $result_converted{'html'}->{'ref_to_top'} = '<!DOCTYPE html>
 
 <body lang="en">
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <h1 class="top" id="top">top</h1>
 
 <p>See <a class="xref" href="#Top">top</a>.

@@ -1732,7 +1732,7 @@ _second item_
 ';
 
 
-$result_converted{'html_text'}->{'block_commands_in_table'} = '<div class="top" id="Top">
+$result_converted{'html_text'}->{'block_commands_in_table'} = '<div class="top-level-extent" id="Top">
 <h1 class="top" id="Element">Element</h1>
 
 <dl class="table">

@@ -923,7 +923,7 @@ $result_converted_errors{'plaintext'}->{'empty_string_index_entry'} = [
 
 
 
-$result_converted{'html_text'}->{'empty_string_index_entry'} = '<h1 class="node-heading" id="Top">Top</h1>
+$result_converted{'html_text'}->{'empty_string_index_entry'} = '<h1 class="node" id="Top">Top</h1>
 
 <a class="index-entry-id" id="index-"></a>
 

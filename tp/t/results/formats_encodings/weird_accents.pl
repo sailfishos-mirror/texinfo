@@ -648,7 +648,7 @@ i~=
 
 
 $result_converted{'html_text'}->{'weird_accents'} = '
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <h1 class="top" id="top">top</h1>
 
 <p>&#297;&#772;

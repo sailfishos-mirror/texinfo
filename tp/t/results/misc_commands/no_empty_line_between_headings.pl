@@ -229,18 +229,18 @@ Subheading
 ';
 
 
-$result_converted{'html_text'}->{'no_empty_line_between_headings'} = '<div class="top" id="Top">
+$result_converted{'html_text'}->{'no_empty_line_between_headings'} = '<div class="top-level-extent" id="Top">
 <h1 class="top">Top</h1>
 <h4 class="subheading" id="Subheading">Subheading</h4>
 <ul class="mini-toc">
 <li><a href="#Chapter" accesskey="1">Chapter</a></li>
 </ul>
-<div class="chapter" id="Chapter">
+<div class="chapter-level-extent" id="Chapter">
 <h2 class="chapter">1 Chapter</h2>
 <ul class="mini-toc">
 <li><a href="#Section" accesskey="1">Section</a></li>
 </ul>
-<div class="section" id="Section">
+<div class="section-level-extent" id="Section">
 <h3 class="section">1.1 Section</h3>
 </div>
 </div>

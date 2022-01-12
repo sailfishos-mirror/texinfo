@@ -832,7 +832,7 @@ $result_converted{'html'}->{'check_htmlxref'} = '<!DOCTYPE html>
 
 <body lang="en">
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="no_existing_no_manual_direction.html#Top" accesskey="n" rel="next">(../there/no_existing_no_manual_direction)</a>, Previous: <a href="#first" accesskey="p" rel="prev">first</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
@@ -844,11 +844,11 @@ Next: <a href="no_existing_no_manual_direction.html#Top" accesskey="n" rel="next
 </p>
 
 <hr>
-<a class="node" id="first"></a><div class="nav-header">
+<a class="node-id" id="first"></a><div class="nav-header">
 <p>
 Next: <a href="no_existing_no_manual.html#Top" accesskey="n" rel="next">(no_existing_no_manual.info)</a> &nbsp; </p>
 </div>
-<h4 class="node-heading">first</h4>
+<h4 class="node">first</h4>
 </div>
 
 

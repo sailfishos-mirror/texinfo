@@ -1302,7 +1302,7 @@ $result_converted{'html'}->{'part_node_chapter_node_appendix'} = '<!DOCTYPE html
 </head>
 
 <body lang="en">
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
@@ -1312,7 +1312,7 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 
 <hr>
 </div>
-<div class="part" id="Part-1">
+<div class="part-level-extent" id="Part-1">
 <div class="nav-header">
 <p>
 Next: <a href="#appendix-node" accesskey="n" rel="next">Appendix</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
@@ -1323,12 +1323,12 @@ Next: <a href="#appendix-node" accesskey="n" rel="next">Appendix</a>, Previous: 
 <ul class="mini-toc">
 <li><a href="#chapter-node" accesskey="1">chapter</a></li>
 </ul>
-<div class="chapter" id="chapter-node">
+<div class="chapter-level-extent" id="chapter-node">
 <h2 class="chapter" id="chapter">1 chapter</h2>
 
 <hr>
 </div>
-<div class="appendix" id="appendix-node">
+<div class="appendix-level-extent" id="appendix-node">
 <div class="nav-header">
 <p>
 Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>

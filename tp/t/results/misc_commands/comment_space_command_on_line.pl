@@ -830,7 +830,7 @@ Text 1
 
 
 $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <h1 class="top" id="top-element-">top element&nbsp;</h1>
 
 

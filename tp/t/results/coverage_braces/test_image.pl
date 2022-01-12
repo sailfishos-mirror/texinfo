@@ -3923,7 +3923,7 @@ div.example {margin-left: 3.2em}
 <body lang="en">
 
 
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
 
@@ -4164,7 +4164,7 @@ $result_converted_errors{'plaintext'}->{'test_image'} = [
 
 $result_converted{'html_text'}->{'test_image'} = '
 
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
 

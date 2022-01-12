@@ -212,7 +212,7 @@ $result_converted{'html'}->{'one_subsection_and_node'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<div class="subsection" id="one-node">
+<div class="subsection-level-extent" id="one-node">
 <h4 class="subsection" id="The-subsection">1 The subsection</h4>
 </div>
 

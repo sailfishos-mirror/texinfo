@@ -1051,33 +1051,33 @@ $result_converted{'plaintext'}->{'spaces_in_node_names'} = '*note a  ::
 ';
 
 
-$result_converted{'html_text'}->{'spaces_in_node_names'} = '<a class="node" id="Top"></a><div class="nav-header">
+$result_converted{'html_text'}->{'spaces_in_node_names'} = '<a class="node-id" id="Top"></a><div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
-<h1 class="node-heading">Top</h1>
+<h1 class="node">Top</h1>
 
 
 <hr>
-<a class="node" id="a--"></a><div class="nav-header">
+<a class="node-id" id="a--"></a><div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node-heading">a&nbsp;&nbsp;</h4>
+<h4 class="node">a&nbsp;&nbsp;</h4>
 
 <hr>
-<a class="node" id="b-"></a><div class="nav-header">
+<a class="node-id" id="b-"></a><div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node-heading">b<tt class="verb">  </tt></h4>
+<h4 class="node">b<tt class="verb">  </tt></h4>
 
 <hr>
-<a class="node" id="c-"></a><div class="nav-header">
+<a class="node-id" id="c-"></a><div class="nav-header">
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node-heading">c&nbsp;&nbsp;<!-- /@w --></h4>
+<h4 class="node">c&nbsp;&nbsp;<!-- /@w --></h4>
 
 <p><a class="ref" href="#a--">a&nbsp;&nbsp;</a>
 </p>

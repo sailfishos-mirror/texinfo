@@ -168,7 +168,7 @@ $result_converted{'html'}->{'contents_with_only_top_node'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 
 

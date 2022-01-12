@@ -1446,7 +1446,7 @@ $result_converted{'html'}->{'two_nodes_between_chapters'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
 Next: <a href="#chapter-1" accesskey="n" rel="next">chapter c1</a> &nbsp; </p>
@@ -1459,7 +1459,7 @@ Next: <a href="#chapter-1" accesskey="n" rel="next">chapter c1</a> &nbsp; </p>
 <li><a href="#chapter-2" accesskey="2">chapter c2</a></li>
 </ul>
 <hr>
-<div class="chapter" id="chapter-1">
+<div class="chapter-level-extent" id="chapter-1">
 <div class="nav-header">
 <p>
 Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#node-between-chapters" accesskey="p" rel="prev">node between chapters</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
@@ -1467,15 +1467,15 @@ Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#node-
 <h2 class="chapter" id="chapter-c1">1 chapter c1</h2>
 
 <hr>
-<a class="node" id="node-between-chapters"></a><div class="nav-header">
+<a class="node-id" id="node-between-chapters"></a><div class="nav-header">
 <p>
 Next: <a href="#chapter-2" accesskey="n" rel="next">chapter c2</a>, Previous: <a href="#chapter-1" accesskey="p" rel="prev">chapter c1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h4 class="node-heading">node between chapters</h4>
+<h4 class="node">node between chapters</h4>
 
 <hr>
 </div>
-<div class="chapter" id="chapter-2">
+<div class="chapter-level-extent" id="chapter-2">
 <div class="nav-header">
 <p>
 Previous: <a href="#chapter-1" accesskey="p" rel="prev">chapter c1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>

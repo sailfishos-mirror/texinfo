@@ -349,7 +349,7 @@ ul.toc-numbered-mark {list-style: none}
 
 <p>Some text before top
 </p>
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <h1 class="top" id="top">top</h1>
 
 <p>In top.
@@ -357,7 +357,7 @@ ul.toc-numbered-mark {list-style: none}
 <ul class="mini-toc">
 <li><a href="#the-chap" accesskey="1">the chap</a></li>
 </ul>
-<div class="chapter" id="the-chap">
+<div class="chapter-level-extent" id="the-chap">
 <h2 class="chapter">1 the chap</h2>
 
 

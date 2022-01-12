@@ -408,7 +408,7 @@ span:hover a.copiable-anchor {visibility: visible}
 
 <body lang="fr_NOWHERE">
 
-<h1 class="node-heading" id="Top">Top</h1>
+<h1 class="node" id="Top">Top</h1>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
 <dt class="defcv defivar-alias-defcv" id="index-BBB-of-AAA"><span>Variable d\'instance de AAA&nbsp;: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-anchor" href=\'#index-BBB-of-AAA\'> &para;</a></span></dt>

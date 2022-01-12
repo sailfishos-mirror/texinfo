@@ -1014,7 +1014,7 @@ $result_converted{'plaintext'}->{'explicit_sort_key'} = 'in a reuglar para.  ‘
 ';
 
 
-$result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top" id="Top">
+$result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top-level-extent" id="Top">
 <a class="top" id="SEC_Top"></a>
 
 <a class="index-entry-id" id="index-bbbbbbb-_0028first_0029"></a>

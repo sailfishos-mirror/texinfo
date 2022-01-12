@@ -2048,7 +2048,7 @@ definedx truc after
 
 $result_converted{'html_text'}->{'def_syn_indices'} = '
 
-<div class="top" id="Top">
+<div class="top-level-extent" id="Top">
 <div class="nav-header">
 <p>
  &nbsp; [<a href="#Chapter-index" title="Index" rel="index">Index</a>]</p>
@@ -2059,7 +2059,7 @@ $result_converted{'html_text'}->{'def_syn_indices'} = '
 <li><a href="#Chapter-index" accesskey="1">Index</a></li>
 </ul>
 <hr>
-<div class="chapter" id="Chapter-index">
+<div class="chapter-level-extent" id="Chapter-index">
 <div class="nav-header">
 <p>
  &nbsp; [<a href="#Chapter-index" title="Index" rel="index">Index</a>]</p>

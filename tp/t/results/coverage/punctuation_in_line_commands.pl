@@ -1190,7 +1190,7 @@ top! After punc
 
 
 $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
-<div class="top" id="node_0021-After-punc">
+<div class="top-level-extent" id="node_0021-After-punc">
 <h1 class="top" id="top_0021-After-punc">top! After punc</h1>
 
 <dl class="table">

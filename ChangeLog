@@ -1,5 +1,14 @@
 2022-01-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command): use
+	a specific class for the opening section div, like
+	<section>-level-extent.  Always associate the class corresponding to a
+	sectioning @-command or a @node to the header if it is output, else to
+	the anchor with the id.  Use node-id for the anchor class if there is
+	a heading.
+
+2022-01-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command):
 	use level corrected sectioning command name for the opening section
 	class.
