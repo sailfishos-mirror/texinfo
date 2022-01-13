@@ -412,9 +412,9 @@ sub converter_initialize($)
   if ($self->get_conf('ASCII_PUNCTUATION')) {
     $self->{'convert_text_options'}->{'ascii_punctuation'} = 1;
     # cache to avoid calling get_conf
-    $self->{'ascii_punctualtion'} = 1;
+    $self->{'ascii_punctuation'} = 1;
   } else {
-    $self->{'ascii_punctualtion'} = 0;
+    $self->{'ascii_punctuation'} = 0;
   }
 
   if ($self->get_conf('ENABLE_ENCODING')
@@ -422,7 +422,7 @@ sub converter_initialize($)
       and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
     # cache this to avoid redoing calls to get_conf
     $self->{'to_utf8'} = 1;
-    if (!$self->{'convert_text_options'}->{'ascii_punctuation'}) {
+    if (!$self->{'ascii_punctuation'}) {
       foreach my $quoted_command (@quoted_commands) {
         # Directed single quotes
         $self->{'style_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];
