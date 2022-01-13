@@ -1,5 +1,11 @@
 2022-01-13  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_normalize_texinfo_name): put the normalized content in the
+	tree.
+
+2022-01-13  Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS: document the change in HTML element class names.
 
 2022-01-13  Patrice Dumas  <pertusus@free.fr>

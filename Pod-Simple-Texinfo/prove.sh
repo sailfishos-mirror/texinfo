@@ -5,6 +5,8 @@
 # are permitted in any medium without royalty provided the copyright
 # notice and this notice are preserved.
 
+#set -x
+
 if test z"$srcdir" = 'z'; then
   srcdir='.'
 fi

@@ -56,8 +56,6 @@ use Storable qw(dclone); # standard in 5.007003
 #use Struct::Compare;
 use Getopt::Long qw(GetOptions);
 
-# File: test_file option.
-
 # FIXME Is it really useful?
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus

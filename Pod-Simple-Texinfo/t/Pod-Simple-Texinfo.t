@@ -12,6 +12,9 @@ ok(1); # If we made it this far, we're ok.
 
 #########################
 
+# to run a specific test:
+my $arg_test_case = shift @ARGV;
+
 sub run_test($$$;$$)
 {
   my $in = shift;
@@ -19,6 +22,8 @@ sub run_test($$$;$$)
   my $name = shift;
   my $test_nodes = shift;
   my $sectioning_base_level = shift;
+
+  return if (defined($arg_test_case) and $name ne $arg_test_case);
 
   my $parser = Pod::Simple::Texinfo->new();
   $parser->set_source(\$in);
