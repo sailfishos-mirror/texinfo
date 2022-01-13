@@ -928,12 +928,12 @@ $result_converted{'html_text'}->{'empty_string_index_entry'} = '<h1 class="node"
 <a class="index-entry-id" id="index-"></a>
 
 <dl class="ftable">
-<dt id=\'index--1\'><span><code class="code"><!-- /@w --></code><a class="copiable-anchor" href=\'#index--1\'> &para;</a></span></dt>
+<dt id=\'index--1\'><span><code class="code"><!-- /@w --></code><a class="copiable-link" href=\'#index--1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index--2"><span class="category-def">Function: </span><span><strong class="strong"><!-- /@w --></strong> <em class="emph"> </em><a class="copiable-anchor" href=\'#index--2\'> &para;</a></span></dt>
-<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index--3"><span class="category-def">Function: </span><span><strong class="strong"><!-- /@w --></strong> <em class="emph"> </em><a class="copiable-anchor" href=\'#index--3\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index--2"><span class="category-def">Function: </span><span><strong class="strong"><!-- /@w --></strong> <em class="emph"> </em><a class="copiable-link" href=\'#index--2\'> &para;</a></span></dt>
+<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index--3"><span class="category-def">Function: </span><span><strong class="strong"><!-- /@w --></strong> <em class="emph"> </em><a class="copiable-link" href=\'#index--3\'> &para;</a></span></dt>
 </dl>
 
 ';

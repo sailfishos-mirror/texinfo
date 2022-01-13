@@ -1073,8 +1073,8 @@ greška-> -->
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-span:hover a.copiable-anchor {visibility: visible}
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
@@ -1107,7 +1107,7 @@ Vorige: <a href="#Top" accesskey="p" rel="prev">top section</a>, Nach oben: <a h
 <h2 class="chapter" id="chap">1 chap</h2>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-c"><span>Instanzvariable von c: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-anchor" href=\'#index-BBB-of-c\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-c"><span>Instanzvariable von c: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-link" href=\'#index-BBB-of-c\'> &para;</a></span></dt>
 <dd><p>error&rarr;
 </p></dd></dl>
 </div>

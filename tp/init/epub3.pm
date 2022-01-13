@@ -69,7 +69,7 @@ texinfo_set_from_init_file('USE_NUMERIC_ENTITY', 1);
 
 # the copiable anchor paragraph sign is always present and no link is
 # shown in the calibre epub reader.  Since it looks strange, unset.
-texinfo_set_from_init_file('COPIABLE_ANCHORS', 0);
+texinfo_set_from_init_file('COPIABLE_LINKS', 0);
 
 # this is for the XHTML formatting, the .epub extension is
 # also used hardcoded for the container.

@@ -398,8 +398,8 @@ $result_converted{'html'}->{'unknown_region'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-span:hover a.copiable-anchor {visibility: visible}
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
@@ -411,7 +411,7 @@ span:hover a.copiable-anchor {visibility: visible}
 <h1 class="node" id="Top">Top</h1>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-AAA"><span>Variable d\'instance de AAA&nbsp;: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-anchor" href=\'#index-BBB-of-AAA\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-AAA"><span>Variable d\'instance de AAA&nbsp;: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-link" href=\'#index-BBB-of-AAA\'> &para;</a></span></dt>
 </dl>
 
 

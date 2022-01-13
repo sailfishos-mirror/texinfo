@@ -222,8 +222,8 @@ sub html_get_css_elements_classes($;$)
                               %{$self->{'file_css'}->{$filename}} );
   }
 
-  if ($css_elements_classes{'a.copiable-anchor'}) {
-    $css_elements_classes{'span:hover a.copiable-anchor'} = 1;
+  if ($css_elements_classes{'a.copiable-link'}) {
+    $css_elements_classes{'span:hover a.copiable-link'} = 1;
   }
 
   return sort(keys(%css_elements_classes));
@@ -1536,7 +1536,7 @@ my %defaults = (
   'jslicenses' => {},         # for outputting licences file
   'jslicenses_math' => {},    # MathJax scripts
   'jslicenses_infojs' => {},  # info.js scripts
-  'COPIABLE_ANCHORS' => 1,
+  'COPIABLE_LINKS' => 1,
  
   'output_format'        => 'html',
 );
@@ -1763,9 +1763,9 @@ my %css_map = (
      # over the text, as it is annoying for anchors to flicker when
      # you are moving your pointer elsewhere. "line-height: 0em" stops the
      # invisible text from changing vertical spacing.
-     'a.copiable-anchor' => 'visibility: hidden; '
+     'a.copiable-link' => 'visibility: hidden; '
                            .'text-decoration: none; line-height: 0em',
-     'span:hover a.copiable-anchor'         => 'visibility: visible',
+     'span:hover a.copiable-link'         => 'visibility: visible',
 );
 
 $css_map{'pre.format-preformatted'} = $css_map{'pre.display-preformatted'};
@@ -5631,9 +5631,9 @@ sub _convert_def_line_type($$$$)
 sub _get_copiable_anchor {
   my ($self, $id) = @_;
   my $result = '';
-  if ($id and $self->get_conf('COPIABLE_ANCHORS')) {
+  if ($id and $self->get_conf('COPIABLE_LINKS')) {
     my $paragraph_symbol = $self->{'paragraph_symbol'};
-    $result = $self->html_attribute_class('a', 'copiable-anchor')
+    $result = $self->html_attribute_class('a', 'copiable-link')
         ." href='#$id'> $paragraph_symbol</a>";
   }
   return $result;

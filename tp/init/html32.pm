@@ -57,7 +57,7 @@ texinfo_set_from_init_file('L2H_HTML_VERSION', '3.2');
 
 # no css, no class
 texinfo_set_from_init_file('NO_CSS', 1);
-texinfo_set_from_init_file('COPIABLE_ANCHORS', 0);
+texinfo_set_from_init_file('COPIABLE_LINKS', 0);
 texinfo_set_from_init_file('NO_CUSTOM_HTML_ATTRIBUTE', 1);
 
 # no accesskey in html 3.2

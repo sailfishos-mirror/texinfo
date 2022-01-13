@@ -16363,10 +16363,10 @@ end of the document if not split, or in a separate file.  If set to
 @samp{after_title} the tables of contents are output after the title; default
 @samp{after_top}.
 
-@item COPIABLE_ANCHORS
-If set, output copiable anchors for the definition commands
+@item COPIABLE_LINKS
+If set, output copiable links for the definition commands
 (@pxref{Definition Commands}) and table commands (@pxref{Two-column
-Tables}) where an index entry is defined.  An anchor appears as a `@U{00B6}'
+Tables}) where an index entry is defined.  An link appears as a `@U{00B6}'
 @c pilcrow sign
 sign that appears when you hover the mouse pointer over the heading text.
 

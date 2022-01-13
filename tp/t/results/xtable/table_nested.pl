@@ -2682,18 +2682,18 @@ $result_converted{'html_text'}->{'table_nested'} = '
 <p>Quotation
 </p><blockquote class="quotation">
 <dl class="vtable">
-<dt id=\'index-first-item\'><span>first item<a class="copiable-anchor" href=\'#index-first-item\'> &para;</a></span></dt>
-<dt id=\'index-second-itemx\'><span>second itemx<a class="copiable-anchor" href=\'#index-second-itemx\'> &para;</a></span></dt>
+<dt id=\'index-first-item\'><span>first item<a class="copiable-link" href=\'#index-first-item\'> &para;</a></span></dt>
+<dt id=\'index-second-itemx\'><span>second itemx<a class="copiable-link" href=\'#index-second-itemx\'> &para;</a></span></dt>
 <dd>
 <p>Text.
 </p>
 </dd>
-<dt id=\'index-second-item\'><span>second item<a class="copiable-anchor" href=\'#index-second-item\'> &para;</a></span></dt>
+<dt id=\'index-second-item\'><span>second item<a class="copiable-link" href=\'#index-second-item\'> &para;</a></span></dt>
 <dd>
 <p>Text 2
 </p>
 </dd>
-<dt id=\'index-last\'><span>last<a class="copiable-anchor" href=\'#index-last\'> &para;</a></span></dt>
+<dt id=\'index-last\'><span>last<a class="copiable-link" href=\'#index-last\'> &para;</a></span></dt>
 </dl>
 
 <p>Something.
@@ -2711,20 +2711,20 @@ $result_converted{'html_text'}->{'table_nested'} = '
 <p>Example
 </p><div class="example">
 <dl class="vtable">
-<dt id=\'index-first-item-1\'><span><tt>first item</tt><a class="copiable-anchor" href=\'#index-first-item-1\'> &para;</a></span></dt>
-<dt id=\'index-second-itemx-1\'><span><tt>second itemx</tt><a class="copiable-anchor" href=\'#index-second-itemx-1\'> &para;</a></span></dt>
+<dt id=\'index-first-item-1\'><span><tt>first item</tt><a class="copiable-link" href=\'#index-first-item-1\'> &para;</a></span></dt>
+<dt id=\'index-second-itemx-1\'><span><tt>second itemx</tt><a class="copiable-link" href=\'#index-second-itemx-1\'> &para;</a></span></dt>
 <dd><pre class="example-preformatted">
 
 Text.
 
 </pre></dd>
-<dt id=\'index-second-item-1\'><span><tt>second item</tt><a class="copiable-anchor" href=\'#index-second-item-1\'> &para;</a></span></dt>
+<dt id=\'index-second-item-1\'><span><tt>second item</tt><a class="copiable-link" href=\'#index-second-item-1\'> &para;</a></span></dt>
 <dd><pre class="example-preformatted">
 
 Text 2
 
 </pre></dd>
-<dt id=\'index-last-1\'><span><tt>last</tt><a class="copiable-anchor" href=\'#index-last-1\'> &para;</a></span></dt>
+<dt id=\'index-last-1\'><span><tt>last</tt><a class="copiable-link" href=\'#index-last-1\'> &para;</a></span></dt>
 </dl>
 <pre class="example-preformatted">
 
@@ -2744,18 +2744,18 @@ Something.
 </p><blockquote class="quotation">
 <blockquote class="quotation">
 <dl class="vtable">
-<dt id=\'index-first-item-2\'><span>first item<a class="copiable-anchor" href=\'#index-first-item-2\'> &para;</a></span></dt>
-<dt id=\'index-second-itemx-2\'><span>second itemx<a class="copiable-anchor" href=\'#index-second-itemx-2\'> &para;</a></span></dt>
+<dt id=\'index-first-item-2\'><span>first item<a class="copiable-link" href=\'#index-first-item-2\'> &para;</a></span></dt>
+<dt id=\'index-second-itemx-2\'><span>second itemx<a class="copiable-link" href=\'#index-second-itemx-2\'> &para;</a></span></dt>
 <dd>
 <p>Text.
 </p>
 </dd>
-<dt id=\'index-second-item-2\'><span>second item<a class="copiable-anchor" href=\'#index-second-item-2\'> &para;</a></span></dt>
+<dt id=\'index-second-item-2\'><span>second item<a class="copiable-link" href=\'#index-second-item-2\'> &para;</a></span></dt>
 <dd>
 <p>Text 2
 </p>
 </dd>
-<dt id=\'index-last-2\'><span>last<a class="copiable-anchor" href=\'#index-last-2\'> &para;</a></span></dt>
+<dt id=\'index-last-2\'><span>last<a class="copiable-link" href=\'#index-last-2\'> &para;</a></span></dt>
 </dl>
 
 <p>Something.

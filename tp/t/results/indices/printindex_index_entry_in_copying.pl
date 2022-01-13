@@ -1430,14 +1430,14 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <a class="index-entry-id" id="index-copying-Copying-this-document"></a>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category-def">Function: </span><span><strong class="strong">fun</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-fun\'> &para;</a></span></dt>
-<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category-def">Function: </span><span><strong class="strong">xf</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-xf\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category-def">Function: </span><span><strong class="strong">fun</strong> <em class="emph">arg</em><a class="copiable-link" href=\'#index-copying-fun\'> &para;</a></span></dt>
+<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category-def">Function: </span><span><strong class="strong">xf</strong> <em class="emph">arg</em><a class="copiable-link" href=\'#index-copying-xf\'> &para;</a></span></dt>
 <dd><p>Defun
 </p></dd></dl>
 
 <dl class="ftable">
-<dt id=\'index-copying-ftable-item\'><span>ftable item<a class="copiable-anchor" href=\'#index-copying-ftable-item\'> &para;</a></span></dt>
-<dt id=\'index-copying-xftable-xitem\'><span>xftable xitem<a class="copiable-anchor" href=\'#index-copying-xftable-xitem\'> &para;</a></span></dt>
+<dt id=\'index-copying-ftable-item\'><span>ftable item<a class="copiable-link" href=\'#index-copying-ftable-item\'> &para;</a></span></dt>
+<dt id=\'index-copying-xftable-xitem\'><span>xftable xitem<a class="copiable-link" href=\'#index-copying-xftable-xitem\'> &para;</a></span></dt>
 </dl>
 
 <div class="printindex fn-printindex">
@@ -1489,14 +1489,14 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <a class="index-entry-id" id="index-copying-Copying-this-document"></a>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category-def">Function: </span><span><strong class="strong">fun</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-fun\'> &para;</a></span></dt>
-<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category-def">Function: </span><span><strong class="strong">xf</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-xf\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category-def">Function: </span><span><strong class="strong">fun</strong> <em class="emph">arg</em><a class="copiable-link" href=\'#index-copying-fun\'> &para;</a></span></dt>
+<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category-def">Function: </span><span><strong class="strong">xf</strong> <em class="emph">arg</em><a class="copiable-link" href=\'#index-copying-xf\'> &para;</a></span></dt>
 <dd><p>Defun
 </p></dd></dl>
 
 <dl class="ftable">
-<dt id=\'index-copying-ftable-item\'><span>ftable item<a class="copiable-anchor" href=\'#index-copying-ftable-item\'> &para;</a></span></dt>
-<dt id=\'index-copying-xftable-xitem\'><span>xftable xitem<a class="copiable-anchor" href=\'#index-copying-xftable-xitem\'> &para;</a></span></dt>
+<dt id=\'index-copying-ftable-item\'><span>ftable item<a class="copiable-link" href=\'#index-copying-ftable-item\'> &para;</a></span></dt>
+<dt id=\'index-copying-xftable-xitem\'><span>xftable xitem<a class="copiable-link" href=\'#index-copying-xftable-xitem\'> &para;</a></span></dt>
 </dl>
 
 <div class="printindex fn-printindex">

@@ -1203,9 +1203,9 @@ erreur-> -->
 <link href="#Top" rel="index" title="Top">
 <style type="text/css">
 <!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
-span:hover a.copiable-anchor {visibility: visible}
+span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
@@ -1218,24 +1218,24 @@ span:hover a.copiable-anchor {visibility: visible}
 <h1 class="node" id="Top">Top</h1>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-fr"><span>Variable d\'instance de fr&nbsp;: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-anchor" href=\'#index-BBB-of-fr\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-fr"><span>Variable d\'instance de fr&nbsp;: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-link" href=\'#index-BBB-of-fr\'> &para;</a></span></dt>
 <dd><p>erreur&rarr;
 </p></dd></dl>
 
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-copying-a-of-copying"><span>Instanzvariable von copying: <strong class="strong">a</strong> <em class="emph">b</em><a class="copiable-anchor" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-copying-a-of-copying"><span>Instanzvariable von copying: <strong class="strong">a</strong> <em class="emph">b</em><a class="copiable-link" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
 <dd><p>error&rarr;
 </p></dd></dl>
 
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span>Primjer varijable od hr: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-anchor" href=\'#index-BBB-of-hr\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span>Primjer varijable od hr: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-link" href=\'#index-BBB-of-hr\'> &para;</a></span></dt>
 <dd><p>greška&rarr;
 </p></dd></dl>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-copying-a-of-copying"><span>Primjer varijable od copying: <strong class="strong">a</strong> <em class="emph">b</em><a class="copiable-anchor" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-copying-a-of-copying"><span>Primjer varijable od copying: <strong class="strong">a</strong> <em class="emph">b</em><a class="copiable-link" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
 <dd><p>greška&rarr;
 </p></dd></dl>
 

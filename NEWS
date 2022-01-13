@@ -13,6 +13,7 @@ See the manual for detailed information.
 * texi2any
  . LaTeX added as an output format, selected with --latex
  . epub support (how??)
+ . rename COPIABLE_ANCHORS as COPIABLE_LINKS
  . L2H customization variable removed.  Replaced by HTML_MATH set to l2h.
  . Meaning of USE_NUMERIC_ENTITY changed to be using numeric entities in
    priority.  Former effect is now always on.

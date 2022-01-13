@@ -542,9 +542,9 @@ $result_converted{'html'}->{'space_in_def_for_index'} = '<!DOCTYPE html>
 <link href="#Top" rel="index" title="Top">
 <style type="text/css">
 <!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
-span:hover a.copiable-anchor {visibility: visible}
+span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
@@ -555,8 +555,8 @@ span:hover a.copiable-anchor {visibility: visible}
 <h1 class="node" id="Top">Top</h1>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-name"><span class="category-def">Category: </span><span><strong class="strong">name</strong> <em class="emph">argument argument2...</em><a class="copiable-anchor" href=\'#index-name\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-AAA2"><span class="category-def">AAA1: </span><span><strong class="strong">AAA2</strong> <em class="emph">arg3</em><a class="copiable-anchor" href=\'#index-AAA2\'> &para;</a></span></dt>
+<dt class="deffn" id="index-name"><span class="category-def">Category: </span><span><strong class="strong">name</strong> <em class="emph">argument argument2...</em><a class="copiable-link" href=\'#index-name\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-AAA2"><span class="category-def">AAA1: </span><span><strong class="strong">AAA2</strong> <em class="emph">arg3</em><a class="copiable-link" href=\'#index-AAA2\'> &para;</a></span></dt>
 </dl>
 
 <div class="printindex fn-printindex">
