@@ -1006,6 +1006,18 @@ undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi',
 ['punctuation_sc_accents_ascii_punct_usascii',
 undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi'},
         {'ASCII_PUNCTUATION' => 1}],
+['punctuation_sc_accents_to_utf8_latin1',
+undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi'},
+        {'OUTPUT_ENCODING_NAME' => 'utf-8'}],
+['punctuation_sc_accents_to_utf8_usascii',
+undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi'},
+        {'OUTPUT_ENCODING_NAME' => 'utf-8'}],
+['punctuation_sc_accents_to_utf8_ascii_punct_latin1',
+undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi'},
+        {'ASCII_PUNCTUATION' => 1, 'OUTPUT_ENCODING_NAME' => 'utf-8'}],
+['punctuation_sc_accents_to_utf8_ascii_punct_usascii',
+undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi'},
+        {'ASCII_PUNCTUATION' => 1, 'OUTPUT_ENCODING_NAME' => 'utf-8'}],
 );
 
 foreach my $test (@test_cases) {

@@ -824,6 +824,7 @@ sub test($$)
   # always set FORMAT_MENU to menu, which is the default for parser
   my $added_main_configurations = {'FORMAT_MENU' => 'menu'};
   
+  # this is only used for index keys sorting in structuring
   foreach my $structuring_and_converter_option (('ENABLE_ENCODING')) {
     if (defined($parser_options->{$structuring_and_converter_option})) {
       $added_main_configurations->{$structuring_and_converter_option}

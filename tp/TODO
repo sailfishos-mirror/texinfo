@@ -13,9 +13,6 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
-Add test with punctuation_sc_accents* file(s) with OUTPUT_ENCODING (set to utf8)
-
-
 Bugs
 ====
 
@@ -41,8 +38,6 @@ replaced, elided, elided_block types.
 'extra'->'file' in replaced @include.
 extra->'comment_at_end' and extra->'spaces_after_argument' 
 likely in many line commands
-
-'extra'->'menu_entry'->'index_ignore_chars'
 
 'extra'->'isindex' for nodes.
 
@@ -92,7 +87,8 @@ Some erroneous constructs not already warned against:
  @end example
  Example in heading/heading_in_example.
 
- @group outside of @example
+ @group outside of @example  (maybe there is no need for command stack for this one
+                              if @group can only appear directly in @example).
 
 maybe checking for incorrectly nested @titlepage, @copying and
 @documentdescription (which is already done in the "regions stack")

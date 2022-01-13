@@ -611,6 +611,18 @@ undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi',
 ['test_accents_sc_use_numeric_entity',
 undef, {'test_file' => 'punctuation_small_case_accents_utf8.texi'},
        {'USE_NUMERIC_ENTITY' => 1}],
+# test conversion to utf-8
+['test_accents_sc_to_utf8_latin1',
+undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi'},
+        {'OUTPUT_ENCODING_NAME' => 'utf-8'}],
+['test_accents_sc_enable_encoding_to_utf8_latin1',
+undef, {'test_file' => 'punctuation_small_case_accents_latin1.texi',
+         'ENABLE_ENCODING' => 1},
+        {'OUTPUT_ENCODING_NAME' => 'utf-8'}],
+['test_accents_sc_enable_encoding_to_utf8_usascii',
+undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi',
+         'ENABLE_ENCODING' => 1},
+        {'OUTPUT_ENCODING_NAME' => 'utf-8'}],
 );
 
 # test that the node name that goes in the redirection file is reproducible.
