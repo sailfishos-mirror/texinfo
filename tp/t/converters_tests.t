@@ -714,8 +714,15 @@ $top_in_ref_text,
 
 my @file_tests = (
 ['simplest_no_node_section',
-undef, {'test_file' => 'simplest_no_node_section.texi'}
-],
+undef, {'test_file' => 'simplest_no_node_section.texi'}],
+['minimal_empty_with_bye',
+undef, {'test_file' => 'minimal_empty_with_bye.texi'}],
+['minimal_empty_with_input',
+undef, {'test_file' => 'minimal_empty_with_input.texi'}],
+['minimal_empty_empty',
+undef, {'test_file' => 'minimal_empty_empty.texi'}],
+['empty',
+undef, {'test_file' => 'empty.texi'}],
 );
 
 my %info_tests = (

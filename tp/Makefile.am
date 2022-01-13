@@ -202,6 +202,9 @@ test_files = \
  t/input_files/index_split.texi \
  t/input_files/japanese_utf8.texi \
  t/input_files/japanese_shift_jis.texi \
+ t/input_files/minimal_empty_empty.texi \
+ t/input_files/minimal_empty_with_bye.texi \
+ t/input_files/minimal_empty_with_input.texi \
  t/input_files/more_sections_than_nodes.texi \
  t/input_files/navigation.texi \
  t/input_files/nodequote.texi \
