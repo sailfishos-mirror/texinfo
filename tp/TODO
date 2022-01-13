@@ -28,10 +28,11 @@ nytprofhtml
 # firefox nytprof/index.html
 
 
-Documentation
-=============
+Missing documentation
+=====================
 
 Tree documentation in ParserNonXS.pm
+------------------------------------
 
 replaced, elided, elided_block types.
 
@@ -40,6 +41,9 @@ extra->'comment_at_end' and extra->'spaces_after_argument'
 likely in many line commands
 
 'extra'->'isindex' for nodes.
+
+Other
+-----
 
 For converter writers,
 'output_init_conf' and 'converter_init_conf'.
@@ -228,7 +232,7 @@ Labels in Info (which also means index entries)
 
 
 DocBook
-=======
+-------
 
   deftypevr, deftypecv: use type and not returnvalue for the type
 
@@ -254,15 +258,42 @@ DocBook
   of each item but the standard "does not specify a set of appropriate keywords"
   so it cannot be used.
 
+Notes
+=====
+
+In january 2022 the classes in HTML elements were normalized.  There are no
+rules, but here is descriptions of the choices made at that time in case one
+want to use the same conventions.  The objective was to have the link between
+@-commands and classes easy to understand, avoid ambiguities, and have ways to
+style most of the output.
+
+The class names without hyphen were only used for @-commands, with one
+class attribute on an element maximum for each @-command appearing in the
+Texinfo source.  It was also attempted to have such a class for all
+the @-commands with an effect on output, though the coverage was not perfect,
+sometime it is not easy to select an element that would correspond to the
+most logical association with the @-command (case of @*ref @-commands with
+both a <cite> and a <a href> for example).
+
+Class names <command>-* with <command> a Texinfo @-command name were
+only used for classes marking elements within an @-command but in other
+elements that the main element for that @-command, in general sub elements.
+For example, a @flushright lead to a <div class="flushright"> where the
+@flushright command is and to <p class="flushright-paragraph"> for the
+paragraphs within the @flushright.
+
+Class names *-<command> with <command> a Texinfo @-command name were
+reserved for uses related to @-command <command>.  For example
+classes like summary-letter-printindex, cp-entries-printindex or
+cp-letters-header-printindex for the different parts of the @printindex
+formatting.
+
+For the classes not associated with @-commands, the names were selected to
+correspond to the role in the document rather than to the formatting style.
+
 
 Interrogations and remarks
 ==========================
-
-Instead of _set_global_multiple_commands have a better granularity and
-do something per command, with the possibility to really revert everything,
-including things that are not set by set_conf (There is a comment in the
-code above _set_global_multiple_commands)?  Not clear that it is really
-interesting, there is no clear use case for now.
 
 Should more Converter ignore the last new line (with type 
 last_raw_newline) of a raw block format?

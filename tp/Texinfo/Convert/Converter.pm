@@ -274,7 +274,7 @@ sub _in_preamble($)
 
 # $COMMANDS_LOCATION is 'before', 'last', 'preamble' or 'preamble_or_first'
 # 'before' means setting to the values before the document commands
-# (default and command-line).
+# (defaults and command-line).
 # 'preamble' means setting sequentially to the values in the preamble.
 # 'first_or_preamble'  means setting to the first value for the command
 # in the document if the first command is not in the preamble, else set
@@ -283,12 +283,9 @@ sub _in_preamble($)
 #
 # For unique command, the last may be considered to be the same as the first.
 #
-# If a value was given in converter input, it is never reset by documents
-# @-commands values.
-#
 # Notice that the only effect is to use set_conf (directly or through
-# _informative_command), @-commands side effects or settings using other
-# customization is not set/reset.
+# set_informative_command_value), no @-commands setting side effects are done
+# and associated customization variables are not set/reset either.
 sub set_global_document_commands($$;$)
 {
   my $self = shift;
@@ -320,14 +317,12 @@ sub set_global_document_commands($$;$)
     foreach my $global_command (@{$selected_commands}) {
       my $element;
       if ($self->get_conf('DEBUG')) {
-        print STDERR "SET_global_multiple_commands($commands_location) $global_command\n";
+        print STDERR "SET_global_document_commands($commands_location) $global_command\n";
       }
       if (defined($self->{'global_commands'}->{$global_command})
           and ref($self->{'global_commands'}->{$global_command}) eq 'ARRAY') {
-        if ($commands_location eq 'last')
-        {
-          $element =
-            $self->{'global_commands'}->{$global_command}->[-1];
+        if ($commands_location eq 'last') {
+          $element = $self->{'global_commands'}->{$global_command}->[-1];
           $self->set_informative_command_value($element);
         } else {
           if ($commands_location eq 'preamble_or_first'
