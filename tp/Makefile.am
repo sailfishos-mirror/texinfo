@@ -269,7 +269,8 @@ maintenance_files = \
   maintain/regenerate_cmd_tests.sh \
   maintain/regenerate_converters_documentation.sh \
   maintain/regenerate_docstr.sh \
-  maintain/regenerate_documentlanguages.pl \
+  maintain/regenerate_documentlanguages-iana.pl \
+  maintain/regenerate_documentlanguages-loc.pl \
   maintain/regenerate_file_lists.pl \
   maintain/template.pod \
   maintain/catalog.xml.in

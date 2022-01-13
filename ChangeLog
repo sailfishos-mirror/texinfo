@@ -1,5 +1,15 @@
 2022-01-13  Patrice Dumas  <pertusus@free.fr>
 
+	* maintain/regenerate_documentlanguages-loc.pl: script to
+	regenerate tp/Texinfo/Documentlanguages.pm using sources of
+	information for languages and regions codes consistent with
+	the Texinfo manual content.
+
+	* tp/Texinfo/Documentlanguages.pm: regenerate with
+	maintain/regenerate_documentlanguages-loc.pl.
+
+2022-01-13  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
 	(_normalize_texinfo_name): put the normalized content in the
 	tree.

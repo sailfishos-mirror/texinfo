@@ -253,8 +253,8 @@ bcc coordinator@translationproject.org.
 - Official releases only:
 version and date in NEWS.
 version number in txirefcard.tex.
-(cd tp && maintain/regenerate_documentlanguages.pl)
-  -- regenerates tp/Texinfo/Documentlanguages.pm
+(cd tp && maintain/regenerate_documentlanguages-loc.pl)
+  -- regenerates tp/Texinfo/Documentlanguages.pm (requires Text::CSV)
 
 make V=1 pdf and fix underfull/overfull boxes.
 

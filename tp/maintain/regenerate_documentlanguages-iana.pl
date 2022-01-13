@@ -1,6 +1,6 @@
 #! /usr/bin/env perl
 
-# regenerate_documentlanguages.pl: download the iana files language
+# regenerate_documentlanguages-iana.pl: download the iana files language
 # and regenerate Texinfo/Documentlanguages.pm list of languages and regions
 #
 # Copyright 2010, 2011, 2012 Free Software Foundation, Inc.
@@ -12,7 +12,7 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
-# Calling that script for each release could be a good idea.
+# This script is not used, as the Texinfo manual describes other code sources
 
 use strict;
 
