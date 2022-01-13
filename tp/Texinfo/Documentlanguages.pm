@@ -190,7 +190,6 @@ our %language_codes = (
 );
 
 our %region_codes = (
-'' => 1,
 'AD' => 1,
 'AE' => 1,
 'AF' => 1,
