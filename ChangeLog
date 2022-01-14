@@ -1,5 +1,17 @@
 2022-01-14  Patrice Dumas  <pertusus@free.fr>
 
+	Do not have parsers inherit Texinfo::Translations
+
+	* tp/Texinfo/Translations.pm tp/Texinfo/ParserNonXS.pm,
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (gdt, complete_indices):
+	do not have parsers inherit Texinfo::Translations.
+	Allow gdt() first argument to be undefined.  Get parser
+	configuration customization variables through $self->get_conf().
+	In complete_indices() call gdt() directly, not as a method on
+	$self.
+
+2022-01-14  Patrice Dumas  <pertusus@free.fr>
+
 	Move section_level() to Common.pm to avoid circular dependency
 
 	* tp/Texinfo/Common.pm (section_level), tp/Texinfo/Convert/HTML.pm

@@ -24,8 +24,10 @@ require Exporter;
 use 5.00405;
 use strict;
 
+use Encode;
 use POSIX qw(setlocale LC_ALL);
 use Locale::Messages;
+
 # to be able to load a (simple) parser if none was given to gdt.
 use Texinfo::Parser;
 
@@ -36,6 +38,9 @@ Locale::Messages->select_package ('gettext_pp');
 # i18n
 
 my $DEFAULT_LANGUAGE = 'en';
+
+my $DEFAULT_ENCODING = 'utf-8';
+my $DEFAULT_PERL_ENCODING = 'utf-8';
 
 my $messages_textdomain = 'texinfo';
 my $strings_textdomain = 'texinfo_document';
@@ -59,7 +64,7 @@ sub gdt($$;$$$)
   # In addition to being settable from the command line,
   # the language needs to be dynamic in case there is an untranslated string
   # from another language that needs to be translated.
-  $lang = $self->get_conf('documentlanguage') if (!defined($lang));
+  $lang = $self->get_conf('documentlanguage') if ($self and !defined($lang));
   $lang = $DEFAULT_LANGUAGE if (!defined($lang));
 
   my $re = join '|', map { quotemeta $_ } keys %$context
@@ -104,16 +109,21 @@ sub gdt($$;$$$)
   # FIXME do this only once when encoding is seen (or at beginning)
   # instead of here, each time that gdt is called?
   my $encoding;
-  if ($self->get_conf('OUTPUT_ENCODING_NAME')) {
-    $encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
+  my $perl_encoding;
+  if ($self) {
+    if ($self->get_conf('OUTPUT_ENCODING_NAME')) {
+      $encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
+    }
+    if ($self->get_conf('OUTPUT_PERL_ENCODING')) {
+      $perl_encoding = $self->get_conf('OUTPUT_PERL_ENCODING');
+    }
+  } else {
+    $encoding = $DEFAULT_ENCODING;
+    $perl_encoding = $DEFAULT_PERL_ENCODING;
   }
   Locale::Messages::bind_textdomain_codeset($strings_textdomain, $encoding)
     if ($encoding and $encoding ne 'us-ascii');
   if (!($encoding and $encoding eq 'us-ascii')) {
-    my $perl_encoding;
-    if ($self->get_conf('OUTPUT_PERL_ENCODING')) {
-      $perl_encoding = $self->get_conf('OUTPUT_PERL_ENCODING');
-    }
     if ($perl_encoding) {
       Locale::Messages::bind_textdomain_filter($strings_textdomain,
         \&_encode_i18n_string, $perl_encoding);
@@ -190,23 +200,32 @@ sub gdt($$;$$$)
   
   # determine existing parser, if any
   my $current_parser;
-  if (ref($self) eq 'Texinfo::Parser') {
-    $current_parser = $self;
-  } elsif ($self->{'parser'}) {
-    $current_parser = $self->{'parser'};
+  if ($self) {
+    if (ref($self) eq 'Texinfo::Parser') {
+      $current_parser = $self;
+    } elsif ($self->{'parser'}) {
+      $current_parser = $self->{'parser'};
+    }
   }
 
   # Don't reuse the current parser itself, as (tested) the parsing goes
   # wrong, certainly because the parsed text can affect the parser state.
 
+  # configuration only found in parser.  Note that it is only available
+  # for the NonXS parser.
   my $parser_conf;
   if ($current_parser) {
-    # 'TEST' can be used fot @today{} expansion.
-    # FIXME use get_conf
-    foreach my $duplicated_conf ('clickstyle', 'kbdinputstyle', 'DEBUG',
-                                 'TEST') {
+    foreach my $duplicated_conf ('clickstyle', 'kbdinputstyle') {
       $parser_conf->{$duplicated_conf} = $current_parser->{$duplicated_conf}
         if (defined($current_parser->{$duplicated_conf}));
+    }
+  }
+  # general configuration relevant for parser
+  if ($self) {
+    foreach my $conf_variable ('DEBUG') {
+      if (defined($self->get_conf($conf_variable))) {
+        $parser_conf->{$conf_variable} = $self->get_conf($conf_variable);
+      }
     }
   }
   # accept @txiinternalvalue as a valid Texinfo command
@@ -289,7 +308,7 @@ sub _non_bracketed_contents($) {
 # index entry until now to avoid needing Texinfo::Translations::gdt
 # in the main code of Parser.pm.  Also set 'in_code' value on
 # index entries.
-sub complete_indices
+sub complete_indices($)
 {
   my $self = shift;
 
@@ -312,7 +331,7 @@ sub complete_indices
               or $def_command eq 'deftypeop'
               or $def_command eq 'defmethod'
               or $def_command eq 'deftypemethod') {
-            $index_entry = $self->gdt('{name} on {class}',
+            $index_entry = gdt($self, '{name} on {class}',
                                       {'name' => $def_parsed_hash->{'name'},
                                        'class' => $def_parsed_hash->{'class'}},
                                       undef, $entry_language);
@@ -323,7 +342,7 @@ sub complete_indices
           } elsif ($def_command eq 'defivar'
                    or $def_command eq 'deftypeivar'
                    or $def_command eq 'deftypecv') {
-            $index_entry = $self->gdt('{name} of {class}',
+            $index_entry = gdt($self, '{name} of {class}',
                                       {'name' => $def_parsed_hash->{'name'},
                                        'class' => $def_parsed_hash->{'class'}},
                                       undef, $entry_language);

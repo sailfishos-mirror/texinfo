@@ -37,7 +37,7 @@ use Texinfo::Report;
 use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Translations;
 
-our @ISA = qw(Exporter Texinfo::Translations);
+our @ISA = qw(Exporter);
 our %EXPORT_TAGS = ( 'all' => [ qw(
     parser
     parse_texi_file

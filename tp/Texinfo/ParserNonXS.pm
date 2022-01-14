@@ -59,12 +59,12 @@ use Texinfo::Convert::Texinfo;
 # to normalize node name, anchor, float arg, and first *ref argument.
 use Texinfo::Convert::NodeNameNormalization;
 
-# translation of strings.
+# to complete indices translations.
 use Texinfo::Translations;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter Texinfo::Translations);
+@ISA = qw(Exporter);
 
 our $module_loaded = 0;
 sub import {
