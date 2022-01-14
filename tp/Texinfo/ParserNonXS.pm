@@ -6228,7 +6228,7 @@ The errors collected during the tree parsing are registered in a
 C<Texinfo::Report> object.  This object is available with
 C<registered_errors>.  The errors registered in the C<Texinfo::Report>
 object are available through the C<errors> method.  This method is
-described in L<errors|Texinfo::Report/($error_warnings_list, $error_count) = errors ($converter)>.
+described in L<errors|Texinfo::Report ($error_warnings_list, $error_count) = errors ($registrar)>.
 
 =over
 

@@ -2710,8 +2710,9 @@ is I<conditional> for C<@if> commands, I<def> for definition
 commands like C<@deffn>, I<raw> for @-commands that have no expansion
 of @-commands in their bodies and I<multitable> for C<@multitable>.
 Otherwise it is set to the number of arguments separated by commas
-that may appear on the @-command line. That means 0 in most cases,
-1 for C<@quotation> and 2 for C<@float>.
+that may appear on the @-command line, or to I<variadic> if there is
+an unlimited number of arguments. That means 0 in most cases,
+1 for C<@quotation>, 2 for C<@float> and C<variadic> for C<@example>.
 
 =item %brace_commands
 
