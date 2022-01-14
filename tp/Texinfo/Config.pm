@@ -31,7 +31,7 @@ use strict;
 # for carp
 use Carp;
 
-# for __( and p__(
+# for __( and p__( and some functions
 use Texinfo::Common;
 
 # for error messages, passed from main program through initialization

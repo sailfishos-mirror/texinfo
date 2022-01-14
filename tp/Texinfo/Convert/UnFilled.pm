@@ -20,6 +20,8 @@ package Texinfo::Convert::UnFilled;
 use 5.006;
 use strict;
 
+use Texinfo::Convert::Paragraph;
+
 # initialize a paragraph object.
 sub new($;$)
 {

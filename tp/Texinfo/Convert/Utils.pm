@@ -30,12 +30,12 @@ package Texinfo::Convert::Utils;
 
 use strict;
 
+# debugging
+use Carp qw(cluck);
+
 use Texinfo::Common;
 # only needed in debugging comments.  Ok to keep it here anyway.
 use Texinfo::Convert::Texinfo;
-
-# debugging
-use Carp qw(cluck);
 
 require Exporter;
 

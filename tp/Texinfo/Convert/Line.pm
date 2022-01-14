@@ -21,6 +21,8 @@ package Texinfo::Convert::Line;
 use 5.006;
 use strict;
 
+use Texinfo::Convert::Paragraph;
+
 # initialize a line object.
 sub new($;$)
 {

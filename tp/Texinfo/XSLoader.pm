@@ -15,11 +15,13 @@
 
 package Texinfo::XSLoader;
 
-use DynaLoader;
-
 use 5.00405;
 use strict;
 use warnings;
+
+use DynaLoader;
+
+use Texinfo::ModulePath;
 
 our $TEXINFO_XS;
 

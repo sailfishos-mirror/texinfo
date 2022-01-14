@@ -27,12 +27,13 @@ use strict;
 
 use Unicode::Normalize;
 use Text::Unidecode;
-# for the accents definition
+
+# commands classes
 use Texinfo::Common;
-# reuse some conversion hashes
-use Texinfo::Convert::Text;
 # use the hashes and functions
 use Texinfo::Convert::Unicode;
+# reuse some conversion hashes and ascii_accent function
+use Texinfo::Convert::Text;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);

@@ -70,7 +70,7 @@ foreach my $canonical_encoding('us-ascii', 'utf-8', 'iso-8859-1',
   $canonical_texinfo_encodings{$canonical_encoding} = 1;
 }
 
-sub encoding_alias ($)
+sub encoding_alias($)
 {
   my $encoding = shift;
   my $canonical_texinfo_encoding;
@@ -81,7 +81,7 @@ sub encoding_alias ($)
   if ($perl_encoding) {
     $canonical_output_encoding = $encoding_aliases{$perl_encoding};
   }
-  foreach my $possible_encoding ($encoding, $canonical_output_encoding, 
+  foreach my $possible_encoding($encoding, $canonical_output_encoding,
                                             $perl_encoding) {
     if (defined($possible_encoding)
         and $canonical_texinfo_encodings{lc($possible_encoding)}) {
@@ -103,7 +103,7 @@ Texinfo::Encoding - Encodings and encoding aliases
 
   use Texinfo::Encoding qw(encoding_alias);
 
-  my ($canonical_texinfo_encoding, $perl_encoding, 
+  my ($canonical_texinfo_encoding, $perl_encoding,
       $canonical_output_encoding) = encoding_alias($encoding);
 
 =head1 DESCRIPTION
@@ -116,11 +116,11 @@ Texinfo::Encoding takes care of encoding definition and aliasing.
 
 =item ($canonical_texinfo_encoding, $perl_encoding, $canonical_output_encoding) = encoding_alias($encoding)
 
-Taking an encoding name as argument, the function returns the 
-corresponding canonical Texinfo encoding I<$canonical_texinfo_encoding> 
-as described in the Texinfo manual (or undef), an encoding name suitable 
-for perl I<$perl_encoding>, and an encoding name suitable for most 
-output formaats, especially HTML, I<$canonical_output_encoding>. 
+Taking an encoding name as argument, the function returns the
+corresponding canonical Texinfo encoding I<$canonical_texinfo_encoding>
+as described in the Texinfo manual (or undef), an encoding name suitable
+for perl I<$perl_encoding>, and an encoding name suitable for most
+output formats, especially HTML, I<$canonical_output_encoding>.
 
 =back
 
