@@ -24,6 +24,11 @@
 #
 #-##############################################################################
 
+# loading with -d:TraceUse leads to an error like
+# texi2any: warning: error loading ../init/chm.pm: Undefined subroutine &Devel::TraceUse::texinfo_set_format_from_init_file called at ../init/chm.pm line 43.
+# defining the package here avoids this error.
+package Texinfo::Config;
+
 use strict;
 
 use File::Spec;
