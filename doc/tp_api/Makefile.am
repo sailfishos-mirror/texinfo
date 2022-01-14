@@ -18,10 +18,13 @@ MAKEINFO = $(PERL) -I $(top_srcdir)/tp/ $(top_srcdir)/tp/texi2any.pl
 if BUILD_PERL_API_TEXI
 
 dist_info_TEXINFOS = tp_api.texi
-#info_TEXINFOS_SOURCES = tp_api.texi
-tp_api_TEXINFOS = tp_api.texi
-#dist_tp_api_TEXINFOS = tp_api.texi
-#tp_api_SOURCES = tp_api.texi
+# in 2022 an info_TEXINFOS variable is not allowed in a conditional
+#info_TEXINFOS = tp_api.texi
+
+# dependencies are in api_includes/ directory but we do not want to list
+# them explicitely
+#tp_api_TEXINFOS = 
+#dist_tp_api_TEXINFOS = 
 
 BUILT_SOURCES = tp_api.texi
 
