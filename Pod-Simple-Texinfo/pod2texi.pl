@@ -159,7 +159,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
      } elsif (defined($Texinfo::Common::command_structuring_level{$_[1]})) {
        $base_level = $Texinfo::Common::command_structuring_level{$_[1]};
      } else {
-       die sprintf(__("%s: wrong argument for --base-level\n"), 
+       die sprintf(__("%s: wrong argument for --base-level\n"),
                    $real_command_name);
      }
    },
@@ -179,7 +179,7 @@ exit 1 if (!$result_options);
 if (defined($subdir)) {
   if (! -d $subdir) {
     if (!mkdir($subdir)) {
-      die sprintf(__("%s: could not create directory %s: %s"), 
+      die sprintf(__("%s: could not create directory %s: %s"),
                   $real_command_name, $subdir, $!);
     }
   }
@@ -236,11 +236,11 @@ sub _fix_texinfo_tree($$$$;$)
   my $fill_gaps_in_sectioning = shift;
   my $do_master_menu = shift;
 
-  my $parser = Texinfo::Parser::parser();
-  my $tree = $parser->parse_texi_text($manual_texi);
-  my $registrar = $parser->registered_errors();
+  my $texi_parser = Texinfo::Parser::parser();
+  my $tree = $texi_parser->parse_texi_text($manual_texi);
+  my $registrar = $texi_parser->registered_errors();
   
-  my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
+  my ($labels, $targets_list, $nodes_list) = $texi_parser->labels_information();
 
   if ($fill_gaps_in_sectioning) {
     my ($added_sections, $added_nodes);
@@ -252,11 +252,11 @@ sub _fix_texinfo_tree($$$$;$)
       ($tree->{'contents'}, $added_nodes)
         = Texinfo::Transformations::insert_nodes_for_sectioning_commands($tree,
                                          $nodes_list, $targets_list, $labels);
-      if ($self and $self->texinfo_sectioning_base_level > 0) {
+      if ($self and $self->texinfo_sectioning_base_level() > 0) {
         # prepend the manual name
         foreach my $node (@$added_nodes) {
           # First remove the old normalized entry
-          delete $parser->{'labels'}->{$node->{'extra'}->{'normalized'}};
+          delete $texi_parser->{'labels'}->{$node->{'extra'}->{'normalized'}};
           # now get the number
           my $node_texi = Texinfo::Convert::Texinfo::convert_to_texinfo(
                 {'contents' => $node->{'extra'}->{'node_content'}});
@@ -268,7 +268,7 @@ sub _fix_texinfo_tree($$$$;$)
           my $tree = Texinfo::Parser::parse_texi_text(undef, $complete_node_name);
           my $node_arg = $node->{'args'}->[0];
           $node_arg->{'contents'} = $tree->{'contents'};
-          push @{$node_arg->{'contents'}}, 
+          push @{$node_arg->{'contents'}},
               {'type' => 'spaces_at_end', 'text' => "\n"};
           unshift @{$node_arg->{'contents'}},
                   {'extra' => {'command' => $node},
@@ -281,18 +281,18 @@ sub _fix_texinfo_tree($$$$;$)
           my $parsed_node = Texinfo::Common::parse_node_manual($node_arg);
           #push @{$node->{'extra'}->{'nodes_manuals'}}, $parsed_node;
           @{$node->{'extra'}->{'nodes_manuals'}} = ($parsed_node);
-          Texinfo::Common::register_label($parser, $node, $parsed_node);
+          Texinfo::Common::register_label($texi_parser, $node, $parsed_node);
         }
       }
     }
   }
   my ($sectioning_root, $sections_list)
-          = Texinfo::Structuring::sectioning_structure($registrar, $parser, $tree);
+    = Texinfo::Structuring::sectioning_structure($registrar, $texi_parser, $tree);
   Texinfo::Transformations::complete_tree_nodes_menus($tree)
     if ($section_nodes);
-  Texinfo::Transformations::regenerate_master_menu($parser, $labels)
+  Texinfo::Transformations::regenerate_master_menu($texi_parser, $labels)
      if ($do_master_menu);
-  return ($parser, $tree);
+  return ($texi_parser, $tree);
 }
 
 sub _fix_texinfo_manual($$$$;$)
@@ -302,7 +302,7 @@ sub _fix_texinfo_manual($$$$;$)
   my $section_nodes = shift;
   my $fill_gaps_in_sectioning = shift;
   my $do_master_menu = shift;
-  my ($parser, $tree) = _fix_texinfo_tree($self, $manual_texi, $section_nodes, 
+  my ($texi_parser, $tree) = _fix_texinfo_tree($self, $manual_texi, $section_nodes,
                                     $fill_gaps_in_sectioning, $do_master_menu);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
@@ -310,8 +310,8 @@ sub _fix_texinfo_manual($$$$;$)
 sub _do_top_node_menu($)
 {
   my $manual_texi = shift;
-  my ($parser, $tree) = _fix_texinfo_tree(undef, $manual_texi, 1, 0, 1); 
-  my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
+  my ($texi_parser, $tree) = _fix_texinfo_tree(undef, $manual_texi, 1, 0, 1);
+  my ($labels, $targets_list, $nodes_list) = $texi_parser->labels_information();
   my $top_node_menu = $labels->{'Top'}->{'extra'}->{'menus'}->[0];
   if ($top_node_menu) {
     return Texinfo::Convert::Texinfo::convert_to_texinfo($top_node_menu);
@@ -346,7 +346,7 @@ foreach my $file (@processed_files) {
         $outfile .= '.texi';
       }
     }
-    $outfile = File::Spec->catfile($subdir, $outfile) 
+    $outfile = File::Spec->catfile($subdir, $outfile)
       if (defined($subdir));
   }
 
@@ -357,7 +357,8 @@ foreach my $file (@processed_files) {
   if ($outfile eq '-') {
     $fh = *STDOUT;
   } else {
-    open (OUT, ">$outfile") or die sprintf(__("%s: could not open %s for writing: %s\n"), 
+    open (OUT, ">$outfile")
+               or die sprintf(__("%s: could not open %s for writing: %s\n"),
                                           $real_command_name, $outfile, $!);
     $fh = *OUT;
   }
@@ -385,20 +386,20 @@ foreach my $file (@processed_files) {
   if ($section_nodes or $fill_sectioning_gaps) {
     if ($debug > 4) {
       # print to a file
-      open (DBGFILE, ">$outfile-dbg") or die sprintf(__("%s: could not open %s: %s\n"), 
+      open (DBGFILE, ">$outfile-dbg")
+                             or die sprintf(__("%s: could not open %s: %s\n"),
                                       $real_command_name, "$outfile-dbg", $!);
       binmode(DBGFILE, ':encoding(utf8)');
       print DBGFILE $manual_texi;
-      
     }
-    $manual_texi = _fix_texinfo_manual($new, $manual_texi, $section_nodes, 
+    $manual_texi = _fix_texinfo_manual($new, $manual_texi, $section_nodes,
                                              $fill_sectioning_gaps);
     $full_manual .= $manual_texi if ($section_nodes);
   }
   print $fh $manual_texi;
 
   if ($outfile ne '-') {
-    close($fh) or die sprintf(__("%s: error on closing %s: %s\n"), 
+    close($fh) or die sprintf(__("%s: error on closing %s: %s\n"),
                                $real_command_name, $outfile, $!);
   }
 
@@ -415,14 +416,14 @@ foreach my $file (@processed_files) {
       if (defined($short_title) and $short_title =~ /\S/) {
         push @manuals, $short_title;
         pop @included;
-        my $new_outfile 
+        my $new_outfile
          = Pod::Simple::Texinfo::_pod_title_to_file_name($short_title);
         $new_outfile .= '.texi';
-        $new_outfile = File::Spec->catfile($subdir, $new_outfile) 
+        $new_outfile = File::Spec->catfile($subdir, $new_outfile)
            if (defined($subdir));
         if ($new_outfile ne $outfile) {
           unless (rename ($outfile, $new_outfile)) {
-            die sprintf(__("%s: rename %s failed: %s\n"), 
+            die sprintf(__("%s: rename %s failed: %s\n"),
                         $real_command_name, $outfile, $!);
           }
         }
@@ -436,7 +437,8 @@ foreach my $file (@processed_files) {
 if ($base_level > 0) {
   my $fh;
   if ($output ne '-') {
-    open (OUT, ">$output") or die sprintf(__("%s: could not open %s for writing: %s\n"), 
+    open (OUT, ">$output")
+              or die sprintf(__("%s: could not open %s for writing: %s\n"),
                                           $real_command_name, $output, $!);
     $fh = *OUT;
   } else {
@@ -479,13 +481,13 @@ if ($base_level > 0) {
   print $fh "\n\@bye\n";
   
   if ($output ne '-') {
-    close($fh) or die sprintf(__("%s: error on closing %s: %s\n"), 
+    close($fh) or die sprintf(__("%s: error on closing %s: %s\n"),
                                $real_command_name, $output, $!);
   }
 }
 
 if (defined($output) and $output eq '-') {
-  close(STDOUT) or die sprintf(__("%s: error on closing stdout: %s\n"), 
+  close(STDOUT) or die sprintf(__("%s: error on closing stdout: %s\n"),
                                $real_command_name, $!);
 }
 
