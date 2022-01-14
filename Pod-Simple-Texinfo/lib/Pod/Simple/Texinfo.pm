@@ -57,7 +57,7 @@ my @numbered_sectioning_commands = ('part', 'chapter', 'section', 'subsection',
   'subsubsection');
 my @appendix_sectioning_commands = ('part', 'appendix', 'appendixsec',
   'appendixsubsec', 'appendixsubsubsec');
-my @unnumbered_sectioning_commands = ('part', 'unnumbered', 'unnumberedsec', 
+my @unnumbered_sectioning_commands = ('part', 'unnumbered', 'unnumberedsec',
   'unnumberedsubsec', 'unnumberedsubsubsec');
 
 my @raw_formats = ('html', 'HTML', 'docbook', 'DocBook', 'texinfo',
@@ -86,9 +86,9 @@ sub new
   $new->accept_targets(@raw_formats);
   $new->preserve_whitespace(1);
   $new->texinfo_section_nodes(0);
-  $new->texinfo_sectioning_base_level ($sectioning_base_level);
-  $new->texinfo_man_url_prefix ($man_url_prefix);
-  $new->texinfo_sectioning_style ($sectioning_style);
+  $new->texinfo_sectioning_base_level($sectioning_base_level);
+  $new->texinfo_man_url_prefix($man_url_prefix);
+  $new->texinfo_sectioning_style($sectioning_style);
   $new->texinfo_add_upper_sectioning_command(1);
   return $new;
 }
@@ -108,11 +108,11 @@ sub run
       $self->{'texinfo_if_format_commands'}->{':'.$format} = lc($format);
     }
   }
-  my $base_level = $self->texinfo_sectioning_base_level;
+  my $base_level = $self->texinfo_sectioning_base_level();
   $base_level = 1 if ($base_level <= 1);
-  if ($self->texinfo_sectioning_style eq 'numbered') {
+  if ($self->texinfo_sectioning_style() eq 'numbered') {
     $self->{'texinfo_sectioning_commands'} = \@numbered_sectioning_commands;
-  } elsif ($self->texinfo_sectioning_style eq 'unnumbered') {
+  } elsif ($self->texinfo_sectioning_style() eq 'unnumbered') {
     $self->{'texinfo_sectioning_commands'} = \@unnumbered_sectioning_commands;
   } else {
     $self->{'texinfo_sectioning_commands'} = \@appendix_sectioning_commands;
@@ -140,7 +140,7 @@ sub run
   } else {
     $self->_preamble();
     $self->_convert_pod();
-    $self->_postamble(); 
+    $self->_postamble();
   }
 }
 
@@ -151,19 +151,19 @@ sub _preamble($)
 
   my $fh = $self->{'output_fh'};
 
-  if (!defined($self->texinfo_short_title)) {
+  if (!defined($self->texinfo_short_title())) {
     my $short_title = $self->get_short_title();
     if (defined($short_title) and $short_title =~ m/\S/) {
       $self->texinfo_short_title($short_title);
     }
   }
 
-  if ($self->texinfo_sectioning_base_level == 0) {
+  if ($self->texinfo_sectioning_base_level() == 0) {
     #print STDERR "$fh\n";
     print $fh '\input texinfo'."\n";
     my $setfilename;
-    if (defined($self->texinfo_short_title)) {
-      $setfilename = _pod_title_to_file_name($self->texinfo_short_title);
+    if (defined($self->texinfo_short_title())) {
+      $setfilename = _pod_title_to_file_name($self->texinfo_short_title());
     } else {
       # FIXME maybe output filename would be better than source_filename?
       my $source_filename = $self->source_filename();
@@ -189,19 +189,19 @@ sub _preamble($)
       print $fh "\@settitle "._protect_text($title, 1)."\n\n";
     }
     print $fh "\@node Top\n";
-    if (defined($self->texinfo_short_title)) {
-       print $fh "\@top "._protect_text($self->texinfo_short_title, 1)."\n\n";
+    if (defined($self->texinfo_short_title())) {
+       print $fh "\@top "._protect_text($self->texinfo_short_title(), 1)."\n\n";
     }
-  } elsif (defined($self->texinfo_short_title)
-           and $self->texinfo_add_upper_sectioning_command) {
+  } elsif (defined($self->texinfo_short_title())
+           and $self->texinfo_add_upper_sectioning_command()) {
       my $level = $self->texinfo_sectioning_base_level() - 1;
-      my $name = _protect_text($self->texinfo_short_title, 1);
+      my $name = _protect_text($self->texinfo_short_title(), 1);
       my $node_name = _prepare_anchor($self, $name);
 
       my $anchor = '';
       my $node = '';
       if ($node_name =~ /\S/) {
-        if (!$self->texinfo_section_nodes 
+        if (!$self->texinfo_section_nodes()
             or $self->{'texinfo_sectioning_commands'}->[$level] eq 'part') {
           $anchor = "\@anchor{$node_name}\n";
         } else {
@@ -209,7 +209,7 @@ sub _preamble($)
         }
       }
       print $fh "$node\@$self->{'texinfo_sectioning_commands'}->[$level] "
-         ._protect_text($self->texinfo_short_title, 1)."\n$anchor\n";
+         ._protect_text($self->texinfo_short_title(), 1)."\n$anchor\n";
   }
 }
 
@@ -236,7 +236,7 @@ sub _begin_context($$)
 {
   my $accumulated_stack = shift;
   my $tag = shift;
-  push @$accumulated_stack, {'text' => '', 'tag' => $tag, 
+  push @$accumulated_stack, {'text' => '', 'tag' => $tag,
                              'out' => ''};
 }
 
@@ -294,7 +294,7 @@ sub _reference_to_text_in_texi($)
   my $tree = parse_texi_text(undef, $texinfo);
   Texinfo::Transformations::reference_to_arg_in_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
-}  
+}
 
 sub _section_manual_to_node_name($$$)
 {
@@ -381,10 +381,10 @@ sub _node_name($$)
   my $texinfo_node_name = shift;
 
   chomp $texinfo_node_name;
-  $texinfo_node_name 
-     = $self->_section_manual_to_node_name($self->texinfo_short_title,
-                                          $texinfo_node_name,
-                                          $self->texinfo_sectioning_base_level);
+  $texinfo_node_name
+   = $self->_section_manual_to_node_name($self->texinfo_short_title(),
+                                         $texinfo_node_name,
+                                         $self->texinfo_sectioning_base_level());
   # also change refs to text
   return _reference_to_text_in_texi($texinfo_node_name);
 }
@@ -519,10 +519,9 @@ sub _convert_pod($)
               $section = 1 if (!defined($section));
               # it is unlikely that there is a comma because of _url_escape
               # but to be sure there is still a call to _protect_comma.
-              $url_arg 
-                = _protect_comma(_protect_text(
-                    $self->texinfo_man_url_prefix
-                    ."$section/"._url_escape($page)));
+              $url_arg = _protect_comma(_protect_text(
+                                           $self->texinfo_man_url_prefix()
+                                              ."$section/"._url_escape($page)));
             } else {
               $url_arg = '';
             }
@@ -538,26 +537,27 @@ sub _convert_pod($)
             $manual .= '' if (defined($manual));
             $section .= '' if (defined($section));
             if (0) {
-              my $section_text = 'UNDEF'; 
+              my $section_text = 'UNDEF';
               if (defined($section)) {
                 $section_text = $section;
               }
               my $manual_text = 'UNDEF';
               if (defined($manual)) {
                 $manual_text = $manual;
-              } 
+              }
               print STDERR "L: $linktype $manual_text/$section_text\n";
             }
             if (defined($manual)) {
               if (! defined($section) or $section !~ m/\S/) {
                 if ($self->{'texinfo_internal_pod_manuals_hash'}->{$manual}) {
+                  # FIXME the rendering is not necessarily the best
                   $section = 'NAME';
                 }
               }
               if ($self->{'texinfo_internal_pod_manuals_hash'}->{$manual}) {
                 $texinfo_node =
-                 $self->_section_manual_to_node_name($manual, $section, 
-                                     $self->texinfo_sectioning_base_level);
+                 $self->_section_manual_to_node_name($manual, $section,
+                                     $self->texinfo_sectioning_base_level());
               } else {
                 $texinfo_manual = _protect_text(_pod_title_to_file_name($manual));
                 if (defined($section)) {
@@ -569,8 +569,8 @@ sub _convert_pod($)
             } elsif (defined($section) and $section =~ m/\S/) {
               $texinfo_node =
                $self->_section_manual_to_node_name(
-                                     $self->texinfo_short_title, $section, 
-                                     $self->texinfo_sectioning_base_level);
+                                     $self->texinfo_short_title(), $section,
+                                     $self->texinfo_sectioning_base_level());
               $texinfo_section = _normalize_texinfo_name(
                  _protect_comma(_protect_text($section)), 'section');
               #print STDERR "L: internal: $texinfo_node/$texinfo_section\n";
@@ -579,14 +579,14 @@ sub _convert_pod($)
                     _protect_comma(_protect_text($texinfo_node)), 'anchor');
             #print STDERR "L: normalized node: $texinfo_node\n";
 
-            # for pod, 'to' is the pod manual name.  Then 'section' is the 
+            # for pod, 'to' is the pod manual name.  Then 'section' is the
             # section.
           }
-          push @format_stack, [$linktype, $content_implicit, $url_arg, 
+          push @format_stack, [$linktype, $content_implicit, $url_arg,
                                $texinfo_manual, $texinfo_node, $texinfo_section];
           #if (defined($to)) {
           #  print STDERR " | $to\n";
-          #} else { 
+          #} else {
           #  print STDERR "\n";
           #}
           #print STDERR $token->dump."\n";
@@ -603,10 +603,10 @@ sub _convert_pod($)
         my $target = $token->attr('target');
         push @format_stack, $target;
         if ($self->{'texinfo_raw_format_commands'}->{$target}) {
-          _output($fh, \@accumulated_output, 
+          _output($fh, \@accumulated_output,
              "\@$self->{'texinfo_raw_format_commands'}->{$target}\n");
         } elsif ($self->{'texinfo_if_format_commands'}->{$target}) {
-          _output($fh, \@accumulated_output, 
+          _output($fh, \@accumulated_output,
              "\@if$self->{'texinfo_if_format_commands'}->{$target}\n");
         }
       }
@@ -657,7 +657,7 @@ sub _convert_pod($)
             my $anchor = '';
             my $node_name = _prepare_anchor($self, _node_name($self, $result));
             if ($node_name =~ /\S/) {
-              if ($tagname eq 'item-text' or !$self->texinfo_section_nodes) {
+              if ($tagname eq 'item-text' or !$self->texinfo_section_nodes()) {
                 $anchor = "\n\@anchor{$node_name}";
               } else {
                 $texinfo_node = "\@node $node_name\n";
@@ -667,14 +667,14 @@ sub _convert_pod($)
           } else {
             $command_argument = $result;
           }
-          _output($fh, \@accumulated_output, 
+          _output($fh, \@accumulated_output,
                   "$texinfo_node\@$command $command_argument\n$out\n");
         } elsif ($tagname eq 'Para') {
           _output($fh, \@accumulated_output, $out.
                                    _protect_hashchar($result)."\n\n");
         } elsif ($tagname eq 'L') {
           my $format = pop @format_stack;
-          my ($linktype, $content_implicit, $url_arg, 
+          my ($linktype, $content_implicit, $url_arg,
               $texinfo_manual, $texinfo_node, $texinfo_section) = @$format;
           if ($linktype ne 'man') {
             my $explanation;
@@ -683,11 +683,10 @@ sub _convert_pod($)
             }
             if ($linktype eq 'url') {
               if (defined($explanation)) {
-                _output($fh, \@accumulated_output, 
-                         "\@url{$url_arg,$explanation}");
+                _output($fh, \@accumulated_output,
+                        "\@url{$url_arg,$explanation}");
               } else {
-                _output($fh, \@accumulated_output, 
-                         "\@url{$url_arg}");
+                _output($fh, \@accumulated_output, "\@url{$url_arg}");
               }
             } elsif ($linktype eq 'pod') {
               if (defined($texinfo_manual)) {
@@ -698,7 +697,7 @@ sub _convert_pod($)
                 _output($fh, \@accumulated_output,
                        "\@ref{$texinfo_node,$explanation,$explanation}");
               } else {
-                if (defined($texinfo_section) 
+                if (defined($texinfo_section)
                     and $texinfo_section ne $texinfo_node) {
                   _output($fh, \@accumulated_output,
                            "\@ref{$texinfo_node,, $texinfo_section}");
@@ -738,10 +737,10 @@ sub _convert_pod($)
       } elsif ($tagname eq 'for') {
         my $target = pop @format_stack;
         if ($self->{'texinfo_raw_format_commands'}->{$target}) {
-          _output($fh, \@accumulated_output, 
+          _output($fh, \@accumulated_output,
                   "\n\@end $self->{'texinfo_raw_format_commands'}->{$target}\n");
         } elsif ($self->{'texinfo_if_format_commands'}->{$target}) {
-          _output($fh, \@accumulated_output, 
+          _output($fh, \@accumulated_output,
                   "\@end if$self->{'texinfo_if_format_commands'}->{$target}\n");
         }
       }
@@ -754,7 +753,7 @@ sub _postamble($)
   my $self = shift;
 
   my $fh = $self->{'output_fh'};
-  if ($self->texinfo_sectioning_base_level == 0) {
+  if ($self->texinfo_sectioning_base_level() == 0) {
     #print STDERR "$fh\n";
     print $fh "\@bye\n";
   }
@@ -788,7 +787,7 @@ This class is for making a Texinfo rendering of a Pod document.
 This is a subclass of L<Pod::Simple::PullParser> and inherits all its
 methods (and options).
 
-It supports producing a standalone manual per Pod (the default) or 
+It supports producing a standalone manual per Pod (the default) or
 render the Pod as a chapter, see L</texinfo_sectioning_base_level>.
 
 =head1 METHODS
@@ -797,14 +796,14 @@ render the Pod as a chapter, see L</texinfo_sectioning_base_level>.
 
 =item texinfo_sectioning_base_level
 
-Sets the level of the head1 commands.  1 is for the @chapter/@unnumbered 
-level.  If set to 0, the head1 commands level is still 1, but the output 
-manual is considered to be a standalone manual.  If not 0, the pod file is 
+Sets the level of the head1 commands.  1 is for the @chapter/@unnumbered
+level.  If set to 0, the head1 commands level is still 1, but the output
+manual is considered to be a standalone manual.  If not 0, the pod file is
 rendered as a fragment of a Texinfo manual.
 
 =item texinfo_man_url_prefix
 
-String used as a prefix for man page urls.  Default 
+String used as a prefix for man page urls.  Default
 is C<http://man.he.net/man>.
 
 =item texinfo_sectioning_style
@@ -816,11 +815,11 @@ lead to using appendix sectioning command variants (@appendix...).
 
 =item texinfo_add_upper_sectioning_command
 
-If set (the default case), a sectioning command is added at the beginning 
+If set (the default case), a sectioning command is added at the beginning
 of the output for the whole document, using the module name, at the level
 above the level set by L<texinfo_sectioning_base_level>.  So there will be
 a C<@part> if the level is equal to 1, a C<@chapter> if the level is equal
-to 2 and so on and so forth.  If the base level is 0, a C<@top> command is 
+to 2 and so on and so forth.  If the base level is 0, a C<@top> command is
 output instead.
 
 =item texinfo_section_nodes
