@@ -1,5 +1,26 @@
 2022-01-14  Patrice Dumas  <pertusus@free.fr>
 
+	Move section_level() to Common.pm to avoid circular dependency
+
+	* tp/Texinfo/Common.pm (section_level), tp/Texinfo/Convert/HTML.pm
+	(_convert_heading_command), tp/Texinfo/Convert/Text.pm (heading),
+	tp/Texinfo/Structuring.pm (sectioning_structure),
+	tp/Texinfo/Transformations.pm (fill_gaps_in_sectioning),
+	tp/init/book.pm: move
+	section_level() from Texinfo::Structuring to Texinfo::Common to
+	avoid a dependency of Texinfo::Convert::Text on Texinfo::Structuring.
+	This avoids a circular dependency, as Texinfo::Structuring depends on
+	Texinfo::Convert::NodeNameNormalization which depends on
+	Texinfo::Convert::Text.
+
+	* tp/Texinfo/Transformations.pm (new_master_menu): take directly
+	gdt() from Texinfo::Translations.
+
+	* tp/texi2any.pl: use $main_configuration for the configuration
+	source for Texinfo::Transformations::regenerate_master_menu().
+
+2022-01-14  Patrice Dumas  <pertusus@free.fr>
+
 	Improve links to internal pod without a section
 
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_convert_pod):

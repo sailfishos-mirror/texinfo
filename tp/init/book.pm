@@ -12,6 +12,10 @@ use strict;
 
 use vars qw($element_file_name);
 
+use Texinfo::Common;
+use Texinfo::Convert::Texinfo;
+use Texinfo::Structuring;
+
 texinfo_set_from_init_file('contents', 1);
 texinfo_set_from_init_file('CONTENTS_OUTPUT_LOCATION', 'inline');
 texinfo_set_from_init_file('USE_TITLEPAGE_FOR_TITLE', 1);
@@ -246,7 +250,7 @@ sub book_convert_heading_command($$$$$)
     # for *heading* @-commands which do not have a level
     # in the document as they are not associated with the
     # sectioning tree, but still have a $heading_level
-    $heading_level = Texinfo::Structuring::section_level($element);
+    $heading_level = Texinfo::Common::section_level($element);
   }
 
   my $heading = $self->command_text($element);

@@ -1315,6 +1315,7 @@ sub add_preamble_before_content($)
   unshift (@{$before_node_section->{'contents'}}, @first_types);
 }
 
+# for Parser and main program
 sub warn_unknown_language($) {
   my $lang = shift;
 
@@ -1345,6 +1346,7 @@ my %possible_split = (
   'node' => 1,
 );
 
+# main program
 sub warn_unknown_split($) {
   my $split = shift;
 
@@ -1396,6 +1398,9 @@ sub _count_opened_tree_braces($$)
   return $braces_count;
 }
 
+# used in Structuring in addition to Parser
+
+# retrieve a leading manual name in parentheses, if there is one.
 # $LABEL_CONTENTS_CONTAINER->{'contents'} is the Texinfo for the specification
 # of a node.  It is relevant in any situation when a label is expected,
 # @node, menu entry, float, anchor...  For the @node command, for instance,
@@ -1411,8 +1416,6 @@ sub _count_opened_tree_braces($$)
 # elements substituted the initial contents is also returned,
 # typically to replace $LABEL_CONTENTS_CONTAINER->{'contents'}
 # for consistency.
-#
-# retrieve a leading manual name in parentheses, if there is one.
 sub parse_node_manual($)
 {
   my $label_contents_container = shift;
@@ -1563,6 +1566,30 @@ sub set_output_encodings($$)
       $configuration_informations->set_conf('OUTPUT_PERL_ENCODING', $perl_encoding);
     }
   }
+}
+
+my $min_level = $command_structuring_level{'chapter'};
+my $max_level = $command_structuring_level{'subsubsection'};
+
+# Return numbered level of an element, as modified by raise/lowersections
+sub section_level($)
+{
+  my $section = shift;
+  my $level = $command_structuring_level{$section->{'cmdname'}};
+  # correct level according to raise/lowersections
+  if ($section->{'extra'} and $section->{'extra'}->{'sections_level'}) {
+    $level -= $section->{'extra'}->{'sections_level'};
+    if ($level < $min_level) {
+      if ($command_structuring_level{$section->{'cmdname'}} < $min_level) {
+        $level = $command_structuring_level{$section->{'cmdname'}};
+      } else {
+        $level = $min_level;
+      }
+    } elsif ($level > $max_level) {
+      $level = $max_level;
+    }
+  }
+  return $level;
 }
 
 sub trim_spaces_comment_from_content($)
@@ -2944,6 +2971,11 @@ because it appeared in a raw environment.
 In @*table @-commands, reassociate the index entry information from an index
 @-command appearing right after an @item line to the @item first element.
 Remove the index @-command from the tree.
+
+=item $level = section_level($section)
+
+Return numbered level of the tree sectioning I<$section>, as modified by
+raise/lowersections.
 
 =item set_output_encodings($configuration_informations, $parser_informations)
 

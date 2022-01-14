@@ -22,20 +22,17 @@ package Texinfo::Convert::Text;
 use 5.00405;
 use strict;
 
-# accent commands list.
+use File::Basename;
+
+use Data::Dumper;
+use Carp qw(cluck carp);
+
 use Texinfo::Common;
 use Texinfo::Convert::Unicode;
 # for debugging
 use Texinfo::Convert::Texinfo;
 # misc functions and data
 use Texinfo::Convert::Utils;
-
-#use Texinfo::Structuring;
-
-use Data::Dumper;
-use Carp qw(cluck carp);
-
-use File::Basename;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
@@ -314,7 +311,7 @@ sub heading($$$;$$)
   }
   my $section_level;
   if (!defined($current->{'structure'}->{'section_level'})) {
-    $section_level = Texinfo::Structuring::section_level($current);
+    $section_level = Texinfo::Common::section_level($current);
   } else {
     $section_level = $current->{'structure'}->{'section_level'};
   }

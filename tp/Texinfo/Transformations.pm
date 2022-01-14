@@ -29,6 +29,7 @@ use Carp qw(cluck);
 use List::Util qw(any);
 
 use Texinfo::Common;
+use Texinfo::Translations;
 use Texinfo::Structuring;
 
 require Exporter;
@@ -95,12 +96,12 @@ sub fill_gaps_in_sectioning($)
     }
     my $current_section = shift @sections_list;
     my $current_section_level
-       = Texinfo::Structuring::section_level($current_section);
+       = Texinfo::Common::section_level($current_section);
     my $next_section = $sections_list[0];
     
     if (defined($next_section)) {
       my $next_section_level
-                        = Texinfo::Structuring::section_level($next_section);
+                        = Texinfo::Common::section_level($next_section);
 
       if ($next_section_level - $current_section_level > 1) {
         my @correct_level_offset_commands = _correct_level($next_section,
@@ -584,21 +585,23 @@ sub new_master_menu($$)
   }
   if (scalar(@master_menu_contents)) {
     my $first_preformatted = $master_menu_contents[0]->{'contents'}->[0];
-    my $master_menu_title = $self->gdt(' --- The Detailed Node Listing ---');
+    my $master_menu_title = Texinfo::Translations::gdt($self,
+                                      ' --- The Detailed Node Listing ---');
     my @master_menu_title_contents;
     foreach my $content (@{$master_menu_title->{'contents'}}, {'text' => "\n"}) {
       $content->{'parent'} = $first_preformatted;
       push @master_menu_title_contents, $content;
     }
     unshift @{$first_preformatted->{'contents'}}, @master_menu_title_contents;
-    return Texinfo::Structuring::new_block_command(\@master_menu_contents, undef, 'detailmenu');
+    return Texinfo::Structuring::new_block_command(\@master_menu_contents, undef,
+                                                   'detailmenu');
   } else {
     return undef;
   }
 }
 
 # self is used to pass down a translatable object with customization
-# information to call gdt().
+# information for the gdt() call.
 sub regenerate_master_menu($$)
 {
   my $self = shift;

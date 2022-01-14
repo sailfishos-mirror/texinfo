@@ -1301,7 +1301,8 @@ while(@input_files) {
   }
 
   if ($tree_transformations{'regenerate_master_menu'}) {
-    Texinfo::Transformations::regenerate_master_menu($parser, $labels);
+    Texinfo::Transformations::regenerate_master_menu($main_configuration,
+                                                     $labels);
   }
 
   # this can be done for every format, since information is already gathered

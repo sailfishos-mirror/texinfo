@@ -26,18 +26,19 @@ use 5.00405;
 # See comment at start of HTML.pm
 use if $] >= 5.012, feature => 'unicode_strings';
 
+use Carp qw(cluck);
+
 use strict;
 
 use Texinfo::Common;
 
-# for debugging.  Also for index entries sorting.
-use Texinfo::Convert::Text;
 # for error messages 
 use Texinfo::Convert::Texinfo qw(node_extra_to_texi);
-
+# for debugging.  Also for index entries sorting.
+use Texinfo::Convert::Text;
+# for internal references and misc uses
 use Texinfo::Convert::NodeNameNormalization;
 
-use Carp qw(cluck);
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
@@ -89,31 +90,6 @@ $unnumbered_commands{'top'} = 1;
 $unnumbered_commands{'centerchap'} = 1;
 $unnumbered_commands{'part'} = 1;
 
-my $min_level = $command_structuring_level{'chapter'};
-my $max_level = $command_structuring_level{'subsubsection'};
-
-# Return numbered level of an element, as modified by raise/lowersections
-sub section_level($)
-{
-  my $section = shift;
-  my $level = $command_structuring_level{$section->{'cmdname'}};
-  # correct level according to raise/lowersections
-  if ($section->{'extra'} and $section->{'extra'}->{'sections_level'}) {
-    $level -= $section->{'extra'}->{'sections_level'};
-    if ($level < $min_level) {
-      if ($command_structuring_level{$section->{'cmdname'}} < $min_level) {
-        $level = $command_structuring_level{$section->{'cmdname'}};
-      } else {
-        $level = $min_level;
-      }
-    } elsif ($level > $max_level) {
-      $level = $max_level;
-    }
-  }
-  return $level;
-}
-
-
 # Go through the sectioning commands (e.g. @chapter, not @node), and
 # set:
 # 'section_level'
@@ -159,7 +135,8 @@ sub sectioning_structure($$$)
       }
     }
     my $level;
-    $level = $content->{'structure'}->{'section_level'} = section_level($content);
+    $level = $content->{'structure'}->{'section_level'}
+         = Texinfo::Common::section_level($content);
     if (!defined($level)) {
       warn "bug: level not defined for $content->{'cmdname'}\n";
       $level = $content->{'structure'}->{'section_level'} = 0;
@@ -1971,11 +1948,6 @@ Up, next and previous directions for the node.
 Number the floats as described in the Texinfo manual.  Sets
 the I<number> key in the C<structure> hash of the float
 tree elements.
-
-=item $level = section_level($section)
-
-Return numbered level of the tree sectioning I<$section>, as modified by
-raise/lowersections.
 
 =item $command_name = section_level_adjusted_command_name($element)
 
