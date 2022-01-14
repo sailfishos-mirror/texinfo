@@ -1,5 +1,13 @@
 2022-01-14  Patrice Dumas  <pertusus@free.fr>
 
+	Improve links to internal pod without a section
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_convert_pod):
+	use the pod manual as section name for internal links to avoid ending
+	up with the non informative 'NAME'.
+
+2022-01-14  Patrice Dumas  <pertusus@free.fr>
+
 	Update DevHelp TODO entry
 
 	* TODO: describe that the DevHelp XML format that would need to be

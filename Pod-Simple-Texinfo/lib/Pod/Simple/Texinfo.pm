@@ -508,6 +508,9 @@ sub _convert_pod($)
             # here, maybe this should be in the Texinfo HTML converter.
             # However, there is a 'man' category here and not in Texinfo,
             # so the information is more precise in pod.
+            # NOTE 3: the section within the man (and not the numeric section in the
+            # man page specification) whic is in $token->attr('section') is ignored.
+            # Maybe there would be a way to specify it, but it is not very important.
             my $replacement_arg = $token->attr('to').'';
             # regexp from Pod::Simple::HTML resolve_man_page_link
             # since it is very small, it is likely that copyright cannot be
@@ -538,20 +541,20 @@ sub _convert_pod($)
             $section .= '' if (defined($section));
             if (0) {
               my $section_text = 'UNDEF';
-              if (defined($section)) {
-                $section_text = $section;
-              }
+              $section_text = $section if (defined($section));
               my $manual_text = 'UNDEF';
-              if (defined($manual)) {
-                $manual_text = $manual;
-              }
-              print STDERR "L: $linktype $manual_text/$section_text\n";
+              $manual_text = $manual if (defined($manual));
+              print STDERR "L,M/S: $linktype $manual_text/$section_text\n";
             }
             if (defined($manual)) {
               if (! defined($section) or $section !~ m/\S/) {
                 if ($self->{'texinfo_internal_pod_manuals_hash'}->{$manual}) {
-                  # FIXME the rendering is not necessarily the best
                   $section = 'NAME';
+                  # use the manual name as texinfo section name, otherwise
+                  # it will be the section associated with the node, which is
+                  # the non informative 'NAME' section name
+                  $texinfo_section = _normalize_texinfo_name(
+                     _protect_comma(_protect_text($manual)), 'section');
                 }
               }
               if ($self->{'texinfo_internal_pod_manuals_hash'}->{$manual}) {
