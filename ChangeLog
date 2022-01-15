@@ -1,5 +1,21 @@
 2022-01-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl: set documentlanguage in main program configuration
+	as it is needed for regenerate_master_menu.
+
+	* tp/Texinfo/Config.pm (new, get_conf, set_conf): reset the additional
+	configuration each time new is called.  Add a flat to the
+	configuration to distinguish the standalone configuration as used
+	in the tests or the configuration for the main program.  For the main
+	program do not override command line.
+
+	* tp/Texinfo/Transformations.pm: mark the translation especially.
+
+	* .gitignore, tp/tests/Makefile.am,
+	tp/tests/many_input_files/Makefile.am: add new tests for many_input_files.
+
+2022-01-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%default_index_commands, %command_index),
 	tp/Texinfo/ParserNonXS.pm (%default_no_paragraph_commands)
 	(%default_valid_nestings): put two letter default @*index commands

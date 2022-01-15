@@ -484,22 +484,19 @@ sub GNUT_get_style_command_formatting($;$)
 # reference argument.
 package Texinfo::MainConfig;
 
-
-my $additional_conf = {};
-
 sub new(;$)
 {
   my $options = shift;
+  my $config;
   if (defined($options)) {
     # creates a new object based on input hash reference
-    %$additional_conf = %$options;
-    bless $additional_conf;
-    return $additional_conf;
+    $config = {'standalone' => 1, 'config' => {%$options}};
   } else {
     # use Texinfo::Config
-    bless $cmdline_options;
-    return $cmdline_options;
+    $config = {'standalone' => 0, 'config' => {}};
   }
+  bless $config;
+  return $config;
 }
 
 sub get_conf($$)
@@ -507,10 +504,25 @@ sub get_conf($$)
   my $self = shift;
   my $var = shift;
 
-  if (defined($additional_conf->{$var})) {
-    return $additional_conf->{$var};
+  if ($self->{'standalone'}) {
+    if (defined($self->{'config'}->{$var})) {
+      return $self->{'config'}->{$var};
+    }
+  } else {
+    # as get_conf, but with self having precedence on
+    # main program defaults
+    if (exists($cmdline_options->{$var})) {
+      return $cmdline_options->{$var};
+    } elsif (exists($init_files_options->{$var})) {
+      return $init_files_options->{$var};
+    } elsif (exists($self->{'config'}->{$var})) {
+      return $self->{'config'}->{$var};
+    } elsif (exists($main_program_default_options->{$var})) {
+      return $main_program_default_options->{$var};
+    } else {
+      return undef;
+    }
   }
-  return Texinfo::Config::texinfo_get_conf($var);
 }
 
 sub set_conf($$$)
@@ -518,8 +530,7 @@ sub set_conf($$$)
   my $self = shift;
   my $var = shift;
   my $val = shift;
-  # overrides command line
-  $additional_conf->{$var} = $val;
+  $self->{'config'}->{$var} = $val;
 }
 
 

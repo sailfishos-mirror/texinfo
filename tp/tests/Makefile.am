@@ -28,6 +28,7 @@ SUBDIRS = . many_input_files
 
 copy-tests:
 	$(srcdir)/parser_tests.sh -copy $(base_tests)
+	cd many_input_files && $(MAKE) copy-tests
 
 copy-tex-html:
 	$(srcdir)/parser_tests.sh -copy $(tex_html_tests)

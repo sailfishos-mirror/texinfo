@@ -779,7 +779,8 @@ sub parser(;$$)
 # simple parser initialization.  The only difference with a regular parser
 # is that the dynamical @-commands groups and indices informations that are
 # initialized in each regular parser are initialized once for all and shared
-# among simple parsers.
+# among simple parsers.  It is used in gdt() and this has a sizable effect
+# on performance.
 my $simple_parser_line_commands = dclone(\%line_commands);
 my $simple_parser_valid_nestings = dclone(\%default_valid_nestings);
 my $simple_parser_no_paragraph_commands = { %default_no_paragraph_commands };
@@ -959,6 +960,7 @@ sub _set_global_informations($)
 {
   my $self = shift;
 
+  #if ($self->{'novalidate'}
   if ($self->get_conf('novalidate')
       or $self->global_commands_information()->{'novalidate'}) {
     $self->{'info'}->{'novalidate'} = 1;

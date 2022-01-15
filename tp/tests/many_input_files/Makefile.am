@@ -10,12 +10,18 @@
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 EXTRA_DIST = $(TESTS) \
-  tex_l2h_res tex_t4ht_res
+  tex_l2h_res tex_t4ht_res different_encodings_res different_languages_gen_master_menu_res \
+  input_files/no_master_menu_fr.texi \
+  input_files/no_master_menu_no_documentlanguage.texi
 
-TESTS = tex_l2h.sh tex_t4ht.sh
+
+TESTS = tex_l2h.sh tex_t4ht.sh \
+  different_encodings.sh different_languages_gen_master_menu.sh
 AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; top_srcdir="$(top_srcdir)"; export top_srcdir; builddir="$(builddir)"; export buildir; top_builddir="$(top_builddir)"; export top_builddir;
 
 tex_html_dirs = tex_l2h tex_t4ht
+
+tests_dirs = different_encodings different_languages_gen_master_menu
 
 long-checks: all
 	$(MAKE) $(AM_MAKEFLAGS) check LONG_TESTS=yes
@@ -38,12 +44,26 @@ copy-tex-html:
 		fi; \
 	done
 
+copy-tests:
+	for dir in $(tests_dirs); do \
+		if [ -d "$$dir" ]; then \
+			if [ -d "${srcdir}/$${dir}_res" ]; then \
+				rm -f "${srcdir}/$${dir}_res/"*.* ;\
+			else \
+				mkdir "${srcdir}/$${dir}_res/" ; \
+			fi ;\
+			cp -p "$$dir/"*.* "${srcdir}/$${dir}_res/"; \
+		else \
+			echo "No dir $$dir/"; \
+		fi; \
+	done
+
 DISTCLEANFILES = *.log
 
 distclean-local:
-	rm -rf diffs $(tex_html_dirs) raw_out
+	rm -rf diffs $(tex_html_dirs) $(tests_dirs) raw_out
 
 dist-hook:
-	for dir in $(tex_html_dirs); do \
+	for dir in $(tex_html_dirs) $(tests_dirs); do \
 		rm -rf `find "$(distdir)/$${dir}_res" -name .git` ;\
 	done

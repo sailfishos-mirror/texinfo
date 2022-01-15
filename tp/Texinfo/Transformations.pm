@@ -559,6 +559,13 @@ sub _print_down_menus($$)
   return @master_menu_contents;
 }
 
+if (0) {
+  # it is needed to mark the translation as gdt is called like
+  # Texinfo::Translations::gdt($self, ' --- The Detailed Node Listing ---')
+  # and not like gdt(' --- The Detailed Node Listing ---')
+  gdt(' --- The Detailed Node Listing ---');
+}
+
 sub new_master_menu($$)
 {
   my $self = shift;

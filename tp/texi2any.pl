@@ -400,10 +400,6 @@ my $parser_options = {'values' => {'txicommandconditionals' => 1}};
 my $init_files_options = Texinfo::Config::GNUT_initialize_config(
       $real_command_name, $main_program_default_options, $cmdline_options);
 
-# setup a configuration object which defines get_conf and gives the same as
-# get_conf() in main program
-my $main_configuration = Texinfo::MainConfig::new();
-
 # read initialization files.  Better to do that after
 # Texinfo::Config::GNUT_initialize_config() in case loaded
 # files replace default options.
@@ -1206,8 +1202,27 @@ while(@input_files) {
     Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
   }
 
+  # setup a configuration object which defines get_conf and gives the same as
+  # get_conf() in main program
+  my $main_configuration = Texinfo::MainConfig::new();
+
   my $parser_informations = $parser->global_informations();
+  # encoding is needed for output files
+  # encoding and documentlanguage are needed for gdt() in regenerate_master_menu
   Texinfo::Common::set_output_encodings($main_configuration, $parser_informations);
+  my $global_commands = $parser->global_commands_information();
+  # FIXME this is a kind of simplified version of
+  # Texinfo::Convert::Converter::set_global_document_commands
+  # setup a full version in Common.pm
+  if (not defined($main_configuration->get_conf('documentlanguage'))) {
+    if (defined($global_commands->{'documentlanguage'})) {
+      my $element = $global_commands->{'documentlanguage'}->[0];
+      my $document_language = $element->{'extra'}->{'text_arg'};
+      if (defined($document_language)) {
+        $main_configuration->set_conf('documentlanguage', $document_language);
+      }
+    }
+  }
 
   if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
     require Texinfo::Convert::Texinfo;
@@ -1284,7 +1299,6 @@ while(@input_files) {
             = Texinfo::Structuring::sectioning_structure($registrar,
                                                $main_configuration, $tree);
 
-  my $global_commands = $parser->global_commands_information();
   if ($sectioning_root) {
     $structure_informations->{'sectioning_root'} = $sectioning_root;
     $structure_informations->{'sections_list'} = $sections_list;
