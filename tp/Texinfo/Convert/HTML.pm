@@ -67,15 +67,16 @@ use File::Copy qw(copy);
 use Storable;
 
 use Texinfo::Common;
-use Texinfo::Structuring;
-use Texinfo::Convert::Unicode;
-use Texinfo::Convert::Utils;
-use Texinfo::Convert::Texinfo;
-use Texinfo::Convert::Text;
-use Texinfo::Convert::Converter;
-use Texinfo::Convert::NodeNameNormalization;
-
 use Texinfo::Config;
+use Texinfo::Encoding;
+use Texinfo::Convert::Unicode;
+use Texinfo::Convert::Texinfo;
+use Texinfo::Convert::Utils;
+use Texinfo::Convert::Text;
+use Texinfo::Convert::NodeNameNormalization;
+use Texinfo::Structuring;
+use Texinfo::Convert::Converter;
+
 
 require Exporter;
 use vars qw($VERSION @ISA);
@@ -2320,6 +2321,8 @@ sub _convert_email_command($$$$)
 
 $default_commands_conversion{'email'} = \&_convert_email_command;
 
+# FIXME set and use 'explained_commands' converter state.  Should
+# there be an API instead?
 sub _convert_explained_command($$$$)
 {
   my $self = shift;

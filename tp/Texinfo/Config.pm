@@ -34,11 +34,15 @@ use Carp;
 # for __( and p__( and some functions
 use Texinfo::Common;
 
+
 # for error messages, passed from main program through initialization
 # function.
 my $real_command_name = '';
 
+
+#####################################################################
 # customization API, used from main program and from init files
+
 my $cmdline_options;
 my $main_program_default_options;
 my $init_files_options = {};
@@ -182,7 +186,7 @@ sub GNUT_set_main_program_default($$)
 }
 
 # called both from main program and init files, for %options_as_lists
-# options with lists set un main program.
+# options with lists set in main program.
 sub texinfo_add_to_option_list($$)
 {
   my $var = shift;
@@ -241,7 +245,7 @@ sub texinfo_add_valid_customization_option($)
 # Output format API.  Handled differently from customization option
 # because a function from main program need to be called on formats, so
 # there is a function called from the main program to get the format set
-# by in the init file.
+# in init files.
 
 my $init_file_format;
 sub texinfo_set_format_from_init_file($)

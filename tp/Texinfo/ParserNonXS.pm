@@ -749,7 +749,7 @@ sub _setup_parser {
     }
   }
   foreach my $explained_command(keys(%explained_commands)) {
-    if  (!defined($parser->{'explained_commands'}->{$explained_command})) {
+    if (!defined($parser->{'explained_commands'}->{$explained_command})) {
       $parser->{'explained_commands'}->{$explained_command} = {};
     }
   }
@@ -801,7 +801,7 @@ sub simple_parser(;$)
   $parser->{'close_preformatted_commands'} = $simple_parser_close_preformatted_commands;
 
   foreach my $explained_command(keys(%explained_commands)) {
-    if  (!defined($parser->{'explained_commands'}->{$explained_command})) {
+    if (!defined($parser->{'explained_commands'}->{$explained_command})) {
       $parser->{'explained_commands'}->{$explained_command} = {};
     }
   }

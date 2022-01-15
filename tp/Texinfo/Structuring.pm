@@ -1922,7 +1922,7 @@ is set, use section names instead of node names in menu.
 =item $entry = new_node_menu_entry($node, $use_sections)
 
 Returns the texinfo tree corresponding to a single menu entry pointing to
-I<$node>.  If I<$use_section> is set, use the section name instead of node name.
+I<$node>.  If I<$use_sections> is set, use the section name instead of node name.
 
 =item $top_node = nodes_tree($registrar, $configuration_informations, $parser_informations, $nodes_list, $labels)
 

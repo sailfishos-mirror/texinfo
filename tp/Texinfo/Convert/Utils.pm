@@ -303,7 +303,7 @@ __END__
 
 =head1 NAME
 
-Texinfo::Convert::Utils - miscellaneous functions usable in simple converters
+Texinfo::Convert::Utils - miscellaneous functions usable in all converters
 
 =head1 SYNOPSIS
 
@@ -325,8 +325,8 @@ No method is exported in the default case.
 
 Most methods takes a I<$converter> as argument, in general optionally,
 to get some information and use methods for error reporting,
-see L<Texinfo::Convert::Converter> and L<Texinfo::Report>.  Also
-to tranlate strings, see L<Texinfo::Translations>.
+see L<Texinfo::Convert::Converter> and L<Texinfo::Report>.
+On strings translations, see L<Texinfo::Translations>.
 
 =over
 
@@ -360,6 +360,8 @@ defined and false, no number is used and the text is returned as is.
 This function returns the heading with a number and the appendix
 part if needed.  If I<$converter> is not defined, the resulting
 string won't be translated.
+
+=back
 
 =head1 SEE ALSO
 

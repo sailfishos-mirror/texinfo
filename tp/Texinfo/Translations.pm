@@ -28,6 +28,12 @@ use Encode;
 use POSIX qw(setlocale LC_ALL);
 use Locale::Messages;
 
+# note that there is a circular dependency with the parser module, as
+# the parser uses complete_indices() from this modules, while this modules
+# can use a parser.  There is not problematic, however, as the
+# modules do not setup data such that their order of loading is not
+# important, as long as they load after their dependencies.
+
 # to be able to load a (simple) parser if none was given to gdt.
 use Texinfo::Parser;
 
@@ -197,7 +203,13 @@ sub gdt($$;$$$)
     # next line taken from libintl perl, copyright Guido. sub __expand
     $translation_result =~ s/\{($re)\}/\@txiinternalvalue\{$1\}/g;
   }
-  
+
+  # FIXME not sure if the added complexity of getting information from parser
+  # is worth it.  The current use case, that is allow to specify the state of
+  # clickstyle and kbdinputstyle is relevant (though not implemented in thet XS
+  # parser, but could be) but not necessarily determining.  Converters and
+  # users could easily avoir using @kbd and @click in the translated messages.
+
   # determine existing parser, if any
   my $current_parser;
   if ($self) {
@@ -208,11 +220,12 @@ sub gdt($$;$$$)
     }
   }
 
-  # Don't reuse the current parser itself, as (tested) the parsing goes
-  # wrong, certainly because the parsed text can affect the parser state.
+  # We never reuse a parser directly as it is cleaner to get only the
+  # relevant information (if any).  It could also mess with the parser
+  # state, though this has not been checked for a long time.
 
-  # configuration only found in parser.  Note that it is only available
-  # for the NonXS parser.
+  # configuration only found in parser, not available through get_conf().
+  # Note that it is only available for the NonXS parser.
   my $parser_conf;
   if ($current_parser) {
     foreach my $duplicated_conf ('clickstyle', 'kbdinputstyle') {
@@ -228,7 +241,8 @@ sub gdt($$;$$$)
       }
     }
   }
-  # accept @txiinternalvalue as a valid Texinfo command
+  # accept @txiinternalvalue as a valid Texinfo command, used to mark
+  # location in tree of substituted brace enclosed strings.
   $parser_conf->{'accept_internalvalue'} = 1;
   my $parser = Texinfo::Parser::simple_parser($parser_conf);
   if ($parser->{'DEBUG'}) {
@@ -400,11 +414,11 @@ described as it is described in details elsewhere.
 No method is exported.
 
 The C<gdt> method is used to translate strings to be output in
-converted documents, and return a texinfo tree.
+converted documents, and returns, in general, a texinfo tree.
 
 =over
 
-=item $tree = $converter->gdt($string, $replaced_substrings, $mode)
+=item $tree = $object->gdt($string, $replaced_substrings, $mode, $lang)
 
 The I<$string> is a string to be translated.  In the default case,
 the function returns a Texinfo tree, as the string is interpreted
@@ -415,6 +429,20 @@ reference identifies what is to be substituted, and the value is
 some string, texinfo tree or array content that is substituted in
 the resulting texinfo tree.  In the string to be translated word
 in brace matching keys of I<$replaced_substrings> are replaced.
+The I<$object> is typically a converter, but can be any object that implements
+C<get_conf()>, or undefined (C<undef>).  If not undefined, the information in the
+I<$object> is used to determine the encoding, the documentlanguage and get some
+configuration information. I<$lang> is optional. If set, it overrides the
+documentlanguage.
+
+=begin comment
+
+If the I<$object> is a parser or is associated to a parser some
+information may be used, but it is different for the NonXS and
+XS parser, and may also not be such a good idea, therefore no
+documentation.
+
+=end comment
 
 For example, in the following call, the string
 I<See {reference} in @cite{{book}}> is translated, then
@@ -425,9 +453,6 @@ replaced by the associated texinfo tree text element:
   $tree = $converter->gdt('See {reference} in @cite{{book}}',
                        {'reference' => $tree_reference,
                         'book'  => {'text' => $book_name}});
-
-C<gdt> uses the information in the I<$converter> to know the
-encoding and documentlanguage.
 
 C<gdt> uses a gettext-like infrastructure to retrieve the
 translated strings, using the I<texinfo_document> domain.

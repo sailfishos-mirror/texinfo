@@ -30,12 +30,14 @@ use 5.00405;
 use strict;
 use warnings;
 
-require Exporter;
+use Storable qw(dclone); # standard in 5.007003
 
 use Texinfo::Common;
 use Texinfo::Report;
 use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Translations;
+
+require Exporter;
 
 our @ISA = qw(Exporter);
 our %EXPORT_TAGS = ( 'all' => [ qw(
@@ -48,6 +50,8 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
+my %parser_default_configuration =
+  (%Texinfo::Common::default_parser_customization_values);
 
 sub get_conf($$)
 {
@@ -55,11 +59,6 @@ sub get_conf($$)
   my $var = shift;
   return $self->{$var};
 }
-
-my %parser_default_configuration =
-  (%Texinfo::Common::default_parser_customization_values);
-
-use Storable qw(dclone); # standard in 5.007003
 
 sub simple_parser {
   goto &parser;

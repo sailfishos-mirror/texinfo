@@ -52,7 +52,7 @@ sub import {
   goto &Exporter::import;
 }
 
-use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
+use vars qw($VERSION @EXPORT_OK %EXPORT_TAGS);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
   unicode_accent
@@ -1539,7 +1539,7 @@ sub string_width($)
   return unpack("U0%32A*", $string);
 
   if (! defined($string)) {
-    Carp::cluck();
+    cluck();
   }
   my $width = 0;
   foreach my $character(split '', $string) {
