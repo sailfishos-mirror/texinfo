@@ -1,6 +1,6 @@
 /* System definitions for code taken from the GNU C Library
 
-   Copyright 2017-2021 Free Software Foundation, Inc.
+   Copyright 2017-2022 Free Software Foundation, Inc.
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Lesser General Public
@@ -117,6 +117,9 @@
 # undef __THROW
 # undef __THROWNL
 # undef __attr_access
+# undef __attr_access_none
+# undef __attr_dealloc
+# undef __attr_dealloc_free
 # undef __attribute__
 # undef __attribute_alloc_size__
 # undef __attribute_artificial__

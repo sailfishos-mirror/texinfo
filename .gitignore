@@ -73,6 +73,7 @@ gnulib/lib/wctype.h
 gnulib/lib/math.h
 gnulib/lib/stddef.h
 gnulib/lib/limits.h
+gnulib/lib/malloc/dynarray.gl.h 
 
 tp/Texinfo/XS/gnulib/lib/inttypes.h
 

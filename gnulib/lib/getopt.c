@@ -1,5 +1,5 @@
 /* Getopt for GNU.
-   Copyright (C) 1987-2021 Free Software Foundation, Inc.
+   Copyright (C) 1987-2022 Free Software Foundation, Inc.
    This file is part of the GNU C Library and is also part of gnulib.
    Patches to this file should be submitted to both projects.
 
@@ -378,8 +378,8 @@ process_long_option (int argc, char **argv, const char *optstring,
 /* Initialize internal data upon the first call to getopt.  */
 
 static const char *
-_getopt_initialize (int argc _GL_UNUSED,
-		    char **argv _GL_UNUSED, const char *optstring,
+_getopt_initialize (_GL_UNUSED int argc,
+		    _GL_UNUSED char **argv, const char *optstring,
 		    struct _getopt_data *d, int posixly_correct)
 {
   /* Start processing options with ARGV-element 1 (since ARGV-element 0
