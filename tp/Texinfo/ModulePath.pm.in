@@ -77,9 +77,10 @@ sub init {
         'Texinfo', 'XS');
       unshift @INC, File::Spec->catdir($top_builddir, 'tp',
         'Texinfo', 'XS', 'parsetexi');
+
+      $builddir = File::Spec->catdir($top_builddir, 'tp');
     }
 
-    $builddir = File::Spec->catdir($top_builddir, 'tp');
   }
 
   if (defined($lib_dir)) {
