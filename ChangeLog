@@ -1,5 +1,13 @@
 2022-01-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization, parser)
+	(simple_parser): put 'regions_stack', 'macro_stack' and
+	'conditionals_stack' initialization in %parser_state_initialization.
+	remove 'explained_commands' state it is not used anywhere.
+	Merge _setup_parser() in parser().
+
+2022-01-15  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/tp_api/Makefile.am (tp_api_dependencies): add missing modules.
 
 2022-01-15  Patrice Dumas  <pertusus@free.fr>
