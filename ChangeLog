@@ -1,5 +1,21 @@
 2022-01-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%default_index_commands, %command_index),
+	tp/Texinfo/ParserNonXS.pm (%default_no_paragraph_commands)
+	(%default_valid_nestings): put two letter default @*index commands
+	in hashes in Texinfo::Common and in the ParserNonXS.
+
+	* tp/Texinfo/ParserNonXS.pm (parser, simple_parser)
+	(_register_global_command): no dynamic 'global_commands', use directly
+	%global_multiple_commands.
+
+	* tp/Texinfo/ParserNonXS.pm (parser): ignore code setting user defined
+	information, as it cannot happen now that the configuration keys are
+	not in %parser_state_configuration anymore, and also because there is
+	no such configuration possible in the XS parser.
+
+2022-01-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization, parser)
 	(simple_parser): put 'regions_stack', 'macro_stack' and
 	'conditionals_stack' initialization in %parser_state_initialization.

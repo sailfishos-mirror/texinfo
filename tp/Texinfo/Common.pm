@@ -623,6 +623,12 @@ foreach my $in_index_command ('sortas', 'seeentry', 'seealso', 'subentry') {
 }
 
 
+# Keys are commmands, values are names of indices.
+our %command_index;
+
+$command_index{'vtable'} = 'vr';
+$command_index{'ftable'} = 'fn';
+
 our %index_names = (
  'cp' => {'in_code' => 0},
  'fn' => {'in_code' => 1},
@@ -638,13 +644,12 @@ foreach my $index (keys(%index_names)) {
 }
 
 our %default_index_commands;
-# all the commands are readded dynamically in the Parser.
 foreach my $index_name (keys (%index_names)) {
-  if ($index_name =~ /^(.).$/) {
-    my $index_prefix = $1;
-    # only put the one letter versions in the hash.
-    $line_commands{$index_prefix.'index'} = 'line';
-    $default_index_commands{$index_prefix.'index'} = 1;
+  my $one_letter_prefix = substr($index_name, 0, 1);
+  foreach my $prefix ($index_name, $one_letter_prefix) {
+    $line_commands{$prefix.'index'} = 'line';
+    $default_index_commands{$prefix.'index'} = 1;
+    $command_index{$prefix.'index'} = $index_name;
   }
 }
 
@@ -838,12 +843,6 @@ my %index_type_def = (
  'vr' => ['defvr', 'deftypevr', 'defcv', 'deftypecv' ],
  'tp' => ['deftp']
 );
-
-# Keys are commmands, values are names of indices.
-our %command_index;
-
-$command_index{'vtable'} = 'vr';
-$command_index{'ftable'} = 'fn';
 
 foreach my $index_type (keys %index_type_def) {
   foreach my $def (@{$index_type_def{$index_type}}) {

@@ -322,23 +322,6 @@ foreach my $global_unique_command (
   $global_unique_commands{$global_unique_command} = 1;
 }
 
-my %index_names = %Texinfo::Common::index_names;
-
-# index names that cannot be set by the user.
-my %forbidden_index_name = ();
-
-foreach my $name (keys(%index_names)) {
-  $forbidden_index_name{$name} = 1;
-  if ($name =~ /^(.).$/) {
-    $forbidden_index_name{$1} = 1;
-  }
-}
-
-foreach my $other_forbidden_index_name ('info','ps','pdf','htm',
-   'html', 'log','aux','dvi','texi','txi','texinfo','tex','bib') {
-  $forbidden_index_name{$other_forbidden_index_name} = 1;
-}
-
 # @-commands that do not start a paragraph
 my %default_no_paragraph_commands;
 # @-commands that should be at the beginning of a line
@@ -528,6 +511,32 @@ foreach my $command (keys(%block_commands)) {
   }
 }
 
+# default indices
+my %index_names = %Texinfo::Common::index_names;
+
+# index names that cannot be set by the user.
+my %forbidden_index_name = ();
+
+foreach my $name (keys(%index_names)) {
+  $forbidden_index_name{$name} = 1;
+  if ($name =~ /^(.).$/) {
+    $forbidden_index_name{$1} = 1;
+  }
+}
+
+foreach my $index (keys(%index_names)) {
+  my $one_letter_prefix = substr($index, 0, 1);
+  foreach my $prefix ($index, $one_letter_prefix) {
+    $default_no_paragraph_commands{$prefix.'index'} = 1;
+    $default_valid_nestings{$prefix.'index'} = \%in_simple_text_commands;
+  }
+}
+
+foreach my $other_forbidden_index_name ('info','ps','pdf','htm',
+   'html', 'log','aux','dvi','texi','txi','texinfo','tex','bib') {
+  $forbidden_index_name{$other_forbidden_index_name} = 1;
+}
+
 # contexts on the context_stack stack where empty line doesn't trigger
 # a paragraph
 my %no_paragraph_contexts;
@@ -704,43 +713,49 @@ sub parser(;$$)
   $parser->{'close_paragraph_commands'} = {%close_paragraph_commands};
   $parser->{'close_preformatted_commands'} = {%close_preformatted_commands};
 
-  $parser->{'global_commands'} = {%global_multiple_commands};
-
+  
   # handle user provided state.
-  # REMARK the following code will not be used for user defined state
-  # if the corresponding key is ignored in _setup_conf() which is currently
-  # the case for the user provided informations in codes below.
-  #
-  # a hash is simply concatenated.  It should be like %index_names.
-  if (ref($parser->{'indices'}) eq 'HASH') {
-    %{$parser->{'index_names'}} = (%{$parser->{'index_names'}}, 
-                                   %{$parser->{'indices'}});
-  } else { # an array holds index names defined with @defindex
-    foreach my $name (@{$parser->{'indices'}}) {
-      $parser->{'index_names'}->{$name} = {'in_code' => 0};
+
+  # Currently not done, as none of the user provided configuration
+  # keys of interest are in %parser_state_configuration.  If this
+  # changes, the if (0) could be removed.  However, this setting of
+  # configuration is also not handled by the XS parser, which is
+  # again in favor of keeping the code ignored.
+  if (0) {
+    # REMARK the following code will not be used for user defined state
+    # if the corresponding key is ignored in _setup_conf()
+    #
+    # a hash is simply concatenated.  It should be like %index_names.
+    if (ref($parser->{'indices'}) eq 'HASH') {
+      %{$parser->{'index_names'}} = (%{$parser->{'index_names'}},
+                                     %{$parser->{'indices'}});
+    } else { # an array holds index names defined with @defindex
+      foreach my $name (@{$parser->{'indices'}}) {
+        $parser->{'index_names'}->{$name} = {'in_code' => 0};
+      }
     }
-  }
-  foreach my $index (keys (%{$parser->{'index_names'}})) {
-    if (!exists($parser->{'index_names'}->{$index}->{'name'})) {
-      $parser->{'index_names'}->{$index}->{'name'} = $index;
+    foreach my $index (keys (%{$parser->{'index_names'}})) {
+      if (!exists($parser->{'index_names'}->{$index}->{'name'})) {
+        $parser->{'index_names'}->{$index}->{'name'} = $index;
+      }
+      if (!exists($parser->{'index_names'}->{$index}->{'contained_indices'})) {
+        $parser->{'index_names'}->{$index}->{'contained_indices'}->{$index} = 1;
+      }
+      foreach my $prefix ($index, substr($index, 0, 1)) {
+        $parser->{'line_commands'}->{$prefix.'index'} = 'line';
+        $parser->{'no_paragraph_commands'}->{$prefix.'index'} = 1;
+        $parser->{'valid_nestings'}->{$prefix.'index'} = \%in_simple_text_commands;
+        $parser->{'command_index'}->{$prefix.'index'} = $index;
+      }
     }
-    if (!exists($parser->{'index_names'}->{$index}->{'contained_indices'})) {
-      $parser->{'index_names'}->{$index}->{'contained_indices'}->{$index} = 1;
-    }
-    foreach my $prefix ($index, substr($index, 0, 1)) {
-      $parser->{'line_commands'}->{$prefix.'index'} = 'line';
-      $parser->{'no_paragraph_commands'}->{$prefix.'index'} = 1;
-      $parser->{'valid_nestings'}->{$prefix.'index'} = \%in_simple_text_commands;
-      $parser->{'command_index'}->{$prefix.'index'} = $index;
-    }
-  }
-  if ($parser->{'merged_indices'}) {
-    foreach my $index_from (keys (%{$parser->{'merged_indices'}})) {
-      my $index_to = $parser->{'merged_indices'}->{$index_from};
-      if (defined($parser->{'index_names'}->{$index_from})
-          and defined($parser->{'index_names'}->{$index_to})) {
-        $parser->{'index_names'}->{$index_from}->{'merged_in'} = $index_to;
-        $parser->{'index_names'}->{$index_to}->{'contained_indices'}->{$index_from} = 1;
+    if ($parser->{'merged_indices'}) {
+      foreach my $index_from (keys (%{$parser->{'merged_indices'}})) {
+        my $index_to = $parser->{'merged_indices'}->{$index_from};
+        if (defined($parser->{'index_names'}->{$index_from})
+            and defined($parser->{'index_names'}->{$index_to})) {
+          $parser->{'index_names'}->{$index_from}->{'merged_in'} = $index_to;
+          $parser->{'index_names'}->{$index_to}->{'contained_indices'}->{$index_from} = 1;
+        }
       }
     }
   }
@@ -761,9 +776,10 @@ sub parser(;$$)
   return $parser;
 }
 
-# simple parser initialization, fit for strings of Texinfo, not whole 
-# documents, targetting speed.
-# all the simple_parsers share the dynamic informations
+# simple parser initialization.  The only difference with a regular parser
+# is that the dynamical @-commands groups and indices informations that are
+# initialized in each regular parser are initialized once for all and shared
+# among simple parsers.
 my $simple_parser_line_commands = dclone(\%line_commands);
 my $simple_parser_valid_nestings = dclone(\%default_valid_nestings);
 my $simple_parser_no_paragraph_commands = { %default_no_paragraph_commands };
@@ -787,8 +803,6 @@ sub simple_parser(;$)
   $parser->{'command_index'} = $simple_parser_command_index;
   $parser->{'close_paragraph_commands'} = $simple_parser_close_paragraph_commands;
   $parser->{'close_preformatted_commands'} = $simple_parser_close_preformatted_commands;
-
-  %{$parser->{'global_commands'}} = ();
 
   $parser->_init_context_stack();
 
@@ -1073,7 +1087,7 @@ sub registered_errors($)
 
 # Following are the internal subroutines.  The most important are
 # _parse_texi:  the main parser loop.
-# _end_line:    called at an end of line.  Handling of @include lines is 
+# _end_line:    called at an end of line.  Handling of @include lines is
 #               done here.
 # _next_text:   present the next text fragment, from pending text or line,
 #               as described above.
@@ -1125,7 +1139,7 @@ sub _register_global_command {
   if ($command eq 'summarycontents') {
     $command = 'shortcontents';
   }
-  if ($self->{'global_commands'}->{$command}) {
+  if ($global_multiple_commands{$command}) {
     push @{$self->{'commands_info'}->{$command}}, $current;
     $current->{'line_nr'} = $line_nr if (!$current->{'line_nr'});
     return 1;
