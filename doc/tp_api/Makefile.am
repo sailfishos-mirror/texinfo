@@ -15,6 +15,7 @@
 # cross-compiling.
 MAKEINFO = $(PERL) -I $(top_srcdir)/tp/ $(top_srcdir)/tp/texi2any.pl
 
+#info_TEXINFOS = tp_api.texi
 if BUILD_PERL_API_TEXI
 
 dist_info_TEXINFOS = tp_api.texi
@@ -30,15 +31,21 @@ BUILT_SOURCES = tp_api.texi
 
 #DISTCLEANFILES = tp_api.info
 
+# FIXME add?
+# $(top_srcdir)/tp/Texinfo/Transformations.pm
 tp_api_dependencies = \
-  $(top_srcdir)/tp/Texinfo/Common.pm $(top_srcdir)/tp/Texinfo/ParserNonXS.pm \
-  $(top_srcdir)/tp/Texinfo/Structuring.pm $(top_srcdir)/tp/Texinfo/Report.pm \
+  $(top_srcdir)/tp/Texinfo/Common.pm \
   $(top_srcdir)/tp/Texinfo/Encoding.pm \
+  $(top_srcdir)/tp/Texinfo/ParserNonXS.pm \
+  $(top_srcdir)/tp/Texinfo/Structuring.pm \
+  $(top_srcdir)/tp/Texinfo/Report.pm \
+  $(top_srcdir)/tp/Texinfo/Translations.pm \
+  $(top_srcdir)/tp/Texinfo/Convert/Texinfo.pm \
+  $(top_srcdir)/tp/Texinfo/Convert/Utils.pm \
+  $(top_srcdir)/tp/Texinfo/Convert/Unicode.pm \
   $(top_srcdir)/tp/Texinfo/Convert/NodeNameNormalization.pm \
   $(top_srcdir)/tp/Texinfo/Convert/Text.pm \
-  $(top_srcdir)/tp/Texinfo/Convert/Texinfo.pm \
   $(top_srcdir)/tp/Texinfo/Convert/Converter.pm \
-  $(top_srcdir)/tp/Texinfo/Convert/Unicode.pm \
   $(top_srcdir)/tp/Texinfo/Convert/Info.pm \
   $(top_srcdir)/tp/Texinfo/Convert/DocBook.pm \
   $(top_srcdir)/tp/Texinfo/Convert/TexinfoXML.pm \
