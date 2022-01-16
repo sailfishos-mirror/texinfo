@@ -1590,7 +1590,7 @@ $result_converted{'html_text'}->{'commands_in_flushright'} = '<div class="flushr
 </p><br>
 <br>
 
-<div class="example">
+<div class="example smallexample">
 <pre class="example-preformatted">in example
 </pre></div>
 

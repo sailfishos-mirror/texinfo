@@ -5,6 +5,15 @@
 
 2022-01-16  Patrice Dumas  <pertusus@free.fr>
 
+	Keep small* command information in extra classes in HTML
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_preformatted_command)
+	(_indent_with_table, _convert_indented_command)
+	(_convert_quotation_command): always use the non small
+	variant as the main class, add the small* variants as an extra class.
+
+2022-01-16  Patrice Dumas  <pertusus@free.fr>
+
 	Use /a regexp modifier in NonXS paragraph handling for Info
 
 	* tp/Texinfo/Convert/ParagraphNonXS.pm (add_text): use /a modifier

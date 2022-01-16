@@ -178,7 +178,7 @@ Less recent versions are also present.
 
 
 $result_converted{'html_text'}->{'noindent_after_smallexample'} = '<p>To obtain.
-</p><div class="example">
+</p><div class="example smallexample">
 <pre class="example-preformatted">$ wget \'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain\'
 $ wget \'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain\'
 </pre></div>

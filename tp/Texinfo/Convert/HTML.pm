@@ -3511,13 +3511,14 @@ foreach my $command (keys(%inline_commands)) {
   $default_commands_conversion{$command} = \&_convert_inline_command;
 }
 
-sub _indent_with_table($$$)
+sub _indent_with_table($$$;$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $content = shift;
+  my $extra_classes = shift;
 
-  return $self->html_attribute_class('table', $cmdname)
+  return $self->html_attribute_class('table', $cmdname, $extra_classes)
          .'><tr><td>'.$self->html_non_breaking_space().'</td><td>'.$content
                 ."</td></tr></table>\n";
 }
@@ -3529,22 +3530,20 @@ sub _convert_preformatted_command($$$$)
   my $cmdname = shift;
   my $command = shift;
   my $content = shift;
-  my $extra_classes;
+  my $extra_classes = [];
 
   # this is mainly for classes as there are purprosely no classes 
   # for small*
   my $main_cmdname;
   if ($small_alias{$cmdname}) {
     $main_cmdname = $small_alias{$cmdname};
+    push @$extra_classes, $cmdname;
   } else {
     $main_cmdname = $cmdname;
   }
 
-  if ($cmdname eq 'menu') {
-    $html_menu_entry_index = 0;
-  } elsif ($cmdname eq 'example') {
+  if ($cmdname eq 'example') {
     if ($command->{'args'}) {
-      $extra_classes = [];
       for my $example_arg (@{$command->{'args'}}) {
         # convert or remove all @-commands, using simple ascii and unicode 
         # characters
@@ -3555,14 +3554,14 @@ sub _convert_preformatted_command($$$$)
       }
     }
   } elsif ($main_cmdname eq 'lisp') {
+    push @$extra_classes, $main_cmdname;
     $main_cmdname = 'example';
-    $extra_classes = ['lisp'];
   }
 
   if ($content ne '' and !$self->in_string()) {
     if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')
         and $indented_preformatted_commands{$cmdname}) {
-      return _indent_with_table($self, $cmdname, $content);
+      return _indent_with_table($self, $cmdname, $content, $extra_classes);
     } else {
       return $self->html_attribute_class('div', $main_cmdname, $extra_classes)
                                                  .">\n".$content.'</div>'."\n";
@@ -3584,16 +3583,22 @@ sub _convert_indented_command($$$$)
   my $command = shift;
   my $content = shift;
 
-  # no class for @small* variants
-  $cmdname = $small_alias{$cmdname}
-    if $small_alias{$cmdname};
-  
+  my $extra_classes = [];
+
+  my $main_cmdname;
+  if ($small_alias{$cmdname}) {
+    push @$extra_classes, $cmdname;
+    $main_cmdname = $small_alias{$cmdname};
+  } else {
+    $main_cmdname = $cmdname;
+  }
   if ($content ne '' and !$self->in_string()) {
     if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')) {
-      return _indent_with_table($self, $cmdname, $content);
+      return _indent_with_table($self, $main_cmdname, $content, $extra_classes);
     } else {
-      return $self->html_attribute_class('blockquote', $cmdname).">\n"
-             .$content.'</blockquote>'."\n";
+      return $self->html_attribute_class('blockquote', $main_cmdname,
+                                         $extra_classes).">\n"
+                          . $content . '</blockquote>'."\n";
     }
   } else {
     return $content;
@@ -4007,6 +4012,16 @@ sub _convert_quotation_command($$$$$)
 
   $self->cancel_pending_formatted_inline_content($cmdname);
 
+  my $extra_classes = [];
+
+  my $main_cmdname;
+  if ($small_alias{$cmdname}) {
+    push @$extra_classes, $cmdname;
+    $main_cmdname = $small_alias{$cmdname};
+  } else {
+    $main_cmdname = $cmdname;
+  }
+
   my $attribution = '';
   if ($command->{'extra'} and $command->{'extra'}->{'authors'}) {
     # FIXME there is no easy way to mark with a class the @author
@@ -4020,7 +4035,7 @@ sub _convert_quotation_command($$$$$)
   }
 
   if (!$self->in_string()) {
-    return $self->html_attribute_class('blockquote', $cmdname)
+    return $self->html_attribute_class('blockquote', $main_cmdname, $extra_classes)
                           .">\n" . $content . "</blockquote>\n" . $attribution;
   } else {
     return $content.$attribution;
