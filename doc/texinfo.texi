@@ -14539,6 +14539,7 @@ and you can get it over the Internet or on physical media.  See
 @section Format with @command{texi2dvi}
 
 @pindex texi2dvi @r{(shell script)}
+@pindex texi2pdf @r{(shell script)}
 @cindex DVI, output in
 
 The @code{texi2dvi} program takes care of all the steps for producing

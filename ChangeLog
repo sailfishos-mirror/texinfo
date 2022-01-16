@@ -1,3 +1,8 @@
+2022-01-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Format with texi2dvi): Add index entry for
+	texi2pdf.
+
 2022-01-16  Patrice Dumas  <pertusus@free.fr>
 
 	Use /a regexp modifier in NonXS paragraph handling for Info
@@ -15,7 +20,7 @@
 	consider at least most non ascii spaces as chraracters and not spaces,
 	but also because it matches with the XS parser definition of spaces.
 
-2019-01-16  Gavin Smith  <gavinsmith0123@gmail.com>
+2022-01-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Figure spaces
 
@@ -59,7 +64,7 @@
 	translated as the call to gdt has a first argument that is not the
 	string to translate.
 
-2019-01-15  Gavin Smith  <gavinsmith0123@gmail.com>
+2022-01-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Update gnulib.
 
