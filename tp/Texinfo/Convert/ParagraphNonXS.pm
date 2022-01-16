@@ -311,7 +311,7 @@ sub add_text($$)
   my $protect_spaces_flag = $paragraph->{'protect_spaces'};
 
   my @segments = split
-/([^\S\x{202f}\x{00a0}]+)|(\p{InFullwidth})|((?:[^\s\p{InFullwidth}]|[\x{202f}\x{00a0}])+)/,
+/([^\S\x{202f}\x{00a0}]+)|(\p{InFullwidth})|((?:[^\s\p{InFullwidth}]|[\x{202f}\x{00a0}])+)/a,
     $text;
 
   # Check now if a newline exists anywhere in the string to
@@ -328,12 +328,14 @@ sub add_text($$)
     if ($debug_flag) {
       my $word = 'UNDEF';
       $word = $paragraph->{'word'} if (defined($paragraph->{'word'}));
-      print STDERR "p ($paragraph->{'counter'}+$paragraph->{'word_counter'}) s `"._print_escaped_spaces($paragraph->{'space'})."', w `$word'\n";
+      print STDERR "p ($paragraph->{'counter'}+$paragraph->{'word_counter'}) s `"
+          ._print_escaped_spaces($paragraph->{'space'})."', w `$word'\n";
       #print STDERR "TEXT: "._print_escaped_spaces($text)."|\n"
     }
     # \x{202f}\x{00a0} are non breaking spaces
     if (defined $spaces) {
-      print STDERR "SPACES($paragraph->{'counter'}) `"._print_escaped_spaces($spaces)."'\n" if $debug_flag;
+      print STDERR "SPACES($paragraph->{'counter'}) `"
+          ._print_escaped_spaces($spaces)."'\n" if $debug_flag;
       if ($protect_spaces_flag) {
         $paragraph->{'word'} .= $spaces;
         $paragraph->{'last_char'} = substr($spaces, -1);

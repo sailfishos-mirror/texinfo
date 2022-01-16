@@ -1,5 +1,12 @@
 2022-01-16  Patrice Dumas  <pertusus@free.fr>
 
+	Use /a regexp modifier in NonXS paragraph handling for Info
+
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (add_text): use /a modifier
+	to consider non ascii space as characters.
+
+2022-01-16  Patrice Dumas  <pertusus@free.fr>
+
 	Use /a regexp modifier to consider only ascii spaces in matching
 
 	* tp/Texinfo/ParserNonXS.pm: use /a modifier to match or exclude
