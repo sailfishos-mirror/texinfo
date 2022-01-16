@@ -39,7 +39,6 @@ po_document/*.gmo
 po_document/POTFILES
 po_document/remove-potcdate.sed
 po_document/stamp-po
-po_document/texinfo_document.pot
 
 gnulib/lib/charset.alias
 gnulib/lib/ref-add.sed

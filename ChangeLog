@@ -1,3 +1,14 @@
+2022-01-16  Patrice Dumas  <pertusus@free.fr>
+
+	Put texinfo_document.pot in git and update po files
+
+	* .gitignore, po_document/texinfo_document.pot: ship
+	po_document/texinfo_document.pot.  It is inconvenient as it changes
+	frequently if regenerated, but can help diagnose what is going on when
+	po files have not changed but po_document/texinfo_document.pot has.
+
+	* po_document/*.po: regenerate.
+
 2022-01-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Format with texi2dvi): Add index entry for
