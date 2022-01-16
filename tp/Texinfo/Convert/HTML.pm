@@ -4263,8 +4263,8 @@ sub _convert_tab_command ($$$$)
     }
   }
 
-  $content =~ s/^\s*//;
-  $content =~ s/\s*$//;
+  $content =~ s/^\s*//a;
+  $content =~ s/\s*$//a;
 
   if ($self->in_string()) {
     return $content;

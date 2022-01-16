@@ -1,3 +1,14 @@
+2019-01-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Figure spaces
+
+	* doc/texinfo.tex (\unicodechardefs): Add definition for
+	U+2007 FIGURE SPACE.  From Werner Lemberg.
+	* tp/Texinfo/Convert/HTML.pm (_convert_tab_command): Restrict
+	stripping whitespace to ASCII characters so that figure space
+	can be used for alignment in multitables.
+	* tp/t/21multitable.t (multitable_figure_space): New test.
+
 2022-01-16  Patrice Dumas  <pertusus@free.fr>
 
 	* po_document/POTFILES.in: add tp/Texinfo/Translations.pm.

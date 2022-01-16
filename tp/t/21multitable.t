@@ -196,6 +196,15 @@ my @test_invalid = (
 @item it
 @end multitable
 '],
+['multitable_figure_space',
+'@multitable {999999999} {xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx}
+@item '."\x{2007}\x{2007}\x{2007}55".' @tab explanation
+@item '."\x{2007}\x{2007}535".' @tab explanation
+@item 49303 @tab explanation
+@end multitable
+',
+{'test_formats' => ['html'],}
+],
 );
 
 foreach my $test (@test_cases) {

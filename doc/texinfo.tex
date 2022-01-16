@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-01-02.13}
+\def\texinfoversion{2022-01-16.13}
 %
 % Copyright 1985, 1986, 1988, 1990-2021 Free Software Foundation, Inc.
 %
@@ -10889,6 +10889,9 @@ directory should work if nowhere else does.}
   %
   \DeclareUnicodeCharacter{1EF8}{\~Y}%
   \DeclareUnicodeCharacter{1EF9}{\~y}%
+  %
+  % Exotic spaces
+  \DeclareUnicodeCharacter{2007}{\hphantom{0}}%
   %
   % Punctuation
   \DeclareUnicodeCharacter{2013}{--}%
