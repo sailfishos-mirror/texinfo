@@ -282,6 +282,14 @@ $result_trees{'multitable_figure_space'} = {
                 'type' => 'bracketed_multitable_prototype'
               }
             ],
+            'prototypes_line' => [
+              {},
+              {
+                'text' => ' ',
+                'type' => 'prototype_space'
+              },
+              {}
+            ],
             'spaces_before_argument' => ' '
           },
           'line_nr' => {
@@ -332,6 +340,8 @@ $result_trees{'multitable_figure_space'}{'contents'}[0]{'contents'}[0]{'contents
 $result_trees{'multitable_figure_space'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'multitable_figure_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'multitable_figure_space'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'multitable_figure_space'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'multitable_figure_space'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[1]{'contents'}[0] = $result_trees{'multitable_figure_space'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'multitable_figure_space'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes_line'}[0] = $result_trees{'multitable_figure_space'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'multitable_figure_space'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes_line'}[2] = $result_trees{'multitable_figure_space'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'multitable_figure_space'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multitable_figure_space'}{'contents'}[0];
 $result_trees{'multitable_figure_space'}{'contents'}[0]{'parent'} = $result_trees{'multitable_figure_space'};
 
@@ -355,49 +365,26 @@ $result_floats{'multitable_figure_space'} = {};
 
 
 
-$result_converted{'html'}->{'multitable_figure_space'} = '<!DOCTYPE html>
-<html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Untitled Document</title>
-
-<meta name="description" content="Untitled Document">
-<meta name="keywords" content="Untitled Document">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<style type="text/css">
-<!--
--->
-</style>
+$result_converted{'plaintext'}->{'multitable_figure_space'} = '   55       explanation
+  535       explanation
+49303       explanation
+';
 
 
-</head>
-
-<body lang="en">
-<table class="multitable">
+$result_converted{'html_text'}->{'multitable_figure_space'} = '<table class="multitable">
 <tbody><tr><td>   55</td><td>explanation</td></tr>
 <tr><td>  535</td><td>explanation</td></tr>
 <tr><td>49303</td><td>explanation</td></tr>
 </tbody>
 </table>
-
-
-
-</body>
-</html>
 ';
 
-$result_converted_errors{'html'}->{'multitable_figure_space'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
 
+$result_converted{'xml'}->{'multitable_figure_space'} = '<multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">999999999</columnprototype> <columnprototype bracketed="on">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</columnprototype></columnprototypes>
+<tbody><row><entry command="item" spaces=" "><para>   55 </para></entry><entry command="tab" spaces=" "><para>explanation
+</para></entry></row><row><entry command="item" spaces=" "><para>  535 </para></entry><entry command="tab" spaces=" "><para>explanation
+</para></entry></row><row><entry command="item" spaces=" "><para>49303 </para></entry><entry command="tab" spaces=" "><para>explanation
+</para></entry></row></tbody></multitable>
+';
 
 1;
