@@ -4263,6 +4263,7 @@ sub _convert_tab_command ($$$$)
     }
   }
 
+  # remove only ascii spaces to keep special formatting spaces
   $content =~ s/^\s*//a;
   $content =~ s/\s*$//a;
 

@@ -1,3 +1,13 @@
+2022-01-16  Patrice Dumas  <pertusus@free.fr>
+
+	Use /a regexp modifier to consider only ascii spaces in matching
+
+	* tp/Texinfo/ParserNonXS.pm: use /a modifier to match or exclude
+	only ascii spaces, as \s can also mean non ascii spaces.  In general
+	we want spaces to be only ascii spaces, because it makes more sense to
+	consider at least most non ascii spaces as chraracters and not spaces,
+	but also because it matches with the XS parser definition of spaces.
+
 2019-01-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Figure spaces
