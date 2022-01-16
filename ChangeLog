@@ -1,5 +1,9 @@
 2022-01-16  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/prove.sh: -I ../tp for Texinfo::ModulePath in builddir
+
+2022-01-16  Patrice Dumas  <pertusus@free.fr>
+
 	Put texinfo_document.pot in git and update po files
 
 	* .gitignore, po_document/texinfo_document.pot: ship
