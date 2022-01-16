@@ -318,6 +318,14 @@ sub _non_bracketed_contents($) {
   }
 }
 
+if (0) {
+  # it is needed to mark the translation as gdt is called like
+  # gdt($self, '....')
+  # and not like gdt('....')
+  gdt('{name} on {class}', undef, undef);
+  gdt('{name} of {class}', undef, undef);
+}
+
 # In a handful of cases, we delay storing the contents of the
 # index entry until now to avoid needing Texinfo::Translations::gdt
 # in the main code of Parser.pm.  Also set 'in_code' value on

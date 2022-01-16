@@ -1,3 +1,11 @@
+2022-01-16  Patrice Dumas  <pertusus@free.fr>
+
+	* po_document/POTFILES.in: add tp/Texinfo/Translations.pm.
+
+	* tp/Texinfo/Translations.pm: mark explicitly strings that are to be
+	translated as the call to gdt has a first argument that is not the
+	string to translate.
+
 2019-01-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Update gnulib.

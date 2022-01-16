@@ -9,6 +9,7 @@
 
 tp/Texinfo/Common.pm
 tp/Texinfo/Transformations.pm
+tp/Texinfo/Translations.pm
 tp/Texinfo/Convert/Converter.pm
 tp/Texinfo/Convert/DocBook.pm
 tp/Texinfo/Convert/IXIN.pm
