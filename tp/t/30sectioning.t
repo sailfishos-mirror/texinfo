@@ -2043,7 +2043,13 @@ my @test_out_files = (
 ', {'test_split' => 'node'}],
 ['character_and_spaces_in_refs_out',
 $character_and_spaces_in_refs_text,
-{'test_split' => 'node'}]
+{'test_split' => 'node'},],
+['topic_guide',
+  undef,
+  {'test_file' => 'topic_guide.texi',
+   'test_formats' => ['file_info'],}, # file_html is also added
+  {'FORMAT_MENU' => 'menu', } # add explicitely for the converter
+],
 );
 
 foreach my $test (@test_out_files) {
