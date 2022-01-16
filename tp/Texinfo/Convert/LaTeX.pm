@@ -3021,7 +3021,7 @@ sub _convert($$)
     # use of \usepackage{indentfirst} cannot be reverted.
     } elsif ($informative_commands{$cmdname}) {
 
-      $self->set_informative_command_value($element);
+      Texinfo::Common::set_informative_command_value($self, $element);
 
       if ($cmdname eq 'documentlanguage') {
         my $language = $self->get_conf('documentlanguage');

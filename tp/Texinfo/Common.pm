@@ -103,7 +103,6 @@ my %default_parser_common_customization = (
   'documentlanguage' => undef,  # not 'en' as it is better to specify that there is no
                                 # need for translation since the strings are in english
                                 # rather than ask for translations to en
-  'novalidate' => undef,   # --no-validate
   'EXPANDED_FORMATS' => [],
   'DEBUG' => 0,     # if >= 10, tree is printed in texi2any.pl after parsing.
                     # If >= 100 tree is printed every line.
@@ -1549,6 +1548,110 @@ sub locate_include_file($$)
   return $file;
 }
 
+sub _informative_command_value($)
+{
+  my $element = shift;
+
+  my $cmdname = $element->{'cmdname'};
+
+  if ($misc_commands{$cmdname} eq 'skipline') {
+    return 1;
+  } elsif (exists($element->{'extra'}->{'text_arg'})) {
+    return $element->{'extra'}->{'text_arg'};
+  } elsif ($element->{'extra'} and $element->{'extra'}->{'misc_args'}
+           and exists($element->{'extra'}->{'misc_args'}->[0])) {
+    return $element->{'extra'}->{'misc_args'}->[0];
+  }
+  return undef;
+}
+
+# REMARK documentencoding handling is not reverted by resetting
+# a value with set_conf, as the encodings are set using other
+# informations (possibly based on @documentencoding) in converter.
+sub set_informative_command_value($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  my $cmdname = $element->{'cmdname'};
+  $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
+
+  my $value = _informative_command_value($element);
+  if (defined($value)) {
+    $self->set_conf($cmdname, $value);
+  }
+}
+
+sub _in_preamble($)
+{
+  my $element = shift;
+  my $current_element = $element;
+  while ($current_element->{'parent'}) {
+    if (defined($current_element->{'parent'}->{'type'})
+        and $current_element->{'parent'}->{'type'} eq 'preamble_before_content') {
+      return 1;
+    }
+    $current_element = $current_element->{'parent'};
+  }
+  return 0;
+}
+
+# $COMMAND_LOCATION is 'last', 'preamble' or 'preamble_or_first'
+# 'preamble' means setting sequentially to the values in the preamble.
+# 'preamble_or_first'  means setting to the first value for the command
+# in the document if the first command is not in the preamble, else set
+# sequentially to the values in the preamble.
+# 'last' means setting to the last value for the command in the document.
+#
+# For unique command, the last may be considered to be the same as the first.
+#
+# Notice that the only effect is to use set_conf (directly or through
+# set_informative_command_value), no @-commands setting side effects are done
+# and associated customization variables are not set/reset either.
+sub set_global_document_command($$$$)
+{
+  my $self = shift;
+  my $global_commands_information = shift;
+  my $global_command = shift;
+  my $command_location = shift;
+
+  if ($command_location ne 'last' and $command_location ne 'preamble_or_first'
+      and $command_location ne 'preamble') {
+    warn "BUG: set_global_document_commands: unknown command_location: $command_location";
+  }
+
+  my $element;
+  if (defined($global_commands_information->{$global_command})
+      and ref($global_commands_information->{$global_command}) eq 'ARRAY') {
+    if ($command_location eq 'last') {
+      $element = $global_commands_information->{$global_command}->[-1];
+      set_informative_command_value($self, $element);
+    } else {
+      if ($command_location eq 'preamble_or_first'
+          and not _in_preamble($global_commands_information->{$global_command}->[0])) {
+        $element =
+          $global_commands_information->{$global_command}->[0];
+        set_informative_command_value($self, $element);
+      } else {
+        foreach my $command_element (@{$global_commands_information->{$global_command}}) {
+          if (_in_preamble($command_element)) {
+            $element = $command_element;
+            set_informative_command_value($self, $element);
+          } else {
+            last;
+          }
+        }
+      }
+    }
+  } elsif (defined($global_commands_information->{$global_command})) {
+    # unique command, first, preamble and last are the same
+    $element = $global_commands_information->{$global_command};
+    set_informative_command_value($self, $element);
+  }
+  return $element;
+}
+
+
 sub set_output_encodings($$)
 {
   my $configuration_informations = shift;
@@ -2975,6 +3078,43 @@ Remove the index @-command from the tree.
 
 Return numbered level of the tree sectioning I<$section>, as modified by
 raise/lowersections.
+
+=item $element = set_global_document_command($configuration_informations, $global_commands_information, $cmdname, $command_location)
+
+Set the Texinfo configuration option corresponding to I<$cmdname> in
+I<$configuration_informations>.  The I<$global_commands_information> should
+contain information about global commands in a Texinfo document, typically obtained
+from a parser, like L<Texinfo::Parser/$commands = global_commands_information($parser)>.
+I<$command_location> specifies where in the document the value should be taken from,
+for commands that may appear more than once. The possibilities are:
+
+=over
+
+=item last
+
+Set to the last value for the command.
+
+=item preamble
+
+Set sequentially to the values in the Texinfo preamble.
+
+=item preamble_or_first
+
+Set to the first value of the command if the first command is not
+in the Texinfo preamble, else set as with I<preamble>,
+sequentially to the values in the Texinfo preamble.
+
+=back
+
+The I<$element> returned is the last element that was used to set the
+configuration value, or C<undef> if no configuration value was found.
+
+=item set_informative_command_value($configuration_informations, $element)
+
+Set the Texinfo configuration option corresponding to the tree element
+I<$element>.  The command associated to the tree element should be
+a command that sets some information, such as C<@documentlanguage>,
+C<@contents> or C<@footnotestyle> for example.
 
 =item set_output_encodings($configuration_informations, $parser_informations)
 

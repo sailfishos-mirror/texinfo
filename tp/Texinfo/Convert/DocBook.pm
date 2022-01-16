@@ -614,7 +614,7 @@ sub _convert($$;$)
     } elsif (exists($docbook_misc_commands{$element->{'cmdname'}})) {
       #warn "  is dbk misc command\n";
       if ($docbook_global_commands{$element->{'cmdname'}}) {
-        $self->set_informative_command_value($element);
+        Texinfo::Common::set_informative_command_value($self, $element);
         return '';
       }
       my $docbook_element;

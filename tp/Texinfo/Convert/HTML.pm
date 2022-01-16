@@ -4777,7 +4777,7 @@ sub _convert_informative_command($$$$)
 
   return '' if ($self->in_string());
 
-  $self->set_informative_command_value($command);
+  Texinfo::Common::set_informative_command_value($self, $command);
 
   if ($cmdname eq 'documentlanguage') {
     $self->_translate_names();
@@ -4799,7 +4799,7 @@ sub _convert_contents_command
   return '' if ($self->in_string());
   $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
 
-  $self->set_informative_command_value($command);
+  Texinfo::Common::set_informative_command_value($self, $command);
 
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'
       and ($cmdname eq 'contents' or $cmdname eq 'shortcontents')

@@ -911,14 +911,17 @@ sub test($$)
 
   Texinfo::Common::set_output_encodings($main_configuration, $parser_informations);
 
+  my $global_commands = $parser->global_commands_information();
+  if ($global_commands->{'novalidate'}) {
+    $main_configuration->set_conf('novalidate', 1);
+  }
+
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   my $refs = $parser->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar,
                                         $main_configuration,
                                         $parser_informations, $labels, $refs);
   my $floats = $parser->floats_information();
-
-  my $global_commands = $parser->global_commands_information();
 
   my $structure_informations = {};
   my ($sectioning_root, $sections_list)

@@ -118,8 +118,7 @@ sub parser (;$$)
         set_debug($conf->{$key}) if $conf->{$key};
       } elsif ($key eq 'accept_internalvalue') {
         set_accept_internalvalue();
-      } elsif ($key eq 'novalidate'
-               or $key eq 'registrar') {
+      } elsif ($key eq 'registrar') {
         # no action needed
       } else {
         warn "ignoring parser configuration value \"$key\"\n";
@@ -230,11 +229,6 @@ sub parse_texi_file ($$)
   my $TREE = build_texinfo_tree ();
   get_parser_info ($self);
 
-  if ($self->get_conf('novalidate')
-      or $self->global_commands_information()->{'novalidate'}) {
-    $self->{'info'}->{'novalidate'} = 1;
-  }
-
   _associate_node_menus ($self, $TREE);
 
   my $before_node_section = $TREE->{'contents'}->[0];
@@ -301,12 +295,6 @@ sub parse_texi_piece($$;$$$$)
   get_parser_info($self);
   _associate_node_menus ($self, $tree);
 
-  # TODO remove
-  if ($self->get_conf('novalidate')
-      or $self->global_commands_information()->{'novalidate'}) {
-    $self->{'info'}->{'novalidate'} = 1;
-  }
-
   return $tree;
 }
 
@@ -336,11 +324,6 @@ sub parse_texi_text($$;$$$$)
   my $tree = build_texinfo_tree ();
 
   get_parser_info($self);
-
-  if ($self->get_conf('novalidate')
-      or $self->global_commands_information()->{'novalidate'}) {
-    $self->{'info'}->{'novalidate'} = 1;
-  }
 
   _associate_node_menus ($self, $tree);
 

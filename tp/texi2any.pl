@@ -1203,7 +1203,8 @@ while(@input_files) {
   }
 
   # setup a configuration object which defines get_conf and gives the same as
-  # get_conf() in main program
+  # get_conf() in main program.  It is for Structuring/Transformations methods
+  # needing access to the configuration information.
   my $main_configuration = Texinfo::MainConfig::new();
 
   my $parser_informations = $parser->global_informations();
@@ -1211,17 +1212,13 @@ while(@input_files) {
   # encoding and documentlanguage are needed for gdt() in regenerate_master_menu
   Texinfo::Common::set_output_encodings($main_configuration, $parser_informations);
   my $global_commands = $parser->global_commands_information();
-  # FIXME this is a kind of simplified version of
-  # Texinfo::Convert::Converter::set_global_document_commands
-  # setup a full version in Common.pm
   if (not defined($main_configuration->get_conf('documentlanguage'))) {
-    if (defined($global_commands->{'documentlanguage'})) {
-      my $element = $global_commands->{'documentlanguage'}->[0];
-      my $document_language = $element->{'extra'}->{'text_arg'};
-      if (defined($document_language)) {
-        $main_configuration->set_conf('documentlanguage', $document_language);
-      }
-    }
+    my $element = Texinfo::Common::set_global_document_command($main_configuration,
+       $global_commands, 'documentlanguage', 'preamble');
+  }
+  # relevant for many Structuring methods.
+  if ($global_commands->{'novalidate'}) {
+    $main_configuration->set_conf('novalidate', 1);
   }
 
   if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
@@ -1377,6 +1374,11 @@ while(@input_files) {
                             %$file_cmdline_options,
                             %$init_files_options };
 
+  # NOTE nothing set in $main_configuration is passed, which is
+  # clean, the Converters can find that information their way.
+  # It could be possible to pass some information if it allows
+  # for instance to have some consistent information for Structuring
+  # and Converters.
   $converter_options->{'parser'} = $parser;
   $converter_options->{'structuring'} = $structure_informations;
   $converter_options->{'output_format'} = $format;

@@ -959,12 +959,6 @@ sub _open_in {
 sub _set_global_informations($)
 {
   my $self = shift;
-
-  #if ($self->{'novalidate'}
-  if ($self->get_conf('novalidate')
-      or $self->global_commands_information()->{'novalidate'}) {
-    $self->{'info'}->{'novalidate'} = 1;
-  }
 }
 
 # parse a texi file
@@ -6084,10 +6078,6 @@ A string, the C<@kbdinputstyle> style.
 A string corresponding to a document language set by C<@documentlanguage>.
 It overrides the document C<@documentlanguage> informations, if present.
 
-=item novalidate
-
-As if C<@novalidate> appeared at the beginning of the document.
-
 =item registrar
 
 Texinfo::Report object reused by the parser to register errors.
@@ -6103,7 +6093,7 @@ Same as values set by C<@set>.
 
 =head2 Parsing Texinfo text
 
-There are three methods that may be called to parse some Texinfo code:
+Different methods may be called to parse some Texinfo code:
 C<parse_texi_line> for a line, C<parse_texi_piece> for a fragment of
 Texinfo, C<parse_texi_text> for a string corresponding to a full document
 and C<parse_texi_file> for a file.
@@ -6269,11 +6259,6 @@ C<input_perl_encoding> string is a corresponding perl encoding name.
 
 The name of the main Texinfo input file.
 
-=item novalidate
-
-If set, it means that C<@novalidate> was set in the document or as option
-for the parser, in general from the command-line.
-
 =back
 
 =back
@@ -6396,7 +6381,7 @@ The name of the @-command associated with the index entry.
 =item index_ignore_chars
 
 A hash reference with characters as keys and 1 as value.  Corresponds to
-the characters flaggued as ignored in key sorting in the document by
+the characters flagged as ignored in key sorting in the document by
 setting flags such as I<txiindexbackslashignore>.
 
 =begin comment
@@ -6809,8 +6794,13 @@ Content before nodes and sectioning commands at the beginning of C<document_root
 
 =item preamble_before_beginning
 
-This container holds the text appearing before the first content, including
+This container holds everything appearing before the first content, including
 the C<\input texinfo.tex> line and following blank lines.
+
+=item preamble_before_content
+
+This container holds everything appearing before the first formatted content,
+corresponding to the I<Texinfo preamble> in the Texinfo manual.
 
 =item preamble_before_setfilename
 
@@ -6906,7 +6896,7 @@ and
 
   Between entries
 
-will be in I<menu_comment>.
+will be in a I<menu_comment>.
 
 =item macro_name
 
@@ -7262,7 +7252,7 @@ C<@inlinefmtifelse>, and 1 for other commands.
 
 =head1 SEE ALSO
 
-L<Texinfo manual|http://www.gnu.org/s/texinfo/manual/texinfo/>
+L<Texinfo manual|http://www.gnu.org/software/texinfo/manual/texinfo/>.
 
 =head1 AUTHOR
 

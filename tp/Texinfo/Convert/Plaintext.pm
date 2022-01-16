@@ -2719,7 +2719,7 @@ sub _convert($$)
     # all the @-commands that have an information for the formatting, like
     # @paragraphindent, @frenchspacing...
     } elsif ($informative_commands{$command}) {
-      $self->set_informative_command_value($element);
+      Texinfo::Common::set_informative_command_value($self, $element);
       return '';
     } else {
       $unknown_command = 1;

@@ -446,7 +446,7 @@ sub set_menus_node_directions($$$$$$)
 
   return undef unless ($nodes_list and scalar(@{$nodes_list}));
 
-  my $check_menu_entries = (!$parser_informations->{'novalidate'}
+  my $check_menu_entries = (!$configuration_informations->get_conf('novalidate')
       and $configuration_informations->get_conf('FORMAT_MENU') eq 'menu');
 
   # First go through all the menus and set menu_up, menu_next and menu_prev,
@@ -763,7 +763,7 @@ sub nodes_tree($$$$$)
                = $labels->{$node_direction->{'normalized'}};
             $node->{'structure'}->{'node_'.$direction} = $node_target;
 
-            if (!$parser_informations->{'novalidate'}
+            if (!$configuration_informations->get_conf('novalidate')
                 and !_check_node_same_texinfo_code($node_target,
                                                    $node_direction)) {
               $registrar->line_warn($configuration_informations,
@@ -777,7 +777,7 @@ sub nodes_tree($$$$$)
                 $node->{'line_nr'});
             }
           } else {
-            if ($parser_informations->{'novalidate'}) {
+            if ($configuration_informations->get_conf('novalidate')) {
               $node->{'structure'}->{'node_'.$direction} = { 'extra' => $node_direction };
             } else {
               $registrar->line_error($configuration_informations,
@@ -1317,7 +1317,7 @@ sub associate_internal_references($$$$$)
       $node_arg->{'normalized'} = $normalized;
     }
     if (!defined($labels->{$node_arg->{'normalized'}})) {
-      if (!$parser_informations->{'novalidate'}) {
+      if (!$configuration_informations->get_conf('novalidate')) {
         $registrar->line_error($configuration_informations, 
             sprintf(__("\@%s reference to nonexistent node `%s'"),
                 $ref->{'cmdname'}, node_extra_to_texi($node_arg)),
@@ -1326,7 +1326,7 @@ sub associate_internal_references($$$$$)
     } else {
       my $node_target = $labels->{$node_arg->{'normalized'}};
       $ref->{'extra'}->{'label'} = $node_target;
-      if (!$parser_informations->{'novalidate'}
+      if (!$configuration_informations->get_conf('novalidate')
           and !_check_node_same_texinfo_code($node_target, $node_arg)) {
         $registrar->line_warn($configuration_informations,
            sprintf(__("\@%s to `%s', different from %s name `%s'"), 

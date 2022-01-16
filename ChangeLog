@@ -11,6 +11,31 @@
 
 2022-01-16  Patrice Dumas  <pertusus@free.fr>
 
+	Set novalidate in main program and use common code to set language
+
+	* tp/Texinfo/Common.pm (%default_parser_common_customization),
+	tp/Texinfo/ParserNonXS.pm (_set_global_informations),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser, parse_texi_file)
+	(parse_texi_piece, parse_texi_text),
+	tp/Texinfo/Structuring.pm (set_menus_node_directions, nodes_tree)
+	(associate_internal_references),
+	tp/texi2any.pl: do not set novalidate in parser info, instead set it
+	in main program in main configuration.  Remove novalidate from
+	parser options and inputs.
+
+	* tp/Texinfo/Common.pm (_informative_command_value)
+	(set_informative_command_value, _in_preamble)
+	(set_global_document_command), tp/Texinfo/Convert/Converter.pm
+	(set_global_document_commands),
+	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm,
+	tp/texi2any.pl: extract set_global_document_command from
+	set_global_document_commands in Texinfo::Convert::Converter
+	and move it, with set_informative_command_value to Texinfo::Common.
+	Use that code to set documentlanguage in main program configuration.
+
+2022-01-16  Patrice Dumas  <pertusus@free.fr>
+
 	* po_document/POTFILES.in: add tp/Texinfo/Translations.pm.
 
 	* tp/Texinfo/Translations.pm: mark explicitly strings that are to be
