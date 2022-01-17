@@ -185,6 +185,7 @@ mbrtowc (wchar_t * __restrict__ pwc, const char * __restrict__ mbs, size_t n,
     }
 }
 
+/* NOTE - not used at present */
 int
 iswspace (wint_t wc)
 {
@@ -866,8 +867,7 @@ xspara_add_text (char *text)
           continue;
         }
 
-      /* 00A0 and 202F are non-breaking spaces in Unicode. */
-      if (iswspace (wc) && wc != L'\x00a0' && wc != L'\x202f')
+      if (isspace (*p))
         {
           state.last_letter = L'\0';
 

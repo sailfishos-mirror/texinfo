@@ -542,20 +542,18 @@ sub _protect_sentence_ends ($) {
   my $text = shift;
   # Avoid suppressing end of sentence, by inserting a control character
   # in front of the full stop.  The choice of BS for this is arbitrary.
-  $text =~ s/(?<=[^[:upper:]])
+  $text =~ s/(?<=[^\p{Upper}])
              (?=[$end_sentence][$after_punctuation]*(?:\s|$))
-             /\x08/gx;
+             /\x08/xag;
 
   # Also insert a control character at end of string, to protect a full stop 
   # that may follow later.
 
-  #$text =~ s/(?<=[^[:upper:]][$after_punctuation]*)$/\x08/;
+  #$text =~ s/(?<=[^\p{Upper}\s][$after_punctuation]*)$/\x08/a;
   # Perl doesn't support "variable length lookbehind"
 
   $text = reverse $text;
-  $text =~ s/^(?=[$after_punctuation]*
-                 (?:[^[:upper:]\s]|[\x{202f}\x{00a0}]))
-            /\x08/x;
+  $text =~ s/^(?=[$after_punctuation]*(?:[^\p{Upper}\s]))/\x08/xa;
   $text = reverse $text;
 
   return $text;
