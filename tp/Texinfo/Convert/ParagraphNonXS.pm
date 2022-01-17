@@ -1,6 +1,6 @@
 # ParagraphNonXS.pm: handle paragraph text.
 #
-# Copyright 2010-2019 Free Software Foundation, Inc.
+# Copyright 2010-2022 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -311,8 +311,9 @@ sub add_text($$)
   my $protect_spaces_flag = $paragraph->{'protect_spaces'};
 
   my @segments = split
-/([^\S\x{202f}\x{00a0}]+)|(\p{InFullwidth})|((?:[^\s\p{InFullwidth}]|[\x{202f}\x{00a0}])+)/a,
+    /(\s+)|(\p{InFullwidth})|((?:[^\s\p{InFullwidth}])+)/a,
     $text;
+  # the /a flag limits the \s to ASCII spaces
 
   # Check now if a newline exists anywhere in the string to
   # try to eliminate regex checks later.
@@ -332,7 +333,6 @@ sub add_text($$)
           ._print_escaped_spaces($paragraph->{'space'})."', w `$word'\n";
       #print STDERR "TEXT: "._print_escaped_spaces($text)."|\n"
     }
-    # \x{202f}\x{00a0} are non breaking spaces
     if (defined $spaces) {
       print STDERR "SPACES($paragraph->{'counter'}) `"
           ._print_escaped_spaces($spaces)."'\n" if $debug_flag;

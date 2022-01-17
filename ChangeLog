@@ -1,3 +1,9 @@
+2022-01-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (add_text): Simplify regexp
+	by taking \x{202f} and \x{00a0} out, as these are not matched with
+	\s with the /a flag.
+
 2022-01-16  Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/prove.sh: -I ../tp for Texinfo::ModulePath in builddir
