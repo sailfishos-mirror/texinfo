@@ -2,6 +2,14 @@
 
 	ASCII spaces only
 
+	* tp/Texinfo/Convert/Plaintext.pm (_align_lines, _convert):
+	Use /a in regexps where \s or \S is used.  This also has a possible
+	performance benefit.
+
+2022-01-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	ASCII spaces only
+
 	* tp/Texinfo/XS/xspara.c (xspara_add_text): Call isspace instead
 	of iswspace to match change in ParagraphNonXS.pm.
 	* tp/Texinfo/Convert/Plaintext.pm (_protect_sentence_ends):
