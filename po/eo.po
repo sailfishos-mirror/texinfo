@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.6.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-01-18 21:16+0100\n"
+"POT-Creation-Date: 2022-01-18 21:29+0100\n"
 "PO-Revision-Date: 2021-03-17 15:12-0300\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -418,7 +418,7 @@ msgid "Try --help for more information.\n"
 msgstr "Por ricevi pli da informoj uzu la opcion “--help”.\n"
 
 #: info/info.c:859 install-info/install-info.c:2195
-#: Pod-Simple-Texinfo/pod2texi.pl:151 tp/texi2any.pl:785
+#: Pod-Simple-Texinfo/pod2texi.pl:151 tp/texi2any.pl:783
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -554,7 +554,7 @@ msgstr ""
 "  info -f ./UMO.info         eligi la dosieron ./UMO.info sen atenti 'dir'"
 
 #: info/info.c:1147 install-info/install-info.c:571
-#: Pod-Simple-Texinfo/pod2texi.pl:131 tp/texi2any.pl:774
+#: Pod-Simple-Texinfo/pod2texi.pl:131 tp/texi2any.pl:772
 msgid ""
 "Email bug reports to bug-texinfo@gnu.org,\n"
 "general questions and discussion to help-texinfo@gnu.org.\n"
@@ -2070,7 +2070,7 @@ msgstr "ne eblas krei dosierujon '%s': %s"
 msgid "%s: missing file argument\n"
 msgstr "%s: mankas dosiera argumento.\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1122
+#: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1120
 #, perl-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Por pluaj detaloj tajpu “%s --help”.\n"
@@ -2081,7 +2081,7 @@ msgid "%s: ignoring %s without content\n"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:361 Pod-Simple-Texinfo/pod2texi.pl:441
-#: tp/texi2any.pl:1436 tp/texi2any.pl:1485
+#: tp/texi2any.pl:1434 tp/texi2any.pl:1483
 #, perl-format
 msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: ne eblas malfermi %s por skribi: %s\n"
@@ -2093,7 +2093,7 @@ msgid "%s: could not open %s: %s\n"
 msgstr "@%s: ne eblas malfermi %s: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:402 Pod-Simple-Texinfo/pod2texi.pl:484
-#: tp/texi2any.pl:1404 tp/texi2any.pl:1505
+#: tp/texi2any.pl:1402 tp/texi2any.pl:1503
 #, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr "%s: eraro dum fermo de %s: %s\n"
@@ -3429,49 +3429,49 @@ msgstr ""
 "  -v, --verbose               rakonti kio estas farata\n"
 "      --version               montri informon pri versio kaj fini\n"
 
+#: tp/texi2any.pl:646
+msgid "Output format selection (default is to produce Info):"
+msgstr ""
+
+#: tp/texi2any.pl:647
+msgid "      --docbook               output Docbook XML rather than Info."
+msgstr ""
+
 #: tp/texi2any.pl:648
 #, fuzzy
-#| msgid ""
-#| "Output format selection (default is to produce Info):\n"
-#| "      --docbook               output Docbook XML rather than Info.\n"
-#| "      --html                  output HTML rather than Info.\n"
-#| "      --plaintext             output plain text rather than Info.\n"
-#| "      --xml                   output Texinfo XML rather than Info.\n"
-#| "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given "
-#| "output,\n"
-#| "                                after checking validity of TEXINFO-FILE.\n"
-msgid ""
-"Output format selection (default is to produce Info):\n"
-"      --docbook               output Docbook XML rather than Info.\n"
-"      --html                  output HTML rather than Info.\n"
-"      --latex                 output LaTeX rather than Info.\n"
-"      --plaintext             output plain text rather than Info.\n"
-"      --xml                   output Texinfo XML rather than Info.\n"
-"      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
-"                                after checking validity of TEXINFO-FILE.\n"
-msgstr ""
-"Por elekti celformon (defaŭlte Info-on):\n"
-"      --docbook               generi en DocBook anstataŭ en Info\n"
-"      --html                  generi en HTML anstataŭ en Info\n"
-"      --plaintext             generi platan tekston anstataŭ Info-on\n"
-"      --xml                   generi en Texinfo-XML anstataŭ en Info\n"
-"      --dvi, --dvipdf,\n"
-"      --ps, --pdf             uzi 'texi2dvi' por generi la indikatan "
-"eligon,\n"
-"                                post kontrolo de valideco de TEXINFO-"
-"DOSIERO\n"
+#| msgid " -h, --help   display this help and exit"
+msgid "      --html                  output HTML rather than Info."
+msgstr "  -h, --help        montri ĉi tiun helpon kaj eliri"
 
-#: tp/texi2any.pl:658
+#: tp/texi2any.pl:649
+msgid "      --latex                 output LaTeX rather than Info."
+msgstr ""
+
+#: tp/texi2any.pl:650
+msgid "      --plaintext             output plain text rather than Info."
+msgstr ""
+
+#: tp/texi2any.pl:651
+msgid "      --xml                   output Texinfo XML rather than Info."
+msgstr ""
+
+#: tp/texi2any.pl:652
+msgid ""
+"      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
+"                                after checking validity of TEXINFO-FILE."
+msgstr ""
+
+#: tp/texi2any.pl:656
 msgid "General output options:"
 msgstr ""
 
-#: tp/texi2any.pl:660
+#: tp/texi2any.pl:658
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename."
 msgstr ""
 
-#: tp/texi2any.pl:663
+#: tp/texi2any.pl:661
 msgid ""
 "      --no-headers            suppress node separators, Node: lines, and "
 "menus\n"
@@ -3483,19 +3483,19 @@ msgid ""
 "                                standard output by default."
 msgstr ""
 
-#: tp/texi2any.pl:669
+#: tp/texi2any.pl:667
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file."
 msgstr ""
 
-#: tp/texi2any.pl:672
+#: tp/texi2any.pl:670
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on."
 msgstr ""
 
-#: tp/texi2any.pl:675
+#: tp/texi2any.pl:673
 msgid ""
 "  -o, --output=DEST           output to DEST.\n"
 "                                With split output, create DEST as a "
@@ -3507,7 +3507,7 @@ msgid ""
 "                                Otherwise, DEST names the output file."
 msgstr ""
 
-#: tp/texi2any.pl:685
+#: tp/texi2any.pl:683
 #, fuzzy, perl-format
 #| msgid ""
 #| "Options for Info and plain text:\n"
@@ -3567,7 +3567,7 @@ msgstr ""
 "      --split-size=NOMBRO     fendi en dosieroj po NOMBRO bajtoj (defaŭlte "
 "%d)\n"
 
-#: tp/texi2any.pl:704
+#: tp/texi2any.pl:702
 msgid ""
 "Options for HTML:\n"
 "      --css-include=FILE      include FILE in HTML <style> output;\n"
@@ -3595,7 +3595,7 @@ msgstr ""
 "                                    ankroj; estas defaŭlta nur dum "
 "disfendado\n"
 
-#: tp/texi2any.pl:716
+#: tp/texi2any.pl:714
 msgid ""
 "Options for XML and Docbook:\n"
 "      --output-indent=VAL     does nothing, retained for compatibility.\n"
@@ -3603,7 +3603,7 @@ msgstr ""
 "Opcioj por XML kaj Docbook:\n"
 "      --output-indent=VALORO  (faras nenion; rekoniĝas por kongruo)\n"
 
-#: tp/texi2any.pl:719
+#: tp/texi2any.pl:717
 msgid ""
 "Options for DVI/PS/PDF:\n"
 "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n"
@@ -3611,7 +3611,7 @@ msgstr ""
 "Opcioj por DVI/PS/PDF:\n"
 "      --Xopt=OPCIO            doni tiu OPCIO al 'texi2dvi'; ripeteblas\n"
 
-#: tp/texi2any.pl:724
+#: tp/texi2any.pl:722
 msgid ""
 "Input file options:\n"
 "      --commands-in-node-names  does nothing, retained for compatibility.\n"
@@ -3629,7 +3629,7 @@ msgstr ""
 "  -P UJO        antaŭmeti dosierUJOn al la serĉvojo de @include\n"
 "  -U VAR        maldifini la variablon VAR, kiel per @clear\n"
 
-#: tp/texi2any.pl:734
+#: tp/texi2any.pl:732
 msgid ""
 "Conditional processing in input:\n"
 "  --ifdocbook       process @ifdocbook and @docbook even if\n"
@@ -3667,7 +3667,7 @@ msgstr ""
 "\n"
 "  Krome, ĉe la opcioj --no-ifFORMO, ja traktiĝas la pecoj sub @ifnotFORMO.\n"
 
-#: tp/texi2any.pl:753
+#: tp/texi2any.pl:751
 msgid ""
 "  The defaults for the @if... conditionals depend on the output format:\n"
 "  if generating Docbook, --ifdocbook is on and the others are off;\n"
@@ -3684,7 +3684,7 @@ msgstr ""
 "malaktivas;\n"
 "  kiam XML generiĝas, --ifxml aktivas kaj la ceteraj malaktivas.\n"
 
-#: tp/texi2any.pl:762
+#: tp/texi2any.pl:760
 msgid ""
 "Examples:\n"
 "  makeinfo foo.texi                      write Info to foo's @setfilename\n"
@@ -3717,58 +3717,58 @@ msgstr ""
 "  makeinfo --no-split UM.texi           Kreas unu Info-dosieron, kiom ajn "
 "grandan.\n"
 
-#: tp/texi2any.pl:808
+#: tp/texi2any.pl:806
 #, perl-format
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgstr "%s: Post “--footnote-style” estu “separate” aŭ “end”, ne “%s”.\n"
 
-#: tp/texi2any.pl:896
+#: tp/texi2any.pl:894
 #, perl-format
 msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
 msgstr ""
 "%s: Post “--paragraph-indent” estu nombro, “none” aŭ “asis”, ne “%s”.\n"
 
-#: tp/texi2any.pl:1010
+#: tp/texi2any.pl:1008
 #, perl-format
 msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
 msgstr ""
 "%s: dum generado de %s, eblas indiki nur unu enigan DOSIEROn kun opcio '-o'\n"
 
-#: tp/texi2any.pl:1014
+#: tp/texi2any.pl:1012
 msgid "--Xopt option without printed output"
 msgstr "opcio '--Xopt' indikatas sed ne fariĝas preseligo"
 
-#: tp/texi2any.pl:1030
+#: tp/texi2any.pl:1028
 #, perl-format
 msgid "unknown tree transformation %s"
 msgstr "nekonata arbotransformo %s"
 
-#: tp/texi2any.pl:1037
+#: tp/texi2any.pl:1035
 #, perl-format
 msgid "ignoring splitting for format %s"
 msgstr "ignoriĝas disfendo por aranĝo %s"
 
-#: tp/texi2any.pl:1121
+#: tp/texi2any.pl:1119
 #, perl-format
 msgid "%s: missing file argument.\n"
 msgstr "%s: mankas dosiera argumento.\n"
 
-#: tp/texi2any.pl:1192
+#: tp/texi2any.pl:1190
 msgid "fill_gaps_in_sectioning transformation return no result. No section?"
 msgstr ""
 "Transformo 'fill_gaps_in_sectioning()' ne donis rezulton. Neniu sekcio?"
 
-#: tp/texi2any.pl:1238
+#: tp/texi2any.pl:1236
 #, perl-format
 msgid "error on closing macro expand file %s: %s\n"
 msgstr "eraro dum fermo de %s (dosiero de makroaj etendoj): %s\n"
 
-#: tp/texi2any.pl:1243
+#: tp/texi2any.pl:1241
 #, perl-format
 msgid "could not open %s for writing: %s\n"
 msgstr "ne eblas malfermi %s por skribi: %s\n"
 
-#: tp/texi2any.pl:1279
+#: tp/texi2any.pl:1277
 msgid ""
 "insert_nodes_for_sectioning_commands transformation return no result. No "
 "section?"
@@ -3776,7 +3776,7 @@ msgstr ""
 "transformo 'insert_nodes_for_sectioning_commands()' ne donis rezulton.  "
 "Neniu sekcio?"
 
-#: tp/texi2any.pl:1429 tp/texi2any.pl:1478
+#: tp/texi2any.pl:1427 tp/texi2any.pl:1476
 #, perl-format
 msgid "%s: error on closing internal links file %s: %s\n"
 msgstr "%s: eraro dum fermo de %s (dosiero de internaj ligoj): %s\n"
@@ -3991,6 +3991,39 @@ msgstr "@dotless atendas argumenton 'i' aŭ 'j', ne '%s'"
 #: tp/Texinfo/XS/parsetexi/separator.c:557
 msgid "misplaced }"
 msgstr "misloka }"
+
+#, fuzzy
+#~| msgid ""
+#~| "Output format selection (default is to produce Info):\n"
+#~| "      --docbook               output Docbook XML rather than Info.\n"
+#~| "      --html                  output HTML rather than Info.\n"
+#~| "      --plaintext             output plain text rather than Info.\n"
+#~| "      --xml                   output Texinfo XML rather than Info.\n"
+#~| "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given "
+#~| "output,\n"
+#~| "                                after checking validity of TEXINFO-"
+#~| "FILE.\n"
+#~ msgid ""
+#~ "Output format selection (default is to produce Info):\n"
+#~ "      --docbook               output Docbook XML rather than Info.\n"
+#~ "      --html                  output HTML rather than Info.\n"
+#~ "      --latex                 output LaTeX rather than Info.\n"
+#~ "      --plaintext             output plain text rather than Info.\n"
+#~ "      --xml                   output Texinfo XML rather than Info.\n"
+#~ "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given "
+#~ "output,\n"
+#~ "                                after checking validity of TEXINFO-FILE.\n"
+#~ msgstr ""
+#~ "Por elekti celformon (defaŭlte Info-on):\n"
+#~ "      --docbook               generi en DocBook anstataŭ en Info\n"
+#~ "      --html                  generi en HTML anstataŭ en Info\n"
+#~ "      --plaintext             generi platan tekston anstataŭ Info-on\n"
+#~ "      --xml                   generi en Texinfo-XML anstataŭ en Info\n"
+#~ "      --dvi, --dvipdf,\n"
+#~ "      --ps, --pdf             uzi 'texi2dvi' por generi la indikatan "
+#~ "eligon,\n"
+#~ "                                post kontrolo de valideco de TEXINFO-"
+#~ "DOSIERO\n"
 
 #, perl-format
 #~ msgid "could not protect hash character in @%s"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-01-18 21:16+0100\n"
+"POT-Creation-Date: 2022-01-18 21:29+0100\n"
 "PO-Revision-Date: 2018-01-23 10:13+0800\n"
 "Last-Translator: Boyuan Yang <073plan@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -464,7 +464,7 @@ msgid "Try --help for more information.\n"
 msgstr "尝试 --更多的求助信息。\n"
 
 #: info/info.c:859 install-info/install-info.c:2195
-#: Pod-Simple-Texinfo/pod2texi.pl:151 tp/texi2any.pl:785
+#: Pod-Simple-Texinfo/pod2texi.pl:151 tp/texi2any.pl:783
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -642,7 +642,7 @@ msgstr ""
 "  info -f ./foo.info         显示文件 ./foo.info，而不是查找目录"
 
 #: info/info.c:1147 install-info/install-info.c:571
-#: Pod-Simple-Texinfo/pod2texi.pl:131 tp/texi2any.pl:774
+#: Pod-Simple-Texinfo/pod2texi.pl:131 tp/texi2any.pl:772
 msgid ""
 "Email bug reports to bug-texinfo@gnu.org,\n"
 "general questions and discussion to help-texinfo@gnu.org.\n"
@@ -2314,7 +2314,7 @@ msgstr "无法创建目录“%s”：%s"
 msgid "%s: missing file argument\n"
 msgstr "%s：遗漏文件参数。\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1122
+#: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1120
 #, perl-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "试用“%s --help”以获取更多信息。\n"
@@ -2325,7 +2325,7 @@ msgid "%s: ignoring %s without content\n"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:361 Pod-Simple-Texinfo/pod2texi.pl:441
-#: tp/texi2any.pl:1436 tp/texi2any.pl:1485
+#: tp/texi2any.pl:1434 tp/texi2any.pl:1483
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "%s: could not open %s for writing: %s\n"
@@ -2338,7 +2338,7 @@ msgid "%s: could not open %s: %s\n"
 msgstr "%s: 无法打开 --css-file: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:402 Pod-Simple-Texinfo/pod2texi.pl:484
-#: tp/texi2any.pl:1404 tp/texi2any.pl:1505
+#: tp/texi2any.pl:1402 tp/texi2any.pl:1503
 #, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr ""
@@ -3760,41 +3760,49 @@ msgstr ""
 "  -v, --verbose               解释都做了些什么。\n"
 "      --version               显示版本信息并退出。\n"
 
+#: tp/texi2any.pl:646
+msgid "Output format selection (default is to produce Info):"
+msgstr ""
+
+#: tp/texi2any.pl:647
+msgid "      --docbook               output Docbook XML rather than Info."
+msgstr ""
+
 #: tp/texi2any.pl:648
 #, fuzzy
-#| msgid ""
-#| "Output format selection (default is to produce Info):\n"
-#| "      --docbook               output Docbook XML rather than Info.\n"
-#| "      --html                  output HTML rather than Info.\n"
-#| "      --xml                   output Texinfo XML rather than Info.\n"
-#| "      --plaintext             output plain text rather than Info.\n"
-msgid ""
-"Output format selection (default is to produce Info):\n"
-"      --docbook               output Docbook XML rather than Info.\n"
-"      --html                  output HTML rather than Info.\n"
-"      --latex                 output LaTeX rather than Info.\n"
-"      --plaintext             output plain text rather than Info.\n"
-"      --xml                   output Texinfo XML rather than Info.\n"
-"      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
-"                                after checking validity of TEXINFO-FILE.\n"
-msgstr ""
-"输出格式选择 (默认生成 Info 文件)：\n"
-"      --docbook             输出 DocBook 而不是 Info。\n"
-"      --html                输出 HTML 而不是 Info。\n"
-"      --xml                 输出 XML (TexinfoML) 而不是 Info。\n"
-"      --plaintext           输出普通文本而不是 Info。\n"
+#| msgid "display this help and exit"
+msgid "      --html                  output HTML rather than Info."
+msgstr "显示该求助信息并退出"
 
-#: tp/texi2any.pl:658
+#: tp/texi2any.pl:649
+msgid "      --latex                 output LaTeX rather than Info."
+msgstr ""
+
+#: tp/texi2any.pl:650
+msgid "      --plaintext             output plain text rather than Info."
+msgstr ""
+
+#: tp/texi2any.pl:651
+msgid "      --xml                   output Texinfo XML rather than Info."
+msgstr ""
+
+#: tp/texi2any.pl:652
+msgid ""
+"      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
+"                                after checking validity of TEXINFO-FILE."
+msgstr ""
+
+#: tp/texi2any.pl:656
 msgid "General output options:"
 msgstr ""
 
-#: tp/texi2any.pl:660
+#: tp/texi2any.pl:658
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename."
 msgstr ""
 
-#: tp/texi2any.pl:663
+#: tp/texi2any.pl:661
 msgid ""
 "      --no-headers            suppress node separators, Node: lines, and "
 "menus\n"
@@ -3806,19 +3814,19 @@ msgid ""
 "                                standard output by default."
 msgstr ""
 
-#: tp/texi2any.pl:669
+#: tp/texi2any.pl:667
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file."
 msgstr ""
 
-#: tp/texi2any.pl:672
+#: tp/texi2any.pl:670
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on."
 msgstr ""
 
-#: tp/texi2any.pl:675
+#: tp/texi2any.pl:673
 msgid ""
 "  -o, --output=DEST           output to DEST.\n"
 "                                With split output, create DEST as a "
@@ -3830,7 +3838,7 @@ msgid ""
 "                                Otherwise, DEST names the output file."
 msgstr ""
 
-#: tp/texi2any.pl:685
+#: tp/texi2any.pl:683
 #, fuzzy, perl-format
 #| msgid ""
 #| "Options for Info and plain text:\n"
@@ -3886,7 +3894,7 @@ msgstr ""
 "                                “asis”，保留现有的对齐。\n"
 "      --split-size=NUM        在大小 NUM 的时候拆分 Info 文件 (默认为 %d)。\n"
 
-#: tp/texi2any.pl:704
+#: tp/texi2any.pl:702
 #, fuzzy
 #| msgid ""
 #| "Options for HTML:\n"
@@ -3917,19 +3925,19 @@ msgstr ""
 "      --transliterate-file-names\n"
 "                              以 ASCII 字义生成文件名。\n"
 
-#: tp/texi2any.pl:716
+#: tp/texi2any.pl:714
 msgid ""
 "Options for XML and Docbook:\n"
 "      --output-indent=VAL     does nothing, retained for compatibility.\n"
 msgstr ""
 
-#: tp/texi2any.pl:719
+#: tp/texi2any.pl:717
 msgid ""
 "Options for DVI/PS/PDF:\n"
 "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n"
 msgstr ""
 
-#: tp/texi2any.pl:724
+#: tp/texi2any.pl:722
 #, fuzzy
 #| msgid ""
 #| "Input file options:\n"
@@ -3955,7 +3963,7 @@ msgstr ""
 "  -P DIR                         将 DIR 追加到 @include 搜索路径之前。\n"
 "  -U VAR                         取消变量 VAR 的定义，就象 @clear。\n"
 
-#: tp/texi2any.pl:734
+#: tp/texi2any.pl:732
 #, fuzzy
 #| msgid ""
 #| "Conditional processing in input:\n"
@@ -4006,7 +4014,7 @@ msgstr ""
 "  --no-ifplaintext  不要处理 @ifplaintext 文本。\n"
 "  --no-iftex        不要处理 @iftex 和 @tex 文本。\n"
 
-#: tp/texi2any.pl:753
+#: tp/texi2any.pl:751
 #, fuzzy
 #| msgid ""
 #| "  The defaults for the @if... conditionals depend on the output format:\n"
@@ -4028,7 +4036,7 @@ msgstr ""
 "  如果生成普通文本，则 --ifplaintext 默认开启而其它默认关闭；\n"
 "  如果生成 XML，则 --ifxml 默认开启而其它默认关闭。\n"
 
-#: tp/texi2any.pl:762
+#: tp/texi2any.pl:760
 #, fuzzy
 #| msgid ""
 #| "Examples:\n"
@@ -4073,64 +4081,64 @@ msgstr ""
 "  makeinfo --number-sections foo.texi   输出带有编号的节的 Info\n"
 "  makeinfo --no-split foo.texi          输出单个 Info 文件而不论大小\n"
 
-#: tp/texi2any.pl:808
+#: tp/texi2any.pl:806
 #, perl-format
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgstr "%s：--footnote-style 的参数必须为“separate”或“end”，而不是“%s”。\n"
 
-#: tp/texi2any.pl:896
+#: tp/texi2any.pl:894
 #, perl-format
 msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
 msgstr "%s：--paragraph-indent 的参数必须为数值/“none”/“asis”，而不是“%s”。\n"
 
-#: tp/texi2any.pl:1010
+#: tp/texi2any.pl:1008
 #, perl-format
 msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
 msgstr ""
 
-#: tp/texi2any.pl:1014
+#: tp/texi2any.pl:1012
 msgid "--Xopt option without printed output"
 msgstr ""
 
-#: tp/texi2any.pl:1030
+#: tp/texi2any.pl:1028
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "unknown tree transformation %s"
 msgstr "未知的动作“%s”"
 
-#: tp/texi2any.pl:1037
+#: tp/texi2any.pl:1035
 #, perl-format
 msgid "ignoring splitting for format %s"
 msgstr ""
 
-#: tp/texi2any.pl:1121
+#: tp/texi2any.pl:1119
 #, perl-format
 msgid "%s: missing file argument.\n"
 msgstr "%s：遗漏文件参数。\n"
 
-#: tp/texi2any.pl:1192
+#: tp/texi2any.pl:1190
 msgid "fill_gaps_in_sectioning transformation return no result. No section?"
 msgstr ""
 
-#: tp/texi2any.pl:1238
+#: tp/texi2any.pl:1236
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing macro expand file %s: %s\n"
 msgstr "关闭输出文件“%s”时出错"
 
-#: tp/texi2any.pl:1243
+#: tp/texi2any.pl:1241
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not open %s for writing: %s\n"
 msgstr "%s: 无法打开 --css-file: %s"
 
-#: tp/texi2any.pl:1279
+#: tp/texi2any.pl:1277
 msgid ""
 "insert_nodes_for_sectioning_commands transformation return no result. No "
 "section?"
 msgstr ""
 
-#: tp/texi2any.pl:1429 tp/texi2any.pl:1478
+#: tp/texi2any.pl:1427 tp/texi2any.pl:1476
 #, fuzzy, perl-format
 #| msgid "%s: ignoring second internal links output `%s'.\n"
 msgid "%s: error on closing internal links file %s: %s\n"
@@ -4399,6 +4407,30 @@ msgstr "%c%s 的参数应为“i”或“j”，而不是“%c”"
 #| msgid "Misplaced %c"
 msgid "misplaced }"
 msgstr "错误放置的 %c"
+
+#, fuzzy
+#~| msgid ""
+#~| "Output format selection (default is to produce Info):\n"
+#~| "      --docbook               output Docbook XML rather than Info.\n"
+#~| "      --html                  output HTML rather than Info.\n"
+#~| "      --xml                   output Texinfo XML rather than Info.\n"
+#~| "      --plaintext             output plain text rather than Info.\n"
+#~ msgid ""
+#~ "Output format selection (default is to produce Info):\n"
+#~ "      --docbook               output Docbook XML rather than Info.\n"
+#~ "      --html                  output HTML rather than Info.\n"
+#~ "      --latex                 output LaTeX rather than Info.\n"
+#~ "      --plaintext             output plain text rather than Info.\n"
+#~ "      --xml                   output Texinfo XML rather than Info.\n"
+#~ "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given "
+#~ "output,\n"
+#~ "                                after checking validity of TEXINFO-FILE.\n"
+#~ msgstr ""
+#~ "输出格式选择 (默认生成 Info 文件)：\n"
+#~ "      --docbook             输出 DocBook 而不是 Info。\n"
+#~ "      --html                输出 HTML 而不是 Info。\n"
+#~ "      --xml                 输出 XML (TexinfoML) 而不是 Info。\n"
+#~ "      --plaintext           输出普通文本而不是 Info。\n"
 
 #, fuzzy, perl-format
 #~| msgid "macro `%s' previously defined"

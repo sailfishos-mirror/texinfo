@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.2\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-01-18 21:16+0100\n"
+"POT-Creation-Date: 2022-01-18 21:29+0100\n"
 "PO-Revision-Date: 2002-04-03 12:31+0300\n"
 "Last-Translator: Eli Zaretskii <eliz@gnu.org>\n"
 "Language-Team: Hebrew <eliz@gnu.org>\n"
@@ -459,7 +459,7 @@ msgid "Try --help for more information.\n"
 msgstr ".רתוי בר עדימ תגצהל --help הסנ\n"
 
 #: info/info.c:859 install-info/install-info.c:2195
-#: Pod-Simple-Texinfo/pod2texi.pl:151 tp/texi2any.pl:785
+#: Pod-Simple-Texinfo/pod2texi.pl:151 tp/texi2any.pl:783
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -553,7 +553,7 @@ msgid ""
 msgstr ""
 
 #: info/info.c:1147 install-info/install-info.c:571
-#: Pod-Simple-Texinfo/pod2texi.pl:131 tp/texi2any.pl:774
+#: Pod-Simple-Texinfo/pod2texi.pl:131 tp/texi2any.pl:772
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -2175,7 +2175,7 @@ msgstr "`%s' היקית תריציב (%s) הלקת"
 msgid "%s: missing file argument\n"
 msgstr ".ץבוק םש רסח %s תינכתל\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1122
+#: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1120
 #, perl-format
 msgid "Try `%s --help' for more information.\n"
 msgstr ".`%s --help' הסנ רתי טורפל\n"
@@ -2186,7 +2186,7 @@ msgid "%s: ignoring %s without content\n"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:361 Pod-Simple-Texinfo/pod2texi.pl:441
-#: tp/texi2any.pl:1436 tp/texi2any.pl:1485
+#: tp/texi2any.pl:1434 tp/texi2any.pl:1483
 #, fuzzy, perl-format
 #| msgid "%s: could not read (%s) and could not create (%s)\n"
 msgid "%s: could not open %s for writing: %s\n"
@@ -2198,7 +2198,7 @@ msgid "%s: could not open %s: %s\n"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:402 Pod-Simple-Texinfo/pod2texi.pl:484
-#: tp/texi2any.pl:1404 tp/texi2any.pl:1505
+#: tp/texi2any.pl:1402 tp/texi2any.pl:1503
 #, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr ""
@@ -3597,39 +3597,49 @@ msgstr ""
 "                    .תינכתה תלועפ לע טורפ גצה  -v, --verbose\n"
 "               .אצו הנכתה תסריג יבגל עדימ גצה      --version\n"
 
+#: tp/texi2any.pl:646
+msgid "Output format selection (default is to produce Info):"
+msgstr ""
+
+#: tp/texi2any.pl:647
+msgid "      --docbook               output Docbook XML rather than Info."
+msgstr ""
+
 #: tp/texi2any.pl:648
 #, fuzzy
-#| msgid ""
-#| "Output format selection (default is to produce Info):\n"
-#| "      --docbook             output DocBook rather than Info.\n"
-#| "      --html                output HTML rather than Info.\n"
-#| "      --xml                 output XML (TexinfoML) rather than Info.\n"
-msgid ""
-"Output format selection (default is to produce Info):\n"
-"      --docbook               output Docbook XML rather than Info.\n"
-"      --html                  output HTML rather than Info.\n"
-"      --latex                 output LaTeX rather than Info.\n"
-"      --plaintext             output plain text rather than Info.\n"
-"      --xml                   output Texinfo XML rather than Info.\n"
-"      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
-"                                after checking validity of TEXINFO-FILE.\n"
-msgstr ""
-"                                                         :טלפה טמרופ תריחב\n"
-"           .Info םוקמב DocBook טמרופב טלפ ןכה      --docbook\n"
-"              .Info םוקמב HTML טמרופב טלפ ןכה      --html\n"
-"               .Info םוקמב XML טמרופב טלפ ןכה      --xml\n"
+#| msgid "display this help and exit"
+msgid "      --html                  output HTML rather than Info."
+msgstr "תינכתהמ אצו הז הרזע ךסמ גצה"
 
-#: tp/texi2any.pl:658
+#: tp/texi2any.pl:649
+msgid "      --latex                 output LaTeX rather than Info."
+msgstr ""
+
+#: tp/texi2any.pl:650
+msgid "      --plaintext             output plain text rather than Info."
+msgstr ""
+
+#: tp/texi2any.pl:651
+msgid "      --xml                   output Texinfo XML rather than Info."
+msgstr ""
+
+#: tp/texi2any.pl:652
+msgid ""
+"      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
+"                                after checking validity of TEXINFO-FILE."
+msgstr ""
+
+#: tp/texi2any.pl:656
 msgid "General output options:"
 msgstr ""
 
-#: tp/texi2any.pl:660
+#: tp/texi2any.pl:658
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename."
 msgstr ""
 
-#: tp/texi2any.pl:663
+#: tp/texi2any.pl:661
 msgid ""
 "      --no-headers            suppress node separators, Node: lines, and "
 "menus\n"
@@ -3641,19 +3651,19 @@ msgid ""
 "                                standard output by default."
 msgstr ""
 
-#: tp/texi2any.pl:669
+#: tp/texi2any.pl:667
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file."
 msgstr ""
 
-#: tp/texi2any.pl:672
+#: tp/texi2any.pl:670
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on."
 msgstr ""
 
-#: tp/texi2any.pl:675
+#: tp/texi2any.pl:673
 msgid ""
 "  -o, --output=DEST           output to DEST.\n"
 "                                With split output, create DEST as a "
@@ -3665,7 +3675,7 @@ msgid ""
 "                                Otherwise, DEST names the output file."
 msgstr ""
 
-#: tp/texi2any.pl:685
+#: tp/texi2any.pl:683
 #, fuzzy, perl-format
 #| msgid ""
 #| "Options for Info and plain text:\n"
@@ -3716,7 +3726,7 @@ msgstr ""
 "      .רוקמב התיהש יפכ הזזה לע רומש ,`asis'\n"
 "     .(%d ח\"מרב) NUM לדוגב םיצבק-תתל Info קלח      --split-size=NUM\n"
 
-#: tp/texi2any.pl:704
+#: tp/texi2any.pl:702
 msgid ""
 "Options for HTML:\n"
 "      --css-include=FILE      include FILE in HTML <style> output;\n"
@@ -3730,19 +3740,19 @@ msgid ""
 "                                anchors; default is set only if split.\n"
 msgstr ""
 
-#: tp/texi2any.pl:716
+#: tp/texi2any.pl:714
 msgid ""
 "Options for XML and Docbook:\n"
 "      --output-indent=VAL     does nothing, retained for compatibility.\n"
 msgstr ""
 
-#: tp/texi2any.pl:719
+#: tp/texi2any.pl:717
 msgid ""
 "Options for DVI/PS/PDF:\n"
 "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n"
 msgstr ""
 
-#: tp/texi2any.pl:724
+#: tp/texi2any.pl:722
 #, fuzzy
 #| msgid ""
 #| "Input file options:\n"
@@ -3769,7 +3779,7 @@ msgstr ""
 "       .@include לש שופיח תמישר שארב DIR ףסוה  -P DIR\n"
 "      .@clear תדוקפב ומכ ,VAR הנתשמ תרדגה לטב  -U VAR\n"
 
-#: tp/texi2any.pl:734
+#: tp/texi2any.pl:732
 #, fuzzy
 #| msgid ""
 #| "Conditional processing in input:\n"
@@ -3811,7 +3821,7 @@ msgstr ""
 "                 .@ifplaintext-ב טסכט דבעת לא       --no-ifplaintext\n"
 "                .@tex-ו @iftex-ב טסכט דבעת לא       --no-iftex\n"
 
-#: tp/texi2any.pl:753
+#: tp/texi2any.pl:751
 #, fuzzy
 #| msgid ""
 #| "  The defaults for the @if... conditionals depend on the output format:\n"
@@ -3831,7 +3841,7 @@ msgstr ""
 "        .םילעפומ םניא רתיה לכו לעפומ --ifinfo  ,טסכט וא Info אוה טלפה םא\n"
 "           .םילעפומ םניא רתיה לכו לעפומ --ifplaintext  ,טסכט אוה טלפה םא\n"
 
-#: tp/texi2any.pl:762
+#: tp/texi2any.pl:760
 #, fuzzy
 #| msgid ""
 #| "Examples:\n"
@@ -3874,65 +3884,65 @@ msgstr ""
 "             תואקסיפ רורפס םע Info טלפ  makeinfo --number-sections foo.texi\n"
 "   היהיש לככ לודג ,דיחי ץבוקב Info טלפ  makeinfo --no-split foo.texi\n"
 
-#: tp/texi2any.pl:808
+#: tp/texi2any.pl:806
 #, perl-format
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgstr ""
 "%s: `%s' אל ,`end' וא `separate' תויהל --footnote-style לש טנמוגרא לע\n"
 
-#: tp/texi2any.pl:896
+#: tp/texi2any.pl:894
 #, perl-format
 msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
 msgstr ""
 "%s: `%s' אל ,`asis'/`none'/ירמונ תויהל --paragraph-indent לש טנמוגרא לע\n"
 
-#: tp/texi2any.pl:1010
+#: tp/texi2any.pl:1008
 #, perl-format
 msgid "%s: when generating %s, only one input FILE may be specified with -o\n"
 msgstr ""
 
-#: tp/texi2any.pl:1014
+#: tp/texi2any.pl:1012
 msgid "--Xopt option without printed output"
 msgstr ""
 
-#: tp/texi2any.pl:1030
+#: tp/texi2any.pl:1028
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "unknown tree transformation %s"
 msgstr "העודי הנניא `%s' הדוקפ"
 
-#: tp/texi2any.pl:1037
+#: tp/texi2any.pl:1035
 #, perl-format
 msgid "ignoring splitting for format %s"
 msgstr ""
 
-#: tp/texi2any.pl:1121
+#: tp/texi2any.pl:1119
 #, perl-format
 msgid "%s: missing file argument.\n"
 msgstr ".ץבוק םש רסח %s תינכתל\n"
 
-#: tp/texi2any.pl:1192
+#: tp/texi2any.pl:1190
 msgid "fill_gaps_in_sectioning transformation return no result. No section?"
 msgstr ""
 
-#: tp/texi2any.pl:1238
+#: tp/texi2any.pl:1236
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing macro expand file %s: %s\n"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tp/texi2any.pl:1243
+#: tp/texi2any.pl:1241
 #, perl-format
 msgid "could not open %s for writing: %s\n"
 msgstr ""
 
-#: tp/texi2any.pl:1279
+#: tp/texi2any.pl:1277
 msgid ""
 "insert_nodes_for_sectioning_commands transformation return no result. No "
 "section?"
 msgstr ""
 
-#: tp/texi2any.pl:1429 tp/texi2any.pl:1478
+#: tp/texi2any.pl:1427 tp/texi2any.pl:1476
 #, perl-format
 msgid "%s: error on closing internal links file %s: %s\n"
 msgstr ""
@@ -4182,6 +4192,29 @@ msgstr "`j' וא `i' תויהל בייח רשא ,%c%s לש טנמוגרא תויהל םיאתמ וניא `%c'"
 #| msgid "Misplaced %c"
 msgid "misplaced }"
 msgstr "ומוקמב וניאש %c"
+
+#, fuzzy
+#~| msgid ""
+#~| "Output format selection (default is to produce Info):\n"
+#~| "      --docbook             output DocBook rather than Info.\n"
+#~| "      --html                output HTML rather than Info.\n"
+#~| "      --xml                 output XML (TexinfoML) rather than Info.\n"
+#~ msgid ""
+#~ "Output format selection (default is to produce Info):\n"
+#~ "      --docbook               output Docbook XML rather than Info.\n"
+#~ "      --html                  output HTML rather than Info.\n"
+#~ "      --latex                 output LaTeX rather than Info.\n"
+#~ "      --plaintext             output plain text rather than Info.\n"
+#~ "      --xml                   output Texinfo XML rather than Info.\n"
+#~ "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given "
+#~ "output,\n"
+#~ "                                after checking validity of TEXINFO-FILE.\n"
+#~ msgstr ""
+#~ "                                                         :טלפה טמרופ "
+#~ "תריחב\n"
+#~ "           .Info םוקמב DocBook טמרופב טלפ ןכה      --docbook\n"
+#~ "              .Info םוקמב HTML טמרופב טלפ ןכה      --html\n"
+#~ "               .Info םוקמב XML טמרופב טלפ ןכה      --xml\n"
 
 #, fuzzy, perl-format
 #~| msgid "macro `%s' previously defined"

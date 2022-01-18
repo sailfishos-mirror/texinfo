@@ -643,16 +643,14 @@ the behavior is identical, and does not depend on the installed name.\n")
       --version               display version information and exit.\n"),
     get_conf('ERROR_LIMIT'))
 ."\n";
-  # TODO: avoid \n in translated strings, split each option in a translatable
-  # string.  Report from Benno Schulenberg
-  $makeinfo_help .= __("Output format selection (default is to produce Info):
-      --docbook               output Docbook XML rather than Info.
-      --html                  output HTML rather than Info.
-      --latex                 output LaTeX rather than Info.
-      --plaintext             output plain text rather than Info.
-      --xml                   output Texinfo XML rather than Info.
-      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,
-                                after checking validity of TEXINFO-FILE.\n")
+  $makeinfo_help .= __("Output format selection (default is to produce Info):")."\n"
+.__("      --docbook               output Docbook XML rather than Info.")."\n"
+.__("      --html                  output HTML rather than Info.")."\n"
+.__("      --latex                 output LaTeX rather than Info.")."\n"
+.__("      --plaintext             output plain text rather than Info.")."\n"
+.__("      --xml                   output Texinfo XML rather than Info.")."\n"
+.__("      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,
+                                after checking validity of TEXINFO-FILE.")."\n"
 ."\n";
 
   $makeinfo_help .= __("General output options:")."\n"

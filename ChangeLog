@@ -1,3 +1,9 @@
+2022-01-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/texi2any.pl ($makeinfo_help): in the help block where
+	--latex was added. Avoid \n in translated strings, split each
+	option in a translatable string. Report from Benno Schulenberg.
+
 2022-01-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	ASCII spaces only
