@@ -298,12 +298,6 @@ Interrogations and remarks
 Should more Converter ignore the last new line (with type 
 last_raw_newline) of a raw block format?
 
-In a first step, close when the the command to be closed is at the 
-top of the tree, not when it should be closed theoretically.
-Then it could be possible to come back to the place where the command
-should be closed and give an error message.
-This is certainly only an issue for @footnote and similar not a general issue.
-
 There is no forward looking code anymore, so maybe a lex/yacc parser
 could be used for the main loop.  More simply, a binary tokenizer, at 
 least, could make for a notable speedup.
