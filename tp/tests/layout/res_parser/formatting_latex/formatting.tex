@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{needspace}
 \usepackage{etoolbox}
+\usepackage{array}
 \usepackage{mdframed}
 \usepackage{enumitem}
 \usepackage{titleps}
@@ -567,13 +568,18 @@ i--tem 1
 \item second c
 \end{enumerate}
 
-mu--ltitable headitem another tab
-mu--ltitable item multitable tab
-mu--ltitable item 2 multitable tab 2
+\begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
+mu--ltitable headitem &another tab\\
+mu--ltitable item &multitable tab\\
+mu--ltitable item 2 &multitable tab 2
 \index[cp]{index entry within multitable}%
-lone mu--ltitable item
+\\
+lone mu--ltitable item&\\
+\end{tabular}%
 
-truc bidule
+\begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
+truc &bidule\\
+\end{tabular}%
 
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 e{-}{-}xample  some
@@ -1746,13 +1752,18 @@ i--tem 1
 \item second c
 \end{enumerate}
 
-mu--ltitable headitem another tab
-mu--ltitable item multitable tab
-mu--ltitable item 2 multitable tab 2
+\begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
+mu--ltitable headitem &another tab\\
+mu--ltitable item &multitable tab\\
+mu--ltitable item 2 &multitable tab 2
 \index[cp]{index entry within multitable}%
-lone mu--ltitable item
+\\
+lone mu--ltitable item&\\
+\end{tabular}%
 
-truc bidule
+\begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
+truc &bidule\\
+\end{tabular}%
 
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 e{-}{-}xample  some
@@ -2945,13 +2956,18 @@ i--tem 1
 \item second c
 \end{enumerate}
 
-mu--ltitable headitem another tab
-mu--ltitable item multitable tab
-mu--ltitable item 2 multitable tab 2
+\begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
+mu--ltitable headitem &another tab\\
+mu--ltitable item &multitable tab\\
+mu--ltitable item 2 &multitable tab 2
 \index[cp]{index entry within multitable}%
-lone mu--ltitable item
+\\
+lone mu--ltitable item&\\
+\end{tabular}%
 
-truc bidule
+\begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
+truc &bidule\\
+\end{tabular}%
 
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 e{-}{-}xample  some
@@ -4123,13 +4139,18 @@ i--tem 1
 \item second c
 \end{enumerate}
 
-mu--ltitable headitem another tab
-mu--ltitable item multitable tab
-mu--ltitable item 2 multitable tab 2
+\begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
+mu--ltitable headitem &another tab\\
+mu--ltitable item &multitable tab\\
+mu--ltitable item 2 &multitable tab 2
 \index[cp]{index entry within multitable}%
-lone mu--ltitable item
+\\
+lone mu--ltitable item&\\
+\end{tabular}%
 
-truc bidule
+\begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
+truc &bidule\\
+\end{tabular}%
 
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 e{-}{-}xample  some
@@ -5312,13 +5333,18 @@ i{-}{-}tem 1
 \item second c
 \end{enumerate}
 
-mu{-}{-}ltitable headitem another tab
-mu{-}{-}ltitable item multitable tab
-mu{-}{-}ltitable item 2 multitable tab 2
+\begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
+mu{-}{-}ltitable headitem &another tab\\
+mu{-}{-}ltitable item &multitable tab\\
+mu{-}{-}ltitable item 2 &multitable tab 2
 \index[cp]{index entry within multitable}%
-lone mu{-}{-}ltitable item
+\\
+lone mu{-}{-}ltitable item&\\
+\end{tabular}%
 
-truc bidule
+\begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
+truc &bidule\\
+\end{tabular}%
 
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 e{-}{-}xample  some

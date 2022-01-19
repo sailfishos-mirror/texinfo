@@ -19,8 +19,6 @@
 #
 # Use texinfo.cnf?  Here?  in texi2any.pl?
 #
-# @multitable not implemented
-#
 # @def* not implemented
 #
 # @shortcontent is not implemented.  Tried shorttoc package but it
@@ -1232,6 +1230,9 @@ roundcorner=10pt}
   }
   $header .= '\usepackage{etoolbox}
 ';
+  if ($self->{'packages'}->{'array'}) {
+    $header .= "\\usepackage{array}\n";
+  }
   if ($self->{'packages'}->{'mdframed'}) {
     $header .= "\\usepackage{mdframed}\n";
   }
@@ -2737,15 +2738,33 @@ sub _convert($$)
           $result .= $self->_convert($prepended);
         }
       } elsif ($cmdname eq 'multitable') {
-        my $columnsize;
+        # for m{} in tabular header
+        $self->{'packages'}->{'array'} = 1;
+        $result .= '\begin{tabular}{';
+        my @fractions;
         if ($element->{'extra'}->{'columnfractions'}) {
+          @fractions
+      = @{$element->{'extra'}->{'columnfractions'}->{'extra'}->{'misc_args'}};
         } elsif ($element->{'extra'}->{'prototypes'}) {
+          my @prototypes_length;
+          my $total_length = 0.;
           foreach my $prototype (@{$element->{'extra'}->{'prototypes'}}) {
-            my ($formatted_prototype) = $self->_convert($prototype);
-            push @$columnsize, 
-                 2+Texinfo::Convert::Unicode::string_width($formatted_prototype);
+            # not clear what to do here.  For now use the text width
+            my $prototype_text
+              = Texinfo::Convert::Text::convert_to_text($prototype,
+                 {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+            my $length = Texinfo::Convert::Unicode::string_width($prototype_text);
+            $total_length += $length;
+            push @prototypes_length, $length;
+          }
+          if ($total_length > 0.) {
+            foreach my $length (@prototypes_length) {
+              push @fractions, $length / $total_length;
+            }
           }
         }
+        $result .= join(' ', map {'m{'.$_.'\textwidth}'} @fractions);
+        $result .= "}%\n";
       } elsif ($cmdname eq 'float') {
         my $normalized_float_type = '';
         if ($element->{'extra'}->{'type'}) {
@@ -3340,7 +3359,12 @@ sub _convert($$)
         }
       }
     } elsif ($type eq 'row') {
-      # ...
+      chomp($result);
+      # can happen with diverse added @-command, in particular index commands
+      if ($result =~ /%$/) {
+        $result .= "\n";
+      }
+      $result .= '\\\\'."\n";
     } elsif ($type eq $latex_document_type) {
       # type marking the beginning of content
       $result .= _begin_document($self);
@@ -3392,6 +3416,8 @@ sub _convert($$)
         }
       }
       $self->{'formatting_context'}->[-1]->{'in_quotation'} -= 1;
+    } elsif ($cmdname eq 'multitable') {
+      $result .= '\end{tabular}%'."\n";
     }
  
     # close the contexts and register the cells
@@ -3408,6 +3434,17 @@ sub _convert($$)
       }
       my $old_math_style = pop @{$self->{'formatting_context'}->[-1]->{'math_style'}};
       die if ($old_math_style ne 'one-line');
+    } elsif ($element->{'parent'}->{'type'}
+             and $element->{'parent'}->{'type'} eq 'row') {
+      my $cell_nr = $element->{'extra'}->{'cell_number'};
+      my $multitable = $element->{'parent'}->{'parent'}->{'parent'};
+      my $max_columns = $multitable->{'extra'}->{'max_columns'};
+      my $add_eol = 0;
+      $add_eol = 1 if (chomp($result));
+      if ($cell_nr < $max_columns) {
+        $result .= '&';
+      }
+      $result .= "\n" if ($add_eol);
     }
   }
 
