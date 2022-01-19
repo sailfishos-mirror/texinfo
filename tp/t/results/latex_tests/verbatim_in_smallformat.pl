@@ -184,11 +184,9 @@ $result_floats{'verbatim_in_smallformat'} = {};
 
 $result_converted{'latex'}->{'verbatim_in_smallformat'} = '
 \\begin{document}
-\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\footnotesize{}%
 \\begin{verbatim}
 ... still verbatim, but in a smaller font ...
 \\end{verbatim}
-\\endgroup{}%
 ';
 
 1;

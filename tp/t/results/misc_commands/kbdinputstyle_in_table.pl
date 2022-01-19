@@ -2433,7 +2433,6 @@ $result_converted{'latex'}->{'kbdinputstyle_in_table'} = '
 \\end{description}
 
 in example
-\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}%
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 \\texttt{i{-}{-}tem in example}}}]
@@ -2442,7 +2441,6 @@ in example
 \\item[{\\parbox[b]{\\linewidth}{%
 \\texttt{braced i{-}{-}tem in example}}}]
 \\end{description}
-\\endgroup{}%
 
 @kbdinputstyle example
 
@@ -2458,7 +2456,6 @@ in example
 \\end{description}
 
 in example
-\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}%
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 \\texttt{i{-}{-}tem in example}}}]
@@ -2467,7 +2464,6 @@ in example
 \\item[{\\parbox[b]{\\linewidth}{%
 \\texttt{braced i{-}{-}tem in example}}}]
 \\end{description}
-\\endgroup{}%
 
 @kbdinputstyle distinct
 
@@ -2483,7 +2479,6 @@ in example
 \\end{description}
 
 in example
-\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}%
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 \\GNUTexinfotablestylekbd{i{-}{-}tem in example}}}]
@@ -2492,7 +2487,6 @@ in example
 \\item[{\\parbox[b]{\\linewidth}{%
 \\GNUTexinfotablestylekbd{braced i{-}{-}tem in example}}}]
 \\end{description}
-\\endgroup{}%
 ';
 
 1;

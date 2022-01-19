@@ -1,5 +1,14 @@
 2022-01-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_open_preformatted)
+	(_close_preformatted, _open_preformatted_command)
+	(_close_preformatted_command, _open_preformatted_stack)
+	(_close_preformatted_command, _convert): format preformatted type
+	as preformatted, not preformatted commands.  Preformatted commands
+	only set up 'preformatted_context'.
+
+2022-01-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_convert, _latex_header): implement
 	@multitable.
 

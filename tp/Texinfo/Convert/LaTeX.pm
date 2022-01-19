@@ -1645,8 +1645,19 @@ foreach my $small_font_preformatted_command (
 sub _open_preformatted($$)
 {
   my $self = shift;
-  my $command = shift;
+  my $element = shift;
 
+  my $command = $self->{'formatting_context'}->[-1]->{'preformatted_context'}->[-1];
+
+  if ($preformatted_code_commands{$command}) {
+    $self->{'formatting_context'}->[-1]->{'code'} += 1;
+  }
+
+  # no preformatted formatting if in a @table item, it leads
+  # to an error, and also it is only for some inter item
+  # content.
+  return ''
+   if (scalar(@{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}}));
   my $result = '';
   $result .= '\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing';
   # TODO indent block correct amount
@@ -1654,26 +1665,45 @@ sub _open_preformatted($$)
 
   if ($preformatted_code_commands{$command}) {
     $result .= '\\ttfamily';
-    $self->{'formatting_context'}->[-1]->{'code'} += 1;
   }
   if ($small_font_preformatted_commands{$command}) {
     $result .= "\\$small_font_size";
   }
   $result .= '{}'."%\n";
-  push @{$self->{'formatting_context'}->[-1]->{'preformatted_context'}}, $command;
   return $result;
 }
 
 sub _close_preformatted($$)
 {
   my $self = shift;
-  my $command = shift;
+  my $element = shift;
+
+  my $command = $self->{'formatting_context'}->[-1]->{'preformatted_context'}->[-1];
   if ($preformatted_code_commands{$command}) {
     $self->{'formatting_context'}->[-1]->{'code'} -= 1;
   }
-  my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'preformatted_context'}};
-  die if ($old_context ne $command);
+  return ''
+   if (scalar(@{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}}));
   return "\\endgroup{}%\n"; # \obeylines
+}
+
+sub _open_preformatted_command($$)
+{
+  my $self = shift;
+  my $command = shift;
+  
+  push @{$self->{'formatting_context'}->[-1]->{'preformatted_context'}}, $command;
+  return '';
+}
+
+sub _close_preformatted_command($$)
+{
+  my $self = shift;
+  my $command = shift;
+
+  my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'preformatted_context'}};
+    die if ($old_context ne $command);
+  return '';
 }
 
 sub _open_preformatted_stack($$)
@@ -1683,7 +1713,7 @@ sub _open_preformatted_stack($$)
 
   my $result = '';
   foreach my $preformatted_command (@$stack) {
-    $result .= _open_preformatted($self, $preformatted_command);
+    $result .= _open_preformatted_command($self, $preformatted_command);
   }
   return $result;
 }
@@ -1695,7 +1725,7 @@ sub _close_preformatted_stack($$)
 
   my $result = '';
   foreach my $preformatted_command (reverse @$stack) {
-    $result .= _close_preformatted($self, $preformatted_command);
+    $result .= _close_preformatted_command($self, $preformatted_command);
   }
   return $result;
 }
@@ -2716,7 +2746,7 @@ sub _convert($$)
         }
       }
       if ($preformatted_commands{$cmdname}) {
-        $result .= _open_preformatted($self, $cmdname);
+        _open_preformatted_command($self, $cmdname);
       } elsif ($block_raw_commands{$cmdname}) {
         push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
       }
@@ -3303,6 +3333,8 @@ sub _convert($$)
         }
       }
       push @{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}}, $nr_item;
+    } elsif ($element->{'type'} eq 'preformatted') {
+      $result .= _open_preformatted($self, $element);
     } elsif ($element->{'type'} eq '_code') {
       # ...
     } elsif ($element->{'type'} eq '_dot_not_end_sentence') {
@@ -3341,6 +3373,8 @@ sub _convert($$)
       pop @{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}};
     } elsif ($type eq 'bracketed') {
       $result .= _protect_text($self, '}');
+    } elsif ($type eq 'preformatted') {
+      $result .= _close_preformatted($self, $element);
     } elsif ($type eq 'before_item') {
       # LaTeX environments do not accept text before the first item, add an item
       if ($result =~ /\S/) {
@@ -3382,7 +3416,7 @@ sub _convert($$)
       }
     }
     if ($preformatted_commands{$cmdname}) {
-      $result .= _close_preformatted($self, $cmdname);
+      _close_preformatted_command($self, $cmdname);
     }
     if ($cmdname eq 'float') {
       my $normalized_float_type = '';
