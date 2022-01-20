@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo-6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-01-18 21:29+0100\n"
+"POT-Creation-Date: 2022-01-20 23:25+0100\n"
 "PO-Revision-Date: 2021-07-02 17:01+0200\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -2131,28 +2131,28 @@ msgstr "%s: greška pri zatvaranju stdout: %s\n"
 
 #: tp/DebugTexinfo/DebugTree.pm:72 tp/Texinfo/Convert/Converter.pm:363
 #: tp/Texinfo/Convert/Converter.pm:416 tp/Texinfo/Convert/Converter.pm:1224
-#: tp/Texinfo/Convert/DocBook.pm:313 tp/Texinfo/Convert/HTML.pm:8340
-#: tp/Texinfo/Convert/HTML.pm:8404 tp/Texinfo/Convert/HTML.pm:8436
-#: tp/Texinfo/Convert/HTML.pm:8860 tp/Texinfo/Convert/HTML.pm:8965
-#: tp/Texinfo/Convert/HTML.pm:9071 tp/Texinfo/Convert/IXIN.pm:282
-#: tp/Texinfo/Convert/Info.pm:310 tp/Texinfo/Convert/LaTeX.pm:912
+#: tp/Texinfo/Convert/DocBook.pm:313 tp/Texinfo/Convert/HTML.pm:8338
+#: tp/Texinfo/Convert/HTML.pm:8402 tp/Texinfo/Convert/HTML.pm:8434
+#: tp/Texinfo/Convert/HTML.pm:8870 tp/Texinfo/Convert/HTML.pm:8975
+#: tp/Texinfo/Convert/HTML.pm:9081 tp/Texinfo/Convert/IXIN.pm:282
+#: tp/Texinfo/Convert/Info.pm:310 tp/Texinfo/Convert/LaTeX.pm:908
 #: tp/Texinfo/Convert/TexinfoXML.pm:445
 #, perl-format
 msgid "could not open %s for writing: %s"
 msgstr "nije (bilo) moguće otvoriti %s za pisanje: %s"
 
-#: tp/Texinfo/Common.pm:1330 tp/Texinfo/XS/parsetexi/end_line.c:1613
+#: tp/Texinfo/Common.pm:1331 tp/Texinfo/XS/parsetexi/end_line.c:1613
 #: tp/Texinfo/XS/parsetexi/end_line.c:1623
 #, c-format, perl-format
 msgid "%s is not a valid language code"
 msgstr "%s nije ispravan jezični kȏd"
 
-#: tp/Texinfo/Common.pm:1335 tp/Texinfo/XS/parsetexi/end_line.c:1640
+#: tp/Texinfo/Common.pm:1336 tp/Texinfo/XS/parsetexi/end_line.c:1640
 #, c-format, perl-format
 msgid "%s is not a valid region code"
 msgstr "%s nije ispravan kȏd regije"
 
-#: tp/Texinfo/Common.pm:1353
+#: tp/Texinfo/Common.pm:1354
 #, perl-format
 msgid "%s is not a valid split possibility"
 msgstr "%s nije valjana mogućnost cijepanja"
@@ -2193,11 +2193,11 @@ msgstr "%s: izlaz nije kompatibilan s razdiobom"
 
 #: tp/Texinfo/Convert/Converter.pm:394 tp/Texinfo/Convert/Converter.pm:434
 #: tp/Texinfo/Convert/Converter.pm:1242 tp/Texinfo/Convert/DocBook.pm:356
-#: tp/Texinfo/Convert/HTML.pm:8335 tp/Texinfo/Convert/HTML.pm:8905
-#: tp/Texinfo/Convert/HTML.pm:8983 tp/Texinfo/Convert/IXIN.pm:909
+#: tp/Texinfo/Convert/HTML.pm:8333 tp/Texinfo/Convert/HTML.pm:8915
+#: tp/Texinfo/Convert/HTML.pm:8993 tp/Texinfo/Convert/IXIN.pm:909
 #: tp/Texinfo/Convert/Info.pm:163 tp/Texinfo/Convert/Info.pm:192
 #: tp/Texinfo/Convert/Info.pm:222 tp/Texinfo/Convert/Info.pm:287
-#: tp/Texinfo/Convert/LaTeX.pm:969 tp/Texinfo/Convert/TexinfoXML.pm:465
+#: tp/Texinfo/Convert/LaTeX.pm:965 tp/Texinfo/Convert/TexinfoXML.pm:465
 #: tp/Texinfo/ParserNonXS.pm:2024
 #, perl-format
 msgid "error on closing %s: %s"
@@ -2234,83 +2234,83 @@ msgstr "@image datoteka „%s“ nije pronađena, koristimo „%s“"
 msgid "no argument specified for @U"
 msgstr "nijedan argument nije specificiran za @U"
 
-#: tp/Texinfo/Convert/HTML.pm:2553
+#: tp/Texinfo/Convert/HTML.pm:2555
 #, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "@image datoteka „%s“ (za HTML) nije pronađena, koristimo „%s“"
 
-#: tp/Texinfo/Convert/HTML.pm:3462
+#: tp/Texinfo/Convert/HTML.pm:3459
 #, perl-format
 msgid "raw format %s is not converted"
 msgstr "neobrađeni format %s nije pretvoren"
 
-#: tp/Texinfo/Convert/HTML.pm:6117
+#: tp/Texinfo/Convert/HTML.pm:6114
 #, perl-format
 msgid "could not open html refs config file %s: %s"
 msgstr ""
 "nije moguće otvoriti konfiguracijsku datoteku unakrsnih poveznica HTML-a %s: "
 "%s"
 
-#: tp/Texinfo/Convert/HTML.pm:6145
+#: tp/Texinfo/Convert/HTML.pm:6142
 msgid "missing type"
 msgstr "nema vrste"
 
-#: tp/Texinfo/Convert/HTML.pm:6150
+#: tp/Texinfo/Convert/HTML.pm:6147
 #, perl-format
 msgid "unrecognized type: %s"
 msgstr "neprepoznata vrsta: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:6167
+#: tp/Texinfo/Convert/HTML.pm:6164
 #, perl-format
 msgid "error on closing html refs config file %s: %s"
 msgstr ""
 "greška pri zatvaranju konfiguracijske datoteke unakrsnih poveznica HTML-a "
 "%s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:6488
+#: tp/Texinfo/Convert/HTML.pm:6486
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "Unknown formatting function: %s"
 msgstr "nepoznata akcija „%s“"
 
-#: tp/Texinfo/Convert/HTML.pm:6651
+#: tp/Texinfo/Convert/HTML.pm:6649
 msgid "string not closed in css file"
 msgstr "string nije zatvoren u CSS datoteci"
 
-#: tp/Texinfo/Convert/HTML.pm:6654
+#: tp/Texinfo/Convert/HTML.pm:6652
 msgid "--css-include ended in comment"
 msgstr "--css-include završava u komentaru"
 
-#: tp/Texinfo/Convert/HTML.pm:6657
+#: tp/Texinfo/Convert/HTML.pm:6655
 msgid "@import not finished in css file"
 msgstr "@import nije završen u CSS datoteci"
 
-#: tp/Texinfo/Convert/HTML.pm:6683
+#: tp/Texinfo/Convert/HTML.pm:6681
 #, perl-format
 msgid "CSS file %s not found"
 msgstr "CSS datoteka %s nije pronađena"
 
-#: tp/Texinfo/Convert/HTML.pm:6688
+#: tp/Texinfo/Convert/HTML.pm:6686
 #, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr "nije (bilo) moguće otvoriti --include-file %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:6699
+#: tp/Texinfo/Convert/HTML.pm:6697
 #, perl-format
 msgid "error on closing CSS file %s: %s"
 msgstr "greška pri zatvaranju CSS datoteke %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:7561 tp/Texinfo/Convert/HTML.pm:7565
+#: tp/Texinfo/Convert/HTML.pm:7559 tp/Texinfo/Convert/HTML.pm:7563
 #, perl-format
 msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "nije pronađena stavka htmlxref.cnf za „%s“"
 
-#: tp/Texinfo/Convert/HTML.pm:7980
+#: tp/Texinfo/Convert/HTML.pm:7978
 #, perl-format
 msgid "%s not meaningful for non-split output"
 msgstr "%s nema smisla za nerazdijeljeni izlaz"
 
-#: tp/Texinfo/Convert/HTML.pm:8322
+#: tp/Texinfo/Convert/HTML.pm:8320
 #, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
@@ -2319,36 +2319,36 @@ msgstr ""
 "nije moguće koristiti apsolutnu stazu ili URL „%s“ za JS_WEBLABELS_FILE pri "
 "generiranju oznaka WWW (web) datoteke"
 
-#: tp/Texinfo/Convert/HTML.pm:8398
+#: tp/Texinfo/Convert/HTML.pm:8396
 #, perl-format
 msgid "error on closing frame file %s: %s"
 msgstr "greška pri zatvaranju datoteke okvira %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:8430
+#: tp/Texinfo/Convert/HTML.pm:8428
 #, perl-format
 msgid "error on closing TOC frame file %s: %s"
 msgstr "greška pri zatvaranju datoteke TOC okvira %s: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:8570
+#: tp/Texinfo/Convert/HTML.pm:8568
 #, perl-format
 msgid "handler %s of stage %s priority %s failed"
 msgstr "greška manipulatora %s faze %s prioriteta %s"
 
-#: tp/Texinfo/Convert/HTML.pm:8761
+#: tp/Texinfo/Convert/HTML.pm:8769
 msgid "must specify a title with a title command or @top"
 msgstr "morate navesti naslov naredbom naslova ili @top"
 
-#: tp/Texinfo/Convert/HTML.pm:8997
+#: tp/Texinfo/Convert/HTML.pm:9007
 #, perl-format
 msgid "%s already exists but is not a directory"
 msgstr "%s već postoji ali nije direktorij"
 
-#: tp/Texinfo/Convert/HTML.pm:9016
+#: tp/Texinfo/Convert/HTML.pm:9026
 #, perl-format
 msgid "error on copying %s into %s"
 msgstr "greška pri kopiranju %s u %s"
 
-#: tp/Texinfo/Convert/HTML.pm:9079
+#: tp/Texinfo/Convert/HTML.pm:9089
 #, perl-format
 msgid "error on closing redirection node file %s: %s"
 msgstr "greška pri zatvaranju %s (datoteka s preusmjernicama za čvorove): %s"
