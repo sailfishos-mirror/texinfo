@@ -16364,6 +16364,10 @@ end of the document if not split, or in a separate file.  If set to
 @samp{after_title} the tables of contents are output after the title; default
 @samp{after_top}.
 
+@item CONVERT_TEXINFO_MATH_TO_LATEX
+If set, convert @code{@@math} and @code{@@displaymath} to @LaTeX{}.  Default
+@code{undef}.  If undefined, set if @code{HTML_MATH} is set.
+
 @item COPIABLE_LINKS
 If set, output copiable links for the definition commands
 (@pxref{Definition Commands}) and table commands (@pxref{Two-column

@@ -178,6 +178,8 @@ use vars qw($VERSION @ISA);
 
 $VERSION = '6.8dev';
 
+# could export convert_to_latex_math
+
 
 # misc commands that are of use for formatting.
 my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
@@ -737,13 +739,9 @@ sub converter_initialize($)
     $self->{'to_utf8'} = 1;
 
     if ($self->get_conf('ENABLE_ENCODING')) {
-      # Do not use utf-8 encoded curly quotes if '@documentencoding UTF-8'
-      # is not given.
-      if ($self->{'global_commands'}->{'documentencoding'}) {
-        foreach my $quoted_command (@quoted_commands) {
-          # Directed single quotes
-          $self->{'quotes_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];
-        }
+      foreach my $quoted_command (@quoted_commands) {
+        # Directed single quotes
+        $self->{'quotes_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];
       }
     }
   }
@@ -830,7 +828,7 @@ sub _prepare_conversion($;$)
   my $root = shift;
 
   if (defined($root)) {
-    $self->associate_other_nodes_to_sections($root);
+    $self->_associate_other_nodes_to_sections($root);
   }
 
   if ($self->{'global_commands'}->{'settitle'}) {
@@ -845,7 +843,7 @@ sub _prepare_conversion($;$)
   $self->_prepare_indices();
 }
 
-sub associate_other_nodes_to_sections($$)
+sub _associate_other_nodes_to_sections($$)
 {
   my ($self, $root) = @_;
 
@@ -1013,6 +1011,45 @@ sub convert_tree($$)
   if ($new_context) {
     _pop_context($self);
   }
+  return $result;
+}
+
+sub copy_options_for_convert_to_latex_math($)
+{
+  my $self = shift;
+  my %options;
+  foreach my $option_name ('DEBUG', 'ENABLE_ENCODING', 'OUTPUT_ENCODING_NAME',
+                           'TEST') {
+    $options{$option_name} = $self->get_conf($option_name)
+                    if (defined($self->get_conf($option_name)));
+  }
+  return %options;
+}
+
+# convert texinfo tree to LaTeX math
+# FIXME pass errors somehow?  Return converter for instance?
+sub convert_to_latex_math($$;$$)
+{
+  my $self = shift;
+  my $root = shift;
+  my $options = shift;
+  my $math_style = shift;
+
+  $math_style = 'one-line' if (not defined($math_style));
+
+  if (not defined($self)) {
+    $self = Texinfo::Convert::LaTeX->converter($options);
+  }
+
+  _push_new_context($self, 'convert_to_math');
+
+  push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'math';
+  push @{$self->{'formatting_context'}->[-1]->{'math_style'}}, $math_style;
+
+  my $result = $self->_convert($root);
+
+  _pop_context($self);
+
   return $result;
 }
 
@@ -2701,6 +2738,8 @@ sub _convert($$)
         # place where we might output actual UTF-8 binary bytes, we have
         # to check that it is possible.  If not, silently fall back to
         # plain text, on the theory that the user wants something.
+        # Note that being able to output an unicode point as encoded
+        # character does not mean that LaTeX will be able to process it.
         my $res;
         if ($self->{'to_utf8'}) {
           my $possible_conversion

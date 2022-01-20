@@ -131,6 +131,13 @@ my $itemize_arguments_text = '
 
 ';
 
+my $mathjax_with_texinfo = '@displaymath
+a@sup{b - \frac{\xsi}{phi @copyright{}}} @dotless{i}
+@end displaymath
+
+Some @math{a @minus{} b @geq{} @AA{} @^e}.
+';
+
 my @test_cases = (
 ['verbatim_in_multitable_in_example',
 '@example
@@ -438,6 +445,13 @@ in <b>html</b> in copying ``
 @top top
 
 '],
+['mathjax_with_texinfo',
+$mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax'}],
+['mathjax_with_texinfo_enable_encoding',
+$mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax', 'ENABLE_ENCODING' => 1}],
+['mathjax_with_texinfo_no_convert_to_latex',
+$mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax',
+                            'CONVERT_TEXINFO_MATH_TO_LATEX' => 0}],
 ['empty_lines_at_beginning_no_setfilename',
 undef, {'test_file' => 'empty_lines_at_beginning_no_setfilename.texi'}
 ],

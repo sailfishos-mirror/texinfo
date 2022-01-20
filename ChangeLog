@@ -1,3 +1,27 @@
+2022-01-20  Patrice Dumas  <pertusus@free.fr>
+
+	Convert Texinfo in @*math to LaTeX for HTML_MATH
+
+	* tp/Texinfo/Common.pm (@variable_string_settables),
+	tp/Texinfo/Convert/HTML.pm (%defaults, _convert_math_command)
+	(output, _convert), doc/texinfo.texi (HTML Customization Variables),
+	tp/Texinfo/Convert/LaTeX.pm (copy_options_for_convert_to_latex_math)
+	(convert_to_latex_math): set CONVERT_TEXINFO_MATH_TO_LATEX based
+	on HTML_MATH being defined.  When set, convert math commands to LaTeX.
+	Add convert_to_latex_math and copy_options_for_convert_to_latex_math
+	in Texinfo::Convert::LaTeX to convert Texinfo to LaTeX math.
+
+	* tp/Texinfo/Convert/HTML.pm (%defaults, output): do not set
+	jslicenses, jslicenses_math nor jslicenses_infojs in %defaults
+	such that they cannot be shared among converters and are
+	defined when needed.
+
+	* tp/Texinfo/Convert/HTML.pm _convert_contents): change variable
+	names.
+
+	* tp/Texinfo/Convert/LaTeX.pm (converter_initialize): do not check
+	documentencoding to encode quotes.
+
 2022-01-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/LaTeX.pm (_open_preformatted)

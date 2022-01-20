@@ -253,8 +253,8 @@ sub brace_no_arg_command($;$)
   }
   if (!defined($result) and $options and $options->{'converter'}) {
     my $tree
-      = Texinfo::Convert::Utils::translated_command_tree($options->{'converter'},
-                                                                         $command);
+     = Texinfo::Convert::Utils::translated_command_tree($options->{'converter'},
+                                                        $command);
     if ($tree) {
       $result = _convert($tree, $options);
     }

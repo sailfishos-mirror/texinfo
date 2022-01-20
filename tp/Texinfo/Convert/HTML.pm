@@ -77,6 +77,10 @@ use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Structuring;
 use Texinfo::Convert::Converter;
 
+# used to convert Texinfo to LaTeX math in @math and @displaymath
+# for further conversion by softwares that only convert LaTeX
+use Texinfo::Convert::LaTeX;
+
 
 require Exporter;
 use vars qw($VERSION @ISA);
@@ -1424,17 +1428,18 @@ my %PASSIVE_ICONS = (
 my (%BUTTONS_TEXT, %BUTTONS_GOTO, %BUTTONS_NAME, %SPECIAL_ELEMENTS_HEADING);
 
 my %defaults = (
+  'CONTENTS_OUTPUT_LOCATION' => 'after_top',
+  'CONVERT_TEXINFO_MATH_TO_LATEX' => undef,
   'ENABLE_ENCODING'      => 0,
   'FORMAT_MENU'           => 'sectiontoc',
+# if set style is added in attribute.
+  'INLINE_CSS_STYLE'     => 0,
   'OUTPUT_ENCODING_NAME'  => 'utf-8',
   'OUTFILE'              => undef,
+  'SPLIT'                => 'node',
   'SUBDIR'               => undef,
   'USE_NODES'            => 1,
   'USE_NODE_DIRECTIONS'  => undef,
-  'CONTENTS_OUTPUT_LOCATION' => 'after_top',
-  'SPLIT'                => 'node',
-# if set style is added in attribute.
-  'INLINE_CSS_STYLE'     => 0,
 # if set, no css is used.
   'NO_CSS'               => 0,
   'JS_WEBLABELS'         => 'generate',
@@ -1534,9 +1539,6 @@ my %defaults = (
      'shortcontents'    => 'Overview',
      'footnotes'   => 'Footnotes',
   },
-  'jslicenses' => {},         # for outputting licences file
-  'jslicenses_math' => {},    # MathJax scripts
-  'jslicenses_infojs' => {},  # info.js scripts
   'COPIABLE_LINKS' => 1,
  
   'output_format'        => 'html',
@@ -2583,14 +2585,9 @@ sub _convert_math_command($$$$)
 
   my $math_type = $self->get_conf('HTML_MATH');
   if ($math_type and $math_type eq 'mathjax') {
-    # MathJax won't handle tags in code
-    # TODO: instead convert inside $command to LaTeX, when such a conversion
-    # becomes possible
-    if ($arg !~ /</) {
-      $self->register_file_information('mathjax', 1);
-      return $self->html_attribute_class('em', $cmdname, ['tex2jax_process'])
-                                           .">\\($arg\\)</em>";
-    }
+    $self->register_file_information('mathjax', 1);
+    return $self->html_attribute_class('em', $cmdname, ['tex2jax_process'])
+                                          .">\\($arg\\)</em>";
   }
   return $self->html_attribute_class('em', $cmdname).">$arg</em>";
 }
@@ -6228,6 +6225,7 @@ sub _load_htmlxref_files {
 #  file_counters
 #  paragraph_symbol
 #  line_break_element
+#  options_latex_math
 #
 #  simpletitle_tree
 #  simpletitle_command_name
@@ -8623,6 +8621,16 @@ sub output($$)
     }
   }
 
+  if ($self->get_conf('HTML_MATH')
+      and not defined($self->get_conf('CONVERT_TEXINFO_MATH_TO_LATEX'))) {
+    $self->set_conf('CONVERT_TEXINFO_MATH_TO_LATEX', 1);
+  }
+
+  if ($self->get_conf('CONVERT_TEXINFO_MATH_TO_LATEX')) {
+    $self->{'options_latex_math'}
+     = { Texinfo::Convert::LaTeX::copy_options_for_convert_to_latex_math($self) };
+  }
+
   # the configuration has potentially been modified for
   # this output file especially.  Set a corresponding initial
   # configuration.
@@ -8814,6 +8822,7 @@ sub output($$)
           'https://www.apache.org/licenses/LICENSE-2.0',
           $mathjax_source ];
     # append to hash
+    $self->{'jslicenses'} = {} if (not defined($self->{'jslicenses'}));
     %{$self->{'jslicenses'}} = ( %{$self->{'jslicenses'}},
                                  %{$self->{'jslicenses_math'}} );
 
@@ -8828,6 +8837,7 @@ sub output($$)
       [ 'Expat',
         'http://www.jclark.com/xml/copying.txt',
         'js/modernizr.js' ];
+    $self->{'jslicenses'} = {} if (not defined($self->{'jslicenses'}));
     %{$self->{'jslicenses'}} = ( %{$self->{'jslicenses'}},
                                  %{$self->{'jslicenses_infojs'}} );
   }
@@ -9020,7 +9030,7 @@ sub output($$)
     }
   }
 
-  if (%{$self->{'jslicenses'}}) {
+  if ($self->{'jslicenses'} and scalar(%{$self->{'jslicenses'}})) {
     $self->_do_jslicenses_file($created_directory);
   }
 
@@ -9094,25 +9104,25 @@ sub _convert_contents($$$)
   my $element = shift;
   my $command_type = shift;
 
-  my $content_formatted = '';
   if (ref($element->{'contents'}) ne 'ARRAY') {
     cluck "for $element contents not an array: $element->{'contents'}";
     print STDERR Texinfo::Common::debug_print_element($element);
   }
 
+  my $element_contents_formatted = '';
   my $content_idx = 0;
   foreach my $content (@{$element->{'contents'}}) {
-    my $new_content = $self->_convert($content, "$command_type c[$content_idx]");
-    if (!defined($new_content)) {
+    my $formatted_content = $self->_convert($content, "$command_type c[$content_idx]");
+    if (!defined($formatted_content)) {
       cluck "content not defined for $command_type [$content_idx]\n";
-      print STDERR "root is: ".Texinfo::Common::debug_print_element($element);
+      print STDERR "element is: ".Texinfo::Common::debug_print_element($element);
       print STDERR "content is: ".Texinfo::Common::debug_print_element($content);
     } else {
-      $content_formatted .= $new_content;
+      $element_contents_formatted .= $formatted_content;
     }
     $content_idx++;
   }
-  return $content_formatted;
+  return $element_contents_formatted;
 }
 
 #my $characters_replaced_from_class_names = quotemeta('[](),~#:/\\@+=!;.,?* ');
@@ -9247,6 +9257,7 @@ sub _convert($$;$)
       $self->{'current_root_command'} = $element;
     }
     if (exists($self->{'commands_conversion'}->{$command_name})) {
+      my $convert_to_latex;
       if (exists($context_brace_commands{$command_name})) {
         $self->_new_document_context($command_name);
       }
@@ -9280,6 +9291,7 @@ sub _convert($$;$)
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'upper_case'}++;
       } elsif ($math_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'math'}++;
+        $convert_to_latex = 1 if ($self->get_conf('CONVERT_TEXINFO_MATH_TO_LATEX'));
       } elsif ($command_name eq 'w') {
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'space_protected'}++;
       }
@@ -9290,7 +9302,14 @@ sub _convert($$;$)
       }
       my $content_formatted;
       if ($element->{'contents'}) {
-        $content_formatted = $self->_convert_contents($element, $command_type);
+        if ($convert_to_latex) {
+          $content_formatted
+           = Texinfo::Convert::LaTeX::convert_to_latex_math(undef,
+                                {'contents' => $element->{'contents'}},
+                                         $self->{'options_latex_math'});
+        } else {
+          $content_formatted = $self->_convert_contents($element, $command_type);
+        }
       }
       my $args_formatted;
       if ($brace_commands{$command_name} 
@@ -9315,7 +9334,13 @@ sub _convert($$;$)
             foreach my $arg_type (@$arg_spec) {
               my $explanation = "$command_type A[$arg_idx]$arg_type";
               if ($arg_type eq 'normal') {
-                $arg_formatted->{'normal'} = $self->_convert($arg, $explanation);
+                if ($convert_to_latex) {
+                  $arg_formatted->{'normal'}
+                   = Texinfo::Convert::LaTeX::convert_to_latex_math(undef, $arg,
+                                                  $self->{'options_latex_math'});
+                } else {
+                  $arg_formatted->{'normal'} = $self->_convert($arg, $explanation);
+                }
               } elsif ($arg_type eq 'monospace') {
                 push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
                 #$self->{'document_context'}->[-1]->{'code'}++;
