@@ -128,9 +128,8 @@ sub html32_format_separate_anchor($$;$)
   my $id = shift;
   my $class = shift;
 
-  # html_attribute_class would not work with span, so if span is
-  # used, html_attribute_class should not be used
-  return $self->html_attribute_class('a', $class)." name=\"$id\"></a>";
+  # note that the classes argument will be ignored with NO_CSS
+  return $self->html_attribute_class('a', [$class])." name=\"$id\"></a>";
 }
 
 texinfo_register_formatting_function('format_separate_anchor', \&html32_format_separate_anchor);

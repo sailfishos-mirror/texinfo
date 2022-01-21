@@ -42,6 +42,8 @@ texinfo_set_from_init_file('USE_NODES', 0);
 
 texinfo_set_from_init_file('BIG_RULE', '<hr>');
 
+my $toc_numbered_mark_class = 'toc-numbered-mark';
+
 #texinfo_set_from_init_file('DOCTYPE',
 # '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">');
 
@@ -59,8 +61,6 @@ sub book_init($)
 }
 
 texinfo_register_handler('init', \&book_init);
-
-my $NO_BULLET_LIST_CLASS = 'no-bullet';
 
 sub book_print_up_toc($$)
 {
@@ -81,12 +81,12 @@ sub book_print_up_toc($$)
   #print $fh "<ul>" . &$anchor('', $Texi2HTML::HREF{Contents}, '[' . $Texi2HTML::NAME{Contents} . ']') . " <br>\n";
   my $up = shift @up_commands;
   #print STDERR "$up ".Texinfo::Convert::Texinfo::root_element_command_to_texinfo($up)."\n";
-  $result .= $converter->html_attribute_class('ul', $NO_BULLET_LIST_CLASS)."><li>"
+  $result .= $converter->html_attribute_class('ul', [$toc_numbered_mark_class])."><li>"
   . "<a href=\"".$converter->command_href($up)."\">".$converter->command_text($up)
    . "</a> </li>\n";
   foreach my $up (@up_commands) {
     $result .= '<li>'
-    .$converter->html_attribute_class('ul', $NO_BULLET_LIST_CLASS)."><li>"
+    .$converter->html_attribute_class('ul', [$toc_numbered_mark_class])."><li>"
     . "<a href=\"".$converter->command_href($up)."\">".$converter->command_text($up)
    . "</a> </li>\n";
   }
@@ -143,7 +143,7 @@ sub book_print_sub_toc($$$)
   }
   if ($command->{'structure'}->{'section_childs'}
       and @{$command->{'structure'}->{'section_childs'}}) {
-    $result .= '<li>'.$converter->html_attribute_class('ul',$NO_BULLET_LIST_CLASS)
+    $result .= '<li>'.$converter->html_attribute_class('ul', [$toc_numbered_mark_class])
      .">\n". book_print_sub_toc($converter, $parent_command,
                                 $command->{'structure'}->{'section_childs'}->[0])
      ."</ul></li>\n";
@@ -204,7 +204,7 @@ sub book_convert_heading_command($$$$$)
     $result .= join('', $self->close_registered_sections_level($level));
     $self->register_opened_section_level($level, "</div>\n");
 
-    $result .= $self->html_attribute_class('div', $section->{'cmdname'});
+    $result .= $self->html_attribute_class('div', [$section->{'cmdname'}]);
 
     $result .= " id=\"$element_id\""
         if (defined($element_id) and $element_id ne '');
@@ -280,7 +280,7 @@ sub book_convert_heading_command($$$$$)
         $heading_class = 'node-heading';
       }
       $result .= &{$self->{'format_heading_text'}}($self,
-                     $level_corrected_cmdname, $heading_class, $heading,
+                     $level_corrected_cmdname, [$heading_class], $heading,
                      $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
                      $heading_id);
     }
@@ -293,7 +293,7 @@ sub book_convert_heading_command($$$$$)
   if ($element->{'structure'}->{'section_childs'}
       and @{$element->{'structure'}->{'section_childs'}}
       and $cmdname ne 'top') {
-    $result .= $self->html_attribute_class('ul', $NO_BULLET_LIST_CLASS).">\n";
+    $result .= $self->html_attribute_class('ul', [$toc_numbered_mark_class]).">\n";
     $result .= book_print_sub_toc($self, $element,
                                   $element->{'structure'}->{'section_childs'}->[0]);
     $result .= "</ul>\n";

@@ -165,15 +165,17 @@ sub _collect_css_element_class($$)
   }
 }
 
-# $extra_classes should be an array reference or undef
-sub html_attribute_class($$$;$)
+# $classes should be an array reference or undef
+sub html_attribute_class($$;$)
 {
   my $self = shift;
   my $element = shift;
-  my $class = shift;
-  my $extra_classes = shift;
+  my $classes = shift;
 
-  if (!defined($class) or $class eq '' or $self->get_conf('NO_CSS')) {
+  if (defined($classes) and ref($classes) ne 'ARRAY') {
+    confess("html_attribute_class: $classes not an array ref (for $element)");
+  }
+  if (!defined($classes) or scalar(@$classes) == 0 or $self->get_conf('NO_CSS')) {
     if ($element eq 'span') {
       return '';
     } else {
@@ -183,13 +185,12 @@ sub html_attribute_class($$$;$)
 
   my $style = '';
 
-  my @all_classes = ($class);
-  if (defined($extra_classes)) {
-    push @all_classes, @$extra_classes;
-  }
   if ($self->get_conf('INLINE_CSS_STYLE')) {
     my @styles = ();
-    foreach my $style_class (@all_classes) {
+    foreach my $style_class (@$classes) {
+      if (not defined($style_class)) {
+        confess ("class not defined (for $element)");
+      }
       if (defined($self->{'css_map'}->{"$element.$style_class"})) {
         push @styles, $self->{'css_map'}->{"$element.$style_class"};
       }
@@ -198,11 +199,14 @@ sub html_attribute_class($$$;$)
       $style = ' style="'.join(';', @styles).'"';
     }
   } else {
-    foreach my $style_class (@all_classes) {
+    foreach my $style_class (@$classes) {
+      if (not defined($style_class)) {
+        confess ("class not defined (for $element)");
+      }
       $self->_collect_css_element_class("$element.$style_class");
     }
   }
-  my $class_str = join(' ', map {$self->_protect_class_name($_)} @all_classes);
+  my $class_str = join(' ', map {$self->_protect_class_name($_)} @$classes);
   return "<$element class=\"$class_str\"$style";
 }
 
@@ -2021,7 +2025,7 @@ sub _text_element_conversion($$$)
   }
 
   if (exists($specification->{'element'})) {
-    return $self->html_attribute_class($specification->{'element'}, $command)
+    return $self->html_attribute_class($specification->{'element'}, [$command])
                .'>'. $text . '</'.$specification->{'element'}.'>';
   } else {
     return $text;
@@ -2218,13 +2222,14 @@ sub _convert_style_command($$$$)
     #cluck "text not defined in _convert_style_command";
     return '';
   }
-  my @additional_classes = ();
+  my @classes;
   # handle the effect of kbdinputstyle
   if ($cmdname eq 'kbd' and $command->{'extra'} 
       and $command->{'extra'}->{'code'}) {
     $cmdname = 'code';
-    push @additional_classes, 'as-code-kbd';
+    push @classes, 'as-code-kbd';
   }
+  unshift @classes, $cmdname;
 
   my $attribute_hash = {};
   if ($self->in_preformatted()) {
@@ -2242,10 +2247,10 @@ sub _convert_style_command($$$$)
       #($style, $class, $attribute_text)
       #  = _parse_attribute($attribute_hash->{$cmdname}->{'attribute'});
       #if (defined($class) and $class ne '') {
-      #  push @additional_classes, $class;
+      #  push @classes, $class;
       #}
       my $style = $attribute_hash->{$cmdname}->{'attribute'};
-      my $open = $self->html_attribute_class($style, $cmdname, \@additional_classes);
+      my $open = $self->html_attribute_class($style, \@classes);
       if ($open ne '') {
         $text = $open . '>' . $text . "</$style>";
       #  $text = $open . "$attribute_text>" . $text . "</$style>";
@@ -2316,7 +2321,7 @@ sub _convert_email_command($$$$)
   if ($self->in_string()) {
     return "$mail_string ($text)";
   } else {
-    return $self->html_attribute_class('a', $cmdname)
+    return $self->html_attribute_class('a', [$cmdname])
                         ." href=\"mailto:$mail_string\">$text</a>";
   }
 }
@@ -2382,7 +2387,7 @@ sub _convert_explained_command($$$$)
     $explanation = " title=\"$explanation_string\""
       if (defined($explanation_string));
     my $html_element = $cmdname;
-    $result = $self->html_attribute_class($html_element, $cmdname)
+    $result = $self->html_attribute_class($html_element, [$cmdname])
          ."${explanation}>".$result."</$html_element>";
   }
   if ($with_explanation) {
@@ -2506,7 +2511,7 @@ sub _convert_footnote_command($$$$)
   } else {
     $footnote_number_text = "<sup>$number_in_doc</sup>";
   }
-  return $self->html_attribute_class('a', $cmdname)
+  return $self->html_attribute_class('a', [$cmdname])
     ." id=\"$docid\" href=\"$footnote_filename#$footid\">$footnote_number_text</a>";
 }
 $default_commands_conversion{'footnote'} = \&_convert_footnote_command;
@@ -2532,7 +2537,7 @@ sub _convert_uref_command($$$$)
   $text = $url if (!defined($text) or $text eq '');
   return $text if (!defined($url) or $url eq '');
   return "$text ($url)" if ($self->in_string());
-  return $self->html_attribute_class('a', $cmdname)." href=\"$url\">$text</a>";
+  return $self->html_attribute_class('a', [$cmdname])." href=\"$url\">$text</a>";
 }
 
 $default_commands_conversion{'uref'} = \&_convert_uref_command;
@@ -2566,7 +2571,7 @@ sub _convert_image_command($$$$)
       $alt_string = $self->protect_text($basefile);
     }
     return $self->close_html_lone_element(
-      $self->html_attribute_class('img', $cmdname).
+      $self->html_attribute_class('img', [$cmdname]).
          " src=\"".$self->protect_text($image_file)."\" alt=\"$alt_string\"");
   }
   return '';
@@ -2586,10 +2591,10 @@ sub _convert_math_command($$$$)
   my $math_type = $self->get_conf('HTML_MATH');
   if ($math_type and $math_type eq 'mathjax') {
     $self->register_file_information('mathjax', 1);
-    return $self->html_attribute_class('em', $cmdname, ['tex2jax_process'])
+    return $self->html_attribute_class('em', [$cmdname, 'tex2jax_process'])
                                           .">\\($arg\\)</em>";
   }
-  return $self->html_attribute_class('em', $cmdname).">$arg</em>";
+  return $self->html_attribute_class('em', [$cmdname]).">$arg</em>";
 }
 
 $default_commands_conversion{'math'} = \&_convert_math_command;
@@ -2676,7 +2681,7 @@ sub _convert_indicateurl_command($$$$)
   }
   if (!$self->in_string()) {
     return $self->get_conf('OPEN_QUOTE_SYMBOL').
-        $self->html_attribute_class('code', $cmdname).'>'.$text
+        $self->html_attribute_class('code', [$cmdname]).'>'.$text
                 .'</code>'.$self->get_conf('CLOSE_QUOTE_SYMBOL');
   } else {
     return $self->get_conf('OPEN_QUOTE_SYMBOL').$text.
@@ -2699,7 +2704,7 @@ sub _convert_titlefont_command($$$$)
     # happens with bogus @-commands without argument, like @strong something
     return '';
   }
-  return &{$self->{'format_heading_text'}}($self, $cmdname, $cmdname,
+  return &{$self->{'format_heading_text'}}($self, $cmdname, [$cmdname],
                                            $text, 0);
 }
 $default_commands_conversion{'titlefont'} = \&_convert_titlefont_command;
@@ -2753,15 +2758,14 @@ sub _default_css_string_format_protect_text($$) {
 
 # can be called on root commands, tree units, special elements
 # and title elements.  $cmdname can be undef for special elements.
-sub _default_format_heading_text($$$$$;$$$)
+sub _default_format_heading_text($$$$$;$$)
 {
   my $self = shift;
   my $cmdname = shift;
-  my $class = shift;
+  my $classes = shift;
   my $text = shift;
   my $level = shift;
   my $id = shift;
-  my $additional_classes = shift;
   my $element = shift;
 
   return '' if ($text !~ /\S/ and not defined($id));
@@ -2781,7 +2785,7 @@ sub _default_format_heading_text($$$$$;$$$)
   if (defined($id)) {
     $id_str = " id=\"$id\"";
   }
-  my $result = $self->html_attribute_class("h$level", $class, $additional_classes)
+  my $result = $self->html_attribute_class("h$level", $classes)
                     ."${id_str}>$text</h$level>";
   # titlefont appears inline in text, so no end of line is
   # added. The end of line should be added by the user if needed.
@@ -2801,7 +2805,7 @@ sub _default_format_separate_anchor($$;$)
 
   # html_attribute_class would not work with span, so if span is
   # used, html_attribute_class should not be used
-  return $self->html_attribute_class('a', $class)." id=\"$id\"></a>";
+  return $self->html_attribute_class('a', [$class])." id=\"$id\"></a>";
 }
 
 # Associated to a button.  Return text to use for a link in button bar.
@@ -3090,11 +3094,11 @@ sub _default_format_navigation_panel($$$$;$)
 
   my $result = '';
   if ($self->get_conf('HEADER_IN_TABLE')) {
-    $result .= $self->html_attribute_class('table', 'nav-panel')
+    $result .= $self->html_attribute_class('table', ['nav-panel'])
         .' cellpadding="1" cellspacing="1" border="0">'."\n";
     $result .= "<tr>" unless $vertical;
   } else {
-    $result .= $self->html_attribute_class('div', 'nav-panel').">\n<p>\n";
+    $result .= $self->html_attribute_class('div', ['nav-panel']).">\n<p>\n";
   }
 
   my $first_button = 1;
@@ -3277,14 +3281,14 @@ sub _convert_heading_command($$$$$)
 
   my $element_id = $self->command_id($element);
 
-  my @additional_heading_classes;
+  my @heading_classes;
   my $level_corrected_cmdname = $cmdname;
   if (defined $element->{'structure'}->{'section_level'}) {
     # if the level was changed, use a consistent command name
     $level_corrected_cmdname
       = Texinfo::Structuring::section_level_adjusted_command_name($element);
     if ($level_corrected_cmdname ne $cmdname) {
-      push @additional_heading_classes,
+      push @heading_classes,
             "${cmdname}-level-set-${level_corrected_cmdname}";
     }
   }
@@ -3363,7 +3367,7 @@ sub _convert_heading_command($$$$$)
     # use a specific class name to mark that this is the start of
     # the section extent. It is not necessary where the section is.
     $result .= $self->html_attribute_class('div',
-                 "${level_corrected_opening_section_cmdname}-level-extent");
+                 ["${level_corrected_opening_section_cmdname}-level-extent"]);
     $result .= " id=\"$element_id\""
         if (defined($element_id) and $element_id ne '');
     $result .= ">\n";
@@ -3406,10 +3410,11 @@ sub _convert_heading_command($$$$$)
       $result .= "<strong${id_str}>".$heading.'</strong>'."\n";
     } else {
       my $heading_class = $level_corrected_cmdname;
+      unshift @heading_classes, $heading_class;
       $result .= &{$self->{'format_heading_text'}}($self,
-                     $level_corrected_cmdname, $heading_class, $heading,
+                     $level_corrected_cmdname, \@heading_classes, $heading,
                      $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
-                     $heading_id, \@additional_heading_classes, $element);
+                     $heading_id, $element);
     }
   } elsif (defined($heading_id)) {
     # case of a lone node and no header, and case of an empty @top
@@ -3515,7 +3520,10 @@ sub _indent_with_table($$$;$)
   my $content = shift;
   my $extra_classes = shift;
 
-  return $self->html_attribute_class('table', $cmdname, $extra_classes)
+  my @classes;
+  @classes = @$extra_classes if (defined($extra_classes));
+  unshift @classes, $cmdname;
+  return $self->html_attribute_class('table', \@classes)
          .'><tr><td>'.$self->html_non_breaking_space().'</td><td>'.$content
                 ."</td></tr></table>\n";
 }
@@ -3527,14 +3535,15 @@ sub _convert_preformatted_command($$$$)
   my $cmdname = shift;
   my $command = shift;
   my $content = shift;
-  my $extra_classes = [];
+
+  my @classes;
 
   # this is mainly for classes as there are purprosely no classes 
   # for small*
   my $main_cmdname;
   if ($small_alias{$cmdname}) {
     $main_cmdname = $small_alias{$cmdname};
-    push @$extra_classes, $cmdname;
+    push @classes, $cmdname;
   } else {
     $main_cmdname = $cmdname;
   }
@@ -3546,21 +3555,22 @@ sub _convert_preformatted_command($$$$)
         # characters
         my $converted_arg = Texinfo::Convert::NodeNameNormalization::convert($example_arg);
         if ($converted_arg ne '') {
-          push @$extra_classes, $converted_arg;
+          push @classes, $converted_arg;
         }
       }
     }
   } elsif ($main_cmdname eq 'lisp') {
-    push @$extra_classes, $main_cmdname;
+    push @classes, $main_cmdname;
     $main_cmdname = 'example';
   }
 
   if ($content ne '' and !$self->in_string()) {
     if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')
         and $indented_preformatted_commands{$cmdname}) {
-      return _indent_with_table($self, $cmdname, $content, $extra_classes);
+      return _indent_with_table($self, $cmdname, $content, \@classes);
     } else {
-      return $self->html_attribute_class('div', $main_cmdname, $extra_classes)
+      unshift @classes, $main_cmdname;
+      return $self->html_attribute_class('div', \@classes)
                                                  .">\n".$content.'</div>'."\n";
     }
   } else {
@@ -3580,21 +3590,21 @@ sub _convert_indented_command($$$$)
   my $command = shift;
   my $content = shift;
 
-  my $extra_classes = [];
+  my @classes;
 
   my $main_cmdname;
   if ($small_alias{$cmdname}) {
-    push @$extra_classes, $cmdname;
+    push @classes, $cmdname;
     $main_cmdname = $small_alias{$cmdname};
   } else {
     $main_cmdname = $cmdname;
   }
   if ($content ne '' and !$self->in_string()) {
     if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')) {
-      return _indent_with_table($self, $main_cmdname, $content, $extra_classes);
+      return _indent_with_table($self, $main_cmdname, $content, \@classes);
     } else {
-      return $self->html_attribute_class('blockquote', $main_cmdname,
-                                         $extra_classes).">\n"
+      unshift @classes, $main_cmdname;
+      return $self->html_attribute_class('blockquote', \@classes).">\n"
                           . $content . '</blockquote>'."\n";
     }
   } else {
@@ -3612,7 +3622,7 @@ sub _convert_verbatim_command($$$$)
   my $content = shift;
 
   if (!$self->in_string) {
-    return $self->html_attribute_class('pre', $cmdname).'>'
+    return $self->html_attribute_class('pre', [$cmdname]).'>'
           .$content . '</pre>';
   } else {
     return $content;
@@ -3633,11 +3643,11 @@ sub _convert_displaymath_command($$$$)
   }
 
   my $result = '';
-  $result .= $self->html_attribute_class('div', $cmdname).'>';
+  $result .= $self->html_attribute_class('div', [$cmdname]).'>';
   if ($self->get_conf('HTML_MATH')
         and $self->get_conf('HTML_MATH') eq 'mathjax') {
     $self->register_file_information('mathjax', 1);
-    $result .= $self->html_attribute_class('em', 'tex2jax_process').'>'
+    $result .= $self->html_attribute_class('em', ['tex2jax_process']).'>'
           ."\\[$content\\]".'</em>';
   } else {
     $result .= $self->html_attribute_class('em').'>'."$content".'</em>';
@@ -3674,7 +3684,7 @@ sub _convert_command_simple_block($$$$)
   my $command = shift;
   my $content = shift;
 
-  return $self->html_attribute_class('div', $cmdname).'>'
+  return $self->html_attribute_class('div', [$cmdname]).'>'
         .$content.'</div>';
 }
 
@@ -3721,9 +3731,9 @@ sub _convert_exdent_command($$$$)
   my $preformatted = $self->in_preformatted();
   
   if ($self->in_preformatted()) {
-    return $self->html_attribute_class('pre', $cmdname).'>'.$arg ."\n</pre>";
+    return $self->html_attribute_class('pre', [$cmdname]).'>'.$arg ."\n</pre>";
   } else {
-    return $self->html_attribute_class('p', $cmdname).'>'.$arg ."\n</p>";
+    return $self->html_attribute_class('p', [$cmdname]).'>'.$arg ."\n</p>";
   }
 }
 
@@ -3739,7 +3749,7 @@ sub _convert_center_command($$$$)
   if ($self->in_string()) {
     return $args->[0]->{'normal'}."\n";
   } else {
-    return $self->html_attribute_class('div', $cmdname).">"
+    return $self->html_attribute_class('div', [$cmdname]).">"
                                  .$args->[0]->{'normal'}."\n</div>";
   }
 }
@@ -3755,7 +3765,7 @@ sub _convert_author_command($$$$)
 
   return '' if (!$args->[0] or !$command->{'extra'}->{'titlepage'});
   if (!$self->in_string()) {
-    return $self->html_attribute_class('strong', $cmdname)
+    return $self->html_attribute_class('strong', [$cmdname])
                 .">$args->[0]->{'normal'}</strong>"
                 .$self->html_line_break_element()."\n";
   } else {
@@ -3773,7 +3783,7 @@ sub _convert_title_command($$$$)
   my $args = shift;
   return '' if (!$args->[0]);
   if (!$self->in_string()) {
-    return $self->html_attribute_class('h1', $cmdname)
+    return $self->html_attribute_class('h1', [$cmdname])
                             .">$args->[0]->{'normal'}</h1>\n";
   } else {
     return $args->[0]->{'normal'};
@@ -3789,7 +3799,7 @@ sub _convert_subtitle_command($$$$)
   my $args = shift;
   return '' if (!$args->[0]);
   if (!$self->in_string()) {
-    return $self->html_attribute_class('h3', $cmdname)
+    return $self->html_attribute_class('h3', [$cmdname])
                             .">$args->[0]->{'normal'}</h3>\n";
   } else {
     return $args->[0]->{'normal'};
@@ -3827,7 +3837,7 @@ sub _convert_listoffloats_command($$$$)
       and $self->{'floats'}->{$command->{'extra'}->{'type'}->{'normalized'}}
       and @{$self->{'floats'}->{$command->{'extra'}->{'type'}->{'normalized'}}}) { 
     my $listoffloats_name = $command->{'extra'}->{'type'}->{'normalized'};
-    my $result = $self->html_attribute_class('dl', $cmdname).">\n" ;
+    my $result = $self->html_attribute_class('dl', [$cmdname]).">\n" ;
     foreach my $float (@{$self->{'floats'}->{$listoffloats_name}}) {
       my $float_href = $self->command_href($float);
       next if (!$float_href);
@@ -3852,15 +3862,15 @@ sub _convert_listoffloats_command($$$$)
       }
 
       my $caption_text;
-      my $caption_class;
+      my @caption_classes;
       if ($caption) {
         $caption_text = $self->convert_tree_new_formatting_context(
           $caption->{'args'}->[0], $cmdname, 'listoffloats');
-        $caption_class = "${caption_cmdname}-in-${cmdname}";
+        push @caption_classes, "${caption_cmdname}-in-${cmdname}";
       } else {
         $caption_text = '';
       }
-      $result .= $self->html_attribute_class('dd', $caption_class).'>'
+      $result .= $self->html_attribute_class('dd', \@caption_classes).'>'
                                            .$caption_text.'</dd>'."\n";
     }
     return $result . "</dl>\n";
@@ -3902,7 +3912,7 @@ sub _convert_menu_command($$$$)
   }
 
   if ($self->get_conf('SIMPLE_MENU')) {
-    return $self->html_attribute_class('div', $cmdname).'>'
+    return $self->html_attribute_class('div', [$cmdname]).'>'
        .$content ."</div>\n";
   }
   my $begin_row = '';
@@ -3911,7 +3921,7 @@ sub _convert_menu_command($$$$)
     $begin_row = '<tr><td>';
     $end_row = '</td></tr>';
   }
-  return $self->html_attribute_class('table', $cmdname)
+  return $self->html_attribute_class('table', [$cmdname])
     ." border=\"0\" cellspacing=\"0\">${begin_row}\n"
       . $content . "${end_row}</table>\n";
 }
@@ -3987,14 +3997,14 @@ sub _convert_float_command($$$$$)
   my $float_type_number_caption = '';
   if ($caption_text ne '') {
     $float_type_number_caption
-      = $self->html_attribute_class('div',$caption_command_name). '>'
+      = $self->html_attribute_class('div', [$caption_command_name]). '>'
                        .$caption_text.'</div>';
   } elsif (defined($prepended) and $prepended_text ne '') {
     $float_type_number_caption
-      = $self->html_attribute_class('div','type-number-float'). '>'
+      = $self->html_attribute_class('div', ['type-number-float']). '>'
                        . $prepended_text .'</div>';
   }
-  return $self->html_attribute_class('div',$cmdname). "${id_str}>\n".$content.
+  return $self->html_attribute_class('div', [$cmdname]). "${id_str}>\n".$content.
      $float_type_number_caption . '</div>';
 }
 $default_commands_conversion{'float'} = \&_convert_float_command;
@@ -4009,15 +4019,16 @@ sub _convert_quotation_command($$$$$)
 
   $self->cancel_pending_formatted_inline_content($cmdname);
 
-  my $extra_classes = [];
+  my @classes;
 
   my $main_cmdname;
   if ($small_alias{$cmdname}) {
-    push @$extra_classes, $cmdname;
+    push @classes, $cmdname;
     $main_cmdname = $small_alias{$cmdname};
   } else {
     $main_cmdname = $cmdname;
   }
+  unshift @classes, $main_cmdname;
 
   my $attribution = '';
   if ($command->{'extra'} and $command->{'extra'}->{'authors'}) {
@@ -4032,8 +4043,8 @@ sub _convert_quotation_command($$$$$)
   }
 
   if (!$self->in_string()) {
-    return $self->html_attribute_class('blockquote', $main_cmdname, $extra_classes)
-                          .">\n" . $content . "</blockquote>\n" . $attribution;
+    return $self->html_attribute_class('blockquote', \@classes).">\n"
+                           . $content . "</blockquote>\n" . $attribution;
   } else {
     return $content.$attribution;
   }
@@ -4048,7 +4059,7 @@ sub _convert_cartouche_command($$$$)
   my $content = shift;
 
   if ($content =~ /\S/ and !$self->in_string()) {
-    return $self->html_attribute_class('table', $cmdname)
+    return $self->html_attribute_class('table', [$cmdname])
        ." border=\"1\"><tr><td>\n". $content ."</td></tr></table>\n";
   }
   return $content;
@@ -4088,20 +4099,20 @@ sub _convert_itemize_command($$$$)
   # FIXME API?
   if (defined($mark_class_name)
       and defined($self->{'css_map'}->{'ul.mark-'.$mark_class_name})) {
-    return $self->html_attribute_class('ul', $cmdname, ['mark-'.$mark_class_name])
+    return $self->html_attribute_class('ul', [$cmdname, 'mark-'.$mark_class_name])
         .">\n" . $content. "</ul>\n";
   } elsif ($self->get_conf('NO_CSS')) {
-    return $self->html_attribute_class('ul', $cmdname).">\n" . $content. "</ul>\n";
+    return $self->html_attribute_class('ul', [$cmdname]).">\n" . $content. "</ul>\n";
   } else {
     my $css_string
       = $self->html_convert_css_string_for_list_bullet($command->{'args'}->[0],
                                                       'itemize arg');
     if ($css_string ne '') {
-      return $self->html_attribute_class('ul', $cmdname)
+      return $self->html_attribute_class('ul', [$cmdname])
         ." style=\"list-style-type: '".$self->protect_text($css_string)."'\">\n"
         . $content. "</ul>\n";
     } else {
-      return $self->html_attribute_class('ul', $cmdname)
+      return $self->html_attribute_class('ul', [$cmdname])
         .">\n" . $content. "</ul>\n";
     }
   }
@@ -4139,7 +4150,7 @@ sub _convert_enumerate_command($$$$)
     $type_attribute = " type=\"$type\"" if (defined($type));
     $start_attribute = " start=\"$start\"" if (defined($start));
   }
-  return $self->html_attribute_class('ol', $cmdname).$type_attribute
+  return $self->html_attribute_class('ol', [$cmdname]).$type_attribute
        .$start_attribute.">\n" . $content . "</ol>\n";
 }
 
@@ -4156,7 +4167,7 @@ sub _convert_multitable_command($$$$)
     return $content;
   }
   if ($content =~ /\S/) {
-    return $self->html_attribute_class('table', $cmdname).">\n"
+    return $self->html_attribute_class('table', [$cmdname]).">\n"
                                      . $content . "</table>\n";
   } else {
     return '';
@@ -4176,7 +4187,7 @@ sub _convert_xtable_command($$$$)
     return $content;
   }
   if ($content ne '') {
-    return $self->html_attribute_class('dl', $cmdname).">\n"
+    return $self->html_attribute_class('dl', [$cmdname]).">\n"
       . $content . "</dl>\n";
   } else {
     return '';
@@ -4367,7 +4378,7 @@ sub _convert_xref_commands($$$$)
       }
     }
     my $reference = $name;
-    $reference = $self->html_attribute_class('a', $cmdname)
+    $reference = $self->html_attribute_class('a', [$cmdname])
                       ." href=\"$href\">$name</a>" if ($href ne ''
                                                        and !$self->in_string());
 
@@ -4610,7 +4621,8 @@ sub _convert_printindex_command($$$$)
     }
     $letter_id{$letter} = $identifier;
     
-    my $summary_letter_link = $self->html_attribute_class('a', "summary-letter-$cmdname")
+    my $summary_letter_link
+      = $self->html_attribute_class('a',["summary-letter-$cmdname"])
        ." href=\"#$identifier\"><b>".$self->protect_text($letter).'</b></a>';
     if ($is_symbol) {
       push @non_alpha, $summary_letter_link;
@@ -4632,11 +4644,11 @@ sub _convert_printindex_command($$$$)
     $alpha_text = join("\n $non_breaking_space \n", @alpha)
                     . "\n $non_breaking_space \n";
   }
-  my $result = $self->html_attribute_class('div', $cmdname,
-                                           ["$index_name-$cmdname"]).">\n";
+  my $result = $self->html_attribute_class('div',
+                           [$cmdname, "$index_name-$cmdname"]).">\n";
   # format the summary
   my $summary_header = $self->html_attribute_class('table',
-                 "$index_name-letters-header-$cmdname")."><tr><th valign=\"top\">"
+            ["$index_name-letters-header-$cmdname"]).'><tr><th valign="top">'
     . $self->convert_tree($self->gdt('Jump to')) .": $non_breaking_space </th><td>" .
     $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
 
@@ -4644,7 +4656,7 @@ sub _convert_printindex_command($$$$)
   $result .= $summary_header;
 
   # now format the index entries
-  $result .= $self->html_attribute_class('table', "$index_name-entries-$cmdname")
+  $result .= $self->html_attribute_class('table', ["$index_name-entries-$cmdname"])
     ." border=\"0\">\n" . "<tr><td></td><th align=\"left\">"
     . $self->convert_tree($self->gdt('Index Entry'))
     . "</th><td>$non_breaking_space</td><th align=\"left\"> "
@@ -4735,7 +4747,7 @@ sub _convert_printindex_command($$$$)
   $self->_pop_document_context();
   
   my $summary_footer = $self->html_attribute_class('table',
-                 "$index_name-letters-footer-$cmdname")."><tr><th valign=\"top\">"
+                 ["$index_name-letters-footer-$cmdname"]).'><tr><th valign="top">'
     . $self->convert_tree($self->gdt('Jump to')) .": $non_breaking_space </th><td>" .
     $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
   return $result .$summary_footer . "</div>\n";
@@ -4758,7 +4770,7 @@ sub _contents_inline_element($$$)
       = $self->special_element($special_element_direction);
     my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
     # FIXME is element- the best prefix?
-    my $result = $self->html_attribute_class('div', "element-${class}");
+    my $result = $self->html_attribute_class('div', ["element-${class}"]);
     my $heading;
     if ($special_element) {
       my $id = $self->command_id($special_element);
@@ -4774,7 +4786,7 @@ sub _contents_inline_element($$$)
                               "convert $cmdname special heading");
     }
     $result .= ">\n";
-    $result .= &{$self->{'format_heading_text'}}($self, $cmdname, $class.'-heading',
+    $result .= &{$self->{'format_heading_text'}}($self, $cmdname, [$class.'-heading'],
                        $heading, $self->get_conf('CHAPTER_HEADER_LEVEL'))."\n";
     $result .= $content . "</div>\n";
     return $result;
@@ -4923,7 +4935,7 @@ sub _convert_paragraph_type($$$$)
   if ($content =~ /\S/) {
     my $align = $self->in_align();
     if ($align and $align_commands{$align}) {
-      return $self->html_attribute_class('p', $align.'-paragraph').">"
+      return $self->html_attribute_class('p', [$align.'-paragraph']).">"
                              .$content."</p>";
     } else {
       return "<p>".$content."</p>";
@@ -5014,7 +5026,8 @@ sub _convert_preformatted_type($$$$)
     return $content;
   }
   $content =~ s/^\n/\n\n/; # a newline immediately after a <pre> is ignored.
-  my $result = $self->html_attribute_class('pre', $pre_class).">".$content."</pre>";
+  my $result = $self->html_attribute_class('pre', [$pre_class]).'>'
+                                                   . $content . '</pre>';
 
   # this may happen with lines without textual content
   # between a def* and def*x.
@@ -5259,8 +5272,8 @@ sub _convert_menu_entry_type($$$)
 
     if (!$self->get_conf('SIMPLE_MENU') and not $in_string) {
       my $pre_class = $self->_preformatted_class();
-      $result_name_node = $self->html_attribute_class('pre', $pre_class).">"
-                                                 .$result_name_node."</pre>";
+      $result_name_node = $self->html_attribute_class('pre', [$pre_class]).'>'
+                                               . $result_name_node . '</pre>';
     }
     return $result_name_node . $description;
   }
@@ -5373,7 +5386,7 @@ sub _convert_def_line_type($$$$)
   my $arguments
     = Texinfo::Convert::Utils::definition_arguments_content($command);
 
-  my @additional_classes = ();
+  my @classes = ();
   my $command_name;
   if ($Texinfo::Common::def_aliases{$command->{'extra'}->{'def_command'}}) {
     $command_name = $Texinfo::Common::def_aliases{$command->{'extra'}->{'def_command'}};
@@ -5384,13 +5397,14 @@ sub _convert_def_line_type($$$$)
   if ($Texinfo::Common::def_aliases{$command->{'extra'}->{'original_def_cmdname'}}) {
     my $original_def_cmdname = $command->{'extra'}->{'original_def_cmdname'};
     $original_command_name = $Texinfo::Common::def_aliases{$original_def_cmdname};
-    push @additional_classes, "$original_def_cmdname-alias-$original_command_name";
+    push @classes, "$original_def_cmdname-alias-$original_command_name";
   } else {
     $original_command_name = $command->{'extra'}->{'original_def_cmdname'};
   }
   if ($command_name ne $original_command_name) {
-    push @additional_classes, "def-cmd-$command_name";
+    push @classes, "def-cmd-$command_name";
   }
+  unshift @classes, $original_command_name;
 
   if (!$self->get_conf('DEF_TABLE')) {
     my $tree;
@@ -5584,7 +5598,7 @@ sub _convert_def_line_type($$$$)
     }
 
     if ($category_result ne '') {
-      my $open = $self->html_attribute_class('span', 'category-def');
+      my $open = $self->html_attribute_class('span', ['category-def']);
       if ($open ne '') {
         $category_result = $open.'>'.$category_result.'</span>';
       }
@@ -5596,8 +5610,7 @@ sub _convert_def_line_type($$$$)
       $anchor_span_open = '<span>';
       $anchor_span_close = '</span>';
     }
-    return $self->html_attribute_class('dt', $original_command_name,
-                                       \@additional_classes)
+    return $self->html_attribute_class('dt', \@classes)
          . "$index_label>" . $category_result . $anchor_span_open
          . $self->convert_tree({'type' => '_code', 'contents' => [$tree]})
          . "$anchor$anchor_span_close</dt>\n";
@@ -5605,8 +5618,8 @@ sub _convert_def_line_type($$$$)
     my $category_prepared = '';
     if ($command->{'extra'} and $command->{'extra'}->{'def_parsed_hash'}
         and %{$command->{'extra'}->{'def_parsed_hash'}}) {
-      my $parsed_definition_category 
-         = Texinfo::Convert::Utils::definition_category ($self, $command);
+      my $parsed_definition_category
+         = Texinfo::Convert::Utils::definition_category($self, $command);
       if ($parsed_definition_category) {
         $category_prepared = $self->convert_tree({'type' => '_code',
                    'contents' => [$parsed_definition_category]});
@@ -5637,8 +5650,7 @@ sub _convert_def_line_type($$$$)
     $type_name .= ' <strong>' . $name . '</strong>' if ($name ne '');
     $type_name .= $arguments_text;
 
-    return $self->html_attribute_class('tr', $original_command_name,
-                                       \@additional_classes)
+    return $self->html_attribute_class('tr', \@classes)
        . "$index_label><td align=\"left\">" . $type_name .
        "</td><td align=\"right\">" . $category_prepared . "</td></tr>\n";
   }
@@ -5649,7 +5661,7 @@ sub _get_copiable_anchor {
   my $result = '';
   if ($id and $self->get_conf('COPIABLE_LINKS')) {
     my $paragraph_symbol = $self->{'paragraph_symbol'};
-    $result = $self->html_attribute_class('a', 'copiable-link')
+    $result = $self->html_attribute_class('a', ['copiable-link'])
         ." href='#$id'> $paragraph_symbol</a>";
   }
   return $result;
@@ -5685,22 +5697,22 @@ sub _convert_def_command($$$$) {
 
   return $content if ($self->in_string());
 
-  my @additional_classes;
+  my @classes;
   my $command_name;
   if ($Texinfo::Common::def_aliases{$cmdname}) {
     $command_name = $Texinfo::Common::def_aliases{$cmdname};
-    push @additional_classes, "first-$cmdname-alias-first-$command_name";
+    push @classes, "first-$cmdname-alias-first-$command_name";
   } else {
     $command_name = $cmdname;
   }
-  my $class = "first-$command_name";
+  unshift @classes, "first-$command_name";
 
   if (!$self->get_conf('DEF_TABLE')) {
-    return $self->html_attribute_class('dl', $class, \@additional_classes)
-                                              .">\n". $content ."</dl>\n";
+    return $self->html_attribute_class('dl', \@classes).">\n"
+                                        . $content ."</dl>\n";
   } else {
-    return $self->html_attribute_class('table', $class, \@additional_classes)
-                    ." width=\"100%\">\n" . $content . "</table>\n";
+    return $self->html_attribute_class('table', \@classes)." width=\"100%\">\n"
+                                                     . $content . "</table>\n";
   }
 }
 
@@ -5760,7 +5772,7 @@ sub _default_format_titlepage($)
      $self->{'simpletitle_tree'}, "$self->{'simpletitle_command_name'} simpletitle");
     $titlepage_text = &{$self->{'format_heading_text'}}($self,
                   $self->{'simpletitle_command_name'},
-                  $self->{'simpletitle_command_name'}, $title_text, 0);
+                  [$self->{'simpletitle_command_name'}], $title_text, 0);
   }
   my $result = '';
   $result .= $titlepage_text.$self->get_conf('DEFAULT_RULE')."\n"
@@ -5783,7 +5795,7 @@ sub _print_title($)
          $self->{'simpletitle_tree'}, "$self->{'simpletitle_command_name'} simpletitle");
         $result .= &{$self->{'format_heading_text'}}($self,
                   $self->{'simpletitle_command_name'},
-                  $self->{'simpletitle_command_name'}, $title_text, 0);
+                  [$self->{'simpletitle_command_name'}], $title_text, 0);
       }
       $result .= $self->_contents_shortcontents_in_title();
     }
@@ -5809,7 +5821,7 @@ sub _convert_special_element_type($$$$)
   $result .= join('', $self->close_registered_sections_level(0));
   my $id = $self->command_id($element);
   my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
-  $result .= $self->html_attribute_class('div', "element-${class}");
+  $result .= $self->html_attribute_class('div', ["element-${class}"]);
   if ($id ne '') {
     $result .= " id=\"$id\"";
   }
@@ -5825,7 +5837,7 @@ sub _convert_special_element_type($$$$)
   if ($special_element_type eq 'footnotes') {
     $level = $self->get_conf('FOOTNOTE_SEPARATE_HEADER_LEVEL');
   }
-  $result .= &{$self->{'format_heading_text'}}($self, undef, $class.'-heading',
+  $result .= &{$self->{'format_heading_text'}}($self, undef, [$class.'-heading'],
                      $heading, $level)."\n";
 
   my $special_element_body .= &{$self->{'format_special_element_body'}}
@@ -6028,28 +6040,29 @@ sub _pop_document_context($)
 # Functions accessed with e.g. 'format_heading_text'.
 # used in Texinfo::Config
 our %default_formatting_references = (
-     'format_heading_text' => \&_default_format_heading_text,
-     'format_comment' => \&_default_format_comment,
-     'format_protect_text' => \&_default_format_protect_text,
-     'format_css_lines' => \&_default_format_css_lines,
      'format_begin_file' => \&_default_format_begin_file,
-     'format_node_redirection_page' => \&_default_format_node_redirection_page,
-     'format_end_file' => \&_default_format_end_file,
-     'format_special_element_body' => \&_default_format_special_element_body,
-     'format_footnotes_text' => \&_default_format_footnotes_text,
-     'format_program_string' => \&_default_format_program_string,
-     'format_titlepage' => \&_default_format_titlepage,
-     'format_navigation_header' => \&_default_format_navigation_header,
-     'format_navigation_panel' => \&_default_format_navigation_panel,
-     'format_element_header' => \&_default_format_element_header,
-     'format_element_footer' => \&_default_format_element_footer,
      'format_button' => \&_default_format_button,
      'format_button_icon_img' => \&_default_format_button_icon_img,
-     'format_separate_anchor' => \&_default_format_separate_anchor,
+     'format_css_lines' => \&_default_format_css_lines,
+     'format_comment' => \&_default_format_comment,
      'format_contents' => \&_default_format_contents,
+     'format_element_header' => \&_default_format_element_header,
+     'format_element_footer' => \&_default_format_element_footer,
+     'format_end_file' => \&_default_format_end_file,
      'format_frame_files' => \&_default_format_frame_files,
+     'format_footnotes_text' => \&_default_format_footnotes_text,
+     'format_heading_text' => \&_default_format_heading_text,
+     'format_navigation_header' => \&_default_format_navigation_header,
+     'format_navigation_panel' => \&_default_format_navigation_panel,
+     'format_node_redirection_page' => \&_default_format_node_redirection_page,
+     'format_program_string' => \&_default_format_program_string,
+     'format_protect_text' => \&_default_format_protect_text,
+     'format_separate_anchor' => \&_default_format_separate_anchor,
+     'format_special_element_body' => \&_default_format_special_element_body,
+     'format_titlepage' => \&_default_format_titlepage,
 );
 
+# not up for customization
 %default_css_string_formatting_references = (
   'format_protect_text' => \&_default_css_string_format_protect_text,
 );
@@ -7632,7 +7645,7 @@ sub _mini_toc
 
   if ($command->{'structure'}->{'section_childs'}
       and @{$command->{'structure'}->{'section_childs'}}) {
-    $result .= $self->html_attribute_class('ul', 'mini-toc').">\n";
+    $result .= $self->html_attribute_class('ul', ['mini-toc']).">\n";
 
     foreach my $section (@{$command->{'structure'}->{'section_childs'}}) {
       my $tree = $self->command_text($section, 'tree_nonumber');
@@ -7690,13 +7703,14 @@ sub _default_format_contents($$;$$)
   # chapter level elements are considered top-level here.
   $max_root_level = 1 if ($max_root_level < 1);
   #print STDERR "ROOT_LEVEL Max: $max_root_level, Min: $min_root_level\n";
-  my $ul_class = '';
-  $ul_class = 'toc-numbered-mark' if ($self->get_conf('NUMBER_SECTIONS'));
+  my @toc_ul_classes;
+  push @toc_ul_classes, 'toc-numbered-mark'
+            if ($self->get_conf('NUMBER_SECTIONS'));
 
   my $result = '';
   if ($contents and !defined($self->get_conf('BEFORE_TOC_LINES'))
       or (!$contents and !defined($self->get_conf('BEFORE_SHORT_TOC_LINES')))) {
-    $result .= $self->html_attribute_class('div', $cmdname).">\n";
+    $result .= $self->html_attribute_class('div', [$cmdname]).">\n";
   } elsif($contents) {
     $result .= $self->get_conf('BEFORE_TOC_LINES');
   } else {
@@ -7705,7 +7719,7 @@ sub _default_format_contents($$;$$)
 
   my $toplevel_contents;
   if (@{$section_root->{'structure'}->{'section_childs'}} > 1) {
-    $result .= $self->html_attribute_class('ul', $ul_class) .">\n";
+    $result .= $self->html_attribute_class('ul', \@toc_ul_classes) .">\n";
     $toplevel_contents = 1;
   }
 
@@ -7761,7 +7775,7 @@ sub _default_format_contents($$;$$)
         # no indenting for shortcontents
         $result .= "\n". ' ' x (2*($section->{'structure'}->{'section_level'} - $min_root_level))
           if ($contents);
-        $result .= $self->html_attribute_class('ul', $ul_class) .">\n";
+        $result .= $self->html_attribute_class('ul', \@toc_ul_classes) .">\n";
         $section = $section->{'structure'}->{'section_childs'}->[0];
       } elsif ($section->{'structure'}->{'section_next'}
                and $section->{'cmdname'} ne 'top') {
@@ -7829,7 +7843,7 @@ sub _default_format_end_file($$)
   my $program_text = '';
   if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
     my $program_string = &{$self->{'format_program_string'}}($self);
-    my $open = $self->html_attribute_class('span', 'program-in-footer');
+    my $open = $self->html_attribute_class('span', ['program-in-footer']);
     if ($open ne '') {
       $program_string = $open.'>'.$program_string.'</span>';
     }
@@ -8146,7 +8160,7 @@ sub _default_format_footnotes_text($)
 {
   my $self = shift;
   return '' if (!$foot_lines);
-  my $result = $self->html_attribute_class('div', 'footnote').">\n";
+  my $result = $self->html_attribute_class('div', ['footnote']).">\n";
   $result .= $self->get_conf('DEFAULT_RULE') . "\n" 
      if (defined($self->get_conf('DEFAULT_RULE')) 
          and $self->get_conf('DEFAULT_RULE') ne '');
@@ -8155,7 +8169,7 @@ sub _default_format_footnotes_text($)
                           'convert footnotes special heading');
   my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{'footnotes'};
   my $level = $self->get_conf('FOOTNOTE_END_HEADER_LEVEL');
-  $result .= &{$self->{'format_heading_text'}}($self, undef, $class.'-heading',
+  $result .= &{$self->{'format_heading_text'}}($self, undef, [$class.'-heading'],
                                         $footnote_heading, $level)."\n";
   $result .= &{$self->{'format_special_element_body'}}($self, 'footnotes',
                                               $self->{'current_root_element'});
@@ -9145,7 +9159,7 @@ sub _protect_space($$)
 
   if ($self->in_space_protected()) {
     if ($text =~ /(\S*[_-]\S*)/) {
-      my $open = $self->html_attribute_class('span', 'w-nolinebreak-text');
+      my $open = $self->html_attribute_class('span', ['w-nolinebreak-text']);
       if ($open ne '') {
         $open .= '>';
         # Protect spaces in the html leading attribute in case we are in 'w'
