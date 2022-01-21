@@ -40,7 +40,7 @@ copy-other-tests:
 	$(srcdir)/parser_tests.sh -copy $(other_tests_dirs)
 
 clean-tests:
-	$(srcdir)/parser_tests.sh -clean $(base_tests_dirs) $(tex_html_tests_dirs)
+	$(srcdir)/parser_tests.sh -clean $(base_tests_dirs) $(tex_html_tests_dirs) $(other_tests_dirs)
 
 TESTS = $(one_test_files_generated_list)
 
@@ -53,12 +53,9 @@ tex-html-checks tex-html-check: all
 	$(MAKE) $(AM_MAKEFLAGS) check TEX_HTML_TESTS=yes
 
 # type_other_one_test_files_generated_list is automatically defined in
-#aMakefile.onetst
+# Makefile.onetst
 other-checks: all
 	$(MAKE) $(AM_MAKEFLAGS) check OTHER_TESTS=yes TESTS='$(type_other_one_test_files_generated_list)' SUBDIRS=
 
 EXTRA_DIST = run_parser_all.sh parser_tests.sh \
  $(one_test_files_generated_list) coverage_macro.texi
-
-dist-hook:
-	rm -rf `find $(distdir)/reference -name .git`
