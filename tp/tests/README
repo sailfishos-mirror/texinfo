@@ -19,7 +19,6 @@ To run this testsuite, sed, awk, diff (with -u) are used.
 For LaTeX2HTML tests (not run by default), mktemp 
 understanding the -d option is also required.
 
-
 Some tests may also require a case insensitive filesystem.
 
 
@@ -79,6 +78,11 @@ out_parser/a_test/a_test.2, stdout output is in
 out_parser/a_test/a_test.1.  All the commands called are output in 
 tests.log.
 
+Note that "make all-checks" also runs the testsuite, but also runs
+TeX4ht and LaTeX2HTML tests and other tests that are not as portable
+as the main testsuite and may require additional softwares.  See
+below for more.
+
 
 Regenerating test results
 =========================
@@ -120,6 +124,8 @@ version of these tools.
 
 These tests may be run by
   make tex-html-checks
+or, together with all the other tests by
+  make all-checks
 
 For the tests that use latex2html, to avoid the test failing if there is 
 a dot in the cwd, mktemp is used to create a temporary directory, and 
@@ -134,6 +140,8 @@ these software to be present.  The required software is source-highlight.
 
 These tests may be run by
   make other-checks
+or, together with all the other tests by
+  make all-checks
 
 
 Tests specification

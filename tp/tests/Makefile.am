@@ -47,10 +47,14 @@ TESTS = $(one_test_files_generated_list)
 AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; top_srcdir="$(top_srcdir)"; export top_srcdir; builddir="$(builddir)"; export buildir; top_builddir="$(top_builddir)"; export top_builddir;
 
 all-checks all-check: all
-	$(MAKE) $(AM_MAKEFLAGS) check ALL_TESTS=yes
+	$(MAKE) $(AM_MAKEFLAGS) check TEX_HTML_TESTS=yes OTHER_TESTS=yes
 
+# need to set SUBDIRS= otherwise the recursion in many_input_files
+# tries to run the tests in TESTS which do not exist in many_input_files.
+# The recursion is explicitly done after.
 tex-html-checks tex-html-check: all
-	$(MAKE) $(AM_MAKEFLAGS) check TEX_HTML_TESTS=yes
+	$(MAKE) $(AM_MAKEFLAGS) check TEX_HTML_TESTS=yes TESTS='$(type_tex_html_one_test_files_generated_list)' SUBDIRS=
+	cd many_input_files && $(MAKE) $(AM_MAKEFLAGS) check TEX_HTML_TESTS=yes
 
 # type_other_one_test_files_generated_list is automatically defined in
 # Makefile.onetst
