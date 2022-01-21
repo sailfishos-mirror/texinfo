@@ -210,7 +210,7 @@ fi
 first_line=`head -1 "$driving_file"`
 if echo $first_line |grep '^# formats' >/dev/null; then
   formats=`echo $first_line |sed 's/^# formats //'`
-  commands="$commands $formats"
+  commands="$formats"
   echo "found special first line, commands now: $commands" >>$logfile
 fi
 
