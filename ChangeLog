@@ -1,5 +1,9 @@
 2022-01-21  Patrice Dumas  <pertusus@free.fr>
 
+	tests: add tests scripts by category/type. Only do other with other-checks.
+
+2022-01-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/init/highlight_syntax.pm (highlight_open_inline_container_type)
 	(highlight_preformatted_command): update to match with changes in
 	HTML output.
