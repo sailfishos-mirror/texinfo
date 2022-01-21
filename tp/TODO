@@ -189,6 +189,7 @@ Check the design of the HTML.pm API.  Document the API, in particular
 everything in Texinfo::Config.  Add an API for everything used in the 
 default functions, for example in page_head, use $self->title_string() 
 and so on and so forth.  
+Document type '_converted' for 'text'.
 
 Implement what is proposed in HTML Cross Reference Mismatch.
 

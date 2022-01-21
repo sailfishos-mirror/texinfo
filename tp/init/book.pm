@@ -173,17 +173,38 @@ sub book_convert_heading_command($$$$$)
   }
 
   my $element_id = $self->command_id($element);
-  my $section;
+
+  my @heading_classes;
+  my $level_corrected_cmdname = $cmdname;
+  if (defined $element->{'structure'}->{'section_level'}) {
+    # if the level was changed, use a consistent command name
+    $level_corrected_cmdname
+      = Texinfo::Structuring::section_level_adjusted_command_name($element);
+    if ($level_corrected_cmdname ne $cmdname) {
+      push @heading_classes,
+            "${cmdname}-level-set-${level_corrected_cmdname}";
+    }
+  }
+
+  # find the section starting here, can be through the associated node
+  # preceding the section, or the section itself
+  my $opening_section;
+  my $level_corrected_opening_section_cmdname;
   if ($cmdname eq 'node' and $element->{'extra'}->{'associated_section'}) {
-    $section = $element->{'extra'}->{'associated_section'};
+    $opening_section = $element->{'extra'}->{'associated_section'};
+    $level_corrected_opening_section_cmdname
+     = Texinfo::Structuring::section_level_adjusted_command_name($opening_section);
   } elsif ($cmdname ne 'node'
+           # if there is an associated node, it is not a section opening
+           # the section was opened before when the node was encountered
            and not $element->{'extra'}->{'associated_node'}
            # to avoid *heading* @-commands
            and $Texinfo::Common::root_commands{$cmdname}) {
-    $section = $element;
+    $opening_section = $element;
+    $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
   }
 
-  print STDERR "Process $element "
+  print STDERR "CONVERT elt heading $element "
         .Texinfo::Convert::Texinfo::root_element_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
@@ -197,33 +218,10 @@ sub book_convert_heading_command($$$$$)
                                             $element, $tree_unit);
   }
 
-  # if set, the id is associated to the heading text
-  my $heading_id;
-  if ($section) {
-    my $level = $section->{'structure'}->{'section_level'};
-    $result .= join('', $self->close_registered_sections_level($level));
-    $self->register_opened_section_level($level, "</div>\n");
-
-    $result .= $self->html_attribute_class('div', [$section->{'cmdname'}]);
-
-    $result .= " id=\"$element_id\""
-        if (defined($element_id) and $element_id ne '');
-    $result .= ">\n";
-  } elsif (defined($element_id) and $element_id ne '') {
-    if ($element_header ne '') {
-      # case of a @node without sectioning command and with a header.
-      # put the anchor element before the header
-      $result .= &{$self->{'format_separate_anchor'}}($self, $element_id,
-                                                     "${cmdname}-anchor");
-    } else {
-      $heading_id = $element_id;
-    }
-  }
-
-  $result .= $element_header;
-
+  # $heading not defined may happen if the command is a @node, for example
+  # if there is an error in the node.
+  my $heading = $self->command_text($element);
   my $heading_level;
-  my $level_corrected_cmdname = $cmdname;
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
     # FIXME what to do if the $tree_unit extra does not contain any
@@ -232,8 +230,7 @@ sub book_convert_heading_command($$$$$)
          # or !$tree_unit->{'extra'}->{'unit_command'}
          or ($tree_unit->{'extra'}->{'unit_command'}
              and $tree_unit->{'extra'}->{'unit_command'} eq $element
-             and $tree_unit->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'
-             and not $tree_unit->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'}))
+             and not $element->{'extra'}->{'associated_section'}))
         and defined($element->{'extra'}->{'normalized'})) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
@@ -243,9 +240,6 @@ sub book_convert_heading_command($$$$$)
     }
   } elsif (defined $element->{'structure'}->{'section_level'}) {
     $heading_level = $element->{'structure'}->{'section_level'};
-    # if the level was changed, set the command name right
-    $level_corrected_cmdname
-      = Texinfo::Structuring::section_level_adjusted_command_name($element);
   } else {
     # for *heading* @-commands which do not have a level
     # in the document as they are not associated with the
@@ -253,11 +247,43 @@ sub book_convert_heading_command($$$$$)
     $heading_level = Texinfo::Common::section_level($element);
   }
 
-  my $heading = $self->command_text($element);
-  # $heading not defined may happen if the command is a @node, for example
-  # if there is an error in the node.
-  if (defined($heading) and $heading ne '' and defined($heading_level)) {
+  my $do_heading = (defined($heading) and $heading ne ''
+                    and defined($heading_level));
 
+  # if set, the id is associated to the heading text
+  my $heading_id;
+  if ($opening_section) {
+    my $level = $opening_section->{'structure'}->{'section_level'};
+    $result .= join('', $self->close_registered_sections_level($level));
+    $self->register_opened_section_level($level, "</div>\n");
+
+    # use a specific class name to mark that this is the start of
+    # the section extent. It is not necessary where the section is.
+    $result .= $self->html_attribute_class('div',
+                 ["${level_corrected_opening_section_cmdname}-level-extent"]);
+    $result .= " id=\"$element_id\""
+        if (defined($element_id) and $element_id ne '');
+    $result .= ">\n";
+  } elsif (defined($element_id) and $element_id ne '') {
+    if ($element_header ne '') {
+      # case of a @node without sectioning command and with a header.
+      # put the node element anchor before the header.
+      # Set the class name to the command name if there is no heading,
+      # else the class will be with the heading element.
+      my $id_class = $cmdname;
+      if ($do_heading) {
+        $id_class = "${cmdname}-id";
+      }
+      $result .= &{$self->{'format_separate_anchor'}}($self, $element_id,
+                                                      $id_class);
+    } else {
+      $heading_id = $element_id;
+    }
+  }
+
+  $result .= $element_header;
+
+  if ($do_heading) {
     if ($self->get_conf('TOC_LINKS')
         and $Texinfo::Common::root_commands{$cmdname}
         and $Texinfo::Common::sectioning_commands{$cmdname}) {
@@ -276,18 +302,16 @@ sub book_convert_heading_command($$$$$)
       $result .= "<strong${id_str}>".$heading.'</strong>'."\n";
     } else {
       my $heading_class = $level_corrected_cmdname;
-      if ($cmdname eq 'node') {
-        $heading_class = 'node-heading';
-      }
+      unshift @heading_classes, $heading_class;
       $result .= &{$self->{'format_heading_text'}}($self,
-                     $level_corrected_cmdname, [$heading_class], $heading,
+                     $level_corrected_cmdname, \@heading_classes, $heading,
                      $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
-                     $heading_id);
+                     $heading_id, $element);
     }
   } elsif (defined($heading_id)) {
     # case of a lone node and no header, and case of an empty @top
     $result .= &{$self->{'format_separate_anchor'}}($self, $heading_id,
-                                                 "${cmdname}-anchor");
+                                                    $cmdname);
   }
 
   if ($element->{'structure'}->{'section_childs'}
