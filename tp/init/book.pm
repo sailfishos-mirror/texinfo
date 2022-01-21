@@ -1,10 +1,21 @@
 # A style that tries to be analogous with a book, in HTML.
 #
-# This file is in the public domain. Thus it may easily be used as an
-# example for further customizations.
+# Copyright 2004-2021 Free Software Foundation, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License,
+# or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 # Originally written by Patrice Dumas in 2004.
-# Modified in 2007, 2008.
 #
 # This style is based on the scriptbasic style.
 
@@ -44,9 +55,6 @@ texinfo_set_from_init_file('BIG_RULE', '<hr>');
 
 my $toc_numbered_mark_class = 'toc-numbered-mark';
 
-#texinfo_set_from_init_file('DOCTYPE',
-# '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">');
-
 my ($book_previous_default_filename, $book_previous_file_name,
     $book_unumbered_nr);
 
@@ -78,7 +86,6 @@ sub book_print_up_toc($$)
   }
   # this happens for example for top tree unit
   return '' if !(@up_commands);
-  #print $fh "<ul>" . &$anchor('', $Texi2HTML::HREF{Contents}, '[' . $Texi2HTML::NAME{Contents} . ']') . " <br>\n";
   my $up = shift @up_commands;
   #print STDERR "$up ".Texinfo::Convert::Texinfo::root_element_command_to_texinfo($up)."\n";
   $result .= $converter->html_attribute_class('ul', [$toc_numbered_mark_class])."><li>"
@@ -155,6 +162,9 @@ sub book_print_sub_toc($$$)
   return $result;
 }
 
+# this function is very similar with the default function, but there is
+# an additional sub toc before the content.  It should be synced with
+# the default function.
 sub book_convert_heading_command($$$$$)
 {
   my $self = shift;

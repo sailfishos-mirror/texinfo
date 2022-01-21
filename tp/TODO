@@ -17,6 +17,13 @@ Bugs
 ====
 
 
+HTML API
+========
+
+Add a registering function for:
+%$Texinfo::Config::texinfo_code_types
+Texinfo::Config::commands_translation{$context}->{$command}
+
 Profiling
 =========
 

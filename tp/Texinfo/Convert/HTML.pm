@@ -215,6 +215,7 @@ sub html_attribute_class($$;$)
 my %css_rules_not_collected = (
 );
 
+# returns an array of CSS element.class seen in the $FILENAME
 sub html_get_css_elements_classes($;$)
 {
   my $self = shift;
@@ -3390,7 +3391,6 @@ sub _convert_heading_command($$$$$)
 
   $result .= $element_header;
 
-
   if ($do_heading) {
     if ($self->get_conf('TOC_LINKS')
         and $Texinfo::Common::root_commands{$cmdname}
@@ -6229,21 +6229,85 @@ sub _load_htmlxref_files {
 }
 
 # converter state
+#
+#  output_init_conf
+#
+#  document_name
+#  destination_directory
+#
 #  css_map
-#  targets         for directions.  Keys are elements references, values are
-#                  target information hash references described above before
-#                  the API functions used to access those informations.
 #  htmlxref
-#  out_filepaths
-#  file_counters
 #  paragraph_symbol
 #  line_break_element
+#  non_breaking_space
 #  options_latex_math
 #
 #  simpletitle_tree
 #  simpletitle_command_name
+#  title_string
+#  title_tree
+#  documentdescription_string
+#  copying_comment
+#
+#  css_import_lines
+#  css_rule_lines
+#  index_entries_by_letter
+#  index_names
+#  index_entries
+#  htmlxref_files
+#  htmlxref
+#  check_htmlxref_already_warned
 #  
+#  commands_args (though it does not seems to be dynamic.
+#                 FIXME: always point to default?)
+#  default_formatting_functions
+#
 #  commands_conversion
+#  commands_open
+#  types_conversion
+#  types_open
+#  no_arg_commands_formatting
+#  style_commands_formatting
+#  code_types
+#  commands_translation
+#
+#  document_context
+#  multiple_pass
+#  pending_closes
+#  ignore_notice
+#  pending_inline_content
+#  associated_inline_content
+#
+#
+#  targets         for directions.  Keys are elements references, values are
+#                  target information hash references described above before
+#                  the API functions used to access those informations.
+#  tree_units
+#  labels
+#  out_filepaths
+#  counter_in_file
+#  elements_in_file_count    # the number of tree unit elements in file
+#  file_counters             # begin at elements_in_file_count decrease
+#                            # each time the tree unit element is closed
+#  current_filename
+#  current_root_element
+#  seen_ids
+#
+#  jslicenses_infojs
+#  jslicenses_math
+#  jslicenses
+#
+#  special_elements_targets
+#  special_elements_directions
+#  global_target_elements_directions
+#
+#  document_global_context_css
+#  file_css
+#
+#  file_informations
+#
+#  explained_commands         # not defined in the converter per se but in an
+#                             # @-command conversion function and only used there
 
 my %special_characters = (
   'paragraph_symbol' => ['&para;', '00B6'],
@@ -6450,6 +6514,7 @@ sub converter_initialize($)
       if (exists ($Texinfo::Config::commands_translation{$context}->{$command})) {
         $self->{'commands_translation'}->{$context}->{$command} 
            = $Texinfo::Config::commands_translation{$context}->{$command};
+        # FIXME check that the modification is to a copy and not the default config
         delete $self->{'translated_commands'}->{$command};
         # note that %default_commands_translation is empty for now
       } elsif (defined($default_commands_translation{$context}->{$command})) {
@@ -9357,9 +9422,7 @@ sub _convert($$;$)
                 }
               } elsif ($arg_type eq 'monospace') {
                 push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
-                #$self->{'document_context'}->[-1]->{'code'}++;
                 $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
-                #$self->{'document_context'}->[-1]->{'code'}--;
                 pop @{$self->{'document_context'}->[-1]->{'monospace'}};
               } elsif ($arg_type eq 'string') {
                 $self->_new_document_context($command_type);
@@ -9423,9 +9486,6 @@ sub _convert($$;$)
 
       if ($element->{'cmdname'} eq 'node') {
         $self->{'current_node'} = $element;
-      }
-      elsif ($element->{'cmdname'} eq 'menu' and $self->{'current_node'}) {
-        $self->{'seenmenus'}->{$self->{'current_node'}} = 1;
       }
       # args are formatted, now format the command itself
       if ($args_formatted) {
