@@ -140,11 +140,19 @@ Tests specification
 ===================
 Test runs are driven by the contents of the list-of-tests file in
 each subdirectory. This is a line-oriented file. A # starts a
-comment, except that the very first line of the file can be, e.g.,
-# formats :html
-which says which formats to generate.  If no format is specified
-on the first line, -c TEXI2HTML is passed, which sets html
-to be output and some formatting options.
+comment.
+The very first comment line of the file can be special, with
+# formats :_html
+which says which formats to generate.  If no format is specified, like
+# formats :
+texi2html style is assumed, -c TEXI2HTML is passed, which sets html
+to be output and some formatting options.  Multiple formats can be
+specified, like
+# formats : :_info
+in which texi2html html style and info are both generated.  If no format is
+specified on the first line, the default formats specification which is
+# formats :
+is used, which means a texi2html style html format generation.
 
 Otherwise, each non-empty non-comment line describes a test.  The first
 word on the line is the test name which corresponds also with the
