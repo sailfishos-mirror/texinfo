@@ -1,1 +1,3 @@
+# formats :_html
+
 highlight_syntax_example highlight_example.texi --html --init=highlight_syntax.pm

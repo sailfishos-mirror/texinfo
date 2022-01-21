@@ -194,9 +194,10 @@ tp/tests/*/tests.out
 tp/tests/*/diffs
 tp/tests/*/out_parser
 tp/tests/*/out_parser_info
-tp/tests/*/out_info
+tp/tests/*/out_parser_html
 tp/tests/*/raw_out_parser
 tp/tests/*/raw_out_parser_info
+tp/tests/*/raw_out_parser_html
 tp/tests/*/test_log
 
 tp/tests/*.log
