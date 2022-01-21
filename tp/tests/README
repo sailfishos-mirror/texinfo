@@ -19,6 +19,7 @@ To run this testsuite, sed, awk, diff (with -u) are used.
 For LaTeX2HTML tests (not run by default), mktemp 
 understanding the -d option is also required.
 
+
 Some tests may also require a case insensitive filesystem.
 
 
@@ -78,9 +79,9 @@ out_parser/a_test/a_test.2, stdout output is in
 out_parser/a_test/a_test.1.  All the commands called are output in 
 tests.log.
 
+
 Regenerating test results
 =========================
-
 To update the test results, first the tests must be run as above.
 
 Giving -copy as the first argument to ../run_parser_all.sh or
@@ -99,7 +100,6 @@ copy-tex-html targets do it directly.
 
 Testsuite and document strings translations
 ===========================================
-
 At least one test, layout/formatting_fr_icons, depends heavily on
 the translation of strings that can be translated and incorporated in
 output documents.  The translations are in the po_document directory.
@@ -124,6 +124,16 @@ These tests may be run by
 For the tests that use latex2html, to avoid the test failing if there is 
 a dot in the cwd, mktemp is used to create a temporary directory, and 
 the directory is passed through on the command line.
+
+
+Other tests requiring specific softwares
+========================================
+Other tests requiring specific software are not run automatically, as
+they may depend on the version of these specific software and require
+these software to be present.  The required software is source-highlight.
+
+These tests may be run by
+  make other-checks
 
 
 Tests specification
@@ -161,7 +171,6 @@ Common .texi
 A common .texi file should be in the top-level directory (there is such an
 example with coverage_macro.texi).
 
-
 Init files
 ----------
 Init files are searched for in ../t/init/.
@@ -197,6 +206,7 @@ Of course commit all the files and try a make check afterward to verify
 it gets run, and passes.
 
 See tp/t/README for info about those tests.
+
 
 Deleting a test
 ===============
