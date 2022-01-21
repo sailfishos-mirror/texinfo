@@ -39,6 +39,26 @@ texinfo_register_handler('structure', \&highlight_process);
 
 texinfo_register_command_formatting('example', \&highlight_preformatted_command);
 
+# normally this is done in preformatted type, but preformatted
+# types in example are ignored, register inline pending content
+# when opening an example block
+texinfo_register_command_opening('example', \&highlight_open_inline_container_type);
+
+sub highlight_open_inline_container_type($$$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $command = shift;
+
+  my $pending_formatted = $self->get_pending_formatted_inline_content();
+
+  if (defined($pending_formatted)) {
+    $self->associate_pending_formatted_inline_content($command, $pending_formatted);
+  }
+  return '';
+}
+
+
 # the end of a string were randomly generated once for all.
 my $range_separator = '_______________________________________ highlight texinfo _GT Haib0aik zei4YieH';
 
@@ -137,7 +157,7 @@ sub highlight_process($$)
         if (defined($language)) {
           if (not exists($languages{$language})) {
             $languages{$language} = {
-                     'counter' => 0.,
+                     'counter' => 0,
               };
           }
           $languages{$language}->{'counter'}++;
@@ -208,13 +228,15 @@ sub highlight_process($$)
     close(HIGHLIGHT_LANG_IN);
 
     # call source highlighting program
+    my $version_option='';
+    $version_option='--gen-version ' if ($self->get_conf('TEST'));
     my $html_result_file = $languages{$language}->{'r_html_file'};
     my @option_line_ranges = ();
     foreach my $line_range (@{$languages{$language}->{'line_ranges'}}) {
       push @option_line_ranges, '"'.$line_range->[0].'-'.$line_range->[1].'"';
     }
     my $option_line_range_str = join(',', @option_line_ranges);
-    my $cmd = "source-highlight --src-lang=$language --out-format=html5 -i '$rfile' -o '$html_result_file' --line-range=$option_line_range_str --range-separator='$range_separator'";
+    my $cmd = "source-highlight ${version_option}--src-lang=$language --out-format=html5 -i '$rfile' -o '$html_result_file' --line-range=$option_line_range_str --range-separator='$range_separator'";
 
     if (system($cmd)) {
       $self->document_error($self,
@@ -307,36 +329,52 @@ sub highlight_preformatted_command($$)
       # type formatting, from _convert_preformatted_type() and _preformatted_class()
       my $pre_class;
       my @pre_classes = $self->preformatted_classes_stack();
+      # since we are formatting @example itself, it is not in the preformatted
+      # context anymore, so we readd.
+      # FIXME should be $pre_class_commands{$cmdname}, which is set using
+      # %small_alias.  Both are private.
+      push @pre_classes, $cmdname;
       foreach my $class (@pre_classes) {
-        # FIXME maybe add   or $pre_class eq 'menu-preformatted'  to override
-        # 'menu-preformatted' with 'menu-comment'?
+        # FIXME maybe add   or $pre_class eq 'menu'  to override
+        # 'menu' with 'menu-comment'?
         $pre_class = $class unless ($pre_class
-                           and $Texinfo::Common::preformatted_code_commands{$pre_class}
-                           and !($Texinfo::Common::preformatted_code_commands{$class}
-                                 or $class eq 'menu-preformatted'));
+                  and $Texinfo::Common::preformatted_code_commands{$pre_class}
+                  and !($Texinfo::Common::preformatted_code_commands{$class}
+                                 or $class eq 'menu'));
       }
+      $pre_class = $pre_class.'-preformatted';
 
-
+      # TODO if needed, aliasing small variants could be done
+      # with the difficulty that the %small_alias hash is private
+      my $main_cmdname = $cmdname;
       # FIXME not clear on that.  What to do with @example arguments?
-      my $extra_classes;
-      if ($cmdname eq 'example' and $command->{'args'}) {
-        $extra_classes = [];
-        for my $example_arg (@{$command->{'args'}}) {
-          # convert or remove all @-commands, using simple ascii and unicode
-          # characters
-          my $converted_arg = Texinfo::Convert::NodeNameNormalization::convert($example_arg);
-          if ($converted_arg ne '') {
-            push @$extra_classes, $converted_arg;
+      my @classes;
+      if ($cmdname eq 'example') {
+        if ($command->{'args'}) {
+          for my $example_arg (@{$command->{'args'}}) {
+            # convert or remove all @-commands, using simple ascii and unicode
+            # characters
+            my $converted_arg = Texinfo::Convert::NodeNameNormalization::convert($example_arg);
+            if ($converted_arg ne '') {
+              push @classes, $converted_arg;
+            }
           }
         }
+      } elsif ($main_cmdname eq 'lisp') {
+        push @classes, $main_cmdname;
+        $main_cmdname = 'example';
       }
+      unshift @classes, $main_cmdname;
 
       my $result_content = $commands{$cmdname}->{'results'}->{$command};
-
+      # do it here, it is not done in preformatted.  It was correctly registered
+      # through highlight_open_inline_container_type.
+      $result_content = $self->get_associated_formatted_inline_content($command)
+                            . $result_content;
       $result_content =~ s/^\n/\n\n/; # a newline immediately after a <pre> is ignored.
       my $preformatted_result_content = $self->html_attribute_class('pre',
-                                        $pre_class).">".$result_content."</pre>";
-      return $self->html_attribute_class('div', $cmdname, $extra_classes).">\n"
+                                        [$pre_class]).">".$result_content."</pre>";
+      return $self->html_attribute_class('div', \@classes).">\n"
              .$preformatted_result_content.'</div>'."\n";
     }
   } elsif (defined($language)) {

@@ -9397,7 +9397,6 @@ sub _convert($$;$)
       if ($code_style_commands{$command_name} 
           or $preformatted_code_commands{$command_name}
           or $regular_font_style_commands{$command_name}) {
-        #$self->{'document_context'}->[-1]->{'code'}--;
         pop @{$self->{'document_context'}->[-1]->{'monospace'}};
       } elsif ($upper_case_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'upper_case'}--;

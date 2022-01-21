@@ -31,11 +31,13 @@ shift
 destdir=$1
 shift
 
-while test z"$1" = 'z-base' -o z"$1" = 'z-tex_html'; do
+while test z"$1" = 'z-base' -o z"$1" = 'z-tex_html' -o z"$1" = 'z-other' ; do
   if test z"$1" = 'z-base'; then
     base_test_dirs=$2
   elif test z"$1" = 'z-tex_html'; then
     tex_html_test_dirs=$2
+  elif test z"$1" = 'z-other' ; then
+    other_test_dirs=$2
   else
     echo "$0: Bad args" 1>&2
     exit 1
@@ -98,6 +100,13 @@ if test "z$TEX_HTML_TESTS" != z"yes"; then
   exit 77
 fi
 ' >> $one_test_file
+    elif test $type = 'other'; then
+      echo '
+if test "z$OTHER_TESTS" != z"yes"; then
+  echo "Skipping other tests that are not easily reproducible"
+  exit 77
+fi
+' >> $one_test_file
     fi
 
     echo "dir=$test_dir
@@ -136,6 +145,7 @@ END_HEADER
 
 gather_tests base "$base_test_dirs"
 gather_tests tex_html "$tex_html_test_dirs"
+gather_tests other "$other_test_dirs"
 
 echo "$test_driving_files
 " >> $outfile

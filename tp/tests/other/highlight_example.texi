@@ -1,0 +1,37 @@
+\input texinfo @c -*-texinfo-*-
+@setfilename highlight_example.info
+
+@node Top
+@top top
+
+@node chapter
+@chapter chap
+
+Texinfo
+@example texinfo
+@code{texinfo}
+@@code@{protected@}
+@end example
+
+C++
+@example C++
+// Your First C++ Program
+
+#include <iostream>
+
+int main() @{
+    std::cout << "Hello World!";
+    return 0;
+@}
+@end example
+
+perl
+@example perl
+my $list = ['a', 'b'];
+sub do ($) @{
+  my $arg = shift;
+  return $arg + 4;
+@}
+@end example
+
+@bye

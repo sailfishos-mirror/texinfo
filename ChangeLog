@@ -1,5 +1,15 @@
 2022-01-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/init/highlight_syntax.pm (highlight_open_inline_container_type)
+	(highlight_preformatted_command): update to match with changes in
+	HTML output.
+
+	* tests: add other tests requiring other softwares.
+
+	* tp/init/highlight_syntax.pm (highlight_process): avoid version in output in tests.
+
+2022-01-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (html_attribute_class),
 	tp/init/html32.pm, tp/init/book.pm: only pass a list of classes
 	to html_attribute_class(), instead of a class and a list.

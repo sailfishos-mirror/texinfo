@@ -17,25 +17,30 @@ $(srcdir)/Makefile.onetst: \
   ../maintain/regenerate_cmd_tests.sh $(test_driving_files_generated_list)
 	cd $(srcdir) \
 	&& $(SHELL) ../maintain/regenerate_cmd_tests.sh Makefile.onetst . \
-	  -base '$(base_tests)' \
-	  -tex_html '$(tex_html_tests)'
+	  -base '$(base_tests_dirs)' \
+	  -tex_html '$(tex_html_tests_dirs)' \
+	  -other '$(other_tests_dirs)'
 
-base_tests = formatting sectioning indices nested_formats contents layout
-tex_html_tests = tex_html
+base_tests_dirs = formatting sectioning indices nested_formats contents layout
+tex_html_tests_dirs = tex_html
+other_tests_dirs = other
 
-DIST_SUBDIRS = many_input_files $(base_tests) $(tex_html_tests)
+DIST_SUBDIRS = many_input_files $(base_tests_dirs) $(tex_html_tests_dirs) $(other_tests_dirs)
 SUBDIRS = . many_input_files
 
 copy-tests:
-	$(srcdir)/parser_tests.sh -copy $(base_tests)
+	$(srcdir)/parser_tests.sh -copy $(base_tests_dirs)
 	cd many_input_files && $(MAKE) copy-tests
 
 copy-tex-html:
-	$(srcdir)/parser_tests.sh -copy $(tex_html_tests)
+	$(srcdir)/parser_tests.sh -copy $(tex_html_tests_dirs)
 	cd many_input_files && $(MAKE) copy-tex-html
 
+copy-other-tests:
+	$(srcdir)/parser_tests.sh -copy $(other_tests_dirs)
+
 clean-tests:
-	$(srcdir)/parser_tests.sh -clean $(base_tests) $(tex_html_tests)
+	$(srcdir)/parser_tests.sh -clean $(base_tests_dirs) $(tex_html_tests_dirs)
 
 TESTS = $(one_test_files_generated_list)
 
@@ -46,6 +51,9 @@ all-checks all-check: all
 
 tex-html-checks tex-html-check: all
 	$(MAKE) $(AM_MAKEFLAGS) check TEX_HTML_TESTS=yes
+
+other-checks: all
+	$(MAKE) $(AM_MAKEFLAGS) check OTHER_TESTS=yes
 
 EXTRA_DIST = run_parser_all.sh parser_tests.sh \
  $(one_test_files_generated_list) coverage_macro.texi
