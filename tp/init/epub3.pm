@@ -48,7 +48,10 @@ use File::Basename;
 # if EPUB_CREATE_CONTAINER is set.
 #use Archive::Zip;
 
+# also for __(
 use Texinfo::Common;
+use Texinfo::Convert::Utils;
+use Texinfo::Convert::Text;
 
 my $epub_format_version = '3.2';
 

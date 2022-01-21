@@ -33,7 +33,7 @@ use strict;
 
 use File::Spec;
 
-# For __(
+# Also for __(
 use Texinfo::Common;
 
 # load modules to make sure that they are loaded before use

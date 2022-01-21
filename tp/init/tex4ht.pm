@@ -32,8 +32,9 @@
 
 use strict;
 
-# For __(
+# Also for __(
 use Texinfo::Common;
+use Texinfo::Convert::Texinfo;
 
 texinfo_register_handler('structure', \&tex4ht_prepare);
 texinfo_register_handler('init', \&tex4ht_convert);

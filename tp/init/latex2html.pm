@@ -31,8 +31,9 @@ use Cwd;
 use File::Copy;
 use File::Spec;
 
-# For __(
+# also for __(
 use Texinfo::Common;
+use Texinfo::Convert::Texinfo;
 
 texinfo_register_handler('structure', \&l2h_process);
 texinfo_register_handler('finish', \&l2h_finish);

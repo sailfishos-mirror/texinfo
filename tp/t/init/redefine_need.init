@@ -1,5 +1,7 @@
 use strict;
 
+use Texinfo::Convert::Text;
+
 texinfo_register_command_formatting('need', \&my_need_formatting);
 
 sub my_need_formatting($$$)

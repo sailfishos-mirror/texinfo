@@ -20,7 +20,7 @@ use strict;
 
 use File::Spec;
 
-# FIXME does not seems to be needed in latex2html.pm?
+# also for __(
 use Texinfo::Common;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::NodeNameNormalization;
