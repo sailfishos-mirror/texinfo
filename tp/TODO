@@ -51,11 +51,24 @@ Some internal state used in conversion:
  _convert_printindex_command
   $self->{'index_entries_by_letter'}
   $self->{'ignore_notice'}++
+ _convert_special_element_type
+  $self->{'counter_in_file'}->{$element->{'structure'}->{'unit_filename'}} == 1
 
  _default_format_button
   $self->{'current_root_element'} (for from_element_direction())
  _default_format_element_header
   $self->{'counter_in_file'}->{$tree_unit->{'structure'}->{'unit_filename'}}
+ _default_format_titlepage
+ _print_title     (_convert_tree_unit_type, output)
+  $self->{'simpletitle_tree'}
+  $self->{'simpletitle_command_name'}
+ _default_format_css_lines
+  $self->{'css_import_lines'}
+  $self->{'css_rule_lines'}
+  $self->{'css_map'}
+ _default_format_end_file
+  $self->{'jslicenses_infojs'}
+  $self->{'jslicenses_math'}
 
  _default_panel_button_dynamic_direction
   $self->{'current_root_element'} (for from_element_direction())
@@ -69,6 +82,8 @@ Some private function used in conversion
 Some private variables used in conversion
  _convert_footnote_command:
   $foot_num, $foot_lines, $NO_NUMBER_FOOTNOTE_SYMBOL, $footid_base, $docid_base, $target_prefix, %footnote_id_numbers
+ _default_format_special_element_body
+  $foot_lines
  _contents_inline_element
   %contents_command_element_type
  _convert_preformatted_command
@@ -77,6 +92,9 @@ Some private variables used in conversion
   %small_alias
  _convert_printindex_command
   %formatted_index_entries
+ _convert_menu_command
+ _convert_menu_entry_type
+  $html_menu_entry_index
 
 in page_head, use $self->title_string() 
 
@@ -127,6 +145,11 @@ required use of
 in_string()
 in_align()
 in_preformatted()
+$self->in_verbatim()
+$self->in_math()
+$self->in_upper_case()
+$self->in_code()
+$self->in_space_protected()
 html_attribute_class()
 close_html_lone_element()
 register_opened_section_level()
@@ -138,14 +161,18 @@ use of
 Texinfo::Convert::Utils::expand_today()
 Texinfo::Convert::Utils::expand_verbatiminclude
 Texinfo::Convert::Converter::float_name_caption()
+Texinfo::Convert::Utils::definition_arguments_content
+Texinfo::Convert::Utils::definition_category
 convert_tree()
 $self->convert_tree($self->gdt())
 Texinfo::Convert::NodeNameNormalization::normalize_node(
 Texinfo::Convert::NodeNameNormalization::convert
+Texinfo::Convert::Text::convert_to_text(
 $self->html_image_file_location_name()
 $self->xml_comment()
 $self->xml_protect_text()
 $self->xml_accents()
+$self->xml_format_text_with_numeric_entities()
 $self->element_is_tree_unit_top()
 $tree_unit->{'structure'} unit_next, unit_filename, unit_prev section_level associated_unit section_childs
  {'extra'}->{'unit_command'}
@@ -160,6 +187,9 @@ $self->convert_tree_new_formatting_context()
 $self->html_convert_css_string_for_list_mark()
 $self->table_item_content_tree() (Converter)
 $self->comma_index_subentries_tree() (Converter)
+$self->paragraph_number()
+$self->top_block_command()
+$self->html_get_css_elements_classes($filename);
 
 Profiling
 =========

@@ -349,7 +349,7 @@ sub html32_convert_paragraph_type($$$$)
   $content = $self->get_associated_formatted_inline_content($element).$content;
 
   if ($self->paragraph_number() == 1) {
-    my $in_format = $self->top_format();
+    my $in_format = $self->top_block_command();
     if ($in_format) {
       # no first paragraph in those environment to avoid extra spacing
       if ($in_format eq 'itemize'

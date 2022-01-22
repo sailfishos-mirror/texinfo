@@ -485,10 +485,10 @@ sub count_elements_in_filename($$)
   return undef;
 }
 
-sub top_format($)
+sub top_block_command($)
 {
   my $self = shift;
-  return $self->{'document_context'}->[-1]->{'formats'}->[-1];
+  return $self->{'document_context'}->[-1]->{'block_commands'}->[-1];
 }
 
 sub preformatted_classes_stack($)
@@ -962,32 +962,34 @@ foreach my $no_number_type ('text', 'tree', 'string') {
   $valid_direction_return_type{$no_number_type .'_nonumber'} = 1;
 }
 
-# sub from_element_direction($SELF, $SOURCE_ELEMENT, $DIRECTION, $TYPE, $SOURCE_FILENAME)
+# sub from_element_direction($SELF, $DIRECTION, $TYPE, $SOURCE_ELEMENT, $SOURCE_FILENAME)
 #
 # Return text used for linking from $SOURCE_ELEMENT in direction $DIRECTION.  The
 # text returned depends on $TYPE.
 #
 # This is used both for tree unit elements and external nodes
 #
-# $SOURCE_ELEMENT can be undef.
-# $SOURCE_ELEMENT undef happens at least when there is no output file, or for
-# the table of content when frames are used.  That call would result
+# If $SOURCE_ELEMENT is undef, $self->{'current_root_element'} is used.
+#
+# $self->{'current_root_element'} undef happens at least when there is no output file,
+# or for the table of content when frames are used.  That call would result
 # for instance from from_element_direction being called from _get_links,
 # itself called from 'format_begin_file' which, in the default case
 # points to _default_format_begin_file.
 # TODO are there other cases?
-sub from_element_direction($$$$;$)
+sub from_element_direction($$$;$$)
 {
   my $self = shift;
-  my $source_element = shift;
   my $direction = shift;
   my $type = shift;
+  my $source_element = shift;
   my $source_filename = shift;
 
   my $target_element;
   my $command;
   my $target;
 
+  $source_element = $self->{'current_root_element'} if (! defined($source_element));
   $source_filename = $self->{'current_filename'} if (!defined($source_filename));
  
   if (!$valid_direction_return_type{$type}) {
@@ -2838,19 +2840,16 @@ sub _default_panel_button_dynamic_direction($$;$$)
     $direction = 'FirstInFile'.$direction;
   }
 
-  my $href = $self->from_element_direction($self->{'current_root_element'},
-                                           $direction, 'href');
+  my $href = $self->from_element_direction($direction, 'href');
   my $node;
 
 
   if ($self->get_conf('xrefautomaticsectiontitle') eq 'on') {
-    $node = $self->from_element_direction($self->{'current_root_element'},
-                                             $direction, 'section');
+    $node = $self->from_element_direction($direction, 'section');
   }
 
   if (!defined($node)) {
-    $node = $self->from_element_direction($self->{'current_root_element'},
-                                      $direction, 'node');
+    $node = $self->from_element_direction($direction, 'node');
   }
 
   my $anchor;
@@ -2957,8 +2956,7 @@ sub _default_format_button($$)
     if (defined($direction) and ref($direction) eq ''
         and defined($text) and (ref($text) eq 'SCALAR') and defined($$text)) {
       # use given text
-      my $href = $self->from_element_direction(
-                   $self->{'current_root_element'}, $direction, 'href');
+      my $href = $self->from_element_direction($direction, 'href');
       if ($href) {
         my $anchor_attributes = $self->_direction_href_attributes($direction);
         $active = "<a href=\"$href\"${anchor_attributes}>$$text</a>";
@@ -2976,13 +2974,10 @@ sub _default_format_button($$)
       if ($text =~ s/^->\s*//) {
         # this case is mostly for tests, to test the direction type $text
         # with the direction $direction
-        $active = $self->from_element_direction(
-                    $self->{'current_root_element'}, $direction, $text);
+        $active = $self->from_element_direction($direction, $text);
       } else {
-        my $href = $self->from_element_direction(
-                      $self->{'current_root_element'}, $direction, 'href');
-        my $text_formatted = $self->from_element_direction(
-                     $self->{'current_root_element'}, $direction, $text);
+        my $href = $self->from_element_direction($direction, 'href');
+        my $text_formatted = $self->from_element_direction($direction, $text);
         if ($href) {
           my $anchor_attributes = $self->_direction_href_attributes($direction);
           $active = "<a href=\"$href\"${anchor_attributes}>$text_formatted</a>";
@@ -3005,8 +3000,7 @@ sub _default_format_button($$)
     }
     $need_delimiter = 0;
   } else {
-    my $href = $self->from_element_direction($self->{'current_root_element'},
-                                         $button, 'href');
+    my $href = $self->from_element_direction($button, 'href');
     if ($href) {
       # button is active
       my $btitle = '';
@@ -3036,9 +3030,7 @@ sub _default_format_button($$)
           # use icon
           $active = "<a href=\"$href\"${btitle}>".
              &{$self->{'format_button_icon_img'}}($self, $button_name, $active_icon,
-                      $self->from_element_direction(
-                                           $self->{'current_root_element'},
-                                           $button, 'string')) ."</a>";
+                      $self->from_element_direction($button, 'string')) ."</a>";
           $use_icon = 1;
         }
       }
@@ -3057,9 +3049,7 @@ sub _default_format_button($$)
         if ($passive_icon and $passive_icon ne '') {
           $passive = &{$self->{'format_button_icon_img'}}($self, $button_name, 
                                                    $passive_icon,
-                      $self->from_element_direction(
-                                             $self->{'current_root_element'},
-                                             $button, 'string'));
+                      $self->from_element_direction($button, 'string'));
           $use_icon = 1;
         }
       }
@@ -4621,8 +4611,7 @@ sub _convert_printindex_command($$$$)
   my $symbol_idx = 0;
   foreach my $letter_entry (@{$self->{'index_entries_by_letter'}->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
-    my $index_element_id = $self->from_element_direction(
-                         $self->{'current_root_element'}, 'This', 'target');
+    my $index_element_id = $self->from_element_direction('This', 'target');
     if (!defined($index_element_id)) {
       $index_element_id = $target_prefix;
     }
@@ -4935,7 +4924,7 @@ sub _convert_paragraph_type($$$$)
   $content = $self->get_associated_formatted_inline_content($element).$content;
 
   if ($self->paragraph_number() == 1) {
-    my $in_format = $self->top_format();
+    my $in_format = $self->top_block_command();
     if ($in_format) {
       # no first paragraph in those environment to avoid extra spacing
       if ($in_format eq 'itemize' 
@@ -5015,7 +5004,7 @@ sub _convert_preformatted_type($$$$)
 
   my $pre_class = $self->_preformatted_class();
 
-  if ($self->top_format() eq 'multitable') {
+  if ($self->top_block_command() eq 'multitable') {
     $content =~ s/^\s*//;
     $content =~ s/\s*$//;
   }
@@ -5117,7 +5106,27 @@ sub _convert_text($$$)
       $text =~ s/\x{1F}/--/g;
     }
   }
-  $text = $self->_protect_space($text);
+
+  return $text if ($self->in_preformatted());
+
+  if ($self->in_space_protected()) {
+    if ($text =~ /(\S*[_-]\S*)/) {
+      my $open = $self->html_attribute_class('span', ['w-nolinebreak-text']);
+      if ($open ne '') {
+        $open .= '>';
+        # Protect spaces in the html leading attribute in case we are in 'w'
+        $open =~ s/ /\x{1F}/g;
+        # Special span to avoid breaking at _-
+        $text =~ s/(\S*[_-]\S*)/${open}$1<\/span>/g;
+      }
+    }
+    $text .= $self->html_non_breaking_space() if (chomp($text));
+    # Protect spaces within text
+    my $non_breaking_space = $self->html_non_breaking_space();
+    $text =~ s/ /$non_breaking_space/g;
+    # Revert protected spaces in leading html attribute
+    $text =~ s/\x{1F}/ /g;
+  }
   return $text;
 }
 
@@ -5365,13 +5374,13 @@ sub _convert_before_item_type($$$$)
 
   return '' if ($content !~ /\S/);
   return $content if ($self->in_string());
-  my $top_format = $self->top_format();
-  if ($top_format eq 'itemize' or $top_format eq 'enumerate') {
+  my $top_block_command = $self->top_block_command();
+  if ($top_block_command eq 'itemize' or $top_block_command eq 'enumerate') {
     return '<li>'. $content .'</li>';
-  } elsif ($top_format eq 'table' or $top_format eq 'vtable' 
-           or $top_format eq 'ftable') {
+  } elsif ($top_block_command eq 'table' or $top_block_command eq 'vtable' 
+           or $top_block_command eq 'ftable') {
     return '<dd>'. $content .'</dd>'."\n";
-  } elsif ($top_format eq 'multitable') {
+  } elsif ($top_block_command eq 'multitable') {
     $content =~ s/^\s*//;
     $content =~ s/\s*$//;
 
@@ -7936,32 +7945,23 @@ sub _default_format_end_file($$)
   $program_string
 </p>";
   }
+
   my $pre_body_close = $self->get_conf('PRE_BODY_CLOSE');
   $pre_body_close = '' if (!defined($pre_body_close));
 
-  # jlicenses for the current element.  Note that 'jslicenses_infojs'
-  # and 'jslicenses_math' will only be set with some customization variables
-  my %jslicenses_element;
-  for my $key (keys %{$self->{'jslicenses_infojs'}}) {
-    $jslicenses_element{$key} = $self->{'jslicenses_infojs'}->{$key};
-  }
- 
-  if ($self->get_file_information('mathjax', $filename)
-      # FIXME do we really want the script element if no math was seen?
-      or !$self->get_conf('SPLIT')) {
-    for my $key (keys %{$self->{'jslicenses_math'}}) {
-      $jslicenses_element{$key} = $self->{'jslicenses_math'}->{$key};
+  if (scalar(keys %{$self->{'jslicenses_infojs'}})
+       or (($self->get_file_information('mathjax', $filename)
+            or !$self->get_conf('SPLIT'))
+           and scalar(keys %{$self->{'jslicenses_math'}}))) {
+    my $js_setting = $self->get_conf('JS_WEBLABELS');
+    my $js_path = $self->get_conf('JS_WEBLABELS_FILE');
+    if (defined($js_setting) and defined($js_path)
+        and ($js_setting eq 'generate' or $js_setting eq 'reference')) {
+      $pre_body_close .=
+        "<a href='$js_path' rel='jslicense'><small>"
+        .$self->convert_tree($self->gdt('JavaScript license information'))
+        .'</small></a>';
     }
-  }
-  my $js_setting = $self->get_conf('JS_WEBLABELS');
-  my $js_path = $self->get_conf('JS_WEBLABELS_FILE');
-  if (defined($js_setting) and defined($js_path)
-        and ($js_setting eq 'generate' or $js_setting eq 'reference')
-             and %jslicenses_element) {
-    $pre_body_close .=
-      "<a href='$js_path' rel='jslicense'><small>"
-      .$self->convert_tree($self->gdt('JavaScript license information'))
-      .'</small></a>';
   }
 
   return "${program_text}
@@ -8129,12 +8129,12 @@ sub _get_links($$$)
   if ($self->get_conf('USE_LINKS')) {
     my $link_buttons = $self->get_conf('LINKS_BUTTONS');
     foreach my $link (@$link_buttons) {
-      my $link_href = $self->from_element_direction($element,
-                                          $link, 'href', $filename);
+      my $link_href = $self->from_element_direction($link, 'href', $element,
+                                                    $filename);
       #print STDERR "$link -> $link_href \n";
       if ($link_href and $link_href ne '') {
-        my $link_string = $self->from_element_direction($element,
-                                          $link, 'string');
+        my $link_string = $self->from_element_direction($link, 'string',
+                                                        $element);
         my $link_title = '';
         $link_title = " title=\"$link_string\"" if (defined($link_string));
         my $rel = '';
@@ -9235,34 +9235,6 @@ sub _protect_class_name($$)
   return $self->protect_text($class_name);
 }
 
-sub _protect_space($$)
-{
-  my $self = shift;
-  my $text = shift;
-
-  return $text if ($self->in_preformatted());
-
-  if ($self->in_space_protected()) {
-    if ($text =~ /(\S*[_-]\S*)/) {
-      my $open = $self->html_attribute_class('span', ['w-nolinebreak-text']);
-      if ($open ne '') {
-        $open .= '>';
-        # Protect spaces in the html leading attribute in case we are in 'w'
-        $open =~ s/ /\x{1F}/g;
-        # Special span to avoid breaking at _-
-        $text =~ s/(\S*[_-]\S*)/${open}$1<\/span>/g;
-      }
-    }
-    $text .= $self->html_non_breaking_space() if (chomp($text));
-    # Protect spaces within text
-    my $non_breaking_space = $self->html_non_breaking_space();
-    $text =~ s/ /$non_breaking_space/g;
-    # Revert protected spaces in leading html attribute
-    $text =~ s/\x{1F}/ /g;
-  }
-  return $text;
-}
-
 # Convert tree element $ELEMENT, and return HTML text for the output files.
 sub _convert($$;$);
 
@@ -9369,7 +9341,7 @@ sub _convert($$;$)
                                               {'cmdname' => $command_name};
       }
       if (exists($block_commands{$command_name})) {
-        push @{$self->{'document_context'}->[-1]->{'formats'}}, $command_name;
+        push @{$self->{'document_context'}->[-1]->{'block_commands'}}, $command_name;
       }
       if (exists ($composition_context_commands{$command_name})) {
         push @{$self->{'document_context'}->[-1]->{'composition_context'}}, $command_name;
@@ -9496,7 +9468,7 @@ sub _convert($$;$)
         $self->{'document_context'}->[-1]->{'verbatim'}--;
       }
       if (exists($block_commands{$command_name})) {
-        pop @{$self->{'document_context'}->[-1]->{'formats'}};
+        pop @{$self->{'document_context'}->[-1]->{'block_commands'}};
       }
       if (exists($format_context_commands{$command_name})) {
         pop @{$self->{'document_context'}->[-1]->{'formatting_context'}};
