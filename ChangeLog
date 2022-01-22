@@ -1,5 +1,24 @@
 2022-01-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (comma_index_subentries_tree),
+	tp/Texinfo/Convert/HTML.pm (_convert_printindex_command)
+	tp/Texinfo/Convert/Plaintext.pm (process_printindex):
+	replace convert_index_subentries() with comma_index_subentries_tree()
+	which returns a tree instead of converting it.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_float_command)
+	(_convert_def_line_type, _convert): do not pass undef element to
+	convert_tree()/_convert().  Call cluck in _convert() if an undef
+	element is passed.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands, label_command):
+	use only label_command to avoid accessing internal converter information.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands): change in
+	spacing.
+
+2022-01-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_item_command): check
 	if in preformatted first before putting in <tt>.  Use
 	preformatted_classes_stack() instead of commands_stack() to determine

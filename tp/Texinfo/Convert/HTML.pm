@@ -918,7 +918,10 @@ sub label_command($$)
 {
   my $self = shift;
   my $label = shift;
-  return $self->{'labels'}->{$label};
+  if ($self->{'labels'}) {
+    return $self->{'labels'}->{$label};
+  }
+  return undef;
 }
 
 sub special_element($$)
@@ -3995,7 +3998,8 @@ sub _convert_float_command($$$$$)
     }
   } else {
     $caption_text = $self->convert_tree_new_formatting_context(
-      $caption->{'args'}->[0], 'float caption');
+      $caption->{'args'}->[0], 'float caption')
+       if (defined($caption));
   }
   
   my $float_type_number_caption = '';
@@ -4332,7 +4336,7 @@ sub _convert_xref_commands($$$$)
 
   my $file_arg_tree;
   my $file = '';
-  if (defined($args->[3]->{'monospacetext'}) 
+  if (defined($args->[3]->{'monospacetext'})
               and $args->[3]->{'monospacetext'} ne '') {
     $file_arg_tree = $args->[3]->{'tree'};
     $file = $args->[3]->{'monospacetext'};
@@ -4346,11 +4350,10 @@ sub _convert_xref_commands($$$$)
       and $root->{'extra'}->{'node_argument'}
       and defined($root->{'extra'}->{'node_argument'}->{'normalized'})
       and !$root->{'extra'}->{'node_argument'}->{'manual_content'}
-      and $self->{'labels'}
-      and $self->{'labels'}->{$root->{'extra'}->{'node_argument'}->{'normalized'}}) {
-    my $node 
-     = $self->label_command($root->{'extra'}->{'node_argument'}->{'normalized'}); 
-    # This is the node if USE_NODES, otherwise this may be the sectioning 
+      and $self->label_command($root->{'extra'}->{'node_argument'}->{'normalized'})) {
+    my $node
+     = $self->label_command($root->{'extra'}->{'node_argument'}->{'normalized'});
+    # This is the node if USE_NODES, otherwise this may be the sectioning
     # command (if the sectioning command is really associated to the node)
     my $command = $self->command_root_element_command($node);
     $command = $node if (!$node->{'extra'}->{'associated_section'}
@@ -4391,11 +4394,11 @@ sub _convert_xref_commands($$$$)
                                                        and !$self->in_string());
 
     # maybe use {'extra'}->{'node_argument'}?
-    my $is_section = ($command->{'cmdname'} ne 'node' 
+    my $is_section = ($command->{'cmdname'} ne 'node'
                       and $command->{'cmdname'} ne 'anchor'
                       and $command->{'cmdname'} ne 'float');
     if ($cmdname eq 'pxref') {
-      $tree = $self->gdt('see {reference_name}', 
+      $tree = $self->gdt('see {reference_name}',
         { 'reference_name' => {'type' => '_converted', 'text' => $reference} });
     } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
       $tree = $self->gdt('See {reference_name}',
@@ -4406,12 +4409,16 @@ sub _convert_xref_commands($$$$)
     }
   } else {
     # external reference
+
+    # We setup a node_entry based on the parsed node entry instead of
+    # simply using the parsed node entry to be able to use the $file argument
     my $node_entry = {};
-    $node_entry->{'node_content'} = $root->{'extra'}->{'node_argument'}->{'node_content'}
+    $node_entry->{'node_content'}
+     = $root->{'extra'}->{'node_argument'}->{'node_content'}
       if ($root->{'extra'}->{'node_argument'}
           and $root->{'extra'}->{'node_argument'}->{'node_content'});
-    $node_entry->{'normalized'} = $root->{'extra'}->{'node_argument'}->{'normalized'} 
-      if ($root->{'extra'}->{'node_argument'} 
+    $node_entry->{'normalized'} = $root->{'extra'}->{'node_argument'}->{'normalized'}
+      if ($root->{'extra'}->{'node_argument'}
           and exists($root->{'extra'}->{'node_argument'}->{'normalized'}));
 
     # file argument takes precedence over the file in the node (file)node entry
@@ -4421,7 +4428,7 @@ sub _convert_xref_commands($$$$)
              and $root->{'extra'}->{'node_argument'}->{'manual_content'}) {
       $node_entry->{'manual_content'}
         = $root->{'extra'}->{'node_argument'}->{'manual_content'};
-      my $file_with_node_tree = {'type' => '_code', 
+      my $file_with_node_tree = {'type' => '_code',
                                   'contents' => [@{$node_entry->{'manual_content'}}]};
       $file = $self->convert_tree($file_with_node_tree, 'node file in ref');
     }
@@ -4445,12 +4452,12 @@ sub _convert_xref_commands($$$$)
     }
 
     # not exactly sure when it happens.  Something like @ref{(file),,,Manual}?
-    $name = $args->[0]->{'monospace'} 
+    $name = $args->[0]->{'monospace'}
        if (!defined($name)
            # FIXME could it really be Top?
            and ($self->get_conf('KEEP_TOP_EXTERNAL_REF')
                 or $args->[0]->{'monospace'} ne 'Top'));
-      
+     
     $name = '' if (!defined($name));
     my $reference = $name;
     my $book_reference = '';
@@ -4471,22 +4478,22 @@ sub _convert_xref_commands($$$$)
     }
     if ($cmdname eq 'pxref') {
       if (($book ne '') and ($href ne '') and ($reference ne '')) {
-        $tree = $self->gdt('see {reference} in @cite{{book}}', 
-            { 'reference' => {'type' => '_converted', 'text' => $reference}, 
+        $tree = $self->gdt('see {reference} in @cite{{book}}',
+            { 'reference' => {'type' => '_converted', 'text' => $reference},
               'book' => {'type' => '_converted', 'text' => $book }});
       } elsif ($book_reference ne '') {
-        $tree = $self->gdt('see @cite{{book_reference}}', 
-            { 'book_reference' => {'type' => '_converted', 
+        $tree = $self->gdt('see @cite{{book_reference}}',
+            { 'book_reference' => {'type' => '_converted',
                                    'text' => $book_reference }});
       } elsif (($book ne '') and ($reference ne '')) {
-        $tree = $self->gdt('see `{section}\' in @cite{{book}}', 
-            { 'section' => {'type' => '_converted', 'text' => $reference}, 
+        $tree = $self->gdt('see `{section}\' in @cite{{book}}',
+            { 'section' => {'type' => '_converted', 'text' => $reference},
               'book' => {'type' => '_converted', 'text' => $book }});
       } elsif ($book ne '') { # should seldom or even never happen
-        $tree = $self->gdt('see @cite{{book}}', 
+        $tree = $self->gdt('see @cite{{book}}',
               {'book' => {'type' => '_converted', 'text' => $book }});
       } elsif ($href ne '') {
-        $tree = $self->gdt('see {reference}', 
+        $tree = $self->gdt('see {reference}',
              { 'reference' => {'type' => '_converted', 'text' => $reference} });
       } elsif ($reference ne '') {
         $tree = $self->gdt('see `{section}\'', {
@@ -4494,22 +4501,22 @@ sub _convert_xref_commands($$$$)
       }
     } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
       if (($book ne '') and ($href ne '') and ($reference ne '')) {
-        $tree = $self->gdt('See {reference} in @cite{{book}}', 
-            { 'reference' => {'type' => '_converted', 'text' => $reference}, 
+        $tree = $self->gdt('See {reference} in @cite{{book}}',
+            { 'reference' => {'type' => '_converted', 'text' => $reference},
               'book' => {'type' => '_converted', 'text' => $book }});
       } elsif ($book_reference ne '') {
-        $tree = $self->gdt('See @cite{{book_reference}}', 
-            { 'book_reference' => {'type' => '_converted', 
+        $tree = $self->gdt('See @cite{{book_reference}}',
+            { 'book_reference' => {'type' => '_converted',
                                    'text' => $book_reference }});
       } elsif (($book ne '') and ($reference ne '')) {
-        $tree = $self->gdt('See `{section}\' in @cite{{book}}', 
-            { 'section' => {'type' => '_converted', 'text' => $reference}, 
+        $tree = $self->gdt('See `{section}\' in @cite{{book}}',
+            { 'section' => {'type' => '_converted', 'text' => $reference},
               'book' => {'type' => '_converted', 'text' => $book }});
       } elsif ($book ne '') { # should seldom or even never happen
-        $tree = $self->gdt('See @cite{{book}}', 
+        $tree = $self->gdt('See @cite{{book}}',
               {'book' => {'type' => '_converted', 'text' => $book }});
       } elsif ($href ne '') {
-        $tree = $self->gdt('See {reference}', 
+        $tree = $self->gdt('See {reference}',
              { 'reference' => {'type' => '_converted', 'text' => $reference} });
       } elsif ($reference ne '') {
         $tree = $self->gdt('See `{section}\'', {
@@ -4517,28 +4524,28 @@ sub _convert_xref_commands($$$$)
       }
     } else {
       if (($book ne '') and ($href ne '') and ($reference ne '')) {
-        $tree = $self->gdt('{reference} in @cite{{book}}', 
-            { 'reference' => {'type' => '_converted', 'text' => $reference}, 
+        $tree = $self->gdt('{reference} in @cite{{book}}',
+            { 'reference' => {'type' => '_converted', 'text' => $reference},
               'book' => {'type' => '_converted', 'text' => $book }});
       } elsif ($book_reference ne '') {
-        $tree = $self->gdt('@cite{{book_reference}}', 
-            { 'book_reference' => {'type' => '_converted', 
+        $tree = $self->gdt('@cite{{book_reference}}',
+            { 'book_reference' => {'type' => '_converted',
                                    'text' => $book_reference }});
       } elsif (($book ne '') and ($reference ne '')) {
-        $tree = $self->gdt('`{section}\' in @cite{{book}}', 
-            { 'section' => {'type' => '_converted', 'text' => $reference}, 
+        $tree = $self->gdt('`{section}\' in @cite{{book}}',
+            { 'section' => {'type' => '_converted', 'text' => $reference},
               'book' => {'type' => '_converted', 'text' => $book }});
       } elsif ($book ne '') { # should seldom or even never happen
-        $tree = $self->gdt('@cite{{book}}', 
+        $tree = $self->gdt('@cite{{book}}',
               {'book' => {'type' => '_converted', 'text' => $book }});
       } elsif ($href ne '') {
-        $tree = $self->gdt('{reference}', 
+        $tree = $self->gdt('{reference}',
              { 'reference' => {'type' => '_converted', 'text' => $reference} });
       } elsif ($reference ne '') {
         $tree = $self->gdt('`{section}\'', {
               'section' => {'type' => '_converted', 'text' => $reference} });
       }
-    } 
+    }
     if (!defined($tree)) {
       # May happen if there is no argument
       #die "external: $cmdname, ($args), '$name' '$file' '$book' '$href' '$reference'. tree undef";
@@ -4562,8 +4569,8 @@ sub _convert_index_command($$$$)
   my $args = shift;
 
   my $index_id = $self->command_id($command);
-  if (defined($index_id) and $index_id ne '' 
-      and !@{$self->{'multiple_pass'}} 
+  if (defined($index_id) and $index_id ne ''
+      and !@{$self->{'multiple_pass'}}
       and !$self->in_string()) {
     my $result = &{$self->{'format_separate_anchor'}}($self, $index_id,
                                                       'index-entry-id');
@@ -4590,7 +4597,7 @@ sub _convert_printindex_command($$$$)
   } else {
     return '';
   }
-  if (!$self->{'index_entries_by_letter'} 
+  if (!$self->{'index_entries_by_letter'}
       or !$self->{'index_entries_by_letter'}->{$index_name}
       or !@{$self->{'index_entries_by_letter'}->{$index_name}}) {
     return '';
@@ -4688,22 +4695,22 @@ sub _convert_printindex_command($$$$)
       }
 
       my $entry;
+      my $subentries_tree = $self->comma_index_subentries_tree($index_entry_ref);
       if ($index_entry_ref->{'in_code'}) {
         $entry = $self->convert_tree({'type' => '_code',
-                                      'contents' => $index_entry_ref->{'content'}},
-                                      "index $index_name l $letter index entry $entry_nr");
+                                     'contents' => $index_entry_ref->{'content'}},
+                             "index $index_name l $letter index entry $entry_nr");
+        $entry .= $self->convert_tree({'type' => '_code',
+                                     'contents' => $subentries_tree->{'contents'}},
+                        "index $index_name l $letter index sub entries $entry_nr")
+           if (defined($subentries_tree));
       } else {
         $entry = $self->convert_tree({'contents' => $index_entry_ref->{'content'}},
-                                      "index $index_name l $letter index entry $entry_nr");
-      }
-      # cannot introduce a _code type element, since convert_index_subentries
-      # expects an index command directly as argument.
-      if ($index_entry_ref->{'in_code'}) {
-        push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
-      }
-      $entry .= $self->convert_index_subentries($index_entry_ref);
-      if ($index_entry_ref->{'in_code'}) {
-        pop @{$self->{'document_context'}->[-1]->{'monospace'}};
+                              "index $index_name l $letter index entry $entry_nr");
+        $entry .= $self->convert_tree(
+                                  {'contents'  => $subentries_tree->{'contents'}},
+                        "index $index_name l $letter index sub entries $entry_nr")
+           if (defined($subentries_tree));
       }
       if ($already_formatted) {
         $self->{'ignore_notice'}--;
@@ -5417,15 +5424,20 @@ sub _convert_def_line_type($$$$)
   if (!$self->get_conf('DEF_TABLE')) {
     my $tree;
     my $name;
-    if ($command->{'extra'}->{'def_parsed_hash'}->{'name'}) {
+    if ($command->{'extra'} and $command->{'extra'}->{'def_parsed_hash'}
+        and defined($command->{'extra'}->{'def_parsed_hash'}->{'name'})) {
       $name = $command->{'extra'}->{'def_parsed_hash'}->{'name'};
     } else {
       $name = '';
     }
-    my $category = $command->{'extra'}->{'def_parsed_hash'}->{'category'};
+    my $category;
+    if ($command->{'extra'} and $command->{'extra'}->{'def_parsed_hash'}
+        and defined($command->{'extra'}->{'def_parsed_hash'}->{'category'})) {
+      $category = $command->{'extra'}->{'def_parsed_hash'}->{'category'};
+    }
     my $category_result = '';
     my $category_tree;
-    if ($category) {
+    if (defined($category) and $category ne '') {
       $category_tree
         = {'type' => '_code',
            'contents'=>[$self->gdt("{category}: ", {'category' => $category})]
@@ -5448,7 +5460,8 @@ sub _convert_def_line_type($$$$)
              or ($command_name eq 'deftypecv'
                  and !$command->{'extra'}->{'def_parsed_hash'}->{'type'}))
             and !$command->{'extra'}->{'def_parsed_hash'}->{'class'})) {
-      $category_result = $self->convert_tree($category_tree);
+      $category_result = $self->convert_tree($category_tree)
+        if (defined($category_tree));
       if ($arguments) {
         $tree = $self->gdt("\@strong{{name}} \@emph{{arguments}}", {
                 'name' => $name,
@@ -5504,7 +5517,8 @@ sub _convert_def_line_type($$$$)
                   $strings);
         }
       }
-      $category_result = $self->convert_tree($category_tree);
+      $category_result = $self->convert_tree($category_tree)
+        if (defined($category_tree));
     # with a class, no type
     } elsif ($command_name eq 'defcv'
              or ($command_name eq 'deftypecv'
@@ -9256,6 +9270,10 @@ sub _convert($$;$)
 {
   my $self = shift;
   my $element = shift;
+  if (!defined($element)) {
+    cluck('BUG: _convert: element UNDEF');
+    return '';
+  }
   # only used for debug
   my $explanation = shift;
 

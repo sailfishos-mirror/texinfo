@@ -1283,10 +1283,15 @@ sub process_printindex($$;$)
   foreach my $entry (@{$self->{'index_entries'}->{$index_name}}) {
     next if ($ignored_entries{$entry});
     my $entry_tree = {'contents' => $entry->{'content'}};
+    my $subentries_tree = $self->comma_index_subentries_tree($entry);
     if ($entry->{'in_code'}) {
       $entry_tree->{'type'} = '_code';
+      $subentries_tree->{'type'} = '_code'
+        if (defined($subentries_tree));
     } else {
       $entry_tree->{'type'} = 'frenchspacing';
+       $subentries_tree->{'type'} = 'frenchspacing'
+        if (defined($subentries_tree));
     }
     my $entry_text = '';
 
@@ -1294,15 +1299,9 @@ sub process_printindex($$;$)
                                    {'indent' => 0, 'suppress_styles' => 1});
     push @{$self->{'formatters'}}, $formatter;
     $entry_text = $self->_convert($entry_tree);
-    # cannot introduce a _code type element, since convert_index_subentries
-    # expects an index command directly as argument.
-    if ($entry->{'in_code'}) {
-      _open_code($formatter);
-    }
-    $entry_text .= $self->convert_index_subentries($entry);
-    if ($entry->{'in_code'}) {
-      _close_code($formatter);
-    }
+    $entry_text .= $self->_convert($subentries_tree)
+      if (defined($subentries_tree));
+
     $entry_text .= _count_added($self, $formatter->{'container'},
                   Texinfo::Convert::Paragraph::end($formatter->{'container'}));
     pop @{$self->{'formatters'}};
@@ -1311,9 +1310,10 @@ sub process_printindex($$;$)
 
     # FIXME protect instead
     if ($entry_text =~ /:/ and $self->get_conf('INDEX_SPECIAL_CHARS_WARNING')) {
-      $self->line_warn ($self, sprintf(__("Index entry in \@%s with : produces invalid Info: %s"),
-                                 $entry->{'index_at_command'},
-          Texinfo::Convert::Texinfo::convert_to_texinfo($entry_tree)), 
+      $self->line_warn ($self,
+        sprintf(__("Index entry in \@%s with : produces invalid Info: %s"),
+                $entry->{'index_at_command'},
+                Texinfo::Convert::Texinfo::convert_to_texinfo($entry_tree)),
                         $entry->{'command'}->{'line_nr'});
     }
 

@@ -44,7 +44,13 @@ Some internal state used in conversion:
   $self->{'expanded_formats_hash'}
  _convert_itemize_command
   $self->{'css_map'}
-  
+ _get_copiable_anchor (called by 2 convert functions)
+  $self->{'paragraph_symbol'}
+ _convert_index_command
+  @{$self->{'multiple_pass'}}
+ _convert_printindex_command
+  $self->{'index_entries_by_letter'}
+  $self->{'ignore_notice'}++
 
  _default_format_button
   $self->{'current_root_element'} (for from_element_direction())
@@ -57,6 +63,8 @@ Some internal state used in conversion:
 Some private function used in conversion
  _convert_informative_command
   _translate_names
+ _convert_printindex_command
+  _new_document_context
 
 Some private variables used in conversion
  _convert_footnote_command:
@@ -67,6 +75,8 @@ Some private variables used in conversion
  _convert_indented_command
  _convert_quotation_command
   %small_alias
+ _convert_printindex_command
+  %formatted_index_entries
 
 in page_head, use $self->title_string() 
 
@@ -98,7 +108,7 @@ default_types_open
 
 
 
-Type '_converted' and '_string' for 'text'.
+Type '_converted' and '_string' and '_code' for 'text'.
 
 used in _direction_href_attributes, _get_links
 'BUTTONS_ACCESSKEY' 'BUTTONS_REL'
@@ -111,6 +121,7 @@ from_element_direction
 command_target command_filename command_string command_id command_href
 command_contents_href
 special_element (argument: a $special_element_direction?)
+command_root_element_command label_command
 
 required use of
 in_string()
@@ -143,11 +154,12 @@ Texinfo::Common::section_level()
 Texinfo::Common::set_informative_command_value()
 $self->preformatted_classes_stack
 self->html_non_breaking_space()
+$self->html_line_break_element()
 $self->{'floats'}
 $self->convert_tree_new_formatting_context()
 $self->html_convert_css_string_for_list_mark()
 $self->table_item_content_tree() (Converter)
-
+$self->comma_index_subentries_tree() (Converter)
 
 Profiling
 =========

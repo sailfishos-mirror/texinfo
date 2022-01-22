@@ -1275,20 +1275,21 @@ sub convert_accents($$$;$)
   }
 }
 
-# Add any index sub-entries specified with @subentry, separated by commas.
-sub convert_index_subentries {
+# index sub-entries specified with @subentry, separated by commas.
+sub comma_index_subentries_tree {
   my ($self, $entry) = @_;
 
-  my $result = '';
+  my @contents;
   my $tmp = $entry->{'command'};
   while ($tmp->{'extra'} and $tmp->{'extra'}->{'subentry'}) {
     $tmp = $tmp->{'extra'}->{'subentry'};
-    $result .= $self->convert_tree({'text' => ', '});
-    $result .= $self->convert_tree($tmp->{'args'}->[0]);
+    push @contents, {'text' => ', '}, $tmp->{'args'}->[0];
   }
-  return $result;
+  if (scalar(@contents)) {
+    return {'contents' => \@contents};
+  }
+  return undef;
 }
-
 
 # This method allows to count words in elements and returns an array
 # and a text already formatted.
