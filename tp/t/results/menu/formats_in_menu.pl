@@ -558,9 +558,6 @@ $result_trees{'formats_in_menu'} = {
                           ],
                           'cmdname' => 'acronym',
                           'contents' => [],
-                          'extra' => {
-                            'explanation_contents' => []
-                          },
                           'line_nr' => {
                             'file_name' => '',
                             'line_nr' => 21,

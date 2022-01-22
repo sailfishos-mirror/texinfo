@@ -24,6 +24,15 @@ Add a registering function for:
 %$Texinfo::Config::texinfo_code_types
 Texinfo::Config::commands_translation{$context}->{$command}
 
+Use an accessor for css_import_lines, css_rule_lines and css_map
+
+Document type '_converted' and '_string' for 'text'.
+
+Check the design of the HTML.pm API.  Document the API, in particular
+everything in Texinfo::Config.  Add an API for everything used in the 
+default functions, for example in page_head, use $self->title_string() 
+and so on and so forth.  
+
 Profiling
 =========
 
@@ -191,12 +200,6 @@ removed (consistently with documentation).
 Right now VERBOSE is almost not used.
 
 Handle better @exdent in html? (there is a FIXME in the code)
-
-Check the design of the HTML.pm API.  Document the API, in particular
-everything in Texinfo::Config.  Add an API for everything used in the 
-default functions, for example in page_head, use $self->title_string() 
-and so on and so forth.  
-Document type '_converted' for 'text'.
 
 Implement what is proposed in HTML Cross Reference Mismatch.
 

@@ -40,9 +40,6 @@ $result_trees{'recursive_acronym'} = {
                       ],
                       'cmdname' => 'acronym',
                       'contents' => [],
-                      'extra' => {
-                        'explanation_contents' => []
-                      },
                       'line_nr' => {
                         'file_name' => '',
                         'line_nr' => 1,

@@ -52,6 +52,9 @@ my @test_cases = (
 ['recursive_acronym',
 '@acronym{GNU, @acronym{GNU}\'s Not Unix}
 '],
+['recursive_acronym_definition',
+'@acronym{GNU, @acronym{GNU, @acronym{GNU, is something}\'s Not Unix}\'s Not Unix}
+'],
 ['uref_url',
 '@uref{--a,--b}
 @uref{--c}

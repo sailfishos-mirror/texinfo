@@ -138,6 +138,7 @@ a@sup{b - \frac{\xsi}{phi @copyright{}}} @dotless{i}
 Some @math{a @minus{} b @geq{} @AA{} @^e}.
 ';
 
+
 my @test_cases = (
 ['verbatim_in_multitable_in_example',
 '@example
@@ -169,6 +170,23 @@ in first column, verbatim
 @example
 @abbr{A, @b{abbr} -- b}.
 @end example
+'],
+['acronym_in_node_and_section',
+'@node top
+@top top
+
+@node chap
+@chapter chap
+
+@node sec define
+@section define
+
+@acronym{GHJ, Good Hypo Jolly}
+
+@node sec here is @acronym{GHJ}
+@section here is @acronym{GHJ}
+
+In text @acronym{GHJ}.
 '],
 ['raw_html',
 '@html

@@ -2329,8 +2329,8 @@ sub _convert_email_command($$$$)
 
 $default_commands_conversion{'email'} = \&_convert_email_command;
 
-# FIXME set and use 'explained_commands' converter state.  Should
-# there be an API instead?
+# FIXME set and use 'explained_commands' and 'element_explanation_contents'
+# converter state.  Should there be an API instead?
 sub _convert_explained_command($$$$)
 {
   my $self = shift;
@@ -2345,7 +2345,7 @@ sub _convert_explained_command($$$$)
     = Texinfo::Convert::NodeNameNormalization::normalize_node(
     {'contents' => $command->{'args'}->[0]->{'contents'}});
 
-  if ($args->[1] and defined($args->[1]->{'string'}) 
+  if ($args->[1] and defined($args->[1]->{'string'})
                  and $args->[1]->{'string'} =~ /\S/) {
     $with_explanation = 1;
     $explanation_string = $args->[1]->{'string'};
@@ -2358,29 +2358,38 @@ sub _convert_explained_command($$$$)
 
     $self->{'explained_commands'}->{$cmdname}->{$normalized_type} =
        $command->{'args'}->[1]->{'contents'};
-  } elsif ($command->{'extra'}->{'explanation_contents'}) {
-    if (@{$command->{'extra'}->{'explanation_contents'}}) {
+  } elsif ($self->{'element_explanation_contents'}->{$command}) {
+    # if an acronym element is formatted more than once, this ensures that
+    # only the first explanation (including a lack of explanation) is reused.
+    # Note that this means that acronyms converted first on a sectioning
+    # command line for a direction text may not get the explanation
+    # from acronyms appearing later on in the document but before
+    # the sectioning command.
+    if (@{$self->{'element_explanation_contents'}->{$command}}) {
       $explanation_string = $self->convert_tree_new_formatting_context(
-        {'type' => '_string', 
-         'contents' => $command->{'extra'}->{'explanation_contents'}},
+        {'type' => '_string',
+         'contents' => $self->{'element_explanation_contents'}->{$command}},
         $cmdname, $cmdname);
     }
   } elsif ($self->{'explained_commands'}->{$cmdname}->{$normalized_type}) {
     $explanation_string = $self->convert_tree_new_formatting_context(
-      {'type' => '_string', 
-       'contents' => $self->{'explained_commands'}
-                       ->{$cmdname}->{$normalized_type}},
-    $cmdname, $cmdname);
+                      {'type' => '_string',
+                       'contents' => $self->{'explained_commands'}
+                                     ->{$cmdname}->{$normalized_type}},
+                                                   $cmdname, $cmdname);
 
-    $command->{'extra'}->{'explanation_contents'} 
+    $self->{'element_explanation_contents'}->{$command}
        = $self->{'explained_commands'}->{$cmdname}->{$normalized_type};
   } else {
-    # Avoid ever giving an explanation for this element.  This prevents
+    # Avoid ever giving an explanation for this element, even if an
+    # explanation could appear later on, for instance if acronym is
+    # formatted early on a sectioning command line and the acronym is
+    # defined before the sectioning command in the document.  This prevents
     # infinite recursion for a recursively-defined acronym, when an
     # @acronym within the explanation could end up referring to the
     # containing @acronym.
 
-    $command->{'extra'}->{'explanation_contents'} = [];
+    $self->{'element_explanation_contents'}->{$command} = [];
   }
   my $result = $args->[0]->{'normal'};
   if (!$self->in_string()) {
@@ -2403,7 +2412,7 @@ sub _convert_explained_command($$$$)
 }
 
 foreach my $explained_command (keys(%explained_commands)) {
-  $default_commands_conversion{$explained_command} 
+  $default_commands_conversion{$explained_command}
     = \&_convert_explained_command;
 }
 

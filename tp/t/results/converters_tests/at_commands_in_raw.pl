@@ -687,9 +687,6 @@ $result_trees{'at_commands_in_raw'} = {
               ],
               'cmdname' => 'acronym',
               'contents' => [],
-              'extra' => {
-                'explanation_contents' => []
-              },
               'line_nr' => {
                 'file_name' => '',
                 'line_nr' => 77,
