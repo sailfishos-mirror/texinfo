@@ -452,7 +452,7 @@ sub l2h_change_image_file_names($$)
       }
       $l2h_img{$src} = $dest;
     }
-  $content =~ s/SRC="$src"/SRC="$dest"/g;
+    $content =~ s/SRC="$src"/SRC="$dest"/g;
   }
   return $content;
 }

@@ -1,5 +1,13 @@
 2022-01-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_special_element_body):
+	make $element an optional argument, it is not used much.
+
+	* tp/init/chm.pm: set PROGRAM_NAME_IN_FOOTER to 0 but use the default
+	format_end_file.
+
+2022-01-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (top_block_command), tp/init/html32.pm:
 	rename top_format() as top_block_command().
 

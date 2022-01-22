@@ -57,10 +57,11 @@ texinfo_set_from_init_file('HEADERS', 0);
 
 texinfo_set_from_init_file('footnotestyle', 'end');
 
+texinfo_set_from_init_file('PROGRAM_NAME_IN_FOOTER', 0);
+
 #FIXME remove that later?
 texinfo_set_from_init_file('USE_NODES', 0);
 
-texinfo_register_formatting_function('format_end_file', \&chm_format_end_file);
 texinfo_register_formatting_function('format_navigation_header', \&chm_noop);
 texinfo_register_formatting_function('format_navigation_panel', \&chm_noop);
 
@@ -182,19 +183,6 @@ my %hhc_global_property = (
 foreach my $thing ('OE', 'oe', 'euro') {
   texinfo_register_no_arg_command_formatting($thing,
                    $Texinfo::Convert::Unicode::unicode_entities{$thing});
-}
-
-sub chm_format_end_file($)
-{
-  my $self = shift;
-  my $pre_body_close = $self->get_conf('PRE_BODY_CLOSE');
-  $pre_body_close = '' if (!defined($pre_body_close));
-  return "<p>
-$pre_body_close
-</p>
-</body>
-</html>
-";
 }
 
 sub chm_noop($$)

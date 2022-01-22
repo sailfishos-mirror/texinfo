@@ -8256,13 +8256,12 @@ sub _default_format_footnotes_text($)
   my $level = $self->get_conf('FOOTNOTE_END_HEADER_LEVEL');
   $result .= &{$self->{'format_heading_text'}}($self, undef, [$class.'-heading'],
                                         $footnote_heading, $level)."\n";
-  $result .= &{$self->{'format_special_element_body'}}($self, 'footnotes',
-                                              $self->{'current_root_element'});
+  $result .= &{$self->{'format_special_element_body'}}($self, 'footnotes');
   $result .= "</div>\n";
   return $result;
 }
 
-sub _default_format_special_element_body($$$)
+sub _default_format_special_element_body($$;$)
 {
   my $self = shift;
   my $special_type = shift;

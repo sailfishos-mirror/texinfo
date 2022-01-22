@@ -27,8 +27,6 @@ Add a registering function for:
 %$Texinfo::Config::texinfo_code_types
 Texinfo::Config::commands_translation{$context}->{$command}
 
-Use an accessor for css_import_lines, css_rule_lines?
-
 Some internal state used in conversion:
  _convert_anchor_command:
   $self->{'multiple_pass'}
@@ -54,8 +52,6 @@ Some internal state used in conversion:
  _convert_special_element_type
   $self->{'counter_in_file'}->{$element->{'structure'}->{'unit_filename'}} == 1
 
- _default_format_button
-  $self->{'current_root_element'} (for from_element_direction())
  _default_format_element_header
   $self->{'counter_in_file'}->{$tree_unit->{'structure'}->{'unit_filename'}}
  _default_format_titlepage
@@ -69,9 +65,6 @@ Some internal state used in conversion:
  _default_format_end_file
   $self->{'jslicenses_infojs'}
   $self->{'jslicenses_math'}
-
- _default_panel_button_dynamic_direction
-  $self->{'current_root_element'} (for from_element_direction())
 
 Some private function used in conversion
  _convert_informative_command
@@ -96,7 +89,30 @@ Some private variables used in conversion
  _convert_menu_entry_type
   $html_menu_entry_index
 
-in page_head, use $self->title_string() 
+init/chm.pm
+ chm_init
+  $self->{'document_name'}
+  $self->{'destination_directory'}
+  $self->{'title_tree'}
+ 
+init/epub3.pm
+  $self->{'title_tree'}
+
+init/highlight_syntax.pm
+init/latex2html.pm
+init/tex4ht.pm
+  $self->{'document_name'}
+  $self->{'destination_directory'}
+
+init/tex4ht.pm
+  $self->{'css_import_lines'}
+
+t/init/command_translation_modified.init
+  $commands_translation{'normal'}->{'error'} 
+
+t/init/cvs.init
+  $texinfo_code_types->{'menu_comment'} = 1;
+
 
 To document:
 -----------
