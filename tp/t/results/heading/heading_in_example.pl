@@ -191,7 +191,7 @@ div.example {margin-left: 3.2em}
 
 <body lang="en">
 <div class="example">
-<strong id="in-example-_0040-heading">in example @ <em class="emph">heading</em></strong>
+<strong class="heading" id="in-example-_0040-heading">in example @ <em class="emph">heading</em></strong>
 </div>
 
 

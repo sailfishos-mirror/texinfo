@@ -304,15 +304,16 @@ sub book_convert_heading_command($$$$$)
       }
     }
 
+    my $heading_class = $level_corrected_cmdname;
+    unshift @heading_classes, $heading_class;
     if ($self->in_preformatted()) {
       my $id_str = '';
       if (defined($heading_id)) {
         $id_str = " id=\"$heading_id\"";
       }
-      $result .= "<strong${id_str}>".$heading.'</strong>'."\n";
+      $result .= $self->html_attribute_class('strong', \@heading_classes)
+                                   ."${id_str}>".$heading.'</strong>'."\n";
     } else {
-      my $heading_class = $level_corrected_cmdname;
-      unshift @heading_classes, $heading_class;
       $result .= &{$self->{'format_heading_text'}}($self,
                      $level_corrected_cmdname, \@heading_classes, $heading,
                      $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,

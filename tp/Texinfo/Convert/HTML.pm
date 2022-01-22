@@ -371,7 +371,7 @@ sub html_convert_css_string($$;$)
   return $result;
 }
 
-my %special_list_bullet_css_string_no_arg_command = (
+my %special_list_mark_css_string_no_arg_command = (
 # tried to use HYPHEN BULLET \2043 for use as in a bullet list, but, at least
 # with my test of firefox the result is very different from a bullet.
 # hyphen minus or hyphen \2010 are even smaller than hyphen bullet.
@@ -383,21 +383,21 @@ my %special_list_bullet_css_string_no_arg_command = (
   'minus' => '\2212 ',
 );
 
-sub html_convert_css_string_for_list_bullet($$;$)
+sub html_convert_css_string_for_list_mark($$;$)
 {
   my $self = shift;
   my $element = shift;
   my $explanation = shift;
 
   my $saved_css_string_no_arg_command = {};
-  foreach my $command (keys(%special_list_bullet_css_string_no_arg_command)) {
+  foreach my $command (keys(%special_list_mark_css_string_no_arg_command)) {
     $saved_css_string_no_arg_command->{$command}
       = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command};
     $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command}
-      = $special_list_bullet_css_string_no_arg_command{$command};
+      = $special_list_mark_css_string_no_arg_command{$command};
   }
   my $result = $self->html_convert_css_string($element, $explanation);
-  foreach my $command (keys(%special_list_bullet_css_string_no_arg_command)) {
+  foreach my $command (keys(%special_list_mark_css_string_no_arg_command)) {
     $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command}
       = $saved_css_string_no_arg_command->{$command};
   }
@@ -489,12 +489,6 @@ sub top_format($)
 {
   my $self = shift;
   return $self->{'document_context'}->[-1]->{'formats'}->[-1];
-}
-
-sub commands_stack($)
-{
-  my $self = shift;
-  return @{$self->{'document_context'}->[-1]->{'commands'}};
 }
 
 sub preformatted_classes_stack($)
@@ -1987,8 +1981,8 @@ foreach my $mark_command (keys(%{$default_no_arg_commands_formatting{'css_string
       $css_string = 'disc';
     } elsif ($default_no_arg_commands_formatting{'css_string'}->{$mark_command}
              and $default_no_arg_commands_formatting{'css_string'}->{$mark_command}->{'text'}) {
-      if ($special_list_bullet_css_string_no_arg_command{$mark_command}) {
-        $css_string = $special_list_bullet_css_string_no_arg_command{$mark_command};
+      if ($special_list_mark_css_string_no_arg_command{$mark_command}) {
+        $css_string = $special_list_mark_css_string_no_arg_command{$mark_command};
       } else {
         $css_string = $default_no_arg_commands_formatting{'css_string'}->{$mark_command}->{'text'};
       }
@@ -2728,7 +2722,7 @@ sub _convert_U_command($$$$)
 
   my $arg = $args->[0]->{'normal'};
   my $res;
-  if (defined($arg) && $arg) {
+  if (defined($arg) and $arg ne '') {
     # checks on the value already done in Parser, just output it here.
     $res = "&#x$arg;";
   } else {
@@ -3411,15 +3405,16 @@ sub _convert_heading_command($$$$$)
       }
     }
 
+    my $heading_class = $level_corrected_cmdname;
+    unshift @heading_classes, $heading_class;
     if ($self->in_preformatted()) {
       my $id_str = '';
       if (defined($heading_id)) {
         $id_str = " id=\"$heading_id\"";
       }
-      $result .= "<strong${id_str}>".$heading.'</strong>'."\n";
+      $result .= $self->html_attribute_class('strong', \@heading_classes)
+                                   ."${id_str}>".$heading.'</strong>'."\n";
     } else {
-      my $heading_class = $level_corrected_cmdname;
-      unshift @heading_classes, $heading_class;
       $result .= &{$self->{'format_heading_text'}}($self,
                      $level_corrected_cmdname, \@heading_classes, $heading,
                      $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
@@ -3630,7 +3625,7 @@ sub _convert_verbatim_command($$$$)
   my $command = shift;
   my $content = shift;
 
-  if (!$self->in_string) {
+  if (!$self->in_string()) {
     return $self->html_attribute_class('pre', [$cmdname]).'>'
           .$content . '</pre>';
   } else {
@@ -3647,7 +3642,7 @@ sub _convert_displaymath_command($$$$)
   my $command = shift;
   my $content = shift;
 
-  if ($self->in_string) {
+  if ($self->in_string()) {
     return $content;
   }
 
@@ -4114,7 +4109,7 @@ sub _convert_itemize_command($$$$)
     return $self->html_attribute_class('ul', [$cmdname]).">\n" . $content. "</ul>\n";
   } else {
     my $css_string
-      = $self->html_convert_css_string_for_list_bullet($command->{'args'}->[0],
+      = $self->html_convert_css_string_for_list_mark($command->{'args'}->[0],
                                                       'itemize arg');
     if ($css_string ne '') {
       return $self->html_attribute_class('ul', [$cmdname])
@@ -4237,10 +4232,14 @@ sub _convert_item_command($$$$)
       my $table_item_tree = $self->table_item_content_tree($command,
                                                 [$args->[0]->{'tree'}]);
       my $result = $self->convert_tree($table_item_tree, 'convert table_item_tree');
-      foreach my $command_name (reverse($self->commands_stack())) {
-        if ($preformatted_code_commands{$command_name}) {
-          $result = '<tt>' .$result. '</tt>';
-          last;
+      if ($self->in_preformatted()) {
+        my @pre_classes = $self->preformatted_classes_stack();
+        foreach my $pre_class (@pre_classes) {
+          if ($preformatted_code_commands{$pre_class}) {
+            # FIXME use <code>?  Add a class?
+            $result = '<tt>' .$result. '</tt>';
+            last;
+          }
         }
       }
       my $index_id = $self->command_id($command);
@@ -6508,7 +6507,7 @@ sub converter_initialize($)
             if ($context eq 'css_string'
                 and exists($brace_commands{$command})
                 and $command ne 'bullet' and $command ne 'w'
-                and not $special_list_bullet_css_string_no_arg_command{$command}) {
+                and not $special_list_mark_css_string_no_arg_command{$command}) {
               my $css_string
                 = $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'text'};
               $css_string = '"'.$css_string.'"';
@@ -7712,10 +7711,8 @@ sub _mini_toc
 {
   my ($self, $command) = @_;
 
-  my $filename = $self->{'current_filename'};
   my $result = '';
   my $entry_index = 0;
-  my $accesskey;
 
   if ($command->{'structure'}->{'section_childs'}
       and @{$command->{'structure'}->{'section_childs'}}) {
@@ -7723,14 +7720,14 @@ sub _mini_toc
 
     foreach my $section (@{$command->{'structure'}->{'section_childs'}}) {
       my $tree = $self->command_text($section, 'tree_nonumber');
-      my $text = $self->_convert($tree, "mini_toc \@$section->{'cmdname'}");
+      my $text = $self->convert_tree($tree, "mini_toc \@$section->{'cmdname'}");
 
       $entry_index++;
-      $accesskey = '';
+      my $accesskey = '';
       $accesskey = " accesskey=\"$entry_index\"" 
         if ($self->get_conf('USE_ACCESSKEY') and $entry_index < 10);
 
-      my $href = $self->command_href($section, $filename);
+      my $href = $self->command_href($section);
       if ($text ne '') {
         if ($href ne '') {
           my $href_attribute = '';
@@ -8108,7 +8105,7 @@ MathJax = {
           $program, $generator);
 }
 
-sub _get_links ($$$)
+sub _get_links($$$)
 {
   my $self = shift;
   my $filename = shift;
@@ -8153,7 +8150,7 @@ sub _default_format_begin_file($$$)
           $after_body_open, $extra_head, $program_and_version, $program_homepage,
           $program, $generator) = $self->_file_header_informations($command, $filename);
 
-  my $links = $self->_get_links ($filename, $element);
+  my $links = $self->_get_links($filename, $element);
 
   my $result = "$doctype
 <html${root_html_element_attributes}>
@@ -9349,8 +9346,6 @@ sub _convert($$;$)
       if (exists($context_brace_commands{$command_name})) {
         $self->_new_document_context($command_name);
       }
-      push @{$self->{'document_context'}->[-1]->{'commands'}}, 
-        $element->{'cmdname'};
       if (exists($format_context_commands{$command_name})) {
         push @{$self->{'document_context'}->[-1]->{'formatting_context'}}, 
                                               {'cmdname' => $command_name};
@@ -9488,7 +9483,6 @@ sub _convert($$;$)
       if (exists($format_context_commands{$command_name})) {
         pop @{$self->{'document_context'}->[-1]->{'formatting_context'}};
       }
-      pop @{$self->{'document_context'}->[-1]->{'commands'}};
       if (exists($context_brace_commands{$command_name})) {
         $self->_pop_document_context();
       }
@@ -9518,9 +9512,6 @@ sub _convert($$;$)
       delete $self->{'current_root_command'};
     }
   } elsif ($element->{'type'}) {
-    push @{$self->{'document_context'}->[-1]->{'commands'}}, 
-      $element->{'cmdname'}
-        if ($element->{'cmdname'});
 
     my $result = '';
     my $type_name = $element->{'type'};
@@ -9582,8 +9573,6 @@ sub _convert($$;$)
     }
     print STDERR "DO type ($type_name) => `$result'\n"
       if ($self->get_conf('DEBUG'));
-    pop @{$self->{'document_context'}->[-1]->{'commands'}} 
-        if ($element->{'cmdname'});
     return $result;
     # no type, no cmdname, but contents.
   } elsif ($element->{'contents'}) {

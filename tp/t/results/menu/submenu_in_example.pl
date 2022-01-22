@@ -922,7 +922,7 @@ in example
 </td></tr></table>
 <pre class="menu-comment-preformatted">
 
-</pre><strong id="subheading-in-menu">subheading in menu</strong>
+</pre><strong class="subheading" id="subheading-in-menu">subheading in menu</strong>
 <pre class="menu-comment-preformatted">
 
 </pre><ol class="enumerate">

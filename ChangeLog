@@ -1,5 +1,27 @@
 2022-01-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_item_command): check
+	if in preformatted first before putting in <tt>.  Use
+	preformatted_classes_stack() instead of commands_stack() to determine
+	if in %preformatted_code_commands.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command),
+	tp/init/book.pm: add classes in heading formatting in preformatted.
+
+	* tp/Texinfo/Convert/HTML.pm (_mini_toc): avoid using internal
+	information when not needed.
+
+	* tp/Texinfo/Convert/HTML.pm
+	(%special_list_mark_css_string_no_arg_command): rename from
+	%special_list_bullet_css_string_no_arg_command.
+	(html_convert_css_string_for_list_mark): rename from
+	html_convert_css_string_for_list_bullet().
+
+	* tp/Texinfo/Convert/HTML.pm: remove commands_stack() as it is not
+	used anymore, and 'commands' in $self->{'document_context'}.
+
+2022-01-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_explained_command): no tree
 	modification, set a converter state instead.
 

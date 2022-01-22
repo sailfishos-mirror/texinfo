@@ -20,18 +20,134 @@ Bugs
 HTML API
 ========
 
+Issues
+------
+
 Add a registering function for:
 %$Texinfo::Config::texinfo_code_types
 Texinfo::Config::commands_translation{$context}->{$command}
 
-Use an accessor for css_import_lines, css_rule_lines and css_map
+Use an accessor for css_import_lines, css_rule_lines?
 
-Document type '_converted' and '_string' for 'text'.
+Some internal state used in conversion:
+ _convert_anchor_command:
+  $self->{'multiple_pass'}
+ _convert_footnote_command:
+  $self->{'current_filename'}
+  $self->{'multiple_pass'}->[-1]
+ _convert_explained_command (actually internal to the function)
+  $self->{'explained_commands'}
+  $self->{'element_explanation_contents'}
+ _convert_raw_command
+  $self->{'output_format'}
+ _convert_inline_command
+  $self->{'expanded_formats_hash'}
+ _convert_itemize_command
+  $self->{'css_map'}
+  
 
-Check the design of the HTML.pm API.  Document the API, in particular
-everything in Texinfo::Config.  Add an API for everything used in the 
-default functions, for example in page_head, use $self->title_string() 
-and so on and so forth.  
+ _default_format_button
+  $self->{'current_root_element'} (for from_element_direction())
+ _default_format_element_header
+  $self->{'counter_in_file'}->{$tree_unit->{'structure'}->{'unit_filename'}}
+
+ _default_panel_button_dynamic_direction
+  $self->{'current_root_element'} (for from_element_direction())
+
+Some private function used in conversion
+ _convert_informative_command
+  _translate_names
+
+Some private variables used in conversion
+ _convert_footnote_command:
+  $foot_num, $foot_lines, $NO_NUMBER_FOOTNOTE_SYMBOL, $footid_base, $docid_base, $target_prefix, %footnote_id_numbers
+ _contents_inline_element
+  %contents_command_element_type
+ _convert_preformatted_command
+ _convert_indented_command
+ _convert_quotation_command
+  %small_alias
+
+in page_head, use $self->title_string() 
+
+To document:
+-----------
+
+Texinfo::Config texinfo_ functions
+
+get_conf(), set_conf() (force_conf()?)
+
+
+Convert depth first.
+
+convert* call
+
+args in *convert*, in %default_commands_args
+
+
+register_file_information
+
+register_pending_formatted_inline_content
+get_associated_formatted_inline_content
+get_pending_formatted_inline_content
+associate_pending_formatted_inline_content
+cancel_pending_formatted_inline_content
+
+default_types_conversion
+default_types_open
+
+
+
+Type '_converted' and '_string' for 'text'.
+
+used in _direction_href_attributes, _get_links
+'BUTTONS_ACCESSKEY' 'BUTTONS_REL'
+'LINKS_BUTTONS'
+
+used in _contents_inline_element
+'SPECIAL_ELEMENTS_DIRECTIONS' 'SPECIAL_ELEMENTS_CLASS' 'SPECIAL_ELEMENTS_HEADING'
+
+from_element_direction
+command_target command_filename command_string command_id command_href
+command_contents_href
+special_element (argument: a $special_element_direction?)
+
+required use of
+in_string()
+in_align()
+in_preformatted()
+html_attribute_class()
+close_html_lone_element()
+register_opened_section_level()
+close_registered_sections_level()
+
+protect_text? or use of format_protect_text?
+
+use of
+Texinfo::Convert::Utils::expand_today()
+Texinfo::Convert::Utils::expand_verbatiminclude
+Texinfo::Convert::Converter::float_name_caption()
+convert_tree()
+$self->convert_tree($self->gdt())
+Texinfo::Convert::NodeNameNormalization::normalize_node(
+Texinfo::Convert::NodeNameNormalization::convert
+$self->html_image_file_location_name()
+$self->xml_comment()
+$self->xml_protect_text()
+$self->xml_accents()
+$self->element_is_tree_unit_top()
+$tree_unit->{'structure'} unit_next, unit_filename, unit_prev section_level associated_unit section_childs
+ {'extra'}->{'unit_command'}
+Texinfo::Structuring::section_level_adjusted_command_name
+Texinfo::Common::section_level()
+Texinfo::Common::set_informative_command_value()
+$self->preformatted_classes_stack
+self->html_non_breaking_space()
+$self->{'floats'}
+$self->convert_tree_new_formatting_context()
+$self->html_convert_css_string_for_list_mark()
+$self->table_item_content_tree() (Converter)
+
 
 Profiling
 =========
