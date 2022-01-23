@@ -6121,25 +6121,23 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
   if (!defined ($self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname})) {
     $self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname}->{'unset'} = 1;
   }
+  my $no_arg_command_context
+     = $self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname};
   if (defined($ref_context)) {
-    if ($self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname}->{'unset'}) {
+    if ($no_arg_command_context->{'unset'}) {
       foreach my $key (keys(%{$self->{'no_arg_commands_formatting'}->{$ref_context}->{$cmdname}})) {
-        # FIXME leave translated?
-        $self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname}->{$key}
+        # both 'translated' and (possibly translated) 'text' are
+        # reused
+        $no_arg_command_context->{$key}
           = $self->{'no_arg_commands_formatting'}->{$ref_context}->{$cmdname}->{$key}
       }
     }
   }
-  # FIXME check that there is no 'translated' already?
-  # it should not happen given how the defaults are set to exclude
-  # converter default translation if translated is seen, but it may
-  # not be very clean as it would mean that the translated string
-  # specified by 'translated' is overwritten if there is also
-  # a default translation.
   if ($translate
-      and $self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname}->{'tree'}) {
+      and $no_arg_command_context->{'tree'}
+      and not defined($no_arg_command_context->{'translated'})) {
     my $translated_tree
-      = $self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname}->{'tree'};
+      = $no_arg_command_context->{'tree'};
     my $translation_result;
     if ($reset_context eq 'normal') {
       $translation_result
@@ -6164,7 +6162,7 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
     } elsif ($reset_context eq 'css_string') {
       $translation_result = $self->html_convert_css_string($translated_tree);
     }
-    $self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname}->{'text'}
+    $no_arg_command_context->{'text'}
       = $translation_result;
   }
 }
@@ -6607,13 +6605,6 @@ sub converter_initialize($)
         } else {
           $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'unset'} = 1;
         }
-      }
-      if ($self->{'translated_commands'}->{$command}
-          and exists($self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'translated'})) {
-        # FIXME check that the modification is to a copy and not the default config
-        # FIXME another possibility would be to use the default, but
-        # override if 'translated' is set.
-        delete $self->{'translated_commands'}->{$command};
       }
     }
   }

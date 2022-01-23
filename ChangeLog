@@ -1,5 +1,12 @@
 2022-01-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize)
+	(_reset_unset_no_arg_commands_formatting_context): do not remove
+	converter translated commands default informations, but have
+	translated formatted strings take precedence.
+
+2022-01-23  Patrice Dumas  <pertusus@free.fr>
+
 	Consistent interface and caching for translated brace no args commands
 
 	* tp/Texinfo/Config.pm (texinfo_register_no_arg_command_formatting),
