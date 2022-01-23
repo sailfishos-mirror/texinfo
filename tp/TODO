@@ -24,27 +24,17 @@ Issues
 ------
 
 Some internal state used in conversion:
- _convert_anchor_command:
-  $self->{'multiple_pass'}
  _convert_footnote_command:
   $self->{'current_filename'}
-  $self->{'multiple_pass'}->[-1]
  _convert_explained_command (actually internal to the function)
   $self->{'explained_commands'}
   $self->{'element_explanation_contents'}
- _convert_raw_command
-  $self->{'output_format'}
- _convert_inline_command
-  $self->{'expanded_formats_hash'}
  _convert_itemize_command
   $self->{'css_map'}
  _get_copiable_anchor (called by 2 convert functions)
   $self->{'paragraph_symbol'}
- _convert_index_command
-  @{$self->{'multiple_pass'}}
  _convert_printindex_command
   $self->{'index_entries_by_letter'}
-  $self->{'ignore_notice'}++
  _convert_special_element_type
   $self->{'counter_in_file'}->{$element->{'structure'}->{'unit_filename'}} == 1
 
@@ -102,12 +92,6 @@ init/tex4ht.pm
 
 init/tex4ht.pm
   $self->{'css_import_lines'}
-
-t/init/command_translation_modified.init
-  $commands_translation{'normal'}->{'error'} 
-
-t/init/cvs.init
-  $texinfo_code_types->{'menu_comment'} = 1;
 
 
 To document:
@@ -202,7 +186,10 @@ $self->table_item_content_tree() (Converter)
 $self->comma_index_subentries_tree() (Converter)
 $self->paragraph_number()
 $self->top_block_command()
+$self->expanded_format($format)
+$self->in_multi_expanded()
 $self->html_get_css_elements_classes($filename);
+$self->substitute_html_non_breaking_space(
 
 Profiling
 =========

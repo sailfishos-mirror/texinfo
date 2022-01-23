@@ -1,5 +1,23 @@
 2022-01-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (in_multi_expanded): new method
+	accessor for $self->{'multiple_pass'}.
+
+	* tp/Texinfo/Convert/HTML.pm (expanded_format): new method
+	accessor for $self->{'expanded_formats_hash'}.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_raw_command): hardcode
+	'html' as the format not protected and not warned if expanded.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command):
+	call convert_tree_new_formatting_context() in case of multiple
+	formatting of index entry.
+
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize, _convert): remove
+	$self->{'commands_args'} use directly %default_commands_args.
+
+2022-01-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (texinfo_register_file_id_setting_function)
 	(GNUT_get_file_id_setting_references),
 	tp/Texinfo/Convert/HTML.pm (converter_initialize)

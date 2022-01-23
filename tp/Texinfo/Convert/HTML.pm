@@ -42,9 +42,6 @@
 # done in that case, without any HTML element such that the result
 # can be in an attribute or in a comment.
 #
-# FIXME: there are already cases with side effects, with the
-# variables $html_menu_entry_index, $foot_lines.
-# 
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 package Texinfo::Convert::HTML;
@@ -208,7 +205,7 @@ sub html_attribute_class($$;$)
   return "<$element class=\"$class_str\"$style";
 }
 
-# those rules cannot be collected during document output since they
+# for rules that cannot be collected during document output since they
 # are not associated with a class attribute element setting
 my %css_rules_not_collected = (
 );
@@ -461,6 +458,15 @@ sub in_raw($)
   return $self->{'document_context'}->[-1]->{'raw'};
 }
 
+sub in_multi_expanded($)
+{
+  my $self = shift;
+  if (scalar(@{$self->{'multiple_pass'}})) {
+    return $self->{'multiple_pass'}->[-1];
+  }
+  return undef;
+}
+
 sub paragraph_number($)
 {
   my $self = shift;
@@ -506,6 +512,14 @@ sub in_align($)
   } else {
     return undef;
   }
+}
+
+sub expanded_format($$)
+{
+  my $self = shift;
+  my $format = shift;
+
+  return $self->{'expanded_formats_hash'}->{$format};
 }
 
 # the main data structure of the element target API is a hash reference, called
@@ -1270,7 +1284,7 @@ sub get_file_information($$;$)
 
 # This function should be used in formatting functions when some
 # Texinfo tree need to be converted.
-sub convert_tree_new_formatting_context($$;$$)
+sub convert_tree_new_formatting_context($$;$$$)
 {
   my $self = shift;
   my $tree = shift;
@@ -1824,7 +1838,7 @@ my %default_code_types = (
  '_code' => 1,
 );
 
-# default specification of arguments formatting
+# specification of arguments formatting
 my %default_commands_args = (
   'email' => [['monospace', 'monospacestring'], ['normal']],
   'anchor' => [['monospacestring']],
@@ -2428,7 +2442,7 @@ sub _convert_anchor_command($$$$)
   my $args = shift;
 
   my $id = $self->command_id($command);
-  if (defined($id) and $id ne '' and !@{$self->{'multiple_pass'}}
+  if (defined($id) and $id ne '' and !$self->in_multi_expanded()
       and !$self->in_string()) {
     return &{$self->formatting_function('format_separate_anchor')}($self,
                                                            $id, 'anchor');
@@ -2499,9 +2513,10 @@ sub _convert_footnote_command($$$$)
   chomp ($footnote_text);
   $footnote_text .= "\n";
 
-  if (@{$self->{'multiple_pass'}}) {
-    $footid = $target_prefix.$self->{'multiple_pass'}->[-1].'_'.$footid.'_'.$foot_num;
-    $docid = $target_prefix.$self->{'multiple_pass'}->[-1].'_'.$docid.'_'.$foot_num;
+  my $multi_expanded_region = $self->in_multi_expanded();
+  if (defined($multi_expanded_region)) {
+    $footid = $target_prefix.$multi_expanded_region.'_'.$footid.'_'.$foot_num;
+    $docid = $target_prefix.$multi_expanded_region.'_'.$docid.'_'.$foot_num;
   } else {
     if (!defined($footnote_id_numbers{$footid})) {
       $footnote_id_numbers{$footid} = $foot_num;
@@ -3463,7 +3478,7 @@ sub _convert_raw_command($$$$)
   my $command = shift;
   my $content = shift;
 
-  if ($cmdname eq $self->{'output_format'}) {
+  if ($cmdname eq 'html') {
     return $content;
   }
   $self->_noticed_line_warn(sprintf(__("raw format %s is not converted"),
@@ -3493,9 +3508,9 @@ sub _convert_inline_command($$$$)
   my $arg_index = undef;
   if ($inline_format_commands{$cmdname}) {
     if ($cmdname eq 'inlinefmtifelse' 
-        and ! $self->{'expanded_formats_hash'}->{$format}) {
+        and ! $self->expanded_format($format)) {
       $arg_index = 1;
-    } elsif ($self->{'expanded_formats_hash'}->{$format}) {
+    } elsif ($self->expanded_format($format)) {
       $arg_index = 0;
     }
   } elsif (defined($command->{'extra'}->{'expand_index'})) {
@@ -4568,7 +4583,7 @@ sub _convert_index_command($$$$)
 
   my $index_id = $self->command_id($command);
   if (defined($index_id) and $index_id ne ''
-      and !@{$self->{'multiple_pass'}}
+      and !$self->in_multi_expanded()
       and !$self->in_string()) {
     my $result = &{$self->formatting_function('format_separate_anchor')}($self,
                                                    $index_id, 'index-entry-id');
@@ -4687,30 +4702,24 @@ sub _convert_printindex_command($$$$)
       if (!$formatted_index_entries{$index_entry_ref}) {
         $formatted_index_entries{$index_entry_ref} = 1;
       } else {
-        $already_formatted = 1;
-        $self->{'ignore_notice'}++;
+        $formatted_index_entries{$index_entry_ref}++;
       }
 
-      my $entry;
       my $subentries_tree = $self->comma_index_subentries_tree($index_entry_ref);
-      if ($index_entry_ref->{'in_code'}) {
-        $entry = $self->convert_tree({'type' => '_code',
-                                     'contents' => $index_entry_ref->{'content'}},
-                             "index $index_name l $letter index entry $entry_nr");
-        $entry .= $self->convert_tree({'type' => '_code',
-                                     'contents' => $subentries_tree->{'contents'}},
-                        "index $index_name l $letter index sub entries $entry_nr")
-           if (defined($subentries_tree));
+      my @entry_contents = @{$index_entry_ref->{'content'}};
+      push @entry_contents, @{$subentries_tree->{'contents'}}
+        if (defined($subentries_tree));
+      my $entry_tree = {'contents' => \@entry_contents};
+      $entry_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
+
+      my $entry;
+      if ($formatted_index_entries{$index_entry_ref} > 1) {
+        $entry = $self->convert_tree_new_formatting_context($entry_tree,
+                       "index $index_name l $letter index entry $entry_nr",
+                   "index formatted $formatted_index_entries{$index_entry_ref}")
       } else {
-        $entry = $self->convert_tree({'contents' => $index_entry_ref->{'content'}},
-                              "index $index_name l $letter index entry $entry_nr");
-        $entry .= $self->convert_tree(
-                                  {'contents'  => $subentries_tree->{'contents'}},
-                        "index $index_name l $letter index sub entries $entry_nr")
-           if (defined($subentries_tree));
-      }
-      if ($already_formatted) {
-        $self->{'ignore_notice'}--;
+        $entry = $self->convert_tree($entry_tree,
+                            "index $index_name l $letter index entry $entry_nr");
       }
 
       next if ($entry !~ /\S/);
@@ -4794,9 +4803,9 @@ sub _contents_inline_element($$$)
     } else {
       # happens when called as convert() and not output()
       #cluck "$cmdname special element not defined";
-      $heading 
-        = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_HEADING')->{$special_element_type},
-                              "convert $cmdname special heading");
+      $heading = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_HEADING')
+                                                       ->{$special_element_type},
+                                     "convert $cmdname special heading");
     }
     $result .= ">\n";
     $result .= &{$self->formatting_function('format_heading_text')}($self,
@@ -5414,7 +5423,7 @@ sub _convert_def_line_type($$$$)
 
   my $index_label = '';
   my $index_id = $self->command_id($command);
-  if (defined($index_id) and $index_id ne '' and !@{$self->{'multiple_pass'}}) {
+  if (defined($index_id) and $index_id ne '' and !$self->in_multi_expanded()) {
     $index_label = " id=\"$index_id\"";
   }
   my $arguments
@@ -6360,9 +6369,6 @@ sub _load_htmlxref_files {
 #  htmlxref
 #  check_htmlxref_already_warned
 #  
-#  commands_args (though it does not seems to be dynamic.
-#                 FIXME: always point to default?)
-#
 #    API exists
 #  file_id_setting
 #  commands_conversion
@@ -6380,7 +6386,6 @@ sub _load_htmlxref_files {
 #    API exists
 #  pending_closes
 #
-#  multiple_pass
 #  ignore_notice
 #
 #    API exists
@@ -6656,12 +6661,6 @@ sub converter_initialize($)
         $self->{'style_commands_formatting'}->{$context}->{$command} 
            = $style_commands_formatting{$context}->{$command};
       }
-    }
-  }
-
-  foreach my $command (keys %{$self->{'commands_conversion'}}) {
-    if (exists($default_commands_args{$command})) {
-      $self->{'commands_args'}->{$command} = $default_commands_args{$command};
     }
   }
 
@@ -9496,8 +9495,8 @@ sub _convert($$;$)
         $args_formatted = [];
         if ($element->{'args'}) {
           my @args_specification;
-          @args_specification = @{$self->{'commands_args'}->{$command_name}}
-            if (defined($self->{'commands_args'}->{$command_name}));
+          @args_specification = @{$default_commands_args{$command_name}}
+            if (defined($default_commands_args{$command_name}));
           my $arg_idx = 0;
           foreach my $arg (@{$element->{'args'}}) {
             my $arg_spec = shift @args_specification;
