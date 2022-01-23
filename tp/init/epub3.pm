@@ -403,7 +403,7 @@ EOT
   }
   my $nav_id = 'nav';
   my $nav_file;
-  my $title = _epub_convert_tree_to_text($self, $self->{'title_tree'});
+  my $title = _epub_convert_tree_to_text($self, $self->get_info('title_tree'));
   if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}) {
     $nav_file = File::Spec->catfile($epub_document_destination_directory,
                                            $nav_filename);

@@ -95,11 +95,11 @@ sub tex4ht_prepare($$)
         and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
 
   $tex4ht_initial_dir = Cwd::abs_path;
-  $tex4ht_out_dir = $self->{'destination_directory'};
+  $tex4ht_out_dir = $self->get_info('destination_directory');
   $tex4ht_out_dir = File::Spec->curdir()
     if (!defined($tex4ht_out_dir) or $tex4ht_out_dir =~ /^\s*$/);
 
-  my $document_name = $self->{'document_name'};
+  my $document_name = $self->get_info('document_name');
   my $tex4ht_basename = "${document_name}_tex4ht";
 
   # this initialization doesn't seems to be needed, but it is cleaner anyway,

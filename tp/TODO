@@ -23,31 +23,16 @@ HTML API
 Issues
 ------
 
-Some internal state used in conversion:
- _convert_footnote_command:
-  $self->{'current_filename'}
- _convert_explained_command (actually internal to the function)
-  $self->{'explained_commands'}
-  $self->{'element_explanation_contents'}
- _get_copiable_anchor (called by 2 convert functions)
-  $self->{'paragraph_symbol'}
- _convert_printindex_command
-  $self->{'index_entries_by_letter'}
-
- _default_format_titlepage
- _print_title     (_convert_tree_unit_type, output)
-  $self->{'simpletitle_tree'}
-  $self->{'simpletitle_command_name'}
- _default_format_end_file
-  $self->{'jslicenses'}
-
 Some private function used in conversion
  _convert_informative_command
   _translate_names
  _convert_printindex_command
   _new_document_context
 
-Some private variables used in conversion
+Some private variables/private state used in conversion
+ _convert_explained_command (actually internal to the function)
+  $self->{'explained_commands'}
+  $self->{'element_explanation_contents'}
  _convert_footnote_command:
   $foot_num, $foot_lines, $NO_NUMBER_FOOTNOTE_SYMBOL, $footid_base, $docid_base, $target_prefix, %footnote_id_numbers
  _default_format_special_element_body
@@ -63,21 +48,6 @@ Some private variables used in conversion
  _convert_menu_command
  _convert_menu_entry_type
   $html_menu_entry_index
-
-init/chm.pm
- chm_init
-  $self->{'document_name'}
-  $self->{'destination_directory'}
-  $self->{'title_tree'}
- 
-init/epub3.pm
-  $self->{'title_tree'}
-
-init/highlight_syntax.pm
-init/latex2html.pm
-init/tex4ht.pm
-  $self->{'document_name'}
-  $self->{'destination_directory'}
 
 
 To document:
@@ -163,8 +133,6 @@ Texinfo::Structuring::section_level_adjusted_command_name
 Texinfo::Common::section_level()
 Texinfo::Common::set_informative_command_value()
 $self->preformatted_classes_stack
-self->html_non_breaking_space()
-$self->html_line_break_element()
 $self->{'floats'}
 $self->convert_tree_new_formatting_context()
 $self->html_convert_css_string_for_list_mark()
@@ -179,6 +147,7 @@ $self->substitute_html_non_breaking_space(
 $self->count_elements_in_filename($spec, filename)
 $self->css_get_info
 $self->css_add_info
+$self->get_info
 
 Profiling
 =========

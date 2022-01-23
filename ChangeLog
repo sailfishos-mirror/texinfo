@@ -1,5 +1,13 @@
 2022-01-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%available_converter_info)
+	(get_info, _reset_infos): get informations on converter
+	through get_info().
+	remove html_non_breaking_space() and html_line_break_element()
+	and use get_info() instead.
+
+2022-01-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%css_element_class_styles):
 	rename css_map as css_element_class_styles.
 

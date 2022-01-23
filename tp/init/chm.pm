@@ -209,8 +209,8 @@ sub chm_init($)
   my $self = shift;
   return if (defined($self->get_conf('OUTFILE'))
         and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
-  my $document_name = $self->{'document_name'};
-  my $outdir = $self->{'destination_directory'};
+  my $document_name = $self->get_info('document_name');
+  my $outdir = $self->get_info('destination_directory');
   $outdir = File::Spec->curdir() if ($outdir eq '');
 
   my $hhk_filename = $document_name . ".hhk";
@@ -237,7 +237,7 @@ sub chm_init($)
 
   my ($index_entries, $index_entries_sort_strings)
        = Texinfo::Structuring::sort_indices($self->{'parser'},
-                                    $self, $self, $self->{'index_entries'});
+                           $self, $self, $self->get_info('index_entries'));
   if ($index_entries) {
     foreach my $index_name (sort(keys(%$index_entries))) {
       foreach my $index_entry_ref (@{$index_entries->{$index_name}}) {
@@ -366,7 +366,7 @@ sub chm_init($)
   if (exists ($chm_languages{$documentlanguage})) {
     $language = $chm_languages{$documentlanguage};
   }
-  my $title = _chm_convert_tree_to_text($self, $self->{'title_tree'});
+  my $title = _chm_convert_tree_to_text($self, $self->get_info('title_tree'));
   my $top_file = '';
   my $top_element = $self->global_element('Top');
   if ($top_element and $top_element->{'extra'}->{'unit_command'}) {

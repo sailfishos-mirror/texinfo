@@ -243,12 +243,6 @@ sub close_html_lone_element($$) {
   return $html_element .'>';
 }
 
-sub html_non_breaking_space($)
-{
-  my $self = shift;
-  return $self->{'non_breaking_space'};
-}
-
 my $xml_numeric_entity_nbsp = '&#'.hex('00A0').';';
 my $xml_named_entity_nbsp = '&nbsp;';
 
@@ -259,17 +253,11 @@ sub substitute_html_non_breaking_space($$)
   my $self = shift;
   my $text = shift;
 
-  my $non_breaking_space = $self->html_non_breaking_space();
+  # do not use get_info() as it may not be set yet
+  my $non_breaking_space = $self->{'non_breaking_space'};
   # using \Q \E on the substitution leads to spurious \
   $text =~ s/\Q$html_default_entity_nbsp\E/$non_breaking_space/g;
   return $text;
-}
-
-sub html_line_break_element($)
-{
-  my $self = shift;
-
-  return $self->{'line_break_element'};
 }
 
 my @image_files_extensions = ('.png', '.jpg', '.jpeg', '.gif');
@@ -1333,6 +1321,36 @@ sub get_file_information($$;$)
   return (1, $self->{'file_informations'}->{$self->{'current_filename'}}->{$key})
 }
 
+# information from converter available 'read-only', in general set up before
+# really starting the formatting (except for current_filename).
+my %available_converter_info;
+foreach my $converter_info ('copying_comment', 'current_filename',
+   'destination_directory', 'document_name', 'documentdescription_string',
+   'index_entries', 'index_entries_by_letter',
+   'jslicenses', 'line_break_element', 'non_breaking_space', 'paragraph_symbol',
+   'simpletitle_command_name', 'simpletitle_tree', 'title_string', 'title_tree') {
+  $available_converter_info{$converter_info} = 1;
+}
+
+sub get_info($$)
+{
+  my $self = shift;
+  my $converter_info = shift;
+
+  if (not $available_converter_info{$converter_info}) {
+    confess("BUG: $converter_info not an available converter info");
+  }
+  if (defined($self->{'converter_info'}->{$converter_info})) {
+    if (ref($self->{'converter_info'}->{$converter_info}) eq 'SCALAR') {
+      return ${$self->{'converter_info'}->{$converter_info}};
+    } else {
+      return $self->{'converter_info'}->{$converter_info};
+    }
+  #} else {
+  #  cluck();
+  }
+}
+
 # This function should be used in formatting functions when some
 # Texinfo tree need to be converted.
 sub convert_tree_new_formatting_context($$;$$$)
@@ -1658,7 +1676,7 @@ sub _translate_names($)
      'Contents',    $self->gdt('Contents'),
      'Overview',    $self->gdt('Overview'),
      'Index',       $self->gdt('Index'),
-     ' ',           ' '.$self->html_non_breaking_space().' ',
+     ' ',           ' '.$self->get_info('non_breaking_space').' ',
      'This',        $self->gdt('current'),
      'Back',        ' &lt; ',
      'FastBack',    ' &lt;&lt; ',
@@ -2546,7 +2564,7 @@ sub _convert_footnote_command($$$$)
   my $footnote_filename;
   if ($self->get_conf('footnotestyle') eq 'separate') {
     $footnote_filename = $self->command_filename($command);
-    $document_filename = $self->{'current_filename'};
+    $document_filename = $self->get_info('current_filename');
     $footnote_filename = '' if (!defined($footnote_filename));
     $document_filename = '' if (!defined($document_filename));
 
@@ -3597,7 +3615,7 @@ sub _indent_with_table($$$;$)
   @classes = @$extra_classes if (defined($extra_classes));
   unshift @classes, $cmdname;
   return $self->html_attribute_class('table', \@classes)
-         .'><tr><td>'.$self->html_non_breaking_space().'</td><td>'.$content
+         .'><tr><td>'.$self->get_info('non_breaking_space').'</td><td>'.$content
                 ."</td></tr></table>\n";
 }
 
@@ -3778,7 +3796,7 @@ sub _convert_sp_command($$$$)
     if ($self->in_preformatted() or $self->in_string()) {
       return "\n" x $sp_nr;
     } else {
-      return ($self->html_line_break_element()."\n") x $sp_nr;
+      return ($self->get_info('line_break_element')."\n") x $sp_nr;
     }
   }
 }
@@ -3840,7 +3858,7 @@ sub _convert_author_command($$$$)
   if (!$self->in_string()) {
     return $self->html_attribute_class('strong', [$cmdname])
                 .">$args->[0]->{'normal'}</strong>"
-                .$self->html_line_break_element()."\n";
+                .$self->get_info('line_break_element')."\n";
   } else {
     return $args->[0]->{'normal'} . "\n";
   }
@@ -4662,13 +4680,14 @@ sub _convert_printindex_command($$$$)
   } else {
     return '';
   }
-  if (!$self->{'index_entries_by_letter'}
-      or !$self->{'index_entries_by_letter'}->{$index_name}
-      or !@{$self->{'index_entries_by_letter'}->{$index_name}}) {
+  my $index_entries_by_letter = $self->get_info('index_entries_by_letter');
+  if (!defined($index_entries_by_letter)
+      or !$index_entries_by_letter->{$index_name}
+      or !@{$index_entries_by_letter->{$index_name}}) {
     return '';
   }
 
-  #foreach my $letter_entry (@{$self->{'index_entries_by_letter'}->{$index_name}}) {
+  #foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
   #  print STDERR "IIIIIII $letter_entry->{'letter'}\n";
   #  foreach my $index_entry (@{$letter_entry->{'entries'}}) {
   #    print STDERR "   ".join('|', keys(%$index_entry))."||| $index_entry->{'key'}\n";
@@ -4684,7 +4703,7 @@ sub _convert_printindex_command($$$$)
   my @alpha = ();
   # collect the links
   my $symbol_idx = 0;
-  foreach my $letter_entry (@{$self->{'index_entries_by_letter'}->{$index_name}}) {
+  foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
     my $index_element_id = $self->from_element_direction('This', 'target');
     if (!defined($index_element_id)) {
@@ -4713,8 +4732,8 @@ sub _convert_printindex_command($$$$)
   my $join = '';
   my $non_alpha_text = '';
   my $alpha_text = '';
-  my $non_breaking_space = $self->html_non_breaking_space();
-  $join = " $non_breaking_space \n".$self->html_line_break_element()."\n"
+  my $non_breaking_space = $self->get_info('non_breaking_space');
+  $join = " $non_breaking_space \n".$self->get_info('line_break_element')."\n"
      if (@non_alpha and @alpha);
   if (@non_alpha) {
     $non_alpha_text = join("\n $non_breaking_space \n", @non_alpha) . "\n";
@@ -4742,7 +4761,7 @@ sub _convert_printindex_command($$$$)
     .  $self->convert_tree($self->gdt('Section'))
     ."</th></tr>\n" . "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')
     ."</td></tr>\n";
-  foreach my $letter_entry (@{$self->{'index_entries_by_letter'}->{$index_name}}) {
+  foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
     my $entries_text = '';
     my $entry_nr = -1;
@@ -4803,7 +4822,7 @@ sub _convert_printindex_command($$$$)
       $entries_text .= '<tr><td></td><td valign="top">'
          . "<a href=\"$entry_href\">$entry</a>" .
           $self->get_conf('INDEX_ENTRY_COLON') .
-        '</td><td>'.$self->html_non_breaking_space().'</td><td valign="top">';
+        '</td><td>'.$self->get_info('non_breaking_space').'</td><td valign="top">';
       $entries_text .= "<a href=\"$associated_command_href\">$associated_command_text</a>"
          if ($associated_command_href);
        $entries_text .= "</td></tr>\n";
@@ -5191,9 +5210,9 @@ sub _convert_text($$$)
         $text =~ s/(\S*[_-]\S*)/${open}$1<\/span>/g;
       }
     }
-    $text .= $self->html_non_breaking_space() if (chomp($text));
+    $text .= $self->get_info('non_breaking_space') if (chomp($text));
     # Protect spaces within text
-    my $non_breaking_space = $self->html_non_breaking_space();
+    my $non_breaking_space = $self->get_info('non_breaking_space');
     $text =~ s/ /$non_breaking_space/g;
     # Revert protected spaces in leading html attribute
     $text =~ s/\x{1F}/ /g;
@@ -5412,7 +5431,7 @@ sub _convert_menu_entry_type($$$)
                            eq _simplify_text_for_comparison($description));
     }
   }
-  my $non_breaking_space = $self->html_non_breaking_space();
+  my $non_breaking_space = $self->get_info('non_breaking_space');
   return "<tr><td align=\"left\" valign=\"top\">$name$MENU_ENTRY_COLON</td>"
     ."<td>${non_breaking_space}${non_breaking_space}</td><td align=\"left\" valign=\"top\">$description</td></tr>\n";
 }
@@ -5762,7 +5781,7 @@ sub _get_copiable_anchor {
   my ($self, $id) = @_;
   my $result = '';
   if ($id and $self->get_conf('COPIABLE_LINKS')) {
-    my $paragraph_symbol = $self->{'paragraph_symbol'};
+    my $paragraph_symbol = $self->get_info('paragraph_symbol');
     $result = $self->html_attribute_class('a', ['copiable-link'])
         ." href='#$id'> $paragraph_symbol</a>";
   }
@@ -5869,12 +5888,16 @@ sub _default_format_titlepage($)
     $titlepage_text = $self->convert_tree({'contents'
                => $self->{'global_commands'}->{'titlepage'}->{'contents'}},
                                           'convert titlepage');
-  } elsif ($self->{'simpletitle_tree'}) {
-    my $title_text = $self->convert_tree_new_formatting_context(
-     $self->{'simpletitle_tree'}, "$self->{'simpletitle_command_name'} simpletitle");
-    $titlepage_text = &{$self->formatting_function('format_heading_text')}($self,
-                                  $self->{'simpletitle_command_name'},
-                          [$self->{'simpletitle_command_name'}], $title_text, 0);
+  } else {
+    my $simpletitle_tree = $self->get_info('simpletitle_tree');
+    if ($simpletitle_tree) {
+      my $simpletitle_command_name = $self->get_info('simpletitle_command_name');
+      my $title_text = $self->convert_tree_new_formatting_context(
+        $simpletitle_tree, "$simpletitle_command_name simpletitle");
+      $titlepage_text = &{$self->formatting_function('format_heading_text')}($self,
+                                  $simpletitle_command_name,
+                          [$simpletitle_command_name], $title_text, 0);
+    }
   }
   my $result = '';
   $result .= $titlepage_text.$self->get_conf('DEFAULT_RULE')."\n"
@@ -5892,12 +5915,14 @@ sub _print_title($)
     if ($self->get_conf('USE_TITLEPAGE_FOR_TITLE')) {
       $result .= &{$self->formatting_function('format_titlepage')}($self);
     } else {
-      if ($self->{'simpletitle_tree'}) {
+      my $simpletitle_tree = $self->get_info('simpletitle_tree');
+      if ($simpletitle_tree) {
+        my $simpletitle_command_name = $self->get_info('simpletitle_command_name');
         my $title_text = $self->convert_tree_new_formatting_context(
-         $self->{'simpletitle_tree'}, "$self->{'simpletitle_command_name'} simpletitle");
+         $simpletitle_tree, "$simpletitle_command_name simpletitle");
         $result .= &{$self->formatting_function('format_heading_text')}($self,
-                       $self->{'simpletitle_command_name'},
-                       [$self->{'simpletitle_command_name'}], $title_text, 0);
+                       $simpletitle_command_name,
+                       [$simpletitle_command_name], $title_text, 0);
       }
       $result .= $self->_contents_shortcontents_in_title();
     }
@@ -6001,6 +6026,7 @@ sub _convert_tree_unit_type($$$$)
   $result .= $content;
   $result .= &{$self->formatting_function('format_element_footer')}($self, $type,
                                                               $element, $content);
+
   return $result;
 }
 
@@ -6397,29 +6423,23 @@ sub _load_htmlxref_files {
 #
 #  output_init_conf
 #
+#     API exists
+#  current_filename
 #  document_name
 #  destination_directory
-#
 #  paragraph_symbol
 #  line_break_element
 #  non_breaking_space
-#  options_latex_math
-#
 #  simpletitle_tree
 #  simpletitle_command_name
 #  title_string
 #  title_tree
 #  documentdescription_string
 #  copying_comment
-#  index_entries_by_letter
-#  index_names
 #  index_entries
-#
+#  index_entries_by_letter
 #  jslicenses
-#  htmlxref_files
-#  htmlxref
-#  check_htmlxref_already_warned
-#  
+#
 #    API exists
 #  css_element_class_styles
 #  css_import_lines
@@ -6468,10 +6488,13 @@ sub _load_htmlxref_files {
 #
 #  tree_units
 #  out_filepaths
-#  current_filename
 #  current_root_element
 #  seen_ids
 #  ignore_notice
+#  options_latex_math
+#  htmlxref_files
+#  htmlxref
+#  check_htmlxref_already_warned
 #
 #    from Converter
 #  labels
@@ -6533,7 +6556,7 @@ sub converter_initialize($)
     }
     foreach my $space_command (' ', "\t", "\n") {
       $conf_default_no_arg_commands_formatting_normal->{$space_command}->{'text'}
-        = $self->html_non_breaking_space();
+        = $self->{'non_breaking_space'};
     }
     $conf_default_no_arg_commands_formatting_normal->{'tie'}->{'text'}
       = $self->substitute_html_non_breaking_space(
@@ -6575,7 +6598,7 @@ sub converter_initialize($)
     $self->{'line_break_element'} = '<br>';
   }
   $conf_default_no_arg_commands_formatting_normal->{'*'}->{'text'}
-    = $self->html_line_break_element();
+    = $self->{'line_break_element'};
 
   my $customized_types_conversion = Texinfo::Config::GNUT_get_types_conversion();
   foreach my $type (keys(%default_types_conversion)) {
@@ -7684,7 +7707,6 @@ sub _prepare_index_entries($)
                           and !$self->get_conf('USE_UNIDECODE'));
 
     my $index_names = $self->{'parser'}->indices_information();
-    $self->{'index_names'} = $index_names;
     my $merged_index_entries 
         = Texinfo::Structuring::merge_indices($index_names);
     my $index_entries_sort_strings;
@@ -7921,7 +7943,8 @@ sub _default_format_contents($$;$$)
   my $cmdname = shift;
   my $command = shift;
   my $filename = shift;
-  $filename = $self->{'current_filename'} if (!defined($filename));
+
+  $filename = $self->get_info('current_filename') if (!defined($filename));
 
   return ''
    if (!$self->{'structuring'} or !$self->{'structuring'}->{'sectioning_root'});
@@ -8141,9 +8164,8 @@ sub _file_header_informations($$;$)
   
   my $title;
   if ($command) {
-    my $command_string = 
-      $self->command_text($command, 'string');
-    if (defined($command_string) 
+    my $command_string = $self->command_text($command, 'string');
+    if (defined($command_string)
         and $command_string ne $self->{'title_string'}) {
       my $element_tree;
       if ($self->get_conf('SECTION_NAME_IN_TITLE')
@@ -8156,30 +8178,27 @@ sub _file_header_informations($$;$)
         $element_tree = $self->command_text($command, 'tree');
       }
       my $title_tree = $self->gdt('{element_text} ({title})',
-                   { 'title' => $self->{'title_tree'}, 
+                   { 'title' => $self->get_info('title_tree'),
                      'element_text' => $element_tree });
       $title = $self->convert_tree_new_formatting_context(
-          {'type' => '_string', 'contents' => [$title_tree]}, 
+          {'type' => '_string', 'contents' => [$title_tree]},
           $command->{'cmdname'}, 'element_title');
     }
   }
-  $title = $self->{'title_string'} if (!defined($title));
+  $title = $self->get_info('title_string') if (!defined($title));
 
-  my $description;
-  if ($self->{'documentdescription_string'}) {
-    $description = $self->{'documentdescription_string'};
-  } else {
-    $description = $title;
-  }
+  my $description = $self->get_info('documentdescription_string');
+  $description = $title
+    if (not defined($description) or $description eq '');
   $description = $self->close_html_lone_element(
     "<meta name=\"description\" content=\"$description\"" )
       if ($description ne '');
   my $encoding = '';
-  $encoding 
+  $encoding
      = $self->close_html_lone_element(
         "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=".
           $self->get_conf('OUTPUT_ENCODING_NAME')."\"" )
-    if (defined($self->get_conf('OUTPUT_ENCODING_NAME')) 
+    if (defined($self->get_conf('OUTPUT_ENCODING_NAME'))
         and ($self->get_conf('OUTPUT_ENCODING_NAME') ne ''));
 
   my $date = '';
@@ -8201,9 +8220,9 @@ sub _file_header_informations($$;$)
       and $self->get_file_information('mathjax', $filename)) {
     $bodytext .= ' class="tex2jax_ignore"';
   }
-  my $copying_comment = '';
-  $copying_comment = $self->{'copying_comment'} 
-    if (defined($self->{'copying_comment'}));
+  my $copying_comment = $self->get_info('copying_comment');
+  $copying_comment = ''
+       if (not defined($copying_comment));
   my $after_body_open = '';
   $after_body_open = $self->get_conf('AFTER_BODY_OPEN')
     if (defined($self->get_conf('AFTER_BODY_OPEN')));
@@ -8222,7 +8241,7 @@ sub _file_header_informations($$;$)
 
   if (defined($self->get_conf('INFO_JS_DIR'))) {
     if (!$self->get_conf('SPLIT')) {
-      $self->document_error($self, 
+      $self->document_error($self,
         sprintf(__("%s not meaningful for non-split output"),
                    'INFO_JS_DIR'));
     } else {
@@ -8262,7 +8281,7 @@ MathJax = {
 
   }
 
-  return ($title, $description, $encoding, $date, $css_lines, 
+  return ($title, $description, $encoding, $date, $css_lines,
           $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
           $after_body_open, $extra_head, $program_and_version, $program_homepage,
           $program, $generator);
@@ -8308,7 +8327,7 @@ sub _default_format_begin_file($$$)
     $command = $self->element_command($element);
   }
 
-  my ($title, $description, $encoding, $date, $css_lines, 
+  my ($title, $description, $encoding, $date, $css_lines,
           $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
           $after_body_open, $extra_head, $program_and_version, $program_homepage,
           $program, $generator) = $self->_file_header_informations($command, $filename);
@@ -8479,7 +8498,7 @@ EOT
 
 <ul>
 EOT
-    my $non_breaking_space = $self->html_non_breaking_space();
+    my $non_breaking_space = $self->get_info('non_breaking_space');
     $about .= '  <li> 1. ' . $self->convert_tree($self->gdt('Section One')) . "\n" .
 "    <ul>\n" .
 '      <li>1.1 ' . $self->convert_tree($self->gdt('Subsection One-One')) . "\n";
@@ -8552,9 +8571,10 @@ sub _do_jslicenses_file {
 <table id="jslicense-labels1">
 ';
 
-  foreach my $category (sort(keys %{$self->{'jslicenses'}})) {
-    foreach my $file (sort(keys %{$self->{'jslicenses'}->{$category}})) {
-      my $file_info = $self->{'jslicenses'}->{$category}->{$file};
+  my $jslicenses = $self->get_info('jslicenses');
+  foreach my $category (sort(keys %$jslicenses)) {
+    foreach my $file (sort(keys %{$jslicenses->{$category}})) {
+      my $file_info = $jslicenses->{$category}->{$file};
       $a .= "<tr>\n";
       $a .= "<td><a href=\"$file\">$file</a></td>\n";
       $a .= "<td><a href=\"$file_info->[1]\">$file_info->[0]</a></td>\n";
@@ -8707,17 +8727,23 @@ sub convert($$)
 
   my $result = '';
 
-  # This should return undef if called on a tree without node or sections.
-  #
   # FIXME the document_name and destination_directory arguments are undef.
   # If a converter is reused, it could be possible to set before and reuse
   # here something like $self->{'document_name'}
   # but it is unclear if it is correct or not.
+
+  # call before _prepare_conversion_tree_units, which calls _translate_names.
+  # Some informations are not set yet.
+  $self->_reset_infos();
+
   my ($tree_units, $special_elements)
     = $self->_prepare_conversion_tree_units($root, undef, undef);
 
   $self->_prepare_index_entries();
   $self->_prepare_footnotes();
+
+  # all informations should be set.
+  $self->_reset_infos();
 
   if (!defined($tree_units)) {
     print STDERR "\nC NO UNIT\n" if ($self->get_conf('DEBUG'));
@@ -8754,7 +8780,7 @@ sub output_internal_links($)
         $href = $self->command_href($command, '');
         my $tree = $self->command_text($command, 'tree');
         if ($tree) {
-          $text = Texinfo::Convert::Text::convert_to_text($tree, 
+          $text = Texinfo::Convert::Text::convert_to_text($tree,
                {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
         }
       }
@@ -8768,8 +8794,9 @@ sub output_internal_links($)
   }
   if ($self->{'parser'}) {
     my %options = Texinfo::Convert::Text::copy_options_for_convert_text($self);
-    foreach my $index_name (sort(keys (%{$self->{'index_entries_by_letter'}}))) {
-      foreach my $letter_entry (@{$self->{'index_entries_by_letter'}->{$index_name}}) {
+    my $index_entries_by_letter = $self->get_info('index_entries_by_letter');
+    foreach my $index_name (sort(keys (%{$index_entries_by_letter}))) {
+      foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
         foreach my $index_entry (@{$letter_entry->{'entries'}}) {
           my $href;
           $href = $self->command_href($index_entry->{'command'}, '');
@@ -8825,8 +8852,26 @@ sub run_stage_handlers($$$)
   return 1;
 }
 
+sub _reset_infos()
+{
+  my $self = shift;
+
+  # reset to be sure that there is no stale information
+  $self->{'converter_info'} = {};
+  foreach my $converter_info (keys(%available_converter_info)) {
+    if (exists($self->{$converter_info})) {
+      if (ref($self->{$converter_info}) eq '') {
+        # for scalar, use references in case it may change
+        $self->{'converter_info'}->{$converter_info} = \$self->{$converter_info};
+      } else {
+        $self->{'converter_info'}->{$converter_info} = $self->{$converter_info};
+      }
+    }
+  }
+}
+
 # Main function for outputting a manual in HTML.
-# $SELF is the output converter object of class Texinfo::Convert::HTML (this 
+# $SELF is the output converter object of class Texinfo::Convert::HTML (this
 # module), and $ROOT is the Texinfo tree from the parser.
 sub output($$)
 {
@@ -8887,6 +8932,12 @@ sub output($$)
   # configuration.
   $self->{'output_init_conf'} = { %{$self->{'conf'}} };
 
+  $self->{'current_filename'} = undef;
+
+  # setup informations once here, to have some information for
+  # run_stage_handlers.  Some informations are not set yet.
+  $self->_reset_infos();
+
   my $setup_status = $self->run_stage_handlers($root, 'setup');
   return undef unless($setup_status);
 
@@ -8901,9 +8952,14 @@ sub output($$)
   return undef unless $succeeded;
 
   # set for init files
-  # FIXME use an API
   $self->{'document_name'} = $document_name;
   $self->{'destination_directory'} = $created_directory;
+
+  # setup informations here, to have some information for
+  # conversions belows, in translate_names called by
+  # _prepare_conversion_tree_units and in titles formatting.
+  # Some informations are not set yet.
+  $self->_reset_infos();
 
   # Get the list of "elements" to be processed, i.e. nodes or sections.
   # This should return undef if called on a tree without node or sections.
@@ -8952,6 +9008,9 @@ sub output($$)
     $self->{'elements_in_file_count'}->{$filename} = $self->{'file_counters'}->{$filename};
   }
 
+  # setup informations once here, to have some information for
+  # run_stage_handlers.  Some informations are not set yet.
+  $self->_reset_infos();
   my $structure_status = $self->run_stage_handlers($root, 'structure');
   return undef unless($structure_status);
 
@@ -8971,8 +9030,7 @@ sub output($$)
   # title, including @-commands found in @titlepage only.  Therefore
   # simpletitle is more in line with what makeinfo in C does.
   my $fulltitle;
-  foreach my $fulltitle_command('settitle', 'title', 
-     'shorttitlepage', 'top') {
+  foreach my $fulltitle_command('settitle', 'title', 'shorttitlepage', 'top') {
     if ($self->{'global_commands'}->{$fulltitle_command}) {
       my $command = $self->{'global_commands'}->{$fulltitle_command};
       next if (!$command->{'args'}
@@ -8994,9 +9052,9 @@ sub output($$)
   foreach my $simpletitle_command ('settitle', 'shorttitlepage') {
     if ($self->{'global_commands'}->{$simpletitle_command}) {
       my $command = $self->{'global_commands'}->{$simpletitle_command};
-      next if ($command->{'extra'} 
+      next if ($command->{'extra'}
                and $command->{'extra'}->{'missing_argument'});
-      $self->{'simpletitle_tree'} = 
+      $self->{'simpletitle_tree'} =
          {'contents' => $command->{'args'}->[0]->{'contents'}};
       $self->{'simpletitle_command_name'} = $simpletitle_command;
       last;
@@ -9007,14 +9065,14 @@ sub output($$)
   if ($fulltitle) {
     $self->{'title_tree'} = $fulltitle;
     $html_title_string = $self->convert_tree_new_formatting_context(
-          {'type' => '_string', 'contents' => [$self->{'title_tree'}]}, 
+          {'type' => '_string', 'contents' => [$self->{'title_tree'}]},
           'title_string');
   }
   if (!defined($html_title_string) or $html_title_string !~ /\S/) {
     my $default_title = $self->gdt('Untitled Document');
     $self->{'title_tree'} = $default_title;
     $self->{'title_string'} = $self->convert_tree_new_formatting_context(
-          {'type' => '_string', 'contents' => [$self->{'title_tree'}]}, 
+          {'type' => '_string', 'contents' => [$self->{'title_tree'}]},
           'title_string');
     $self->file_line_warn(__(
                          "must specify a title with a title command or \@top"),
@@ -9041,10 +9099,10 @@ sub output($$)
 
   # documentdescription
   if (defined($self->get_conf('documentdescription'))) {
-    $self->{'documentdescription_string'} 
+    $self->{'documentdescription_string'}
       = $self->get_conf('documentdescription');
   } elsif ($self->{'global_commands'}->{'documentdescription'}) {
-    $self->{'documentdescription_string'} 
+    $self->{'documentdescription_string'}
       = $self->convert_tree_new_formatting_context(
        {'type' => '_string',
         'contents' =>
@@ -9052,6 +9110,10 @@ sub output($$)
        'documentdescription');
     chomp($self->{'documentdescription_string'});
   }
+
+  # setup informations once here, to have some information for
+  # run_stage_handlers.  Some informations are not set yet.
+  $self->_reset_infos();
 
   my $init_status = $self->run_stage_handlers($root, 'init');
   return undef unless($init_status);
@@ -9086,6 +9148,9 @@ sub output($$)
             'http://www.jclark.com/xml/copying.txt',
             'js/modernizr.js' ]};
   }
+
+  # all the informations should be available
+  $self->_reset_infos();
 
   my $fh;
   my $output = '';
@@ -9277,7 +9342,8 @@ sub output($$)
     }
   }
 
-  if ($self->{'jslicenses'} and scalar(%{$self->{'jslicenses'}})) {
+  my $jslicenses = $self->get_info('jslicenses');
+  if ($jslicenses and scalar(%$jslicenses)) {
     $self->_do_jslicenses_file($created_directory);
   }
 

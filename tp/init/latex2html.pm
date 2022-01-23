@@ -174,8 +174,8 @@ sub l2h_process($$)
         and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
 
 
-  $docu_name = $self->{'document_name'};
-  $docu_rdir = $self->{'destination_directory'};
+  $docu_name = $self->get_info('document_name');
+  $docu_rdir = $self->get_info('destination_directory');
   $docu_rdir = '' if (!defined($docu_rdir));
   my $no_file;
   ($docu_volume, $docu_directories, $no_file) 

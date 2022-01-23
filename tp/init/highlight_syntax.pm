@@ -142,10 +142,10 @@ sub highlight_process($$)
 
   return 0 if (not _get_highlighted_languages($self));
 
-  my $document_name = $self->{'document_name'};
+  my $document_name = $self->get_info('document_name');
   my $highlight_basename = "${document_name}_highlight";
 
-  $highlight_out_dir = $self->{'destination_directory'};
+  $highlight_out_dir = $self->get_info('destination_directory');
 
   my @highlighted_commands = ('example');
 
