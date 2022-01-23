@@ -45,8 +45,7 @@ Some internal state used in conversion:
   $self->{'css_rule_lines'}
   $self->{'css_map'}
  _default_format_end_file
-  $self->{'jslicenses_infojs'}
-  $self->{'jslicenses_math'}
+  $self->{'jslicenses'}
 
 Some private function used in conversion
  _convert_informative_command

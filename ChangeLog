@@ -1,5 +1,11 @@
 2022-01-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_end_file)
+	(_do_jslicenses_file, output): replace 'jslicenses_infojs'
+	and 'jslicenses_math' by categories in 'jslicenses'.
+
+2022-01-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (count_elements_in_filename),
 	tp/init/book.pm:
 	add a specification argument to specify the count returned, total,

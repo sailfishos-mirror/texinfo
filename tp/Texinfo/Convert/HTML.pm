@@ -6431,8 +6431,6 @@ sub _load_htmlxref_files {
 #    from Converter
 #  labels
 #
-#  jslicenses_infojs
-#  jslicenses_math
 #  jslicenses
 #
 #     API exists
@@ -8057,10 +8055,11 @@ sub _default_format_end_file($$)
   my $pre_body_close = $self->get_conf('PRE_BODY_CLOSE');
   $pre_body_close = '' if (!defined($pre_body_close));
 
-  if (scalar(keys %{$self->{'jslicenses_infojs'}})
-       or (($self->get_file_information('mathjax', $filename)
-            or !$self->get_conf('SPLIT'))
-           and scalar(keys %{$self->{'jslicenses_math'}}))) {
+  if ($self->{'jslicenses'}
+      and (scalar(keys %{$self->{'jslicenses'}->{'infojs'}})
+           or (($self->get_file_information('mathjax', $filename)
+                or !$self->get_conf('SPLIT'))
+               and scalar(keys %{$self->{'jslicenses'}->{'mathjax'}})))) {
     my $js_setting = $self->get_conf('JS_WEBLABELS');
     my $js_path = $self->get_conf('JS_WEBLABELS_FILE');
     if (defined($js_setting) and defined($js_path)
@@ -8511,14 +8510,16 @@ sub _do_jslicenses_file {
 <body>
 <table id="jslicense-labels1">
 ';
-  my $h = $self->{'jslicenses'};
 
-  for my $file (sort(keys %{$self->{'jslicenses'}})) {
-    $a .= "<tr>\n";
-    $a .= "<td><a href=\"$file\">$file</a></td>\n";
-    $a .= "<td><a href=\"$h->{$file}->[1]\">$h->{$file}->[0]</a></td>\n";
-    $a .= "<td><a href=\"$h->{$file}->[2]\">$h->{$file}->[2]</a></td>\n";
-    $a .= "</tr>\n";
+  foreach my $category (sort(keys %{$self->{'jslicenses'}})) {
+    foreach my $file (sort(keys %{$self->{'jslicenses'}->{$category}})) {
+      my $file_info = $self->{'jslicenses'}->{$category}->{$file};
+      $a .= "<tr>\n";
+      $a .= "<td><a href=\"$file\">$file</a></td>\n";
+      $a .= "<td><a href=\"$file_info->[1]\">$file_info->[0]</a></td>\n";
+      $a .= "<td><a href=\"$file_info->[2]\">$file_info->[2]</a></td>\n";
+      $a .= "</tr>\n";
+    }
   }
 
   $a .= "</table>\n</body></html>\n";
@@ -9027,29 +9028,22 @@ sub output($$)
     my $mathjax_script = $self->get_conf('MATHJAX_SCRIPT');
     my $mathjax_source = $self->get_conf('MATHJAX_SOURCE');
 
-    $self->{'jslicenses_math'}->{$mathjax_script} =
+    $self->{'jslicenses'}->{'mathjax'} = {
+      $mathjax_script =>
         [ 'Apache License, Version 2.0.',
           'https://www.apache.org/licenses/LICENSE-2.0',
-          $mathjax_source ];
-    # append to hash
-    $self->{'jslicenses'} = {} if (not defined($self->{'jslicenses'}));
-    %{$self->{'jslicenses'}} = ( %{$self->{'jslicenses'}},
-                                 %{$self->{'jslicenses_math'}} );
-
+          $mathjax_source ]};
   }
   if ($self->get_conf('INFO_JS_DIR')) {
-    $self->{'jslicenses_infojs'}->{'js/info.js'} =
-      [ 'GNU General Public License 3.0 or later',
-        'http://www.gnu.org/licenses/gpl-3.0.html',
-        'js/info.js' ];
-
-    $self->{'jslicenses_infojs'}->{'js/modernizr.js'} =
-      [ 'Expat',
-        'http://www.jclark.com/xml/copying.txt',
-        'js/modernizr.js' ];
-    $self->{'jslicenses'} = {} if (not defined($self->{'jslicenses'}));
-    %{$self->{'jslicenses'}} = ( %{$self->{'jslicenses'}},
-                                 %{$self->{'jslicenses_infojs'}} );
+    $self->{'jslicenses'}->{'infojs'} = {
+      'js/info.js' =>
+         [ 'GNU General Public License 3.0 or later',
+           'http://www.gnu.org/licenses/gpl-3.0.html',
+           'js/info.js' ],
+       'js/modernizr.js' =>
+          [ 'Expat',
+            'http://www.jclark.com/xml/copying.txt',
+            'js/modernizr.js' ]};
   }
 
   my $fh;
@@ -9215,7 +9209,7 @@ sub output($$)
                                      $self->get_conf('INFO_JS_DIR'));
       if (!-d $jsdir) {
         if (-f $jsdir) {
-          $self->document_error($self, 
+          $self->document_error($self,
             sprintf(__("%s already exists but is not a directory"), $jsdir));
         } else {
           mkdir $jsdir;
@@ -9234,7 +9228,7 @@ sub output($$)
           my $from = File::Spec->catfile($jssrcdir, $f);
 
           if (!copy($from, $jsdir)) {
-            $self->document_error($self, 
+            $self->document_error($self,
               sprintf(__("error on copying %s into %s"), $from, $jsdir));
           }
         }
