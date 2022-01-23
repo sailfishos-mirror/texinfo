@@ -29,8 +29,6 @@ Some internal state used in conversion:
  _convert_explained_command (actually internal to the function)
   $self->{'explained_commands'}
   $self->{'element_explanation_contents'}
- _convert_itemize_command
-  $self->{'css_map'}
  _get_copiable_anchor (called by 2 convert functions)
   $self->{'paragraph_symbol'}
  _convert_printindex_command
@@ -40,10 +38,6 @@ Some internal state used in conversion:
  _print_title     (_convert_tree_unit_type, output)
   $self->{'simpletitle_tree'}
   $self->{'simpletitle_command_name'}
- _default_format_css_lines
-  $self->{'css_import_lines'}
-  $self->{'css_rule_lines'}
-  $self->{'css_map'}
  _default_format_end_file
   $self->{'jslicenses'}
 
@@ -84,9 +78,6 @@ init/latex2html.pm
 init/tex4ht.pm
   $self->{'document_name'}
   $self->{'destination_directory'}
-
-init/tex4ht.pm
-  $self->{'css_import_lines'}
 
 
 To document:
@@ -186,6 +177,8 @@ $self->in_multi_expanded()
 $self->html_get_css_elements_classes($filename);
 $self->substitute_html_non_breaking_space(
 $self->count_elements_in_filename($spec, filename)
+$self->css_get_info
+$self->css_add_info
 
 Profiling
 =========

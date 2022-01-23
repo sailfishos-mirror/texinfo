@@ -323,6 +323,44 @@ sub html_image_file_location_name($$$$)
   return ($image_file, $image_basefile, $image_extension, $image_path);
 }
 
+sub css_add_info($$$;$)
+{
+  my $self = shift;
+  my $spec = shift;
+  my $css_info = shift;
+  my $css_style = shift;
+
+  if ($spec eq 'rules') {
+    push @{$self->{'css_rule_lines'}}, $css_info;
+  } elsif ($spec eq 'imports') {
+    push @{$self->{'css_import_lines'}}, $css_info;
+  } else {
+    $self->{'css_map'}->{$css_info} = $css_style;
+  }
+}
+
+sub css_get_info($$;$) {
+  my $self = shift;
+  my $spec = shift;
+  my $css_info = shift;
+
+  if ($spec eq 'rules') {
+    return @{$self->{'css_rule_lines'}};
+  } elsif ($spec eq 'imports') {
+    return @{$self->{'css_import_lines'}};
+  } else {
+    if (defined($css_info)) {
+      if ($self->{'css_map'} and $self->{'css_map'}->{$css_info}) {
+        return $self->{'css_map'}->{$css_info};
+      } else {
+        return undef;
+      }
+    } else {
+      return { %{$self->{'css_map'}} };
+    }
+  }
+}
+
 my %default_css_string_commands_conversion;
 my %default_css_string_types_conversion;
 my %default_css_string_formatting_references;
@@ -4131,9 +4169,8 @@ sub _convert_itemize_command($$$$)
     }
   }
 
-  # FIXME API?
   if (defined($mark_class_name)
-      and defined($self->{'css_map'}->{'ul.mark-'.$mark_class_name})) {
+      and defined($self->css_get_info('style', 'ul.mark-'.$mark_class_name))) {
     return $self->html_attribute_class('ul', [$cmdname, 'mark-'.$mark_class_name])
         .">\n" . $content. "</ul>\n";
   } elsif ($self->get_conf('NO_CSS')) {
@@ -6362,8 +6399,6 @@ sub _load_htmlxref_files {
 #  document_name
 #  destination_directory
 #
-#  css_map
-#  htmlxref
 #  paragraph_symbol
 #  line_break_element
 #  non_breaking_space
@@ -6375,16 +6410,20 @@ sub _load_htmlxref_files {
 #  title_tree
 #  documentdescription_string
 #  copying_comment
-#
-#  css_import_lines
-#  css_rule_lines
 #  index_entries_by_letter
 #  index_names
 #  index_entries
+#
+#  jslicenses
 #  htmlxref_files
 #  htmlxref
 #  check_htmlxref_already_warned
 #  
+#    API exists
+#  css_map
+#  css_import_lines
+#  css_rule_lines
+#
 #    API exists
 #  file_id_setting
 #  commands_conversion
@@ -6402,12 +6441,9 @@ sub _load_htmlxref_files {
 #    API exists
 #  pending_closes
 #
-#  ignore_notice
-#
 #    API exists
 #  pending_inline_content
 #  associated_inline_content
-#
 #
 #    API exists
 #  targets         for directions.  Keys are elements references, values are
@@ -6422,22 +6458,22 @@ sub _load_htmlxref_files {
 #  file_counters             # begin at elements_in_file_count decrease
 #                            # each time the tree unit element is closed
 #
+#     API exists
+#  document_global_context_css
+#  file_css
+#
+#     API exists
+#  file_informations
+#
 #  tree_units
 #  out_filepaths
 #  current_filename
 #  current_root_element
 #  seen_ids
+#  ignore_notice
 #
 #    from Converter
 #  labels
-#
-#  jslicenses
-#
-#     API exists
-#  document_global_context_css
-#  file_css
-#
-#  file_informations
 #
 #  explained_commands         # not defined in the converter per se but in an
 #                             # @-command conversion function and only used there
@@ -6763,21 +6799,24 @@ sub _default_format_css_lines($;$)
   return '' if ($self->get_conf('NO_CSS'));
 
   my $css_refs = $self->get_conf('CSS_REFS');
-  my @css_rules = $self->html_get_css_elements_classes($filename);
+  my @css_element_classes = $self->html_get_css_elements_classes($filename);
+  my @css_import_lines = $self->css_get_info('imports');
+  my @css_rule_lines = $self->css_get_info('rules');
 
-  return '' if !@{$self->{'css_import_lines'}} and !@css_rules
-                 and !@{$self->{'css_rule_lines'}}
+  return '' if !@css_import_lines and !@css_element_classes
+                 and !@css_rule_lines
                  and (!defined($css_refs) or !@$css_refs);
 
   my $css_text = "<style type=\"text/css\">\n<!--\n";
-  $css_text .= join('',@{$self->{'css_import_lines'}}) . "\n" 
-    if (@{$self->{'css_import_lines'}});
-  foreach my $css_rule (@css_rules) {
-    next unless ($self->{'css_map'}->{$css_rule});
-    $css_text .= "$css_rule {$self->{'css_map'}->{$css_rule}}\n";
+  $css_text .= join('', @css_import_lines) . "\n"
+    if (@css_import_lines);
+  foreach my $element_class (@css_element_classes) {
+    my $css_style = $self->css_get_info('style', $element_class);
+    $css_text .= "$element_class {$css_style}\n"
+      if defined($css_style );
   }
-  $css_text .= join('',@{$self->{'css_rule_lines'}}) . "\n" 
-    if (@{$self->{'css_rule_lines'}});
+  $css_text .= join('',@css_rule_lines) . "\n"
+    if (@css_rule_lines);
   $css_text .= "-->\n</style>\n";
   foreach my $ref (@$css_refs) {
     $css_text .= $self->close_html_lone_element(
@@ -8860,7 +8899,7 @@ sub output($$)
   return undef unless $succeeded;
 
   # set for init files
-  # FIXME use an api
+  # FIXME use an API
   $self->{'document_name'} = $document_name;
   $self->{'destination_directory'} = $created_directory;
 

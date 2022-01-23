@@ -231,8 +231,8 @@ sub tex4ht_prepare($$)
       close ($fh);
       # this has to be done during the 'process' phase, in 'output' it is
       # too late.
-      push @{$self->{'css_import_lines'}},
-         "\@import \"$formats{$format}->{'basename'}.css\";\n";
+      $self->css_add_info('imports',
+                    "\@import \"$formats{$format}->{'basename'}.css\";\n");
     }
   }
   return 1;

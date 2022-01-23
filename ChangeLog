@@ -1,5 +1,11 @@
 2022-01-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (css_add_info, css_get_info):
+	add API to get information on CSS rules, imports and styles,
+	the non dynamic parts, and to modify.
+
+2022-01-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_default_format_end_file)
 	(_do_jslicenses_file, output): replace 'jslicenses_infojs'
 	and 'jslicenses_math' by categories in 'jslicenses'.
