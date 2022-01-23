@@ -433,10 +433,6 @@ $result_converted{'html'}->{'empty_top_node_up'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>

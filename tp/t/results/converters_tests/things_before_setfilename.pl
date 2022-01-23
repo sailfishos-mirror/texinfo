@@ -1498,10 +1498,6 @@ $result_converted{'html'}->{'things_before_setfilename'} = '<!DOCTYPE html>
 
 <link href="#Top" rel="start" title="Top">
 <link href="#Top" rel="index" title="Top">
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>

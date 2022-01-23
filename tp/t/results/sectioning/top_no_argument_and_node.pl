@@ -187,10 +187,6 @@ $result_converted{'html'}->{'top_no_argument_and_node'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#start" rel="start" title="start">
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>

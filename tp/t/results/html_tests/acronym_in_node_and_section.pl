@@ -704,10 +704,6 @@ $result_converted{'html'}->{'acronym_in_node_and_section'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="top">
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>

@@ -718,10 +718,6 @@ $result_converted{'html'}->{'nodes_no_node_top_explicit_directions'} = '<!DOCTYP
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#first" rel="start" title="first">
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>

@@ -6669,16 +6669,15 @@ sub _default_format_css_lines($;$)
   return '' if ($self->get_conf('NO_CSS'));
 
   my $css_refs = $self->get_conf('CSS_REFS');
-
   my @css_rules = $self->html_get_css_elements_classes($filename);
 
-  return '' if (!@{$self->{'css_import_lines'}} and !@{$self->{'css_rule_lines'}}
-             and !keys(%{$self->{'css_map'}}) and !@$css_refs);
+  return '' if !@{$self->{'css_import_lines'}} and !@css_rules
+                 and !@{$self->{'css_rule_lines'}}
+                 and (!defined($css_refs) or !@$css_refs);
 
   my $css_text = "<style type=\"text/css\">\n<!--\n";
   $css_text .= join('',@{$self->{'css_import_lines'}}) . "\n" 
     if (@{$self->{'css_import_lines'}});
-  #foreach my $css_rule (sort(keys(%{$self->{'css_map'}}))) {
   foreach my $css_rule (@css_rules) {
     next unless ($self->{'css_map'}->{$css_rule});
     $css_text .= "$css_rule {$self->{'css_map'}->{$css_rule}}\n";

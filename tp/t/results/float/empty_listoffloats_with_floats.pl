@@ -665,10 +665,6 @@ $result_converted{'html'}->{'empty_listoffloats_with_floats'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>

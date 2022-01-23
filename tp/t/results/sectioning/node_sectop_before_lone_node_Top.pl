@@ -509,10 +509,6 @@ $result_converted{'html'}->{'node_sectop_before_lone_node_Top'} = '<!DOCTYPE htm
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#node-before" rel="start" title="node before">
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>

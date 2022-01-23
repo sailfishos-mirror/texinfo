@@ -298,10 +298,6 @@ $result_converted{'html'}->{'setfilename_on_top_and_after_node'} = '<!DOCTYPE ht
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>

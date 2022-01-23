@@ -540,10 +540,6 @@ $result_converted{'html'}->{'menu_entry_node_comments'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>

@@ -240,10 +240,6 @@ $result_converted{'html'}->{'part_before_chapter'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>

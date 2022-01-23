@@ -950,10 +950,6 @@ $result_converted{'html'}->{'non_automatic_top_node_up_url'} = '<!DOCTYPE html>
 
 <link href="#Top" rel="start" title="Top">
 <link href="http://www.gnu.org/manual/" rel="up" title="(dir)">
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>

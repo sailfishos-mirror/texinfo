@@ -288,10 +288,6 @@ $result_converted{'html'}->{'node_sectop_before_chapter_no_node'} = '<!DOCTYPE h
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>

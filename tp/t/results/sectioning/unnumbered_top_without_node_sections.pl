@@ -1037,10 +1037,6 @@ $result_converted{'html'}->{'unnumbered_top_without_node_sections'} = '<!DOCTYPE
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#a-node" rel="start" title="a node">
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>

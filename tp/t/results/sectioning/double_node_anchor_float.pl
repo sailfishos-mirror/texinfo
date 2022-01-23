@@ -851,10 +851,6 @@ $result_converted{'html'}->{'double_node_anchor_float'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#node1" rel="start" title="node1">
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>

@@ -629,10 +629,6 @@ $result_converted{'html'}->{'top_without_node_sections'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#second" rel="start" title="second">
-<style type="text/css">
-<!--
--->
-</style>
 
 
 </head>
