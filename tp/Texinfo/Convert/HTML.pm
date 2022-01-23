@@ -141,8 +141,6 @@ my %composition_context_commands = (%preformatted_commands, %root_commands,
   %menu_commands, %align_commands);
 $composition_context_commands{'float'} = 1;
 
-my %pre_class_types;
-
 # FIXME allow customization? (also in DocBook)
 my %upper_case_commands = ( 'sc' => 1 );
 
@@ -419,7 +417,7 @@ sub in_preformatted($)
   my $self = shift;
   my $context = $self->{'document_context'}->[-1]->{'composition_context'}->[-1];
   if ($preformatted_commands{$context}
-      or $pre_class_types{$context}
+      or $self->{'pre_class_types'}->{$context}
       or ($menu_commands{$context} and $self->_in_preformatted_in_menu())) {
     return $context;
   } else {
@@ -1806,7 +1804,9 @@ foreach my $preformatted_command (keys(%preformatted_commands_context)) {
   }
 }
 $pre_class_commands{'menu'} = 'menu';
-$pre_class_types{'menu_comment'} = 'menu-comment';
+
+my %default_pre_class_types;
+$default_pre_class_types{'menu_comment'} = 'menu-comment';
 
 my %indented_preformatted_commands;
 foreach my $indented_format ('example', 'display', 'lisp') {
@@ -6355,6 +6355,7 @@ sub _load_htmlxref_files {
 #  commands_args (though it does not seems to be dynamic.
 #                 FIXME: always point to default?)
 #
+#    API exists
 #  commands_conversion
 #  commands_open
 #  types_conversion
@@ -6362,21 +6363,31 @@ sub _load_htmlxref_files {
 #  no_arg_commands_formatting
 #  style_commands_formatting
 #  code_types
-#  commands_translation
+#  pre_class_types
 #
+#    API exists
 #  document_context
-#  multiple_pass
+#
+#    API exists
 #  pending_closes
+#
+#  multiple_pass
 #  ignore_notice
+#
+#    API exists
 #  pending_inline_content
 #  associated_inline_content
 #
 #
+#    API exists
 #  targets         for directions.  Keys are elements references, values are
 #                  target information hash references described above before
 #                  the API functions used to access those informations.
+#  special_elements_targets
+#  special_elements_directions
+#  global_target_elements_directions
+#
 #  tree_units
-#  labels
 #  out_filepaths
 #  counter_in_file
 #  elements_in_file_count    # the number of tree unit elements in file
@@ -6386,14 +6397,14 @@ sub _load_htmlxref_files {
 #  current_root_element
 #  seen_ids
 #
+#    from Converter
+#  labels
+#
 #  jslicenses_infojs
 #  jslicenses_math
 #  jslicenses
 #
-#  special_elements_targets
-#  special_elements_directions
-#  global_target_elements_directions
-#
+#     API exists
 #  document_global_context_css
 #  file_css
 #
@@ -6401,6 +6412,7 @@ sub _load_htmlxref_files {
 #
 #  explained_commands         # not defined in the converter per se but in an
 #                             # @-command conversion function and only used there
+#  element_explanation_contents    # same as above
 
 my %special_characters = (
   'paragraph_symbol' => ['&para;', '00B6'],
@@ -6522,15 +6534,20 @@ sub converter_initialize($)
     }
   }
 
-  # FIXME API with a function call?  Used in cvs.init.
   foreach my $type (keys(%default_code_types)) {
     $self->{'code_types'}->{$type} = $default_code_types{$type};
   }
-  if ($Texinfo::Config::texinfo_code_types) {
-    foreach my $type (keys(%$Texinfo::Config::texinfo_code_types)) {
-      $self->{'code_types'}->{$type}
-        = $Texinfo::Config::texinfo_code_types->{$type};
-    }
+  foreach my $type (keys(%default_pre_class_types)) {
+    $self->{'pre_class_types'}->{$type} = $default_pre_class_types{$type};
+  }
+  my $customized_type_formatting
+    = Texinfo::Config::GNUT_get_types_formatting_info();
+  foreach my $type (keys(%$customized_type_formatting)) {
+    # Used in cvs.init.
+    $self->{'code_types'}->{$type}
+     = $customized_type_formatting->{$type}->{'code'};
+    $self->{'pre_class_types'}->{$type}
+     = $customized_type_formatting->{$type}->{'pre_class'};
   }
 
   # FIXME put value in a category in Texinfo::Common?
@@ -9575,9 +9592,9 @@ sub _convert($$;$)
     } elsif ($type_name eq 'unit'
              or $type_name eq 'special_element') {
       $self->{'current_root_element'} = $element;
-    } elsif ($pre_class_types{$type_name}) {
+    } elsif ($self->{'pre_class_types'}->{$type_name}) {
       push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
-        $pre_class_types{$type_name};
+        $self->{'pre_class_types'}->{$type_name};
       push @{$self->{'document_context'}->[-1]->{'composition_context'}},
         $type_name;
     }
@@ -9615,7 +9632,7 @@ sub _convert($$;$)
     }
     if ($type_name eq 'unit' or $type_name eq 'special_element') {
       delete $self->{'current_root_element'};
-    } elsif ($pre_class_types{$type_name}) {
+    } elsif ($self->{'pre_class_types'}->{$type_name}) {
       pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
       pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
     }

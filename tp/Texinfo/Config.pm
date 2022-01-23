@@ -305,6 +305,7 @@ my $GNUT_types_conversion = {};
 my $GNUT_types_open = {};
 my $GNUT_no_arg_commands_formatting_strings = {};
 my $GNUT_style_commands_formatting_info = {};
+my $GNUT_types_formatting_info = {};
 
 # called from init files
 sub texinfo_register_formatting_function($$)
@@ -477,7 +478,23 @@ sub GNUT_get_style_command_formatting($;$)
   return undef;
 }
 
+# need to give both arguments
+# FIXME is it ok, or should there be two functions?
+sub texinfo_register_type_format_info($$$)
+{
+  my $type = shift;
+  my $code_type = shift;
+  my $pre_class_type = shift;
 
+  $GNUT_types_formatting_info->{$type}
+    = {'code' => $code_type, 'pre_class' => $pre_class_type};
+}
+
+sub GNUT_get_types_formatting_info()
+{
+  # NOTE a deep copy could also be done if needed
+  return { %$GNUT_types_formatting_info };
+}
 
 #####################################################################
 # the objective of this small package is to be in another
