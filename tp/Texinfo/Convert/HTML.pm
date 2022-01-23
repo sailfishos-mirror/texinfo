@@ -479,13 +479,25 @@ sub preformatted_number($)
   return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'preformatted_number'};
 }
 
-sub count_elements_in_filename($$)
+sub count_elements_in_filename($$$)
 {
   my $self = shift;
+  my $spec = shift;
   my $filename = shift;
   
-  if (defined($self->{'elements_in_file_count'}->{$filename})) {
-    return $self->{'elements_in_file_count'}->{$filename};
+  if ($spec eq 'total') {
+    if (defined($self->{'elements_in_file_count'}->{$filename})) {
+      return $self->{'elements_in_file_count'}->{$filename};
+    }
+  } elsif ($spec eq 'remaining') {
+    if (defined($self->{'file_counters'}->{$filename})) {
+      return $self->{'file_counters'}->{$filename};
+    }
+  } elsif ($spec eq 'current') {
+    if (defined($self->{'file_counters'}->{$filename})) {
+      return $self->{'elements_in_file_count'}->{$filename}
+                - $self->{'file_counters'}->{$filename} +1;
+    }
   }
   return undef;
 }
@@ -503,9 +515,9 @@ sub preformatted_classes_stack($)
 }
 
 sub in_align($)
-{  
+{
   my $self = shift;
-  my $context 
+  my $context
        = $self->{'document_context'}->[-1]->{'composition_context'}->[-1];
   if ($align_commands{$context}) {
     return $context;
@@ -744,7 +756,8 @@ sub command_href($$;$$)
               and defined($command_root_element_command->{'extra'}->{'associated_section'})
               and $command_root_element_command->{'extra'}->{'associated_section'}
                     eq $command))) {
-        my $count_elements_in_file = $self->count_elements_in_filename($target_filename);
+        my $count_elements_in_file
+           = $self->count_elements_in_filename('total', $target_filename);
         if (defined($count_elements_in_file) and $count_elements_in_file == 1) {
           $target = '';
         }
@@ -3212,7 +3225,8 @@ sub _default_format_element_header($$$$)
       and ($tree_unit->{'structure'}->{'unit_next'} or $tree_unit->{'structure'}->{'unit_prev'})) {
     my $is_top = $self->element_is_tree_unit_top($tree_unit);
     my $first_in_page = (defined($tree_unit->{'structure'}->{'unit_filename'})
-           and $self->{'counter_in_file'}->{$tree_unit->{'structure'}->{'unit_filename'}} == 1);
+           and $self->count_elements_in_filename('current',
+                           $tree_unit->{'structure'}->{'unit_filename'}) == 1);
     my $previous_is_top = ($tree_unit->{'structure'}->{'unit_prev'}
                    and $self->element_is_tree_unit_top($tree_unit->{'structure'}->{'unit_prev'}));
 
@@ -5878,7 +5892,8 @@ sub _convert_special_element_type($$$$)
   $result .= ">\n";
   if ($self->get_conf('HEADERS')
       # first in page
-      or $self->{'counter_in_file'}->{$element->{'structure'}->{'unit_filename'}} == 1) {
+      or $self->count_elements_in_filename('current',
+                  $element->{'structure'}->{'unit_filename'}) == 1) {
     $result .= &{$self->formatting_function('format_navigation_header')}($self,
                              $self->get_conf('MISC_BUTTONS'), undef, $element);
   }
@@ -5973,7 +5988,8 @@ sub _default_format_element_footer($$$$)
        or (defined($element->{'structure'}->{'unit_filename'})
            and $element->{'structure'}->{'unit_filename'}
                ne $element->{'structure'}->{'unit_next'}->{'structure'}->{'unit_filename'}
-           and $self->{'file_counters'}->{$element->{'structure'}->{'unit_filename'}} == 1));
+           and $self->count_elements_in_filename('remaining',
+                         $element->{'structure'}->{'unit_filename'}) == 1));
 
   my $is_special = (defined($element->{'type'})
                     and $element->{'type'} eq 'special_element');
@@ -6401,12 +6417,13 @@ sub _load_htmlxref_files {
 #  special_elements_directions
 #  global_target_elements_directions
 #
-#  tree_units
-#  out_filepaths
-#  counter_in_file
+#    API exists
 #  elements_in_file_count    # the number of tree unit elements in file
 #  file_counters             # begin at elements_in_file_count decrease
 #                            # each time the tree unit element is closed
+#
+#  tree_units
+#  out_filepaths
 #  current_filename
 #  current_root_element
 #  seen_ids
@@ -9126,7 +9143,6 @@ sub output($$)
       my $element_filename = $element->{'structure'}->{'unit_filename'};
       my $out_filepath = $self->{'out_filepaths'}->{$element_filename};
       $self->{'current_filename'} = $element_filename;
-      $self->{'counter_in_file'}->{$element_filename}++;
 
       $unit_nr++;
       # First do the special pages, to avoid outputting these if they are

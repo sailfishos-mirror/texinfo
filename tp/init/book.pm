@@ -117,10 +117,9 @@ sub book_format_navigation_header($$$$)
       and ($tree_unit->{'contents'}->[0] eq $element
           or (!$tree_unit->{'contents'}->[0]->{'cmdname'}
               and $tree_unit->{'contents'}->[1] eq $element))
-      # FIXME API
       and defined($tree_unit->{'structure'}->{'unit_filename'})
-      and $self->{'counter_in_file'}->{$tree_unit->{'structure'}->{'unit_filename'}} == 1) {
-    
+      and $self->count_elements_in_filename('current',
+                         $tree_unit->{'structure'}->{'unit_filename'}) == 1) {
     return book_print_up_toc($self, $tree_unit->{'extra'}->{'unit_command'}) .
        &{$self->default_formatting_function('format_navigation_header')}($self,
                                  $buttons, $cmdname, $element);

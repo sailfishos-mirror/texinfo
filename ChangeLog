@@ -1,5 +1,13 @@
 2022-01-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (count_elements_in_filename),
+	tp/init/book.pm:
+	add a specification argument to specify the count returned, total,
+	current, or remaining.  Use it in formatting functions.  Remove
+	'counter_in_file' which can be obtained from the other counters.
+
+2022-01-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (in_multi_expanded): new method
 	accessor for $self->{'multiple_pass'}.
 

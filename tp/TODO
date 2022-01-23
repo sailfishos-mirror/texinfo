@@ -35,11 +35,7 @@ Some internal state used in conversion:
   $self->{'paragraph_symbol'}
  _convert_printindex_command
   $self->{'index_entries_by_letter'}
- _convert_special_element_type
-  $self->{'counter_in_file'}->{$element->{'structure'}->{'unit_filename'}} == 1
 
- _default_format_element_header
-  $self->{'counter_in_file'}->{$tree_unit->{'structure'}->{'unit_filename'}}
  _default_format_titlepage
  _print_title     (_convert_tree_unit_type, output)
   $self->{'simpletitle_tree'}
@@ -190,6 +186,7 @@ $self->expanded_format($format)
 $self->in_multi_expanded()
 $self->html_get_css_elements_classes($filename);
 $self->substitute_html_non_breaking_space(
+$self->count_elements_in_filename($spec, filename)
 
 Profiling
 =========
