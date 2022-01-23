@@ -1,3 +1,23 @@
+2022-01-23  Patrice Dumas  <pertusus@free.fr>
+
+	Consistent interface and caching for translated brace no args commands
+
+	* tp/Texinfo/Config.pm (texinfo_register_no_arg_command_formatting),
+	tp/Texinfo/Convert/HTML.pm, tp/init/chm.pm, tp/init/html32.pm:
+	change order of texinfo_register_no_arg_command_formatting()
+	arguments, add translation of an already converted string to the
+	arguments.
+
+	* tp/Texinfo/Convert/HTML.pm (_translate_names),
+	(_complete_no_arg_commands_formatting, _convert_no_arg_command)
+	(_css_string_convert_no_arg_command)
+	(_reset_unset_no_arg_commands_formatting_context): instead of
+	translating the default converter strings during the conversion,
+	convert in _translate_names, setting at that time the correct
+	context, and cache the result.
+	Explicitly set 'unset' to the at commands in brace context not
+	set.
+
 2022-01-23  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/HTML.pm (_default_format_css_lines):

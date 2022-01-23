@@ -25,7 +25,6 @@ Issues
 
 Add a registering function for:
 %$Texinfo::Config::texinfo_code_types
-Texinfo::Config::commands_translation{$context}->{$command}
 
 Some internal state used in conversion:
  _convert_anchor_command:

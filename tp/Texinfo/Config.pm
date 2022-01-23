@@ -383,12 +383,20 @@ foreach my $possible_formatting_context (($default_formatting_context,
   $possible_formatting_contexts{$possible_formatting_context} = 1;
 }
 
-sub texinfo_register_no_arg_command_formatting($$;$$)
+# $translated_string is supposed to be already formatted.
+# It may also be relevant to be able to pass a 'tree'
+# directly (it is actually handled by the converter code).
+# Passing a texinfo string that can be translated (like
+# the 'translated_commands' customization variable) may also
+# be interesting.
+sub texinfo_register_no_arg_command_formatting($$;$$$)
 {
   my $command = shift;
-  my $text = shift;
-  my $element = shift;
   my $context = shift;
+  my $text = shift;
+  # html element
+  my $element = shift;
+  my $translated_string = shift;
 
   if (!defined($context)) {
     $context = $default_formatting_context;
@@ -403,6 +411,10 @@ sub texinfo_register_no_arg_command_formatting($$;$$)
   }
   if (defined($element)) {
     $specification->{'element'} = $element;
+  }
+  if (defined($translated_string)) {
+    $specification->{'translated'} = $translated_string;
+    # NOTE unset 'text'?  A priori not needed, it will be overwritten
   }
   $GNUT_no_arg_commands_formatting_strings->{$context}->{$command} = $specification;
   return 1;

@@ -181,7 +181,7 @@ my %hhc_global_property = (
 
 # at least kchmviewer has trouble with the corresponding textual entities
 foreach my $thing ('OE', 'oe', 'euro') {
-  texinfo_register_no_arg_command_formatting($thing,
+  texinfo_register_no_arg_command_formatting($thing, undef,
                    $Texinfo::Convert::Unicode::unicode_entities{$thing});
 }
 

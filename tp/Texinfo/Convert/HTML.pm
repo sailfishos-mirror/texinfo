@@ -1712,22 +1712,29 @@ sub _translate_names($)
       }
     }
   }
-  if ($self->{'commands_translation'}) {
-    my %translated_commands;
-    foreach my $context ('normal', 'preformatted', 'string') {
-      foreach my $command (keys(%{$self->{'commands_translation'}->{$context}})) {
+  my %translated_commands;
+  foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
+    foreach my $command (keys(%{$self->{'no_arg_commands_formatting'}->{$context}})) {
+      if (defined($self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'translated'})
+          and not $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'unset'}) {
         $translated_commands{$command} = 1;
-        delete $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'text'};
-        if (defined($self->{'commands_translation'}->{$context}->{$command})) {
-          $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'text'}
-           = $self->gdt($self->{'commands_translation'}->{$context}->{$command},
-                        undef, 'translated_text');
+        $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'text'}
+         = $self->gdt($self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'translated'},
+                      undef, 'translated_text');
+      } elsif ($context eq 'normal') {
+        # default translated commands
+        my $translated_tree = Texinfo::Convert::Utils::translated_command_tree($self,
+                                                                           $command);
+        if (defined($translated_tree) and $translated_tree ne '') {
+          $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'tree'}
+            = $translated_tree;
+          $translated_commands{$command} = 1;
         }
       }
     }
-    foreach my $command (keys(%translated_commands)) {
-      $self->_complete_no_arg_commands_formatting($command);
-    }
+  }
+  foreach my $command (keys(%translated_commands)) {
+    $self->_complete_no_arg_commands_formatting($command, 1);
   }
 
   print STDERR "END TRANSLATE_NAMES\n\n" if ($self->get_conf('DEBUG'));
@@ -1918,11 +1925,10 @@ $default_no_arg_commands_formatting{'normal'}->{' '}->{'text'} = '&nbsp;';
 $default_no_arg_commands_formatting{'normal'}->{"\t"}->{'text'} = '&nbsp;';
 $default_no_arg_commands_formatting{'normal'}->{"\n"}->{'text'} = '&nbsp;';
 
-my %default_commands_translation;
 # possible example of use, right now not used, as
 # the generic Converter customization is directly used through
 # the call to Texinfo::Convert::Utils::translated_command_tree().
-#$default_commands_translation{'normal'}->{'error'}->{'text'} = 'error--&gt;';
+#$default_no_arg_commands_formatting{'normal'}->{'error'}->{'translated'} = 'error--&gt;';
 ## This is used to have gettext pick up the chain to be translated
 #if (0) {
 #  my $not_existing;
@@ -1972,9 +1978,9 @@ foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
   }
 }
 
-# replace the default to force using only translation and also
-# prevent using a fixed CSS.
-$default_no_arg_commands_formatting{'css_string'}->{'error'} = {};
+# remove to force using only translations (as the command
+# is in the default converter translated commands)
+delete $default_no_arg_commands_formatting{'css_string'}->{'error'};
 
 $default_no_arg_commands_formatting{'css_string'}->{'*'}->{'text'} = '\A ';
 
@@ -2047,12 +2053,12 @@ sub _convert_no_arg_command($$$)
   my $cmdname = shift;
   my $command = shift;
 
-  if ($cmdname eq 'click' and $command->{'extra'} 
+  if ($cmdname eq 'click' and $command->{'extra'}
       and exists($command->{'extra'}->{'clickstyle'})) {
     my $click_cmdname = $command->{'extra'}->{'clickstyle'};
     if (($self->in_preformatted() or $self->in_math()
          and $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$click_cmdname})
-        or ($self->in_string() and 
+        or ($self->in_string() and
             $self->{'no_arg_commands_formatting'}->{'string'}->{$click_cmdname})
         or ($self->{'no_arg_commands_formatting'}->{'normal'}->{$click_cmdname})) {
       $cmdname = $click_cmdname;
@@ -2065,11 +2071,6 @@ sub _convert_no_arg_command($$$)
 
   my $result;
   
-  my $translated_tree = Texinfo::Convert::Utils::translated_command_tree($self,
-                                                                       $cmdname);
-  if ($translated_tree) {
-    return $self->convert_tree($translated_tree, "convert no arg $cmdname translated");
-  }
   if ($self->in_preformatted() or $self->in_math()) {
     $result = $self->_text_element_conversion(
       $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$cmdname}, $cmdname);
@@ -2105,15 +2106,10 @@ sub _css_string_convert_no_arg_command($$$)
       and $self->{'no_arg_commands_formatting'}->{'css_string'}->{uc($cmdname)}) {
     $cmdname = uc($cmdname);
   }
-
-  my $result;
-
-  my $translated_tree = Texinfo::Convert::Utils::translated_command_tree($self,
-                                                                       $cmdname);
-  if ($translated_tree) {
-    return $self->convert_tree($translated_tree, "convert no arg $cmdname translated");
-  }
-  $result = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$cmdname}->{'text'};
+  #if (not defined($self->{'no_arg_commands_formatting'}->{'css_string'}->{$cmdname}->{'text'})) {
+  #  cluck ("BUG: CSS $cmdname no text");
+  #}
+  return $self->{'no_arg_commands_formatting'}->{'css_string'}->{$cmdname}->{'text'};
 }
 
 foreach my $command(keys(%{$default_no_arg_commands_formatting{'normal'}})) {
@@ -2173,9 +2169,9 @@ $style_commands_element{'normal'} = {
 my %style_commands_formatting;
 
 # this weird construct does like uniq, it avoids duplicates.
-# it is required since math is not in the %style_commands as it is 
+# it is required since math is not in the %style_commands as it is
 # in context command.
-my @all_style_commands = keys %{{ map { $_ => 1 } 
+my @all_style_commands = keys %{{ map { $_ => 1 }
     (keys(%style_commands), keys(%{$style_commands_element{'normal'}})) }};
 
 foreach my $command(@all_style_commands) {
@@ -2188,7 +2184,7 @@ foreach my $command(@all_style_commands) {
   }
   if ($style_commands_element{'preformatted'}->{$command}) {
     $style_commands_formatting{'preformatted'}->{$command}->{'attribute'} =
-      $style_commands_element{'preformatted'}->{$command}; 
+      $style_commands_element{'preformatted'}->{$command};
   }
   if ($quoted_style_commands{$command}) {
     foreach my $context ('normal', 'string', 'preformatted') {
@@ -2233,7 +2229,7 @@ sub _convert_style_command($$$$)
   }
   my @classes;
   # handle the effect of kbdinputstyle
-  if ($cmdname eq 'kbd' and $command->{'extra'} 
+  if ($cmdname eq 'kbd' and $command->{'extra'}
       and $command->{'extra'}->{'code'}) {
     $cmdname = 'code';
     push @classes, 'as-code-kbd';
@@ -6113,25 +6109,79 @@ sub _pop_document_context($)
   'format_protect_text' => \&_default_css_string_format_protect_text,
 );
 
-sub _complete_no_arg_commands_formatting($$)
+sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
 {
   my $self = shift;
-  my $command = shift;
-  if (!defined ($self->{'no_arg_commands_formatting'}->{'normal'}->{$command})) {
-    $self->{'no_arg_commands_formatting'}->{'normal'}->{$command} = '';
+  my $cmdname = shift;
+  my $reset_context = shift;
+  my $ref_context = shift;
+  my $translate = shift;
+
+  # should never happen as unset is set at configuration
+  if (!defined ($self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname})) {
+    $self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname}->{'unset'} = 1;
   }
-  if (!defined ($self->{'no_arg_commands_formatting'}->{'preformatted'}->{$command})) {
-    $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$command} =
-      $self->{'no_arg_commands_formatting'}->{'normal'}->{$command};
+  if (defined($ref_context)) {
+    if ($self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname}->{'unset'}) {
+      foreach my $key (keys(%{$self->{'no_arg_commands_formatting'}->{$ref_context}->{$cmdname}})) {
+        # FIXME leave translated?
+        $self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname}->{$key}
+          = $self->{'no_arg_commands_formatting'}->{$ref_context}->{$cmdname}->{$key}
+      }
+    }
   }
-  if (!defined ($self->{'no_arg_commands_formatting'}->{'string'}->{$command})) {
-    $self->{'no_arg_commands_formatting'}->{'string'}->{$command} =
-      $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$command};
+  # FIXME check that there is no 'translated' already?
+  # it should not happen given how the defaults are set to exclude
+  # converter default translation if translated is seen, but it may
+  # not be very clean as it would mean that the translated string
+  # specified by 'translated' is overwritten if there is also
+  # a default translation.
+  if ($translate
+      and $self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname}->{'tree'}) {
+    my $translated_tree
+      = $self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname}->{'tree'};
+    my $translation_result;
+    if ($reset_context eq 'normal') {
+      $translation_result
+        = $self->convert_tree($translated_tree, "no arg $cmdname translated");
+    } elsif ($reset_context eq 'preformatted') {
+      # there does not seems to be anything simpler...
+      my $preformatted_command_name = 'example';
+      $self->_new_document_context();
+      push @{$self->{'document_context'}->[-1]->{'composition_context'}},
+          $preformatted_command_name;
+      # should not be needed for at commands no brace translation strings
+      push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
+          $pre_class_commands{$preformatted_command_name};
+      $translation_result
+        = $self->convert_tree($translated_tree, "no arg $cmdname translated");
+      # only pop the main context
+      $self->_pop_document_context();
+    } elsif ($reset_context eq 'string') {
+      $translation_result = $self->convert_tree_new_formatting_context({'type' => '_string',
+                                                           'contents' => [$translated_tree]},
+                                     'translated_string', "string no arg $cmdname translated");
+    } elsif ($reset_context eq 'css_string') {
+      $translation_result = $self->html_convert_css_string($translated_tree);
+    }
+    $self->{'no_arg_commands_formatting'}->{$reset_context}->{$cmdname}->{'text'}
+      = $translation_result;
   }
-  if (!defined ($self->{'no_arg_commands_formatting'}->{'css_string'}->{$command})) {
-    $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command} =
-      $self->{'no_arg_commands_formatting'}->{'string'}->{$command};
-  }
+}
+sub _complete_no_arg_commands_formatting($$;$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $translate = shift;
+
+  _reset_unset_no_arg_commands_formatting_context($self, $cmdname,
+                                            'normal', undef, $translate);
+  _reset_unset_no_arg_commands_formatting_context($self, $cmdname,
+                                   'preformatted', 'normal', $translate);
+  _reset_unset_no_arg_commands_formatting_context($self, $cmdname,
+                                    'string', 'preformatted', $translate);
+  _reset_unset_no_arg_commands_formatting_context($self, $cmdname,
+                                   'css_string', 'string', $translate);
 }
 
 sub _set_non_breaking_space($$)
@@ -6554,17 +6604,15 @@ sub converter_initialize($)
             $self->{'no_arg_commands_formatting'}->{$context}->{$command}
               = $context_default_default_no_arg_commands_formatting->{$command};
           }
+        } else {
+          $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'unset'} = 1;
         }
       }
-      if (exists ($Texinfo::Config::commands_translation{$context}->{$command})) {
-        $self->{'commands_translation'}->{$context}->{$command} 
-           = $Texinfo::Config::commands_translation{$context}->{$command};
+      if ($self->{'translated_commands'}->{$command}
+          and exists($self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'translated'})) {
         # FIXME check that the modification is to a copy and not the default config
-        delete $self->{'translated_commands'}->{$command};
-        # note that %default_commands_translation is empty for now
-      } elsif (defined($default_commands_translation{$context}->{$command})) {
-        $self->{'commands_translation'}->{$context}->{$command}
-          = $default_commands_translation{$context}->{$command};
+        # FIXME another possibility would be to use the default, but
+        # override if 'translated' is set.
         delete $self->{'translated_commands'}->{$command};
       }
     }

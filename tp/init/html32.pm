@@ -77,15 +77,15 @@ foreach my $command ('euro', 'geq', 'leq',
   
   my $formatted_command = xml_protect_text(undef,
              $Texinfo::Convert::Text::text_brace_no_arg_commands{$command});
-  texinfo_register_no_arg_command_formatting($command, $formatted_command);
+  texinfo_register_no_arg_command_formatting($command, undef, $formatted_command);
 }
 
-texinfo_register_no_arg_command_formatting('oe', '&#156;');
-texinfo_register_no_arg_command_formatting('OE', '&#140;');
+texinfo_register_no_arg_command_formatting('oe', undef, '&#156;');
+texinfo_register_no_arg_command_formatting('OE', undef, '&#140;');
 
 foreach my $dots ('dots') {
-  texinfo_register_no_arg_command_formatting($dots, '...', 'small');
-  texinfo_register_no_arg_command_formatting($dots, '...', undef, 'preformatted');
+  texinfo_register_no_arg_command_formatting($dots, undef, '...', 'small');
+  texinfo_register_no_arg_command_formatting($dots, 'preformatted', '...');
 }
 
 foreach my $context ('preformatted', 'normal') {
