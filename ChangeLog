@@ -1,5 +1,10 @@
 2022-01-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%css_element_class_styles):
+	rename css_map as css_element_class_styles.
+
+2022-01-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (css_add_info, css_get_info):
 	add API to get information on CSS rules, imports and styles,
 	the non dynamic parts, and to modify.

@@ -151,7 +151,7 @@ sub _collect_css_element_class($$)
   #if (not defined($self->{'current_filename'})) {
   #  cluck "CFND";
   #}
-  if (defined($self->{'css_map'}->{$element_class})) {
+  if (defined($self->{'css_element_class_styles'}->{$element_class})) {
     if ($self->{'document_global_context'}) {
       $self->{'document_global_context_css'}->{$element_class} = 1;
     } elsif (defined($self->{'current_filename'})) {
@@ -186,8 +186,8 @@ sub html_attribute_class($$;$)
       if (not defined($style_class)) {
         confess ("class not defined (for $element)");
       }
-      if (defined($self->{'css_map'}->{"$element.$style_class"})) {
-        push @styles, $self->{'css_map'}->{"$element.$style_class"};
+      if (defined($self->{'css_element_class_styles'}->{"$element.$style_class"})) {
+        push @styles, $self->{'css_element_class_styles'}->{"$element.$style_class"};
       }
     }
     if (scalar(@styles) >  0) {
@@ -335,7 +335,7 @@ sub css_add_info($$$;$)
   } elsif ($spec eq 'imports') {
     push @{$self->{'css_import_lines'}}, $css_info;
   } else {
-    $self->{'css_map'}->{$css_info} = $css_style;
+    $self->{'css_element_class_styles'}->{$css_info} = $css_style;
   }
 }
 
@@ -350,13 +350,13 @@ sub css_get_info($$;$) {
     return @{$self->{'css_import_lines'}};
   } else {
     if (defined($css_info)) {
-      if ($self->{'css_map'} and $self->{'css_map'}->{$css_info}) {
-        return $self->{'css_map'}->{$css_info};
+      if ($self->{'css_element_class_styles'}->{$css_info}) {
+        return $self->{'css_element_class_styles'}->{$css_info};
       } else {
         return undef;
       }
     } else {
-      return { %{$self->{'css_map'}} };
+      return { %{$self->{'css_element_class_styles'}} };
     }
   }
 }
@@ -1814,7 +1814,7 @@ sub converter_defaults($$)
   return %defaults;
 }
 
-my %css_map = (
+my %css_element_class_styles = (
      %css_rules_not_collected,
 
      'ul.toc-numbered-mark'   => 'list-style: none',
@@ -1854,7 +1854,8 @@ my %css_map = (
      'span:hover a.copiable-link'         => 'visibility: visible',
 );
 
-$css_map{'pre.format-preformatted'} = $css_map{'pre.display-preformatted'};
+$css_element_class_styles{'pre.format-preformatted'}
+  = $css_element_class_styles{'pre.display-preformatted'};
 
 my %preformatted_commands_context = %preformatted_commands;
 $preformatted_commands_context{'verbatim'} = 1;
@@ -1878,9 +1879,9 @@ foreach my $indented_format ('example', 'display', 'lisp') {
   $indented_preformatted_commands{$indented_format} = 1;
   $indented_preformatted_commands{"small$indented_format"} = 1;
 
-  $css_map{"div.$indented_format"} = 'margin-left: 3.2em';
+  $css_element_class_styles{"div.$indented_format"} = 'margin-left: 3.2em';
 }
-delete $css_map{"div.lisp"}; # output as div.example instead
+delete $css_element_class_styles{"div.lisp"}; # output as div.example instead
 
 # types that are in code style in the default case.  '_code' is not
 # a type that can appear in the tree built from Texinfo code, it is used
@@ -2054,11 +2055,11 @@ $default_no_arg_commands_formatting{'css_string'}->{"\t"}->{'text'} = ' ';
 $default_no_arg_commands_formatting{'css_string'}->{"\n"}->{'text'} = ' ';
 $default_no_arg_commands_formatting{'css_string'}->{'tie'}->{'text'} = ' ';
 
-# w not in css_string, set the corresponding css_map especially,
+# w not in css_string, set the corresponding css_element_class_styles especially,
 # which also has none and not w in the class
-$css_map{'ul.mark-none'} = 'list-style-type: none';
+$css_element_class_styles{'ul.mark-none'} = 'list-style-type: none';
 
-# setup css_map for mark commands based on css strings
+# setup css_element_class_styles for mark commands based on css strings
 foreach my $mark_command (keys(%{$default_no_arg_commands_formatting{'css_string'}})) {
   if (defined($brace_commands{$mark_command})) {
     my $css_string;
@@ -2075,7 +2076,7 @@ foreach my $mark_command (keys(%{$default_no_arg_commands_formatting{'css_string
       $css_string = '"'.$css_string.'"';
     }
     if (defined($css_string)) {
-      $css_map{"ul.mark-$mark_command"} = "list-style-type: $css_string";
+      $css_element_class_styles{"ul.mark-$mark_command"} = "list-style-type: $css_string";
     }
   }
 }
@@ -2084,9 +2085,9 @@ foreach my $mark_command (keys(%{$default_no_arg_commands_formatting{'css_string
 sub builtin_default_css_text()
 {
   my $css_text = '';
-  foreach my $css_rule (sort(keys(%css_map))) {
-    if ($css_map{$css_rule} ne '') {
-      $css_text .= "$css_rule {$css_map{$css_rule}}\n";
+  foreach my $css_rule (sort(keys(%css_element_class_styles))) {
+    if ($css_element_class_styles{$css_rule} ne '') {
+      $css_text .= "$css_rule {$css_element_class_styles{$css_rule}}\n";
     }
   }
   return $css_text;
@@ -6420,7 +6421,7 @@ sub _load_htmlxref_files {
 #  check_htmlxref_already_warned
 #  
 #    API exists
-#  css_map
+#  css_element_class_styles
 #  css_import_lines
 #  css_rule_lines
 #
@@ -6496,7 +6497,7 @@ sub converter_initialize($)
   %formatted_index_entries = ();
   %footnote_id_numbers = ();
 
-  %{$self->{'css_map'}} = %css_map;
+  %{$self->{'css_element_class_styles'}} = %css_element_class_styles;
 
   _load_htmlxref_files($self);
 
@@ -6678,7 +6679,8 @@ sub converter_initialize($)
               my $css_string
                 = $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'text'};
               $css_string = '"'.$css_string.'"';
-              $self->{'css_map'}->{"ul.mark-$command"} = "list-style-type: $css_string";
+              $self->{'css_element_class_styles'}->{"ul.mark-$command"}
+                = "list-style-type: $css_string";
             }
           } else {
             $self->{'no_arg_commands_formatting'}->{$context}->{$command}
