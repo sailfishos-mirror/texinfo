@@ -1,5 +1,17 @@
 2022-01-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Config.pm (texinfo_register_file_id_setting_function)
+	(GNUT_get_file_id_setting_references),
+	tp/Texinfo/Convert/HTML.pm (converter_initialize)
+	(_normalized_label_id_file, _new_sectioning_command_target)
+	(_set_root_commands_targets_node_files, _html_set_pages_files)
+	(_prepare_special_elements), tp/init/book.pm: set customized
+	functions used to set file names and targets through
+	texinfo_register_file_id_setting_function() in Texinfo::Config.
+	Use them in HTML.pm.
+
+2022-01-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (texinfo_register_type_format_info)
 	(GNUT_get_types_formatting_info),
 	tp/Texinfo/Convert/HTML.pm (in_preformatted, %default_pre_class_types)

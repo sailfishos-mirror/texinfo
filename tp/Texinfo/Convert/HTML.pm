@@ -6079,6 +6079,14 @@ sub _pop_document_context($)
   }
 }
 
+# can be set through Texinfo::Config::texinfo_register_file_id_setting_function
+my %customizable_file_id_setting_references;
+foreach my $customized_reference ('label_target_name', 'node_file_name',
+                'sectioning_command_target_name', 'tree_unit_file_name',
+                'special_element_target_file_name') {
+  $customizable_file_id_setting_references{$customized_reference} = 1;
+}
+
 # Functions accessed with e.g. 'format_heading_text'.
 # used in Texinfo::Config
 %default_formatting_references = (
@@ -6356,6 +6364,7 @@ sub _load_htmlxref_files {
 #                 FIXME: always point to default?)
 #
 #    API exists
+#  file_id_setting
 #  commands_conversion
 #  commands_open
 #  types_conversion
@@ -6656,6 +6665,21 @@ sub converter_initialize($)
     }
   }
 
+  my $customized_file_id_setting_references
+    = Texinfo::Config::GNUT_get_file_id_setting_references();
+  # first check the validity of the names
+  foreach my $customized_file_id_setting_ref
+       (sort(keys(%{$customized_file_id_setting_references}))) {
+    if (!$customizable_file_id_setting_references{$customized_file_id_setting_ref}) {
+      $self->document_warn($self,
+                           sprintf(__("Unknown file and id setting function: %s"),
+                                   $customized_file_id_setting_ref));
+    } else {
+      $self->{'file_id_setting'}->{$customized_file_id_setting_ref}
+        = $customized_file_id_setting_references->{$customized_file_id_setting_ref};
+    }
+  }
+
   my $customized_formatting_references = Texinfo::Config::GNUT_get_formatting_references();
   # first check that all the customized_formatting_references
   # are in default_formatting_references
@@ -6919,9 +6943,9 @@ sub _normalized_label_id_file($$)
     $target = '';
   }
   # to find out the Top node, one could check $label_info->{'normalized'}
-  # FIXME change name?  It is not only for nodes
-  if (defined($Texinfo::Config::node_target_name)) {
-    $target = &$Texinfo::Config::node_target_name($label_info, $target);
+  if (defined($self->{'file_id_setting'}->{'label_target_name'})) {
+    $target = &{$self->{'file_id_setting'}->{'label_target_name'}}(
+                                                       $label_info, $target);
   }
 
   my $filename = $self->node_information_filename($label_info);
@@ -6983,10 +7007,10 @@ sub _new_sectioning_command_target($$)
     }
   }
 
-  if (defined($Texinfo::Config::sectioning_command_target_name)) {
+  if (defined($self->{'file_id_setting'}->{'sectioning_command_target_name'})) {
     ($target, $target_contents,
      $target_shortcontents, $filename)
-        = &$Texinfo::Config::sectioning_command_target_name($self,
+      = &{$self->{'file_id_setting'}->{'sectioning_command_target_name'}}($self,
                                      $command, $target,
                                      $target_contents,
                                      $target_shortcontents,
@@ -7042,9 +7066,9 @@ sub _set_root_commands_targets_node_files($$)
       my ($filename, $target)
         = $self->_normalized_label_id_file($label_element->{'extra'});
       $filename .= $extension;
-      if (defined($Texinfo::Config::node_file_name)) {
-        $filename = &$Texinfo::Config::node_file_name($self, $label_element,
-                                                     $filename);
+      if (defined($self->{'file_id_setting'}->{'node_file_name'})) {
+        $filename = &{$self->{'file_id_setting'}->{'node_file_name'}}(
+                                              $self, $label_element, $filename);
       }
       if ($self->get_conf('DEBUG')) {
         print STDERR "Label($label_element) \@$label_element->{'cmdname'} $target, $filename\n";
@@ -7254,11 +7278,11 @@ sub _html_set_pages_files($$$$$$$$)
   }
 
   foreach my $tree_unit (@$tree_units) {
-    if (defined($Texinfo::Config::element_file_name)) {
+    if (defined($self->{'file_id_setting'}->{'tree_unit_file_name'})) {
       # NOTE the information that it is associated with @top or @node Top
       # may be determined with $self->element_is_tree_unit_top($tree_unit);
-      my $filename = &$Texinfo::Config::element_file_name($self, $tree_unit,
-                                       $tree_unit->{'structure'}->{'unit_filename'});
+      my $filename = &{$self->{'file_id_setting'}->{'tree_unit_file_name'}}(
+               $self, $tree_unit, $tree_unit->{'structure'}->{'unit_filename'});
       $self->set_tree_unit_file($tree_unit, $filename, $destination_directory)
          if (defined($filename));
     }
@@ -7405,9 +7429,9 @@ sub _prepare_special_elements($$$$)
     }
 
     my $filename;
-    if (defined($Texinfo::Config::special_element_target_file_name)) {
+    if (defined($self->{'file_id_setting'}->{'special_element_target_file_name'})) {
       ($target, $filename) 
-                 = &$Texinfo::Config::special_element_target_file_name(
+         = &{$self->{'file_id_setting'}->{'special_element_target_file_name'}}(
                                                             $self,
                                                             $element,
                                                             $target,
@@ -7445,9 +7469,9 @@ sub _prepare_special_elements($$$$)
 
       # only the filename is used
       my ($target, $filename);
-      if (defined($Texinfo::Config::special_element_target_file_name)) {
+      if (defined($self->{'file_id_setting'}->{'special_element_target_file_name'})) {
         ($target, $filename) 
-                 = &$Texinfo::Config::special_element_target_file_name(
+          = &{$self->{'file_id_setting'}->{'special_element_target_file_name'}}(
                                                             $self,
                                                             $element,
                                                             $target,
@@ -7509,9 +7533,9 @@ sub _prepare_contents_elements($)
            = $contents_element;
         my $target = $self->{'special_elements_targets'}->{$element_type};
         my $filename;
-        if (defined($Texinfo::Config::special_element_target_file_name)) {
+        if (defined($self->{'file_id_setting'}->{'special_element_target_file_name'})) {
           ($target, $filename)
-               = &$Texinfo::Config::special_element_target_file_name(
+            = &{$self->{'file_id_setting'}->{'special_element_target_file_name'}}(
                                                           $self,
                                                           $contents_element,
                                                           $target,

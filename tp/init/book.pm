@@ -382,6 +382,7 @@ sub book_element_file_name($$$)
   return $new_file_name;
 }
 
-$element_file_name = \&book_element_file_name;
+texinfo_register_file_id_setting_function('tree_unit_file_name',
+                                          \&book_element_file_name);
 
 1;

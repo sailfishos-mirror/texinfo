@@ -298,6 +298,7 @@ sub GNUT_get_stage_handlers()
 #####################################################################
 # API used to override formatting.  Used in HTML only.
 
+my $GNUT_file_id_setting_references = {};
 my $GNUT_formatting_references = {};
 my $GNUT_commands_conversion = {};
 my $GNUT_commands_open = {};
@@ -306,6 +307,20 @@ my $GNUT_types_open = {};
 my $GNUT_no_arg_commands_formatting_strings = {};
 my $GNUT_style_commands_formatting_info = {};
 my $GNUT_types_formatting_info = {};
+
+# called from init files
+sub texinfo_register_file_id_setting_function($$)
+{
+  my $thing = shift;
+  my $handler = shift;
+  $GNUT_file_id_setting_references->{$thing} = $handler;
+}
+
+# called from the Converter
+sub GNUT_get_file_id_setting_references()
+{
+  return $GNUT_file_id_setting_references;
+}
 
 # called from init files
 sub texinfo_register_formatting_function($$)

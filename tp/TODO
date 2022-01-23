@@ -23,12 +23,6 @@ HTML API
 Issues
 ------
 
-node_target_name
-node_file_name
-sectioning_command_target_name
-element_file_name
-special_element_target_file_name
-
 Some internal state used in conversion:
  _convert_anchor_command:
   $self->{'multiple_pass'}

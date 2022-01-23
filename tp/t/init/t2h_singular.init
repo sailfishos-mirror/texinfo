@@ -312,6 +312,6 @@ sub t2h_node_file_name($$$)
   return $filename;
 }
 
-$node_file_name = \&t2h_node_file_name;
+texinfo_register_file_id_setting_function('node_file_name', \&t2h_node_file_name);
 
 1;    # This must be the last line
