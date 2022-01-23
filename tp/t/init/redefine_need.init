@@ -25,5 +25,6 @@ sub my_need_formatting($$$)
   } else {
     $arg_text = '';
   }
-  return (&{$converter->{'format_comment'}}($converter, "$cmdname: $arg_text"));
+  return (&{$converter->formatting_function('format_comment')}($converter,
+                                                      "$cmdname: $arg_text"));
 }

@@ -9,11 +9,12 @@ sub mini_ker_element_type($$$$)
 
   if ($self->element_is_tree_unit_top($command)) {
     my $result = '';
-    $result .= &{$self->{'format_navigation_header'}}($self,
+    $result .= &{$self->formatting_function('format_navigation_header')}($self,
           $self->get_conf('MISC_BUTTONS'), $type, $command)
       if ($self->get_conf('SPLIT') or $self->get_conf('HEADERS'));
-    $result .= &{$self->{'format_titlepage'}}($self);
-    my $overview = &{$self->{'format_contents'}}($self, 'shortcontents', undef);
+    $result .= &{$self->formatting_function('format_titlepage')}($self);
+    my $overview = &{$self->formatting_function('format_contents')}($self,
+                                                          'shortcontents');
     if ($overview) {
       $result .= '<h2> ' .$self->convert_tree($self->gdt('Overview:'))
                   . "</h2>\n" . "<blockquote>\n";

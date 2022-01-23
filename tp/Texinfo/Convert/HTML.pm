@@ -350,8 +350,9 @@ sub html_convert_css_string($$;$)
     $self->{'types_conversion'}->{$type} = $default_css_string_types_conversion{$type};
   }
   foreach my $formatting_reference (keys(%default_css_string_formatting_references)) {
-    $saved_formatting_references->{$formatting_reference} = $self->{$formatting_reference};
-    $self->{$formatting_reference}
+    $saved_formatting_references->{$formatting_reference}
+      = $self->{'formatting_function'}->{$formatting_reference};
+    $self->{'formatting_function'}->{$formatting_reference}
       = $default_css_string_formatting_references{$formatting_reference};
   }
 
@@ -365,7 +366,7 @@ sub html_convert_css_string($$;$)
     $self->{'types_conversion'}->{$type} = $saved_types->{$type};
   }
   foreach my $formatting_reference (keys(%default_css_string_formatting_references)) {
-    $self->{$formatting_reference}
+    $self->{'formatting_function'}->{$formatting_reference}
      = $saved_formatting_references->{$formatting_reference};
   }
   return $result;
@@ -1114,11 +1115,19 @@ sub element_is_tree_unit_top($$)
                or $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'top'));
 }
 
+my %default_formatting_references;
 sub default_formatting_function($$)
 {
   my $self = shift;
   my $format = shift;
-  return $self->{'default_formatting_functions'}->{$format};
+  return $default_formatting_references{$format};
+}
+
+sub formatting_function($$)
+{
+  my $self = shift;
+  my $format = shift;
+  return $self->{'formatting_function'}->{$format};
 }
 
 # Return the default for the function references used for
@@ -2425,7 +2434,8 @@ sub _convert_anchor_command($$$$)
   my $id = $self->command_id($command);
   if (defined($id) and $id ne '' and !@{$self->{'multiple_pass'}}
       and !$self->in_string()) {
-    return &{$self->{'format_separate_anchor'}}($self, $id, 'anchor');
+    return &{$self->formatting_function('format_separate_anchor')}($self,
+                                                           $id, 'anchor');
   }
   return '';
 }
@@ -2713,8 +2723,8 @@ sub _convert_titlefont_command($$$$)
     # happens with bogus @-commands without argument, like @strong something
     return '';
   }
-  return &{$self->{'format_heading_text'}}($self, $cmdname, [$cmdname],
-                                           $text, 0);
+  return &{$self->formatting_function('format_heading_text')}($self, $cmdname,
+                                                         [$cmdname], $text, 0);
 }
 $default_commands_conversion{'titlefont'} = \&_convert_titlefont_command;
 
@@ -2746,7 +2756,7 @@ sub _default_format_comment($$) {
 sub protect_text($$) {
   my $self = shift;
   my $text = shift;
-  return &{$self->{'format_protect_text'}}($self, $text);
+  return &{$self->formatting_function('format_protect_text')}($self, $text);
 }
 
 sub _default_format_protect_text($$) {
@@ -2993,8 +3003,8 @@ sub _default_format_button($$)
         and defined($self->get_conf('ACTIVE_ICONS')->{$button})
         and $self->get_conf('ACTIVE_ICONS')->{$button} ne '') {
       my $button_name = $self->get_conf('BUTTONS_NAME')->{$button};
-      $active = &{$self->{'format_button_icon_img'}}($self, $button_name, 
-                                       $self->get_conf('ACTIVE_ICONS')->{' '});
+      $active = &{$self->formatting_function('format_button_icon_img')}($self,
+                        $button_name, $self->get_conf('ACTIVE_ICONS')->{' '});
     } else {
       $active = $self->get_conf('BUTTONS_TEXT')->{$button};
     }
@@ -3029,7 +3039,8 @@ sub _default_format_button($$)
             and defined($button_name)) {
           # use icon
           $active = "<a href=\"$href\"${btitle}>".
-             &{$self->{'format_button_icon_img'}}($self, $button_name, $active_icon,
+             &{$self->formatting_function('format_button_icon_img')}($self,
+                      $button_name, $active_icon,
                       $self->from_element_direction($button, 'string')) ."</a>";
           $use_icon = 1;
         }
@@ -3047,8 +3058,8 @@ sub _default_format_button($$)
         my $passive_icon = $self->get_conf('PASSIVE_ICONS')->{$button};
         my $button_name = $self->get_conf('BUTTONS_NAME')->{$button};
         if ($passive_icon and $passive_icon ne '') {
-          $passive = &{$self->{'format_button_icon_img'}}($self, $button_name, 
-                                                   $passive_icon,
+          $passive = &{$self->formatting_function('format_button_icon_img')}(
+                      $self, $button_name, $passive_icon,
                       $self->from_element_direction($button, 'string'));
           $use_icon = 1;
         }
@@ -3112,7 +3123,8 @@ sub _default_format_navigation_panel($$$$;$)
       $direction = $button;
     }
 
-    my ($active, $passive, $need_delimiter) = &{$self->{'format_button'}}($self, $button);
+    my ($active, $passive, $need_delimiter)
+      = &{$self->formatting_function('format_button')}($self, $button);
     if ($self->get_conf('HEADER_IN_TABLE')) {
       if (defined($active)) {
         $result .= $active;
@@ -3154,8 +3166,8 @@ sub _default_format_navigation_header($$$$)
 <td align="left">
 ';
   }
-  $result .= &{$self->{'format_navigation_panel'}}($self, $buttons,
-                                                   $cmdname, $element,
+  $result .= &{$self->formatting_function('format_navigation_panel')}($self,
+                                   $buttons, $cmdname, $element,
                                    $self->get_conf('VERTICAL_HEAD_NAVIGATION'));
   if ($self->get_conf('VERTICAL_HEAD_NAVIGATION')) {
     $result .= '</td>
@@ -3199,31 +3211,31 @@ sub _default_format_element_header($$$$)
 
     if ($is_top) {
       # use TOP_BUTTONS for top.
-      $result .= &{$self->{'format_navigation_header'}}($self,
+      $result .= &{$self->formatting_function('format_navigation_header')}($self,
                $self->get_conf('TOP_BUTTONS'), $cmdname, $command)
         if ($self->get_conf('SPLIT') or $self->get_conf('HEADERS'));
     } else {
       if ($first_in_page and !$self->get_conf('HEADERS')) {
         if ($self->get_conf('SPLIT') eq 'chapter') {
-          $result .= &{$self->{'format_navigation_header'}}($self,
+          $result .= &{$self->formatting_function('format_navigation_header')}($self,
                 $self->get_conf('CHAPTER_BUTTONS'), $cmdname, $command);
 
           $result .= $self->get_conf('DEFAULT_RULE') ."\n"
             if (defined($self->get_conf('DEFAULT_RULE'))
                 and !$self->get_conf('VERTICAL_HEAD_NAVIGATION'));
         } elsif ($self->get_conf('SPLIT') eq 'section') {
-          $result .= &{$self->{'format_navigation_header'}}($self,
+          $result .= &{$self->formatting_function('format_navigation_header')}($self,
                 $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
         }
       }
       if (($first_in_page or $previous_is_top)
            and $self->get_conf('HEADERS')) {
-        $result .= &{$self->{'format_navigation_header'}}($self,
+        $result .= &{$self->formatting_function('format_navigation_header')}($self,
                 $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
       } elsif($self->get_conf('HEADERS') or $self->get_conf('SPLIT') eq 'node') {
         # got to do this here, as it isn't done otherwise since 
         # navigation_header is not called
-        $result .= &{$self->{'format_navigation_panel'}}($self,
+        $result .= &{$self->formatting_function('format_navigation_panel')}($self,
                 $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
       }
     }
@@ -3318,8 +3330,8 @@ sub _convert_heading_command($$$$$)
   }
   my $element_header = '';
   if ($tree_unit) {
-    $element_header = &{$self->{'format_element_header'}}($self, $cmdname,
-                                            $element, $tree_unit);
+    $element_header = &{$self->formatting_function('format_element_header')}(
+                                        $self, $cmdname, $element, $tree_unit);
   }
 
   # $heading not defined may happen if the command is a @node, for example
@@ -3378,8 +3390,8 @@ sub _convert_heading_command($$$$$)
       if ($do_heading) {
         $id_class = "${cmdname}-id";
       }
-      $result .= &{$self->{'format_separate_anchor'}}($self, $element_id,
-                                                      $id_class);
+      $result .= &{$self->formatting_function('format_separate_anchor')}($self,
+                                                        $element_id, $id_class);
     } else {
       $heading_id = $element_id;
     }
@@ -3408,15 +3420,15 @@ sub _convert_heading_command($$$$$)
       $result .= $self->html_attribute_class('strong', \@heading_classes)
                                    ."${id_str}>".$heading.'</strong>'."\n";
     } else {
-      $result .= &{$self->{'format_heading_text'}}($self,
+      $result .= &{$self->formatting_function('format_heading_text')}($self,
                      $level_corrected_cmdname, \@heading_classes, $heading,
                      $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
                      $heading_id, $element);
     }
   } elsif (defined($heading_id)) {
     # case of a lone node and no header, and case of an empty @top
-    $result .= &{$self->{'format_separate_anchor'}}($self, $heading_id,
-                                                    $cmdname);
+    $result .= &{$self->formatting_function('format_separate_anchor')}($self,
+                                                       $heading_id, $cmdname);
   }
   $result .= $content if (defined($content));
 
@@ -4562,8 +4574,8 @@ sub _convert_index_command($$$$)
   if (defined($index_id) and $index_id ne ''
       and !@{$self->{'multiple_pass'}}
       and !$self->in_string()) {
-    my $result = &{$self->{'format_separate_anchor'}}($self, $index_id,
-                                                      'index-entry-id');
+    my $result = &{$self->formatting_function('format_separate_anchor')}($self,
+                                                   $index_id, 'index-entry-id');
     $result .= "\n" unless ($self->in_preformatted());
     return $result;
   }
@@ -4765,7 +4777,8 @@ sub _contents_inline_element($$$)
   my $command = shift;
 
   print STDERR "CONTENTS_INLINE $cmdname\n" if ($self->get_conf('DEBUG'));
-  my $content = &{$self->{'format_contents'}}($self, $cmdname, $command);
+  my $content = &{$self->formatting_function('format_contents')}($self,
+                                                          $cmdname, $command);
   if ($content) {
     my $special_element_type = $contents_command_element_type{$cmdname};
     my $special_element_direction
@@ -4790,8 +4803,9 @@ sub _contents_inline_element($$$)
                               "convert $cmdname special heading");
     }
     $result .= ">\n";
-    $result .= &{$self->{'format_heading_text'}}($self, $cmdname, [$class.'-heading'],
-                       $heading, $self->get_conf('CHAPTER_HEADER_LEVEL'))."\n";
+    $result .= &{$self->formatting_function('format_heading_text')}($self,
+                                  $cmdname, [$class.'-heading'], $heading,
+                                  $self->get_conf('CHAPTER_HEADER_LEVEL'))."\n";
     $result .= $content . "</div>\n";
     return $result;
   }
@@ -5801,9 +5815,9 @@ sub _default_format_titlepage($)
   } elsif ($self->{'simpletitle_tree'}) {
     my $title_text = $self->convert_tree_new_formatting_context(
      $self->{'simpletitle_tree'}, "$self->{'simpletitle_command_name'} simpletitle");
-    $titlepage_text = &{$self->{'format_heading_text'}}($self,
-                  $self->{'simpletitle_command_name'},
-                  [$self->{'simpletitle_command_name'}], $title_text, 0);
+    $titlepage_text = &{$self->formatting_function('format_heading_text')}($self,
+                                  $self->{'simpletitle_command_name'},
+                          [$self->{'simpletitle_command_name'}], $title_text, 0);
   }
   my $result = '';
   $result .= $titlepage_text.$self->get_conf('DEFAULT_RULE')."\n"
@@ -5819,14 +5833,14 @@ sub _print_title($)
   my $result = '';
   if ($self->get_conf('SHOW_TITLE')) {
     if ($self->get_conf('USE_TITLEPAGE_FOR_TITLE')) {
-      $result .= &{$self->{'format_titlepage'}}($self);
+      $result .= &{$self->formatting_function('format_titlepage')}($self);
     } else {
       if ($self->{'simpletitle_tree'}) {
         my $title_text = $self->convert_tree_new_formatting_context(
          $self->{'simpletitle_tree'}, "$self->{'simpletitle_command_name'} simpletitle");
-        $result .= &{$self->{'format_heading_text'}}($self,
-                  $self->{'simpletitle_command_name'},
-                  [$self->{'simpletitle_command_name'}], $title_text, 0);
+        $result .= &{$self->formatting_function('format_heading_text')}($self,
+                       $self->{'simpletitle_command_name'},
+                       [$self->{'simpletitle_command_name'}], $title_text, 0);
       }
       $result .= $self->_contents_shortcontents_in_title();
     }
@@ -5860,19 +5874,20 @@ sub _convert_special_element_type($$$$)
   if ($self->get_conf('HEADERS')
       # first in page
       or $self->{'counter_in_file'}->{$element->{'structure'}->{'unit_filename'}} == 1) {
-    $result .= &{$self->{'format_navigation_header'}}($self,
-               $self->get_conf('MISC_BUTTONS'), undef, $element);
+    $result .= &{$self->formatting_function('format_navigation_header')}($self,
+                             $self->get_conf('MISC_BUTTONS'), undef, $element);
   }
   my $heading = $self->command_text($element);
   my $level = $self->get_conf('CHAPTER_HEADER_LEVEL');
   if ($special_element_type eq 'footnotes') {
     $level = $self->get_conf('FOOTNOTE_SEPARATE_HEADER_LEVEL');
   }
-  $result .= &{$self->{'format_heading_text'}}($self, undef, [$class.'-heading'],
-                     $heading, $level)."\n";
+  $result .= &{$self->formatting_function('format_heading_text')}($self,
+                           undef, [$class.'-heading'], $heading, $level)."\n";
 
-  my $special_element_body .= &{$self->{'format_special_element_body'}}
-                                  ($self, $special_element_type, $element);
+  my $special_element_body
+    .= &{$self->formatting_function('format_special_element_body')}($self,
+                                          $special_element_type, $element);
 
   # This may happen with footnotes in regions that are not expanded,
   # like @copying or @titlepage
@@ -5880,8 +5895,8 @@ sub _convert_special_element_type($$$$)
     return '';
   }
   $result .= $special_element_body . '</div>';
-  $result .= &{$self->{'format_element_footer'}}($self, $type,
-                                                 $element, $content);
+  $result .= &{$self->formatting_function('format_element_footer')}($self, $type,
+                                                             $element, $content);
   return $result;
 }
 
@@ -5916,7 +5931,7 @@ sub _convert_tree_unit_type($$$$)
       # if there is one unit it also means that there is no formatting
       # of footnotes in a separate unit.  And if footnotestyle is end
       # the footnotes won't be done in format_element_footer either.
-      $result .= &{$self->{'format_footnotes_text'}}($self);
+      $result .= &{$self->formatting_function('format_footnotes_text')}($self);
       $result .= $self->get_conf('DEFAULT_RULE') ."\n"
         if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')
           and defined($self->get_conf('DEFAULT_RULE')));
@@ -5926,8 +5941,8 @@ sub _convert_tree_unit_type($$$$)
     }
   }
   $result .= $content;
-  $result .= &{$self->{'format_element_footer'}}($self, $type,
-                                                 $element, $content);
+  $result .= &{$self->formatting_function('format_element_footer')}($self, $type,
+                                                              $element, $content);
   return $result;
 }
 
@@ -6009,7 +6024,7 @@ sub _default_format_element_footer($$$$)
            and $element->{'structure'}->{'unit_filename'}
                ne $element->{'structure'}->{'unit_next'}->{'structure'}->{'unit_filename'}))
       and $self->get_conf('footnotestyle') eq 'end') {
-    $result .= &{$self->{'format_footnotes_text'}}($self);
+    $result .= &{$self->formatting_function('format_footnotes_text')}($self);
   }
 
   if (!$buttons or $is_top or $is_special
@@ -6028,8 +6043,8 @@ sub _default_format_element_footer($$$$)
     $result .= "$rule\n" if ($rule);
   }
   if ($buttons) {
-    $result .= &{$self->{'format_navigation_panel'}}($self, $buttons,
-                                                     undef, $element);
+    $result .= &{$self->formatting_function('format_navigation_panel')}($self,
+                                                    $buttons, undef, $element);
   }
   
   return $result;
@@ -6070,7 +6085,7 @@ sub _pop_document_context($)
 
 # Functions accessed with e.g. 'format_heading_text'.
 # used in Texinfo::Config
-our %default_formatting_references = (
+%default_formatting_references = (
      'format_begin_file' => \&_default_format_begin_file,
      'format_button' => \&_default_format_button,
      'format_button_icon_img' => \&_default_format_button_icon_img,
@@ -6291,7 +6306,6 @@ sub _load_htmlxref_files {
 #  
 #  commands_args (though it does not seems to be dynamic.
 #                 FIXME: always point to default?)
-#  default_formatting_functions
 #
 #  commands_conversion
 #  commands_open
@@ -6597,13 +6611,11 @@ sub converter_initialize($)
     }
   }
   foreach my $formatting_reference (keys(%default_formatting_references)) {
-    $self->{'default_formatting_functions'}->{$formatting_reference}
-       = $default_formatting_references{$formatting_reference};
     if (defined($customized_formatting_references->{$formatting_reference})) {
-      $self->{$formatting_reference} 
-       =  $customized_formatting_references->{$formatting_reference};
+      $self->{'formatting_function'}->{$formatting_reference}
+       = $customized_formatting_references->{$formatting_reference};
     } else {
-      $self->{$formatting_reference} 
+      $self->{'formatting_function'}->{$formatting_reference}
        = $default_formatting_references{$formatting_reference};
     }
   }
@@ -7936,7 +7948,8 @@ sub _default_format_end_file($$)
 
   my $program_text = '';
   if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
-    my $program_string = &{$self->{'format_program_string'}}($self);
+    my $program_string
+      = &{$self->formatting_function('format_program_string')}($self);
     my $open = $self->html_attribute_class('span', ['program-in-footer']);
     if ($open ne '') {
       $program_string = $open.'>'.$program_string.'</span>';
@@ -8043,7 +8056,8 @@ sub _file_header_informations($$;$)
         "<meta name=\"date\" content=\"$today\"")."\n";
   }
 
-  my $css_lines = &{$self->{'format_css_lines'}}($self, $filename);
+  my $css_lines = &{$self->formatting_function('format_css_lines')}($self,
+                                                                  $filename);
 
   my $doctype = $self->get_conf('DOCTYPE');
   my $root_html_element_attributes = $self->_root_html_element_attributes_string();
@@ -8254,9 +8268,10 @@ sub _default_format_footnotes_text($)
                           'convert footnotes special heading');
   my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{'footnotes'};
   my $level = $self->get_conf('FOOTNOTE_END_HEADER_LEVEL');
-  $result .= &{$self->{'format_heading_text'}}($self, undef, [$class.'-heading'],
-                                        $footnote_heading, $level)."\n";
-  $result .= &{$self->{'format_special_element_body'}}($self, 'footnotes');
+  $result .= &{$self->formatting_function('format_heading_text')}($self, undef,
+                          [$class.'-heading'], $footnote_heading, $level)."\n";
+  $result .= &{$self->formatting_function('format_special_element_body')}($self,
+                                                                   'footnotes');
   $result .= "</div>\n";
   return $result;
 }
@@ -8277,7 +8292,7 @@ sub _default_format_special_element_body($$;$)
         $about .= $PRE_ABOUT;
       }
     } else {
-      $about .= '  '.&{$self->{'format_program_string'}}($self) ."\n";
+      $about .= '  '.&{$self->formatting_function('format_program_string')}($self) ."\n";
     }
     $about .= <<EOT;
 </p>
@@ -8300,9 +8315,9 @@ EOT
       my $button_name = $self->get_conf('BUTTONS_NAME')->{$button};
       $about .= "  <tr>\n    <td align=\"center\">";
       $about .=
-            ($self->get_conf('ICONS') && $self->get_conf('ACTIVE_ICONS')->{$button} ?
-             &{$self->{'format_button_icon_img'}}($self, $button_name, 
-                                       $self->get_conf('ACTIVE_ICONS')->{$button}) :
+        ($self->get_conf('ICONS') && $self->get_conf('ACTIVE_ICONS')->{$button} ?
+         &{$self->formatting_function('format_button_icon_img')}($self,
+                       $button_name, $self->get_conf('ACTIVE_ICONS')->{$button}) :
              ' [' . $self->get_conf('BUTTONS_TEXT')->{$button} . '] ');
       $about .= "</td>\n";
       $about .= 
@@ -8371,9 +8386,9 @@ $AFTER_ABOUT
 EOT
     return $about;
   } elsif ($special_type eq 'contents') {
-    return &{$self->{'format_contents'}}($self, 'contents', undef);
+    return &{$self->formatting_function('format_contents')}($self, 'contents');
   } elsif ($special_type eq 'shortcontents') {
-    return &{$self->{'format_contents'}}($self, 'shortcontents', undef);
+    return &{$self->formatting_function('format_contents')}($self, 'shortcontents');
   } elsif ($special_type eq 'footnotes') {
     my $result = $foot_lines;
     $foot_lines = '';
@@ -8509,9 +8524,10 @@ EOT
     # this is needed to collect CSS rules.
     $self->{'current_filename'} = $toc_frame_file;
     my $shortcontents = 
-      &{$self->{'format_contents'}}($self, 'shortcontents', undef);
+      &{$self->formatting_function('format_contents')}($self, 'shortcontents');
     $shortcontents =~ s/\bhref=/target="main" href=/g;
-    my $header = &{$self->{'format_begin_file'}}($self, $toc_frame_file, undef);
+    my $header = &{$self->formatting_function('format_begin_file')}($self,
+                                                        $toc_frame_file, undef);
     print $toc_frame_fh $header;
     print $toc_frame_fh '<h2>Content</h2>'."\n";
     print $toc_frame_fh $shortcontents;
@@ -8569,7 +8585,7 @@ sub convert($$)
   if (!defined($tree_units)) {
     print STDERR "\nC NO UNIT\n" if ($self->get_conf('DEBUG'));
     $result = $self->_convert($root, 'convert no unit');
-    $result .= &{$self->{'format_footnotes_text'}}($self);
+    $result .= &{$self->formatting_function('format_footnotes_text')}($self);
   } else {
     my $unit_nr = 0;
     # TODO there is no rule before the footnotes special element in
@@ -8877,7 +8893,7 @@ sub output($$)
      {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
     if ($copying_comment ne '') {
       $self->{'copying_comment'}
-        = &{$self->{'format_comment'}}($self, $copying_comment);
+       = &{$self->formatting_function('format_comment')}($self, $copying_comment);
     }
   }
   $self->set_global_document_commands('before', ['documentlanguage']);
@@ -8904,7 +8920,8 @@ sub output($$)
   return undef unless($init_status);
 
   if ($self->get_conf('FRAMES')) {
-    my $status = &{$self->{'format_frame_files'}}($self, $created_directory);
+    my $status = &{$self->formatting_function('format_frame_files')}($self,
+                                                        $created_directory);
     return undef if (!$status);
   }
 
@@ -8994,12 +9011,14 @@ sub output($$)
       $body .= $self->_print_title();
       print STDERR "\nNO UNIT NO PAGE\n" if ($self->get_conf('DEBUG'));
       $body .= $self->_convert($root, 'no-page output no unit');
-      $body .= &{$self->{'format_footnotes_text'}}($self);
+      $body .= &{$self->formatting_function('format_footnotes_text')}($self);
     }
 
     # do end file first, in case it needs some CSS
-    my $footer = &{$self->{'format_end_file'}}($self, $output_filename);
-    my $header = &{$self->{'format_begin_file'}}($self, $output_filename, undef);
+    my $footer = &{$self->formatting_function('format_end_file')}($self,
+                                                       $output_filename);
+    my $header = &{$self->formatting_function('format_begin_file')}($self,
+                                                  $output_filename, undef);
     $output .= $self->write_or_return($header, $fh);
     $output .= $self->write_or_return($body, $fh);
     $output .= $self->write_or_return($footer, $fh);
@@ -9075,9 +9094,10 @@ sub output($$)
           return undef;
         }
         # do end file first in case it requires some CSS
-        my $end_file = &{$self->{'format_end_file'}}($self, $element_filename);
-        print $file_fh "".&{$self->{'format_begin_file'}}($self,
-                                    $element_filename, $file_element);
+        my $end_file = &{$self->formatting_function('format_end_file')}($self,
+                                                           $element_filename);
+        print $file_fh "".&{$self->formatting_function('format_begin_file')}($self,
+                                               $element_filename, $file_element);
         print $file_fh "".$files{$element_filename}->{'body'};
         # end file
         print $file_fh "". $end_file;
@@ -9163,7 +9183,8 @@ sub output($$)
 
       if (defined($filename) and $node_filename ne $filename) {
         my $redirection_page 
-          = &{$self->{'format_node_redirection_page'}}($self, $node);
+          = &{$self->formatting_function('format_node_redirection_page')}($self,
+                                                                         $node);
         my $out_filename;
         if (defined($created_directory) and $created_directory ne '') {
           $out_filename = File::Spec->catfile($created_directory,

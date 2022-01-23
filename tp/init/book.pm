@@ -224,8 +224,8 @@ sub book_convert_heading_command($$$$$)
   }
   my $element_header = '';
   if ($tree_unit) {
-    $element_header = &{$self->{'format_element_header'}}($self, $cmdname,
-                                            $element, $tree_unit);
+    $element_header = &{$self->formatting_function('format_element_header')}(
+                                        $self, $cmdname, $element, $tree_unit);
   }
 
   # $heading not defined may happen if the command is a @node, for example
@@ -284,8 +284,8 @@ sub book_convert_heading_command($$$$$)
       if ($do_heading) {
         $id_class = "${cmdname}-id";
       }
-      $result .= &{$self->{'format_separate_anchor'}}($self, $element_id,
-                                                      $id_class);
+      $result .= &{$self->formatting_function('format_separate_anchor')}($self,
+                                                        $element_id, $id_class);
     } else {
       $heading_id = $element_id;
     }
@@ -314,15 +314,15 @@ sub book_convert_heading_command($$$$$)
       $result .= $self->html_attribute_class('strong', \@heading_classes)
                                    ."${id_str}>".$heading.'</strong>'."\n";
     } else {
-      $result .= &{$self->{'format_heading_text'}}($self,
+      $result .= &{$self->formatting_function('format_heading_text')}($self,
                      $level_corrected_cmdname, \@heading_classes, $heading,
                      $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
                      $heading_id, $element);
     }
   } elsif (defined($heading_id)) {
     # case of a lone node and no header, and case of an empty @top
-    $result .= &{$self->{'format_separate_anchor'}}($self, $heading_id,
-                                                    $cmdname);
+    $result .= &{$self->formatting_function('format_separate_anchor')}($self,
+                                                       $heading_id, $cmdname);
   }
 
   if ($element->{'structure'}->{'section_childs'}
