@@ -1918,7 +1918,7 @@ sub _index_entry($$)
       $in_code = 1;
     }
     my $options
-      = Texinfo::Structuring::setup_index_entry_keys_formatting($self, $self);
+      = Texinfo::Structuring::setup_index_entry_keys_formatting($self);
     my $current_entry = $element;
     my $current_sortas;
     my $subentry_commands = [$element];

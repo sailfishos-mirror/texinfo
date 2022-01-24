@@ -7711,7 +7711,7 @@ sub _prepare_index_entries($)
         = Texinfo::Structuring::merge_indices($index_names);
     my $index_entries_sort_strings;
     ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
-            = Texinfo::Structuring::sort_indices($self->{'parser'}, $self,
+            = Texinfo::Structuring::sort_indices($self,
                                $self, $merged_index_entries, 'by_letter');
     $self->{'index_entries'} = $merged_index_entries;
 
@@ -8792,9 +8792,9 @@ sub output_internal_links($)
       }
     }
   }
-  if ($self->{'parser'}) {
+  my $index_entries_by_letter = $self->get_info('index_entries_by_letter');
+  if ($index_entries_by_letter) {
     my %options = Texinfo::Convert::Text::copy_options_for_convert_text($self);
-    my $index_entries_by_letter = $self->get_info('index_entries_by_letter');
     foreach my $index_name (sort(keys (%{$index_entries_by_letter}))) {
       foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
         foreach my $index_entry (@{$letter_entry->{'entries'}}) {

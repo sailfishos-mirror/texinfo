@@ -56,7 +56,6 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
   sectioning_structure
   set_menus_node_directions
   sort_indices
-  sort_indices_by_letter
   split_by_node
   split_by_section
   split_pages
@@ -1565,9 +1564,8 @@ sub _sort_index_entries($$)
   return $res;
 }
 
-sub setup_index_entry_keys_formatting($$)
+sub setup_index_entry_keys_formatting($)
 {
-  my $self = shift;
   my $configuration_informations = shift;
 
   my $options = {'sort_string' => 1, 'ascii_punctuation' => 1,
@@ -1613,16 +1611,14 @@ sub index_entry_sort_string($$$$)
 
 # the structure returned depends on $SORT_BY_LETTER being set
 # or not.  It is described in the pod documentation.
-sub sort_indices($$$$;$)
+sub sort_indices($$$;$)
 {
-  my $self = shift;
   my $registrar = shift;
   my $configuration_informations = shift;
   my $index_entries = shift;
   my $sort_by_letter = shift;
 
-  my $options = setup_index_entry_keys_formatting($self,
-                               $configuration_informations);
+  my $options = setup_index_entry_keys_formatting($configuration_informations);
   my $sorted_index_entries;
   my $index_entries_sort_strings = {};
   foreach my $index_name (keys(%$index_entries)) {
@@ -1725,7 +1721,7 @@ Texinfo::Structuring - information on Texinfo::Parser tree
     $tree_units = split_by_section($tree);
   }
   split_pages($tree_units, $split);
-  elements_directions($parser, $parser, $tree_units);
+  elements_directions($config, $labels, $tree_units);
   elements_file_directions($tree_units);
 
   my $index_names = $parser->indices_information();
@@ -1733,10 +1729,10 @@ Texinfo::Structuring - information on Texinfo::Parser tree
      = merge_indices($index_names);
   my $index_entries_sorted;
   if ($sort_by_letter) {
-    $index_entries_sorted = sort_indices($parser, $parser, $parser,
+    $index_entries_sorted = sort_indices($registrar, $config,
                                        $merged_index_entries, 'by_letter');
   } else {
-    $index_entries_sorted = sort_indices($parser, $parser, $parser,
+    $index_entries_sorted = sort_indices($registrar, $config,
                                          $merged_index_entries);
   }
  
@@ -1809,10 +1805,10 @@ Complete nodes directions with menu directions.  Check consistency
 of menus, sectionning and nodes direction structures.
 Register errors in I<$registrar>.
 
-=item elements_directions($parser, $configuration_informations, $tree_units)
+=item elements_directions($configuration_informations, $labels, $tree_units)
 
-Directions are set up for the tree unit elements in the array reference given in
-argument.  The corresponding hash is in
+Directions are set up for the tree unit elements in the array reference
+I<$tree_units> given in argument.  The corresponding hash is in
 C<< {'structure'}->{'directions'} >>
 and keys correspond to directions while values are elements.
 
@@ -2022,11 +2018,11 @@ Up, next and previous directions as set in menus.
 
 =back
 
-=item setup_index_entry_keys_formatting($self, $configuration_informations)
+=item setup_index_entry_keys_formatting($configuration_informations)
 
 TODO
 
-=item ($index_entries_sorted, $index_entries_sort_strings) = sort_indices($parser, $registrar, $configuration_informations, $merged_index_entries, $sort_by_letter)
+=item ($index_entries_sorted, $index_entries_sort_strings) = sort_indices($registrar, $configuration_informations, $merged_index_entries, $sort_by_letter)
 
 If I<$sort_by_letter> is set, sort by letter, otherwise sort all
 entries together.  In both cases, a hash reference with index names

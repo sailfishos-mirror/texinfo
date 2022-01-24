@@ -1214,7 +1214,7 @@ sub process_printindex($$;$)
       = Texinfo::Structuring::merge_indices($index_names);
     my $index_entries_sort_strings;
     ($self->{'index_entries'}, $index_entries_sort_strings)
-      = Texinfo::Structuring::sort_indices($self->{'parser'}, $self, $self,
+      = Texinfo::Structuring::sort_indices($self, $self,
                                            $merged_index_entries);
     $self->{'index_names'} = $index_names;
   }

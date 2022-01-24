@@ -969,7 +969,7 @@ sub test($$)
   my $indices_sorted_sort_strings;
   if ($merged_index_entries) {
     ($sorted_index_entries, $index_entries_sort_strings)
-      = Texinfo::Structuring::sort_indices($parser, $registrar,
+      = Texinfo::Structuring::sort_indices($registrar,
                                    $main_configuration,
                                    $merged_index_entries);
     foreach my $index_name (keys(%$sorted_index_entries)) {

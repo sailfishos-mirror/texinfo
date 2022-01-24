@@ -1,3 +1,12 @@
+2022-01-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (setup_index_entry_keys_formatting)
+	(sort_indices), tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/LaTeX.pm,
+	tp/Texinfo/Convert/Plaintext.pm, tp/init/chm.pm: remove first
+	arguments of setup_index_entry_keys_formatting() and sort_indices()
+	that are unused.
+
 2022-01-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (%available_converter_info)
