@@ -1352,8 +1352,7 @@ $result_floats{'float_copying'} = {
           'cmdname' => 'caption',
           'extra' => {
             'float' => {}
-          },
-          'structure' => {}
+          }
         },
         'normalized' => 'public-domain',
         'type' => {

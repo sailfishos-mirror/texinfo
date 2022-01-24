@@ -1,3 +1,34 @@
+2022-01-25  Patrice Dumas  <pertusus@free.fr>
+
+	Footnotes registering and link to location in document API
+
+	* tp/Texinfo/Convert/HTML.pm (_get_footnote_location_target)
+	(footnote_location_target, _set_footnote_location_target)
+	(footnote_location_href, register_footnote, get_pending_footnotes)
+	(_convert_footnote_command, _default_format_footnotes_sequence)
+	(_prepare_footnotes, _default_format_footnotes_portion):
+	do not format the footnote sequence where footnotes appear, instead
+	use register_footnote() and get_pending_footnotes() to register
+	information about footnotes, including their formatted argument
+	and format them as a sequence including the link to the document
+	where they appear. Rename format_footnotes_text as
+	format_footnotes_portion and add format_footnotes_sequence with
+	_default_format_footnotes_sequence().  Format the footnotes lines in
+	_default_format_footnotes_sequence().  Add footnote_location_target()
+	and footnote_location_href() to get the footnote in document location
+	id and href, using a new special targets structure in
+	self->{'special_targets'}->{'footnote_location'}->{$command}.
+
+	* tp/Texinfo/Convert/HTML.pm (command_href): add the possibility
+	to specify the target, use it in the footnotes formatting.
+
+	* tp/Texinfo/Convert/HTML.pm (command_contents_href)
+	(_convert_heading_command): if source filename argument of
+	command_contents_href() is undef use current file name.
+
+	* tp/Texinfo/Convert/HTML.pm (_html_get_tree_root_element):
+	do not autogenerate a 'structure' hash.  Reindent.
+
 2022-01-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (setup_index_entry_keys_formatting)

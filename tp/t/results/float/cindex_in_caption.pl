@@ -424,8 +424,7 @@ $result_floats{'cindex_in_caption'} = {
           'cmdname' => 'caption',
           'extra' => {
             'float' => {}
-          },
-          'structure' => {}
+          }
         },
         'normalized' => 'label',
         'type' => {

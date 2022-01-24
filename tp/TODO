@@ -13,6 +13,20 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
+In _html_get_tree_root_element:
+         if ($current->{'cmdname'} eq 'footnote'
+           and $self->special_element('Footnotes')
+           and $find_container) {
+           # in that case there is no root_command
+          #print STDERR "SPECIAL footnote\n" if ($debug);
+          $root_element = $self->special_element('Footnotes');
+          return ($root_element);
+This means that even if the current footnotestyle is 'end' all the footnotes
+are assumed to be in the seprate element (which is setup early on if
+footnotestyle is 'separate' at the end of the document).
+
+s/special_element(/special_direction_element(/
+
 Bugs
 ====
 
@@ -34,7 +48,7 @@ Some private variables/private state used in conversion
   $self->{'explained_commands'}
   $self->{'element_explanation_contents'}
  _convert_footnote_command:
-  $foot_num, $foot_lines, $NO_NUMBER_FOOTNOTE_SYMBOL, $footid_base, $docid_base, $target_prefix, %footnote_id_numbers
+  $foot_num, $foot_lines, $NO_NUMBER_FOOTNOTE_SYMBOL, $target_prefix, %footnote_id_numbers
  _default_format_special_element_body
   $foot_lines
  _contents_inline_element
@@ -67,6 +81,9 @@ args in *convert*, in %default_commands_args
 
 register_file_information
 
+register_footnote
+get_pending_footnotes
+
 register_pending_formatted_inline_content
 get_associated_formatted_inline_content
 get_pending_formatted_inline_content
@@ -90,9 +107,10 @@ used in _contents_inline_element
 
 from_element_direction
 command_target command_filename command_string command_id command_href
-command_contents_href
+command_contents_href command_contents_target
 special_element (argument: a $special_element_direction?)
 command_root_element_command label_command
+footnote_location_target footnote_location_href
 
 required use of
 in_string()

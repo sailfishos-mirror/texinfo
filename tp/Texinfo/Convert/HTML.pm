@@ -647,6 +647,31 @@ sub command_contents_target($$$)
   }
 }
 
+sub _get_footnote_location_target($$)
+{
+  my $self = shift;
+  my $command = shift;
+
+  if (defined($self->{'special_targets'})
+      and defined($self->{'special_targets'}->{'footnote_location'})
+      and defined($self->{'special_targets'}->{'footnote_location'}->{$command})) {
+    return $self->{'special_targets'}->{'footnote_location'}->{$command};
+  }
+  return undef;
+}
+
+sub footnote_location_target($$)
+{
+  my $self = shift;
+  my $command = shift;
+
+  my $footnote_location_special_target = _get_footnote_location_target($self,
+                                                                   $command);
+  if (defined($footnote_location_special_target)) {
+    return $footnote_location_special_target->{'target'};
+  }
+}
+
 # Return href target for linking to this command
 sub command_target($$)
 {
@@ -675,6 +700,8 @@ sub command_filename($$)
     if (defined($target->{'filename'})) {
       return $target->{'filename'};
     }
+    # this finds a special element for footnote command if
+    # such an element exists
     my ($root_element, $root_command)
            = $self->_html_get_tree_root_element($command, 1);
 
@@ -740,12 +767,13 @@ sub command_node($$)
 }
 
 # Return string for linking to $COMMAND with <a href>
-sub command_href($$;$$)
+sub command_href($$;$$$)
 {
   my $self = shift;
   my $command = shift;
   my $source_filename = shift;
   my $link_command = shift;
+  my $specified_target = shift;
 
   $source_filename = $self->{'current_filename'} if (!defined($source_filename));
 
@@ -753,7 +781,12 @@ sub command_href($$;$$)
     return $self->_external_node_href($command, $source_filename, $link_command);
   }
 
-  my $target = $self->command_target($command);
+  my $target;
+  if (defined($specified_target)) {
+    $target = $specified_target;
+  } else {
+    $target = $self->command_target($command);
+  }
   return '' if (!defined($target));
   my $href = '';
 
@@ -802,14 +835,16 @@ my %contents_command_element_type = (
 
 # Return string for linking to $CONTENTS_OR_SHORTCONTENTS associated
 # element from $COMMAND with <a href>
-sub command_contents_href($$$$)
+sub command_contents_href($$$;$)
 {
   my $self = shift;
   my $command = shift;
   my $contents_or_shortcontents = shift;
   my $source_filename = shift;
 
-  my $href;
+  $source_filename = $self->{'current_filename'}
+    if (not defined($source_filename));
+
   my $special_element_type
     = $contents_command_element_type{$contents_or_shortcontents};
   my $special_element_direction
@@ -822,6 +857,73 @@ sub command_contents_href($$$$)
   if (defined($target_element)) {
     $target_filename = $self->command_filename($target_element);
   }
+  my $href = '';
+  if (defined($target_filename) and
+      (!defined($source_filename)
+       or $source_filename ne $target_filename)) {
+    $href .= $target_filename;
+  }
+  $href .= '#' . $target if ($target ne '');
+  return $href;
+}
+
+sub _set_footnote_location_target($$)
+{
+  my $self = shift;
+  my $command = shift;
+
+  $self->{'special_targets'}->{'footnote_location'}->{$command} = {};
+  return $self->{'special_targets'}->{'footnote_location'}->{$command};
+}
+
+sub footnote_location_href($$;$$)
+{
+  my $self = shift;
+  my $command = shift;
+  my $source_filename = shift;
+  my $specified_target = shift;
+  my $target_filename = shift;
+
+  $source_filename = $self->{'current_filename'}
+    if (not defined($source_filename));
+
+  my $special_target = _get_footnote_location_target($self, $command);
+  my $target = '';
+  if (defined($specified_target)) {
+    $target = $specified_target;
+  } elsif (defined($special_target)) {
+    $target = $special_target->{'target'};
+  }
+  # This does not happen in the default footnote formatting functions,
+  # the file is always known as the footnote in the document appears
+  # before the footnote text formatting.  It is a good thing for the case
+  # of @footnote being formatted more than once (in multiple @insertcopying
+  # for instance) as the file found just below may not be the correct
+  # one in that case.
+  if (not defined($target_filename)) {
+    if (defined($special_target) and defined($special_target->{'filename'})) {
+      $target_filename = $special_target->{'filename'};
+    } else {
+      # in contrast with command_filename() we find the location holding
+      # the @footnote command, not the footnote element with fottnotes
+      my ($root_element, $root_command)
+        = $self->_html_get_tree_root_element($command);
+      if (defined($root_command)) {
+        # not sure that it can happen
+        $special_target = _set_footnote_location_target($self, $command)
+          if (not defined($special_target));
+        $special_target->{'root_command'} = $root_command;
+      }
+      if (defined($root_element)) {
+        $special_target = _set_footnote_location_target($self, $command)
+          if (not defined($special_target));
+        $special_target->{'filename'}
+          = $root_element->{'structure'}->{'unit_filename'};
+        $target_filename = $special_target->{'filename'};
+      }
+    }
+  }
+  my $href = '';
   if (defined($target_filename) and
       (!defined($source_filename)
        or $source_filename ne $target_filename)) {
@@ -1216,6 +1318,24 @@ sub get_value($$)
     return undef;
   }
 }
+
+sub register_footnote($$$$$$$)
+{
+  my ($self, $command, $footnote_text, $footid, $docid, $number_in_doc,
+      $footnote_location_filename) = @_;
+  push @{$self->{'pending_footnotes'}}, [$command, $footnote_text,
+       $footid, $docid, $number_in_doc, $footnote_location_filename];
+}
+
+sub get_pending_footnotes($)
+{
+  my $self = shift;
+
+  my @result = @{$self->{'pending_footnotes'}};
+  @{$self->{'pending_footnotes'}} = ();
+  return @result;
+}
+
 
 # API to register, cancel and get inline content that should be output
 # when in an inline situation, mostly in a paragraph or preformatted
@@ -2523,11 +2643,7 @@ sub _convert_anchor_command($$$$)
 $default_commands_conversion{'anchor'} = \&_convert_anchor_command;
 
 my $foot_num;
-my $foot_lines;
 my $NO_NUMBER_FOOTNOTE_SYMBOL = '*';
-
-my $footid_base = 'FOOT';
-my $docid_base = 'DOCF';
 
 # to avoid duplicate names, use a prefix that cannot happen in anchors
 my $target_prefix = "t_h";
@@ -2555,25 +2671,9 @@ sub _convert_footnote_command($$$$)
   if (!defined($footid)) {
     return '';
   }
-
   # ID for linking back to the main text from the footnote.
-  my $docid = $footid;
-  $docid =~ s/^$footid_base/$docid_base/;
+  my $docid = $self->footnote_location_target($command);
 
-  my $document_filename;
-  my $footnote_filename;
-  if ($self->get_conf('footnotestyle') eq 'separate') {
-    $footnote_filename = $self->command_filename($command);
-    $document_filename = $self->get_info('current_filename');
-    $footnote_filename = '' if (!defined($footnote_filename));
-    $document_filename = '' if (!defined($document_filename));
-
-    if ($document_filename eq $footnote_filename) {
-      $document_filename = $footnote_filename = '';
-    }
-  } else {
-    $document_filename = $footnote_filename = '';
-  }
   my $footnote_text;
   if ($args->[0]) {
     $footnote_text = $args->[0]->{'normal'};
@@ -2583,6 +2683,7 @@ sub _convert_footnote_command($$$$)
   chomp ($footnote_text);
   $footnote_text .= "\n";
 
+  my $multiple_expanded_footnote = 0;
   my $multi_expanded_region = $self->in_multi_expanded();
   if (defined($multi_expanded_region)) {
     $footid = $target_prefix.$multi_expanded_region.'_'.$footid.'_'.$foot_num;
@@ -2598,12 +2699,26 @@ sub _convert_footnote_command($$$$)
       # happen.
       $footid .= '_'.$foot_num;
       $docid .= '_'.$foot_num;
+      $multiple_expanded_footnote = 1;
     }
   }
+  my $footnote_href;
+  if ($self->get_conf('footnotestyle') eq 'end'
+      and (defined($multi_expanded_region)
+           or $multiple_expanded_footnote)) {
+    # if the footnote appears multiple times, command_href() will select
+    # one, but it may not be the one expanded at the location currently
+    # formatted (in general the first one, but it depends if it is in a
+    # tree element or not, for instance in @titlepage).
+    # With footnotestyle end, considering that the footnote is in the same file
+    # has a better change of being correct.
+    $footnote_href = "#$footid";
+  } else {
+    $footnote_href = $self->command_href($command, undef, undef, $footid);
+  }
 
-  $foot_lines .= '<h5>' .
-   "<a id=\"$footid\" href=\"$document_filename#$docid\">($number_in_doc)</a></h5>\n"
-   . $footnote_text;
+  $self->register_footnote($command, $footnote_text, $footid, $docid, $number_in_doc,
+                                                $self->get_info('current_filename'));
 
   my $footnote_number_text;
   if ($self->in_preformatted()) {
@@ -2612,7 +2727,7 @@ sub _convert_footnote_command($$$$)
     $footnote_number_text = "<sup>$number_in_doc</sup>";
   }
   return $self->html_attribute_class('a', [$cmdname])
-    ." id=\"$docid\" href=\"$footnote_filename#$footid\">$footnote_number_text</a>";
+    ." id=\"$docid\" href=\"$footnote_href\">$footnote_number_text</a>";
 }
 $default_commands_conversion{'footnote'} = \&_convert_footnote_command;
 
@@ -3485,9 +3600,8 @@ sub _convert_heading_command($$$$$)
     if ($self->get_conf('TOC_LINKS')
         and $Texinfo::Common::root_commands{$cmdname}
         and $Texinfo::Common::sectioning_commands{$cmdname}) {
-      my $content_href = $self->command_contents_href($element, 'contents',
-                                        $self->{'current_filename'});
-      if ($content_href) {
+      my $content_href = $self->command_contents_href($element, 'contents');
+      if ($content_href ne '') {
         $heading = "<a href=\"$content_href\">$heading</a>";
       }
     }
@@ -6014,7 +6128,7 @@ sub _convert_tree_unit_type($$$$)
       # if there is one unit it also means that there is no formatting
       # of footnotes in a separate unit.  And if footnotestyle is end
       # the footnotes won't be done in format_element_footer either.
-      $result .= &{$self->formatting_function('format_footnotes_text')}($self);
+      $result .= &{$self->formatting_function('format_footnotes_portion')}($self);
       $result .= $self->get_conf('DEFAULT_RULE') ."\n"
         if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')
           and defined($self->get_conf('DEFAULT_RULE')));
@@ -6109,7 +6223,7 @@ sub _default_format_element_footer($$$$)
            and $element->{'structure'}->{'unit_filename'}
                ne $element->{'structure'}->{'unit_next'}->{'structure'}->{'unit_filename'}))
       and $self->get_conf('footnotestyle') eq 'end') {
-    $result .= &{$self->formatting_function('format_footnotes_text')}($self);
+    $result .= &{$self->formatting_function('format_footnotes_portion')}($self);
   }
 
   if (!$buttons or $is_top or $is_special
@@ -6189,7 +6303,8 @@ foreach my $customized_reference ('label_target_name', 'node_file_name',
      'format_element_footer' => \&_default_format_element_footer,
      'format_end_file' => \&_default_format_end_file,
      'format_frame_files' => \&_default_format_frame_files,
-     'format_footnotes_text' => \&_default_format_footnotes_text,
+     'format_footnotes_portion' => \&_default_format_footnotes_portion,
+     'format_footnotes_sequence' => \&_default_format_footnotes_sequence,
      'format_heading_text' => \&_default_format_heading_text,
      'format_navigation_header' => \&_default_format_navigation_header,
      'format_navigation_panel' => \&_default_format_navigation_panel,
@@ -6463,6 +6578,9 @@ sub _load_htmlxref_files {
 #  pending_closes
 #
 #    API exists
+#  pending_footnotes
+#
+#    API exists
 #  pending_inline_content
 #  associated_inline_content
 #
@@ -6470,6 +6588,7 @@ sub _load_htmlxref_files {
 #  targets         for directions.  Keys are elements references, values are
 #                  target information hash references described above before
 #                  the API functions used to access those informations.
+#  special_targets
 #  special_elements_targets
 #  special_elements_directions
 #  global_target_elements_directions
@@ -6516,7 +6635,6 @@ sub converter_initialize($)
   my $self = shift;
 
   $foot_num = 0;
-  $foot_lines = '';
   %formatted_index_entries = ();
   %footnote_id_numbers = ();
 
@@ -7174,8 +7292,8 @@ sub _set_root_commands_targets_node_files($$)
 
 sub _html_get_tree_root_element($$;$);
 
-# If $find_container is set, the element that holds the command is found,
-# otherwise the element that holds the command content is found.  This is
+# If $find_container is set, the element that holds the command output
+# is found, otherwise the element that holds the command is found.  This is
 # mostly relevant for footnote only.
 # If no known root element type is found, the returned root element is undef, and not
 # set to the element at the tree root
@@ -7186,7 +7304,7 @@ sub _html_get_tree_root_element($$;$)
   my $find_container = shift;
 
   # can be used to debug/understand what is going on
-  #my $debug = 0;
+  #my $debug = 1;
 
   my $current = $command;
   #print STDERR "START ".Texinfo::Common::debug_print_element_short($current)."\n" if ($debug);
@@ -7227,15 +7345,16 @@ sub _html_get_tree_root_element($$;$)
                                                   or defined($root_command));
         return (undef, undef);
       } elsif ($current->{'cmdname'} eq 'footnote' 
-           and $self->special_element('Footnotes')
-           and $find_container) {
-           # in that case there is no root_command
-          #print STDERR "SPECIAL footnote\n" if ($debug);
-          $root_element = $self->special_element('Footnotes');
-          return ($root_element);
+               and $self->special_element('Footnotes')
+               and $find_container) {
+         # in that case there is no root_command
+         #print STDERR "SPECIAL footnote\n" if ($debug);
+         $root_element = $self->special_element('Footnotes');
+         return ($root_element);
       }
     }
-    if ($current->{'structure'}->{'associated_unit'}) {
+    if ($current->{'structure'}
+        and $current->{'structure'}->{'associated_unit'}) {
       #print STDERR "ASSOCIATED_UNIT ".Texinfo::Common::debug_print_element_short($current->{'structure'}->{'associated_unit'})."\n" if ($debug);
       $current = $current->{'structure'}->{'associated_unit'};
     } elsif ($current->{'parent'}) {
@@ -7747,12 +7866,19 @@ sub _prepare_footnotes($)
 {
   my $self = shift;
 
+  my $footid_base = 'FOOT';
+  my $docid_base = 'DOCF';
+
+  $self->{'pending_footnotes'} = [];
+
   if ($self->{'global_commands'}->{'footnote'}) {
     my $footnote_nr = 0;
     foreach my $footnote (@{$self->{'global_commands'}->{'footnote'}}) {
       $footnote_nr++;
       my $nr = $footnote_nr;
+      # anchor for the footnote text
       my $footid = $footid_base.$nr;
+      # anchor for the location of the @footnote in the document
       my $docid = $docid_base.$nr;
       while ($self->{'seen_ids'}->{$docid} or $self->{'seen_ids'}->{$footid}) {
         $nr++;
@@ -7764,6 +7890,8 @@ sub _prepare_footnotes($)
       $self->{'seen_ids'}->{$footid} = 1;
       $self->{'seen_ids'}->{$docid} = 1;
       $self->{'targets'}->{$footnote} = { 'target' => $footid };
+      $self->{'special_targets'}->{'footnote_location'}->{$footnote}
+         = { 'target' => $docid };
       print STDERR "Enter footnote $footnote: target $footid, nr $footnote_nr\n"
        .Texinfo::Convert::Texinfo::convert_to_texinfo($footnote)."\n"
         if ($self->get_conf('DEBUG'));
@@ -8409,10 +8537,30 @@ $after_body_open
   return $result;
 }
 
-sub _default_format_footnotes_text($)
+sub _default_format_footnotes_sequence($)
 {
   my $self = shift;
-  return '' if (!$foot_lines);
+
+  my @pending_footnotes = $self->get_pending_footnotes();
+  my $result = '';
+  foreach my $pending_footnote_info_array (@pending_footnotes) {
+    my ($command, $footnote_text, $footid, $docid, $number_in_doc,
+        $footnote_location_filename) = @$pending_footnote_info_array;
+    my $footnote_location_href = $self->footnote_location_href($command, undef,
+                                           $docid, $footnote_location_filename);
+    $result .= '<h5>' .
+     "<a id=\"$footid\" href=\"$footnote_location_href\">($number_in_doc)</a></h5>\n"
+     . $footnote_text;
+  }
+  return $result;
+}
+
+sub _default_format_footnotes_portion($)
+{
+  my $self = shift;
+  my $foot_lines
+    = &{$self->formatting_function('format_footnotes_sequence')}($self);
+  return '' if ($foot_lines eq '');
   my $result = $self->html_attribute_class('div', ['footnote']).">\n";
   $result .= $self->get_conf('DEFAULT_RULE') . "\n" 
      if (defined($self->get_conf('DEFAULT_RULE')) 
@@ -8424,8 +8572,7 @@ sub _default_format_footnotes_text($)
   my $level = $self->get_conf('FOOTNOTE_END_HEADER_LEVEL');
   $result .= &{$self->formatting_function('format_heading_text')}($self, undef,
                           [$class.'-heading'], $footnote_heading, $level)."\n";
-  $result .= &{$self->formatting_function('format_special_element_body')}($self,
-                                                                   'footnotes');
+  $result .= $foot_lines;
   $result .= "</div>\n";
   return $result;
 }
@@ -8544,9 +8691,7 @@ EOT
   } elsif ($special_type eq 'shortcontents') {
     return &{$self->formatting_function('format_contents')}($self, 'shortcontents');
   } elsif ($special_type eq 'footnotes') {
-    my $result = $foot_lines;
-    $foot_lines = '';
-    return $result;
+    return &{$self->formatting_function('format_footnotes_sequence')}($self);
   }
 }
 
@@ -8748,7 +8893,7 @@ sub convert($$)
   if (!defined($tree_units)) {
     print STDERR "\nC NO UNIT\n" if ($self->get_conf('DEBUG'));
     $result = $self->_convert($root, 'convert no unit');
-    $result .= &{$self->formatting_function('format_footnotes_text')}($self);
+    $result .= &{$self->formatting_function('format_footnotes_portion')}($self);
   } else {
     my $unit_nr = 0;
     # TODO there is no rule before the footnotes special element in
@@ -9206,7 +9351,7 @@ sub output($$)
       $body .= $self->_print_title();
       print STDERR "\nNO UNIT NO PAGE\n" if ($self->get_conf('DEBUG'));
       $body .= $self->_convert($root, 'no-page output no unit');
-      $body .= &{$self->formatting_function('format_footnotes_text')}($self);
+      $body .= &{$self->formatting_function('format_footnotes_portion')}($self);
     }
 
     # do end file first, in case it needs some CSS

@@ -694,10 +694,10 @@ my @file_tests = (
 
 @node @^i
 ', {'test_split' => 'section'}, {'SPLIT' => 'chapter'}],
-# TODO? the result is incorrect, the second footnote text is in
-# the separate file but the link in chap-s.html points to the same file.
+# NOTE the result is incorrect, the first footnote text is at the
+# end of the file but the link is towards the sparate file.
 # The manual states that the footnotestyle should be in the preamble,
-# so it is very unclear whether this needs to be fixed.
+# so it needs not to be fixed.
 ['footnotestyle_separate_late',
 '@setfilename footnotestyle_separate_late.info
 
