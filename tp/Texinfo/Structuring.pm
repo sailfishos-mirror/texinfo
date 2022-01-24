@@ -1889,9 +1889,16 @@ I<$node> is a node tree element.  Find the node I<$node> children based
 on the sectioning structure.  For the node associated with C<@top>
 sectioning command, the sections associated with parts are considered.
 
-=item sub index_entry_sort_string($main_entry, $entry_tree_element, $sortas, $options)
+=item $entry_key = index_entry_sort_string($main_entry, $entry_tree_element, $sortas, $options)
 
-TODO
+Return a string suitable as a sort string, for index entries.
+The index entry processed is I<$entry_tree_element>, and can be a
+C<@subentry>.  I<$main_entry> is the main index entry tree element
+that can be used to gather information.  I<$sortas> can be given to
+override the sort string (typically obtained from C<@sortas>).   The
+I<$options> are options used for Texinfo to text conversion for
+the generation of the sort string, typically obtained from
+L<setup_index_entry_keys_formatting|/$option = setup_index_entry_keys_formatting($configuration_informations)>.
 
 =item $merged_entries = merge_indices($index_names)
 
@@ -2018,9 +2025,9 @@ Up, next and previous directions as set in menus.
 
 =back
 
-=item setup_index_entry_keys_formatting($configuration_informations)
+=item $option = setup_index_entry_keys_formatting($configuration_informations)
 
-TODO
+Return options for conversion of Texinfo to text relevant for index keys sorting.
 
 =item ($index_entries_sorted, $index_entries_sort_strings) = sort_indices($registrar, $configuration_informations, $merged_index_entries, $sort_by_letter)
 
