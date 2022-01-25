@@ -840,15 +840,11 @@ sub command_contents_href($$$;$)
   $source_filename = $self->{'current_filename'}
     if (not defined($source_filename));
 
-  my $special_element_type
-    = $contents_command_element_type{$contents_or_shortcontents};
-  my $special_element_direction
-       = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$special_element_type};
+  my ($special_element_type, $target_element, $class_base,
+    $special_element_direction)
+     = $self->command_name_special_element_information($contents_or_shortcontents);
   my $target
     = $self->command_contents_target($command, $contents_or_shortcontents);
-
-  my $target_element
-    = $self->special_direction_element($special_element_direction);
   my $target_filename;
   # !defined happens when called as convert() and not output()
   if (defined($target_element)) {
@@ -992,7 +988,7 @@ sub command_text($$;$)
         my $special_element_type = $command->{'extra'}->{'special_element_type'};
         $tree = $self->get_conf('SPECIAL_ELEMENTS_HEADING')->{$special_element_type};
         $explanation = "command_text $special_element_type";
-      } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'node' 
+      } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'node'
                                           or $command->{'cmdname'} eq 'anchor')) {
         $tree = {'type' => '_code',
                  'contents' => $command->{'extra'}->{'node_content'}};
@@ -1018,28 +1014,28 @@ sub command_text($$;$)
                              {'number'
                                 => {'text' => $command->{'structure'}->{'section_number'}},
                               'section_title'
-                                => {'contents' 
+                                => {'contents'
                                     => $command->{'args'}->[0]->{'contents'}}});
           } else {
             $tree = $self->gdt('{number} {section_title}',
                              {'number'
                                 => {'text' => $command->{'structure'}->{'section_number'}},
                               'section_title'
-                                => {'contents' 
+                                => {'contents'
                                     => $command->{'args'}->[0]->{'contents'}}});
           }
         } else {
           $tree = {'contents' => [@{$command->{'args'}->[0]->{'contents'}}]};
         }
 
-        $target->{'tree_nonumber'} 
+        $target->{'tree_nonumber'}
           = {'contents' => $command->{'args'}->[0]->{'contents'}};
       }
       $target->{'tree'} = $tree;
     } else {
       $tree = $target->{'tree'};
     }
-    return $target->{'tree_nonumber'} if ($type eq 'tree_nonumber' 
+    return $target->{'tree_nonumber'} if ($type eq 'tree_nonumber'
                                           and $target->{'tree_nonumber'});
     return $tree if ($type eq 'tree' or $type eq 'tree_nonumber');
     
@@ -1051,7 +1047,7 @@ sub command_text($$;$)
     }
     
     if ($type =~ /^(.*)_nonumber$/) {
-      $tree = $target->{'tree_nonumber'} 
+      $tree = $target->{'tree_nonumber'}
         if (defined($target->{'tree_nonumber'}));
     }
     $self->{'ignore_notice'}++;
@@ -1080,6 +1076,28 @@ sub special_direction_element($$)
   my $self = shift;
   my $direction = shift;
   return $self->{'special_elements_directions'}->{$direction};
+}
+
+sub command_name_special_element_information($$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+
+  my $special_element_type;
+  if (exists($contents_command_element_type{$cmdname})) {
+    $special_element_type = $contents_command_element_type{$cmdname};
+  } elsif ($cmdname eq 'footnote') {
+    $special_element_type = 'footnotes';
+  } else {
+    return (undef, undef, undef, undef);
+  }
+  my $special_element_direction
+    = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$special_element_type};
+  my $special_element
+    = $self->special_direction_element($special_element_direction);
+  my $class_base = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
+  return ($special_element_type, $special_element, $class_base,
+          $special_element_direction);
 }
 
 sub global_element($$)
@@ -2093,7 +2111,7 @@ $default_commands_conversion{'page'} = undef;
 $default_commands_conversion{'need'} = undef;
 $default_commands_conversion{'vskip'} = undef;
 
-foreach my $ignored_brace_commands ('caption', 'shortcaption', 
+foreach my $ignored_brace_commands ('caption', 'shortcaption',
   'hyphenation', 'sortas') {
   $default_commands_conversion{$ignored_brace_commands} = undef;
 }
@@ -4972,14 +4990,11 @@ sub _contents_inline_element($$$)
   my $content = &{$self->formatting_function('format_contents')}($self,
                                                           $cmdname, $command);
   if ($content) {
-    my $special_element_type = $contents_command_element_type{$cmdname};
-    my $special_element_direction
-      = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$special_element_type};
-    my $special_element
-      = $self->special_direction_element($special_element_direction);
-    my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
+    my ($special_element_type, $special_element, $class_base,
+        $special_element_direction)
+          = $self->command_name_special_element_information($cmdname);
     # FIXME is element- the best prefix?
-    my $result = $self->html_attribute_class('div', ["element-${class}"]);
+    my $result = $self->html_attribute_class('div', ["element-${class_base}"]);
     my $heading;
     if ($special_element) {
       my $id = $self->command_id($special_element);
@@ -4996,7 +5011,7 @@ sub _contents_inline_element($$$)
     }
     $result .= ">\n";
     $result .= &{$self->formatting_function('format_heading_text')}($self,
-                                  $cmdname, [$class.'-heading'], $heading,
+                                  $cmdname, [$class_base.'-heading'], $heading,
                                   $self->get_conf('CHAPTER_HEADER_LEVEL'))."\n";
     $result .= $content . "</div>\n";
     return $result;
@@ -6063,8 +6078,8 @@ sub _convert_special_element_type($$$$)
   my $special_element_type = $element->{'extra'}->{'special_element_type'};
   $result .= join('', $self->close_registered_sections_level(0));
   my $id = $self->command_id($element);
-  my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
-  $result .= $self->html_attribute_class('div', ["element-${class}"]);
+  my $class_base = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
+  $result .= $self->html_attribute_class('div', ["element-${class_base}"]);
   if ($id ne '') {
     $result .= " id=\"$id\"";
   }
@@ -6082,7 +6097,7 @@ sub _convert_special_element_type($$$$)
     $level = $self->get_conf('FOOTNOTE_SEPARATE_HEADER_LEVEL');
   }
   $result .= &{$self->formatting_function('format_heading_text')}($self,
-                           undef, [$class.'-heading'], $heading, $level)."\n";
+                           undef, [$class_base.'-heading'], $heading, $level)."\n";
 
   my $special_element_body
     .= &{$self->formatting_function('format_special_element_body')}($self,
@@ -7346,13 +7361,15 @@ sub _html_get_tree_root_element($$;$)
         die "Problem $root_element, $root_command" if (defined($root_element)
                                                   or defined($root_command));
         return (undef, undef);
-      } elsif ($current->{'cmdname'} eq 'footnote' 
-               and $self->special_direction_element('Footnotes')
-               and $find_container) {
-         # in that case there is no root_command
-         #print STDERR "SPECIAL footnote\n" if ($debug);
-         $root_element = $self->special_direction_element('Footnotes');
-         return ($root_element);
+      } elsif ($find_container) {
+        # @footnote and possibly @*contents when a separate element is set
+        my ($special_element_type, $special_element, $class_base,
+            $special_element_direction)
+         = $self->command_name_special_element_information($current->{'cmdname'});
+        if ($special_element) {
+          #print STDERR "SPECIAL $current->{'cmdname'}: $special_element_type ($special_element_direction)\n" if ($debug);
+          return ($special_element);
+        }
       }
     }
     if ($current->{'structure'}

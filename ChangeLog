@@ -1,5 +1,13 @@
 2022-01-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm
+	(command_name_special_element_information, command_contents_href)
+	(_contents_inline_element, _html_get_tree_root_element): add
+	command_name_special_element_information() to get information
+	on a special element associated with an @-command name.
+
+2022-01-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (format_footnotes_segment):
 	rename format_footnotes_portion as format_footnotes_segment.
 

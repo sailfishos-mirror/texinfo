@@ -16,7 +16,6 @@ Before next release
 Bugs
 ====
 
-
 HTML API
 ========
 
@@ -35,8 +34,6 @@ Some private variables/private state used in conversion
   $self->{'element_explanation_contents'}
  _convert_footnote_command:
   $foot_num, %footnote_id_numbers
- _contents_inline_element
-  %contents_command_element_type
  _convert_printindex_command
   %formatted_index_entries
  _convert_menu_command
@@ -88,7 +85,8 @@ used in _contents_inline_element
 from_element_direction
 command_target command_filename command_string command_id command_href
 command_contents_href command_contents_target
-special_element (argument: a $special_element_direction?)
+special_direction_element
+command_name_special_element_information
 command_root_element_command label_command
 footnote_location_target footnote_location_href
 
