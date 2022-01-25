@@ -1334,6 +1334,24 @@ sub get_value($$)
   }
 }
 
+# $INITIALIZATION_VALUE is only used for the initialization.
+# If it is not a reference, it is turned into a scalar reference.
+sub shared_conversion_state($$;$)
+{
+  my $self = shift;
+  my $state_name = shift;
+  my $initialization_value = shift;
+
+  if (not defined($self->{'shared_conversion_state'}->{$state_name})) {
+    if (not ref($initialization_value)) {
+      $self->{'shared_conversion_state'}->{$state_name} = \$initialization_value;
+    } else {
+      $self->{'shared_conversion_state'}->{$state_name} = $initialization_value;
+    }
+  }
+  return $self->{'shared_conversion_state'}->{$state_name};
+}
+
 sub register_footnote($$$$$$$)
 {
   my ($self, $command, $footnote_text, $footid, $docid, $number_in_doc,
@@ -2556,8 +2574,6 @@ sub _convert_email_command($$$$)
 
 $default_commands_conversion{'email'} = \&_convert_email_command;
 
-# FIXME set and use 'explained_commands' and 'element_explanation_contents'
-# converter state.  Should there be an API instead?
 sub _convert_explained_command($$$$)
 {
   my $self = shift;
@@ -2572,6 +2588,10 @@ sub _convert_explained_command($$$$)
     = Texinfo::Convert::NodeNameNormalization::normalize_node(
     {'contents' => $command->{'args'}->[0]->{'contents'}});
 
+  my $explained_commands
+    = $self->shared_conversion_state('explained_commands', {});
+  my $element_explanation_contents
+    = $self->shared_conversion_state('element_explanation_contents', {});
   if ($args->[1] and defined($args->[1]->{'string'})
                  and $args->[1]->{'string'} =~ /\S/) {
     $with_explanation = 1;
@@ -2582,31 +2602,30 @@ sub _convert_explained_command($$$$)
     # for recursively-defined acronyms.
     $explanation_result = $self->convert_tree($args->[1]->{'tree'},
                                               "convert $cmdname explanation");
-
-    $self->{'explained_commands'}->{$cmdname}->{$normalized_type} =
+    $explained_commands->{$cmdname}->{$normalized_type} =
        $command->{'args'}->[1]->{'contents'};
-  } elsif ($self->{'element_explanation_contents'}->{$command}) {
+  } elsif ($element_explanation_contents->{$command}) {
     # if an acronym element is formatted more than once, this ensures that
     # only the first explanation (including a lack of explanation) is reused.
     # Note that this means that acronyms converted first on a sectioning
     # command line for a direction text may not get the explanation
     # from acronyms appearing later on in the document but before
     # the sectioning command.
-    if (@{$self->{'element_explanation_contents'}->{$command}}) {
+    if (@{$element_explanation_contents->{$command}}) {
       $explanation_string = $self->convert_tree_new_formatting_context(
         {'type' => '_string',
-         'contents' => $self->{'element_explanation_contents'}->{$command}},
+         'contents' => $element_explanation_contents->{$command}},
         $cmdname, $cmdname);
     }
-  } elsif ($self->{'explained_commands'}->{$cmdname}->{$normalized_type}) {
+  } elsif ($explained_commands->{$cmdname}->{$normalized_type}) {
     $explanation_string = $self->convert_tree_new_formatting_context(
                       {'type' => '_string',
-                       'contents' => $self->{'explained_commands'}
+                       'contents' => $explained_commands
                                      ->{$cmdname}->{$normalized_type}},
                                                    $cmdname, $cmdname);
 
-    $self->{'element_explanation_contents'}->{$command}
-       = $self->{'explained_commands'}->{$cmdname}->{$normalized_type};
+    $element_explanation_contents->{$command}
+       = $explained_commands->{$cmdname}->{$normalized_type};
   } else {
     # Avoid ever giving an explanation for this element, even if an
     # explanation could appear later on, for instance if acronym is
@@ -2616,7 +2635,7 @@ sub _convert_explained_command($$$$)
     # @acronym within the explanation could end up referring to the
     # containing @acronym.
 
-    $self->{'element_explanation_contents'}->{$command} = [];
+    $element_explanation_contents->{$command} = [];
   }
   my $result = $args->[0]->{'normal'};
   if (!$self->in_string()) {
@@ -2661,9 +2680,6 @@ sub _convert_anchor_command($$$$)
 
 $default_commands_conversion{'anchor'} = \&_convert_anchor_command;
 
-my $foot_num;
-
-my %footnote_id_numbers;
 sub _convert_footnote_command($$$$)
 {
   my $self = shift;
@@ -2672,9 +2688,10 @@ sub _convert_footnote_command($$$$)
   my $args = shift;
 
   my $number_in_doc;
-  $foot_num++;
+  my $foot_num = $self->shared_conversion_state('footnote_number', 0);
+  ${$foot_num}++;
   if ($self->get_conf('NUMBER_FOOTNOTES')) {
-    $number_in_doc = $foot_num;
+    $number_in_doc = $$foot_num;
   } else {
     $number_in_doc = $self->get_conf('NO_NUMBER_FOOTNOTE_SYMBOL');
   }
@@ -2704,19 +2721,21 @@ sub _convert_footnote_command($$$$)
   if (defined($multi_expanded_region)) {
     # to avoid duplicate names, use a prefix that cannot happen in anchors
     my $target_prefix = "t_f";
-    $footid = $target_prefix.$multi_expanded_region.'_'.$footid.'_'.$foot_num;
-    $docid = $target_prefix.$multi_expanded_region.'_'.$docid.'_'.$foot_num;
+    $footid = $target_prefix.$multi_expanded_region.'_'.$footid.'_'.$$foot_num;
+    $docid = $target_prefix.$multi_expanded_region.'_'.$docid.'_'.$$foot_num;
   } else {
-    if (!defined($footnote_id_numbers{$footid})) {
-      $footnote_id_numbers{$footid} = $foot_num;
+    my $footnote_id_numbers
+      = $self->shared_conversion_state('footnote_id_numbers', {});
+    if (!defined($footnote_id_numbers->{$footid})) {
+      $footnote_id_numbers->{$footid} = $$foot_num;
     } else {
       # This should rarely happen, except for @footnote in @copying and
       # multiple @insertcopying...
       # Here it is not checked that there is no clash with another anchor. 
       # However, unless there are more than 1000 footnotes this should not 
       # happen.
-      $footid .= '_'.$foot_num;
-      $docid .= '_'.$foot_num;
+      $footid .= '_'.$$foot_num;
+      $docid .= '_'.$$foot_num;
       $multiple_expanded_footnote = 1;
     }
   }
@@ -3751,7 +3770,6 @@ sub _indent_with_table($$$;$)
                 ."</td></tr></table>\n";
 }
 
-my $html_menu_entry_index = 0;
 sub _convert_preformatted_command($$$$)
 {
   my $self = shift;
@@ -4123,7 +4141,10 @@ sub _convert_menu_command($$$$)
 
   return $content if ($cmdname eq 'detailmenu');
 
-  $html_menu_entry_index = 0;
+  my $html_menu_entry_index
+    = $self->shared_conversion_state('html_menu_entry_index', 0);
+  $$html_menu_entry_index = 0;
+
   if ($content !~ /\S/) {
     return '';
   }
@@ -4796,8 +4817,6 @@ sub _convert_index_command($$$$)
 }
 $default_commands_conversion{'cindex'} = \&_convert_index_command;
 
-my %formatted_index_entries;
-
 sub _convert_printindex_command($$$$)
 {
   my $self = shift;
@@ -4895,6 +4914,8 @@ sub _convert_printindex_command($$$$)
     .  $self->convert_tree($self->gdt('Section'))
     ."</th></tr>\n" . "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')
     ."</td></tr>\n";
+  my $formatted_index_entries
+    = $self->shared_conversion_state('formatted_index_entries', {});
   foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
     my $entries_text = '';
@@ -4904,10 +4925,10 @@ sub _convert_printindex_command($$$$)
       # to avoid double error messages set ignore_notice if an entry was
       # already formatted once, for example if there are multiple printindex.
       my $already_formatted;
-      if (!$formatted_index_entries{$index_entry_ref}) {
-        $formatted_index_entries{$index_entry_ref} = 1;
+      if (!$formatted_index_entries->{$index_entry_ref}) {
+        $formatted_index_entries->{$index_entry_ref} = 1;
       } else {
-        $formatted_index_entries{$index_entry_ref}++;
+        $formatted_index_entries->{$index_entry_ref}++;
       }
 
       my $subentries_tree = $self->comma_index_subentries_tree($index_entry_ref);
@@ -4918,10 +4939,10 @@ sub _convert_printindex_command($$$$)
       $entry_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
 
       my $entry;
-      if ($formatted_index_entries{$index_entry_ref} > 1) {
+      if ($formatted_index_entries->{$index_entry_ref} > 1) {
         $entry = $self->convert_tree_new_formatting_context($entry_tree,
                        "index $index_name l $letter index entry $entry_nr",
-                   "index formatted $formatted_index_entries{$index_entry_ref}")
+                   "index formatted $formatted_index_entries->{$index_entry_ref}")
       } else {
         $entry = $self->convert_tree($entry_tree,
                             "index $index_name l $letter index entry $entry_nr");
@@ -5473,10 +5494,12 @@ sub _convert_menu_entry_type($$$)
     }
   }
 
-  $html_menu_entry_index++;
+  my $html_menu_entry_index
+    = $self->shared_conversion_state('html_menu_entry_index', 0);
+  ${$html_menu_entry_index}++;
   my $accesskey = '';
-  $accesskey = " accesskey=\"$html_menu_entry_index\"" 
-    if ($self->get_conf('USE_ACCESSKEY') and $html_menu_entry_index < 10);
+  $accesskey = " accesskey=\"$$html_menu_entry_index\"" 
+    if ($self->get_conf('USE_ACCESSKEY') and $$html_menu_entry_index < 10);
 
   my $MENU_SYMBOL = $self->get_conf('MENU_SYMBOL');
   my $MENU_ENTRY_COLON = $self->get_conf('MENU_ENTRY_COLON');
@@ -6556,6 +6579,9 @@ sub _load_htmlxref_files {
 #  output_init_conf
 #
 #     API exists
+#  shared_conversion_state
+#
+#     API exists
 #  current_filename
 #  document_name
 #  destination_directory
@@ -6650,10 +6676,6 @@ my %special_characters = (
 sub converter_initialize($)
 {
   my $self = shift;
-
-  $foot_num = 0;
-  %formatted_index_entries = ();
-  %footnote_id_numbers = ();
 
   %{$self->{'css_element_class_styles'}} = %css_element_class_styles;
 
@@ -8899,10 +8921,7 @@ sub convert($$)
 
   my $result = '';
 
-  # FIXME the document_name and destination_directory arguments are undef.
-  # If a converter is reused, it could be possible to set before and reuse
-  # here something like $self->{'document_name'}
-  # but it is unclear if it is correct or not.
+  $self->{'shared_conversion_state'} = {};
 
   # call before _prepare_conversion_tree_units, which calls _translate_names.
   # Some informations are not set yet.
@@ -9105,6 +9124,8 @@ sub output($$)
   $self->{'output_init_conf'} = { %{$self->{'conf'}} };
 
   $self->{'current_filename'} = undef;
+
+  $self->{'shared_conversion_state'} = {};
 
   # setup informations once here, to have some information for
   # run_stage_handlers.  Some informations are not set yet.

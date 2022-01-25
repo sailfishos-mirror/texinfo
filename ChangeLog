@@ -1,5 +1,12 @@
 2022-01-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (shared_conversion_state): add
+	shared_conversion_state() for conversion state information
+	shared among conversion functions.  It is only used in code
+	that can be customized by the user.
+
+2022-01-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm
 	(command_name_special_element_information, command_contents_href)
 	(_contents_inline_element, _html_get_tree_root_element): add

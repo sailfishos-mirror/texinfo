@@ -28,19 +28,6 @@ Some private function used in conversion
  _convert_printindex_command
   _new_document_context
 
-Some private variables/private state used in conversion
- _convert_explained_command (actually internal to the function)
-  $self->{'explained_commands'}
-  $self->{'element_explanation_contents'}
- _convert_footnote_command:
-  $foot_num, %footnote_id_numbers
- _convert_printindex_command
-  %formatted_index_entries
- _convert_menu_command
- _convert_menu_entry_type
-  $html_menu_entry_index
-
-
 To document:
 -----------
 
@@ -55,6 +42,7 @@ convert* call
 
 args in *convert*, in %default_commands_args
 
+shared_conversion_state
 
 register_file_information
 
