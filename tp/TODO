@@ -13,20 +13,6 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
-In _html_get_tree_root_element:
-         if ($current->{'cmdname'} eq 'footnote'
-           and $self->special_element('Footnotes')
-           and $find_container) {
-           # in that case there is no root_command
-          #print STDERR "SPECIAL footnote\n" if ($debug);
-          $root_element = $self->special_element('Footnotes');
-          return ($root_element);
-This means that even if the current footnotestyle is 'end' all the footnotes
-are assumed to be in the seprate element (which is setup early on if
-footnotestyle is 'separate' at the end of the document).
-
-s/special_element(/special_direction_element(/
-
 Bugs
 ====
 
@@ -48,9 +34,7 @@ Some private variables/private state used in conversion
   $self->{'explained_commands'}
   $self->{'element_explanation_contents'}
  _convert_footnote_command:
-  $foot_num, $foot_lines, $NO_NUMBER_FOOTNOTE_SYMBOL, $target_prefix, %footnote_id_numbers
- _default_format_special_element_body
-  $foot_lines
+  $foot_num, $NO_NUMBER_FOOTNOTE_SYMBOL, %footnote_id_numbers
  _contents_inline_element
   %contents_command_element_type
  _convert_preformatted_command

@@ -4920,7 +4920,7 @@ line
 <p>A ref 2.
 See <a class="xref" href="#Top">xref Text with features caption</a>.
 A footnote 2.
-<a class="footnote" id="t_hlistoffloats_DOCF3_1" href="#t_hlistoffloats_FOOT3_1"><sup>1</sup></a>.
+<a class="footnote" id="t_flistoffloats_DOCF3_1" href="#t_flistoffloats_FOOT3_1"><sup>1</sup></a>.
 </p>
 <p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a class="url" href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.
 </p></dd>
@@ -5056,7 +5056,7 @@ A footnote 2.
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h5><a id="t_hlistoffloats_FOOT3_1" href="#t_hlistoffloats_DOCF3_1">(1)</a></h5>
+<h5><a id="t_flistoffloats_FOOT3_1" href="#t_flistoffloats_DOCF3_1">(1)</a></h5>
 <p>footnote Text with features caption 2</p>
 <h5><a id="FOOT1" href="#DOCF1">(2)</a></h5>
 <p>footnote Text with features</p>

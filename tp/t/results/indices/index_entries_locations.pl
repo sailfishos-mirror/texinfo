@@ -579,26 +579,26 @@ end paragraph.
 <p>Last paragraph.
 </p>
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-E"><b>E</b></a>
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-E"><b>E</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#t_h_cp_letter-L"><b>L</b></a>
+<a class="summary-letter-printindex" href="#t_i_cp_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_h_cp_letter-E">E</th><td></td><td></td></tr>
+<tr><th id="t_i_cp_letter-E">E</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-entry-at-end-of-paragraph_002e">entry at end of paragraph.</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Entry-before-paragraph">Entry before paragraph</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-entry-in-paragraph">entry in paragraph</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_h_cp_letter-L">L</th><td></td><td></td></tr>
+<tr><th id="t_i_cp_letter-L">L</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-lone-entry">lone entry</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-E"><b>E</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-E"><b>E</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#t_h_cp_letter-L"><b>L</b></a>
+<a class="summary-letter-printindex" href="#t_i_cp_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
 </div>

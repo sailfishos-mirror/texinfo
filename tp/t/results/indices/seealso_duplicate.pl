@@ -463,18 +463,18 @@ $result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node" id="To
 <a class="index-entry-id" id="index-awk-1"></a>
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-A"><b>A</b></a>
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_h_cp_letter-A">A</th><td></td><td></td></tr>
+<tr><th id="t_i_cp_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-awk"><code class="command">awk</code>, POSIX and</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-awk-1"><code class="command">awk</code>, POSIX and</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-A"><b>A</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
  &nbsp; 
 </td></tr></table>
 </div>

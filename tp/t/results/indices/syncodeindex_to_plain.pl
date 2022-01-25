@@ -538,32 +538,32 @@ $result_converted{'html_text'}->{'syncodeindex_to_plain'} = '
 
 <p>cp index.
 </p><div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_symbol-1"><b>-</b></a>
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_symbol-1"><b>-</b></a>
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_h_cp_symbol-1">-</th><td></td><td></td></tr>
+<tr><th id="t_i_cp_symbol-1">-</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-_002d_002dk1"><code>--k1</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-_002d_002dc">&ndash;c</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_symbol-1"><b>-</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_symbol-1"><b>-</b></a>
 </td></tr></table>
 </div>
 
 <p>vr index.
 </p><div class="printindex vr-printindex">
-<table class="vr-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_vr_symbol-1"><b>-</b></a>
+<table class="vr-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_vr_symbol-1"><b>-</b></a>
 </td></tr></table>
 <table class="vr-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_h_vr_symbol-1">-</th><td></td><td></td></tr>
+<tr><th id="t_i_vr_symbol-1">-</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-_002d_002dv"><code>--v</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="vr-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_vr_symbol-1"><b>-</b></a>
+<table class="vr-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_vr_symbol-1"><b>-</b></a>
 </td></tr></table>
 </div>
 ';

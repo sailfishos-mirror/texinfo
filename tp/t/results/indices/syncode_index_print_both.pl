@@ -809,24 +809,24 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 <p>Print cp
 </p>
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-C"><b>C</b></a>
+<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#t_h_cp_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#t_i_cp_letter-F"><b>F</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_h_cp_letter-C">C</th><td></td><td></td></tr>
+<tr><th id="t_i_cp_letter-C">C</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002d_002d_002doncept">c&mdash;oncept</a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_h_cp_letter-F">F</th><td></td><td></td></tr>
+<tr><th id="t_i_cp_letter-F">F</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-f_002d_002d_002dun"><code>f---un</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_cp_letter-C"><b>C</b></a>
+<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#t_h_cp_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#t_i_cp_letter-F"><b>F</b></a>
  &nbsp; 
 </td></tr></table>
 </div>

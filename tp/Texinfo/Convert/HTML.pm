@@ -849,9 +849,11 @@ sub command_contents_href($$$;$)
     = $contents_command_element_type{$contents_or_shortcontents};
   my $special_element_direction
        = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$special_element_type};
-  my $target = $self->command_contents_target($command, $contents_or_shortcontents);
+  my $target
+    = $self->command_contents_target($command, $contents_or_shortcontents);
 
-  my $target_element = $self->special_element($special_element_direction);
+  my $target_element
+    = $self->special_direction_element($special_element_direction);
   my $target_filename;
   # !defined happens when called as convert() and not output()
   if (defined($target_element)) {
@@ -1078,7 +1080,7 @@ sub label_command($$)
   return undef;
 }
 
-sub special_element($$)
+sub special_direction_element($$)
 {
   my $self = shift;
   my $direction = shift;
@@ -1230,8 +1232,8 @@ sub from_element_direction($$$;$$)
       }
       $target = $self->{'targets'}->{$command} if ($command);
     }
-  } elsif ($self->special_element($direction)) {
-    $target_element = $self->special_element($direction);
+  } elsif ($self->special_direction_element($direction)) {
+    $target_element = $self->special_direction_element($direction);
     $command = $target_element;
     if ($type eq 'href') {
       return $self->command_href($target_element, $source_filename);
@@ -1895,10 +1897,12 @@ sub _translate_names($)
   foreach my $special_element_type (keys (%SPECIAL_ELEMENTS_HEADING)) {
     my $special_element_direction
        = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$special_element_type};
-    if ($self->special_element($special_element_direction) and
-        $self->{'targets'}->{$self->special_element($special_element_direction)}) {
+    my $special_element
+       = $self->special_direction_element($special_element_direction);
+    if ($special_element and
+        $self->{'targets'}->{$special_element}) {
       my $target
-        = $self->{'targets'}->{$self->special_element($special_element_direction)};
+        = $self->{'targets'}->{$special_element};
       foreach my $key ('text', 'string', 'tree') {
         delete $target->{$key};
       }
@@ -2645,8 +2649,6 @@ $default_commands_conversion{'anchor'} = \&_convert_anchor_command;
 my $foot_num;
 my $NO_NUMBER_FOOTNOTE_SYMBOL = '*';
 
-# to avoid duplicate names, use a prefix that cannot happen in anchors
-my $target_prefix = "t_h";
 my %footnote_id_numbers;
 sub _convert_footnote_command($$$$)
 {
@@ -2686,6 +2688,8 @@ sub _convert_footnote_command($$$$)
   my $multiple_expanded_footnote = 0;
   my $multi_expanded_region = $self->in_multi_expanded();
   if (defined($multi_expanded_region)) {
+    # to avoid duplicate names, use a prefix that cannot happen in anchors
+    my $target_prefix = "t_f";
     $footid = $target_prefix.$multi_expanded_region.'_'.$footid.'_'.$foot_num;
     $docid = $target_prefix.$multi_expanded_region.'_'.$docid.'_'.$foot_num;
   } else {
@@ -4821,6 +4825,8 @@ sub _convert_printindex_command($$$$)
     my $letter = $letter_entry->{'letter'};
     my $index_element_id = $self->from_element_direction('This', 'target');
     if (!defined($index_element_id)) {
+      # to avoid duplicate names, use a prefix that cannot happen in anchors
+      my $target_prefix = "t_i";
       $index_element_id = $target_prefix;
     }
     my $is_symbol = $letter !~ /^[[:alpha:]]/;
@@ -4974,7 +4980,7 @@ sub _contents_inline_element($$$)
     my $special_element_direction
       = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$special_element_type};
     my $special_element
-      = $self->special_element($special_element_direction);
+      = $self->special_direction_element($special_element_direction);
     my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
     # FIXME is element- the best prefix?
     my $result = $self->html_attribute_class('div', ["element-${class}"]);
@@ -7345,11 +7351,11 @@ sub _html_get_tree_root_element($$;$)
                                                   or defined($root_command));
         return (undef, undef);
       } elsif ($current->{'cmdname'} eq 'footnote' 
-               and $self->special_element('Footnotes')
+               and $self->special_direction_element('Footnotes')
                and $find_container) {
          # in that case there is no root_command
          #print STDERR "SPECIAL footnote\n" if ($debug);
-         $root_element = $self->special_element('Footnotes');
+         $root_element = $self->special_direction_element('Footnotes');
          return ($root_element);
       }
     }
@@ -7544,6 +7550,14 @@ sub _prepare_conversion_tree_units($$$$)
   $self->set_global_document_commands('last', \@conf_for_special_elements);
   # Do that before the other elements, to be sure that special page ids
   # are registered before elements id are.
+  # NOTE if the last value of footnotestyle is separate, all the footnotes
+  # formatted text are set to the special element set in _prepare_special_elements
+  # as _html_get_tree_root_element uses the Footnote direction for every footnote.
+  # Therefore if @footnotestyle separate is set late in the document the current
+  # value may not be consistent with the link obtained for the footnote
+  # formatted text.  This is not an issue, as the manual says that
+  # @footnotestyle should only appear in the preamble, and it makes sense
+  # to have something consistent in the whole document for footnotes position.
   my $special_elements
     = $self->_prepare_special_elements($tree_units, $destination_directory,
                                        $document_name);

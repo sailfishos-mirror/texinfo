@@ -1028,34 +1028,34 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top-level-e
 <a class="url" href="and cmd">and cmd</a>.
 </p>
 <div class="printindex SK-printindex">
-<table class="SK-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_SK_symbol-1"><b>0</b></a>
+<table class="SK-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_SK_symbol-1"><b>0</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter-printindex" href="#t_h_SK_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#t_i_SK_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#t_h_SK_letter-B"><b>B</b></a>
+<a class="summary-letter-printindex" href="#t_i_SK_letter-B"><b>B</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="SK-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_h_SK_symbol-1">0</th><td></td><td></td></tr>
+<tr><th id="t_i_SK_symbol-1">0</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-zero-sort-key">zero sort key</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_h_SK_letter-A">A</th><td></td><td></td></tr>
+<tr><th id="t_i_SK_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-bbbbbbb-_0028first_0029">bbbbbbb (first)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-aaa"><b class="b">aaa</b></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_h_SK_letter-B">B</th><td></td><td></td></tr>
+<tr><th id="t_i_SK_letter-B">B</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-aaaaaaa-_0028second_0029">aaaaaaa (second)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="SK-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_SK_symbol-1"><b>0</b></a>
+<table class="SK-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_SK_symbol-1"><b>0</b></a>
  &nbsp; 
 <br>
-<a class="summary-letter-printindex" href="#t_h_SK_letter-A"><b>A</b></a>
+<a class="summary-letter-printindex" href="#t_i_SK_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#t_h_SK_letter-B"><b>B</b></a>
+<a class="summary-letter-printindex" href="#t_i_SK_letter-B"><b>B</b></a>
  &nbsp; 
 </td></tr></table>
 </div>

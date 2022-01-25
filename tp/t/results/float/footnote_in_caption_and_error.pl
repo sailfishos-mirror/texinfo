@@ -430,7 +430,7 @@ $result_converted{'html'}->{'footnote_in_caption_and_error'} = '<!DOCTYPE html>
 <h1 class="node" id="Top">Top</h1>
 
 <dl class="listoffloats">
-<dt><a href="#label">fl 1</a></dt><dd class="caption-in-listoffloats"><p>in caption<a class="footnote" id="t_hlistoffloats_DOCF1_1" href="#t_hlistoffloats_FOOT1_1"><sup>1</sup></a></p></dd>
+<dt><a href="#label">fl 1</a></dt><dd class="caption-in-listoffloats"><p>in caption<a class="footnote" id="t_flistoffloats_DOCF1_1" href="#t_flistoffloats_FOOT1_1"><sup>1</sup></a></p></dd>
 </dl>
 
 <div class="float" id="label">
@@ -440,7 +440,7 @@ $result_converted{'html'}->{'footnote_in_caption_and_error'} = '<!DOCTYPE html>
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h5><a id="t_hlistoffloats_FOOT1_1" href="#t_hlistoffloats_DOCF1_1">(1)</a></h5>
+<h5><a id="t_flistoffloats_FOOT1_1" href="#t_flistoffloats_DOCF1_1">(1)</a></h5>
 <p>in footnote error&rarr;</p>
 <h5><a id="FOOT1" href="#DOCF1">(2)</a></h5>
 <p>in footnote error&rarr;</p>

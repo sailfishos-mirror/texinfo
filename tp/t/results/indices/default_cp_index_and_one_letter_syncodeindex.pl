@@ -392,17 +392,17 @@ $result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'}
 <a class="index-entry-id" id="index-_002d_002dcpindex"></a>
 
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_symbol-1"><b>-</b></a>
+<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_symbol-1"><b>-</b></a>
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_h_fn_symbol-1">-</th><td></td><td></td></tr>
+<tr><th id="t_i_fn_symbol-1">-</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-_002d_002dcindex"><code>--cindex</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-_002d_002dcpindex"><code>--cpindex</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_h_fn_symbol-1"><b>-</b></a>
+<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_symbol-1"><b>-</b></a>
 </td></tr></table>
 </div>
 ';
