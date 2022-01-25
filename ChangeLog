@@ -1,5 +1,17 @@
 2022-01-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%default_commands_args)
+	(_convert_footnote_command, _default_format_footnotes_sequence):
+	convert footnote body in _default_format_footnotes_sequence,
+	not when the footnote appears in _convert_footnote_command.
+
+	* tp/Texinfo/Convert/HTML.pm (register_footnote)
+	(_convert_footnote_command, _default_format_footnotes_sequence):
+	pass $multi_expanded_region information in register_footnote.
+	This information is not actually used, a comment explains why.
+
+2022-01-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (shared_conversion_state): add
 	shared_conversion_state() for conversion state information
 	shared among conversion functions.  It is only used in code

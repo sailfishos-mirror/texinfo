@@ -1754,7 +1754,9 @@ the author abandon his copyright.
 </p>
 <h5 class="footnote-body-heading"><a id="t_flistoffloats_FOOT1_4" href="#t_flistoffloats_DOCF1_4">(4)</a></h5>
 <p>The caption copying footnote
-</p>
+<a class="anchor" id="caption-copying-footnote-anchor"></a></p>
+<a class="index-entry-id" id="index-copying-indexed-caption-copying-footnote"></a>
+<a class="index-entry-id" id="index-copying-public-domain-function"></a>
 
 <p>see <a class="ref" href="#Copying-and-floats">Copying and floats</a>.
 </p>

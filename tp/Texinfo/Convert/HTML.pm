@@ -1354,10 +1354,10 @@ sub shared_conversion_state($$;$)
 
 sub register_footnote($$$$$$$)
 {
-  my ($self, $command, $footnote_text, $footid, $docid, $number_in_doc,
-      $footnote_location_filename) = @_;
-  push @{$self->{'pending_footnotes'}}, [$command, $footnote_text,
-       $footid, $docid, $number_in_doc, $footnote_location_filename];
+  my ($self, $command, $footid, $docid, $number_in_doc,
+      $footnote_location_filename, $multi_expanded_region) = @_;
+  push @{$self->{'pending_footnotes'}}, [$command, $footid, $docid,
+     $number_in_doc, $footnote_location_filename, $multi_expanded_region];
 }
 
 sub get_pending_footnotes($)
@@ -2067,11 +2067,12 @@ my %default_code_types = (
 
 # specification of arguments formatting
 my %default_commands_args = (
-  'email' => [['monospace', 'monospacestring'], ['normal']],
   'anchor' => [['monospacestring']],
+  'email' => [['monospace', 'monospacestring'], ['normal']],
+  'footnote' => [[]],
+  'printindex' => [[]],
   'uref' => [['monospacestring'], ['normal'], ['normal']],
   'url' => [['monospacestring'], ['normal'], ['normal']],
-  'printindex' => [[]],
   'sp' => [[]],
   'inforef' => [['monospace'],['normal'],['monospacetext']],
   'xref' => [['monospace'],['normal'],['normal'],['monospacetext'],['normal']],
@@ -2707,15 +2708,6 @@ sub _convert_footnote_command($$$$)
   # ID for linking back to the main text from the footnote.
   my $docid = $self->footnote_location_target($command);
 
-  my $footnote_text;
-  if ($args->[0]) {
-    $footnote_text = $args->[0]->{'normal'};
-  } else {
-    $footnote_text = '';
-  }
-  chomp ($footnote_text);
-  $footnote_text .= "\n";
-
   my $multiple_expanded_footnote = 0;
   my $multi_expanded_region = $self->in_multi_expanded();
   if (defined($multi_expanded_region)) {
@@ -2754,8 +2746,8 @@ sub _convert_footnote_command($$$$)
     $footnote_href = $self->command_href($command, undef, undef, $footid);
   }
 
-  $self->register_footnote($command, $footnote_text, $footid, $docid, $number_in_doc,
-                                                $self->get_info('current_filename'));
+  $self->register_footnote($command, $footid, $docid, $number_in_doc,
+                    $self->get_info('current_filename'), $multi_expanded_region);
 
   my $footnote_number_text;
   if ($self->in_preformatted()) {
@@ -7298,18 +7290,18 @@ sub _set_root_commands_targets_node_files($$)
                 and $self->get_conf('EXTENSION') ne '');
   if ($self->{'labels'}) {
     foreach my $label_element (values(%{$self->{'labels'}})) {
-      my ($filename, $target)
+      my ($node_filename, $target)
         = $self->_normalized_label_id_file($label_element->{'extra'});
-      $filename .= $extension;
+      $node_filename .= $extension;
       if (defined($self->{'file_id_setting'}->{'node_file_name'})) {
-        $filename = &{$self->{'file_id_setting'}->{'node_file_name'}}(
-                                              $self, $label_element, $filename);
+        $node_filename = &{$self->{'file_id_setting'}->{'node_file_name'}}(
+                                       $self, $label_element, $node_filename);
       }
       if ($self->get_conf('DEBUG')) {
-        print STDERR "Label($label_element) \@$label_element->{'cmdname'} $target, $filename\n";
+        print STDERR "Label($label_element) \@$label_element->{'cmdname'} $target, $node_filename\n";
       }
       $self->{'targets'}->{$label_element} = {'target' => $target,
-                                             'node_filename' => $filename};
+                                           'node_filename' => $node_filename};
       $self->{'seen_ids'}->{$target} = 1;
     }
   }
@@ -8593,10 +8585,27 @@ sub _default_format_footnotes_sequence($)
   my @pending_footnotes = $self->get_pending_footnotes();
   my $result = '';
   foreach my $pending_footnote_info_array (@pending_footnotes) {
-    my ($command, $footnote_text, $footid, $docid, $number_in_doc,
-        $footnote_location_filename) = @$pending_footnote_info_array;
+    my ($command, $footid, $docid, $number_in_doc,
+        $footnote_location_filename, $multi_expanded_region)
+          = @$pending_footnote_info_array;
     my $footnote_location_href = $self->footnote_location_href($command, undef,
                                            $docid, $footnote_location_filename);
+    # NOTE the @-commands in @footnote that are formatted differently depending
+    # on $self->in_multi_expanded() cannot know that the original context
+    # of the @footnote in the main document was $multi_expanded_region.
+    # We do not want to set multi_expanded in customizable code.  However, it
+    # could be possible to set a shared_conversion_state based on $multi_expanded_region
+    # and have all the conversion functions calling $self->in_multi_expanded()
+    # also check the shared_conversion_state.  The special situations
+    # with those @-commands in @footnote in multi expanded
+    # region do not justify this additional code and complexity.  The consequences
+    # should only be redundant anchors HTML elements.
+    my $footnote_text
+        = $self->convert_tree_new_formatting_context($command->{'args'}->[0],
+                              "$command->{'cmdname'} $number_in_doc $footid");
+    chomp ($footnote_text);
+    $footnote_text .= "\n";
+
     $result .= $self->html_attribute_class('h5', ['footnote-body-heading']) . '>'.
      "<a id=\"$footid\" href=\"$footnote_location_href\">($number_in_doc)</a></h5>\n"
      . $footnote_text;
