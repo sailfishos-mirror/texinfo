@@ -116,12 +116,7 @@ my %align_commands = %Texinfo::Common::align_commands;
 my %region_commands = %Texinfo::Common::region_commands;
 my %context_brace_commands = %Texinfo::Common::context_brace_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
-
-my %small_alias;
-for my $cmd ('example', 'display', 'format', 'lisp', 'quotation',
-             'indentedblock') {
-  $small_alias{'small'.$cmd} = $cmd;
-};
+my %small_block_associated_command = %Texinfo::Common::small_block_associated_command;
 
 foreach my $def_command (keys(%def_commands)) {
   $formatted_misc_commands{$def_command} = 1 if ($misc_commands{$def_command});
@@ -2006,8 +2001,9 @@ $preformatted_commands_context{'verbatim'} = 1;
 my %pre_class_commands;
 foreach my $preformatted_command (keys(%preformatted_commands_context)) {
   # no class for the @small* variants
-  if ($small_alias{$preformatted_command}) {
-    $pre_class_commands{$preformatted_command} = $small_alias{$preformatted_command};
+  if ($small_block_associated_command{$preformatted_command}) {
+    $pre_class_commands{$preformatted_command}
+      = $small_block_associated_command{$preformatted_command};
   } else {
     $pre_class_commands{$preformatted_command} = $preformatted_command;
   }
@@ -3750,8 +3746,8 @@ sub _convert_preformatted_command($$$$)
   # this is mainly for classes as there are purprosely no classes 
   # for small*
   my $main_cmdname;
-  if ($small_alias{$cmdname}) {
-    $main_cmdname = $small_alias{$cmdname};
+  if ($small_block_associated_command{$cmdname}) {
+    $main_cmdname = $small_block_associated_command{$cmdname};
     push @classes, $cmdname;
   } else {
     $main_cmdname = $cmdname;
@@ -3802,9 +3798,9 @@ sub _convert_indented_command($$$$)
   my @classes;
 
   my $main_cmdname;
-  if ($small_alias{$cmdname}) {
+  if ($small_block_associated_command{$cmdname}) {
     push @classes, $cmdname;
-    $main_cmdname = $small_alias{$cmdname};
+    $main_cmdname = $small_block_associated_command{$cmdname};
   } else {
     $main_cmdname = $cmdname;
   }
@@ -4232,9 +4228,9 @@ sub _convert_quotation_command($$$$$)
   my @classes;
 
   my $main_cmdname;
-  if ($small_alias{$cmdname}) {
+  if ($small_block_associated_command{$cmdname}) {
     push @classes, $cmdname;
-    $main_cmdname = $small_alias{$cmdname};
+    $main_cmdname = $small_block_associated_command{$cmdname};
   } else {
     $main_cmdname = $cmdname;
   }
@@ -5056,9 +5052,9 @@ foreach my $contents_comand (@contents_commands) {
 
 # associate same formatting function for @small* command
 # as for the associated @-command
-foreach my $small_command (keys(%small_alias)) {
+foreach my $small_command (keys(%small_block_associated_command)) {
   $default_commands_conversion{$small_command}
-    = $default_commands_conversion{$small_alias{$small_command}};
+    = $default_commands_conversion{$small_block_associated_command{$small_command}};
 }
 
 sub _open_quotation_command($$$)
@@ -5085,10 +5081,10 @@ $default_commands_open{'quotation'} = \&_open_quotation_command;
 
 # associate same opening function for @small* command
 # as for the associated @-command
-foreach my $small_command (keys(%small_alias)) {
-  if (exists($default_commands_open{$small_alias{$small_command}})) {
+foreach my $small_command (keys(%small_block_associated_command)) {
+  if (exists($default_commands_open{$small_block_associated_command{$small_command}})) {
     $default_commands_open{$small_command}
-      = $default_commands_open{$small_alias{$small_command}};
+      = $default_commands_open{$small_block_associated_command{$small_command}};
   }
 }
 

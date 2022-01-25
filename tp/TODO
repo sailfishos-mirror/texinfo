@@ -37,10 +37,6 @@ Some private variables/private state used in conversion
   $foot_num, %footnote_id_numbers
  _contents_inline_element
   %contents_command_element_type
- _convert_preformatted_command
- _convert_indented_command
- _convert_quotation_command
-  %small_alias
  _convert_printindex_command
   %formatted_index_entries
  _convert_menu_command

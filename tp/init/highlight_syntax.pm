@@ -327,13 +327,21 @@ sub highlight_preformatted_command($$)
       # need to do all the formatting done for content inside
       # of @example as it is discarded.  So need to do the preformatted
       # type formatting, from _convert_preformatted_type() and _preformatted_class()
-      my $pre_class;
-      my @pre_classes = $self->preformatted_classes_stack();
       # since we are formatting @example itself, it is not in the preformatted
       # context anymore, so we readd.
-      # FIXME should be $pre_class_commands{$cmdname}, which is set using
-      # %small_alias.  Both are private.
-      push @pre_classes, $cmdname;
+      my @pre_classes = $self->preformatted_classes_stack();
+      # NOTE $pre_class_format is setup to match as $pre_class_commands{$cmdname}
+      # which is private
+      my $pre_class_format = $cmdname;
+      my $main_cmdname = $cmdname;
+      if (defined($Texinfo::Common::small_block_associated_command{$cmdname})) {
+        $pre_class_format
+          = $Texinfo::Common::small_block_associated_command{$cmdname};
+        $main_cmdname
+          = $Texinfo::Common::small_block_associated_command{$cmdname};
+      }
+      push @pre_classes, $pre_class_format;
+      my $pre_class;
       foreach my $class (@pre_classes) {
         # FIXME maybe add   or $pre_class eq 'menu'  to override
         # 'menu' with 'menu-comment'?
@@ -344,9 +352,6 @@ sub highlight_preformatted_command($$)
       }
       $pre_class = $pre_class.'-preformatted';
 
-      # TODO if needed, aliasing small variants could be done
-      # with the difficulty that the %small_alias hash is private
-      my $main_cmdname = $cmdname;
       # FIXME not clear on that.  What to do with @example arguments?
       my @classes;
       if ($cmdname eq 'example') {

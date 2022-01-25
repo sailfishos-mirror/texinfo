@@ -998,6 +998,11 @@ foreach my $unformatted_block_command ('ignore', 'macro', 'rmacro') {
   $unformatted_block_commands{$unformatted_block_command} = 1;
 }
 
+our %small_block_associated_command;
+for my $cmd ('example', 'display', 'format', 'lisp', 'quotation',
+             'indentedblock') {
+  $small_block_associated_command{'small'.$cmd} = $cmd;
+};
 
 # commands that should only appear at the root level and contain up to
 # the next root command.  @node and sectioning commands.
@@ -2970,6 +2975,11 @@ C<@node> and sectioning commands, except heading commands.
 =item %sectioning_commands
 
 All the sectioning and heading commands.
+
+=item %small_block_associated_command
+
+Associate small command like C<smallexample> to the regular command
+C<example>.
 
 =item %style_commands
 
