@@ -959,15 +959,15 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_in_footnote'
 
 </div>
 </div>
-<div class="footnote">
+<div class="footnotes-segment">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>In footnote
 <a class="index-entry-id" id="index-copying-Copying-this-document"></a>
 </p>
-<h5><a id="FOOT1_2" href="#DOCF1_2">(2)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT1_2" href="#DOCF1_2">(2)</a></h5>
 <p>In footnote
 <a class="index-entry-id" id="index-copying-Copying-this-document"></a>
 </p>

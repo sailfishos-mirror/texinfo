@@ -998,11 +998,11 @@ h1.settitle {text-align:center}
 </p>
 
 <a class="index-entry-id" id="index-index-entry"></a>
-<div class="footnote">
+<div class="footnotes-segment">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>In footnote.
 </p>
 <a class="anchor" id="Anchor-in-footnote"></a>

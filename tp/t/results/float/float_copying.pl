@@ -1724,11 +1724,11 @@ the author abandon his copyright.
 </div>
 </div>
 </div>
-<div class="footnote">
+<div class="footnotes-segment">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>The caption copying footnote
 <a class="anchor" id="caption-copying-footnote-anchor"></a></p>
 <a class="index-entry-id" id="index-copying-indexed-caption-copying-footnote"></a>
@@ -1736,7 +1736,7 @@ the author abandon his copyright.
 
 <p>see <a class="ref" href="#Copying-and-floats">Copying and floats</a>.
 </p>
-<h5><a id="FOOT1_2" href="#DOCF1_2">(2)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT1_2" href="#DOCF1_2">(2)</a></h5>
 <p>The caption copying footnote
 <a class="anchor" id="caption-copying-footnote-anchor"></a></p>
 <a class="index-entry-id" id="index-copying-indexed-caption-copying-footnote"></a>
@@ -1744,7 +1744,7 @@ the author abandon his copyright.
 
 <p>see <a class="ref" href="#Copying-and-floats">Copying and floats</a>.
 </p>
-<h5><a id="FOOT1_3" href="#DOCF1_3">(3)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT1_3" href="#DOCF1_3">(3)</a></h5>
 <p>The caption copying footnote
 <a class="anchor" id="caption-copying-footnote-anchor"></a></p>
 <a class="index-entry-id" id="index-copying-indexed-caption-copying-footnote"></a>
@@ -1752,7 +1752,7 @@ the author abandon his copyright.
 
 <p>see <a class="ref" href="#Copying-and-floats">Copying and floats</a>.
 </p>
-<h5><a id="t_flistoffloats_FOOT1_4" href="#t_flistoffloats_DOCF1_4">(4)</a></h5>
+<h5 class="footnote-body-heading"><a id="t_flistoffloats_FOOT1_4" href="#t_flistoffloats_DOCF1_4">(4)</a></h5>
 <p>The caption copying footnote
 </p>
 

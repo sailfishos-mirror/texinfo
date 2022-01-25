@@ -231,13 +231,13 @@ $result_converted{'html_text'}->{'footnote_no_number'} = '<h1 class="node" id="T
 <p>Para<a class="footnote" id="DOCF1" href="#FOOT1"><sup>*</sup></a>.
 </p>
 <p>Para2<a class="footnote" id="DOCF2" href="#FOOT2"><sup>*</sup></a>.
-</p><div class="footnote">
+</p><div class="footnotes-segment">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h5><a id="FOOT1" href="#DOCF1">(*)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(*)</a></h5>
 <p>Footnote 1.</p>
-<h5><a id="FOOT2" href="#DOCF2">(*)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT2" href="#DOCF2">(*)</a></h5>
 <p>Footnote 2.</p>
 </div>
 ';

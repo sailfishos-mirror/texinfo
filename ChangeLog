@@ -1,10 +1,18 @@
 2022-01-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (format_footnotes_segment):
+	rename format_footnotes_portion as format_footnotes_segment.
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_footnotes_sequence)
+	(_default_format_footnotes_segment): add a class for the footnote
+	body heading and change class name for the footnotes segment.
+
+2022-01-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%small_block_associated_command),
 	tp/Texinfo/Convert/HTML.pm, tp/init/highlight_syntax.pm:
 	move %small_alias to Texinfo::Common and rename as
 	%small_block_associated_command.
-
 
 2022-01-25  Patrice Dumas  <pertusus@free.fr>
 

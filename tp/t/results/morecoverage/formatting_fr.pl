@@ -5312,7 +5312,7 @@ Menu comment
 </tr></table>
 <h1 class="footnotes-heading">Notes de bas de page</h1>
 
-<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>in footnote</p>
 </div><hr>
 <div class="element-contents" id="SEC_Contents">
@@ -5877,7 +5877,7 @@ Menu comment
 </tr></table>
 <h1 class="footnotes-heading">Notes de bas de page</h1>
 
-<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>in footnote</p>
 </div><hr>
 <div class="element-contents" id="SEC_Contents">

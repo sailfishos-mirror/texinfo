@@ -1249,13 +1249,13 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<h1 class="node" id="T
 </p>
 <p>Macros that should not be defined: . with arg.
 </p>
-<div class="footnote">
+<div class="footnotes-segment">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>in footnote</p>
-<h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT2" href="#DOCF2">(2)</a></h5>
 <p>second footnote</p>
 </div>
 ';

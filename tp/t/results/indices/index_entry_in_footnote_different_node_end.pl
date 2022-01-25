@@ -700,11 +700,11 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
  &nbsp; 
 </td></tr></table>
 </div>
-<div class="footnote">
+<div class="footnotes-segment">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>in footnote
 <a class="index-entry-id" id="index-index-entry-in-footnote"></a>
 </p>

@@ -6130,7 +6130,7 @@ sub _convert_tree_unit_type($$$$)
       # if there is one unit it also means that there is no formatting
       # of footnotes in a separate unit.  And if footnotestyle is end
       # the footnotes won't be done in format_element_footer either.
-      $result .= &{$self->formatting_function('format_footnotes_portion')}($self);
+      $result .= &{$self->formatting_function('format_footnotes_segment')}($self);
       $result .= $self->get_conf('DEFAULT_RULE') ."\n"
         if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')
           and defined($self->get_conf('DEFAULT_RULE')));
@@ -6225,7 +6225,7 @@ sub _default_format_element_footer($$$$)
            and $element->{'structure'}->{'unit_filename'}
                ne $element->{'structure'}->{'unit_next'}->{'structure'}->{'unit_filename'}))
       and $self->get_conf('footnotestyle') eq 'end') {
-    $result .= &{$self->formatting_function('format_footnotes_portion')}($self);
+    $result .= &{$self->formatting_function('format_footnotes_segment')}($self);
   }
 
   if (!$buttons or $is_top or $is_special
@@ -6305,7 +6305,7 @@ foreach my $customized_reference ('label_target_name', 'node_file_name',
      'format_element_footer' => \&_default_format_element_footer,
      'format_end_file' => \&_default_format_end_file,
      'format_frame_files' => \&_default_format_frame_files,
-     'format_footnotes_portion' => \&_default_format_footnotes_portion,
+     'format_footnotes_segment' => \&_default_format_footnotes_segment,
      'format_footnotes_sequence' => \&_default_format_footnotes_sequence,
      'format_heading_text' => \&_default_format_heading_text,
      'format_navigation_header' => \&_default_format_navigation_header,
@@ -8558,27 +8558,27 @@ sub _default_format_footnotes_sequence($)
         $footnote_location_filename) = @$pending_footnote_info_array;
     my $footnote_location_href = $self->footnote_location_href($command, undef,
                                            $docid, $footnote_location_filename);
-    $result .= '<h5>' .
+    $result .= $self->html_attribute_class('h5', ['footnote-body-heading']) . '>'.
      "<a id=\"$footid\" href=\"$footnote_location_href\">($number_in_doc)</a></h5>\n"
      . $footnote_text;
   }
   return $result;
 }
 
-sub _default_format_footnotes_portion($)
+sub _default_format_footnotes_segment($)
 {
   my $self = shift;
   my $foot_lines
     = &{$self->formatting_function('format_footnotes_sequence')}($self);
   return '' if ($foot_lines eq '');
-  my $result = $self->html_attribute_class('div', ['footnote']).">\n";
+  my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{'footnotes'};
+  my $result = $self->html_attribute_class('div', [$class.'-segment']).">\n";
   $result .= $self->get_conf('DEFAULT_RULE') . "\n" 
      if (defined($self->get_conf('DEFAULT_RULE')) 
          and $self->get_conf('DEFAULT_RULE') ne '');
   my $footnote_heading 
     = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_HEADING')->{'footnotes'},
                           'convert footnotes special heading');
-  my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{'footnotes'};
   my $level = $self->get_conf('FOOTNOTE_END_HEADER_LEVEL');
   $result .= &{$self->formatting_function('format_heading_text')}($self, undef,
                           [$class.'-heading'], $footnote_heading, $level)."\n";
@@ -8903,7 +8903,7 @@ sub convert($$)
   if (!defined($tree_units)) {
     print STDERR "\nC NO UNIT\n" if ($self->get_conf('DEBUG'));
     $result = $self->_convert($root, 'convert no unit');
-    $result .= &{$self->formatting_function('format_footnotes_portion')}($self);
+    $result .= &{$self->formatting_function('format_footnotes_segment')}($self);
   } else {
     my $unit_nr = 0;
     # TODO there is no rule before the footnotes special element in
@@ -9361,7 +9361,7 @@ sub output($$)
       $body .= $self->_print_title();
       print STDERR "\nNO UNIT NO PAGE\n" if ($self->get_conf('DEBUG'));
       $body .= $self->_convert($root, 'no-page output no unit');
-      $body .= &{$self->formatting_function('format_footnotes_portion')}($self);
+      $body .= &{$self->formatting_function('format_footnotes_segment')}($self);
     }
 
     # do end file first, in case it needs some CSS

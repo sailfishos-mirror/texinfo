@@ -301,13 +301,13 @@ $result_converted{'plaintext'}->{'form_feed_in_brace_commands'} = '‘ aa’
 
 
 $result_converted{'html_text'}->{'form_feed_in_brace_commands'} = '<p><samp class="option"> &#12;aa</samp> <a class="anchor" id="aa"></a></p>&#12;<p>something <a class="email" href="mailto:aaa">fff</a><a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a> <a class="footnote" id="DOCF2" href="#FOOT2"><sup>2</sup></a>.
-</p><div class="footnote">
+</p><div class="footnotes-segment">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>f1 </p>&#12;
-<h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
+<h5 class="footnote-body-heading"><a id="FOOT2" href="#DOCF2">(2)</a></h5>
 <p>gg</p>&#12;<p>jj</p>
 </div>
 ';
