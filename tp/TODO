@@ -34,7 +34,7 @@ Some private variables/private state used in conversion
   $self->{'explained_commands'}
   $self->{'element_explanation_contents'}
  _convert_footnote_command:
-  $foot_num, $NO_NUMBER_FOOTNOTE_SYMBOL, %footnote_id_numbers
+  $foot_num, %footnote_id_numbers
  _contents_inline_element
   %contents_command_element_type
  _convert_preformatted_command

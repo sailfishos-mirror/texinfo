@@ -1720,6 +1720,7 @@ my %defaults = (
   'DEFAULT_RULE'         => '<hr>',
   'BIG_RULE'             => '<hr>',
   'MENU_SYMBOL'          => undef,
+  'NO_NUMBER_FOOTNOTE_SYMBOL' => '*',
   'MENU_ENTRY_COLON'     => ':',
   'INDEX_ENTRY_COLON'    => ':',
   'BODYTEXT'             => undef,
@@ -2647,7 +2648,6 @@ sub _convert_anchor_command($$$$)
 $default_commands_conversion{'anchor'} = \&_convert_anchor_command;
 
 my $foot_num;
-my $NO_NUMBER_FOOTNOTE_SYMBOL = '*';
 
 my %footnote_id_numbers;
 sub _convert_footnote_command($$$$)
@@ -2662,7 +2662,7 @@ sub _convert_footnote_command($$$$)
   if ($self->get_conf('NUMBER_FOOTNOTES')) {
     $number_in_doc = $foot_num;
   } else {
-    $number_in_doc = $NO_NUMBER_FOOTNOTE_SYMBOL;
+    $number_in_doc = $self->get_conf('NO_NUMBER_FOOTNOTE_SYMBOL');
   }
   
   return "($number_in_doc)" if ($self->in_string());
