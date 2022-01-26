@@ -394,9 +394,8 @@ sub GNUT_get_types_open()
 }
 
 # called from init files
-sub texinfo_register_formatting_special_element_body($$$)
+sub texinfo_register_formatting_special_element_body($$)
 {
-  my $self = shift;
   my $special_element_type = shift;
   my $handler = shift;
 

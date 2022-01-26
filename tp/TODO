@@ -13,9 +13,6 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
-remove PRE_ABOUT
-
-
 Bugs
 ====
 

@@ -16294,10 +16294,6 @@ same, then do not print the menu description; default false.
 If set, the corresponding text will appear at the
 beginning of each HTML file; default unset.
 
-@item AFTER_ABOUT
-For HTML, when an About-element is output.  If set, the corresponding
-text will appear at the end of the About element; default unset.
-
 @item AFTER_SHORT_TOC_LINES
 @itemx AFTER_TOC_LINES
 If set, the corresponding text is output after the short
@@ -16519,16 +16515,14 @@ Do not output HTML with custom attributes in elements; default false.
 Symbol used for footnotes if @code{NUMBER_FOOTNOTES} is false.
 Default is @code{*}.
 
-@item PRE_ABOUT
-Used when an About element is output.  If set to a text string,
-this text will appear at the beginning of the About element.  If set
-to a reference on a subroutine, the result of the subroutine call will
-appear at the beginning of the About element.  If not set (the
-default), default text is used.
-
 @item PRE_BODY_CLOSE
 If set, the given text will appear at the footer of each
 HTML file; default unset.
+
+@item PROGRAM_NAME_IN_ABOUT
+Used when an About element is output.  If set, output the program
+name and miscellaneous related information in About special element;
+default false.
 
 @item PROGRAM_NAME_IN_FOOTER
 If set, output the program name and miscellaneous related

@@ -28,6 +28,7 @@ See the manual for detailed information.
    BEFORE_OVERVIEW as BEFORE_SHORT_TOC_LINES and AFTER_OVERVIEW as
    AFTER_SHORT_TOC_LINES.
  . remove CSS_LINES customization variable and add SHOW_BUILTIN_CSS_RULES.
+ . remove PRE_ABOUT, AFTER_ABOUT, add PROGRAM_NAME_IN_ABOUT.
  . HTML output:
      . use <code> tag for the output of @t instead of <tt>
      . systematic addition of classes attribute in HTML elements based on the

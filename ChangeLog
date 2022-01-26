@@ -1,5 +1,14 @@
 2022-01-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_special_body_about),
+	* doc/texinfo.texi (HTML Customization Variables), NEWS:
+	add PROGRAM_NAME_IN_ABOUT, remove PRE_ABOUT and AFTER_ABOUT.
+
+	* tp/Texinfo/Config.pm
+	(texinfo_register_formatting_special_element_body): fix call.
+
+2022-01-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm
 	(texinfo_register_formatting_special_element_body)
 	(GNUT_get_formatting_special_element_body_references),

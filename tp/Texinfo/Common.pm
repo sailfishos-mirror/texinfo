@@ -260,7 +260,6 @@ our %default_converter_customization = (
 # for HTML.  Could be added to %default_converter_customization.
 # Defaults are documented in manual and set in the various converters.
 my @variable_string_settables = (
-'AFTER_ABOUT',
 'AFTER_BODY_OPEN',
 'AFTER_SHORT_TOC_LINES',
 'AFTER_TOC_LINES',
@@ -332,10 +331,10 @@ my @variable_string_settables = (
 'PACKAGE_NAME',
 'PACKAGE_URL',
 'PACKAGE_VERSION',
-'PRE_ABOUT',
 'PRE_BODY_CLOSE',
 'PREFIX',
 'PROGRAM',
+'PROGRAM_NAME_IN_ABOUT',
 'PROGRAM_NAME_IN_FOOTER',
 'SECTION_NAME_IN_TITLE',
 'SHORT_TOC_LINK_TO_TOC',

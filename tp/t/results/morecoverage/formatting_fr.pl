@@ -5466,7 +5466,6 @@ Menu comment
     </ul>
   </li>
 </ul>
-
 </div><hr>
 <p>
   <span class="program-in-footer">Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em class="emph">a sunny day</em>.</span>
@@ -6031,7 +6030,6 @@ Menu comment
     </ul>
   </li>
 </ul>
-
 </div><hr>
 ';
 

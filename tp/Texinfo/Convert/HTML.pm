@@ -8681,19 +8681,13 @@ sub _default_format_special_body_about($$$)
   my $special_type = shift;
   my $element = shift;
 
-  my $about = "<p>\n";
-  my $PRE_ABOUT = $self->get_conf('PRE_ABOUT');
-  if (defined($PRE_ABOUT)) {
-    if (ref($PRE_ABOUT) eq 'CODE') {
-      $about .= &$PRE_ABOUT($self, $element);
-    } else {
-      $about .= $PRE_ABOUT;
-    }
-  } else {
+  my $about = '';
+  if ($self->get_conf('PROGRAM_NAME_IN_ABOUT')) {
+    $about .= "<p>\n";
     $about .= '  '.&{$self->formatting_function('format_program_string')}($self) ."\n";
+    $about .= "</p>\n";
   }
   $about .= <<EOT;
-</p>
 <p>
 EOT
   $about .= $self->convert_tree($self->gdt('  The buttons in the navigation panels have the following meaning:')) . "\n";
@@ -8772,15 +8766,10 @@ EOT
 EOT
   $about .= '      <li>1.4 ' . $self->convert_tree($self->gdt('Subsection One-Four')) . "</li>\n";
 
-  my $AFTER_ABOUT = '';
-  if (defined($self->get_conf('AFTER_ABOUT'))) {
-    $AFTER_ABOUT = $self->get_conf('AFTER_ABOUT');
-  }
   $about .= <<EOT;
     </ul>
   </li>
 </ul>
-$AFTER_ABOUT
 EOT
   return $about;
 }
@@ -10085,6 +10074,7 @@ sub _set_variables_texi2html()
   ['USE_NODES', 0],
   ['SPLIT', ''],
   ['PROGRAM_NAME_IN_FOOTER', 1],
+  ['PROGRAM_NAME_IN_ABOUT', 1],
   ['HEADER_IN_TABLE', 1],
   ['USE_TITLEPAGE_FOR_TITLE', 1],
   ['MENU_ENTRY_COLON', ''],
