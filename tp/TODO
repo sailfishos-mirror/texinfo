@@ -13,6 +13,9 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
+remove PRE_ABOUT
+
+
 Bugs
 ====
 
@@ -58,6 +61,9 @@ cancel_pending_formatted_inline_content
 default_types_conversion
 default_types_open
 formatting_function
+special_element_body_formatting
+defaults_special_element_body_formatting
+special_element_body_formatting
 
 
 

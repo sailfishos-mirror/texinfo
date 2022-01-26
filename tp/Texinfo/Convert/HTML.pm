@@ -1298,6 +1298,24 @@ sub formatting_function($$)
   return $self->{'formatting_function'}->{$format};
 }
 
+my %defaults_format_special_body_contents;
+
+sub defaults_special_element_body_formatting($$)
+{
+  my $self = shift;
+  my $special_element_type = shift;
+
+  return $defaults_format_special_body_contents{$special_element_type};
+}
+
+sub special_element_body_formatting($$)
+{
+  my $self = shift;
+  my $special_element_type = shift;
+
+  return $self->{'special_element_body'}->{$special_element_type};
+}
+
 # Return the default for the function references used for
 # the formatting of commands, in case a user still wants to call
 # default @-commands formatting functions when replacing functions,
@@ -6092,6 +6110,17 @@ sub _convert_special_element_type($$$$)
 
   my $special_element_type = $element->{'extra'}->{'special_element_type'};
   $result .= join('', $self->close_registered_sections_level(0));
+
+  my $special_element_body
+    .= &{$self->special_element_body_formatting($special_element_type)}($self,
+                                          $special_element_type, $element);
+
+  # This may happen with footnotes in regions that are not expanded,
+  # like @copying or @titlepage
+  if ($special_element_body eq '') {
+    return '';
+  }
+
   my $id = $self->command_id($element);
   my $class_base = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
   $result .= $self->html_attribute_class('div', ["element-${class_base}"]);
@@ -6114,15 +6143,7 @@ sub _convert_special_element_type($$$$)
   $result .= &{$self->formatting_function('format_heading_text')}($self,
                            undef, [$class_base.'-heading'], $heading, $level)."\n";
 
-  my $special_element_body
-    .= &{$self->formatting_function('format_special_element_body')}($self,
-                                          $special_element_type, $element);
 
-  # This may happen with footnotes in regions that are not expanded,
-  # like @copying or @titlepage
-  if ($special_element_body eq '') {
-    return '';
-  }
   $result .= $special_element_body . '</div>';
   $result .= &{$self->formatting_function('format_element_footer')}($self, $type,
                                                              $element, $content);
@@ -6351,6 +6372,13 @@ foreach my $customized_reference ('label_target_name', 'node_file_name',
 # not up for customization
 %default_css_string_formatting_references = (
   'format_protect_text' => \&_default_css_string_format_protect_text,
+);
+
+%defaults_format_special_body_contents = (
+  'contents' => \&_default_format_special_body_contents,
+  'about' => \&_default_format_special_body_about,
+  'footnotes' => \&_default_format_special_body_footnotes,
+  'shortcontents' => \&_default_format_special_body_shortcontents,
 );
 
 sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
@@ -6922,6 +6950,18 @@ sub converter_initialize($)
       $self->{'formatting_function'}->{$formatting_reference}
        = $default_formatting_references{$formatting_reference};
     }
+  }
+
+  my $customized_special_element_body
+     = Texinfo::Config::GNUT_get_formatting_special_element_body_references();
+
+  foreach my $special_element_type (keys(%defaults_format_special_body_contents)) {
+    $self->{'special_element_body'}->{$special_element_type}
+      = $defaults_format_special_body_contents{$special_element_type};
+  }
+  foreach my $special_element_type (keys(%$customized_special_element_body)) {
+    $self->{'special_element_body'}->{$special_element_type}
+      = $customized_special_element_body->{$special_element_type};
   }
 
   $self->{'document_context'} = [];
@@ -8635,85 +8675,84 @@ sub _default_format_footnotes_segment($)
   return $result;
 }
 
-sub _default_format_special_element_body($$;$)
+sub _default_format_special_body_about($$$)
 {
   my $self = shift;
   my $special_type = shift;
   my $element = shift;
 
-  if ($special_type eq 'about') {
-    my $about = "<p>\n";
-    my $PRE_ABOUT = $self->get_conf('PRE_ABOUT');
-    if (defined($PRE_ABOUT)) {
-      if (ref($PRE_ABOUT) eq 'CODE') {
-        $about .= &$PRE_ABOUT($self, $element);
-      } else {
-        $about .= $PRE_ABOUT;
-      }
+  my $about = "<p>\n";
+  my $PRE_ABOUT = $self->get_conf('PRE_ABOUT');
+  if (defined($PRE_ABOUT)) {
+    if (ref($PRE_ABOUT) eq 'CODE') {
+      $about .= &$PRE_ABOUT($self, $element);
     } else {
-      $about .= '  '.&{$self->formatting_function('format_program_string')}($self) ."\n";
+      $about .= $PRE_ABOUT;
     }
-    $about .= <<EOT;
+  } else {
+    $about .= '  '.&{$self->formatting_function('format_program_string')}($self) ."\n";
+  }
+  $about .= <<EOT;
 </p>
 <p>
 EOT
-    $about .= $self->convert_tree($self->gdt('  The buttons in the navigation panels have the following meaning:')) . "\n";
-    $about .= <<EOT;
+  $about .= $self->convert_tree($self->gdt('  The buttons in the navigation panels have the following meaning:')) . "\n";
+  $about .= <<EOT;
 </p>
 <table border="1">
   <tr>
 EOT
-    $about .= '    <th> ' . $self->convert_tree($self->gdt('Button')) . " </th>\n" .
-     '    <th> ' . $self->convert_tree($self->gdt('Name')) . " </th>\n" .
-     '    <th> ' . $self->convert_tree($self->gdt('Go to')) . " </th>\n" .
-     '    <th> ' . $self->convert_tree($self->gdt('From 1.2.3 go to')) . "</th>\n" . "  </tr>\n";
+  $about .= '    <th> ' . $self->convert_tree($self->gdt('Button')) . " </th>\n" .
+   '    <th> ' . $self->convert_tree($self->gdt('Name')) . " </th>\n" .
+   '    <th> ' . $self->convert_tree($self->gdt('Go to')) . " </th>\n" .
+   '    <th> ' . $self->convert_tree($self->gdt('From 1.2.3 go to')) . "</th>\n" . "  </tr>\n";
 
-    foreach my $button (@{$self->get_conf('SECTION_BUTTONS')}) {
-      next if ($button eq ' ' or ref($button) eq 'CODE' or ref($button) eq 'SCALAR' 
-                or ref($button) eq 'ARRAY');
-      my $button_name = $self->get_conf('BUTTONS_NAME')->{$button};
-      $about .= "  <tr>\n    <td align=\"center\">";
-      $about .=
-        ($self->get_conf('ICONS') && $self->get_conf('ACTIVE_ICONS')->{$button} ?
-         &{$self->formatting_function('format_button_icon_img')}($self,
-                       $button_name, $self->get_conf('ACTIVE_ICONS')->{$button}) :
-             ' [' . $self->get_conf('BUTTONS_TEXT')->{$button} . '] ');
-      $about .= "</td>\n";
-      $about .= 
+  foreach my $button (@{$self->get_conf('SECTION_BUTTONS')}) {
+    next if ($button eq ' ' or ref($button) eq 'CODE' or ref($button) eq 'SCALAR' 
+              or ref($button) eq 'ARRAY');
+    my $button_name = $self->get_conf('BUTTONS_NAME')->{$button};
+    $about .= "  <tr>\n    <td align=\"center\">";
+    $about .=
+      ($self->get_conf('ICONS') && $self->get_conf('ACTIVE_ICONS')->{$button} ?
+       &{$self->formatting_function('format_button_icon_img')}($self,
+                     $button_name, $self->get_conf('ACTIVE_ICONS')->{$button}) :
+           ' [' . $self->get_conf('BUTTONS_TEXT')->{$button} . '] ');
+    $about .= "</td>\n";
+    $about .=
 "    <td align=\"center\">".$button_name."</td>
     <td>".$self->get_conf('BUTTONS_GOTO')->{$button}."</td>
     <td>".$self->substitute_html_non_breaking_space(
                $self->get_conf('BUTTONS_EXAMPLE')->{$button})."</td>
   </tr>
 ";
-    }
+  }
 
-    $about .= <<EOT;
+  $about .= <<EOT;
 </table>
 
 <p>
 EOT
-    $about .= $self->convert_tree($self->gdt('  where the @strong{ Example } assumes that the current position is at @strong{ Subsubsection One-Two-Three } of a document of the following structure:')) . "\n";
+  $about .= $self->convert_tree($self->gdt('  where the @strong{ Example } assumes that the current position is at @strong{ Subsubsection One-Two-Three } of a document of the following structure:')) . "\n";
 
 #  where the <strong> Example </strong> assumes that the current position
 #  is at <strong> Subsubsection One-Two-Three </strong> of a document of
 #  the following structure:
-    $about .= <<EOT;
+  $about .= <<EOT;
 </p>
 
 <ul>
 EOT
-    my $non_breaking_space = $self->get_info('non_breaking_space');
-    $about .= '  <li> 1. ' . $self->convert_tree($self->gdt('Section One')) . "\n" .
+  my $non_breaking_space = $self->get_info('non_breaking_space');
+  $about .= '  <li> 1. ' . $self->convert_tree($self->gdt('Section One')) . "\n" .
 "    <ul>\n" .
 '      <li>1.1 ' . $self->convert_tree($self->gdt('Subsection One-One')) . "\n";
-    $about .= <<EOT;
+  $about .= <<EOT;
         <ul>
           <li>...</li>
         </ul>
       </li>
 EOT
-    $about .= '      <li>1.2 ' . $self->convert_tree($self->gdt('Subsection One-Two')) . "\n" .
+  $about .= '      <li>1.2 ' . $self->convert_tree($self->gdt('Subsection One-Two')) . "\n" .
 "        <ul>\n" .
 '          <li>1.2.1 ' . $self->convert_tree($self->gdt('Subsubsection One-Two-One')) . "</li>\n" .
 '          <li>1.2.2 ' . $self->convert_tree($self->gdt('Subsubsection One-Two-Two')) . "</li>\n" .
@@ -8725,32 +8764,52 @@ EOT
 "        </ul>\n" .
 "      </li>\n" .
 '      <li>1.3 ' . $self->convert_tree($self->gdt('Subsection One-Three')) . "\n";
-    $about .= <<EOT;
+  $about .= <<EOT;
         <ul>
           <li>...</li>
         </ul>
       </li>
 EOT
-    $about .= '      <li>1.4 ' . $self->convert_tree($self->gdt('Subsection One-Four')) . "</li>\n";
+  $about .= '      <li>1.4 ' . $self->convert_tree($self->gdt('Subsection One-Four')) . "</li>\n";
 
-    my $AFTER_ABOUT = '';
-    if (defined($self->get_conf('AFTER_ABOUT'))) {
-      $AFTER_ABOUT = $self->get_conf('AFTER_ABOUT');
-    }
-    $about .= <<EOT;
+  my $AFTER_ABOUT = '';
+  if (defined($self->get_conf('AFTER_ABOUT'))) {
+    $AFTER_ABOUT = $self->get_conf('AFTER_ABOUT');
+  }
+  $about .= <<EOT;
     </ul>
   </li>
 </ul>
 $AFTER_ABOUT
 EOT
-    return $about;
-  } elsif ($special_type eq 'contents') {
-    return &{$self->formatting_function('format_contents')}($self, 'contents');
-  } elsif ($special_type eq 'shortcontents') {
-    return &{$self->formatting_function('format_contents')}($self, 'shortcontents');
-  } elsif ($special_type eq 'footnotes') {
-    return &{$self->formatting_function('format_footnotes_sequence')}($self);
-  }
+  return $about;
+}
+
+sub _default_format_special_body_contents($$$)
+{
+  my $self = shift;
+  my $special_type = shift;
+  my $element = shift;
+
+  return &{$self->formatting_function('format_contents')}($self, 'contents');
+}
+
+sub _default_format_special_body_shortcontents($$$)
+{
+  my $self = shift;
+  my $special_type = shift;
+  my $element = shift;
+  
+  return &{$self->formatting_function('format_contents')}($self, 'shortcontents');
+}
+
+sub _default_format_special_body_footnotes($$$)
+{
+  my $self = shift;
+  my $special_type = shift;
+  my $element = shift;
+
+  return &{$self->formatting_function('format_footnotes_sequence')}($self);
 }
 
 sub _do_jslicenses_file {
@@ -8883,7 +8942,7 @@ EOT
 
     # this is needed to collect CSS rules.
     $self->{'current_filename'} = $toc_frame_file;
-    my $shortcontents = 
+    my $shortcontents =
       &{$self->formatting_function('format_contents')}($self, 'shortcontents');
     $shortcontents =~ s/\bhref=/target="main" href=/g;
     my $header = &{$self->formatting_function('format_begin_file')}($self,
@@ -9558,7 +9617,7 @@ sub output($$)
                 and $self->get_conf('EXTENSION') ne '');
   # do node redirection pages
   $self->{'current_filename'} = undef;
-  if ($self->get_conf('NODE_FILES') 
+  if ($self->get_conf('NODE_FILES')
       and $self->{'labels'} and $output_file ne '') {
     foreach my $label (sort(keys (%{$self->{'labels'}}))) {
       my $node = $self->{'labels'}->{$label};
@@ -9571,7 +9630,7 @@ sub output($$)
       # must use the same convention to get it right.  We avoid doing
       # also 'node_filename' to avoid unneeded redirection files.
       if ($node->{'extra'} and $node->{'extra'}->{'normalized'}
-          and $node->{'extra'}->{'normalized'} eq 'Top' 
+          and $node->{'extra'}->{'normalized'} eq 'Top'
           and defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {
         $node_filename = $self->get_conf('TOP_NODE_FILE_TARGET');
       } else {
@@ -9579,7 +9638,7 @@ sub output($$)
       }
 
       if (defined($filename) and $node_filename ne $filename) {
-        my $redirection_page 
+        my $redirection_page
           = &{$self->formatting_function('format_node_redirection_page')}($self,
                                                                          $node);
         my $out_filename;

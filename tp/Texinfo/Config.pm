@@ -300,6 +300,7 @@ sub GNUT_get_stage_handlers()
 
 my $GNUT_file_id_setting_references = {};
 my $GNUT_formatting_references = {};
+my $GNUT_formatting_special_element_body = {};
 my $GNUT_commands_conversion = {};
 my $GNUT_commands_open = {};
 my $GNUT_types_conversion = {};
@@ -390,6 +391,22 @@ sub texinfo_register_type_opening($$)
 sub GNUT_get_types_open()
 {
   return $GNUT_types_open;
+}
+
+# called from init files
+sub texinfo_register_formatting_special_element_body($$$)
+{
+  my $self = shift;
+  my $special_element_type = shift;
+  my $handler = shift;
+
+  $GNUT_formatting_special_element_body->{$special_element_type} = $handler;
+}
+
+# called from the Converter
+sub GNUT_get_formatting_special_element_body_references()
+{
+  return $GNUT_formatting_special_element_body;
 }
 
 my $default_formatting_context = 'normal';
