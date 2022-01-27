@@ -315,7 +315,7 @@ div.example {margin-left: 3.2em}
 
 $result_converted_errors{'html'}->{'commands_in_alt'} = [
   {
-    'error_line' => 'warning: must specify a title with a title command or @top
+    'error_line' => 'commands_in_alt.texi: warning: must specify a title with a title command or @top
 ',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'

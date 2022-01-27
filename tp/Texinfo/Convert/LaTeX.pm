@@ -2123,6 +2123,18 @@ sub _convert($$)
         and exists($element->{'extra'}->{'clickstyle'})) {
         $converted_command = $element->{'extra'}->{'clickstyle'};
       }
+      if ($self->{'enable_encoding'}) {
+        my $encoding = $self->{'output_encoding_name'};
+        if ($letter_no_arg_commands{$converted_command}) {
+          my $conversion
+            = Texinfo::Convert::Unicode::brace_no_arg_command($converted_command,
+                                                              $encoding);
+          if (defined($conversion)) {
+            $result .= $conversion;
+            return $result;
+          }
+        }
+      }
       if (exists($LaTeX_no_arg_brace_commands{$command_context}->{$converted_command})) {
         $result .= $LaTeX_no_arg_brace_commands{$command_context}->{$converted_command};
       } else {

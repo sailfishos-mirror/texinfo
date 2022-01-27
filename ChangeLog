@@ -1,3 +1,9 @@
+2022-01-27  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): with ENABLE_ENCODING
+	convert brace no args commands corresponding to letters to
+	encoded characters if possible.
+
 2022-01-26  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_default_format_special_body_about),

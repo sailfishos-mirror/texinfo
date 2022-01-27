@@ -37,7 +37,7 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                       'contents' => [
                         {
                           'parent' => {},
-                          'text' => '\\xsi'
+                          'text' => '\\xi'
                         }
                       ],
                       'line_nr' => {
@@ -345,14 +345,14 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'}{'contents'}[0]{'conten
 $result_trees{'mathjax_with_texinfo_no_convert_to_latex'}{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_no_convert_to_latex'};
 
 $result_texis{'mathjax_with_texinfo_no_convert_to_latex'} = '@displaymath
-a@sup{b - \\frac{\\xsi}{phi @copyright{}}} @dotless{i}
+a@sup{b - \\frac{\\xi}{phi @copyright{}}} @dotless{i}
 @end displaymath
 
 Some @math{a @minus{} b @geq{} @AA{} @^e}.
 ';
 
 
-$result_texts{'mathjax_with_texinfo_no_convert_to_latex'} = 'ab - \\frac{\\xsi}{phi (C)} i
+$result_texts{'mathjax_with_texinfo_no_convert_to_latex'} = 'ab - \\frac{\\xi}{phi (C)} i
 
 Some a - b >= AA e^.
 ';
@@ -392,7 +392,7 @@ MathJax = {
 </head>
 
 <body lang="en" class="tex2jax_ignore">
-<div class="displaymath"><em class="tex2jax_process">\\[a<sup class="sup">b - \\frac{\\xsi}{phi &copy;}</sup> i
+<div class="displaymath"><em class="tex2jax_process">\\[a<sup class="sup">b - \\frac{\\xi}{phi &copy;}</sup> i
 \\]</em></div>
 <p>Some <em class="math tex2jax_process">\\(a - b &ge; &Aring; &ecirc;\\)</em>.
 </p>
@@ -404,7 +404,7 @@ MathJax = {
 
 $result_converted_errors{'html'}->{'mathjax_with_texinfo_no_convert_to_latex'} = [
   {
-    'error_line' => 'warning: must specify a title with a title command or @top
+    'error_line' => 'mathjax_with_texinfo_no_convert_to_latex.texi: warning: must specify a title with a title command or @top
 ',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'

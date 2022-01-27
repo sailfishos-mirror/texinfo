@@ -278,7 +278,7 @@ div.example {margin-left: 3.2em}
 
 $result_converted_errors{'html'}->{'example_class'} = [
   {
-    'error_line' => 'warning: must specify a title with a title command or @top
+    'error_line' => 'example_class.texi: warning: must specify a title with a title command or @top
 ',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'

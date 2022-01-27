@@ -711,7 +711,7 @@ $result_floats{'simple_menu_in_example'} = {};
 
 
 
-$result_converted{'info'}->{'simple_menu_in_example'} = 'This is , produced from .
+$result_converted{'info'}->{'simple_menu_in_example'} = 'This is , produced from simple_menu_in_example.texi.
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -728,7 +728,7 @@ File: ,  Node: Top,  Up: (dir)
 
 
 Tag Table:
-Node: Top27
+Node: Top54
 
 End Tag Table
 
@@ -795,7 +795,7 @@ pre.menu-preformatted {font-family: serif}
 
 $result_converted_errors{'html'}->{'simple_menu_in_example'} = [
   {
-    'error_line' => 'warning: must specify a title with a title command or @top
+    'error_line' => 'simple_menu_in_example.texi: warning: must specify a title with a title command or @top
 ',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'

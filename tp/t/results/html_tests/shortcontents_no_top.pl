@@ -286,7 +286,7 @@ ul.toc-numbered-mark {list-style: none}
 
 $result_converted_errors{'html'}->{'shortcontents_no_top'} = [
   {
-    'error_line' => 'warning: must specify a title with a title command or @top
+    'error_line' => 'shortcontents_no_top.texi: warning: must specify a title with a title command or @top
 ',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'

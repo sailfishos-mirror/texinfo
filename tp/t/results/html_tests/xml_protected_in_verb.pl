@@ -199,7 +199,7 @@ $result_converted{'html'}->{'xml_protected_in_verb'} = '<!DOCTYPE html>
 
 $result_converted_errors{'html'}->{'xml_protected_in_verb'} = [
   {
-    'error_line' => 'warning: must specify a title with a title command or @top
+    'error_line' => 'xml_protected_in_verb.texi: warning: must specify a title with a title command or @top
 ',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'

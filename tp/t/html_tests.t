@@ -132,7 +132,7 @@ my $itemize_arguments_text = '
 ';
 
 my $mathjax_with_texinfo = '@displaymath
-a@sup{b - \frac{\xsi}{phi @copyright{}}} @dotless{i}
+a@sup{b - \frac{\xi}{phi @copyright{}}} @dotless{i}
 @end displaymath
 
 Some @math{a @minus{} b @geq{} @AA{} @^e}.
@@ -466,7 +466,9 @@ in <b>html</b> in copying ``
 ['mathjax_with_texinfo',
 $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax'}],
 ['mathjax_with_texinfo_enable_encoding',
-$mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax', 'ENABLE_ENCODING' => 1}],
+$mathjax_with_texinfo, {'test_formats' => ['latex', 'file_latex'],
+                        'full_document' => 1},
+{'HTML_MATH' => 'mathjax', 'ENABLE_ENCODING' => 1,},],
 ['mathjax_with_texinfo_no_convert_to_latex',
 $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax',
                             'CONVERT_TEXINFO_MATH_TO_LATEX' => 0}],
@@ -730,6 +732,7 @@ my @file_tests = (
 
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'html';
+  $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
 }
 foreach my $test (@test_cases_text) {
   push @{$test->[2]->{'test_formats'}}, 'html_text';

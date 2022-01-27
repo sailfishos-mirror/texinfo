@@ -450,7 +450,7 @@ div.example {margin-left: 3.2em}
 
 $result_converted_errors{'html'}->{'verbatim_in_multitable_in_example'} = [
   {
-    'error_line' => 'warning: must specify a title with a title command or @top
+    'error_line' => 'verbatim_in_multitable_in_example.texi: warning: must specify a title with a title command or @top
 ',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
