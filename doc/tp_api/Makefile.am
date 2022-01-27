@@ -15,6 +15,11 @@
 # cross-compiling.
 MAKEINFO = $(PERL) -I $(top_srcdir)/tp/ $(top_srcdir)/tp/texi2any.pl
 
+# the pod files are formatted like man pages.  If split at node
+# or section, this results in some very short sections at the beginning
+# of each module, so split at chapters.
+MAKEINFOHTML = $(MAKEINFO) --html --split=chapter
+
 #info_TEXINFOS = tp_api.texi
 if BUILD_PERL_API_TEXI
 
@@ -53,7 +58,7 @@ tp_api_dependencies = \
   $(top_srcdir)/tp/Texinfo/Convert/HTML.pm
 
 tp_api.texi: $(tp_api_dependencies)
-	$(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ -I $(top_srcdir)/tp/ -I $(top_srcdir)/tp/maintain/lib/Text-Unidecode/lib/ -I $(top_srcdir)/tp/maintain/lib/libintl-perl/lib/ -I $(top_srcdir)/tp/maintain/lib/Unicode-EastAsianWidth/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=section --top 'Texinfo perl module' --subdir=api_includes -o $@ $(tp_api_dependencies)
+	$(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ -I $(top_srcdir)/tp/ -I $(top_srcdir)/tp/maintain/lib/Text-Unidecode/lib/ -I $(top_srcdir)/tp/maintain/lib/libintl-perl/lib/ -I $(top_srcdir)/tp/maintain/lib/Unicode-EastAsianWidth/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=section --top 'Texinfo modules documentation' --subdir=api_includes -o $@ $(tp_api_dependencies)
 
 EXTRA_DIST = api_includes tp_api.texi
 
