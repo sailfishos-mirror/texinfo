@@ -682,6 +682,7 @@ sub converter($)
     if (!$expanded_formats and $converter->{'parser'}->{'EXPANDED_FORMATS'}) {
       $expanded_formats = $converter->{'parser'}->{'EXPANDED_FORMATS'};
     }
+    delete $converter->{'parser'};
   }
   if ($expanded_formats) {
     foreach my $expanded_format(@$expanded_formats) {

@@ -804,9 +804,8 @@ sub _prepare_indices($)
 {
   my $self = shift;
 
-  if ($self->{'parser'}) {
-    my $index_names = $self->{'parser'}->indices_information();
-    $self->{'index_names'} = $index_names;
+  my $index_names = $self->{'indices_information'};
+  if ($index_names) {
     my $merged_index_entries
         = Texinfo::Structuring::merge_indices($index_names);
     # select non empty indices
@@ -1910,11 +1909,12 @@ sub _index_entry($$)
     my $entry = $element->{'extra'}->{'index_entry'};
     my $entry_index_name = $entry->{'index_name'};
     my $index_name = $entry_index_name;
-    if ($self->{'index_names'}->{$entry_index_name}->{'merged_in'}) {
-      $index_name = $self->{'index_names'}->{$entry_index_name}->{'merged_in'};
+    if ($self->{'indices_information'}->{$entry_index_name}->{'merged_in'}) {
+      $index_name
+        = $self->{'indices_information'}->{$entry_index_name}->{'merged_in'};
     }
     my $in_code = 0;
-    if ($self->{'index_names'}->{$entry_index_name}->{'in_code'}) {
+    if ($self->{'indices_information'}->{$entry_index_name}->{'in_code'}) {
       $in_code = 1;
     }
     my $options

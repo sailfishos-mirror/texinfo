@@ -1470,7 +1470,6 @@ sub _convert($$;$)
 1;
 
 __END__
-# $Id$
 # Automatically generated from maintain/template.pod
 
 =head1 NAME
@@ -1479,7 +1478,7 @@ Texinfo::Convert::DocBook - Convert Texinfo tree to DocBook
 
 =head1 SYNOPSIS
 
-  my $converter 
+  my $converter
     = Texinfo::Convert::DocBook->converter({'parser' => $parser});
 
   $converter->output($tree);
@@ -1496,13 +1495,14 @@ Texinfo::Convert::DocBook converts a Texinfo tree to DocBook.
 
 =item $converter = Texinfo::Convert::DocBook->converter($options)
 
-Initialize converter from Texinfo to DocBook.  
+Initialize converter from Texinfo to DocBook.
 
 The I<$options> hash reference holds options for the converter.  In
-this option hash reference a parser object may be associated with the 
+this option hash reference a parser object may be associated with the
 I<parser> key.  The other options should be configuration options
 described in the Texinfo manual.  Those options, when appropriate,
-override the document content.
+override the document content.  The parser should not be available
+directly anymore after getting the associated information.
 
 See L<Texinfo::Convert::Converter> for more informations.
 
@@ -1513,12 +1513,12 @@ described in the Texinfo manual.
 
 =item $result = $converter->convert($tree)
 
-Convert a Texinfo tree I<$tree> or tree portion and return 
+Convert a Texinfo tree I<$tree> or tree portion and return
 the resulting output.
 
 =item $result = $converter->convert_tree($tree)
 
-Convert a Texinfo tree portion I<$tree> and return the resulting 
+Convert a Texinfo tree portion I<$tree> and return the resulting
 output.  This function does not try to output a full document but only
 portions.  For a full document use C<convert>.
 
@@ -1527,5 +1527,14 @@ portions.  For a full document use C<convert>.
 =head1 AUTHOR
 
 Patrice Dumas, E<lt>pertusus@free.frE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2016 Free Software Foundation, Inc.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
 
 =cut

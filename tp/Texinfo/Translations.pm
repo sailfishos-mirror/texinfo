@@ -209,6 +209,11 @@ sub gdt($$;$$$)
   # clickstyle and kbdinputstyle is relevant (though not implemented in thet XS
   # parser, but could be) but not necessarily determining.  Converters and
   # users could easily avoir using @kbd and @click in the translated messages.
+  # FIXME why not use $self->get_conf('clickstyle'), ...?  It would not be used
+  # everytime, only if and where the $self object sets 'clickstyle'
+  # and 'kbdinputstyle'
+  # FIXME currently, converters are not associated with parser, such
+  # that the second condition should always be false
 
   # determine existing parser, if any
   my $current_parser;

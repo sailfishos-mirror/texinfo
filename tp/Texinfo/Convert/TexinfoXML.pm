@@ -418,7 +418,7 @@ sub converter_initialize($)
          if $self->{'expanded_formats_hash'}->{$raw};
   }
   if ($self->{'parser'}) {
-    $self->{'index_names'} = $self->{'parser'}->indices_information();
+    $self->{'indices_information'} = $self->{'parser'}->indices_information();
   }
 }
 
@@ -495,16 +495,16 @@ sub _index_entry($$)
         if (defined($index_entry->{'number'}));
     # in case the index is not a default index, or the style of the
     # entry (in code or not) is not the default for this index
-    if ($self->{'index_names'}) {
+    if ($self->{'indices_information'}) {
       my $in_code
-         = $self->{'index_names'}->{$index_entry->{'index_name'}}->{'in_code'};
+         = $self->{'indices_information'}->{$index_entry->{'index_name'}}->{'in_code'};
       if (!$Texinfo::Common::index_names{$index_entry->{'index_name'}}
           or $in_code != $Texinfo::Common::index_names{$index_entry->{'index_name'}}->{'in_code'}) {
         push @$attribute, ('incode', $in_code);
       }
-      if ($self->{'index_names'}->{$index_entry->{'index_name'}}->{'merged_in'}) {
+      if ($self->{'indices_information'}->{$index_entry->{'index_name'}}->{'merged_in'}) {
         push @$attribute, ('mergedindex',
-         $self->{'index_names'}->{$index_entry->{'index_name'}}->{'merged_in'});
+         $self->{'indices_information'}->{$index_entry->{'index_name'}}->{'merged_in'});
       }
     }
     my $result = $self->open_element('indexterm', $attribute);
@@ -1717,7 +1717,6 @@ sub _convert($$;$)
 1;
 
 __END__
-# $Id: template.pod 6140 2015-02-22 23:34:38Z karl $
 # Automatically generated from maintain/template.pod
 
 =head1 NAME
@@ -1726,7 +1725,7 @@ Texinfo::Convert::TexinfoXML - Convert Texinfo tree to TexinfoXML
 
 =head1 SYNOPSIS
 
-  my $converter 
+  my $converter
     = Texinfo::Convert::TexinfoXML->converter({'parser' => $parser});
 
   $converter->output($tree);
@@ -1743,13 +1742,14 @@ Texinfo::Convert::TexinfoXML converts a Texinfo tree to TexinfoXML.
 
 =item $converter = Texinfo::Convert::TexinfoXML->converter($options)
 
-Initialize converter from Texinfo to TexinfoXML.  
+Initialize converter from Texinfo to TexinfoXML.
 
 The I<$options> hash reference holds options for the converter.  In
-this option hash reference a parser object may be associated with the 
+this option hash reference a parser object may be associated with the
 I<parser> key.  The other options should be configuration options
 described in the Texinfo manual.  Those options, when appropriate,
-override the document content.
+override the document content.  The parser should not be available
+directly anymore after getting the associated information.
 
 See L<Texinfo::Convert::Converter> for more informations.
 
@@ -1760,12 +1760,12 @@ described in the Texinfo manual.
 
 =item $result = $converter->convert($tree)
 
-Convert a Texinfo tree I<$tree> or tree portion and return 
+Convert a Texinfo tree I<$tree> or tree portion and return
 the resulting output.
 
 =item $result = $converter->convert_tree($tree)
 
-Convert a Texinfo tree portion I<$tree> and return the resulting 
+Convert a Texinfo tree portion I<$tree> and return the resulting
 output.  This function does not try to output a full document but only
 portions.  For a full document use C<convert>.
 
@@ -1774,5 +1774,14 @@ portions.  For a full document use C<convert>.
 =head1 AUTHOR
 
 Patrice Dumas, E<lt>pertusus@free.frE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2016 Free Software Foundation, Inc.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
 
 =cut

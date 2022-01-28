@@ -1207,16 +1207,16 @@ sub process_printindex($$;$)
   }
 
   # this is not redone for each index, only once
-  if (!defined($self->{'index_entries'}) and $self->{'parser'}) {
+  my $index_names = $self->{'indices_information'};
+  if (!defined($self->{'index_entries'}) and $index_names) {
 
-    my $index_names = $self->{'parser'}->indices_information();
     my $merged_index_entries 
       = Texinfo::Structuring::merge_indices($index_names);
     my $index_entries_sort_strings;
     ($self->{'index_entries'}, $index_entries_sort_strings)
       = Texinfo::Structuring::sort_indices($self, $self,
                                            $merged_index_entries);
-    $self->{'index_names'} = $index_names;
+    $self->{'indices_information'} = $index_names;
   }
   if (!$self->{'index_entries'} or !$self->{'index_entries'}->{$index_name}
       or ! @{$self->{'index_entries'}->{$index_name}}) {
@@ -3311,7 +3311,6 @@ sub _convert($$)
 1;
 
 __END__
-# $Id$
 # Automatically generated from maintain/template.pod
 
 =head1 NAME
@@ -3320,7 +3319,7 @@ Texinfo::Convert::Plaintext - Convert Texinfo tree to Plaintext
 
 =head1 SYNOPSIS
 
-  my $converter 
+  my $converter
     = Texinfo::Convert::Plaintext->converter({'parser' => $parser});
 
   $converter->output($tree);
@@ -3337,13 +3336,14 @@ Texinfo::Convert::Plaintext converts a Texinfo tree to Plaintext.
 
 =item $converter = Texinfo::Convert::Plaintext->converter($options)
 
-Initialize converter from Texinfo to Plaintext.  
+Initialize converter from Texinfo to Plaintext.
 
 The I<$options> hash reference holds options for the converter.  In
-this option hash reference a parser object may be associated with the 
+this option hash reference a parser object may be associated with the
 I<parser> key.  The other options should be configuration options
 described in the Texinfo manual.  Those options, when appropriate,
-override the document content.
+override the document content.  The parser should not be available
+directly anymore after getting the associated information.
 
 See L<Texinfo::Convert::Converter> for more informations.
 
@@ -3354,12 +3354,12 @@ described in the Texinfo manual.
 
 =item $result = $converter->convert($tree)
 
-Convert a Texinfo tree I<$tree> or tree portion and return 
+Convert a Texinfo tree I<$tree> or tree portion and return
 the resulting output.
 
 =item $result = $converter->convert_tree($tree)
 
-Convert a Texinfo tree portion I<$tree> and return the resulting 
+Convert a Texinfo tree portion I<$tree> and return the resulting
 output.  This function does not try to output a full document but only
 portions.  For a full document use C<convert>.
 
@@ -3368,5 +3368,14 @@ portions.  For a full document use C<convert>.
 =head1 AUTHOR
 
 Patrice Dumas, E<lt>pertusus@free.frE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2016 Free Software Foundation, Inc.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
 
 =cut

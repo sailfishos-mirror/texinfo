@@ -1368,9 +1368,12 @@ while(@input_files) {
     delete $file_cmdline_options->{'SUBDIR'}
        if (exists($file_cmdline_options->{'SUBDIR'}) and get_conf('SPLIT'));
   }
+  # the code in Texinfo::Config makes sure that the keys appear only
+  # once in these three hashes.
   my $converter_options = { %$main_program_default_options,
+                            %$init_files_options,
                             %$file_cmdline_options,
-                            %$init_files_options };
+                          };
 
   # NOTE nothing set in $main_configuration is passed, which is
   # clean, the Converters can find that information their way.

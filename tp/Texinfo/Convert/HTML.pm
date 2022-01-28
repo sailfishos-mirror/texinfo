@@ -1344,9 +1344,9 @@ sub get_value($$)
 {
   my $self = shift;
   my $value = shift;
-  if (defined($self->{'parser'}) 
-      and exists ($self->{'parser'}->{'values'}->{$value})) {
-    return $self->{'parser'}->{'values'}->{$value};
+  if (defined($self->{'values'})
+      and exists ($self->{'values'}->{$value})) {
+    return $self->{'values'}->{$value};
   } else {
     return undef;
   }
@@ -1740,7 +1740,7 @@ my %defaults = (
                               [ 'Prev', \&_default_panel_button_dynamic_direction_section_footer ],
                               [ 'Up', \&_default_panel_button_dynamic_direction_section_footer ], ' ',
                               'Contents', 'Index'],
-  'LINKS_BUTTONS'        => ['Top', 'Index', 'Contents', 'About', 
+  'LINKS_BUTTONS'        => ['Top', 'Index', 'Contents', 'About',
                               'NodeUp', 'NodeNext', 'NodePrev'],
   'NODE_FOOTER_BUTTONS'  => [[ 'Next', \&_default_panel_button_dynamic_direction_node_footer ],
                              [ 'Prev', \&_default_panel_button_dynamic_direction_node_footer ],
@@ -2108,7 +2108,7 @@ my %default_commands_args = (
 );
 
 foreach my $explained_command (keys(%explained_commands)) {
-  $default_commands_args{$explained_command} 
+  $default_commands_args{$explained_command}
      = [['normal'], ['string']];
 }
 
@@ -2157,7 +2157,7 @@ foreach my $ignored_brace_commands ('caption', 'shortcaption',
 # used to determine the first line, in fact.
 my %advance_paragraph_count_commands;
 foreach my $command (keys(%block_commands)) {
-  next if ($menu_commands{$command} 
+  next if ($menu_commands{$command}
             or $block_commands{$command} eq 'raw');
   $advance_paragraph_count_commands{$command} = 1;
 }
@@ -2741,8 +2741,8 @@ sub _convert_footnote_command($$$$)
     } else {
       # This should rarely happen, except for @footnote in @copying and
       # multiple @insertcopying...
-      # Here it is not checked that there is no clash with another anchor. 
-      # However, unless there are more than 1000 footnotes this should not 
+      # Here it is not checked that there is no clash with another anchor.
+      # However, unless there are more than 1000 footnotes this should not
       # happen.
       $footid .= '_'.$$foot_num;
       $docid .= '_'.$$foot_num;
@@ -7901,12 +7901,12 @@ sub _prepare_index_entries($)
 {
   my $self = shift;
 
-  if ($self->{'parser'}) {
+  my $index_names = $self->{'indices_information'};
+  if ($index_names) {
     my $no_unidecode;
     $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
                           and !$self->get_conf('USE_UNIDECODE'));
 
-    my $index_names = $self->{'parser'}->indices_information();
     my $merged_index_entries 
         = Texinfo::Structuring::merge_indices($index_names);
     my $index_entries_sort_strings;
@@ -10115,7 +10115,6 @@ sub _set_variables_texi2html()
 1;
 
 __END__
-# $Id$
 # Automatically generated from maintain/template.pod
 
 =head1 NAME
@@ -10124,7 +10123,7 @@ Texinfo::Convert::HTML - Convert Texinfo tree to HTML
 
 =head1 SYNOPSIS
 
-  my $converter 
+  my $converter
     = Texinfo::Convert::HTML->converter({'parser' => $parser});
 
   $converter->output($tree);
@@ -10142,13 +10141,14 @@ Texinfo::Convert::HTML converts a Texinfo tree to HTML.
 
 =item $converter = Texinfo::Convert::HTML->converter($options)
 
-Initialize converter from Texinfo to HTML.  
+Initialize converter from Texinfo to HTML.
 
 The I<$options> hash reference holds options for the converter.  In
-this option hash reference a parser object may be associated with the 
+this option hash reference a parser object may be associated with the
 I<parser> key.  The other options should be configuration options
 described in the Texinfo manual.  Those options, when appropriate,
-override the document content.
+override the document content.  The parser should not be available
+directly anymore after getting the associated information.
 
 See L<Texinfo::Convert::Converter> for more informations.
 
@@ -10159,12 +10159,12 @@ described in the Texinfo manual.
 
 =item $result = $converter->convert($tree)
 
-Convert a Texinfo tree I<$tree> or tree portion and return 
+Convert a Texinfo tree I<$tree> or tree portion and return
 the resulting output.
 
 =item $result = $converter->convert_tree($tree)
 
-Convert a Texinfo tree portion I<$tree> and return the resulting 
+Convert a Texinfo tree portion I<$tree> and return the resulting
 output.  This function does not try to output a full document but only
 portions.  For a full document use C<convert>.
 
@@ -10179,5 +10179,14 @@ specification.  This is only supported in (and relevant for) HTML.
 =head1 AUTHOR
 
 Patrice Dumas, E<lt>pertusus@free.frE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2016 Free Software Foundation, Inc.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
 
 =cut

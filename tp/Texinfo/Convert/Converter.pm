@@ -195,14 +195,16 @@ sub converter(;$)
     if ($conf->{'parser'}) {
       $converter->{'parser'} = $conf->{'parser'};
       $converter->{'global_commands'}
-         = $converter->{'parser'}->global_commands_information();
-      $converter->{'parser_info'} = $converter->{'parser'}->global_informations();
-      my $floats = $converter->{'parser'}->floats_information();
+         = $conf->{'parser'}->global_commands_information();
+      $converter->{'parser_info'} = $conf->{'parser'}->global_informations();
+      my $floats = $conf->{'parser'}->floats_information();
       my ($labels, $targets_list, $nodes_list)
-        = $converter->{'parser'}->labels_information();
+        = $conf->{'parser'}->labels_information();
 
       $converter->{'floats'} = $floats if ($floats);
       $converter->{'labels'} = $labels if ($labels);
+      $converter->{'indices_information'} = $conf->{'parser'}->indices_information();
+      $converter->{'values'} = $conf->{'parser'}->{'values'};
       delete $conf->{'parser'};
     }
     foreach my $key (keys(%$conf)) {
