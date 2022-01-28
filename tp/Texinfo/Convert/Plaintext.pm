@@ -1216,7 +1216,6 @@ sub process_printindex($$;$)
     ($self->{'index_entries'}, $index_entries_sort_strings)
       = Texinfo::Structuring::sort_indices($self, $self,
                                            $merged_index_entries);
-    $self->{'indices_information'} = $index_names;
   }
   if (!$self->{'index_entries'} or !$self->{'index_entries'}->{$index_name}
       or ! @{$self->{'index_entries'}->{$index_name}}) {

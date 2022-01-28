@@ -417,9 +417,6 @@ sub converter_initialize($)
     $self->{'context_block_commands'}->{$raw} = 1
          if $self->{'expanded_formats_hash'}->{$raw};
   }
-  if ($self->{'parser'}) {
-    $self->{'indices_information'} = $self->{'parser'}->indices_information();
-  }
 }
 
 # Main output function for the XML file.

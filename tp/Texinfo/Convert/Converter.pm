@@ -193,7 +193,6 @@ sub converter(;$)
   #$converter->{'converter_pre_conf'} = \%defaults;
   if (defined($conf)) {
     if ($conf->{'parser'}) {
-      $converter->{'parser'} = $conf->{'parser'};
       $converter->{'global_commands'}
          = $conf->{'parser'}->global_commands_information();
       $converter->{'parser_info'} = $conf->{'parser'}->global_informations();
