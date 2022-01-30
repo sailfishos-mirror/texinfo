@@ -1494,12 +1494,16 @@ sub get_file_information($$;$)
 
 # information from converter available 'read-only', in general set up before
 # really starting the formatting (except for current_filename).
+# 'floats', 'global_commands' and 'structuring' are set up in the generic
+# converter
 my %available_converter_info;
 foreach my $converter_info ('copying_comment', 'current_filename',
    'destination_directory', 'document_name', 'documentdescription_string',
+   'floats', 'global_commands',
    'index_entries', 'index_entries_by_letter',
    'jslicenses', 'line_break_element', 'non_breaking_space', 'paragraph_symbol',
-   'simpletitle_command_name', 'simpletitle_tree', 'title_string', 'title_tree') {
+   'simpletitle_command_name', 'simpletitle_tree', 'structuring',
+   'title_string', 'title_tree') {
   $available_converter_info{$converter_info} = 1;
 }
 
@@ -3676,10 +3680,11 @@ sub _convert_heading_command($$$$$)
   $result .= $content if (defined($content));
 
   my $table_of_contents_was_output = 0.;
+  my $structuring = $self->get_info('structuring');
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top'
       and $cmdname eq 'top'
-      and $self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}
-      and scalar(@{$self->{'structuring'}->{'sections_list'}}) > 1) {
+      and $structuring and $structuring->{'sectioning_root'}
+      and scalar(@{$structuring->{'sections_list'}}) > 1) {
     foreach my $content_command_name ('contents', 'shortcontents') {
       if ($self->get_conf($content_command_name)) {
         my $contents_text
@@ -4064,14 +4069,15 @@ sub _convert_insertcopying_command($$$$)
   my $cmdname = shift;
   my $command = shift;
 
-  if ($self->{'global_commands'} and $self->{'global_commands'}->{'copying'}) {
-    return $self->convert_tree({'contents' 
-               => $self->{'global_commands'}->{'copying'}->{'contents'}},
+  my $global_commands = $self->get_info('global_commands');
+  if ($global_commands and $global_commands->{'copying'}) {
+    return $self->convert_tree({'contents'
+               => $global_commands->{'copying'}->{'contents'}},
                                'convert insertcopying');
   }
   return '';
 }
-$default_commands_conversion{'insertcopying'} 
+$default_commands_conversion{'insertcopying'}
    = \&_convert_insertcopying_command;
 
 sub _convert_listoffloats_command($$$$)
@@ -4081,15 +4087,16 @@ sub _convert_listoffloats_command($$$$)
   my $command = shift;
   my $args = shift;
 
+  my $floats = $self->get_info('floats');
   if (!$self->in_string()
       and $command->{'extra'} and $command->{'extra'}->{'type'}
       and defined($command->{'extra'}->{'type'}->{'normalized'})
-      and $self->{'floats'}
-      and $self->{'floats'}->{$command->{'extra'}->{'type'}->{'normalized'}}
-      and @{$self->{'floats'}->{$command->{'extra'}->{'type'}->{'normalized'}}}) { 
+      and $floats
+      and $floats->{$command->{'extra'}->{'type'}->{'normalized'}}
+      and @{$floats->{$command->{'extra'}->{'type'}->{'normalized'}}}) {
     my $listoffloats_name = $command->{'extra'}->{'type'}->{'normalized'};
     my $result = $self->html_attribute_class('dl', [$cmdname]).">\n" ;
-    foreach my $float (@{$self->{'floats'}->{$listoffloats_name}}) {
+    foreach my $float (@{$floats->{$listoffloats_name}}) {
       my $float_href = $self->command_href($float);
       next if (!$float_href);
       $result .= '<dt>';
@@ -4207,7 +4214,7 @@ sub _convert_float_command($$$$$)
     my $caption_text = '';
     if ($caption) {
       $caption_text = $self->convert_tree_new_formatting_context(
-        {'contents' => $caption->{'args'}->[0]->{'contents'}}, 
+        {'contents' => $caption->{'args'}->[0]->{'contents'}},
         'float caption');
     }
     return $prepended.$content.$caption_text;
@@ -5082,11 +5089,12 @@ sub _convert_contents_command
 
   Texinfo::Common::set_informative_command_value($self, $command);
 
+  my $structuring = $self->get_info('structuring');
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'
       and ($cmdname eq 'contents' or $cmdname eq 'shortcontents')
       and $self->get_conf($cmdname)
-      and $self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}
-      and scalar(@{$self->{'structuring'}->{'sections_list'}}) > 1) {
+      and $structuring and $structuring->{'sectioning_root'}
+      and scalar(@{$structuring->{'sections_list'}}) > 1) {
     return $self->_contents_inline_element($cmdname, $command);
   }
   return '';
@@ -6027,8 +6035,9 @@ sub _contents_shortcontents_in_title($)
 
   my $result = '';
 
-  if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}
-      and scalar(@{$self->{'structuring'}->{'sections_list'}}) > 1
+  my $structuring = $self->get_info('structuring');
+  if ($structuring and $structuring->{'sectioning_root'}
+      and scalar(@{$structuring->{'sections_list'}}) > 1
       and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
     foreach my $command ('contents', 'shortcontents') {
       if ($self->get_conf($command)) {
@@ -6048,9 +6057,10 @@ sub _default_format_titlepage($)
   my $self = shift;
 
   my $titlepage_text;
-  if ($self->{'global_commands'}->{'titlepage'}) {
+  my $global_commands = $self->get_info('global_commands');
+  if ($global_commands->{'titlepage'}) {
     $titlepage_text = $self->convert_tree({'contents'
-               => $self->{'global_commands'}->{'titlepage'}->{'contents'}},
+               => $global_commands->{'titlepage'}->{'contents'}},
                                           'convert titlepage');
   } else {
     my $simpletitle_tree = $self->get_info('simpletitle_tree');
@@ -6306,7 +6316,7 @@ sub _default_format_element_footer($$$$)
 # is not done within the document formatting flow, but the formatted
 # output may still end up in the document.  In particular for
 # command_text() which caches its computations.
-sub _new_document_context($$;$)
+sub _new_document_context($;$$)
 {
   my $self = shift;
   my $cmdname = shift;
@@ -7211,7 +7221,7 @@ sub _normalized_label_id_file($$)
   }
   # to find out the Top node, one could check $label_info->{'normalized'}
   if (defined($self->{'file_id_setting'}->{'label_target_name'})) {
-    $target = &{$self->{'file_id_setting'}->{'label_target_name'}}(
+    $target = &{$self->{'file_id_setting'}->{'label_target_name'}}($self,
                                                        $label_info, $target);
   }
 
@@ -8155,10 +8165,11 @@ sub _default_format_contents($$;$$)
 
   $filename = $self->get_info('current_filename') if (!defined($filename));
 
+  my $structuring = $self->get_info('structuring');
   return ''
-   if (!$self->{'structuring'} or !$self->{'structuring'}->{'sectioning_root'});
+   if (!$structuring or !$structuring->{'sectioning_root'});
 
-  my $section_root = $self->{'structuring'}->{'sectioning_root'};
+  my $section_root = $structuring->{'sectioning_root'};
   my $contents;
   $contents = 1 if ($cmdname eq 'contents');
 
@@ -8963,8 +8974,9 @@ EOT
 sub _has_contents_or_shortcontents($)
 {
   my $self = shift;
+  my $global_commands = $self->get_info('global_commands');
   foreach my $cmdname ('contents', 'shortcontents') {
-    if ($self->{'global_commands'} and $self->{'global_commands'}->{$cmdname}) {
+    if ($global_commands and $global_commands->{$cmdname}) {
       return 1;
     }
   }

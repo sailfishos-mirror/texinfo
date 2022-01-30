@@ -90,7 +90,7 @@ foreach my $dots ('dots') {
 
 foreach my $context ('preformatted', 'normal') {
   foreach my $command('sansserif', 'r') {
-    texinfo_register_style_command_formatting($command, {}, $context);
+    texinfo_register_style_command_formatting($command, undef, undef, $context);
   }
 }
 

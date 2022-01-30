@@ -1,7 +1,5 @@
 use strict;
 
-use vars qw(%commands_conversion);
-
 sub convert_comment_command($$$)
 {
   my $self = shift;

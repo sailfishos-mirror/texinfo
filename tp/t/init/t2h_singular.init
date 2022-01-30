@@ -6,8 +6,6 @@
 
 use strict;
 
-use vars qw($node_file_name);
-
 my $T2H_BLUE_BUTTONS = 0;
 
 # we only redefine things which ar of relevance to singular
@@ -63,11 +61,11 @@ sub singular_format_footer($$$$)
 
 
   my $end_page = (!$element->{'structure'}->{'unit_next'}
-   # FIXME API
    or (defined($element->{'structure'}->{'unit_filename'})
        and $element->{'structure'}->{'unit_filename'}
            ne $element->{'structure'}->{'unit_next'}->{'structure'}->{'unit_filename'}
-       and $self->{'file_counters'}->{$element->{'structure'}->{'unit_filename'}} == 1));
+       and $self->count_elements_in_filename('current',
+                   $element->{'structure'}->{'unit_filename'}) == 1));
 
   if ($self->element_is_tree_unit_top($element)) {
     my $buttons = $self->get_conf('TOP_BUTTONS');

@@ -471,12 +471,11 @@ sub GNUT_get_no_arg_command_formatting($;$)
   return undef;
 }
 
-# the value should be a hash reference, possibly empty, with valid
-# keys 'attribute' and 'quote'.
-sub texinfo_register_style_command_formatting($$;$)
+sub texinfo_register_style_command_formatting($$;$$)
 {
   my $command = shift;
-  my $value = shift;
+  my $html_element = shift;
+  my $in_quotes = shift;
   my $context = shift;
 
   if (!defined($context)) {
@@ -486,7 +485,14 @@ sub texinfo_register_style_command_formatting($$;$)
                   'texinfo_register_style_command_formatting', $context));
     return 0;
   }
-  $GNUT_style_commands_formatting_info->{$context}->{$command} = $value;
+  my $specification = {};
+  if ($in_quotes) {
+    $specification->{'quotes'} = $in_quotes;
+  }
+  if (defined($html_element)) {
+    $specification->{'attribute'} = $html_element;
+  }
+  $GNUT_style_commands_formatting_info->{$context}->{$command} = $specification;
   return 1;
 }
 

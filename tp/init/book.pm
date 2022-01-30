@@ -21,8 +21,6 @@
 
 use strict;
 
-use vars qw($element_file_name);
-
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Structuring;

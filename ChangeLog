@@ -1,3 +1,16 @@
+2022-01-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Config.pm (texinfo_register_style_command_formatting),
+	tp/init/html32.pm: use a separate argument for quotes and
+	html element argument.
+
+	* tp/Texinfo/Convert/HTML.pm (%available_converter_info):
+	add floats, global_commands and structuring.
+
+	* tp/Texinfo/Convert/HTML.pm (_normalized_label_id_file): 
+	add converter as the first argument of 'label_target_name'
+	user code reference call.
+
 2022-01-28  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* info/info.c (info_short_help): Remove --show-options from
