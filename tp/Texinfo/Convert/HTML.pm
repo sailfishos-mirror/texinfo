@@ -1332,6 +1332,13 @@ sub default_command_conversion($$)
   return $default_commands_conversion{$command};
 }
 
+sub command_conversion($$)
+{
+  my $self = shift;
+  my $command = shift;
+  return $self->{'commands_conversion'}->{$command};
+}
+
 my %default_commands_open;
 
 sub default_command_open($$)
@@ -4538,7 +4545,8 @@ sub _convert_item_command($$$$$)
     }
   } elsif ($command->{'parent'}->{'type'} 
            and $command->{'parent'}->{'type'} eq 'row') {
-    return $self->_convert_tab_command($cmdname, $command, $args, $content);
+    return &{$self->command_conversion('tab')}($self, $cmdname, $command,
+                                                           $args, $content);
   }
   return '';
 }
@@ -5166,16 +5174,23 @@ foreach my $small_command (keys(%small_block_associated_command)) {
 # Texinfo::Config::texinfo_register_type_formatting()
 my %default_types_conversion;
 
-sub default_types_conversion($$)
+sub default_type_conversion($$)
 {
   my $self = shift;
   my $type = shift;
   return $default_types_conversion{$type};
 }
 
+sub type_conversion($$)
+{
+  my $self = shift;
+  my $type = shift;
+  return $self->{'types_conversion'}->{$type};
+}
+
 my %default_types_open;
 
-sub default_types_open($$)
+sub default_type_open($$)
 {
   my $self = shift;
   my $type = shift;

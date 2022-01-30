@@ -133,7 +133,7 @@ sub epub_noop($$)
 
 # file scope variables
 my $epub_destination_directory;
-my $epub_document_destination_directory; 
+my $epub_document_destination_directory;
 
 my $epub_document_dir_name = 'EPUB';
 
@@ -196,7 +196,7 @@ sub epub_convert_tree_unit_type($$$$)
   my $content = shift;
 
   push @epub_output_filenames, $element->{'structure'}->{'unit_filename'};
-  return &{$self->default_types_conversion($type)}($self,
+  return &{$self->default_type_conversion($type)}($self,
                                       $type, $element, $content);
 }
 
