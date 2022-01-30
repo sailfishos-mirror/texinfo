@@ -1,3 +1,9 @@
+2022-01-28  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/info-stnd.texi (Invoking Info) <--show-options>:
+	Say something about where the name of the program comes from.
+	Report from Akbarkhon Variskhanov <akbarkhon.variskhanov@gmail.com>.
+
 2022-01-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Converter.pm (converter),

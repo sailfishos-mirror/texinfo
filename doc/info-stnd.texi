@@ -16,9 +16,8 @@ This manual is for Stand-alone GNU Info (version @value{VERSION},
 @value{UPDATED}), a program for viewing documents in Info format
 (usually created from Texinfo source files).
 
-Copyright @copyright{} 1992, 1993, 1996, 1997, 1998, 1999, 2001,
-2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012,
-2013, 2014, 2015, 2016, 2017, 2018, 2019 Free Software Foundation, Inc.
+Copyright @copyright{} 1992, 1993, 1996, 1997, 1998, 1999,
+2001-2022 Free Software Foundation, Inc.
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
@@ -487,9 +486,12 @@ sequences are dropped.
 @cindex @code{--show-options} (@code{--usage}, @code{-O}) command line option
 @cindex command-line options, how to find
 @cindex invocation description, how to find
-Tell Info to look for the node that describes how to invoke the
-program and its command-line options, and begin the session by
-displaying that node.  It is provided to make it easier to find the
+Look for the node that describes how to invoke the
+program.  The name of the program is taken from the other non-option
+arguments on the command line.  For example, @samp{info emacs -O} loads
+the @code{Emacs Invocation} node of the @code{emacs} manual.
+
+This option is provided to make it easier to find the
 most important usage information in a manual without navigating
 through menu hierarchies.  The effect is similar to the @code{@kbd{M-x}
 goto-invocation} command (@pxref{goto-invocation}) from inside Info.
