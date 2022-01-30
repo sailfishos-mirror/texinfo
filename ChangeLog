@@ -1,5 +1,9 @@
 2022-01-30  Patrice Dumas  <pertusus@free.fr>
 
+	* autogen.sh: add -other 'other' to regenerate_cmd_tests.sh call.
+
+2022-01-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_default_format_element_footer)
 	(_convert): rename cmdname as context or context_name, as contexts
 	are not necessarily associated with command names, and it is
