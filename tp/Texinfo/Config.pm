@@ -490,7 +490,7 @@ sub texinfo_register_style_command_formatting($$;$$)
     $specification->{'quotes'} = $in_quotes;
   }
   if (defined($html_element)) {
-    $specification->{'attribute'} = $html_element;
+    $specification->{'element'} = $html_element;
   }
   $GNUT_style_commands_formatting_info->{$context}->{$command} = $specification;
   return 1;

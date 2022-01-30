@@ -2441,13 +2441,13 @@ my @all_style_commands = keys %{{ map { $_ => 1 }
 foreach my $command(@all_style_commands) {
   # default is no attribute.
   if ($style_commands_element{'normal'}->{$command}) {
-    $style_commands_formatting{'normal'}->{$command}->{'attribute'}
+    $style_commands_formatting{'normal'}->{$command}->{'element'}
      = $style_commands_element{'normal'}->{$command};
-    $style_commands_formatting{'preformatted'}->{$command}->{'attribute'}
+    $style_commands_formatting{'preformatted'}->{$command}->{'element'}
      = $style_commands_element{'normal'}->{$command};
   }
   if ($style_commands_element{'preformatted'}->{$command}) {
-    $style_commands_formatting{'preformatted'}->{$command}->{'attribute'} =
+    $style_commands_formatting{'preformatted'}->{$command}->{'element'} =
       $style_commands_element{'preformatted'}->{$command};
   }
   if ($quoted_style_commands{$command}) {
@@ -2458,7 +2458,7 @@ foreach my $command(@all_style_commands) {
   $default_commands_conversion{$command} = \&_convert_style_command;
 }
 
-$style_commands_formatting{'preformatted'}->{'sc'}->{'attribute'} = 'span';
+$style_commands_formatting{'preformatted'}->{'sc'}->{'element'} = 'span';
 
 # currently unused, could be re-used if there is a need to have attributes
 # specified in %style_commands_element
@@ -2509,16 +2509,16 @@ sub _convert_style_command($$$$)
   if (defined($attribute_hash->{$cmdname})) {
     my $attribute_text = '';
     my $style;
-    if (defined($attribute_hash->{$cmdname}->{'attribute'})) {
+    if (defined($attribute_hash->{$cmdname}->{'element'})) {
       # the commented out code is useful only if there are attributes in
       # style_commands_element
       #my $class;
       #($style, $class, $attribute_text)
-      #  = _parse_attribute($attribute_hash->{$cmdname}->{'attribute'});
+      #  = _parse_attribute($attribute_hash->{$cmdname}->{'element'});
       #if (defined($class) and $class ne '') {
       #  push @classes, $class;
       #}
-      my $style = $attribute_hash->{$cmdname}->{'attribute'};
+      my $style = $attribute_hash->{$cmdname}->{'element'};
       my $open = $self->html_attribute_class($style, \@classes);
       if ($open ne '') {
         $text = $open . '>' . $text . "</$style>";
