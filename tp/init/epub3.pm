@@ -150,7 +150,7 @@ sub epub_convert_image_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my $result = &{$self->default_commands_conversion($cmdname)}($self,
+  my $result = &{$self->default_command_conversion($cmdname)}($self,
                                                  $cmdname, $command, $args);
 
   my ($image_file, $image_basefile, $image_extension, $image_path)

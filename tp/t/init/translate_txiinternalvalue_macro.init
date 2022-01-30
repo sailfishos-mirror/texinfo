@@ -1,12 +1,13 @@
 
 texinfo_register_command_formatting('sp', \&my_sp_formatting);
 
-sub my_sp_formatting($$$$)
+sub my_sp_formatting($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
   my $args = shift;
+  my $content = shift;
 
   if (defined($command->{'extra'}->{'misc_args'}->[0])) {
     my $sp_nr = $command->{'extra'}->{'misc_args'}->[0];
@@ -19,8 +20,8 @@ user internalvalue
     return $result;
   }
 
-  return &{$self->default_commands_conversion($cmdname)}($self,
-        $cmdname, $command, $args);
+  return &{$self->default_command_conversion($cmdname)}($self,
+        $cmdname, $command, $args, $content);
 }
 
 

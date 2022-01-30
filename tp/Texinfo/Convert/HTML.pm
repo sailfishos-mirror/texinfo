@@ -359,11 +359,13 @@ sub html_convert_css_string($$;$)
   my $saved_formatting_references = {};
   foreach my $cmdname (keys(%default_css_string_commands_conversion)) {
     $saved_commands->{$cmdname} = $self->{'commands_conversion'}->{$cmdname};
-    $self->{'commands_conversion'}->{$cmdname} = $default_css_string_commands_conversion{$cmdname};
+    $self->{'commands_conversion'}->{$cmdname}
+      = $default_css_string_commands_conversion{$cmdname};
   }
   foreach my $type (keys(%default_css_string_types_conversion)) {
     $saved_types->{$type} = $self->{'types_conversion'}->{$type};
-    $self->{'types_conversion'}->{$type} = $default_css_string_types_conversion{$type};
+    $self->{'types_conversion'}->{$type}
+      = $default_css_string_types_conversion{$type};
   }
   foreach my $formatting_reference (keys(%default_css_string_formatting_references)) {
     $saved_formatting_references->{$formatting_reference}
@@ -1320,10 +1322,10 @@ sub special_element_body_formatting($$)
 # the formatting of commands, in case a user still wants to call
 # default @-commands formatting functions when replacing functions,
 # using code along
-# &{$self->default_commands_conversion($cmdname)}($self, $cmdname, $command, $content)
+# &{$self->default_command_conversion($cmdname)}($self, $cmdname, $command, args, $content)
 my %default_commands_conversion;
 
-sub default_commands_conversion($$)
+sub default_command_conversion($$)
 {
   my $self = shift;
   my $command = shift;
@@ -1332,7 +1334,7 @@ sub default_commands_conversion($$)
 
 my %default_commands_open;
 
-sub default_commands_open($$)
+sub default_command_open($$)
 {
   my $self = shift;
   my $command = shift;
@@ -2541,7 +2543,9 @@ sub _convert_w_command($$$$)
   my $cmdname = shift;
   my $command = shift;
   my $args = shift;
+
   my $text = $args->[0]->{'normal'};
+
   if (!defined($text)) {
     $text = '';
   }
@@ -3708,11 +3712,12 @@ foreach my $command (keys(%sectioning_commands), 'node') {
   $default_commands_conversion{$command} = \&_convert_heading_command;
 }
 
-sub _convert_raw_command($$$$)
+sub _convert_raw_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   if ($cmdname eq 'html') {
@@ -3785,11 +3790,12 @@ sub _indent_with_table($$$;$)
                 ."</td></tr></table>\n";
 }
 
-sub _convert_preformatted_command($$$$)
+sub _convert_preformatted_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   my @classes;
@@ -3839,11 +3845,12 @@ foreach my $preformatted_command (keys(%preformatted_commands)) {
     = \&_convert_preformatted_command;
 }
 
-sub _convert_indented_command($$$$)
+sub _convert_indented_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   my @classes;
@@ -3870,11 +3877,12 @@ sub _convert_indented_command($$$$)
 
 $default_commands_conversion{'indentedblock'} = \&_convert_indented_command;
 
-sub _convert_verbatim_command($$$$)
+sub _convert_verbatim_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   if (!$self->in_string()) {
@@ -3887,11 +3895,12 @@ sub _convert_verbatim_command($$$$)
 
 $default_commands_conversion{'verbatim'} = \&_convert_verbatim_command;
 
-sub _convert_displaymath_command($$$$)
+sub _convert_displaymath_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   if ($self->in_string()) {
@@ -3933,11 +3942,12 @@ sub _convert_verbatiminclude_command($$$$)
 $default_commands_conversion{'verbatiminclude'} 
   = \&_convert_verbatiminclude_command;
 
-sub _convert_command_simple_block($$$$)
+sub _convert_command_simple_block($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   return $self->html_attribute_class('div', [$cmdname]).'>'
@@ -4053,6 +4063,7 @@ sub _convert_subtitle_command($$$$)
   my $cmdname = shift;
   my $command = shift;
   my $args = shift;
+
   return '' if (!$args->[0]);
   if (!$self->in_string()) {
     return $self->html_attribute_class('h3', [$cmdname])
@@ -4063,7 +4074,7 @@ sub _convert_subtitle_command($$$$)
 }
 $default_commands_conversion{'subtitle'} = \&_convert_subtitle_command;
 
-sub _convert_insertcopying_command($$$$)
+sub _convert_insertcopying_command($$$)
 {
   my $self = shift;
   my $cmdname = shift;
@@ -4149,11 +4160,12 @@ sub _in_preformatted_in_menu($)
   return 0;
 }
 
-sub _convert_menu_command($$$$)
+sub _convert_menu_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   return $content if ($cmdname eq 'detailmenu');
@@ -4313,11 +4325,12 @@ sub _convert_quotation_command($$$$$)
 }
 $default_commands_conversion{'quotation'} = \&_convert_quotation_command;
 
-sub _convert_cartouche_command($$$$)
+sub _convert_cartouche_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   if ($content =~ /\S/ and !$self->in_string()) {
@@ -4329,11 +4342,12 @@ sub _convert_cartouche_command($$$$)
 
 $default_commands_conversion{'cartouche'} = \&_convert_cartouche_command;
 
-sub _convert_itemize_command($$$$)
+sub _convert_itemize_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   if ($self->in_string()) {
@@ -4381,11 +4395,12 @@ sub _convert_itemize_command($$$$)
 
 $default_commands_conversion{'itemize'} = \&_convert_itemize_command;
 
-sub _convert_enumerate_command($$$$)
+sub _convert_enumerate_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   if ($self->in_string()) {
@@ -4417,11 +4432,12 @@ sub _convert_enumerate_command($$$$)
 
 $default_commands_conversion{'enumerate'} = \&_convert_enumerate_command;
 
-sub _convert_multitable_command($$$$)
+sub _convert_multitable_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   if ($self->in_string()) {
@@ -4437,11 +4453,12 @@ sub _convert_multitable_command($$$$)
 
 $default_commands_conversion{'multitable'} = \&_convert_multitable_command;
 
-sub _convert_xtable_command($$$$)
+sub _convert_xtable_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   if ($self->in_string()) {
@@ -4458,11 +4475,12 @@ $default_commands_conversion{'table'} = \&_convert_xtable_command;
 $default_commands_conversion{'ftable'} = \&_convert_xtable_command;
 $default_commands_conversion{'vtable'} = \&_convert_xtable_command;
 
-sub _convert_item_command($$$$)
+sub _convert_item_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   if ($self->in_string()) {
@@ -4484,7 +4502,6 @@ sub _convert_item_command($$$$)
     }
   } elsif ($command->{'parent'}->{'type'}
            and $command->{'parent'}->{'type'} eq 'table_term') {
-    my $args = $content;
     if ($args->[0]) {
       my $table_item_tree = $self->table_item_content_tree($command,
                                                 [$args->[0]->{'tree'}]);
@@ -4521,7 +4538,7 @@ sub _convert_item_command($$$$)
     }
   } elsif ($command->{'parent'}->{'type'} 
            and $command->{'parent'}->{'type'} eq 'row') {
-    return $self->_convert_tab_command ($cmdname, $command, $content);
+    return $self->_convert_tab_command($cmdname, $command, $args, $content);
   }
   return '';
 }
@@ -4529,11 +4546,12 @@ $default_commands_conversion{'item'} = \&_convert_item_command;
 $default_commands_conversion{'headitem'} = \&_convert_item_command;
 $default_commands_conversion{'itemx'} = \&_convert_item_command;
 
-sub _convert_tab_command ($$$$)
+sub _convert_tab_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
   
   my $cell_nr = $command->{'extra'}->{'cell_number'};
@@ -5057,7 +5075,7 @@ sub _contents_inline_element($$$)
   return '';
 }
 
-sub _convert_informative_command($$$$)
+sub _convert_informative_command($$$)
 {
   my $self = shift;
   my $cmdname = shift;
@@ -5078,7 +5096,7 @@ foreach my $informative_command (@informative_global_commands) {
     = \&_convert_informative_command;
 }
 
-sub _convert_contents_command
+sub _convert_contents_command($$$)
 {
   my $self = shift;
   my $cmdname = shift;
@@ -5307,9 +5325,8 @@ $default_types_conversion{'preformatted'} = \&_convert_preformatted_type;
 sub _convert_bracketed_type($$$$) {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
-#print STDERR "$self $type $command $content\n";
 
   return '{'.$content.'}';
 }
@@ -5319,12 +5336,12 @@ $default_types_conversion{'bracketed'} = \&_convert_bracketed_type;
 sub _convert_definfoenclose_type($$$$) {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
 
   # FIXME add a span to mark the original command as a class?
-  return $self->protect_text($command->{'extra'}->{'begin'}) . $content
-         .$self->protect_text($command->{'extra'}->{'end'});
+  return $self->protect_text($element->{'extra'}->{'begin'}) . $content
+         .$self->protect_text($element->{'extra'}->{'end'});
 }
 
 $default_types_conversion{'definfoenclose_command'} 
@@ -5334,7 +5351,7 @@ sub _convert_text($$$)
 {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $text = shift;
 
   if ($self->in_verbatim()) {
@@ -5396,7 +5413,7 @@ sub _css_string_convert_text($$$)
 {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $text = shift;
 
   $text = uc($text) if ($self->in_upper_case());
@@ -5428,13 +5445,13 @@ sub _simplify_text_for_comparison($)
 sub _convert_row_type($$$$) {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
 
   return $content if ($self->in_string());
   if ($content =~ /\S/) {
     my $result = '<tr>' . $content . '</tr>';
-    my $row_cmdname = $command->{'contents'}->[0]->{'cmdname'};
+    my $row_cmdname = $element->{'contents'}->[0]->{'cmdname'};
     if ($row_cmdname ne 'headitem') {
       # if headitem, end of line added in _convert_multitable_head_type
       $result .= "\n";
@@ -5449,7 +5466,7 @@ $default_types_conversion{'row'} = \&_convert_row_type;
 sub _convert_multitable_head_type($$$$) {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
 
   return $content if ($self->in_string());
@@ -5465,7 +5482,7 @@ $default_types_conversion{'multitable_head'} = \&_convert_multitable_head_type;
 sub _convert_multitable_body_type($$$$) {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
 
   return $content if ($self->in_string());
@@ -5482,28 +5499,28 @@ sub _convert_menu_entry_type($$$)
 {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   
   my $href;
   my $rel = '';
   my $section;
-  my $node_entry = $command->{'extra'}->{'menu_entry_node'};
+  my $node_entry = $element->{'extra'}->{'menu_entry_node'};
   # external node
   my $external_node;
   if ($node_entry->{'manual_content'}) {
-    $href = $self->command_href($node_entry, undef, $command); 
+    $href = $self->command_href($node_entry, undef, $element);
     $external_node = 1;
   } else {
     my $node = $self->label_command($node_entry->{'normalized'});
-    # if !NODE_NAME_IN_MENU, we pick the associated section, except if 
+    # if !NODE_NAME_IN_MENU, we pick the associated section, except if
     # the node is the element command
-    if ($node->{'extra'}->{'associated_section'} 
+    if ($node->{'extra'}->{'associated_section'}
       and !$self->get_conf('NODE_NAME_IN_MENU')
       and !($self->command_root_element_command($node) eq $node)) {
       $section = $node->{'extra'}->{'associated_section'};
-      $href = $self->command_href($section, undef, $command);
+      $href = $self->command_href($section, undef, $element);
     } else {
-      $href = $self->command_href($node, undef, $command);
+      $href = $self->command_href($node, undef, $element);
     }
     if ($node->{'extra'}->{'isindex'}) {
       # Mark the target as an index.  See
@@ -5516,7 +5533,7 @@ sub _convert_menu_entry_type($$$)
     = $self->shared_conversion_state('html_menu_entry_index', 0);
   ${$html_menu_entry_index}++;
   my $accesskey = '';
-  $accesskey = " accesskey=\"$$html_menu_entry_index\"" 
+  $accesskey = " accesskey=\"$$html_menu_entry_index\""
     if ($self->get_conf('USE_ACCESSKEY') and $$html_menu_entry_index < 10);
 
   my $MENU_SYMBOL = $self->get_conf('MENU_SYMBOL');
@@ -5526,9 +5543,9 @@ sub _convert_menu_entry_type($$$)
   if ($self->_in_preformatted_in_menu() or $in_string) {
     my $result_name_node = '';
     my $i = 0;
-    my @args = @{$command->{'args'}};
+    my @args = @{$element->{'args'}};
     while (@args) {
-      last if ($args[0]->{'type'} 
+      last if ($args[0]->{'type'}
                and $args[0]->{'type'} eq 'menu_entry_description');
       my $arg = shift @args;
       if ($arg->{'type'} and $arg->{'type'} eq 'menu_entry_node') {
@@ -5574,8 +5591,8 @@ sub _convert_menu_entry_type($$$)
     }
   }
   if (!defined($name) or $name eq '') {
-    if ($command->{'extra'}->{'menu_entry_name'}) {
-      $name = $self->convert_tree($command->{'extra'}->{'menu_entry_name'},
+    if ($element->{'extra'}->{'menu_entry_name'}) {
+      $name = $self->convert_tree($element->{'extra'}->{'menu_entry_name'},
                                   'convert menu_entry_name');
     }
     if (!defined($name) or $name eq '') {
@@ -5595,11 +5612,11 @@ sub _convert_menu_entry_type($$$)
     $name = "$MENU_SYMBOL ".$name;
   }
   my $description = '';
-  if ($command->{'extra'}->{'menu_entry_description'}) {
-    $description = $self->convert_tree($command->{'extra'}->{'menu_entry_description'},
+  if ($element->{'extra'}->{'menu_entry_description'}) {
+    $description = $self->convert_tree($element->{'extra'}->{'menu_entry_description'},
                                         "menu_arg description");
     if ($self->get_conf('AVOID_MENU_REDUNDANCY')) {
-      $description = '' if (_simplify_text_for_comparison($name_no_number) 
+      $description = '' if (_simplify_text_for_comparison($name_no_number)
                            eq _simplify_text_for_comparison($description));
     }
   }
@@ -5614,7 +5631,7 @@ sub _convert_menu_comment_type($$$$)
 {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
 
   if ($self->_in_preformatted_in_menu() or $self->in_string()) {
@@ -5631,7 +5648,7 @@ sub _convert_before_item_type($$$$)
 {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
 
   return '' if ($content !~ /\S/);
@@ -5656,36 +5673,36 @@ sub _convert_def_line_type($$$$)
 {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
 
   if ($self->in_string()) {
     return $self->protect_text(Texinfo::Convert::Text::convert_to_text(
-       $command, Texinfo::Convert::Text::copy_options_for_convert_text($self)));
+       $element, Texinfo::Convert::Text::copy_options_for_convert_text($self)));
   }
 
   my $index_label = '';
-  my $index_id = $self->command_id($command);
+  my $index_id = $self->command_id($element);
   if (defined($index_id) and $index_id ne '' and !$self->in_multi_expanded()) {
     $index_label = " id=\"$index_id\"";
   }
   my $arguments
-    = Texinfo::Convert::Utils::definition_arguments_content($command);
+    = Texinfo::Convert::Utils::definition_arguments_content($element);
 
   my @classes = ();
   my $command_name;
-  if ($Texinfo::Common::def_aliases{$command->{'extra'}->{'def_command'}}) {
-    $command_name = $Texinfo::Common::def_aliases{$command->{'extra'}->{'def_command'}};
+  if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
+    $command_name = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
   } else {
-    $command_name = $command->{'extra'}->{'def_command'};
+    $command_name = $element->{'extra'}->{'def_command'};
   }
   my $original_command_name;
-  if ($Texinfo::Common::def_aliases{$command->{'extra'}->{'original_def_cmdname'}}) {
-    my $original_def_cmdname = $command->{'extra'}->{'original_def_cmdname'};
+  if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'original_def_cmdname'}}) {
+    my $original_def_cmdname = $element->{'extra'}->{'original_def_cmdname'};
     $original_command_name = $Texinfo::Common::def_aliases{$original_def_cmdname};
     push @classes, "$original_def_cmdname-alias-$original_command_name";
   } else {
-    $original_command_name = $command->{'extra'}->{'original_def_cmdname'};
+    $original_command_name = $element->{'extra'}->{'original_def_cmdname'};
   }
   if ($command_name ne $original_command_name) {
     push @classes, "def-cmd-$command_name";
@@ -5695,16 +5712,16 @@ sub _convert_def_line_type($$$$)
   if (!$self->get_conf('DEF_TABLE')) {
     my $tree;
     my $name;
-    if ($command->{'extra'} and $command->{'extra'}->{'def_parsed_hash'}
-        and defined($command->{'extra'}->{'def_parsed_hash'}->{'name'})) {
-      $name = $command->{'extra'}->{'def_parsed_hash'}->{'name'};
+    if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
+        and defined($element->{'extra'}->{'def_parsed_hash'}->{'name'})) {
+      $name = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
     } else {
       $name = '';
     }
     my $category;
-    if ($command->{'extra'} and $command->{'extra'}->{'def_parsed_hash'}
-        and defined($command->{'extra'}->{'def_parsed_hash'}->{'category'})) {
-      $category = $command->{'extra'}->{'def_parsed_hash'}->{'category'};
+    if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
+        and defined($element->{'extra'}->{'def_parsed_hash'}->{'category'})) {
+      $category = $element->{'extra'}->{'def_parsed_hash'}->{'category'};
     }
     my $category_result = '';
     my $category_tree;
@@ -5723,14 +5740,14 @@ sub _convert_def_line_type($$$$)
         or $command_name eq 'deftp'
         or (($command_name eq 'deftypefn'
              or $command_name eq 'deftypevr')
-            and !$command->{'extra'}->{'def_parsed_hash'}->{'type'})
+            and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})
         or (($command_name eq 'defop'
              or ($command_name eq 'deftypeop'
-                 and !$command->{'extra'}->{'def_parsed_hash'}->{'type'})
+                 and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})
              or $command_name eq 'defcv'
              or ($command_name eq 'deftypecv'
-                 and !$command->{'extra'}->{'def_parsed_hash'}->{'type'}))
-            and !$command->{'extra'}->{'def_parsed_hash'}->{'class'})) {
+                 and !$element->{'extra'}->{'def_parsed_hash'}->{'type'}))
+            and !$element->{'extra'}->{'def_parsed_hash'}->{'class'})) {
       $category_result = $self->convert_tree($category_tree)
         if (defined($category_tree));
       if ($arguments) {
@@ -5745,11 +5762,11 @@ sub _convert_def_line_type($$$$)
              or $command_name eq 'deftypevr'
              or (($command_name eq 'deftypeop'
                   or $command_name eq 'deftypecv')
-                 and !$command->{'extra'}->{'def_parsed_hash'}->{'class'})) {
+                 and !$element->{'extra'}->{'def_parsed_hash'}->{'class'})) {
       if ($arguments) {
         my $strings = {
                 'name' => $name,
-                'type' => $command->{'extra'}->{'def_parsed_hash'}->{'type'},
+                'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                 'arguments' => $arguments};
         # FIXME if in @def* in @example and with @deftypefnnewline on
         # there is no effect of @deftypefnnewline on, as @* in preformatted
@@ -5773,7 +5790,7 @@ sub _convert_def_line_type($$$$)
         }
       } else {
         my $strings = {
-                'type' => $command->{'extra'}->{'def_parsed_hash'}->{'type'},
+                'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                 'name' => $name};
         if ($self->get_conf('deftypefnnewline') eq 'on') {
           $category_tree
@@ -5793,32 +5810,32 @@ sub _convert_def_line_type($$$$)
     # with a class, no type
     } elsif ($command_name eq 'defcv'
              or ($command_name eq 'deftypecv'
-                 and !$command->{'extra'}->{'def_parsed_hash'}->{'type'})) {
+                 and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
       if ($arguments) {
         $tree = $self->gdt("{category} of {class}: \@strong{{name}} \@emph{{arguments}}", {
                 'category' => $category,
                 'name' => $name,
-                'class' => $command->{'extra'}->{'def_parsed_hash'}->{'class'},
+                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                 'arguments' => $arguments});
       } else {
         $tree = $self->gdt("{category} of {class}: \@strong{{name}}", {
                 'category' => $category,
-                'class' => $command->{'extra'}->{'def_parsed_hash'}->{'class'},
+                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                 'name' => $name});
       }
     } elsif ($command_name eq 'defop'
              or ($command_name eq 'deftypeop'
-                 and !$command->{'extra'}->{'def_parsed_hash'}->{'type'})) {
+                 and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
       if ($arguments) {
         $tree = $self->gdt("{category} on {class}: \@strong{{name}} \@emph{{arguments}}", {
                 'category' => $category,
                 'name' => $name,
-                'class' => $command->{'extra'}->{'def_parsed_hash'}->{'class'},
+                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                 'arguments' => $arguments});
       } else {
         $tree = $self->gdt("{category} on {class}: \@strong{{name}}", {
                 'category' => $category,
-                'class' => $command->{'extra'}->{'def_parsed_hash'}->{'class'},
+                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                 'name' => $name});
       }
     # with a class and a type
@@ -5827,8 +5844,8 @@ sub _convert_def_line_type($$$$)
         my $strings = {
                 'category' => $category,
                 'name' => $name,
-                'class' => $command->{'extra'}->{'def_parsed_hash'}->{'class'},
-                'type' => $command->{'extra'}->{'def_parsed_hash'}->{'type'},
+                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+                'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                 'arguments' => $arguments};
         if ($self->get_conf('deftypefnnewline') eq 'on') {
           $tree 
@@ -5842,8 +5859,8 @@ sub _convert_def_line_type($$$$)
       } else {
         my $strings = {
                 'category' => $category,
-                'type' => $command->{'extra'}->{'def_parsed_hash'}->{'type'},
-                'class' => $command->{'extra'}->{'def_parsed_hash'}->{'class'},
+                'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
+                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                 'name' => $name};
         if ($self->get_conf('deftypefnnewline') eq 'on') {
           $tree 
@@ -5860,8 +5877,8 @@ sub _convert_def_line_type($$$$)
         my $strings = {
                 'category' => $category,
                 'name' => $name,
-                'class' => $command->{'extra'}->{'def_parsed_hash'}->{'class'},
-                'type' => $command->{'extra'}->{'def_parsed_hash'}->{'type'},
+                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+                'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                 'arguments' => $arguments};
         if ($self->get_conf('deftypefnnewline') eq 'on') {
           $tree 
@@ -5875,8 +5892,8 @@ sub _convert_def_line_type($$$$)
       } else {
         my $strings = {
                 'category' => $category,
-                'type' => $command->{'extra'}->{'def_parsed_hash'}->{'type'},
-                'class' => $command->{'extra'}->{'def_parsed_hash'}->{'class'},
+                'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
+                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                 'name' => $name};
         if ($self->get_conf('deftypefnnewline') eq 'on') {
           $tree 
@@ -5909,10 +5926,10 @@ sub _convert_def_line_type($$$$)
          . "$anchor$anchor_span_close</dt>\n";
   } else {
     my $category_prepared = '';
-    if ($command->{'extra'} and $command->{'extra'}->{'def_parsed_hash'}
-        and %{$command->{'extra'}->{'def_parsed_hash'}}) {
+    if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
+        and %{$element->{'extra'}->{'def_parsed_hash'}}) {
       my $parsed_definition_category
-         = Texinfo::Convert::Utils::definition_category($self, $command);
+         = Texinfo::Convert::Utils::definition_category($self, $element);
       if ($parsed_definition_category) {
         $category_prepared = $self->convert_tree({'type' => '_code',
                    'contents' => [$parsed_definition_category]});
@@ -5930,15 +5947,15 @@ sub _convert_def_line_type($$$$)
   
     my $def_type = '';
     my $type_name = '';
-    if ($command->{'extra'}->{'def_parsed_hash'}->{'type'}) {
+    if ($element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
       $def_type = $self->convert_tree({'type' => '_code',
-          'contents' => [$command->{'extra'}->{'def_parsed_hash'}->{'type'}]});
+          'contents' => [$element->{'extra'}->{'def_parsed_hash'}->{'type'}]});
     }
     $type_name = " <em>$def_type</em>" if ($def_type ne '');
     my $name = '';
-    if ($command->{'extra'}->{'def_parsed_hash'}->{'name'}) {
+    if ($element->{'extra'}->{'def_parsed_hash'}->{'name'}) {
       $name = $self->convert_tree({'type' => '_code',
-          'contents' => [$command->{'extra'}->{'def_parsed_hash'}->{'name'}]});
+          'contents' => [$element->{'extra'}->{'def_parsed_hash'}->{'name'}]});
     }
     $type_name .= ' <strong>' . $name . '</strong>' if ($name ne '');
     $type_name .= $arguments_text;
@@ -5966,7 +5983,7 @@ sub _convert_def_item_type($$$$)
 {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
 
   return $content if ($self->in_string());
@@ -5982,10 +5999,11 @@ sub _convert_def_item_type($$$$)
 $default_types_conversion{'def_item'} = \&_convert_def_item_type;
 $default_types_conversion{'inter_def_item'} = \&_convert_def_item_type;
 
-sub _convert_def_command($$$$) {
+sub _convert_def_command($$$$$) {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   return $content if ($self->in_string());
@@ -6017,7 +6035,7 @@ sub _convert_table_item_type($$$$)
 {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
 
   return $content if ($self->in_string());
@@ -6039,9 +6057,9 @@ sub _contents_shortcontents_in_title($)
   if ($structuring and $structuring->{'sectioning_root'}
       and scalar(@{$structuring->{'sections_list'}}) > 1
       and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
-    foreach my $command ('contents', 'shortcontents') {
-      if ($self->get_conf($command)) {
-        my $contents_text = $self->_contents_inline_element($command, undef);
+    foreach my $cmdname ('contents', 'shortcontents') {
+      if ($self->get_conf($cmdname)) {
+        my $contents_text = $self->_contents_inline_element($cmdname, undef);
         if ($contents_text ne '') {
           $result .= $contents_text . $self->get_conf('DEFAULT_RULE')."\n";
         }
@@ -9674,7 +9692,7 @@ sub output($$)
 }
 
 # Convert the 'contents' of a tree element.
-sub _convert_contents($$$)
+sub _conversion_contents($$$)
 {
   my $self = shift;
   my $element = shift;
@@ -9858,7 +9876,7 @@ sub _convert($$;$)
                                 {'contents' => $element->{'contents'}},
                                          $self->{'options_latex_math'});
         } else {
-          $content_formatted = $self->_convert_contents($element, $command_type);
+          $content_formatted = $self->_conversion_contents($element, $command_type);
         }
       }
       my $args_formatted;
@@ -9967,7 +9985,7 @@ sub _convert($$;$)
         }
       } else {
         $result .= &{$self->{'commands_conversion'}->{$command_name}}($self,
-                $command_name, $element, $content_formatted);
+                $command_name, $element, undef, $content_formatted);
       }
       return $result;
     } else {
@@ -10014,7 +10032,7 @@ sub _convert($$;$)
         $content_formatted = $self->_convert($element->{'args'}->[0]);
       }
     } elsif ($element->{'contents'}) {
-      $content_formatted = $self->_convert_contents($element, $command_type);
+      $content_formatted = $self->_conversion_contents($element, $command_type);
     }
 
     if (exists($self->{'types_conversion'}->{$type_name})) {

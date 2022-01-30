@@ -1,5 +1,26 @@
 2022-01-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_*_command, _convert),
+	tp/init/highlight_syntax.pm, tp/init/html32.pm, tp/init/latex2html.pm:
+	always use the same call for @-command conversion functions, with
+	$args always as fourth argument and $content as fifth argument.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_*type), tp/init/html32.pm:
+	rename $command argument as $element.
+
+	* tp/Texinfo/Convert/HTML.pm (default_command_open)
+	(default_command_conversion), tp/init/epub3.pm,
+	tp/init/highlight_syntax.pm, tp/init/html32.pm, tp/init/latex2html.pm:
+	rename default_commands_conversion() as default_command_conversion().
+	rename default_commands_open() as default_command_open().
+
+	* tp/Texinfo/Convert/HTML.pm (_conversion_contents): rename
+	_convert_contents() as _conversion_contents()
+
+	* tp/init/latex2html.pm: change in spacing.
+
+2022-01-30  Patrice Dumas  <pertusus@free.fr>
+
 	* autogen.sh: add -other 'other' to regenerate_cmd_tests.sh call.
 
 2022-01-30  Patrice Dumas  <pertusus@free.fr>

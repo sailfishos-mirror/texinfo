@@ -302,11 +302,12 @@ sub highlight_process($$)
   return 1;
 }
 
-sub highlight_preformatted_command($$)
+sub highlight_preformatted_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   my $language = _get_language($self, $cmdname, $command);
@@ -359,7 +360,8 @@ sub highlight_preformatted_command($$)
           for my $example_arg (@{$command->{'args'}}) {
             # convert or remove all @-commands, using simple ascii and unicode
             # characters
-            my $converted_arg = Texinfo::Convert::NodeNameNormalization::convert($example_arg);
+            my $converted_arg
+               = Texinfo::Convert::NodeNameNormalization::convert($example_arg);
             if ($converted_arg ne '') {
               push @classes, $converted_arg;
             }
@@ -388,7 +390,8 @@ sub highlight_preformatted_command($$)
                                   $cmdname, $language, $command));
     #print STDERR "$content\n";
   }
-  return &{$self->default_commands_conversion($cmdname)}($self, $cmdname, $command, $content);
+  return &{$self->default_command_conversion($cmdname)}($self, $cmdname,
+                                               $command, $args, $content);
 }
 
 1;

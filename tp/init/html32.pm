@@ -138,7 +138,7 @@ sub html32_convert_text($$$$)
 {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $text = shift;
 
   # do that first because in verb and verbatim, type is 'raw'
@@ -202,7 +202,7 @@ foreach my $explained_command (keys(%Texinfo::Common::explained_commands)) {
 sub html32_convert_multitable_head_type($$$$) {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
 
   return $content if ($self->in_string());
@@ -217,7 +217,7 @@ texinfo_register_type_formatting('multitable_head', \&html32_convert_multitable_
 sub html32_convert_multitable_body_type($$$$) {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
 
   return $content if ($self->in_string());
@@ -229,11 +229,12 @@ sub html32_convert_multitable_body_type($$$$) {
 }
 texinfo_register_type_formatting('multitable_body', \&html32_convert_multitable_body_type);
 
-sub html32_convert_itemize_command($$$$)
+sub html32_convert_itemize_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   if ($self->in_string()) {
@@ -245,11 +246,12 @@ sub html32_convert_itemize_command($$$$)
 
 texinfo_register_command_formatting('itemize', \&html32_convert_itemize_command);
 
-sub html32_convert_tab_command($$$$)
+sub html32_convert_tab_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   my $row = $command->{'parent'};
@@ -271,11 +273,12 @@ sub html32_convert_tab_command($$$$)
 texinfo_register_command_formatting('tab',
                             \&html32_convert_tab_command);
 
-sub html32_convert_item_command($$$$)
+sub html32_convert_item_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   if ($self->in_string()) {
@@ -283,7 +286,7 @@ sub html32_convert_item_command($$$$)
   }
   if ($command->{'parent'}->{'type'}
       and $command->{'parent'}->{'type'} eq 'row') {
-    return html32_convert_tab_command($self, $cmdname, $command, $content);
+    return html32_convert_tab_command($self, $cmdname, $command, $args, $content);
   } elsif ($command->{'parent'}->{'cmdname'}
       and $command->{'parent'}->{'cmdname'} eq 'itemize') {
     my $prepend ;
@@ -304,7 +307,8 @@ sub html32_convert_item_command($$$$)
       return '';
     }
   } else {
-    return &{$self->default_commands_conversion($cmdname)}($self, $cmdname, $command, $content);
+    return &{$self->default_command_conversion($cmdname)}($self, $cmdname,
+                                                $command, $args, $content);
   }
 }
 
@@ -382,6 +386,7 @@ sub html32_convert_subtitle_command($$$$)
   my $cmdname = shift;
   my $command = shift;
   my $args = shift;
+
   return '' if (!$args->[0]);
   if (!$self->in_string()) {
     return "<h3 align=\"right\">$args->[0]->{'normal'}</h3>\n";

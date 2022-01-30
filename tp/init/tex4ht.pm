@@ -346,11 +346,12 @@ sub tex4ht_process_format($$) {
   return 0;
 }
 
-sub tex4ht_do_tex($$$$)
+sub tex4ht_do_tex($$$;$$)
 {
   my $self = shift;
   my $cmdname = shift;;
   my $command = shift;
+
   # return the resulting html
   if (exists ($commands{$cmdname}->{'results'}->{$command})
       and defined($commands{$cmdname}->{'results'}->{$command})) {

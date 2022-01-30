@@ -284,11 +284,12 @@ texinfo_register_formatting_special_element_body ('about',
 # a whole menu
 texinfo_register_command_formatting('menu', \&t2h_sing_menu);
 
-sub t2h_sing_menu($)
+sub t2h_sing_menu($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+  my $args = shift;
   my $content = shift;
 
   if ($content =~ /\S/) {
