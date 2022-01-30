@@ -1,5 +1,12 @@
 2022-01-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_element_footer)
+	(_convert): rename cmdname as context or context_name, as contexts
+	are not necessarily associated with command names, and it is
+	clearer to separate.
+
+2022-01-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (texinfo_register_style_command_formatting),
 	tp/Texinfo/Convert/HTML.pm (%style_commands_formatting)
 	(_convert_style_command): rename 'attribute' key as 'element'

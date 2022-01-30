@@ -6319,12 +6319,12 @@ sub _default_format_element_footer($$$$)
 sub _new_document_context($;$$)
 {
   my $self = shift;
-  my $cmdname = shift;
+  my $context = shift;
   my $document_global_context = shift;
 
   push @{$self->{'document_context'}},
-          {'cmdname' => $cmdname,
-           'formatting_context' => [{'cmdname' => $cmdname}],
+          {'context' => $context,
+           'formatting_context' => [{'context_name' => $context}],
            'composition_context' => [''],
            'formats' => [],
            'monospace' => [0],
@@ -9815,7 +9815,7 @@ sub _convert($$;$)
       }
       if (exists($format_context_commands{$command_name})) {
         push @{$self->{'document_context'}->[-1]->{'formatting_context'}}, 
-                                              {'cmdname' => $command_name};
+                                              {'context_name' => '@'.$command_name};
       }
       if (exists($block_commands{$command_name})) {
         push @{$self->{'document_context'}->[-1]->{'block_commands'}}, $command_name;
