@@ -1,6 +1,6 @@
 /* info.c -- Display nodes of Info files in multiple windows.
 
-   Copyright 1993-2021 Free Software Foundation, Inc.
+   Copyright 1993-2022 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -1086,6 +1086,9 @@ There is NO WARRANTY, to the extent permitted by law.\n"),
 static void
 info_short_help (void)
 {
+   /* Note: split usage information up into separate strings when usage
+      revised to make it easier for translators. */
+
   printf (_("\
 Usage: %s [OPTION]... [MENU-ITEM...]\n\
 \n\
@@ -1104,9 +1107,6 @@ Frequently-used options:\n\
       --index-search=STRING    go to node pointed by index entry STRING\n\
   -n, --node=NODENAME          specify nodes in first visited Info file\n\
   -o, --output=FILE            output selected nodes to FILE"));
-
-  puts (_("\
-  -O, --show-options, --usage  go to command-line options node"));
 
 #if defined(__MSDOS__) || defined(__MINGW32__)
   puts (_("\
@@ -1128,18 +1128,27 @@ items relative to the initial node visited."));
 
   puts (_("\n\
 For a summary of key bindings, type H within Info."));
+  puts ("");
 
-  puts (_("\n\
-Examples:\n\
-  info                         show top-level dir menu\n\
-  info info-stnd               show the manual for this Info program\n\
-  info emacs                   start at emacs node from top-level dir\n\
-  info emacs buffers           select buffers menu entry in emacs manual\n\
-  info emacs -n Files          start at Files node within emacs manual\n\
-  info '(emacs)Files'          alternative way to start at Files node\n\
-  info --show-options emacs    start at node with emacs' command line options\n\
+puts (_("\
+Examples:"));
+
+puts (_("\
+  info                         show top-level dir menu"));
+puts (_("\
+  info info-stnd               show the manual for this Info program"));
+puts (_("\
+  info emacs                   start at emacs node from top-level dir"));
+puts (_("\
+  info emacs buffers           select buffers menu entry in emacs manual"));
+puts (_("\
+  info emacs -n Files          start at Files node within emacs manual"));
+puts (_("\
+  info '(emacs)Files'          alternative way to start at Files node"));
+puts (_("\
   info --subnodes -o out.txt emacs\n\
-                               dump entire emacs manual to out.txt\n\
+                               dump entire emacs manual to out.txt"));
+puts (_("\
   info -f ./foo.info           show file ./foo.info, not searching dir"));
 
   puts ("");

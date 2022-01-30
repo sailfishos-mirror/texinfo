@@ -1,5 +1,10 @@
 2022-01-28  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* info/info.c (info_short_help): Remove --show-options from
+	option list and examples.  Split examples up into smaller strings.
+
+2022-01-28  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi (Invoking Info) <--show-options>:
 	Say something about where the name of the program comes from.
 	Report from Akbarkhon Variskhanov <akbarkhon.variskhanov@gmail.com>.
