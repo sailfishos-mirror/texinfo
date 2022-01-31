@@ -1,5 +1,12 @@
 2022-01-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_end_file): use
+	$self->get_info to retrieve 'jslicenses' information.
+
+	* tp/Texinfo/Convert/HTML.pm (output): set 'jslicenses' earlier.
+
+2022-01-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (command_conversion, type_conversion)
 	(_convert_item_command), tp/init/html32.pm:
 	add accessors to 'commands_conversion' and 'types_conversion'.

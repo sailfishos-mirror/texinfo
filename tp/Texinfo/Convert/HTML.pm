@@ -8372,11 +8372,12 @@ sub _default_format_end_file($$)
   my $pre_body_close = $self->get_conf('PRE_BODY_CLOSE');
   $pre_body_close = '' if (!defined($pre_body_close));
 
-  if ($self->{'jslicenses'}
-      and (scalar(keys %{$self->{'jslicenses'}->{'infojs'}})
+  my $jslicenses = $self->get_info('jslicenses');
+  if ($jslicenses
+      and (scalar(keys %{$jslicenses->{'infojs'}})
            or (($self->get_file_information('mathjax', $filename)
                 or !$self->get_conf('SPLIT'))
-               and scalar(keys %{$self->{'jslicenses'}->{'mathjax'}})))) {
+               and scalar(keys %{$jslicenses->{'mathjax'}})))) {
     my $js_setting = $self->get_conf('JS_WEBLABELS');
     my $js_path = $self->get_conf('JS_WEBLABELS_FILE');
     if (defined($js_setting) and defined($js_path)
@@ -9236,6 +9237,30 @@ sub output($$)
   my $setup_status = $self->run_stage_handlers($root, 'setup');
   return undef unless($setup_status);
 
+  if ($self->get_conf('HTML_MATH')
+        and $self->get_conf('HTML_MATH') eq 'mathjax') {
+    # See https://www.gnu.org/licenses/javascript-labels.html
+
+    my $mathjax_script = $self->get_conf('MATHJAX_SCRIPT');
+    my $mathjax_source = $self->get_conf('MATHJAX_SOURCE');
+
+    $self->{'jslicenses'}->{'mathjax'} = {
+      $mathjax_script =>
+        [ 'Apache License, Version 2.0.',
+          'https://www.apache.org/licenses/LICENSE-2.0',
+          $mathjax_source ]};
+  }
+  if ($self->get_conf('INFO_JS_DIR')) {
+    $self->{'jslicenses'}->{'infojs'} = {
+      'js/info.js' =>
+         [ 'GNU General Public License 3.0 or later',
+           'http://www.gnu.org/licenses/gpl-3.0.html',
+           'js/info.js' ],
+       'js/modernizr.js' =>
+          [ 'Expat',
+            'http://www.jclark.com/xml/copying.txt',
+            'js/modernizr.js' ]};
+  }
   $self->_prepare_css();
 
   # this sets OUTFILE, to be used if not split, but also
@@ -9419,30 +9444,6 @@ sub output($$)
     return undef if (!$status);
   }
 
-  if ($self->get_conf('HTML_MATH')
-        and $self->get_conf('HTML_MATH') eq 'mathjax') {
-    # See https://www.gnu.org/licenses/javascript-labels.html
-
-    my $mathjax_script = $self->get_conf('MATHJAX_SCRIPT');
-    my $mathjax_source = $self->get_conf('MATHJAX_SOURCE');
-
-    $self->{'jslicenses'}->{'mathjax'} = {
-      $mathjax_script =>
-        [ 'Apache License, Version 2.0.',
-          'https://www.apache.org/licenses/LICENSE-2.0',
-          $mathjax_source ]};
-  }
-  if ($self->get_conf('INFO_JS_DIR')) {
-    $self->{'jslicenses'}->{'infojs'} = {
-      'js/info.js' =>
-         [ 'GNU General Public License 3.0 or later',
-           'http://www.gnu.org/licenses/gpl-3.0.html',
-           'js/info.js' ],
-       'js/modernizr.js' =>
-          [ 'Expat',
-            'http://www.jclark.com/xml/copying.txt',
-            'js/modernizr.js' ]};
-  }
 
   # all the informations should be available
   $self->_reset_infos();
