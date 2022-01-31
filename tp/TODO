@@ -33,47 +33,15 @@ Some private function used in conversion
 To document:
 -----------
 
-Texinfo::Config texinfo_ functions
-
-get_conf(), set_conf() (force_conf()?)
 
 
-Convert depth first.
+Paragraphs and Preformatted Containers
 
-convert* call
-
-args in *convert*, in %default_commands_args
-
-shared_conversion_state
-
-register_file_information
-
-register_footnote
-get_pending_footnotes
-
-register_pending_formatted_inline_content
-get_associated_formatted_inline_content
-get_pending_formatted_inline_content
-associate_pending_formatted_inline_content
-cancel_pending_formatted_inline_content
-
-default_types_conversion
-default_types_open
-formatting_function
-special_element_body_formatting
-defaults_special_element_body_formatting
-special_element_body_formatting
-
-
-
-Type '_converted' and '_string' and '_code' for 'text'.
+Nav
 
 used in _direction_href_attributes, _get_links
 'BUTTONS_ACCESSKEY' 'BUTTONS_REL'
 'LINKS_BUTTONS'
-
-used in _contents_inline_element
-'SPECIAL_ELEMENTS_DIRECTIONS' 'SPECIAL_ELEMENTS_CLASS' 'SPECIAL_ELEMENTS_HEADING'
 
 from_element_direction
 command_target command_filename command_string command_id command_href
@@ -82,6 +50,41 @@ special_direction_element
 command_name_special_element_information
 command_root_element_command label_command
 footnote_location_target footnote_location_href
+
+     'format_button' => \&_default_format_button,
+     'format_element_header' => \&_default_format_element_header,
+     'format_element_footer' => \&_default_format_element_footer,
+     'format_navigation_header' => \&_default_format_navigation_header,
+     'format_navigation_panel' => \&_default_format_navigation_panel,
+
+Normal Unit Elements
+Special Elements
+
+used in _contents_inline_element
+'SPECIAL_ELEMENTS_DIRECTIONS' 'SPECIAL_ELEMENTS_CLASS' 'SPECIAL_ELEMENTS_HEADING'
+
+     'format_contents' => \&_default_format_contents,
+     'format_footnotes_segment' => \&_default_format_footnotes_segment,
+     'format_footnotes_sequence' => \&_default_format_footnotes_sequence,
+
+
+     'format_begin_file' => \&_default_format_begin_file,
+     'format_end_file' => \&_default_format_end_file,
+
+
+Other
+
+     'format_css_lines' => \&_default_format_css_lines,
+     'format_titlepage' => \&_default_format_titlepage,
+
+     'format_node_redirection_page' => \&_default_format_node_redirection_page,
+
+     'format_frame_files' => \&_default_format_frame_files,
+
+
+register_footnote
+get_pending_footnotes
+
 
 required use of
 in_string()
@@ -92,12 +95,6 @@ $self->in_math()
 $self->in_upper_case()
 $self->in_code()
 $self->in_space_protected()
-html_attribute_class()
-close_html_lone_element()
-register_opened_section_level()
-close_registered_sections_level()
-
-protect_text? or use of format_protect_text?
 
 use of
 Texinfo::Convert::Utils::expand_today()
@@ -105,25 +102,17 @@ Texinfo::Convert::Utils::expand_verbatiminclude
 Texinfo::Convert::Converter::float_name_caption()
 Texinfo::Convert::Utils::definition_arguments_content
 Texinfo::Convert::Utils::definition_category
-convert_tree()
-$self->convert_tree($self->gdt())
 Texinfo::Convert::NodeNameNormalization::normalize_node(
 Texinfo::Convert::NodeNameNormalization::convert
 Texinfo::Convert::Text::convert_to_text(
 $self->html_image_file_location_name()
-$self->xml_comment()
-$self->xml_protect_text()
 $self->xml_accents()
 $self->xml_format_text_with_numeric_entities()
 $self->element_is_tree_unit_top()
-$tree_unit->{'structure'} unit_next, unit_filename, unit_prev section_level associated_unit section_childs
- {'extra'}->{'unit_command'}
 Texinfo::Structuring::section_level_adjusted_command_name
 Texinfo::Common::section_level()
 Texinfo::Common::set_informative_command_value()
 $self->preformatted_classes_stack
-$self->{'floats'}
-$self->convert_tree_new_formatting_context()
 $self->html_convert_css_string_for_list_mark()
 $self->table_item_content_tree() (Converter)
 $self->comma_index_subentries_tree() (Converter)
@@ -134,9 +123,6 @@ $self->in_multi_expanded()
 $self->html_get_css_elements_classes($filename);
 $self->substitute_html_non_breaking_space(
 $self->count_elements_in_filename($spec, filename)
-$self->css_get_info
-$self->css_add_info
-$self->get_info
 
 Profiling
 =========

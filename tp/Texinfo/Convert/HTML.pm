@@ -1411,6 +1411,7 @@ sub register_pending_formatted_inline_content($$$)
   push @{$self->{'pending_inline_content'}}, [$category, $inline_content];
 }
 
+# cancel only the first pending content for the category
 sub cancel_pending_formatted_inline_content($$$)
 {
   my $self = shift;
@@ -2845,11 +2846,14 @@ sub _convert_image_command($$$$)
       $alt_string = $args->[3]->{'string'};
     }
     if (!defined($alt_string) or ($alt_string eq '')) {
-      $alt_string = $self->protect_text($basefile);
+      $alt_string
+       = &{$self->formatting_function('format_protect_text')}($self, $basefile);
     }
+    my $image_src
+     = &{$self->formatting_function('format_protect_text')}($self, $image_file);
     return $self->close_html_lone_element(
-      $self->html_attribute_class('img', [$cmdname]).
-         " src=\"".$self->protect_text($image_file)."\" alt=\"$alt_string\"");
+      $self->html_attribute_class('img', [$cmdname])
+        . " src=\"$image_src\" alt=\"$alt_string\"");
   }
   return '';
 }
@@ -3009,12 +3013,6 @@ sub _default_format_comment($$) {
   my $self = shift;
   my $text = shift;
   return $self->xml_comment(' '.$text);
-}
-
-sub protect_text($$) {
-  my $self = shift;
-  my $text = shift;
-  return &{$self->formatting_function('format_protect_text')}($self, $text);
 }
 
 sub _default_format_protect_text($$) {
@@ -3732,7 +3730,7 @@ sub _convert_raw_command($$$$$)
   }
   $self->_noticed_line_warn(sprintf(__("raw format %s is not converted"),
                                    $cmdname), $command->{'line_nr'});
-  return $self->protect_text($content);
+  return &{$self->formatting_function('format_protect_text')}($self, $content);
 }
 
 foreach my $command (keys(%format_raw_commands)) {
@@ -4391,8 +4389,9 @@ sub _convert_itemize_command($$$$$)
                                                       'itemize arg');
     if ($css_string ne '') {
       return $self->html_attribute_class('ul', [$cmdname])
-        ." style=\"list-style-type: '".$self->protect_text($css_string)."'\">\n"
-        . $content. "</ul>\n";
+        ." style=\"list-style-type: '".
+          &{$self->formatting_function('format_protect_text')}($self, $css_string)
+           . "'\">\n" . $content. "</ul>\n";
     } else {
       return $self->html_attribute_class('ul', [$cmdname])
         .">\n" . $content. "</ul>\n";
@@ -4746,7 +4745,8 @@ sub _convert_xref_commands($$$$)
       my $manual_name_attribute = '';
       if ($file) {
         if (not $self->get_conf('NO_CUSTOM_HTML_ATTRIBUTE')) {
-          $manual_name_attribute = "data-manual=\"".$self->protect_text($file)."\" ";
+          $manual_name_attribute = "data-manual=\"".
+           &{$self->formatting_function('format_protect_text')}($self, $file)."\" ";
         }
       }
       if ($name ne '') {
@@ -4917,7 +4917,9 @@ sub _convert_printindex_command($$$$)
     
     my $summary_letter_link
       = $self->html_attribute_class('a',["summary-letter-$cmdname"])
-       ." href=\"#$identifier\"><b>".$self->protect_text($letter).'</b></a>';
+       ." href=\"#$identifier\"><b>".
+          &{$self->formatting_function('format_protect_text')}($self, $letter)
+           .'</b></a>';
     if ($is_symbol) {
       push @non_alpha, $summary_letter_link;
     } else {
@@ -5027,9 +5029,10 @@ sub _convert_printindex_command($$$$)
     }
     # a letter and associated indice entries
     $result .= '<tr>' .
-          "<th id=\"$letter_id{$letter}\">".$self->protect_text($letter)
-          .  "</th><td></td><td></td></tr>\n" . $entries_text .
-           "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')."</td></tr>\n";
+      "<th id=\"$letter_id{$letter}\">".
+      &{$self->formatting_function('format_protect_text')}($self, $letter)
+      . "</th><td></td><td></td></tr>\n" . $entries_text
+      . "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')."</td></tr>\n";
 
   }
   $result .= "</table>\n";
@@ -5355,8 +5358,11 @@ sub _convert_definfoenclose_type($$$$) {
   my $content = shift;
 
   # FIXME add a span to mark the original command as a class?
-  return $self->protect_text($element->{'extra'}->{'begin'}) . $content
-         .$self->protect_text($element->{'extra'}->{'end'});
+  return &{$self->formatting_function('format_protect_text')}($self,
+                                      $element->{'extra'}->{'begin'})
+     . $content .
+    &{$self->formatting_function('format_protect_text')}($self,
+                                      $element->{'extra'}->{'end'});
 }
 
 $default_types_conversion{'definfoenclose_command'} 
@@ -5370,11 +5376,11 @@ sub _convert_text($$$)
   my $text = shift;
 
   if ($self->in_verbatim()) {
-    return $self->protect_text($text);
+    return &{$self->formatting_function('format_protect_text')}($self, $text);
   }
   return $text if ($self->in_raw());
   $text = uc($text) if ($self->in_upper_case());
-  $text = $self->protect_text($text);
+  $text = &{$self->formatting_function('format_protect_text')}($self, $text);
   if ($self->get_conf('ENABLE_ENCODING')
       and $self->get_conf('OUTPUT_ENCODING_NAME')
       and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
@@ -5443,7 +5449,8 @@ sub _css_string_convert_text($$$)
     $text =~ s/`/\x{1F}2018 /g;
   }
 
-  $text = $self->protect_text($text);
+  $text
+   = &{$self->formatting_function('format_protect_text')}($self, $text);
   $text =~ s/\x{1F}/\\/g;
 
   return $text;
@@ -5692,7 +5699,8 @@ sub _convert_def_line_type($$$$)
   my $content = shift;
 
   if ($self->in_string()) {
-    return $self->protect_text(Texinfo::Convert::Text::convert_to_text(
+    return &{$self->formatting_function('format_protect_text')}($self,
+     Texinfo::Convert::Text::convert_to_text(
        $element, Texinfo::Convert::Text::copy_options_for_convert_text($self)));
   }
 
@@ -6408,7 +6416,6 @@ foreach my $customized_reference ('label_target_name', 'node_file_name',
      'format_program_string' => \&_default_format_program_string,
      'format_protect_text' => \&_default_format_protect_text,
      'format_separate_anchor' => \&_default_format_separate_anchor,
-     'format_special_element_body' => \&_default_format_special_element_body,
      'format_titlepage' => \&_default_format_titlepage,
 );
 
@@ -9477,9 +9484,6 @@ sub output($$)
                                       $no_page_out_filepath, $!));
         return undef;
       }
-      # this can be used in init file when there are no tree units.
-      # FIXME use an API?  Set in $self->{'no_page'}?
-      $self->{'structure'}->{'unit_filename'} = $no_page_output_filename;
       $self->{'out_filepaths'}->{$no_page_output_filename} = $no_page_out_filepath;
 
       $self->{'current_filename'} = $no_page_output_filename;
@@ -9743,7 +9747,7 @@ sub _protect_class_name($$)
   my $self = shift;
   my $class_name = shift;
   $class_name =~ s/[$characters_replaced_from_class_names]/-/g;
-  return $self->protect_text($class_name);
+  return &{$self->formatting_function('format_protect_text')}($self, $class_name);
 }
 
 # Convert tree element $ELEMENT, and return HTML text for the output files.

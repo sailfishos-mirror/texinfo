@@ -198,7 +198,7 @@ sub _chm_convert_tree_to_text($$;$)
 
   $options = {} if (!defined($options));
 
-  return $converter->protect_text(
+  return &{$converter->formatting_function('format_protect_text')}($converter,
     Texinfo::Convert::Text::convert_to_text($tree,
    {Texinfo::Convert::Text::copy_options_for_convert_text($converter),
      %$options}));

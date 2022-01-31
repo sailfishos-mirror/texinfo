@@ -143,12 +143,12 @@ sub html32_convert_text($$$$)
 
   # do that first because in verb and verbatim, type is 'raw'
   if ($self->in_verbatim()) {
-    return $self->protect_text($text);
+    return &{$self->formatting_function('format_protect_text')}($self, $text);
   }
   return $text if ($self->in_raw());
 
   $text = uc($text) if ($self->in_upper_case());
-  $text = $self->protect_text($text);
+  $text = &{$self->formatting_function('format_protect_text')}($self, $text);
 
   if (!$self->in_code() and !$self->in_math()) {
     $text =~ s/``/&#34;/g;
