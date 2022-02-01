@@ -8946,8 +8946,8 @@ sub _default_format_frame_files($$)
     my $doctype = $self->get_conf('FRAMESET_DOCTYPE');
     my $root_html_element_attributes = $self->_root_html_element_attributes_string();
     my $top_file = '';
-    if ($self->global_element('Top')) {
-      my $top_element = $self->global_element('Top');
+    my $top_element = $self->global_element('Top');
+    if ($top_element) {
       $top_file = $top_element->{'structure'}->{'unit_filename'};
     }
     my $title = $self->{'title_string'};

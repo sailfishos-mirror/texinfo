@@ -357,9 +357,8 @@ sub chm_init($)
   my $title = _chm_convert_tree_to_text($self, $self->get_info('title_tree'));
   my $top_file = '';
   my $top_element = $self->global_element('Top');
-  if ($top_element and $top_element->{'extra'}->{'unit_command'}) {
-    $top_file 
-     = $self->command_filename($top_element->{'extra'}->{'unit_command'});
+  if ($top_element) {
+    $top_file = $top_element->{'structure'}->{'unit_filename'};
   }
 
   print $hhp_fh <<EOT;
