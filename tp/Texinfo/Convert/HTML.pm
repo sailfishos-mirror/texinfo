@@ -809,8 +809,8 @@ sub command_href($$;$$$)
       $target_filename = $self->{'tree_units'}->[0]->{'structure'}->{'unit_filename'};
     }
   }
-  if (defined($target_filename)) { 
-    if (!defined($source_filename) 
+  if (defined($target_filename)) {
+    if (!defined($source_filename)
          or $source_filename ne $target_filename) {
       $href .= $target_filename;
       # omit target if the command is an element command, there is only
@@ -891,7 +891,7 @@ sub footnote_location_href($$;$$)
   } elsif (defined($special_target)) {
     $target = $special_target->{'target'};
   }
-  # $target_filename node defined does not happen in the default footnote 
+  # $target_filename node defined does not happen in the default footnote
   # formatting functions, the file is always known as the footnote in the
   # document appears before the footnote text formatting.  It is a good thing
   # for the case of @footnote being formatted more than once (in multiple
@@ -1159,7 +1159,7 @@ sub from_element_direction($$$;$$)
   my $command;
   my $target;
 
-  $source_element = $self->{'current_root_element'} if (! defined($source_element));
+  $source_element = $self->{'current_root_element'} if (!defined($source_element));
   $source_filename = $self->{'current_filename'} if (!defined($source_filename));
  
   if (!$valid_direction_return_type{$type}) {
@@ -3182,7 +3182,7 @@ sub _direction_href_attributes($$)
   my $direction = shift;
 
   my $href_attributes = '';
-  if ($self->get_conf('USE_ACCESSKEY') 
+  if ($self->get_conf('USE_ACCESSKEY')
       and $self->get_conf('BUTTONS_ACCESSKEY')) {
     my $accesskey = $self->get_conf('BUTTONS_ACCESSKEY')->{$direction};
     if (defined($accesskey) and ($accesskey ne '')) {
@@ -3269,11 +3269,12 @@ sub _default_format_button($$)
     if ($href) {
       # button is active
       my $btitle = '';
-      if ($self->get_conf('BUTTONS_GOTO') 
+      if ($self->get_conf('BUTTONS_GOTO')
           and defined($self->get_conf('BUTTONS_GOTO')->{$button})) {
         $btitle = ' title="' . $self->get_conf('BUTTONS_GOTO')->{$button} . '"';
       }
-      if ($self->get_conf('USE_ACCESSKEY') and $self->get_conf('BUTTONS_ACCESSKEY')) {
+      if ($self->get_conf('USE_ACCESSKEY')
+          and $self->get_conf('BUTTONS_ACCESSKEY')) {
         my $accesskey = $self->get_conf('BUTTONS_ACCESSKEY')->{$button};
         if (defined($accesskey) and $accesskey ne '') {
           $btitle .= " accesskey=\"$accesskey\"";
@@ -3290,7 +3291,7 @@ sub _default_format_button($$)
           and $self->get_conf('BUTTONS_NAME')) {
         my $active_icon = $self->get_conf('ACTIVE_ICONS')->{$button};
         my $button_name = $self->get_conf('BUTTONS_NAME')->{$button};
-        if (defined($active_icon) and $active_icon ne '' 
+        if (defined($active_icon) and $active_icon ne ''
             and defined($button_name)) {
           # use icon
           $active = "<a href=\"$href\"${btitle}>".
@@ -3489,7 +3490,7 @@ sub _default_format_element_header($$$$)
         $result .= &{$self->formatting_function('format_navigation_header')}($self,
                 $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
       } elsif($self->get_conf('HEADERS') or $self->get_conf('SPLIT') eq 'node') {
-        # got to do this here, as it isn't done otherwise since 
+        # got to do this here, as it isn't done otherwise since
         # navigation_header is not called
         $result .= &{$self->formatting_function('format_navigation_panel')}($self,
                 $self->get_conf('SECTION_BUTTONS'), $cmdname, $command);
@@ -3754,8 +3755,7 @@ sub _convert_inline_command($$$$)
 
   my $arg_index = undef;
   if ($inline_format_commands{$cmdname}) {
-    if ($cmdname eq 'inlinefmtifelse' 
-        and ! $self->is_format_expanded($format)) {
+    if ($cmdname eq 'inlinefmtifelse' and !$self->is_format_expanded($format)) {
       $arg_index = 1;
     } elsif ($self->is_format_expanded($format)) {
       $arg_index = 0;
@@ -3805,7 +3805,7 @@ sub _convert_preformatted_command($$$$$)
 
   my @classes;
 
-  # this is mainly for classes as there are purprosely no classes 
+  # this is mainly for classes as there are purprosely no classes
   # for small*
   my $main_cmdname;
   if ($small_block_associated_command{$cmdname}) {
@@ -3818,9 +3818,10 @@ sub _convert_preformatted_command($$$$$)
   if ($cmdname eq 'example') {
     if ($command->{'args'}) {
       for my $example_arg (@{$command->{'args'}}) {
-        # convert or remove all @-commands, using simple ascii and unicode 
+        # convert or remove all @-commands, using simple ascii and unicode
         # characters
-        my $converted_arg = Texinfo::Convert::NodeNameNormalization::convert($example_arg);
+        my $converted_arg
+          = Texinfo::Convert::NodeNameNormalization::convert($example_arg);
         if ($converted_arg ne '') {
           push @classes, $converted_arg;
         }
@@ -3838,7 +3839,7 @@ sub _convert_preformatted_command($$$$$)
     } else {
       unshift @classes, $main_cmdname;
       return $self->html_attribute_class('div', \@classes)
-                                                 .">\n".$content.'</div>'."\n";
+                                     .">\n".$content.'</div>'."\n";
     }
   } else {
     return $content;
@@ -3846,7 +3847,7 @@ sub _convert_preformatted_command($$$$$)
 }
 
 foreach my $preformatted_command (keys(%preformatted_commands)) {
-  $default_commands_conversion{$preformatted_command} 
+  $default_commands_conversion{$preformatted_command}
     = \&_convert_preformatted_command;
 }
 
@@ -3935,7 +3936,7 @@ sub _convert_verbatiminclude_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my $verbatim_include_verbatim 
+  my $verbatim_include_verbatim
     = Texinfo::Convert::Utils::expand_verbatiminclude($self, $self, $command);
   if (defined($verbatim_include_verbatim)) {
     return $self->convert_tree($verbatim_include_verbatim, 'convert verbatiminclude');
@@ -3944,7 +3945,7 @@ sub _convert_verbatiminclude_command($$$$)
   }
 }
 
-$default_commands_conversion{'verbatiminclude'} 
+$default_commands_conversion{'verbatiminclude'}
   = \&_convert_verbatiminclude_command;
 
 sub _convert_command_simple_block($$$$$)
@@ -4492,7 +4493,7 @@ sub _convert_item_command($$$$$)
   if ($self->in_string()) {
     return $content;
   }
-  if ($command->{'parent'}->{'cmdname'} 
+  if ($command->{'parent'}->{'cmdname'}
       and $command->{'parent'}->{'cmdname'} eq 'itemize') {
     if ($content =~ /\S/) {
       return '<li>' . $content . '</li>';
@@ -4537,12 +4538,11 @@ sub _convert_item_command($$$$$)
         $anchor = '';
         $index_id = '';
       }
-    
       return "<dt${index_id}>$anchor_span_open$result$anchor$anchor_span_close</dt>\n";
     } else {
       return '';
     }
-  } elsif ($command->{'parent'}->{'type'} 
+  } elsif ($command->{'parent'}->{'type'}
            and $command->{'parent'}->{'type'} eq 'row') {
     return &{$self->command_conversion('tab')}($self, $cmdname, $command,
                                                            $args, $content);
@@ -5223,10 +5223,10 @@ sub _convert_paragraph_type($$$$)
     my $in_format = $self->top_block_command();
     if ($in_format) {
       # no first paragraph in those environment to avoid extra spacing
-      if ($in_format eq 'itemize' 
+      if ($in_format eq 'itemize'
           or $in_format eq 'enumerate'
           or $in_format eq 'multitable') {
-        return $content; 
+        return $content;
       }
     }
   }
@@ -5274,7 +5274,7 @@ sub _preformatted_class()
   foreach my $class (@pre_classes) {
     # FIXME maybe add   or $pre_class eq 'menu'  to override
     # 'menu' with 'menu-comment'?
-    $pre_class = $class unless ($pre_class 
+    $pre_class = $class unless ($pre_class
                            and $preformatted_code_commands{$pre_class}
                            and !($preformatted_code_commands{$class}
                                  or $class eq 'menu'));
@@ -5290,7 +5290,7 @@ sub _convert_preformatted_type($$$$)
   my $content = shift;
 
   if (!defined($content)) {
-    cluck "content undef in _convert_preformatted_type " 
+    cluck "content undef in _convert_preformatted_type "
        .Texinfo::Common::debug_print_element($element);
   }
 
@@ -5365,7 +5365,7 @@ sub _convert_definfoenclose_type($$$$) {
                                       $element->{'extra'}->{'end'});
 }
 
-$default_types_conversion{'definfoenclose_command'} 
+$default_types_conversion{'definfoenclose_command'}
   = \&_convert_definfoenclose_type;
 
 sub _convert_text($$$)
@@ -5386,7 +5386,7 @@ sub _convert_text($$$)
       and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
     $text = Texinfo::Convert::Unicode::unicode_text($text,
                                         ($self->in_code() or $self->in_math()));
-  } elsif (!$self->in_code() and !$self->in_math()) { 
+  } elsif (!$self->in_code() and !$self->in_math()) {
     if ($self->get_conf('USE_NUMERIC_ENTITY')) {
       $text = $self->xml_format_text_with_numeric_entities($text);
     } elsif ($self->get_conf('USE_ISO')) {
@@ -5678,7 +5678,7 @@ sub _convert_before_item_type($$$$)
   my $top_block_command = $self->top_block_command();
   if ($top_block_command eq 'itemize' or $top_block_command eq 'enumerate') {
     return '<li>'. $content .'</li>';
-  } elsif ($top_block_command eq 'table' or $top_block_command eq 'vtable' 
+  } elsif ($top_block_command eq 'table' or $top_block_command eq 'vtable'
            or $top_block_command eq 'ftable') {
     return '<dd>'. $content .'</dd>'."\n";
   } elsif ($top_block_command eq 'multitable') {
@@ -5803,12 +5803,12 @@ sub _convert_def_line_type($$$$)
                'contents'
                   => [$self->gdt("{category}:\@* ", {'category' => $category})]
               };
-          $tree 
-             = $self->gdt("\@emph{{type}}\@* \@strong{{name}} \@emph{{arguments}}", 
+          $tree
+             = $self->gdt("\@emph{{type}}\@* \@strong{{name}} \@emph{{arguments}}",
                           $strings);
         } else {
-          $tree 
-             = $self->gdt("\@emph{{type}} \@strong{{name}} \@emph{{arguments}}", 
+          $tree
+             = $self->gdt("\@emph{{type}} \@strong{{name}} \@emph{{arguments}}",
                           $strings);
         }
       } else {
@@ -5871,12 +5871,12 @@ sub _convert_def_line_type($$$$)
                 'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                 'arguments' => $arguments};
         if ($self->get_conf('deftypefnnewline') eq 'on') {
-          $tree 
-            = $self->gdt("{category} on {class}:\@* \@emph{{type}}\@* \@strong{{name}} \@emph{{arguments}}", 
+          $tree
+            = $self->gdt("{category} on {class}:\@* \@emph{{type}}\@* \@strong{{name}} \@emph{{arguments}}",
                          $strings);
         } else {
-          $tree 
-            = $self->gdt("{category} on {class}: \@emph{{type}} \@strong{{name}} \@emph{{arguments}}", 
+          $tree
+            = $self->gdt("{category} on {class}: \@emph{{type}} \@strong{{name}} \@emph{{arguments}}",
                          $strings);
         }
       } else {
@@ -5886,12 +5886,12 @@ sub _convert_def_line_type($$$$)
                 'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                 'name' => $name};
         if ($self->get_conf('deftypefnnewline') eq 'on') {
-          $tree 
-            = $self->gdt("{category} on {class}:\@* \@emph{{type}}\@* \@strong{{name}}", 
+          $tree
+            = $self->gdt("{category} on {class}:\@* \@emph{{type}}\@* \@strong{{name}}",
                          $strings);
         } else {
-          $tree 
-            = $self->gdt("{category} on {class}: \@emph{{type}} \@strong{{name}}", 
+          $tree
+            = $self->gdt("{category} on {class}: \@emph{{type}} \@strong{{name}}",
                          $strings);
         }
       }
@@ -5904,11 +5904,11 @@ sub _convert_def_line_type($$$$)
                 'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                 'arguments' => $arguments};
         if ($self->get_conf('deftypefnnewline') eq 'on') {
-          $tree 
+          $tree
             = $self->gdt("{category} of {class}:\@* \@emph{{type}}\@* \@strong{{name}} \@emph{{arguments}}",
                          $strings);
         } else {
-          $tree 
+          $tree
             = $self->gdt("{category} of {class}: \@emph{{type}} \@strong{{name}} \@emph{{arguments}}",
                          $strings);
         }
@@ -5919,11 +5919,11 @@ sub _convert_def_line_type($$$$)
                 'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                 'name' => $name};
         if ($self->get_conf('deftypefnnewline') eq 'on') {
-          $tree 
+          $tree
             = $self->gdt("{category} of {class}:\@* \@emph{{type}}\@* \@strong{{name}}",
                          $strings);
         } else {
-          $tree 
+          $tree
             = $self->gdt("{category} of {class}: \@emph{{type}} \@strong{{name}}",
                          $strings);
         }
@@ -5962,8 +5962,8 @@ sub _convert_def_line_type($$$$)
     my $arguments_text = '';
     if ($arguments) {
       $arguments_text = $self->convert_tree({'type' => '_code',
-                   'contents' => $arguments});
-      $arguments_text = '<em> ' . $arguments_text . '</em>' 
+                                             'contents' => $arguments});
+      $arguments_text = '<em> ' . $arguments_text . '</em>'
         if ($arguments_text =~ /\S/);
     }
 
@@ -6278,7 +6278,7 @@ sub _default_format_element_footer($$$$)
 
   if (($end_page or $next_is_top or $next_is_special or $is_top)
        and $self->get_conf('VERTICAL_HEAD_NAVIGATION')
-       and ($self->get_conf('SPLIT') ne 'node' 
+       and ($self->get_conf('SPLIT') ne 'node'
             or $self->get_conf('HEADERS') or $is_special or $is_top)) {
    $result .= "</td>
 </tr>
@@ -6337,8 +6337,8 @@ sub _default_format_element_footer($$$$)
     $rule = $self->get_conf('DEFAULT_RULE');
   }
 
-  if (!$end_page and ($is_top or $next_is_top or ($next_is_special 
-                                                 and !$is_special))) {
+  if (!$end_page and ($is_top or $next_is_top or ($next_is_special
+                                                  and !$is_special))) {
     $rule = $self->get_conf('BIG_RULE');
   }
 
@@ -6539,7 +6539,7 @@ sub _parse_htmlxref_files($$)
     }
     print STDERR "html refs config file: $file\n" if ($self->get_conf('DEBUG'));
     unless (open (HTMLXREF, $file)) {
-      $self->document_warn($self, 
+      $self->document_warn($self,
         sprintf(__("could not open html refs config file %s: %s"),
           $file, $!));
       next;
@@ -6558,7 +6558,7 @@ sub _parse_htmlxref_files($$)
         # handle variables
         my $var = $1;
         my $re = join '|', map { quotemeta $_ } keys %variables;
-        $hline =~ s/\$\{($re)\}/defined $variables{$1} ? $variables{$1} 
+        $hline =~ s/\$\{($re)\}/defined $variables{$1} ? $variables{$1}
                                                        : "\${$1}"/ge;
         $variables{$var} = $hline;
         next;
@@ -6572,9 +6572,8 @@ sub _parse_htmlxref_files($$)
                                         $fname, $line_nr);
         next;
       } elsif (!defined($htmlxref_entries{$split_or_mono})) {
-        $self->file_line_warn(
-                               sprintf(__("unrecognized type: %s"), 
-                                    $split_or_mono), $fname, $line_nr);
+        $self->file_line_warn(sprintf(__("unrecognized type: %s"),
+                                      $split_or_mono), $fname, $line_nr);
         next;
       }
       my $href = shift @htmlxref;
@@ -6582,7 +6581,7 @@ sub _parse_htmlxref_files($$)
 
       if (defined($href)) { # substitute 'variables'
         my $re = join '|', map { quotemeta $_ } keys %variables;
-        $href =~ s/\$\{($re)\}/defined $variables{$1} ? $variables{$1} 
+        $href =~ s/\$\{($re)\}/defined $variables{$1} ? $variables{$1}
                                                       : "\${$1}"/ge;
         $href =~ s/\/*$// if ($split_or_mono ne 'mono');
       }
@@ -6626,12 +6625,12 @@ sub _load_htmlxref_files {
     if (!$self->get_conf('TEST')) {
       @texinfo_htmlxref_files = ( $init_file_from_conf );
     } else {
-      @texinfo_htmlxref_files 
+      @texinfo_htmlxref_files
       = Texinfo::Common::locate_init_file ($init_file_from_conf,
         \@htmlxref_dirs, 1);
     }
   } elsif (!$self->get_conf('TEST')) {
-    @texinfo_htmlxref_files 
+    @texinfo_htmlxref_files
       = Texinfo::Common::locate_init_file ('htmlxref.cnf',
                                            \@htmlxref_dirs, 1);
   }
@@ -6833,7 +6832,7 @@ sub converter_initialize($)
       $self->{'types_conversion'}->{$type}
           = $customized_types_conversion->{$type};
     } else {
-      $self->{'types_conversion'}->{$type} 
+      $self->{'types_conversion'}->{$type}
           = $default_types_conversion{$type};
     }
   }
@@ -6915,7 +6914,7 @@ sub converter_initialize($)
            = $conf_default_no_arg_commands_formatting_normal;
         }
         if (defined($context_default_default_no_arg_commands_formatting->{$command})) {
-          if ($self->get_conf('ENABLE_ENCODING') 
+          if ($self->get_conf('ENABLE_ENCODING')
               and Texinfo::Convert::Unicode::brace_no_arg_command(
                              $command, $self->get_conf('OUTPUT_ENCODING_NAME'))) {
             $self->{'no_arg_commands_formatting'}->{$context}->{$command}
@@ -6946,8 +6945,8 @@ sub converter_initialize($)
   # set sane defaults in case there is none and the default formatting
   # function is used
   foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
-    if ($self->{'commands_conversion'}->{$command} 
-        and $self->{'commands_conversion'}->{$command} 
+    if ($self->{'commands_conversion'}->{$command}
+        and $self->{'commands_conversion'}->{$command}
             eq $default_commands_conversion{$command}) {
       $self->_complete_no_arg_commands_formatting($command);
     }
@@ -6958,10 +6957,10 @@ sub converter_initialize($)
       my $style_commands_formatting_info
         = Texinfo::Config::GNUT_get_style_command_formatting($command, $context);
       if (defined($style_commands_formatting_info)) {
-        $self->{'style_commands_formatting'}->{$context}->{$command} 
+        $self->{'style_commands_formatting'}->{$context}->{$command}
            = $style_commands_formatting_info;
       } elsif (exists($style_commands_formatting{$context}->{$command})) {
-        $self->{'style_commands_formatting'}->{$context}->{$command} 
+        $self->{'style_commands_formatting'}->{$context}->{$command}
            = $style_commands_formatting{$context}->{$command};
       }
     }
@@ -7130,7 +7129,7 @@ sub _process_css_file($$$)
           $in_rules = 1;
           last;
         }
-      } elsif (!$in_string and $in_import and $line =~ s/^([\"\'])//) { 
+      } elsif (!$in_string and $in_import and $line =~ s/^([\"\'])//) {
         # strings outside of import start rules
         $text .= "$1";
         $in_string = quotemeta("$1");
@@ -7139,8 +7138,8 @@ sub _process_css_file($$$)
       } elsif ($in_string and $line =~ s/^($in_string)//) {
         $text .= $1;
         $in_string = 0;
-      } elsif ((! $in_string and !$in_import) 
-              and ($line =~ s/^([\\]?\@import)$// 
+      } elsif ((! $in_string and !$in_import)
+              and ($line =~ s/^([\\]?\@import)$//
                    or $line =~ s/^([\\]?\@import\s+)//)) {
         $text .= $1;
         $in_import = 1;
@@ -7162,15 +7161,12 @@ sub _process_css_file($$$)
       }
     }
   }
-  $self->file_line_warn(
-                        sprintf(__("string not closed in css file"), 
+  $self->file_line_warn(sprintf(__("string not closed in css file"),
                         $file, $line_nr)) if ($in_string);
-  $self->file_line_warn(
-                        sprintf(__("--css-include ended in comment"), 
+  $self->file_line_warn(sprintf(__("--css-include ended in comment"),
                         $file, $line_nr)) if ($in_comment);
-  $self->file_line_warn(
-                        sprintf(__("\@import not finished in css file"), 
-                        $file, $line_nr)) 
+  $self->file_line_warn(sprintf(__("\@import not finished in css file"),
+                        $file, $line_nr))
     if ($in_import and !$in_comment and !$in_string);
   return ($imports, $rules);
 }
@@ -7200,14 +7196,14 @@ sub _prepare_css($)
       }
       unless (open (CSSFILE, $css_file)) {
         $self->document_warn($self, sprintf(__(
-             "could not open --include-file %s: %s"), 
+             "could not open --include-file %s: %s"),
               $css_file, $!));
         next;
       }
       $css_file_fh = \*CSSFILE;
     }
     my ($import_lines, $rules_lines);
-    ($import_lines, $rules_lines) 
+    ($import_lines, $rules_lines)
       = $self->_process_css_file ($css_file_fh, $css_file);
     if (!close($css_file_fh)) {
       $self->document_warn($self,
@@ -7444,7 +7440,7 @@ sub _html_get_tree_root_element($$;$)
         #print STDERR "CMD ROOT $current->{'cmdname'}\n" if ($debug);
         return ($root_element, $root_command) if defined($root_element);
       } elsif ($region_commands{$current->{'cmdname'}}) {
-        if ($current->{'cmdname'} eq 'copying' 
+        if ($current->{'cmdname'} eq 'copying'
             and $self->{'global_commands'}
             and $self->{'global_commands'}->{'insertcopying'}) {
           foreach my $insertcopying(@{$self->{'global_commands'}->{'insertcopying'}}) {
@@ -7504,8 +7500,8 @@ sub _html_set_pages_files($$$$$$$$)
   return undef if (!defined($tree_units) or !@$tree_units);
 
   my $extension = '';
-  $extension = '.'.$self->get_conf('EXTENSION') 
-            if (defined($self->get_conf('EXTENSION')) 
+  $extension = '.'.$self->get_conf('EXTENSION')
+            if (defined($self->get_conf('EXTENSION'))
                 and $self->get_conf('EXTENSION') ne '');
 
   if (!$self->get_conf('SPLIT')) {
@@ -7538,7 +7534,7 @@ sub _html_set_pages_files($$$$$$$$)
       if (!defined($tree_unit->{'extra'}->{'first_in_page'}->{'structure'}->{'unit_filename'})) {
         my $file_tree_unit = $tree_unit->{'extra'}->{'first_in_page'};
         foreach my $root_command (@{$file_tree_unit->{'contents'}}) {
-          if ($root_command->{'cmdname'} 
+          if ($root_command->{'cmdname'}
               and $root_command->{'cmdname'} eq 'node') {
             my $node_filename;
             # double node are not normalized, they are handled here
@@ -7550,12 +7546,12 @@ sub _html_set_pages_files($$$$$$$$)
               if (!defined($self->{'targets'}->{$root_command})
                   or !defined($self->{'targets'}->{$root_command}->{'node_filename'})) {
                 # Could have been a double node, thus use equivalent node.
-                # However since double nodes are not normalized, in fact it 
+                # However since double nodes are not normalized, in fact it
                 # never happens.
                 $root_command
                   = $self->{'labels'}->{$root_command->{'extra'}->{'normalized'}};
               }
-              $node_filename 
+              $node_filename
                 = $self->{'targets'}->{$root_command}->{'node_filename'};
             }
             $self->set_tree_unit_file($file_tree_unit, $node_filename,
@@ -7578,7 +7574,7 @@ sub _html_set_pages_files($$$$$$$$)
             }
           } else {
             # when everything else has failed
-            if ($file_nr == 0 and !$node_top 
+            if ($file_nr == 0 and !$node_top
                 and defined($top_node_filename)) {
               $self->set_tree_unit_file($file_tree_unit, $top_node_filename,
                                         $destination_directory);
@@ -7615,7 +7611,7 @@ sub _html_set_pages_files($$$$$$$$)
   if ($special_elements) {
     my $previous_tree_unit = $tree_units->[-1];
     foreach my $special_element (@$special_elements) {
-      my $filename 
+      my $filename
        = $self->{'targets'}->{$special_element}->{'special_element_filename'};
       if (defined($filename)) {
         $self->set_tree_unit_file($special_element, $filename, $destination_directory);
@@ -7721,7 +7717,7 @@ sub _prepare_special_elements($$$$)
     $do_special{'footnotes'} = 1;
   }
 
-  if ((!defined($self->get_conf('DO_ABOUT')) 
+  if ((!defined($self->get_conf('DO_ABOUT'))
        and $tree_units and scalar(@$tree_units) > 1
            and ($self->get_conf('SPLIT') or $self->get_conf('HEADERS')))
        or ($self->get_conf('DO_ABOUT'))) {
@@ -7729,7 +7725,7 @@ sub _prepare_special_elements($$$$)
   }
 
   my $extension = '';
-  $extension = $self->get_conf('EXTENSION') 
+  $extension = $self->get_conf('EXTENSION')
     if (defined($self->get_conf('EXTENSION')));
 
   my $special_elements = [];
@@ -7758,7 +7754,7 @@ sub _prepare_special_elements($$$$)
 
     my $filename;
     if (defined($self->{'file_id_setting'}->{'special_element_target_file_name'})) {
-      ($target, $filename) 
+      ($target, $filename)
          = &{$self->{'file_id_setting'}->{'special_element_target_file_name'}}(
                                                             $self,
                                                             $element,
@@ -7771,7 +7767,7 @@ sub _prepare_special_elements($$$$)
       my $fileout = $filename;
       $fileout = 'UNDEF' if (!defined($fileout));
       print STDERR "Add special $element $element_type: target $target,\n".
-        "    filename $fileout\n" 
+        "    filename $fileout\n";
     }
     if ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC')
         or (defined($filename) ne defined($default_filename))
@@ -7798,7 +7794,7 @@ sub _prepare_special_elements($$$$)
       # only the filename is used
       my ($target, $filename);
       if (defined($self->{'file_id_setting'}->{'special_element_target_file_name'})) {
-        ($target, $filename) 
+        ($target, $filename)
           = &{$self->{'file_id_setting'}->{'special_element_target_file_name'}}(
                                                             $self,
                                                             $element,
@@ -7830,8 +7826,8 @@ sub _prepare_contents_elements($)
         } elsif ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top') {
           my $section_top = undef;
           if ($self->{'global_commands'} and $self->{'global_commands'}->{'top'}) {
-             $section_top = $self->{'global_commands'}->{'top'};
-             $default_filename = $self->command_filename($section_top)
+            $section_top = $self->{'global_commands'}->{'top'};
+            $default_filename = $self->command_filename($section_top);
           }
         } elsif ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline') {
           if ($self->{'global_commands'}
@@ -7901,7 +7897,7 @@ sub _prepare_tree_units_global_targets($$)
     my ($root_element, $root_command)
      = $self->_html_get_tree_root_element($self->{'global_commands'}->{'printindex'}->[0]);
     if (defined($root_element)) {
-      if ($root_command and $root_command->{'cmdname'} eq 'node' 
+      if ($root_command and $root_command->{'cmdname'} eq 'node'
           and $root_command->{'extra'}->{'associated_section'}) {
         $root_command = $root_command->{'extra'}->{'associated_section'};
       }
@@ -7957,7 +7953,7 @@ sub _prepare_index_entries($)
     $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
                           and !$self->get_conf('USE_UNIDECODE'));
 
-    my $merged_index_entries 
+    my $merged_index_entries
         = Texinfo::Structuring::merge_indices($index_names);
     my $index_entries_sort_strings;
     ($self->{'index_entries_by_letter'}, $index_entries_sort_strings)
@@ -7968,10 +7964,10 @@ sub _prepare_index_entries($)
     foreach my $index_name (sort(keys(%$index_names))) {
       foreach my $index_entry (@{$index_names->{$index_name}->{'index_entries'}}) {
         my $region = '';
-        $region = "$index_entry->{'region'}->{'cmdname'}-" 
+        $region = "$index_entry->{'region'}->{'cmdname'}-"
           if (defined($index_entry->{'region'}));
         my @contents = @{$index_entry->{'content_normalized'}};
-        my $trimmed_contents 
+        my $trimmed_contents
           = Texinfo::Common::trim_spaces_comment_from_content(\@contents);
         my $normalized_index =
           Texinfo::Convert::NodeNameNormalization::transliterate_texinfo(
@@ -8065,8 +8061,8 @@ sub _external_node_href($$$$)
   my $file;
   if ($external_node->{'manual_content'}) {
     my $manual_name = Texinfo::Convert::Text::convert_to_text(
-       {'contents' => $external_node->{'manual_content'}}, 
-       { 'code' => 1, 
+       {'contents' => $external_node->{'manual_content'}},
+       { 'code' => 1,
          Texinfo::Convert::Text::copy_options_for_convert_text($self)});
     my $manual_base = $manual_name;
     $manual_base =~ s/\.info*$//;
@@ -8174,7 +8170,7 @@ sub _mini_toc
 
       $entry_index++;
       my $accesskey = '';
-      $accesskey = " accesskey=\"$entry_index\"" 
+      $accesskey = " accesskey=\"$entry_index\""
         if ($self->get_conf('USE_ACCESSKEY') and $entry_index < 10);
 
       my $href = $self->command_href($section);
@@ -8567,7 +8563,7 @@ sub _get_links($$$)
         my $link_title = '';
         $link_title = " title=\"$link_string\"" if (defined($link_string));
         my $rel = '';
-        $rel = " rel=\"".$self->get_conf('BUTTONS_REL')->{$link}.'"' 
+        $rel = " rel=\"".$self->get_conf('BUTTONS_REL')->{$link}.'"'
            if (defined($self->get_conf('BUTTONS_REL')->{$link}));
         $links .= $self->close_html_lone_element(
                     "<link href=\"$link_href\"${rel}${link_title}")."\n";
@@ -8713,10 +8709,10 @@ sub _default_format_footnotes_segment($)
   return '' if ($foot_lines eq '');
   my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{'footnotes'};
   my $result = $self->html_attribute_class('div', [$class.'-segment']).">\n";
-  $result .= $self->get_conf('DEFAULT_RULE') . "\n" 
-     if (defined($self->get_conf('DEFAULT_RULE')) 
+  $result .= $self->get_conf('DEFAULT_RULE') . "\n"
+     if (defined($self->get_conf('DEFAULT_RULE'))
          and $self->get_conf('DEFAULT_RULE') ne '');
-  my $footnote_heading 
+  my $footnote_heading
     = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_HEADING')->{'footnotes'},
                           'convert footnotes special heading');
   my $level = $self->get_conf('FOOTNOTE_END_HEADER_LEVEL');
@@ -8754,7 +8750,7 @@ EOT
    '    <th> ' . $self->convert_tree($self->gdt('From 1.2.3 go to')) . "</th>\n" . "  </tr>\n";
 
   foreach my $button (@{$self->get_conf('SECTION_BUTTONS')}) {
-    next if ($button eq ' ' or ref($button) eq 'CODE' or ref($button) eq 'SCALAR' 
+    next if ($button eq ' ' or ref($button) eq 'CODE' or ref($button) eq 'SCALAR'
               or ref($button) eq 'ARRAY');
     my $button_name = $self->get_conf('BUTTONS_NAME')->{$button};
     $about .= "  <tr>\n    <td align=\"center\">";
@@ -9817,7 +9813,7 @@ sub _convert($$;$)
       my $result = $self->_convert($translated, 'translated TEXT');
       return $result;
     }
-    my $result = &{$self->{'types_conversion'}->{'text'}} ($self, 
+    my $result = &{$self->{'types_conversion'}->{'text'}} ($self,
                                                       $element->{'type'},
                                                       $element,
                                                       $element->{'text'});
@@ -9833,7 +9829,7 @@ sub _convert($$;$)
 
   # commands like @deffnx have both a cmdname and a def_line type.  It is
   # better to consider them as a def_line type, as the whole point of the
-  # def_line type is to handle the same the def*x and def* line formatting. 
+  # def_line type is to handle the same the def*x and def* line formatting.
   if ($element->{'cmdname'}
       and !($element->{'type'} and $element->{'type'} eq 'def_line'
             or $element->{'type'} and $element->{'type'} eq 'definfoenclose_command')) {
@@ -9852,14 +9848,16 @@ sub _convert($$;$)
         $self->_new_document_context($command_name);
       }
       if (exists($format_context_commands{$command_name})) {
-        push @{$self->{'document_context'}->[-1]->{'formatting_context'}}, 
-                                              {'context_name' => '@'.$command_name};
+        push @{$self->{'document_context'}->[-1]->{'formatting_context'}},
+                                      {'context_name' => '@'.$command_name};
       }
       if (exists($block_commands{$command_name})) {
-        push @{$self->{'document_context'}->[-1]->{'block_commands'}}, $command_name;
+        push @{$self->{'document_context'}->[-1]->{'block_commands'}},
+                                                          $command_name;
       }
       if (exists ($composition_context_commands{$command_name})) {
-        push @{$self->{'document_context'}->[-1]->{'composition_context'}}, $command_name;
+        push @{$self->{'document_context'}->[-1]->{'composition_context'}},
+                                                               $command_name;
       }
       if ($pre_class_commands{$command_name}) {
         push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
@@ -9869,8 +9867,8 @@ sub _convert($$;$)
         $self->{'document_context'}->[-1]->{'raw'}++;
       } elsif ($command_name eq 'verb' or $command_name eq 'verbatim') {
         $self->{'document_context'}->[-1]->{'verbatim'}++;
-      } 
-      if ($code_style_commands{$command_name} or 
+      }
+      if ($code_style_commands{$command_name} or
           $preformatted_code_commands{$command_name}) {
         push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
       } elsif ($regular_font_style_commands{$command_name}) {
@@ -9900,13 +9898,13 @@ sub _convert($$;$)
         }
       }
       my $args_formatted;
-      if ($brace_commands{$command_name} 
-          or ($misc_commands{$command_name} 
+      if ($brace_commands{$command_name}
+          or ($misc_commands{$command_name}
               and $misc_commands{$command_name} eq 'line')
           or (($command_name eq 'item' or $command_name eq 'itemx')
                and ($element->{'parent'}->{'type'}
                     and $element->{'parent'}->{'type'} eq 'table_term'))
-          or ($command_name eq 'quotation' 
+          or ($command_name eq 'quotation'
               or $command_name eq 'smallquotation')
               or ($command_name eq 'float')) {
         $args_formatted = [];
@@ -9945,7 +9943,7 @@ sub _convert($$;$)
                 $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
                 $self->_pop_document_context();
               } elsif ($arg_type eq 'monospacetext') {
-                $arg_formatted->{$arg_type} 
+                $arg_formatted->{$arg_type}
                   = Texinfo::Convert::Text::convert_to_text($arg, {'code' => 1,
                      Texinfo::Convert::Text::copy_options_for_convert_text($self)});
               } elsif ($arg_type eq 'raw') {
@@ -9966,7 +9964,7 @@ sub _convert($$;$)
       if ($pre_class_commands{$command_name}) {
         pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
       }
-      if ($code_style_commands{$command_name} 
+      if ($code_style_commands{$command_name}
           or $preformatted_code_commands{$command_name}
           or $regular_font_style_commands{$command_name}) {
         pop @{$self->{'document_context'}->[-1]->{'monospace'}};
@@ -10066,7 +10064,7 @@ sub _convert($$;$)
     }
     if ($self->{'code_types'}->{$type_name}) {
       pop @{$self->{'document_context'}->[-1]->{'monospace'}};
-    } 
+    }
     if ($type_name eq '_string') {
       $self->{'document_context'}->[-1]->{'string'}--;
     }
@@ -10151,7 +10149,7 @@ sub _set_variables_texi2html()
   ['CHAPTER_FOOTER_BUTTONS', [ 'FastBack', 'FastForward', ' ',
                               ' ', ' ', ' ', ' ',
                               'Top', 'Contents', 'Index', 'About', ]],
-  ['NODE_FOOTER_BUTTONS', [ 'FastBack', 'Back', 
+  ['NODE_FOOTER_BUTTONS', [ 'FastBack', 'Back',
                                             'Up', 'Forward', 'FastForward',
                              ' ', ' ', ' ', ' ',
                              'Top', 'Contents', 'Index', 'About' ]],
