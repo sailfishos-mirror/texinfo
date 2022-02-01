@@ -172,9 +172,10 @@ sub book_convert_heading_command($$$$$)
 
   my $result = '';
 
-  # not clear that it may really happen
+  # No situation where this could happen
   if ($self->in_string) {
-    $result .= $self->command_string($element) ."\n" if ($cmdname ne 'node');
+    $result .= $self->command_text($element, 'string') ."\n"
+      if ($cmdname ne 'node');
     $result .= $content if (defined($content));
     return $result;
   }

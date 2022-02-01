@@ -252,7 +252,7 @@ sub chm_init($)
             $file = '';
           }
         }
-        my $anchor = $self->command_target($index_entry_ref->{'command'});
+        my $anchor = $self->command_id($index_entry_ref->{'command'});
         my $origin_href = "$file#$anchor";
         my $entry = _chm_convert_tree_to_text($self,
                                {'contents' => $index_entry_ref->{'content'}},
@@ -328,8 +328,12 @@ sub chm_init($)
       $text = Texinfo::Convert::Utils::numbered_heading($self, $section, $text,
                           $self->get_conf('NUMBER_SECTIONS')); 
       my $file = $self->command_filename($section);
-      my $anchor = $self->command_target($section);
-      my $origin_href = "$file#$anchor";
+      my $target_command = $section;
+      $target_command = $section->{'extra'}->{'associated_node'}
+        if ($section->{'extra'} and $section->{'extra'}->{'associated_node'});
+      my $target = $self->command_id($target_command);
+      # FIXME use command_href instead?
+      my $origin_href = "$file#$target";
       print $hhc_fh "<LI> <OBJECT type=\"text/sitemap\">\n<param name=\"Name\" value=\"$text\">\n<param name=\"Local\" value=\"$origin_href\">\n</OBJECT> </LI>\n";
     }
     while ($level > $root_level) {

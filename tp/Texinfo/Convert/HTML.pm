@@ -613,7 +613,7 @@ sub _get_target($$)
   return $target;
 }
 
-# API for elemnts directions formatting
+# API for elements directions formatting
 
 # This returns the id specific of the $COMMAND tree element
 sub command_id($$)
@@ -669,24 +669,6 @@ sub footnote_location_target($$)
   }
 }
 
-# Return href target for linking to this command
-sub command_target($$)
-{
-  my $self = shift;
-  my $command = shift;
-
-  if ($command->{'extra'}
-      and $command->{'extra'}->{'associated_node'}) {
-    $command = $command->{'extra'}->{'associated_node'};
-  }
-  my $target = $self->_get_target($command);
-  if ($target) {
-    return $target->{'target'};
-  } else {
-    return undef;
-  }
-}
-
 sub command_filename($$)
 {
   my $self = shift;
@@ -702,9 +684,6 @@ sub command_filename($$)
     my ($root_element, $root_command)
            = $self->_html_get_tree_root_element($command, 1);
 
-    if (defined($root_command)) {
-      $target->{'root_command'} = $root_command;
-    }
     if (defined($root_element)) {
       $target->{'filename'}
         = $root_element->{'structure'}->{'unit_filename'};
@@ -714,6 +693,8 @@ sub command_filename($$)
   return undef;
 }
 
+# could be called on any element, not only elements that can be targets.
+# In practice, seems to be called only on elements that can be targets
 sub command_root_element_command($$)
 {
   my $self = shift;
@@ -726,7 +707,7 @@ sub command_root_element_command($$)
   return undef;
 }
 
-sub element_command($$)
+sub tree_unit_element_command($$)
 {
   my $self = shift;
   my $element = shift;
@@ -749,7 +730,15 @@ sub command_node($$)
 
   my $target = $self->_get_target($command);
   if ($target) {
-    $self->command_filename($command);
+    if (not $target->{'root_command'}) {
+      # this finds a special element for footnote command if
+      # such an element exists
+      my ($root_element, $root_command)
+           = $self->_html_get_tree_root_element($command, 1);
+      if (defined($root_command)) {
+        $target->{'root_command'} = $root_command;
+      }
+    }
     my $root_command = $target->{'root_command'};
     if (defined($root_command)) {
       if ($root_command->{'cmdname'} and $root_command->{'cmdname'} eq 'node') {
@@ -782,7 +771,13 @@ sub command_href($$;$$$)
   if (defined($specified_target)) {
     $target = $specified_target;
   } else {
-    $target = $self->command_target($command);
+    my $target_command = $command;
+    # for sectioning command prefer the associated node
+    if ($command->{'extra'} and $command->{'extra'}->{'associated_node'}) {
+      $target_command = $command->{'extra'}->{'associated_node'};
+    }
+    my $target_information = $self->_get_target($target_command);
+    $target = $target_information->{'target'};
   }
   return '' if (!defined($target));
   my $href = '';
@@ -862,15 +857,6 @@ sub command_contents_href($$$;$)
   return $href;
 }
 
-sub _set_footnote_location_target($$)
-{
-  my $self = shift;
-  my $command = shift;
-
-  $self->{'special_targets'}->{'footnote_location'}->{$command} = {};
-  return $self->{'special_targets'}->{'footnote_location'}->{$command};
-}
-
 sub footnote_location_href($$;$$)
 {
   my $self = shift;
@@ -889,29 +875,26 @@ sub footnote_location_href($$;$$)
   } elsif (defined($special_target)) {
     $target = $special_target->{'target'};
   }
-  # This does not happen in the default footnote formatting functions,
-  # the file is always known as the footnote in the document appears
-  # before the footnote text formatting.  It is a good thing for the case
-  # of @footnote being formatted more than once (in multiple @insertcopying
-  # for instance) as the file found just below may not be the correct
-  # one in that case.
+  # $target_filename node defined does not happen in the default footnote 
+  # formatting functions, the file is always known as the footnote in the
+  # document appears before the footnote text formatting.  It is a good thing
+  # for the case of @footnote being formatted more than once (in multiple
+  # @insertcopying for instance) as the file found just below may not be the
+  # correct one in such a case.
   if (not defined($target_filename)) {
     if (defined($special_target) and defined($special_target->{'filename'})) {
       $target_filename = $special_target->{'filename'};
     } else {
       # in contrast with command_filename() we find the location holding
-      # the @footnote command, not the footnote element with fottnotes
+      # the @footnote command, not the footnote element with footnotes
       my ($root_element, $root_command)
         = $self->_html_get_tree_root_element($command);
-      if (defined($root_command)) {
-        # not sure that it can happen
-        $special_target = _set_footnote_location_target($self, $command)
-          if (not defined($special_target));
-        $special_target->{'root_command'} = $root_command;
-      }
       if (defined($root_element)) {
-        $special_target = _set_footnote_location_target($self, $command)
-          if (not defined($special_target));
+        if (not defined($special_target)) {
+          $self->{'special_targets'}->{'footnote_location'}->{$command} = {};
+          $special_target
+            = $self->{'special_targets'}->{'footnote_location'}->{$command};
+        }
         $special_target->{'filename'}
           = $root_element->{'structure'}->{'unit_filename'};
         $target_filename = $special_target->{'filename'};
@@ -2733,7 +2716,7 @@ sub _convert_footnote_command($$$$)
   
   return "($number_in_doc)" if ($self->in_string());
   #print STDERR "FOOTNOTE $command\n";
-  my $footid = $self->command_target($command);
+  my $footid = $self->command_id($command);
 
   # happens for bogus footnotes
   if (!defined($footid)) {
@@ -3538,9 +3521,10 @@ sub _convert_heading_command($$$$$)
 
   my $result = '';
 
-  # not clear that it may really happen
+  # No situation where this could happen
   if ($self->in_string()) {
-    $result .= $self->command_string($element) ."\n" if ($cmdname ne 'node');
+    $result .= $self->command_text($element, 'string') ."\n"
+      if ($cmdname ne 'node');
     $result .= $content if (defined($content));
     return $result;
   }
@@ -5010,7 +4994,7 @@ sub _convert_printindex_command($$$$)
         if (!$associated_command) {
           # Use Top if not associated command found
           $associated_command
-            = $self->element_command($self->global_element('Top'));
+            = $self->tree_unit_element_command($self->global_element('Top'));
         }
       }
       my ($associated_command_href, $associated_command_text);
@@ -7565,7 +7549,7 @@ sub _html_set_pages_files($$$$$$$$)
         }
         if (!defined($file_tree_unit->{'structure'}->{'unit_filename'})) {
           # use section to do the file name if there is no node
-          my $command = $self->element_command($file_tree_unit);
+          my $command = $self->tree_unit_element_command($file_tree_unit);
           if ($command) {
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
@@ -8585,7 +8569,7 @@ sub _default_format_begin_file($$$)
   
   my $command;
   if ($element and $self->get_conf('SPLIT')) {
-    $command = $self->element_command($element);
+    $command = $self->tree_unit_element_command($element);
   }
 
   my ($title, $description, $encoding, $date, $css_lines,
@@ -9075,7 +9059,7 @@ sub output_internal_links($)
     foreach my $tree_unit (@{$self->{'tree_units'}}) {
       my $text;
       my $href;
-      my $command = $self->element_command($tree_unit);
+      my $command = $self->tree_unit_element_command($tree_unit);
       if (defined($command)) {
         # Use '' for filename, to force a filename in href.
         $href = $self->command_href($command, '');

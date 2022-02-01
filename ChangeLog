@@ -1,5 +1,26 @@
 2022-02-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (command_href), tp/init/chm.pm,
+	tp/init/epub3.pm: remove command_target(), inline or replace
+	by command_id.
+
+	* tp/Texinfo/Convert/HTML.pm (command_filename, command_node)
+	(footnote_location_href): set $target->{'root_command'}
+	in command_node() only, where it is used.
+
+	* tp/Texinfo/Convert/HTML.pm (footnote_location_href): simplify
+	code, remove _set_footnote_location_target().
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command),
+	tp/init/book.pm: replace command_string(), which is not defined,
+	by command_text($element, 'string').  Mark better in comment
+	that the code is never run.
+
+	* tp/Texinfo/Convert/HTML.pm (tree_unit_element_command):
+	rename element_command() as tree_unit_element_command().
+
+2022-02-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (in_non_breakable_space)
 	(is_format_expanded), tp/init/html32.pm: rename in_space_protected()
 	as in_non_breakable_space() and expanded_format() as

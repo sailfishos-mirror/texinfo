@@ -469,8 +469,12 @@ EOT
       $text = Texinfo::Convert::Utils::numbered_heading($self, $section, $text,
                           $self->get_conf('NUMBER_SECTIONS'));
       my $file = $self->command_filename($section);
-      my $anchor = $self->command_target($section);
-      my $origin_href = "$file#$anchor";
+      my $target_command = $section;
+      $target_command = $section->{'extra'}->{'associated_node'}
+        if ($section->{'extra'} and $section->{'extra'}->{'associated_node'});
+      my $target = $self->command_id($target_command);
+      # FIXME use command_href instead?
+      my $origin_href = "$file#$target";
       print $nav_fh " " x $level . "<li><a href=\"$origin_href\">$text</a>";
     }
     if ($level > $root_level) {
