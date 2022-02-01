@@ -468,13 +468,9 @@ EOT
       my $text = _epub_convert_tree_to_text($self, $section->{'args'}->[0]);
       $text = Texinfo::Convert::Utils::numbered_heading($self, $section, $text,
                           $self->get_conf('NUMBER_SECTIONS'));
-      my $file = $self->command_filename($section);
-      my $target_command = $section;
-      $target_command = $section->{'extra'}->{'associated_node'}
-        if ($section->{'extra'} and $section->{'extra'}->{'associated_node'});
-      my $target = $self->command_id($target_command);
-      # FIXME use command_href instead?
-      my $origin_href = "$file#$target";
+      # the empty string as second argument makes sure that the
+      # source file is different from the target file.
+      my $origin_href = $self->command_href($section, '');
       print $nav_fh " " x $level . "<li><a href=\"$origin_href\">$text</a>";
     }
     if ($level > $root_level) {
