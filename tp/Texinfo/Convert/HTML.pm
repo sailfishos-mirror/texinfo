@@ -451,7 +451,7 @@ sub in_upper_case($)
   return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'upper_case'};
 }
 
-sub in_space_protected($)
+sub in_non_breakable_space($)
 {
   my $self = shift;
   return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'space_protected'};
@@ -549,7 +549,7 @@ sub in_align($)
   }
 }
 
-sub expanded_format($$)
+sub is_format_expanded($$)
 {
   my $self = shift;
   my $format = shift;
@@ -3755,9 +3755,9 @@ sub _convert_inline_command($$$$)
   my $arg_index = undef;
   if ($inline_format_commands{$cmdname}) {
     if ($cmdname eq 'inlinefmtifelse' 
-        and ! $self->expanded_format($format)) {
+        and ! $self->is_format_expanded($format)) {
       $arg_index = 1;
-    } elsif ($self->expanded_format($format)) {
+    } elsif ($self->is_format_expanded($format)) {
       $arg_index = 0;
     }
   } elsif (defined($command->{'extra'}->{'expand_index'})) {
@@ -5407,7 +5407,7 @@ sub _convert_text($$$)
 
   return $text if ($self->in_preformatted());
 
-  if ($self->in_space_protected()) {
+  if ($self->in_non_breakable_space()) {
     if ($text =~ /(\S*[_-]\S*)/) {
       my $open = $self->html_attribute_class('span', ['w-nolinebreak-text']);
       if ($open ne '') {

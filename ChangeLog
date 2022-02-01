@@ -1,3 +1,10 @@
+2022-02-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (in_non_breakable_space)
+	(is_format_expanded), tp/init/html32.pm: rename in_space_protected()
+	as in_non_breakable_space() and expanded_format() as
+	is_format_expanded().
+
 2022-01-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm, tp/init/chm.pm, tp/init/epub3.pm,

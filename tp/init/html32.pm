@@ -157,7 +157,7 @@ sub html32_convert_text($$$$)
     $text =~ s/--/-/g;
     $text =~ s/\x{1F}/--/g;
   }
-  if (!$self->in_preformatted() and $self->in_space_protected()) {
+  if (!$self->in_preformatted() and $self->in_non_breakable_space()) {
     $text .= '&nbsp;' if (chomp($text));
     $text =~ s/ /&nbsp;/g;
   }
