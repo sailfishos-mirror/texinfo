@@ -587,7 +587,9 @@ sub is_format_expanded($$)
 #
 #   'tree', 'tree_nonumber: a Texinfo tree element which conversion should correspond to
 #                   the element name.  With _nonumber, no section number.
-#   'root_command': the top level element associated with the target element.
+#   'node_command': the node element associated with the target element.
+#   'root_element_command': the command associated to the top level element
+#                           associated with the target element.
 #
 # Some functions cache their results in these hashes.
 
@@ -676,11 +678,12 @@ sub command_filename($$)
 
   my $target = $self->_get_target($command);
   if ($target) {
-    if (defined($target->{'filename'})) {
+    if (exists($target->{'filename'})) {
       return $target->{'filename'};
     }
-    # this finds a special element for footnote command if
-    # such an element exists
+    # this finds a special element for footnote command if such an element
+    # exists.  This is best, the special element filename is the footnote
+    # filename.
     my ($root_element, $root_command)
            = $self->_html_get_tree_root_element($command, 1);
 
@@ -688,21 +691,35 @@ sub command_filename($$)
       $target->{'filename'}
         = $root_element->{'structure'}->{'unit_filename'};
       return $root_element->{'structure'}->{'unit_filename'};
+    } else {
+      $target->{'filename'} = undef;
     }
   }
   return undef;
 }
 
-# could be called on any element, not only elements that can be targets.
-# In practice, seems to be called only on elements that can be targets
 sub command_root_element_command($$)
 {
   my $self = shift;
   my $command = shift;
 
-  my ($root_element, $root_command) = $self->_html_get_tree_root_element($command);
-  if ($root_element and $root_element->{'extra'}) {
-    return $root_element->{'extra'}->{'unit_command'};
+  my $target = $self->_get_target($command);
+  if ($target) {
+    if (not exists($target->{'root_element_command'})) {
+      # in contrast with command_filename() we find the root element through
+      # the location holding the @footnote command.  It is better, as the
+      # footnote special element is not associated with a root command,
+      # it is better to stay in the document to find a root element.
+      my ($root_element, $root_command)
+        = $self->_html_get_tree_root_element($command);
+      if ($root_element and $root_element->{'extra'}) {
+        $target->{'root_element_command'}
+          = $root_element->{'extra'}->{'unit_command'};
+      } else {
+        $target->{'root_element_command'} = undef;
+      }
+    }
+    return $target->{'root_element_command'};
   }
   return undef;
 }
@@ -730,24 +747,23 @@ sub command_node($$)
 
   my $target = $self->_get_target($command);
   if ($target) {
-    if (not $target->{'root_command'}) {
+    if (not exists($target->{'node_command'})) {
       # this finds a special element for footnote command if
       # such an element exists
       my ($root_element, $root_command)
            = $self->_html_get_tree_root_element($command, 1);
       if (defined($root_command)) {
-        $target->{'root_command'} = $root_command;
+        if ($root_command->{'cmdname'} and $root_command->{'cmdname'} eq 'node') {
+          $target->{'node_command'} = $root_command;
+        }
+        if ($root_command->{'extra'} and $root_command->{'extra'}->{'associated_node'}) {
+          $target->{'node_command'} = $root_command->{'extra'}->{'associated_node'};
+        }
+      } else {
+        $target->{'node_command'} = undef;
       }
     }
-    my $root_command = $target->{'root_command'};
-    if (defined($root_command)) {
-      if ($root_command->{'cmdname'} and $root_command->{'cmdname'} eq 'node') {
-        return $root_command;
-      }
-      if ($root_command->{'extra'} and $root_command->{'extra'}->{'associated_node'}) {
-        return $root_command->{'extra'}->{'associated_node'};
-      }
-    }
+    return $target->{'node_command'};
   }
   return undef;
 }

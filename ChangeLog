@@ -1,5 +1,14 @@
 2022-02-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (command_filename): cache undef if
+	file name is not found.
+
+	* tp/Texinfo/Convert/HTML.pm (command_root_element_command)
+	(command_node): cache the information that is really needed.
+	Cache undef if not found.
+
+2022-02-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (command_href), tp/init/chm.pm,
 	tp/init/epub3.pm: remove command_target(), inline or replace
 	by command_id.
