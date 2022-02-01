@@ -35,9 +35,13 @@ To document:
 
 
 
-Paragraphs and Preformatted Containers
-
 Nav
+@menu, sectioning commands, navigation panel, @listoffloats, @printindex
+
+$self->element_is_tree_unit_top()
+Texinfo::Structuring::section_level_adjusted_command_name
+Texinfo::Common::section_level()
+$self->count_elements_in_filename($spec, filename)
 
 used in _direction_href_attributes, _get_links
 'BUTTONS_ACCESSKEY' 'BUTTONS_REL'
@@ -63,6 +67,9 @@ Special Elements
 used in _contents_inline_element
 'SPECIAL_ELEMENTS_DIRECTIONS' 'SPECIAL_ELEMENTS_CLASS' 'SPECIAL_ELEMENTS_HEADING'
 
+register_footnote
+get_pending_footnotes
+
      'format_contents' => \&_default_format_contents,
      'format_footnotes_segment' => \&_default_format_footnotes_segment,
      'format_footnotes_sequence' => \&_default_format_footnotes_sequence,
@@ -80,49 +87,9 @@ Other
      'format_node_redirection_page' => \&_default_format_node_redirection_page,
 
      'format_frame_files' => \&_default_format_frame_files,
-
-
-register_footnote
-get_pending_footnotes
-
-
-required use of
-in_string()
-in_align()
-in_preformatted()
-$self->in_verbatim()
-$self->in_math()
-$self->in_upper_case()
-$self->in_code()
-$self->in_space_protected()
-
-use of
-Texinfo::Convert::Utils::expand_today()
-Texinfo::Convert::Utils::expand_verbatiminclude
-Texinfo::Convert::Converter::float_name_caption()
-Texinfo::Convert::Utils::definition_arguments_content
-Texinfo::Convert::Utils::definition_category
-Texinfo::Convert::NodeNameNormalization::normalize_node(
-Texinfo::Convert::NodeNameNormalization::convert
-Texinfo::Convert::Text::convert_to_text(
-$self->html_image_file_location_name()
-$self->xml_accents()
-$self->xml_format_text_with_numeric_entities()
-$self->element_is_tree_unit_top()
-Texinfo::Structuring::section_level_adjusted_command_name
-Texinfo::Common::section_level()
-Texinfo::Common::set_informative_command_value()
-$self->preformatted_classes_stack
-$self->html_convert_css_string_for_list_mark()
-$self->table_item_content_tree() (Converter)
-$self->comma_index_subentries_tree() (Converter)
-$self->paragraph_number()
-$self->top_block_command()
-$self->expanded_format($format)
-$self->in_multi_expanded()
 $self->html_get_css_elements_classes($filename);
-$self->substitute_html_non_breaking_space(
-$self->count_elements_in_filename($spec, filename)
+
+
 
 Profiling
 =========

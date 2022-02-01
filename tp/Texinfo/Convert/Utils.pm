@@ -83,16 +83,16 @@ sub expand_today($)
 
 sub definition_arguments_content($)
 {
-  my $root = shift;
+  my $element = shift;
 
-  return undef if (!defined($root->{'extra'})
-                    or !defined($root->{'extra'}->{'def_parsed_hash'}));
-  my @args = @{$root->{'args'}->[0]->{'contents'}};
+  return undef if (!defined($element->{'extra'})
+                    or !defined($element->{'extra'}->{'def_parsed_hash'}));
+  my @args = @{$element->{'args'}->[0]->{'contents'}};
   while (@args) {
     last if (defined($args[0]->{'extra'})
              and defined($args[0]->{'extra'}->{'def_role'})
              and $args[0]->{'extra'}->{'def_role'} ne 'spaces'
-             and !$root->{'extra'}->{'def_parsed_hash'}
+             and !$element->{'extra'}->{'def_parsed_hash'}
                        ->{$args[0]->{'extra'}->{'def_role'}});
     shift @args;
   }
@@ -329,6 +329,15 @@ see L<Texinfo::Convert::Converter> and L<Texinfo::Report>.
 On strings translations, see L<Texinfo::Translations>.
 
 =over
+
+=item $arguments = definition_arguments_content($element)
+
+I<$element> should be a C<@def*> Texinfo tree element.  Texinfo elements
+on the @-command line corresponding to arguments in the function
+definition are returned in the I<$arguments> array reference.
+Arguments correspond to text following the category and the name
+on the @-command line.  If there is no argument, I<$arguments>
+will be C<undef>.
 
 =item $tree = definition_category($converter, $def_line)
 

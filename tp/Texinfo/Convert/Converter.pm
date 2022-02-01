@@ -1721,6 +1721,13 @@ see L<Texinfo::Convert::Utils>.
 
 =over
 
+=item $contents_array $converter->comma_index_subentries_tree($entry)
+
+I<$entry> is a Texinfo tree index entry element. The function sets up
+an array with the C<@subentry> contents, separated by commas.  The
+array reference is returned as I<$contents_array>, or C<undef> if there
+is no such content.
+
 =item $result = $converter->convert_accents($accent_command, \&format_accents, $in_upper_case)
 
 I<$accent_command> is an accent command, which may have other accent
