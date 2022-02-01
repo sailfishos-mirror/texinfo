@@ -241,19 +241,7 @@ sub chm_init($)
   if ($index_entries) {
     foreach my $index_name (sort(keys(%$index_entries))) {
       foreach my $index_entry_ref (@{$index_entries->{$index_name}}) {
-        my $file = $self->command_filename($index_entry_ref->{'command'});
-        # happens for things in @titlepage when it is not output
-        if (!defined($file)) {
-          if ($self->{'tree_units'} and $self->{'tree_units'}->[0]
-             and defined($self->{'tree_units'}->[0]->{'structure'}->{'unit_filename'})) {
-            # In that case use the first page.
-            $file = $self->{'tree_units'}->[0]->{'structure'}->{'unit_filename'};
-          } else {
-            $file = '';
-          }
-        }
-        my $anchor = $self->command_id($index_entry_ref->{'command'});
-        my $origin_href = "$file#$anchor";
+        my $origin_href = $self->command_href($index_entry_ref->{'command'}, '');
         my $entry = _chm_convert_tree_to_text($self,
                                {'contents' => $index_entry_ref->{'content'}},
                                {'code' => $index_entry_ref->{'in_code'}});
