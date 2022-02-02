@@ -1,3 +1,12 @@
+2022-02-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (command_href, _external_node_href):
+	change variable name.
+
+	* tp/Texinfo/Convert/HTML.pm (global_direction_element),
+	tp/init/chm.pm: rename global_element as global_direction_element.
+	Change a variable name.
+
 2022-02-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/init/chm.pm: simplify the code getting the top element file name.

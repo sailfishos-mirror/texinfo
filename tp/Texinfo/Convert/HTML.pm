@@ -774,13 +774,13 @@ sub command_href($$;$$$)
   my $self = shift;
   my $command = shift;
   my $source_filename = shift;
-  my $link_command = shift;
+  my $source_command = shift;
   my $specified_target = shift;
 
   $source_filename = $self->{'current_filename'} if (!defined($source_filename));
 
   if ($command->{'manual_content'}) {
-    return $self->_external_node_href($command, $source_filename, $link_command);
+    return $self->_external_node_href($command, $source_filename, $source_command);
   }
 
   my $target;
@@ -1101,11 +1101,11 @@ sub command_name_special_element_information($$)
           $special_element_direction);
 }
 
-sub global_element($$)
+sub global_direction_element($$)
 {
   my $self = shift;
-  my $type = shift;
-  return $self->{'global_target_elements_directions'}->{$type};
+  my $direction = shift;
+  return $self->{'global_target_elements_directions'}->{$direction};
 }
 
 my %valid_direction_return_type = (
@@ -1166,9 +1166,10 @@ sub from_element_direction($$$;$$)
     print STDERR "Incorrect type $type in from_element_direction call\n";
     return undef;
   }
-  if ($self->global_element($direction)) {
-    $target_element = $self->global_element($direction);
-  } elsif ($source_element and $source_element->{'extra'}
+  my $global_target_element = $self->global_direction_element($direction);
+  if ($global_target_element) {
+    $target_element = $global_target_element;
+  } elsif (not $target_element and $source_element and $source_element->{'extra'}
       and $source_element->{'structure'}->{'directions'}
       and $source_element->{'structure'}->{'directions'}->{$direction}) {
     $target_element
@@ -1276,7 +1277,7 @@ sub element_is_tree_unit_top($$)
 {
   my $self = shift;
   my $element = shift;
-  my $top_element = $self->global_element('Top');
+  my $top_element = $self->global_direction_element('Top');
   return (defined($top_element) and $top_element eq $element
           and $element->{'extra'}
           and $element->{'extra'}->{'unit_command'}
@@ -5010,7 +5011,8 @@ sub _convert_printindex_command($$$$)
         if (!$associated_command) {
           # Use Top if not associated command found
           $associated_command
-            = $self->tree_unit_element_command($self->global_element('Top'));
+            = $self->tree_unit_element_command(
+                                   $self->global_direction_element('Top'));
         }
       }
       my ($associated_command_href, $associated_command_text);
@@ -7934,8 +7936,8 @@ sub _prepare_tree_units_global_targets($$)
   if ($self->get_conf('DEBUG')) {
     print STDERR "GLOBAL DIRECTIONS:\n";
     foreach my $global_direction (@global_directions) {
-      if (defined($self->global_element($global_direction))) {
-        my $global_element = $self->global_element($global_direction);
+      if (defined($self->global_direction_element($global_direction))) {
+        my $global_element = $self->global_direction_element($global_direction);
         print STDERR "$global_direction($global_element): ".
           Texinfo::Structuring::root_or_external_element_cmd_texi($global_element)."\n";
       }
@@ -8042,7 +8044,7 @@ sub _external_node_href($$$$)
   my $self = shift;
   my $external_node = shift;
   my $filename = shift;
-  my $link_command = shift;
+  my $source_command = shift;
   
   #print STDERR "external_node: ".join('|', keys(%$external_node))."\n";
   my ($target_filebase, $target)
@@ -8086,10 +8088,10 @@ sub _external_node_href($$$$)
     } else { # nothing specified for that manual, use default
       $target_split = $default_target_split;
       if ($self->get_conf('CHECK_HTMLXREF')) {
-        if (defined($link_command) and $link_command->{'line_nr'}) {
+        if (defined($source_command) and $source_command->{'line_nr'}) {
           $self->line_warn($self, sprintf(__(
               "no htmlxref.cnf entry found for `%s'"), $manual_name),
-            $link_command->{'line_nr'});
+            $source_command->{'line_nr'});
         } elsif (!$self->{'check_htmlxref_already_warned'}->{$manual_name}) {
           $self->document_warn($self, sprintf(__(
             "no htmlxref.cnf entry found for `%s'"), $manual_name),
@@ -8942,7 +8944,7 @@ sub _default_format_frame_files($$)
     my $doctype = $self->get_conf('FRAMESET_DOCTYPE');
     my $root_html_element_attributes = $self->_root_html_element_attributes_string();
     my $top_file = '';
-    my $top_element = $self->global_element('Top');
+    my $top_element = $self->global_direction_element('Top');
     if ($top_element) {
       $top_file = $top_element->{'structure'}->{'unit_filename'};
     }
