@@ -30,66 +30,6 @@ Some private function used in conversion
  _convert_printindex_command
   _new_document_context
 
-To document:
------------
-
-
-
-Nav
-@menu, sectioning commands, navigation panel, @listoffloats, @printindex
-
-$self->element_is_tree_unit_top()
-Texinfo::Structuring::section_level_adjusted_command_name
-Texinfo::Common::section_level()
-$self->count_elements_in_filename($spec, filename)
-
-used in _direction_href_attributes, _get_links
-'BUTTONS_ACCESSKEY' 'BUTTONS_REL'
-'LINKS_BUTTONS'
-
-from_element_direction
-command_target command_filename command_string command_id command_href
-command_contents_href command_contents_target
-special_direction_element
-command_name_special_element_information
-command_root_element_command label_command
-footnote_location_target footnote_location_href
-
-     'format_button' => \&_default_format_button,
-     'format_element_header' => \&_default_format_element_header,
-     'format_element_footer' => \&_default_format_element_footer,
-     'format_navigation_header' => \&_default_format_navigation_header,
-     'format_navigation_panel' => \&_default_format_navigation_panel,
-
-Normal Unit Elements
-Special Elements
-
-used in _contents_inline_element
-'SPECIAL_ELEMENTS_DIRECTIONS' 'SPECIAL_ELEMENTS_CLASS' 'SPECIAL_ELEMENTS_HEADING'
-
-register_footnote
-get_pending_footnotes
-
-     'format_contents' => \&_default_format_contents,
-     'format_footnotes_segment' => \&_default_format_footnotes_segment,
-     'format_footnotes_sequence' => \&_default_format_footnotes_sequence,
-
-
-     'format_begin_file' => \&_default_format_begin_file,
-     'format_end_file' => \&_default_format_end_file,
-
-
-Other
-
-     'format_css_lines' => \&_default_format_css_lines,
-     'format_titlepage' => \&_default_format_titlepage,
-
-     'format_node_redirection_page' => \&_default_format_node_redirection_page,
-
-     'format_frame_files' => \&_default_format_frame_files,
-$self->html_get_css_elements_classes($filename);
-
-
 
 Profiling
 =========
