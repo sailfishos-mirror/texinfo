@@ -703,7 +703,7 @@ $result_trees{'topic_guide'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'More informations
+                      'text' => 'More information
 '
                     },
                     {
@@ -937,7 +937,7 @@ $result_trees{'topic_guide'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'More informations
+                      'text' => 'More information
 '
                     },
                     {
@@ -1177,7 +1177,7 @@ $result_trees{'topic_guide'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'More informations
+                      'text' => 'More information
 '
                     },
                     {
@@ -1336,7 +1336,7 @@ $result_trees{'topic_guide'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'More informations
+                      'text' => 'More information
 '
                     },
                     {
@@ -1559,7 +1559,7 @@ $result_trees{'topic_guide'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'More informations
+                      'text' => 'More information
 '
                     },
                     {
@@ -2391,7 +2391,7 @@ This is the guide for an easy use.
 This is topic 1.
 
 @menu
-More informations
+More information
 
 * guide1:: guide 1
 @end menu
@@ -2401,7 +2401,7 @@ More informations
 This is topic 2
 
 @menu
-More informations
+More information
 
 * guide1:: guide 1
 @end menu
@@ -2411,7 +2411,7 @@ More informations
 This is topic 3
 
 @menu
-More informations
+More information
 
 @end menu
 
@@ -2420,7 +2420,7 @@ More informations
 This is topic 4
 
 @menu
-More informations
+More information
 
 * guide2:: guide 2
 @end menu
@@ -2430,7 +2430,7 @@ More informations
 This is topic 5
 
 @menu
-More informations
+More information
 
 * guide1:: guide 1
 * guide2:: guide 2
@@ -2471,34 +2471,34 @@ This is the guide for an easy use.
 
 This is topic 1.
 
-More informations
+More information
 
 * guide1:: guide 1
 
 
 This is topic 2
 
-More informations
+More information
 
 * guide1:: guide 1
 
 
 This is topic 3
 
-More informations
+More information
 
 
 
 This is topic 4
 
-More informations
+More information
 
 * guide2:: guide 2
 
 
 This is topic 5
 
-More informations
+More information
 
 * guide1:: guide 1
 * guide2:: guide 2

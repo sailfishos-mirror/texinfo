@@ -70,7 +70,7 @@ sub errors($)
 sub line_warn($$$$)
 {
   my $self = shift;
-  my $configuration_informations = shift;
+  my $configuration_information = shift;
   my $text = shift;
   chomp ($text);
   my $line_number = shift;
@@ -79,8 +79,8 @@ sub line_warn($$$$)
   # otherwise out of source build fail since the file names are different
   my ($directories, $suffix);
   ($file, $directories, $suffix) = fileparse($file)
-    if (defined($configuration_informations)
-        and $configuration_informations->get_conf('TEST'));
+    if (defined($configuration_information)
+        and $configuration_information->get_conf('TEST'));
   my $warn_line;
   if ($line_number->{'macro'} ne '') {
     $warn_line = sprintf(__p("Texinfo source file warning",
@@ -91,8 +91,8 @@ sub line_warn($$$$)
                                     "%s:%d: warning: %s\n"),
                          $file, $line_number->{'line_nr'}, $text);
   }
-  warn $warn_line if (defined($configuration_informations)
-                      and $configuration_informations->get_conf('DEBUG'));
+  warn $warn_line if (defined($configuration_information)
+                      and $configuration_information->get_conf('DEBUG'));
   push @{$self->{'errors_warnings'}},
        { 'type' => 'warning', 'text' => $text, 'error_line' => $warn_line,
          %{$line_number} };
@@ -102,7 +102,7 @@ sub line_warn($$$$)
 sub line_error($$$$)
 {
   my $self = shift;
-  my $configuration_informations = shift;
+  my $configuration_information = shift;
   my $text = shift;
   chomp ($text);
   my $line_number = shift;
@@ -110,14 +110,14 @@ sub line_error($$$$)
     my $file = $line_number->{'file_name'};
     my ($directories, $suffix);
     ($file, $directories, $suffix) = fileparse($file)
-       if (defined($configuration_informations)
-           and $configuration_informations->get_conf('TEST'));
+       if (defined($configuration_information)
+           and $configuration_information->get_conf('TEST'));
     my $macro_text = '';
     $macro_text = " (possibly involving \@$line_number->{'macro'})"
        if ($line_number->{'macro'} ne '');
     my $error_text = "$file:$line_number->{'line_nr'}: $text$macro_text\n";
-    warn $error_text if (defined($configuration_informations)
-                         and $configuration_informations->get_conf('DEBUG'));
+    warn $error_text if (defined($configuration_information)
+                         and $configuration_information->get_conf('DEBUG'));
     push @{$self->{'errors_warnings'}},
          { 'type' => 'error', 'text' => $text, 'error_line' => $error_text,
            %{$line_number} };
@@ -128,16 +128,16 @@ sub line_error($$$$)
 sub document_warn($$$)
 {
   my $self = shift;
-  my $configuration_informations = shift;
+  my $configuration_information = shift;
   my $text = shift;
   chomp($text);
 
   my $warn_line;
-  if (defined($configuration_informations)
-      and defined($configuration_informations->get_conf('PROGRAM'))
-      and $configuration_informations->get_conf('PROGRAM') ne '') {
+  if (defined($configuration_information)
+      and defined($configuration_information->get_conf('PROGRAM'))
+      and $configuration_information->get_conf('PROGRAM') ne '') {
     $warn_line = sprintf(__p("whole document warning", "%s: warning: %s\n"), 
-                  $configuration_informations->get_conf('PROGRAM'), $text);
+                  $configuration_information->get_conf('PROGRAM'), $text);
   } else {
     $warn_line = sprintf(__p("whole document warning", "warning: %s\n"), 
                          $text);
@@ -149,15 +149,15 @@ sub document_warn($$$)
 sub document_error($$$)
 {
   my $self = shift;
-  my $configuration_informations = shift;
+  my $configuration_information = shift;
   my $text = shift;
   chomp($text);
   my $error_line;
-  if (defined($configuration_informations)
-      and defined($configuration_informations->get_conf('PROGRAM'))
-      and $configuration_informations->get_conf('PROGRAM') ne '') {
+  if (defined($configuration_information)
+      and defined($configuration_information->get_conf('PROGRAM'))
+      and $configuration_information->get_conf('PROGRAM') ne '') {
     $error_line = sprintf("%s: %s\n",
-          $configuration_informations->get_conf('PROGRAM'), $text);
+          $configuration_information->get_conf('PROGRAM'), $text);
   } else {
     $error_line = "$text\n";
   }
@@ -307,12 +307,12 @@ the error or warning.
 
 =back
 
-=item $registrar->line_warn($text, $configuration_informations, $line_nr)
+=item $registrar->line_warn($text, $configuration_information, $line_nr)
 
-=item $registrar->line_error($text, $configuration_informations, $line_nr)
+=item $registrar->line_error($text, $configuration_information, $line_nr)
 
 Register a warning or an error.  The I<$text> is the text of the
-error or warning.  The I<$configuration_informations> object gives
+error or warning.  The I<$configuration_information> object gives
 some information that can modify the messages or their delivery.
 The optional I<$line_nr> holds the information on the error or 
 warning location.  It is associated with the I<line_nr> key of
@@ -321,12 +321,12 @@ for the @-commands.  The I<$line_nr> structure is described
 in L<errors|/($error_warnings_list, $error_count) = errors ($registrar)>
 above.
 
-=item $registrar->document_warn($configuration_informations, $text)
+=item $registrar->document_warn($configuration_information, $text)
 
-=item $registrar->document_error($configuration_informations, $text)
+=item $registrar->document_error($configuration_information, $text)
 
 Register a document-wide error or warning.  I<$text> is the error or
-warning message.  The I<$configuration_informations> object gives
+warning message.  The I<$configuration_information> object gives
 some information that can modify the messages or their delivery.
 
 =item $registrar->file_line_warn($text, $file, $line_nr)

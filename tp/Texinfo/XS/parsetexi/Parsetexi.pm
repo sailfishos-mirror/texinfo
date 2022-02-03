@@ -168,8 +168,8 @@ sub _get_error_registrar($)
     $self->{'registrar'} = Texinfo::Report::new();
   }
   my $registrar = $self->{'registrar'};
-  my $configuration_informations = $self;
-  return $registrar, $configuration_informations;
+  my $configuration_information = $self;
+  return $registrar, $configuration_information;
 }
 
 # done after all the parsings.  Part may not make much sense for parse_texi_line,
@@ -220,8 +220,8 @@ sub parse_texi_file ($$)
 
   my $status = parse_file ($file_name);
   if ($status) {
-    my ($registrar, $configuration_informations) = _get_error_registrar($self);
-    $registrar->document_error($configuration_informations,
+    my ($registrar, $configuration_information) = _get_error_registrar($self);
+    $registrar->document_error($configuration_information,
        sprintf(__("could not open %s: %s"), $file_name, $!));
     return undef;
   }
@@ -250,17 +250,17 @@ sub parse_texi_file ($$)
 sub _get_errors($)
 {
   my $self = shift;
-  my ($registrar, $configuration_informations) = _get_error_registrar($self);
+  my ($registrar, $configuration_information) = _get_error_registrar($self);
 
   my $ERRORS;
   my $tree_stream = dump_errors();
   eval $tree_stream;
   for my $error (@{$ERRORS}) {
     if ($error->{'type'} eq 'error') {
-      $registrar->line_error ($configuration_informations,
+      $registrar->line_error ($configuration_information,
                               $error->{'message'}, $error->{'line_nr'});
     } else {
-      $registrar->line_warn ($configuration_informations,
+      $registrar->line_warn ($configuration_information,
                              $error->{'message'}, $error->{'line_nr'});
     }
   }
@@ -383,7 +383,7 @@ sub global_commands_information($)
   return $self->{'commands_info'};
 }
 
-sub global_informations($)
+sub global_information($)
 {
   my $self = shift;
   return $self->{'info'};

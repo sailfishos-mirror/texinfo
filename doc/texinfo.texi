@@ -1821,7 +1821,7 @@ Commands that affects document formatting as a whole but do not produce
 output, or do not produce output straight away, such as @code{@@settitle}
 (@pxref{@code{@@settitle}}), @code{@@documentlanguage},
 (@pxref{@code{@@documentlanguage}}), commands setting the headings,
-informations on indentation, on hyphenation or on table of contents
+setting information on indentation, on hyphenation or on table of contents
 (@pxref{Contents}) do not stop the the preamble.  The preamble can also contain
 raw formatter commands (@pxref{Raw Formatter Commands}), but it is not checked
 that the content of these commands is actually preamble material and not

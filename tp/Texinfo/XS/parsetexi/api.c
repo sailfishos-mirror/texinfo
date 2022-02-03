@@ -931,7 +931,7 @@ build_index_data (void)
 
 
 /* Return object to be used as $self->{'info'} in the Perl code, retrievable
-   with the 'global_informations' function. */
+   with the 'global_information' function. */
 HV *
 build_global_info (void)
 {

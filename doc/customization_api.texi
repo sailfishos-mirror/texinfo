@@ -191,7 +191,7 @@ The conversion of Texinfo to HTML is broadly done in two steps.  The first step 
 parsing of the Texinfo code in a tree-like structure representing the document.
 The second step is the conversion of the tree-like structure.  The first step is
 done in the main program, which reads command line options and loads init files
-before the parsing. The main programs determines informations on the document
+before the parsing. The main programs gather information on the document
 structure after the parsing, before the conversion of the tree.  The
 conversion step is done in a @dfn{converter} which holds configuration
 information, allows to register error messages and can interact with user
@@ -512,12 +512,12 @@ foreach my $context ('normal', 'example', string') @{
 @node Simple Customization of Containers
 @section Simple Customization of Containers
 
-Texinfo tree elements that are not text container nor directly associated
-with an @@-command can have some informations on their formatting set.
-The first information that can be set is whether their contents should be considered
-in code context (@pxref{Init File Expansion Contexts}).  The other information is the type of
-preformatted environment they are, analogous with the @@-command names of @code{@@example}
-or @code{@@display}@footnote{Note that setting the type of preformatted environment does not
+Texinfo tree elements that are not text container nor directly associated with
+an @@-command can have information set on their formatting.  The first piece of
+information is whether their contents should be considered in code context (@pxref{Init
+File Expansion Contexts}).  The other piece of information is the type of
+preformatted environment they are, analogous with the @@-command names of
+@code{@@example} or @code{@@display}@footnote{Note that setting the type of preformatted environment does not
 make sure that there are preformatted containers used for the formatting of their
 contents instead of paragraph containers, since this is determined in the very
 first step of parsing the Texinfo code, which cannot be customized.}.
@@ -554,14 +554,14 @@ CSS in HTML output can already be modified with command line options
 (@pxref{HTML CSS,,,texinfo}) and customization options such as
 @code{NO_CSS} and @code{INLINE_CSS_STYLE}.
 
-Informations on static CSS information used in conversion and some control
-over the CSS associated output is possible.  The corresponding informations are
-CSS rules lines and CSS import lines obtained from parsing
-@option{--css-include=@var{file}} files, as described in @ref{HTML CSS,,,texinfo},
-and CSS rules associated with HTML elements and class attributes
-used in conversion.  The CSS rules selectors are, classically,
-@code{@var{element}.@var{class}} strings with @var{element} an HTML element and
-@var{class} an attribute class associated to that element.
+Information on static CSS data used in conversion and some control over the CSS
+output is possible.  The information is about CSS rules lines and CSS import
+lines obtained from parsing @option{--css-include=@var{file}} files, as
+described in @ref{HTML CSS,,,texinfo}, and CSS style rules associated with HTML
+elements and class attributes used in the conversion to HTML.  The CSS style
+rules selectors are, classically, @code{@var{element}.@var{class}} strings with
+@var{element} an HTML element and @var{class} an attribute class associated to
+that element.
 
 The function used are @code{css_get_info} to get information and
 @code{css_add_info} to modify:
@@ -573,21 +573,21 @@ Those functions can only be used on a converter @var{$converter}, from
 functions registered and called with a converter.  @var{$specification} is
 @code{'rules'} to get information on or set information for CSS rules lines and
 @code{'imports'} to get information on or set information for CSS import lines.
-Any other value for @var{$specification} corresponds to CSS rules associated
-with HTML elements and class attributes selectors.
+Any other value for @var{$specification} corresponds to CSS style rules
+associated with HTML elements and class attributes selectors.
 
-With @code{css_get_info}, if @var{$specification} is set as @code{'rules'} or
+With @code{css_get_info}, if @var{$specification} is set to @code{'rules'} or
 @code{'imports'}, the corresponding arrays are returned.  Otherwise,
 if @var{$css_info} is @code{undef}, a hash reference with all the CSS rules selector as keys
-and the corresponding styles as values is returned.  If @var{$css_info} is defined,
-it is considered to be a CSS rules selector and the corresponding CSS style is returned,
+and the corresponding rules as values is returned.  If @var{$css_info} is defined,
+it is considered to be a CSS rule selector and the corresponding CSS style is returned,
 or @code{undef} if not found.
 
 With @code{css_add_info}, @var{$css_info} is an additional entry added to
 CSS rules lines if @var{$specification} is set to @code{'rules'} or an additional
 entry added to CSS import lines if @var{$specification} is set to @code{'imports'}.
 Otherwise, @var{$css_info} is a CSS rule selector and the associated
-style is set to @var{$css_style}.
+style rule is set to @var{$css_style}.
 @end defun
 
 Some examples of use:
@@ -601,11 +601,10 @@ $converter->css_add_info('styles', 'h1.titlefont', 'text-align:center');
 $converter->css_add_info('imports', "\@@import \"special.css\";\n");
 @end example
 
-Note that the CSS selectors and associated styles that can be accessed and
+Note that the CSS selectors and associated style rules that can be accessed and
 modified will not necessarily end up in the HTML output. They are output
 only if the HTML element and class corresponding to a selector is seen in the
-document.
-@c @xref{} html_attribute_class
+document. @xref{Customizing CSS}.
 
 How to run code during the conversion process is described later
 (@pxref{Init File Calling at Different Stages}). The simplest way to
@@ -748,7 +747,7 @@ elements.
 @section Directions
 
 @cindex Output element unit directions
-@cindex Links informations
+@cindex Links information
 @cindex Element directions
 
 A variety of data items, called @dfn{element directions}, are associated
@@ -1180,7 +1179,7 @@ document, two elements are added,
 (@pxref{Output Element Units}), and special elements with type
 @code{special_element} that correspond to added special elements (@pxref{Output
 Element Units}).  These added elements, as well as nodes and sectioning elements
-hold informations on the document structure in the @code{structure} element hash
+hold information on the document structure in the @code{structure} element hash
 (@pxref{Texinfo::Structuring METHODS,,,tp_api}).
 
 Normal tree unit elements have a @code{unit_command} key in the
@@ -1341,7 +1340,7 @@ is expanded, use @code{is_format_expanded}:
 
 @deftypefun $is_format_expanded $converter->is_format_expanded ($format)
 Return true if format @var{$format} is expanded, according to
-the command-line and init file informations.
+command-line and init file information.
 @end deftypefun
 
 The main method to get information from the converter is @code{get_info}:
@@ -1350,7 +1349,7 @@ The main method to get information from the converter is @code{get_info}:
 Return information on @var{$info}.
 @end defun
 
-The available informations are:
+The available information is about:
 @table @code
 @item copying_comment
 Text appearing in @code{@@copying} with all the Texinfo commands
@@ -1370,12 +1369,12 @@ Base name of the document.
 @xref{Init File Expansion Contexts}.
 
 @item floats
-Informations on floats. Gathered from the Texinfo parsing result.
+Information on floats. Gathered from the Texinfo parsing result.
 @xref{Texinfo::Parser $float_types = floats_information($parser),,
 Texinfo::Parser::floats_information,tp_api}.
 
 @item global_commands
-Global commands informations.  Gathered from the Texinfo parsing result.
+Global commands information.  Gathered from the Texinfo parsing result.
 @xref{Texinfo::Parser $commands = global_commands_information($parser),,
 Texinfo::Parser::global_commands_information,tp_api}.
 
@@ -1384,13 +1383,13 @@ Information on indices taking into account merged indices.
 @xref{Texinfo::Structuring $merged_entries = merge_indices($index_names),,Texinfo::Structuring::merge_indices, tp_api}.
 
 @item index_entries_by_letter
-Index entries sorted by letter. @xref{Texinfo::Structuring ($index_entries_sorted@comma{} $index_entries_sort_strings) = sort_indices($registrar@comma{} $configuration_informations@comma{} $merged_index_entries@comma{} $sort_by_letter),,Texinfo::Structuring::sort_indices,tp_api}.
+Index entries sorted by letter. @xref{Texinfo::Structuring ($index_entries_sorted@comma{} $index_entries_sort_strings) = sort_indices($registrar@comma{} $configuration_information@comma{} $merged_index_entries@comma{} $sort_by_letter),,Texinfo::Structuring::sort_indices,tp_api}.
 
 @item jslicenses
 An hash reference with  categories of javascript used in the document
 as keys. The corresponding values are also hashes with file names
 as keys and with array references as values.  The array references contain
-informations on each of the file licences, with content
+information on each of the file licences, with content
 @enumerate
 @item licence name
 @item license url
@@ -1429,7 +1428,7 @@ a Texinfo tree corresponding to the simpletitle, and @code{simpletitle_command_n
 is the @@-command name used for the simpletitle, without the leading @@.
 
 @item structuring
-Informations on the document structure.  Gathered before the conversion.
+Information on the document structure.  Gathered before the conversion.
 Two hash keys correspond to interesting information, @code{sectioning_root}
 which points to the top level sectioning command tree element, and
 @code{sections_list} which holds the list of the sectioning commands in the
@@ -2036,7 +2035,7 @@ is also no attribute.
 If @code{NO_CSS} is set, no attribute is set for the element.  Otherwise
 a @code{class} attribute is set based on @var{\@@classes }. If
 @code{INLINE_CSS_STYLE} is set, a CSS style attribute based on
-CSS element class styles is also added.  Otherwise the information that
+CSS element class rules is also added.  Otherwise the information that
 the element class was seen is registered by the converter.
 @end deftypefun
 
@@ -2085,7 +2084,7 @@ Substitute @code{&nbsp;} according to configuration variables values.
 @end deftypefun
 
 This is not needed if the @code{non_breaking_space} information is taken from
-general informations (@pxref{Conversion General Information}).
+the general information (@pxref{Conversion General Information}).
 
 
 @node Conversion in String Context
@@ -2289,8 +2288,8 @@ Return an anchor with identifier @var{$id}.
 @end table
 
 
-@node Getting and Passing Conversion Informations
-@chapter Getting and Passing Conversion Informations
+@node Getting and Passing Conversion Information
+@chapter Getting and Passing Conversion Information
 
 Dynamic formatting information on the conversion can be obtained from the
 converter.
@@ -2299,7 +2298,7 @@ For advanced customization, it is also often necessary to pass information
 during conversion between different formatting functions or between
 different calls calls of the same function.
 
-These informations are often useful for the formatting of paragraph and
+The information is often useful for the formatting of paragraph and
 preformatted containers and @@-comands such as @code{@@abbr}, @code{@@footnote},
 @code{@@node}, sectioning commands, @code{@@quotation} and @code{@@float}.
 
@@ -2346,7 +2345,7 @@ To get the location of an image file, use @code{html_image_file_location_name}:
 of an @code{@@image} @@-command formatting (@pxref{Command Tree Element
 Conversion Functions}).
 
-The return values are informations on the image file if found, or fallback values.
+The return values gives information on the image file if found, or fallback values.
 @var{$image_file} is the relative image file name.  It is the file name used in
 formatting of the @code{@@image} command in the default case.  @var{$image_basefile}
 is the base file name of the image, without extension, corresponding to the
@@ -2355,8 +2354,8 @@ file extension (without a leading dot).  @var{$image_path} is the path to the
 actual image file, @code{undef} if no file was found.
 @end deftypefun
 
-@xref{Conversion in Preformatted Context} for informations on getting
-preformatted commands and container types nesting informations.
+@xref{Conversion in Preformatted Context} for information on getting
+preformatted commands and container types nesting information.
 
 
 @node Opening and Closing Sectioning Commands Extent
@@ -2409,7 +2408,7 @@ environments.  The Texinfo code parsing makes sure that it is the case, to
 simplify conversion to formats which allow text only in specific environments
 such as HTML.
 
-Formatted text may also be prepared based on informations from Texinfo
+Formatted text may also be prepared based on information from Texinfo
 elements tree while out of the inline containers.  For that case, functions
 allow to register pending inline formatted content, and get the content to be
 prepended in inline text containers.
@@ -2515,7 +2514,7 @@ $@{$foot_num_reference@}++;
 Navigation headers, navigation panels, end or beginning of files, @code{@@xref}
 and similar @@-commands output, @code{@@menu}, @code{@@node}, sectioning
 commands, @code{@@printindex} and @code{@@listoffloats} formatting requires
-directions, links, labels and files informations.
+directions, links, labels and files information.
 
 
 @node Target Commands Links@comma{} Texts and Associated Commands
@@ -2594,8 +2593,8 @@ Return the node element associated with @var{\%target_element}.
 @end deftypefun
 
 
-@node Other Links@comma{} Headings and Associated Informations for Special Elements
-@section Other Links, Headings and Associated Informations for Special Elements
+@node Other Links@comma{} Headings and Associated Information for Special Elements
+@section Other Links, Headings and Associated Information for Special Elements
 
 To get the id of a footnote in the main document, use
 @code{footnote_location_target}:
@@ -2653,7 +2652,7 @@ Top element (@pxref{Output Element Units}) and is either associated with the
 @code{@@top} sectioning command or with the @code{Top} @code{@@node}.
 @end deftypefun
 
-To get informations on the special element variety associated with
+To get information on the special element variety associated with
 an @@-command command name, use @code{command_name_special_element_information}:
 
 @deftypefun {($special_element_variety, \%special_element, $class_base, $special_element_direction)} @
@@ -2781,7 +2780,7 @@ also call @code{command_href} to link to the location where the footnote
 text will be expanded (@pxref{Target Commands Links@comma{} Texts and Associated Commands}).
 
 @deftypefun {@@pending_footnotes_information} $converter->get_pending_footnotes ()
-Returns in @var{@@pending_footnotes_information} the informations gathered
+Returns in @var{@@pending_footnotes_information} the information gathered
 in @code{register_footnote}.  Each of the array element in @var{@@pending_footnotes_information}
 is an array reference containing the arguments of @code{register_footnote}
 in the same order.
@@ -2796,7 +2795,7 @@ The formatting of footnotes content is done by the
 Formats and returns the footnotes that need to be formatted.  This function
 normally calls @code{get_pending_footnotes}.  The default function also calls
 @code{footnote_location_href} (@pxref{Other Links@comma{} Headings and
-Associated Informations for Special Elements}) to link to the location
+Associated Information for Special Elements}) to link to the location
 in the document where the footnote appeared.
 @end deftypefn
 
@@ -2893,10 +2892,10 @@ Texinfo tree element conversion, and not as a special element body formatting.
 @var{$filename} is optional and should correspond to the filename where the
 formatting happens, for links.  If unset, the current file name is used.
 
-In the default function, structuring informations are used
+In the default function, structuring information is used
 to format the table of contents (@pxref{Conversion General Information}),
 and @code{command_contents_href} (@pxref{Other Links@comma{} Headings and
-Associated Informations for Special Elements}) and @code{command_href}
+Associated Information for Special Elements}) and @code{command_href}
 (@pxref{Target Commands Links@comma{} Texts and Associated Commands})
 are used for links.
 
@@ -3252,7 +3251,7 @@ If @code{USE_TITLEPAGE_FOR_TITLE} is set but there is no output of
 @node Customizing CSS
 @section Customizing the CSS lines
 
-@xref{Simple Customization of CSS} for some information on CSS customization.
+@xref{Simple Customization of CSS} for information on CSS customization.
 
 The CSS @var{element}.@var{class} that appeared in a file, gathered through
 @code{html_attribute_class} calls (@pxref{Formatting HTML Element with Classes
@@ -3314,7 +3313,7 @@ be used for specific elements formatting:
 Texinfo::Convert::Utils::expand_today, tp_api}.
 
 @item @code{@@verbatiminclude}
-@xref{Texinfo::Convert::Utils $tree = expand_verbatiminclude($registrar@comma{} $configuration_informations@comma{} $verbatiminclude),,
+@xref{Texinfo::Convert::Utils $tree = expand_verbatiminclude($registrar@comma{} $configuration_information@comma{} $verbatiminclude),,
 Texinfo::Convert::Utils::expand_verbatiminclude, tp_api}.
 
 @item @code{@@def*} @@-commands
@@ -3349,7 +3348,7 @@ Texinfo::Convert::Converter::comma_index_subentries_tree, tp_api}.  Can be
 called as @code{$converter->comma_index_subentries_tree}.
 
 @item global informative commands (@code{@@contents}, @code{@@footnotestyle} @enddots{})
-@xref{Texinfo::Common set_informative_command_value($configuration_informations@comma{} $element),,
+@xref{Texinfo::Common set_informative_command_value($configuration_information@comma{} $element),,
 Texinfo::Common::set_informative_command_value, tp_api}.
 
 @item heading commands, such as @code{@@subheading}

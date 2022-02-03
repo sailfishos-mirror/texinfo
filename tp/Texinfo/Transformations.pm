@@ -760,7 +760,7 @@ sub _protect_hashchar_at_line_beginning($$$)
   my $current = shift;
   my $argument = shift;
 
-  my ($registrar, $configuration_informations) = @$argument;
+  my ($registrar, $configuration_information) = @$argument;
 
   #print STDERR "$type $current ".debug_print_element($current)."\n";
   # if the next is a hash character at line beginning, mark it
@@ -804,7 +804,7 @@ sub _protect_hashchar_at_line_beginning($$$)
       while ($parent) {
         if ($parent->{'cmdname'} and $parent->{'line_nr'}) {
           if ($registrar) {
-            $registrar->line_warn($configuration_informations, sprintf(__(
+            $registrar->line_warn($configuration_information, sprintf(__(
                 "could not protect hash character in \@%s"), 
                            $parent->{'cmdname'}), $parent->{'line_nr'});
           }
@@ -830,11 +830,11 @@ sub _protect_hashchar_at_line_beginning($$$)
 sub protect_hashchar_at_line_beginning($$$)
 {
   my $registrar = shift;
-  my $configuration_informations = shift;
+  my $configuration_information = shift;
   my $tree = shift;
 
   return Texinfo::Common::modify_tree($tree, \&_protect_hashchar_at_line_beginning,
-                                       [$registrar, $configuration_informations]);
+                                       [$registrar, $configuration_information]);
 }
 
 1;
@@ -922,7 +922,7 @@ C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
 called after L<sectioning_structure>.
 
-=item protect_hashchar_at_line_beginning($registrar, $configuration_informations, $tree)
+=item protect_hashchar_at_line_beginning($registrar, $configuration_information, $tree)
 
 Protect hash (#) character at the beginning of line such that they would
 not be considered as lines to be processed by the CPP processor.

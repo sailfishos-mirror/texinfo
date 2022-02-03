@@ -391,8 +391,8 @@ my @prepend_dirs = ();
 # $init_files_options are managed by Texinfo::Config, set by
 # texinfo_set_from_init_file in init files.
 #
-# There is in addition $parser_options for parser related informations
-# that are not set otherwise.
+# There is in addition $parser_options for parser related information
+# that is not gathered otherwise.
 # The configuration values are later on copied over to the parser if
 # they are parser options.
 my $parser_options = {'values' => {'txicommandconditionals' => 1}};
@@ -1205,10 +1205,10 @@ while(@input_files) {
   # needing access to the configuration information.
   my $main_configuration = Texinfo::MainConfig::new();
 
-  my $parser_informations = $parser->global_informations();
+  my $parser_information = $parser->global_information();
   # encoding is needed for output files
   # encoding and documentlanguage are needed for gdt() in regenerate_master_menu
-  Texinfo::Common::set_output_encodings($main_configuration, $parser_informations);
+  Texinfo::Common::set_output_encodings($main_configuration, $parser_information);
   my $global_commands = $parser->global_commands_information();
   if (not defined($main_configuration->get_conf('documentlanguage'))) {
     my $element = Texinfo::Common::set_global_document_command($main_configuration,
@@ -1283,20 +1283,20 @@ while(@input_files) {
   my $refs = $parser->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar, 
                                                       $main_configuration,
-                                        $parser_informations, $labels, $refs);
-  # filled with informations obtained through Texinfo::Structuring
+                                        $parser_information, $labels, $refs);
+  # information obtained through Texinfo::Structuring
   # and usefull in converters.
   # FIXME the keys are not documented anywhere.  It is unclear where they
   # should be documented.
-  my $structure_informations = {};
+  my $structure_information = {};
   # every format needs the sectioning structure
   my ($sectioning_root, $sections_list)
             = Texinfo::Structuring::sectioning_structure($registrar,
                                                $main_configuration, $tree);
 
   if ($sectioning_root) {
-    $structure_informations->{'sectioning_root'} = $sectioning_root;
-    $structure_informations->{'sections_list'} = $sections_list;
+    $structure_information->{'sectioning_root'} = $sectioning_root;
+    $structure_information->{'sections_list'} = $sections_list;
     if (!$formats_table{$format}->{'no_warn_non_empty_parts'}) {
       Texinfo::Structuring::warn_non_empty_parts($registrar, $main_configuration,
                                                  $global_commands);
@@ -1326,13 +1326,13 @@ while(@input_files) {
     if (not defined(get_conf('FORMAT_MENU'))
         or get_conf('FORMAT_MENU') eq 'menu') {
       Texinfo::Structuring::set_menus_node_directions($registrar,
-               $main_configuration, $parser_informations, $global_commands,
+               $main_configuration, $parser_information, $global_commands,
                $nodes_list, $labels);
     }
     $top_node = Texinfo::Structuring::nodes_tree($registrar, $main_configuration,
-                                   $parser_informations, $nodes_list, $labels);
+                                   $parser_information, $nodes_list, $labels);
     if (defined($top_node)) {
-      $structure_informations->{'top_node'} = $top_node;
+      $structure_information->{'top_node'} = $top_node;
     }
     if (not defined(get_conf('FORMAT_MENU'))
         or get_conf('FORMAT_MENU') eq 'menu') {
@@ -1381,7 +1381,7 @@ while(@input_files) {
   # for instance to have some consistent information for Structuring
   # and Converters.
   $converter_options->{'parser'} = $parser;
-  $converter_options->{'structuring'} = $structure_informations;
+  $converter_options->{'structuring'} = $structure_information;
   $converter_options->{'output_format'} = $format;
   $converter_options->{'language_config_dirs'} = \@language_config_dirs;
   unshift @{$converter_options->{'INCLUDE_DIRECTORIES'}},

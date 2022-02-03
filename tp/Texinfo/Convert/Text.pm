@@ -322,7 +322,7 @@ sub heading($$$;$$)
 
 # $SELF is typically a converter object.
 # Setup options as used by Texinfo::Convert::Text::convert_to_text
-# based on the converter informations.
+# based on the converter information.
 sub copy_options_for_convert_text($)
 {
   my $self = shift;
@@ -350,7 +350,7 @@ sub convert_to_text($;$)
 
   #print STDERR "CONVERT\n";
   # this is needed for locate_include_file which uses
-  # $configurations_informations->get_conf() and thus requires a blessed reference.
+  # $configurations_information->get_conf() and thus requires a blessed reference.
   if (defined($options)) {
     bless $options;
     if ($options->{'code'}) {
@@ -663,7 +663,7 @@ sub converter($)
 
   my $expanded_formats = $converter->{'EXPANDED_FORMATS'};;
   if ($converter->{'parser'}) {
-    $converter->{'parser_info'} = $converter->{'parser'}->global_informations();
+    $converter->{'parser_info'} = $converter->{'parser'}->global_information();
     $converter->{'global_commands'}
        = $converter->{'parser'}->global_commands_information();
     foreach my $global_command ('documentencoding') {

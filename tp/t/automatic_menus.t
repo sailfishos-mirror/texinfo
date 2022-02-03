@@ -26,10 +26,10 @@ sub test($$$;$)
   my $tree = $parser->parse_texi_text($in);
   my $registrar = $parser->registered_errors();
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
-  my $parser_informations = $parser->global_informations();
+  my $parser_information = $parser->global_information();
   my $refs = $parser->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar, $parser,
-                                        $parser_informations, $labels, $refs);
+                                        $parser_information, $labels, $refs);
   my ($sectioning_root, $sections_list)
                  = Texinfo::Structuring::sectioning_structure($registrar,
                                                               $parser, $tree);

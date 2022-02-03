@@ -285,7 +285,7 @@ sub set_nodes_list_labels($$$)
 {
   my $self = shift;
   my $registrar = shift;
-  my $configuration_informations = shift;
+  my $configuration_information = shift;
 
   $self->{'nodes'} = [];
   my %labels = ();
@@ -309,7 +309,7 @@ sub set_nodes_list_labels($$$)
                              {'contents' => $target->{'extra'}->{'node_content'}});
 
         if ($normalized !~ /[^-]/) {
-          $registrar->line_error($configuration_informations,
+          $registrar->line_error($configuration_information,
                sprintf(__("empty node name after expansion `%s'"),
                      Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
                                    => $target->{'extra'}->{'node_content'}})),
@@ -317,13 +317,13 @@ sub set_nodes_list_labels($$$)
           delete $target->{'extra'}->{'node_content'};
         } else {
           if (defined $labels{$normalized}) {
-            $registrar->line_error($configuration_informations,
+            $registrar->line_error($configuration_information,
               sprintf(__("\@%s `%s' previously defined"), 
                          $target->{'cmdname'}, 
                    Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
                                     => $target->{'extra'}->{'node_content'}})),
                                $target->{'line_nr'});
-            $registrar->line_error($configuration_informations,
+            $registrar->line_error($configuration_information,
               sprintf(__("here is the previous definition as \@%s"),
                                $labels{$normalized}->{'cmdname'}),
                        $labels{$normalized}->{'line_nr'});
@@ -343,7 +343,7 @@ sub set_nodes_list_labels($$$)
         }
       } else {
         if ($target->{'cmdname'} eq 'node') {
-          $registrar->line_error($configuration_informations,
+          $registrar->line_error($configuration_information,
                sprintf(__("empty argument in \@%s"),
                   $target->{'cmdname'}), $target->{'line_nr'});
           delete $target->{'extra'}->{'node_content'};

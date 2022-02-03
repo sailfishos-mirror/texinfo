@@ -195,7 +195,7 @@ sub converter(;$)
     if ($conf->{'parser'}) {
       $converter->{'global_commands'}
          = $conf->{'parser'}->global_commands_information();
-      $converter->{'parser_info'} = $conf->{'parser'}->global_informations();
+      $converter->{'parser_info'} = $conf->{'parser'}->global_information();
       my $floats = $conf->{'parser'}->floats_information();
       my ($labels, $targets_list, $nodes_list)
         = $conf->{'parser'}->labels_information();
@@ -1013,7 +1013,7 @@ sub present_bug_message($$;$)
   }
   my $additional_information = '';
   if ($line_message.$current_element_message ne '') {
-    $additional_information = "Additional informations:\n".
+    $additional_information = "Additional information:\n".
        $line_message.$current_element_message;
   }
   warn "You found a bug: $message\n\n".$additional_information;
@@ -1645,8 +1645,7 @@ useful methods.
 
 In turn, the converter should define some methods.  Two are
 optional, C<converter_defaults>, C<converter_initialize> and
-used for initialization, to give C<Texinfo::Convert::Converter>
-some informations.
+used for initialization, to give information to C<Texinfo::Convert::Converter>.
 
 The C<convert_tree> method is more or less mandatory and should
 convert portions of Texinfo tree.  The C<output> and C<convert>
@@ -1816,7 +1815,7 @@ account additional constraint on file names and adding a file extension.
 
 =item $converter->present_bug_message($message, $element)
 
-Show a bug message using I<$message> text.  Add informations on
+Show a bug message using I<$message> text.  Use information on
 I<$element> tree element if given in argument.
 
 =item $converter->set_conf($option_string, $value)

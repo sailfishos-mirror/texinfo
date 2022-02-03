@@ -129,7 +129,7 @@ my %parser_state_initialization = (
   'regions_stack' => [],      # a stack of regions commands elements (in %region_commands)
   'sections_level' => 0,      # modified by raise/lowersections
   'targets' => [],            # array of elements used to build 'labels'
-  # initialization of information returned by global_informations()
+  # initialization of information returned by global_information()
   'info' => {
     'input_encoding_name' => 'utf-8',
     'input_perl_encoding' => 'utf-8'
@@ -649,7 +649,7 @@ sub _bug_message($$;$$)
     $current_element_message = "current: ". _print_current($current);
   }
   warn "You found a bug: $message\n\n".
-       "Additional informations:\n".
+       "Additional information:\n".
        $line_message.$message_context_stack.$current_element_message;
 }
 
@@ -777,10 +777,10 @@ sub parser(;$$)
 }
 
 # simple parser initialization.  The only difference with a regular parser
-# is that the dynamical @-commands groups and indices informations that are
-# initialized in each regular parser are initialized once for all and shared
-# among simple parsers.  It is used in gdt() and this has a sizable effect
-# on performance.
+# is that the dynamical @-commands groups and indices information references
+# that are initialized in each regular parser are initialized once for all
+# and shared among simple parsers.  It is used in gdt() and this has a sizable
+# effect on performance.
 my $simple_parser_line_commands = dclone(\%line_commands);
 my $simple_parser_valid_nestings = dclone(\%default_valid_nestings);
 my $simple_parser_no_paragraph_commands = { %default_no_paragraph_commands };
@@ -902,9 +902,6 @@ sub parse_texi_piece($$;$$$$)
 
   my $tree = $self->_parse_texi($document_root, $before_node_section);
 
-  # TODO remove
-  $self->_set_global_informations();
-
   return $tree;
 }
 
@@ -954,11 +951,6 @@ sub _open_in {
   } else {
     return 0;
   }
-}
-
-sub _set_global_informations($)
-{
-  my $self = shift;
 }
 
 # parse a texi file
@@ -1030,12 +1022,10 @@ sub _parse_texi_document($)
 
   Texinfo::Common::rearrange_tree_beginning($self, $before_node_section);
 
-  $self->_set_global_informations();
-
   return $tree;
 }
 
-# return indices informations
+# return indices information
 sub indices_information($)
 {
   my $self = shift;
@@ -1064,7 +1054,7 @@ sub global_commands_information($)
 # perl_encoding
 # input_encoding_name
 # input_file_name
-sub global_informations($)
+sub global_information($)
 {
   my $self = shift;
   return $self->{'info'};
@@ -5999,9 +5989,9 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   # A hash reference, keys are @-command names, value is an
   # array reference holding all the corresponding @-commands.
   my $global_commands_information = $parser->global_commands_information();
-  # a hash reference on some document informations (encodings,
+  # a hash reference on document information (encodings,
   # input file name, dircategory and direntry list, for exampel).
-  my $global_informations = $parser->global_informations();
+  my $global_information = $parser->global_information();
   # a Texinfo::Report object in which the errors and warnings
   # encountered while parsing are registered.
   my $registrar = $parser->registered_errors();
@@ -6081,7 +6071,7 @@ A string, the C<@kbdinputstyle> style.
 =item documentlanguage
 
 A string corresponding to a document language set by C<@documentlanguage>.
-It overrides the document C<@documentlanguage> informations, if present.
+It overrides the document C<@documentlanguage> information, if present.
 
 =item registrar
 
@@ -6237,11 +6227,11 @@ a new one is created.
 After parsing some information about the Texinfo code that was processed
 is available from the parser.
 
-Some global information is available through C<global_informations>
+Some global information is available through C<global_information>
 
 =over
 
-=item $info = global_informations($parser)
+=item $info = global_information($parser)
 
 The I<$info> returned is a hash reference.  The possible keys are
 

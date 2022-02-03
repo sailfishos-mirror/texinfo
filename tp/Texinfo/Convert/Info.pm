@@ -597,7 +597,7 @@ described in the Texinfo manual.  Those options, when appropriate,
 override the document content.  The parser should not be available
 directly anymore after getting the associated information.
 
-See L<Texinfo::Convert::Converter> for more informations.
+See L<Texinfo::Convert::Converter> for more information.
 
 =item $converter->output($tree)
 

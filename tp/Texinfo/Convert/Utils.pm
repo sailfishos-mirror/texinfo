@@ -185,26 +185,26 @@ sub find_innermost_accent_contents($;$)
 }
 
 # $REGISTRAR argument (in practice, a converter) is optional.
-# $CONFIGURATION_INFORMATIONS is also optional, but without this
+# $CONFIGURATION_INFORMATION is also optional, but without this
 # argument and the 'INCLUDE_DIRECTORIES' available through
 # get_conf(), the included file can only be found in specific
 # circumstances.
 sub expand_verbatiminclude($$$)
 {
   my $registrar = shift;
-  my $configuration_informations = shift;
+  my $configuration_information = shift;
   my $current = shift;
 
   return unless ($current->{'extra'} and defined($current->{'extra'}->{'text_arg'}));
   my $text = $current->{'extra'}->{'text_arg'};
-  my $file = Texinfo::Common::locate_include_file($configuration_informations, $text);
+  my $file = Texinfo::Common::locate_include_file($configuration_information, $text);
 
   my $verbatiminclude;
 
   if (defined($file)) {
     if (!open(VERBINCLUDE, $file)) {
       if ($registrar) {
-        $registrar->line_error($configuration_informations,
+        $registrar->line_error($configuration_information,
                                sprintf(__("could not read %s: %s"), $file, $!),
                                $current->{'line_nr'});
       }
@@ -225,14 +225,14 @@ sub expand_verbatiminclude($$$)
       if (!close (VERBINCLUDE)) {
         if ($registrar) {
           $registrar->document_warn(
-                 $configuration_informations, sprintf(__(
+                 $configuration_information, sprintf(__(
                       "error on closing \@verbatiminclude file %s: %s"),
                              $file, $!));
         }
       }
     }
   } elsif ($registrar) {
-    $registrar->line_error($configuration_informations,
+    $registrar->line_error($configuration_information,
                            sprintf(__("\@%s: could not find %s"),
                                         $current->{'cmdname'}, $text),
                            $current->{'line_nr'});
@@ -352,7 +352,7 @@ translated.
 
 Expand today's date, as a texinfo tree with translations.
 
-=item $tree = expand_verbatiminclude($registrar, $configuration_informations, $verbatiminclude)
+=item $tree = expand_verbatiminclude($registrar, $configuration_information, $verbatiminclude)
 
 The I<$registrar> argument may be undef.  I<$verbatiminclude> is a
 C<@verbatiminclude> tree element.  This function returns a

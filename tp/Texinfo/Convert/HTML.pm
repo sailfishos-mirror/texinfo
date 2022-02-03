@@ -1487,7 +1487,7 @@ sub register_file_information($$;$)
   my $key = shift;
   my $value = shift;
 
-  $self->{'file_informations'}->{$self->{'current_filename'}}->{$key} = $value;
+  $self->{'files_information'}->{$self->{'current_filename'}}->{$key} = $value;
 }
 
 sub get_file_information($$;$)
@@ -1499,10 +1499,10 @@ sub get_file_information($$;$)
   if (not defined($filename)) {
     $filename = $self->{'current_filename'};
   }
-  if (not exists($self->{'file_informations'}->{$self->{'current_filename'}}->{$key})) {
+  if (not exists($self->{'files_information'}->{$self->{'current_filename'}}->{$key})) {
     return (0, undef);
   }
-  return (1, $self->{'file_informations'}->{$self->{'current_filename'}}->{$key})
+  return (1, $self->{'files_information'}->{$self->{'current_filename'}}->{$key})
 }
 
 # information from converter available 'read-only', in general set up before
@@ -6704,7 +6704,7 @@ sub _load_htmlxref_files {
 #    API exists
 #  targets         for directions.  Keys are elements references, values are
 #                  target information hash references described above before
-#                  the API functions used to access those informations.
+#                  the API functions used to access this information.
 #  special_targets
 #  special_elements_targets
 #  special_elements_directions
@@ -6720,7 +6720,7 @@ sub _load_htmlxref_files {
 #  file_css
 #
 #     API exists
-#  file_informations
+#  files_information
 #
 #  tree_units
 #  out_filepaths
@@ -7359,7 +7359,7 @@ sub _new_sectioning_command_target($$)
 # This set with two different codes
 #  * the target information, id and normalized filename of 'labels',
 #    ie everything that may be the target of a ref, like @node, @float, @anchor...
-#  * The target informations of sectioning elements by going through tree units
+#  * The target information of sectioning elements by going through tree units
 # @node and section commands targets are therefore both set.
 #
 # conversion to HTML is done on-demand, upon call to command_text
@@ -8422,7 +8422,7 @@ sub _root_html_element_attributes_string($)
 # This is used for normal output files and other files, like
 # redirection file headers.  $COMMAND is the tree element for
 # a @node that is being output in the file.
-sub _file_header_informations($$;$)
+sub _file_header_information($$;$)
 {
   my $self = shift;
   my $command = shift;
@@ -8596,7 +8596,7 @@ sub _default_format_begin_file($$$)
   my ($title, $description, $encoding, $date, $css_lines,
           $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
           $after_body_open, $extra_head, $program_and_version, $program_homepage,
-          $program, $generator) = $self->_file_header_informations($command, $filename);
+          $program, $generator) = $self->_file_header_information($command, $filename);
 
   my $links = $self->_get_links($filename, $element);
 
@@ -8636,7 +8636,7 @@ sub _default_format_node_redirection_page($$)
   my ($title, $description, $encoding, $date, $css_lines,
           $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
           $after_body_open, $extra_head, $program_and_version, $program_homepage,
-          $program, $generator) = $self->_file_header_informations($command);
+          $program, $generator) = $self->_file_header_information($command);
 
   my $name = $self->command_text($command);
   my $href = $self->command_href($command);
@@ -9039,8 +9039,8 @@ sub convert($$)
   $self->{'shared_conversion_state'} = {};
 
   # call before _prepare_conversion_tree_units, which calls _translate_names.
-  # Some informations are not set yet.
-  $self->_reset_infos();
+  # Some information is not available yet.
+  $self->_reset_info();
 
   my ($tree_units, $special_elements)
     = $self->_prepare_conversion_tree_units($root, undef, undef);
@@ -9048,8 +9048,8 @@ sub convert($$)
   $self->_prepare_index_entries();
   $self->_prepare_footnotes();
 
-  # all informations should be set.
-  $self->_reset_infos();
+  # complete information should be available.
+  $self->_reset_info();
 
   if (!defined($tree_units)) {
     print STDERR "\nC NO UNIT\n" if ($self->get_conf('DEBUG'));
@@ -9158,7 +9158,7 @@ sub run_stage_handlers($$$)
   return 1;
 }
 
-sub _reset_infos()
+sub _reset_info()
 {
   my $self = shift;
 
@@ -9242,9 +9242,9 @@ sub output($$)
 
   $self->{'shared_conversion_state'} = {};
 
-  # setup informations once here, to have some information for
-  # run_stage_handlers.  Some informations are not set yet.
-  $self->_reset_infos();
+  # set information, to have some information for run_stage_handlers.
+  # Some information is not available yet.
+  $self->_reset_info();
 
   my $setup_status = $self->run_stage_handlers($root, 'setup');
   return undef unless($setup_status);
@@ -9287,11 +9287,11 @@ sub output($$)
   $self->{'document_name'} = $document_name;
   $self->{'destination_directory'} = $created_directory;
 
-  # setup informations here, to have some information for
-  # conversions belows, in translate_names called by
-  # _prepare_conversion_tree_units and in titles formatting.
-  # Some informations are not set yet.
-  $self->_reset_infos();
+  # set information, to have it available for the conversions below,
+  # in translate_names called by _prepare_conversion_tree_units and in
+  # titles formatting.
+  # Some information is not available yet.
+  $self->_reset_info();
 
   # Get the list of "elements" to be processed, i.e. nodes or sections.
   # This should return undef if called on a tree without node or sections.
@@ -9340,9 +9340,9 @@ sub output($$)
     $self->{'elements_in_file_count'}->{$filename} = $self->{'file_counters'}->{$filename};
   }
 
-  # setup informations once here, to have some information for
-  # run_stage_handlers.  Some informations are not set yet.
-  $self->_reset_infos();
+  # set information, to have it ready for
+  # run_stage_handlers.  Some information is not available yet.
+  $self->_reset_info();
   my $structure_status = $self->run_stage_handlers($root, 'structure');
   return undef unless($structure_status);
 
@@ -9443,9 +9443,9 @@ sub output($$)
     chomp($self->{'documentdescription_string'});
   }
 
-  # setup informations once here, to have some information for
-  # run_stage_handlers.  Some informations are not set yet.
-  $self->_reset_infos();
+  # set information, to have it ready for un_stage_handlers.
+  # Some information is not available yet.
+  $self->_reset_info();
 
   my $init_status = $self->run_stage_handlers($root, 'init');
   return undef unless($init_status);
@@ -9457,8 +9457,8 @@ sub output($$)
   }
 
 
-  # all the informations should be available
-  $self->_reset_infos();
+  # complete information should be available.
+  $self->_reset_info();
 
   my $fh;
   my $output = '';
@@ -10207,7 +10207,7 @@ described in the Texinfo manual.  Those options, when appropriate,
 override the document content.  The parser should not be available
 directly anymore after getting the associated information.
 
-See L<Texinfo::Convert::Converter> for more informations.
+See L<Texinfo::Convert::Converter> for more information.
 
 =item $converter->output($tree)
 

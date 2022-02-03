@@ -907,9 +907,9 @@ sub test($$)
     }
   }
 
-  my $parser_informations = $parser->global_informations();
+  my $parser_information = $parser->global_information();
 
-  Texinfo::Common::set_output_encodings($main_configuration, $parser_informations);
+  Texinfo::Common::set_output_encodings($main_configuration, $parser_information);
 
   my $global_commands = $parser->global_commands_information();
   if ($global_commands->{'novalidate'}) {
@@ -920,28 +920,28 @@ sub test($$)
   my $refs = $parser->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar,
                                         $main_configuration,
-                                        $parser_informations, $labels, $refs);
+                                        $parser_information, $labels, $refs);
   my $floats = $parser->floats_information();
 
-  my $structure_informations = {};
+  my $structure_information = {};
   my ($sectioning_root, $sections_list)
               = Texinfo::Structuring::sectioning_structure($registrar,
                                                       $main_configuration, $result);
   if ($sectioning_root) {
     Texinfo::Structuring::warn_non_empty_parts($registrar, $main_configuration,
                                                $global_commands);
-    $structure_informations->{'sectioning_root'} = $sectioning_root;
-    $structure_informations->{'sections_list'} = $sections_list;
+    $structure_information->{'sectioning_root'} = $sectioning_root;
+    $structure_information->{'sections_list'} = $sections_list;
   }
 
   Texinfo::Structuring::number_floats($floats);
 
   Texinfo::Structuring::set_menus_node_directions($registrar, $main_configuration,
-                  $parser_informations, $global_commands, $nodes_list, $labels);
+                  $parser_information, $global_commands, $nodes_list, $labels);
   my $top_node = Texinfo::Structuring::nodes_tree($registrar, $main_configuration,
-                                    $parser_informations, $nodes_list, $labels);
+                                    $parser_information, $nodes_list, $labels);
   if (defined($top_node)) {
-    $structure_informations->{'top_node'} = $top_node;
+    $structure_information->{'top_node'} = $top_node;
   }
 
   if (defined($nodes_list)) {
@@ -994,7 +994,7 @@ sub test($$)
   my %converted;
   my %converted_errors;
   $converter_options = {} if (!defined($converter_options));
-  $converter_options->{'structuring'} = $structure_informations;
+  $converter_options->{'structuring'} = $structure_information;
   foreach my $format (@tested_formats) {
     if (defined($formats{$format})) {
       my $format_converter_options = {%$converter_options};
@@ -1052,7 +1052,7 @@ sub test($$)
           if (!open (OUTFILE, ">$outfile")) {
             warn "Open $outfile: $!\n";
           } else {
-            my $info = $parser->global_informations();
+            my $info = $parser->global_information();
             if ($info and $info->{'perl_encoding'}) {
               binmode(OUTFILE, ":encoding($info->{'perl_encoding'})");
             }

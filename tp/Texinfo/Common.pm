@@ -1184,7 +1184,7 @@ sub locate_init_file($$$)
 sub output_files_open_out($$$;$$)
 {
   my $self = shift;
-  my $configuration_informations = shift;
+  my $configuration_information = shift;
   my $file = shift;
   my $use_binmode = shift;
   my $output_encoding = shift;
@@ -1192,8 +1192,8 @@ sub output_files_open_out($$$;$$)
   my $encoding;
   if (defined($output_encoding)) {
     $encoding = $output_encoding;
-  } elsif (defined($configuration_informations->get_conf('OUTPUT_PERL_ENCODING'))) {
-    $encoding = $configuration_informations->get_conf('OUTPUT_PERL_ENCODING');
+  } elsif (defined($configuration_information->get_conf('OUTPUT_PERL_ENCODING'))) {
+    $encoding = $configuration_information->get_conf('OUTPUT_PERL_ENCODING');
   }
 
   if ($file eq '-') {
@@ -1502,7 +1502,7 @@ sub parse_node_manual($)
 
 sub locate_include_file($$)
 {
-  my $configuration_informations = shift;
+  my $configuration_information = shift;
   my $text = shift;
   my $file;
 
@@ -1511,7 +1511,7 @@ sub locate_include_file($$)
   my ($volume, $directories, $filename) = File::Spec->splitpath($text);
   my @directories = File::Spec->splitdir($directories);
 
-  #print STDERR "$configuration_informations $text @{$configuration_informations->get_conf('INCLUDE_DIRECTORIES')}\n";
+  #print STDERR "$configuration_information $text @{$configuration_information->get_conf('INCLUDE_DIRECTORIES')}\n";
   # If the path is absolute or begins with . or .., do not search in
   # include directories.
   if (File::Spec->file_name_is_absolute($text)) {
@@ -1532,14 +1532,14 @@ sub locate_include_file($$)
     $file = $text if (-e $text and -r $text);
   } else {
     my @dirs;
-    if ($configuration_informations
-        and $configuration_informations->get_conf('INCLUDE_DIRECTORIES')) {
-      @dirs = @{$configuration_informations->get_conf('INCLUDE_DIRECTORIES')};
+    if ($configuration_information
+        and $configuration_information->get_conf('INCLUDE_DIRECTORIES')) {
+      @dirs = @{$configuration_information->get_conf('INCLUDE_DIRECTORIES')};
     } else {
       # no object with directory list and not an absolute path, never succeed
       return undef;
     }
-    foreach my $include_dir (@{$configuration_informations->get_conf('INCLUDE_DIRECTORIES')}) {
+    foreach my $include_dir (@{$configuration_information->get_conf('INCLUDE_DIRECTORIES')}) {
       my ($include_volume, $include_directories, $include_filename)
          = File::Spec->splitpath($include_dir, 1);
       
@@ -1571,9 +1571,9 @@ sub _informative_command_value($)
   return undef;
 }
 
-# REMARK documentencoding handling is not reverted by resetting
-# a value with set_conf, as the encodings are set using other
-# informations (possibly based on @documentencoding) in converter.
+# REMARK documentencoding handling is not reverted by resetting a value with
+# set_conf, as the encodings are set using other sources of information
+# (possibly based on @documentencoding) in converter.
 sub set_informative_command_value($$)
 {
   my $self = shift;
@@ -1660,18 +1660,18 @@ sub set_global_document_command($$$$)
 
 sub set_output_encodings($$)
 {
-  my $configuration_informations = shift;
-  my $parser_informations = shift;
+  my $configuration_information = shift;
+  my $parser_information = shift;
 
-  $configuration_informations->set_conf('OUTPUT_ENCODING_NAME',
-               $parser_informations->{'input_encoding_name'})
-     if ($parser_informations->{'input_encoding_name'});
-  if (!$configuration_informations->get_conf('OUTPUT_PERL_ENCODING')
-       and $configuration_informations->get_conf('OUTPUT_ENCODING_NAME')) {
+  $configuration_information->set_conf('OUTPUT_ENCODING_NAME',
+               $parser_information->{'input_encoding_name'})
+     if ($parser_information->{'input_encoding_name'});
+  if (!$configuration_information->get_conf('OUTPUT_PERL_ENCODING')
+       and $configuration_information->get_conf('OUTPUT_ENCODING_NAME')) {
     my $perl_encoding
-      = Encode::resolve_alias($configuration_informations->get_conf('OUTPUT_ENCODING_NAME'));
+      = Encode::resolve_alias($configuration_information->get_conf('OUTPUT_ENCODING_NAME'));
     if ($perl_encoding) {
-      $configuration_informations->set_conf('OUTPUT_PERL_ENCODING', $perl_encoding);
+      $configuration_information->set_conf('OUTPUT_PERL_ENCODING', $perl_encoding);
     }
   }
 }
@@ -2792,7 +2792,7 @@ Texinfo::Common - Classification of commands and miscellaneous methods
 Texinfo::Common holds hashes with miscellaneous information and hashes
 classifying Texinfo @-commands, as well as miscellaneous methods.
 
-=head1 MISC INFORMATIONS
+=head1 MISC INFORMATION
 
 Hashes are defined as C<our> variables, and are therefore available
 outside of the module.
@@ -3071,10 +3071,10 @@ Return a contents array reference with first parenthesis in the
 contents array reference protected.  If I<$contents> is undef
 a fatal error with a backtrace will be emitted.
 
-=item protect_hashchar_at_line_beginning($registrar, $configuration_informations, $tree)
+=item protect_hashchar_at_line_beginning($registrar, $configuration_information, $tree)
 
 Protect hash character at beginning of line if the line is a cpp
-line directive.  The I<$registrar> and I<$configuration_informations>
+line directive.  The I<$registrar> and I<$configuration_information>
 arguments may be undef, if they are defined they are used for
 error reporting in case an hash character could not be protected
 because it appeared in a raw environment.
@@ -3090,10 +3090,10 @@ Remove the index @-command from the tree.
 Return numbered level of the tree sectioning I<$section>, as modified by
 raise/lowersections.
 
-=item $element = set_global_document_command($configuration_informations, $global_commands_information, $cmdname, $command_location)
+=item $element = set_global_document_command($configuration_information, $global_commands_information, $cmdname, $command_location)
 
 Set the Texinfo configuration option corresponding to I<$cmdname> in
-I<$configuration_informations>.  The I<$global_commands_information> should
+I<$configuration_information>.  The I<$global_commands_information> should
 contain information about global commands in a Texinfo document, typically obtained
 from a parser, like L<Texinfo::Parser/$commands = global_commands_information($parser)>.
 I<$command_location> specifies where in the document the value should be taken from,
@@ -3120,14 +3120,14 @@ sequentially to the values in the Texinfo preamble.
 The I<$element> returned is the last element that was used to set the
 configuration value, or C<undef> if no configuration value was found.
 
-=item set_informative_command_value($configuration_informations, $element)
+=item set_informative_command_value($configuration_information, $element)
 
 Set the Texinfo configuration option corresponding to the tree element
 I<$element>.  The command associated to the tree element should be
 a command that sets some information, such as C<@documentlanguage>,
 C<@contents> or C<@footnotestyle> for example.
 
-=item set_output_encodings($configuration_informations, $parser_informations)
+=item set_output_encodings($configuration_information, $parser_information)
 
 If not already set, set C<OUTPUT_ENCODING_NAME> based on input file
 encoding.  Also set C<OUTPUT_PERL_ENCODING> accordingly which is used

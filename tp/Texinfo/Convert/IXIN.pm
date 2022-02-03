@@ -651,7 +651,7 @@ sub output_ixin($$)
     }
   }
 
-  # Gather informations on printindex @-commands associated node id
+  # Gather information on printindex @-commands associated node id
   if ($self->{'global_commands'}->{'printindex'}) {
     foreach my $command (@{$self->{'global_commands'}->{'printindex'}}) {
       my $associated_node_id = $self->_associated_node_id($command, 
