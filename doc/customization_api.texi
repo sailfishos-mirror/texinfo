@@ -4,7 +4,7 @@
 
 @include version.texi
 
-@settitle GNU Texinfo @command{texi2any} HTML customization API
+@settitle GNU Texinfo @command{texi2any} Output Customization
 
 @copying
 This manual is for GNU Texinfo (version @value{VERSION}, @value{UPDATED}),
@@ -29,7 +29,7 @@ Texts.  A copy of the license is included in the section entitled
 @end direntry
 
 @titlepage
-@title GNU Texinfo @command{texi2any} HTML customization API
+@title GNU Texinfo @command{texi2any} Output Customization
 @subtitle for GNU Texinfo version @value{VERSION}, @value{UPDATED}
 
 @page
@@ -42,7 +42,7 @@ Texts.  A copy of the license is included in the section entitled
 
 
 @node Top
-@top @c @command{texi2any} customization API
+@top @c @command{texi2any} Output Customization
 
 @cartouche
 @quotation Warning
@@ -58,19 +58,40 @@ not a promise.
 @end quotation
 @end cartouche
 
+This manual describes how to customize aspects of the
+@command{texi2any} HTML output.  Although some of the features here
+can technically be used with other output formats, it's not especially
+useful to do so, so we'll write the documentation as if HTML were the
+target format.  Most of the customizations are only available for
+HTML.
 
+The conversion of Texinfo to HTML is done in two steps.  After reading
+command-line options and init files, input Texinfo code is parsed
+into a Texinfo Perl tree and information is gathered on the document
+structure.  This first step can only be customized to some extent, by setting
+customization variables.  The Texinfo Perl tree describes a Texinfo document in a
+structured way which makes it easy to go through the tree and format
+@@-commands and other containers.
 
-@node Init files introduction
-@chapter Init files introduction
+The second step is the @dfn{conversion} step done in a converter.  The HTML
+converter takes a Texinfo Perl tree as input and transforms it to HTML@.  The
+code that is used to go through the tree cannot be customized, but the
+conversion of tree elements can be fully customized.
+
+@c Do we want to describe the tree in the manual?  It is already described
+@c in (tp_api)Texinfo::Parser TEXINFO TREE
+@c  The tree structure will be described in future versions of the
+@c manual.
 
 
 @node Loading Init Files
-@section Loading Initialization Files and Search Paths
+@chapter Loading Initialization Files and Search Paths
 
 @cindex Loading init files
 @cindex Initialization files, loading
 @cindex Search paths, for initialization files
 
+@c @pindex Config @r{init files loaded}
 @cindex @file{Config} init files loaded
 
 @quotation Warning
@@ -79,24 +100,22 @@ of @file{Config} files is not definitive.
 @end quotation
 
 You can write so-called @dfn{initialization files}, or @dfn{init
-files} for short, to modify almost every aspect of HTML output formatting.
+files} for short, to modify almost every aspect of output formatting.
 The program loads init files named @file{Config} each time it is run.
-Those files are looked for in the following directories (where
-@var{prog} is the name of the program invoked on the command line,
-normally @code{makeinfo} or @code{texi2any}):
+Those files are looked for in the following directories:
 
 @table @file
-@item @var{datadir}/@var{prog}/
+@item @var{datadir}/texi2any/
 (where @var{datadir} is the system data directory specified at
 compile-time, e.g., @file{/usr/local/share})
 
-@item @var{sysconfdir}/@var{prog}/
+@item @var{sysconfdir}/texi2any/
 (likewise specified at compile time, e.g., @file{/usr/local/etc})
 
-@item ~/.@var{prog}/
+@item ~/.texi2any/
 (where @code{~} is the current user's home directory)
 
-@item ./.@var{prog}/
+@item ./.texi2any/
 (under the current directory)
 
 @item ./
@@ -112,23 +131,21 @@ All @file{Config} files found are loaded, in the above order.  Thus,
 However, the most common way to load an initialization file is with
 the @option{--init-file} option, explicitly specifying the file to be
 loaded.  By default the following directories are searched, in the
-following order, where @var{prog} is the name of the program invoked
-on the command line (@command{makeinfo}, @command{texi2any}, etc.).
-Only the first file found is used:
+following order.  Only the first file found is used:
 
 @enumerate
 @item The current directory @file{./};
 
-@item @file{./.@var{prog}/} under the current directory;
+@item @file{./.texi2any/} under the current directory;
 
-@item @file{~/.@var{prog}/}
+@item @file{~/.texi2any/}
 where @code{~} is the current user's home directory;
 
-@item @file{@var{sysconfdir}/@var{prog}/}
+@item @file{@var{sysconfdir}/texi2any/}
 where @var{sysconfdir} is the system configuration directory
 specified at compile-time, e.g., @file{/usr/local/etc};
 
-@item @file{@var{datadir}/@var{prog}/}
+@item @file{@var{datadir}/texi2any/}
 Where @var{datadir} is the system data directory likewise specified at
 compile time, e.g., @file{/usr/local/share};
 
@@ -146,7 +163,7 @@ Additional directories may be prepended to the list with the
 
 
 @node Init File Basics
-@section Init File Basics
+@chapter Init File Basics
 
 @cindex Init file basics
 @cindex Perl, language for init files
@@ -155,17 +172,14 @@ Init files are written in Perl, and by convention have extension
 @file{.init} or @file{.pm}.  Several init files are included in the Texinfo
 distribution, and can serve as a good model for writing your own.  Another
 example is the @code{Texinfo::Convert::HTML} module which implements
-almost all the Texinfo HTML customization API for the conversion to HTML@footnote{The
-@code{Texinfo::Convert::HTML} module also implements the Converter and the conversion
-code needed for the  the HTML customization API user defined functions to be called
-during the document conversion.}.
-The Licenses conditions of the diverse files used
-as example should be taken into account when reusing code.
+almost all the Texinfo HTML function described in this manual for the conversion
+to HTML@footnote{The @code{Texinfo::Convert::HTML} module also implements the
+HTML converter calling user defined functions during document conversion.}.
+The Licenses conditions of the diverse files used as example should be taken
+into account when reusing code.
 
-The init files are supposed to be used to customize @command{texi2any} HTML
-output.  Although some of the features here can technically be used with other
-output formats, it's not especially useful to do so, so we'll write the
-documentation as if HTML were the target format.
+@node Init File Namespaces
+@section Init File Namespaces
 
 @cindex Init file namespaces
 @cindex Namespaces, for init files
@@ -187,34 +201,28 @@ In the @code{Texinfo::Config} namespace, the functions names beginning with
 @samp{texinfo_}, @samp{GNUT_} and @samp{_GNUT_} are reserved.  User defined
 functions in init files should never begin with those prefixes.
 
-The conversion of Texinfo to HTML is broadly done in two steps.  The first step is the
-parsing of the Texinfo code in a tree-like structure representing the document.
-The second step is the conversion of the tree-like structure.  The first step is
-done in the main program, which reads command line options and loads init files
-before the parsing. The main programs gather information on the document
-structure after the parsing, before the conversion of the tree.  The
-conversion step is done in a @dfn{converter} which holds configuration
-information, allows to register error messages and can interact with user
-defined code.  The converter is not available in the main body of the init
-files, instead it is passed to functions defined in init files and registered
-as functions to be called from the converter. @xref{User Defined Functions}.
+The HTML converter is not available directly in the init files namespace,
+instead it is passed to functions defined in init files and registered as
+functions to be called from the converter. @xref{User Defined Functions}.
 
 
-@node Configuration Variables in Init File
-@chapter Configuration Variables in Init File
+@node Managing Customization Variables
+@section Managing Customization Variables
 
+@cindex Customization variables, setting and getting
 
-@node Setting and Getting Configuration Variables
-@section Setting and Getting Configuration Variables
+The basic operations on customization variables are to set and
+retrieve their values.  New variables can also be added.
 
-@cindex Configuration variables, setting and getting
+Customization variables also valid out of the HTML
+converter, in the main program, are handled differently if they are strings or
+arrays.  The customization variables only relevant for the conversion phase
+are always set like string variables, in particular array or hash references.
 
-The basic operations on configuration variables are to set and
-retrieve their values.  Configuration variables relevant for the main program can be
-either string variables or arrays.  It is also possible to set configuration variables
-for the conversion phase through the main program.
+@node Setting Main Program String Variables
+@subsection Setting Main Program String Variables
 
-To set the value of a string configuration variable from an initialization file,
+To set the value of a string customization variable from an initialization file,
 use @code{set_from_init_file}:
 
 @defun set_from_init_file ($variable_name, $variable_value)
@@ -250,9 +258,11 @@ set_from_init_file('NO_CSS', 1);
 @noindent overrides the default value for @code{NO_CSS}.  It would be
 overridden by @code{--set-init-variable NO_CSS=1} on the command line.
 
-Setting the output format cannot be done by setting @code{TEXINFO_OUTPUT_FORMAT},
-as some additional code needs to be run.  Instead, the
-@code{texinfo_set_format_from_init_file} function should be used:
+Setting the output format cannot be done by setting the customization variable
+@code{TEXINFO_OUTPUT_FORMAT}.  This customization variable sets the output
+format in the main program, but not from init files as additional
+code needs to be run.  Instead, the @code{texinfo_set_format_from_init_file}
+function should be used:
 
 @defun texinfo_set_format_from_init_file ($output_format)
 @var{$output_format} is the output format; sets the output format,
@@ -264,16 +274,24 @@ the main use of @code{texinfo_set_format_from_init_file} is to
 set the format to @samp{html}, such that HTML is generated
 instead of Info in the default case.
 
-For the configuration variables associated with @@-commands, see
-@ref{Configuration Variables for @@-Commands,,,texinfo}.  For the configuration
-variables associated with command line options, see @ref{Configuration
+For the customization variables associated with @@-commands, see
+@ref{Customization Variables for @@-Commands,,,texinfo}.  For the customization
+variables associated with command line options, see @ref{Customization
 Variables and Options,,,texinfo}.
 
-Configuration variables for the main program associated with an array of values
+@node Modifying Main Program Array Variables
+@subsection Modifying Main Program Array Variables
+
+@quotation Warning
+The main program customization variables associated with arrays
+are not documented.
+@end quotation
+
+Customization variables for the main program associated with an array of values
 are handled differently. Two functions can be used in init files,
 @code{texinfo_add_to_option_list} to add values to the array and
 @code{texinfo_remove_from_option_list} to remove values from the array
-associated with the configuration variable:
+associated with the customization variable:
 
 @defun texinfo_add_to_option_list ($variable_name, $variable_values_array_reference)
 @defunx texinfo_remove_from_option_list ($variable_name, $variable_values_array_reference)
@@ -283,16 +301,16 @@ list associated with the variable with @code{texinfo_add_to_option_list}, and re
 @code{texinfo_remove_from_option_list}.
 @end defun
 
-@quotation Warning
-The main program configuration variables associated with arrays
-are not documented.
-@end quotation
 
-Array and hash references configuration variables values relevant
-in converters only (not in main program) can be set through the
-main program in init files.  These variables cannot be set on the command-line.
-They are documented in the customization documentation, not in the main Texinfo manual.
-Such arrays or hashes references can be passed through @code{set_from_init_file}.  For example:
+@node Setting Converter Variables in Main Program
+@subsection Setting Converter Variables in Main Program
+
+Array and hash references customization variables values relevant in converters
+only (not in main program) can be set through the main program in init files.
+These variables cannot be set on the command-line.  They are documented in the
+customization documentation, not in the main Texinfo manual.  Such arrays or
+hashes references can be passed through @code{set_from_init_file}.  For
+example:
 
 @example
 my @@SECTION_BUTTONS =
@@ -305,7 +323,10 @@ my @@SECTION_BUTTONS =
 texinfo_set_from_init_file ('SECTION_BUTTONS', \@@SECTION_BUTTONS);
 @end example
 
-To get the value of a variable in the main program, the function is
+@node Getting Main Program Variables Values
+@subsection Getting Main Program Variables Values
+
+To get the value of a variable, the function is
 @code{texinfo_get_conf}:
 
 @defun texinfo_get_conf ($variable_name)
@@ -320,18 +341,18 @@ if (texinfo_get_conf('footnotestyle') eq 'separate') @{ ... @}
 @end example
 
 
-@node Adding Configuration Variables
-@section Adding Configuration Variables
+@node Adding Customization Variables
+@subsection Adding Customization Variables
 
-@cindex Configuration variables, adding
+@cindex Customization variables, adding
 
-Trying to set a configuration variable that is not known as a valid
-configuration variable in @command{texi2any} is an error.  It is possible, however,
-to add new configuration variables from init files.  To add a configuration
+Trying to set a customization variable that is not known as a valid
+customization variable in @command{texi2any} is an error.  It is possible, however,
+to add new customization variables from init files.  To add a customization
 variable, the function is @code{texinfo_add_valid_customization_option}:
 
 @defun texinfo_add_valid_customization_option ($variable_name)
-@var{$variable_name} is added as a valid configuration variable name.
+@var{$variable_name} is added as a valid customization variable name.
 @end defun
 
 The variable value, if set, should also be available in the converters and therefore
@@ -341,8 +362,8 @@ in the init file functions registered and called from the converters.
 @node Simple formatting customization
 @chapter Simple formatting customization
 
-Some change in output formatting can be specified with very simple code,
-not very different from simple configuration text.
+Some change in output formatting can be specified with simple code,
+not very different from simple textual configuration information.
 
 
 @node Init File Expansion Contexts
@@ -484,7 +505,7 @@ If @var{$html_element} is set, the argument is enclosed between the
 @var{$html_element} element opening and the element closing.
 @var{$html_element} is always ignored in @samp{string} context.  If @var{$in_quotes}
 is true, the result is enclosed in quotes
-associated with configuration variables @code{OPEN_QUOTE_SYMBOL} and
+associated with customization variables @code{OPEN_QUOTE_SYMBOL} and
 @code{CLOSE_QUOTE_SYMBOL}.
 
 If @var{$html_element} is undefined and @var{$in_quotes} is not set, the formatted
@@ -661,8 +682,8 @@ with a following sectioning command, while a sectioning command is
 associated with a previous node; they both together make up the
 element unit.  Either the node or the sectioning command is considered to
 be the main element component, depending on the values of the
-configuration variables @code{USE_NODES}
-(@pxref{@command{texi2any} Configuration Variables}).
+customization variables @code{USE_NODES}
+(@pxref{HTML Customization Variables}).
 
 For example, when generating Info, the nodes are the units; when
 generating Docbook, sectioning commands are the main element
@@ -704,7 +725,7 @@ More details:
 @item Similarly the @emph{Overview} should only appear if
 @code{@@shortcontents} or @code{@@summarycontents} is present.
 
-@item The configuration variables @code{contents} and
+@item The customization variables @code{contents} and
 @code{shortcontents} may be set to trigger the output of the
 respective elements.
 
@@ -899,21 +920,21 @@ typically appears at the top of each node, so that users can easily
 get to the next node, the table of contents, and so on.  It can be
 customized extensively.
 
-The configuration variables
+The customization variables
 @code{VERTICAL_HEAD_NAVIGATION}, @code{ICONS}, @code{HEADERS},
 @code{HEADER_IN_TABLE}, @code{USE_ACCESSKEY}, @code{USE_REL_REV} and
 @code{WORDS_IN_PAGE}
 may be used to change the navigation panel formatting.
-@xref{@command{texi2any} Configuration Variables}.
+@xref{HTML Customization Variables}.
 
 @cindex Navigation panel button specification
 @cindex Button specification, navigation panel
 
 Several arrays and hashes enable even more precise control over the navigation
-panel buttons and their display.  They can be set as configuration variables
-with @code{set_from_init_file}. @xref{Setting and Getting Configuration Variables}.
+panel buttons and their display.  They can be set as customization variables
+with @code{set_from_init_file}. @xref{Setting and Getting Customization Variables}.
 
-The following configuration variables arrays determine the
+The following customization variables arrays determine the
 buttons present in the various navigation panels:
 
 @vtable @code
@@ -957,7 +978,7 @@ values is the following:
 @vindex BUTTONS_TEXT
 If icons are not used, the button is a link to the corresponding
 element whose text is defined by the value associated with the element
-direction in the hash associated with the @code{BUTTONS_TEXT} configuration
+direction in the hash associated with the @code{BUTTONS_TEXT} customization
 variable, surrounded by @samp{[} and
 @samp{]}. If the element direction is @samp{ }, the @samp{[} and @samp{]}
 are omitted.
@@ -1020,16 +1041,16 @@ based on the name of the node associated with the next section element unit.
 @anchor{Accesskey and @code{rel} Navigation}
 @vindex BUTTONS_ACCESSKEY
 @cindex @code{accesskey} navigation
-If the configuration variable @code{USE_ACCESSKEY} is set, the
+If the customization variable @code{USE_ACCESSKEY} is set, the
 @code{accesskey} attribute is used in navigation.  The
-@code{BUTTONS_ACCESSKEY} configuration variable hash is then used for the
+@code{BUTTONS_ACCESSKEY} customization variable hash is then used for the
 @code{accesskey} attributes.
 
 @vindex BUTTONS_REL@r{, for navigation}
 @cindex @code{rel} navigation
-Similarly, if the @code{USE_REL_REV} configuration variable is set,
+Similarly, if the @code{USE_REL_REV} customization variable is set,
 the @code{rel} attribute is used in navigation.  In that case the
-@code{BUTTONS_REL} configuration variable hash is used for the @code{rel}
+@code{BUTTONS_REL} customization variable hash is used for the @code{rel}
 attribute.
 
 
@@ -1092,30 +1113,23 @@ converter and as a generic @code{Texinfo::Convert::Converter}
 can also be used for error reporting as it is also a @code{Texinfo::Report}
 object (@pxref{Texinfo::Report,,,tp_api}), and for in-document strings
 translation as it is also a @code{Texinfo::Translations}
-object (@pxref{Texinfo::Translations,,,tp_api}).  No detail are given
-in the present manual on those modules methods, the specific module
-documentation can be used if needed.
+object (@pxref{Texinfo::Translations,,,tp_api}).
+
+
+@node Texinfo Tree Conversion Functions
+@subsection Texinfo Tree Conversion Functions
 
 One important converter method that can be used in user defined functions
 is @code{convert_tree} that convert a Texinfo tree rooted at any element.
-There is no reason to use that function often, as the converter that calls
-the user defined functions takes care to run through the tree, but it
-can be interesting in some cases.
+There is no reason to use that function often, as the converter
+already go through the tree calling reference functions to convert
+the elements, but it can be interesting in some cases.
 
 @deftypefun $converted_text $converter->convert_tree (\%element, $explanation)
 @var{\%element} is a Texinfo tree element. @var{$explanation} is
 optional, it is a tree explaining why the function was called, to help
 in case of debugging.  The function returns @var{\%element} converted.
 @end deftypefun
-
-An example of combining conversion with translation:
-@example
-$converter->convert_tree($converter->gdt('@{explained_string@} (@{explanation@})',
-          @{'explained_string' => @{'type' => '_converted',
-                   'text' => $result@},
-           'explanation' => @{'type' => '_converted',
-                   'text' => $explanation_result@}@}), "convert explained $cmdname");
-@end example
 
 @code{convert_tree} is suitable when the conversion is in the flow of the Texinfo
 tree conversion.  Sometime, it is better to ignore the formatting context
@@ -1134,15 +1148,14 @@ For such cases, the function is
 
 @deftypefun $converted_text $converter->convert_tree_new_formatting_context @
                           (\%element, $context, $multiple_pass, $global_context)
-@var{\%element} is a Texinfo tree element.  @var{$context} is optional, a string describing
-the new context to be started to format out of the main conversion flow.  If not
-defined, the conversion is done in the main document flow.  @var{$multiple_pass}
-is an optional string that marks that the conversion is done more than once.
-@var{$global_context} is an optional string that marks that the formatting
-may be done in advance, and can be redone.
-
-The precise string values are used for debugging, so it is better to use
-informative strings, but the values do not have influence on the output.
+@var{\%element} is a Texinfo tree element.  @var{$context} is an optional
+string describing the new context to be setup to format out of the main
+conversion flow.  If not defined, the conversion is done in the main document
+flow.  @var{$multiple_pass} is an optional string that marks that the
+conversion is done more than once.  It should be unique and suitable for
+inclusion in targets and identifiers.  @var{$global_context} is an optional
+string that marks that the formatting may be done in advance, and can be
+redone.
 
 The function returns @var{\%element} converted, setting the conversion context
 according to the arguments.
@@ -1150,6 +1163,64 @@ according to the arguments.
 
 @xref{Setting the Context for Conversion} on how to set a specific context for
 a Texinfo tree conversion.
+
+
+@node Internationalization of Strings Function
+@subsection Internationalization of Strings Function
+
+@quotation Warning
+There is no possibility to provide custom translations for selected
+strings, such that only translated strings already recorded in
+the default code can be used in practice.
+@end quotation
+
+@vindex texinfo_document @r{Gettext domain}
+The subroutine @code{gdt}, from the @code{Texinfo::Translations} module
+is used for translated strings:
+
+@deftypefun $translated_tree $converter->gdt ($string, \%variables_hash)
+@var{$string} is the string to be translated, @var{\%variables_hash}
+is a hash reference holding the variable parts of the translated
+string.  The result returned is a perl Texinfo tree.
+@end deftypefun
+
+When the string is expanded as Texinfo, and converted to a
+Texinfo tree in perl, the arguments are substituted; for
+example, @samp{@{arg_name@}} is replaced by the corresponding
+actual argument, which should be Texinfo perl trees, Texinfo
+perl tree contents arrays or strings.
+
+In the following example, @samp{@{date@}}, @samp{@{program_homepage@}}
+and @samp{@{program@}} are the arguments of the string.  Since they
+are used in @code{@@uref}, their order in the formatted output depends on
+the formatting and is not predictable.
+@samp{@{date@}}, @samp{@{program_homepage@}} and @samp{@{program@}} are
+substituted after the expansion, which means that they should already be
+Texinfo perl trees, Texinfo perl tree contents.  A string is turned
+into a Texinfo text element without type, with the string as @code{text}.
+
+@example
+  $converter->gdt('Generated @@emph@{@@today@{@}@} using '
+   .'@@uref@{@{program_homepage@}, @@emph@{@{program@}@}@}.',
+      @{ 'program_homepage' => $converter->get_conf('PACKAGE_URL'),
+        'program' => @{ 'text' => $converter->get_conf('PROGRAM') @}@}));
+@end example
+
+In the example, the @code{$converter->get_conf('PACKAGE_URL')} string is turned
+into @code{@{ 'text' => $converter->get_conf('PACKAGE_URL')  @}}.
+
+An example of combining conversion with translation:
+@example
+$converter->convert_tree($converter->gdt(
+       '@{explained_string@} (@{explanation@})',
+       @{'explained_string' => @{'type' => '_converted',
+                               'text' => $result@},
+        'explanation' => @{'type' => '_converted',
+                          'text' => $explanation_result@}@}),
+                         "convert explained $cmdname");
+@end example
+
+@xref{Texinfo::Translations,,,tp_api} for more on @code{Texinfo::Translations}.
 
 
 @node Texinfo Tree Elements in User Defined Functions
@@ -1268,24 +1339,24 @@ my $plaintext = Texinfo::Convert::Text::convert_to_text($element,
       Texinfo::Convert::Text::copy_options_for_convert_text($converter));
 @end example
 
-@node Conversion Configuration Variables
-@section Setting and Getting Conversion Configuration Variables
+@node Conversion Customization Variables
+@section Setting and Getting Conversion Customization Variables
 
-The configuration variables values set during the conversion process,
-and associated with a converter, may be different from the main program
-configuration variables.  The general rule is that variables set in the main
-program, in particular from init files, are passed to the converter.  Some
-variables, however, only appear in the converter. Some variables are also set
-in the converter based on the main program configuration variables.  Finally,
-some variables may be set or reset during conversion, in particular when
-converting the tree representing the Texinfo document, when expanding the tree
-element corresponding to @@-commands associated with configuration variables.
+The customization variables values set during the conversion process may be
+different from the main program customization variables.  The general rule is
+that variables set in the main program, in particular from init files, are
+passed to the converter.  Some variables, however, only appear in the
+converter. Some variables are also set in the converter based on the main
+program customization variables.  Finally, some variables should be set or reset
+during conversion, in particular when converting the tree representing the
+Texinfo document, when expanding the tree element corresponding to @@-commands
+associated with customization variables.
 
-In general, the functions described here cannot be used out of functions and
-should be used in user defined functions. Conversly, the similar functions
-used to set configuration variables from init files without using a converter
-should not be used in functions, but should be used out of functions in init files
-(@pxref{Configuration Variables in Init File}).
+The functions described here should be used in user defined functions, but
+should not be used out of functions. Conversly, the similar functions used to
+set customization variables from init files without a converter should not be
+used in functions, but should be used out of functions in init files
+(@pxref{Managing Customization Variables}).
 
 To get the value of a variable in a converter @code{$converter},
 the function is @code{get_conf}:
@@ -1318,9 +1389,9 @@ $converter->set_conf('footnotestyle', 'separate');
 @end example
 
 The values set in converter with @code{set_conf} will not override command-line
-set configuration variables, nor variables set in init files.  This is the
+set customization variables, nor variables set in init files.  This is the
 expected behaviour, in particular when the values are set from the document.
-In the rare cases when overriding the configuration would be needed, the
+In the rare cases when overriding the customization would be needed, the
 @code{force_conf} functions can be used:
 
 @defun $converter->force_conf ($variable_name, $variable_value)
@@ -1398,18 +1469,18 @@ information on each of the file licences, with content
 
 @item line_break_element
 HTML line break element, based on @samp{<br>}, also taking into account
-@code{USE_XML_SYNTAX} configuration variable value.
+@code{USE_XML_SYNTAX} customization variable value.
 
 @item non_breaking_space
 Non breaking space, can be @samp{&nbsp;}, but also a non breaking
 space character or the corresponding numeric entity based on
-@code{ENABLE_ENCODING} and @code{USE_NUMERIC_ENTITY} configuration variables
+@code{ENABLE_ENCODING} and @code{USE_NUMERIC_ENTITY} customization variables
 values.
 
 @item paragraph_symbol
 Paragraph symbol, can be @samp{&para;}, but also the corresponding numeric entity
 or encoded character based on @code{ENABLE_ENCODING} and
-@code{USE_NUMERIC_ENTITY} configuration variables values.
+@code{USE_NUMERIC_ENTITY} customization variables values.
 
 @item title_string
 @item title_tree
@@ -1488,16 +1559,16 @@ texinfo_register_file_id_setting_function('node_file_name', \&my_node_file_name)
 @vindex EXTENSION
 It is possible to specify the output file names with more control than
 merely the command line option @option{--output} (@pxref{Invoking
-texi2any}). The @code{PREFIX} configuration variable overrides the
+texi2any}). The @code{PREFIX} customization variable overrides the
 base name of the file given by @code{@@setfilename} or the file name
 and should not contain any directory components.  To alter
-intermediate directories, use the @code{SUBDIR} configuration
+intermediate directories, use the @code{SUBDIR} customization
 variable.  Finally, The extension may also be overriden by the
-configuration variable @code{EXTENSION}.  This variable should be
+customization variable @code{EXTENSION}.  This variable should be
 @code{undef} if no extension is to be added.
 
 @vindex TOP_FILE
-Furthermore, the configuration variables @code{TOP_FILE} override
+Furthermore, the customization variables @code{TOP_FILE} override
 the output file name for the top element.
 
 Two function references registered with @code{texinfo_register_file_id_setting_function}
@@ -2012,7 +2083,7 @@ on the @code{about} special element body formatting.
 @chapter Mandatory Conversion Function Calls
 
 There are several conventions and constraints that user defined code should
-abide to, in order to comply with configuration option values, and also
+abide to, in order to comply with customization option values, and also
 to have information correctly registered in the converter.
 
 
@@ -2059,7 +2130,7 @@ such as @code{<img>} or @code{<link>} should be closed by calling
 
 @deftypefun $html_element $converter->close_html_lone_element ($html_element)
 Close the @var{$html_element}, which can contain attributes, by prepending
-@samp{>} or @samp{/>} depending on the @code{USE_XML_SYNTAX} configuration
+@samp{>} or @samp{/>} depending on the @code{USE_XML_SYNTAX} customization
 variable value.
 @end deftypefun
 
@@ -2076,11 +2147,11 @@ $description = $converter->close_html_lone_element(
 If a @code{&nbsp;} can appear in formatted code,
 the corresponding text should be in a call to @code{substitute_html_non_breaking_space},
 to take into account @code{ENABLE_ENCODING} and @code{USE_NUMERIC_ENTITY}
-configuration variables:
+customization variables:
 
 @deftypefun $substituted_text $converter->substitute_html_non_breaking_space @
                                                            ($formatted_text)
-Substitute @code{&nbsp;} according to configuration variables values.
+Substitute @code{&nbsp;} according to customization variables values.
 @end deftypefun
 
 This is not needed if the @code{non_breaking_space} information is taken from
@@ -2219,7 +2290,7 @@ the navigation panel (@pxref{Simple Navigation Panel Customization}).
 @deftypefn {Function Reference} {$text} format_button_icon_img @
                               ($converter, $button, $icon, $name)
 @var{$button} is a button name, typically obtained from the @code{BUTTONS_NAME}
-configuration variable hash using a direction as key (@pxref{Directions}).
+customization variable hash using a direction as key (@pxref{Directions}).
 @var{$icon} is an image file name to be used as icon.  @var{$name} is the
 direction heading, typically formatted in string context.  @xref{Init File
 Expansion Contexts}.
@@ -2745,7 +2816,7 @@ Return the total number of element units associated with the file.
 @node Customizing Footnotes
 @section Customizing Footnotes
 
-@code{NUMBER_FOOTNOTES} and @code{NO_NUMBER_FOOTNOTE_SYMBOL} configuration
+@code{NUMBER_FOOTNOTES} and @code{NO_NUMBER_FOOTNOTE_SYMBOL} customization
 variables can be used to change the footnotes formatting.  Redefinition
 of @code{@@footnote} conversion reference and footnote formatting
 references is needed for further customization.
@@ -2815,7 +2886,7 @@ can be replaced by a user defined function.
 Returns the footnotes formatted.  In the default case, the function reference
 calls @code{format_footnotes_segment} and also sets up a header with
 @code{format_heading_text} (@pxref{Basic Formatting Customization}), using the
-configuration variables @code{FOOTNOTE_END_HEADER_LEVEL} and
+customization variables @code{FOOTNOTE_END_HEADER_LEVEL} and
 @code{SPECIAL_ELEMENTS_HEADING} with the @code{footnotes} special element
 variety key.
 @end deftypefn
@@ -2829,11 +2900,15 @@ variety key.
 @cindex Short table of contents element, customizing
 @cindex Overview element, customizing
 
+@c FIXME this is already documented in the Customization variables
+@c documentation in the Texinfo manual.  Keep it anyway as it is
+@c slightly more informative here?
+
 To begin with, the table of contents and short table of contents can
 be made to appear at different locations in the document.
 
 @vindex CONTENTS_OUTPUT_LOCATION
-By default, the configuration variable
+By default, the customization variable
 @code{CONTENTS_OUTPUT_LOCATION} is set to @samp{after_top}, specifying
 that the tables of contents are output at the end of the @code{@@top}
 section, to have the main location for navigation in the whole document
@@ -2874,7 +2949,7 @@ Inserted after the short table of contents text.
 
 @end vtable
 
-Additional configuration variables @code{SHORT_TOC_LINK_TO_TOC}
+Additional customization variables @code{SHORT_TOC_LINK_TO_TOC}
 and @code{NUMBER_SECTIONS} can be used to change the formatting
 of table of contents.
 
@@ -2983,7 +3058,7 @@ Returns the formatted navigation header and panel. The navigation
 panel itself can be formatted with a
 call to @code{&@{$self->formatting_function('format_navigation_panel')@}}.
 
-The configuration variable @code{VERTICAL_HEAD_NAVIGATION} should be relevant.
+The customization variable @code{VERTICAL_HEAD_NAVIGATION} should be relevant.
 @end deftypefn
 
 The navigation panel display is controlled via @code{format_navigation_panel}:
@@ -3012,7 +3087,7 @@ Returns the formatted result in @var{$formatted_button}.
 The buttons images can be formatted with @code{format_button_icon_img}
 (@pxref{Basic Formatting Customization}).
 
-Configuration information described in @ref{Simple Navigation Panel Customization}
+Customization information described in @ref{Simple Navigation Panel Customization}
 such as @code{BUTTONS_TEXT}, @code{BUTTONS_NAME}, @code{BUTTONS_GOTO},
 @code{USE_ACCESSKEY}, @code{BUTTONS_ACCESSKEY},
 @code{USE_REL_REV} and @code{BUTTONS_REL} can be relevant for the
@@ -3045,8 +3120,8 @@ In the default code, the function reference select a buttons list
 (@pxref{Simple Navigation Panel Customization}).  The navigation header can
 then be formatted with a call to
 @code{&@{$self->formatting_function('format_navigation_header')@}}.  It is also
-possible to format directly the navigation panel, depending on configuration
-options and location in file.
+possible to format directly the navigation panel, depending on customization
+variables values and location in file.
 @end deftypefn
 
 Similarly, the function associated with @code{format_element_footer}
@@ -3065,7 +3140,7 @@ In the default code, the function reference select a buttons list
 The navigation header can then be formatted with a call
 to @code{&@{$self->formatting_function('format_navigation_header')@}}.
 
-Many configuration variables values may be interesting for the footer
+Many customization variables may be interesting for the footer
 formatting, such as @code{SPLIT}, @code{HEADERS}, @code{DEFAULT_RULE},
 @code{BIG_RULE}, @code{WORDS_IN_PAGE} or @code{PROGRAM_NAME_IN_FOOTER}.
 @end deftypefn
@@ -3074,11 +3149,11 @@ formatting, such as @code{SPLIT}, @code{HEADERS}, @code{DEFAULT_RULE},
 @node Heading Commands and Tree Elements Formatting
 @chapter Heading Commands and Tree Elements Formatting
 
-The configuration variables
+The customization variables
 @code{CONTENTS_OUTPUT_LOCATION},
 @code{CHAPTER_HEADER_LEVEL}, @code{TOC_LINKS} and @code{FORMAT_MENU}
 may be used to change the sectioning commands conversion.
-@xref{@command{texi2any} Configuration Variables}.
+@xref{HTML Customization Variables}.
 
 @code{@@node} and sectioning default conversion function call
 @code{format_heading_text} (@pxref{Basic Formatting Customization})
@@ -3105,15 +3180,19 @@ Header and Footer Formatting}).  The conversion for these elements with type
 @code{special_element_type} can be be replaced by user defined functions for a
 precise control of conversion (@pxref{Type Tree Element Conversion Functions}).
 
-Specific configuration variable hashes taking
+Specific customization variable hashes taking
 special element varieties as keys are used in special elements formatting:
+
 @vtable @code
 @item SPECIAL_ELEMENTS_HEADING
 heading text of the special element.
+
 @item SPECIAL_ELEMENTS_CLASS
 string for special element HTML class attributes.
+
 @item SPECIAL_ELEMENTS_DIRECTIONS
 direction corresponding to the special element. @xref{Directions}.
+
 @end vtable
 
 @node Beginning and Ending Files
@@ -3131,6 +3210,9 @@ the functions references.
 @node Customizing HTML File Beginning
 @section Customizing HTML File Beginning
 
+@c FIXME following information is also in the Customization
+@c variables dicumentation in the Texinfo manual
+
 @vindex DOCTYPE
 You can set the variable @code{DOCTYPE} to replace the default.
 the @code{DOCTYPE} is output at the very beginning of each output
@@ -3147,7 +3229,7 @@ These variables are empty by default.
 @vindex BODYTEXT@r{, in customization}
 @cindex @code{<body>} tag, attributes of
 The @code{<body>} element attributes may be set by defining the
-configuration variable @code{BODYTEXT}.
+customization variable @code{BODYTEXT}.
 
 @vindex ENCODING_NAME
 @cindex Encoding, in HTML output
@@ -3160,7 +3242,7 @@ A date is output in the header if @code{DATE_IN_HEADER} is set.
 
 @cindex Document description, in HTML output
 The description from @code{@@documentdescription} (or a value set as a
-configuration variable) is used in the header
+customization variable) is used in the header
 (@pxref{documentdescription}).
 
 @vindex LINKS_BUTTONS@r{, in customization}
@@ -3174,12 +3256,12 @@ the @code{rel} attribute.  @xref{Simple Navigation Panel Customization}.
 You can set @code{HTML_ROOT_ELEMENT_ATTRIBUTES} to add attributes to
 the @code{<html>} element.
 
-The configuration variables
+The customization variables
 @code{SECTION_NAME_IN_TITLE},
 @code{PACKAGE_AND_VERSION}, @code{PACKAGE_URL} and other similar variables,
 @code{HTML_MATH} and @code{INFO_JS_DIR}
 may also be used to change the page header formatting.
-@xref{@command{texi2any} Configuration Variables}.
+@xref{HTML Customization Variables}.
 
 The following function references give full control over the
 page header formatting done at the top of each HTML output file.
@@ -3208,9 +3290,9 @@ before the HTML @code{</body>} element.  Nothing is added by default.
 If @code{PROGRAM_NAME_IN_FOOTER} is set, the date and name of the
 program that generated the output are output in the footer.
 
-The configuration variables @code{JS_WEBLABELS} and @code{JS_WEBLABELS_FILE}
-are also used in the page footer formatting. @xref{@command{texi2any}
-Configuration Variables}.
+The customization variables @code{JS_WEBLABELS} and @code{JS_WEBLABELS_FILE}
+are also used in the page footer formatting. @xref{HTML Customization
+Variables}.
 
 The @code{format_end_file} function reference give full control over the page
 footer formatting done at the bottom of each HTML output file.
