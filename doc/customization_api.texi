@@ -8,7 +8,7 @@
 
 @copying
 This manual is for GNU Texinfo (version @value{VERSION}, @value{UPDATED}),
-texi2any program output adaptation using customization files.
+@command{texi2any} program output adaptation using customization files.
 
 Copyright @copyright{} 2013, 2022 Free Software Foundation, Inc.
 
@@ -25,7 +25,7 @@ Texts.  A copy of the license is included in the section entitled
 @dircategory Texinfo documentation system
 @direntry
 * Texinfo texi2any customization: (customization_api).  Customizing texi2any
-                                            output using customization files 
+                                            output using customization files
 @end direntry
 
 @titlepage
@@ -47,7 +47,7 @@ Texts.  A copy of the license is included in the section entitled
 @cartouche
 @quotation Warning
 All of this information, with the exception of command-line options
-and search directories associated with command line options 
+and search directories associated with command line options
 (@pxref{Loading Init Files}), may become
 obsolete in a future Texinfo release.  Right now, the ``API''
 described in this chapter is immature, and incomplete (translations
@@ -292,7 +292,7 @@ Array and hash references configuration variables values relevant
 in converters only (not in main program) can be set through the
 main program in init files.  These variables cannot be set on the command-line.
 They are documented in the customization documentation, not in the main Texinfo manual.
-Such arrays or shash references can be passed through @code{set_from_init_file}.  For example:
+Such arrays or hashes references can be passed through @code{set_from_init_file}.  For example:
 
 @example
 my @@SECTION_BUTTONS =
@@ -381,14 +381,10 @@ is no way to separately specify the formatting in math context.
 
 @item string context
 @cindex String expansion context
-When rendering strings without formatting elements, for example in
-@c comments (@pxref{Comments}) and 
-titles.
-@c  We have two string contexts,
-@c one that produces plain text, and a second that 
-The string context allows for limited
-formatting, typically without any element when producing HTML or XML,
-so the value can be used in an attribute.  XML entities can be used in strings.
+When rendering strings without formatting elements, for example in titles.  The
+string context allows for limited formatting, typically without any element
+when producing HTML or XML, so the value can be used in an attribute.  XML
+entities can be used in strings.
 
 @end table
 
@@ -424,10 +420,9 @@ is @code{undef}, the @samp{normal} context is assumed.
 
 The remaining arguments determine the formatting.  If @var{$text} is set,
 the corresponding text is output when the @@-command is formatted.  @var{text}
-can contain HTML elements if needed.  
-If @var{$html_element} is set, the text is enclosed between the
-@var{$html_element} element opening and the element closing.
-If @var{$translated_string} is set, @var{$translated_string} is used
+can contain HTML elements if needed.  If @var{$html_element} is set, the text
+is enclosed between the @var{$html_element} element opening and the element
+closing.  If @var{$translated_string} is set, @var{$translated_string} is used
 as text and is translated when the document language changes.
 @xref{Texinfo::Translations METHODS,,,tp_api}.
 @end defun
@@ -749,12 +744,12 @@ are associated with the previous node, and isolated nodes are
 elements.
 
 
-@node Output Element Unit Directions
-@section Output Element Unit Directions
+@node Directions
+@section Directions
 
 @cindex Output element unit directions
 @cindex Links informations
-@cindex Element directions 
+@cindex Element directions
 
 A variety of data items, called @dfn{element directions}, are associated
 with element units.  They may be used in the formatting functions, and/or
@@ -1012,7 +1007,7 @@ and the corresponding text is used for the link.
 
 For example, if the button array element is
 @example
-[ 'Next', 'node' ] 
+[ 'Next', 'node' ]
 @end example
 
 @noindent
@@ -1052,7 +1047,7 @@ of functions used to produce output.
 @section User Defined Functions are Registered
 
 User defined functions are always passed as a code reference to a registering
-function, together with a string describing what the function formats. 
+function, together with a string describing what the function formats.
 In the following made up example, @code{my_formatting_function} is
 passed as a function reference @code{\&my_formatting_function} to the
 registering function @code{texinfo_register_command_formatting}, with
@@ -1108,11 +1103,11 @@ There is no reason to use that function often, as the converter that calls
 the user defined functions takes care to run through the tree, but it
 can be interesting in some cases.
 
-@defun $converter->convert_tree (\%element, $explanation)
+@deftypefun $converted_text $converter->convert_tree (\%element, $explanation)
 @var{\%element} is a Texinfo tree element. @var{$explanation} is
 optional, it is a tree explaining why the function was called, to help
 in case of debugging.  The function returns @var{\%element} converted.
-@end defun
+@end deftypefun
 
 An example of combining conversion with translation:
 @example
@@ -1138,8 +1133,8 @@ For such cases, the function is
 @code{convert_tree_new_formatting_context} which sets the context appropriately.
 @code{convert_tree_new_formatting_context} ultimately calls @code{convert_tree}.
 
-@defun $converter->convert_tree_new_formatting_context (\%element, $context,@
-                                                   $multiple_pass, $global_context)
+@deftypefun $converted_text $converter->convert_tree_new_formatting_context @
+                          (\%element, $context, $multiple_pass, $global_context)
 @var{\%element} is a Texinfo tree element.  @var{$context} is optional, a string describing
 the new context to be started to format out of the main conversion flow.  If not
 defined, the conversion is done in the main document flow.  @var{$multiple_pass}
@@ -1152,7 +1147,7 @@ informative strings, but the values do not have influence on the output.
 
 The function returns @var{\%element} converted, setting the conversion context
 according to the arguments.
-@end defun
+@end deftypefun
 
 @xref{Setting the Context for Conversion} on how to set a specific context for
 a Texinfo tree conversion.
@@ -1229,10 +1224,12 @@ documentation, in particular a list of types and of information in the elements
 @node Setting the Context for Conversion
 @section Setting the Context for Conversion
 
-Three special container types are recognized by the converter can
+Special container types are recognized by the converter and can
 be used to convert a Texinfo tree in a specific context.  Those
 types cannot appear in a regular Texinfo tree.  They can be the
-type directly associated with a text element, or the type of a tree.
+type directly associated with a text element, or the type of a tree
+root element.
+
 The types are:
 
 @table @code
@@ -1251,7 +1248,7 @@ In this container, the conversion is done in a string context.
 @end table
 
 These contexts are typically used together with converter conversion
-functions use (@pxref{Converter Object and Conversion Functions}).
+functions (@pxref{Converter Object and Conversion Functions}).
 For example:
 
 @example
@@ -1285,9 +1282,11 @@ some variables may be set or reset during conversion, in particular when
 converting the tree representing the Texinfo document, when expanding the tree
 element corresponding to @@-commands associated with configuration variables.
 
-In general, the functions described here should be used in user defined
-functions, and not the similar functions used to configuration variables
-from init files (@pxref{Configuration Variables in Init File}).
+In general, the functions described here cannot be used out of functions and
+should be used in user defined functions. Conversly, the similar functions
+used to set configuration variables from init files without using a converter
+should not be used in functions, but should be used out of functions in init files
+(@pxref{Configuration Variables in Init File}).
 
 To get the value of a variable in a converter @code{$converter},
 the function is @code{get_conf}:
@@ -1305,7 +1304,7 @@ my $footnotestyle = $converter->get_conf('footnotestyle');
 
 To set a variable in a converter @code{$converter},
 the function is @code{set_conf}:
- 
+
 @defun $converter->set_conf ($variable_name, $variable_value)
 @var{$variable_name} is the name of the variable; its value in the converter
 @var{$converter} is set to @var{$variable_value}.  The @var{$variable_name}
@@ -1351,7 +1350,7 @@ The main method to get information from the converter is @code{get_info}:
 Return information on @var{$info}.
 @end defun
 
-The available informations are on:
+The available informations are:
 @table @code
 @item copying_comment
 Text appearing in @code{@@copying} with all the Texinfo commands
@@ -1371,12 +1370,12 @@ Base name of the document.
 @xref{Init File Expansion Contexts}.
 
 @item floats
-Informations on floats. Gathered from the input Texinfo code parsing.
+Informations on floats. Gathered from the Texinfo parsing result.
 @xref{Texinfo::Parser $float_types = floats_information($parser),,
 Texinfo::Parser::floats_information,tp_api}.
 
 @item global_commands
-Global commands informations.  Gathered from the input Texinfo code parsing.
+Global commands informations.  Gathered from the Texinfo parsing result.
 @xref{Texinfo::Parser $commands = global_commands_information($parser),,
 Texinfo::Parser::global_commands_information,tp_api}.
 
@@ -1427,7 +1426,7 @@ all the title-related commands, including @code{@@top} and
 @code{title_string} is the result of the conversion in a string context
 (@pxref{Init File Expansion Contexts}).  @code{simpletitle_tree} is
 a Texinfo tree corresponding to the simpletitle, and @code{simpletitle_command_name}
-is the @@-command name, without the leading @@ that was used for the simpletitle.
+is the @@-command name used for the simpletitle, without the leading @@.
 
 @item structuring
 Informations on the document structure.  Gathered before the conversion.
@@ -1446,13 +1445,13 @@ information on CSS.
 @chapter Customizing Output-Related Names
 
 It is possible to control both output file names and target
-identifiers in detail. 
+identifiers in detail.
 
 User defined functions customizing
 file names and targets are registered with
 @code{texinfo_register_file_id_setting_function}:
 
-@defun texinfo_register_file_id_setting_function ($customized, \&handler)
+@defun texinfo_register_file_id_setting_function ($customized, \@ampchar{}handler)
 @var{$customized} is a string describing what the function
 should set.  @var{\&handler} should be a reference on the user
 defined function.  The different functions that can be registered
@@ -1504,7 +1503,7 @@ the output file name for the top element.
 
 Two function references registered with @code{texinfo_register_file_id_setting_function}
 enable further customization.  The first,
-@code{node_file_name} is used to customize the node file name.
+@code{node_file_name} is used to customize the nodes files names.
 
 @deftypefn {Function Reference} $node_file node_file_name ($converter, @
                                                \%node_element, $file_name)
@@ -1617,7 +1616,7 @@ There are four places for user defined functions:
 @item setup
 Called right after completing main program customization information
 with converter specific customization information, but before anything else is
-done, including collecting the output file names.
+done, including collecting the output files names.
 @c the information on input file names directories is probably available
 @c somewhere, but we do not want those to be used, in general, rather
 @c we mostly want document_name to be used
@@ -1633,7 +1632,7 @@ Called after some gathering of global information on the document,
 such as titles, copying comment and document description, which
 require some conversion of Texinfo, right before the main output processing.
 At that point most of the information available from the converter is set
-(@pxref{Init File Global Information}).
+(@pxref{Conversion General Information}).
 
 @item finish
 Called after output generation is finished.
@@ -1642,7 +1641,7 @@ Called after output generation is finished.
 The function used to register a user defined functions is
 @code{texinfo_register_handler}:
 
-@defun texinfo_register_handler ($stage, \&handler, $priority)
+@defun texinfo_register_handler ($stage, \@ampchar{}handler, $priority)
 @var{$stage} is one of the stages described just above. @var{\&handler}
 is a reference on the user defined function. @var{$priority}
 is an optional priority class.
@@ -1695,12 +1694,12 @@ the element is first encountered.
 User defined functions called when an @@-command element is first encountered are registered
 with @code{texinfo_register_command_opening}:
 
-@defun texinfo_register_command_opening ($command_name, \&handler)
+@defun texinfo_register_command_opening ($command_name, \@ampchar{}handler)
 @var{$command_name} is an @@-command name, with the leading @@.
 @var{\&handler} is the user defined function reference.
 @end defun
 
-The call of the user defined functions is: 
+The call of the user defined functions is:
 
 @deftypefn {Function Reference} {$text} command_open @
            ($converter, $command_name, \%element)
@@ -1727,7 +1726,7 @@ User defined functions called for an @@-command element conversion, after
 arguments and contents have been formatted, are registered with
 @code{texinfo_register_command_formatting}:
 
-@defun texinfo_register_command_formatting ($command_name, \&handler)
+@defun texinfo_register_command_formatting ($command_name, \@ampchar{}handler)
 @var{$command_name} is an @@-command name, with the leading @@.
 @var{\&handler} is the user defined function reference.
 @end defun
@@ -1798,7 +1797,8 @@ which should only be the case for @@-commands ignored in HTML not defined by the
 for example, to call the conversion function for the @code{@@tab} @@-command,
 passing arguments that may correspond to another @@-command:
 @example
-&@{$converter->command_conversion('tab')@}($converter, $cmdname, $command, $args, $content);
+&@{$converter->command_conversion('tab')@}($converter, $cmdname,
+                                     $command, $args, $content);
 @end example
 
 It is possible to have access to the default conversion function reference.
@@ -1814,11 +1814,11 @@ which should only be the case for @@-commands ignored in HTML.
 @node Type Tree Element Opening Functions
 @subsection Type Tree Element Opening Functions
 
-User defined functions called when an element without @@-command but
+User defined functions called when an element without @@-command
 with a container type is first encountered are registered
 with @code{texinfo_register_type_opening}:
 
-@defun texinfo_register_type_opening ($type, \&handler)
+@defun texinfo_register_type_opening ($type, \@ampchar{}handler)
 @var{$type} is the element type.
 @var{\&handler} is the user defined function reference.
 @end defun
@@ -1847,11 +1847,11 @@ default opening function reference for @var{$type}, or undef if there is none.
 @subsection Type Tree Element Conversion Functions
 
 User defined functions called for the conversion of an element without
-@@-command but with text or a container type are registered with
+@@-command with text or a container type are registered with
 @code{texinfo_register_type_formatting}.  For containers, the user defined
 function is called after conversion of the content.
 
-@defun texinfo_register_type_formatting ($type, \&handler)
+@defun texinfo_register_type_formatting ($type, \@ampchar{}handler)
 @var{$type} is the element type.
 @var{\&handler} is the user defined function reference.
 @end defun
@@ -1871,7 +1871,7 @@ The @var{$text} returned is the result of the @@-command conversion.
 To call a conversion function from user defined code, the function reference
 should first be retrieved using @code{type_conversion}:
 
-@defun \&command_conversion $converter->command_conversion ($type)
+@defun \&command_conversion $converter->type_conversion ($type)
 @var{$type} is the element type.  Returns the
 conversion function reference for @var{$type}, or undef if there is none,
 which should only be the case for types ignored in HTML not defined by the user.
@@ -1910,7 +1910,7 @@ User defined formatting functions are registered with
 @code{texinfo_register_formatting_function}:
 
 @defun texinfo_register_formatting_function ($formatted, @
-                            \&handler)
+                            \@ampchar{}handler)
 @var{$formatted} is a string describing the formatting
 function. @var{\&handler} is the user defined function reference.
 @end defun
@@ -1940,70 +1940,73 @@ the manual, depending on where they are relevant.
 @subsection Special Element Body Formatting Functions
 
 To register body formating user defined functions for special element
-(@pxref{Output Element Units}), the special elements types are used, as described
-in @ref{Special Elements Types}.
+(@pxref{Output Element Units}), the special elements varieties are used, as
+described in @ref{Special Elements Varieties}.
 
-@float Table, Special Elements Types
-@multitable {Short table of contents} {}
-@headitem Special Element @tab Special Element Type
+@float Table, Special Elements Varieties
+@multitable {Short table of contents} {Special Element Variety}
+@headitem Special Element @tab Special Element Variety
 @item Table of contents @tab @code{contents}
 @item Short table of contents @tab @code{shortcontents}
 @item Footnotes @tab @code{footnotes}
 @item About @tab @code{about}
 @end multitable
-@caption{Association of special elements names with their special element type}
+@caption{Association of special elements names with their special element variety}
 @end float
 
 Special element body formatting user defined functions are registered with
 @code{texinfo_register_formatting_special_element_body}:
 
-@defun texinfo_register_formatting_special_element_body ($special_element_type, @
-                            \&handler)
-@var{$special_element_type} is the element type (@pxref{Special Elements Types}).
-@var{\&handler} is the user defined function reference.
+@defun texinfo_register_formatting_special_element_body ($special_element_variety, @
+                            \@ampchar{}handler)
+@var{$special_element_variety} is the element variety
+(@pxref{Special Elements Varieties}).  @var{\&handler} is the user defined
+function reference.
 @end defun
 
 The call of the user defined functions is:
 @deftypefn {Function Reference} {$text} special_element_body ($converter, @
-                                          $special_element_type, \%element)
-@var{$converter} is a converter object. @var{$special_element_type} is the element type.
-@var{\%element} is the Texinfo
-element.
+                                          $special_element_variety, \%element)
+@var{$converter} is a converter object. @var{$special_element_variety} is the
+element variety.  @var{\%element} is the Texinfo element.
 
 The @var{$text} returned is the formatted special element body.
 @end deftypefn
 
 To call a special element body formatting function from user defined code, the
-function reference should first be retrieved using @code{special_element_body_formatting}:
+function reference should first be retrieved using
+@code{special_element_body_formatting}:
 
-@defun \&special_element_body_formatting $converter->special_element_body_formatting ($special_element_type)
-@var{$special_element_type} is the element type.  Returns the
-conversion function reference for @var{$type}, or undef if there is none,
+@defun \&special_element_body_formatting $converter->special_element_body_formatting @
+                                              ($special_element_variety)
+@var{$special_element_variety} is the special element variety.  Returns the
+conversion function reference for @var{$variety}, or undef if there is none,
 which should not happen for the special elements described in this manual.
 @end defun
 
 For example:
 @example
 my $footnotes_element_body
-    = &@{$converter->special_element_body_formatting('footnotes')@}($converter,
-                                                       'footnotes', $element);
+ = &@{$converter->special_element_body_formatting('footnotes')@}($converter,
+                                                     'footnotes', $element);
 @end example
 
 It is possible to have access to the default conversion function reference.
 The function used is:
 
-@defun \&default_special_element_body_formatting $converter->defaults_special_element_body_formatting ($special_element_type)
-@var{$special_element_type} is the element type.  Returns the
-default conversion function reference for @var{$special_element_type}, or undef
-if there is none, which should not happen for the special elements described in
-this manual.
+@defun \&default_special_element_body_formatting $converter->defaults_special_element_body_formatting @
+                                                   ($special_element_variety)
+@var{$special_element_variety} is the special element variety.  Returns the
+default conversion function reference for @var{$special_element_variety}, or
+@code{undef} if there is none, which should not happen for the special elements
+described in this manual.
 @end defun
 
 @xref{Customizing Footnotes} for more on the footnotes special element body
 formatting.  @xref{Contents and Short Table of Contents Customization}
 for more on the @code{contents} and @code{shortcontents} special elements
 body formatting.  @xref{About Element Customization} for more
-on the @code{about} special elements body formatting.
+on the @code{about} special element body formatting.
 
 
 @node Mandatory Conversion Function Calls
@@ -2011,8 +2014,7 @@ on the @code{about} special elements body formatting.
 
 There are several conventions and constraints that user defined code should
 abide to, in order to comply with configuration option values, and also
-to have information correctly registered in the converter.  Here we document
-the conventions that impact many user defined functions.
+to have information correctly registered in the converter.
 
 
 @node Formatting HTML Element with Classes Opening
@@ -2044,8 +2046,8 @@ my $open = $converter->html_attribute_class('span', ['category-def']);
 $category_result = $open.'>'.$category_result.'</span>'
   if ($open ne '');
 
-my $result = $converter->html_attribute_class('em', [$cmdname, 'tex2jax_process']).'>'
-          .'\['.$content.'\]'.'</em>';
+my $result = $converter->html_attribute_class('em', [$cmdname, 'jax_p'])
+     . '>' . $content . '</em>';
 @end example
 
 
@@ -2089,7 +2091,7 @@ general informations (@pxref{Conversion General Information}).
 @node Conversion in String Context
 @section Conversion in String Context
 
-Conversion and formatting functions should test if in string
+Conversion and formatting functions should check if in string
 context to avoid using HTML elements in formatting when in string context.
 @xref{Init File Expansion Contexts}.
 
@@ -2218,10 +2220,10 @@ the navigation panel (@pxref{Simple Navigation Panel Customization}).
 @deftypefn {Function Reference} {$text} format_button_icon_img @
                               ($converter, $button, $icon, $name)
 @var{$button} is a button name, typically obtained from the @code{BUTTONS_NAME}
-configuration variable hash using a direction as key (@pxref{Output Element
-Unit Directions}).  @var{$icon} is an image file name to be used as icon.  @var{$name} is
-the direction heading, typically formatted in string context.
-@xref{Init File Expansion Contexts}.
+configuration variable hash using a direction as key (@pxref{Directions}).
+@var{$icon} is an image file name to be used as icon.  @var{$name} is the
+direction heading, typically formatted in string context.  @xref{Init File
+Expansion Contexts}.
 
 Returns a formatted icon image.
 @end deftypefn
@@ -2274,13 +2276,13 @@ Texinfo::Convert::Converter::xml_protect_text,tp_api}
 
 @item format_separate_anchor
 
-This function reference is called if there is no other element to
+This function reference is called if there is not another HTML element to
 add an identifier attribute to.
 
 @deftypefn {Function Reference} {$text} format_separate_anchor @
                                            ($converter, $id, $class)
 @var{id} is the identifier.
-@var{$class} is an optional class to be used in a class attribute.
+@var{$class} is an optional class to be used in an HTML class attribute.
 
 Return an anchor with identifier @var{$id}.
 @end deftypefn
@@ -2363,7 +2365,7 @@ preformatted commands and container types nesting informations.
 In the default formatting, when a sectioning command is encountered, a
 @code{<div>} element is opened for the extent of the sectioning command
 including its children sectioning commands.  This extent need to be closed
-at different places, it can be when another sectioning command
+at different places, for instance when another sectioning command
 is reached, at the end of a file, or at the end of the document.
 
 The user defined formatting function should take care of
@@ -2404,13 +2406,13 @@ $converter->register_opened_section_level($level, "</div>\n");
 Text is mainly output in two @dfn{inline} text containers, @code{paragraph} for
 text in paragraph and @code{preformatted} for text in preformatted
 environments.  The Texinfo code parsing makes sure that it is the case, to
-simplify conversion to formats which allow text only in specific environments,
-as is the case for HTML.
+simplify conversion to formats which allow text only in specific environments
+such as HTML.
 
-Formatted text may also be prepared based on informations
-in the Texinfo elements tree while out of the inline containers.  For that case,
-functions allow to register pending inline formatted
-content, and get the content to be prepended in inline text containers.
+Formatted text may also be prepared based on informations from Texinfo
+elements tree while out of the inline containers.  For that case, functions
+allow to register pending inline formatted content, and get the content to be
+prepended in inline text containers.
 
 Pending formatted content text is registered with
 @code{register_pending_formatted_inline_content}:
@@ -2423,8 +2425,8 @@ if no inline container was seen.
 @end defun
 
 Pending formatted content can (and should) be cancelled when it is known that
-there is was no suitable inline container to be used to output the
-text.  The function is @code{cancel_pending_formatted_inline_content}:
+there is no suitable inline container to be used to output the text.  The
+function is @code{cancel_pending_formatted_inline_content}:
 
 @deftypefun $cancelled_content $converter->cancel_pending_formatted_inline_content ($category)
 Cancel the first @var{$category} pending formatted content text found.
@@ -2460,12 +2462,12 @@ Get @var{$content} associated to the Texinfo tree element @var{\%element}.
 @end deftypefun
 
 
-@node Associating Information to an Output File Name
-@section Associating Information to an Output File Name
+@node Associating Information to an Output File
+@section Associating Information to an Output File
 
-To be able to retrieve information associated to the current file, in general for
-the file begin or end formatting, @code{register_file_information} can  be used
-to associate information, and @code{get_file_information} to retrieve that
+To be able to retrieve information associated to the current file, in general
+for the file begin or end formatting, @code{register_file_information} can  be
+used to associate information, and @code{get_file_information} to retrieve that
 information.
 
 @defun $converter->register_file_information ($key, $value)
@@ -2521,7 +2523,7 @@ directions, links, labels and files informations.
 
 Target @@-commands are @@-comands that are associated with an identifier
 and can be linked to.  They corresponds first to @@-commands with unique identifier
-used as labels, @code{@@node}, @code{@@anchor} and @code{@@float}.  Sectioning 
+used as labels, @code{@@node}, @code{@@anchor} and @code{@@float}.  Sectioning
 commands, index entries and footnotes are also associated to targets.
 
 To get the unique Texinfo tree element corresponding to a label, use
@@ -2552,7 +2554,8 @@ file name is used.  @var{$source_command} is an optional argument, the
 identifier if set.
 @end deftypefun
 
-To get the text of tree elements that may be used as link description, use @code{command_text}:
+To get the text of tree elements that may be used as link description, use
+@code{command_text}:
 
 @deftypefun $result $converter->command_text (\%target_element, $type)
 Return the information to be used for a hyperlink to @var{\%target_element}.
@@ -2575,7 +2578,8 @@ Return text in string context.  @xref{Init File Expansion Contexts}.
 @end deftypefun
 
 To obtain the top level command element associated with the target element,
-@code{@@node} or sectioning element, use @code{command_root_element_command}:
+either a @code{@@node} or a sectioning element, use
+@code{command_root_element_command}:
 
 @deftypefun \%top_level_element $converter->command_root_element_command @
                                                          (\%target_element)
@@ -2593,13 +2597,16 @@ Return the node element associated with @var{\%target_element}.
 @node Other Links@comma{} Headings and Associated Informations for Special Elements
 @section Other Links, Headings and Associated Informations for Special Elements
 
-To get the href and the id of footnotes in the main document, use
-@code{footnote_location_target} and @code{footnote_location_href}:
+To get the id of a footnote in the main document, use
+@code{footnote_location_target}:
 
 @deftypefun $target $converter->footnote_location_target (\%footnote_element)
 Return the id for the location of the footnote @var{\%footnote_element}
 in the main document (where the footnote number or symbol appears).
 @end deftypefun
+
+To get an href to link to a footnote location in the main document, use
+@code{footnote_location_href}:
 
 @deftypefun $href $converter->footnote_location_href (\%footnote_element, @
      $source_filename, $specified_target, $target_filename)
@@ -2612,18 +2619,19 @@ that overrides the file name href part if set.
 @end deftypefun
 
 @xref{Target Commands Links@comma{} Texts and Associated Commands} to get
-the links information for the location of the footnotes text arguments output.
+link information for the location where footnote text is output.
 
-To get the id and the href of sectioning commands in table of contents
+To get id and link href of sectioning commands in table of contents
 and short table of contents, use @code{command_contents_target} and
 @code{command_contents_href}:
 
 @deftypefun $target $converter->command_contents_target (\%sectioning_element, @
   $contents_or_shortcontents)
-Returns the id for the location of @var{\%sectioning_element} sectioning element
-in the table of contents, if @var{$contents_or_shortcontents} is @samp{contents}
-or in the short table of contents, if @var{$contents_or_shortcontents} is set
-to @samp{shortcontents} or @samp{summarycontents}.
+Returns the id for the location of @var{\%sectioning_element} sectioning
+element in the table of contents, if @var{$contents_or_shortcontents} is
+@samp{contents}, or in the short table of contents, if
+@var{$contents_or_shortcontents} is set to @samp{shortcontents} or
+@samp{summarycontents}.
 @end deftypefun
 
 @deftypefun $href $converter->command_contents_href (\%sectioning_element, @
@@ -2645,18 +2653,18 @@ Top element (@pxref{Output Element Units}) and is either associated with the
 @code{@@top} sectioning command or with the @code{Top} @code{@@node}.
 @end deftypefun
 
-To get informations on the special element type associated with
+To get informations on the special element variety associated with
 an @@-command command name, use @code{command_name_special_element_information}:
 
-@deftypefun {($special_element_type, \%special_element, $class_base, $special_element_direction)} @
+@deftypefun {($special_element_variety, \%special_element, $class_base, $special_element_direction)} @
   $converter->command_name_special_element_information ($command_name)
 @var{$command_name} is an @@-command name without the leading @@.
-If the @var{$command_name} is not associated with a special element,
-returns @code{undef}.  Otherwise, return the @var{$special_element_type}
-(@pxref{Special Elements Types}), the @var{\%special_element} texinfo
-tree unit, a @var{$class_base} string for HTML class attribute
-and the @var{$special_element_direction} direction corresponding to that special elements
-(@pxref{Output Element Unit Directions}).
+If the @var{$command_name} is not associated with a special element, returns
+@code{undef}.  Otherwise, return the @var{$special_element_variety}
+(@pxref{Special Elements Varieties}), the @var{\%special_element} texinfo tree
+unit, a @var{$class_base} string for HTML class attribute and the
+@var{$special_element_direction} direction corresponding to that special
+elements (@pxref{Directions}).
 @end deftypefun
 
 In the current setup, special elements are associated with @code{@@contents},
@@ -2666,7 +2674,7 @@ In the current setup, special elements are associated with @code{@@contents},
 @node Elements and Links for Directions
 @section Elements and Links for Directions
 
-@xref{Output Element Unit Directions} for the list of directions.
+@xref{Directions} for the list of directions.
 
 To get the Texinfo tree unit special element associated with
 a special element direction, such as @samp{About} or @samp{Contents},
@@ -2678,17 +2686,17 @@ Return the special element associated with direction @var{$direction}, or
 element is not output.
 @end deftypefun
 
-To get the Texinfo tree unit element associated with
-another global element direction, such as @samp{Top} or @samp{Index}, use
+To get the Texinfo tree unit element associated with other global element
+directions, such as @samp{Top} or @samp{Index}, use
 @code{global_direction_element}:
 
 @deftypefun \%element $converter->global_target_elements_directions ($direction)
-Return the Texinfo tree unit element corresponding to direction @var{$direction}, or
-@code{undef} if the direction is not a global direction.
+Return the Texinfo tree unit element corresponding to direction
+@var{$direction}, or @code{undef} if the direction is not a global direction.
 @end deftypefun
 
-The function that give link information on both relative and global
-elements is @code{from_element_direction}:
+To get link information for relative and global
+directions, use @code{from_element_direction}:
 
 @deftypefun $result $converter->from_element_direction ($direction, $type, @
    $source_element, $source_filename)
@@ -2731,44 +2739,45 @@ Return the total number of element units associated with the file.
 @end table
 @end deftypefun
 
- 
+
 @node Customizing Footnotes@comma{} Tables of Contents and About
 @chapter Customizing Footnotes, Tables of Contents and About
 
 @node Customizing Footnotes
 @section Customizing Footnotes
 
-@code{NUMBER_FOOTNOTES} and @code{NO_NUMBER_FOOTNOTE_SYMBOL} configuration variables
-can be used to change the footnotes formatting.  To customize further footnotes
-conversion, the conversion of footnotes in document and some formatting
-references can be redefined.
+@code{NUMBER_FOOTNOTES} and @code{NO_NUMBER_FOOTNOTE_SYMBOL} configuration
+variables can be used to change the footnotes formatting.  Redefinition
+of @code{@@footnote} conversion reference and footnote formatting
+references is needed for further customization.
 
 @code{@@footnote} @@-commands appearing in the Texinfo elements tree
 are converted like any other elements associated with @@-commands
 (@pxref{Command Tree Element Conversion Functions}).  It is therefore possible
 to redefine their formatting by registering a user defined function.
 
-To pass information on footnotes between the location they appear in the
-document and the functions where their argument is converted, two
-functions are available, @code{register_footnote} to be called where they
-appear in the document, andd @code{get_pending_footnotes} to be called where they are
-formatted:
+To pass information on footnotes between the conversion function processing the
+@code{@@footnote} command at the location they appear in the document and the
+functions formatting their argument elsewhere, two functions are available:
+@code{register_footnote} to be called where they appear in the document, and
+@code{get_pending_footnotes} to be called where they are formatted.
 
 @defun $converter->register_footnote(\%element, $footnote_id, @
   $foot_in_doc_id, $number_in_doc, $footnote_location_filename, $multi_expanded_region)
-@var{\%element} is the footnoote texinfo tree element. @var{$footnote_id}
-is the location identifier where the footnote arguments are expanded. @var{$foot_in_doc_id}
-is the location identifier where the footnote appears in the document.
-@var{$number_in_doc} is the symbol used to format the footnote in the document.
-@var{$footnote_location_filename} is the filename of the tree unit element of
-the footnote in the document. If the footnote appears in a region that is expanded
-multiple times, the information on the expansion is @var{$multi_expanded_region}
-(@pxref{Dynamic Converter Formatting Information}).
+@var{\%element} is the footnote texinfo tree element. @var{$footnote_id} is the
+identifier for the location where the footnote arguments are expanded.
+@var{$foot_in_doc_id} is the identifier for the location where the footnote
+appears in the document.  @var{$number_in_doc} is the symbol used to format the
+footnote in the document.  @var{$footnote_location_filename} is the filename of
+the tree unit element of the footnote in the document. If the footnote appears
+in a region that is expanded multiple times, the information on the expansion
+is @var{$multi_expanded_region} (@pxref{Dynamic Converter Formatting
+Information}).
 @end defun
 
 @code{register_footnote} is normally called in the @code{@@footnote}
-@@-command conversion footnote reference.  This conversion function
-can call @code{command_href} to link to the location where the footnote
+@@-command conversion function reference.  The default conversion function
+also call @code{command_href} to link to the location where the footnote
 text will be expanded (@pxref{Target Commands Links@comma{} Texts and Associated Commands}).
 
 @deftypefun {@@pending_footnotes_information} $converter->get_pending_footnotes ()
@@ -2778,13 +2787,14 @@ is an array reference containing the arguments of @code{register_footnote}
 in the same order.
 @end deftypefun
 
-The formatting of footnotes content is done by the @code{format_footnotes_sequence}
-formatting reference (@pxref{Specific formating Functions}):
+The formatting of footnotes content is done by the
+@code{format_footnotes_sequence} formatting reference
+(@pxref{Specific formating Functions}):
 
 @deftypefn {Function Reference} $footnotes_sequence format_footnotes_sequence @
   ($converter)
 Formats and returns the footnotes that need to be formatted.  This function
-normally calls @code{get_pending_footnotes}.  This function can call
+normally calls @code{get_pending_footnotes}.  The default function also calls
 @code{footnote_location_href} (@pxref{Other Links@comma{} Headings and
 Associated Informations for Special Elements}) to link to the location
 in the document where the footnote appeared.
@@ -2807,8 +2817,8 @@ Returns the footnotes formatted.  In the default case, the function reference
 calls @code{format_footnotes_segment} and also sets up a header with
 @code{format_heading_text} (@pxref{Basic Formatting Customization}), using the
 configuration variables @code{FOOTNOTE_END_HEADER_LEVEL} and
-@code{SPECIAL_ELEMENTS_HEADING} with the @code{footnotes} special element type
-key.
+@code{SPECIAL_ELEMENTS_HEADING} with the @code{footnotes} special element
+variety key.
 @end deftypefn
 
 
@@ -2825,15 +2835,23 @@ be made to appear at different locations in the document.
 
 @vindex CONTENTS_OUTPUT_LOCATION
 By default, the configuration variable
-@code{CONTENTS_OUTPUT_LOCATION} is set to @samp{inline}, specifying
-that the tables of contents are not output as separate elements but instead
-where the corresponding @@-command, for example @code{@@contents}, is set.
-This behavior is consistent with @command{texi2dvi}.
+@code{CONTENTS_OUTPUT_LOCATION} is set to @samp{after_top}, specifying
+that the tables of contents are output at the end of the @code{@@top}
+section, to have the main location for navigation in the whole document
+early on.  This is in line with @code{FORMAT_MENU} set to @samp{sectiontoc}
+with sectioning command being used in HTML for navigation rather
+than menus.
+
+If @code{CONTENTS_OUTPUT_LOCATION} is set to @samp{inline}, the tables of
+content are output where the corresponding @@-command, for example
+@code{@@contents}, is set.  This behavior is consistent with
+@command{texi2dvi}.
 
 If @code{CONTENTS_OUTPUT_LOCATION} is set to @samp{separate_element},
 the tables of contents are output in separate elements, either at
 the end of the document if the output is unsplit or in separate files if not.
-This makes sense when menus are used for navigation.
+This makes sense when menus are used for navigation with @code{FORMAT_MENU} set
+to @samp{menu}.
 
 If @code{CONTENTS_OUTPUT_LOCATION} is set to @samp{after_title}
 the tables of contents are merged into the title material, which in turn is not
@@ -2857,6 +2875,10 @@ Inserted after the short table of contents text.
 
 @end vtable
 
+Additional configuration variables @code{SHORT_TOC_LINK_TO_TOC}
+and @code{NUMBER_SECTIONS} can be used to change the formatting
+of table of contents.
+
 Finally, the following function reference provides even more control
 over the table of contents and short table of contents formatting
 reference:
@@ -2868,27 +2890,25 @@ reference:
 @var{\%element} is optional.  It corresponds to the @var{$command_name} Texinfo
 tree element, but it is only set if @code{format_contents} is called from a
 Texinfo tree element conversion, and not as a special element body formatting.
-@var{$filename} is optional and should correspond to the filename the where the
+@var{$filename} is optional and should correspond to the filename where the
 formatting happens, for links.  If unset, the current file name is used.
 
-Structuring informations are used in the default case to
-format the table of contents (@pxref{Conversion General Information}).
-The functions used for links are used in the default case, such as
-@code{command_contents_href} (@pxref{Other Links@comma{} Headings and
+In the default function, structuring informations are used
+to format the table of contents (@pxref{Conversion General Information}),
+and @code{command_contents_href} (@pxref{Other Links@comma{} Headings and
 Associated Informations for Special Elements}) and @code{command_href}
-(@pxref{Target Commands Links@comma{} Texts and Associated Commands}).
+(@pxref{Target Commands Links@comma{} Texts and Associated Commands})
+are used for links.
 
 Return formatted table of contents or short table of contents.
-
-In addition to the configuration variables described just above,
-@code{SHORT_TOC_LINK_TO_TOC} and @code{NUMBER_SECTIONS} could be relevant.
 @end deftypefn
 
-If contents are in a separate element unit (@pxref{Output Element Units}), the default contents
-and shortcontents special element body formatting function calls
-@code{format_contents} (@pxref{Special Element Body Formatting Functions}). 
-Otherwise, @code{format_contents} is called in diverse situations,
-depending on the @code{CONTENTS_OUTPUT_LOCATION} value.
+If contents are in a separate element unit (@pxref{Output Element Units}), the
+default contents and shortcontents special element body formatting function
+calls @code{format_contents} (@pxref{Special Element Body Formatting
+Functions}).  Otherwise, @code{format_contents} is called in the conversion
+of heading @@-command, in title page formatting, and in @code{@@contents}
+conversion function, depending on the @code{CONTENTS_OUTPUT_LOCATION} value.
 
 
 @node About Element Customization
@@ -2900,16 +2920,19 @@ depending on the @code{CONTENTS_OUTPUT_LOCATION} value.
 The default About element has an explanation of the buttons used in
 the document, controlled by @code{SECTION_BUTTONS}.
 The formatting of this text may be influenced by
-@code{BUTTONS_GOTO}, @code{BUTTONS_NAME}, @code{ACTIVE_ICONS} 
-@pxref{Simple Navigation Panel Customization}).
+@code{BUTTONS_GOTO}, @code{BUTTONS_NAME}, @code{ACTIVE_ICONS}
+(@pxref{Simple Navigation Panel Customization}).
 
 @vindex BUTTONS_EXAMPLE
 @code{BUTTONS_EXAMPLE} also influences the formatting. The keys of this hash
-are element directions (@pxref{Output Element Unit Directions}) and the values
+are element directions (@pxref{Directions}) and the values
 are the text from the About example, typically a section number.
 
+@code{PROGRAM_NAME_IN_ABOUT} can also be used to change the beginning of
+the About element formatting.
+
 If the above is not enough and you want to control exactly the
-formatting of the about text, the @code{about} special element body reference
+formatting of the about element, the @code{about} special element body reference
 function may be overridden (@pxref{Special Element Body Formatting Functions}).
 
 
@@ -3032,13 +3055,13 @@ formats the footer and navigation panel of a tree unit element.
 
 @deftypefn {Function Reference} $formatted_footer format_element_footer @
    ($converter, $tree_unit_type, \%tree_unit_element, $content)
-@var{\%tree_unit_element} is the tree unit element element in which the navigation
-footer is formatted.  @var{$tree_unit_type} is the associated
-type.  @var{$content} is the formatted element content.
+@var{\%tree_unit_element} is the tree unit element element in which the
+navigation footer is formatted.  @var{$tree_unit_type} is the associated type.
+@var{$content} is the formatted element content.
 
 Returns the formatted navigation footer and panel.
 
-In the default code, the function reference select a buttons list 
+In the default code, the function reference select a buttons list
 (@pxref{Simple Navigation Panel Customization}).
 The navigation header can then be formatted with a call
 to @code{&@{$self->formatting_function('format_navigation_header')@}}.
@@ -3079,13 +3102,20 @@ Special elements conversion is achieved by calling
 Functions}), @code{format_navigation_header} (@pxref{Navigation Panel and
 Navigation Header Formatting}), @code{format_heading_text} (@pxref{Basic
 Formatting Customization}) and @code{format_element_footer} (@pxref{Element
-Header and Footer Formatting}). Specific configuration variable hashes taking
-special element types as keys are used in special elements formatting, such as
-@code{SPECIAL_ELEMENTS_CLASS} or @code{SPECIAL_ELEMENTS_HEADING}.  The
-conversion for these elements with type @code{special_element_type} can be be
-replaced by user defined functions for a precise control of conversion
-(@pxref{Type Tree Element Conversion Functions}).
+Header and Footer Formatting}).  The conversion for these elements with type
+@code{special_element_type} can be be replaced by user defined functions for a
+precise control of conversion (@pxref{Type Tree Element Conversion Functions}).
 
+Specific configuration variable hashes taking
+special element varieties as keys are used in special elements formatting:
+@vtable @code
+@item SPECIAL_ELEMENTS_HEADING
+heading text of the special element.
+@item SPECIAL_ELEMENTS_CLASS
+string for special element HTML class attributes.
+@item SPECIAL_ELEMENTS_DIRECTIONS
+direction corresponding to the special element. @xref{Directions}.
+@end vtable
 
 @node Beginning and Ending Files
 @chapter Beginning and Ending Files
@@ -3123,8 +3153,7 @@ configuration variable @code{BODYTEXT}.
 @vindex ENCODING_NAME
 @cindex Encoding, in HTML output
 By default, the encoding name from @code{ENCODING_NAME} is used.  If
-this variable is not defined, it is automatically determined
-(@pxref{Init File Encodings}).
+this variable is not defined, it is automatically determined.
 
 @vindex DATE_IN_HEADER
 @cindex Date, in header
@@ -3141,6 +3170,10 @@ configuration variable) is used in the header
 set, in which case @code{LINKS_BUTTONS} determines which links are
 used and @code{BUTTONS_REL} determines the link type associated with
 the @code{rel} attribute.  @xref{Simple Navigation Panel Customization}.
+
+@vindex HTML_ROOT_ELEMENT_ATTRIBUTES@r{, in customization}
+You can set @code{HTML_ROOT_ELEMENT_ATTRIBUTES} to add attributes to
+the @code{<html>} element.
 
 The configuration variables
 @code{SECTION_NAME_IN_TITLE},
@@ -3162,8 +3195,8 @@ including the @code{<body>} element.
 @end deftypefn
 
 
-@node Customizing HTML Page Footers
-@section Customizing HTML Page Footers
+@node Customizing HTML File End
+@section Customizing HTML File End
 
 @cindex Customizing HTML page footers
 @cindex Footer, customizing for HTML
@@ -3219,16 +3252,17 @@ If @code{USE_TITLEPAGE_FOR_TITLE} is set but there is no output of
 @node Customizing CSS
 @section Customizing the CSS lines
 
-@xref{Simple Customization of CSS Rules and Imports} for some information on CSS customization.
+@xref{Simple Customization of CSS} for some information on CSS customization.
 
 The CSS @var{element}.@var{class} that appeared in a file, gathered through
-@code{html_attribute_class} (@pxref{Formatting HTML Element with Classes
-Opening}) are available from the @code{html_get_css_elements_classes} functions:
+@code{html_attribute_class} calls (@pxref{Formatting HTML Element with Classes
+Opening}) are available through the @code{html_get_css_elements_classes}
+function:
 
 @deftypefun @@css_element_classes $converter->html_get_css_elements_classes @
     ($file_name)
 Returns an array containing @code{element.class} pairs of elements and classes
-appearing on @var{$file_name}.
+appearing in @var{$file_name}.
 @end deftypefun
 
 It is possible to change completely how CSS lines are generated
@@ -3239,10 +3273,10 @@ by redefining the following function reference:
 This function returns the CSS lines and @code{<script>} HTML element
 for @var{$file_name}.
 
-In the default case, the function reference uses @code{CSS_REFS}
-corresponding to command-line @option{--css-ref}, @code{html_get_css_elements_classes}
-and @code{css_get_info} (@pxref{Simple Customization of CSS Rules and Imports})
-to determine the CSS lines.
+In the default case, the function reference uses @code{CSS_REFS} corresponding
+to command-line @option{--css-ref}, @code{html_get_css_elements_classes} and
+@code{css_get_info} (@pxref{Simple Customization of CSS}) to determine the CSS
+lines.
 @end deftypefn
 
 
@@ -3334,8 +3368,8 @@ Texinfo::Structuring::section_level_adjusted_command_name, tp_api}.
 the argument is some Texinfo code, @code{html_convert_css_string_for_list_mark}
 can be used to convert that argument to text usable in CSS style specifications.
 
-@deftypefun $text_for_css $converter->html_convert_css_string_for_list_mark(\%element, @
-                                                                      $explanation)
+@deftypefun $text_for_css $converter->html_convert_css_string_for_list_mark @
+             (\%element, $explanation)
 @var{\%element} is the Texinfo element that is converted to CSS text.
 In general, it is @code{$itemize->@{'args'@}->[0]}, with @code{$itemize} an @code{@@itemize}
 Texinfo tree element.  @var{$explanation} is an optional string describing what is
@@ -3345,9 +3379,9 @@ Returns @var{\%element} formatted as text suitable for CSS.
 @end deftypefun
 @end table
 
-The @code{Texinfo::Convert::NodeNameNormalization} special converter functions
-used for normalization of labels can be used on Texinfo elements trees to
-obtain strings that are unique and can be used in attributes.
+The @code{Texinfo::Convert::NodeNameNormalization} converter, used
+for normalization of labels, exports functions that can be used on Texinfo
+elements trees to obtain strings that are unique and can be used in attributes.
 @xref{Texinfo::Convert::NodeNameNormalization,,,tp_api}.
 
 

@@ -1,3 +1,15 @@
+2022-02-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm
+	(%contents_command_special_element_variety)
+	(command_name_special_element_information)
+	(_convert_special_element_type, _prepare_special_elements)
+	(_prepare_contents_elements), tp/Texinfo/Config.pm,
+	texinfo/doc/customization_api.texi: rename special_element_type
+	as special_element_variety.
+
+	* texinfo/doc/customization_api.texi: corrections.
+
 2022-02-02  Patrice Dumas  <pertusus@free.fr>
 
 	* texinfo/doc/customization_api.texi: draft of the HTML
