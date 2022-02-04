@@ -17,8 +17,6 @@
 #
 # TODO
 #
-# Use texinfo.cnf?  Here?  in texi2any.pl?
-#
 # @def* not implemented
 #
 # @shortcontent is not implemented.  Tried shorttoc package but it
@@ -42,9 +40,6 @@
 # in a way that can be reverted as with @firstparagraphindent.
 # use of \usepackage{indentfirst} cannot be reverted.
 #
-# in TeX, acronym is in a smaller font (1pt less). Can this be
-# easily done in LaTeX?  Is it really useful to do that?
-#
 # flushleft and flushright
 # the flushleft and flushright in Texinfo are not the same as in
 # LaTeX, as, in addition to come from a possibly different margin,
@@ -57,25 +52,24 @@
 #
 # @group should also be added together with the non filled environments.
 #
-# @need is implemented in a specific way, maybe there could be a
-# definition of \mil instead.
+# There is something about form feeds to do.  There is some processing of form
+# feeds right now, which simply amounts to keeping them in ignorable spaces
+# (and with another condition that may not be relevant for LaTeX as the code
+# comes from Plaintext). In the manual it is said form feed (CTRL-l) characters
+# in the input are handled as follows: in PDF/DVI In normal text, treated as
+# ending any open paragraph; essentially ignored between paragraphs.
 #
-# Nothing specific is done for @headings singleafter and @headings doubleafter
-# compared to @headings single and @headings double
+# Should @tie be expanded to ~?
 #
-# The \listof result does not seems very good.  Also it does not
-# use the type (name) of float.
+# @dmn is not implemented
 #
-# interline spacing in @title multi lines in @titlepage and between
-# multiple @author is not as good as in Texinfo TeX output/
-# example titlepage_classical in t/latex_tests.t can show it.
 #
-# shorttitlepage in Texinfo TeX does not seem to break line.
-# Probably ok.
+# RELEVANT BUT NOT DECISIVE
 #
-# for external references it seems that Texinfo TeX points to
-# a file, it could be relevant to do the same in LaTeX.
+# breaking in urls is not implemented, maybe there is some support already in
+# hyperref.  @urefbreakstyle, @/
 #
+# Breaking in _ or - in @code is not implemented, as well as @allowcodebreaks.
 #
 # Translations
 #
@@ -93,36 +87,6 @@
 # default case.  it is defined in the pagenote package together with \pagename
 # which is page in the default case, but it is unclear if this can be used as a
 # basis for translations
-#
-#
-# breaking in urls is not implemented, maybe there is some support already in
-# hyperref.  @urefbreakstyle, @/
-#
-# Breaking in _ or - in @code is not implemented, as well as @allowcodebreaks.
-#
-# The support of \global\urefurlonlylinktrue would be rather easy, but maybe
-# need to make it a proper @-command.  Similarly \global\def\linkcolor and
-# \global\def\urlcolor should probably only implemented if there is a
-# corresponding @-command.  There are options for colors in hyperref, like
-# linkbordercolor but it is unlear whether it can be used to distinguish links
-# and urls.
-#
-# There is something about form feeds to do.  There is some processing of form
-# feeds right now, which simply amounts to keeping them in ignorable spaces
-# (and with another condition that may not be relevant for LaTeX as the code
-# comes from Plaintext). In the manual it is said form feed (CTRL-l) characters
-# in the input are handled as follows: in PDF/DVI In normal text, treated as
-# ending any open paragraph; essentially ignored between paragraphs.
-#
-# In the manual it is said that majorheading generates a larger vertical
-# whitespace before the heading than @chapheading command.  It is not
-# implemented.  However, it seems that the chapter level commands in LaTeX
-# generate bigger fonts and much more vertical whitespace than in Texinfo TeX
-# so maybe it is not needed to do something here.
-#
-# @fonttextsize with \changefontsize does not seems to change fonts much.  It
-# seems to change in the text, but only 10pt, and does not seems to change
-# sections font sizes.
 #
 # The @afourpaper, @afourlatex and @afourwide commands all map to
 # papername=a4paper.  It is most likely ok for @afourlatex, but the other two
@@ -142,13 +106,53 @@
 # of output, but the description of quote does not really match with what
 # is supposed to be the @quotation output.
 #
+#
+# CAN WAIT
+#
+# Use texinfo.cnf?  Here?  in texi2any.pl?
+#
+# @need is implemented in a specific way, maybe there could be a
+# definition of \mil instead.
+#
+# @fonttextsize with \changefontsize does not seems to change fonts much.  It
+# seems to change in the text, but only 10pt, and does not seems to change
+# sections font sizes.
+#
+# The \listof result does not seems very good.  Also it does not
+# use the type (name) of float.
+#
+# in TeX, acronym is in a smaller font (1pt less). Can this be
+# easily done in LaTeX?  Is it really useful to do that?
+#
+# interline spacing in @title multi lines in @titlepage and between
+# multiple @author is not as good as in Texinfo TeX output/
+# example titlepage_classical in t/latex_tests.t can show it.
+#
+# shorttitlepage in Texinfo TeX does not seem to break line.
+# Probably ok.
+#
+# for external references it seems that Texinfo TeX points to
+# a file, it could be relevant to do the same in LaTeX.
+#
+# Nothing specific is done for @headings singleafter and @headings doubleafter
+# compared to @headings single and @headings double
+#
+# The support of \global\urefurlonlylinktrue would be rather easy, but maybe
+# need to make it a proper @-command.  Similarly \global\def\linkcolor and
+# \global\def\urlcolor should probably only implemented if there is a
+# corresponding @-command.  There are options for colors in hyperref, like
+# linkbordercolor but it is unlear whether it can be used to distinguish links
+# and urls.
+#
+# In the manual it is said that majorheading generates a larger vertical
+# whitespace before the heading than @chapheading command.  It is not
+# implemented.  However, it seems that the chapter level commands in LaTeX
+# generate bigger fonts and much more vertical whitespace than in Texinfo TeX
+# so maybe it is not needed to do something here.
+#
 # push a context for the formatting of @quotation @author, such that if in a
 # preformatted environment the @quotation @author formatting will be the same
 # as in the main text?
-#
-# Should @tie be expanded to ~?
-#
-# @dmn is not implemented
 #
 # index entry between @table and fist @item cause an empty \item[] to be
 # output.
