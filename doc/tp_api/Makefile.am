@@ -1,4 +1,3 @@
-# $Id$
 # Makefile.am for texinfo/doc/tp_api.
 #
 # Copyright 2012-2019 Free Software Foundation, Inc.
