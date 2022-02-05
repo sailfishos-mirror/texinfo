@@ -115,7 +115,7 @@ sub fill_gaps_in_sectioning($)
             $Texinfo::Common::level_to_structuring_command{'unnumbered'}->[$current_section_level],
             'parent' => $root,
           };
-          $new_section->{'contents'} = [{'type' => 'empty_line', 
+          $new_section->{'contents'} = [{'type' => 'empty_line',
                                          'text' => "\n",
                                          'parent' => $new_section}];
           $new_section->{'args'} = [{'type' => 'line_arg',
@@ -148,17 +148,17 @@ sub fill_gaps_in_sectioning($)
   return (\@contents, \@added_sections);
 }
 
-# This converts a reference @-command to simple text using one of the 
-# arguments.  This is used to remove reference @-command from 
+# This converts a reference @-command to simple text using one of the
+# arguments.  This is used to remove reference @-command from
 # constructed node names trees, as node names cannot contain
-# reference @-command while there could be some in the tree used in 
+# reference @-command while there could be some in the tree used in
 # input for the node name tree.
 sub _reference_to_arg($$$)
 {
   my $type = shift;
   my $current = shift;
 
-  if ($current->{'cmdname'} and 
+  if ($current->{'cmdname'} and
       $Texinfo::Common::ref_commands{$current->{'cmdname'}}
       and $current->{'args'}) {
     my @args_try_order;
@@ -203,12 +203,12 @@ sub _new_node($$$$)
   my $labels = shift;
 
   $node_tree = Texinfo::Common::protect_comma_in_tree($node_tree);
-  $node_tree->{'contents'} 
+  $node_tree->{'contents'}
      = Texinfo::Common::protect_first_parenthesis($node_tree->{'contents'});
   $node_tree = reference_to_arg_in_tree($node_tree);
 
   my $empty_node = 0;
-  if (!$node_tree->{'contents'} 
+  if (!$node_tree->{'contents'}
       or !scalar(@{$node_tree->{'contents'}})) {
     $node_tree->{'contents'} = [{'text' => ''}];
     $empty_node = 1;
@@ -219,14 +219,14 @@ sub _new_node($$$$)
             or $node_tree->{'contents'}->[-1]->{'cmdname'} eq 'comment'))
       or (defined($node_tree->{'contents'}->[-1]->{'text'})
           and $node_tree->{'contents'}->[-1]->{'text'} =~ /\n/)) {
-    push @{$node_tree->{'contents'}}, 
+    push @{$node_tree->{'contents'}},
            {'type' => 'spaces_at_end', 'text' => "\n"};
   }
 
   my $appended_number = 0 +$empty_node;
   my ($node, $parsed_node);
 
-  while (!defined($node) 
+  while (!defined($node)
          or ($labels
             and $labels->{$parsed_node->{'normalized'}})) {
     $node = {'cmdname' => 'node', 'args' => [{}]};
@@ -296,7 +296,7 @@ sub _reassociate_to_node($$$$)
     }
     push @{$new_node->{'extra'}->{'menus'}}, $current;
   } elsif ($current->{'extra'} and $current->{'extra'}->{'index_entry'}) {
-    if ($previous_node 
+    if ($previous_node
         and (!$current->{'extra'}->{'index_entry'}->{'node'}
              or $current->{'extra'}->{'index_entry'}->{'node'} ne $previous_node)) {
       print STDERR "Bug: index entry $current (".
@@ -333,13 +333,13 @@ sub insert_nodes_for_sectioning_commands($$$$)
     if ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
         and $content->{'cmdname'} ne 'part'
         and $Texinfo::Common::root_commands{$content->{'cmdname'}}
-        and not ($content->{'extra'} 
+        and not ($content->{'extra'}
                  and $content->{'extra'}->{'associated_node'})) {
       my $new_node_tree;
       if ($content->{'cmdname'} eq 'top') {
         $new_node_tree = {'contents' => [{'text' => 'Top'}]};
       } else {
-        $new_node_tree = Texinfo::Common::copy_tree({'contents' 
+        $new_node_tree = Texinfo::Common::copy_tree({'contents'
           => $content->{'args'}->[0]->{'contents'}});
       }
       my $new_node = _new_node($new_node_tree, $nodes_list,
@@ -356,8 +356,8 @@ sub insert_nodes_for_sectioning_commands($$$$)
       }
     }
     # check normalized to avoid erroneous nodes, such as duplicates
-    $previous_node = $content 
-      if ($content->{'cmdname'} 
+    $previous_node = $content
+      if ($content->{'cmdname'}
           and $content->{'cmdname'} eq 'node'
           and $content->{'extra'}->{'normalized'});
     push @contents, $content;
@@ -397,7 +397,7 @@ sub complete_node_menu($;$)
             my $entry_node = $entry->{'extra'}->{'menu_entry_node'};
             if (! $entry_node->{'manual_content'}
                 and defined($entry_node->{'normalized'})) {
-              $existing_entries{$entry_node->{'normalized'}} 
+              $existing_entries{$entry_node->{'normalized'}}
                 = [$menu, $entry];
             }
           }
@@ -410,7 +410,7 @@ sub complete_node_menu($;$)
     foreach my $node_entry (@node_childs) {
       if ($existing_entries{$node_entry->{'extra'}->{'normalized'}}) {
         my $entry;
-        ($current_menu, $entry) 
+        ($current_menu, $entry)
          = @{$existing_entries{$node_entry->{'extra'}->{'normalized'}}};
         if (@pending) {
           my $index;
@@ -460,7 +460,7 @@ sub _get_non_automatic_nodes_with_sections($)
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
         and (scalar(@{$content->{'extra'}->{'nodes_manuals'}}) == 1)
-        and $content->{'extra'} 
+        and $content->{'extra'}
         and $content->{'extra'}->{'associated_section'}) {
       push @non_automatic_nodes, $content;
     }
@@ -626,7 +626,7 @@ sub regenerate_master_menu($$)
       if ($entry->{'cmdname'} and $entry->{'cmdname'} eq 'detailmenu') {
         # replace existing detailmenu by the master menu
         $new_master_menu->{'parent'} = $menu;
-        splice (@{$menu->{'contents'}}, $detailmenu_index, 1, 
+        splice (@{$menu->{'contents'}}, $detailmenu_index, 1,
                 $new_master_menu);
         return 1;
       }
@@ -805,7 +805,7 @@ sub _protect_hashchar_at_line_beginning($$$)
         if ($parent->{'cmdname'} and $parent->{'line_nr'}) {
           if ($registrar) {
             $registrar->line_warn($configuration_information, sprintf(__(
-                "could not protect hash character in \@%s"), 
+                "could not protect hash character in \@%s"),
                            $parent->{'cmdname'}), $parent->{'line_nr'});
           }
           last;
@@ -845,106 +845,115 @@ __END__
 
 Texinfo::Transformations - transformations of Texinfo::Parser.pm tree
 
-=head1 SYNOPSIS
+=head1 DISCLAIMER
 
-  use Texinfo:Transformations;
-  
-  
+The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
+Texinfo to other formats.  There no promise of API stability.
+
 =head1 DESCRIPTION
 
 Includes miscellaneous methods C<set_menus_to_simple_menu> and
 C<menu_to_simple_menu> to change the menu texinfo tree, as well
-as C<insert_nodes_for_sectioning_commands> that adds nodes for 
+as C<insert_nodes_for_sectioning_commands> that adds nodes for
 sectioning commands without nodes and C<complete_tree_nodes_menus>
-and C<complete_tree_nodes_missing_menu> that completes the 
+and C<complete_tree_nodes_missing_menu> that completes the
 node menus based on the sectioning tree.
-
-
 
 =head1 METHODS
 
 No method is exported in the default case.
 
-Most of those function references takes a Texinfo::Parser object
-as argument, see L<Texinfo::Parser>.
-
 =over
 
+=item complete_tree_nodes_menus ($tree, $add_section_names_in_entries)
 
-=item ($root_content, $added_sections) = fill_gaps_in_sectioning ($root)
+Add menu entries or whole menus for nodes associated with sections,
+based on the sectioning tree.  If the optional
+C<$add_section_names_in_entries> argument is set, a menu entry
+name is added using the section name.  This function should be
+called after L<sectioning_structure|Texinfo::Structuring/$sections_root, $sections_list = sectioning_structure($registrar, $configuration_information, $tree)>.
+
+=item complete_tree_nodes_missing_menu ($tree, $use_section_names_in_entries)
+
+Add whole menus for nodes associated with sections and without menu,
+based on the sectioning tree.  If the optional
+C<$add_section_names_in_entries> argument is set, a menu entry
+name is added using the section name.  This function should be
+called after L<sectioning_structure|Texinfo::Structuring/$sections_root, $sections_list = sectioning_structure($registrar, $configuration_information, $tree)>.
+
+=item ($root_content, $added_sections) = fill_gaps_in_sectioning ($tree)
 
 This function adds empty C<@unnumbered> and similar commands in a tree
-to fill gaps in sectioning.  This may be used, for example, when converting 
-from a format that can handle gaps in sectioning.  I<$root> is the tree
+to fill gaps in sectioning.  This may be used, for example, when converting
+from a format that can handle gaps in sectioning.  I<$tree> is the tree
 root.  An array reference is returned, containing the root contents
-with added sectioning commands, as well as an array reference containing 
+with added sectioning commands, as well as an array reference containing
 the added sectioning commands.
 
 If the sectioning commands are lowered or raised (with C<@raisesections>,
 C<@lowersection>) the tree may be modified with C<@raisesections> or
 C<@lowersection> added to some tree elements.
 
-=item menu_to_simple_menu ($menu)
-
-=item set_menus_to_simple_menu ($nodes_list)
-
-C<menu_to_simple_menu> transforms the tree of a menu tree element.  
-C<set_menus_to_simple_menu> calls C<menu_to_simple_menu> for all the
-menus of the nodes in C<$nodes_list>.
-
-A simple menu has no I<menu_comment>, I<menu_entry> or I<menu_entry_description>
-container anymore, their content are merged directly in the menu in 
-I<preformatted> container.
-
-=item ($root_content, $added_nodes) = insert_nodes_for_sectioning_commands ($parser, $tree, $nodes_list, $targets_list, $labels)
+=item ($root_content, $added_nodes) = insert_nodes_for_sectioning_commands ($tree, $nodes_list, $targets_list, $labels)
 
 Insert nodes for sectioning commands without node in C<$tree>.
 Add nodes to the labels used as targets for references C<$labels>
 and C<$targets_list> and to C<$nodes_list>.
 
 An array reference is returned, containing the root contents
-with added nodes, as well as an array reference containing the 
+with added nodes, as well as an array reference containing the
 added nodes.
 
-=item complete_tree_nodes_menus ($tree, $add_section_names_in_entries)
+=item menu_to_simple_menu ($menu)
 
-Add menu entries or whole menus for nodes associated with sections,
-based on the sectioning tree.  If the optional 
-C<$add_section_names_in_entries> argument is set, a menu entry 
-name is added using the section name.  This function should be
-called after L<sectioning_structure>.
+=item set_menus_to_simple_menu ($nodes_list)
 
-=item complete_tree_nodes_missing_menu ($tree, $use_section_names_in_entries)
+C<menu_to_simple_menu> transforms the tree of a menu tree element.
+C<set_menus_to_simple_menu> calls C<menu_to_simple_menu> for all the
+menus of the nodes in C<$nodes_list>.
 
-Add whole menus for nodes associated with sections and without menu,
-based on the sectioning tree.  If the optional 
-C<$add_section_names_in_entries> argument is set, a menu entry 
-name is added using the section name.  This function should be
-called after L<sectioning_structure>.
+A simple menu has no I<menu_comment>, I<menu_entry> or I<menu_entry_description>
+container anymore, their content are merged directly in the menu in
+I<preformatted> container.
 
-=item protect_hashchar_at_line_beginning($registrar, $configuration_information, $tree)
+=item $detailmenu = new_master_menu ($translations, $labels)
+
+Returns a detailmenu tree element formatted as a master node.
+I<$translations>, if defined, should be a L<Texinfo::Translations> object and
+should also hold configuration information.
+
+=item protect_hashchar_at_line_beginning ($registrar, $configuration_information, $tree)
 
 Protect hash (#) character at the beginning of line such that they would
 not be considered as lines to be processed by the CPP processor.
+I<$registrar> is a L<Texinfo::Report> in which the errors
+and warnings encountered while parsing are registered.
 
-=item $detailmenu = new_master_menu ($parser, $labels)
-
-Returns a detailmenu tree element formatted as a master node.
-
-=item regenerate_master_menu ($parser, $labels)
+=item regenerate_master_menu ($translations, $labels)
 
 Regenerate the Top node master menu, replacing the first detailmenu
 in Top node menus or appending at the end of the Top node menu.
+I<$translations>, if defined, should be a L<Texinfo::Translations> object and
+should also hold configuration information.
 
 =back
 
 =head1 SEE ALSO
 
-L<Texinfo manual|http://www.gnu.org/s/texinfo/manual/texinfo/>, 
+L<Texinfo manual|http://www.gnu.org/s/texinfo/manual/texinfo/>,
 L<Texinfo::Parser>.
 
 =head1 AUTHOR
 
 Patrice Dumas, E<lt>pertusus@free.frE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2016 Free Software Foundation, Inc.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
 
 =cut

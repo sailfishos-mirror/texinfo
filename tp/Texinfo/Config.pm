@@ -17,12 +17,14 @@
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
-# functions that should not be called by user init files codes are
-# prefixed by GNUT_ while functions that can be called by user init
-# files codes are prefixed by texinfo_.
-# 
-# TODO document all texinfo_ in a pod section, but wait for stabilization.
-# Document that GNUT_, _GNUT_ and texinfo_ are reserved prefixes.
+# functions that should not be called by user init files codes, but
+# are called by the main program are prefixed by GNUT_ while functions that can
+# be called by user init files codes are prefixed by texinfo_.
+# Functions prefixed by _GNUT_ are private.
+#
+# This package is documented in the customization_api Texinfo manual.  The
+# public functions defined here cannot and should not be documented separately
+# from the texinfo main program and HTML modules documentation.
 
 package Texinfo::Config;
 

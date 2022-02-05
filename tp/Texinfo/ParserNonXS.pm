@@ -6075,7 +6075,7 @@ It overrides the document C<@documentlanguage> information, if present.
 
 =item registrar
 
-Texinfo::Report object reused by the parser to register errors.
+L<Texinfo::Report> object reused by the parser to register errors.
 
 =item values
 
@@ -6215,7 +6215,7 @@ described in L<errors|Texinfo::Report/($error_warnings_list, $error_count) = err
 
 =item $registrar = registered_errors($parser)
 
-I<$registrar> is a C<Texinfo::Report> object in which the errors
+I<$registrar> is a L<Texinfo::Report> object in which the errors
 and warnings encountered while parsing are registered.  If a I<registrar>
 passed to the parser initialization options, it is reused, otherwise
 a new one is created.

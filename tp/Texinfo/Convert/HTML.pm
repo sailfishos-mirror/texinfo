@@ -16,31 +16,16 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
-# The following categories of formatting functions can be replaced
-# by the user.  The associated hash with defaults is also shown:
-#  * command tree element formatting functions defaults in
-#    %default_commands_conversion
-#  * command tree element opening functions defaults in
-#    %default_commands_open
-#  * type tree element (element without @-command) formatting
-#    functions, defaults in %default_types_conversion
-#  * type tree element opening functions defaults in
-#    %default_types_open
-#  * other formatting functions, defaults in
-#    %default_formatting_references
+# The documentation of the HTML customization API which is both
+# used and implemented in the current file is in the customization_api
+# Texinfo manual.
 #
-# The functions used in the default case for all the functions
-# that may be replaced should not have side effects, such that
-# users can overrides them independently without risking unwanted
-# results.  Also in formatting functions, the state of the
-# converter should only be accessed through functions, such
-# as in_math, in_preformatted, preformatted_classes_stack and
-# similar functions.
-#
-# In most formatting functions, the case where $self->in_string() is
-# true should be handled explicitely and the simplest formatting should be
-# done in that case, without any HTML element such that the result
-# can be in an attribute or in a comment.
+# Formatting and conversion functions that can be replaced by user-defined
+# functions should only use documented functions to pass information
+# and formatted content, such that users can overrides them independently
+# without risking unwanted results.  Also in formatting functions, the state of
+# the converter should only be accessed through functions, such as in_math,
+# in_preformatted, preformatted_classes_stack and similar functions.
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 
@@ -75,7 +60,10 @@ use Texinfo::Structuring;
 use Texinfo::Convert::Converter;
 
 # used to convert Texinfo to LaTeX math in @math and @displaymath
-# for further conversion by softwares that only convert LaTeX
+# for further conversion by softwares that only convert LaTeX.
+# NOTE mathjax does not implement some constructs output by the
+# Texinfo::Convert::LaTeX converter.  Examples in 2022:
+# \mathord{\text{}} \textsl{} \copyright{} \mathsterling{}
 use Texinfo::Convert::LaTeX;
 
 
@@ -423,7 +411,7 @@ sub html_convert_css_string_for_list_mark($$;$)
   return $result;
 }
 
-# API to access converter state for customization code
+# API to access converter state for conversion
 
 sub in_math($)
 {
@@ -615,7 +603,7 @@ sub _get_target($$)
   return $target;
 }
 
-# API for elements directions formatting
+# API for links and elements directions formatting
 
 # This returns the id specific of the $COMMAND tree element
 sub command_id($$)
@@ -1272,7 +1260,7 @@ sub from_element_direction($$$;$$)
   }
 }
 
-# API for misc useful functions for customization files
+# API for misc conversion and formatting functions
 
 # it is considered 'top' only if element corresponds to @top or
 # element is a node
@@ -10170,6 +10158,11 @@ sub _set_variables_texi2html()
 }
 
 1;
+
+# The documentation of the customization API is in the customization_api
+# Texinfo manual.  POD format is not suitable for such a documentation, because
+# of the module documentation style, the language limitations, and also because
+# the customization API involves multiple modules as well as the main program.
 
 __END__
 # Automatically generated from maintain/template.pod

@@ -63,13 +63,23 @@
 #
 # @dmn is not implemented
 #
+# LaTeX seems to always break at -, and never at _.  If @allowcodebreaks
+# is true \_ should be set to be a possible break point.  Seems that it
+# may be done with something like:
+#
+#   \let\underscore\_
+#   \newcommand{\myunderscore}{\renewcommand{\_}{\underscore\hspace{0pt}}}
+#
+# If @allowcodebreaks is false, - should be set such that it is not a
+# breaking point anymore.  Maybe one way to do it:
+#
+#   \mbox{-}\nobreak\hspace{0pt}
+#
 #
 # RELEVANT BUT NOT DECISIVE
 #
 # breaking in urls is not implemented, maybe there is some support already in
 # hyperref.  @urefbreakstyle, @/
-#
-# Breaking in _ or - in @code is not implemented, as well as @allowcodebreaks.
 #
 # Translations
 #

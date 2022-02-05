@@ -37,7 +37,6 @@ BUILT_SOURCES = tp_api.texi
 #DISTCLEANFILES = tp_api.info
 
 # FIXME add?
-# $(top_srcdir)/tp/Texinfo/Transformations.pm
 tp_api_dependencies = \
   $(top_srcdir)/tp/Texinfo/Common.pm \
   $(top_srcdir)/tp/Texinfo/Encoding.pm \
@@ -45,6 +44,7 @@ tp_api_dependencies = \
   $(top_srcdir)/tp/Texinfo/Structuring.pm \
   $(top_srcdir)/tp/Texinfo/Report.pm \
   $(top_srcdir)/tp/Texinfo/Translations.pm \
+  $(top_srcdir)/tp/Texinfo/Transformations.pm \
   $(top_srcdir)/tp/Texinfo/Convert/Texinfo.pm \
   $(top_srcdir)/tp/Texinfo/Convert/Utils.pm \
   $(top_srcdir)/tp/Texinfo/Convert/Unicode.pm \

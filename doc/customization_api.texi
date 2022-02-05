@@ -44,6 +44,9 @@ Texts.  A copy of the license is included in the section entitled
 @node Top
 @top @c @command{texi2any} Output Customization
 
+@node Overview
+@chapter Overview
+
 @cartouche
 @quotation Warning
 All of this information, with the exception of command-line options
@@ -58,20 +61,19 @@ not a promise.
 @end quotation
 @end cartouche
 
-This manual describes how to customize aspects of the
-@command{texi2any} HTML output.  Although some of the features here
-can technically be used with other output formats, it's not especially
-useful to do so, so we'll write the documentation as if HTML were the
-target format.  Most of the customizations are only available for
-HTML.
+This manual describes how to customize the @command{texi2any} HTML output.
+Although some of the features here can technically be used with other output
+formats, it's not especially useful to do so, so we'll write the documentation
+as if HTML were the target format.  Most of the customizations are only
+available for HTML.
 
 The conversion of Texinfo to HTML is done in two steps.  After reading
 command-line options and init files, input Texinfo code is parsed
 into a Texinfo Perl tree and information is gathered on the document
-structure.  This first step can only be customized to some extent, by setting
-customization variables.  The Texinfo Perl tree describes a Texinfo document in a
-structured way which makes it easy to go through the tree and format
-@@-commands and other containers.
+structure.  This first step can only be customized to a certain extent, by
+using the command-line options and setting customization variables.  The
+Texinfo Perl tree describes a Texinfo document in a structured way which makes
+it easy to go through the tree and format @@-commands and other containers.
 
 The second step is the @dfn{conversion} step done in a converter.  The HTML
 converter takes a Texinfo Perl tree as input and transforms it to HTML@.  The
@@ -174,7 +176,7 @@ distribution, and can serve as a good model for writing your own.  Another
 example is the @code{Texinfo::Convert::HTML} module which implements
 almost all the Texinfo HTML function described in this manual for the conversion
 to HTML@footnote{The @code{Texinfo::Convert::HTML} module also implements the
-HTML converter calling user defined functions during document conversion.}.
+HTML converter which go through the tree and call user defined functions.}.
 The Licenses conditions of the diverse files used as example should be taken
 into account when reusing code.
 
@@ -194,7 +196,7 @@ It is possible to start init files with:
 @example
 package Texinfo::Config;
 @end example
-It is not mandatory, but it may help some debugging tools determine in which
+It is not required, but it may help some debugging tools determine in which
 namespace the code is run.
 
 In the @code{Texinfo::Config} namespace, the functions names beginning with
@@ -214,8 +216,8 @@ functions to be called from the converter. @xref{User Defined Functions}.
 The basic operations on customization variables are to set and
 retrieve their values.  New variables can also be added.
 
-Customization variables also valid out of the HTML
-converter, in the main program, are handled differently if they are strings or
+The customization variables also valid in the main program out of the HTML
+converter are handled differently if they are strings or
 arrays.  The customization variables only relevant for the conversion phase
 are always set like string variables, in particular array or hash references.
 
