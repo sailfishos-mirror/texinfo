@@ -17,7 +17,8 @@
 #
 # TODO
 #
-# @def* not implemented
+# @def* not implemented (code from Plaintext was kept as-is), including
+# effect of @deftypefnnewline
 #
 # @shortcontent is not implemented.  Tried shorttoc package but it
 # has two limitations that are not in Texinfo, need a main \tableofcontents

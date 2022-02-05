@@ -271,4 +271,14 @@ Converts the Texinfo tree I<$tree> to Texinfo code.
 
 Patrice Dumas, E<lt>pertusus@free.frE<gt>
 
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2010- Free Software Foundation, Inc.  See the source file for
+all copyright years.
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or (at
+your option) any later version.
+
 =cut

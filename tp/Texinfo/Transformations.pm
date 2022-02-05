@@ -949,7 +949,8 @@ Patrice Dumas, E<lt>pertusus@free.frE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2016 Free Software Foundation, Inc.
+Copyright 2010- Free Software Foundation, Inc.  See the source file for
+all copyright years.
 
 This library is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

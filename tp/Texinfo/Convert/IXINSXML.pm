@@ -67,3 +67,5 @@ sub output($)
 
   return $self->output_ixin($root);
 }
+
+1;

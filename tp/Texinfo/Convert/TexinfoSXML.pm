@@ -175,3 +175,5 @@ sub format_header($$$)
   }
   return $header;
 }
+
+1;
