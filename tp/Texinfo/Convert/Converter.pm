@@ -515,9 +515,14 @@ sub write_or_return($$$)
 
 my $STDIN_DOCU_NAME = 'stdin';
 
-sub determine_files_and_directory($)
+sub determine_files_and_directory($;$)
 {
   my $self = shift;
+  my $output_format = shift;
+
+  if (not defined($output_format)) {
+    $output_format = $self->{'output_format'};
+  }
 
   # determine input file base name
   my $input_basefile;
@@ -623,6 +628,9 @@ sub determine_files_and_directory($)
       $destination_directory = $self->get_conf('SUBDIR');
     } else {
       $destination_directory = $document_name;
+      if (defined($output_format) and $output_format ne '') {
+        $destination_directory .= '_'.$output_format;
+      }
     }
   } else {
     # $output_file_filename is not used, but $output_filename should be
@@ -889,28 +897,10 @@ sub create_destination_directory($$)
   if (defined($destination_directory)
       and ! -d $destination_directory) {
     if (!mkdir($destination_directory, oct(755))) {
-      if ($self->get_conf('SPLIT')
-          and $self->get_conf('EXTENSION')
-          and $self->get_conf('EXTENSION') ne '') {
-        my ($volume, $directories, $file)
-           = File::Spec->splitpath($destination_directory, 1);
-        my $new_directory = File::Spec->catpath($volume,
-                 $directories . '.' . $self->get_conf('EXTENSION'), $file);
-        if (! -d $new_directory) {
-          if (!mkdir($new_directory, oct(755))) {
-            $self->document_error($self, sprintf(__(
-                            "could not create directories `%s' or `%s': %s"),
-                                   $destination_directory, $new_directory, $!));
-            return (0, $destination_directory);
-          }
-        }
-        $destination_directory = $new_directory;
-      } else {
-        $self->document_error($self, sprintf(__(
-                                  "could not create directory `%s': %s"),
-                                            $destination_directory, $!));
-        return (0, $destination_directory);
-      }
+      $self->document_error($self, sprintf(__(
+                                "could not create directory `%s': %s"),
+                                          $destination_directory, $!));
+      return (0, $destination_directory);
     }
   }
   return (1, $destination_directory);
@@ -1749,12 +1739,14 @@ actually created, which is, if possible, I<$destination_directory>, but can also
 be different from I<$destination_directory> if I<$destination_directory>
 already exists as a file, output is split and there is an extension.
 
-=item ($output_file, $destination_directory, $output_filename, $document_name, $input_basefile) = $converter->determine_files_and_directory()
+=item ($output_file, $destination_directory, $output_filename, $document_name, $input_basefile) = $converter->determine_files_and_directory($output_format)
 
 Determine output file and directory, as well as names related to files.  The
 result depends on the presence of C<@setfilename>, on the Texinfo input file
 name, and on customization options such as OUTPUT, SUBDIR or SPLIT, as described
-in the Texinfo manual.
+in the Texinfo manual.  I<$output_format> is optional.  If it is not set the
+current output format, if defined, is used instead.  If not an empty string,
+C<_$output_format> is prepended to the default directory name.
 
 I<$output_file> is mainly relevant when not split and should be used as the
 output file name.  In general, if not split and I<$output_file> is an empty

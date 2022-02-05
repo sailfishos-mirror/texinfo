@@ -245,7 +245,7 @@ sub epub_setup($)
     }
   }
   my ($output_file, $destination_directory, $output_filename,
-              $document_name) = $self->determine_files_and_directory();
+      $document_name) = $self->determine_files_and_directory('epub_package');
   if (not defined($epub_outfile)) {
     $epub_outfile = ${document_name}.'.epub';
   }
@@ -256,7 +256,7 @@ sub epub_setup($)
     $epub_destination_directory = File::Spec->catdir($self->get_conf('SUBDIR'),
                                           $document_name . '_epub_package');
   } elsif ($self->get_conf('SPLIT')) {
-    $epub_destination_directory = $destination_directory . '_epub_package';
+    $epub_destination_directory = $destination_directory;
   } else {
     $epub_destination_directory = $document_name . '_epub_package';
   }

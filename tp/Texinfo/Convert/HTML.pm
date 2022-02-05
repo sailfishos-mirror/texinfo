@@ -8099,24 +8099,30 @@ sub _external_node_href($$$$)
     if ($target_split) {
       if (defined($href)) {
         $file = $href;
-      } elsif (defined($self->get_conf('EXTERNAL_DIR'))) {
-        $file = $self->get_conf('EXTERNAL_DIR')."/$manual_base";
-      } elsif ($self->get_conf('SPLIT')) {
-        $file = "../$manual_base";
+      } else {
+        my $manual_dir = $manual_base;
+        if (defined($self->{'output_format'}) and $self->{'output_format'} ne '') {
+          $manual_dir .= '_'.$self->{'output_format'};
+        }
+        if (defined($self->get_conf('EXTERNAL_DIR'))) {
+          $file = $self->get_conf('EXTERNAL_DIR')."/$manual_dir";
+        } elsif ($self->get_conf('SPLIT')) {
+          $file = "../$manual_dir";
+        }
       }
       $file .= "/";
     } else {# target not split
       if (defined($href)) {
         $file = $href;
       } else {
+        my $manual_file_name = $manual_base . $external_file_extension;
         if (defined($self->get_conf('EXTERNAL_DIR'))) {
-          $file = $self->get_conf('EXTERNAL_DIR')."/$manual_base";
+          $file = $self->get_conf('EXTERNAL_DIR')."/$manual_file_name";
         } elsif ($self->get_conf('SPLIT')) {
-          $file = "../$manual_base";
+          $file = "../$manual_file_name";
         } else {
-          $file = $manual_base;
+          $file = $manual_file_name;
         }
-        $file .= $external_file_extension;
       }
     }
   } else {

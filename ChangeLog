@@ -1,3 +1,14 @@
+2022-02-05  Patrice Dumas  <pertusus@free.fr>
+
+	* NEWS, doc/texinfo.texi (HTML Splitting, HTML Xref Link Basics)
+	(HTML Xref Node Name Expansion, HTML Xref Mismatch),
+	tp/Texinfo/Convert/Converter.pm (determine_files_and_directory)
+	(create_destination_directory), tp/Texinfo/Convert/HTML.pm
+	(_external_node_href), tp/init/epub3.pm: postpend '_format'
+	to output directory when split.  For this, add a format argument
+	to determine_files_and_directory().  In practice means that
+	default output directory for HTML manual is now manual_html/.
+
 2022-02-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm

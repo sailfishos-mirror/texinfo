@@ -18291,27 +18291,12 @@ with the relevant sectioning command.  Also, unless
 for every node in order to more reliably support cross-references to
 that manual (@pxref{HTML Xref}).
 
-When splitting, the HTML output files are written into a subdirectory,
-with the name chosen as follows:
-
-@enumerate
-@item
-@command{makeinfo} first tries the subdirectory with the base name
-from @code{@@setfilename} (that is, any extension is removed).  For
-example, HTML output for @code{@@setfilename gcc.info} would be
-written into a subdirectory named @samp{gcc/}.
-
-@item
-If that directory cannot be created for any reason, then
-@command{makeinfo} tries appending @samp{.html} to the directory name.
-For example, output for @code{@@setfilename texinfo} would be written
-to @samp{texinfo.html/}.
-
-@item
-If the @samp{@var{name}.html} directory can't be created either,
-@code{makeinfo} gives up.
-
-@end enumerate
+When splitting, the HTML output files are written into a subdirectory.  The
+subdirectory name is derived from the base name from @code{@@setfilename} (that
+is, any extension is removed), with @code{_html} postpended. For example, HTML
+output for @code{@@setfilename gcc.info} would be written into a subdirectory
+named @samp{gcc_html/}.  The subdirectory name is based in the input file name
+if there is no @code{@@setfilename}.
 
 @noindent In any case, the top-level output file within the directory
 is always named @samp{index.html}.
@@ -18487,12 +18472,12 @@ the manual that the cross-reference refers to.  The underlying idea is
 that there is one directory for Texinfo manuals in HTML, and a given
 @var{manual} is either available as a monolithic file
 @file{@var{manual}.html}, or a split subdirectory
-@file{@var{manual}/*.html}.  Here are the cases:
+@file{@var{manual}_html/*.html}.  Here are the cases:
 
 @itemize @bullet
 @item
 If the present manual is split, and the referent manual is also split,
-the directory is @samp{../@var{referent/}} and the file is the
+the directory is @samp{../@var{referent}_html/} and the file is the
 expanded node name (described later).
 
 @item
@@ -18501,7 +18486,7 @@ directory is @samp{../} and the file is @file{@var{referent}.html}.
 
 @item
 If the present manual is mono, and the referent manual is split, the
-directory is @file{@var{referent}/} and the file is the expanded node
+directory is @file{@var{referent}_html/} and the file is the expanded node
 name.
 
 @item
@@ -18567,7 +18552,7 @@ However, the HTML @emph{target} is @samp{Top}.  Thus (in the split case):
 
 @example
 @@xref@{Top,,, emacs, The GNU Emacs Manual@}.
-@result{} <a href="emacs/index.html#Top">
+@result{} <a href="../emacs_html/index.html#Top">
 @end example
 
 @enumerate
@@ -18789,23 +18774,23 @@ generated, it is possible to handle at least some mismatches.
 
 In the case where we assume the referent is split, but it is actually
 available in mono, the only recourse would be to generate a
-@file{manual/} subdirectory full of HTML files which redirect back to
+@file{manual_html/} subdirectory full of HTML files which redirect back to
 the monolithic @file{manual.html}.  Since this is essentially the same
 as a split manual in the first place, it's not very appealing.
 
 On the other hand, in the case where we assume the referent is mono,
 but it is actually available in split, it is possible to use
 JavaScript to redirect from the putatively monolithic
-@file{manual.html} to the different @file{manual/node.html} files.
+@file{manual.html} to the different @file{manual_html/node.html} files.
 Here's an example:
 
 @example
 function redirect() @{
   switch (location.hash) @{
     case "#Node1":
-      location.replace("manual/Node1.html#Node1"); break;
+      location.replace("manual_html/Node1.html#Node1"); break;
     case "#Node2" :
-      location.replace("manual/Node2.html#Node2"); break;
+      location.replace("manual_html/Node2.html#Node2"); break;
     @dots{}
     default:;
   @}
