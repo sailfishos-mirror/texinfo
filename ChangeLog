@@ -1,5 +1,17 @@
 2022-02-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (converter_initialize),
+	tp/Texinfo/Convert/Unicode.pm (unicode_point_decoded_in_encoding)
+	(brace_no_arg_command):
+	add unicode_point_decoded_in_encoding(), returning true if an
+	unicode point will be correctly decoded.
+	Call unicode_point_decoded_in_encoding in HTML converter.
+	Remove spurious setting to numeric entities.
+
+	* tp/Texinfo/Convert/Unicode.pm: change in spacing.
+
+2022-02-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%sectioning_heading_commands),
 	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
 	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm,

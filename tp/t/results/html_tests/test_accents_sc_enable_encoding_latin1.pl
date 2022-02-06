@@ -1770,7 +1770,7 @@ $result_converted{'html_text'}->{'test_accents_sc_enable_encoding_latin1'} = '
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
- &nbsp; </p>
+   </p>
 </div>
 <h1 class="top" id="top-section">top section</h1>
 
@@ -1781,7 +1781,7 @@ $result_converted{'html_text'}->{'test_accents_sc_enable_encoding_latin1'} = '
 <div class="chapter-level-extent" id="node-chap">
 <div class="nav-panel">
 <p>
- &nbsp; </p>
+   </p>
 </div>
 <h2 class="chapter" id="chapter">1 chapter</h2>
 

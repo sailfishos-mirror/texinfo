@@ -6754,10 +6754,8 @@ sub converter_initialize($)
   foreach my $special_character (keys(%special_characters)) {
     my ($default_entity, $unicode_point) = @{$special_characters{$special_character}};
     if ($self->get_conf('ENABLE_ENCODING')
-        and $output_encoding
-        and ($output_encoding eq 'utf-8'
-             or ($Texinfo::Encoding::eight_bit_encoding_aliases{$output_encoding}
-                 and $Texinfo::Convert::Unicode::unicode_to_eight_bit{$Texinfo::Encoding::eight_bit_encoding_aliases{$output_encoding}}->{$unicode_point}))) {
+        and Texinfo::Convert::Unicode::unicode_point_decoded_in_encoding(
+                                         $output_encoding, $unicode_point)) {
       $special_characters_set{$special_character} = chr(hex($unicode_point));
     } elsif ($self->get_conf('USE_NUMERIC_ENTITY')) {
       $special_characters_set{$special_character} = '&#'.hex($unicode_point).';';
@@ -6769,10 +6767,6 @@ sub converter_initialize($)
   if (defined($special_characters_set{'non_breaking_space'})) {
     my $non_breaking_space = $special_characters_set{'non_breaking_space'};
     $self->_set_non_breaking_space($non_breaking_space);
-    foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_entities)) {
-      $conf_default_no_arg_commands_formatting_normal->{$command}->{'text'}
-       = $Texinfo::Convert::Unicode::unicode_entities{$command};
-    }
     foreach my $space_command (' ', "\t", "\n") {
       $conf_default_no_arg_commands_formatting_normal->{$space_command}->{'text'}
         = $self->{'non_breaking_space'};
@@ -10215,8 +10209,7 @@ described in the Texinfo manual.
 
 =item $result = $converter->convert($tree)
 
-Convert a Texinfo tree I<$tree> or tree portion and return
-the resulting output.
+Convert a Texinfo tree I<$tree> and return the resulting output.
 
 =item $result = $converter->convert_tree($tree)
 

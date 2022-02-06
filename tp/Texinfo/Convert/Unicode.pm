@@ -1,6 +1,6 @@
 # Unicode.pm: handle conversion to unicode.
 #
-# Copyright 2010, 2011, 2012, 2015, 2016, 2017, 2018 Free Software Foundation, 
+# Copyright 2010, 2011, 2012, 2015, 2016, 2017, 2018 Free Software Foundation,
 # Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
@@ -20,7 +20,7 @@
 
 package Texinfo::Convert::Unicode;
 
-# Seems to be the perl version required for Encode:
+# Seems to be the Perl version required for Encode:
 # http://cpansearch.perl.org/src/DANKOGAI/Encode-2.47/Encode/README.e2x
 # http://coding.derkeiler.com/Archive/Perl/comp.lang.perl.misc/2005-12/msg00833.html
 use 5.007_003;
@@ -68,19 +68,19 @@ $VERSION = '6.8dev';
 
 
 our %unicode_diacritics = (
-       'H'          => '030B', 
-       'ringaccent' => '030A', 
+       'H'          => '030B',
+       'ringaccent' => '030A',
        "'"          => '0301',
-       'v'          => '030C', 
-       ','          => '0327', 
-       '^'          => '0302', 
+       'v'          => '030C',
+       ','          => '0327',
+       '^'          => '0302',
        'dotaccent'  => '0307',
        '`'          => '0300',
-       '='          => '0304', 
+       '='          => '0304',
        '~'          => '0303',
-       '"'          => '0308', 
-       'udotaccent' => '0323', 
-       'ubaraccent' => '0332', 
+       '"'          => '0308',
+       'udotaccent' => '0323',
+       'ubaraccent' => '0332',
        'u'          => '0306',
        'tieaccent'  => '0361',
        'ogonek'     => '0328'
@@ -93,8 +93,8 @@ foreach my $diacritic(keys(%unicode_diacritics)) {
 
 our %unicode_accented_letters = (
     'dotaccent' => { # dot above
-        'A' => '0226', #C moz-1.2 
-        'a' => '0227', #c moz-1.2
+        'A' => '0226',
+        'a' => '0227',
         'B' => '1E02',
         'b' => '1E03',
         'C' => '010A',
@@ -113,8 +113,8 @@ our %unicode_accented_letters = (
         'I' => '0130',
         'N' => '1E44',
         'n' => '1E45',
-        'O' => '022E', #Y moz-1.2
-        'o' => '022F', #v moz-1.2
+        'O' => '022E',
+        'o' => '022F',
         'P' => '1E56',
         'p' => '1E57',
         'R' => '1E58',
@@ -196,8 +196,8 @@ our %unicode_accented_letters = (
         'c' => '00E7',
         'D' => '1E10',
         'd' => '1E11',
-        'E' => '0228', #C moz-1.2
-        'e' => '0229', #c moz-1.2
+        'E' => '0228',
+        'e' => '0229',
         'G' => '0122',
         'g' => '0123',
         'H' => '1E28',
@@ -228,8 +228,8 @@ our %unicode_accented_letters = (
         'o' => '014D',
         'U' => '016A',
         'u' => '016B',
-        'Y' => '0232', #? moz-1.2
-        'y' => '0233', #? moz-1.2
+        'Y' => '0232',
+        'y' => '0233',
     },
     '"' => { # diaeresis
         'A' => '00C4',
@@ -385,14 +385,14 @@ our %unicode_accented_letters = (
         'e' => '011B',
         'G' => '01E6',
         'g' => '01E7',
-        'H' => '021E', #K with moz-1.2
-        'h' => '021F', #k with moz-1.2
+        'H' => '021E',
+        'h' => '021F',
         'I' => '01CF',
         'i' => '01D0',
         'K' => '01E8',
         'k' => '01E9',
-        'L' => '013D', #L' with moz-1.2
-        'l' => '013E', #l' with moz-1.2
+        'L' => '013D',
+        'l' => '013E',
         'N' => '0147',
         'n' => '0148',
         'O' => '01D1',
@@ -547,7 +547,7 @@ our %extra_unicode_map = (
                'quotedblright'     => '201D',
                'quoteleft'         => '2018',
                'quoteright'        => '2019',
-               # this should only happen if the @clickstyle argument isn't a 
+               # this should only happen if the @clickstyle argument isn't a
                # command with braces and no argument.
                'click'             => '2192',
 );
@@ -561,9 +561,9 @@ foreach my $command (keys(%unicode_map)) {
   if ($unicode_map{$command} ne '') {
     my $char_nr = hex($unicode_map{$command});
     if ($char_nr > 126 and $char_nr < 255) {
-      # this is very strange, indeed.  The reason lies certainly in the 
-      # magic backward compatibility support in perl for 8bit encodings.
-      $unicode_character_brace_no_arg_commands{$command} = 
+      # this is very strange, indeed.  The reason lies certainly in the
+      # magic backward compatibility support in Perl for 8bit encodings.
+      $unicode_character_brace_no_arg_commands{$command} =
          Encode::decode("iso-8859-1", chr($char_nr));
     } else {
       $unicode_character_brace_no_arg_commands{$command} = chr($char_nr);
@@ -637,7 +637,7 @@ our %transliterate_map = (
 
 our %no_transliterate_map;
 foreach my $symbol(keys(%unicode_map)) {
-  if ($unicode_map{$symbol} ne '' 
+  if ($unicode_map{$symbol} ne ''
       and !exists($transliterate_map{$symbol})) {
     $no_transliterate_map{$unicode_map{$symbol}} = 1;
   }
@@ -1227,10 +1227,11 @@ sub unicode_accent($$)
   # \x{0131}\x{0308} for @dotless{i} @" doesn't lead to NFC 00ef.
   # so it is set to a real dotless i only if not in an accent command.
   if ($accent eq 'dotless') {
-    if ($text eq 'i' and (!$command->{'parent'} 
-                         or !$command->{'parent'}->{'parent'}
-                         or !$command->{'parent'}->{'parent'}->{'cmdname'}
-                         or !$unicode_accented_letters{$command->{'parent'}->{'parent'}->{'cmdname'}})) {
+    if ($text eq 'i' and
+        (!$command->{'parent'}
+         or !$command->{'parent'}->{'parent'}
+         or !$command->{'parent'}->{'parent'}->{'cmdname'}
+         or !$unicode_accented_letters{$command->{'parent'}->{'parent'}->{'cmdname'}})) {
       return "\x{0131}";
     } else {
       return $text;
@@ -1343,13 +1344,13 @@ sub _format_eight_bit_accents_stack($$$$$;$)
 
   # accents are formatted and the intermediate results are kept, such
   # that we can return the maximum of multiaccented letters that can be
-  # rendered with a given eight bit formatting.  undef is stored when 
+  # rendered with a given eight bit formatting.  undef is stored when
   # there is no corresponding unicode anymore.
   my @results_stack = ([$unicode_formatted, undef]);
 
   while (@$stack) {
     if (defined($unicode_formatted)) {
-      $unicode_formatted 
+      $unicode_formatted
          = unicode_accent($unicode_formatted, $stack->[-1]);
       if (defined($unicode_formatted) and $set_case) {
         if ($set_case > 0) {
@@ -1379,7 +1380,7 @@ sub _format_eight_bit_accents_stack($$$$$;$)
 
   # At this point we have the utf8 encoded results for the accent
   # commands stack, with all the intermediate results.
-  # For each one we'll check if it is possible to encode it in the 
+  # For each one we'll check if it is possible to encode it in the
   # current eight bit output encoding table and, if so set the result
   # to the character.
 
@@ -1393,36 +1394,36 @@ sub _format_eight_bit_accents_stack($$$$$;$)
       = _eight_bit_and_unicode_point($char, $encoding);
     if ($debug) {
       my $command = 'TEXT';
-      $command = $results_stack[0]->[1]->{'cmdname'} 
+      $command = $results_stack[0]->[1]->{'cmdname'}
         if ($results_stack[0]->[1]);
       my $new_eight_bit_txt = 'UNDEF';
       $new_eight_bit_txt = $new_eight_bit if (defined($new_eight_bit));
-      print STDERR "" . Encode::encode('utf8', $char) 
+      print STDERR "" . Encode::encode('utf8', $char)
         . " ($command) new_codepoint: $new_codepoint 8bit: $new_eight_bit_txt old: $eight_bit\n";
     }
 
     # no corresponding eight bit character found for a composed character
     last if (!$new_eight_bit);
 
-    # in that case, the new eight bit character is the same than the one 
+    # in that case, the new eight bit character is the same than the one
     # found with one less character (and it isn't a @dotless{i}). It may
     # hapen in 2 case, both meaning that there is no corresponding 8bit char:
     #
     # -> there are 2 characters in accent. This could happen, for example
-    #    if an accent that cannot be rendered is found and it leads to 
+    #    if an accent that cannot be rendered is found and it leads to
     #    appending or prepending a character. For example this happens for
     #    @={@,{@~{n}}}, where @,{@~{n}} is expanded to a 2 character:
-    #    n with a tilde, followed by a , 
-    #    In that case, the additional utf8 diacritic is appended, which 
-    #    means that it is composed with the , and leaves n with a tilde 
-    #    untouched. 
+    #    n with a tilde, followed by a ,
+    #    In that case, the additional utf8 diacritic is appended, which
+    #    means that it is composed with the , and leaves n with a tilde
+    #    untouched.
     # -> the diacritic is appended but the normal form doesn't lead
     #    to a composed character, such that the first character
-    #    of the string is unchanged. This, for example, happens for 
-    #    @ubaraccent{a} since there is no composed accent with a and an 
+    #    of the string is unchanged. This, for example, happens for
+    #    @ubaraccent{a} since there is no composed accent with a and an
     #    underbar.
     last if ($new_eight_bit eq $eight_bit
-             and !($results_stack[0]->[1]->{'cmdname'} eq 'dotless' 
+             and !($results_stack[0]->[1]->{'cmdname'} eq 'dotless'
                    and $char eq 'i'));
     $result = $results_stack[0]->[0];
     $eight_bit = $new_eight_bit;
@@ -1440,7 +1441,7 @@ sub _format_eight_bit_accents_stack($$$$$;$)
   }
 
   # An important remark is that the final conversion to 8bit is left to
-  # perl.
+  # Perl.
   return $result;
 }
 
@@ -1465,6 +1466,19 @@ sub encoded_accents($$$$$;$)
   return undef;
 }
 
+# $UNICODE_POINT is a string describing an hexadecimal number with
+# letters in upper case.
+sub unicode_point_decoded_in_encoding($$) {
+  my $encoding = shift;
+  my $unicode_point = shift;
+
+  return 1 if ($encoding
+               and ($encoding eq 'utf-8'
+                    or ($Texinfo::Encoding::eight_bit_encoding_aliases{$encoding}
+                        and $unicode_to_eight_bit{$Texinfo::Encoding::eight_bit_encoding_aliases{$encoding}}->{$unicode_point})));
+  return 0;
+}
+
 # returns the text for a command with brace and no arg
 # if it is known that it is present for $encoding
 sub brace_no_arg_command($$) {
@@ -1472,14 +1486,11 @@ sub brace_no_arg_command($$) {
   my $encoding = shift;
   
   if ($unicode_character_brace_no_arg_commands{$command}
-      and $encoding 
-      and ($encoding eq 'utf-8'
-           or ($Texinfo::Encoding::eight_bit_encoding_aliases{$encoding}
-               and $unicode_to_eight_bit{$Texinfo::Encoding::eight_bit_encoding_aliases{$encoding}}->{$unicode_map{$command}}))) {
+      and unicode_point_decoded_in_encoding($encoding, $unicode_map{$command})) {
     return $unicode_character_brace_no_arg_commands{$command};
   } else {
     return undef;
-  }  
+  }
 }
 
 # this function checks that it is possible to output
@@ -1513,7 +1524,7 @@ sub check_unicode_point_conversion($;$)
     warn "Unicode chr(hex($arg)) eval failed: $@\n" if ($output_debug);
     return 0;
   } elsif (hex($arg) > 0x10FFFF) {
-    # The check above appears not to work in older versions of perl,
+    # The check above appears not to work in older versions of Perl,
     # so check the argument is not greater the maximum Unicode code
     # point.
     return 0;
@@ -1569,7 +1580,7 @@ Texinfo::Convert::Unicode - Handle conversion to Unicode
 
 =head1 SYNOPSIS
 
-  use Texinfo::Convert::Unicode qw(unicode_accent encoded_accents 
+  use Texinfo::Convert::Unicode qw(unicode_accent encoded_accents
                                    unicode_text);
 
   my ($innermost_contents, $stack)
@@ -1584,13 +1595,13 @@ Texinfo::Convert::Unicode - Handle conversion to Unicode
 =head1 DESCRIPTION
 
 Texinfo::Convert::Unicode provides methods that deals with unicode for
-converters. Unicode is important, because it is used internally in perl 
+converters. Unicode is important, because it is used internally in Perl
 for strings, therefore if converted to Unicode, a string could be output
 in other encodings as well when writting out the converted documents.
 
-When an encoding is given as argument of a method of the module, the 
+When an encoding is given as argument of a method of the module, the
 accented letters should only be converted to unicode if it is known that
-it will be possible to convert the unicode points to encoded charactes
+it will be possible to convert the unicode points to encoded characters
 in the encoding character set.
 
 =head1 METHODS
@@ -1610,27 +1621,27 @@ I<$converter> is a converter object.  It may be undef if there is no need of
 converter object in I<$format_accent> (I<$format_accent> described below).
 I<$text> is the text appearing within nested accent commands.  I<$stack> is
 an array reference holding the nested accents texinfo element trees.  For
-example, I<$text> could be the formatted content and I<$stack> the stack 
-returned by C<Texinfo::Convert::Utils::find_innermost_accent_contents>.  I<$encoding> 
-is the encoding the accented characters should be encoded to.  If 
-I<$encoding> not set the I<$result> is set to undef.  I<$format_accent> 
-is a function reference that is used to format the accent commands if 
+example, I<$text> could be the formatted content and I<$stack> the stack
+returned by C<Texinfo::Convert::Utils::find_innermost_accent_contents>.  I<$encoding>
+is the encoding the accented characters should be encoded to.  If
+I<$encoding> not set the I<$result> is set to undef.  I<$format_accent>
+is a function reference that is used to format the accent commands if
 there is no encoded character available for the encoding I<$encoding>
-at some point of the conversion of the I<$stack>.  Last, if 
-I<$set_case> is positive, the result is upper-cased, while if it is negative, 
+at some point of the conversion of the I<$stack>.  Last, if
+I<$set_case> is positive, the result is upper-cased, while if it is negative,
 the result is lower-cased.
 
 =item $result = unicode_text ($text, $in_code)
 
-Return I<$text> with characters encoded in unicode.  If I<$in_code> 
+Return I<$text> with characters encoded in unicode.  If I<$in_code>
 is set, the text is considered to be in code style.
 
 =item $result = brace_no_arg_command($command_name, $encoding)
 
 Return the text representing a command with brace and no argument
-I<$command_name> (like C<@bullet{}>, C<@aa{}> or C<@guilsinglleft{}>), 
-or undef if there is no available encoded character for encoding 
-I<$encoding>. 
+I<$command_name> (like C<@bullet{}>, C<@aa{}> or C<@guilsinglleft{}>),
+or undef if there is no available encoded character for encoding
+I<$encoding>.
 
 =item $possible_conversion = check_unicode_point_conversion($arg, $output_debug)
 
