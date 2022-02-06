@@ -10,6 +10,14 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+# the info file is not correct because of all the :: and , in the node
+# names, therefore it is not really usefull to install it.  nodist_ is
+# not ok to achieve that, as the other Texinfo related build targets are also
+# removed with that prefix.
+
+# no-installinfo requires foreign
+AUTOMAKE_OPTIONS = no-installinfo foreign
+
 # Use the programs built in our distribution, taking account of possible
 # cross-compiling.
 MAKEINFO = $(PERL) -I $(top_srcdir)/tp/ $(top_srcdir)/tp/texi2any.pl
@@ -19,22 +27,31 @@ MAKEINFO = $(PERL) -I $(top_srcdir)/tp/ $(top_srcdir)/tp/texi2any.pl
 # of each module, so split at chapters.
 MAKEINFOHTML = $(MAKEINFO) --html --split=chapter
 
-#info_TEXINFOS = tp_api.texi
-if BUILD_PERL_API_TEXI
-
-dist_info_TEXINFOS = tp_api.texi
-# in 2022 an info_TEXINFOS variable is not allowed in a conditional
-#info_TEXINFOS = tp_api.texi
+# since the tp_api 'manual' is referred to extensively in the
+# customization_api, we setup the build targets.  More
+# relevant for the HTML output, as, as said above the Info manual
+# is useless.
+info_TEXINFOS = tp_api.texi
 
 # dependencies are in api_includes/ directory but we do not want to list
 # them explicitely
 #tp_api_TEXINFOS = 
 #dist_tp_api_TEXINFOS = 
+EXTRA_DIST = api_includes
+
+if BUILD_PERL_API_TEXI
+
+# dist_info_TEXINFOS does not seems to be used in the resulting Makefile.in
+#dist_info_TEXINFOS = tp_api.texi
+# in 2022 an info_TEXINFOS variable is not allowed in a conditional, and
+# in addition we want the build targets to be available even when the
+# texinfo sources cannot be rebuilt.
+#info_TEXINFOS = tp_api.texi
 
 BUILT_SOURCES = tp_api.texi
 
-#DISTCLEANFILES = tp_api.info
-
+# all the modules with some interesting public interfaces.
+# The order matters for the result.
 tp_api_dependencies = \
   $(top_srcdir)/tp/Texinfo/Common.pm \
   $(top_srcdir)/tp/Texinfo/Encoding.pm \
@@ -57,7 +74,5 @@ tp_api_dependencies = \
 
 tp_api.texi: $(tp_api_dependencies)
 	$(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ -I $(top_srcdir)/tp/ -I $(top_srcdir)/tp/maintain/lib/Text-Unidecode/lib/ -I $(top_srcdir)/tp/maintain/lib/libintl-perl/lib/ -I $(top_srcdir)/tp/maintain/lib/Unicode-EastAsianWidth/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=section --top 'Texinfo modules documentation' --subdir=api_includes -o $@ $(tp_api_dependencies)
-
-EXTRA_DIST = api_includes tp_api.texi
 
 endif
