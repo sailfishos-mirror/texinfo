@@ -35,7 +35,6 @@ BUILT_SOURCES = tp_api.texi
 
 #DISTCLEANFILES = tp_api.info
 
-# FIXME add?
 tp_api_dependencies = \
   $(top_srcdir)/tp/Texinfo/Common.pm \
   $(top_srcdir)/tp/Texinfo/Encoding.pm \
