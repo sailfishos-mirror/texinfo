@@ -257,7 +257,7 @@ my %item_container_commands   = %Texinfo::Common::item_container_commands;
 my %item_line_commands        = %Texinfo::Common::item_line_commands;
 my %deprecated_commands       = %Texinfo::Common::deprecated_commands;
 my %root_commands             = %Texinfo::Common::root_commands;
-my %sectioning_commands       = %Texinfo::Common::sectioning_commands;
+my %sectioning_heading_commands     = %Texinfo::Common::sectioning_heading_commands;
 my %command_index             = %Texinfo::Common::command_index;
 my %ref_commands              = %Texinfo::Common::ref_commands;
 my %region_commands           = %Texinfo::Common::region_commands;
@@ -433,7 +433,7 @@ my %simple_text_commands;
 foreach my $line_command(keys(%line_commands)) {
   if ($line_commands{$line_command} =~ /^\d+$/
       or ($line_commands{$line_command} eq 'line'
-          and !($sectioning_commands{$line_command}
+          and !($sectioning_heading_commands{$line_command}
                 or $def_commands{$line_command}
                 or $headings_specification_commands{$line_command}))
       or $line_commands{$line_command} eq 'text') {
@@ -443,7 +443,7 @@ foreach my $line_command(keys(%line_commands)) {
 
 my %simple_text_headings_commands = (%headings_specification_commands);
 
-my %full_line_commands_no_refs = (%sectioning_commands,
+my %full_line_commands_no_refs = (%sectioning_heading_commands,
                                   %def_commands);
 
 delete $simple_text_commands{'center'};
@@ -4635,7 +4635,7 @@ sub _parse_texi($$$)
               }
               push @{$current->{'contents'}}, $misc;
               $misc->{'parent'} = $current;
-              if ($sectioning_commands{$command}) {
+              if ($sectioning_heading_commands{$command}) {
                 if ($self->{'sections_level'}) {
                   $current->{'contents'}->[-1]->{'extra'}->{'sections_level'}
                     = $self->{'sections_level'};

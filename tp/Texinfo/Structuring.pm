@@ -291,7 +291,7 @@ sub _print_sectioning_tree($)
 {
   my $current = shift;
   my $result = ' ' x $current->{'structure'}->{'section_level'}
-     . Texinfo::Convert::Texinfo::root_element_command_to_texinfo($current)."\n";
+     . Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($current)."\n";
   foreach my $child (@{$current->{'structure'}->{'section_childs'}}) {
     $result .= _print_sectioning_tree($child);
   }
@@ -1257,7 +1257,7 @@ sub root_or_external_element_cmd_texi($)
     $result .= "(type $element->{'type'})" if (defined($element->{'type'}));
     return $result;
   }
-  return Texinfo::Convert::Texinfo::root_element_command_to_texinfo($command_element);
+  return Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($command_element);
 }
 
 # Used for debugging and in test suite, but not generally useful. Not

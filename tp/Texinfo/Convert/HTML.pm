@@ -80,7 +80,7 @@ my %formattable_misc_commands = %Texinfo::Common::formattable_misc_commands;
 my %no_brace_commands = %Texinfo::Common::no_brace_commands;
 my %accent_commands = %Texinfo::Common::accent_commands;
 my %misc_commands = %Texinfo::Common::misc_commands;
-my %sectioning_commands = %Texinfo::Common::sectioning_commands;
+my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
 my %def_commands = %Texinfo::Common::def_commands;
 my %ref_commands = %Texinfo::Common::ref_commands;
 my %brace_commands = %Texinfo::Common::brace_commands;
@@ -596,7 +596,7 @@ sub _get_target($$)
   } elsif ($command->{'cmdname'}
     # This should only happen for @*heading*, root_commands targets should
     # already be set.
-            and $sectioning_commands{$command->{'cmdname'}}
+            and $sectioning_heading_commands{$command->{'cmdname'}}
             and !$root_commands{$command->{'cmdname'}}) {
     $target = $self->_new_sectioning_command_target($command);
   }
@@ -3454,7 +3454,7 @@ sub _default_format_element_header($$$$)
                    and $self->element_is_tree_unit_top($tree_unit->{'structure'}->{'unit_prev'}));
 
     print STDERR "Header ($previous_is_top, $is_top, $first_in_page): "
-      .Texinfo::Convert::Texinfo::root_element_command_to_texinfo($command)."\n"
+      .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($command)."\n"
         if ($self->get_conf('DEBUG'));
 
     if ($is_top) {
@@ -3570,7 +3570,7 @@ sub _convert_heading_command($$$$$)
   }
 
   print STDERR "CONVERT elt heading $element "
-        .Texinfo::Convert::Texinfo::root_element_command_to_texinfo($element)."\n"
+        .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
   if ($Texinfo::Common::root_commands{$element->{'cmdname'}}
@@ -3651,7 +3651,7 @@ sub _convert_heading_command($$$$$)
   if ($do_heading) {
     if ($self->get_conf('TOC_LINKS')
         and $Texinfo::Common::root_commands{$cmdname}
-        and $Texinfo::Common::sectioning_commands{$cmdname}) {
+        and $Texinfo::Common::sectioning_heading_commands{$cmdname}) {
       my $content_href = $self->command_contents_href($element, 'contents');
       if ($content_href ne '') {
         $heading = "<a href=\"$content_href\">$heading</a>";
@@ -3699,13 +3699,13 @@ sub _convert_heading_command($$$$$)
   }
   if (not $table_of_contents_was_output
       and $self->get_conf('FORMAT_MENU') eq 'sectiontoc'
-      and $sectioning_commands{$cmdname}) {
+      and $Texinfo::Common::sectioning_heading_commands{$cmdname}) {
     $result .= _mini_toc($self, $element);
   }
   return $result;
 }
 
-foreach my $command (keys(%sectioning_commands), 'node') {
+foreach my $command (keys(%sectioning_heading_commands), 'node') {
   $default_commands_conversion{$command} = \&_convert_heading_command;
 }
 
@@ -7286,7 +7286,7 @@ sub _new_sectioning_command_target($$)
   # These are undefined if the $target is set to ''.
   my $target_contents;
   my $target_shortcontents;
-  if ($Texinfo::Common::sectioning_commands{$command->{'cmdname'}}) {
+  if ($sectioning_heading_commands{$command->{'cmdname'}}) {
     if ($target ne '') {
       my $target_base_contents = $target;
       $target_base_contents =~ s/^g_t//;
@@ -7392,7 +7392,7 @@ sub _set_root_commands_targets_node_files($$)
         # The target may already be set for the top node tree unit.
         next if (!defined($root_element->{'cmdname'})
                  or $self->{'targets'}->{$root_element});
-        if ($Texinfo::Common::sectioning_commands{$root_element->{'cmdname'}}) {
+        if ($sectioning_heading_commands{$root_element->{'cmdname'}}) {
           $self->_new_sectioning_command_target($root_element);
         }
       }

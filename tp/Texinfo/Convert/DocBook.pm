@@ -680,7 +680,7 @@ sub _convert($$;$)
               and !Texinfo::Common::is_content_empty($element)) {
             $result .= "<partintro>\n";
           }
-        } elsif ($Texinfo::Common::sectioning_commands{$element->{'cmdname'}}) {
+        } elsif ($Texinfo::Common::sectioning_heading_commands{$element->{'cmdname'}}) {
           if ($element->{'args'} and $element->{'args'}->[0]) {
             my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
             $result .= 

@@ -88,7 +88,7 @@ foreach my $command (keys (%Texinfo::Common::brace_commands)) {
 }
 my %accent_commands = %Texinfo::Common::accent_commands;
 my %misc_commands = %Texinfo::Common::misc_commands;
-my %sectioning_commands = %Texinfo::Common::sectioning_commands;
+my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
 my %def_commands = %Texinfo::Common::def_commands;
 my %ref_commands = %Texinfo::Common::ref_commands;
 my %block_commands = %Texinfo::Common::block_commands;
@@ -2437,7 +2437,7 @@ sub _convert($$)
       $self->{'current_node'} = $element;
       $result .= $self->format_node($element);
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
-    } elsif ($sectioning_commands{$command}) {
+    } elsif ($sectioning_heading_commands{$command}) {
       # use settitle for empty @top
       # ignore @part
       my $contents;
@@ -3247,7 +3247,7 @@ sub _convert($$)
     } elsif (($command eq 'multitable')) {
       $self->{'document_context'}->[-1]->{'in_multitable'}--;
     } elsif ($root_commands{$command}
-        and $sectioning_commands{$command}
+        and $sectioning_heading_commands{$command}
         and $command ne 'part') {
       # add menu if missing
       my $node = $self->{'current_node'};

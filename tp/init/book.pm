@@ -85,7 +85,7 @@ sub book_print_up_toc($$)
   # this happens for example for top tree unit
   return '' if !(@up_commands);
   my $up = shift @up_commands;
-  #print STDERR "$up ".Texinfo::Convert::Texinfo::root_element_command_to_texinfo($up)."\n";
+  #print STDERR "$up ".Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($up)."\n";
   $result .= $converter->html_attribute_class('ul', [$toc_numbered_mark_class])."><li>"
   . "<a href=\"".$converter->command_href($up)."\">".$converter->command_text($up)
    . "</a> </li>\n";
@@ -213,7 +213,7 @@ sub book_convert_heading_command($$$$$)
   }
 
   print STDERR "CONVERT elt heading $element "
-        .Texinfo::Convert::Texinfo::root_element_command_to_texinfo($element)."\n"
+        .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
   if ($Texinfo::Common::root_commands{$element->{'cmdname'}}
@@ -294,7 +294,7 @@ sub book_convert_heading_command($$$$$)
   if ($do_heading) {
     if ($self->get_conf('TOC_LINKS')
         and $Texinfo::Common::root_commands{$cmdname}
-        and $Texinfo::Common::sectioning_commands{$cmdname}) {
+        and $Texinfo::Common::sectioning_heading_commands{$cmdname}) {
       my $content_href = $self->command_contents_href($element, 'contents',
                                         $self->{'current_filename'});
       if ($content_href) {
@@ -335,7 +335,8 @@ sub book_convert_heading_command($$$$$)
   return $result;
 }
 
-foreach my $command (keys(%Texinfo::Common::sectioning_commands), 'node') {
+foreach my $command (keys(%Texinfo::Common::sectioning_heading_commands),
+                                                                  'node') {
   texinfo_register_command_formatting($command,
                                 \&book_convert_heading_command);
 }

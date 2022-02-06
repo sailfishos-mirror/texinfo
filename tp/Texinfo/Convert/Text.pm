@@ -535,7 +535,7 @@ sub _convert($;$)
         } else {
           $result = _convert($element->{'args'}->[0], $options);
         }
-        if ($Texinfo::Common::sectioning_commands{$element->{'cmdname'}}) {
+        if ($Texinfo::Common::sectioning_heading_commands{$element->{'cmdname'}}) {
           $result = heading($element, $result, $options->{'converter'},
                             $options->{'NUMBER_SECTIONS'});
         } else {

@@ -1068,7 +1068,7 @@ our %level_to_structuring_command;
 }
 
 
-our %sectioning_commands;
+our %sectioning_heading_commands;
 
 foreach my $sectioning_command (keys (%command_structuring_level)) {
   $line_commands{$sectioning_command} = 'line';
@@ -1077,7 +1077,7 @@ foreach my $sectioning_command (keys (%command_structuring_level)) {
   } else {
     $root_commands{$sectioning_command} = 1;
   }
-  $sectioning_commands{$sectioning_command} = 1;
+  $sectioning_heading_commands{$sectioning_command} = 1;
 }
 
 
@@ -1087,7 +1087,7 @@ foreach my $sectioning_command (keys (%command_structuring_level)) {
 our %formatted_misc_commands;
 foreach my $formatted_misc_command ('center', 'page',
    'author', 'subtitle', 'title', 'exdent', 'headitem', 'item',
-   'itemx', 'tab', 'node', keys(%sectioning_commands)) {
+   'itemx', 'tab', 'node', keys(%sectioning_heading_commands)) {
   $formatted_misc_commands{$formatted_misc_command} = 1;
 }
 
@@ -2971,7 +2971,7 @@ C<@r> or C<@slanted>.
 Commands that are at the root of a Texinfo document, namely
 C<@node> and sectioning commands, except heading commands.
 
-=item %sectioning_commands
+=item %sectioning_heading_commands
 
 All the sectioning and heading commands.
 
@@ -3070,14 +3070,6 @@ Protect comma characters, replacing C<,> with @comma{} in tree.
 Return a contents array reference with first parenthesis in the
 contents array reference protected.  If I<$contents> is undef
 a fatal error with a backtrace will be emitted.
-
-=item protect_hashchar_at_line_beginning($registrar, $configuration_information, $tree)
-
-Protect hash character at beginning of line if the line is a cpp
-line directive.  The I<$registrar> and I<$configuration_information>
-arguments may be undef, if they are defined they are used for
-error reporting in case an hash character could not be protected
-because it appeared in a raw environment.
 
 =item relate_index_entries_to_table_entries_in_tree($tree)
 

@@ -304,10 +304,10 @@ sub _reassociate_to_node($$$$)
             {'contents' => $current->{'extra'}->{'index_entry'}->{'content'}})
          .") not in previous node $previous_node\n";
       print STDERR "  previous node: "
-        .Texinfo::Convert::Texinfo::root_element_command_to_texinfo($previous_node)."\n";
+        .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($previous_node)."\n";
       if ($current->{'extra'}->{'index_entry'}->{'node'}) {
         print STDERR "  current node: ".
-         Texinfo::Convert::Texinfo::root_element_command_to_texinfo(
+         Texinfo::Convert::Texinfo::root_heading_command_to_texinfo(
                             $current->{'extra'}->{'index_entry'}->{'node'})."\n";
       } else {
         print STDERR "  current node not set\n";
@@ -848,7 +848,7 @@ Texinfo::Transformations - transformations of Texinfo::Parser.pm tree
 =head1 DISCLAIMER
 
 The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
-Texinfo to other formats.  There no promise of API stability.
+Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
@@ -924,10 +924,15 @@ should also hold configuration information.
 
 =item protect_hashchar_at_line_beginning ($registrar, $configuration_information, $tree)
 
-Protect hash (#) character at the beginning of line such that they would
-not be considered as lines to be processed by the CPP processor.
-I<$registrar> is a L<Texinfo::Report> in which the errors
-and warnings encountered while parsing are registered.
+Protect hash (#) character at the beginning of line such that they would not be
+considered as lines to be processed by the CPP processor.  The I<$registrar>
+and I<$configuration_information> arguments may be undef.  If defined, the
+I<$registrar> argument should be a L<Texinfo::Report> object in which the
+errors and warnings encountered while parsing are registered.  If defined,
+I<$configuration_information> should give access to configuration through
+C<get_conf>.  If both I<$registrar> and I<$configuration_information> are
+defined they are used for error reporting in case an hash character could not
+be protected because it appeared in a raw environment.
 
 =item regenerate_master_menu ($translations, $labels)
 

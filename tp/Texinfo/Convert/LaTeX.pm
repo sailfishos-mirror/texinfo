@@ -76,6 +76,12 @@
 #
 #   \mbox{-}\nobreak\hspace{0pt}
 #
+# Note that the texinfo.tex code do more, for instance turs off normal
+# hyphenation, sets plainfrenchspacing (see \tclose), and sets line breaks
+# at _ and - with several special cases, such as no break right after one
+# or two hyphen, no breake between __ or hyphen.  See near \global\def\code
+# in texinfo.tex.
+#
 #
 # RELEVANT BUT NOT DECISIVE
 #
@@ -222,7 +228,7 @@ foreach my $command (keys (%Texinfo::Common::brace_commands)) {
 }
 my %accent_commands = %Texinfo::Common::accent_commands;
 my %misc_commands = %Texinfo::Common::misc_commands;
-my %sectioning_commands = %Texinfo::Common::sectioning_commands;
+my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
 my %def_commands = %Texinfo::Common::def_commands;
 my %ref_commands = %Texinfo::Common::ref_commands;
 my %block_commands = %Texinfo::Common::block_commands;
@@ -2044,8 +2050,9 @@ sub _convert($$)
          or (defined($type) and $type eq 'ignored_top_node_paragraph')) {
       delete $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'};
     }
-    elsif (! defined($cmdname) or (not ($informative_commands{$cmdname}
-                                        or $sectioning_commands{$cmdname}))) {
+    elsif (! defined($cmdname)
+           or (not ($informative_commands{$cmdname}
+                    or $sectioning_heading_commands{$cmdname}))) {
       return '';
     }
   }
@@ -2885,7 +2892,7 @@ sub _convert($$)
           $result .= "\\label{$node_label}%\n";
         }
       }
-    } elsif ($sectioning_commands{$cmdname}) {
+    } elsif ($sectioning_heading_commands{$cmdname}) {
       if ($cmdname eq 'appendix' and not $self->{'appendix_done'}) {
         $result .= "\\appendix\n";
         $self->{'appendix_done'} = 1;

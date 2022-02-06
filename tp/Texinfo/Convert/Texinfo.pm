@@ -47,8 +47,8 @@ my %brace_commands           = %Texinfo::Common::brace_commands;
 my %block_commands           = %Texinfo::Common::block_commands;
 my %def_commands             = %Texinfo::Common::def_commands;
 
-# used in root_element_command_to_texinfo
-my %sectioning_commands = %Texinfo::Common::sectioning_commands;
+# used in root_heading_command_to_texinfo
+my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
 
 my @ignored_types = ('spaces_inserted', 'bracketed_inserted',
 'command_as_argument_inserted');
@@ -73,14 +73,14 @@ sub node_extra_to_texi($)
 }
 
 # for debugging.
-sub root_element_command_to_texinfo($)
+sub root_heading_command_to_texinfo($)
 {
   my $element = shift;
   my $tree;
   if ($element->{'cmdname'}) {
     if ($element->{'cmdname'} eq 'node') {
       $tree = $element->{'extra'}->{'node_content'};
-    } elsif ($sectioning_commands{$element->{'cmdname'}}) {
+    } elsif ($sectioning_heading_commands{$element->{'cmdname'}}) {
       $tree = $element->{'args'}->[0]->{'contents'};
     }
   } else {

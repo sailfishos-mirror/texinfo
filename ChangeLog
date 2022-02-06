@@ -1,5 +1,18 @@
 2022-02-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%sectioning_heading_commands),
+	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm,
+	tp/Texinfo/Convert/Texinfo.pm (root_heading_command_to_texinfo),
+	tp/Texinfo/Convert/Text.pm, tp/Texinfo/ParserNonXS.pm,
+	tp/Texinfo/Structuring.pm, tp/Texinfo/Transformations.pm,
+	tp/init/book.pm:
+	rename %sectioning_commands in Texinfo::Common as
+	%sectioning_heading_commands and root_element_command_to_texinfo() as
+	root_heading_command_to_texinfo() in Texinfo::Convert::Texinfo.
+
+2022-02-06  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/tp_api/Makefile.am: the documentation is referred to in
 	customization_api Texinfo manual, so always distribute the texinfo
 	source even when they cannot be rebuilt, and always setup
