@@ -133,7 +133,7 @@ our %text_brace_no_arg_commands = (
 my %sort_brace_no_arg_commands = (
   'copyright' => 'C',
   'registeredsymbol' => 'R',
-  'today' => 't', 
+  'today' => 't',
 );
 
 foreach my $accent_letter ('o','O','l','L') {
@@ -149,7 +149,7 @@ my %formattable_misc_commands;
 foreach my $command ('verbatiminclude', 'sp') {
   $formattable_misc_commands{$command} = 1;
 }
- 
+
 my %ignored_types;
 foreach my $type ('empty_line_after_command', 'preamble_before_beginning',
             'empty_spaces_after_command', 'spaces_at_end',
@@ -224,7 +224,7 @@ sub text_accents($;$$)
   $options->{'sc'} = $set_case if (defined($set_case));
   my $text = convert_to_text({'contents' => $contents}, $options);
 
-  my $result = Texinfo::Convert::Unicode::encoded_accents(undef, $text, 
+  my $result = Texinfo::Convert::Unicode::encoded_accents(undef, $text,
                      $stack, $encoding, \&ascii_accent_fallback, $set_case);
   if (defined($result)) {
     return $result;
@@ -260,7 +260,7 @@ sub brace_no_arg_command($;$)
     }
   }
   if (!defined($result)) {
-    if ($options and $options->{'sort_string'} 
+    if ($options and $options->{'sort_string'}
         and $sort_brace_no_arg_commands{$command}) {
       $result = $sort_brace_no_arg_commands{$command};
     } else {
@@ -423,7 +423,7 @@ sub _convert($;$)
     if (defined($no_brace_commands{$element->{'cmdname'}})) {
       return $no_brace_commands{$element->{'cmdname'}};
     } elsif ($element->{'cmdname'} eq 'today') {
-      if ($options->{'sort_string'} 
+      if ($options->{'sort_string'}
           and $sort_brace_no_arg_commands{$element->{'cmdname'}}) {
         return $sort_brace_no_arg_commands{$element->{'cmdname'}};
       } elsif ($options->{'converter'}) {
@@ -627,7 +627,7 @@ sub _convert($;$)
     }
     $options->{_code_options}-- if ($in_code);
   }
-  $result = '{'.$result.'}' 
+  $result = '{'.$result.'}'
      if ($element->{'type'} and $element->{'type'} eq 'bracketed'
          and (!$element->{'parent'}->{'type'} or
               ($element->{'parent'}->{'type'} ne 'block_line_arg'
@@ -672,9 +672,9 @@ sub converter($)
         if ($global_command eq 'documentencoding'
             and defined($element->{'extra'})
             and defined($element->{'extra'}->{'input_perl_encoding'})) {
-          $converter->{'OUTPUT_ENCODING_NAME'} 
+          $converter->{'OUTPUT_ENCODING_NAME'}
              = $element->{'extra'}->{'input_encoding_name'};
-          $converter->{'OUTPUT_PERL_ENCODING'} 
+          $converter->{'OUTPUT_PERL_ENCODING'}
              = $element->{'extra'}->{'input_perl_encoding'};
         }
       }
@@ -825,7 +825,7 @@ Texinfo::Convert::Text - Convert Texinfo tree to simple text
   use Texinfo::Convert::Text qw(convert_to_text ascii_accent text_accents);
 
   my $result = convert_to_text($tree);
-  my $result_encoded = convert_to_text($tree, 
+  my $result_encoded = convert_to_text($tree,
              {'enabled_encoding' => 'utf-8'});
   my $result_converter = convert_to_text($tree,
              {'converter' => $converter});
@@ -839,7 +839,7 @@ Texinfo::Convert::Text is a simple backend that converts a Texinfo tree
 to simple text.  It is used for some command argument expansion in
 C<Texinfo::Parser>, for instance the file names, or encoding names.
 It is also used in some converters, especially for file names.
-The converter is very simple, and, in the default case, cannot handle 
+The converter is very simple, and, in the default case, cannot handle
 output strings translation or error handling.
 
 =head1 METHODS
@@ -848,9 +848,9 @@ output strings translation or error handling.
 
 =item $result = convert_to_text($tree, $options)
 
-Convert a Texinfo tree to simple text.  I<$options> is a hash reference of 
+Convert a Texinfo tree to simple text.  I<$options> is a hash reference of
 options.  The converter is very simple, and has almost no internal state besides
-the options.  It cannot handle as is output strings translation or error 
+the options.  It cannot handle as is output strings translation or error
 storing.
 
 If the I<converter> option is set, some additional features may be available
@@ -864,8 +864,8 @@ The following options may be set:
 =item enabled_encoding
 
 If set, the value is considered to be the encoding name texinfo accented
-letters should be converted to.  This option corresponds to the 
-C<--enable-encoding> option, or the C<ENABLE_ENCODING> customization 
+letters should be converted to.  This option corresponds to the
+C<--enable-encoding> option, or the C<ENABLE_ENCODING> customization
 variable.
 
 =item sc
@@ -874,7 +874,7 @@ If set, the text is upper-cased.
 
 =item code
 
-If set the text is in code style.  (mostly --, ---, '' and `` are kept as 
+If set the text is in code style.  (mostly --, ---, '' and `` are kept as
 is).
 
 =item NUMBER_SECTIONS
@@ -890,12 +890,12 @@ sorting rather than presentation.
 
 If this converter object is passed to the function, some features of this
 object may be used during conversion.  Mostly error reporting and strings
-translation, as the converter object is also supposed to be a 
+translation, as the converter object is also supposed to be a
 L<Texinfo::Report> objet.  See also L<Texinfo::Convert::Converter>.
 
 =item expanded_formats_hash
 
-A reference on a hash.  The keys should be format names (like C<html>, 
+A reference on a hash.  The keys should be format names (like C<html>,
 C<tex>), and if the corresponding  value is set, the format is expanded.
 
 =back
@@ -910,18 +910,18 @@ character.
 =item $result_accent_text = ascii_accent_fallback($converter, $text, $accent_command)
 
 Same as C<ascii_accent> but  with an additional first argument
-converter, which is in ignored, but needed if this function is to 
+converter, which is in ignored, but needed if this function is to
 be in argument of functions that need a fallback for accents
 conversion.
 
 =item $accents_text = text_accents($accents, $encoding, $set_case)
 
-I<$accents> is an accent command that may contain other nested accent 
-commands.  The function will format the whole stack of nested accent 
+I<$accents> is an accent command that may contain other nested accent
+commands.  The function will format the whole stack of nested accent
 commands and the innermost text.  If I<$encoding> is set, the formatted
 text is converted to this encoding as much as possible instead of being
 converted as simple ascii.  If I<$set_case> is positive, the result
-is meant to be upper-cased, if it is negative, the result is to be 
+is meant to be upper-cased, if it is negative, the result is to be
 lower-cased.
 
 =back
