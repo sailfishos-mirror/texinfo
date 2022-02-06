@@ -1737,6 +1737,11 @@ Texinfo::Structuring - information on Texinfo::Parser tree
   }
  
  
+=head1 DISCLAIMER
+
+The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
+Texinfo to other formats.  There is no promise of API stability.
+
 =head1 DESCRIPTION
 
 Texinfo::Structuring first allows to collect information on a Texinfo tree.
@@ -1774,12 +1779,11 @@ with C<sort_indices>.
 
 No method is exported in the default case.
 
-Most methods takes a Texinfo::Report C<$registrar> as argument
-for error reporting, see L<Texinfo::Report>.  Most also require
-configuration information, which means an object implementing
-the get_conf() method, in practice the main program configuration
-or a converter.  Other common input arguments such as parser information,
-labels or refs are obtained from a parser, see L<Texinfo::Parser>.
+Most methods takes a L<Texinfo::Report> C<$registrar> as argument for error
+reporting.  Most also require configuration information, which means an object
+implementing the C<get_conf()> method, in practice the main program
+configuration or a converter.  Other common input arguments such as parser
+information, labels or refs are obtained from a parser, see L<Texinfo::Parser>.
 
 =over
 

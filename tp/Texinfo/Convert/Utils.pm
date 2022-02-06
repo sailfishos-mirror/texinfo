@@ -137,10 +137,10 @@ sub definition_category($$)
 }
 
 # find the accent commands stack and the innermost text contents
-sub find_innermost_accent_contents($;$)
+sub find_innermost_accent_contents($)
 {
   my $current = shift;
-  my $encoding = shift;
+
   my @accent_commands = ();
   my $debug = 0;
  ACCENT:
@@ -170,8 +170,9 @@ sub find_innermost_accent_contents($;$)
     my $text_contents = [];
     foreach my $content (@{$arg->{'contents'}}) {
       if (!($content->{'cmdname'} and ($content->{'cmdname'} eq 'c'
-                                  or $content->{'cmdname'} eq 'comment'))) {
-        if ($content->{'cmdname'} and $Texinfo::Common::accent_commands{$content->{'cmdname'}}) {
+                                       or $content->{'cmdname'} eq 'comment'))) {
+        if ($content->{'cmdname'}
+            and $Texinfo::Common::accent_commands{$content->{'cmdname'}}) {
           $current = $content;
           next ACCENT;
         } else {
@@ -313,6 +314,11 @@ Texinfo::Convert::Utils - miscellaneous functions usable in all converters
   my $verbatiminclude_tree
      = expand_verbatiminclude(undef, $converter, $verbatiminclude);
 
+=head1 DISCLAIMER
+
+The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
+Texinfo to other formats.  There is no promise of API stability.
+
 =head1 DESCRIPTION
 
 miscellaneous methods that may be useful for backends converting texinfo
@@ -359,6 +365,14 @@ C<@verbatiminclude> tree element.  This function returns a
 C<@verbatim> tree elements after finding the included file and
 reading it.  If I<$registrar> is not defined, errors messages are
 not registered.
+
+=item (\@contents, \@accent_commands) = find_innermost_accent_contents($element)
+
+I<$element> should be an accent command Texinfo tree element.  Returns
+an array reference containing the innermost accent command contents,
+normally a text element with one or two letter, and an array reference
+containing the accent commands nested in I<$element> (including
+I<$element>).
 
 =item $result = numbered_heading ($converter, $heading_element, $heading_text, $do_number)
 

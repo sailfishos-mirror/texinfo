@@ -2787,6 +2787,11 @@ Texinfo::Common - Classification of commands and miscellaneous methods
     print STDERR "$a_command is an accent command\n";
   }
 
+=head1 DISCLAIMER
+
+The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
+Texinfo to other formats.  There is no promise of API stability.
+
 =head1 DESCRIPTION
 
 Texinfo::Common holds hashes with miscellaneous information and hashes

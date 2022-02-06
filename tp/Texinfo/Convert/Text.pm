@@ -833,6 +833,11 @@ Texinfo::Convert::Text - Convert Texinfo tree to simple text
   my $result_accent_text = ascii_accent('e', $accent_command);
   my $accents_text = text_accents($accents, 'utf-8');
 
+=head1 DISCLAIMER
+
+The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
+Texinfo to other formats.  There is no promise of API stability.
+
 =head1 DESCRIPTION
 
 Texinfo::Convert::Text is a simple backend that converts a Texinfo tree
@@ -874,8 +879,8 @@ If set, the text is upper-cased.
 
 =item code
 
-If set the text is in code style.  (mostly --, ---, '' and `` are kept as
-is).
+If set the text is in code style.  (mostly C<-->, C<--->, C<''> and C<``> are
+kept as is).
 
 =item NUMBER_SECTIONS
 

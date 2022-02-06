@@ -1412,11 +1412,11 @@ our %xml_text_entity_no_arg_commands_formatting = (
                'aa'           => '&aring;',
                'AA'           => '&Aring;',
                'ae'           => '&aelig;',
-               'oe'           => '&oelig;', #pertusus: also &#156;. &oelig; not in html 3.2
+               'oe'           => '&oelig;', # &oelig; not in html 3.2
                'AE'           => '&AElig;',
-               'OE'           => '&OElig;', #pertusus: also &#140;. &OElig; not in html 3.2
-               'o'            =>  '&oslash;',
-               'O'            =>  '&Oslash;',
+               'OE'           => '&OElig;', # &OElig; not in html 3.2
+               'o'            => '&oslash;',
+               'O'            => '&Oslash;',
                'ss'           => '&szlig;',
                'DH'           => '&ETH;',
                'dh'           => '&eth;',
@@ -1627,6 +1627,11 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
                                                {'parser' => $parser});
   $converter->output($texinfo_tree);
 
+=head1 DISCLAIMER
+
+The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
+Texinfo to other formats.  There is no promise of API stability.
+
 =head1 DESCRIPTION
 
 Texinfo::Convert::Converter is a super class that can be used to
@@ -1673,7 +1678,9 @@ The I<$options> hash reference holds options for the converter.  In
 this option hash reference a L<parser object|Texinfo::Parser>
 may be associated with the I<parser> key.  The other options
 should be configuration options described in the Texinfo manual.
-Those options, when appropriate, override the document content.
+Those options, when appropriate, override the document content.  The parser
+should not be available directly anymore after getting the associated
+information.
 
 The C<converter> function returns a converter object (a blessed hash
 reference) after checking the options and performing some initializations,
@@ -1735,9 +1742,7 @@ the resulting string is returned.
 
 Create destination directory.  I<$succeeded> is true if the creation was
 successful or uneeded, false otherwise.  I<$created_directory> is the directory
-actually created, which is, if possible, I<$destination_directory>, but can also
-be different from I<$destination_directory> if I<$destination_directory>
-already exists as a file, output is split and there is an extension.
+actually created, which should be the same as I<$destination_directory>.
 
 =item ($output_file, $destination_directory, $output_filename, $document_name, $input_basefile) = $converter->determine_files_and_directory($output_format)
 

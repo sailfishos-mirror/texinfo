@@ -10181,6 +10181,11 @@ Texinfo::Convert::HTML - Convert Texinfo tree to HTML
   $converter->convert_tree($tree);
   $converter->output_internal_links(); # HTML only
 
+=head1 DISCLAIMER
+
+The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
+Texinfo to other formats.  There is no promise of API stability.
+
 =head1 DESCRIPTION
 
 Texinfo::Convert::HTML converts a Texinfo tree to HTML.

@@ -249,6 +249,11 @@ Texinfo::Convert::Texinfo - Convert a Texinfo tree to Texinfo code
   
   my $texinfo_text = convert_to_texinfo($tree);
 
+=head1 DISCLAIMER
+
+The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
+Texinfo to other formats.  There is no promise of API stability.
+
 =head1 DESCRIPTION
 
 Texinfo::Convert::Texinfo converts a Texinfo tree (described in

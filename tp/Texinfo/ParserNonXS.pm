@@ -43,7 +43,7 @@ use Encode;
 use File::Basename;
 
 # Clone could be faster for small structures, which should be the case
-# here, but Clone is not in perl core modules, so we use Storable::dclone.
+# here, but Clone is not in Perl core modules, so we use Storable::dclone.
 use Storable qw(dclone); # standard in 5.007003
 
 # commands definitions
@@ -5975,7 +5975,10 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   use Texinfo::Parser;
   my $parser = Texinfo::Parser::parser();
   my $tree = $parser->parse_texi_file("somefile.texi");
-  my ($errors, $errors_count) = $parser->errors();
+  # a Texinfo::Report object in which the errors and warnings
+  # encountered while parsing are registered.
+  my $registrar = $parser->registered_errors();
+  my ($errors, $errors_count) = $registrar->errors();
   foreach my $error_message (@$errors) {
     warn $error_message->{'error_line'};
   }
@@ -5984,27 +5987,27 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   my $float_types_arrays = $parser->floats_information();
   my $internal_references_array
     = $parser->internal_references_information();
-  # An hash reference on normalized node/float/anchor names
+  # $labels_information is an hash reference on normalized node/float/anchor names.
   my ($labels_information, $targets_list, $nodes_list) = $parser->labels_information();
   # A hash reference, keys are @-command names, value is an
   # array reference holding all the corresponding @-commands.
   my $global_commands_information = $parser->global_commands_information();
   # a hash reference on document information (encodings,
-  # input file name, dircategory and direntry list, for exampel).
+  # input file name, dircategory and direntry list, for example).
   my $global_information = $parser->global_information();
-  # a Texinfo::Report object in which the errors and warnings
-  # encountered while parsing are registered.
-  my $registrar = $parser->registered_errors();
+
+=head1 DISCLAIMER
+
+The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
+Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Texinfo::Parser will parse Texinfo text into a perl tree.  In one pass
+Texinfo::Parser will parse Texinfo text into a Perl tree.  In one pass
 it expands user-defined @-commands, conditionals (@ifset, @ifinfo...)
 and @value and constructs the tree.  Some extra information is gathered
 while doing the tree: for example, the block command associated with @end,
 the number of rows in a multitable, or the node associated with a section.
-
-
 
 =head1 METHODS
 
@@ -6104,7 +6107,7 @@ rooted at a C<document_root> type container.
 =begin comment
 
 The XS parser implements only part of the arguments and allows only a
-restricted set of arguments types compared to the perl parser.  We want users
+restricted set of arguments types compared to the Perl parser.  We want users
 to use only what is in common, so document only what is in common.
 
 =item $tree = parse_texi_line($parser, $text, $first_line_number, $file_name, $macro_name, $fixed_line_number)
@@ -6137,7 +6140,7 @@ of a macro.
 =begin comment
 
 The XS parser implements only part of the arguments and allows only a
-restricted set of arguments types compared to the perl parser.  We want users
+restricted set of arguments types compared to the Perl parser.  We want users
 to use only what is in common, so document only what is in common.
 
 =item $tree = parse_texi_piece ($parser, $text, $line_numbers_specification, $file_name, $macro_name, $fixed_line_number)
@@ -6168,7 +6171,7 @@ of a macro.
 =begin comment
 
 The XS parser implements only part of the arguments and allows only a
-restricted set of arguments types compared to the perl parser.  We want users
+restricted set of arguments types compared to the Perl parser.  We want users
 to use only what is in common, so document only what is in common.
 
 =item $tree = parse_texi_text ($parser, $text, $line_numbers_specification, $file_name, $macro_name, $fixed_line_number)
@@ -6248,7 +6251,7 @@ in the document.
 
 C<input_encoding_name> string is the encoding name used for the
 Texinfo code.
-C<input_perl_encoding> string is a corresponding perl encoding name.
+C<input_perl_encoding> string is a corresponding Perl encoding name.
 
 =item input_file_name
 
@@ -7183,7 +7186,7 @@ If in a C<@titlepage>, the titlepage is in I<titlepage>, if in
 C<@quotation> or C<@smallquotation>, the corresponding tree element
 is in I<quotation>.
 
-The author tree element is in the I<author> array of the C<@titlepage>
+The author tree element is in the I<authors> array of the C<@titlepage>
 or the C<@quotation> or C<@smallquotation> it is associated with.
 
 =item C<@ifclear>
@@ -7200,7 +7203,7 @@ The corresponding @-command is in I<command>.
 =item C<@documentencoding>
 
 The argument, normalized is in I<input_encoding_name> if it is recognized.
-The corresponding perl encoding name is in I<input_perl_encoding>.
+The corresponding Perl encoding name is in I<input_perl_encoding>.
 
 =item C<@click>
 

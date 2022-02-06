@@ -1576,7 +1576,7 @@ __END__
 
 =head1 NAME
 
-Texinfo::Convert::Unicode - Handle conversion to Unicode
+Texinfo::Convert::Unicode - Representation as Unicode characters
 
 =head1 SYNOPSIS
 
@@ -1592,61 +1592,37 @@ Texinfo::Convert::Unicode - Handle conversion to Unicode
 
   my $accent_text = unicode_accent('e', $accent_command);
 
+=head1 DISCLAIMER
+
+The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
+Texinfo to other formats.  There is no promise of API stability.
+
 =head1 DESCRIPTION
 
-Texinfo::Convert::Unicode provides methods that deals with unicode for
-converters. Unicode is important, because it is used internally in Perl
-for strings, therefore if converted to Unicode, a string could be output
-in other encodings as well when writting out the converted documents.
+Texinfo::Convert::Unicode provides methods dealing with Unicode representation
+and conversion of Unicode code points, to be used in converters.
 
-When an encoding is given as argument of a method of the module, the
-accented letters should only be converted to unicode if it is known that
-it will be possible to convert the unicode points to encoded characters
-in the encoding character set.
+When an encoding supported in Texinfo is given as argument of a method of the
+module, the accented letters or characters should only be represented by Unicode
+code points if it is known that Perl should manage to convert the Unicode code
+points to encoded characters in the encoding character set.  Note that the
+actual conversion is done by Perl, not by the module.
 
 =head1 METHODS
 
 =over
 
-=item $result = unicode_accent($text, $accent_command)
-
-I<$text> is the text appearing within an accent command.  I<$accent_command>
-should be a Texinfo tree element corresponding to an accent command taking
-an argument.  The function returns the unicode representation of the accented
-character.
-
-=item $result = encoded_accents ($converter, $text, $stack, $encoding, $format_accent, $set_case)
-
-I<$converter> is a converter object.  It may be undef if there is no need of
-converter object in I<$format_accent> (I<$format_accent> described below).
-I<$text> is the text appearing within nested accent commands.  I<$stack> is
-an array reference holding the nested accents texinfo element trees.  For
-example, I<$text> could be the formatted content and I<$stack> the stack
-returned by C<Texinfo::Convert::Utils::find_innermost_accent_contents>.  I<$encoding>
-is the encoding the accented characters should be encoded to.  If
-I<$encoding> not set the I<$result> is set to undef.  I<$format_accent>
-is a function reference that is used to format the accent commands if
-there is no encoded character available for the encoding I<$encoding>
-at some point of the conversion of the I<$stack>.  Last, if
-I<$set_case> is positive, the result is upper-cased, while if it is negative,
-the result is lower-cased.
-
-=item $result = unicode_text ($text, $in_code)
-
-Return I<$text> with characters encoded in unicode.  If I<$in_code>
-is set, the text is considered to be in code style.
-
 =item $result = brace_no_arg_command($command_name, $encoding)
 
-Return the text representing a command with brace and no argument
+Return the Unicode representation of a command with brace and no argument
 I<$command_name> (like C<@bullet{}>, C<@aa{}> or C<@guilsinglleft{}>),
-or undef if there is no available encoded character for encoding
+or C<undef> if there the Unicode representation cannot be converted to encoding
 I<$encoding>.
 
 =item $possible_conversion = check_unicode_point_conversion($arg, $output_debug)
 
 Check that it is possible to output actual UTF-8 binary bytes
-corresponding to the Unicode codepoint string I<$args> (such as
+corresponding to the Unicode code point string I<$arg> (such as
 C<201D>).  Perl gives a warning and will not output UTF-8 for
 Unicode non-characters such as U+10FFFF.  If the optional
 I<$output_debug> argument is set, a debugging output warning
@@ -1654,11 +1630,55 @@ is emitted if the test of the conversion failed.
 Returns 1 if the conversion is possible and can be attempted,
 0 otherwise.
 
+=item $result = encoded_accents($converter, $text, $stack, $encoding, $format_accent, $set_case)
+
+I<$encoding> is the encoding the accented characters should be encoded to.  If
+I<$encoding> not set, I<$result> is set to C<undef>.  Nested accents and
+their content are passed with I<$text> and I<$stack>.  I<$text> is the text
+appearing within nested accent commands.  I<$stack> is an array reference
+holding the nested accents texinfo tree elements.  In general, I<$text> is
+the formatted contents and I<$stack> the stack returned by
+L<Texinfo::Convert::Utils::find_innermost_accent_contents|Texinfo::Convert::Utils/(\@contents,
+\@accent_commands) = find_innermost_accent_contents($element)>.  The function
+tries to convert as much as possible the accents to I<$encoding> starting from the
+innermost accent.
+
+I<$format_accent> is a function reference that is used to format the accent
+commands if there is no encoded character available at some point of the
+conversion of the I<$stack>.  I<$converter> is a converter object optionaly
+used by I<$format_accent>.  It may be undef if there is no need of
+converter object in I<$format_accent>.
+
+If I<$set_case> is positive, the result is upper-cased, while if it is negative,
+the result is lower-cased.
+
 =item $width = string_width($string)
 
 Return the string width, taking into account the fact that some characters
 have a zero width (like composing accents) while some have a width of 2
 (most chinese characters, for example).
+
+=item $result = unicode_accent($text, $accent_command)
+
+I<$text> is the text appearing within an accent command.  I<$accent_command>
+should be a Texinfo tree element corresponding to an accent command taking
+an argument.  The function returns the Unicode representation of the accented
+character.
+
+=item $is_decoded = unicode_point_decoded_in_encoding($encoding, $unicode_point)
+
+Return true if the I<$unicode_point> will be encoded in the encoding
+I<$encoding>.  The I<$unicode_point> should be specified as a four letter
+string describing an hexadecimal number with letters in upper case
+(such as C<201D>).
+
+If the encoding is not supported in Texinfo, the result will always be false.
+
+=item $result = unicode_text ($text, $in_code)
+
+Return I<$text> with dashes and quotes corresponding, for example to C<---> or
+C<'>, represented as Unicode code points.  If I<$in_code> is set, the text is
+considered to be in code style.
 
 =back
 

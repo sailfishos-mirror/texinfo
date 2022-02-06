@@ -843,7 +843,7 @@ __END__
 
 =head1 NAME
 
-Texinfo::Transformations - transformations of Texinfo::Parser.pm tree
+Texinfo::Transformations - transformations of Texinfo Perl tree
 
 =head1 DISCLAIMER
 
@@ -930,7 +930,7 @@ and I<$configuration_information> arguments may be undef.  If defined, the
 I<$registrar> argument should be a L<Texinfo::Report> object in which the
 errors and warnings encountered while parsing are registered.  If defined,
 I<$configuration_information> should give access to configuration through
-C<get_conf>.  If both I<$registrar> and I<$configuration_information> are
+C<get_conf()>.  If both I<$registrar> and I<$configuration_information> are
 defined they are used for error reporting in case an hash character could not
 be protected because it appeared in a raw environment.
 

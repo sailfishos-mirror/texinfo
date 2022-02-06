@@ -106,6 +106,11 @@ Texinfo::Encoding - Encodings and encoding aliases
   my ($canonical_texinfo_encoding, $perl_encoding,
       $canonical_output_encoding) = encoding_alias($encoding);
 
+=head1 DISCLAIMER
+
+The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
+Texinfo to other formats.  There is no promise of API stability.
+
 =head1 DESCRIPTION
 
 Texinfo::Encoding takes care of encoding definition and aliasing.
@@ -118,7 +123,7 @@ Texinfo::Encoding takes care of encoding definition and aliasing.
 
 Taking an encoding name as argument, the function returns the
 corresponding canonical Texinfo encoding I<$canonical_texinfo_encoding>
-as described in the Texinfo manual (or undef), an encoding name suitable
+as described in the Texinfo manual (or C<undef>), an encoding name suitable
 for perl I<$perl_encoding>, and an encoding name suitable for most
 output formats, especially HTML, I<$canonical_output_encoding>.
 
