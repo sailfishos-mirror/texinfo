@@ -1,5 +1,10 @@
 2022-02-07  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/pod2texi.pl: allow - as --preamble argument to
+	read the preamble from stdin.
+
+2022-02-07  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (HTML Customization Variables), tp/Texinfo/Common.pm
 	(@variable_string_settables), tp/Texinfo/Convert/HTML.pm (%defaults)
 	(_external_node_href): new customization variable, EXTERNAL_CROSSREF_EXTENSION

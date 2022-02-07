@@ -454,21 +454,24 @@ if ($base_level > 0) {
   $outfile_name =~ s/\.te?x(i|info)?$//;
   $outfile_name .= '.info';
 
+  my $preamble_result;
+
   if (! defined ($preamble)) {
-    $preamble = '\input texinfo
+    $preamble_result = '\input texinfo
 @setfilename ' . Pod::Simple::Texinfo::_protect_text($outfile_name) . "
-\@documentencoding utf-8
 \@settitle $top
 
 \@contents
 
-\@ifnottex
 \@node Top
-\@top $top
-\@end ifnottex\n\n";
+\@top $top\n\n";
+  } elsif ($preamble eq '-') {
+    $preamble_result = join("", <STDIN>);
+  } else {
+    $preamble_result = $preamble;
   }
   
-  print $fh $preamble;
+  print $fh $preamble_result;
   if ($section_nodes) {
     #print STDERR "\@node Top\n\@top top\n".$full_manual;
     my $menu = _do_top_node_menu("\@node Top\n\@top top\n".$full_manual);
@@ -566,9 +569,9 @@ Ordinarily, it's good to keep the sectioning hierarchy intact.
 
 =item B<--preamble>=I<STR>
 
-Insert I<STR> as top boilerplate before includes.  The default is a
-minimal beginning for a Texinfo document, and sets C<@documentencoding>
-to C<utf-8> (because the output is written that way).
+Insert I<STR> as top boilerplate before includes.  If I<STR> is set to
+C<->, read the top boilerplate from the standard input.  The default
+top boilerplate is a minimal beginning for a Texinfo document.
 
 =item B<--subdir>=I<NAME>
 
