@@ -1698,22 +1698,24 @@ my %PASSIVE_ICONS = (
 my (%BUTTONS_TEXT, %BUTTONS_GOTO, %BUTTONS_NAME, %SPECIAL_ELEMENTS_HEADING);
 
 my %defaults = (
+  'AVOID_MENU_REDUNDANCY' => 0,
   'CONTENTS_OUTPUT_LOCATION' => 'after_top',
   'CONVERT_TEXINFO_MATH_TO_LATEX' => undef,
   'ENABLE_ENCODING'      => 0,
+  'EXTERNAL_CROSSREF_EXTENSION' => undef, # based on EXTENSION
   'FORMAT_MENU'           => 'sectiontoc',
+  'JS_WEBLABELS'         => 'generate',
+  'JS_WEBLABELS_FILE'    => 'js_licenses.html', # no clash with node name
 # if set style is added in attribute.
   'INLINE_CSS_STYLE'     => 0,
+# if set, no css is used.
+  'NO_CSS'               => 0,
   'OUTPUT_ENCODING_NAME'  => 'utf-8',
   'OUTFILE'              => undef,
   'SPLIT'                => 'node',
   'SUBDIR'               => undef,
   'USE_NODES'            => 1,
   'USE_NODE_DIRECTIONS'  => undef,
-# if set, no css is used.
-  'NO_CSS'               => 0,
-  'JS_WEBLABELS'         => 'generate',
-  'JS_WEBLABELS_FILE'    => 'js_licenses.html', # no clash with node name
   'OPEN_QUOTE_SYMBOL'    => undef,
   'CLOSE_QUOTE_SYMBOL'   => undef,
   'USE_ISO'              => 1,
@@ -1722,7 +1724,6 @@ my %defaults = (
   'TOP_NODE_FILE_TARGET' => 'index.html', # ignores EXTENSION
   'USE_LINKS'            => 1,
   'DATE_IN_HEADER'       => 0,
-  'AVOID_MENU_REDUNDANCY' => 0,
   'HEADERS'              => 1,
   'DO_ABOUT'             => 0,
   'USE_ACCESSKEY'        => 1,
@@ -8043,10 +8044,12 @@ sub _external_node_href($$$$)
 
   my $default_target_split = $self->get_conf('EXTERNAL_CROSSREF_SPLIT');
 
-  # FIXME it makes sense to have something different from the
-  # EXTENSION, for external manuals, but it would be better to
-  # be able to change it nonetheless.
-  my $external_file_extension = '.html';
+  my $external_file_extension = '';
+  my $external_extension = $self->get_conf('EXTERNAL_CROSSREF_EXTENSION');
+  $external_extension = $self->get_conf('EXTENSION')
+    if (not defined($external_extension));
+  $external_file_extension = '.' . $external_extension
+    if (defined($external_extension) and $external_extension ne '');
 
   my $target_split;
   my $file;

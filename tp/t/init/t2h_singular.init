@@ -20,6 +20,12 @@ texinfo_add_to_option_list('EXPANDED_FORMATS', ['html', 'tex']);
 # if set, creates one html file per node
 texinfo_set_from_init_file('SPLIT', 'node');
 
+# we use .htm, but not for external references, both as target and
+# source.
+my $external_extension = 'html';
+texinfo_set_from_init_file('EXTERNAL_CROSSREF_EXTENSION',
+                           $external_extension);
+
 #if set cross-references use the xref node name argument
 texinfo_set_from_init_file('XREF_USE_NODE_NAME_ARG', 1);
 
@@ -305,7 +311,7 @@ sub t2h_node_file_name($$$)
   my $element = shift;
   my $filename = shift;
 
-  my $external_file_extension = '.html';
+  my $external_file_extension = '.' . $external_extension;
 
   my $orig_filename = $filename;
 

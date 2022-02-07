@@ -16390,10 +16390,20 @@ if set to 1 always do an About special element;
 default 0.
 @c @xref{Output Elements Defined}.
 
+@item EXTERNAL_CROSSREF_SPLIT
+For cross-references to other manuals, this determines if the other
+manual is considered to be split or monolithic.  By default, it is set
+based on the value of @code{SPLIT}.  @xref{HTML Xref}, and @pxref{HTML
+Xref Configuration}.
+
 @item EXTERNAL_DIR
 Base directory for external manuals; default none.  It is
 better to use the general external cross-reference mechanism
 (@pxref{HTML Xref Configuration}) than this variable.
+
+@item EXTERNAL_CROSSREF_EXTENSION
+File extension for cross-references to other manuals.  If unset,
+based on @code{EXTENSION}.
 
 @item EXTRA_HEAD
 Additional text appearing within @code{<head>}; default unset.
@@ -16755,12 +16765,6 @@ source is also expanded to the corresponding file.  Default false.
 @item DUMP_TREE
 For debugging.  If set, the tree constructed upon parsing a Texinfo
 document is output to standard error; default false.
-
-@item EXTERNAL_CROSSREF_SPLIT
-For cross-references to other manuals, this determines if the other
-manual is considered to be split or monolithic.  By default, it is set
-based on the value of @code{SPLIT}.  @xref{HTML Xref}, and @pxref{HTML
-Xref Configuration}.
 
 @item EXTENSION
 The extension added to the output file name.  The default is different
