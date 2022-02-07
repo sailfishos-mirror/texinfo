@@ -133,7 +133,7 @@
 .\" ========================================================================
 .\"
 .IX Title "POD2TEXI 1"
-.TH POD2TEXI 1 "2022-01-14" "perl v5.32.1" "User Contributed Perl Documentation"
+.TH POD2TEXI 1 "2022-02-07" "perl v5.32.1" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -198,9 +198,9 @@ Do not fill sectioning gaps with empty \f(CW@unnumbered\fR files.
 Ordinarily, it's good to keep the sectioning hierarchy intact.
 .IP "\fB\-\-preamble\fR=\fI\s-1STR\s0\fR" 4
 .IX Item "--preamble=STR"
-Insert \fI\s-1STR\s0\fR as top boilerplate before includes.  The default is a
-minimal beginning for a Texinfo document, and sets \f(CW@documentencoding\fR
-to \f(CW\*(C`utf\-8\*(C'\fR (because the output is written that way).
+Insert \fI\s-1STR\s0\fR as top boilerplate before includes.  If \fI\s-1STR\s0\fR is set to
+\&\f(CW\*(C`\-\*(C'\fR, read the top boilerplate from the standard input.  The default
+top boilerplate is a minimal beginning for a Texinfo document.
 .IP "\fB\-\-subdir\fR=\fI\s-1NAME\s0\fR" 4
 .IX Item "--subdir=NAME"
 If there is a main manual with include files (each corresponding to

@@ -181,8 +181,6 @@ sub _preamble($)
       $setfilename .= '.info';
       print $fh "\@setfilename $setfilename\n\n"
     }
-    # FIXME depend on =encoding
-    print $fh '@documentencoding utf-8'."\n\n";
 
     my $title = $self->get_title();
     if (defined($title) and $title =~ m/\S/) {
@@ -460,7 +458,13 @@ my %line_commands = (
   'item-bullet' => 'item',
   'item-text' => 'item',
   'item-number' => 'item',
-  'encoding' => 'documentencoding'
+# =encoding is not emitted by Pod::Simple.  We get decoded characters here and
+# assume that the callers always output utf8.
+# It is ok, as it is right to use utf8 as encoding, and it matches the default
+# of Texinfo, removing the need to set @documentencoding.  Even if =encoding was
+# emitted, it would still be best to avoid @documentencoding and assume utf8 is
+# output.
+#  'encoding' => 'documentencoding'
 );
 
 foreach my $tag (keys(%head_commands_level)) {
@@ -792,6 +796,9 @@ methods (and options).
 
 It supports producing a standalone manual per Pod (the default) or
 render the Pod as a chapter, see L</texinfo_sectioning_base_level>.
+
+C<@@documentencoding> is not output, which is consistent with outputting
+the Texinfo output in utf8 in the caller.
 
 =head1 METHODS
 

@@ -362,9 +362,14 @@ foreach my $file (@processed_files) {
                                           $real_command_name, $outfile, $!);
     $fh = *OUT;
   }
-  # FIXME should use =encoding
+  # The Texinfo output from Pod::Simple::Texinfo does not contain
+  # @documentencoding.  We output utf8 as it is consistent with no
+  # @documentencoding, and it also because is the best choice or encoding.
+  # The =encoding information is not available anyway, but even if it
+  # was it would still be better to output utf8.
   binmode($fh, ':encoding(utf8)');
 
+  # this sets the string that $parser's output will be sent to
   $new->output_string(\$manual_texi);
 
   $new->texinfo_sectioning_base_level($base_level);
@@ -445,7 +450,8 @@ if ($base_level > 0) {
     $fh = *STDOUT;
   }
 
-  # FIXME should use =encoding
+  # We output utf8 as it is default for Texinfo and is consistent with no
+  # @documentencoding, and it also because is the best choice or encoding.
   binmode($fh, ':encoding(utf8)');
 
   my $outfile_name = $output;

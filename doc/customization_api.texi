@@ -1230,6 +1230,8 @@ $converter->convert_tree($converter->gdt(
 @end example
 
 @xref{Texinfo::Translations,,,tp_api} for more on @code{Texinfo::Translations}.
+@xref{Internationalization of Document Strings,,, texinfo, Texinfo} for an
+overview.
 
 
 @node Texinfo Tree Elements in User Defined Functions
