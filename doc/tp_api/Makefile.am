@@ -10,10 +10,12 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-# the info file is not correct because of all the :: and , in the node
-# names, therefore it is not really usefull to install it.  nodist_ is
-# not ok to achieve that, as the other Texinfo related build targets are also
-# removed with that prefix.
+# Without INFO_SPECIAL_CHARS_QUOTE, the info file is not useful because of all
+# the :: and , in the node names.  The Info readers are not already ready for
+# INFO_SPECIAL_CHARS_QUOTE, therefore it is not really usefull to install the
+# info file in the default case.  nodist_ is not ok to achieve that, as the
+# other Texinfo related build targets are also removed with that prefix.
+AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_QUOTE=1
 
 # no-installinfo requires foreign
 AUTOMAKE_OPTIONS = no-installinfo foreign
@@ -22,16 +24,16 @@ AUTOMAKE_OPTIONS = no-installinfo foreign
 # cross-compiling.
 MAKEINFO = $(PERL) -I $(top_srcdir)/tp/ $(top_srcdir)/tp/texi2any.pl
 
-# the pod files are formatted like man pages.  If split at node
+# the pod files are formatted like man pages.  If HTML is split at node
 # or section, this results in some very short sections at the beginning
 # of each module, so split at chapters.
-MAKEINFOHTML = $(MAKEINFO) --html --split=chapter
+AM_MAKEINFOHTMLFLAGS = --split=chapter
 
 # since the tp_api 'manual' is referred to extensively in the
-# customization_api, we setup the build targets.  More
-# relevant for the HTML output, as, as said above the Info manual
-# is useless.
+# customization_api, we setup the build targets.
 info_TEXINFOS = tp_api.texi
+
+TEXINFO_TEX = ../texinfo.tex
 
 # dependencies are in api_includes/ directory but we do not want to list
 # them explicitely
