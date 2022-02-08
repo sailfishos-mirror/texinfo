@@ -1,6 +1,6 @@
 # Texinfo.pm: format Pod as Texinfo.
 #
-# Copyright 2011, 2012, 2013, 2014 Free Software Foundation, Inc.
+# Copyright 2011, 2012, 2013, 2014, 2022 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -44,13 +44,13 @@ $VERSION = '0.01';
 
 #use UNIVERSAL ();
 
-# Allows being called from the comand line as
+# Allows being called from the command line as
 # perl -w -MPod::Simple::Texinfo -e Pod::Simple::Texinfo::go thingy.pod
 sub go { Pod::Simple::Texinfo->parse_from_file(@ARGV); exit 0 }
 
-my %head_commands_level;
+my %pod_head_commands_level;
 foreach my $level (1 .. 4) {
-  $head_commands_level{'head'.$level} = $level;
+  $pod_head_commands_level{'head'.$level} = $level;
 }
 
 my @numbered_sectioning_commands = ('part', 'chapter', 'section', 'subsection',
@@ -65,13 +65,13 @@ my @raw_formats = ('html', 'HTML', 'docbook', 'DocBook', 'texinfo',
 
 # from other Pod::Simple modules.  Creates accessor subroutine.
 __PACKAGE__->_accessorize(
-  'texinfo_sectioning_base_level',
-  'texinfo_short_title',
-  'texinfo_man_url_prefix',
-  'texinfo_sectioning_style',
   'texinfo_add_upper_sectioning_command',
-  'texinfo_section_nodes',
   'texinfo_internal_pod_manuals',
+  'texinfo_man_url_prefix',
+  'texinfo_section_nodes',
+  'texinfo_sectioning_base_level',
+  'texinfo_sectioning_style',
+  'texinfo_short_title',
 );
 
 my $sectioning_style = 'numbered';
@@ -117,21 +117,22 @@ sub run
   } else {
     $self->{'texinfo_sectioning_commands'} = \@appendix_sectioning_commands;
   }
-  foreach my $heading_command (keys(%head_commands_level)) {
-    my $level = $head_commands_level{$heading_command} + $base_level -1;
-    if (!defined($self->{'texinfo_sectioning_commands'}->[$level])) {
-      $self->{'texinfo_head_commands'}->{$heading_command}
-        = $self->{'texinfo_sectioning_commands'}->[-1];
-    } else {
+  foreach my $heading_command (keys(%pod_head_commands_level)) {
+    my $level = $pod_head_commands_level{$heading_command} + $base_level -1;
+    if (defined($self->{'texinfo_sectioning_commands'}->[$level])) {
       $self->{'texinfo_head_commands'}->{$heading_command}
         = $self->{'texinfo_sectioning_commands'}->[$level];
+    } else {
+      $self->{'texinfo_head_commands'}->{$heading_command}
+        = $self->{'texinfo_sectioning_commands'}->[-1];
     }
   }
+  # contain all the manuals that are part of the same output
   $self->{'texinfo_internal_pod_manuals_hash'} = {};
   my $manuals = $self->texinfo_internal_pod_manuals();
   if ($manuals) {
     foreach my $manual (@$manuals) {
-       $self->{'texinfo_internal_pod_manuals_hash'}->{$manual} = 1;
+      $self->{'texinfo_internal_pod_manuals_hash'}->{$manual} = 1;
     }
   }
 
@@ -188,26 +189,26 @@ sub _preamble($)
     }
     print $fh "\@node Top\n";
     if (defined($self->texinfo_short_title())) {
-       print $fh "\@top "._protect_text($self->texinfo_short_title(), 1)."\n\n";
+      print $fh "\@top "._protect_text($self->texinfo_short_title(), 1)."\n\n";
     }
   } elsif (defined($self->texinfo_short_title())
            and $self->texinfo_add_upper_sectioning_command()) {
-      my $level = $self->texinfo_sectioning_base_level() - 1;
-      my $name = _protect_text($self->texinfo_short_title(), 1);
-      my $node_name = _prepare_anchor($self, $name);
+    my $level = $self->texinfo_sectioning_base_level() - 1;
+    my $name = _protect_text($self->texinfo_short_title(), 1);
+    my $node_name = _prepare_anchor($self, $name);
 
-      my $anchor = '';
-      my $node = '';
-      if ($node_name =~ /\S/) {
-        if (!$self->texinfo_section_nodes()
-            or $self->{'texinfo_sectioning_commands'}->[$level] eq 'part') {
-          $anchor = "\@anchor{$node_name}\n";
-        } else {
-          $node = "\@node $node_name\n";
-        }
+    my $anchor = '';
+    my $node = '';
+    if ($node_name =~ /\S/) {
+      if (!$self->texinfo_section_nodes()
+          or $self->{'texinfo_sectioning_commands'}->[$level] eq 'part') {
+        $anchor = "\@anchor{$node_name}\n";
+      } else {
+        $node = "\@node $node_name\n";
       }
-      print $fh "$node\@$self->{'texinfo_sectioning_commands'}->[$level] "
-         ._protect_text($self->texinfo_short_title(), 1)."\n$anchor\n";
+    }
+    print $fh "$node\@$self->{'texinfo_sectioning_commands'}->[$level] "
+       ._protect_text($self->texinfo_short_title(), 1)."\n$anchor\n";
   }
 }
 
@@ -467,17 +468,16 @@ my %line_commands = (
 #  'encoding' => 'documentencoding'
 );
 
-foreach my $tag (keys(%head_commands_level)) {
-  $line_commands{$tag} = 1;
+foreach my $pod_head_command (keys(%pod_head_commands_level)) {
+  $line_commands{$pod_head_command} = 1;
 }
 
-my %tags_index_before;
 my %context_tags;
 foreach my $context_tag (keys(%line_commands), 'L', 'X', 'Para') {
   $context_tags{$context_tag} = 1;
 }
 
-# do not appear as parsed token
+# does not appear as parsed token
 # E entity/character
 sub _convert_pod($)
 {
@@ -641,13 +641,13 @@ sub _convert_pod($)
         if ($line_commands{$tagname}) {
 
           my ($command, $command_argument);
-          if ($head_commands_level{$tagname}) {
+          if ($pod_head_commands_level{$tagname}) {
             $command = $self->{'texinfo_head_commands'}->{$tagname};
           } elsif ($line_commands{$tagname}) {
             $command = $line_commands{$tagname};
           }
 
-          if ($head_commands_level{$tagname} or $tagname eq 'item-text') {
+          if ($pod_head_commands_level{$tagname} or $tagname eq 'item-text') {
             chomp ($result);
             $result =~ s/\n/ /g;
             $result =~ s/^\s*//;
@@ -797,31 +797,12 @@ methods (and options).
 It supports producing a standalone manual per Pod (the default) or
 render the Pod as a chapter, see L</texinfo_sectioning_base_level>.
 
-C<@@documentencoding> is not output, which is consistent with outputting
-the Texinfo output in utf8 in the caller.
+C<@documentencoding> is not output, which is consistent with outputting
+Texinfo in utf8 in the caller.
 
 =head1 METHODS
 
 =over
-
-=item texinfo_sectioning_base_level
-
-Sets the level of the head1 commands.  1 is for the @chapter/@unnumbered
-level.  If set to 0, the head1 commands level is still 1, but the output
-manual is considered to be a standalone manual.  If not 0, the pod file is
-rendered as a fragment of a Texinfo manual.
-
-=item texinfo_man_url_prefix
-
-String used as a prefix for man page urls.  Default
-is C<http://man.he.net/man>.
-
-=item texinfo_sectioning_style
-
-Default is C<numbered>, using the numbered sectioning Texinfo @-commands
-(@chapter, @section...).  Giving C<unnumbered> leads to using unnumbered
-sectioning command variants (@unnumbered...), and any other value would
-lead to using appendix sectioning command variants (@appendix...).
 
 =item texinfo_add_upper_sectioning_command
 
@@ -832,9 +813,45 @@ a C<@part> if the level is equal to 1, a C<@chapter> if the level is equal
 to 2 and so on and so forth.  If the base level is 0, a C<@top> command is
 output instead.
 
+=item texinfo_internal_pod_manuals
+
+The argument should be a reference on an array containing the short
+titles (usually the module names) of all the pod documents that are
+converted together and should be internal in the Texinfo document obtained
+by including all those pod manuals.  References to those documents use
+the internal reference commands formatting in Texinfo.
+
+Corresponds to L<texinfo_sectioning_base_level> set to anything else than 0.
+
+=item texinfo_man_url_prefix
+
+String used as a prefix for man page urls.  Default
+is C<http://man.he.net/man>.
+
 =item texinfo_section_nodes
 
 If set, add C<@node> and not C<@anchor> for each sectioning command.
+
+=item texinfo_sectioning_base_level
+
+Sets the level of the head1 commands.  1 is for the @chapter/@unnumbered
+level.  If set to 0, the head1 commands level is still 1, but the output
+manual is considered to be a standalone manual.  If not 0, the pod file is
+rendered as a fragment of a Texinfo manual.
+
+=item texinfo_sectioning_style
+
+Default is C<numbered>, using the numbered sectioning Texinfo @-commands
+(@chapter, @section...).  Giving C<unnumbered> leads to using unnumbered
+sectioning command variants (@unnumbered...), and any other value would
+lead to using appendix sectioning command variants (@appendix...).
+
+=item texinfo_short_title
+
+If set, used as short title.  Otherwise, set to the module name with
+L<<< Pod::Simple::PullParser->get_short_title|Pod::Simple::PullParser/my $title_string = $parser->get_short_title >>>.
+Can be accessed to get the module name associated with a C<Pod::Simple::Texinfo>
+parser.
 
 =back
 

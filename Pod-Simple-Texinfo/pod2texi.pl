@@ -1,6 +1,6 @@
 #! /usr/bin/env perl
 # pod2texi -- convert Pod to Texinfo.
-# Copyright 2012-2021 Free Software Foundation, Inc.
+# Copyright 2012-2022 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -107,10 +107,9 @@ sub pod2texi_help()
 basic modes of operation.  First, by default, each pod is translated to
 a standalone Texinfo manual.
 
-Second, if C<--base-level> is set higher than 0, each pod is translated
-to a file suitable for C<\@include>, and one more file with all the
-C<\@include>s is generated, intended to be C<\@include>d in turn within
-a hand-written top-level file.");
+Second, if --base-level is set higher than 0, each pod is translated
+to a file suitable for \@include, and one more file with a main menu
+and all the \@include is generated.");
   $pod2texi_help .= "\n\n";
   $pod2texi_help .= __("Options:
     --appendix-sections     use appendix-like sections")."\n";
@@ -121,7 +120,8 @@ a hand-written top-level file.");
   $pod2texi_help .= __("    --no-section-nodes      use anchors for sections instead of nodes")."\n";
   $pod2texi_help .= __("    --output=NAME           output to NAME for the first or main manual
                             instead of standard output")."\n";
-  $pod2texi_help .= __("    --preamble=STR          insert STR as beginning boilerplate")."\n";
+  $pod2texi_help .= __("    --preamble=STR          insert STR as beginning boilerplate.
+                            Defaults to a minimal Texinfo document beginning")."\n";
   $pod2texi_help .= __("    --subdir=NAME           put files included in the main manual in NAME")."\n";
   $pod2texi_help .= __("    --top                   top for the main manual")."\n";
   $pod2texi_help .= __("    --unnumbered-sections   do not number sections")."\n";
@@ -204,7 +204,7 @@ if ($base_level > 0) {
   foreach my $file (@input_files) {
     # we don't want to read from STDIN, as the input read would be lost
     # same with named pipe and socket...
-    # FIXME are there other file that have the same problem?
+    # FIXME are there other file types that have the same problem?
     next if ($file eq '-' or -p $file or -S $file);
     # not really used, only the manual name is used.
     my $parser = Pod::Simple::PullParserRun->new();
@@ -519,9 +519,8 @@ operation.  First, by default, each pod is translated to a standalone
 Texinfo manual.
 
 Second, if C<--base-level> is set higher than 0, each pod is translated
-to a file suitable for C<@include>, and one more file with all the
-C<@include>s is generated, intended to be C<@include>d in turn within a
-hand-written top-level file.
+to a file suitable for C<@include>, and one more file with a main menu
+and all the C<@include> is generated.
 
 =head1 OPTIONS
 
@@ -575,9 +574,9 @@ Ordinarily, it's good to keep the sectioning hierarchy intact.
 
 =item B<--preamble>=I<STR>
 
-Insert I<STR> as top boilerplate before includes.  If I<STR> is set to
-C<->, read the top boilerplate from the standard input.  The default
-top boilerplate is a minimal beginning for a Texinfo document.
+Insert I<STR> as top boilerplate before menu and includes.  If I<STR> is
+set to C<->, read the top boilerplate from the standard input.  The default top
+boilerplate is a minimal beginning for a Texinfo document.
 
 =item B<--subdir>=I<NAME>
 
@@ -607,7 +606,7 @@ Texinfo home page: L<http://www.gnu.org/software/texinfo/>
 
 =head1 COPYRIGHT
 
-Copyright 2021 Free Software Foundation, Inc.
+Copyright 2012-2022 Free Software Foundation, Inc.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
