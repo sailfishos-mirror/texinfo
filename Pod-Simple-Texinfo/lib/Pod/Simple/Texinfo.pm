@@ -33,7 +33,8 @@ use Texinfo::Parser qw(parse_texi_line parse_texi_text);
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::TextContent;
 use Texinfo::Common qw(protect_comma_in_tree protect_first_parenthesis);
-use Texinfo::Transformations qw(protect_hashchar_at_line_beginning);
+use Texinfo::Transformations qw(protect_hashchar_at_line_beginning
+                                          reference_to_arg_in_tree);
 
 use vars qw(
   @ISA $VERSION
@@ -291,7 +292,7 @@ sub _reference_to_text_in_texi($)
 {
   my $texinfo = shift;
   my $tree = parse_texi_text(undef, $texinfo);
-  Texinfo::Transformations::reference_to_arg_in_tree($tree);
+  reference_to_arg_in_tree($tree);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
@@ -513,7 +514,7 @@ sub _convert_pod($)
             # However, there is a 'man' category here and not in Texinfo,
             # so the information is more precise in pod.
             # NOTE 3: the section within the man (and not the numeric section in the
-            # man page specification) whic is in $token->attr('section') is ignored.
+            # man page specification) which is in $token->attr('section') is ignored.
             # Maybe there would be a way to specify it, but it is not very important.
             my $replacement_arg = $token->attr('to').'';
             # regexp from Pod::Simple::HTML resolve_man_page_link

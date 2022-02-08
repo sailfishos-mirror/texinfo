@@ -38,6 +38,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
 protect_hashchar_at_line_beginning
+reference_to_arg_in_tree
 ) ] );
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
@@ -933,6 +934,14 @@ I<$configuration_information> should give access to configuration through
 C<get_conf()>.  If both I<$registrar> and I<$configuration_information> are
 defined they are used for error reporting in case an hash character could not
 be protected because it appeared in a raw environment.
+
+=item $modified_tree reference_to_arg_in_tree ($tree)
+
+Modify I<$tree> by converting reference @-commands to simple text using one of
+the arguments.  This transformation can be used, for example, to remove
+reference @-command from constructed node names trees, as node names cannot
+contain reference @-command while there could be some in the tree used in input
+for the node name tree.
 
 =item regenerate_master_menu ($translations, $labels)
 
