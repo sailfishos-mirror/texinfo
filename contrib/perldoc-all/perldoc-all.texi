@@ -1,7 +1,7 @@
 \input texinfo
 @c This top-level file is so trivial, it has to be public domain.
 @setfilename perldoc-all.info
-@settitle Perl pod documentation
+@settitle Perl Pod documentation
 @finalout
 @tex
 \global\hfuzz=\maxdimen
@@ -16,7 +16,7 @@
 @top Perl pod documentation
 
 This translation of the Perl documentation
-(@url{http://perldoc.perl.org}) from POD to Texinfo is not official,
+(@url{http://perldoc.perl.org}) from Pod to Texinfo is not official,
 and not endorsed by the Perl developers (indeed, they haven't seen
 it).  It was created by the GNU Texinfo developers because they found
 it useful to have the Perl documentation available in Info and other

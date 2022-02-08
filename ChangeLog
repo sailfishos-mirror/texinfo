@@ -1,5 +1,12 @@
 2022-02-08  Patrice Dumas  <pertusus@free.fr>
 
+	* contrib/perldoc-all, doc/texinfo.texi (Invoking @command{pod2texi}): 
+	comment out the paragraph on contrib/perldoc-all as there are issues with
+	cross Pod links, because the Perldoc Browser adds an additional anchor
+	with the first word.
+
+2022-02-08  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_convert_pod)
 	(%standard_headers): prepend the module name to first level
 	section names only if in a list of standard headers taken

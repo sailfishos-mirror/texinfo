@@ -22,10 +22,14 @@ pod2texi_args  = --base-level=section
 pod2texi_args += --preamble=''  # we want our own
 pod2texi_args += --subdir=$(texi_pod_subdir)
 
-# Unfortunately have to use --no-validate since not all the names and
-# L<references> match up.  Split HTML by chapter is the natural thing here.
 gendocs_args  = --email bug-texinfo@gnu.org
+# Unfortunately have to use --no-validate since not all the names and
+# L<references> match up.  The main issue with missing links is because
+# Pod::Simple::Role::XHTML::WithLinkMappings which formats the Perldoc Browser
+# does not follow the Pod specification and adds anchors:
+#   "a link will be generated using the first word of the target."
 gendocs_args += --common "--no-warn --no-validate"
+# Split HTML by chapter is the natural thing here.
 gendocs_args += --split chapter
 gendocs_args += --no-ascii
 gendocs_args += --source $(texi_pod_subdir)
@@ -51,7 +55,8 @@ $(texi_pod_doc_incl): $(perl_pod_subdir)/*.pod
 # searching (and take tons of time and space to process).
 # 
 # We also omit perlunicook, since it necessarily has many binary Unicode
-# characters, and processing the whole thing in UTF-8 makes it less useful. 
+# characters, and processing the whole thing with UTF-8 not handled
+# by texi2pdf is not useful.
 #
 # Because we start from the source directory, we also lose all the
 # generated .pods, such as perluniprops.  We would not want

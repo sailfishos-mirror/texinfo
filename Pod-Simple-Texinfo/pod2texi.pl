@@ -529,6 +529,15 @@ and all the C<@include> is generated.
 
 =head1 OPTIONS
 
+=begin comment
+
+This style used for command line options is a style often seen in
+Pods.  Also often seen is simple =item, or a verbatim block with --help
+output.  More rarely =head2, very rare use of C<>.  Use of C<> would
+have been more in line with Texinfo @option.
+
+=end comment
+
 =over
 
 =item B<--appendix-sections>

@@ -17140,10 +17140,13 @@ version on the web
 included below.  The version included in the manual is also an example of
 @command{pod2texi} use, as it is converted from Pod using @command{pod2texi}.
 
-For an example of using @command{pod2texi} to make Texinfo out of the
-Perl documentation itself, see
-@url{http://svn.savannah.gnu.org/viewvc/trunk/contrib/perldoc-all/?root=texinfo,
-@file{contrib/perldoc-all}} in the Texinfo source distribution.
+@c there are issue with the perldoc-all generated files, as the perl documentation
+@c does not follows the Pod specification, there are anchors added
+@c using the first word in addition to the regular anchors.
+@c For an example of using @command{pod2texi} to make Texinfo out of the
+@c Perl documentation itself, see
+@c @url{http://svn.savannah.gnu.org/viewvc/trunk/contrib/perldoc-all/?root=texinfo,
+@c @file{contrib/perldoc-all}} in the Texinfo source distribution.
 
 @menu
 * pod2texi manual page::      @command{pod2texi} invokation in a manual page format

@@ -16,3 +16,9 @@ and run (GNU) make.  Aside from the result hopefully being useful in
 itself (just copy the .info file to an Info directory), it also serves
 as a nontrivial example of using pod2texi.
 
+Note that a main issue with the generated files is that many internal
+links are missing because the links do not follow the Pod specification
+as Pod::Simple::Role::XHTML::WithLinkMappings which formats the Perldoc
+Browser adds anchors:
+  "a link will be generated using the first word of the target."
+
