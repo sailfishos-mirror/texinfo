@@ -1,5 +1,19 @@
 2022-02-08  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_convert_pod):
+	prepend modules name to first level section names for internal
+	manuals, otherwise the section name does not allow to understand which
+	module the following text refers to, since all the POD use the  same
+	top level section names, like NAME, METHODS, as described in
+	perlpodstyle and based on man pages conventions.
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_prepend_internal_section_manual): rename
+	_section_manual_to_node_name() as _prepend_internal_section_manual()
+	and remove the unused $self argument.
+
+2022-02-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Transformations.pm,
 	Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
 	(_reference_to_text_in_texi) : export reference_to_arg_in_tree

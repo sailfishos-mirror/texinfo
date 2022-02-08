@@ -75,14 +75,19 @@ run_test ('=head1 NAME
 T@c
 
 =head1 @{}
+
+=head2 @,
 ',
 '@node T@@c NAME
-@section NAME
+@section T@@c NAME
 
 T@@c
 
 @node T@@c @@@{@}
-@section @@@{@}
+@section T@@c @@@{@}
+
+@node T@@c @@@comma{}
+@subsection @@,
 
 ', 'protected characters', 1, 2);
 

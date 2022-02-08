@@ -296,9 +296,8 @@ sub _reference_to_text_in_texi($)
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
-sub _section_manual_to_node_name($$$)
+sub _prepend_internal_section_manual($$$)
 {
-  my $self = shift;
   my $manual = shift;
   my $section = shift;
   my $base_level = shift;
@@ -382,9 +381,9 @@ sub _node_name($$)
 
   chomp $texinfo_node_name;
   $texinfo_node_name
-   = $self->_section_manual_to_node_name($self->texinfo_short_title(),
-                                         $texinfo_node_name,
-                                         $self->texinfo_sectioning_base_level());
+   = _prepend_internal_section_manual($self->texinfo_short_title(),
+                                  $texinfo_node_name,
+                                  $self->texinfo_sectioning_base_level());
   # also change refs to text
   return _reference_to_text_in_texi($texinfo_node_name);
 }
@@ -564,7 +563,7 @@ sub _convert_pod($)
               }
               if ($self->{'texinfo_internal_pod_manuals_hash'}->{$manual}) {
                 $texinfo_node =
-                 $self->_section_manual_to_node_name($manual, $section,
+                 _prepend_internal_section_manual($manual, $section,
                                      $self->texinfo_sectioning_base_level());
               } else {
                 $texinfo_manual = _protect_text(_pod_title_to_file_name($manual));
@@ -576,7 +575,7 @@ sub _convert_pod($)
               }
             } elsif (defined($section) and $section =~ m/\S/) {
               $texinfo_node =
-               $self->_section_manual_to_node_name(
+               _prepend_internal_section_manual(
                                      $self->texinfo_short_title(), $section,
                                      $self->texinfo_sectioning_base_level());
               $texinfo_section = _normalize_texinfo_name(
@@ -656,10 +655,24 @@ sub _convert_pod($)
 
             $command_argument = _normalize_texinfo_name($result, $command);
             if ($result =~ /\S/ and $command_argument !~ /\S/) {
-              # use some raw text if the expansion lead to an empty section
+              # use some raw text if the expansion lead to empty Texinfo code
               my $tree = parse_texi_line(undef, $result);
               my $converter = Texinfo::Convert::TextContent->converter();
               $command_argument = _protect_text($converter->convert_tree($tree));
+            }
+
+            if ($pod_head_commands_level{$tagname}
+                and $pod_head_commands_level{$tagname} == 1) {
+              # prepend the manual name for the top level texinfo section name for
+              # internal manuals, otherwise the section name does not
+              # allow to understand which module the following text refers to,
+              # in particular for Info or PDF output based on the generated Texinfo.
+              # Indeed, all the POD use the  same top level section names,
+              # like NAME, METHODS, as described in perlpodstyle and based on
+              # man pages conventions.
+              $command_argument = _prepend_internal_section_manual(
+                           $self->texinfo_short_title(), $command_argument,
+                                    $self->texinfo_sectioning_base_level());
             }
 
             my $anchor = '';
