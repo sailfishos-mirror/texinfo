@@ -1,5 +1,14 @@
 2022-02-08  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_protect_text)
+	(_prepend_internal_section_manual, _convert_pod): if not in code
+	context in resulting Texinfo, protect -- and --- in order for the
+	minus to be kept in the Texinfo output, as expected from Pod
+	translators.  This is important to avoid -- in options becoming
+	ndash.
+
+2022-02-08  Patrice Dumas  <pertusus@free.fr>
+
 	* contrib/perldoc-all, doc/texinfo.texi (Invoking @command{pod2texi}): 
 	comment out the paragraph on contrib/perldoc-all as there are issues with
 	cross Pod links, because the Perldoc Browser adds an additional anchor

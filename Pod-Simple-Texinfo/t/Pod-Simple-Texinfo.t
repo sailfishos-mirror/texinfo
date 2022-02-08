@@ -6,7 +6,7 @@
 # change 'tests => 1' to 'tests => last_test_to_print';
 
 use Test::More;
-BEGIN { plan tests => 17 };
+BEGIN { plan tests => 18 };
 use Pod::Simple::Texinfo;
 ok(1); # If we made it this far, we're ok.
 
@@ -84,7 +84,7 @@ T@c
 T@@c
 
 @node T@@c @@@{@}
-@section T@@c @@@{@}
+@section @@@{@}
 
 @node T@@c @@@comma{}
 @subsection @@,
@@ -318,6 +318,21 @@ run_test('=head1 head
 
 @end html
 ','cpp lines in formats');
+
+run_test('=head1 ---- -- C<--->
+
+C<--- L<---|--/--->>
+
+L<F<--->|F<-->/C<--->>
+
+','@chapter @asis{}-@asis{}-@asis{}-@asis{}- @asis{}-@asis{}-@asis{} @code{---}
+@anchor{@asis{}-@asis{}-@asis{}-@asis{}- @asis{}-@asis{}-@asis{} @code{---}}
+
+@code{--- @ref{---, @asis{}-@asis{}-@asis{}-@asis{},, --}}
+
+@ref{---, @file{---},, --}
+
+', 'protected -');
 
 1;
 

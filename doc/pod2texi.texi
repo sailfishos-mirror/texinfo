@@ -28,15 +28,15 @@ and all the @code{@@include} is generated.
 @anchor{pod2texi OPTIONS}
 
 @table @asis
-@item @strong{--appendix-sections}
-@anchor{pod2texi @strong{--appendix-sections}}
+@item @strong{@asis{}-@asis{}-@asis{}appendix-sections}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}appendix-sections}}
 
 Use appendix sectioning commands (@code{@@appendix}, ...) instead of the
 default numbered sectioning Texinfo @@-commands (@code{@@chapter},
 @code{@@section}, ...).
 
-@item @strong{--base-level}=@emph{NUM|NAME}
-@anchor{pod2texi @strong{--base-level}=@emph{NUM|NAME}}
+@item @strong{@asis{}-@asis{}-@asis{}base-level}=@emph{NUM|NAME}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}base-level}=@emph{NUM|NAME}}
 
 Sets the level of the @code{head1} commands.  It may be an integer or a
 Texinfo sectioning command (without the @code{@@}): 1 corresponds to the
@@ -54,69 +54,69 @@ For an example of making Texinfo out of the Perl documentation itself,
 see @code{contrib/perldoc-all} in the Texinfo source distribution, with
 output available at @url{http://www.gnu.org/software/perl/manual}.
 
-@item @strong{--debug}=@emph{NUM}
-@anchor{pod2texi @strong{--debug}=@emph{NUM}}
+@item @strong{@asis{}-@asis{}-@asis{}debug}=@emph{NUM}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}debug}=@emph{NUM}}
 
 Set debugging level to @emph{NUM}.
 
-@item @strong{--headings-as-sections}
-@anchor{pod2texi @strong{--headings-as-sections}}
+@item @strong{@asis{}-@asis{}-@asis{}headings-as-sections}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}headings-as-sections}}
 
 Use headings commands (@code{@@heading}, ...) instead of the
 default numbered sectioning Texinfo @@-commands (@code{@@chapter},
 @code{@@section}, ...). The sectioning command covering the entire
-file output for each Pod file if @strong{--base-level} is not 0 is a
+file output for each Pod file if @strong{@asis{}-@asis{}-@asis{}base-level} is not 0 is a
 numbered command.
 
-@item @strong{--help}
-@anchor{pod2texi @strong{--help}}
+@item @strong{@asis{}-@asis{}-@asis{}help}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}help}}
 
 Display help and exit.
 
-@item @strong{--output}=@emph{NAME}
-@anchor{pod2texi @strong{--output}=@emph{NAME}}
+@item @strong{@asis{}-@asis{}-@asis{}output}=@emph{NAME}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}output}=@emph{NAME}}
 
 Name for the first manual, or the main manual if there is a main manual.
 Default is to write to standard output.
 
-@item @strong{--no-section-nodes}
-@anchor{pod2texi @strong{--no-section-nodes}}
+@item @strong{@asis{}-@asis{}-@asis{}no-section-nodes}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}no-section-nodes}}
 
 Use anchors for sections instead of nodes.
 
-@item @strong{--no-fill-section-gaps}
-@anchor{pod2texi @strong{--no-fill-section-gaps}}
+@item @strong{@asis{}-@asis{}-@asis{}no-fill-section-gaps}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}no-fill-section-gaps}}
 
 Do not fill sectioning gaps with empty @code{@@unnumbered} files.
 Ordinarily, it's good to keep the sectioning hierarchy intact.
 
-@item @strong{--preamble}=@emph{STR}
-@anchor{pod2texi @strong{--preamble}=@emph{STR}}
+@item @strong{@asis{}-@asis{}-@asis{}preamble}=@emph{STR}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}preamble}=@emph{STR}}
 
 Insert @emph{STR} as top boilerplate before menu and includes.  If @emph{STR} is
 set to @code{-}, read the top boilerplate from the standard input.  The default top
 boilerplate is a minimal beginning for a Texinfo document.
 
-@item @strong{--subdir}=@emph{NAME}
-@anchor{pod2texi @strong{--subdir}=@emph{NAME}}
+@item @strong{@asis{}-@asis{}-@asis{}subdir}=@emph{NAME}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}subdir}=@emph{NAME}}
 
 If there is a main manual with include files (each corresponding to
 an input Pod file), then those include files are put in directory @emph{NAME}.
 
-@item @strong{--unnumbered-sections}
-@anchor{pod2texi @strong{--unnumbered-sections}}
+@item @strong{@asis{}-@asis{}-@asis{}unnumbered-sections}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}unnumbered-sections}}
 
 Use unnumbered sectioning commands (@code{@@unnumbered}, ...) instead of the
 default numbered sectioning Texinfo @@-commands (@code{@@chapter},
 @code{@@section}, ...).
 
-@item @strong{--top}=@emph{TOP}
-@anchor{pod2texi @strong{--top}=@emph{TOP}}
+@item @strong{@asis{}-@asis{}-@asis{}top}=@emph{TOP}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}top}=@emph{TOP}}
 
 Name of the @code{@@top} element for the main manual.  May contain Texinfo code.
 
-@item @strong{--version}
-@anchor{pod2texi @strong{--version}}
+@item @strong{@asis{}-@asis{}-@asis{}version}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}version}}
 
 Display version information and exit.
 

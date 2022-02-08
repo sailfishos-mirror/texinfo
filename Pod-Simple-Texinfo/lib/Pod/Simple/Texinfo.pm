@@ -214,7 +214,7 @@ sub _preamble($)
       }
     }
     if (defined($setfilename) and $setfilename =~ m/\S/) {
-      $setfilename = _protect_text($setfilename, 1);
+      $setfilename = _protect_text($setfilename, 1, 1);
       $setfilename .= '.info';
       print $fh "\@setfilename $setfilename\n\n"
     }
@@ -230,7 +230,7 @@ sub _preamble($)
   } elsif (defined($self->texinfo_short_title())
            and $self->texinfo_add_upper_sectioning_command()) {
     my $level = $self->texinfo_sectioning_base_level() - 1;
-    my $name = _protect_text($self->texinfo_short_title(), 1);
+    my $name = _protect_text($self->texinfo_short_title(), 1, 1);
     my $node_name = _prepare_anchor($self, $name);
 
     my $anchor = '';
@@ -282,13 +282,30 @@ sub _end_context($)
   return ($previous_context->{'text'}, $previous_context->{'out'});
 }
 
-sub _protect_text($;$)
+sub _protect_text($;$$)
 {
   my $text = shift;
   my $remove_new_lines = shift;
+  my $in_code = shift;
   cluck if (!defined($text));
   $text =~ s/\n/ /g if ($remove_new_lines);
   $text =~ s/([\@\{\}])/\@$1/g;
+  # from perlpodspec
+  # Pod parsers should not, by default, try to coerce apostrophe (') and quote
+  # (") into smart quotes (little 9's, 66's, 99's, etc), nor try to turn
+  # backtick (`) into anything else but a single backtick character (distinct
+  # from an open quote character!), nor "--" into anything but two minus signs.
+  # They must never do any of those things to text in C<...> formatting codes,
+  # and never ever to text in verbatim paragraphs.
+  #
+  # In Texinfo, -- --- would become dashes if not in verbatim/code.  We make
+  # sure that it is not the case here.  We do not do the same for the backticks
+  # and apostrophes, as there is no way to prevent those from becoming smart
+  # quotes without putting them in @code{} or similar @-command.
+  if (! $in_code) {
+    $text =~ s/---/\@asis{}-\@asis{}-\@asis{}-\@asis{}/g;
+    $text =~ s/--/\@asis{}-\@asis{}-\@asis{}/g
+  }
   return $text;
 }
 
@@ -331,14 +348,15 @@ sub _reference_to_text_in_texi($)
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
-sub _prepend_internal_section_manual($$$)
+sub _prepend_internal_section_manual($$$;$)
 {
   my $manual = shift;
   my $section = shift;
   my $base_level = shift;
+  my $in_code = shift;
 
   if (defined($manual) and $base_level > 0) {
-    return _protect_text($manual, 1). " $section";
+    return _protect_text($manual, 1, $in_code). " $section";
   } else {
     return $section;
   }
@@ -418,7 +436,7 @@ sub _node_name($$)
   $texinfo_node_name
    = _prepend_internal_section_manual($self->texinfo_short_title(),
                                   $texinfo_node_name,
-                                  $self->texinfo_sectioning_base_level());
+                                  $self->texinfo_sectioning_base_level(), 1);
   # also change refs to text
   return _reference_to_text_in_texi($texinfo_node_name);
 }
@@ -563,7 +581,7 @@ sub _convert_pod($)
               # but to be sure there is still a call to _protect_comma.
               $url_arg = _protect_comma(_protect_text(
                                            $self->texinfo_man_url_prefix()
-                                              ."$section/"._url_escape($page)));
+                                              ."$section/"._url_escape($page), 0, 1));
             } else {
               $url_arg = '';
             }
@@ -572,7 +590,7 @@ sub _convert_pod($)
           } elsif ($linktype eq 'url') {
             # NOTE: the .'' is here to force the $token->attr to be a real
             # string and not an object.
-            $url_arg = _protect_comma(_protect_text($token->attr('to').''));
+            $url_arg = _protect_comma(_protect_text($token->attr('to').'', 0, 1));
           } elsif ($linktype eq 'pod') {
             my $manual = $token->attr('to');
             my $section = $token->attr('section');
@@ -599,9 +617,9 @@ sub _convert_pod($)
               if ($self->{'texinfo_internal_pod_manuals_hash'}->{$manual}) {
                 $texinfo_node =
                  _prepend_internal_section_manual($manual, $section,
-                                     $self->texinfo_sectioning_base_level());
+                                     $self->texinfo_sectioning_base_level(), 1);
               } else {
-                $texinfo_manual = _protect_text(_pod_title_to_file_name($manual));
+                $texinfo_manual = _protect_text(_pod_title_to_file_name($manual), 0, 1);
                 if (defined($section)) {
                   $texinfo_node = $section;
                 } else {
@@ -612,13 +630,14 @@ sub _convert_pod($)
               $texinfo_node =
                _prepend_internal_section_manual(
                                      $self->texinfo_short_title(), $section,
-                                     $self->texinfo_sectioning_base_level());
+                                     $self->texinfo_sectioning_base_level(), 1);
               $texinfo_section = _normalize_texinfo_name(
                  _protect_comma(_protect_text($section)), 'section');
               #print STDERR "L: internal: $texinfo_node/$texinfo_section\n";
             }
             $texinfo_node = _normalize_texinfo_name(
-                    _protect_comma(_protect_text($texinfo_node)), 'anchor');
+                    # FIXME remove end of lines?
+                    _protect_comma(_protect_text($texinfo_node, 0, 1)), 'anchor');
             #print STDERR "L: normalized node: $texinfo_node\n";
 
             # for pod, 'to' is the pod manual name.  Then 'section' is the
@@ -636,6 +655,13 @@ sub _convert_pod($)
         _begin_context(\@accumulated_output, $tagname);
       } elsif ($tag_commands{$tagname}) {
         _output($fh, \@accumulated_output, "\@$tag_commands{$tagname}\{");
+        if ($Texinfo::Common::code_style_commands{$tag_commands{$tagname}}) {
+          if (@format_stack and ref($format_stack[-1]) eq ''
+              and defined($self->{'texinfo_raw_format_commands'}->{$format_stack[-1]})) {
+            cluck "in $format_stack[-1]: $tagname $tag_commands{$tagname}";
+          }
+          push @format_stack, 'in_code';
+        }
       } elsif ($environment_commands{$tagname}) {
         _output($fh, \@accumulated_output, "\@$environment_commands{$tagname}\n");
         if ($tagname eq 'Verbatim') {
@@ -654,22 +680,29 @@ sub _convert_pod($)
       }
     } elsif ($type eq 'text') {
       my $text;
-      if (@format_stack and !ref($format_stack[-1])
+      if (@format_stack and ref($format_stack[-1]) eq ''
           and ((defined($self->{'texinfo_raw_format_commands'}->{$format_stack[-1]})
                 and !$self->{'texinfo_raw_format_commands'}->{$format_stack[-1]})
                or ($format_stack[-1] eq 'verbatim'))) {
         $text = $token->text();
       } else {
-        $text = _protect_text($token->text());
-        if (@format_stack and !ref($format_stack[-1])
+        if (@format_stack and ref($format_stack[-1]) eq ''
             and ($self->{'texinfo_raw_format_commands'}->{$format_stack[-1]})) {
+          $text = _protect_text($token->text(), 0, 1);
           $text =~ s/^(\s*)#(\s*(line)? (\d+)(( "([^"]+)")(\s+\d+)*)?\s*)$/$1\@hashchar{}$2/mg;
+        } else {
+          $text = _protect_text($token->text(), 0,
+                    (@format_stack and $format_stack[-1] eq 'in_code'));
         }
       }
       _output($fh, \@accumulated_output, $text);
     } elsif ($type eq 'end') {
       my $tagname = $token->tagname();
       if ($context_tags{$tagname}) {
+        # note that if the Pod command argument contains --- or -- they
+        # will already have been protected as text with -@asis{}-, so
+        # this will end up in the @anchor{} even if text protection
+        # is considered in code for the @anchor{}.
         my ($result, $out) = _end_context(\@accumulated_output);
         #print STDERR "end: $tagname: $result, $out\n";
         my $texinfo_node = '';
@@ -783,6 +816,9 @@ sub _convert_pod($)
         }
       } elsif ($tag_commands{$tagname}) {
         _output($fh, \@accumulated_output, "}");
+        if ($Texinfo::Common::code_style_commands{$tag_commands{$tagname}}) {
+          pop @format_stack;
+        }
       } elsif ($environment_commands{$tagname}) {
         if ($tagname eq 'Verbatim') {
           pop @format_stack;
