@@ -148,10 +148,10 @@ pod2texi \- convert Pod to Texinfo
 .SH "DESCRIPTION"
 .IX Header "DESCRIPTION"
 Translate Pod file(s) to Texinfo.  There are two basic modes of
-operation.  First, by default, each pod is translated to a standalone
+operation.  First, by default, each Pod is translated to a standalone
 Texinfo manual.
 .PP
-Second, if \f(CW\*(C`\-\-base\-level\*(C'\fR is set higher than 0, each pod is translated
+Second, if \f(CW\*(C`\-\-base\-level\*(C'\fR is set higher than 0, each Pod is translated
 to a file suitable for \f(CW@include\fR, and one more file with a main menu
 and all the \f(CW@include\fR is generated.
 .SH "OPTIONS"
@@ -169,10 +169,10 @@ Texinfo sectioning command (without the \f(CW\*(C`@\*(C'\fR): 1 corresponds to t
 The default is 0, meaning that \f(CW\*(C`head1\*(C'\fR commands are still output as
 chapters, but the output is arranged as a standalone manual.
 .Sp
-If the level is not 0, the pod file is rendered as a fragment of a
-Texinfo manual suitable for \f(CW@include\fR.  In this case, each pod file
+If the level is not 0, the Pod file is rendered as a fragment of a
+Texinfo manual suitable for \f(CW@include\fR.  In this case, each Pod file
 has an additional sectioning command covering the entire file, one level
-above the \f(CW\*(C`\-\-base\-level\*(C'\fR value.  Therefore, to make each pod file a
+above the \f(CW\*(C`\-\-base\-level\*(C'\fR value.  Therefore, to make each Pod file a
 chapter in a large manual, you should use \f(CW\*(C`section\*(C'\fR as the base level.
 .Sp
 For an example of making Texinfo out of the Perl documentation itself,
@@ -181,6 +181,13 @@ output available at <http://www.gnu.org/software/perl/manual>.
 .IP "\fB\-\-debug\fR=\fI\s-1NUM\s0\fR" 4
 .IX Item "--debug=NUM"
 Set debugging level to \fI\s-1NUM\s0\fR.
+.IP "\fB\-\-headings\-as\-sections\fR" 4
+.IX Item "--headings-as-sections"
+Use headings commands (\f(CW@heading\fR, ...) instead of the
+default numbered sectioning Texinfo @\-commands (\f(CW@chapter\fR,
+\&\f(CW@section\fR, ...). The sectioning command covering the entire
+file output for each Pod file if \fB\-\-base\-level\fR is not 0 is a
+numbered command.
 .IP "\fB\-\-help\fR" 4
 .IX Item "--help"
 Display help and exit.
@@ -203,7 +210,7 @@ boilerplate is a minimal beginning for a Texinfo document.
 .IP "\fB\-\-subdir\fR=\fI\s-1NAME\s0\fR" 4
 .IX Item "--subdir=NAME"
 If there is a main manual with include files (each corresponding to
-an input pod file), then those include files are put in directory \fI\s-1NAME\s0\fR.
+an input Pod file), then those include files are put in directory \fI\s-1NAME\s0\fR.
 .IP "\fB\-\-unnumbered\-sections\fR" 4
 .IX Item "--unnumbered-sections"
 Use unnumbered sectioning commands (\f(CW@unnumbered\fR, ...) instead of the
