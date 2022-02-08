@@ -1,5 +1,19 @@
 2022-02-08  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(texinfo_main_command_sectioning_style, run):
+	new sectioning style, 'heading', use @*heading commands in that case,
+	except for the main command appearing at the beginning
+	of the output if texinfo_sectioning_base_level != 0.
+	New accessor texinfo_main_command_sectioning_style to select the
+	sectioning style for the main command appearing at the beginning
+	of the output if texinfo_sectioning_base_level != 0.
+
+	* Pod-Simple-Texinfo/pod2texi.pl: add --headings-as-sections
+	option.
+
+2022-02-08  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_convert_pod):
 	prepend modules name to first level section names for internal
 	manuals, otherwise the section name does not allow to understand which

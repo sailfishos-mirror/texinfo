@@ -60,6 +60,8 @@ my @appendix_sectioning_commands = ('part', 'appendix', 'appendixsec',
   'appendixsubsec', 'appendixsubsubsec');
 my @unnumbered_sectioning_commands = ('part', 'unnumbered', 'unnumberedsec',
   'unnumberedsubsec', 'unnumberedsubsubsec');
+my @heading_commands = ('part', 'chapheading', 'heading', 'subheading',
+   'subsubheading');
 
 my @raw_formats = ('html', 'HTML', 'docbook', 'DocBook', 'texinfo',
                        'Texinfo');
@@ -69,6 +71,7 @@ __PACKAGE__->_accessorize(
   'texinfo_add_upper_sectioning_command',
   'texinfo_internal_pod_manuals',
   'texinfo_man_url_prefix',
+  'texinfo_main_command_sectioning_style',
   'texinfo_section_nodes',
   'texinfo_sectioning_base_level',
   'texinfo_sectioning_style',
@@ -111,13 +114,30 @@ sub run
   }
   my $base_level = $self->texinfo_sectioning_base_level();
   $base_level = 1 if ($base_level <= 1);
+  my $main_command_sectioning_style
+    = $self->texinfo_main_command_sectioning_style();
   if ($self->texinfo_sectioning_style() eq 'numbered') {
     $self->{'texinfo_sectioning_commands'} = \@numbered_sectioning_commands;
   } elsif ($self->texinfo_sectioning_style() eq 'unnumbered') {
     $self->{'texinfo_sectioning_commands'} = \@unnumbered_sectioning_commands;
+  } elsif ($self->texinfo_sectioning_style() eq 'heading') {
+    $self->{'texinfo_sectioning_commands'} = \@heading_commands;
+    if (! defined($main_command_sectioning_style)) {
+      $main_command_sectioning_style = 'numbered';
+    }
   } else {
     $self->{'texinfo_sectioning_commands'} = \@appendix_sectioning_commands;
   }
+  $main_command_sectioning_style = $self->texinfo_sectioning_style()
+    if (not defined($main_command_sectioning_style));
+  if ($main_command_sectioning_style eq 'numbered') {
+    $self->{'texinfo_sectioning_main_command'} = \@numbered_sectioning_commands;
+  } elsif ($main_command_sectioning_style eq 'unnumbered') {
+    $self->{'texinfo_sectioning_main_command'} = \@unnumbered_sectioning_commands;
+  } else {
+    $self->{'texinfo_sectioning_main_command'} = \@appendix_sectioning_commands;
+  }
+
   foreach my $heading_command (keys(%pod_head_commands_level)) {
     my $level = $pod_head_commands_level{$heading_command} + $base_level -1;
     if (defined($self->{'texinfo_sectioning_commands'}->[$level])) {
@@ -202,13 +222,13 @@ sub _preamble($)
     my $node = '';
     if ($node_name =~ /\S/) {
       if (!$self->texinfo_section_nodes()
-          or $self->{'texinfo_sectioning_commands'}->[$level] eq 'part') {
+          or $self->{'texinfo_sectioning_main_command'}->[$level] eq 'part') {
         $anchor = "\@anchor{$node_name}\n";
       } else {
         $node = "\@node $node_name\n";
       }
     }
-    print $fh "$node\@$self->{'texinfo_sectioning_commands'}->[$level] "
+    print $fh "$node\@$self->{'texinfo_sectioning_main_command'}->[$level] "
        ._protect_text($self->texinfo_short_title(), 1)."\n$anchor\n";
   }
 }
@@ -667,7 +687,7 @@ sub _convert_pod($)
               # internal manuals, otherwise the section name does not
               # allow to understand which module the following text refers to,
               # in particular for Info or PDF output based on the generated Texinfo.
-              # Indeed, all the POD use the  same top level section names,
+              # Indeed, all the Pod files use the  same top level section names,
               # like NAME, METHODS, as described in perlpodstyle and based on
               # man pages conventions.
               $command_argument = _prepend_internal_section_manual(
@@ -830,12 +850,19 @@ output instead.
 =item texinfo_internal_pod_manuals
 
 The argument should be a reference on an array containing the short
-titles (usually the module names) of all the pod documents that are
+titles (usually the module names) of all the Pod documents that are
 converted together and should be internal in the Texinfo document obtained
-by including all those pod manuals.  References to those documents use
+by including all those Pod documents.  References to those documents use
 the internal reference commands formatting in Texinfo.
 
 Corresponds to L<texinfo_sectioning_base_level> set to anything else than 0.
+
+=item texinfo_main_command_sectioning_style
+
+Sectioning style for the main command appearing at the beginning of the output
+file if L<texinfo_sectioning_base_level> is anything else than 0.  Unset in the
+default case.  If unset, use L<texinfo_sectioning_style>, except for style
+C<heading>, for which the C<number> style is used in the default case.
 
 =item texinfo_man_url_prefix
 
@@ -850,15 +877,17 @@ If set, add C<@node> and not C<@anchor> for each sectioning command.
 
 Sets the level of the head1 commands.  1 is for the @chapter/@unnumbered
 level.  If set to 0, the head1 commands level is still 1, but the output
-manual is considered to be a standalone manual.  If not 0, the pod file is
+manual is considered to be a standalone manual.  If not 0, the Pod file is
 rendered as a fragment of a Texinfo manual.
 
 =item texinfo_sectioning_style
 
 Default is C<numbered>, using the numbered sectioning Texinfo @-commands
 (@chapter, @section...).  Giving C<unnumbered> leads to using unnumbered
-sectioning command variants (@unnumbered...), and any other value would
-lead to using appendix sectioning command variants (@appendix...).
+sectioning command variants (C<@unnumbered>...), giving C<heading> leads to
+using headings that are not associated with document structuring
+(C<@heading>...) and any other value would lead to using appendix sectioning
+command variants (C<@appendix>...).
 
 =item texinfo_short_title
 

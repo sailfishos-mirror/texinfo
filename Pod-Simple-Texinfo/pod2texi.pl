@@ -103,11 +103,11 @@ sub pod2texi_help()
 {
   my $pod2texi_help = __("Usage: pod2texi [OPTION]... POD...");
   $pod2texi_help .= "\n\n";
-  $pod2texi_help .= __("Translate Perl pod documentation file(s) to Texinfo.  There are two
-basic modes of operation.  First, by default, each pod is translated to
+  $pod2texi_help .= __("Translate Perl Pod documentation file(s) to Texinfo.  There are two
+basic modes of operation.  First, by default, each Pod is translated to
 a standalone Texinfo manual.
 
-Second, if --base-level is set higher than 0, each pod is translated
+Second, if --base-level is set higher than 0, each Pod is translated
 to a file suitable for \@include, and one more file with a main menu
 and all the \@include is generated.");
   $pod2texi_help .= "\n\n";
@@ -115,6 +115,7 @@ and all the \@include is generated.");
     --appendix-sections     use appendix-like sections")."\n";
   $pod2texi_help .= __("    --base-level=NUM|NAME   level of the head1 commands; default 0")."\n";
   $pod2texi_help .= __("    --debug=NUM             set debugging level")."\n";
+  $pod2texi_help .= __("    --headings-as-sections  no structuring command for sections")."\n";
   $pod2texi_help .= __("    --help                  display this help and exit")."\n";
   $pod2texi_help .= __("    --no-fill-section-gaps  do not fill sectioning gaps")."\n";
   $pod2texi_help .= __("    --no-section-nodes      use anchors for sections instead of nodes")."\n";
@@ -137,6 +138,7 @@ Texinfo home page: http://www.gnu.org/software/texinfo/")."\n";
 my $base_level = 0;
 my $unnumbered_sections = 0;
 my $appendix_sections = 0;
+my $headings_as_sections = 0;
 my $output = '-';
 my $top = 'top';
 my $preamble = undef;
@@ -165,6 +167,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
    },
   'unnumbered-sections!' => \$unnumbered_sections,
   'appendix-sections!' => \$appendix_sections,
+  'headings-as-sections!' => \$headings_as_sections,
   'output|o=s' => \$output,
   'preamble=s' => \$preamble,
   'subdir=s' => \$subdir,
@@ -380,6 +383,8 @@ foreach my $file (@processed_files) {
     $new->texinfo_sectioning_style('unnumbered');
   } elsif ($appendix_sections) {
     $new->texinfo_sectioning_style('appendix');
+  } elsif ($headings_as_sections) {
+    $new->texinfo_sectioning_style('heading');
   }
   if ($base_level > 0 and @manuals) {
     $new->texinfo_internal_pod_manuals(\@manuals);
@@ -515,10 +520,10 @@ pod2texi - convert Pod to Texinfo
 =head1 DESCRIPTION
 
 Translate Pod file(s) to Texinfo.  There are two basic modes of
-operation.  First, by default, each pod is translated to a standalone
+operation.  First, by default, each Pod is translated to a standalone
 Texinfo manual.
 
-Second, if C<--base-level> is set higher than 0, each pod is translated
+Second, if C<--base-level> is set higher than 0, each Pod is translated
 to a file suitable for C<@include>, and one more file with a main menu
 and all the C<@include> is generated.
 
@@ -540,10 +545,10 @@ C<@chapter>/C<@unnumbered> level, 2 to the C<@section> level, and so on.
 The default is 0, meaning that C<head1> commands are still output as
 chapters, but the output is arranged as a standalone manual.
 
-If the level is not 0, the pod file is rendered as a fragment of a
-Texinfo manual suitable for C<@include>.  In this case, each pod file
+If the level is not 0, the Pod file is rendered as a fragment of a
+Texinfo manual suitable for C<@include>.  In this case, each Pod file
 has an additional sectioning command covering the entire file, one level
-above the C<--base-level> value.  Therefore, to make each pod file a
+above the C<--base-level> value.  Therefore, to make each Pod file a
 chapter in a large manual, you should use C<section> as the base level.
 
 For an example of making Texinfo out of the Perl documentation itself,
@@ -553,6 +558,14 @@ output available at L<http://www.gnu.org/software/perl/manual>.
 =item B<--debug>=I<NUM>
 
 Set debugging level to I<NUM>.
+
+=item B<--headings-as-sections>
+
+Use headings commands (C<@heading>, ...) instead of the
+default numbered sectioning Texinfo @-commands (C<@chapter>,
+C<@section>, ...). The sectioning command covering the entire
+file output for each Pod file if B<--base-level> is not 0 is a
+numbered command.
 
 =item B<--help>
 
@@ -581,7 +594,7 @@ boilerplate is a minimal beginning for a Texinfo document.
 =item B<--subdir>=I<NAME>
 
 If there is a main manual with include files (each corresponding to
-an input pod file), then those include files are put in directory I<NAME>.
+an input Pod file), then those include files are put in directory I<NAME>.
 
 =item B<--unnumbered-sections>
 
