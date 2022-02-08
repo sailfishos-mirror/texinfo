@@ -128,8 +128,8 @@ Display version information and exit.
 @ref{,,, Pod-Simple-Texinfo}.  @ref{,,, perlpod}.  The Texinfo manual.
 Texinfo home page: @url{http://www.gnu.org/software/texinfo/}
 
-@subsubheading pod2texi COPYRIGHT
-@anchor{pod2texi COPYRIGHT}
+@subsubheading pod2texi COPYRIGHT AND LICENSE
+@anchor{pod2texi COPYRIGHT AND LICENSE}
 
 Copyright 2012-2022 Free Software Foundation, Inc.
 

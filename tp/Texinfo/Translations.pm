@@ -413,7 +413,7 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
                         'book'  => {'text' => $book_name}});
 
 
-=head1 DISCLAIMER
+=head1 NOTES
 
 The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
 Texinfo to other formats.  There is no promise of API stability.

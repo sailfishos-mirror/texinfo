@@ -49,6 +49,21 @@ $VERSION = '0.01';
 # perl -w -MPod::Simple::Texinfo -e Pod::Simple::Texinfo::go thingy.pod
 sub go { Pod::Simple::Texinfo->parse_from_file(@ARGV); exit 0 }
 
+my %standard_headers;
+# from the main list of perlpodstyle
+foreach my $standard_header ('NAME', 'SYNOPSIS', 'DESCRIPTION', 'OPTIONS',
+ 'RETURN VALUE', 'ERRORS', 'DIAGNOSTICS', 'EXAMPLES', 'ENVIRONMENT',
+ 'FILES', 'CAVEATS', 'WARNINGS', 'BUGS', 'RESTRICTIONS', 'NOTES', 'AUTHOR',
+ 'AUTHORS', 'HISTORY', 'COPYRIGHT AND LICENSE', 'SEE ALSO',
+# additional text after the list.
+# 'CONFORMING TO' and 'MT-LEVEL' ignored as they seem to be very specific.
+ 'CONSTRUCTORS', 'METHODS', 'CLASS METHODS', 'INSTANCE METHODS', 'FUNCTIONS',
+ 'OVERVIEW',
+# from perldocstyle
+ 'CONTRIBUTORS', 'COPYRIGHT', 'LICENSE') {
+  $standard_headers{lc($standard_header)} = 1;
+}
+
 my %pod_head_commands_level;
 foreach my $level (1 .. 4) {
   $pod_head_commands_level{'head'.$level} = $level;
@@ -682,7 +697,8 @@ sub _convert_pod($)
             }
 
             if ($pod_head_commands_level{$tagname}
-                and $pod_head_commands_level{$tagname} == 1) {
+                and $pod_head_commands_level{$tagname} == 1
+                and $standard_headers{lc($result)}) {
               # prepend the manual name for the top level texinfo section name for
               # internal manuals, otherwise the section name does not
               # allow to understand which module the following text refers to,
@@ -902,7 +918,7 @@ parser.
 
 L<Pod::Simple>. L<Pod::Simple::PullParser>. The Texinfo manual.
 
-=head1 COPYRIGHT
+=head1 COPYRIGHT AND LICENSE
 
 Copyright (C) 2011, 2012 Free Software Foundation, Inc.
 

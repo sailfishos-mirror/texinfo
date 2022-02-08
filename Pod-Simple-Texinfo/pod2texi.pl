@@ -617,7 +617,7 @@ Display version information and exit.
 L<Pod::Simple::Texinfo>.  L<perlpod>.  The Texinfo manual.
 Texinfo home page: L<http://www.gnu.org/software/texinfo/>
 
-=head1 COPYRIGHT
+=head1 COPYRIGHT AND LICENSE
 
 Copyright 2012-2022 Free Software Foundation, Inc.
 

@@ -5996,7 +5996,7 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   # input file name, dircategory and direntry list, for example).
   my $global_information = $parser->global_information();
 
-=head1 DISCLAIMER
+=head1 NOTES
 
 The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
 Texinfo to other formats.  There is no promise of API stability.

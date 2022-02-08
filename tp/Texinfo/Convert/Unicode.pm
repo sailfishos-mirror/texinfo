@@ -1592,7 +1592,7 @@ Texinfo::Convert::Unicode - Representation as Unicode characters
 
   my $accent_text = unicode_accent('e', $accent_command);
 
-=head1 DISCLAIMER
+=head1 NOTES
 
 The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
 Texinfo to other formats.  There is no promise of API stability.

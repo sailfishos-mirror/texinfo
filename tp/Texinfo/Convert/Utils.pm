@@ -314,7 +314,7 @@ Texinfo::Convert::Utils - miscellaneous functions usable in all converters
   my $verbatiminclude_tree
      = expand_verbatiminclude(undef, $converter, $verbatiminclude);
 
-=head1 DISCLAIMER
+=head1 NOTES
 
 The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
 Texinfo to other formats.  There is no promise of API stability.
