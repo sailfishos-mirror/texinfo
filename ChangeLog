@@ -1,5 +1,13 @@
 2022-02-08  Patrice Dumas  <pertusus@free.fr>
 
+	Include pod2texi Pod converted to Texinfo by pod2texi in manual
+
+	* doc/Makefile.am, doc/texinfo.texi (Invoking @command{pod2texi}):
+	include pod2texi.texi converted from pod2texi.pl by pod2texi.pl
+	in the Texinfo manual.
+
+2022-02-08  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
 	(texinfo_main_command_sectioning_style, run):
 	new sectioning style, 'heading', use @*heading commands in that case,

@@ -13,6 +13,7 @@
 SUBDIRS = tp_api
 
 info_TEXINFOS = texinfo.texi info-stnd.texi
+texinfo_TEXINFOS = pod2texi.texi
 DISTCLEANFILES = texinfo.info* info-stnd.info*
 
 MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 ; export TEXINFO_DEV_SOURCE ; \
@@ -20,6 +21,19 @@ MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 ; export TEXINFO_DEV_SOURCE ; \
                        top_builddir="$(top_builddir)" ; export top_builddir ;
 MAKEINFO = $(MAKEINFO_ENVIRONMENT) $(PERL) $(top_builddir)/tp/texi2any
 TEXI2DVI = $(top_srcdir)/util/texi2dvi
+
+# include pod2texi in the main manual
+pod2texi_pl = $(abs_top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl
+
+if BUILD_PERL_API_TEXI
+# we setup the conversion to Texinfo for inclusion in a document,
+# but we ignore the resulting document, as we include from the
+# Texinfo manual.  The file name for the included section
+# is therefore determined by the information in the Pod file NAME
+# section.
+pod2texi.texi: $(pod2texi_pl)
+	$(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ -I $(top_srcdir)/tp/ -I $(top_srcdir)/tp/maintain/lib/Text-Unidecode/lib/ -I $(top_srcdir)/tp/maintain/lib/libintl-perl/lib/ -I $(top_srcdir)/tp/maintain/lib/Unicode-EastAsianWidth/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=subsubsection --no-section-nodes --headings-as-sections $(pod2texi_pl) > /dev/null
+endif
 
 # We'd also like to use something like this, but Automake calls
 # "install-info" directly.
@@ -97,7 +111,6 @@ manual2 = texinfo
 manual2_title = "GNU Texinfo manual"
 #
 # We also make a little HTML document for pod2texi script.
-pod2texi_pl = $(abs_top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl
 
 # destination directory.
 doctemp = wwwtemp
