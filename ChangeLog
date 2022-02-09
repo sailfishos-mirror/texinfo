@@ -1,3 +1,8 @@
+2022-02-09  Patrice Dumas  <pertusus@free.fr>
+
+	* man/info.5, man/texinfo.5: format man page name in Bold and
+	man section in Roman.  Report by Helge Kreutzmann.
+
 2022-02-08  Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_protect_text)
