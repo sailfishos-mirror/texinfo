@@ -1068,8 +1068,8 @@ sub _convert($$;$)
             $replacement = $url_text;
           }
           return "<ulink url=\"$url_text\">$replacement</ulink>";
-          # DocBook 5
-          # return "<link xl:href=\"$url_text\">$replacement</link>";
+          # FIXME DocBook 5
+          # return "<link xlink:href=\"$url_text\">$replacement</link>";
         }
 
       } elsif ($element->{'cmdname'} eq 'abbr' or $element->{'cmdname'} eq 'acronym') {
@@ -1278,6 +1278,7 @@ sub _convert($$;$)
         $format_element = 'blockquote' if (!defined($format_element));
         push @format_elements, $format_element;
       } elsif ($element->{'cmdname'} eq 'copying') {
+        # FIXME DocBook 5 bookinfo->info
         push @format_elements, ('bookinfo', 'legalnotice');
       } elsif ($Texinfo::Common::format_raw_commands{$element->{'cmdname'}}) {
         return '' if (!$self->{'expanded_formats_hash'}->{$element->{'cmdname'}});
