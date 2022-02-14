@@ -1,3 +1,11 @@
+2022-02-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Work around generated Texinfo file problem
+
+	* doc/tp_api/Makefile.am: Rename info_TEXINFOS to
+	nodist_info_TEXINFOS in attempt to avoid automake problem
+	with generated .texi file.
+
 2022-02-12  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/t/test_utils.pl: Set LANGUAGE environment variable as well

@@ -31,7 +31,7 @@ AM_MAKEINFOHTMLFLAGS = --split=chapter
 
 # since the tp_api 'manual' is referred to extensively in the
 # customization_api, we setup the build targets.
-info_TEXINFOS = tp_api.texi
+nodist_info_TEXINFOS = tp_api.texi
 
 TEXINFO_TEX = ../texinfo.tex
 
