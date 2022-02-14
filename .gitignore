@@ -77,6 +77,7 @@ gnulib/lib/malloc/dynarray-skeleton.gl.h
 
 tp/Texinfo/XS/gnulib/lib/inttypes.h
 tp/Texinfo/XS/gnulib/lib/stdlib.h
+tp/Texinfo/XS/gnulib/lib/unistd.h
 
 gnulib/lib/**/.dirstamp
 
