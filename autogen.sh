@@ -25,6 +25,14 @@ cmd="(cd tp/tests && ../maintain/regenerate_cmd_tests.sh Makefile.onetst . -base
 echo "  $cmd"
 $chicken eval $cmd || exit 1
 
+# missing tp_api.texi stops automake.  Set up a fake tp_api.texi
+# with a file timestamp set in the past, if tp_api.texi is not present
+if test '!' -s doc/tp_api/tp_api.texi ; then
+  cmd="echo '@setfilename tp_api.info' > doc/tp_api/tp_api.texi; touch -t 200001010000 doc/tp_api/tp_api.texi"
+  echo "  $cmd"
+  $chicken eval $cmd || exit 1
+fi
+
 # This overwrites lots of files with older versions.
 #cmd="autoreconf --verbose --force --install --include=m4"
 
