@@ -48,6 +48,18 @@ Glossary
 
 Ack!
 '],
+['between_node_and_section',
+'
+@node chap
+@chapter Chap
+
+@node sec1
+@section sec1
+
+@node sec2
+@anchor{Old name}
+@section sec2
+'],
 ['multiple_documentlanguage',
 '@documentlanguage ja
 

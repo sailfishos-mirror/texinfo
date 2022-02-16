@@ -594,7 +594,6 @@ sub _convert($$;$)
           warn "BUG: multitable cell command not in a row "
             .Texinfo::Common::debug_print_element($element);
         }
-        
         $result .= "<entry>";
         push @close_format_elements, 'entry';
       }
@@ -635,55 +634,69 @@ sub _convert($$;$)
           return '';
         }
       } elsif ($type eq 'line') {
-        if ($element->{'cmdname'} eq 'node') {
-          if ($element->{'extra'} and !$element->{'extra'}->{'associated_section'}
-              and defined($element->{'extra'}->{'normalized'})) {
+        if ($element->{'cmdname'} eq 'node'
+            and (not $element->{'extra'}
+                 or not $element->{'extra'}->{'associated_section'})) {
+          if ($element->{'extra'} and defined($element->{'extra'}->{'normalized'})) {
             $result .= "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>\n";
           }
         } elsif ($Texinfo::Common::root_commands{$element->{'cmdname'}}) {
-          my $attribute = '';
-          # FIXME it is not clear that a label should be set for
-          # @appendix* or @chapter/@*section as the formatter should be
-          # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
-          # having a label (empty) is important.
-          my $label = '';
-          if (defined($element->{'structure'}->{'section_number'})
-            and ($self->get_conf('NUMBER_SECTIONS')
-                 or !defined($self->get_conf('NUMBER_SECTIONS')))) {
-            # Looking at docbook2html output, Appendix is appended in the 
-            # section title, so only the letter is used.
-            $label = $element->{'structure'}->{'section_number'};
+          # start the section at the associated or at the sectioning command
+          # if there is no associated node
+          my $section_element;
+          if ($element->{'cmdname'} eq 'node') {
+            $section_element = $element->{'extra'}->{'associated_section'};
+          } elsif (not $element->{'extra'}
+                   or not $element->{'extra'}->{'associated_node'}) {
+            $section_element = $element;
           }
-          my $docbook_sectioning_element = $self->_docbook_section_element($element);
-          if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
-            $attribute = " label=\"$label\"";
-          }
-          if ($element->{'extra'} and $element->{'extra'}->{'associated_node'}) {
-            $attribute .= " id=\"$element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
-          }
-          my $language = '';
-          if (defined($self->get_conf('documentlanguage'))) {
-            $language = $self->get_conf('documentlanguage');
-            if ($self->{'lang_stack'}->[-1] ne $self->get_conf('documentlanguage')) {
-              $attribute .= ' lang="'.$self->get_conf('documentlanguage').'"';
+          if ($section_element) {
+            my $attribute = '';
+            # FIXME it is not clear that a label should be set for
+            # @appendix* or @chapter/@*section as the formatter should be
+            # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
+            # having a label (empty) is important.
+            my $label = '';
+            if (defined($section_element->{'structure'}->{'section_number'})
+              and ($self->get_conf('NUMBER_SECTIONS')
+                   or !defined($self->get_conf('NUMBER_SECTIONS')))) {
+              # Looking at docbook2html output, Appendix is appended in the
+              # section title, so only the letter is used.
+              $label = $section_element->{'structure'}->{'section_number'};
             }
-          }
-          push @{$self->{'lang_stack'}}, $language;
-          $result .= "<$docbook_sectioning_element${attribute}>\n";
-          if ($element->{'args'} and $element->{'args'}->[0]) {
-            my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
-            $result .= "<title>$arg</title>$end_line";
-            chomp ($result);
-            $result .= "\n";
-          }
-          if ($docbook_sectioning_element eq 'part'
-              and !Texinfo::Common::is_content_empty($element)) {
-            $result .= "<partintro>\n";
+            my $docbook_sectioning_element
+               = $self->_docbook_section_element($section_element);
+            if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
+              $attribute = " label=\"$label\"";
+            }
+            if ($section_element->{'extra'} and $section_element->{'extra'}->{'associated_node'}) {
+              $attribute
+               .= " id=\"$section_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
+            }
+            my $language = '';
+            if (defined($self->get_conf('documentlanguage'))) {
+              $language = $self->get_conf('documentlanguage');
+              if ($self->{'lang_stack'}->[-1] ne $self->get_conf('documentlanguage')) {
+                $attribute .= ' lang="'.$self->get_conf('documentlanguage').'"';
+              }
+            }
+            push @{$self->{'lang_stack'}}, $language;
+            $result .= "<$docbook_sectioning_element${attribute}>\n";
+            if ($section_element->{'args'} and $section_element->{'args'}->[0]) {
+              my ($arg, $end_line) = $self->_convert_argument_and_end_line($section_element);
+              $result .= "<title>$arg</title>$end_line";
+              chomp ($result);
+              $result .= "\n";
+            }
+            if ($docbook_sectioning_element eq 'part'
+                and !Texinfo::Common::is_content_empty($section_element)) {
+              $result .= "<partintro>\n";
+            }
           }
         } elsif ($Texinfo::Common::sectioning_heading_commands{$element->{'cmdname'}}) {
           if ($element->{'args'} and $element->{'args'}->[0]) {
             my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
-            $result .= 
+            $result .=
               "<bridgehead renderas=\"$docbook_sections{$element->{'cmdname'}}\">$arg</bridgehead>$end_line";
             chomp ($result);
             $result .= "\n";
@@ -753,9 +766,9 @@ sub _convert($$;$)
       } elsif ($regular_font_style_commands{$element->{'cmdname'}}) {
         $in_monospace_not_normal = 0;
       }
-      push @{$self->{'document_context'}->[-1]->{'monospace'}}, 
-        $in_monospace_not_normal
-          if (defined($in_monospace_not_normal));
+      push @{$self->{'document_context'}->[-1]->{'monospace'}},
+             $in_monospace_not_normal
+               if (defined($in_monospace_not_normal));
       my $arg = $self->_convert($element->{'args'}->[0]);
       $result .= $self->xml_protect_text($element->{'extra'}->{'begin'}).$arg
                 .$self->xml_protect_text($element->{'extra'}->{'end'});
