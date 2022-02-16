@@ -396,10 +396,10 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </programlisting>
 <programlisting>s--malllisp
 </programlisting>
-<abstract>f&#8211;ormat
-</abstract>
-<screen>s&#8211;mallformat
-</screen>
+<literallayout>f&#8211;ormat
+</literallayout>
+<literallayout>s&#8211;mallformat
+</literallayout>
 <informalequation><mathphrase>disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
 </mathphrase></informalequation>
@@ -1207,10 +1207,10 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </programlisting>
 <programlisting>s--malllisp
 </programlisting>
-<abstract>f&#8211;ormat
-</abstract>
-<screen>s&#8211;mallformat
-</screen>
+<literallayout>f&#8211;ormat
+</literallayout>
+<literallayout>s&#8211;mallformat
+</literallayout>
 <informalequation><mathphrase>disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
 </mathphrase></informalequation>
@@ -2019,10 +2019,10 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </programlisting>
 <programlisting>s--malllisp
 </programlisting>
-<abstract>f&#8211;ormat
-</abstract>
-<screen>s&#8211;mallformat
-</screen>
+<literallayout>f&#8211;ormat
+</literallayout>
+<literallayout>s&#8211;mallformat
+</literallayout>
 <informalequation><mathphrase>disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
 </mathphrase></informalequation>
@@ -2849,10 +2849,10 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </programlisting>
 <programlisting>s--malllisp
 </programlisting>
-<abstract>f&#8211;ormat
-</abstract>
-<screen>s&#8211;mallformat
-</screen>
+<literallayout>f&#8211;ormat
+</literallayout>
+<literallayout>s&#8211;mallformat
+</literallayout>
 <informalequation><mathphrase>disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
 </mathphrase></informalequation>
@@ -3660,10 +3660,10 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </programlisting>
 <programlisting>s--malllisp
 </programlisting>
-<abstract>f&#8211;ormat
-</abstract>
-<screen>s&#8211;mallformat
-</screen>
+<literallayout>f&#8211;ormat
+</literallayout>
+<literallayout>s&#8211;mallformat
+</literallayout>
 <informalequation><mathphrase>disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
 </mathphrase></informalequation>
@@ -4465,10 +4465,10 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </programlisting><screen>
 </screen><programlisting>s--malllisp
 </programlisting><screen>
-</screen><abstract>f--ormat
-</abstract><screen>
-</screen><screen>s--mallformat
-</screen><screen>
+</screen><literallayout>f--ormat
+</literallayout><screen>
+</screen><literallayout>s--mallformat
+</literallayout><screen>
 </screen><informalequation><mathphrase>disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
 </mathphrase></informalequation><screen>

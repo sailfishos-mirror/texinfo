@@ -242,8 +242,8 @@ my %docbook_preformatted_formats = (
    'smalldisplay' => 'literallayout',
    'lisp' => 'programlisting',
    'smalllisp' => 'programlisting',
-   'format' => 'abstract',
-   'smallformat' => 'screen',
+   'format' => 'literallayout',
+   'smallformat' => 'literallayout',
 # type
    'menu_comment' => 'literallayout',
    'menu_description' => 'literallayout',

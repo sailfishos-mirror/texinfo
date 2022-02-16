@@ -387,10 +387,10 @@ $result_converted{'docbook'}->{'nested_formats'} = '<screen>
 in -- format/example
 
 </screen>
-<abstract>
+<literallayout>
 in -- example/format
 
-</abstract>';
+</literallayout>';
 
 
 $result_converted{'xml'}->{'nested_formats'} = '<format endspaces=" ">

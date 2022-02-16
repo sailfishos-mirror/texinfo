@@ -444,8 +444,8 @@ $result_converted{'docbook'}->{'preformatted'} = '
    text
 </screen>
 <variablelist><varlistentry><term><indexterm role="vr"><primary>item in table in format</primary></indexterm><literal>item in table in format</literal>
-</term><listitem><abstract>
+</term><listitem><literallayout>
 in table in format
-</abstract></listitem></varlistentry></variablelist>';
+</literallayout></listitem></varlistentry></variablelist>';
 
 1;
