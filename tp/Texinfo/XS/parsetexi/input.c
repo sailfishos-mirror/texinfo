@@ -337,7 +337,7 @@ next_text (void)
                 {
                   /* Add a newline at the end of the file if one is missing. */
                   char *line2;
-                  asprintf (&line2, "%s\n", line);
+                  xasprintf (&line2, "%s\n", line);
                   free (line);
                   line = line2;
                 }
@@ -554,7 +554,7 @@ locate_include_file (char *filename)
     {
       for (i = 0; i < include_dirs_number; i++)
         {
-          asprintf (&fullpath, "%s/%s", include_dirs[i], filename);
+          xasprintf (&fullpath, "%s/%s", include_dirs[i], filename);
           status = stat (fullpath, &dummy);
           if (status == 0)
             return fullpath;

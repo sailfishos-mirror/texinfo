@@ -1,4 +1,4 @@
-/* Copyright 2010-2019 Free Software Foundation, Inc.
+/* Copyright 2010-2022 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -1437,12 +1437,12 @@ superfluous_arg:
                   k = lookup_extra (current, "spaces");
                   if (!k)
                     {
-                      asprintf (&s, "%.*s", (int) (p - line), line);
+                      xasprintf (&s, "%.*s", (int) (p - line), line);
                       add_extra_string (current, "spaces", s);
                     }
                   else
                     {
-                      asprintf (&s, "%s%.*s",
+                      xasprintf (&s, "%s%.*s",
                                 (char *) k->value,
                                 (int) (p - line), p);
                       free (k->value);

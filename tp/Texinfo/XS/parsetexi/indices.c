@@ -1,4 +1,4 @@
-/* Copyright 2010-2019 Free Software Foundation, Inc.
+/* Copyright 2010-2022 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -121,7 +121,7 @@ add_index (char *name, int in_code)
   idx = add_index_internal (name, in_code);
 
   /* For example, "rq" -> "rqindex". */
-  asprintf (&cmdname, "%s%s", name, "index");
+  xasprintf (&cmdname, "%s%s", name, "index");
   add_index_command (cmdname, idx);
   free (cmdname);
 }

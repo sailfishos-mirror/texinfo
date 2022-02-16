@@ -28,6 +28,26 @@
 #include "input.h"
 #include "text.h"
 
+/* wrappers for asprintf and vasprintf */
+int
+xvasprintf (char **ptr, const char *template, va_list ap)
+{
+  int ret;
+  ret = vasprintf (ptr, template, ap);
+  if (ret < 0)
+    abort (); /* out of memory */
+  return ret;
+}
+
+int
+xasprintf (char **ptr, const char *template, ...)
+{
+  va_list v;
+  va_start (v, template);
+  return xvasprintf (ptr, template, v);
+}
+
+
 void bug (char *message)
 {
   fprintf (stderr, "texi2any (XS parser): bug: %s\n", message);
@@ -56,9 +76,9 @@ line_error_internal (enum error_type type, LINE_NR *cmd_line_nr,
 {
   char *message;
 #ifdef ENABLE_NLS
-  vasprintf (&message, gettext(format), v);
+  xvasprintf (&message, gettext(format), v);
 #else
-  vasprintf (&message, format, v);
+  xvasprintf (&message, format, v);
 #endif
   if (!message) fatal ("vasprintf failed");
 

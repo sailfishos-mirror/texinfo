@@ -3,6 +3,10 @@
 #define ERRORS_H
 
 #include "tree_types.h"
+#include <stdarg.h>
+
+int xasprintf (char **ptr, const char *template, ...);
+int xvasprintf (char **ptr, const char *template, va_list ap);
 
 void fatal (char *);
 void bug (char *);

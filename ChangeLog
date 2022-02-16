@@ -1,5 +1,13 @@
 2022-02-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Avoid warn_unused_result warning from gcc
+
+	* tp/Texinfo/XS/text.c, tp/Texinfo/XS/parsetexi/errors.c
+	(xasprintf, xvasprintf): New wrapper functions for
+	asprintf and vasprintf.  Abort if functions failed.
+
+2022-02-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@image top page margin
 
 	* doc/texinfo.tex (\image): Wrap image in a \vtop in order to
