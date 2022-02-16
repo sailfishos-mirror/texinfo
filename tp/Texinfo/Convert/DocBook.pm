@@ -338,7 +338,7 @@ sub output($$)
     push @{$self->{'lang_stack'}}, '';
   }
   my $header =  "<?xml version=\"1.0\"${encoding}?>".'
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
 ]>

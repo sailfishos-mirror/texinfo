@@ -440,9 +440,9 @@ $result_converted{'docbook'}->{'between_node_and_section'} = '
 <title>sec1</title>
 
 </sect1>
-<anchor id="Old-name"/><sect1 label="1.2" id="sec2">
+<sect1 label="1.2" id="sec2">
 <title>sec2</title>
-</sect1>
+<anchor id="Old-name"/></sect1>
 </chapter>
 ';
 
