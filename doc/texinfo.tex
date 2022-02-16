@@ -3,9 +3,9 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-01-16.13}
+\def\texinfoversion{2022-02-16.13}
 %
-% Copyright 1985, 1986, 1988, 1990-2021 Free Software Foundation, Inc.
+% Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
 % This texinfo.tex file is free software: you can redistribute it and/or
 % modify it under the terms of the GNU General Public License as
@@ -9383,13 +9383,12 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \catcode`\^^M = 5     % in case we're inside an example
   \normalturnoffactive  % allow _ et al. in names
   \makevalueexpandable
-  % If the image is by itself, center it.
   \ifvmode
     \imagevmodetrue
   \else \ifx\centersub\centerV
     % for @center @image, we need a vbox so we can have our vertical space
     \imagevmodetrue
-    \vbox\bgroup % vbox has better behavior than vtop herev
+    \vbox\bgroup % vbox has better behavior than vtop here
   \fi\fi
   %
   \ifimagevmode
@@ -9397,11 +9396,14 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     % Usually we'll have text after the image which will insert
     % \parskip glue, so insert it here too to equalize the space
     % above and below.
-    \nobreak\vskip\parskip
-    \nobreak
+    \vskip\parskip
+    %
+    % Place image in a \vtop for a top page margin that is (close to) correct,
+    % as \topskip glue is relative to the first baseline.
+    \vtop\bgroup\hrule height 0pt\vskip-\parskip
   \fi
   %
-  % Leave vertical mode so that indentation from an enclosing
+  % Enter horizontal mode so that indentation from an enclosing
   %  environment such as @quotation is respected.
   % However, if we're at the top level, we don't want the
   %  normal paragraph indentation.
@@ -9430,8 +9432,9 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \fi
   %
   \ifimagevmode
+    \egroup
     \medskip  % space after a standalone image
-  \fi  
+  \fi
   \ifx\centersub\centerV \egroup \fi
 \endgroup}
 
