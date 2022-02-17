@@ -357,12 +357,12 @@ shows an important feature of the centered text.
 ';
 
 
-$result_converted{'docbook'}->{'footnote_in_center'} = 'Centered text with a footnote<footnote><para>This footnote
+$result_converted{'docbook'}->{'footnote_in_center'} = '<simpara role="center">Centered text with a footnote<footnote><para>This footnote
 shows an important feature of the centered text.
 </para>
 <variablelist><varlistentry><term>item
 </term><listitem><screen>line
-</screen></listitem></varlistentry></variablelist></footnote> and text after the footnote.
+</screen></listitem></varlistentry></variablelist></footnote> and text after the footnote.</simpara>
 ';
 
 1;

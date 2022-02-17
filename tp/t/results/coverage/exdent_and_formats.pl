@@ -2072,13 +2072,13 @@ quotation2
 $result_converted{'docbook'}->{'exdent_and_formats'} = '<screen> Example   Hoho. &tex; . 
  @.
 
-</screen><simpara>Other line</simpara>
+</screen><simpara role="exdent">Other line</simpara>
 <screen>not exdented
 </screen>
 
-<simpara>exdented  and dash --- in example</simpara>
+<simpara role="exdent">exdented  and dash --- in example</simpara>
 <screen>Not exdented
-</screen><simpara>exdented</simpara>
+</screen><simpara role="exdent">exdented</simpara>
 <screen>Not exdented
 </screen>
 <para>Para1.
@@ -2101,27 +2101,27 @@ quotation2
 </para></blockquote>
 <screen>Example   Hoho.
 </screen><screen>Nested Other line
-</screen><simpara>exdented nested other line</simpara>
+</screen><simpara role="exdent">exdented nested other line</simpara>
 
-<blockquote><simpara>exdented quotation line   and dash &#8212; in quotation</simpara>
+<blockquote><simpara role="exdent">exdented quotation line   and dash &#8212; in quotation</simpara>
 </blockquote>
 <blockquote><para>Not exdented followed by exdented
-</para><simpara>exdented quotation line</simpara>
+</para><simpara role="exdent">exdented quotation line</simpara>
 </blockquote>
-<blockquote><simpara>exdented quotation line</simpara>
+<blockquote><simpara role="exdent">exdented quotation line</simpara>
 <para>Followed by not exdented 
 </para></blockquote>
-<blockquote><simpara>exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az</simpara>
-<simpara>azeaz az az az az</simpara>
+<blockquote><simpara role="exdent">exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az</simpara>
+<simpara role="exdent">azeaz az az az az</simpara>
 </blockquote>
-<blockquote><simpara>exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line</simpara>
-<simpara>az az az az</simpara>
+<blockquote><simpara role="exdent">exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line</simpara>
+<simpara role="exdent">az az az az</simpara>
 </blockquote>
 <blockquote><para>quotation line oidfjslsd aez a aze azaz aeae za eaz az zelef  aaa
-</para><simpara>ezkfjklezf</simpara>
+</para><simpara role="exdent">ezkfjklezf</simpara>
 </blockquote>
-<blockquote><simpara>very loooooooooooooooooooooooooooooooooong exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line</simpara>
-<simpara>az az az az</simpara>
+<blockquote><simpara role="exdent">very loooooooooooooooooooooooooooooooooong exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line</simpara>
+<simpara role="exdent">az az az az</simpara>
 </blockquote>';
 
 1;

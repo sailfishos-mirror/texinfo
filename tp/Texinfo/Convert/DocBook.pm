@@ -151,7 +151,7 @@ my %style_commands_formatting;
 foreach my $command(@all_style_commands) {
   $style_commands_formatting{$command} = {};
   if ($style_attribute_commands{$command}) {
-    $style_commands_formatting{$command}->{'attribute'} 
+    $style_commands_formatting{$command}->{'attribute'}
       = $style_attribute_commands{$command};
   }
   if ($quoted_style_commands{$command}) {
@@ -164,13 +164,13 @@ foreach my $command(@all_style_commands) {
 
 my %docbook_misc_elements_with_arg_map = (
   'settitle' => 'title',
-  'exdent' => 'simpara',
-  'center' => '',
+  'exdent' => 'simpara role="exdent"',
+  'center' => 'simpara role="center"',
 );
 
 my %docbook_misc_commands = %Texinfo::Common::misc_commands;
 
-foreach my $command ('item', 'headitem', 'itemx', 'tab', 
+foreach my $command ('item', 'headitem', 'itemx', 'tab',
                       keys %Texinfo::Common::def_commands) {
   delete $docbook_misc_commands{$command};
 }
@@ -179,7 +179,7 @@ my %docbook_global_commands = (
   'documentlanguage' => 1,
 );
 
-my %default_args_code_style 
+my %default_args_code_style
   = %Texinfo::Convert::Converter::default_args_code_style;
 my %regular_font_style_commands = %Texinfo::Common::regular_font_style_commands;
 
@@ -198,7 +198,10 @@ my %defcommand_name_type = (
 my %def_argument_types_docbook = (
   'type' => ['returnvalue'],
   'class' => ['ooclass', 'classname'],
-  'arg' => ['replaceable'],
+  # FIXME or a simple emphasis?
+  # replaceable is not used here, such that replaceable is only
+  # used if there is an explicit @var{}
+  'arg' => ['emphasis role="arg"'],
   'typearg' => ['type'],
 );
 
@@ -617,8 +620,10 @@ sub _convert($$;$)
         return '';
       }
       my $docbook_element;
+      my $attribute_text = '';
       if (exists ($docbook_misc_elements_with_arg_map{$element->{'cmdname'}})) {
-        $docbook_element = $docbook_misc_elements_with_arg_map{$element->{'cmdname'}};
+        ($docbook_element, $attribute_text)
+          = _parse_attribute($docbook_misc_elements_with_arg_map{$element->{'cmdname'}});
       }
       my $type = $docbook_misc_commands{$element->{'cmdname'}};
       if ($type eq 'text') {
@@ -651,7 +656,7 @@ sub _convert($$;$)
             $section_element = $element;
           }
           if ($section_element) {
-            my $attribute = '';
+            my $section_attribute = $attribute_text;
             # FIXME it is not clear that a label should be set for
             # @appendix* or @chapter/@*section as the formatter should be
             # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
@@ -667,21 +672,21 @@ sub _convert($$;$)
             my $docbook_sectioning_element
                = $self->_docbook_section_element($section_element);
             if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
-              $attribute = " label=\"$label\"";
+              $section_attribute .= " label=\"$label\"";
             }
             if ($section_element->{'extra'} and $section_element->{'extra'}->{'associated_node'}) {
-              $attribute
+              $section_attribute
                .= " id=\"$section_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
             }
             my $language = '';
             if (defined($self->get_conf('documentlanguage'))) {
               $language = $self->get_conf('documentlanguage');
               if ($self->{'lang_stack'}->[-1] ne $self->get_conf('documentlanguage')) {
-                $attribute .= ' lang="'.$self->get_conf('documentlanguage').'"';
+                $section_attribute .= ' lang="'.$self->get_conf('documentlanguage').'"';
               }
             }
             push @{$self->{'lang_stack'}}, $language;
-            $result .= "<$docbook_sectioning_element${attribute}>\n";
+            $result .= "<$docbook_sectioning_element${section_attribute}>\n";
             if ($section_element->{'args'} and $section_element->{'args'}->[0]) {
               my ($arg, $end_line) = $self->_convert_argument_and_end_line($section_element);
               $result .= "<title>$arg</title>$end_line";
@@ -704,14 +709,13 @@ sub _convert($$;$)
           }
           return '';
         } else {
-          my $attribute = '';
           if (defined($docbook_element)) {
             my ($arg, $end_line)
               = $self->_convert_argument_and_end_line($element);
             if ($docbook_element eq '') {
               $result .= "$arg$end_line";
             } else {
-              $result .= "<$docbook_element${attribute}>$arg</$docbook_element>$end_line";
+              $result .= "<$docbook_element${attribute_text}>$arg</$docbook_element>$end_line";
             }
             chomp ($result);
             $result .= "\n";
@@ -845,9 +849,9 @@ sub _convert($$;$)
                    Texinfo::Convert::Text::copy_options_for_convert_text($self)}));
             }
             my $node;
-            if (defined($element->{'args'}->[0]) and @{$element->{'args'}->[0]->{'contents'}}) {
-              $node = {'contents' 
-                        => $element->{'args'}->[0]->{'contents'}};
+            if (defined($element->{'args'}->[0])
+                and @{$element->{'args'}->[0]->{'contents'}}) {
+              $node = {'contents' => $element->{'args'}->[0]->{'contents'}};
             }
             if ($node and defined($filename)) {
               return $self->_convert($self->gdt(
@@ -863,35 +867,33 @@ sub _convert($$;$)
                    "See Info file \@file{{myfile}}",
                    { 'myfile' => {'type' => '_converted', 'text' => $filename}}));
             }
-            #my $name;
-            #if (scalar(@{$element->{'args'}}) >= 2
-            #    and defined($element->{'args'}->[1]) and @{$element->{'args'}->[1]->{'contents'}}) {
-            #  $name = $self->_convert({'contents' 
-            #       => $element->{'args'}->[0]->{'contents'}});
-            #}
           } else {
             my $book_contents;
             if (scalar(@{$element->{'args'}}) == 5
-                and defined($element->{'args'}->[-1]) and @{$element->{'args'}->[-1]->{'contents'}}) {
+                and defined($element->{'args'}->[-1])
+                and @{$element->{'args'}->[-1]->{'contents'}}) {
               $book_contents = $element->{'args'}->[-1]->{'contents'};
             }
             my $manual_file_contents;
             if (scalar(@{$element->{'args'}}) >= 4
-                and defined($element->{'args'}->[3]) and @{$element->{'args'}->[3]->{'contents'}}) {
+                and defined($element->{'args'}->[3])
+                and @{$element->{'args'}->[3]->{'contents'}}) {
               $manual_file_contents = $element->{'args'}->[3]->{'contents'};
             }
             my ($section_name_contents, $section_name);
-            if (defined($element->{'args'}->[2]) and @{$element->{'args'}->[2]->{'contents'}}) {
-              $section_name_contents 
-                = $element->{'args'}->[2]->{'contents'};
+            if (defined($element->{'args'}->[2])
+                and @{$element->{'args'}->[2]->{'contents'}}) {
+              $section_name_contents = $element->{'args'}->[2]->{'contents'};
               $section_name = $self->_convert(
                      {'contents' => $section_name_contents});
-            } elsif (defined($element->{'args'}->[1]) and @{$element->{'args'}->[1]->{'contents'}}) {
+            } elsif (defined($element->{'args'}->[1])
+                     and @{$element->{'args'}->[1]->{'contents'}}) {
               $section_name_contents
                 = $element->{'args'}->[1]->{'contents'};
               $section_name = $self->_convert(
                      {'contents' => $section_name_contents});
-            } elsif (defined($element->{'args'}->[0]) and @{$element->{'args'}->[0]->{'contents'}}) {
+            } elsif (defined($element->{'args'}->[0])
+                     and @{$element->{'args'}->[0]->{'contents'}}) {
               $section_name_contents
                 = $element->{'args'}->[0]->{'contents'};
               $section_name = $self->_convert(
@@ -906,7 +908,7 @@ sub _convert($$;$)
                }
                # Note: it would be nice to re-use $section_name instead of
                # having 'gdt' convert $section_name_contents again, but
-               # there isn't a good way to pass an already-converted string 
+               # there isn't a good way to pass an already-converted string
                # into 'gdt'.
             }
 
@@ -955,7 +957,7 @@ sub _convert($$;$)
               my $argument = "<link${linkend}>".$section_name."</link>";
               if ($element->{'cmdname'} eq 'ref') {
                 return $self->_convert(
-                        $self->gdt('{title_ref}', {'title_ref' => 
+                        $self->gdt('{title_ref}', {'title_ref' =>
                              {'type' => '_converted',
                               'text' => $argument}}));
               } elsif ($element->{'cmdname'} eq 'xref') {
@@ -1359,9 +1361,10 @@ sub _convert($$;$)
               warn "BUG: no def_argument_types_docbook for $type";
               next;
             }
-            foreach my $element (reverse (
+            foreach my $element_attribute (reverse (
                                    @{$def_argument_types_docbook{$type}})) {
-              $content = "<$element>$content</$element>";
+              my ($element, $attribute_text) = _parse_attribute($element_attribute);
+              $content = "<$element${attribute_text}>$content</$element>";
             }
             $result .= $content;
           }

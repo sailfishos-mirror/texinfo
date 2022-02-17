@@ -483,16 +483,16 @@ $result_converted{'xml'}->{'exdent_and_commands'} = '<quotation endspaces=" ">
 
 
 $result_converted{'docbook'}->{'exdent_and_commands'} = '<blockquote><para>quotation1
-</para><simpara>in exdented protected eol &#160;</simpara>
+</para><simpara role="exdent">in exdented protected eol &#160;</simpara>
 <para>following
-</para><simpara>in exdented a @* 
+</para><simpara role="exdent">in exdented a @* 
  and following</simpara>
 <para>after exdented
 </para></blockquote>
 <screen>example
-</screen><simpara>in exdented protected eol &#160;</simpara>
+</screen><simpara role="exdent">in exdented protected eol &#160;</simpara>
 <screen>following
-</screen><simpara>in exdented a @* 
+</screen><simpara role="exdent">in exdented a @* 
  and following</simpara>
 <screen>after exdented
 </screen>';

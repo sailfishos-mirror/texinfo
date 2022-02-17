@@ -124,7 +124,7 @@ $result_converted{'xml'}->{'center'} = '
 
 
 $result_converted{'docbook'}->{'center'} = '
-in center <literal>in code</literal>
+<simpara role="center">in center <literal>in code</literal></simpara>
 
 ';
 

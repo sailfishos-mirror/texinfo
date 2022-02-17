@@ -1,3 +1,15 @@
+2022-02-17  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/DocBook.pm (%docbook_misc_elements_with_arg_map)
+	(%def_argument_types_docbook, _convert): add exdent role for @exdent,
+	use simpara and center role for @center.
+	Use emphasis role="arg" instead of replaceable for arg def argument
+	type.  The idea is that replaceable is not used such that replaceable
+	is only used if @var{} is present which should be more in line with
+	the examples in the Texinfo manual.
+
+	* tp/Texinfo/Convert/DocBook.pm: reindent.
+
 2022-02-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/DocBook.pm (%docbook_preformatted_formats):

@@ -1292,7 +1292,7 @@ $result_converted{'docbook'}->{'punctuation_in_line_commands'} = '
 <variablelist><varlistentry><term>item! After punc
 </term></varlistentry></variablelist>
 <blockquote><para><emphasis role="bold">quotation arg! After punc:</emphasis> In quotation
-</para><simpara>exdent quotation! After punc</simpara>
+</para><simpara role="exdent">exdent quotation! After punc</simpara>
 </blockquote>
 <anchor id="float-label_0021-After-punc"/>
 <para>In float
@@ -1309,7 +1309,7 @@ $result_converted{'docbook'}->{'punctuation_in_line_commands'} = '
 
 titlefont! After punc
 
-center! After punc
+<simpara role="center">center! After punc</simpara>
 
 <index role="cp"></index>
 

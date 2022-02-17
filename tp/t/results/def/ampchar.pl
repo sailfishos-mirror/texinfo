@@ -415,7 +415,7 @@ $result_converted{'xml'}->{'ampchar'} = '<defop spaces=" " endspaces=" "><defini
 </para>';
 
 
-$result_converted{'docbook'}->{'ampchar'} = '<synopsis><indexterm role="fn"><primary>b on a</primary></indexterm><phrase role="category"><emphasis role="bold">Constructor</emphasis>:</phrase> <ooclass><classname>a</classname></ooclass> <methodname>b</methodname> (<replaceable>const std::vector&lt;int&gt;&amp;</replaceable>)</synopsis>
+$result_converted{'docbook'}->{'ampchar'} = '<synopsis><indexterm role="fn"><primary>b on a</primary></indexterm><phrase role="category"><emphasis role="bold">Constructor</emphasis>:</phrase> <ooclass><classname>a</classname></ooclass> <methodname>b</methodname> (<emphasis role="arg">const std::vector&lt;int&gt;&amp;</emphasis>)</synopsis>
 <para>&amp; &amp; &#38; { } @
 </para>';
 

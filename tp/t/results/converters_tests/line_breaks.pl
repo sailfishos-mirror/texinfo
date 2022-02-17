@@ -674,8 +674,8 @@ $result_converted{'docbook'}->{'line_breaks'} = '<para>a document
 <title>the manual 
  new version</title>
 
-in center 
- line break
+<simpara role="center">in center 
+ line break</simpara>
 
 <variablelist><varlistentry><term><emphasis role="bold">with break 
  after</emphasis>

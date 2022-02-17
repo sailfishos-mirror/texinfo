@@ -108,7 +108,7 @@ $result_converted{'xml'}->{'titlefont_in_center'} = '
 
 
 $result_converted{'docbook'}->{'titlefont_in_center'} = '
-A manual
+<simpara role="center">A manual</simpara>
 ';
 
 1;

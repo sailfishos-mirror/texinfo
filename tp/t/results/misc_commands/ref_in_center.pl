@@ -306,10 +306,10 @@ $result_converted{'html_text'}->{'ref_in_center'} = '<h1 class="node" id="Top">T
 
 $result_converted{'docbook'}->{'ref_in_center'} = '<anchor id="Top"/>
 
-<link linkend="Top">Top</link>
+<simpara role="center"><link linkend="Top">Top</link></simpara>
 
-<link>title
-</link>
+<simpara role="center"><link>title
+</link></simpara>
 <para>very long
 </para>';
 
