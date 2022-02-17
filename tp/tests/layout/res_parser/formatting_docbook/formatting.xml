@@ -311,6 +311,21 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></blockquote>
 <blockquote><para>indent in quotation
 </para></blockquote>
+<blockquote><simpara role="exdent">exdented quotation line   and dash &#8212; in quotation</simpara>
+</blockquote>
+<blockquote><para>Not exdented followed by exdented
+</para><simpara role="exdent">exdented quotation line</simpara>
+</blockquote>
+<blockquote><simpara role="exdent">exdented quotation line</simpara>
+<para>Followed by not exdented 
+</para></blockquote>
+<blockquote><para>quotation1
+</para><simpara role="exdent">in exdented protected eol &#160;</simpara>
+<para>following
+</para><simpara role="exdent">in exdented a @* 
+ and following</simpara>
+<para>after exdented
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -381,6 +396,20 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen>
 <screen>example with empty and non empty args mix
 </screen>
+<screen>Exam---ple
+
+</screen><simpara role="exdent">Other li---ne</simpara>
+<screen>not exdented
+</screen>
+<simpara role="exdent">exdented  and dash --- in example</simpara>
+<screen>Not exdented one
+</screen><simpara role="exdent">exdented two</simpara>
+<screen>Not exdented two
+</screen>
+<screen>Example   Hoho.
+</screen><screen>Nested Other line
+</screen><simpara role="exdent">exdented nested other line</simpara>
+
 <screen>s--mallexample
 </screen>
 <para><literal>@noindent</literal> after smallexample.
@@ -1122,6 +1151,21 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></blockquote>
 <blockquote><para>indent in quotation
 </para></blockquote>
+<blockquote><simpara role="exdent">exdented quotation line   and dash &#8212; in quotation</simpara>
+</blockquote>
+<blockquote><para>Not exdented followed by exdented
+</para><simpara role="exdent">exdented quotation line</simpara>
+</blockquote>
+<blockquote><simpara role="exdent">exdented quotation line</simpara>
+<para>Followed by not exdented 
+</para></blockquote>
+<blockquote><para>quotation1
+</para><simpara role="exdent">in exdented protected eol &#160;</simpara>
+<para>following
+</para><simpara role="exdent">in exdented a @* 
+ and following</simpara>
+<para>after exdented
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -1192,6 +1236,20 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen>
 <screen>example with empty and non empty args mix
 </screen>
+<screen>Exam---ple
+
+</screen><simpara role="exdent">Other li---ne</simpara>
+<screen>not exdented
+</screen>
+<simpara role="exdent">exdented  and dash --- in example</simpara>
+<screen>Not exdented one
+</screen><simpara role="exdent">exdented two</simpara>
+<screen>Not exdented two
+</screen>
+<screen>Example   Hoho.
+</screen><screen>Nested Other line
+</screen><simpara role="exdent">exdented nested other line</simpara>
+
 <screen>s--mallexample
 </screen>
 <para><literal>@noindent</literal> after smallexample.
@@ -1934,6 +1992,21 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></blockquote>
 <blockquote><para>indent in quotation
 </para></blockquote>
+<blockquote><simpara role="exdent">exdented quotation line   and dash &#8212; in quotation</simpara>
+</blockquote>
+<blockquote><para>Not exdented followed by exdented
+</para><simpara role="exdent">exdented quotation line</simpara>
+</blockquote>
+<blockquote><simpara role="exdent">exdented quotation line</simpara>
+<para>Followed by not exdented 
+</para></blockquote>
+<blockquote><para>quotation1
+</para><simpara role="exdent">in exdented protected eol &#160;</simpara>
+<para>following
+</para><simpara role="exdent">in exdented a @* 
+ and following</simpara>
+<para>after exdented
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -2004,6 +2077,20 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen>
 <screen>example with empty and non empty args mix
 </screen>
+<screen>Exam---ple
+
+</screen><simpara role="exdent">Other li---ne</simpara>
+<screen>not exdented
+</screen>
+<simpara role="exdent">exdented  and dash --- in example</simpara>
+<screen>Not exdented one
+</screen><simpara role="exdent">exdented two</simpara>
+<screen>Not exdented two
+</screen>
+<screen>Example   Hoho.
+</screen><screen>Nested Other line
+</screen><simpara role="exdent">exdented nested other line</simpara>
+
 <screen>s--mallexample
 </screen>
 <para><literal>@noindent</literal> after smallexample.
@@ -2764,6 +2851,21 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></blockquote>
 <blockquote><para>indent in quotation
 </para></blockquote>
+<blockquote><simpara role="exdent">exdented quotation line   and dash &#8212; in quotation</simpara>
+</blockquote>
+<blockquote><para>Not exdented followed by exdented
+</para><simpara role="exdent">exdented quotation line</simpara>
+</blockquote>
+<blockquote><simpara role="exdent">exdented quotation line</simpara>
+<para>Followed by not exdented 
+</para></blockquote>
+<blockquote><para>quotation1
+</para><simpara role="exdent">in exdented protected eol &#160;</simpara>
+<para>following
+</para><simpara role="exdent">in exdented a @* 
+ and following</simpara>
+<para>after exdented
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -2834,6 +2936,20 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen>
 <screen>example with empty and non empty args mix
 </screen>
+<screen>Exam---ple
+
+</screen><simpara role="exdent">Other li---ne</simpara>
+<screen>not exdented
+</screen>
+<simpara role="exdent">exdented  and dash --- in example</simpara>
+<screen>Not exdented one
+</screen><simpara role="exdent">exdented two</simpara>
+<screen>Not exdented two
+</screen>
+<screen>Example   Hoho.
+</screen><screen>Nested Other line
+</screen><simpara role="exdent">exdented nested other line</simpara>
+
 <screen>s--mallexample
 </screen>
 <para><literal>@noindent</literal> after smallexample.
@@ -3575,6 +3691,21 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></blockquote>
 <blockquote><para>indent in quotation
 </para></blockquote>
+<blockquote><simpara role="exdent">exdented quotation line   and dash &#8212; in quotation</simpara>
+</blockquote>
+<blockquote><para>Not exdented followed by exdented
+</para><simpara role="exdent">exdented quotation line</simpara>
+</blockquote>
+<blockquote><simpara role="exdent">exdented quotation line</simpara>
+<para>Followed by not exdented 
+</para></blockquote>
+<blockquote><para>quotation1
+</para><simpara role="exdent">in exdented protected eol &#160;</simpara>
+<para>following
+</para><simpara role="exdent">in exdented a @* 
+ and following</simpara>
+<para>after exdented
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -3645,6 +3776,20 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen>
 <screen>example with empty and non empty args mix
 </screen>
+<screen>Exam---ple
+
+</screen><simpara role="exdent">Other li---ne</simpara>
+<screen>not exdented
+</screen>
+<simpara role="exdent">exdented  and dash --- in example</simpara>
+<screen>Not exdented one
+</screen><simpara role="exdent">exdented two</simpara>
+<screen>Not exdented two
+</screen>
+<screen>Example   Hoho.
+</screen><screen>Nested Other line
+</screen><simpara role="exdent">exdented nested other line</simpara>
+
 <screen>s--mallexample
 </screen>
 <para><literal>@noindent</literal> after smallexample.
@@ -4382,6 +4527,21 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen></blockquote><screen>
 </screen><blockquote><screen>indent in quotation
 </screen></blockquote><screen>
+</screen><blockquote><simpara role="exdent">exdented quotation line   and dash --- in quotation</simpara>
+</blockquote><screen>
+</screen><blockquote><screen>Not exdented followed by exdented
+</screen><simpara role="exdent">exdented quotation line</simpara>
+</blockquote><screen>
+</screen><blockquote><simpara role="exdent">exdented quotation line</simpara>
+<screen>Followed by not exdented 
+</screen></blockquote><screen>
+</screen><blockquote><screen>quotation1
+</screen><simpara role="exdent">in exdented protected eol &#160;</simpara>
+<screen>following
+</screen><simpara role="exdent">in exdented a @* 
+ and following</simpara>
+<screen>after exdented
+</screen></blockquote><screen>
 </screen><blockquote><screen>A small quot---ation
 </screen></blockquote><screen>
 </screen><note><screen>A small Note
@@ -4450,6 +4610,20 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen><screen>
 </screen><screen>example with empty and non empty args mix
 </screen><screen>
+</screen><screen>Exam---ple
+
+</screen><simpara role="exdent">Other li---ne</simpara>
+<screen>not exdented
+</screen><screen>
+</screen><simpara role="exdent">exdented  and dash --- in example</simpara>
+<screen>Not exdented one
+</screen><simpara role="exdent">exdented two</simpara>
+<screen>Not exdented two
+</screen><screen>
+</screen><screen>Example   Hoho.
+</screen><screen>Nested Other line
+</screen><simpara role="exdent">exdented nested other line</simpara>
+<screen>
 </screen><screen>s--mallexample
 </screen><screen>
 <literal>@noindent</literal> after smallexample.

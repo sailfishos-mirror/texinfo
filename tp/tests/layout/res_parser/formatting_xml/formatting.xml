@@ -379,6 +379,28 @@ quotation
 indent in quotation
 @end quotation
 
+@quotation
+@exdent exdented quotation line   and dash --- in quotation
+@end quotation
+
+@quotation
+Not exdented followed by exdented
+@exdent  exdented quotation line
+@end quotation
+
+@quotation
+@exdent  exdented quotation line
+Followed by not exdented 
+@end quotation
+
+@quotation
+quotation1
+@exdent in exdented protected eol @
+following
+@exdent in exdented a @@* @* and following
+after exdented
+@end quotation
+
 @smallquotation 
 A small quot---ation
 @end smallquotation
@@ -503,6 +525,28 @@ example with empty args
 
 @example ,,,nonempty,,,
 example with empty and non empty args mix
+@end example
+
+@example
+Exam---ple
+
+@exdent Other li---ne
+not exdented
+@end example
+
+@example
+@exdent exdented  and dash --- in example
+Not exdented one
+@exdent exdented two
+Not exdented two
+@end example
+
+@example
+Example   Hoho.
+@example
+Nested Other line
+@exdent exdented nested other line
+@end example
 @end example
 
 @smallexample
@@ -1418,6 +1462,27 @@ quotation
 <para>indent in quotation
 </para></quotation>
 
+<quotation endspaces=" ">
+<exdent spaces=" ">exdented quotation line   and dash &textmdash; in quotation</exdent>
+</quotation>
+
+<quotation endspaces=" ">
+<para>Not exdented followed by exdented
+</para><exdent spaces="  ">exdented quotation line</exdent>
+</quotation>
+
+<quotation endspaces=" ">
+<exdent spaces="  ">exdented quotation line</exdent>
+<para>Followed by not exdented 
+</para></quotation>
+
+<quotation endspaces=" ">
+<para>quotation1
+</para><exdent spaces=" ">in exdented protected eol <spacecmd type="nl"/></exdent><para>following
+</para><exdent spaces=" ">in exdented a &arobase;* &linebreak; and following</exdent>
+<para>after exdented
+</para></quotation>
+
 <smallquotation endspaces=" "> 
 <para>A small quot&textmdash;ation
 </para></smallquotation>
@@ -1540,6 +1605,28 @@ quotation
 
 <example spaces=" " endspaces=" "><examplearg>nonempty</examplearg><pre xml:space="preserve">example with empty and non empty args mix
 </pre></example>
+
+<example endspaces=" ">
+<pre xml:space="preserve">Exam---ple
+
+</pre><exdent spaces=" ">Other li---ne</exdent>
+<pre xml:space="preserve">not exdented
+</pre></example>
+
+<example endspaces=" ">
+<exdent spaces=" ">exdented  and dash --- in example</exdent>
+<pre xml:space="preserve">Not exdented one
+</pre><exdent spaces=" ">exdented two</exdent>
+<pre xml:space="preserve">Not exdented two
+</pre></example>
+
+<example endspaces=" ">
+<pre xml:space="preserve">Example   Hoho.
+</pre><example endspaces=" ">
+<pre xml:space="preserve">Nested Other line
+</pre><exdent spaces=" ">exdented nested other line</exdent>
+</example>
+</example>
 
 <smallexample endspaces=" ">
 <pre xml:space="preserve">s--mallexample
@@ -2445,6 +2532,27 @@ quotation
 <para>indent in quotation
 </para></quotation>
 
+<quotation endspaces=" ">
+<exdent spaces=" ">exdented quotation line   and dash &textmdash; in quotation</exdent>
+</quotation>
+
+<quotation endspaces=" ">
+<para>Not exdented followed by exdented
+</para><exdent spaces="  ">exdented quotation line</exdent>
+</quotation>
+
+<quotation endspaces=" ">
+<exdent spaces="  ">exdented quotation line</exdent>
+<para>Followed by not exdented 
+</para></quotation>
+
+<quotation endspaces=" ">
+<para>quotation1
+</para><exdent spaces=" ">in exdented protected eol <spacecmd type="nl"/></exdent><para>following
+</para><exdent spaces=" ">in exdented a &arobase;* &linebreak; and following</exdent>
+<para>after exdented
+</para></quotation>
+
 <smallquotation endspaces=" "> 
 <para>A small quot&textmdash;ation
 </para></smallquotation>
@@ -2567,6 +2675,28 @@ quotation
 
 <example spaces=" " endspaces=" "><examplearg>nonempty</examplearg><pre xml:space="preserve">example with empty and non empty args mix
 </pre></example>
+
+<example endspaces=" ">
+<pre xml:space="preserve">Exam---ple
+
+</pre><exdent spaces=" ">Other li---ne</exdent>
+<pre xml:space="preserve">not exdented
+</pre></example>
+
+<example endspaces=" ">
+<exdent spaces=" ">exdented  and dash --- in example</exdent>
+<pre xml:space="preserve">Not exdented one
+</pre><exdent spaces=" ">exdented two</exdent>
+<pre xml:space="preserve">Not exdented two
+</pre></example>
+
+<example endspaces=" ">
+<pre xml:space="preserve">Example   Hoho.
+</pre><example endspaces=" ">
+<pre xml:space="preserve">Nested Other line
+</pre><exdent spaces=" ">exdented nested other line</exdent>
+</example>
+</example>
 
 <smallexample endspaces=" ">
 <pre xml:space="preserve">s--mallexample
@@ -3499,6 +3629,27 @@ quotation
 <para>indent in quotation
 </para></quotation>
 
+<quotation endspaces=" ">
+<exdent spaces=" ">exdented quotation line   and dash &textmdash; in quotation</exdent>
+</quotation>
+
+<quotation endspaces=" ">
+<para>Not exdented followed by exdented
+</para><exdent spaces="  ">exdented quotation line</exdent>
+</quotation>
+
+<quotation endspaces=" ">
+<exdent spaces="  ">exdented quotation line</exdent>
+<para>Followed by not exdented 
+</para></quotation>
+
+<quotation endspaces=" ">
+<para>quotation1
+</para><exdent spaces=" ">in exdented protected eol <spacecmd type="nl"/></exdent><para>following
+</para><exdent spaces=" ">in exdented a &arobase;* &linebreak; and following</exdent>
+<para>after exdented
+</para></quotation>
+
 <smallquotation endspaces=" "> 
 <para>A small quot&textmdash;ation
 </para></smallquotation>
@@ -3621,6 +3772,28 @@ quotation
 
 <example spaces=" " endspaces=" "><examplearg>nonempty</examplearg><pre xml:space="preserve">example with empty and non empty args mix
 </pre></example>
+
+<example endspaces=" ">
+<pre xml:space="preserve">Exam---ple
+
+</pre><exdent spaces=" ">Other li---ne</exdent>
+<pre xml:space="preserve">not exdented
+</pre></example>
+
+<example endspaces=" ">
+<exdent spaces=" ">exdented  and dash --- in example</exdent>
+<pre xml:space="preserve">Not exdented one
+</pre><exdent spaces=" ">exdented two</exdent>
+<pre xml:space="preserve">Not exdented two
+</pre></example>
+
+<example endspaces=" ">
+<pre xml:space="preserve">Example   Hoho.
+</pre><example endspaces=" ">
+<pre xml:space="preserve">Nested Other line
+</pre><exdent spaces=" ">exdented nested other line</exdent>
+</example>
+</example>
 
 <smallexample endspaces=" ">
 <pre xml:space="preserve">s--mallexample
@@ -4520,6 +4693,27 @@ quotation
 indent in quotation
 </pre></quotation>
 <pre xml:space="preserve">
+</pre><quotation endspaces=" ">
+<exdent spaces=" ">exdented quotation line   and dash --- in quotation</exdent>
+</quotation>
+<pre xml:space="preserve">
+</pre><quotation endspaces=" ">
+<pre xml:space="preserve">Not exdented followed by exdented
+</pre><exdent spaces="  ">exdented quotation line</exdent>
+</quotation>
+<pre xml:space="preserve">
+</pre><quotation endspaces=" ">
+<exdent spaces="  ">exdented quotation line</exdent>
+<pre xml:space="preserve">Followed by not exdented 
+</pre></quotation>
+<pre xml:space="preserve">
+</pre><quotation endspaces=" ">
+<pre xml:space="preserve">quotation1
+</pre><exdent spaces=" ">in exdented protected eol <spacecmd type="nl"/></exdent><pre xml:space="preserve">following
+</pre><exdent spaces=" ">in exdented a &arobase;* &linebreak; and following</exdent>
+<pre xml:space="preserve">after exdented
+</pre></quotation>
+<pre xml:space="preserve">
 </pre><smallquotation endspaces=" "> 
 <pre xml:space="preserve">A small quot---ation
 </pre></smallquotation>
@@ -4642,6 +4836,28 @@ indent in quotation
 <pre xml:space="preserve">
 </pre><example spaces=" " endspaces=" "><examplearg>nonempty</examplearg><pre xml:space="preserve">example with empty and non empty args mix
 </pre></example>
+<pre xml:space="preserve">
+</pre><example endspaces=" ">
+<pre xml:space="preserve">Exam---ple
+
+</pre><exdent spaces=" ">Other li---ne</exdent>
+<pre xml:space="preserve">not exdented
+</pre></example>
+<pre xml:space="preserve">
+</pre><example endspaces=" ">
+<exdent spaces=" ">exdented  and dash --- in example</exdent>
+<pre xml:space="preserve">Not exdented one
+</pre><exdent spaces=" ">exdented two</exdent>
+<pre xml:space="preserve">Not exdented two
+</pre></example>
+<pre xml:space="preserve">
+</pre><example endspaces=" ">
+<pre xml:space="preserve">Example   Hoho.
+</pre><example endspaces=" ">
+<pre xml:space="preserve">Nested Other line
+</pre><exdent spaces=" ">exdented nested other line</exdent>
+</example>
+</example>
 <pre xml:space="preserve">
 </pre><smallexample endspaces=" ">
 <pre xml:space="preserve">s--mallexample

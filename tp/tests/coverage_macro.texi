@@ -363,6 +363,28 @@ quotation
 indent in quotation
 @end quotation
 
+@quotation
+@exdent exdented quotation line   and dash --- in quotation
+@end quotation
+
+@quotation
+Not exdented followed by exdented
+@exdent  exdented quotation line
+@end quotation
+
+@quotation
+@exdent  exdented quotation line
+Followed by not exdented 
+@end quotation
+
+@quotation
+quotation1
+@exdent in exdented protected eol @
+following
+@exdent in exdented a @@* @* and following
+after exdented
+@end quotation
+
 @smallquotation 
 A small quot---ation
 @end smallquotation
@@ -487,6 +509,28 @@ example with empty args
 
 @example ,,,nonempty,,,
 example with empty and non empty args mix
+@end example
+
+@example
+Exam---ple
+
+@exdent Other li---ne
+not exdented
+@end example
+
+@example
+@exdent exdented  and dash --- in example
+Not exdented one
+@exdent exdented two
+Not exdented two
+@end example
+
+@example
+Example   Hoho.
+@example
+Nested Other line
+@exdent exdented nested other line
+@end example
 @end example
 
 @smallexample
