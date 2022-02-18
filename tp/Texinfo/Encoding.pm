@@ -22,7 +22,7 @@ package Texinfo::Encoding;
 
 use strict;
 
-use Encode;
+use Encode qw(find_encoding);
 
 require Exporter;
 use vars qw(@ISA @EXPORT_OK);
@@ -30,40 +30,22 @@ use vars qw(@ISA @EXPORT_OK);
 
 @EXPORT_OK = qw( encoding_alias );
 
-
-# charset related definitions.
-
-my %perl_charset_to_html = (
-              'utf8'       => 'utf-8',
-              'utf-8-strict'       => 'utf-8',
-              'ascii'      => 'us-ascii',
-              'shiftjis'      => 'shift_jis',
-);
-
-# encoding name normalization to html-compatible encoding names
-my %encoding_aliases;
-
-foreach my $perl_charset (keys(%perl_charset_to_html)) {
-   $encoding_aliases{$perl_charset} = $perl_charset_to_html{$perl_charset};
-   $encoding_aliases{$perl_charset_to_html{$perl_charset}}
-        = $perl_charset_to_html{$perl_charset};
-}
-
 my %canonical_texinfo_encodings;
 # These are the encodings from the texinfo manual
 foreach my $canonical_encoding ('us-ascii', 'utf-8', 'iso-8859-1',
                   'iso-8859-15', 'iso-8859-2', 'koi8-r', 'koi8-u') {
   $canonical_texinfo_encodings{$canonical_encoding} = 1;
-  $encoding_aliases{$canonical_encoding} = $canonical_encoding;
 }
 
 sub encoding_alias($)
 {
   my $encoding = shift;
-  my $perl_encoding = Encode::resolve_alias($encoding);
-  my $canonical_output_encoding;
-  if ($perl_encoding) {
-    $canonical_output_encoding = $encoding_aliases{$perl_encoding};
+  my $enc = find_encoding($encoding);
+  my ($perl_encoding, $canonical_output_encoding);
+  if (defined($enc)) {
+    $perl_encoding = $enc->name();
+    # mime_name() is upper-case, our keys are lower case, set to lower case
+    $canonical_output_encoding = lc($enc->mime_name());
   }
   my $canonical_texinfo_encoding;
   foreach my $possible_encoding ($encoding, $canonical_output_encoding,

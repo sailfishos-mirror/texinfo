@@ -1,5 +1,12 @@
 2022-02-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Encoding.pm (encoding_alias): use Encode::find_encoding,
+	both for the perl name, and, with mime_name() lower cased for the
+	output/HTML/input encoding name.  Remove %encoding_aliases and
+	%perl_charset_to_html.
+
+2022-02-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Unicode.pm (%unicode_to_eight_bit)
 	(_eight_bit_and_unicode_point, encoded_accents)
 	(unicode_point_decoded_in_encoding): use directly the input encodings

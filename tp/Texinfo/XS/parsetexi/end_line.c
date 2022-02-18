@@ -1523,9 +1523,10 @@ end_line_misc_line (ELEMENT *current)
                   struct encoding_map {
                       char *from; char *to;
                   };
-                  /* The map mimics Encode::resolve_alias() result.  Even when
-                     the alias is not good, such as 'utf-8-strict' for 'utf-8'
-                     use the same mapping for consistency with the perl Parser */
+                  /* The map mimics Encode::find_encoding()->name() result.
+                     Even when the alias is not good, such as 'utf-8-strict'
+                     for 'utf-8', use the same mapping for consistency with the
+                     perl Parser */
                   static struct encoding_map map[] = {
                       "utf-8", "utf-8-strict",
                       "us-ascii", "ascii",
@@ -1550,7 +1551,7 @@ end_line_misc_line (ELEMENT *current)
                 {
                   command_warn (current, "unrecognized encoding name `%s'",
                                 text);
-                  /* Texinfo::Encoding calls Encode::resolve_alias, so knows
+                  /* Texinfo::Encoding calls Encode::find_encoding, so knows
                      about more encodings than what we know about here.
                      TODO: Check when perl_encoding could be defined when 
                      texinfo_encoding isn't.
@@ -1559,7 +1560,8 @@ end_line_misc_line (ELEMENT *current)
 
                 }
 
-              /* Set input_encoding from perl_encoding */
+              /* Set input_encoding from perl_encoding.  In the perl parser,
+                 lc(Encode::find_encoding()->mime_name()) is used */
               input_encoding = 0;
               if (perl_encoding)
                 {
