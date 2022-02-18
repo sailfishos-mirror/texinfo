@@ -2809,11 +2809,13 @@ TODO: undocumented
 =over
 
 =item %index_names
+X<C<%index_names>>
 
 Hash describing the default Texinfo indices.  The format of this hash is
 described in L<Texinfo::Parser/indices_information>.
 
 =item %texinfo_output_formats
+X<C<%texinfo_output_formats>>
 
 Cannonical output formats that have associated conditionals.  In
 practice corresponds to C<%format_raw_commands> plus C<info>
@@ -2832,19 +2834,23 @@ following hashes are available:
 =over
 
 =item %all_commands
+X<C<%all_commands>>
 
 All the @-commands.
 
 =item %accent_commands
+X<C<%accent_commands>>
 
 Accent @-commands taking an argument, like C<@'> or C<@ringaccent>
 including C<@dotless> and C<@tieaccent>.
 
 =item %align_commands
+X<C<%align_commands>>
 
 @-commands related with alignement of text.
 
 =item %block_commands
+X<C<%block_commands>>
 
 Commands delimiting a block with a closing C<@end>.  The value
 is I<conditional> for C<@if> commands, I<def> for definition
@@ -2856,16 +2862,19 @@ an unlimited number of arguments. That means 0 in most cases,
 1 for C<@quotation>, 2 for C<@float> and C<variadic> for C<@example>.
 
 =item %brace_commands
+X<C<%brace_commands>>
 
 The commands that take braces.  The associated value is the maximum
 number of arguments.
 
 =item %code_style_commands
+X<C<%code_style_commands>>
 
 I<style_commands> that have their argument in code style, like
 C<@code>.
 
 =item %context_brace_commands
+X<C<%context_brace_commands>>
 
 @-commands with brace like C<@footnote>, C<@caption> and C<@math>
 whose argument is outside of the main text flow in one way or another.
@@ -2873,30 +2882,37 @@ whose argument is outside of the main text flow in one way or another.
 =item %def_commands
 
 =item %def_aliases
+X<C<%def_commands>>
+X<C<%def_aliases>>
 
 Definition commands.  C<%def_aliases> associates an aliased command
 to the original command, for example C<defun> is associated to C<deffn>.
 
 =item %default_index_commands
+X<C<%default_index_commands>>
 
 Index entry commands corresponding to default indices. For example
 C<@cindex>.
 
 =item %explained_commands
+X<C<%explained_commands>>
 
 @-commands whose second argument explain first argument and further
 @-command call without first argument, as C<@abbr> and C<@acronym>.
 
 =item %format_raw_commands
+X<C<%format_raw_commands>>
 
 @-commands associated with raw output format, like C<@html>, or
 C<@docbook>.
 
 =item %headings_specification_commands
+X<C<%headings_specification_commands>>
 
 @-commands used to specify custom headings, like C<@everyheading>.
 
 =item %in_heading_commands
+X<C<%in_heading_commands>>
 
 Special @-commands appearing in custom headings, such as C<@thischapter>
 or C<@thistitle>.
@@ -2906,34 +2922,43 @@ or C<@thistitle>.
 =item %inline_conditional_commands
 
 =item %inline_format_commands
+X<C<%inline_commands>>
+X<C<%inline_conditional_commands>>
+X<C<%inline_format_commands>>
 
 Inline conditional commands, like C<@inlineifclear>, and inline format
 commands like C<inlineraw> and C<inlinefmt>.
 
 =item %item_container_commands
+X<C<%item_container_commands>>
 
 Commands holding C<@item> with C<@item> that contains blocks of text,
 like C<@itemize>.
 
 =item %item_line_commands
+X<C<%item_line_commands>>
 
 Commands with C<@item> that have their arguments on their lines, like
 C<@ftable>.
 
 =item %letter_no_arg_commands
+X<C<%letter_no_arg_commands>>
 
 @-commands with braces but no argument corresponding to letters,
 like C<@AA{}> or C<@ss{}> or C<@o{}>.
 
 =item %math_commands
+X<C<%math_commands>>
 
 @-commands which contains math, like C<@math> or C<@displaymath>.
 
 =item %menu_commands
+X<C<%menu_commands>>
 
 @-commands with menu entries.
 
 =item %misc_commands
+X<C<%misc_commands>>
 
 Command that do not take braces and are not block commands either, like
 C<@node>, C<@chapter>, C<@cindex>, C<@deffnx>, C<@end>, C<@footnotestyle>,
@@ -2941,6 +2966,7 @@ C<@set>, C<@settitle>, C<@indent>, C<@definfoenclose>, C<@comment> and many
 others.
 
 =item %no_brace_commands
+X<C<%no_brace_commands>>
 
 Commands without brace with a single character as name, like C<*>
 or C<:>.  The value is an ascii representation of the command.  It
@@ -2949,44 +2975,54 @@ may be an empty string.
 =item %preformatted_commands
 
 =item %preformatted_code_commands
+X<C<%preformatted_commands>>
+X<C<%preformatted_code_commands>>
 
 I<%preformatted_commands> is for commands whose content should not
 be filled, like C<@example> or C<@display>.  If the command is meant
 for code, it is also in I<%preformatted_code_commands>, like C<@example>.
 
 =item %raw_commands
+X<C<%raw_commands>>
 
 @-commands that have no expansion of @-commands in their bodies,
 as C<@macro>, C<@verbatim> or C<@ignore>.
 
 =item %ref_commands
+X<C<%ref_commands>>
 
 Cross reference @-command referencing nodes, like C<@xref>.
 
 =item %region_commands
+X<C<%region_commands>>
 
 Block @-commands that enclose full text regions, like C<@titlepage>.
 
 =item %regular_font_style_commands
+X<C<%regular_font_style_commands>>
 
 I<style_commands> that have their argument in regular font, like
 C<@r> or C<@slanted>.
 
 =item %root_commands
+X<C<%root_commands>>
 
 Commands that are at the root of a Texinfo document, namely
 C<@node> and sectioning commands, except heading commands.
 
 =item %sectioning_heading_commands
+X<C<%sectioning_heading_commands>>
 
 All the sectioning and heading commands.
 
 =item %small_block_associated_command
+X<C<%small_block_associated_command>>
 
 Associate small command like C<smallexample> to the regular command
 C<example>.
 
 =item %style_commands
+X<C<%style_commands>>
 
 Commands that mark a fragment of texinfo, like C<@strong>,
 C<@cite>, C<@code> or C<@asis>.
@@ -3000,6 +3036,7 @@ No method is exported in the default case.
 =over
 
 =item collect_commands_in_tree($tree, $commands_list)
+X<C<collect_commands_in_tree>>
 
 Returns a hash reference with keys @-commands names specified
 in the I<$commands_list> array reference and values arrays of
@@ -3007,6 +3044,7 @@ tree elements corresponding to those @-command found in I<$tree>
 by traversing the tree.
 
 =item collect_commands_list_in_tree($tree, $commands_list)
+X<C<collect_commands_list_in_tree>>
 
 Return a list reference containing the tree elements corresponding
 to the @-commands names specified in the I<$commands_list> found
@@ -3014,12 +3052,14 @@ in I<$tree> by traversing the tree.  The order of the @-commands
 should be kept.
 
 =item $result = element_is_inline($element, $check_current)
+X<C<element_is_inline>>
 
 Return true if the element passed in argument is in running text
 context.  If the optional I<$check_current> argument is set,
 check the element itself, in addition to the parent context.
 
 =item $text = enumerate_item_representation($specification, $number)
+X<C<enumerate_item_representation>>
 
 This function returns the number or letter correponding to item
 number I<$number> for an C<@enumerate> specification I<$specification>,
@@ -3030,29 +3070,34 @@ appearing on an C<@enumerate> line.  For example
 is C<e>.
 
 =item $command = find_parent_root_command($object, $tree_element)
+X<C<find_parent_root_command>>
 
 Find the parent root command of a tree element (sectioning command or node).
 The I<$object> argument is optional, its C<global_commands> field is used
 to continue through C<@insertcopying> if in a C<@copying>.
 
 =item $result = is_content_empty($tree, $do_not_ignore_index_entries)
+X<C<is_content_empty>>
 
 Return true if the I<$tree> has content that could be formatted.
 I<$do_not_ignore_index_entries> is optional.  If set, index entries
 are considered to be formatted.
 
 =item $file = $converter->locate_include_file($filename)
+X<C<locate_include_file>>
 
 Locate I<$filename> in include directories also used to find texinfo files
 included in Texinfo documents.
 
 =item move_index_entries_after_items_in_tree($tree)
+X<C<move_index_entries_after_items_in_tree>>
 
 In C<@enumerate> and C<@itemize> from the tree, move index entries
 appearing just before C<@item> after the C<@item>.  Comment lines
 between index entries are moved too.
 
-=item $normalized_name = normalize_top_node_name ($node_string)
+=item $normalized_name = normalize_top_node_name($node_string)
+X<C<normalize_top_node_name>>
 
 Normalize the node name string given in argument, by normalizing
 Top node case.
@@ -3060,6 +3105,8 @@ Top node case.
 =item protect_colon_in_tree($tree)
 
 =item protect_node_after_label_in_tree($tree)
+X<C<protect_colon_in_tree>>
+X<C<protect_node_after_label_in_tree>>
 
 Protect colon with C<protect_colon_in_tree> and characters that
 are special in node names after a label in menu entries (tab
@@ -3068,27 +3115,32 @@ The protection is achieved by putting protected characters
 in C<@asis{}>.
 
 =item protect_comma_in_tree($tree)
+X<C<protect_comma_in_tree>>
 
 Protect comma characters, replacing C<,> with @comma{} in tree.
 
 =item $contents_result = protect_first_parenthesis($contents)
+X<C<protect_first_parenthesis>>
 
 Return a contents array reference with first parenthesis in the
 contents array reference protected.  If I<$contents> is undef
 a fatal error with a backtrace will be emitted.
 
 =item relate_index_entries_to_table_entries_in_tree($tree)
+X<C<relate_index_entries_to_table_entries_in_tree>>
 
 In @*table @-commands, reassociate the index entry information from an index
 @-command appearing right after an @item line to the @item first element.
 Remove the index @-command from the tree.
 
 =item $level = section_level($section)
+X<C<section_level>>
 
 Return numbered level of the tree sectioning I<$section>, as modified by
 raise/lowersections.
 
 =item $element = set_global_document_command($configuration_information, $global_commands_information, $cmdname, $command_location)
+X<C<set_global_document_command>>
 
 Set the Texinfo configuration option corresponding to I<$cmdname> in
 I<$configuration_information>.  The I<$global_commands_information> should
@@ -3119,6 +3171,7 @@ The I<$element> returned is the last element that was used to set the
 configuration value, or C<undef> if no configuration value was found.
 
 =item set_informative_command_value($configuration_information, $element)
+X<C<set_informative_command_value>>
 
 Set the Texinfo configuration option corresponding to the tree element
 I<$element>.  The command associated to the tree element should be
@@ -3126,6 +3179,7 @@ a command that sets some information, such as C<@documentlanguage>,
 C<@contents> or C<@footnotestyle> for example.
 
 =item set_output_encodings($configuration_information, $parser_information)
+X<C<set_output_encodings>>
 
 If not already set, set C<OUTPUT_ENCODING_NAME> based on input file
 encoding.  Also set C<OUTPUT_PERL_ENCODING> accordingly which is used
@@ -3134,6 +3188,7 @@ should not be set directly by user-defined code such that it corresponds
 to C<OUTPUT_ENCODING_NAME>.
 
 =item $split_contents = split_custom_heading_command_contents($contents)
+X<C<split_custom_heading_command_contents>>
 
 Split the I<$contents> array reference at C<@|> in at max three parts.
 Return an array reference containing the split parts.  The I<$contents>
@@ -3141,15 +3196,18 @@ array reference is supposed to be C<< $element->{'args'}->[0]->{'contents'} >>
 of C<%headings_specification_commands> commands such as C<@everyheading>.
 
 =item trim_spaces_comment_from_content($contents)
+X<C<trim_spaces_comment_from_content>>
 
 Remove empty spaces after commands or braces at begin and
 spaces and comments at end from a content array, modifying it.
 
 =item valid_option($name)
+X<C<valid_option>>
 
 Return true if the I<$name> is a known customization option.
 
 =item valid_tree_transformation($name)
+X<C<valid_tree_transformation>>
 
 Return true if the I<$name> is a known tree transformation name
 that may be passed with C<TREE_TRANSFORMATIONS> to modify a texinfo
