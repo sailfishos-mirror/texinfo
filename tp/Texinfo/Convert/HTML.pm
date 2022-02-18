@@ -10226,6 +10226,7 @@ output.  This function does not try to output a full document but only
 portions.  For a full document use C<convert>.
 
 =item $result = $converter->output_internal_links()
+X<C<output_internal_links>>
 
 Returns text representing the links in the document.  The format should
 follow the C<--internal-links> option of the texi2any/makeinfo

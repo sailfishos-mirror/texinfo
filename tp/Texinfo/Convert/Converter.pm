@@ -1642,11 +1642,14 @@ In turn, the converter should define some methods.  Two are
 optional, C<converter_defaults>, C<converter_initialize> and
 used for initialization, to give information to C<Texinfo::Convert::Converter>.
 
-The C<convert_tree> method is more or less mandatory and should
-convert portions of Texinfo tree.  The C<output> and C<convert>
-are not required, but customarily used by converters as entry
-points for conversion to a file with headers and so on, or
-conversion of a whole Texinfo tree.
+X<C<convert_tree>> X<C<output>> X<C<convert>>
+The C<convert_tree> method is mandatory and should convert portions of Texinfo
+tree.  The C<output> method is used by converters as entry point for conversion
+to a file with headers and so on.  Although it is is not called from other
+modules, it should in general be implemented by converters. C<output> is called
+from C<texi2any>.  C<convert> is not required, but customarily used by
+converters as entry point for a conversion of a whole Texinfo tree without
+the headers done when outputting to a file.
 
 Existing backends may be used as examples that implement those
 methods.  C<Texinfo::Convert::Texinfo> together with
@@ -1665,6 +1668,9 @@ described in L<Texinfo::Parser>.
 =head1 METHODS
 
 =head2 Initialization
+
+X<C<converter>>
+X<C<Texinfo::Convert::Converter> initialization>
 
 A module subclassing C<Texinfo::Convert::Converter> is created by calling
 the C<converter> method that should be inherited from
@@ -1694,11 +1700,13 @@ To help with these initializations, the modules can define two methods:
 =over
 
 =item %defaults = $converter->converter_defaults($options)
+X<C<converter_defaults>>
 
 The converter can provide a defaults hash for configuration options.
 The I<$options> hash reference holds options for the converter.
 
 =item converter_initialize
+X<C<converter_initialize>>
 
 This method is called at the end of the Texinfo::Convert::Converter
 converter initialization.
@@ -1718,6 +1726,7 @@ see L<Texinfo::Convert::Utils>.
 =over
 
 =item $contents_array $converter->comma_index_subentries_tree($entry)
+X<C<comma_index_subentries_tree>>
 
 I<$entry> is a Texinfo tree index entry element. The function sets up
 an array with the C<@subentry> contents, separated by commas.  The
@@ -1725,6 +1734,7 @@ array reference is returned as I<$contents_array>, or C<undef> if there
 is no such content.
 
 =item $result = $converter->convert_accents($accent_command, \&format_accents, $in_upper_case)
+X<C<convert_accents>>
 
 I<$accent_command> is an accent command, which may have other accent
 commands nested.  The function returns the accents formatted either
@@ -1732,6 +1742,7 @@ as encoded letters, or formatted using I<\&format_accents>.
 If I<$in_upper_case> is set, the result should be uppercased.
 
 =item $result = $converter->convert_document_sections($root, $file_handler)
+X<C<convert_document_sections>>
 
 This method splits the I<$root> Texinfo tree at sections and
 calls C<convert_tree> on the elements.  If the optional I<$file_handler>
@@ -1739,12 +1750,14 @@ is given in argument, the result are output in I<$file_handler>, otherwise
 the resulting string is returned.
 
 =item ($succeeded, $created_directory) = $converter->create_destination_directory($destination_directory)
+X<C<create_destination_directory>>
 
 Create destination directory.  I<$succeeded> is true if the creation was
 successful or uneeded, false otherwise.  I<$created_directory> is the directory
 actually created, which should be the same as I<$destination_directory>.
 
 =item ($output_file, $destination_directory, $output_filename, $document_name, $input_basefile) = $converter->determine_files_and_directory($output_format)
+X<C<determine_files_and_directory>>
 
 Determine output file and directory, as well as names related to files.  The
 result depends on the presence of C<@setfilename>, on the Texinfo input file
@@ -1765,7 +1778,8 @@ C<$output_file> is an empty string. I<$document_name> is C<$output_filename>
 without extension.  I<$input_basefile> is based on the input texinfo file name,
 with the file name portion only (without directory).
 
-=item ($caption, $prepended) = $converter->float_name_caption ($float)
+=item ($caption, $prepended) = $converter->float_name_caption($float)
+X<C<float_name_caption>>
 
 I<$float> is a texinfo tree C<@float> element.  This function
 returns the caption element that should be used for the float formatting
@@ -1773,12 +1787,14 @@ and the I<$prepended> texinfo tree combining the type and label
 of the float.
 
 =item $tree = $converter->float_type_number($float)
+X<C<float_type_number>>
 
 I<$float> is a texinfo tree C<@float> element.  This function
 returns the type and number of the float as a texinfo tree with
 translations.
 
 =item $converter->force_conf($option_string, $value)
+X<C<force_conf>>
 
 Set the Texinfo configuration option I<$option_string> to I<$value>.
 This should rarely be used, but the purpose of this method is to be able
@@ -1786,6 +1802,7 @@ to revert a configuration that is always wrong for a given output
 format, like the splitting for example.
 
 =item $end_line = $converter->format_comment_or_return_end_line($element)
+X<C<format_comment_or_return_end_line>>
 
 Format comment at end of line or return the end of line associated with
 the element.  In many cases, converters ignore comments and output is
@@ -1794,15 +1811,18 @@ of newline or comment in the initial Texinfo line, so most converters
 are better off not using this method.
 
 =item $converter->get_conf($option_string)
+X<C<get_conf>>
 
 Returns the value of the Texinfo configuration option I<$option_string>.
 
 =item $filename = sub $converter->node_information_filename($node_info)
+X<C<node_information_filename>>
 
 Returns the normalized file name corresponding to the I<$node_info>
 node element tree C<extra> field.
 
 =item ($normalized_name, $filename) = $converter->normalized_sectioning_command_filename($element)
+X<C<normalized_sectioning_command_filename>>
 
 Returns a normalized name I<$normalized_name> corresponding to a sectioning
 command tree element I<$element>, expanding the command argument using
@@ -1811,16 +1831,53 @@ the corresponding filename based on I<$normalized_name> taking into
 account additional constraint on file names and adding a file extension.
 
 =item $converter->present_bug_message($message, $element)
+X<C<present_bug_message>>
 
 Show a bug message using I<$message> text.  Use information on
 I<$element> tree element if given in argument.
 
 =item $converter->set_conf($option_string, $value)
+X<C<set_conf>>
 
 Set the Texinfo configuration option I<$option_string> to I<$value> if
 not set as a converter option.
 
+=item $converter->set_global_document_commands($commands_location, $selected_commands)
+X<C<set_global_document_commands>>
+
+Set the Texinfo configuration options for @-commands.  I<$selected_commands>
+is an optional array reference containing the @-commands set, if not given
+all the global informative @-commands are set.  I<$commands_location> specifies
+where in the document the value should be taken from. The possibilities are:
+
+=over
+
+=item before
+
+Set to the values before document conversion, from defaults and command-line.
+
+=item last
+
+Set to the last value for the command.
+
+=item preamble
+
+Set sequentially to the values in the Texinfo preamble.
+
+=item preamble_or_first
+
+Set to the first value of the command if the first command is not
+in the Texinfo preamble, else set as with I<preamble>,
+sequentially to the values in the Texinfo preamble.
+
+=back
+
+Notice that the only effect of this function is to set a customization
+variable value, no @-command side effects are run, no associated customization
+variables are set.
+
 =item $table_item_tree = $converter->table_item_content_tree($element, $contents)
+X<C<table_item_content_tree>>
 
 I<$element> should be an C<@item> or C<@itemx> tree element,
 I<$contents> should be corresponding texinfo tree contents.
@@ -1828,6 +1885,7 @@ Returns a tree in which the @-command in argument of @*table
 of the I<$element> has been applied to I<$contents>.
 
 =item $result = $converter->top_node_filename($document_name)
+X<C<top_node_filename>>
 
 Returns a file name for the Top node file using either TOP_FILE
 customization value, or EXTENSION customization value and I<$document_name>.
@@ -1839,19 +1897,23 @@ Other C<Texinfo::Convert::Converter> methods target conversion to XML:
 =over
 
 =item $formatted_text = $converter->xml_format_text_with_numeric_entities($text)
+X<C<xml_format_text_with_numeric_entities>>
 
 Replace quotation marks and hyphens used to represent dash in
 Texinfo text with numeric XML entities.
 
 =item $protected_text = $converter->xml_protect_text($text)
+X<C<xml_protect_text>>
 
 Protect special XML characters (&, E<lt>, E<gt>, ") of I<$text>.
 
 =item $comment = $converter->xml_comment($text)
+X<C<xml_comment>>
 
 Returns an XML comment for I<$text>.
 
 =item $result = xml_accent($text, $accent_command, $in_upper_case, $use_numeric_entities)
+X<C<xml_accent>>
 
 I<$text> is the text appearing within an accent command.  I<$accent_command>
 should be a Texinfo tree element corresponding to an accent command taking
@@ -1863,6 +1925,7 @@ is optional.  If set, numerical entities are used instead of named entities
 if possible.
 
 =item $result = $converter->xml_accents($accent_command, $in_upper_case)
+X<C<xml_accents>>
 
 I<$accent_command> is an accent command, which may have other accent
 commands nested.  If I<$in_upper_case> is set, the result should be

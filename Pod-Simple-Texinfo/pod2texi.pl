@@ -123,6 +123,7 @@ and all the \@include is generated.");
                             instead of standard output")."\n";
   $pod2texi_help .= __("    --preamble=STR          insert STR as beginning boilerplate.
                             Defaults to a minimal Texinfo document beginning")."\n";
+  $pod2texi_help .= __("    --setfilename           \@setfilename for the main manual")."\n";
   $pod2texi_help .= __("    --subdir=NAME           put files included in the main manual in NAME")."\n";
   $pod2texi_help .= __("    --top                   top for the main manual")."\n";
   $pod2texi_help .= __("    --unnumbered-sections   do not number sections")."\n";
@@ -141,6 +142,7 @@ my $appendix_sections = 0;
 my $headings_as_sections = 0;
 my $output = '-';
 my $top = 'top';
+my $setfilename = undef;
 my $preamble = undef;
 my $subdir;
 my $section_nodes = 1;
@@ -170,6 +172,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
   'headings-as-sections!' => \$headings_as_sections,
   'output|o=s' => \$output,
   'preamble=s' => \$preamble,
+  'setfilename=s' => \$setfilename,
   'subdir=s' => \$subdir,
   'top=s' => \$top,
   'section-nodes!' => \$section_nodes,
@@ -208,6 +211,7 @@ if ($base_level > 0) {
     # we don't want to read from STDIN, as the input read would be lost
     # same with named pipe and socket...
     # FIXME are there other file types that have the same problem?
+    # FIXME the file is ignored in the output!
     next if ($file eq '-' or -p $file or -S $file);
     # not really used, only the manual name is used.
     my $parser = Pod::Simple::PullParserRun->new();
@@ -330,27 +334,31 @@ my @included;
 foreach my $file (@processed_files) {
   my $manual_texi = '';
   my $outfile;
+  my $outfile_name;
   my $name = shift @all_manual_names;
   if ($base_level == 0 and !$file_nr) {
     $outfile = $output;
   } else {
     if (defined($name)) {
-      $outfile = Pod::Simple::Texinfo::_pod_title_to_file_name($name);
-      $outfile .= '.texi';
+      $outfile_name = Pod::Simple::Texinfo::_pod_title_to_file_name($name);
+      $outfile_name .= '.texi';
     } else {
       if ($file eq '-') {
-        $outfile = $STDOUT_DOCU_NAME;
+        $outfile_name = $STDOUT_DOCU_NAME;
       } else {
-        $outfile = $file;
+        $outfile_name = $file;
       }
-      if ($outfile =~ /\.(pm|pod)$/) {
-        $outfile =~ s/\.(pm|pod)$/.texi/i;
+      if ($outfile_name =~ /\.(pm|pod)$/) {
+        $outfile_name =~ s/\.(pm|pod)$/.texi/i;
       } else {
-        $outfile .= '.texi';
+        $outfile_name .= '.texi';
       }
     }
-    $outfile = File::Spec->catfile($subdir, $outfile)
-      if (defined($subdir));
+    if (defined($subdir)) {
+      $outfile = File::Spec->catfile($subdir, $outfile_name);
+    } else {
+      $outfile = $outfile_name;
+    }
   }
 
   my $new = Pod::Simple::Texinfo->new();
@@ -459,17 +467,20 @@ if ($base_level > 0) {
   # @documentencoding, and it also because is the best choice or encoding.
   binmode($fh, ':encoding(utf8)');
 
-  my $outfile_name = $output;
+  if (not defined($setfilename)) {
+    my $outfile_name = $output;
 
-  $outfile_name = $STDOUT_DOCU_NAME if ($outfile_name eq '-');
-  $outfile_name =~ s/\.te?x(i|info)?$//;
-  $outfile_name .= '.info';
+    $outfile_name = $STDOUT_DOCU_NAME if ($outfile_name eq '-');
+    $outfile_name =~ s/\.te?x(i|info)?$//;
+    $outfile_name .= '.info';
+    $setfilename = $outfile_name;
+  }
 
   my $preamble_result;
 
   if (! defined ($preamble)) {
     $preamble_result = '\input texinfo
-@setfilename ' . Pod::Simple::Texinfo::_protect_text($outfile_name) . "
+@setfilename ' . Pod::Simple::Texinfo::_protect_text($setfilename) . "
 \@settitle $top
 
 \@contents
@@ -599,6 +610,12 @@ Ordinarily, it's good to keep the sectioning hierarchy intact.
 Insert I<STR> as top boilerplate before menu and includes.  If I<STR> is
 set to C<->, read the top boilerplate from the standard input.  The default top
 boilerplate is a minimal beginning for a Texinfo document.
+
+=item B<--setfilename>=I<STR>
+
+Use I<STR> in top boilerplate before menu and includes for C<@setfilename>.
+The default is based onthe output file name.  This option is especially
+useful if the top boilerplate is output on the standard output.
 
 =item B<--subdir>=I<NAME>
 

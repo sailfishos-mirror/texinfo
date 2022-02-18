@@ -1,5 +1,14 @@
 2022-02-18  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/pod2texi.pl (--setfilename): add --setfilename
+	option to be able to pass @setfilename argument for top boilerplate,
+	in prticular if outputting on stdout.
+
+	* doc/tp_api/Makefile.am, doc/tp_api/tp_api_indices.texi: prepend
+	tp_api_indices.texi to tp_api.texi to output indices.
+
+2022-02-18  Patrice Dumas  <pertusus@free.fr>
+
 	Title page info specific handling in DocBook
 
 	* tp/Texinfo/Convert/DocBook.pm (%ignored_block_commands, output)
