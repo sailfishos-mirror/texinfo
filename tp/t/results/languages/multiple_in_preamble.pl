@@ -1328,16 +1328,25 @@ $result_converted{'xml'}->{'multiple_in_preamble'} = '<documentlanguage xml:lang
 ';
 
 
-$result_converted{'docbook'}->{'multiple_in_preamble'} = '
-<bookinfo><legalnotice><synopsis><indexterm role="vr"><primary>a de copying</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>copying</classname></ooclass> <property>a</property> <emphasis role="arg">b</emphasis></synopsis>
-<blockquote><para>erreur&#8594;
+$result_converted{'docbook_doc'}->{'multiple_in_preamble'} = '<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY tex "TeX">
+  <!ENTITY latex "LaTeX">
+]>
+<book lang="hr">
+<title>top section</title>
+<bookinfo><title>top section</title>
+<legalnotice><synopsis><indexterm role="vr"><primary>a de copying</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>copying</classname></ooclass> <property>a</property> <emphasis role="arg">b</emphasis></synopsis>
+<blockquote><para>greška&#8594;
 </para></blockquote></legalnotice></bookinfo>
 
-<chapter label="" id="Top" lang="hr">
+
+
+<chapter label="" id="Top">
 <title>top section</title>
 
 </chapter>
-<chapter label="1" id="chapter" lang="hr">
+<chapter label="1" id="chapter">
 <title>chap</title>
 
 <synopsis><indexterm role="vr"><primary>BBB od hr</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>hr</classname></ooclass> <property>BBB</property> <emphasis role="arg">CCC</emphasis></synopsis>
@@ -1346,6 +1355,7 @@ $result_converted{'docbook'}->{'multiple_in_preamble'} = '
 
 <synopsis><indexterm role="vr"><primary>FFF von de</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>de</classname></ooclass> <property>FFF</property> <emphasis role="arg">GGG</emphasis></synopsis>
 </chapter>
+</book>
 ';
 
 1;

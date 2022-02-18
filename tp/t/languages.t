@@ -233,7 +233,7 @@ my %xml_tests = (
   'multiple_in_preamble_before_node' => 1,
 );
 
-my %docbook_tests = (
+my %docbook_doc_tests = (
   'multiple' => 1,
   'multiple_in_preamble' => 1,
   'multiple_in_preamble_before_node' => 1,
@@ -248,8 +248,8 @@ foreach my $test (@test_cases) {
   if ($xml_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'xml';
   }
-  if ($docbook_tests{$test->[0]}) {
-    push @{$test->[2]->{'test_formats'}}, 'docbook';
+  if ($docbook_doc_tests{$test->[0]}) {
+    push @{$test->[2]->{'test_formats'}}, 'docbook_doc';
   }
 
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));

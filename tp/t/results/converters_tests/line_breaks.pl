@@ -668,11 +668,22 @@ $result_converted{'xml'}->{'line_breaks'} = '<documentdescription endspaces=" ">
 ';
 
 
-$result_converted{'docbook'}->{'line_breaks'} = '<para>a document 
- yes!
-</para>
-<title>the manual 
- new version</title>
+$result_converted{'docbook_doc'}->{'line_breaks'} = '<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY tex "TeX">
+  <!ENTITY latex "LaTeX">
+]>
+<book lang="en">
+<title>AWK As A Major Systems Programming 
+ Language&#8212;Revisited</title>
+<titleabbrev>the manual 
+ new version</titleabbrev>
+<bookinfo><title>AWK As A Major Systems Programming 
+ Language&#8212;Revisited</title>
+<titleabbrev>the manual 
+ new version</titleabbrev>
+</bookinfo>
+
 
 <simpara role="center">in center 
  line break</simpara>
@@ -685,6 +696,7 @@ $result_converted{'docbook'}->{'line_breaks'} = '<para>a document
 </para></listitem></varlistentry></variablelist>
 <blockquote><para><emphasis role="bold">Q
  uotation:</emphasis> T
-</para></blockquote>';
+</para></blockquote></book>
+';
 
 1;

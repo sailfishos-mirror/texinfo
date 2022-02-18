@@ -834,11 +834,19 @@ before first multitable
 '],
 );
 
+my %docbooc_doc_tests = (
+  'insertcopying' => 1,
+);
+
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
   push @{$test->[2]->{'test_formats'}}, 'xml';
-  push @{$test->[2]->{'test_formats'}}, 'docbook';
+  if ($docbooc_doc_tests{$test->[0]}) {
+    push @{$test->[2]->{'test_formats'}}, 'docbook_doc';
+  } else {
+    push @{$test->[2]->{'test_formats'}}, 'docbook';
+  }
 }
 
 our ($arg_test_case, $arg_generate, $arg_debug);

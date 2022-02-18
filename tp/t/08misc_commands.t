@@ -547,9 +547,12 @@ my %docbook_tests = (
   'empty_center' => 1,
   'ref_in_center' => 1,
   'footnote_in_center' => 1,
+  'command_in_heading_footing' => 1,
+);
+
+my %docbooc_doc_tests = (
   'codequoteundirected_codequotebacktick' => 1,
   'comment_space_command_on_line' => 1,
-  'command_in_heading_footing' => 1,
 );
 
 my %latex_tests = (
@@ -563,6 +566,8 @@ foreach my $test (@converted_test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'html_text';
   if ($docbook_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'docbook';
+  } elsif ($docbooc_doc_tests{$test->[0]}) {
+   push @{$test->[2]->{'test_formats'}}, 'docbook_doc';
   }
   if ($info_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'info';

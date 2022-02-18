@@ -163,7 +163,6 @@ foreach my $command(@all_style_commands) {
 }
 
 my %docbook_misc_elements_with_arg_map = (
-  'settitle' => 'title',
   'exdent' => 'simpara role="exdent"',
   'center' => 'simpara role="center"',
 );
@@ -205,6 +204,10 @@ my %def_argument_types_docbook = (
   'typearg' => ['type'],
 );
 
+my %ignored_block_commands;
+foreach my $block_command ('copying', 'titlepage', 'documentdescription') {
+  $ignored_block_commands{$block_command} = 1;
+}
 
 my %ignored_types;
 foreach my $type (
@@ -334,6 +337,7 @@ sub output($$)
 
   $self->{'lang_stack'} = [];
   my $lang = $DEFAULT_LANG;
+  $self->set_global_document_commands('preamble', ['documentlanguage']);
   if (defined($self->get_conf('documentlanguage'))) {
     $lang = $self->get_conf('documentlanguage');
     push @{$self->{'lang_stack'}}, $self->get_conf('documentlanguage');
@@ -346,6 +350,129 @@ sub output($$)
   <!ENTITY latex "LaTeX">
 ]>
 '. "<book${id} lang=\"$lang\">\n";
+
+  my $legalnotice;
+  if ($self->{'global_commands'}->{'copying'}) {
+    my $copying_element = $self->{'global_commands'}->{'copying'};
+    my $copying_result
+     = $self->convert_tree({'contents' => $copying_element->{'contents'}});
+    if ($copying_result ne '') {
+      $legalnotice = "<legalnotice>$copying_result</legalnotice>";
+    }
+  }
+
+  my $fulltitle_command;
+  foreach my $title_cmdname ('title', 'shorttitlepage', 'titlefont') {
+    if ($self->{'global_commands'}->{$title_cmdname}) {
+      my $command = $self->{'global_commands'}->{$title_cmdname};
+      next if (!$command->{'args'}
+               or (!$command->{'args'}->[0]->{'contents'}
+                   or $command->{'extra'}->{'missing_argument'}));
+      $fulltitle_command = $command;
+      last;
+    }
+  }
+
+  # get informations from the @titlepage.  Since the fulltitle is gathered
+  # independently, only author and subtitle are gathered here.
+  my $subtitle_info = '';
+  my $authors_info = '';
+  if ($self->{'global_commands'}->{'titlepage'}) {
+    my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
+            $self->{'global_commands'}->{'titlepage'}, ['author', 'subtitle']);
+
+    my @authors_elements;
+    my $subtitle_text = '';
+    if (scalar(@{$collected_commands})) {
+      foreach my $element (@{$collected_commands}) {
+        my $cmdname = $element->{'cmdname'};
+        if ($cmdname eq 'author') {
+          push @authors_elements, $element;
+        } elsif ($cmdname eq 'subtitle') {
+          # concatenate the text of @subtitle as DocBook only allows one.
+          my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
+          $subtitle_text .= $arg . $end_line
+        }
+      }
+    }
+    if ($subtitle_text ne '') {
+      chomp ($subtitle_text);
+      $subtitle_info = "<subtitle>$subtitle_text</subtitle>\n";
+    }
+
+    if (scalar(@authors_elements)) {
+      # using authorgroup and collab is the best, because it doesn't require
+      # knowing people name decomposition.  Also it should work for group names.
+      # FIXME dblatex ignores collab/collabname.
+      $authors_info .= "<authorgroup>\n";
+      foreach my $element (@authors_elements) {
+        my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
+        my $result = "<collab><collabname>$arg</collabname></collab>$end_line";
+        chomp ($result);
+        $result .= "\n";
+        $authors_info .= $result;
+      }
+      $authors_info .= "</authorgroup>\n";
+    }
+  }
+
+  my $settitle_command;
+  if ($self->{'global_commands'}->{'settitle'}) {
+    my $command = $self->{'global_commands'}->{'settitle'};
+    $settitle_command = $command
+      unless (!$command->{'args'}
+               or (!$command->{'args'}->[0]->{'contents'}
+                   or $command->{'extra'}->{'missing_argument'}));
+
+  }
+
+  my $titleabbrev_command;
+  if ($fulltitle_command) {
+    $titleabbrev_command = $settitle_command;
+  } elsif ($settitle_command) {
+    $fulltitle_command = $settitle_command;
+  } elsif (defined($legalnotice) and $self->{'global_commands'}->{'top'}) {
+    # if there is a legalnotice, we really want to have a title
+    # preceding it, so we also use @top
+    my $command = $self->{'global_commands'}->{'top'};
+    $fulltitle_command = $command
+      unless (!$command->{'args'}
+               or (!$command->{'args'}->[0]->{'contents'}
+                   or $command->{'extra'}->{'missing_argument'}));
+  }
+
+  my $title_info = '';
+  
+  if ($fulltitle_command) {
+    foreach my $element_command ([$fulltitle_command, 'title'],
+                                 [$titleabbrev_command, 'titleabbrev']) {
+      my ($element, $docbook_element) = @$element_command;
+      if (defined($element)) {
+        my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
+        my $result = "<$docbook_element>$arg</$docbook_element>$end_line";
+        chomp ($result);
+        $result .= "\n";
+        $title_info .= $result;
+        if ($docbook_element eq 'title') {
+          $title_info .= $subtitle_info;
+        }
+      }
+    }
+  }
+  $self->set_global_document_commands('before', ['documentlanguage']);
+
+  my $document_info = '';
+  $document_info .= $title_info . $authors_info;
+  $document_info .= $legalnotice if (defined($legalnotice));
+
+  # we duplicate title info, as it is explicitly said in the DocBook manual
+  # that it can be duplicated if exactly the same
+  $header .= $title_info;
+
+  if ($document_info ne '') {
+    # FIXME DocBook 5 bookinfo->info
+    $header .= "<bookinfo>$document_info</bookinfo>\n";
+  }
 
   my $result = '';
   $result .= $self->write_or_return($header, $fh);
@@ -1185,6 +1312,9 @@ sub _convert($$;$)
       return $w_command_mark;
 
     } elsif (exists($Texinfo::Common::block_commands{$element->{'cmdname'}})) {
+      if ($ignored_block_commands{$element->{'cmdname'}}) {
+        return '';
+      }
       if ($self->{'context_block_commands'}->{$element->{'cmdname'}}) {
         push (@{$self->{'document_context'}},
               {'monospace' => [0], 'upper_case' => [0]});
@@ -1292,9 +1422,6 @@ sub _convert($$;$)
         }
         $format_element = 'blockquote' if (!defined($format_element));
         push @format_elements, $format_element;
-      } elsif ($element->{'cmdname'} eq 'copying') {
-        # FIXME DocBook 5 bookinfo->info
-        push @format_elements, ('bookinfo', 'legalnotice');
       } elsif ($Texinfo::Common::format_raw_commands{$element->{'cmdname'}}) {
         return '' if (!$self->{'expanded_formats_hash'}->{$element->{'cmdname'}});
         # the context is here only for the command, so this is forgotten

@@ -1,3 +1,15 @@
+2022-02-18  Patrice Dumas  <pertusus@free.fr>
+
+	Title page info specific handling in DocBook
+
+	* tp/Texinfo/Convert/DocBook.pm (%ignored_block_commands, output)
+	(_convert): determine title based on more @-commands than @settitle.
+	Get only title, subtitle and authors informations from @titlepage.
+	Get title, author and legal notice informations in headers, afterwards
+	ignore @copying, @titlepage.  Ignore @documentdescription.
+	Set @documentlanguage to the end of preamble value for the header
+	formatting.
+
 2022-02-17  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/DocBook.pm (%docbook_misc_elements_with_arg_map)

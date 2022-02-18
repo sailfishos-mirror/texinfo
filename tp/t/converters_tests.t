@@ -744,6 +744,10 @@ my %html_tests = (
  'line_breaks' => 1,
 );
 
+my %docbooc_doc_tests = (
+ 'line_breaks' => 1,
+);
+
 # this is temporary, all the files in @test_cases should go
 # through the LaTeX converter
 my %latex_tests = (
@@ -759,7 +763,11 @@ foreach my $test (@test_cases) {
     push @{$test->[2]->{'test_formats'}}, 'html_text';
   }
   push @{$test->[2]->{'test_formats'}}, 'xml';
-  push @{$test->[2]->{'test_formats'}}, 'docbook';
+  if ($docbooc_doc_tests{$test->[0]}) {
+    push @{$test->[2]->{'test_formats'}}, 'docbook_doc';
+  } else {
+    push @{$test->[2]->{'test_formats'}}, 'docbook';
+  }
   push @{$test->[2]->{'test_formats'}}, 'latex'
     if ($latex_tests{$test->[0]});
   push @{$test->[2]->{'test_formats'}}, 'info'

@@ -1310,10 +1310,17 @@ $result_converted{'xml'}->{'multiple'} = '<documentlanguage xml:lang="fr" spaces
 ';
 
 
-$result_converted{'docbook'}->{'multiple'} = '
+$result_converted{'docbook_doc'}->{'multiple'} = '<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY tex "TeX">
+  <!ENTITY latex "LaTeX">
+]>
+<book lang="fr">
 <bookinfo><legalnotice><synopsis><indexterm role="vr"><primary>a de copying</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>copying</classname></ooclass> <property>a</property> <emphasis role="arg">b</emphasis></synopsis>
 <blockquote><para>erreur&#8594;
 </para></blockquote></legalnotice></bookinfo>
+
+
 <anchor id="Top"/>
 
 <synopsis><indexterm role="vr"><primary>BBB de fr</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>fr</classname></ooclass> <property>BBB</property> <emphasis role="arg">CCC</emphasis></synopsis>
@@ -1331,6 +1338,7 @@ $result_converted{'docbook'}->{'multiple'} = '
 <blockquote><para>greška&#8594;
 </para></blockquote>
 <index role="vr"></index>
+</book>
 ';
 
 1;

@@ -5384,52 +5384,15 @@ samp: &lsquo;<samp class="samp">``simple-double--three---four----\'\' `simple\' 
 ';
 
 
-$result_converted{'docbook'}->{'codequoteundirected_codequotebacktick'} = '
-
-<bookinfo><legalnotice><para>&#8220;simple-double&#8211;three&#8212;four&#8212;-&#8221; &#8216;simple&#8217; quotedblleft: &#8220; 
-
-code: <literal>``simple-double--three---four----\'\' `simple\' quotedblleft: &#8220;</literal> 
-
-asis: &#8220;simple-double&#8211;three&#8212;four&#8212;-&#8221; &#8216;simple&#8217; quotedblleft: &#8220; 
-
-strong: <emphasis role="bold">&#8220;simple-double&#8211;three&#8212;four&#8212;-&#8221; &#8216;simple&#8217; quotedblleft: &#8220;</emphasis> 
-
-kbd: <userinput>``simple-double--three---four----\'\' `simple\' quotedblleft: &#8220;</userinput> 
-
-samp: &#8216;<literal>``simple-double--three---four----\'\' `simple\' quotedblleft: &#8220;</literal>&#8217; 
-
-</para>
-<screen>@codequoteundirected on
-@codequotebacktick on
-</screen><para>&#8220;simple-double&#8211;three&#8212;four&#8212;-&#8221; &#8216;simple&#8217; quotedblleft: &#8220; 
-
-code: <literal>``simple-double--three---four----\'\' `simple\' quotedblleft: &#8220;</literal> 
-
-asis: &#8220;simple-double&#8211;three&#8212;four&#8212;-&#8221; &#8216;simple&#8217; quotedblleft: &#8220; 
-
-strong: <emphasis role="bold">&#8220;simple-double&#8211;three&#8212;four&#8212;-&#8221; &#8216;simple&#8217; quotedblleft: &#8220;</emphasis> 
-
-kbd: <userinput>``simple-double--three---four----\'\' `simple\' quotedblleft: &#8220;</userinput> 
-
-samp: &#8216;<literal>``simple-double--three---four----\'\' `simple\' quotedblleft: &#8220;</literal>&#8217; 
-
-</para>
-<screen>@codequoteundirected off
-@codequotebacktick off
-</screen><para>&#8220;simple-double&#8211;three&#8212;four&#8212;-&#8221; &#8216;simple&#8217; quotedblleft: &#8220; 
-
-code: <literal>``simple-double--three---four----\'\' `simple\' quotedblleft: &#8220;</literal> 
-
-asis: &#8220;simple-double&#8211;three&#8212;four&#8212;-&#8221; &#8216;simple&#8217; quotedblleft: &#8220; 
-
-strong: <emphasis role="bold">&#8220;simple-double&#8211;three&#8212;four&#8212;-&#8221; &#8216;simple&#8217; quotedblleft: &#8220;</emphasis> 
-
-kbd: <userinput>``simple-double--three---four----\'\' `simple\' quotedblleft: &#8220;</userinput> 
-
-samp: &#8216;<literal>``simple-double--three---four----\'\' `simple\' quotedblleft: &#8220;</literal>&#8217; 
-
-</para></legalnotice></bookinfo><para>Titlepage
-</para><para>&#8220;simple-double&#8211;three&#8212;four&#8212;-&#8221; &#8216;simple&#8217; quotedblleft: &#8220; 
+$result_converted{'docbook_doc'}->{'codequoteundirected_codequotebacktick'} = '<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY tex "TeX">
+  <!ENTITY latex "LaTeX">
+]>
+<book lang="en">
+<title>test quotes</title>
+<bookinfo><title>test quotes</title>
+<legalnotice><para>&#8220;simple-double&#8211;three&#8212;four&#8212;-&#8221; &#8216;simple&#8217; quotedblleft: &#8220; 
 
 code: <literal>``simple-double--three---four----\'\' `simple\' quotedblleft: &#8220;</literal> 
 
@@ -5471,7 +5434,10 @@ kbd: <userinput>``simple-double--three---four----\'\' `simple\' quotedblleft: &#
 
 samp: &#8216;<literal>``simple-double--three---four----\'\' `simple\' quotedblleft: &#8220;</literal>&#8217; 
 
-</para>
+</para></legalnotice></bookinfo>
+
+
+
 
 <chapter label="" id="Top">
 <title>test quotes</title>
@@ -5563,6 +5529,7 @@ samp: &#8216;<literal>``simple-double--three---four----\'\' `simple\' quotedblle
 
 </screen>
 </chapter>
+</book>
 ';
 
 1;

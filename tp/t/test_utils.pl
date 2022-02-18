@@ -119,6 +119,7 @@ our %formats = (
   'file_xml' => \&convert_to_xml,
   'docbook' => \&convert_to_docbook,
   'file_docbook' => \&convert_to_docbook,
+  'docbook_doc' => \&convert_to_docbook,
   'latex' => \&convert_to_latex,
   'file_latex' => \&convert_to_latex,
 );
@@ -128,6 +129,7 @@ our %extensions = (
   'html_text' => 'html',
   'xml' => 'xml',
   'docbook' => 'dbk',
+  'docbook_doc' => 'dbk',
   'latex' => 'tex',
 );
 
@@ -137,7 +139,7 @@ my $XML_DTD_VERSION = $xml_converter_defaults{'TEXINFO_DTD_VERSION'};
 
 my %outfile_preamble = (
   'docbook' => ['<?xml version="1.0"?>
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
 ]>
@@ -709,7 +711,8 @@ sub convert_to_docbook($$$$$$;$)
                                           %$converter_options });
   my $result;
   if (defined($converter_options->{'OUTFILE'}) 
-      and $converter_options->{'OUTFILE'} eq '') {
+      and $converter_options->{'OUTFILE'} eq ''
+      and $format ne 'docbook_doc') {
     $result = $converter->convert($tree);
   } else {
     $result = $converter->output($tree);

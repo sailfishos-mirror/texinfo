@@ -863,7 +863,15 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 ';
 
 
-$result_converted{'docbook'}->{'comment_space_command_on_line'} = '<title>Settitle &#160;</title><!-- settittle -->
+$result_converted{'docbook_doc'}->{'comment_space_command_on_line'} = '<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY tex "TeX">
+  <!ENTITY latex "LaTeX">
+]>
+<book lang="en">
+<title>Settitle &#160;</title><!-- settittle -->
+<bookinfo><title>Settitle &#160;</title><!-- settittle -->
+</bookinfo>
 
 <chapter label="" id="Top">
 <title>top element&#160;</title><!-- @top -->
@@ -880,6 +888,7 @@ $result_converted{'docbook'}->{'comment_space_command_on_line'} = '<title>Settit
 </para>
 
 </chapter>
+</book>
 ';
 
 
