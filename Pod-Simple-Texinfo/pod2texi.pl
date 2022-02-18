@@ -204,15 +204,16 @@ die sprintf(__("%s: missing file argument\n"), $real_command_name)
    .sprintf(__("Try `%s --help' for more information.\n"), $real_command_name)
      unless (scalar(@input_files) >= 1);
 
-my @processed_files;
 # First gather all the manual names
 if ($base_level > 0) {
   foreach my $file (@input_files) {
     # we don't want to read from STDIN, as the input read would be lost
     # same with named pipe and socket...
     # FIXME are there other file types that have the same problem?
-    # FIXME the file is ignored in the output!
-    next if ($file eq '-' or -p $file or -S $file);
+    if ($file eq '-' or -p $file or -S $file) {
+      push @all_manual_names, undef;
+      next;
+    }
     # not really used, only the manual name is used.
     my $parser = Pod::Simple::PullParserRun->new();
     $parser->parse_file($file);
@@ -229,10 +230,7 @@ if ($base_level > 0) {
       }
       push @all_manual_names, undef;
     }
-    push @processed_files, $file;
   }
-} else {
-  @processed_files = @input_files;
 }
 
 sub _fix_texinfo_tree($$$$;$)
@@ -331,7 +329,7 @@ my $file_nr = 0;
 # Full manual is collected to generate the top node menu, if $section_nodes
 my $full_manual = '';
 my @included;
-foreach my $file (@processed_files) {
+foreach my $file (@input_files) {
   my $manual_texi = '';
   my $outfile;
   my $outfile_name;
