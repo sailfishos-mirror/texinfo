@@ -437,6 +437,7 @@ converted documents, and returns, in general, a texinfo tree.
 =over
 
 =item $tree = $object->gdt($string, $replaced_substrings, $mode, $lang)
+X<C<gdt>>
 
 The I<$string> is a string to be translated.  In the default case,
 the function returns a Texinfo tree, as the string is interpreted

@@ -852,6 +852,7 @@ output strings translation or error handling.
 =over
 
 =item $result = convert_to_text($tree, $options)
+X<C<convert_to_text>>
 
 Convert a Texinfo tree to simple text.  I<$options> is a hash reference of
 options.  The converter is very simple, and has almost no internal state besides
@@ -906,6 +907,7 @@ C<tex>), and if the corresponding  value is set, the format is expanded.
 =back
 
 =item $result_accent_text = ascii_accent($text, $accent_command)
+X<C<ascii_accent>>
 
 I<$text> is the text appearing within an accent command.  I<$accent_command>
 should be a Texinfo tree element corresponding to an accent command taking
@@ -913,6 +915,7 @@ an argument.  The function returns a transliteration of the accented
 character.
 
 =item $result_accent_text = ascii_accent_fallback($converter, $text, $accent_command)
+X<C<ascii_accent_fallback>>
 
 Same as C<ascii_accent> but  with an additional first argument
 converter, which is in ignored, but needed if this function is to
@@ -920,6 +923,7 @@ be in argument of functions that need a fallback for accents
 conversion.
 
 =item $accents_text = text_accents($accents, $encoding, $set_case)
+X<C<text_accents>>
 
 I<$accents> is an accent command that may contain other nested accent
 commands.  The function will format the whole stack of nested accent

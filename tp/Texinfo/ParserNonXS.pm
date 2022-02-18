@@ -542,6 +542,12 @@ foreach my $canonical_encoding ('us-ascii', 'utf-8', 'iso-8859-1',
   $canonical_texinfo_encodings{$canonical_encoding} = 1;
 }
 
+# Taking an encoding name $ENCODING as argument, the function returns
+# $canonical_texinfo_encoding: the corresponding canonical Texinfo encoding,
+#                              as described in the Texinfo manual (or undef);
+# $perl_encoding:              an encoding name suitable for perl;
+# $canonical_output_encoding:  an encoding name suitable for most
+#                              output formats, especially HTML.
 sub _encoding_alias($)
 {
   my $encoding = shift;
@@ -6030,9 +6036,9 @@ Texinfo to other formats.  There is no promise of API stability.
 =head1 DESCRIPTION
 
 Texinfo::Parser will parse Texinfo text into a Perl tree.  In one pass
-it expands user-defined @-commands, conditionals (@ifset, @ifinfo...)
-and @value and constructs the tree.  Some extra information is gathered
-while doing the tree: for example, the block command associated with @end,
+it expands user-defined @-commands, conditionals (C<@ifset>, C<@ifinfo>...)
+and C<@value> and constructs the tree.  Some extra information is gathered
+while doing the tree: for example, the block command associated with C<@end>,
 the number of rows in a multitable, or the node associated with a section.
 
 =head1 METHODS
@@ -6048,6 +6054,8 @@ The following method is used to construct a new C<Texinfo::Parser> object:
 =over
 
 =item $parser = Texinfo::Parser::parser($options);
+X<C<Texinfo::Parser::parser>>
+X<Parser initialization>
 
 This method creates a new parser.  The options may be provided as a hash
 reference.
@@ -6143,6 +6151,7 @@ to use only what is in common, so document only what is in common.
 =over
 
 =item $tree = parse_texi_line($parser, $text, $first_line_number)
+X<C<parse_texi_line>>
 
 This function is used to parse a short fragment of Texinfo code.
 
@@ -6173,7 +6182,8 @@ to use only what is in common, so document only what is in common.
 
 =end comment
 
-=item $tree = parse_texi_piece ($parser, $text, $first_line_number)
+=item $tree = parse_texi_piece($parser, $text, $first_line_number)
+X<C<parse_texi_piece>>
 
 This function is used to parse Texinfo fragments.
 
@@ -6200,11 +6210,12 @@ The XS parser implements only part of the arguments and allows only a
 restricted set of arguments types compared to the Perl parser.  We want users
 to use only what is in common, so document only what is in common.
 
-=item $tree = parse_texi_text ($parser, $text, $line_numbers_specification, $file_name, $macro_name, $fixed_line_number)
+=item $tree = parse_texi_text($parser, $text, $line_numbers_specification, $file_name, $macro_name, $fixed_line_number)
 
 =end comment
 
-=item $tree = parse_texi_text ($parser, $text, $first_line_number)
+=item $tree = parse_texi_text($parser, $text, $first_line_number)
+X<C<parse_texi_text>>
 
 This function is used to parse a text as a whole document.
 
@@ -6226,6 +6237,7 @@ of a macro.
 =end comment
 
 =item $tree = parse_texi_file($parser, $file_name)
+X<C<parse_texi_file>>
 
 The file with name I<$file_name> is considered to be a Texinfo file and
 is parsed into a tree.
@@ -6235,14 +6247,15 @@ undef is returned if the file couldn't be read.
 =back
 
 The errors collected during the tree parsing are registered in a
-C<Texinfo::Report> object.  This object is available with
+L<Texinfo::Report> object.  This object is available with
 C<registered_errors>.  The errors registered in the C<Texinfo::Report>
 object are available through the C<errors> method.  This method is
-described in L<errors|Texinfo::Report/($error_warnings_list, $error_count) = errors ($registrar)>.
+described in L<Texinfo::Report::errors|Texinfo::Report/($error_warnings_list, $error_count) = errors($registrar)>.
 
 =over
 
 =item $registrar = registered_errors($parser)
+X<C<registered_errors>>
 
 I<$registrar> is a L<Texinfo::Report> object in which the errors
 and warnings encountered while parsing are registered.  If a I<registrar>
@@ -6261,6 +6274,7 @@ Some global information is available through C<global_information>
 =over
 
 =item $info = global_information($parser)
+X<C<global_information>>
 
 The I<$info> returned is a hash reference.  The possible keys are
 
@@ -6294,6 +6308,7 @@ available through C<global_commands_information>
 =over
 
 =item $commands = global_commands_information($parser)
+X<C<global_commands_information>>
 
 I<$commands> is an hash reference.  The keys are @-command names.  The
 associated values are array references containing all the corresponding
@@ -6310,6 +6325,7 @@ the association with @-commands is available through C<labels_information>:
 =over
 
 =item $labels_information, $targets_list, $nodes_list = labels_information($parser)
+X<C<labels_information>>
 
 I<$labels_information> is a hash reference whose keys are normalized
 labels, and the associated value is the corresponding @-command.
@@ -6326,6 +6342,7 @@ This information is available through the method C<floats_information>.
 =over
 
 =item $float_types = floats_information($parser)
+X<C<floats_information>>
 
 I<$float_types> is a hash reference whose keys are normalized float
 types (the first float argument, or the C<@listoffloats> argument).
@@ -6340,6 +6357,7 @@ or floats within the document are also available:
 =over
 
 =item $internal_references_array = internal_references_information($parser);
+X<C<internal_references_information>>
 
 The function returns a list of cross-reference commands referring to
 the same document.
@@ -6352,6 +6370,7 @@ also available through the C<indices_information> method.
 =over
 
 =item indices_information
+X<C<indices_information>>
 
   $index_names = indices_information($parser);
 
@@ -6538,6 +6557,8 @@ C<@raisesections>.
 
 =head1 TEXINFO TREE
 
+X<Texinfo tree elements>
+
 A Texinfo tree element (called element because node is overloaded in
 the Texinfo world) is an hash reference.  There are three main categories
 of tree element.  Tree elements associated with an @-command have a
@@ -6571,6 +6592,8 @@ can do:
   makeinfo -c TEXINFO_OUTPUT_FORMAT=debugtree document.texi
 
 =head2 Element keys
+
+X<Texinfo tree element structure>
 
 =over
 
@@ -7003,6 +7026,7 @@ is in I<row_prototype>.
 =back
 
 =head2 Information available in the extra key
+X<Texinfo tree element extra key>
 
 =head3 Extra keys available for more than one @-command
 

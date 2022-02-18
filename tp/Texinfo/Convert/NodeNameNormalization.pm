@@ -395,6 +395,7 @@ normalized node names.
 =over
 
 =item $normalized = normalize_node($tree)
+X<C<normalize_node>>
 
 The Texinfo I<$tree> is returned as a string, normalized as described in the
 Texinfo manual for HTML Xref.
@@ -404,6 +405,7 @@ The result will be poor for Texinfo trees which are not @-command arguments
 C<@node> or block commands.
 
 =item $transliterated = transliterate_texinfo($tree, $no_unidecode)
+X<C<transliterate_texinfo>>
 
 The Texinfo I<$tree> is returned as a string, with non ascii letters
 transliterated as ascii, but otherwise similar with C<normalize_node>

@@ -267,6 +267,7 @@ and C<@value> are expanded, and some invalid code is discarded.
 =over
 
 =item $texinfo_text = convert_to_texinfo($tree)
+X<C<convert_to_texinfo>>
 
 Converts the Texinfo tree I<$tree> to Texinfo code.
 

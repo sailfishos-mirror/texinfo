@@ -1617,6 +1617,7 @@ actual conversion is done by Perl, not by the module.
 =over
 
 =item $result = brace_no_arg_command($command_name, $encoding)
+X<C<brace_no_arg_command>>
 
 Return the Unicode representation of a command with brace and no argument
 I<$command_name> (like C<@bullet{}>, C<@aa{}> or C<@guilsinglleft{}>),
@@ -1624,6 +1625,7 @@ or C<undef> if there the Unicode representation cannot be converted to encoding
 I<$encoding>.
 
 =item $possible_conversion = check_unicode_point_conversion($arg, $output_debug)
+X<C<check_unicode_point_conversion>>
 
 Check that it is possible to output actual UTF-8 binary bytes
 corresponding to the Unicode code point string I<$arg> (such as
@@ -1635,6 +1637,7 @@ Returns 1 if the conversion is possible and can be attempted,
 0 otherwise.
 
 =item $result = encoded_accents($converter, $text, $stack, $encoding, $format_accent, $set_case)
+X<C<encoded_accents>>
 
 I<$encoding> is the encoding the accented characters should be encoded to.  If
 I<$encoding> not set, I<$result> is set to C<undef>.  Nested accents and
@@ -1657,12 +1660,14 @@ If I<$set_case> is positive, the result is upper-cased, while if it is negative,
 the result is lower-cased.
 
 =item $width = string_width($string)
+X<C<string_width>>
 
 Return the string width, taking into account the fact that some characters
 have a zero width (like composing accents) while some have a width of 2
 (most chinese characters, for example).
 
 =item $result = unicode_accent($text, $accent_command)
+X<C<unicode_accent>>
 
 I<$text> is the text appearing within an accent command.  I<$accent_command>
 should be a Texinfo tree element corresponding to an accent command taking
@@ -1670,6 +1675,7 @@ an argument.  The function returns the Unicode representation of the accented
 character.
 
 =item $is_decoded = unicode_point_decoded_in_encoding($encoding, $unicode_point)
+X<C<unicode_point_decoded_in_encoding>>
 
 Return true if the I<$unicode_point> will be encoded in the encoding
 I<$encoding>.  The I<$unicode_point> should be specified as a four letter
@@ -1678,7 +1684,8 @@ string describing an hexadecimal number with letters in upper case
 
 If the encoding is not supported in Texinfo, the result will always be false.
 
-=item $result = unicode_text ($text, $in_code)
+=item $result = unicode_text($text, $in_code)
+X<C<unicode_text>>
 
 Return I<$text> with dashes and quotes corresponding, for example to C<---> or
 C<'>, represented as Unicode code points.  If I<$in_code> is set, the text is

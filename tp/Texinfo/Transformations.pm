@@ -866,7 +866,8 @@ No method is exported in the default case.
 
 =over
 
-=item complete_tree_nodes_menus ($tree, $add_section_names_in_entries)
+=item complete_tree_nodes_menus($tree, $add_section_names_in_entries)
+X<C<complete_tree_nodes_menus>>
 
 Add menu entries or whole menus for nodes associated with sections,
 based on the sectioning tree.  If the optional
@@ -874,7 +875,8 @@ C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
 called after L<sectioning_structure|Texinfo::Structuring/$sections_root, $sections_list = sectioning_structure($registrar, $configuration_information, $tree)>.
 
-=item complete_tree_nodes_missing_menu ($tree, $use_section_names_in_entries)
+=item complete_tree_nodes_missing_menu($tree, $use_section_names_in_entries)
+X<C<complete_tree_nodes_missing_menu>>
 
 Add whole menus for nodes associated with sections and without menu,
 based on the sectioning tree.  If the optional
@@ -882,7 +884,8 @@ C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
 called after L<sectioning_structure|Texinfo::Structuring/$sections_root, $sections_list = sectioning_structure($registrar, $configuration_information, $tree)>.
 
-=item ($root_content, $added_sections) = fill_gaps_in_sectioning ($tree)
+=item ($root_content, $added_sections) = fill_gaps_in_sectioning($tree)
+X<C<fill_gaps_in_sectioning>>
 
 This function adds empty C<@unnumbered> and similar commands in a tree
 to fill gaps in sectioning.  This may be used, for example, when converting
@@ -895,7 +898,8 @@ If the sectioning commands are lowered or raised (with C<@raisesections>,
 C<@lowersection>) the tree may be modified with C<@raisesections> or
 C<@lowersection> added to some tree elements.
 
-=item ($root_content, $added_nodes) = insert_nodes_for_sectioning_commands ($tree, $nodes_list, $targets_list, $labels)
+=item ($root_content, $added_nodes) = insert_nodes_for_sectioning_commands($tree, $nodes_list, $targets_list, $labels)
+X<C<insert_nodes_for_sectioning_commands>>
 
 Insert nodes for sectioning commands without node in C<$tree>.
 Add nodes to the labels used as targets for references C<$labels>
@@ -905,9 +909,11 @@ An array reference is returned, containing the root contents
 with added nodes, as well as an array reference containing the
 added nodes.
 
-=item menu_to_simple_menu ($menu)
+=item menu_to_simple_menu($menu)
 
-=item set_menus_to_simple_menu ($nodes_list)
+=item set_menus_to_simple_menu($nodes_list)
+X<C<menu_to_simple_menu>>
+X<C<set_menus_to_simple_menu>>
 
 C<menu_to_simple_menu> transforms the tree of a menu tree element.
 C<set_menus_to_simple_menu> calls C<menu_to_simple_menu> for all the
@@ -917,13 +923,15 @@ A simple menu has no I<menu_comment>, I<menu_entry> or I<menu_entry_description>
 container anymore, their content are merged directly in the menu in
 I<preformatted> container.
 
-=item $detailmenu = new_master_menu ($translations, $labels)
+=item $detailmenu = new_master_menu($translations, $labels)
+X<C<new_master_menu>>
 
 Returns a detailmenu tree element formatted as a master node.
 I<$translations>, if defined, should be a L<Texinfo::Translations> object and
 should also hold configuration information.
 
-=item protect_hashchar_at_line_beginning ($registrar, $configuration_information, $tree)
+=item protect_hashchar_at_line_beginning($registrar, $configuration_information, $tree)
+X<C<protect_hashchar_at_line_beginning>>
 
 Protect hash (#) character at the beginning of line such that they would not be
 considered as lines to be processed by the CPP processor.  The I<$registrar>
@@ -935,7 +943,8 @@ C<get_conf()>.  If both I<$registrar> and I<$configuration_information> are
 defined they are used for error reporting in case an hash character could not
 be protected because it appeared in a raw environment.
 
-=item $modified_tree reference_to_arg_in_tree ($tree)
+=item $modified_tree reference_to_arg_in_tree($tree)
+X<C<reference_to_arg_in_tree>>
 
 Modify I<$tree> by converting reference @-commands to simple text using one of
 the arguments.  This transformation can be used, for example, to remove
@@ -943,7 +952,8 @@ reference @-command from constructed node names trees, as node names cannot
 contain reference @-command while there could be some in the tree used in input
 for the node name tree.
 
-=item regenerate_master_menu ($translations, $labels)
+=item regenerate_master_menu($translations, $labels)
+X<C<regenerate_master_menu>>
 
 Regenerate the Top node master menu, replacing the first detailmenu
 in Top node menus or appending at the end of the Top node menu.

@@ -244,8 +244,8 @@ Texinfo to other formats.  There is no promise of API stability.
 =head1 DESCRIPTION
 
 The Texinfo::Report module helps with error handling.  It is
-used by the Texinfo modules Texinfo::Parser and 
-Texinfo::Convert::Converter.  To use this module, either create
+used by the Texinfo modules L<Texinfo::Parser> and 
+L<Texinfo::Convert::Converter>.  To use this module, either create
 a new Texinfo::Report object or initialize another object 
 such as to be able to call Texinfo::Report methods.  In any
 case, C<Texinfo::Report::new()> is called to setup the module.
@@ -266,6 +266,7 @@ methods allow registering errors and warnings.
 =item my $registrar = Texinfo::Report::new()
 
 =item $converter->Texinfo::Report::new()
+X<C<Texinfo::Report::new>>
 
 If called without argument, a Texinfo::Report object is initialized and
 returned.  This is how the module is used in the Texinfo Parsers, as
@@ -275,7 +276,8 @@ If called on a C<$converter>, the C<$converter> is initialized itself
 such as to be able to call Texinfo::Report methods.  It is how it is
 used in the Converters.
 
-=item ($error_warnings_list, $error_count) = errors ($registrar)
+=item ($error_warnings_list, $error_count) = errors($registrar)
+X<C<errors>>
 
 This function returns as I<$error_count> the count of errors since
 calling C<new>.  The I<$error_warnings_list> is an array of hash references
@@ -315,20 +317,23 @@ the error or warning.
 =item $registrar->line_warn($text, $configuration_information, $line_nr)
 
 =item $registrar->line_error($text, $configuration_information, $line_nr)
+X<C<line_warn>>
+X<C<line_error>>
 
 Register a warning or an error.  The I<$text> is the text of the
 error or warning.  The I<$configuration_information> object gives
 some information that can modify the messages or their delivery.
 The optional I<$line_nr> holds the information on the error or 
-warning location.  It is associated with the I<line_nr> key of
-Texinfo tree elements as described in L<Texinfo::Parser/line_nr>
-for the @-commands.  The I<$line_nr> structure is described
-in L<errors|/($error_warnings_list, $error_count) = errors ($registrar)>
-above.
+warning location.  The I<$line_nr> structure corresponds to
+the I<line_nr> key of Texinfo tree elements as described
+in L<Texinfo::Parser/line_nr>, and is normally obtained from Texinfo
+elements I<line_nr> keys.
 
 =item $registrar->document_warn($configuration_information, $text)
 
 =item $registrar->document_error($configuration_information, $text)
+X<C<document_warn>>
+X<C<document_error>>
 
 Register a document-wide error or warning.  I<$text> is the error or
 warning message.  The I<$configuration_information> object gives
@@ -336,13 +341,12 @@ some information that can modify the messages or their delivery.
 
 =item $registrar->file_line_warn($text, $file, $line_nr)
 
-Register the warning message I<$text> for file I<$file>, with, optionally
-the line I<$line_nr> in the file.
-
 =item $registrar->file_line_error($text, $file, $line_nr)
+X<C<file_line_warn>>
+X<C<file_line_error>>
 
-Register the error message I<$text> for file I<$file>, with, optionally
-the line I<$line_nr> in the file.
+Register the error or warning message I<$text> for file I<$file>, with,
+optionally the line I<$line_nr> in the file.
 
 =back
 

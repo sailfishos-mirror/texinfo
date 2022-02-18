@@ -337,6 +337,7 @@ On strings translations, see L<Texinfo::Translations>.
 =over
 
 =item $arguments = definition_arguments_content($element)
+X<C<definition_arguments_content>>
 
 I<$element> should be a C<@def*> Texinfo tree element.  Texinfo elements
 on the @-command line corresponding to arguments in the function
@@ -346,6 +347,7 @@ on the @-command line.  If there is no argument, I<$arguments>
 will be C<undef>.
 
 =item $tree = definition_category($converter, $def_line)
+X<C<definition_category>>
 
 The I<$converter> argument may be undef.  I<$def_line> is a
 C<def_line> texinfo tree container.  This function
@@ -355,10 +357,12 @@ If I<$converter> is not defined, the resulting string won't be
 translated.
 
 =item $tree = expand_today($converter)
+X<C<expand_today>>
 
 Expand today's date, as a texinfo tree with translations.
 
 =item $tree = expand_verbatiminclude($registrar, $configuration_information, $verbatiminclude)
+X<C<expand_verbatiminclude>>
 
 The I<$registrar> argument may be undef.  I<$verbatiminclude> is a
 C<@verbatiminclude> tree element.  This function returns a
@@ -367,6 +371,7 @@ reading it.  If I<$registrar> is not defined, errors messages are
 not registered.
 
 =item (\@contents, \@accent_commands) = find_innermost_accent_contents($element)
+X<C<find_innermost_accent_contents>>
 
 I<$element> should be an accent command Texinfo tree element.  Returns
 an array reference containing the innermost accent command contents,
@@ -374,7 +379,8 @@ normally a text element with one or two letter, and an array reference
 containing the accent commands nested in I<$element> (including
 I<$element>).
 
-=item $result = numbered_heading ($converter, $heading_element, $heading_text, $do_number)
+=item $result = numbered_heading($converter, $heading_element, $heading_text, $do_number)
+X<C<numbered_heading>>
 
 The I<$converter> argument may be undef.  I<$heading_element> is
 a heading command tree element.  I<$heading_text> is the already
