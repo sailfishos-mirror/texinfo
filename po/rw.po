@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.7.94\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-02-14 19:58+0100\n"
+"POT-Creation-Date: 2022-02-18 17:51+0100\n"
 "PO-Revision-Date: 2005-04-04 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -466,7 +466,7 @@ msgid "Try --help for more information.\n"
 msgstr "Ifashayobora kugirango Birenzeho Ibisobanuro"
 
 #: info/info.c:859 install-info/install-info.c:2195
-#: Pod-Simple-Texinfo/pod2texi.pl:153 tp/texi2any.pl:783
+#: Pod-Simple-Texinfo/pod2texi.pl:155 tp/texi2any.pl:783
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -575,7 +575,7 @@ msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
 msgstr ""
 
 #: info/info.c:1156 install-info/install-info.c:571
-#: Pod-Simple-Texinfo/pod2texi.pl:132 tp/texi2any.pl:772
+#: Pod-Simple-Texinfo/pod2texi.pl:133 tp/texi2any.pl:772
 #, fuzzy
 msgid ""
 "Email bug reports to bug-texinfo@gnu.org,\n"
@@ -2134,82 +2134,86 @@ msgid ""
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:126
+msgid "    --setfilename           @setfilename for the main manual"
+msgstr ""
+
+#: Pod-Simple-Texinfo/pod2texi.pl:127
 msgid ""
 "    --subdir=NAME           put files included in the main manual in NAME"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:127
+#: Pod-Simple-Texinfo/pod2texi.pl:128
 msgid "    --top                   top for the main manual"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:128
+#: Pod-Simple-Texinfo/pod2texi.pl:129
 msgid "    --unnumbered-sections   do not number sections"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:129
+#: Pod-Simple-Texinfo/pod2texi.pl:130
 msgid "    --version               display version information and exit"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:164
+#: Pod-Simple-Texinfo/pod2texi.pl:166
 #, perl-format
 msgid "%s: wrong argument for --base-level\n"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:185
+#: Pod-Simple-Texinfo/pod2texi.pl:188
 #, fuzzy, perl-format
 msgid "%s: could not create directory %s: %s"
 msgstr "Kurema bushyinguro"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:200
+#: Pod-Simple-Texinfo/pod2texi.pl:203
 #, fuzzy, perl-format
 msgid "%s: missing file argument\n"
 msgstr "%s:Ibuze IDOSIYE"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:201 tp/texi2any.pl:1120
+#: Pod-Simple-Texinfo/pod2texi.pl:204 tp/texi2any.pl:1120
 #, fuzzy, perl-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "kugirango Birenzeho Ibisobanuro"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:222
+#: Pod-Simple-Texinfo/pod2texi.pl:227
 #, perl-format
 msgid "%s: ignoring %s without content\n"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:364 Pod-Simple-Texinfo/pod2texi.pl:451
+#: Pod-Simple-Texinfo/pod2texi.pl:370 Pod-Simple-Texinfo/pod2texi.pl:457
 #: tp/texi2any.pl:1437 tp/texi2any.pl:1486
 #, fuzzy, perl-format
 msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s:OYA Gufungura IDOSIYE"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:400
+#: Pod-Simple-Texinfo/pod2texi.pl:406
 #, fuzzy, perl-format
 msgid "%s: could not open %s: %s\n"
 msgstr "Gushaka"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:412 Pod-Simple-Texinfo/pod2texi.pl:498
+#: Pod-Simple-Texinfo/pod2texi.pl:418 Pod-Simple-Texinfo/pod2texi.pl:507
 #: tp/texi2any.pl:1405 tp/texi2any.pl:1506
 #, fuzzy, perl-format
 msgid "%s: error on closing %s: %s\n"
 msgstr "Ikosa Kuri"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:419
+#: Pod-Simple-Texinfo/pod2texi.pl:425
 #, perl-format
 msgid "%s: removing %s as input file %s has no content\n"
 msgstr ""
 
-#: Pod-Simple-Texinfo/pod2texi.pl:436
+#: Pod-Simple-Texinfo/pod2texi.pl:442
 #, fuzzy, perl-format
 msgid "%s: rename %s failed: %s\n"
 msgstr "Gushaka"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:504
+#: Pod-Simple-Texinfo/pod2texi.pl:513
 #, fuzzy, perl-format
 msgid "%s: error on closing stdout: %s\n"
 msgstr "Ikosa Kuri"
 
 #: tp/DebugTexinfo/DebugTree.pm:72 tp/Texinfo/Convert/Converter.pm:364
 #: tp/Texinfo/Convert/Converter.pm:417 tp/Texinfo/Convert/Converter.pm:1215
-#: tp/Texinfo/Convert/DocBook.pm:313 tp/Texinfo/Convert/HTML.pm:8907
+#: tp/Texinfo/Convert/DocBook.pm:319 tp/Texinfo/Convert/HTML.pm:8907
 #: tp/Texinfo/Convert/HTML.pm:8971 tp/Texinfo/Convert/HTML.pm:9004
 #: tp/Texinfo/Convert/HTML.pm:9479 tp/Texinfo/Convert/HTML.pm:9582
 #: tp/Texinfo/Convert/HTML.pm:9691 tp/Texinfo/Convert/IXIN.pm:282
@@ -2268,7 +2272,7 @@ msgid "%s: output incompatible with split"
 msgstr ""
 
 #: tp/Texinfo/Convert/Converter.pm:395 tp/Texinfo/Convert/Converter.pm:435
-#: tp/Texinfo/Convert/Converter.pm:1233 tp/Texinfo/Convert/DocBook.pm:356
+#: tp/Texinfo/Convert/Converter.pm:1233 tp/Texinfo/Convert/DocBook.pm:486
 #: tp/Texinfo/Convert/HTML.pm:8902 tp/Texinfo/Convert/HTML.pm:9523
 #: tp/Texinfo/Convert/HTML.pm:9601 tp/Texinfo/Convert/IXIN.pm:909
 #: tp/Texinfo/Convert/Info.pm:163 tp/Texinfo/Convert/Info.pm:192
@@ -2294,12 +2298,12 @@ msgstr "Ikosa Ibisohoka IDOSIYE"
 msgid "@image file `%s' unreadable: %s"
 msgstr "@Ishusho IDOSIYE"
 
-#: tp/Texinfo/Convert/DocBook.pm:1000
+#: tp/Texinfo/Convert/DocBook.pm:1142
 #, fuzzy, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr "@Ishusho IDOSIYE"
 
-#: tp/Texinfo/Convert/DocBook.pm:1124 tp/Texinfo/ParserNonXS.pm:5264
+#: tp/Texinfo/Convert/DocBook.pm:1266 tp/Texinfo/ParserNonXS.pm:5264
 #: tp/Texinfo/XS/parsetexi/separator.c:427
 #, fuzzy
 msgid "no argument specified for @U"
