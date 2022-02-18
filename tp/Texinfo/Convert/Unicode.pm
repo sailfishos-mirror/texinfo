@@ -32,8 +32,6 @@ use Encode;
 use Unicode::Normalize;
 use Unicode::EastAsianWidth;
 
-use Texinfo::Encoding;
-
 use Texinfo::MiscXS;
 
 require Exporter;

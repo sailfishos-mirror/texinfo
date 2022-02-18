@@ -50,8 +50,6 @@ use Storable qw(dclone); # standard in 5.007003
 use Texinfo::Common;
 # Error reporting and counting
 use Texinfo::Report;
-# encoding_alias
-use Texinfo::Encoding;
 
 # in error messages, and for macro body expansion
 use Texinfo::Convert::Texinfo;
@@ -535,6 +533,34 @@ foreach my $index (keys(%index_names)) {
 foreach my $other_forbidden_index_name ('info','ps','pdf','htm',
    'html', 'log','aux','dvi','texi','txi','texinfo','tex','bib') {
   $forbidden_index_name{$other_forbidden_index_name} = 1;
+}
+
+my %canonical_texinfo_encodings;
+# These are the encodings from the texinfo manual
+foreach my $canonical_encoding ('us-ascii', 'utf-8', 'iso-8859-1',
+                  'iso-8859-15', 'iso-8859-2', 'koi8-r', 'koi8-u') {
+  $canonical_texinfo_encodings{$canonical_encoding} = 1;
+}
+
+sub _encoding_alias($)
+{
+  my $encoding = shift;
+  my $enc = find_encoding($encoding);
+  my ($perl_encoding, $canonical_output_encoding);
+  if (defined($enc)) {
+    $perl_encoding = $enc->name();
+    # mime_name() is upper-case, our keys are lower case, set to lower case
+    $canonical_output_encoding = lc($enc->mime_name());
+  }
+  my $canonical_texinfo_encoding;
+  foreach my $possible_encoding ($encoding, $canonical_output_encoding,
+                                            $perl_encoding) {
+    if (defined($possible_encoding)
+        and $canonical_texinfo_encodings{lc($possible_encoding)}) {
+      $canonical_texinfo_encoding = $possible_encoding;
+    }
+  }
+  return ($canonical_texinfo_encoding, $perl_encoding, $canonical_output_encoding);
 }
 
 # contexts on the context_stack stack where empty line doesn't trigger
@@ -3206,7 +3232,7 @@ sub _end_line($$$)
             if defined $self->{'info'}->{'input_perl_encoding'};
         } elsif ($command eq 'documentencoding') {
           my ($texinfo_encoding, $perl_encoding, $input_encoding)
-            = Texinfo::Encoding::encoding_alias($text);
+             = _encoding_alias($text);
           $self->_command_warn($current, $line_nr,
                  __("encoding `%s' is not a canonical texinfo encoding"),
                                $text)

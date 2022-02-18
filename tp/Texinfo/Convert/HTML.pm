@@ -50,7 +50,6 @@ use Storable;
 
 use Texinfo::Common;
 use Texinfo::Config;
-use Texinfo::Encoding;
 use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Utils;

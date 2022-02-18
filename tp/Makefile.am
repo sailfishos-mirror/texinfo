@@ -69,7 +69,6 @@ dist_modules_DATA = \
  Texinfo/ParserNonXS.pm \
  Texinfo/Report.pm \
  Texinfo/Common.pm \
- Texinfo/Encoding.pm \
  Texinfo/Structuring.pm \
  Texinfo/Transformations.pm \
  Texinfo/Translations.pm \

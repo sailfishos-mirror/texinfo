@@ -1551,7 +1551,7 @@ end_line_misc_line (ELEMENT *current)
                 {
                   command_warn (current, "unrecognized encoding name `%s'",
                                 text);
-                  /* Texinfo::Encoding calls Encode::find_encoding, so knows
+                  /* the Perl Parser calls Encode::find_encoding, so knows
                      about more encodings than what we know about here.
                      TODO: Check when perl_encoding could be defined when 
                      texinfo_encoding isn't.
