@@ -1503,6 +1503,8 @@ end_line_misc_line (ELEMENT *current)
                   static char *known_encodings[] = {
                       "shift_jis",
                       "latin1",
+                      "latin-1",
+                      "utf8",
                       0
                   };
                   for (i = 0; (known_encodings[i]); i++)
@@ -1521,11 +1523,15 @@ end_line_misc_line (ELEMENT *current)
                   struct encoding_map {
                       char *from; char *to;
                   };
+                  /* The map mimics Encode::resolve_alias() result.  Even when
+                     the alias is not good, such as 'utf-8-strict' for 'utf-8'
+                     use the same mapping for consistency with the perl Parser */
                   static struct encoding_map map[] = {
                       "utf-8", "utf-8-strict",
                       "us-ascii", "ascii",
                       "shift_jis", "shiftjis",
-                      "latin1", "iso-8859-1"
+                      "latin1", "iso-8859-1",
+                      "latin-1", "iso-8859-1"
                   };
                   for (i = 0; i < sizeof map / sizeof *map; i++)
                     {
@@ -1544,7 +1550,7 @@ end_line_misc_line (ELEMENT *current)
                 {
                   command_warn (current, "unrecognized encoding name `%s'",
                                 text);
-                  /* Texinfo::Encoding calls Encode::Alias, so knows
+                  /* Texinfo::Encoding calls Encode::resolve_alias, so knows
                      about more encodings than what we know about here.
                      TODO: Check when perl_encoding could be defined when 
                      texinfo_encoding isn't.
@@ -1565,12 +1571,11 @@ end_line_misc_line (ELEMENT *current)
                       "utf-8-strict","utf-8",
                       "ascii",       "us-ascii",
                       "shiftjis",    "shift_jis",
-                      "latin-1",     "iso-8859-1",
                       "iso-8859-1",  "iso-8859-1",
                       "iso-8859-2",  "iso-8859-2",
                       "iso-8859-15", "iso-8859-15",
-                      "koi8-r",      "koi8",
-                      "koi8-u",      "koi8",
+                      "koi8-r",      "koi8-r",
+                      "koi8-u",      "koi8-u",
                   };
                   input_encoding = perl_encoding;
                   for (i = 0; i < sizeof map / sizeof *map; i++)

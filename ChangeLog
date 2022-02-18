@@ -1,5 +1,24 @@
 2022-02-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Unicode.pm (%unicode_to_eight_bit)
+	(_eight_bit_and_unicode_point, encoded_accents)
+	(unicode_point_decoded_in_encoding): use directly the input encodings
+	names.  Separate mappings of koi8-u and koi8-r.
+
+	* tp/Texinfo/Encoding.pm (encoding_alias): remove
+	%eight_bit_encoding_aliases.  Use my, not our for variables not used
+	elsewhere.
+
+	* util/txixml2texi.pl: use directly Encode::resolve_alias() instead of
+	Texinfo::Encoding::encoding_alias().
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): add latin-1
+	mapping.  Remove impossible or incorrect mappings from encoding_map.
+
+	* doc/tp_api/Makefile.am: do not document Texinfo::Encoding.
+
+2022-02-18  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl: do not ignore an input file that
 	cannot be searched for the manual name.
 

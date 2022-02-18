@@ -56,7 +56,6 @@ BUILT_SOURCES = tp_api.texi
 # The order matters for the result.
 tp_api_dependencies = \
   $(top_srcdir)/tp/Texinfo/Common.pm \
-  $(top_srcdir)/tp/Texinfo/Encoding.pm \
   $(top_srcdir)/tp/Texinfo/ParserNonXS.pm \
   $(top_srcdir)/tp/Texinfo/Structuring.pm \
   $(top_srcdir)/tp/Texinfo/Report.pm \

@@ -652,7 +652,7 @@ foreach my $command (keys(%unicode_accented_letters)) {
 }
 
 my %unicode_to_eight_bit = (
-   'iso8859_1' => {
+   'iso-8859-1' => {
       '00A0' => 'A0',
       '00A1' => 'A1',
       '00A2' => 'A2',
@@ -751,7 +751,7 @@ my %unicode_to_eight_bit = (
       '00FE' => 'FE',
       '00FF' => 'FF',
    },
-   'iso8859_15' => {
+   'iso-8859-15' => {
       '00A0' => 'A0',
       '00A1' => 'A1',
       '00A2' => 'A2',
@@ -849,7 +849,7 @@ my %unicode_to_eight_bit = (
       '00FE' => 'FE',
       '00FF' => 'FF',
    },
-   'iso8859_2' => {
+   'iso-8859-2' => {
       '00A0' => 'A0',
       '0104' => 'A1',
       '02D8' => 'A2',
@@ -946,15 +946,9 @@ my %unicode_to_eight_bit = (
       '0163' => 'FE',
       '02D9' => 'FF',
    },
-   'koi8' => {
+   'koi8-r' => {
       '0415' => 'A3',
-      '0454' => 'A4',
-      '0456' => 'A6',
-      '0457' => 'A7',
       '04D7' => 'B3',
-      '0404' => 'B4',
-      '0406' => 'B6',
-      '0407' => 'B7',
       '042E' => 'C0',
       '0430' => 'C1',
       '0431' => 'C2',
@@ -1020,7 +1014,22 @@ my %unicode_to_eight_bit = (
       '0427' => 'FE',
       '042A' => 'FF',
    },
+   'koi8-u' => {
+      '0454' => 'A4',
+      '0404' => 'B4',
+      '0456' => 'A6',
+      '0406' => 'B6',
+      '0457' => 'A7',
+      '0407' => 'B7',
+      '0491' => 'AD',
+      '0490' => 'BD',
+   }
 );
+
+foreach my $unicode_point (keys(%{$unicode_to_eight_bit{'koi8-r'}})) {
+  $unicode_to_eight_bit{'koi8-u'}->{$unicode_point}
+    = $unicode_to_eight_bit{'koi8-r'}->{$unicode_point};
+}
 
 # currently unused
 my %makeinfo_transliterate_map = (
@@ -1277,8 +1286,6 @@ sub _eight_bit_and_unicode_point($$)
   my $char = shift;
   my $encoding = shift;
 
-  my $encoding_map_name
-   = $Texinfo::Encoding::eight_bit_encoding_aliases{$encoding};
   my ($eight_bit, $codepoint);
   if (ord($char) <= 128) {
     # 7bit ascii characters, the same in every 8bit encodings
@@ -1286,9 +1293,8 @@ sub _eight_bit_and_unicode_point($$)
     $codepoint = uc(sprintf("%04x",ord($char)));
   } elsif (ord($char) <= hex(0xFFFF)) {
     $codepoint = uc(sprintf("%04x",ord($char)));
-    if (exists($unicode_to_eight_bit{$encoding_map_name}->{$codepoint})) {
-     $eight_bit
-         = $unicode_to_eight_bit{$encoding_map_name}->{$codepoint};
+    if (exists($unicode_to_eight_bit{$encoding}->{$codepoint})) {
+     $eight_bit = $unicode_to_eight_bit{$encoding}->{$codepoint};
     }
   }
   return ($eight_bit, $codepoint);
@@ -1458,7 +1464,7 @@ sub encoded_accents($$$$$;$)
     if ($encoding eq 'utf-8') {
       return _format_unicode_accents_stack($converter, $text, $stack,
                                             $format_accent, $set_case);
-    } elsif ($Texinfo::Encoding::eight_bit_encoding_aliases{$encoding}) {
+    } elsif ($unicode_to_eight_bit{$encoding}) {
       return _format_eight_bit_accents_stack($converter, $text, $stack, $encoding,
                                $format_accent, $set_case);
     }
@@ -1474,8 +1480,8 @@ sub unicode_point_decoded_in_encoding($$) {
 
   return 1 if ($encoding
                and ($encoding eq 'utf-8'
-                    or ($Texinfo::Encoding::eight_bit_encoding_aliases{$encoding}
-                        and $unicode_to_eight_bit{$Texinfo::Encoding::eight_bit_encoding_aliases{$encoding}}->{$unicode_point})));
+                    or ($unicode_to_eight_bit{$encoding}
+                        and $unicode_to_eight_bit{$encoding}->{$unicode_point})));
   return 0;
 }
 

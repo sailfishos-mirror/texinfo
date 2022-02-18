@@ -24,6 +24,7 @@ use Getopt::Long qw(GetOptions);
 # for dirname.
 use File::Basename;
 use File::Spec;
+use Encode;
 
 Getopt::Long::Configure("gnu_getopt");
 
@@ -294,8 +295,8 @@ while ($reader->read) {
       }
       if ($name eq 'documentencoding' and $reader->hasAttributes() 
           and defined($reader->getAttribute('encoding'))) {
-        my ($texinfo_encoding, $perl_encoding, $output_encoding)
-         = Texinfo::Encoding::encoding_alias($reader->getAttribute('encoding'));
+        my $perl_encoding
+          = Encode::resolve_alias($reader->getAttribute('encoding'));
 
         if (defined($perl_encoding)) {
           if ($debug) {
