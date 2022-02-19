@@ -1,3 +1,9 @@
+2022-02-19  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (%close_paragraph_commands),
+	tp/Texinfo/XS/parsetexi/commands.c (close_paragraph_command):
+	have @need close paragraph/preformatted.
+
 2022-02-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.am, tp/Texinfo/ParserNonXS.pm (_encoding_alias)

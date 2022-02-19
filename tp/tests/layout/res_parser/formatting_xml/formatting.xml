@@ -1307,8 +1307,8 @@ but , ,&noeos;
 <author spaces=" ">author</author>
 
 <para><code>need 1002</code>
-<need value="1002" line="1002"></need>
-</para>
+</para><need value="1002" line="1002"></need>
+
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
 After clickstyle &result;
@@ -2377,8 +2377,8 @@ but , ,&noeos;
 <author spaces=" ">author</author>
 
 <para><code>need 1002</code>
-<need value="1002" line="1002"></need>
-</para>
+</para><need value="1002" line="1002"></need>
+
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
 After clickstyle &result;
@@ -3474,8 +3474,8 @@ but , ,&noeos;
 <author spaces=" ">author</author>
 
 <para><code>need 1002</code>
-<need value="1002" line="1002"></need>
-</para>
+</para><need value="1002" line="1002"></need>
+
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
 After clickstyle &result;
@@ -4538,8 +4538,8 @@ but , ,&noeos;
 <pre xml:space="preserve"><author spaces=" ">author</author>
 
 <code>need 1002</code>
-<need value="1002" line="1002"></need>
-
+</pre><need value="1002" line="1002"></need>
+<pre xml:space="preserve">
 <code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
 After clickstyle &result;

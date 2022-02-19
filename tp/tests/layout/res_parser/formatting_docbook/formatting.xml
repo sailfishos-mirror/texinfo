@@ -2777,7 +2777,7 @@ aaa</literallayout></textobject></inlinemediaobject>
 
 </screen><screen>
 <literal>need 1002</literal>
-
+</screen><screen>
 <literal>@clicksequence{click @click{} A}</literal> click &#8594; A
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A

@@ -155,6 +155,7 @@ close_paragraph_command (enum command_id cmd)
      || cmd == CM_insertcopying
      || cmd == CM_sp
      || cmd == CM_verbatiminclude
+     || cmd == CM_need
      || cmd == CM_page
      || cmd == CM_item
      || cmd == CM_itemx
