@@ -177,9 +177,12 @@ if (!defined($infile) or $infile !~ /\S/) {
   die "Missing file\n";
 }
 
-my $reader = XML::LibXML::Reader->new('location' => $infile,
-                                       'expand_entities' => 0,
-                                    )
+my $reader_options = {'location' => $infile,
+                      'expand_entities' => 0,
+                      'pedantic_parser' => $debug,
+                      #'validation' => 1,
+                     };
+my $reader = XML::LibXML::Reader->new($reader_options)
        or die "cannot read $infile\n";
 
 #(my $mydir = $0) =~ s,/[^/]*$,,;  # dir we are in
