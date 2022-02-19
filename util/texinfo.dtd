@@ -60,7 +60,7 @@
 
 <!-- index entry commands -->
 <!ENTITY % indexentry.cmds "cindex | findex | kindex | pindex | tindex
-  | vindex | indexcommand">
+  | vindex | indexcommand | subentry">
 
 <!-- API definition commands -->
 <!ENTITY % def.cmds "deffn | defvr | deftypefn | deftypeop | deftypevr
@@ -68,7 +68,7 @@
       | defspec | defvar | defopt | deftypefun | deftypevar 
       | defivar | deftypeivar | defmethod | deftypemethod">
 
-<!ENTITY % raw.cmds "html | tex | docbook | xml | macro | rmacro | ignore">
+<!ENTITY % raw.cmds "html | tex | latex | docbook | xml | macro | rmacro | ignore">
 
 <!-- Commands that appear everywhere, both with block and in paragraphs -->
 <!-- include is in general absent, since it is replaced, but it is
@@ -84,7 +84,7 @@
                   | display | smalldisplay | copying | titlepage
                   | raggedright | flushleft | flushright
                   | itemize | enumerate | titlefont | center | group
-                  | table | vtable | ftable | multitable | definition 
+                  | table | vtable | ftable | multitable | displaymath
                   | image
                   | %def.cmds; 
                   | %ubiquitous.cmds;
@@ -157,21 +157,22 @@
 <!ENTITY % Inline.misc "click | clicksequence | logo | punct | spacecmd | today
                         | linebreak | accent | dotless | ctrl | inlineraw 
                         | inlinefmt | inlinefmtifelse | inlineifclear 
-                        | inlineifset | infoenclose | noeos | formfeed ">
+                        | inlineifset | infoenclose | noeos | formfeed | U ">
 
 <!-- on lines -->
 <!ENTITY % Inline.linesimpletext "%Inline.emphasize; | %Inline.misc; | %Inline.fonts;
-          | %Inline.markup; | %Inline.math; | %Inline.hyperreference">
-<!ENTITY % Inline.linetext "%Inline.linesimpletext | %Inline.reference;
-                            | %Inline.footnote;" >
+          | %Inline.markup; | %Inline.math; | %Inline.hyperreference;">
+<!ENTITY % Inline.linetext "%Inline.linesimpletext; | %Inline.reference;
+                            | %Inline.footnote;">
 <!ENTITY % Inline.line "%Inline.linetext; | image">
+<!ENTITY % Inline.indexentryline "%Inline.line; | seealso | seeentry | sortas">
 <!ENTITY % Inline.fullline "%Inline.line; | titlefont | anchor">
 
 <!-- on headings specification lines -->
 <!ENTITY % Inline.headingmark "divideheading | thischapter | thischaptername
            | thischapternum | thissection | thissectionname | thissectionnum
            | thisfile | thispage | thistitle">
-<!ENTITY % Inline.headingline "%Inline.linesimpletext | %Inline.headingmark">
+<!ENTITY % Inline.headingline "%Inline.linesimpletext; | %Inline.headingmark;">
 
 <!-- in paragraphs -->
 <!ENTITY % Inline.phrase
@@ -633,6 +634,9 @@
 <!ELEMENT raggedright  (%block; | exdent)*>
 <!ATTLIST raggedright
           %spacesblockattr;>
+<!ELEMENT displaymath  (#PCDATA | %Inline.phrase;)*>
+<!ATTLIST displaymath
+          %spacesblockattr;>
 
 <!ELEMENT center       (#PCDATA | %Inline.fullline;)*>
 <!ATTLIST center
@@ -700,6 +704,9 @@
           %spacesblockattr;>
 <!ELEMENT tex (%Raw.content;)*>
 <!ATTLIST tex
+          %spacesblockattr;>
+<!ELEMENT latex (%Raw.content;)*>
+<!ATTLIST latex
           %spacesblockattr;>
 <!-- this may happen if xml is not expanded -->
 <!ELEMENT xml (%Raw.content;)*>
@@ -962,10 +969,6 @@
 <!ATTLIST deftypemethodx
           %spacesattr;>
 
-<!--
-<!ELEMENT definition (definitionterm | definitionitem | indexterm)+>
-<!ELEMENT definitionterm (%definition.args; | indexterm)+>
--->
 <!ELEMENT definitionterm (indexterm?, (%definition.args;)+)>
 <!ELEMENT definitionitem (%block;)*>
 
@@ -1230,7 +1233,7 @@
           %lineattr;
           from      NMTOKEN #REQUIRED
           to        NMTOKEN #REQUIRED>
-<!ELEMENT indexterm (#PCDATA | %Inline.line;)*>
+<!ELEMENT indexterm (#PCDATA | %Inline.indexentryline;)*>
 <!ATTLIST indexterm
           index         CDATA #IMPLIED
           mergedindex   CDATA #IMPLIED
@@ -1258,6 +1261,13 @@
 <!ELEMENT vindex (indexterm)>
 <!ATTLIST vindex 
           %indexcmdattr;>
+<!ELEMENT subentry (#PCDATA | %Inline.indexentryline;)*>
+<!ATTLIST subentry
+          %spacesattr;>
+<!ELEMENT sortas (#PCDATA | %Inline.line;)*>
+<!ELEMENT seeentry (#PCDATA | %Inline.line;)*>
+<!ELEMENT seealso (#PCDATA | %Inline.line;)*>
+
 <!ELEMENT printindex EMPTY>
 <!ATTLIST printindex
           %lineattr;
@@ -1303,7 +1313,13 @@
 <!ENTITY tex        "<logo>TeX</logo>">
 <!ENTITY latex      "<logo>LaTeX</logo>">
 <!ENTITY ellipsis   "&#x2026;">
+<!-- From the XML specification:
+     If the entities lt or amp are declared, they MUST be declared as internal entities whose replacement text is a character reference to the respective character (less-than sign or ampersand) being escaped; the double escaping is REQUIRED for these entities so that references to them produce a well-formed result.
+     LibXML error: invalid redeclaration of predefined entity
 <!ENTITY lt         "&#x3c;">
+Use exactly what is on the XML specification
+-->
+<!ENTITY lt         "&#38;#60;">
 <!ENTITY gt         "&#x3e;">
 <!ENTITY bullet     "&#x2022;">
 <!ENTITY copyright  "&#xa9;">
@@ -1314,7 +1330,13 @@
 <!ENTITY linebreak  "<linebreak/>">
 <!ENTITY dots       "<punct end-of-sentence='no'>&#x2026;</punct>">
 <!ENTITY enddots    "<punct end-of-sentence='yes'>&#x2026;</punct>">
+<!-- From the XML specification:
+     If the entities lt or amp are declared, they MUST be declared as internal entities whose replacement text is a character reference to the respective character (less-than sign or ampersand) being escaped; the double escaping is REQUIRED for these entities so that references to them produce a well-formed result.
+     LibXML error: invalid redeclaration of predefined entity
 <!ENTITY amp        "&#x26;">
+Use exactly what is on the XML specification
+-->
+<!ENTITY amp        "&#38;#38;">
 <!ENTITY lsquo      "&#x2018;">
 <!ENTITY textlsquo      "&#x2018;">
 <!ENTITY rsquo      "&#x2019;">

@@ -1,5 +1,13 @@
 2022-02-19  Patrice Dumas  <pertusus@free.fr>
 
+	* configure.ac (TEXINFO_DTD_VERSION), util/texinfo.dtd:
+	update the DTD with new @-commands (latex, displaymath,
+	subentry, seeentry, seealso). Remove definition. Some
+	fixes. Define lt and amp predefined entities exactly as
+	shown on the XML specification.
+
+2022-02-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%close_paragraph_commands),
 	tp/Texinfo/XS/parsetexi/commands.c (close_paragraph_command):
 	have @need close paragraph/preformatted.
