@@ -249,14 +249,16 @@ DocBook
 
   also use informaltable or table, for multitable?
 
-  What is before the first sectioning command is put in <bookinfo><abstract>.
+  Add an @abstract command or similar to Texinfo?
+  And put in DocBook <abstract>?  Beware that DocBook abstract is quite
+  limited in term of content, only a title and paragraphs.  Although block
+  commands can be in paragraphs in DocBook, it is not the case for Texinfo,
+  so it would be very limited.
 
   what about @titlefont in docbook?
 
   maybe use simpara instead of para. Indeed, simpara is for paragraph without
   block element within, and it should be that way in generated output.
-
-  put <title> in <articleinfo>?
 
 * in docbook, when there is only one section <article> should be better
   than book. Maybe the best way to do that would be passing the
