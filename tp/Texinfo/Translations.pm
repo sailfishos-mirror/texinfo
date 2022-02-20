@@ -54,7 +54,7 @@ my $strings_textdomain = 'texinfo_document';
 # libintl converts between encodings but doesn't decode them into the
 # perl internal format.  This is only called if the encoding is a proper
 # perl encoding.
-sub _encode_i18n_string($$)
+sub _decode_i18n_string($$)
 {
   my $string = shift;
   my $encoding = shift;
@@ -132,7 +132,7 @@ sub gdt($$;$$$)
   if (!($encoding and $encoding eq 'us-ascii')) {
     if ($perl_encoding) {
       Locale::Messages::bind_textdomain_filter($strings_textdomain,
-        \&_encode_i18n_string, $perl_encoding);
+        \&_decode_i18n_string, $perl_encoding);
     }
   }
 

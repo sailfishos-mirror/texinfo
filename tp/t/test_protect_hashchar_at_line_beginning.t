@@ -13,6 +13,11 @@ use Texinfo::Convert::Texinfo;
 
 use Data::Dumper;
 
+# For consistent error message, use the C locale
+$ENV{LC_ALL} = 'C';
+# also needed for consistent error message
+$ENV{LANGUAGE} = 'C';
+
 ok(1);
 
 sub run_test($$$;$)

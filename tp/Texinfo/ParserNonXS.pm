@@ -551,12 +551,12 @@ foreach my $canonical_encoding ('us-ascii', 'utf-8', 'iso-8859-1',
 sub _encoding_alias($)
 {
   my $encoding = shift;
-  my $enc = find_encoding($encoding);
+  my $Encode_encoding_object = find_encoding($encoding);
   my ($perl_encoding, $canonical_output_encoding);
-  if (defined($enc)) {
-    $perl_encoding = $enc->name();
+  if (defined($Encode_encoding_object)) {
+    $perl_encoding = $Encode_encoding_object->name();
     # mime_name() is upper-case, our keys are lower case, set to lower case
-    $canonical_output_encoding = lc($enc->mime_name());
+    $canonical_output_encoding = lc($Encode_encoding_object->mime_name());
   }
   my $canonical_texinfo_encoding;
   foreach my $possible_encoding ($encoding, $canonical_output_encoding,
