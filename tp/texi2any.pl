@@ -349,20 +349,6 @@ sub _decode_i18n_string($$)
   return Encode::decode($encoding, $string);
 }
 
-# FIXME should we reset the messages encoding if 'DATA_INPUT_ENCODING_NAME'
-# is reset?
-my $messages_encoding = get_conf('DATA_INPUT_ENCODING_NAME');
-if (defined($messages_encoding) and $messages_encoding ne 'us-ascii') {
-  my $Encode_encoding_object = find_encoding($messages_encoding);
-  my $perl_messages_encoding = $Encode_encoding_object->name();
-  Locale::Messages::bind_textdomain_codeset($messages_textdomain,
-                                            $messages_encoding);
-  if ($perl_messages_encoding) {
-    Locale::Messages::bind_textdomain_filter($messages_textdomain,
-                          \&_decode_i18n_string, $perl_messages_encoding);
-  }
-}
-
 sub _encode_message($)
 {
   my $text = shift;
@@ -456,6 +442,20 @@ my $parser_options = {'values' => {'txicommandconditionals' => 1}};
 
 my $init_files_options = Texinfo::Config::GNUT_initialize_config(
       $real_command_name, $main_program_default_options, $cmdline_options);
+
+# FIXME should we reset the messages encoding if 'DATA_INPUT_ENCODING_NAME'
+# is reset?
+my $messages_encoding = get_conf('DATA_INPUT_ENCODING_NAME');
+if (defined($messages_encoding) and $messages_encoding ne 'us-ascii') {
+  my $Encode_encoding_object = find_encoding($messages_encoding);
+  my $perl_messages_encoding = $Encode_encoding_object->name();
+  Locale::Messages::bind_textdomain_codeset($messages_textdomain,
+                                            $messages_encoding);
+  if ($perl_messages_encoding) {
+    Locale::Messages::bind_textdomain_filter($messages_textdomain,
+                          \&_decode_i18n_string, $perl_messages_encoding);
+  }
+}
 
 # read initialization files.  Better to do that after
 # Texinfo::Config::GNUT_initialize_config() in case loaded
