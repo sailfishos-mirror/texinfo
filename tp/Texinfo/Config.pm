@@ -36,6 +36,9 @@ use Carp;
 # for __( and p__( and some functions
 use Texinfo::Common;
 
+# for Encode::encode
+use Encode;
+
 
 # for error messages, passed from main program through initialization
 # function.
@@ -81,12 +84,25 @@ sub GNUT_initialize_config($$$) {
 }
 
 # duplicated from texi2any.pl
+sub _GNUT_encode_message($)
+{
+  my $text = shift;
+  my $encoding = texinfo_get_conf('MESSAGE_OUTPUT_ENCODING_NAME');
+  if (defined($encoding)) {
+    return Encode::encode($encoding, $text);
+  } else {
+    return $text;
+  }
+}
+
+# duplicated from texi2any.pl
 sub _GNUT_document_warn($) {
   return if (texinfo_get_conf('NO_WARN'));
   my $text = shift;
   chomp ($text);
-  warn(sprintf(__p("program name: warning: warning_message",
-                   "%s: warning: %s\n"), $real_command_name,  $text));
+  warn(_GNUT_encode_message(
+        sprintf(__p("program name: warning: warning_message",
+                   "%s: warning: %s\n"), $real_command_name, $text)));
 }
 
 # called from texi2any.pl main program.

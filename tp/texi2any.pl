@@ -25,6 +25,10 @@ require 5.00405;
 
 use strict;
 
+# to determine the locale encoding
+use I18N::Langinfo qw(langinfo CODESET);
+# to decode command line arguments
+use Encode;
 # for file names portability
 use File::Spec;
 # to determine the path separator and null file
@@ -273,6 +277,15 @@ if ($texinfo_dtd_version eq '@' . 'TEXINFO_DTD_VERSION@') {
     }
   }
 }
+
+# the encoding used to decode command line arguments, and also for
+# file names encoding, perl is expecting sequences of bytes, not unicode
+# code points.
+my $locale_encoding = langinfo(CODESET);
+$locale_encoding = undef if ($locale_encoding eq '');
+my $file_name_encoding = $locale_encoding;
+$file_name_encoding = 'utf-8' if (not defined($file_name_encoding));
+
 # Used in case it is not hardcoded in configure and for standalone perl module
 $texinfo_dtd_version = $configured_version
   if (!defined($texinfo_dtd_version));
@@ -286,6 +299,9 @@ my $main_program_set_options = {
     'PACKAGE_URL' => $configured_url,
     'PROGRAM' => $real_command_name, 
     'TEXINFO_DTD_VERSION' => $texinfo_dtd_version,
+    'DATA_INPUT_ENCODING_NAME' => $locale_encoding,
+    'MESSAGE_OUTPUT_ENCODING_NAME' => $locale_encoding,
+    'FILE_NAMES_ENCODING_NAME' => $file_name_encoding,
 };
 
 # defaults for options relevant in the main program. Also used as
@@ -324,6 +340,47 @@ push @program_config_dirs, File::Spec->catdir($datadir, $program_name)
 @program_init_dirs = @program_config_dirs;
 foreach my $texinfo_config_dir (@language_config_dirs) {
   push @program_init_dirs, File::Spec->catdir($texinfo_config_dir, 'init');
+}
+
+sub _decode_i18n_string($$)
+{
+  my $string = shift;
+  my $encoding = shift;
+  return Encode::decode($encoding, $string);
+}
+
+# FIXME should we reset the messages encoding if 'DATA_INPUT_ENCODING_NAME'
+# is reset?
+my $messages_encoding = get_conf('DATA_INPUT_ENCODING_NAME');
+if (defined($messages_encoding) and $messages_encoding ne 'us-ascii') {
+  my $Encode_encoding_object = find_encoding($messages_encoding);
+  my $perl_messages_encoding = $Encode_encoding_object->name();
+  Locale::Messages::bind_textdomain_codeset($messages_textdomain,
+                                            $messages_encoding);
+  if ($perl_messages_encoding) {
+    Locale::Messages::bind_textdomain_filter($messages_textdomain,
+                          \&_decode_i18n_string, $perl_messages_encoding);
+  }
+}
+
+sub _encode_message($)
+{
+  my $text = shift;
+  my $encoding = get_conf('MESSAGE_OUTPUT_ENCODING_NAME');
+  if (defined($encoding)) {
+    return Encode::encode($encoding, $text);
+  } else {
+    return $text;
+  }
+}
+
+sub document_warn($) {
+  return if (get_conf('NO_WARN'));
+  my $text = shift;
+  chomp ($text);
+  warn(_encode_message(
+       sprintf(__p("program name: warning: warning_message", 
+                   "%s: warning: %s\n"), $real_command_name, $text)));
 }
 
 sub locate_and_load_init_file($$)
@@ -556,14 +613,6 @@ sub set_format($;$$)
   return $new_format;
 }
 
-sub document_warn($) {
-  return if (get_conf('NO_WARN'));
-  my $text = shift;
-  chomp ($text);
-  warn(sprintf(__p("program name: warning: warning_message", 
-                   "%s: warning: %s\n"), $real_command_name,  $text));
-}
-
 sub _exit($$)
 {
   my $error_count = shift;
@@ -588,8 +637,8 @@ sub handle_errors($$$)
   my ($errors, $new_error_count) = $self->errors();
   $error_count += $new_error_count if ($new_error_count);
   foreach my $error_message (@$errors) {
-    warn $error_message->{'error_line'} if ($error_message->{'type'} eq 'error'
-                                           or !get_conf('NO_WARN'));
+    warn _encode_message($error_message->{'error_line'})
+      if ($error_message->{'type'} eq 'error' or !get_conf('NO_WARN'));
   }
   
   _exit($error_count, $opened_files);
@@ -608,6 +657,18 @@ sub _get_converter_default($)
   #  return $Texinfo::Common::document_settable_unique_at_commands{$option};
   #}
   return undef;
+}
+
+sub _decode_input($)
+{
+  my $text = shift;
+
+  my $encoding = get_conf('DATA_INPUT_ENCODING_NAME');
+  if (defined($encoding)) {
+    return Encode::decode($encoding, $text);
+  } else {
+    return $text;
+  }
 }
 
 # translation related todo to be done when the string change anyway to
@@ -778,12 +839,13 @@ Texinfo home page: http://www.gnu.org/software/texinfo/") ."\n";
 my $Xopt_arg_nr = 0;
 
 my $result_options = Getopt::Long::GetOptions (
- 'help|h' => sub { print makeinfo_help(); exit 0; },
- 'version|V' => sub {print "$program_name (GNU texinfo) $configured_version\n\n";
-    printf __("Copyright (C) %s Free Software Foundation, Inc.
+ 'help|h' => sub { print _encode_message(makeinfo_help()); exit 0; },
+ 'version|V' => sub {
+    print _encode_message("$program_name (GNU texinfo) $configured_version\n\n");
+    print _encode_message(sprintf __("Copyright (C) %s Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
+There is NO WARRANTY, to the extent permitted by law.\n"), "2021");
       exit 0;},
  'macro-expand|E=s' => sub { set_from_cmdline('MACRO_EXPAND', $_[1]); },
  'ifhtml!' => sub { set_expansion('html', $_[1]); },
@@ -803,7 +865,9 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
     if ($_[1] eq 'end' or $_[1] eq 'separate') {
        set_from_cmdline('footnotestyle', $_[1]);
     } else {
-      die sprintf(__("%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"), $real_command_name, $_[1]);
+      # FIXME decode/encode?
+      die sprintf(__("%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"),
+                  $real_command_name, $_[1]);
     }
   },
  'split=s' => sub {  my $split = $_[1];
@@ -830,11 +894,12 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
                      $format = 'plaintext' if (!$_[1] and $format eq 'info'); },
  'output|out|o=s' => sub {
     my $var = 'OUTFILE';
+    # do not decode before calling -d as -d expects bytes
     if ($_[1] =~ m:/$: or -d $_[1]) {
       set_from_cmdline($var, undef);
       $var = 'SUBDIR';
     }
-    set_from_cmdline($var, $_[1]);
+    set_from_cmdline($var, _decode_input($_[1]));
     push @texi2dvi_args, '-o', $_[1];
   },
  'no-validate|no-pointer-validate' => sub {
@@ -844,9 +909,10 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
  'verbose|v!' => sub {set_from_cmdline('VERBOSE', $_[1]); 
                      push @texi2dvi_args, '--verbose'; },
  'document-language=s' => sub {
-                      set_from_cmdline('documentlanguage', $_[1]); 
+                      my $documentlanguage = _decode_input($_[1]);
+                      set_from_cmdline('documentlanguage', $documentlanguage);
                       my @messages 
-                       = Texinfo::Common::warn_unknown_language($_[1]);
+                       = Texinfo::Common::warn_unknown_language($documentlanguage);
                       foreach my $message (@messages) {
                         document_warn($message);
                       }
@@ -855,22 +921,23 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
     my $var = $_[1];
     my @field = split (/\s+/, $var, 2);
     if (@field == 1) {
-      $parser_options->{'values'}->{$var} = 1;
+      $parser_options->{'values'}->{_decode_input($var)} = 1;
       push @texi2dvi_args, "--command=\@set $var 1";
     } else {
-      $parser_options->{'values'}->{$field[0]} = $field[1];
+      $parser_options->{'values'}->{_decode_input($field[0])}
+           = _decode_input($field[1]);
       push @texi2dvi_args, "--command=\@set $field[0] $field[1]";
     }
  },
  'U=s' => sub {
-    delete $parser_options->{'values'}->{$_[1]};
+    delete $parser_options->{'values'}->{_decode_input($_[1])};
     push @texi2dvi_args, "--command=\@clear $_[1]";
  },
  'init-file=s' => sub {
     locate_and_load_init_file($_[1], [ @conf_dirs, @program_init_dirs ]);
  },
  'set-customization-variable|c=s' => sub {
-   my $var_val = $_[1];
+   my $var_val = _decode_input($_[1]);
    if ($var_val =~ s/^(\w+)\s*=?\s*//) {
      my $var = $1;
      my $value = $var_val;
@@ -1000,7 +1067,8 @@ if (defined($init_file_format)) {
 
 if (defined($ENV{'TEXINFO_OUTPUT_FORMAT'}) 
     and $ENV{'TEXINFO_OUTPUT_FORMAT'} ne '') {
-  $format = set_format($ENV{'TEXINFO_OUTPUT_FORMAT'}, $format, 1);
+  $format = set_format(_decode_input($ENV{'TEXINFO_OUTPUT_FORMAT'}),
+                       $format, 1);
 }
 
 if ($call_texi2dvi) {
