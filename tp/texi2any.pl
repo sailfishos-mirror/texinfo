@@ -899,7 +899,8 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021");
       set_from_cmdline($var, undef);
       $var = 'SUBDIR';
     }
-    set_from_cmdline($var, _decode_input($_[1]));
+    #set_from_cmdline($var, _decode_input($_[1]));
+    set_from_cmdline($var, $_[1]);
     push @texi2dvi_args, '-o', $_[1];
   },
  'no-validate|no-pointer-validate' => sub {
