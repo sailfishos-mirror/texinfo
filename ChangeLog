@@ -1,3 +1,12 @@
+2022-02-21  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): add a context if
+	in heading formatting.  In heading formating, use 'error'
+	as a string instead of a \fbox for @error formatting in
+	contents bookmark string using \texorpdfstring{}.
+	Based on Ulrike Fischer suggestion:
+	https://github.com/latex3/hyperref/issues/207#issuecomment-920712424
+
 2022-02-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/texi2any.pl: call get_conf() only after conf is setup.

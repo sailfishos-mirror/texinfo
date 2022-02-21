@@ -85,21 +85,6 @@
 #
 # RELEVANT BUT NOT DECISIVE
 #
-# Rendering of @error using \fbox{} in sectioning commands leads to erroneous
-# table of contents with hyperref, and with xcolor there is even a failure.
-# The hyperref maintainer does not want to handle explicitely \fbox{} in
-# sectioning commands given the rarity of this use and also because there are
-# some workarounds.
-# In particular
-# \chapter{\texorpdfstring{\fbox{fbox}}{}}
-# or
-# \pdfstringdefDisableCommands{%
-# \def\fbox#1{[#1]}%
-# }
-#
-# See
-# https://github.com/latex3/hyperref/issues/207#issuecomment-920712424
-#
 # breaking in urls is not implemented, maybe there is some support already in
 # hyperref.  @urefbreakstyle, @/
 #
@@ -2173,7 +2158,28 @@ sub _convert($$)
         }
       }
       if (exists($LaTeX_no_arg_brace_commands{$command_context}->{$converted_command})) {
-        $result .= $LaTeX_no_arg_brace_commands{$command_context}->{$converted_command};
+        if ($converted_command eq 'error'
+            and $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'}) {
+          # in a sectioning command, the contents bookmark is also generated, and
+          # some commands do not play well with the contents bookmark.  In particular
+          # \fbox.  \texorpdfstring allows to specify a different output for
+          # the string in contents bookmark.
+          #
+          # TODO Note that other commands than @error are not perfect in contents
+          # bookmarks, in particular all the commands formatted in math disappear.
+          # However the other commands have no clear string representations,
+          # being removed in the contents bookmark strings is not so bad until
+          # a better solution is found
+          #
+          # See also
+          # https://github.com/latex3/hyperref/issues/207#issuecomment-920712424
+          $result .= '\texorpdfstring{'.
+            $LaTeX_no_arg_brace_commands{$command_context}->{$converted_command}
+            # FIXME translation
+            .'}{error}'
+        } else {
+          $result .= $LaTeX_no_arg_brace_commands{$command_context}->{$converted_command};
+        }
       } else {
         die "BUG: unknown brace_no_arg_commands $cmdname $converted_command\n";
       }
@@ -2915,7 +2921,9 @@ sub _convert($$)
       if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
         my $heading = '';
         if ($element->{'args'}->[0]->{'contents'}) {
+          $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'} = 1;
           $heading = $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}});
+          delete $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'};
         }
 
         my $section_cmd = $section_map{$cmdname};

@@ -615,7 +615,20 @@ New para
 @printindex cp
 
 @printindex fn
-']
+'],
+['error_in_sectioning_command',
+'@setfilename error_in_sectioning_command.info
+
+@contents
+
+@node Top
+@top top section
+
+@node @code{@@error@{@}} (@error{}): Indicating an Error Message
+@chapter @code{@@error@{@}} (@error{}): Indicating an Error Message
+
+Describe @error{}.
+'],
 
 );
 
