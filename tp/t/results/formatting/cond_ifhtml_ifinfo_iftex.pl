@@ -533,7 +533,7 @@ $result_converted_errors{'html'}->{'cond_ifhtml_ifinfo_iftex'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'cond.texi:28: warning: raw format tex is not converted
+    'error_line' => 'warning: raw format tex is not converted
 ',
     'file_name' => 'cond.texi',
     'line_nr' => 28,

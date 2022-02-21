@@ -115,7 +115,7 @@ $result_texts{'not_i_j_in_dotless'} = 'a bc, q^.';
 
 $result_errors{'not_i_j_in_dotless'} = [
   {
-    'error_line' => ':1: @dotless expects `i\' or `j\' as argument, not `a\'
+    'error_line' => '@dotless expects `i\' or `j\' as argument, not `a\'
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -124,7 +124,7 @@ $result_errors{'not_i_j_in_dotless'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: @dotless expects `i\' or `j\' as argument, not `q\'
+    'error_line' => '@dotless expects `i\' or `j\' as argument, not `q\'
 ',
     'file_name' => '',
     'line_nr' => 1,

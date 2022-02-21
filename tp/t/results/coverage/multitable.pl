@@ -669,7 +669,7 @@ truc bidule
 
 $result_errors{'multitable'} = [
   {
-    'error_line' => ':7: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 7,

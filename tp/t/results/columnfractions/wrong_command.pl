@@ -133,7 +133,7 @@ $result_texts{'wrong_command'} = '';
 
 $result_errors{'wrong_command'} = [
   {
-    'error_line' => ':1: superfluous argument to @columnfractions
+    'error_line' => 'superfluous argument to @columnfractions
 ',
     'file_name' => '',
     'line_nr' => 1,

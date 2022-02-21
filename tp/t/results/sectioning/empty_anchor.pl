@@ -89,7 +89,7 @@ $result_texts{'empty_anchor'} = '.
 
 $result_errors{'empty_anchor'} = [
   {
-    'error_line' => ':1: empty argument in @anchor
+    'error_line' => 'empty argument in @anchor
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -98,7 +98,7 @@ $result_errors{'empty_anchor'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':2: empty argument in @anchor
+    'error_line' => 'empty argument in @anchor
 ',
     'file_name' => '',
     'line_nr' => 2,

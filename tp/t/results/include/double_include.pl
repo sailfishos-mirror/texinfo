@@ -57,7 +57,7 @@ In included file.
 
 $result_errors{'double_include'} = [
   {
-    'error_line' => ':2: warning: @include should only appear at the beginning of a line
+    'error_line' => 'warning: @include should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -66,7 +66,7 @@ $result_errors{'double_include'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @include should not appear in @include
+    'error_line' => 'warning: @include should not appear in @include
 ',
     'file_name' => '',
     'line_nr' => 2,

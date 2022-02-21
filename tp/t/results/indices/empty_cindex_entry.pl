@@ -119,7 +119,7 @@ $result_menus{'empty_cindex_entry'} = {
 
 $result_errors{'empty_cindex_entry'} = [
   {
-    'error_line' => ':2: warning: @cindex missing argument
+    'error_line' => 'warning: @cindex missing argument
 ',
     'file_name' => '',
     'line_nr' => 2,

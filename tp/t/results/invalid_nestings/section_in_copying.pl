@@ -132,7 +132,7 @@ $result_sectioning{'section_in_copying'}{'structure'}{'section_childs'}[0]{'stru
 
 $result_errors{'section_in_copying'} = [
   {
-    'error_line' => ':5: @section seen before @end copying
+    'error_line' => '@section seen before @end copying
 ',
     'file_name' => '',
     'line_nr' => 5,

@@ -159,7 +159,7 @@ $result_texts{'menu_no_closed_after_empty_line'} = '* (manual_in_menu):: desc2
 
 $result_errors{'menu_no_closed_after_empty_line'} = [
   {
-    'error_line' => ':4: no matching `@end menu\'
+    'error_line' => 'no matching `@end menu\'
 ',
     'file_name' => '',
     'line_nr' => 4,

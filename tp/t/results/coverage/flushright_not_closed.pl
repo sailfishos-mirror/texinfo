@@ -73,7 +73,7 @@ text flushed right
 
 $result_errors{'flushright_not_closed'} = [
   {
-    'error_line' => ':3: no matching `@end flushright\'
+    'error_line' => 'no matching `@end flushright\'
 ',
     'file_name' => '',
     'line_nr' => 3,

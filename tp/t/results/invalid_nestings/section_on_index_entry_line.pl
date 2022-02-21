@@ -130,7 +130,7 @@ $result_sectioning{'section_on_index_entry_line'}{'structure'}{'section_childs'}
 
 $result_errors{'section_on_index_entry_line'} = [
   {
-    'error_line' => ':1: warning: @section should only appear at the beginning of a line
+    'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -139,7 +139,7 @@ $result_errors{'section_on_index_entry_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @section should not appear in @cindex
+    'error_line' => 'warning: @section should not appear in @cindex
 ',
     'file_name' => '',
     'line_nr' => 1,

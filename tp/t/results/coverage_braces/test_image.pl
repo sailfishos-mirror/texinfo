@@ -3635,7 +3635,7 @@ $result_menus{'test_image'} = {
 
 $result_errors{'test_image'} = [
   {
-    'error_line' => ':9: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -3644,7 +3644,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -3653,7 +3653,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -3662,7 +3662,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -3671,7 +3671,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -3680,7 +3680,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -3689,7 +3689,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -3698,7 +3698,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -3707,7 +3707,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -3716,7 +3716,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -3725,7 +3725,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -3734,7 +3734,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -3743,7 +3743,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -3752,7 +3752,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -3761,7 +3761,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -3770,7 +3770,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':24: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 24,
@@ -3779,7 +3779,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':24: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 24,
@@ -3788,7 +3788,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':24: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 24,
@@ -3797,7 +3797,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':24: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 24,
@@ -3806,7 +3806,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':24: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 24,
@@ -3815,7 +3815,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':26: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 26,
@@ -3824,7 +3824,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':26: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 26,
@@ -3833,7 +3833,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':26: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 26,
@@ -3842,7 +3842,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':26: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 26,
@@ -3851,7 +3851,7 @@ $result_errors{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':26: warning: @verb should not appear in @image (possibly involving @files-char)
+    'error_line' => 'warning: @verb should not appear in @image (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 26,
@@ -3977,7 +3977,7 @@ $result_converted_errors{'html'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -3986,7 +3986,7 @@ $result_converted_errors{'html'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -3995,7 +3995,7 @@ $result_converted_errors{'html'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -4004,7 +4004,7 @@ $result_converted_errors{'html'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -4013,7 +4013,7 @@ $result_converted_errors{'html'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -4022,7 +4022,7 @@ $result_converted_errors{'html'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -4031,7 +4031,7 @@ $result_converted_errors{'html'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':24: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 24,
@@ -4040,7 +4040,7 @@ $result_converted_errors{'html'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':24: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 24,
@@ -4049,7 +4049,7 @@ $result_converted_errors{'html'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':26: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 26,
@@ -4058,7 +4058,7 @@ $result_converted_errors{'html'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':26: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 26,
@@ -4105,7 +4105,7 @@ In text [alt î-le..  a
 
 $result_converted_errors{'plaintext'}->{'test_image'} = [
   {
-    'error_line' => ':14: warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
+    'error_line' => 'warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -4114,7 +4114,7 @@ $result_converted_errors{'plaintext'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
+    'error_line' => 'warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -4123,7 +4123,7 @@ $result_converted_errors{'plaintext'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
+    'error_line' => 'warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -4132,7 +4132,7 @@ $result_converted_errors{'plaintext'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':24: warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
+    'error_line' => 'warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 24,
@@ -4141,7 +4141,7 @@ $result_converted_errors{'plaintext'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':26: warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
+    'error_line' => 'warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 26,
@@ -4150,7 +4150,7 @@ $result_converted_errors{'plaintext'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':26: warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
+    'error_line' => 'warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 26,
@@ -4207,7 +4207,7 @@ In text <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot;
 
 $result_converted_errors{'html_text'}->{'test_image'} = [
   {
-    'error_line' => ':14: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -4216,7 +4216,7 @@ $result_converted_errors{'html_text'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -4225,7 +4225,7 @@ $result_converted_errors{'html_text'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -4234,7 +4234,7 @@ $result_converted_errors{'html_text'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -4243,7 +4243,7 @@ $result_converted_errors{'html_text'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -4252,7 +4252,7 @@ $result_converted_errors{'html_text'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -4261,7 +4261,7 @@ $result_converted_errors{'html_text'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':24: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 24,
@@ -4270,7 +4270,7 @@ $result_converted_errors{'html_text'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':24: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 24,
@@ -4279,7 +4279,7 @@ $result_converted_errors{'html_text'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':26: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 26,
@@ -4288,7 +4288,7 @@ $result_converted_errors{'html_text'}->{'test_image'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':26: warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
 ',
     'file_name' => '',
     'line_nr' => 26,

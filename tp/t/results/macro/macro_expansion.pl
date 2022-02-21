@@ -624,7 +624,7 @@ arg3
 
 $result_errors{'macro_expansion'} = [
   {
-    'error_line' => ':13: warning: @macroone defined with zero or more than one argument should be invoked with {}
+    'error_line' => 'warning: @macroone defined with zero or more than one argument should be invoked with {}
 ',
     'file_name' => '',
     'line_nr' => 13,

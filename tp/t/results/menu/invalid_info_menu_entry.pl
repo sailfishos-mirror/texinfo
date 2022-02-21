@@ -825,7 +825,7 @@ $result_converted{'plaintext'}->{'invalid_info_menu_entry'} = '* Menu:
 
 $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
   {
-    'error_line' => ':4: warning: menu entry node name should not contain `:\'
+    'error_line' => 'warning: menu entry node name should not contain `:\'
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -834,7 +834,7 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: menu entry name should not contain `:\'
+    'error_line' => 'warning: menu entry name should not contain `:\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -843,7 +843,7 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: menu entry node name should not contain `. \'
+    'error_line' => 'warning: menu entry node name should not contain `. \'
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -852,7 +852,7 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':7: warning: menu entry node name should not contain `,\'
+    'error_line' => 'warning: menu entry node name should not contain `,\'
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -861,7 +861,7 @@ $result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: menu entry node name should not contain `	\'
+    'error_line' => 'warning: menu entry node name should not contain `	\'
 ',
     'file_name' => '',
     'line_nr' => 8,

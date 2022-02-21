@@ -457,7 +457,7 @@ $result_texts{'invalid_documentencoding'} = '
 
 $result_errors{'invalid_documentencoding'} = [
   {
-    'error_line' => ':2: bad argument to @documentencoding: us-ascii@asis{}
+    'error_line' => 'bad argument to @documentencoding: us-ascii@asis{}
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -466,7 +466,7 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':4: bad argument to @documentencoding: latin1@asis{a}
+    'error_line' => 'bad argument to @documentencoding: latin1@asis{a}
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -475,7 +475,7 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: warning: encoding `YS-ASCII\' is not a canonical texinfo encoding
+    'error_line' => 'warning: encoding `YS-ASCII\' is not a canonical texinfo encoding
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -484,7 +484,7 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: unrecognized encoding name `YS-ASCII\'
+    'error_line' => 'warning: unrecognized encoding name `YS-ASCII\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -493,7 +493,7 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: @documentencoding should only appear at the beginning of a line
+    'error_line' => 'warning: @documentencoding should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -502,7 +502,7 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: encoding `bad encoding name\' is not a canonical texinfo encoding
+    'error_line' => 'warning: encoding `bad encoding name\' is not a canonical texinfo encoding
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -511,7 +511,7 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: unrecognized encoding name `bad encoding name\'
+    'error_line' => 'warning: unrecognized encoding name `bad encoding name\'
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -520,7 +520,7 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':7: warning: encoding `1\' is not a canonical texinfo encoding
+    'error_line' => 'warning: encoding `1\' is not a canonical texinfo encoding
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -529,7 +529,7 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':7: warning: unrecognized encoding name `1\'
+    'error_line' => 'warning: unrecognized encoding name `1\'
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -538,7 +538,7 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: encoding `%\' is not a canonical texinfo encoding
+    'error_line' => 'warning: encoding `%\' is not a canonical texinfo encoding
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -547,7 +547,7 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: unrecognized encoding name `%\'
+    'error_line' => 'warning: unrecognized encoding name `%\'
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -556,7 +556,7 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: encoding `@\' is not a canonical texinfo encoding
+    'error_line' => 'warning: encoding `@\' is not a canonical texinfo encoding
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -565,7 +565,7 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: unrecognized encoding name `@\'
+    'error_line' => 'warning: unrecognized encoding name `@\'
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -574,7 +574,7 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: bad argument to @documentencoding: AAA@TeX{}
+    'error_line' => 'bad argument to @documentencoding: AAA@TeX{}
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -583,7 +583,7 @@ $result_errors{'invalid_documentencoding'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':11: bad argument to @documentencoding: BBB@\'e
+    'error_line' => 'bad argument to @documentencoding: BBB@\'e
 ',
     'file_name' => '',
     'line_nr' => 11,

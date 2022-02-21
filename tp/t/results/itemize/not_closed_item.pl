@@ -93,7 +93,7 @@ $result_texts{'not_closed_item'} = 'in item
 
 $result_errors{'not_closed_item'} = [
   {
-    'error_line' => ':2: no matching `@end itemize\'
+    'error_line' => 'no matching `@end itemize\'
 ',
     'file_name' => '',
     'line_nr' => 2,

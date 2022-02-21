@@ -284,7 +284,7 @@ other tab
 
 $result_errors{'tab_in_table_in_example'} = [
   {
-    'error_line' => ':3: @tab not meaningful inside `@table\' block
+    'error_line' => '@tab not meaningful inside `@table\' block
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -293,7 +293,7 @@ $result_errors{'tab_in_table_in_example'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: @tab not meaningful inside `@table\' block
+    'error_line' => '@tab not meaningful inside `@table\' block
 ',
     'file_name' => '',
     'line_nr' => 6,

@@ -32,7 +32,7 @@ my ($error_warnings_list, $error_count) = $parser_registrar->errors();
 
 ok ($error_count == 2, 'error count');
 
-my @errors_references = ($initial_error, ':1: unmatched `@end format\'');
+my @errors_references = ($initial_error, 'unmatched `@end format\'');
 
 my $error_idx = 0;
 foreach my $error_message (@$error_warnings_list) {

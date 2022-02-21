@@ -122,7 +122,7 @@ $result_menus{'node_in_copying'} = {
 
 $result_errors{'node_in_copying'} = [
   {
-    'error_line' => ':2: @node seen before @end copying
+    'error_line' => '@node seen before @end copying
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -131,7 +131,7 @@ $result_errors{'node_in_copying'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':4: unmatched `@end copying\'
+    'error_line' => 'unmatched `@end copying\'
 ',
     'file_name' => '',
     'line_nr' => 4,

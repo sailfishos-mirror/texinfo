@@ -268,7 +268,7 @@ in defun
 
 $result_errors{'def_in_example'} = [
   {
-    'error_line' => ':2: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 2,

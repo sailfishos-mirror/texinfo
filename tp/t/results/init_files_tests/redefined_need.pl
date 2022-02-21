@@ -99,7 +99,7 @@ $result_converted_errors{'html'}->{'redefined_need'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: need has the right arg: 0.1
+    'error_line' => 'warning: need has the right arg: 0.1
 ',
     'file_name' => '',
     'line_nr' => 1,

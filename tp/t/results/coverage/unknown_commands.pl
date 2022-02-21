@@ -48,7 +48,7 @@ $result_texts{'unknown_commands'} = '
 
 $result_errors{'unknown_commands'} = [
   {
-    'error_line' => ':1: unknown command `unknwon\'
+    'error_line' => 'unknown command `unknwon\'
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -57,7 +57,7 @@ $result_errors{'unknown_commands'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':2: unexpected @
+    'error_line' => 'unexpected @
 ',
     'file_name' => '',
     'line_nr' => 2,

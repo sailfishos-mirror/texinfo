@@ -952,7 +952,7 @@ $result_menus{'loop_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} =
 
 $result_errors{'loop_nodes'} = [
   {
-    'error_line' => ':10: warning: node up pointer for `node up\' is `node down\' but up is `Top\' in menu
+    'error_line' => 'warning: node up pointer for `node up\' is `node down\' but up is `Top\' in menu
 ',
     'file_name' => '',
     'line_nr' => 10,

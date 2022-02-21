@@ -570,7 +570,7 @@ $result_menus{'equivalent_labels'}{'structure'}{'menu_child'}{'structure'}{'menu
 
 $result_errors{'equivalent_labels'} = [
   {
-    'error_line' => ':10: warning: @menu entry node name `anch\' different from anchor name `@samp{anch}\'
+    'error_line' => 'warning: @menu entry node name `anch\' different from anchor name `@samp{anch}\'
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -579,7 +579,7 @@ $result_errors{'equivalent_labels'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: warning: @menu entry node name `@code{floa}\' different from float name `floa\'
+    'error_line' => 'warning: @menu entry node name `@code{floa}\' different from float name `floa\'
 ',
     'file_name' => '',
     'line_nr' => 11,

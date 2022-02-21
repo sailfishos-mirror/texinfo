@@ -265,7 +265,7 @@ $result_texts{'empty_images'} = '
 
 $result_errors{'empty_images'} = [
   {
-    'error_line' => ':1: @image missing filename argument
+    'error_line' => '@image missing filename argument
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -274,7 +274,7 @@ $result_errors{'empty_images'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: @image missing filename argument
+    'error_line' => '@image missing filename argument
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -283,7 +283,7 @@ $result_errors{'empty_images'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: @image missing filename argument
+    'error_line' => '@image missing filename argument
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -292,7 +292,7 @@ $result_errors{'empty_images'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: @image missing filename argument
+    'error_line' => '@image missing filename argument
 ',
     'file_name' => '',
     'line_nr' => 6,

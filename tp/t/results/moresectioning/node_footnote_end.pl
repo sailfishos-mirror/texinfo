@@ -1614,7 +1614,7 @@ $result_menus{'node_footnote_end'}{'structure'}{'menu_child'}{'structure'}{'menu
 
 $result_errors{'node_footnote_end'} = [
   {
-    'error_line' => 'node_footnote.texi:24: warning: node `@`a\' is next for `chapter\' in menu but not in sectioning
+    'error_line' => 'warning: node `@`a\' is next for `chapter\' in menu but not in sectioning
 ',
     'file_name' => 'node_footnote.texi',
     'line_nr' => 24,
@@ -1623,7 +1623,7 @@ $result_errors{'node_footnote_end'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'node_footnote.texi:24: warning: node `@^a\' is prev for `chapter\' in menu but not in sectioning
+    'error_line' => 'warning: node `@^a\' is prev for `chapter\' in menu but not in sectioning
 ',
     'file_name' => 'node_footnote.texi',
     'line_nr' => 24,
@@ -1632,7 +1632,7 @@ $result_errors{'node_footnote_end'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'node_footnote.texi:24: warning: node `Top\' is up for `chapter\' in menu but not in sectioning
+    'error_line' => 'warning: node `Top\' is up for `chapter\' in menu but not in sectioning
 ',
     'file_name' => 'node_footnote.texi',
     'line_nr' => 24,

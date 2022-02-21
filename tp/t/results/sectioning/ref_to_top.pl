@@ -220,7 +220,7 @@ $result_menus{'ref_to_top'} = {
 
 $result_errors{'ref_to_top'} = [
   {
-    'error_line' => ':5: warning: @xref to `TOP\', different from node name `ToP\'
+    'error_line' => 'warning: @xref to `TOP\', different from node name `ToP\'
 ',
     'file_name' => '',
     'line_nr' => 5,

@@ -769,7 +769,7 @@ $result_menus{'empty_string_index_entry'} = {
 
 $result_errors{'empty_string_index_entry'} = [
   {
-    'error_line' => ':3: warning: empty index key in @findex
+    'error_line' => 'warning: empty index key in @findex
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -778,7 +778,7 @@ $result_errors{'empty_string_index_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: empty index key in @item
+    'error_line' => 'warning: empty index key in @item
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -787,7 +787,7 @@ $result_errors{'empty_string_index_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: empty index key in @defun
+    'error_line' => 'warning: empty index key in @defun
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -796,7 +796,7 @@ $result_errors{'empty_string_index_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: warning: empty index key in @defunx
+    'error_line' => 'warning: empty index key in @defunx
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -836,7 +836,7 @@ End:
 
 $result_converted_errors{'info'}->{'empty_string_index_entry'} = [
   {
-    'error_line' => ':3: warning: empty index key in @findex
+    'error_line' => 'warning: empty index key in @findex
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -845,7 +845,7 @@ $result_converted_errors{'info'}->{'empty_string_index_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: empty index key in @item
+    'error_line' => 'warning: empty index key in @item
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -854,7 +854,7 @@ $result_converted_errors{'info'}->{'empty_string_index_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: empty index key in @defun
+    'error_line' => 'warning: empty index key in @defun
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -863,7 +863,7 @@ $result_converted_errors{'info'}->{'empty_string_index_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: warning: empty index key in @defunx
+    'error_line' => 'warning: empty index key in @defunx
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -884,7 +884,7 @@ $result_converted{'plaintext'}->{'empty_string_index_entry'} = '‘’
 
 $result_converted_errors{'plaintext'}->{'empty_string_index_entry'} = [
   {
-    'error_line' => ':3: warning: empty index key in @findex
+    'error_line' => 'warning: empty index key in @findex
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -893,7 +893,7 @@ $result_converted_errors{'plaintext'}->{'empty_string_index_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: empty index key in @item
+    'error_line' => 'warning: empty index key in @item
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -902,7 +902,7 @@ $result_converted_errors{'plaintext'}->{'empty_string_index_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: empty index key in @defun
+    'error_line' => 'warning: empty index key in @defun
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -911,7 +911,7 @@ $result_converted_errors{'plaintext'}->{'empty_string_index_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: warning: empty index key in @defunx
+    'error_line' => 'warning: empty index key in @defunx
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -940,7 +940,7 @@ $result_converted{'html_text'}->{'empty_string_index_entry'} = '<h1 class="node"
 
 $result_converted_errors{'html_text'}->{'empty_string_index_entry'} = [
   {
-    'error_line' => ':3: warning: empty index key in @findex
+    'error_line' => 'warning: empty index key in @findex
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -949,7 +949,7 @@ $result_converted_errors{'html_text'}->{'empty_string_index_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: empty index key in @item
+    'error_line' => 'warning: empty index key in @item
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -958,7 +958,7 @@ $result_converted_errors{'html_text'}->{'empty_string_index_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: empty index key in @defun
+    'error_line' => 'warning: empty index key in @defun
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -967,7 +967,7 @@ $result_converted_errors{'html_text'}->{'empty_string_index_entry'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: warning: empty index key in @defunx
+    'error_line' => 'warning: empty index key in @defunx
 ',
     'file_name' => '',
     'line_nr' => 10,

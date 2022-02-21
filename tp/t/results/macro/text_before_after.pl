@@ -90,7 +90,7 @@ $result_texts{'text_before_after'} = 'before after
 
 $result_errors{'text_before_after'} = [
   {
-    'error_line' => ':1: warning: @macro should only appear at the beginning of a line
+    'error_line' => 'warning: @macro should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -99,7 +99,7 @@ $result_errors{'text_before_after'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: superfluous argument to @end macro:  after
+    'error_line' => 'warning: superfluous argument to @end macro:  after
 ',
     'file_name' => '',
     'line_nr' => 3,

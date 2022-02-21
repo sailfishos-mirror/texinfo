@@ -234,7 +234,7 @@ double  exdented nested other line
 
 $result_errors{'double_exdent'} = [
   {
-    'error_line' => ':5: warning: @exdent should not appear in @exdent
+    'error_line' => 'warning: @exdent should not appear in @exdent
 ',
     'file_name' => '',
     'line_nr' => 5,

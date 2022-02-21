@@ -697,7 +697,7 @@ aaa
 
 $result_errors{'complex_argument'} = [
   {
-    'error_line' => ':38: bad argument to @headings: doubleafter 1 (possibly involving @macrofour)
+    'error_line' => 'bad argument to @headings: doubleafter 1 (possibly involving @macrofour)
 ',
     'file_name' => '',
     'line_nr' => 38,

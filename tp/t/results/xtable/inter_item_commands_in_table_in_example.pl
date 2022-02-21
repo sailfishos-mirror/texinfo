@@ -523,7 +523,7 @@ d
 
 $result_errors{'inter_item_commands_in_table_in_example'} = [
   {
-    'error_line' => ':6: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 6,

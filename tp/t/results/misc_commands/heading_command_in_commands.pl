@@ -322,7 +322,7 @@ $result_texts{'heading_command_in_commands'} = '
 
 $result_errors{'heading_command_in_commands'} = [
   {
-    'error_line' => ':3: warning: @everyheading should not appear in @code
+    'error_line' => 'warning: @everyheading should not appear in @code
 ',
     'file_name' => '',
     'line_nr' => 3,

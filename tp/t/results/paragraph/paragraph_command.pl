@@ -397,7 +397,7 @@ m1 email.
 
 $result_errors{'paragraph_command'} = [
   {
-    'error_line' => ':11: warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 11,

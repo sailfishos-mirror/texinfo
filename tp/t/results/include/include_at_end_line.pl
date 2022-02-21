@@ -81,7 +81,7 @@ After.';
 
 $result_errors{'include_at_end_line'} = [
   {
-    'error_line' => ':1: bad argument to @include: inc_file.texi@
+    'error_line' => 'bad argument to @include: inc_file.texi@
 ',
     'file_name' => '',
     'line_nr' => 1,

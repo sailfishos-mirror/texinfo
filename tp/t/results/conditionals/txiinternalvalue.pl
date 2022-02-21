@@ -40,7 +40,7 @@ $result_texts{'txiinternalvalue'} = '
 
 $result_errors{'txiinternalvalue'} = [
   {
-    'error_line' => ':1: unknown command `txiinternalvalue\'
+    'error_line' => 'unknown command `txiinternalvalue\'
 ',
     'file_name' => '',
     'line_nr' => 1,

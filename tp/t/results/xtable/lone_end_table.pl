@@ -40,7 +40,7 @@ $result_texts{'lone_end_table'} = 'Text.
 
 $result_errors{'lone_end_table'} = [
   {
-    'error_line' => ':2: unmatched `@end table\'
+    'error_line' => 'unmatched `@end table\'
 ',
     'file_name' => '',
     'line_nr' => 2,

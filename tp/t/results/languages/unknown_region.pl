@@ -336,7 +336,7 @@ $result_menus{'unknown_region'} = {
 
 $result_errors{'unknown_region'} = [
   {
-    'error_line' => ':1: warning: NOWHERE is not a valid region code
+    'error_line' => 'warning: NOWHERE is not a valid region code
 ',
     'file_name' => '',
     'line_nr' => 1,

@@ -303,7 +303,7 @@ in nested table line
 
 $result_errors{'table_on_item_line'} = [
   {
-    'error_line' => ':2: warning: @table should only appear at the beginning of a line
+    'error_line' => 'warning: @table should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -312,7 +312,7 @@ $result_errors{'table_on_item_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @table should not appear in @item
+    'error_line' => 'warning: @table should not appear in @item
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -321,7 +321,7 @@ $result_errors{'table_on_item_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: no matching `@end table\'
+    'error_line' => 'no matching `@end table\'
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -330,7 +330,7 @@ $result_errors{'table_on_item_line'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':7: unmatched `@end table\'
+    'error_line' => 'unmatched `@end table\'
 ',
     'file_name' => '',
     'line_nr' => 7,

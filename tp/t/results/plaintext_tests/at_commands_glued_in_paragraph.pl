@@ -614,7 +614,7 @@ index';
 
 $result_errors{'at_commands_glued_in_paragraph'} = [
   {
-    'error_line' => ':14: warning: @cindex should only appear at the beginning of a line
+    'error_line' => 'warning: @cindex should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -623,7 +623,7 @@ $result_errors{'at_commands_glued_in_paragraph'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -632,7 +632,7 @@ $result_errors{'at_commands_glued_in_paragraph'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':7: @ref reference to nonexistent node `Top\'
+    'error_line' => '@ref reference to nonexistent node `Top\'
 ',
     'file_name' => '',
     'line_nr' => 7,

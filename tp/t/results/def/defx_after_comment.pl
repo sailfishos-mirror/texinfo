@@ -352,7 +352,7 @@ truc: bidulr machin...
 
 $result_errors{'defx_after_comment'} = [
   {
-    'error_line' => ':1: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -361,7 +361,7 @@ $result_errors{'defx_after_comment'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 3,

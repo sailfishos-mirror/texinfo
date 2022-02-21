@@ -308,7 +308,7 @@ comment
 
 $result_errors{'table_not_closed_in_menu_comment'} = [
   {
-    'error_line' => ':8: `@end\' expected `table\', but saw `menu\'
+    'error_line' => '`@end\' expected `table\', but saw `menu\'
 ',
     'file_name' => '',
     'line_nr' => 8,

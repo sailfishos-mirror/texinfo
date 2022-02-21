@@ -73,7 +73,7 @@ text in group
 
 $result_errors{'group_not_closed'} = [
   {
-    'error_line' => ':3: no matching `@end group\'
+    'error_line' => 'no matching `@end group\'
 ',
     'file_name' => '',
     'line_nr' => 3,

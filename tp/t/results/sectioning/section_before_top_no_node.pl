@@ -135,7 +135,7 @@ $result_sectioning{'section_before_top_no_node'}{'structure'}{'section_childs'}[
 
 $result_errors{'section_before_top_no_node'} = [
   {
-    'error_line' => ':3: warning: lowering the section level of @top appearing after a lower element
+    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
 ',
     'file_name' => '',
     'line_nr' => 3,

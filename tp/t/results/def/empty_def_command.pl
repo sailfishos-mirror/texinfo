@@ -424,7 +424,7 @@ empty: deffnx
 
 $result_errors{'empty_def_command'} = [
   {
-    'error_line' => ':1: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -433,7 +433,7 @@ $result_errors{'empty_def_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -442,7 +442,7 @@ $result_errors{'empty_def_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 5,

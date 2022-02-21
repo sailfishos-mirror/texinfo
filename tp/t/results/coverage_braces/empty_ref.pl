@@ -187,7 +187,7 @@ $result_texts{'empty_ref'} = '
 
 $result_errors{'empty_ref'} = [
   {
-    'error_line' => ':2: warning: command @ref missing a node or external manual argument
+    'error_line' => 'warning: command @ref missing a node or external manual argument
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -196,7 +196,7 @@ $result_errors{'empty_ref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: command @xref missing a node or external manual argument
+    'error_line' => 'warning: command @xref missing a node or external manual argument
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -205,7 +205,7 @@ $result_errors{'empty_ref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -214,7 +214,7 @@ $result_errors{'empty_ref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: command @inforef missing a node or external manual argument
+    'error_line' => 'warning: command @inforef missing a node or external manual argument
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -223,7 +223,7 @@ $result_errors{'empty_ref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -232,7 +232,7 @@ $result_errors{'empty_ref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: command @inforef missing a node or external manual argument
+    'error_line' => 'warning: command @inforef missing a node or external manual argument
 ',
     'file_name' => '',
     'line_nr' => 3,

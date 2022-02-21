@@ -284,7 +284,7 @@ Topsecond item
 
 $result_errors{'item_in_ref'} = [
   {
-    'error_line' => ':6: warning: @item should not appear in @ref
+    'error_line' => 'warning: @item should not appear in @ref
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -293,7 +293,7 @@ $result_errors{'item_in_ref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: @ref missing closing brace
+    'error_line' => '@ref missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -302,7 +302,7 @@ $result_errors{'item_in_ref'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 6,

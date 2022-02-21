@@ -227,7 +227,7 @@ $result_menus{'setfilename_on_top_and_after_node'} = {
 
 $result_errors{'setfilename_on_top_and_after_node'} = [
   {
-    'error_line' => ':2: warning: @setfilename should only appear at the beginning of a line
+    'error_line' => 'warning: @setfilename should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -236,7 +236,7 @@ $result_errors{'setfilename_on_top_and_after_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @setfilename should not appear in @top
+    'error_line' => 'warning: @setfilename should not appear in @top
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -245,7 +245,7 @@ $result_errors{'setfilename_on_top_and_after_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @setfilename after the first element
+    'error_line' => 'warning: @setfilename after the first element
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -254,7 +254,7 @@ $result_errors{'setfilename_on_top_and_after_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: multiple @setfilename
+    'error_line' => 'warning: multiple @setfilename
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -263,7 +263,7 @@ $result_errors{'setfilename_on_top_and_after_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: @setfilename after the first element
+    'error_line' => 'warning: @setfilename after the first element
 ',
     'file_name' => '',
     'line_nr' => 4,

@@ -637,8 +637,26 @@ sub handle_errors($$$)
   my ($errors, $new_error_count) = $self->errors();
   $error_count += $new_error_count if ($new_error_count);
   foreach my $error_message (@$errors) {
-    warn _encode_message($error_message->{'error_line'})
-      if ($error_message->{'type'} eq 'error' or !get_conf('NO_WARN'));
+    if ($error_message->{'type'} eq 'error' or !get_conf('NO_WARN')) {
+      my $s = '';
+      if ($error_message->{'file_name'}) {
+        my $file = $error_message->{'file_name'};
+
+        if (get_conf('TEST')) {
+          # otherwise out of source build fail since the file names
+          # are different
+          my ($directories, $suffix);
+          ($file, $directories, $suffix) = fileparse($file);
+        }
+        $s .= "$file:";
+      }
+      if ($error_message->{'line_nr'}) {
+        $s .= $error_message->{'line_nr'} . ': ';
+      }
+
+      $s .= _encode_message($error_message->{'error_line'});
+      warn $s;
+    }
   }
   
   _exit($error_count, $opened_files);

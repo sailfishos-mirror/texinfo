@@ -122,7 +122,7 @@ $result_texts{'unknown_then_known_index_entry'} = ' someindex entry.
 
 $result_errors{'unknown_then_known_index_entry'} = [
   {
-    'error_line' => ':1: unknown command `someindex\'
+    'error_line' => 'unknown command `someindex\'
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -131,7 +131,7 @@ $result_errors{'unknown_then_known_index_entry'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: warning: entry for index `some\' outside of any node
+    'error_line' => 'warning: entry for index `some\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 3,

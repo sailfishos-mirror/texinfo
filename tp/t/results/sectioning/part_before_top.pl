@@ -177,7 +177,7 @@ $result_sectioning{'part_before_top'}{'structure'}{'section_childs'}[1] = $resul
 
 $result_errors{'part_before_top'} = [
   {
-    'error_line' => ':1: warning: @part should not be associated with @top
+    'error_line' => 'warning: @part should not be associated with @top
 ',
     'file_name' => '',
     'line_nr' => 1,

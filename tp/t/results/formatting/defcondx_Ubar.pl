@@ -339,7 +339,7 @@ Documentation.
 
 $result_errors{'defcondx_Ubar'} = [
   {
-    'error_line' => 'defxcond.texi:8: warning: missing name for @deffn
+    'error_line' => 'warning: missing name for @deffn
 ',
     'file_name' => 'defxcond.texi',
     'line_nr' => 8,

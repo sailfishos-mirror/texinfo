@@ -279,7 +279,7 @@ $result_menus{'empty_index_entry'} = {
 
 $result_errors{'empty_index_entry'} = [
   {
-    'error_line' => ':3: warning: missing name for @deffn
+    'error_line' => 'warning: missing name for @deffn
 ',
     'file_name' => '',
     'line_nr' => 3,

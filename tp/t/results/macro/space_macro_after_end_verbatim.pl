@@ -120,7 +120,7 @@ in verbatim
 
 $result_errors{'space_macro_after_end_verbatim'} = [
   {
-    'error_line' => ':7: warning: superfluous argument to @end verbatim:  @spaces{}
+    'error_line' => 'warning: superfluous argument to @end verbatim:  @spaces{}
 ',
     'file_name' => '',
     'line_nr' => 7,

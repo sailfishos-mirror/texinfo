@@ -91,7 +91,7 @@ $result_texts{'math_bracketed_inside_not_closed'} = '{x^i}\\over{\\tan}';
 
 $result_errors{'math_bracketed_inside_not_closed'} = [
   {
-    'error_line' => ':1: @math missing closing brace
+    'error_line' => '@math missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,

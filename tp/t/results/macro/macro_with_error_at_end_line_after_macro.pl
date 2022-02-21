@@ -114,7 +114,7 @@ $result_texts{'macro_with_error_at_end_line_after_macro'} = '
 
 $result_errors{'macro_with_error_at_end_line_after_macro'} = [
   {
-    'error_line' => ':5: warning: @center missing argument (possibly involving @witherror)
+    'error_line' => 'warning: @center missing argument (possibly involving @witherror)
 ',
     'file_name' => '',
     'line_nr' => 5,

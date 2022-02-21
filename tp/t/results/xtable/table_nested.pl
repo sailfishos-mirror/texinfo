@@ -2487,7 +2487,7 @@ After table.
 
 $result_errors{'table_nested'} = [
   {
-    'error_line' => ':27: warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
 ',
     'file_name' => '',
     'line_nr' => 27,
@@ -2496,7 +2496,7 @@ $result_errors{'table_nested'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':27: warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
 ',
     'file_name' => '',
     'line_nr' => 27,
@@ -2505,7 +2505,7 @@ $result_errors{'table_nested'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':27: warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
 ',
     'file_name' => '',
     'line_nr' => 27,
@@ -2514,7 +2514,7 @@ $result_errors{'table_nested'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':27: warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
 ',
     'file_name' => '',
     'line_nr' => 27,
@@ -2523,7 +2523,7 @@ $result_errors{'table_nested'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':32: warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
 ',
     'file_name' => '',
     'line_nr' => 32,
@@ -2532,7 +2532,7 @@ $result_errors{'table_nested'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':32: warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
 ',
     'file_name' => '',
     'line_nr' => 32,
@@ -2541,7 +2541,7 @@ $result_errors{'table_nested'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':32: warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
 ',
     'file_name' => '',
     'line_nr' => 32,
@@ -2550,7 +2550,7 @@ $result_errors{'table_nested'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':32: warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
 ',
     'file_name' => '',
     'line_nr' => 32,
@@ -2559,7 +2559,7 @@ $result_errors{'table_nested'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':38: warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
 ',
     'file_name' => '',
     'line_nr' => 38,
@@ -2568,7 +2568,7 @@ $result_errors{'table_nested'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':38: warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
 ',
     'file_name' => '',
     'line_nr' => 38,
@@ -2577,7 +2577,7 @@ $result_errors{'table_nested'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':38: warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
 ',
     'file_name' => '',
     'line_nr' => 38,
@@ -2586,7 +2586,7 @@ $result_errors{'table_nested'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':38: warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
 ',
     'file_name' => '',
     'line_nr' => 38,

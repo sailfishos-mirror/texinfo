@@ -132,7 +132,7 @@ $result_sectioning{'section_in_footnote'}{'structure'}{'section_childs'}[0]{'str
 
 $result_errors{'section_in_footnote'} = [
   {
-    'error_line' => ':2: @section seen before @footnote closing brace
+    'error_line' => '@section seen before @footnote closing brace
 ',
     'file_name' => '',
     'line_nr' => 2,

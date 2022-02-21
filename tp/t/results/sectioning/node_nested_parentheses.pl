@@ -569,7 +569,7 @@ $result_menus{'node_nested_parentheses'} = {
 
 $result_errors{'node_nested_parentheses'} = [
   {
-    'error_line' => ':7: @menu reference to nonexistent node `(@code{)))} error\'
+    'error_line' => '@menu reference to nonexistent node `(@code{)))} error\'
 ',
     'file_name' => '',
     'line_nr' => 7,

@@ -1320,7 +1320,7 @@ $result_menus{'indices'} = {
 
 $result_errors{'indices'} = [
   {
-    'error_line' => ':17: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -1329,7 +1329,7 @@ $result_errors{'indices'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':17: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 17,

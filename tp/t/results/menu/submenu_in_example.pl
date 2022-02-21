@@ -804,7 +804,7 @@ $result_menus{'submenu_in_example'} = {
 
 $result_errors{'submenu_in_example'} = [
   {
-    'error_line' => ':7: warning: @menu in invalid context
+    'error_line' => 'warning: @menu in invalid context
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -813,7 +813,7 @@ $result_errors{'submenu_in_example'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: warning: @menu in invalid context
+    'error_line' => 'warning: @menu in invalid context
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -822,7 +822,7 @@ $result_errors{'submenu_in_example'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':13: warning: @menu in invalid context
+    'error_line' => 'warning: @menu in invalid context
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -831,7 +831,7 @@ $result_errors{'submenu_in_example'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: @menu in invalid context
+    'error_line' => 'warning: @menu in invalid context
 ',
     'file_name' => '',
     'line_nr' => 17,

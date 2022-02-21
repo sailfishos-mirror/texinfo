@@ -391,7 +391,7 @@ item
 
 $result_errors{'empty_accent_argument'} = [
   {
-    'error_line' => ':1: use braces to give a command as an argument to @~
+    'error_line' => 'use braces to give a command as an argument to @~
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -400,7 +400,7 @@ $result_errors{'empty_accent_argument'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: warning: accent command `@~\' must not be followed by new line
+    'error_line' => 'warning: accent command `@~\' must not be followed by new line
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -409,7 +409,7 @@ $result_errors{'empty_accent_argument'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: accent command `@~\' not allowed as @itemize argument
+    'error_line' => 'warning: accent command `@~\' not allowed as @itemize argument
 ',
     'file_name' => '',
     'line_nr' => 9,

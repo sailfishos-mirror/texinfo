@@ -157,7 +157,7 @@ $result_texts{'empty_node'} = '
 
 $result_errors{'empty_node'} = [
   {
-    'error_line' => ':1: empty argument in @node
+    'error_line' => 'empty argument in @node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -166,7 +166,7 @@ $result_errors{'empty_node'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: empty argument in @node
+    'error_line' => 'empty argument in @node
 ',
     'file_name' => '',
     'line_nr' => 3,

@@ -126,7 +126,7 @@ $result_texts{'empty_comment'} = '';
 
 $result_errors{'empty_comment'} = [
   {
-    'error_line' => ':1: @columnfractions missing argument
+    'error_line' => '@columnfractions missing argument
 ',
     'file_name' => '',
     'line_nr' => 1,

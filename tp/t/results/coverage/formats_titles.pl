@@ -810,7 +810,7 @@ item multit tab multit
 
 $result_errors{'formats_titles'} = [
   {
-    'error_line' => ':18: warning: entry for index `vr\' outside of any node
+    'error_line' => 'warning: entry for index `vr\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 18,

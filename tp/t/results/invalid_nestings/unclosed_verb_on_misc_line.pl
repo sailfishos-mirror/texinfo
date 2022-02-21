@@ -81,7 +81,7 @@ $result_texts{'unclosed_verb_on_misc_line'} = '';
 
 $result_errors{'unclosed_verb_on_misc_line'} = [
   {
-    'error_line' => ':1: warning: @verb should not appear in @setfilename
+    'error_line' => 'warning: @verb should not appear in @setfilename
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -90,7 +90,7 @@ $result_errors{'unclosed_verb_on_misc_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: @verb missing closing delimiter sequence: f}
+    'error_line' => '@verb missing closing delimiter sequence: f}
 ',
     'file_name' => '',
     'line_nr' => 1,

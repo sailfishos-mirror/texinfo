@@ -165,7 +165,7 @@ $result_texts{'test_errormsg'} = 'Some text
 
 $result_errors{'test_errormsg'} = [
   {
-    'error_line' => ':2: Text 
+    'error_line' => 'Text 
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -174,7 +174,7 @@ $result_errors{'test_errormsg'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: with surrounding spaces
+    'error_line' => 'with surrounding spaces
 ',
     'file_name' => '',
     'line_nr' => 3,

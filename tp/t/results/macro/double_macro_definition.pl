@@ -98,7 +98,7 @@ $result_texts{'double_macro_definition'} = '
 
 $result_errors{'double_macro_definition'} = [
   {
-    'error_line' => ':4: warning: macro `foo\' previously defined
+    'error_line' => 'warning: macro `foo\' previously defined
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -107,7 +107,7 @@ $result_errors{'double_macro_definition'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: here is the previous definition of `foo\'
+    'error_line' => 'warning: here is the previous definition of `foo\'
 ',
     'file_name' => '',
     'line_nr' => 1,

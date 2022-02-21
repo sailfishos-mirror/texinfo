@@ -275,7 +275,7 @@ $result_sectioning{'section_on_defx_line'}{'structure'}{'section_childs'}[0]{'st
 
 $result_errors{'section_on_defx_line'} = [
   {
-    'error_line' => ':1: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -284,7 +284,7 @@ $result_errors{'section_on_defx_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @section should only appear at the beginning of a line
+    'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -293,7 +293,7 @@ $result_errors{'section_on_defx_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @section should not appear in @deffnx
+    'error_line' => 'warning: @section should not appear in @deffnx
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -302,7 +302,7 @@ $result_errors{'section_on_defx_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: @section seen before @end deffn
+    'error_line' => '@section seen before @end deffn
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -311,7 +311,7 @@ $result_errors{'section_on_defx_line'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: unmatched `@end deffn\'
+    'error_line' => 'unmatched `@end deffn\'
 ',
     'file_name' => '',
     'line_nr' => 6,

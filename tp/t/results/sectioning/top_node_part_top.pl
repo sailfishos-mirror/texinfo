@@ -315,7 +315,7 @@ $result_menus{'top_node_part_top'}{'structure'}{'associated_unit'}{'structure'}{
 
 $result_errors{'top_node_part_top'} = [
   {
-    'error_line' => ':3: warning: @node precedes @part, but parts may not be associated with nodes
+    'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -324,7 +324,7 @@ $result_errors{'top_node_part_top'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: @part should not be associated with @top
+    'error_line' => 'warning: @part should not be associated with @top
 ',
     'file_name' => '',
     'line_nr' => 3,

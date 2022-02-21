@@ -90,7 +90,7 @@ $result_texts{'group_beginning_and_end_on_line'} = '';
 
 $result_errors{'group_beginning_and_end_on_line'} = [
   {
-    'error_line' => ':1: warning: @end should only appear at the beginning of a line
+    'error_line' => 'warning: @end should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,

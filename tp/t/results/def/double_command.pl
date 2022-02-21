@@ -801,7 +801,7 @@ bbb
 
 $result_errors{'double_command'} = [
   {
-    'error_line' => ':1: warning: @deffnx should only appear at the beginning of a line
+    'error_line' => 'warning: @deffnx should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -810,7 +810,7 @@ $result_errors{'double_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @deffnx should not appear in @deffn
+    'error_line' => 'warning: @deffnx should not appear in @deffn
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -819,7 +819,7 @@ $result_errors{'double_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: must be after `@deffn\' to use `@deffnx\'
+    'error_line' => 'must be after `@deffn\' to use `@deffnx\'
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -828,7 +828,7 @@ $result_errors{'double_command'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -837,7 +837,7 @@ $result_errors{'double_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -846,7 +846,7 @@ $result_errors{'double_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: @defvr should only appear at the beginning of a line
+    'error_line' => 'warning: @defvr should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -855,7 +855,7 @@ $result_errors{'double_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: @defvr should not appear in @deffn
+    'error_line' => 'warning: @defvr should not appear in @deffn
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -864,7 +864,7 @@ $result_errors{'double_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: entry for index `vr\' outside of any node
+    'error_line' => 'warning: entry for index `vr\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -873,7 +873,7 @@ $result_errors{'double_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: no matching `@end defvr\'
+    'error_line' => 'no matching `@end defvr\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -882,7 +882,7 @@ $result_errors{'double_command'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 5,

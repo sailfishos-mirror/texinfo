@@ -214,7 +214,7 @@ Text line after the text line followed by the sp.
 
 $result_errors{'sp'} = [
   {
-    'error_line' => ':7: @sp arg must be numeric, not `2 a number after sp\'
+    'error_line' => '@sp arg must be numeric, not `2 a number after sp\'
 ',
     'file_name' => '',
     'line_nr' => 7,

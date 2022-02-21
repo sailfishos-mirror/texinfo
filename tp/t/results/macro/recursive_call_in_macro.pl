@@ -96,7 +96,7 @@ $result_texts{'recursive_call_in_macro'} = '
 
 $result_errors{'recursive_call_in_macro'} = [
   {
-    'error_line' => ':5: recursive call of macro anorecurse is not allowed; use @rmacro if needed (possibly involving @anorecurse)
+    'error_line' => 'recursive call of macro anorecurse is not allowed; use @rmacro if needed (possibly involving @anorecurse)
 ',
     'file_name' => '',
     'line_nr' => 5,

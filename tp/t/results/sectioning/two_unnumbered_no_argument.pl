@@ -119,7 +119,7 @@ $result_sectioning{'two_unnumbered_no_argument'}{'structure'}{'section_childs'}[
 
 $result_errors{'two_unnumbered_no_argument'} = [
   {
-    'error_line' => ':1: warning: @unnumbered missing argument
+    'error_line' => 'warning: @unnumbered missing argument
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -128,7 +128,7 @@ $result_errors{'two_unnumbered_no_argument'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @unnumbered missing argument
+    'error_line' => 'warning: @unnumbered missing argument
 ',
     'file_name' => '',
     'line_nr' => 2,

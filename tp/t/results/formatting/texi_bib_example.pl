@@ -5581,7 +5581,7 @@ $result_menus{'texi_bib_example'}{'structure'}{'menu_child'}{'structure'}{'menu_
 
 $result_errors{'texi_bib_example'} = [
   {
-    'error_line' => 'bib-example.texi:44: warning: @ifclear should only appear at the beginning of a line (possibly involving @mybibcite)
+    'error_line' => 'warning: @ifclear should only appear at the beginning of a line (possibly involving @mybibcite)
 ',
     'file_name' => 'bib-example.texi',
     'line_nr' => 44,

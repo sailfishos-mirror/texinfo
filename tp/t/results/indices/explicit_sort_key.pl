@@ -853,7 +853,7 @@ $result_menus{'explicit_sort_key'} = {
 
 $result_errors{'explicit_sort_key'} = [
   {
-    'error_line' => ':9: warning: @sortas should only appear in an index entry
+    'error_line' => 'warning: @sortas should only appear in an index entry
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -862,7 +862,7 @@ $result_errors{'explicit_sort_key'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: warning: @sortas should only appear in an index entry
+    'error_line' => 'warning: @sortas should only appear in an index entry
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -871,7 +871,7 @@ $result_errors{'explicit_sort_key'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: warning: @sortas should only appear in an index entry
+    'error_line' => 'warning: @sortas should only appear in an index entry
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -880,7 +880,7 @@ $result_errors{'explicit_sort_key'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':13: warning: @sortas should only appear in an index entry
+    'error_line' => 'warning: @sortas should only appear in an index entry
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -889,7 +889,7 @@ $result_errors{'explicit_sort_key'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: @sortas should only appear in an index entry
+    'error_line' => 'warning: @sortas should only appear in an index entry
 ',
     'file_name' => '',
     'line_nr' => 14,

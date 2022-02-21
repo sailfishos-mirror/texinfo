@@ -264,7 +264,7 @@ $result_sectioning{'section_in_math'}{'structure'}{'section_childs'}[1]{'structu
 
 $result_errors{'section_in_math'} = [
   {
-    'error_line' => ':2: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -273,7 +273,7 @@ $result_errors{'section_in_math'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':2: @section seen before @math closing brace
+    'error_line' => '@section seen before @math closing brace
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -282,7 +282,7 @@ $result_errors{'section_in_math'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':8: warning: @section should not appear in @math
+    'error_line' => 'warning: @section should not appear in @math
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -291,7 +291,7 @@ $result_errors{'section_in_math'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: @section seen before @math closing brace
+    'error_line' => '@section seen before @math closing brace
 ',
     'file_name' => '',
     'line_nr' => 6,

@@ -665,7 +665,7 @@ hhh
 
 $result_errors{'itemize_in_headitem_in_example'} = [
   {
-    'error_line' => ':3: @headitem not meaningful inside `@itemize\' block
+    'error_line' => '@headitem not meaningful inside `@itemize\' block
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -674,7 +674,7 @@ $result_errors{'itemize_in_headitem_in_example'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':2: warning: @itemize has text but no @item
+    'error_line' => 'warning: @itemize has text but no @item
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -683,7 +683,7 @@ $result_errors{'itemize_in_headitem_in_example'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: @headitem not meaningful inside `@itemize\' block
+    'error_line' => '@headitem not meaningful inside `@itemize\' block
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -692,7 +692,7 @@ $result_errors{'itemize_in_headitem_in_example'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':12: @headitem not meaningful inside `@itemize\' block
+    'error_line' => '@headitem not meaningful inside `@itemize\' block
 ',
     'file_name' => '',
     'line_nr' => 12,
@@ -701,7 +701,7 @@ $result_errors{'itemize_in_headitem_in_example'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':18: @headitem not meaningful inside `@itemize\' block
+    'error_line' => '@headitem not meaningful inside `@itemize\' block
 ',
     'file_name' => '',
     'line_nr' => 18,

@@ -86,7 +86,7 @@ $result_texts{'math_bracketed_not_closed_next_line'} = 'aa {
 
 $result_errors{'math_bracketed_not_closed_next_line'} = [
   {
-    'error_line' => ':1: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -95,7 +95,7 @@ $result_errors{'math_bracketed_not_closed_next_line'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: @math missing closing brace
+    'error_line' => '@math missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,

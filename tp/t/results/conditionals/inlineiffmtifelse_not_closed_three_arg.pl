@@ -85,7 +85,7 @@ $result_texts{'inlineiffmtifelse_not_closed_three_arg'} = 'ggggg
 
 $result_errors{'inlineiffmtifelse_not_closed_three_arg'} = [
   {
-    'error_line' => ':1: @inlinefmtifelse missing closing brace
+    'error_line' => '@inlinefmtifelse missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,

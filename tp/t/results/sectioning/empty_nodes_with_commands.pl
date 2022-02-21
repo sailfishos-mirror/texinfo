@@ -235,7 +235,7 @@ $result_texts{'empty_nodes_with_commands'} = '
 
 $result_errors{'empty_nodes_with_commands'} = [
   {
-    'error_line' => ':2: empty argument in @node
+    'error_line' => 'empty argument in @node
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -244,7 +244,7 @@ $result_errors{'empty_nodes_with_commands'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':4: empty node name after expansion `@
+    'error_line' => 'empty node name after expansion `@
 \'
 ',
     'file_name' => '',
@@ -255,7 +255,7 @@ $result_errors{'empty_nodes_with_commands'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: empty node name after expansion `@:\'
+    'error_line' => 'empty node name after expansion `@:\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -264,7 +264,7 @@ $result_errors{'empty_nodes_with_commands'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: empty node name after expansion `@asis{ }\'
+    'error_line' => 'empty node name after expansion `@asis{ }\'
 ',
     'file_name' => '',
     'line_nr' => 6,

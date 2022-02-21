@@ -196,7 +196,7 @@ $result_texts{'multitable_item_in_index'} = '';
 
 $result_errors{'multitable_item_in_index'} = [
   {
-    'error_line' => ':2: warning: @item should not appear in @vindex
+    'error_line' => 'warning: @item should not appear in @vindex
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -205,7 +205,7 @@ $result_errors{'multitable_item_in_index'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: @item outside of table or list
+    'error_line' => '@item outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -214,7 +214,7 @@ $result_errors{'multitable_item_in_index'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':2: warning: entry for index `vr\' outside of any node
+    'error_line' => 'warning: entry for index `vr\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -223,7 +223,7 @@ $result_errors{'multitable_item_in_index'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @multitable has text but no @item
+    'error_line' => 'warning: @multitable has text but no @item
 ',
     'file_name' => '',
     'line_nr' => 1,

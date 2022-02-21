@@ -372,7 +372,7 @@ $result_menus{'unknown_language'} = {
 
 $result_errors{'unknown_language'} = [
   {
-    'error_line' => ':1: warning: unknown is not a valid language code
+    'error_line' => 'warning: unknown is not a valid language code
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -381,7 +381,7 @@ $result_errors{'unknown_language'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: another is not a valid language code
+    'error_line' => 'warning: another is not a valid language code
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -390,7 +390,7 @@ $result_errors{'unknown_language'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: UNKNOWN is not a valid region code
+    'error_line' => 'warning: UNKNOWN is not a valid region code
 ',
     'file_name' => '',
     'line_nr' => 8,

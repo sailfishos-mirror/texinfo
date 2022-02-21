@@ -1163,7 +1163,7 @@ $result_menus{'anchor_links_xref_xrefautomaticsectiontitle'} = {
 
 $result_errors{'anchor_links_xref_xrefautomaticsectiontitle'} = [
   {
-    'error_line' => ':3: warning: node `node before\' unreferenced
+    'error_line' => 'warning: node `node before\' unreferenced
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -1172,7 +1172,7 @@ $result_errors{'anchor_links_xref_xrefautomaticsectiontitle'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: node `after\' unreferenced
+    'error_line' => 'warning: node `after\' unreferenced
 ',
     'file_name' => '',
     'line_nr' => 14,

@@ -158,7 +158,7 @@ $result_menus{'print_merged_index'} = {
 
 $result_errors{'print_merged_index'} = [
   {
-    'error_line' => ':3: warning: printing an index `fn\' merged in another one, `cp\'
+    'error_line' => 'warning: printing an index `fn\' merged in another one, `cp\'
 ',
     'file_name' => '',
     'line_nr' => 3,

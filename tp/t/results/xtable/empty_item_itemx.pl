@@ -381,7 +381,7 @@ in item before end table
 
 $result_errors{'empty_item_itemx'} = [
   {
-    'error_line' => ':5: warning: entry for index `vr\' outside of any node
+    'error_line' => 'warning: entry for index `vr\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -390,7 +390,7 @@ $result_errors{'empty_item_itemx'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: @itemx missing argument
+    'error_line' => 'warning: @itemx missing argument
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -399,7 +399,7 @@ $result_errors{'empty_item_itemx'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':7: warning: entry for index `vr\' outside of any node
+    'error_line' => 'warning: entry for index `vr\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -408,7 +408,7 @@ $result_errors{'empty_item_itemx'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: @item missing argument
+    'error_line' => 'warning: @item missing argument
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -417,7 +417,7 @@ $result_errors{'empty_item_itemx'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: entry for index `vr\' outside of any node
+    'error_line' => 'warning: entry for index `vr\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 9,

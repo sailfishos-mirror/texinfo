@@ -40,7 +40,7 @@ $result_texts{'unknown_index_entry'} = ' someindex entry.
 
 $result_errors{'unknown_index_entry'} = [
   {
-    'error_line' => ':1: unknown command `someindex\'
+    'error_line' => 'unknown command `someindex\'
 ',
     'file_name' => '',
     'line_nr' => 1,

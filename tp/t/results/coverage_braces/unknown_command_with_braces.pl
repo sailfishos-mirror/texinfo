@@ -160,7 +160,7 @@ third
 
 $result_errors{'unknown_command_with_braces'} = [
   {
-    'error_line' => ':1: unknown command `thing\'
+    'error_line' => 'unknown command `thing\'
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -169,7 +169,7 @@ $result_errors{'unknown_command_with_braces'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -178,7 +178,7 @@ $result_errors{'unknown_command_with_braces'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -187,7 +187,7 @@ $result_errors{'unknown_command_with_braces'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: unknown command `unknown\'
+    'error_line' => 'unknown command `unknown\'
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -196,7 +196,7 @@ $result_errors{'unknown_command_with_braces'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -205,7 +205,7 @@ $result_errors{'unknown_command_with_braces'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -214,7 +214,7 @@ $result_errors{'unknown_command_with_braces'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':7: unknown command `unknown2\'
+    'error_line' => 'unknown command `unknown2\'
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -223,7 +223,7 @@ $result_errors{'unknown_command_with_braces'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':7: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -232,7 +232,7 @@ $result_errors{'unknown_command_with_braces'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':11: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 11,

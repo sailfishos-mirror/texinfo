@@ -408,7 +408,7 @@ in display
 
 $result_errors{'text_on_display_command_line'} = [
   {
-    'error_line' => ':10: superfluous argument to @end display:  text after end
+    'error_line' => 'superfluous argument to @end display:  text after end
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -417,7 +417,7 @@ $result_errors{'text_on_display_command_line'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':14: superfluous argument to @end display:  text after end display nested in display
+    'error_line' => 'superfluous argument to @end display:  text after end display nested in display
 ',
     'file_name' => '',
     'line_nr' => 14,

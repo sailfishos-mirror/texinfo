@@ -4268,7 +4268,7 @@ $result_texts{'ref_error_formatting'} = '
 
 $result_errors{'ref_error_formatting'} = [
   {
-    'error_line' => ':4: warning: command @ref missing a node or external manual argument
+    'error_line' => 'warning: command @ref missing a node or external manual argument
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -4277,7 +4277,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: command @ref missing a node or external manual argument
+    'error_line' => 'warning: command @ref missing a node or external manual argument
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -4286,7 +4286,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':22: warning: command @ref missing a node or external manual argument
+    'error_line' => 'warning: command @ref missing a node or external manual argument
 ',
     'file_name' => '',
     'line_nr' => 22,
@@ -4295,7 +4295,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':33: warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 33,
@@ -4304,7 +4304,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':33: warning: command @inforef missing a node or external manual argument
+    'error_line' => 'warning: command @inforef missing a node or external manual argument
 ',
     'file_name' => '',
     'line_nr' => 33,
@@ -4313,7 +4313,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':34: warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 34,
@@ -4322,7 +4322,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':35: warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 35,
@@ -4331,7 +4331,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':36: warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 36,
@@ -4340,7 +4340,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':36: warning: command @inforef missing a node or external manual argument
+    'error_line' => 'warning: command @inforef missing a node or external manual argument
 ',
     'file_name' => '',
     'line_nr' => 36,
@@ -4349,7 +4349,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':38: warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 38,
@@ -4358,7 +4358,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':39: warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 39,
@@ -4367,7 +4367,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':40: warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 40,
@@ -4376,7 +4376,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':41: warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 41,
@@ -4385,7 +4385,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: @ref reference to nonexistent node `node\'
+    'error_line' => '@ref reference to nonexistent node `node\'
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -4394,7 +4394,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':8: @ref reference to nonexistent node `node\'
+    'error_line' => '@ref reference to nonexistent node `node\'
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -4403,7 +4403,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':9: @ref reference to nonexistent node `node\'
+    'error_line' => '@ref reference to nonexistent node `node\'
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -4412,7 +4412,7 @@ $result_errors{'ref_error_formatting'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':12: @ref reference to nonexistent node `node\'
+    'error_line' => '@ref reference to nonexistent node `node\'
 ',
     'file_name' => '',
     'line_nr' => 12,

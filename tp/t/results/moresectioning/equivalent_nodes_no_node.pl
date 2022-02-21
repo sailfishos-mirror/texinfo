@@ -965,7 +965,7 @@ $result_menus{'equivalent_nodes_no_node'}{'structure'}{'menu_child'}{'structure'
 
 $result_errors{'equivalent_nodes_no_node'} = [
   {
-    'error_line' => 'equivalent_nodes.texi:17: @float `@samp{node}\' previously defined
+    'error_line' => '@float `@samp{node}\' previously defined
 ',
     'file_name' => 'equivalent_nodes.texi',
     'line_nr' => 17,
@@ -974,7 +974,7 @@ $result_errors{'equivalent_nodes_no_node'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'equivalent_nodes.texi:15: here is the previous definition as @node
+    'error_line' => 'here is the previous definition as @node
 ',
     'file_name' => 'equivalent_nodes.texi',
     'line_nr' => 15,
@@ -983,7 +983,7 @@ $result_errors{'equivalent_nodes_no_node'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'equivalent_nodes.texi:25: warning: @ref to `@samp{node}\', different from node name `node\'
+    'error_line' => 'warning: @ref to `@samp{node}\', different from node name `node\'
 ',
     'file_name' => 'equivalent_nodes.texi',
     'line_nr' => 25,
@@ -992,7 +992,7 @@ $result_errors{'equivalent_nodes_no_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'equivalent_nodes.texi:12: warning: @menu entry node name `@strong{node}\' different from node name `node\'
+    'error_line' => 'warning: @menu entry node name `@strong{node}\' different from node name `node\'
 ',
     'file_name' => 'equivalent_nodes.texi',
     'line_nr' => 12,
@@ -1001,7 +1001,7 @@ $result_errors{'equivalent_nodes_no_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'equivalent_nodes.texi:5: warning: Next pointer `@asis{node}\' (for node `before top\') different from node name `node\'
+    'error_line' => 'warning: Next pointer `@asis{node}\' (for node `before top\') different from node name `node\'
 ',
     'file_name' => 'equivalent_nodes.texi',
     'line_nr' => 5,
@@ -1010,7 +1010,7 @@ $result_errors{'equivalent_nodes_no_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'equivalent_nodes.texi:5: warning: node `before top\' unreferenced
+    'error_line' => 'warning: node `before top\' unreferenced
 ',
     'file_name' => 'equivalent_nodes.texi',
     'line_nr' => 5,

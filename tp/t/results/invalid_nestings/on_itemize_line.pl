@@ -357,7 +357,7 @@ $result_texts{'on_itemize_line'} = 'in item.
 
 $result_errors{'on_itemize_line'} = [
   {
-    'error_line' => ':1: warning: @indent should not appear in @itemize
+    'error_line' => 'warning: @indent should not appear in @itemize
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -366,7 +366,7 @@ $result_errors{'on_itemize_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @titlefont should not appear in @itemize
+    'error_line' => 'warning: @titlefont should not appear in @itemize
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -375,7 +375,7 @@ $result_errors{'on_itemize_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @anchor should not appear in @itemize
+    'error_line' => 'warning: @anchor should not appear in @itemize
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -384,7 +384,7 @@ $result_errors{'on_itemize_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @footnote should not appear in @itemize
+    'error_line' => 'warning: @footnote should not appear in @itemize
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -393,7 +393,7 @@ $result_errors{'on_itemize_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @exdent should only appear at the beginning of a line
+    'error_line' => 'warning: @exdent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -402,7 +402,7 @@ $result_errors{'on_itemize_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @exdent should not appear in @itemize
+    'error_line' => 'warning: @exdent should not appear in @itemize
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -411,7 +411,7 @@ $result_errors{'on_itemize_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: @item should not appear in @itemize
+    'error_line' => 'warning: @item should not appear in @itemize
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -420,7 +420,7 @@ $result_errors{'on_itemize_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: @item outside of table or list
+    'error_line' => '@item outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 5,

@@ -78,7 +78,7 @@ $result_texts{'raw_not_closed'} = '';
 
 $result_errors{'raw_not_closed'} = [
   {
-    'error_line' => ':4: no matching `@end html\'
+    'error_line' => 'no matching `@end html\'
 ',
     'file_name' => '',
     'line_nr' => 4,

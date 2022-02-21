@@ -69,7 +69,7 @@ $result_texts{'invalid_kbdinputstyle'} = 'kbdinputstyle ';
 
 $result_errors{'invalid_kbdinputstyle'} = [
   {
-    'error_line' => ':1: warning: @kbdinputstyle should only appear at the beginning of a line
+    'error_line' => 'warning: @kbdinputstyle should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -78,7 +78,7 @@ $result_errors{'invalid_kbdinputstyle'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: @kbdinputstyle arg must be `code\'/`example\'/`distinct\', not `wrong arg on line following kbdinputstyle\'
+    'error_line' => '@kbdinputstyle arg must be `code\'/`example\'/`distinct\', not `wrong arg on line following kbdinputstyle\'
 ',
     'file_name' => '',
     'line_nr' => 1,

@@ -869,7 +869,7 @@ $result_menus{'non_automatic_top_node_up_and_url'}{'structure'}{'menu_child'} = 
 
 $result_errors{'non_automatic_top_node_up_and_url'} = [
   {
-    'error_line' => ':1: Prev reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
+    'error_line' => 'Prev reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -878,7 +878,7 @@ $result_errors{'non_automatic_top_node_up_and_url'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
+    'error_line' => 'Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -887,7 +887,7 @@ $result_errors{'non_automatic_top_node_up_and_url'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':8: Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
+    'error_line' => 'Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
 ',
     'file_name' => '',
     'line_nr' => 8,

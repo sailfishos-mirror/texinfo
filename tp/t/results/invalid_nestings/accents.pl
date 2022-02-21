@@ -251,7 +251,7 @@ a~.  ^.
 
 $result_errors{'accents'} = [
   {
-    'error_line' => ':5: warning: @code should not appear in @~
+    'error_line' => 'warning: @code should not appear in @~
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -260,7 +260,7 @@ $result_errors{'accents'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: @anchor should not appear in @^
+    'error_line' => 'warning: @anchor should not appear in @^
 ',
     'file_name' => '',
     'line_nr' => 5,

@@ -638,7 +638,7 @@ $result_menus{'double_node_anchor_float'} = {
 
 $result_errors{'double_node_anchor_float'} = [
   {
-    'error_line' => ':3: @node `node1\' previously defined
+    'error_line' => '@node `node1\' previously defined
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -647,7 +647,7 @@ $result_errors{'double_node_anchor_float'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: here is the previous definition as @node
+    'error_line' => 'here is the previous definition as @node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -656,7 +656,7 @@ $result_errors{'double_node_anchor_float'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: @anchor `node1\' previously defined
+    'error_line' => '@anchor `node1\' previously defined
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -665,7 +665,7 @@ $result_errors{'double_node_anchor_float'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: here is the previous definition as @node
+    'error_line' => 'here is the previous definition as @node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -674,7 +674,7 @@ $result_errors{'double_node_anchor_float'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':9: @node `anchor1\' previously defined
+    'error_line' => '@node `anchor1\' previously defined
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -683,7 +683,7 @@ $result_errors{'double_node_anchor_float'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':7: here is the previous definition as @anchor
+    'error_line' => 'here is the previous definition as @anchor
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -692,7 +692,7 @@ $result_errors{'double_node_anchor_float'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':11: @float `node1\' previously defined
+    'error_line' => '@float `node1\' previously defined
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -701,7 +701,7 @@ $result_errors{'double_node_anchor_float'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: here is the previous definition as @node
+    'error_line' => 'here is the previous definition as @node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -710,7 +710,7 @@ $result_errors{'double_node_anchor_float'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':14: @float `anchor1\' previously defined
+    'error_line' => '@float `anchor1\' previously defined
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -719,7 +719,7 @@ $result_errors{'double_node_anchor_float'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':7: here is the previous definition as @anchor
+    'error_line' => 'here is the previous definition as @anchor
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -728,7 +728,7 @@ $result_errors{'double_node_anchor_float'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':20: @node `float1\' previously defined
+    'error_line' => '@node `float1\' previously defined
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -737,7 +737,7 @@ $result_errors{'double_node_anchor_float'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':17: here is the previous definition as @float
+    'error_line' => 'here is the previous definition as @float
 ',
     'file_name' => '',
     'line_nr' => 17,

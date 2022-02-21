@@ -158,7 +158,7 @@ $result_texts{'recursive_synindex'} = '';
 
 $result_errors{'recursive_synindex'} = [
   {
-    'error_line' => ':4: warning: @synindex leads to a merging of bbb in itself, ignoring
+    'error_line' => 'warning: @synindex leads to a merging of bbb in itself, ignoring
 ',
     'file_name' => '',
     'line_nr' => 4,

@@ -75,7 +75,7 @@ $result_texts{'empty_line_in_anchor'} = 'anchor
 
 $result_errors{'empty_line_in_anchor'} = [
   {
-    'error_line' => ':1: @anchor missing closing brace
+    'error_line' => '@anchor missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -84,7 +84,7 @@ $result_errors{'empty_line_in_anchor'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 3,

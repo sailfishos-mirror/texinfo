@@ -171,7 +171,7 @@ $result_sectioning{'part_before_section'}{'structure'}{'section_childs'}[0]{'str
 
 $result_errors{'part_before_section'} = [
   {
-    'error_line' => ':3: raising the section level of @section which is too low
+    'error_line' => 'raising the section level of @section which is too low
 ',
     'file_name' => '',
     'line_nr' => 3,

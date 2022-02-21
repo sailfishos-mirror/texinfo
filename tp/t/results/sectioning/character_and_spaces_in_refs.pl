@@ -1948,7 +1948,7 @@ End:
 
 $result_converted_errors{'info'}->{'character_and_spaces_in_refs'} = [
   {
-    'error_line' => ':11: warning: @ref node name should not contain `:\'
+    'error_line' => 'warning: @ref node name should not contain `:\'
 ',
     'file_name' => '',
     'line_nr' => 11,

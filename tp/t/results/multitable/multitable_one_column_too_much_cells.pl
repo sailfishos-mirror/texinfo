@@ -409,7 +409,7 @@ a3 one additional tab
 
 $result_errors{'multitable_one_column_too_much_cells'} = [
   {
-    'error_line' => ':2: too many columns in multitable item (max 1)
+    'error_line' => 'too many columns in multitable item (max 1)
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -418,7 +418,7 @@ $result_errors{'multitable_one_column_too_much_cells'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':2: too many columns in multitable item (max 1)
+    'error_line' => 'too many columns in multitable item (max 1)
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -427,7 +427,7 @@ $result_errors{'multitable_one_column_too_much_cells'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':2: too many columns in multitable item (max 1)
+    'error_line' => 'too many columns in multitable item (max 1)
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -436,7 +436,7 @@ $result_errors{'multitable_one_column_too_much_cells'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':4: too many columns in multitable item (max 1)
+    'error_line' => 'too many columns in multitable item (max 1)
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -445,7 +445,7 @@ $result_errors{'multitable_one_column_too_much_cells'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':4: too many columns in multitable item (max 1)
+    'error_line' => 'too many columns in multitable item (max 1)
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -454,7 +454,7 @@ $result_errors{'multitable_one_column_too_much_cells'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':4: too many columns in multitable item (max 1)
+    'error_line' => 'too many columns in multitable item (max 1)
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -463,7 +463,7 @@ $result_errors{'multitable_one_column_too_much_cells'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: too many columns in multitable item (max 1)
+    'error_line' => 'too many columns in multitable item (max 1)
 ',
     'file_name' => '',
     'line_nr' => 5,

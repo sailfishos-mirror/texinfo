@@ -467,7 +467,7 @@ $result_menus{'double_top_in_menu'}{'structure'}{'menu_up'} = $result_menus{'dou
 
 $result_errors{'double_top_in_menu'} = [
   {
-    'error_line' => ':9: @node `top\' previously defined
+    'error_line' => '@node `top\' previously defined
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -476,7 +476,7 @@ $result_errors{'double_top_in_menu'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: here is the previous definition as @node
+    'error_line' => 'here is the previous definition as @node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -485,7 +485,7 @@ $result_errors{'double_top_in_menu'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: warning: @menu entry node name `top\' different from node name `ToP\'
+    'error_line' => 'warning: @menu entry node name `top\' different from node name `ToP\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -494,7 +494,7 @@ $result_errors{'double_top_in_menu'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: @menu entry node name `TOP\' different from node name `ToP\'
+    'error_line' => 'warning: @menu entry node name `TOP\' different from node name `ToP\'
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -503,7 +503,7 @@ $result_errors{'double_top_in_menu'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: Next pointer `top\' (for node `ToP\') different from node name `ToP\'
+    'error_line' => 'warning: Next pointer `top\' (for node `ToP\') different from node name `ToP\'
 ',
     'file_name' => '',
     'line_nr' => 1,

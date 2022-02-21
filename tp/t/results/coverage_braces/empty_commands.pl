@@ -261,7 +261,7 @@ $result_texts{'empty_commands'} = '
 
 $result_errors{'empty_commands'} = [
   {
-    'error_line' => ':3: warning: @abbr missing first argument
+    'error_line' => 'warning: @abbr missing first argument
 ',
     'file_name' => '',
     'line_nr' => 3,

@@ -353,7 +353,7 @@ Some text.
 
 $result_errors{'formats_not_closed_in_example'} = [
   {
-    'error_line' => ':13: `@end\' expected `enumerate\', but saw `example\'
+    'error_line' => '`@end\' expected `enumerate\', but saw `example\'
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -362,7 +362,7 @@ $result_errors{'formats_not_closed_in_example'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':13: `@end\' expected `table\', but saw `example\'
+    'error_line' => '`@end\' expected `table\', but saw `example\'
 ',
     'file_name' => '',
     'line_nr' => 13,

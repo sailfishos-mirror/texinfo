@@ -413,7 +413,7 @@ $result_menus{'section_before_after_top_node_last_node'} = {
 
 $result_errors{'section_before_after_top_node_last_node'} = [
   {
-    'error_line' => ':6: warning: lowering the section level of @top appearing after a lower element
+    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
 ',
     'file_name' => '',
     'line_nr' => 6,

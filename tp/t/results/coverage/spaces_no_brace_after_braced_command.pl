@@ -51,7 +51,7 @@ $result_texts{'spaces_no_brace_after_braced_command'} = 'b
 
 $result_errors{'spaces_no_brace_after_braced_command'} = [
   {
-    'error_line' => ':1: @code expected braces
+    'error_line' => '@code expected braces
 ',
     'file_name' => '',
     'line_nr' => 1,

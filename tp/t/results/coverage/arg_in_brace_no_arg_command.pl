@@ -65,7 +65,7 @@ $result_texts{'arg_in_brace_no_arg_command'} = 'TeX
 
 $result_errors{'arg_in_brace_no_arg_command'} = [
   {
-    'error_line' => ':1: warning: command @TeX does not accept arguments
+    'error_line' => 'warning: command @TeX does not accept arguments
 ',
     'file_name' => '',
     'line_nr' => 1,

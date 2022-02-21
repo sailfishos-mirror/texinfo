@@ -1196,7 +1196,7 @@ $result_menus{'nodename_parentheses'}{'structure'}{'menu_child'}{'structure'}{'m
 
 $result_errors{'nodename_parentheses'} = [
   {
-    'error_line' => ':22: syntax for an external node used for `(manual)node\'
+    'error_line' => 'syntax for an external node used for `(manual)node\'
 ',
     'file_name' => '',
     'line_nr' => 22,
@@ -1205,7 +1205,7 @@ $result_errors{'nodename_parentheses'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':27: syntax for an external node used for `(manual)anchor\'
+    'error_line' => 'syntax for an external node used for `(manual)anchor\'
 ',
     'file_name' => '',
     'line_nr' => 27,
@@ -1214,7 +1214,7 @@ $result_errors{'nodename_parentheses'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: warning: node `Top\' lacks menu item for `node\' despite being its Up target
+    'error_line' => 'warning: node `Top\' lacks menu item for `node\' despite being its Up target
 ',
     'file_name' => '',
     'line_nr' => 1,

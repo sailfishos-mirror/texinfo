@@ -97,7 +97,7 @@ In verb
 
 $result_errors{'verb_not_closed_with_char'} = [
   {
-    'error_line' => ':1: @verb missing closing delimiter sequence: *}
+    'error_line' => '@verb missing closing delimiter sequence: *}
 ',
     'file_name' => '',
     'line_nr' => 1,

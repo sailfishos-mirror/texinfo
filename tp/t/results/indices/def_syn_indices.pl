@@ -1781,7 +1781,7 @@ $result_menus{'def_syn_indices'} = {
 
 $result_errors{'def_syn_indices'} = [
   {
-    'error_line' => ':44: warning: printing an index `ky\' merged in another one, `pg\'
+    'error_line' => 'warning: printing an index `ky\' merged in another one, `pg\'
 ',
     'file_name' => '',
     'line_nr' => 44,
@@ -1790,7 +1790,7 @@ $result_errors{'def_syn_indices'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':47: warning: printing an index `truc\' merged in another one, `fn\'
+    'error_line' => 'warning: printing an index `truc\' merged in another one, `fn\'
 ',
     'file_name' => '',
     'line_nr' => 47,
@@ -1799,7 +1799,7 @@ $result_errors{'def_syn_indices'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':50: warning: printing an index `truc\' merged in another one, `fn\'
+    'error_line' => 'warning: printing an index `truc\' merged in another one, `fn\'
 ',
     'file_name' => '',
     'line_nr' => 50,
@@ -1808,7 +1808,7 @@ $result_errors{'def_syn_indices'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':53: warning: printing an index `cp\' merged in another one, `fn\'
+    'error_line' => 'warning: printing an index `cp\' merged in another one, `fn\'
 ',
     'file_name' => '',
     'line_nr' => 53,
@@ -1817,7 +1817,7 @@ $result_errors{'def_syn_indices'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':56: warning: printing an index `cp\' merged in another one, `fn\'
+    'error_line' => 'warning: printing an index `cp\' merged in another one, `fn\'
 ',
     'file_name' => '',
     'line_nr' => 56,
@@ -1826,7 +1826,7 @@ $result_errors{'def_syn_indices'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':59: warning: printing an index `defg\' merged in another one, `pg\'
+    'error_line' => 'warning: printing an index `defg\' merged in another one, `pg\'
 ',
     'file_name' => '',
     'line_nr' => 59,
@@ -1835,7 +1835,7 @@ $result_errors{'def_syn_indices'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':62: warning: printing an index `abc\' merged in another one, `pg\'
+    'error_line' => 'warning: printing an index `abc\' merged in another one, `pg\'
 ',
     'file_name' => '',
     'line_nr' => 62,

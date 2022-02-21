@@ -3393,7 +3393,7 @@ $result_menus{'value_in_misc_commands'} = {
 
 $result_errors{'value_in_misc_commands'} = [
   {
-    'error_line' => ':17: bad argument to @headings: on line following headings atext
+    'error_line' => 'bad argument to @headings: on line following headings atext
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -3402,7 +3402,7 @@ $result_errors{'value_in_misc_commands'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':34: warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 34,
@@ -3411,7 +3411,7 @@ $result_errors{'value_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':34: warning: @definfoenclose should only appear at the beginning of a line
+    'error_line' => 'warning: @definfoenclose should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 34,
@@ -3420,7 +3420,7 @@ $result_errors{'value_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':40: warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 40,
@@ -3429,7 +3429,7 @@ $result_errors{'value_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':49: warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 49,
@@ -3438,7 +3438,7 @@ $result_errors{'value_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':80: warning: multiple @footnotestyle
+    'error_line' => 'warning: multiple @footnotestyle
 ',
     'file_name' => '',
     'line_nr' => 80,
@@ -3447,7 +3447,7 @@ $result_errors{'value_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':88: warning: @documentlanguage should only appear at the beginning of a line
+    'error_line' => 'warning: @documentlanguage should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 88,
@@ -3456,7 +3456,7 @@ $result_errors{'value_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':115: warning: @page should only appear at the beginning of a line
+    'error_line' => 'warning: @page should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 115,
@@ -3465,7 +3465,7 @@ $result_errors{'value_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':125: warning: @page should only appear at the beginning of a line
+    'error_line' => 'warning: @page should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 125,
@@ -3474,7 +3474,7 @@ $result_errors{'value_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':140: warning: remaining argument on @clickstyle line: {result_macro}
+    'error_line' => 'warning: remaining argument on @clickstyle line: {result_macro}
 ',
     'file_name' => '',
     'line_nr' => 140,

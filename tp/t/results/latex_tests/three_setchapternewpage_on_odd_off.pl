@@ -188,7 +188,7 @@ $result_texts{'three_setchapternewpage_on_odd_off'} = '
 
 $result_errors{'three_setchapternewpage_on_odd_off'} = [
   {
-    'error_line' => ':4: warning: multiple @setchapternewpage
+    'error_line' => 'warning: multiple @setchapternewpage
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -197,7 +197,7 @@ $result_errors{'three_setchapternewpage_on_odd_off'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: multiple @setchapternewpage
+    'error_line' => 'warning: multiple @setchapternewpage
 ',
     'file_name' => '',
     'line_nr' => 6,

@@ -395,7 +395,7 @@ Documentation.
 
 $result_errors{'defcondx_Dbar'} = [
   {
-    'error_line' => 'defxcond.texi:8: warning: missing name for @deffn
+    'error_line' => 'warning: missing name for @deffn
 ',
     'file_name' => 'defxcond.texi',
     'line_nr' => 8,
@@ -404,7 +404,7 @@ $result_errors{'defcondx_Dbar'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'defxcond.texi:11: warning: missing name for @deffnx
+    'error_line' => 'warning: missing name for @deffnx
 ',
     'file_name' => 'defxcond.texi',
     'line_nr' => 11,

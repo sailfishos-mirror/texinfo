@@ -423,7 +423,7 @@ truc: bidulr machin...
 
 $result_errors{'defx_after_preformatted_with_text'} = [
   {
-    'error_line' => ':2: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -432,7 +432,7 @@ $result_errors{'defx_after_preformatted_with_text'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: must be after `@deffn\' to use `@deffnx\'
+    'error_line' => 'must be after `@deffn\' to use `@deffnx\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -441,7 +441,7 @@ $result_errors{'defx_after_preformatted_with_text'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 5,

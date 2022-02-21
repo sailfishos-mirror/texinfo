@@ -162,7 +162,7 @@ $result_menus{'ref_in_ref'} = {
 
 $result_errors{'ref_in_ref'} = [
   {
-    'error_line' => ':2: warning: @ref should not appear in @ref
+    'error_line' => 'warning: @ref should not appear in @ref
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -171,7 +171,7 @@ $result_errors{'ref_in_ref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @ref to `@ref{Top}\', different from node name `Top\'
+    'error_line' => 'warning: @ref to `@ref{Top}\', different from node name `Top\'
 ',
     'file_name' => '',
     'line_nr' => 2,

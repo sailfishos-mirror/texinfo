@@ -1004,7 +1004,7 @@ $result_menus{'semi_auto'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = 
 
 $result_errors{'semi_auto'} = [
   {
-    'error_line' => ':9: warning: node `Section non auto\' is next for `Chap1\' in menu but not in sectioning
+    'error_line' => 'warning: node `Section non auto\' is next for `Chap1\' in menu but not in sectioning
 ',
     'file_name' => '',
     'line_nr' => 9,

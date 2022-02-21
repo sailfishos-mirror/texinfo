@@ -516,7 +516,7 @@ $result_menus{'error_in_footnote'} = {
 
 $result_errors{'error_in_footnote'} = [
   {
-    'error_line' => ':8: @TeX expected braces
+    'error_line' => '@TeX expected braces
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -525,7 +525,7 @@ $result_errors{'error_in_footnote'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':10: @LaTeX expected braces
+    'error_line' => '@LaTeX expected braces
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -606,7 +606,7 @@ End:
 
 $result_converted_errors{'info'}->{'error_in_footnote'} = [
   {
-    'error_line' => ':9: warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+    'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -615,7 +615,7 @@ $result_converted_errors{'info'}->{'error_in_footnote'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+    'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -624,7 +624,7 @@ $result_converted_errors{'info'}->{'error_in_footnote'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+    'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -633,7 +633,7 @@ $result_converted_errors{'info'}->{'error_in_footnote'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+    'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 ',
     'file_name' => '',
     'line_nr' => 11,

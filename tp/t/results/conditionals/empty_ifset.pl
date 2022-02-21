@@ -24,7 +24,7 @@ $result_texts{'empty_ifset'} = '';
 
 $result_errors{'empty_ifset'} = [
   {
-    'error_line' => ':1: @ifset requires a name
+    'error_line' => '@ifset requires a name
 ',
     'file_name' => '',
     'line_nr' => 1,

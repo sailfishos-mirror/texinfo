@@ -350,7 +350,7 @@ $result_menus{'top_node_normalization'}{'structure'}{'menu_up'} = $result_menus{
 
 $result_errors{'top_node_normalization'} = [
   {
-    'error_line' => ':3: warning: @xref to `TOP\', different from node name `ToP\'
+    'error_line' => 'warning: @xref to `TOP\', different from node name `ToP\'
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -359,7 +359,7 @@ $result_errors{'top_node_normalization'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: @xref to `tOP\', different from node name `ToP\'
+    'error_line' => 'warning: @xref to `tOP\', different from node name `ToP\'
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -368,7 +368,7 @@ $result_errors{'top_node_normalization'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: @menu entry node name `tOP\' different from node name `ToP\'
+    'error_line' => 'warning: @menu entry node name `tOP\' different from node name `ToP\'
 ',
     'file_name' => '',
     'line_nr' => 6,

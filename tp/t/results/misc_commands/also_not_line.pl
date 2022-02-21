@@ -537,7 +537,7 @@ exdent line after exdent
 
 $result_errors{'also_not_line'} = [
   {
-    'error_line' => ':3: warning: @page should only appear at the beginning of a line
+    'error_line' => 'warning: @page should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -546,7 +546,7 @@ $result_errors{'also_not_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: @refill is obsolete.
+    'error_line' => 'warning: @refill is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -555,7 +555,7 @@ $result_errors{'also_not_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: @page should only appear at the beginning of a line
+    'error_line' => 'warning: @page should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -564,7 +564,7 @@ $result_errors{'also_not_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':15: warning: @refill is obsolete.
+    'error_line' => 'warning: @refill is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 15,
@@ -573,7 +573,7 @@ $result_errors{'also_not_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':16: warning: @novalidate should only appear at the beginning of a line
+    'error_line' => 'warning: @novalidate should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 16,
@@ -582,7 +582,7 @@ $result_errors{'also_not_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':23: warning: @exdent should only appear at the beginning of a line
+    'error_line' => 'warning: @exdent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 23,

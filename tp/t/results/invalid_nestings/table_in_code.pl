@@ -224,7 +224,7 @@ text
 
 $result_errors{'table_in_code'} = [
   {
-    'error_line' => ':3: warning: @table should not appear in @code
+    'error_line' => 'warning: @table should not appear in @code
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -233,7 +233,7 @@ $result_errors{'table_in_code'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: @code missing closing brace
+    'error_line' => '@code missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -242,7 +242,7 @@ $result_errors{'table_in_code'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':7: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 7,

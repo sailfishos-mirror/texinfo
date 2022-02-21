@@ -211,7 +211,7 @@ $result_menus{'index_entry_before_first_node'} = {
 
 $result_errors{'index_entry_before_first_node'} = [
   {
-    'error_line' => ':2: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -258,7 +258,7 @@ End:
 
 $result_converted_errors{'info'}->{'index_entry_before_first_node'} = [
   {
-    'error_line' => ':2: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -278,7 +278,7 @@ $result_converted{'plaintext'}->{'index_entry_before_first_node'} = '* Menu:
 
 $result_converted_errors{'plaintext'}->{'index_entry_before_first_node'} = [
   {
-    'error_line' => ':2: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 2,

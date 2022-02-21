@@ -626,7 +626,7 @@ $result_menus{'part_node_after_top'}{'structure'}{'menu_child'}{'structure'}{'me
 
 $result_errors{'part_node_after_top'} = [
   {
-    'error_line' => ':9: warning: @node precedes @part, but parts may not be associated with nodes
+    'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -635,7 +635,7 @@ $result_errors{'part_node_after_top'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: no sectioning command associated with @part
+    'error_line' => 'warning: no sectioning command associated with @part
 ',
     'file_name' => '',
     'line_nr' => 9,

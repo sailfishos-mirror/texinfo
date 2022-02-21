@@ -225,7 +225,7 @@ accent character followed by @ ~.
 
 $result_errors{'accents_errors'} = [
   {
-    'error_line' => ':1: warning: accent command `@ringaccent\' must not be followed by new line
+    'error_line' => 'warning: accent command `@ringaccent\' must not be followed by new line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -234,7 +234,7 @@ $result_errors{'accents_errors'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: accent command `@ringaccent\' must not be followed by new line
+    'error_line' => 'warning: accent command `@ringaccent\' must not be followed by new line
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -243,7 +243,7 @@ $result_errors{'accents_errors'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: use braces to give a command as an argument to @ringaccent
+    'error_line' => 'use braces to give a command as an argument to @ringaccent
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -252,7 +252,7 @@ $result_errors{'accents_errors'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: warning: accent command `@~\' must not be followed by whitespace
+    'error_line' => 'warning: accent command `@~\' must not be followed by whitespace
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -261,7 +261,7 @@ $result_errors{'accents_errors'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: accent command `@~\' must not be followed by new line
+    'error_line' => 'warning: accent command `@~\' must not be followed by new line
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -270,7 +270,7 @@ $result_errors{'accents_errors'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':7: use braces to give a command as an argument to @~
+    'error_line' => 'use braces to give a command as an argument to @~
 ',
     'file_name' => '',
     'line_nr' => 7,

@@ -442,7 +442,7 @@ $result_menus{'top_node_no_menu_direction'}{'structure'}{'menu_up'} = $result_me
 
 $result_errors{'top_node_no_menu_direction'} = [
   {
-    'error_line' => ':5: warning: @menu entry node name `TOP\' different from node name `Top\'
+    'error_line' => 'warning: @menu entry node name `TOP\' different from node name `Top\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -451,7 +451,7 @@ $result_errors{'top_node_no_menu_direction'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: Prev pointer `top\' (for node `second node\') different from node name `Top\'
+    'error_line' => 'warning: Prev pointer `top\' (for node `second node\') different from node name `Top\'
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -460,7 +460,7 @@ $result_errors{'top_node_no_menu_direction'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: Up pointer `TOP\' (for node `second node\') different from node name `Top\'
+    'error_line' => 'warning: Up pointer `TOP\' (for node `second node\') different from node name `Top\'
 ',
     'file_name' => '',
     'line_nr' => 8,

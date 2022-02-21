@@ -2246,7 +2246,7 @@ $result_menus{'commands_and_spaces'} = {
 
 $result_errors{'commands_and_spaces'} = [
   {
-    'error_line' => ':39: warning: unexpected argument on @multitable line: @var{cmd}
+    'error_line' => 'warning: unexpected argument on @multitable line: @var{cmd}
 ',
     'file_name' => '',
     'line_nr' => 39,

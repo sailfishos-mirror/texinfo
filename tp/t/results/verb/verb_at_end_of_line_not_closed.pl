@@ -78,7 +78,7 @@ $result_texts{'verb_at_end_of_line_not_closed'} = 'verb at end of line
 
 $result_errors{'verb_at_end_of_line_not_closed'} = [
   {
-    'error_line' => ':1: @verb without associated character
+    'error_line' => '@verb without associated character
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -87,7 +87,7 @@ $result_errors{'verb_at_end_of_line_not_closed'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: @verb missing closing brace
+    'error_line' => '@verb missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,

@@ -212,7 +212,7 @@ item
 
 $result_errors{'headitem_in_table'} = [
   {
-    'error_line' => ':2: @headitem not meaningful inside `@table\' block
+    'error_line' => '@headitem not meaningful inside `@table\' block
 ',
     'file_name' => '',
     'line_nr' => 2,

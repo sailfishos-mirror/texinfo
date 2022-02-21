@@ -350,7 +350,7 @@ $result_menus{'footnote_in_caption_and_error'} = {
 
 $result_errors{'footnote_in_caption_and_error'} = [
   {
-    'error_line' => ':7: @error expected braces
+    'error_line' => '@error expected braces
 ',
     'file_name' => '',
     'line_nr' => 7,

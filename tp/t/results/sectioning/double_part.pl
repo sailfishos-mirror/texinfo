@@ -964,7 +964,7 @@ $result_menus{'double_part'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} 
 
 $result_errors{'double_part'} = [
   {
-    'error_line' => ':8: warning: no sectioning command associated with @part
+    'error_line' => 'warning: no sectioning command associated with @part
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -973,7 +973,7 @@ $result_errors{'double_part'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: @part not empty
+    'error_line' => 'warning: @part not empty
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -982,7 +982,7 @@ $result_errors{'double_part'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: warning: @part not empty
+    'error_line' => 'warning: @part not empty
 ',
     'file_name' => '',
     'line_nr' => 11,

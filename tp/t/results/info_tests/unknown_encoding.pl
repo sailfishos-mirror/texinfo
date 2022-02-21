@@ -147,7 +147,7 @@ $result_menus{'unknown_encoding'} = {
 
 $result_errors{'unknown_encoding'} = [
   {
-    'error_line' => ':2: warning: encoding `ggg\' is not a canonical texinfo encoding
+    'error_line' => 'warning: encoding `ggg\' is not a canonical texinfo encoding
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -156,7 +156,7 @@ $result_errors{'unknown_encoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: unrecognized encoding name `ggg\'
+    'error_line' => 'warning: unrecognized encoding name `ggg\'
 ',
     'file_name' => '',
     'line_nr' => 2,

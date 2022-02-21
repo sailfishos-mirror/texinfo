@@ -135,7 +135,7 @@ $result_sectioning{'section_in_flushright'}{'structure'}{'section_childs'}[0]{'s
 
 $result_errors{'section_in_flushright'} = [
   {
-    'error_line' => ':5: @section seen before @end flushright
+    'error_line' => '@section seen before @end flushright
 ',
     'file_name' => '',
     'line_nr' => 5,

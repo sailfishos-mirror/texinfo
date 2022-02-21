@@ -558,7 +558,7 @@ $result_menus{'chapter_node_before_and_after_part'}{'structure'}{'menu_child'}{'
 
 $result_errors{'chapter_node_before_and_after_part'} = [
   {
-    'error_line' => ':11: warning: node `Top\' is up for `after\' in menu but not in sectioning
+    'error_line' => 'warning: node `Top\' is up for `after\' in menu but not in sectioning
 ',
     'file_name' => '',
     'line_nr' => 11,

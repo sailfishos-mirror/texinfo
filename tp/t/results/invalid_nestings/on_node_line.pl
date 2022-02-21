@@ -370,7 +370,7 @@ $result_menus{'on_node_line'} = {
 
 $result_errors{'on_node_line'} = [
   {
-    'error_line' => ':1: warning: @ref should not appear in @node
+    'error_line' => 'warning: @ref should not appear in @node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -379,7 +379,7 @@ $result_errors{'on_node_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @pxref should not appear in @node
+    'error_line' => 'warning: @pxref should not appear in @node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -388,7 +388,7 @@ $result_errors{'on_node_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @anchor should not appear in @node
+    'error_line' => 'warning: @anchor should not appear in @node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -397,7 +397,7 @@ $result_errors{'on_node_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @footnote should not appear in @node
+    'error_line' => 'warning: @footnote should not appear in @node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -406,7 +406,7 @@ $result_errors{'on_node_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @exdent should only appear at the beginning of a line
+    'error_line' => 'warning: @exdent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -415,7 +415,7 @@ $result_errors{'on_node_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @exdent should not appear in @node
+    'error_line' => 'warning: @exdent should not appear in @node
 ',
     'file_name' => '',
     'line_nr' => 1,

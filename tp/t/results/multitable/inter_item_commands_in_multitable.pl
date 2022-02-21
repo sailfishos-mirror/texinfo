@@ -992,7 +992,7 @@ thing
 
 $result_errors{'inter_item_commands_in_multitable'} = [
   {
-    'error_line' => ':6: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -1001,7 +1001,7 @@ $result_errors{'inter_item_commands_in_multitable'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -1010,7 +1010,7 @@ $result_errors{'inter_item_commands_in_multitable'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':23: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 23,

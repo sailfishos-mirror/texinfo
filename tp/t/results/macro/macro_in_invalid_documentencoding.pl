@@ -105,7 +105,7 @@ $result_texts{'macro_in_invalid_documentencoding'} = '';
 
 $result_errors{'macro_in_invalid_documentencoding'} = [
   {
-    'error_line' => ':4: warning: encoding `badm\' is not a canonical texinfo encoding
+    'error_line' => 'warning: encoding `badm\' is not a canonical texinfo encoding
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -114,7 +114,7 @@ $result_errors{'macro_in_invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: unrecognized encoding name `badm\'
+    'error_line' => 'warning: unrecognized encoding name `badm\'
 ',
     'file_name' => '',
     'line_nr' => 4,

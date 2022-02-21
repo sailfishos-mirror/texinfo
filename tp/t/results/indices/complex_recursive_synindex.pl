@@ -1108,7 +1108,7 @@ $result_menus{'complex_recursive_synindex'} = {
 
 $result_errors{'complex_recursive_synindex'} = [
   {
-    'error_line' => ':10: warning: @synindex leads to a merging of bbb in itself, ignoring
+    'error_line' => 'warning: @synindex leads to a merging of bbb in itself, ignoring
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -1117,7 +1117,7 @@ $result_errors{'complex_recursive_synindex'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: @synindex leads to a merging of bbb in itself, ignoring
+    'error_line' => 'warning: @synindex leads to a merging of bbb in itself, ignoring
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -1126,7 +1126,7 @@ $result_errors{'complex_recursive_synindex'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':29: warning: printing an index `aaa\' merged in another one, `bbb\'
+    'error_line' => 'warning: printing an index `aaa\' merged in another one, `bbb\'
 ',
     'file_name' => '',
     'line_nr' => 29,
@@ -1135,7 +1135,7 @@ $result_errors{'complex_recursive_synindex'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':32: warning: printing an index `ccc\' merged in another one, `bbb\'
+    'error_line' => 'warning: printing an index `ccc\' merged in another one, `bbb\'
 ',
     'file_name' => '',
     'line_nr' => 32,
@@ -1144,7 +1144,7 @@ $result_errors{'complex_recursive_synindex'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':35: warning: printing an index `ddd\' merged in another one, `bbb\'
+    'error_line' => 'warning: printing an index `ddd\' merged in another one, `bbb\'
 ',
     'file_name' => '',
     'line_nr' => 35,
@@ -1153,7 +1153,7 @@ $result_errors{'complex_recursive_synindex'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':38: warning: printing an index `eee\' merged in another one, `bbb\'
+    'error_line' => 'warning: printing an index `eee\' merged in another one, `bbb\'
 ',
     'file_name' => '',
     'line_nr' => 38,

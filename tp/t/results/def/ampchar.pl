@@ -336,7 +336,7 @@ $result_texts{'ampchar'} = 'Constructor on a: b (const std::vector<int>&)
 
 $result_errors{'ampchar'} = [
   {
-    'error_line' => ':1: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 1,

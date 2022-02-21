@@ -464,7 +464,7 @@ End:
 
 $result_converted_errors{'info'}->{'note_in_strong'} = [
   {
-    'error_line' => ':5: warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+    'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -473,7 +473,7 @@ $result_converted_errors{'info'}->{'note_in_strong'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+    'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 ',
     'file_name' => '',
     'line_nr' => 11,

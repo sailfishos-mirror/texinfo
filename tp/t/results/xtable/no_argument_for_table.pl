@@ -167,7 +167,7 @@ In item.
 
 $result_errors{'no_argument_for_table'} = [
   {
-    'error_line' => ':1: table requires an argument: the formatter for @item
+    'error_line' => 'table requires an argument: the formatter for @item
 ',
     'file_name' => '',
     'line_nr' => 1,

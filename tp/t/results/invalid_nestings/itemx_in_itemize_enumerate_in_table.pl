@@ -416,7 +416,7 @@ in nested enumerate itemx
 
 $result_errors{'itemx_in_itemize_enumerate_in_table'} = [
   {
-    'error_line' => ':6: @itemx outside of table or list
+    'error_line' => '@itemx outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -425,7 +425,7 @@ $result_errors{'itemx_in_itemize_enumerate_in_table'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: warning: @itemize has text but no @item
+    'error_line' => 'warning: @itemize has text but no @item
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -434,7 +434,7 @@ $result_errors{'itemx_in_itemize_enumerate_in_table'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: @itemx outside of table or list
+    'error_line' => '@itemx outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -443,7 +443,7 @@ $result_errors{'itemx_in_itemize_enumerate_in_table'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':9: warning: @enumerate has text but no @item
+    'error_line' => 'warning: @enumerate has text but no @item
 ',
     'file_name' => '',
     'line_nr' => 9,

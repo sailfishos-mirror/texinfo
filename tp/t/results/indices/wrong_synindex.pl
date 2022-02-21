@@ -87,7 +87,7 @@ $result_texts{'wrong_synindex'} = '';
 
 $result_errors{'wrong_synindex'} = [
   {
-    'error_line' => ':2: warning: @synindex leads to a merging of aaa in itself, ignoring
+    'error_line' => 'warning: @synindex leads to a merging of aaa in itself, ignoring
 ',
     'file_name' => '',
     'line_nr' => 2,

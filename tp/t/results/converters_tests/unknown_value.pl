@@ -32,7 +32,7 @@ $result_texts{'unknown_value'} = '';
 
 $result_errors{'unknown_value'} = [
   {
-    'error_line' => ':1: warning: undefined flag: unknown
+    'error_line' => 'warning: undefined flag: unknown
 ',
     'file_name' => '',
     'line_nr' => 1,

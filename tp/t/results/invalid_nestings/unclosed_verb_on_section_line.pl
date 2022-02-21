@@ -121,7 +121,7 @@ $result_sectioning{'unclosed_verb_on_section_line'}{'structure'}{'section_childs
 
 $result_errors{'unclosed_verb_on_section_line'} = [
   {
-    'error_line' => ':1: warning: @verb should not appear in @section
+    'error_line' => 'warning: @verb should not appear in @section
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -130,7 +130,7 @@ $result_errors{'unclosed_verb_on_section_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: @verb missing closing delimiter sequence: T}
+    'error_line' => '@verb missing closing delimiter sequence: T}
 ',
     'file_name' => '',
     'line_nr' => 1,

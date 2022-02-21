@@ -52,7 +52,7 @@ $result_texts{'defindex_too_much_args'} = '';
 
 $result_errors{'defindex_too_much_args'} = [
   {
-    'error_line' => ':1: bad argument to @defindex: chose    machin
+    'error_line' => 'bad argument to @defindex: chose    machin
 ',
     'file_name' => '',
     'line_nr' => 1,

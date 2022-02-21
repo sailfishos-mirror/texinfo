@@ -757,7 +757,7 @@ truc:
 
 $result_errors{'empty_def_arguments'} = [
   {
-    'error_line' => ':1: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -766,7 +766,7 @@ $result_errors{'empty_def_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: missing name for @deffnx
+    'error_line' => 'warning: missing name for @deffnx
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -775,7 +775,7 @@ $result_errors{'empty_def_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: missing category for @deffnx
+    'error_line' => 'warning: missing category for @deffnx
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -784,7 +784,7 @@ $result_errors{'empty_def_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: missing name for @deffnx
+    'error_line' => 'warning: missing name for @deffnx
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -793,7 +793,7 @@ $result_errors{'empty_def_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: missing name for @deffnx
+    'error_line' => 'warning: missing name for @deffnx
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -802,7 +802,7 @@ $result_errors{'empty_def_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: missing name for @deffnx
+    'error_line' => 'warning: missing name for @deffnx
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -811,7 +811,7 @@ $result_errors{'empty_def_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':7: warning: missing name for @deffnx
+    'error_line' => 'warning: missing name for @deffnx
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -820,7 +820,7 @@ $result_errors{'empty_def_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: missing name for @deffnx
+    'error_line' => 'warning: missing name for @deffnx
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -829,7 +829,7 @@ $result_errors{'empty_def_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: missing name for @deffnx
+    'error_line' => 'warning: missing name for @deffnx
 ',
     'file_name' => '',
     'line_nr' => 9,

@@ -679,7 +679,7 @@ $ "
 
 $result_errors{'inline_expand_tex'} = [
   {
-    'error_line' => ':6: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -688,7 +688,7 @@ $result_errors{'inline_expand_tex'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -697,7 +697,7 @@ $result_errors{'inline_expand_tex'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -706,7 +706,7 @@ $result_errors{'inline_expand_tex'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 6,

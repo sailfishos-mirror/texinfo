@@ -135,7 +135,7 @@ run_test('
 @macro mymacro {}
 # line 20 "ff"
 @end macro
-', 'in raw command', ':2: warning: could not protect hash character in @macro
+', 'in raw command', 'warning: could not protect hash character in @macro
 ');
 
 

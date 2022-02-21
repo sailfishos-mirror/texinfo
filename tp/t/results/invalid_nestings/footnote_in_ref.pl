@@ -203,7 +203,7 @@ $result_menus{'footnote_in_ref'} = {
 
 $result_errors{'footnote_in_ref'} = [
   {
-    'error_line' => ':3: warning: @footnote should not appear in @xref
+    'error_line' => 'warning: @footnote should not appear in @xref
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -212,7 +212,7 @@ $result_errors{'footnote_in_ref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: @xref missing closing brace
+    'error_line' => '@xref missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 3,

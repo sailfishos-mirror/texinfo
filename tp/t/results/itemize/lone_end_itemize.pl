@@ -17,7 +17,7 @@ $result_texts{'lone_end_itemize'} = '';
 
 $result_errors{'lone_end_itemize'} = [
   {
-    'error_line' => ':1: unmatched `@end itemize\'
+    'error_line' => 'unmatched `@end itemize\'
 ',
     'file_name' => '',
     'line_nr' => 1,

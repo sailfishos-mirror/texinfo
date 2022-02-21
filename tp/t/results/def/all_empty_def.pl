@@ -862,7 +862,7 @@ $result_texts{'all_empty_def'} = '
 
 $result_errors{'all_empty_def'} = [
   {
-    'error_line' => ':1: warning: missing category for @deffn
+    'error_line' => 'warning: missing category for @deffn
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -871,7 +871,7 @@ $result_errors{'all_empty_def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: missing category for @defvr
+    'error_line' => 'warning: missing category for @defvr
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -880,7 +880,7 @@ $result_errors{'all_empty_def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':7: warning: missing category for @deftypefn
+    'error_line' => 'warning: missing category for @deftypefn
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -889,7 +889,7 @@ $result_errors{'all_empty_def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: warning: missing category for @deftypeop
+    'error_line' => 'warning: missing category for @deftypeop
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -898,7 +898,7 @@ $result_errors{'all_empty_def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':13: warning: missing category for @deftypevr
+    'error_line' => 'warning: missing category for @deftypevr
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -907,7 +907,7 @@ $result_errors{'all_empty_def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':16: warning: missing category for @defcv
+    'error_line' => 'warning: missing category for @defcv
 ',
     'file_name' => '',
     'line_nr' => 16,
@@ -916,7 +916,7 @@ $result_errors{'all_empty_def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':19: warning: missing category for @deftypecv
+    'error_line' => 'warning: missing category for @deftypecv
 ',
     'file_name' => '',
     'line_nr' => 19,
@@ -925,7 +925,7 @@ $result_errors{'all_empty_def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':22: warning: missing category for @defop
+    'error_line' => 'warning: missing category for @defop
 ',
     'file_name' => '',
     'line_nr' => 22,
@@ -934,7 +934,7 @@ $result_errors{'all_empty_def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':25: warning: missing category for @deftp
+    'error_line' => 'warning: missing category for @deftp
 ',
     'file_name' => '',
     'line_nr' => 25,

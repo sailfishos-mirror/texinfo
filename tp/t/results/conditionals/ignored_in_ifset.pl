@@ -181,7 +181,7 @@ text
 
 $result_errors{'ignored_in_ifset'} = [
   {
-    'error_line' => ':5: unmatched `@end ignore\'
+    'error_line' => 'unmatched `@end ignore\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -190,7 +190,7 @@ $result_errors{'ignored_in_ifset'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':7: unmatched `@end\'
+    'error_line' => 'unmatched `@end\'
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -199,7 +199,7 @@ $result_errors{'ignored_in_ifset'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':12: unmatched `@end verbatim\'
+    'error_line' => 'unmatched `@end verbatim\'
 ',
     'file_name' => '',
     'line_nr' => 12,
@@ -208,7 +208,7 @@ $result_errors{'ignored_in_ifset'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':13: unmatched `@end\'
+    'error_line' => 'unmatched `@end\'
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -217,7 +217,7 @@ $result_errors{'ignored_in_ifset'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':18: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 18,
@@ -226,7 +226,7 @@ $result_errors{'ignored_in_ifset'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':19: unmatched `@end\'
+    'error_line' => 'unmatched `@end\'
 ',
     'file_name' => '',
     'line_nr' => 19,

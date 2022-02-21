@@ -698,7 +698,7 @@ End:
 
 $result_converted_errors{'info'}->{'ref_tests'} = [
   {
-    'error_line' => ':12: warning: @ref node name should not contain `.\'
+    'error_line' => 'warning: @ref node name should not contain `.\'
 ',
     'file_name' => '',
     'line_nr' => 12,

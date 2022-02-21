@@ -418,7 +418,7 @@ $result_menus{'empty_menu_entry_name'} = {
 
 $result_errors{'empty_menu_entry_name'} = [
   {
-    'error_line' => ':4: warning: empty menu entry name in `* : (vvv). \'
+    'error_line' => 'warning: empty menu entry name in `* : (vvv). \'
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -427,7 +427,7 @@ $result_errors{'empty_menu_entry_name'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: empty menu entry name in `* :aaa,\'
+    'error_line' => 'warning: empty menu entry name in `* :aaa,\'
 ',
     'file_name' => '',
     'line_nr' => 5,

@@ -458,7 +458,7 @@ deffn with }
 
 $result_errors{'wrong_braces_with_end_of_lines'} = [
   {
-    'error_line' => ':1: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -467,7 +467,7 @@ $result_errors{'wrong_braces_with_end_of_lines'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':2: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -476,7 +476,7 @@ $result_errors{'wrong_braces_with_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -485,7 +485,7 @@ $result_errors{'wrong_braces_with_end_of_lines'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':7: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 7,

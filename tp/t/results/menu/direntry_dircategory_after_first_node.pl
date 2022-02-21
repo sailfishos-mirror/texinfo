@@ -354,7 +354,7 @@ $result_menus{'direntry_dircategory_after_first_node'} = {
 
 $result_errors{'direntry_dircategory_after_first_node'} = [
   {
-    'error_line' => ':4: warning: @dircategory after first node
+    'error_line' => 'warning: @dircategory after first node
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -363,7 +363,7 @@ $result_errors{'direntry_dircategory_after_first_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: @direntry after first node
+    'error_line' => 'warning: @direntry after first node
 ',
     'file_name' => '',
     'line_nr' => 5,

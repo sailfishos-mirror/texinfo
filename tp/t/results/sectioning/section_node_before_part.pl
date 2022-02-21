@@ -216,7 +216,7 @@ $result_menus{'section_node_before_part'} = {
 
 $result_errors{'section_node_before_part'} = [
   {
-    'error_line' => ':5: warning: no chapter-level command before @part
+    'error_line' => 'warning: no chapter-level command before @part
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -225,7 +225,7 @@ $result_errors{'section_node_before_part'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: no sectioning command associated with @part
+    'error_line' => 'warning: no sectioning command associated with @part
 ',
     'file_name' => '',
     'line_nr' => 5,

@@ -124,7 +124,7 @@ second arg: two, three.
 
 $result_errors{'too_much_args'} = [
   {
-    'error_line' => ':6: macro `twoargs\' called with too many args
+    'error_line' => 'macro `twoargs\' called with too many args
 ',
     'file_name' => '',
     'line_nr' => 6,

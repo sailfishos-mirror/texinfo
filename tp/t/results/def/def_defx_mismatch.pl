@@ -483,7 +483,7 @@ In defun.
 
 $result_errors{'def_defx_mismatch'} = [
   {
-    'error_line' => ':1: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -492,7 +492,7 @@ $result_errors{'def_defx_mismatch'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: must be after `@deffn\' to use `@deffnx\'
+    'error_line' => 'must be after `@deffn\' to use `@deffnx\'
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -501,7 +501,7 @@ $result_errors{'def_defx_mismatch'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':2: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 2,

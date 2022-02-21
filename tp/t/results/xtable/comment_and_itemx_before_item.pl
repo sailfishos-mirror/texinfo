@@ -179,7 +179,7 @@ $result_texts{'comment_and_itemx_before_item'} = 'in itemx
 
 $result_errors{'comment_and_itemx_before_item'} = [
   {
-    'error_line' => ':3: warning: @itemx should not begin @table
+    'error_line' => 'warning: @itemx should not begin @table
 ',
     'file_name' => '',
     'line_nr' => 3,

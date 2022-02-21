@@ -1104,7 +1104,7 @@ $result_menus{'next_in_menu_is_below'}{'structure'}{'menu_child'}{'structure'}{'
 
 $result_errors{'next_in_menu_is_below'} = [
   {
-    'error_line' => ':16: warning: node `subsection\' is next for `section\' in menu but not in sectioning
+    'error_line' => 'warning: node `subsection\' is next for `section\' in menu but not in sectioning
 ',
     'file_name' => '',
     'line_nr' => 16,
@@ -1113,7 +1113,7 @@ $result_errors{'next_in_menu_is_below'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':23: warning: node `section\' is prev for `subsection\' in menu but not in sectioning
+    'error_line' => 'warning: node `section\' is prev for `subsection\' in menu but not in sectioning
 ',
     'file_name' => '',
     'line_nr' => 23,

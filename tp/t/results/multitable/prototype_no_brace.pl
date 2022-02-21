@@ -164,7 +164,7 @@ $result_texts{'prototype_no_brace'} = '';
 
 $result_errors{'prototype_no_brace'} = [
   {
-    'error_line' => ':1: warning: unexpected argument on @multitable line: @var{FF}
+    'error_line' => 'warning: unexpected argument on @multitable line: @var{FF}
 ',
     'file_name' => '',
     'line_nr' => 1,

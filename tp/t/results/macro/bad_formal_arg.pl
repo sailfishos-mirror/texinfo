@@ -254,7 +254,7 @@ $result_texts{'bad_formal_arg'} = '
 
 $result_errors{'bad_formal_arg'} = [
   {
-    'error_line' => ':2: bad or empty @macro formal argument: 
+    'error_line' => 'bad or empty @macro formal argument: 
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -263,7 +263,7 @@ $result_errors{'bad_formal_arg'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: bad or empty @macro formal argument: in 2arg
+    'error_line' => 'bad or empty @macro formal argument: in 2arg
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -272,7 +272,7 @@ $result_errors{'bad_formal_arg'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':10: bad or empty @macro formal argument: :::
+    'error_line' => 'bad or empty @macro formal argument: :::
 ',
     'file_name' => '',
     'line_nr' => 10,

@@ -603,7 +603,7 @@ $result_menus{'pagetype'} = {
 
 $result_errors{'pagetype'} = [
   {
-    'error_line' => ':15: unknown command `Chapter\'
+    'error_line' => 'unknown command `Chapter\'
 ',
     'file_name' => '',
     'line_nr' => 15,
@@ -612,7 +612,7 @@ $result_errors{'pagetype'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':18: warning: multiple @afourpaper
+    'error_line' => 'warning: multiple @afourpaper
 ',
     'file_name' => '',
     'line_nr' => 18,

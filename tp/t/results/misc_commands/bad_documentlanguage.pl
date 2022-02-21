@@ -191,7 +191,7 @@ documentlanguage
 
 $result_errors{'bad_documentlanguage'} = [
   {
-    'error_line' => ':2: warning: @documentlanguage should only appear at the beginning of a line
+    'error_line' => 'warning: @documentlanguage should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -200,7 +200,7 @@ $result_errors{'bad_documentlanguage'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: @documentlanguage should only appear at the beginning of a line
+    'error_line' => 'warning: @documentlanguage should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -209,7 +209,7 @@ $result_errors{'bad_documentlanguage'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: @documentlanguage should not appear in @documentlanguage
+    'error_line' => 'warning: @documentlanguage should not appear in @documentlanguage
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -218,7 +218,7 @@ $result_errors{'bad_documentlanguage'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: bad argument to @documentlanguage: en @documentlanguage  en
+    'error_line' => 'bad argument to @documentlanguage: en @documentlanguage  en
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -227,7 +227,7 @@ $result_errors{'bad_documentlanguage'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: warning: en  after documentlanguage is not a valid language code
+    'error_line' => 'warning: en  after documentlanguage is not a valid language code
 ',
     'file_name' => '',
     'line_nr' => 6,

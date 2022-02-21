@@ -1654,7 +1654,7 @@ Before the opening command in block
 
 $result_errors{'raw_commands_and_end_of_lines'} = [
   {
-    'error_line' => ':13: warning: @html should only appear at the beginning of a line
+    'error_line' => 'warning: @html should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -1663,7 +1663,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':18: warning: @html should only appear at the beginning of a line
+    'error_line' => 'warning: @html should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 18,
@@ -1672,7 +1672,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: superfluous argument to @end html:  after the closing command.
+    'error_line' => 'superfluous argument to @end html:  after the closing command.
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -1681,7 +1681,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':22: warning: @html should only appear at the beginning of a line
+    'error_line' => 'warning: @html should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 22,
@@ -1690,7 +1690,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':27: warning: @html should only appear at the beginning of a line
+    'error_line' => 'warning: @html should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 27,
@@ -1699,7 +1699,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':29: superfluous argument to @end html: . A symbol after the closing command.
+    'error_line' => 'superfluous argument to @end html: . A symbol after the closing command.
 ',
     'file_name' => '',
     'line_nr' => 29,
@@ -1708,7 +1708,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':41: warning: @tex should only appear at the beginning of a line
+    'error_line' => 'warning: @tex should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 41,
@@ -1717,7 +1717,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':46: warning: @tex should only appear at the beginning of a line
+    'error_line' => 'warning: @tex should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 46,
@@ -1726,7 +1726,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':48: superfluous argument to @end tex:  after the closing command.
+    'error_line' => 'superfluous argument to @end tex:  after the closing command.
 ',
     'file_name' => '',
     'line_nr' => 48,
@@ -1735,7 +1735,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':50: warning: @tex should only appear at the beginning of a line
+    'error_line' => 'warning: @tex should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 50,
@@ -1744,7 +1744,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':55: warning: @tex should only appear at the beginning of a line
+    'error_line' => 'warning: @tex should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 55,
@@ -1753,7 +1753,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':57: superfluous argument to @end tex: . A symbol after the closing command.
+    'error_line' => 'superfluous argument to @end tex: . A symbol after the closing command.
 ',
     'file_name' => '',
     'line_nr' => 57,
@@ -1762,7 +1762,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':69: warning: @verbatim should only appear at the beginning of a line
+    'error_line' => 'warning: @verbatim should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 69,
@@ -1771,7 +1771,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':74: warning: @verbatim should only appear at the beginning of a line
+    'error_line' => 'warning: @verbatim should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 74,
@@ -1780,7 +1780,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':76: warning: superfluous argument to @end verbatim:  after the closing command.
+    'error_line' => 'warning: superfluous argument to @end verbatim:  after the closing command.
 ',
     'file_name' => '',
     'line_nr' => 76,
@@ -1789,7 +1789,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':78: warning: @verbatim should only appear at the beginning of a line
+    'error_line' => 'warning: @verbatim should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 78,
@@ -1798,7 +1798,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':83: warning: @verbatim should only appear at the beginning of a line
+    'error_line' => 'warning: @verbatim should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 83,
@@ -1807,7 +1807,7 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':85: warning: superfluous argument to @end verbatim: . A symbol after the closing command.
+    'error_line' => 'warning: superfluous argument to @end verbatim: . A symbol after the closing command.
 ',
     'file_name' => '',
     'line_nr' => 85,

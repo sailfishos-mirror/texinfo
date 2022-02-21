@@ -308,7 +308,7 @@ Documentation of foo.
 
 $result_errors{'code_in_def'} = [
   {
-    'error_line' => ':1: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 1,

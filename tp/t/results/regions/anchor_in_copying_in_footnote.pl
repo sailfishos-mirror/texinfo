@@ -449,7 +449,7 @@ End:
 
 $result_converted_errors{'info'}->{'anchor_in_copying_in_footnote'} = [
   {
-    'error_line' => ':5: @anchor output more than once: Copying footnote
+    'error_line' => '@anchor output more than once: Copying footnote
 ',
     'file_name' => '',
     'line_nr' => 5,

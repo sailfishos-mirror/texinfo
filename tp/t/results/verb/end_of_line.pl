@@ -98,7 +98,7 @@ and now endafter end.';
 
 $result_errors{'end_of_line'} = [
   {
-    'error_line' => ':1: @verb without associated character
+    'error_line' => '@verb without associated character
 ',
     'file_name' => '',
     'line_nr' => 1,

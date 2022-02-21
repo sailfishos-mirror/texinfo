@@ -521,7 +521,7 @@ $result_menus{'lone_Top_node'}{'structure'}{'menu_child'}{'structure'}{'menu_up'
 
 $result_errors{'lone_Top_node'} = [
   {
-    'error_line' => ':9: warning: node `Top\' is up for `First\' in menu but not in sectioning
+    'error_line' => 'warning: node `Top\' is up for `First\' in menu but not in sectioning
 ',
     'file_name' => '',
     'line_nr' => 9,

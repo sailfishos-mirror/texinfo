@@ -162,7 +162,7 @@ $result_menus{'space_in_setfilename'} = {
 
 $result_errors{'space_in_setfilename'} = [
   {
-    'error_line' => ':1: warning: @verb should not appear in @setfilename
+    'error_line' => 'warning: @verb should not appear in @setfilename
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -171,7 +171,7 @@ $result_errors{'space_in_setfilename'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: bad argument to @setfilename: @ @verb{: name :}@
+    'error_line' => 'bad argument to @setfilename: @ @verb{: name :}@
 ',
     'file_name' => '',
     'line_nr' => 1,

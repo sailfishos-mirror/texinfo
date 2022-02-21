@@ -1249,7 +1249,7 @@ $result_menus{'two_nodes_between_chapters'}{'structure'}{'menu_child'}{'structur
 
 $result_errors{'two_nodes_between_chapters'} = [
   {
-    'error_line' => ':10: warning: node next pointer for `chapter 1\' is `Top\' but next is `node between chapters\' in menu
+    'error_line' => 'warning: node next pointer for `chapter 1\' is `Top\' but next is `node between chapters\' in menu
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -1258,7 +1258,7 @@ $result_errors{'two_nodes_between_chapters'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':15: warning: node prev pointer for `chapter 2\' is `chapter 1\' but prev is `node between chapters\' in menu
+    'error_line' => 'warning: node prev pointer for `chapter 2\' is `chapter 1\' but prev is `node between chapters\' in menu
 ',
     'file_name' => '',
     'line_nr' => 15,

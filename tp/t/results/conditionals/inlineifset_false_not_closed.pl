@@ -66,7 +66,7 @@ $result_texts{'inlineifset_false_not_closed'} = '';
 
 $result_errors{'inlineifset_false_not_closed'} = [
   {
-    'error_line' => ':1: @inlineifset missing closing brace
+    'error_line' => '@inlineifset missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,

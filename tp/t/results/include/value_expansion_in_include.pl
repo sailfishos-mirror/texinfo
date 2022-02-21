@@ -596,7 +596,7 @@ $result_menus{'value_expansion_in_include'} = {
 
 $result_errors{'value_expansion_in_include'} = [
   {
-    'error_line' => ':12: warning: @include should only appear at the beginning of a line
+    'error_line' => 'warning: @include should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 12,
@@ -605,7 +605,7 @@ $result_errors{'value_expansion_in_include'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: @include should only appear at the beginning of a line
+    'error_line' => 'warning: @include should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -614,7 +614,7 @@ $result_errors{'value_expansion_in_include'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':22: warning: @include should only appear at the beginning of a line
+    'error_line' => 'warning: @include should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 22,

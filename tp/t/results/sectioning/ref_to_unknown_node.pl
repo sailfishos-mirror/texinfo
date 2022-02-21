@@ -71,7 +71,7 @@ $result_texts{'ref_to_unknown_node'} = 'unknown node.';
 
 $result_errors{'ref_to_unknown_node'} = [
   {
-    'error_line' => ':1: @xref reference to nonexistent node `unknown node\'
+    'error_line' => '@xref reference to nonexistent node `unknown node\'
 ',
     'file_name' => '',
     'line_nr' => 1,

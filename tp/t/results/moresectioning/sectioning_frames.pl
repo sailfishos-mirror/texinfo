@@ -3761,7 +3761,7 @@ $result_menus{'sectioning_frames'}{'structure'}{'menu_child'}{'structure'}{'menu
 
 $result_errors{'sectioning_frames'} = [
   {
-    'error_line' => 'sectioning.texi:88: warning: node `Last node no description\' is next for `Third node unnumbered\' in menu but not in sectioning
+    'error_line' => 'warning: node `Last node no description\' is next for `Third node unnumbered\' in menu but not in sectioning
 ',
     'file_name' => 'sectioning.texi',
     'line_nr' => 88,

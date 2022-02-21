@@ -186,7 +186,7 @@ in third.
 
 $result_errors{'paragraph_in_style_command'} = [
   {
-    'error_line' => ':1: @samp missing closing brace
+    'error_line' => '@samp missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -195,7 +195,7 @@ $result_errors{'paragraph_in_style_command'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -204,7 +204,7 @@ $result_errors{'paragraph_in_style_command'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: @samp missing closing brace
+    'error_line' => '@samp missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -213,7 +213,7 @@ $result_errors{'paragraph_in_style_command'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':9: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 9,

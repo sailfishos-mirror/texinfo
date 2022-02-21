@@ -262,7 +262,7 @@ $result_texts{'empty_deftypeop_name'} = 'Commandcom on Windowint: exposeexp
 
 $result_errors{'empty_deftypeop_name'} = [
   {
-    'error_line' => ':1: warning: missing name for @deftypeop
+    'error_line' => 'warning: missing name for @deftypeop
 ',
     'file_name' => '',
     'line_nr' => 1,

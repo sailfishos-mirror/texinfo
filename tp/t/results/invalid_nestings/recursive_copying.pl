@@ -146,7 +146,7 @@ $result_texts{'recursive_copying'} = '
 
 $result_errors{'recursive_copying'} = [
   {
-    'error_line' => ':5: @insertcopying not allowed inside `@copying\' block
+    'error_line' => '@insertcopying not allowed inside `@copying\' block
 ',
     'file_name' => '',
     'line_nr' => 5,

@@ -1080,7 +1080,7 @@ $result_menus{'sc_in_menu'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} =
 
 $result_errors{'sc_in_menu'} = [
   {
-    'error_line' => ':19: warning: @menu in invalid context
+    'error_line' => 'warning: @menu in invalid context
 ',
     'file_name' => '',
     'line_nr' => 19,

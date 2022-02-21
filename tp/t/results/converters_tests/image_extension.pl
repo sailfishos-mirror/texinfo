@@ -101,7 +101,7 @@ $result_converted{'plaintext'}->{'image_extension'} = '[f---ile]
 
 $result_converted_errors{'plaintext'}->{'image_extension'} = [
   {
-    'error_line' => ':1: warning: could not find @image file `f---ile.txt\' nor alternate text
+    'error_line' => 'warning: could not find @image file `f---ile.txt\' nor alternate text
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -118,7 +118,7 @@ $result_converted{'html_text'}->{'image_extension'} = '<img class="image" src="f
 
 $result_converted_errors{'html_text'}->{'image_extension'} = [
   {
-    'error_line' => ':1: warning: @image file `f---ile\' (for HTML) not found, using `f---ile.gr--a\'
+    'error_line' => 'warning: @image file `f---ile\' (for HTML) not found, using `f---ile.gr--a\'
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -139,7 +139,7 @@ $result_converted{'docbook'}->{'image_extension'} = '<informalfigure><mediaobjec
 
 $result_converted_errors{'docbook'}->{'image_extension'} = [
   {
-    'error_line' => ':1: warning: @image file `f---ile\' not found, using `f---ile.jpg\'
+    'error_line' => 'warning: @image file `f---ile\' not found, using `f---ile.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -174,7 +174,7 @@ $result_converted_errors{'info'}->{'image_extension'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: could not find @image file `f---ile.txt\' nor alternate text
+    'error_line' => 'warning: could not find @image file `f---ile.txt\' nor alternate text
 ',
     'file_name' => '',
     'line_nr' => 1,

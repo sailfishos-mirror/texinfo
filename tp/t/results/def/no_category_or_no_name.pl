@@ -558,7 +558,7 @@ with deffnx missing category or name
 
 $result_errors{'no_category_or_no_name'} = [
   {
-    'error_line' => ':1: warning: missing category for @deffn
+    'error_line' => 'warning: missing category for @deffn
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -567,7 +567,7 @@ $result_errors{'no_category_or_no_name'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: missing name for @deffn
+    'error_line' => 'warning: missing name for @deffn
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -576,7 +576,7 @@ $result_errors{'no_category_or_no_name'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -585,7 +585,7 @@ $result_errors{'no_category_or_no_name'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: warning: missing name for @deffnx
+    'error_line' => 'warning: missing name for @deffnx
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -594,7 +594,7 @@ $result_errors{'no_category_or_no_name'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: warning: missing category for @deffnx
+    'error_line' => 'warning: missing category for @deffnx
 ',
     'file_name' => '',
     'line_nr' => 11,

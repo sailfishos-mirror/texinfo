@@ -407,7 +407,7 @@ Para.
 
 $result_errors{'comments_on_misc_command_line'} = [
   {
-    'error_line' => ':2: warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 2,

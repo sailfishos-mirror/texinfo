@@ -147,7 +147,7 @@ Item line
 
 $result_errors{'invalid_command_and_brace_in_table'} = [
   {
-    'error_line' => ':2: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -156,7 +156,7 @@ $result_errors{'invalid_command_and_brace_in_table'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':2: unknown command `itemTop\'
+    'error_line' => 'unknown command `itemTop\'
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -165,7 +165,7 @@ $result_errors{'invalid_command_and_brace_in_table'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -174,7 +174,7 @@ $result_errors{'invalid_command_and_brace_in_table'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: warning: @table has text but no @item
+    'error_line' => 'warning: @table has text but no @item
 ',
     'file_name' => '',
     'line_nr' => 1,

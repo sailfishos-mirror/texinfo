@@ -52,7 +52,7 @@ $result_texts{'unknown_printindex'} = '';
 
 $result_errors{'unknown_printindex'} = [
   {
-    'error_line' => ':1: unknown index `bidule\' in @printindex
+    'error_line' => 'unknown index `bidule\' in @printindex
 ',
     'file_name' => '',
     'line_nr' => 1,

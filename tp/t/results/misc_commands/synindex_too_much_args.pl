@@ -57,7 +57,7 @@ $result_texts{'synindex_too_much_args'} = '';
 
 $result_errors{'synindex_too_much_args'} = [
   {
-    'error_line' => ':1: bad argument to @syncodeindex: cp fn    truc
+    'error_line' => 'bad argument to @syncodeindex: cp fn    truc
 ',
     'file_name' => '',
     'line_nr' => 1,

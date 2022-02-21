@@ -604,7 +604,7 @@ $\\underline{a &lt; b &lt;code class=&quot;code&quot;&gt;tex \\hbox{ code }&lt;/
 
 $result_converted_errors{'html_text'}->{'raw_block_commands_expand_tex'} = [
   {
-    'error_line' => ':14: warning: raw format tex is not converted
+    'error_line' => 'warning: raw format tex is not converted
 ',
     'file_name' => '',
     'line_nr' => 14,

@@ -134,7 +134,7 @@ My something.
 
 $result_errors{'definfoenclose_with_empty_arg'} = [
   {
-    'error_line' => ':2: warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 2,

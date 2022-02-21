@@ -574,7 +574,7 @@ The 3rdis the Ir.
 
 $result_errors{'math'} = [
   {
-    'error_line' => ':11: warning: @\\ should only appear in math context
+    'error_line' => 'warning: @\\ should only appear in math context
 ',
     'file_name' => '',
     'line_nr' => 11,

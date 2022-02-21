@@ -407,7 +407,7 @@ $result_menus{'text_before_line_command'} = {
 
 $result_errors{'text_before_line_command'} = [
   {
-    'error_line' => ':1: warning: @title should only appear at the beginning of a line
+    'error_line' => 'warning: @title should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -416,7 +416,7 @@ $result_errors{'text_before_line_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: @node should only appear at the beginning of a line
+    'error_line' => 'warning: @node should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -425,7 +425,7 @@ $result_errors{'text_before_line_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: @chapter should only appear at the beginning of a line
+    'error_line' => 'warning: @chapter should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -434,7 +434,7 @@ $result_errors{'text_before_line_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: @contents should only appear at the beginning of a line
+    'error_line' => 'warning: @contents should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -443,7 +443,7 @@ $result_errors{'text_before_line_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @author should only appear at the beginning of a line
+    'error_line' => 'warning: @author should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 9,

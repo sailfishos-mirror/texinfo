@@ -94,7 +94,7 @@ $result_texts{'footnote_in_command_not_closed'} = 'aaain code';
 
 $result_errors{'footnote_in_command_not_closed'} = [
   {
-    'error_line' => ':1: @footnote missing closing brace
+    'error_line' => '@footnote missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -103,7 +103,7 @@ $result_errors{'footnote_in_command_not_closed'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: @code missing closing brace
+    'error_line' => '@code missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,

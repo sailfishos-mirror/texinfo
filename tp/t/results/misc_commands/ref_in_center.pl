@@ -262,7 +262,7 @@ $result_menus{'ref_in_center'} = {
 
 $result_errors{'ref_in_center'} = [
   {
-    'error_line' => ':5: @ref missing closing brace
+    'error_line' => '@ref missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -271,7 +271,7 @@ $result_errors{'ref_in_center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 6,

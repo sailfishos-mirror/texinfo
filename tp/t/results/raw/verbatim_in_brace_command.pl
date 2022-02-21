@@ -109,7 +109,7 @@ in verbatim
 
 $result_errors{'verbatim_in_brace_command'} = [
   {
-    'error_line' => ':2: warning: @verbatim should not appear in @samp
+    'error_line' => 'warning: @verbatim should not appear in @samp
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -118,7 +118,7 @@ $result_errors{'verbatim_in_brace_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: @samp missing closing brace
+    'error_line' => '@samp missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -127,7 +127,7 @@ $result_errors{'verbatim_in_brace_command'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 5,

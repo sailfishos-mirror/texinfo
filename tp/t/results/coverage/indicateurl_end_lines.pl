@@ -141,7 +141,7 @@ cut by blank line
 
 $result_errors{'indicateurl_end_lines'} = [
   {
-    'error_line' => ':4: @indicateurl missing closing brace
+    'error_line' => '@indicateurl missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -150,7 +150,7 @@ $result_errors{'indicateurl_end_lines'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 6,

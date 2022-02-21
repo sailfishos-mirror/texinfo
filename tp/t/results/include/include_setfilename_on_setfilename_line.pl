@@ -114,7 +114,7 @@ $result_texts{'include_setfilename_on_setfilename_line'} = '';
 
 $result_errors{'include_setfilename_on_setfilename_line'} = [
   {
-    'error_line' => ':1: warning: @setfilename should only appear at the beginning of a line
+    'error_line' => 'warning: @setfilename should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -123,7 +123,7 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @setfilename should not appear in @setfilename
+    'error_line' => 'warning: @setfilename should not appear in @setfilename
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -132,7 +132,7 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: multiple @setfilename
+    'error_line' => 'warning: multiple @setfilename
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -141,7 +141,7 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @include should only appear at the beginning of a line
+    'error_line' => 'warning: @include should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -150,7 +150,7 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @include should not appear in @setfilename
+    'error_line' => 'warning: @include should not appear in @setfilename
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -159,7 +159,7 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: @include: could not find are you joking!
+    'error_line' => '@include: could not find are you joking!
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -168,7 +168,7 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: bad argument to @setfilename: other file @include are you joking!
+    'error_line' => 'bad argument to @setfilename: other file @include are you joking!
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -177,7 +177,7 @@ $result_errors{'include_setfilename_on_setfilename_line'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: bad argument to @setfilename: file @setfilename other file @include are you joking!
+    'error_line' => 'bad argument to @setfilename: file @setfilename other file @include are you joking!
 ',
     'file_name' => '',
     'line_nr' => 1,

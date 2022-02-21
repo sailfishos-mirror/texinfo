@@ -309,7 +309,7 @@ deffn text
 
 $result_errors{'def_not_closed_in_menu_description'} = [
   {
-    'error_line' => ':2: warning: @deffn should only appear at the beginning of a line
+    'error_line' => 'warning: @deffn should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -318,7 +318,7 @@ $result_errors{'def_not_closed_in_menu_description'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -327,7 +327,7 @@ $result_errors{'def_not_closed_in_menu_description'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: `@end\' expected `deffn\', but saw `menu\'
+    'error_line' => '`@end\' expected `deffn\', but saw `menu\'
 ',
     'file_name' => '',
     'line_nr' => 5,

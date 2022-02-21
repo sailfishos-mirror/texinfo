@@ -108,7 +108,7 @@ tab outside
 
 $result_errors{'item_tab_outside_of_table_lists'} = [
   {
-    'error_line' => ':1: @itemx outside of table or list
+    'error_line' => '@itemx outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -117,7 +117,7 @@ $result_errors{'item_tab_outside_of_table_lists'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':2: @headitem outside of table or list
+    'error_line' => '@headitem outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -126,7 +126,7 @@ $result_errors{'item_tab_outside_of_table_lists'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: unknown command `someitem\'
+    'error_line' => 'unknown command `someitem\'
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -135,7 +135,7 @@ $result_errors{'item_tab_outside_of_table_lists'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':4: ignoring @tab outside of multitable
+    'error_line' => 'ignoring @tab outside of multitable
 ',
     'file_name' => '',
     'line_nr' => 4,

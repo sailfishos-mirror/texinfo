@@ -549,7 +549,7 @@ $result_menus{'nodes_before_after_top'} = {
 
 $result_errors{'nodes_before_after_top'} = [
   {
-    'error_line' => ':3: warning: node `node before\' unreferenced
+    'error_line' => 'warning: node `node before\' unreferenced
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -558,7 +558,7 @@ $result_errors{'nodes_before_after_top'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':12: warning: node `after\' unreferenced
+    'error_line' => 'warning: node `after\' unreferenced
 ',
     'file_name' => '',
     'line_nr' => 12,

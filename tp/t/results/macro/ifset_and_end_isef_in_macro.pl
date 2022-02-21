@@ -137,7 +137,7 @@ $result_texts{'ifset_and_end_isef_in_macro'} = '
 
 $result_errors{'ifset_and_end_isef_in_macro'} = [
   {
-    'error_line' => ':11: no matching `@end ifset\'
+    'error_line' => 'no matching `@end ifset\'
 ',
     'file_name' => '',
     'line_nr' => 11,

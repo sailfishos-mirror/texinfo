@@ -472,7 +472,7 @@ End:
 
 $result_converted_errors{'info'}->{'xref_test'} = [
   {
-    'error_line' => ':6: warning: @xref node name should not contain `.\'
+    'error_line' => 'warning: @xref node name should not contain `.\'
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -481,7 +481,7 @@ $result_converted_errors{'info'}->{'xref_test'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: `.\' or `,\' must follow @xref, not !
+    'error_line' => 'warning: `.\' or `,\' must follow @xref, not !
 ',
     'file_name' => '',
     'line_nr' => 6,

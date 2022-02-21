@@ -78,7 +78,7 @@ $result_texts{'accent_no_closed_comment'} = 'e ~';
 
 $result_errors{'accent_no_closed_comment'} = [
   {
-    'error_line' => ':1: @~ missing closing brace
+    'error_line' => '@~ missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,

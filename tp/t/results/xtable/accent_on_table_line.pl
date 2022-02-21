@@ -451,7 +451,7 @@ no at-command code acc brace
 
 $result_errors{'accent_on_table_line'} = [
   {
-    'error_line' => ':1: warning: accent command `@~\' must not be followed by new line
+    'error_line' => 'warning: accent command `@~\' must not be followed by new line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -460,7 +460,7 @@ $result_errors{'accent_on_table_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: table requires an argument: the formatter for @item
+    'error_line' => 'table requires an argument: the formatter for @item
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -469,7 +469,7 @@ $result_errors{'accent_on_table_line'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: warning: accent command `@~\' not allowed as @table argument
+    'error_line' => 'warning: accent command `@~\' not allowed as @table argument
 ',
     'file_name' => '',
     'line_nr' => 6,

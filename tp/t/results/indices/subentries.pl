@@ -1217,7 +1217,7 @@ $result_menus{'subentries'} = {
 
 $result_errors{'subentries'} = [
   {
-    'error_line' => ':12: no more than two levels of index subentry are allowed
+    'error_line' => 'no more than two levels of index subentry are allowed
 ',
     'file_name' => '',
     'line_nr' => 12,
@@ -1226,7 +1226,7 @@ $result_errors{'subentries'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':17: no more than two levels of index subentry are allowed
+    'error_line' => 'no more than two levels of index subentry are allowed
 ',
     'file_name' => '',
     'line_nr' => 17,

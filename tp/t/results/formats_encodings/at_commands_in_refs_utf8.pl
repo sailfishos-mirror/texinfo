@@ -22685,7 +22685,7 @@ $result_menus{'at_commands_in_refs_utf8'}{'structure'}{'menu_child'}{'structure'
 
 $result_errors{'at_commands_in_refs_utf8'} = [
   {
-    'error_line' => ':98: warning: @verb should not appear in @node
+    'error_line' => 'warning: @verb should not appear in @node
 ',
     'file_name' => '',
     'line_nr' => 98,
@@ -22694,7 +22694,7 @@ $result_errors{'at_commands_in_refs_utf8'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':100: warning: @verb should not appear in @chapter
+    'error_line' => 'warning: @verb should not appear in @chapter
 ',
     'file_name' => '',
     'line_nr' => 100,
@@ -22703,7 +22703,7 @@ $result_errors{'at_commands_in_refs_utf8'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':165: warning: @verb should not appear in @ref
+    'error_line' => 'warning: @verb should not appear in @ref
 ',
     'file_name' => '',
     'line_nr' => 165,
@@ -22719,7 +22719,7 @@ $result_floats{'at_commands_in_refs_utf8'} = {};
 
 $result_converted_errors{'file_html'}->{'at_commands_in_refs_utf8'} = [
   {
-    'error_line' => ':95: warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+    'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 95,
@@ -22728,7 +22728,7 @@ $result_converted_errors{'file_html'}->{'at_commands_in_refs_utf8'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':93: warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+    'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 93,
@@ -22737,7 +22737,7 @@ $result_converted_errors{'file_html'}->{'at_commands_in_refs_utf8'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':95: warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+    'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 95,
@@ -22746,7 +22746,7 @@ $result_converted_errors{'file_html'}->{'at_commands_in_refs_utf8'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':163: warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+    'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 163,
@@ -22759,7 +22759,7 @@ $result_converted_errors{'file_html'}->{'at_commands_in_refs_utf8'} = [
 
 $result_converted_errors{'file_info'}->{'at_commands_in_refs_utf8'} = [
   {
-    'error_line' => ':26: warning: could not find @image file `f--ile1.txt\' nor alternate text
+    'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
 ',
     'file_name' => '',
     'line_nr' => 26,
@@ -22768,7 +22768,7 @@ $result_converted_errors{'file_info'}->{'at_commands_in_refs_utf8'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':34: warning: menu entry node name should not contain `:\'
+    'error_line' => 'warning: menu entry node name should not contain `:\'
 ',
     'file_name' => '',
     'line_nr' => 34,
@@ -22777,7 +22777,7 @@ $result_converted_errors{'file_info'}->{'at_commands_in_refs_utf8'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ":46: warning: \@node name should not contain `,': LaTeX TeX \x{2022} , \x{a9} ... ...
+    'error_line' => "warning: \@node name should not contain `,': LaTeX TeX \x{2022} , \x{a9} ... ...
 ",
     'file_name' => '',
     'line_nr' => 46,
@@ -22786,7 +22786,7 @@ $result_converted_errors{'file_info'}->{'at_commands_in_refs_utf8'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':93: warning: could not find @image file `f--ile1.txt\' nor alternate text
+    'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
 ',
     'file_name' => '',
     'line_nr' => 93,
@@ -22795,7 +22795,7 @@ $result_converted_errors{'file_info'}->{'at_commands_in_refs_utf8'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':95: warning: could not find @image file `f--ile1.txt\' nor alternate text
+    'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
 ',
     'file_name' => '',
     'line_nr' => 95,
@@ -22804,7 +22804,7 @@ $result_converted_errors{'file_info'}->{'at_commands_in_refs_utf8'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':93: warning: could not find @image file `f--ile1.txt\' nor alternate text
+    'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
 ',
     'file_name' => '',
     'line_nr' => 93,
@@ -22813,7 +22813,7 @@ $result_converted_errors{'file_info'}->{'at_commands_in_refs_utf8'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':180: warning: @ref node name should not contain `:\'
+    'error_line' => 'warning: @ref node name should not contain `:\'
 ',
     'file_name' => '',
     'line_nr' => 180,

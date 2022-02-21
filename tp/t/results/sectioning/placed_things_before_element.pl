@@ -945,7 +945,7 @@ $result_sectioning{'placed_things_before_element'}{'structure'}{'section_childs'
 
 $result_errors{'placed_things_before_element'} = [
   {
-    'error_line' => ':28: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 28,
@@ -1036,7 +1036,7 @@ $result_converted_errors{'info'}->{'placed_things_before_element'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @anchor outside of any node
+    'error_line' => 'warning: @anchor outside of any node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -1045,7 +1045,7 @@ $result_converted_errors{'info'}->{'placed_things_before_element'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @footnote outside of any node
+    'error_line' => 'warning: @footnote outside of any node
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -1054,7 +1054,7 @@ $result_converted_errors{'info'}->{'placed_things_before_element'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: @float outside of any node
+    'error_line' => 'warning: @float outside of any node
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -1063,7 +1063,7 @@ $result_converted_errors{'info'}->{'placed_things_before_element'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: warning: @anchor outside of any node
+    'error_line' => 'warning: @anchor outside of any node
 ',
     'file_name' => '',
     'line_nr' => 11,

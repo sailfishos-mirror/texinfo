@@ -563,7 +563,7 @@ $result_menus{'style_not_closed_root_commands'}{'structure'}{'menu_child'}{'stru
 
 $result_errors{'style_not_closed_root_commands'} = [
   {
-    'error_line' => ':8: @code missing closing brace
+    'error_line' => '@code missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -572,7 +572,7 @@ $result_errors{'style_not_closed_root_commands'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':13: @code missing closing brace
+    'error_line' => '@code missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 13,

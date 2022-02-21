@@ -1017,7 +1017,7 @@ $result_menus{'at_commands_in_raw'} = {
 
 $result_errors{'at_commands_in_raw'} = [
   {
-    'error_line' => ':61: warning: undefined flag: flag
+    'error_line' => 'warning: undefined flag: flag
 ',
     'file_name' => '',
     'line_nr' => 61,
@@ -1026,7 +1026,7 @@ $result_errors{'at_commands_in_raw'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':70: unknown command `newindex\'
+    'error_line' => 'unknown command `newindex\'
 ',
     'file_name' => '',
     'line_nr' => 70,
@@ -1035,7 +1035,7 @@ $result_errors{'at_commands_in_raw'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':79: unknown command `a\'
+    'error_line' => 'unknown command `a\'
 ',
     'file_name' => '',
     'line_nr' => 79,
@@ -1044,7 +1044,7 @@ $result_errors{'at_commands_in_raw'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':79: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 79,
@@ -1053,7 +1053,7 @@ $result_errors{'at_commands_in_raw'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':79: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 79,
@@ -1062,7 +1062,7 @@ $result_errors{'at_commands_in_raw'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':81: unknown command `moviecite\'
+    'error_line' => 'unknown command `moviecite\'
 ',
     'file_name' => '',
     'line_nr' => 81,
@@ -1071,7 +1071,7 @@ $result_errors{'at_commands_in_raw'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':81: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 81,
@@ -1080,7 +1080,7 @@ $result_errors{'at_commands_in_raw'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':81: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 81,
@@ -1089,7 +1089,7 @@ $result_errors{'at_commands_in_raw'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':85: unknown command `mymacro\'
+    'error_line' => 'unknown command `mymacro\'
 ',
     'file_name' => '',
     'line_nr' => 85,
@@ -1098,7 +1098,7 @@ $result_errors{'at_commands_in_raw'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':85: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 85,
@@ -1107,7 +1107,7 @@ $result_errors{'at_commands_in_raw'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':85: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 85,
@@ -1116,7 +1116,7 @@ $result_errors{'at_commands_in_raw'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':85: unknown command `macroarg\'
+    'error_line' => 'unknown command `macroarg\'
 ',
     'file_name' => '',
     'line_nr' => 85,
@@ -1125,7 +1125,7 @@ $result_errors{'at_commands_in_raw'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':85: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 85,
@@ -1134,7 +1134,7 @@ $result_errors{'at_commands_in_raw'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':85: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 85,
@@ -1143,7 +1143,7 @@ $result_errors{'at_commands_in_raw'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':67: @ref reference to nonexistent node `anchor in tex\'
+    'error_line' => '@ref reference to nonexistent node `anchor in tex\'
 ',
     'file_name' => '',
     'line_nr' => 67,

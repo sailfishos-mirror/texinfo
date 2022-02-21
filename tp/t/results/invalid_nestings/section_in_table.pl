@@ -224,7 +224,7 @@ $result_sectioning{'section_in_table'}{'structure'}{'section_childs'}[0]{'struct
 
 $result_errors{'section_in_table'} = [
   {
-    'error_line' => ':4: @section seen before @end table
+    'error_line' => '@section seen before @end table
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -233,7 +233,7 @@ $result_errors{'section_in_table'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: @item outside of table or list
+    'error_line' => '@item outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -242,7 +242,7 @@ $result_errors{'section_in_table'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':8: unmatched `@end table\'
+    'error_line' => 'unmatched `@end table\'
 ',
     'file_name' => '',
     'line_nr' => 8,

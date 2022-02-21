@@ -4310,7 +4310,7 @@ $result_menus{'index_split'}{'structure'}{'menu_up'} = $result_menus{'index_spli
 
 $result_errors{'index_split'} = [
   {
-    'error_line' => 'index_split.texi:87: warning: node `node in section 3\' is next for `section 3\' in menu but not in sectioning
+    'error_line' => 'warning: node `node in section 3\' is next for `section 3\' in menu but not in sectioning
 ',
     'file_name' => 'index_split.texi',
     'line_nr' => 87,

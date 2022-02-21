@@ -234,7 +234,7 @@ $result_menus{'unknown_node_in_menu'} = {
 
 $result_errors{'unknown_node_in_menu'} = [
   {
-    'error_line' => ':4: @menu reference to nonexistent node `unknown\'
+    'error_line' => '@menu reference to nonexistent node `unknown\'
 ',
     'file_name' => '',
     'line_nr' => 4,

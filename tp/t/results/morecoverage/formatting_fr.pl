@@ -4541,7 +4541,7 @@ $result_menus{'formatting_fr'}{'structure'}{'menu_child'}{'structure'}{'menu_up'
 
 $result_errors{'formatting_fr'} = [
   {
-    'error_line' => 'formatting.texi:21: @include: could not find coverage_macro.texi
+    'error_line' => '@include: could not find coverage_macro.texi
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 21,
@@ -4550,7 +4550,7 @@ $result_errors{'formatting_fr'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'formatting.texi:25: unknown command `mymacro\'
+    'error_line' => 'unknown command `mymacro\'
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 25,
@@ -4559,7 +4559,7 @@ $result_errors{'formatting_fr'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'formatting.texi:25: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 25,
@@ -4568,7 +4568,7 @@ $result_errors{'formatting_fr'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'formatting.texi:25: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 25,
@@ -4577,7 +4577,7 @@ $result_errors{'formatting_fr'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'formatting.texi:35: unknown command `mymacro\'
+    'error_line' => 'unknown command `mymacro\'
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 35,
@@ -4586,7 +4586,7 @@ $result_errors{'formatting_fr'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'formatting.texi:35: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 35,
@@ -4595,7 +4595,7 @@ $result_errors{'formatting_fr'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'formatting.texi:35: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 35,
@@ -4604,7 +4604,7 @@ $result_errors{'formatting_fr'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'formatting.texi:45: unknown command `mymacro\'
+    'error_line' => 'unknown command `mymacro\'
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 45,
@@ -4613,7 +4613,7 @@ $result_errors{'formatting_fr'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'formatting.texi:45: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 45,
@@ -4622,7 +4622,7 @@ $result_errors{'formatting_fr'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'formatting.texi:45: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 45,
@@ -4631,7 +4631,7 @@ $result_errors{'formatting_fr'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'formatting.texi:49: unknown command `mymacro\'
+    'error_line' => 'unknown command `mymacro\'
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 49,
@@ -4640,7 +4640,7 @@ $result_errors{'formatting_fr'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'formatting.texi:49: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 49,
@@ -4649,7 +4649,7 @@ $result_errors{'formatting_fr'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'formatting.texi:49: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 49,
@@ -4658,7 +4658,7 @@ $result_errors{'formatting_fr'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'formatting.texi:90: warning: @menu in invalid context
+    'error_line' => 'warning: @menu in invalid context
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 90,
@@ -4667,7 +4667,7 @@ $result_errors{'formatting_fr'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'formatting.texi:130: warning: @centerchap is obsolete.
+    'error_line' => 'warning: @centerchap is obsolete.
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 130,
@@ -4868,7 +4868,7 @@ End:
 
 $result_converted_errors{'info'}->{'formatting_fr'} = [
   {
-    'error_line' => 'formatting.texi:99: warning: @node name should not contain `,\': s--ect,ion
+    'error_line' => 'warning: @node name should not contain `,\': s--ect,ion
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 99,

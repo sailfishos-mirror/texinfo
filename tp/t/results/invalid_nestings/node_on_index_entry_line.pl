@@ -301,7 +301,7 @@ $result_menus{'node_on_index_entry_line'} = {
 
 $result_errors{'node_on_index_entry_line'} = [
   {
-    'error_line' => ':2: warning: @node should only appear at the beginning of a line
+    'error_line' => 'warning: @node should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -310,7 +310,7 @@ $result_errors{'node_on_index_entry_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @node should not appear in @cindex
+    'error_line' => 'warning: @node should not appear in @cindex
 ',
     'file_name' => '',
     'line_nr' => 2,

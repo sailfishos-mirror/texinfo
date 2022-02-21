@@ -57,7 +57,7 @@ $result_texts{'def_existing_index'} = '';
 
 $result_errors{'def_existing_index'} = [
   {
-    'error_line' => ':1: reserved index name cp
+    'error_line' => 'reserved index name cp
 ',
     'file_name' => '',
     'line_nr' => 1,

@@ -148,7 +148,7 @@ End:
 
 $result_converted_errors{'info'}->{'image_not_found'} = [
   {
-    'error_line' => ':2: warning: could not find @image file `n_f_image.txt\' nor alternate text
+    'error_line' => 'warning: could not find @image file `n_f_image.txt\' nor alternate text
 ',
     'file_name' => '',
     'line_nr' => 2,

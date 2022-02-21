@@ -2038,7 +2038,7 @@ $result_menus{'quote_node_names'}{'structure'}{'menu_child'}{'structure'}{'menu_
 
 $result_errors{'quote_node_names'} = [
   {
-    'error_line' => 'nodequote.texi:20: warning: @menu entry node name `blah@asis{:}blah\' different from node name `blah:blah\'
+    'error_line' => 'warning: @menu entry node name `blah@asis{:}blah\' different from node name `blah:blah\'
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 20,
@@ -2047,7 +2047,7 @@ $result_errors{'quote_node_names'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'nodequote.texi:21: warning: @menu entry node name `blumpty@asis{.}fump\' different from node name `blumpty.fump\'
+    'error_line' => 'warning: @menu entry node name `blumpty@asis{.}fump\' different from node name `blumpty.fump\'
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 21,
@@ -2056,7 +2056,7 @@ $result_errors{'quote_node_names'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'nodequote.texi:41: warning: node `top secret node\' unreferenced
+    'error_line' => 'warning: node `top secret node\' unreferenced
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 41,
@@ -2072,7 +2072,7 @@ $result_floats{'quote_node_names'} = {};
 
 $result_converted_errors{'file_plaintext'}->{'quote_node_names'} = [
   {
-    'error_line' => 'nodequote.texi:4: warning: `.\' or `,\' must follow @xref
+    'error_line' => 'warning: `.\' or `,\' must follow @xref
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 4,
@@ -2081,7 +2081,7 @@ $result_converted_errors{'file_plaintext'}->{'quote_node_names'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'nodequote.texi:5: warning: `.\' or `,\' must follow @xref
+    'error_line' => 'warning: `.\' or `,\' must follow @xref
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 5,
@@ -2090,7 +2090,7 @@ $result_converted_errors{'file_plaintext'}->{'quote_node_names'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'nodequote.texi:7: warning: `.\' or `,\' must follow @xref
+    'error_line' => 'warning: `.\' or `,\' must follow @xref
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 7,
@@ -2099,7 +2099,7 @@ $result_converted_errors{'file_plaintext'}->{'quote_node_names'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'nodequote.texi:8: warning: `.\' or `,\' must follow @xref
+    'error_line' => 'warning: `.\' or `,\' must follow @xref
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 8,
@@ -2108,7 +2108,7 @@ $result_converted_errors{'file_plaintext'}->{'quote_node_names'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'nodequote.texi:10: warning: `.\' or `,\' must follow @xref
+    'error_line' => 'warning: `.\' or `,\' must follow @xref
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 10,

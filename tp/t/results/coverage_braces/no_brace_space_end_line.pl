@@ -116,7 +116,7 @@ Arg.';
 
 $result_errors{'no_brace_space_end_line'} = [
   {
-    'error_line' => ':4: @TeX expected braces
+    'error_line' => '@TeX expected braces
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -125,7 +125,7 @@ $result_errors{'no_brace_space_end_line'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: @code expected braces
+    'error_line' => '@code expected braces
 ',
     'file_name' => '',
     'line_nr' => 6,

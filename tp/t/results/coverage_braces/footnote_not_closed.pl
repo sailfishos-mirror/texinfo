@@ -96,7 +96,7 @@ $result_texts{'footnote_not_closed'} = 'AAA';
 
 $result_errors{'footnote_not_closed'} = [
   {
-    'error_line' => ':1: @footnote missing closing brace
+    'error_line' => '@footnote missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,

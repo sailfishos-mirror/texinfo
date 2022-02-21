@@ -135,7 +135,7 @@ $result_converted{'html_text'}->{'image_in_paragraph'} = '<p>Para. <img class="i
 
 $result_converted_errors{'html_text'}->{'image_in_paragraph'} = [
   {
-    'error_line' => ':1: warning: @image file `aa\' (for HTML) not found, using `aa.ee\'
+    'error_line' => 'warning: @image file `aa\' (for HTML) not found, using `aa.ee\'
 ',
     'file_name' => '',
     'line_nr' => 1,

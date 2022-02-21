@@ -164,7 +164,7 @@ $result_menus{'ref_in_anchor'} = {
 
 $result_errors{'ref_in_anchor'} = [
   {
-    'error_line' => ':2: warning: @ref should not appear in @anchor
+    'error_line' => 'warning: @ref should not appear in @anchor
 ',
     'file_name' => '',
     'line_nr' => 2,

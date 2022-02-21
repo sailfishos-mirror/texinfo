@@ -97,7 +97,7 @@ $result_texts{'incorrect_allowcodebreaks_argument'} = 'b a
 
 $result_errors{'incorrect_allowcodebreaks_argument'} = [
   {
-    'error_line' => ':1: @allowcodebreaks arg must be `true\' or `false\', not `_arg\'
+    'error_line' => '@allowcodebreaks arg must be `true\' or `false\', not `_arg\'
 ',
     'file_name' => '',
     'line_nr' => 1,

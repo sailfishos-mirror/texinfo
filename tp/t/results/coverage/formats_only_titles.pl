@@ -564,7 +564,7 @@ before first multitable
 
 $result_errors{'formats_only_titles'} = [
   {
-    'error_line' => ':1: warning: @itemize has text but no @item
+    'error_line' => 'warning: @itemize has text but no @item
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -573,7 +573,7 @@ $result_errors{'formats_only_titles'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: @enumerate has text but no @item
+    'error_line' => 'warning: @enumerate has text but no @item
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -582,7 +582,7 @@ $result_errors{'formats_only_titles'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @table has text but no @item
+    'error_line' => 'warning: @table has text but no @item
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -591,7 +591,7 @@ $result_errors{'formats_only_titles'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':13: warning: @vtable has text but no @item
+    'error_line' => 'warning: @vtable has text but no @item
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -600,7 +600,7 @@ $result_errors{'formats_only_titles'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: @multitable has text but no @item
+    'error_line' => 'warning: @multitable has text but no @item
 ',
     'file_name' => '',
     'line_nr' => 17,

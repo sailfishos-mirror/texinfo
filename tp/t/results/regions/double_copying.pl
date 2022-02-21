@@ -193,7 +193,7 @@ $result_texts{'double_copying'} = '';
 
 $result_errors{'double_copying'} = [
   {
-    'error_line' => ':5: region copying inside region copying is not allowed
+    'error_line' => 'region copying inside region copying is not allowed
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -202,7 +202,7 @@ $result_errors{'double_copying'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: warning: multiple @copying
+    'error_line' => 'warning: multiple @copying
 ',
     'file_name' => '',
     'line_nr' => 5,

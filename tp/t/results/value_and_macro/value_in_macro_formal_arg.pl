@@ -146,7 +146,7 @@ macro_arg1
 
 $result_errors{'value_in_macro_formal_arg'} = [
   {
-    'error_line' => ':3: bad or empty @macro formal argument: the@value{argument
+    'error_line' => 'bad or empty @macro formal argument: the@value{argument
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -155,7 +155,7 @@ $result_errors{'value_in_macro_formal_arg'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: bad syntax for @macro argument: }
+    'error_line' => 'bad syntax for @macro argument: }
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -164,7 +164,7 @@ $result_errors{'value_in_macro_formal_arg'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':7: unknown command `testvalue\'
+    'error_line' => 'unknown command `testvalue\'
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -173,7 +173,7 @@ $result_errors{'value_in_macro_formal_arg'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':7: misplaced {
+    'error_line' => 'misplaced {
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -182,7 +182,7 @@ $result_errors{'value_in_macro_formal_arg'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':7: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 7,

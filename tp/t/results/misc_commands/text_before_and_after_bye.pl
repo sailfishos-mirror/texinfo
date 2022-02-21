@@ -52,7 +52,7 @@ $result_texts{'text_before_and_after_bye'} = 'Before bye ';
 
 $result_errors{'text_before_and_after_bye'} = [
   {
-    'error_line' => ':1: warning: @bye should only appear at the beginning of a line
+    'error_line' => 'warning: @bye should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,

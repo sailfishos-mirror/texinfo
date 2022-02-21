@@ -268,7 +268,7 @@ After caption
 
 $result_errors{'caption_in_example'} = [
   {
-    'error_line' => ':6: warning: @caption should be right below `@float\'
+    'error_line' => 'warning: @caption should be right below `@float\'
 ',
     'file_name' => '',
     'line_nr' => 6,

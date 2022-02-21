@@ -116,7 +116,7 @@ fff';
 
 $result_errors{'line_after_recursive_call'} = [
   {
-    'error_line' => ':6: recursive call of macro mac is not allowed; use @rmacro if needed (possibly involving @mac)
+    'error_line' => 'recursive call of macro mac is not allowed; use @rmacro if needed (possibly involving @mac)
 ',
     'file_name' => '',
     'line_nr' => 6,

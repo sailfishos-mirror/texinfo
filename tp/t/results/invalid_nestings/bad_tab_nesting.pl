@@ -234,7 +234,7 @@ bidule
 
 $result_errors{'bad_tab_nesting'} = [
   {
-    'error_line' => ':3: warning: @tab should not appear in @code
+    'error_line' => 'warning: @tab should not appear in @code
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -243,7 +243,7 @@ $result_errors{'bad_tab_nesting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: @code missing closing brace
+    'error_line' => '@code missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -252,7 +252,7 @@ $result_errors{'bad_tab_nesting'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 3,

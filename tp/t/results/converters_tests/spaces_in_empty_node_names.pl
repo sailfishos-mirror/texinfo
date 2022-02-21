@@ -833,7 +833,7 @@ $result_menus{'spaces_in_empty_node_names'} = {
 
 $result_errors{'spaces_in_empty_node_names'} = [
   {
-    'error_line' => ':11: warning: @verb should not appear in @node
+    'error_line' => 'warning: @verb should not appear in @node
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -842,7 +842,7 @@ $result_errors{'spaces_in_empty_node_names'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: @verb should not appear in @ref
+    'error_line' => 'warning: @verb should not appear in @ref
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -851,7 +851,7 @@ $result_errors{'spaces_in_empty_node_names'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: empty node name after expansion `@ @ \'
+    'error_line' => 'empty node name after expansion `@ @ \'
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -860,7 +860,7 @@ $result_errors{'spaces_in_empty_node_names'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':11: empty node name after expansion `@verb{:  :}\'
+    'error_line' => 'empty node name after expansion `@verb{:  :}\'
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -869,7 +869,7 @@ $result_errors{'spaces_in_empty_node_names'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':13: empty node name after expansion `@w{  }\'
+    'error_line' => 'empty node name after expansion `@w{  }\'
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -878,7 +878,7 @@ $result_errors{'spaces_in_empty_node_names'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':15: @ref reference to nonexistent node `@ @ \'
+    'error_line' => '@ref reference to nonexistent node `@ @ \'
 ',
     'file_name' => '',
     'line_nr' => 15,
@@ -887,7 +887,7 @@ $result_errors{'spaces_in_empty_node_names'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':17: @ref reference to nonexistent node `@verb{:  :}\'
+    'error_line' => '@ref reference to nonexistent node `@verb{:  :}\'
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -896,7 +896,7 @@ $result_errors{'spaces_in_empty_node_names'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':19: @ref reference to nonexistent node `@w{  }\'
+    'error_line' => '@ref reference to nonexistent node `@w{  }\'
 ',
     'file_name' => '',
     'line_nr' => 19,
@@ -905,7 +905,7 @@ $result_errors{'spaces_in_empty_node_names'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':4: @menu reference to nonexistent node `@ @ \'
+    'error_line' => '@menu reference to nonexistent node `@ @ \'
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -914,7 +914,7 @@ $result_errors{'spaces_in_empty_node_names'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: @menu reference to nonexistent node `@verb{:  :}\'
+    'error_line' => '@menu reference to nonexistent node `@verb{:  :}\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -923,7 +923,7 @@ $result_errors{'spaces_in_empty_node_names'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: @menu reference to nonexistent node `@ \'
+    'error_line' => '@menu reference to nonexistent node `@ \'
 ',
     'file_name' => '',
     'line_nr' => 6,

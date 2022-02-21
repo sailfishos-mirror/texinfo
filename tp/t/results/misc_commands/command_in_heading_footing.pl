@@ -170,7 +170,7 @@ In code .
 
 $result_errors{'command_in_heading_footing'} = [
   {
-    'error_line' => ':3: @thispage should only appear in heading or footing
+    'error_line' => '@thispage should only appear in heading or footing
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -179,7 +179,7 @@ $result_errors{'command_in_heading_footing'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: @thischapternum should only appear in heading or footing
+    'error_line' => '@thischapternum should only appear in heading or footing
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -188,7 +188,7 @@ $result_errors{'command_in_heading_footing'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: @thissection should only appear in heading or footing
+    'error_line' => '@thissection should only appear in heading or footing
 ',
     'file_name' => '',
     'line_nr' => 5,

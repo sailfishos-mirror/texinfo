@@ -99,7 +99,7 @@ $result_texts{'beginning_and_end_on_line'} = '
 
 $result_errors{'beginning_and_end_on_line'} = [
   {
-    'error_line' => ':2: warning: @end should only appear at the beginning of a line
+    'error_line' => 'warning: @end should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 2,

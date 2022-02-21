@@ -272,7 +272,7 @@ A  (something).
 
 $result_errors{'invalid_clickstyle'} = [
   {
-    'error_line' => ':2: warning: remaining argument on @clickstyle line: on the same line
+    'error_line' => 'warning: remaining argument on @clickstyle line: on the same line
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -281,7 +281,7 @@ $result_errors{'invalid_clickstyle'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: @clickstyle should only accept an @-command as argument, not ` something
+    'error_line' => '@clickstyle should only accept an @-command as argument, not ` something
 \'
 ',
     'file_name' => '',

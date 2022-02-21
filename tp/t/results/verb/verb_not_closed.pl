@@ -61,7 +61,7 @@ $result_texts{'verb_not_closed'} = '  }   . ';
 
 $result_errors{'verb_not_closed'} = [
   {
-    'error_line' => ':1: @verb missing closing delimiter sequence: .}
+    'error_line' => '@verb missing closing delimiter sequence: .}
 ',
     'file_name' => '',
     'line_nr' => 1,

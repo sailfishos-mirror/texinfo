@@ -370,7 +370,7 @@ in table in format
 
 $result_errors{'preformatted'} = [
   {
-    'error_line' => ':10: warning: entry for index `vr\' outside of any node
+    'error_line' => 'warning: entry for index `vr\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 10,

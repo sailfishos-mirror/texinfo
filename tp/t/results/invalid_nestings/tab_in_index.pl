@@ -270,7 +270,7 @@ $result_texts{'tab_in_index'} = 'one nonlettered character aaa
 
 $result_errors{'tab_in_index'} = [
   {
-    'error_line' => ':3: warning: @tab should not appear in @vindex
+    'error_line' => 'warning: @tab should not appear in @vindex
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -279,7 +279,7 @@ $result_errors{'tab_in_index'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: ignoring @tab outside of multitable
+    'error_line' => 'ignoring @tab outside of multitable
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -288,7 +288,7 @@ $result_errors{'tab_in_index'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: warning: entry for index `vr\' outside of any node
+    'error_line' => 'warning: entry for index `vr\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 3,

@@ -48,9 +48,9 @@ sub test_line($$$$)
 my @tests = (
 ["\@node a node\n", 'node line'],
 ["aa \@exdent in exdent", 'exdent error no end line',
-  [':1: warning: @exdent should only appear at the beginning of a line']],
+  ['warning: @exdent should only appear at the beginning of a line']],
 ["aa \@exdent in exdent\n", 'exdent error with end line',
-  [':1: warning: @exdent should only appear at the beginning of a line']],
+  ['warning: @exdent should only appear at the beginning of a line']],
 ['@node node
 a node
 
@@ -80,10 +80,10 @@ in chapter
 @listoffloats type
 
 @bye
-', 'long example', [':4: warning: @setfilename after the first element',
-                    ':24: column fraction not a number: a',
-                    ':24: column fraction not a number: b',
-                    ':20: @columnfractions only meaningful on a @multitable line',
+', 'long example', ['warning: @setfilename after the first element',
+                    'column fraction not a number: a',
+                    'column fraction not a number: b',
+                    '@columnfractions only meaningful on a @multitable line',
 ]]
 );
 

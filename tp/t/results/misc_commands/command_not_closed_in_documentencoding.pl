@@ -67,7 +67,7 @@ $result_texts{'command_not_closed_in_documentencoding'} = '';
 
 $result_errors{'command_not_closed_in_documentencoding'} = [
   {
-    'error_line' => ':1: @strong missing closing brace
+    'error_line' => '@strong missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -76,7 +76,7 @@ $result_errors{'command_not_closed_in_documentencoding'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: bad argument to @documentencoding: @strong{}
+    'error_line' => 'bad argument to @documentencoding: @strong{}
 ',
     'file_name' => '',
     'line_nr' => 1,

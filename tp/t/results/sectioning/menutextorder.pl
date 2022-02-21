@@ -1603,7 +1603,7 @@ $result_menus{'menutextorder'}{'structure'}{'menu_child'}{'structure'}{'menu_up'
 
 $result_errors{'menutextorder'} = [
   {
-    'error_line' => ':6: warning: node `bar\' lacks menu item for `onesub1\' despite being its Up target
+    'error_line' => 'warning: node `bar\' lacks menu item for `onesub1\' despite being its Up target
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -1612,7 +1612,7 @@ $result_errors{'menutextorder'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':29: warning: node next pointer for `sub1\' is `sub2\' but next is `sub3\' in menu
+    'error_line' => 'warning: node next pointer for `sub1\' is `sub2\' but next is `sub3\' in menu
 ',
     'file_name' => '',
     'line_nr' => 29,
@@ -1621,7 +1621,7 @@ $result_errors{'menutextorder'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':32: warning: node prev pointer for `sub2\' is `sub1\' but prev is `sub3\' in menu
+    'error_line' => 'warning: node prev pointer for `sub2\' is `sub1\' but prev is `sub3\' in menu
 ',
     'file_name' => '',
     'line_nr' => 32,
@@ -1630,7 +1630,7 @@ $result_errors{'menutextorder'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':35: warning: node `sub2\' is next for `sub3\' in menu but not in sectioning
+    'error_line' => 'warning: node `sub2\' is next for `sub3\' in menu but not in sectioning
 ',
     'file_name' => '',
     'line_nr' => 35,
@@ -1639,7 +1639,7 @@ $result_errors{'menutextorder'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':35: warning: node prev pointer for `sub3\' is `sub2\' but prev is `sub1\' in menu
+    'error_line' => 'warning: node prev pointer for `sub3\' is `sub2\' but prev is `sub1\' in menu
 ',
     'file_name' => '',
     'line_nr' => 35,

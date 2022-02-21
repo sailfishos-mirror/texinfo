@@ -424,7 +424,7 @@ $result_menus{'unnumbered_before_node_top_top'}{'structure'}{'associated_unit'}{
 
 $result_errors{'unnumbered_before_node_top_top'} = [
   {
-    'error_line' => ':6: warning: lowering the section level of @top appearing after a lower element
+    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
 ',
     'file_name' => '',
     'line_nr' => 6,

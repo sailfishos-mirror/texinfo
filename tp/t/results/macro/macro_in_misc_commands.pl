@@ -4387,7 +4387,7 @@ $result_menus{'macro_in_misc_commands'}{'structure'}{'menu_child'}{'structure'}{
 
 $result_errors{'macro_in_misc_commands'} = [
   {
-    'error_line' => ':23: warning: @documentlanguage should only appear at the beginning of a line
+    'error_line' => 'warning: @documentlanguage should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 23,
@@ -4396,7 +4396,7 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':39: bad argument to @headings: on line following headings atext
+    'error_line' => 'bad argument to @headings: on line following headings atext
 ',
     'file_name' => '',
     'line_nr' => 39,
@@ -4405,7 +4405,7 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':58: warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 58,
@@ -4414,7 +4414,7 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':58: warning: @definfoenclose should only appear at the beginning of a line
+    'error_line' => 'warning: @definfoenclose should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 58,
@@ -4423,7 +4423,7 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':65: warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 65,
@@ -4432,7 +4432,7 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':78: warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 78,
@@ -4441,7 +4441,7 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':125: warning: multiple @footnotestyle
+    'error_line' => 'warning: multiple @footnotestyle
 ',
     'file_name' => '',
     'line_nr' => 125,
@@ -4450,7 +4450,7 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':162: warning: @page should only appear at the beginning of a line (possibly involving @pagemacro)
+    'error_line' => 'warning: @page should only appear at the beginning of a line (possibly involving @pagemacro)
 ',
     'file_name' => '',
     'line_nr' => 162,
@@ -4459,7 +4459,7 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':163: warning: @refill is obsolete. (possibly involving @refillmacro)
+    'error_line' => 'warning: @refill is obsolete. (possibly involving @refillmacro)
 ',
     'file_name' => '',
     'line_nr' => 163,
@@ -4468,7 +4468,7 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':173: warning: @page should only appear at the beginning of a line (possibly involving @pagemacro)
+    'error_line' => 'warning: @page should only appear at the beginning of a line (possibly involving @pagemacro)
 ',
     'file_name' => '',
     'line_nr' => 173,
@@ -4477,7 +4477,7 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':174: warning: @refill is obsolete. (possibly involving @refillmacro)
+    'error_line' => 'warning: @refill is obsolete. (possibly involving @refillmacro)
 ',
     'file_name' => '',
     'line_nr' => 174,

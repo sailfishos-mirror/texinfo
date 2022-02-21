@@ -143,7 +143,7 @@ $result_menus{'node_too_much_args'} = {
 
 $result_errors{'node_too_much_args'} = [
   {
-    'error_line' => ':1: warning: superfluous arguments for node
+    'error_line' => 'warning: superfluous arguments for node
 ',
     'file_name' => '',
     'line_nr' => 1,

@@ -208,7 +208,7 @@ $result_texts{'empty_multitable_in_itemize'} = 'in macro
 
 $result_errors{'empty_multitable_in_itemize'} = [
   {
-    'error_line' => ':4: warning: empty multitable
+    'error_line' => 'warning: empty multitable
 ',
     'file_name' => '',
     'line_nr' => 4,

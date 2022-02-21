@@ -831,7 +831,7 @@ float anchor.
 
 $result_errors{'no_element'} = [
   {
-    'error_line' => ':32: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 32,
@@ -915,7 +915,7 @@ $result_converted_errors{'info'}->{'no_element'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: @anchor outside of any node
+    'error_line' => 'warning: @anchor outside of any node
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -924,7 +924,7 @@ $result_converted_errors{'info'}->{'no_element'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':13: warning: @footnote outside of any node
+    'error_line' => 'warning: @footnote outside of any node
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -933,7 +933,7 @@ $result_converted_errors{'info'}->{'no_element'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':21: warning: @float outside of any node
+    'error_line' => 'warning: @float outside of any node
 ',
     'file_name' => '',
     'line_nr' => 21,
@@ -942,7 +942,7 @@ $result_converted_errors{'info'}->{'no_element'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':15: warning: @anchor outside of any node
+    'error_line' => 'warning: @anchor outside of any node
 ',
     'file_name' => '',
     'line_nr' => 15,

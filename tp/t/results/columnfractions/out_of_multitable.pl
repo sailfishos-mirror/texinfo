@@ -56,7 +56,7 @@ $result_texts{'out_of_multitable'} = '';
 
 $result_errors{'out_of_multitable'} = [
   {
-    'error_line' => ':1: column fraction not a number: aaa
+    'error_line' => 'column fraction not a number: aaa
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -65,7 +65,7 @@ $result_errors{'out_of_multitable'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: @columnfractions only meaningful on a @multitable line
+    'error_line' => '@columnfractions only meaningful on a @multitable line
 ',
     'file_name' => '',
     'line_nr' => 1,

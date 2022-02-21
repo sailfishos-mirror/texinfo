@@ -632,7 +632,7 @@ itemx vtable
 
 $result_errors{'table'} = [
   {
-    'error_line' => ':11: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -641,7 +641,7 @@ $result_errors{'table'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':13: warning: entry for index `vr\' outside of any node
+    'error_line' => 'warning: entry for index `vr\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -650,7 +650,7 @@ $result_errors{'table'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':15: warning: entry for index `ky\' outside of any node
+    'error_line' => 'warning: entry for index `ky\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 15,
@@ -659,7 +659,7 @@ $result_errors{'table'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':16: warning: entry for index `vr\' outside of any node
+    'error_line' => 'warning: entry for index `vr\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 16,

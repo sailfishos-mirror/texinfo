@@ -4555,7 +4555,7 @@ $result_menus{'test_index'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} =
 
 $result_errors{'test_index'} = [
   {
-    'error_line' => ':227: warning: @centerchap is obsolete.
+    'error_line' => 'warning: @centerchap is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 227,

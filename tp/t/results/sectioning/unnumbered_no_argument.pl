@@ -70,7 +70,7 @@ $result_sectioning{'unnumbered_no_argument'}{'structure'}{'section_childs'}[0]{'
 
 $result_errors{'unnumbered_no_argument'} = [
   {
-    'error_line' => ':1: warning: @unnumbered missing argument
+    'error_line' => 'warning: @unnumbered missing argument
 ',
     'file_name' => '',
     'line_nr' => 1,

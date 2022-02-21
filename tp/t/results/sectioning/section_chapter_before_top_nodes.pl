@@ -802,7 +802,7 @@ $result_menus{'section_chapter_before_top_nodes'}{'structure'}{'menu_child'}{'st
 
 $result_errors{'section_chapter_before_top_nodes'} = [
   {
-    'error_line' => ':7: warning: lowering the section level of @chapter appearing after a lower element
+    'error_line' => 'warning: lowering the section level of @chapter appearing after a lower element
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -811,7 +811,7 @@ $result_errors{'section_chapter_before_top_nodes'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: lowering the section level of @top appearing after a lower element
+    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -820,7 +820,7 @@ $result_errors{'section_chapter_before_top_nodes'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: node `chapter node\' is up for `section node\' in menu but not in sectioning
+    'error_line' => 'warning: node `chapter node\' is up for `section node\' in menu but not in sectioning
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -829,7 +829,7 @@ $result_errors{'section_chapter_before_top_nodes'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: node `Top\' is up for `chapter node\' in menu but not in sectioning
+    'error_line' => 'warning: node `Top\' is up for `chapter node\' in menu but not in sectioning
 ',
     'file_name' => '',
     'line_nr' => 6,

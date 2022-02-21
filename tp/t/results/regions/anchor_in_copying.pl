@@ -402,7 +402,7 @@ End:
 
 $result_converted_errors{'info'}->{'anchor_in_copying'} = [
   {
-    'error_line' => ':5: @anchor output more than once: Copying information
+    'error_line' => '@anchor output more than once: Copying information
 ',
     'file_name' => '',
     'line_nr' => 5,

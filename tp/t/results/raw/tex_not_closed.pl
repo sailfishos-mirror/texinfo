@@ -81,7 +81,7 @@ $result_texts{'tex_not_closed'} = '';
 
 $result_errors{'tex_not_closed'} = [
   {
-    'error_line' => ':3: no matching `@end tex\'
+    'error_line' => 'no matching `@end tex\'
 ',
     'file_name' => '',
     'line_nr' => 3,

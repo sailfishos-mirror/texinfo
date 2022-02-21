@@ -127,7 +127,7 @@ code
 
 $result_errors{'redefine_texinfo_macro'} = [
   {
-    'error_line' => ':1: warning: redefining Texinfo language command: @code
+    'error_line' => 'warning: redefining Texinfo language command: @code
 ',
     'file_name' => '',
     'line_nr' => 1,

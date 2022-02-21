@@ -173,7 +173,7 @@ headitem enumerate
 
 $result_errors{'headitem_itemx_in_enumerate'} = [
   {
-    'error_line' => ':3: @itemx outside of table or list
+    'error_line' => '@itemx outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -182,7 +182,7 @@ $result_errors{'headitem_itemx_in_enumerate'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':4: @headitem not meaningful inside `@enumerate\' block
+    'error_line' => '@headitem not meaningful inside `@enumerate\' block
 ',
     'file_name' => '',
     'line_nr' => 4,

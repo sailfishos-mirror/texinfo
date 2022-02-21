@@ -128,7 +128,7 @@ Second para.
 
 $result_errors{'double_style_paragraph'} = [
   {
-    'error_line' => ':1: @strong missing closing brace
+    'error_line' => '@strong missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -137,7 +137,7 @@ $result_errors{'double_style_paragraph'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: @emph missing closing brace
+    'error_line' => '@emph missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -146,7 +146,7 @@ $result_errors{'double_style_paragraph'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -155,7 +155,7 @@ $result_errors{'double_style_paragraph'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 6,

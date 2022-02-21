@@ -53,7 +53,7 @@ $result_texts{'invalid_accent_punctuation'} = 'a. ^@';
 
 $result_errors{'invalid_accent_punctuation'} = [
   {
-    'error_line' => ':1: use braces to give a command as an argument to @^
+    'error_line' => 'use braces to give a command as an argument to @^
 ',
     'file_name' => '',
     'line_nr' => 1,

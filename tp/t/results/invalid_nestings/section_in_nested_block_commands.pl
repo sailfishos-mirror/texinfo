@@ -256,7 +256,7 @@ $result_sectioning{'section_in_nested_block_commands'}{'structure'}{'section_chi
 
 $result_errors{'section_in_nested_block_commands'} = [
   {
-    'error_line' => ':9: @section seen before @end quotation
+    'error_line' => '@section seen before @end quotation
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -265,7 +265,7 @@ $result_errors{'section_in_nested_block_commands'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':9: @section seen before @end table
+    'error_line' => '@section seen before @end table
 ',
     'file_name' => '',
     'line_nr' => 9,

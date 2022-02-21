@@ -34,7 +34,7 @@ $result_texts{'bad_ifclear_argument'} = '
 
 $result_errors{'bad_ifclear_argument'} = [
   {
-    'error_line' => ':2: bad name for @ifclear
+    'error_line' => 'bad name for @ifclear
 ',
     'file_name' => '',
     'line_nr' => 2,

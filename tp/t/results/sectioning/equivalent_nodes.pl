@@ -458,7 +458,7 @@ $result_menus{'equivalent_nodes'}{'structure'}{'menu_child'}{'structure'}{'menu_
 
 $result_errors{'equivalent_nodes'} = [
   {
-    'error_line' => ':9: warning: @xref to `node\', different from node name `@samp{node}\'
+    'error_line' => 'warning: @xref to `node\', different from node name `@samp{node}\'
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -467,7 +467,7 @@ $result_errors{'equivalent_nodes'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: @menu entry node name `@strong{node}\' different from node name `@samp{node}\'
+    'error_line' => 'warning: @menu entry node name `@strong{node}\' different from node name `@samp{node}\'
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -476,7 +476,7 @@ $result_errors{'equivalent_nodes'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: Next pointer `@emph{node}\' (for node `Top\') different from node name `@samp{node}\'
+    'error_line' => 'warning: Next pointer `@emph{node}\' (for node `Top\') different from node name `@samp{node}\'
 ',
     'file_name' => '',
     'line_nr' => 1,

@@ -75,21 +75,16 @@ sub line_warn($$$$)
   chomp ($text);
   my $line_number = shift;
   return if (!defined($line_number));
-  my $file = $line_number->{'file_name'};
-  # otherwise out of source build fail since the file names are different
-  my ($directories, $suffix);
-  ($file, $directories, $suffix) = fileparse($file)
-    if (defined($configuration_information)
-        and $configuration_information->get_conf('TEST'));
   my $warn_line;
+
   if ($line_number->{'macro'} ne '') {
     $warn_line = sprintf(__p("Texinfo source file warning",
-                             "%s:%d: warning: %s (possibly involving \@%s)\n"),
-             $file, $line_number->{'line_nr'}, $text, $line_number->{'macro'});
+                             "warning: %s (possibly involving \@%s)\n"),
+                         $text, $line_number->{'macro'});
   } else {
     $warn_line = sprintf(__p("Texinfo source file warning", 
-                                    "%s:%d: warning: %s\n"),
-                         $file, $line_number->{'line_nr'}, $text);
+                             "warning: %s\n"),
+                         $text);
   }
   warn $warn_line if (defined($configuration_information)
                       and $configuration_information->get_conf('DEBUG'));
@@ -107,19 +102,15 @@ sub line_error($$$$)
   chomp ($text);
   my $line_number = shift;
   if (defined($line_number)) {
-    my $file = $line_number->{'file_name'};
-    my ($directories, $suffix);
-    ($file, $directories, $suffix) = fileparse($file)
-       if (defined($configuration_information)
-           and $configuration_information->get_conf('TEST'));
     my $macro_text = '';
     $macro_text = " (possibly involving \@$line_number->{'macro'})"
        if ($line_number->{'macro'} ne '');
-    my $error_text = "$file:$line_number->{'line_nr'}: $text$macro_text\n";
+    my $error_text = "$text$macro_text\n";
     warn $error_text if (defined($configuration_information)
                          and $configuration_information->get_conf('DEBUG'));
     push @{$self->{'errors_warnings'}},
-         { 'type' => 'error', 'text' => $text, 'error_line' => $error_text,
+         { 'type' => 'error', 'text' => $text,
+           'error_line' => $error_text,
            %{$line_number} };
   }
   $self->{'error_nrs'}++;

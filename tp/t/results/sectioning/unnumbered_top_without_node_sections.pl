@@ -823,7 +823,7 @@ $result_menus{'unnumbered_top_without_node_sections'}{'structure'}{'associated_u
 
 $result_errors{'unnumbered_top_without_node_sections'} = [
   {
-    'error_line' => ':6: warning: lowering the section level of @top appearing after a lower element
+    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -832,7 +832,7 @@ $result_errors{'unnumbered_top_without_node_sections'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: node `second\' unreferenced
+    'error_line' => 'warning: node `second\' unreferenced
 ',
     'file_name' => '',
     'line_nr' => 9,

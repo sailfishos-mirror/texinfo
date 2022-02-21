@@ -383,7 +383,7 @@ very strong
 
 $result_errors{'definfoenclose'} = [
   {
-    'error_line' => ':2: warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -392,7 +392,7 @@ $result_errors{'definfoenclose'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @definfoenclose should only appear at the beginning of a line
+    'error_line' => 'warning: @definfoenclose should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -401,7 +401,7 @@ $result_errors{'definfoenclose'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -410,7 +410,7 @@ $result_errors{'definfoenclose'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: @definfoenclose should only appear at the beginning of a line
+    'error_line' => 'warning: @definfoenclose should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -419,7 +419,7 @@ $result_errors{'definfoenclose'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':12: warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 12,

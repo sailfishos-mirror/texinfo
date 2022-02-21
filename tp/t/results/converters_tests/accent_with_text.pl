@@ -235,7 +235,7 @@ $result_texts{'accent_with_text'} = '-a( -b i^ j^ -a^
 
 $result_errors{'accent_with_text'} = [
   {
-    'error_line' => ':1: @dotless expects `i\' or `j\' as argument, not `--b\'
+    'error_line' => '@dotless expects `i\' or `j\' as argument, not `--b\'
 ',
     'file_name' => '',
     'line_nr' => 1,

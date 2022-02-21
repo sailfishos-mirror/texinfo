@@ -737,7 +737,7 @@ $result_menus{'node_part_chapter_after_top'}{'structure'}{'menu_child'}{'structu
 
 $result_errors{'node_part_chapter_after_top'} = [
   {
-    'error_line' => ':9: warning: @node precedes @part, but parts may not be associated with nodes
+    'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
 ',
     'file_name' => '',
     'line_nr' => 9,

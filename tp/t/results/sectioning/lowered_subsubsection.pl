@@ -1894,7 +1894,7 @@ $result_menus{'lowered_subsubsection'}{'structure'}{'menu_child'}{'structure'}{'
 
 $result_errors{'lowered_subsubsection'} = [
   {
-    'error_line' => ':41: warning: node up pointer for `Lowered subsubsection\' is `Subsection\' but up is `Lowered subsec\' in menu
+    'error_line' => 'warning: node up pointer for `Lowered subsubsection\' is `Subsection\' but up is `Lowered subsec\' in menu
 ',
     'file_name' => '',
     'line_nr' => 41,
@@ -1903,7 +1903,7 @@ $result_errors{'lowered_subsubsection'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':22: warning: node `Subsection\' lacks menu item for `Lowered subsubsection\' despite being its Up target
+    'error_line' => 'warning: node `Subsection\' lacks menu item for `Lowered subsubsection\' despite being its Up target
 ',
     'file_name' => '',
     'line_nr' => 22,

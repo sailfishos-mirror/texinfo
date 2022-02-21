@@ -681,7 +681,7 @@ carouche
 
 $result_errors{'block_not_matching'} = [
   {
-    'error_line' => ':3: `@end\' expected `quotation\', but saw `cartouche\'
+    'error_line' => '`@end\' expected `quotation\', but saw `cartouche\'
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -690,7 +690,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: unmatched `@end cartouche\'
+    'error_line' => 'unmatched `@end cartouche\'
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -699,7 +699,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -708,7 +708,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':7: `@end\' expected `deffn\', but saw `deftypefun\'
+    'error_line' => '`@end\' expected `deffn\', but saw `deftypefun\'
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -717,7 +717,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':7: unmatched `@end deftypefun\'
+    'error_line' => 'unmatched `@end deftypefun\'
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -726,7 +726,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':12: `@end\' expected `table\', but saw `vtable\'
+    'error_line' => '`@end\' expected `table\', but saw `vtable\'
 ',
     'file_name' => '',
     'line_nr' => 12,
@@ -735,7 +735,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':12: unmatched `@end vtable\'
+    'error_line' => 'unmatched `@end vtable\'
 ',
     'file_name' => '',
     'line_nr' => 12,
@@ -744,7 +744,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':18: `@end\' expected `example\', but saw `display\'
+    'error_line' => '`@end\' expected `example\', but saw `display\'
 ',
     'file_name' => '',
     'line_nr' => 18,
@@ -753,7 +753,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':18: `@end\' expected `table\', but saw `display\'
+    'error_line' => '`@end\' expected `table\', but saw `display\'
 ',
     'file_name' => '',
     'line_nr' => 18,
@@ -762,7 +762,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':18: unmatched `@end display\'
+    'error_line' => 'unmatched `@end display\'
 ',
     'file_name' => '',
     'line_nr' => 18,
@@ -771,7 +771,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':19: unmatched `@end table\'
+    'error_line' => 'unmatched `@end table\'
 ',
     'file_name' => '',
     'line_nr' => 19,
@@ -780,7 +780,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':23: `@end\' expected `group\', but saw `table\'
+    'error_line' => '`@end\' expected `group\', but saw `table\'
 ',
     'file_name' => '',
     'line_nr' => 23,
@@ -789,7 +789,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':23: unmatched `@end table\'
+    'error_line' => 'unmatched `@end table\'
 ',
     'file_name' => '',
     'line_nr' => 23,
@@ -798,7 +798,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':27: `@end\' expected `group\', but saw `cartouche\'
+    'error_line' => '`@end\' expected `group\', but saw `cartouche\'
 ',
     'file_name' => '',
     'line_nr' => 27,
@@ -807,7 +807,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':27: unmatched `@end cartouche\'
+    'error_line' => 'unmatched `@end cartouche\'
 ',
     'file_name' => '',
     'line_nr' => 27,
@@ -816,7 +816,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':31: `@end\' expected `cartouche\', but saw `group\'
+    'error_line' => '`@end\' expected `cartouche\', but saw `group\'
 ',
     'file_name' => '',
     'line_nr' => 31,
@@ -825,7 +825,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':31: unmatched `@end group\'
+    'error_line' => 'unmatched `@end group\'
 ',
     'file_name' => '',
     'line_nr' => 31,
@@ -834,7 +834,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':35: `@end\' expected `cartouche\', but saw `float\'
+    'error_line' => '`@end\' expected `cartouche\', but saw `float\'
 ',
     'file_name' => '',
     'line_nr' => 35,
@@ -843,7 +843,7 @@ $result_errors{'block_not_matching'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':35: unmatched `@end float\'
+    'error_line' => 'unmatched `@end float\'
 ',
     'file_name' => '',
     'line_nr' => 35,

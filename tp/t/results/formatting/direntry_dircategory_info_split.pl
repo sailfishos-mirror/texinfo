@@ -1284,7 +1284,7 @@ $result_menus{'direntry_dircategory_info_split'}{'structure'}{'menu_child'}{'str
 
 $result_errors{'direntry_dircategory_info_split'} = [
   {
-    'error_line' => 'direntry_dircategory.texi:23: warning: @dircategory after first node
+    'error_line' => 'warning: @dircategory after first node
 ',
     'file_name' => 'direntry_dircategory.texi',
     'line_nr' => 23,
@@ -1293,7 +1293,7 @@ $result_errors{'direntry_dircategory_info_split'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'direntry_dircategory.texi:24: warning: @direntry after first node
+    'error_line' => 'warning: @direntry after first node
 ',
     'file_name' => 'direntry_dircategory.texi',
     'line_nr' => 24,

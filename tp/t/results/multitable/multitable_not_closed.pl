@@ -99,7 +99,7 @@ $result_texts{'multitable_not_closed'} = '';
 
 $result_errors{'multitable_not_closed'} = [
   {
-    'error_line' => ':1: no matching `@end multitable\'
+    'error_line' => 'no matching `@end multitable\'
 ',
     'file_name' => '',
     'line_nr' => 1,

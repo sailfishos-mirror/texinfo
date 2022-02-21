@@ -69,7 +69,7 @@ $result_texts{'printindex_before_document'} = '
 
 $result_errors{'printindex_before_document'} = [
   {
-    'error_line' => ':2: warning: printindex before document beginning: @printindex cp
+    'error_line' => 'warning: printindex before document beginning: @printindex cp
 ',
     'file_name' => '',
     'line_nr' => 2,

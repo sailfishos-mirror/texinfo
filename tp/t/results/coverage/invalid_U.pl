@@ -321,7 +321,7 @@ $result_texts{'invalid_U'} = ' z abc 9999999999999 110000 10FFFF
 
 $result_errors{'invalid_U'} = [
   {
-    'error_line' => ':1: @U expected braces
+    'error_line' => '@U expected braces
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -330,7 +330,7 @@ $result_errors{'invalid_U'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: warning: no argument specified for @U
+    'error_line' => 'warning: no argument specified for @U
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -339,7 +339,7 @@ $result_errors{'invalid_U'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: non-hex digits in argument for @U: z
+    'error_line' => 'non-hex digits in argument for @U: z
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -348,7 +348,7 @@ $result_errors{'invalid_U'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: warning: fewer than four hex digits in argument for @U: abc
+    'error_line' => 'warning: fewer than four hex digits in argument for @U: abc
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -357,7 +357,7 @@ $result_errors{'invalid_U'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: argument for @U exceeds Unicode maximum 0x10FFFF: 9999999999999
+    'error_line' => 'argument for @U exceeds Unicode maximum 0x10FFFF: 9999999999999
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -366,7 +366,7 @@ $result_errors{'invalid_U'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: argument for @U exceeds Unicode maximum 0x10FFFF: 110000
+    'error_line' => 'argument for @U exceeds Unicode maximum 0x10FFFF: 110000
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -375,7 +375,7 @@ $result_errors{'invalid_U'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':2: non-hex digits in argument for @U: wxyz
+    'error_line' => 'non-hex digits in argument for @U: wxyz
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -410,7 +410,7 @@ $result_converted{'docbook'}->{'invalid_U'} = '<para> &#xz; &#xabc; &#x999999999
 
 $result_converted_errors{'docbook'}->{'invalid_U'} = [
   {
-    'error_line' => ':1: warning: no argument specified for @U
+    'error_line' => 'warning: no argument specified for @U
 ',
     'file_name' => '',
     'line_nr' => 1,

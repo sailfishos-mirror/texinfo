@@ -234,7 +234,7 @@ $result_texts{'bad_argument'} = '
 
 $result_errors{'bad_argument'} = [
   {
-    'error_line' => ':1: @macro requires a name
+    'error_line' => '@macro requires a name
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -243,7 +243,7 @@ $result_errors{'bad_argument'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: bad syntax for @rmacro argument: aaa
+    'error_line' => 'bad syntax for @rmacro argument: aaa
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -252,7 +252,7 @@ $result_errors{'bad_argument'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':9: bad syntax for @macro argument: more
+    'error_line' => 'bad syntax for @macro argument: more
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -261,7 +261,7 @@ $result_errors{'bad_argument'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':13: bad name for @macro
+    'error_line' => 'bad name for @macro
 ',
     'file_name' => '',
     'line_nr' => 13,

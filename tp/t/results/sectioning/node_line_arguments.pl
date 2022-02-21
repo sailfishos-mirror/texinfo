@@ -748,7 +748,7 @@ $result_menus{'node_line_arguments'} = {
 
 $result_errors{'node_line_arguments'} = [
   {
-    'error_line' => ':6: warning: superfluous arguments for node
+    'error_line' => 'warning: superfluous arguments for node
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -757,7 +757,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: Next reference to nonexistent `two arg\'
+    'error_line' => 'Next reference to nonexistent `two arg\'
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -766,7 +766,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':4: Next reference to nonexistent `two arg\'
+    'error_line' => 'Next reference to nonexistent `two arg\'
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -775,7 +775,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':4: Prev reference to nonexistent `three arg\'
+    'error_line' => 'Prev reference to nonexistent `three arg\'
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -784,7 +784,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: Next reference to nonexistent `two arg\'
+    'error_line' => 'Next reference to nonexistent `two arg\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -793,7 +793,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: Prev reference to nonexistent `three arg\'
+    'error_line' => 'Prev reference to nonexistent `three arg\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -802,7 +802,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: Up reference to nonexistent `four arg\'
+    'error_line' => 'Up reference to nonexistent `four arg\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -811,7 +811,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: Next reference to nonexistent `two arg\'
+    'error_line' => 'Next reference to nonexistent `two arg\'
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -820,7 +820,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: Prev reference to nonexistent `three arg\'
+    'error_line' => 'Prev reference to nonexistent `three arg\'
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -829,7 +829,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: Up reference to nonexistent `four arg five arg\'
+    'error_line' => 'Up reference to nonexistent `four arg five arg\'
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -838,7 +838,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':10: Next reference to nonexistent `@,cedilla\'
+    'error_line' => 'Next reference to nonexistent `@,cedilla\'
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -847,7 +847,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':10: Prev reference to nonexistent `@strong{comma in strong,}\'
+    'error_line' => 'Prev reference to nonexistent `@strong{comma in strong,}\'
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -856,7 +856,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: warning: node `one arg2\' unreferenced
+    'error_line' => 'warning: node `one arg2\' unreferenced
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -865,7 +865,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: node `one arg3\' unreferenced
+    'error_line' => 'warning: node `one arg3\' unreferenced
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -874,7 +874,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: node `one arg4\' unreferenced
+    'error_line' => 'warning: node `one arg4\' unreferenced
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -883,7 +883,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: node `one arg5\' unreferenced
+    'error_line' => 'warning: node `one arg5\' unreferenced
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -892,7 +892,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: node `comment\' unreferenced
+    'error_line' => 'warning: node `comment\' unreferenced
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -901,7 +901,7 @@ $result_errors{'node_line_arguments'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: warning: node `arg1 @comma{} arg2\' unreferenced
+    'error_line' => 'warning: node `arg1 @comma{} arg2\' unreferenced
 ',
     'file_name' => '',
     'line_nr' => 10,

@@ -68,7 +68,7 @@ $result_texts{'menu_no_closed_entry_beginning'} = '* node';
 
 $result_errors{'menu_no_closed_entry_beginning'} = [
   {
-    'error_line' => ':2: no matching `@end menu\'
+    'error_line' => 'no matching `@end menu\'
 ',
     'file_name' => '',
     'line_nr' => 2,

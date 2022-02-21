@@ -190,7 +190,7 @@ $result_texts{'leading_space_in_def_arg'} = 'category: name arg
 
 $result_errors{'leading_space_in_def_arg'} = [
   {
-    'error_line' => ':1: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 1,

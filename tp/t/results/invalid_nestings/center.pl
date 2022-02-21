@@ -1670,7 +1670,7 @@ second item
 
 $result_errors{'center'} = [
   {
-    'error_line' => ':1: warning: @indent should not appear in @center
+    'error_line' => 'warning: @indent should not appear in @center
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -1679,7 +1679,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: @cindex should only appear at the beginning of a line
+    'error_line' => 'warning: @cindex should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -1688,7 +1688,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: @cindex should not appear in @center
+    'error_line' => 'warning: @cindex should not appear in @center
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -1697,7 +1697,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -1706,7 +1706,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: @quotation should not appear in @center
+    'error_line' => 'warning: @quotation should not appear in @center
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -1715,7 +1715,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: no matching `@end quotation\'
+    'error_line' => 'no matching `@end quotation\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -1724,7 +1724,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':7: unmatched `@end quotation\'
+    'error_line' => 'unmatched `@end quotation\'
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -1733,7 +1733,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':9: warning: @center should only appear at the beginning of a line
+    'error_line' => 'warning: @center should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -1742,7 +1742,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @center should not appear in @center
+    'error_line' => 'warning: @center should not appear in @center
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -1751,7 +1751,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: @code missing closing brace
+    'error_line' => '@code missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -1760,7 +1760,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':13: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -1769,7 +1769,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':15: warning: @center should only appear at the beginning of a line
+    'error_line' => 'warning: @center should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 15,
@@ -1778,7 +1778,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':15: warning: @center should not appear in @code
+    'error_line' => 'warning: @center should not appear in @code
 ',
     'file_name' => '',
     'line_nr' => 15,
@@ -1787,7 +1787,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':15: @code missing closing brace
+    'error_line' => '@code missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 15,
@@ -1796,7 +1796,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':17: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -1805,7 +1805,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':19: warning: @center should only appear at the beginning of a line
+    'error_line' => 'warning: @center should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 19,
@@ -1814,7 +1814,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':19: warning: @center should not appear in @code
+    'error_line' => 'warning: @center should not appear in @code
 ',
     'file_name' => '',
     'line_nr' => 19,
@@ -1823,7 +1823,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':19: @code missing closing brace
+    'error_line' => '@code missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 19,
@@ -1832,7 +1832,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':19: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 19,
@@ -1841,7 +1841,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':22: warning: @item should not appear in @center
+    'error_line' => 'warning: @item should not appear in @center
 ',
     'file_name' => '',
     'line_nr' => 22,
@@ -1850,7 +1850,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':22: @item outside of table or list
+    'error_line' => '@item outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 22,
@@ -1859,7 +1859,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':21: warning: @table has text but no @item
+    'error_line' => 'warning: @table has text but no @item
 ',
     'file_name' => '',
     'line_nr' => 21,
@@ -1868,7 +1868,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':27: warning: @item should not appear in @center
+    'error_line' => 'warning: @item should not appear in @center
 ',
     'file_name' => '',
     'line_nr' => 27,
@@ -1877,7 +1877,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':27: @item outside of table or list
+    'error_line' => '@item outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 27,
@@ -1886,7 +1886,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':31: warning: @center should not appear in @center
+    'error_line' => 'warning: @center should not appear in @center
 ',
     'file_name' => '',
     'line_nr' => 31,
@@ -1895,7 +1895,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':31: warning: @center missing argument
+    'error_line' => 'warning: @center missing argument
 ',
     'file_name' => '',
     'line_nr' => 31,
@@ -1904,7 +1904,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':33: warning: @center should only appear at the beginning of a line
+    'error_line' => 'warning: @center should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 33,
@@ -1913,7 +1913,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':33: warning: @center should not appear in @samp
+    'error_line' => 'warning: @center should not appear in @samp
 ',
     'file_name' => '',
     'line_nr' => 33,
@@ -1922,7 +1922,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':33: @samp missing closing brace
+    'error_line' => '@samp missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 33,
@@ -1931,7 +1931,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':33: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 33,
@@ -1940,7 +1940,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':35: warning: @center should only appear at the beginning of a line
+    'error_line' => 'warning: @center should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 35,
@@ -1949,7 +1949,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':35: warning: @center should not appear in @samp
+    'error_line' => 'warning: @center should not appear in @samp
 ',
     'file_name' => '',
     'line_nr' => 35,
@@ -1958,7 +1958,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':35: @samp missing closing brace
+    'error_line' => '@samp missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 35,
@@ -1967,7 +1967,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':37: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 37,
@@ -1976,7 +1976,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':41: warning: @item should not appear in @center
+    'error_line' => 'warning: @item should not appear in @center
 ',
     'file_name' => '',
     'line_nr' => 41,
@@ -1985,7 +1985,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':41: @item outside of table or list
+    'error_line' => '@item outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 41,
@@ -1994,7 +1994,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':41: warning: @tab should not appear in @center
+    'error_line' => 'warning: @tab should not appear in @center
 ',
     'file_name' => '',
     'line_nr' => 41,
@@ -2003,7 +2003,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':41: ignoring @tab outside of multitable
+    'error_line' => 'ignoring @tab outside of multitable
 ',
     'file_name' => '',
     'line_nr' => 41,
@@ -2012,7 +2012,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':42: warning: @item should not appear in @center
+    'error_line' => 'warning: @item should not appear in @center
 ',
     'file_name' => '',
     'line_nr' => 42,
@@ -2021,7 +2021,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':42: @item outside of table or list
+    'error_line' => '@item outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 42,
@@ -2030,7 +2030,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':45: warning: @table should only appear at the beginning of a line
+    'error_line' => 'warning: @table should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 45,
@@ -2039,7 +2039,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':45: warning: @table should not appear in @center
+    'error_line' => 'warning: @table should not appear in @center
 ',
     'file_name' => '',
     'line_nr' => 45,
@@ -2048,7 +2048,7 @@ $result_errors{'center'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':45: no matching `@end table\'
+    'error_line' => 'no matching `@end table\'
 ',
     'file_name' => '',
     'line_nr' => 45,
@@ -2057,7 +2057,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':46: @item outside of table or list
+    'error_line' => '@item outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 46,
@@ -2066,7 +2066,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':48: @item outside of table or list
+    'error_line' => '@item outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 48,
@@ -2075,7 +2075,7 @@ $result_errors{'center'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':49: unmatched `@end table\'
+    'error_line' => 'unmatched `@end table\'
 ',
     'file_name' => '',
     'line_nr' => 49,

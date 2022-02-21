@@ -196,7 +196,7 @@ $result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[1] = $r
 
 $result_errors{'chapter_before_part'} = [
   {
-    'error_line' => ':3: warning: no sectioning command associated with @part
+    'error_line' => 'warning: no sectioning command associated with @part
 ',
     'file_name' => '',
     'line_nr' => 3,

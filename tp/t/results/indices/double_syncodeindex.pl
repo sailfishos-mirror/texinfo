@@ -364,7 +364,7 @@ $result_menus{'double_syncodeindex'} = {
 
 $result_errors{'double_syncodeindex'} = [
   {
-    'error_line' => ':10: warning: printing an index `cp\' merged in another one, `fn\'
+    'error_line' => 'warning: printing an index `cp\' merged in another one, `fn\'
 ',
     'file_name' => '',
     'line_nr' => 10,

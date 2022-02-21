@@ -440,7 +440,7 @@ $result_menus{'multiple_menus'} = {
 
 $result_errors{'multiple_menus'} = [
   {
-    'error_line' => ':7: warning: multiple @menu
+    'error_line' => 'warning: multiple @menu
 ',
     'file_name' => '',
     'line_nr' => 7,

@@ -102,7 +102,7 @@ call foo
 
 $result_errors{'arg_not_closed'} = [
   {
-    'error_line' => ':5: @foo missing closing brace
+    'error_line' => '@foo missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 5,

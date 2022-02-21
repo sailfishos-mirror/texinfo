@@ -395,7 +395,7 @@ xx jj
 
 $result_errors{'set_in_item_missing_line'} = [
   {
-    'error_line' => ':8: warning: @item should not appear in @item
+    'error_line' => 'warning: @item should not appear in @item
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -404,7 +404,7 @@ $result_errors{'set_in_item_missing_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: @item outside of table or list
+    'error_line' => '@item outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 8,

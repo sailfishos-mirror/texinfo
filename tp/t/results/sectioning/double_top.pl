@@ -258,7 +258,7 @@ $result_menus{'double_top'} = {
 
 $result_errors{'double_top'} = [
   {
-    'error_line' => ':3: @node `top\' previously defined
+    'error_line' => '@node `top\' previously defined
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -267,7 +267,7 @@ $result_errors{'double_top'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: here is the previous definition as @node
+    'error_line' => 'here is the previous definition as @node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -276,7 +276,7 @@ $result_errors{'double_top'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: @anchor `TOP\' previously defined
+    'error_line' => '@anchor `TOP\' previously defined
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -285,7 +285,7 @@ $result_errors{'double_top'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: here is the previous definition as @node
+    'error_line' => 'here is the previous definition as @node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -294,7 +294,7 @@ $result_errors{'double_top'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: warning: Next pointer `top\' (for node `ToP\') different from node name `ToP\'
+    'error_line' => 'warning: Next pointer `top\' (for node `ToP\') different from node name `ToP\'
 ',
     'file_name' => '',
     'line_nr' => 1,

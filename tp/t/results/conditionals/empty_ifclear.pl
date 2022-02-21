@@ -24,7 +24,7 @@ $result_texts{'empty_ifclear'} = '';
 
 $result_errors{'empty_ifclear'} = [
   {
-    'error_line' => ':1: @ifclear requires a name
+    'error_line' => '@ifclear requires a name
 ',
     'file_name' => '',
     'line_nr' => 1,

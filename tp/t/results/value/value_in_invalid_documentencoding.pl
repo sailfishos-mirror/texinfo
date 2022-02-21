@@ -86,7 +86,7 @@ $result_texts{'value_in_invalid_documentencoding'} = '';
 
 $result_errors{'value_in_invalid_documentencoding'} = [
   {
-    'error_line' => ':2: warning: encoding `bad\' is not a canonical texinfo encoding
+    'error_line' => 'warning: encoding `bad\' is not a canonical texinfo encoding
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -95,7 +95,7 @@ $result_errors{'value_in_invalid_documentencoding'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: unrecognized encoding name `bad\'
+    'error_line' => 'warning: unrecognized encoding name `bad\'
 ',
     'file_name' => '',
     'line_nr' => 2,

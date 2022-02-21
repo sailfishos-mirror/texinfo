@@ -2282,7 +2282,7 @@ Various deff lines
 
 $result_errors{'def'} = [
   {
-    'error_line' => ':2: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -2291,7 +2291,7 @@ $result_errors{'def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':7: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -2300,7 +2300,7 @@ $result_errors{'def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -2309,7 +2309,7 @@ $result_errors{'def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':12: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 12,
@@ -2318,7 +2318,7 @@ $result_errors{'def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':13: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -2327,7 +2327,7 @@ $result_errors{'def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -2336,7 +2336,7 @@ $result_errors{'def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':15: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 15,
@@ -2345,7 +2345,7 @@ $result_errors{'def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':16: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 16,
@@ -2354,7 +2354,7 @@ $result_errors{'def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -2363,7 +2363,7 @@ $result_errors{'def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':18: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 18,
@@ -2372,7 +2372,7 @@ $result_errors{'def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':19: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 19,
@@ -2381,7 +2381,7 @@ $result_errors{'def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -2390,7 +2390,7 @@ $result_errors{'def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':21: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 21,
@@ -2399,7 +2399,7 @@ $result_errors{'def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':23: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 23,
@@ -2408,7 +2408,7 @@ $result_errors{'def'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':25: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 25,

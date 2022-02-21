@@ -40,7 +40,7 @@ $result_texts{'macro_no_argument'} = '';
 
 $result_errors{'macro_no_argument'} = [
   {
-    'error_line' => ':1: @macro requires a name
+    'error_line' => '@macro requires a name
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -49,7 +49,7 @@ $result_errors{'macro_no_argument'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: no matching `@end macro\'
+    'error_line' => 'no matching `@end macro\'
 ',
     'file_name' => '',
     'line_nr' => 1,

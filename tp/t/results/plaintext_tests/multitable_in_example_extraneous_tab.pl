@@ -276,7 +276,7 @@ secit ';
 
 $result_errors{'multitable_in_example_extraneous_tab'} = [
   {
-    'error_line' => ':3: too many columns in multitable item (max 1)
+    'error_line' => 'too many columns in multitable item (max 1)
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -285,7 +285,7 @@ $result_errors{'multitable_in_example_extraneous_tab'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':4: too many columns in multitable item (max 1)
+    'error_line' => 'too many columns in multitable item (max 1)
 ',
     'file_name' => '',
     'line_nr' => 4,

@@ -1081,7 +1081,7 @@ $result_sectioning{'placed_things_before_element'}{'structure'}{'section_childs'
 
 $result_errors{'placed_things_before_element'} = [
   {
-    'error_line' => 'placed_things_before_element.texi:33: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => 'placed_things_before_element.texi',
     'line_nr' => 33,

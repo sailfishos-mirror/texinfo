@@ -154,7 +154,7 @@ $result_menus{'a_comma_after_node'} = {
 
 $result_errors{'a_comma_after_node'} = [
   {
-    'error_line' => ':1: Next reference to nonexistent `Requirements\'
+    'error_line' => 'Next reference to nonexistent `Requirements\'
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -163,7 +163,7 @@ $result_errors{'a_comma_after_node'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: Prev reference to nonexistent `Nodes and Menus\'
+    'error_line' => 'Prev reference to nonexistent `Nodes and Menus\'
 ',
     'file_name' => '',
     'line_nr' => 1,

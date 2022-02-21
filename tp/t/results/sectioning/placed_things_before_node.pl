@@ -1017,7 +1017,7 @@ $result_menus{'placed_things_before_node'} = {
 
 $result_errors{'placed_things_before_node'} = [
   {
-    'error_line' => ':28: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 28,
@@ -1107,7 +1107,7 @@ End:
 
 $result_converted_errors{'info'}->{'placed_things_before_node'} = [
   {
-    'error_line' => ':1: warning: @anchor outside of any node
+    'error_line' => 'warning: @anchor outside of any node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -1116,7 +1116,7 @@ $result_converted_errors{'info'}->{'placed_things_before_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @footnote outside of any node
+    'error_line' => 'warning: @footnote outside of any node
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -1125,7 +1125,7 @@ $result_converted_errors{'info'}->{'placed_things_before_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: @float outside of any node
+    'error_line' => 'warning: @float outside of any node
 ',
     'file_name' => '',
     'line_nr' => 17,

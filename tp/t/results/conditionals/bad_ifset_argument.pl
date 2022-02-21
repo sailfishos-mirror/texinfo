@@ -24,7 +24,7 @@ $result_texts{'bad_ifset_argument'} = '';
 
 $result_errors{'bad_ifset_argument'} = [
   {
-    'error_line' => ':1: bad name for @ifset
+    'error_line' => 'bad name for @ifset
 ',
     'file_name' => '',
     'line_nr' => 1,

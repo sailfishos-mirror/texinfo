@@ -185,7 +185,7 @@ $result_sectioning{'double_top_section'}{'structure'}{'section_childs'}[1]{'stru
 
 $result_errors{'double_top_section'} = [
   {
-    'error_line' => ':5: warning: multiple @top
+    'error_line' => 'warning: multiple @top
 ',
     'file_name' => '',
     'line_nr' => 5,

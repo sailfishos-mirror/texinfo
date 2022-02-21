@@ -179,7 +179,7 @@ XX XX XX XxX';
 
 $result_errors{'empty_macro_argument'} = [
   {
-    'error_line' => ':5: macro `mymacro\' declared without argument called with an argument
+    'error_line' => 'macro `mymacro\' declared without argument called with an argument
 ',
     'file_name' => '',
     'line_nr' => 5,

@@ -250,7 +250,7 @@ line in code in item
 
 $result_errors{'style_not_closed_in_table_line'} = [
   {
-    'error_line' => ':4: warning: @item should not appear in @code
+    'error_line' => 'warning: @item should not appear in @code
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -259,7 +259,7 @@ $result_errors{'style_not_closed_in_table_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: @code missing closing brace
+    'error_line' => '@code missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 4,

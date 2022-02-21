@@ -244,7 +244,7 @@ $result_texts{'setfilename'} = '
 
 $result_errors{'setfilename'} = [
   {
-    'error_line' => ':2: warning: multiple @setfilename
+    'error_line' => 'warning: multiple @setfilename
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -253,7 +253,7 @@ $result_errors{'setfilename'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: multiple @setfilename
+    'error_line' => 'warning: multiple @setfilename
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -262,7 +262,7 @@ $result_errors{'setfilename'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: multiple @setfilename
+    'error_line' => 'warning: multiple @setfilename
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -271,7 +271,7 @@ $result_errors{'setfilename'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: @verb should not appear in @setfilename
+    'error_line' => 'warning: @verb should not appear in @setfilename
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -280,7 +280,7 @@ $result_errors{'setfilename'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: bad argument to @setfilename: @ @verb{: name :}@
+    'error_line' => 'bad argument to @setfilename: @ @verb{: name :}@
 ',
     'file_name' => '',
     'line_nr' => 4,

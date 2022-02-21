@@ -5161,7 +5161,7 @@ $result_menus{'codequoteundirected_codequotebacktick'} = {
 
 $result_errors{'codequoteundirected_codequotebacktick'} = [
   {
-    'error_line' => ':31: @codequoteundirected missing argument (possibly involving @allquotes)
+    'error_line' => '@codequoteundirected missing argument (possibly involving @allquotes)
 ',
     'file_name' => '',
     'line_nr' => 31,
@@ -5170,7 +5170,7 @@ $result_errors{'codequoteundirected_codequotebacktick'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':31: @codequotebacktick missing argument (possibly involving @allquotes)
+    'error_line' => '@codequotebacktick missing argument (possibly involving @allquotes)
 ',
     'file_name' => '',
     'line_nr' => 31,
@@ -5179,7 +5179,7 @@ $result_errors{'codequoteundirected_codequotebacktick'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':42: @codequoteundirected missing argument (possibly involving @allquotes)
+    'error_line' => '@codequoteundirected missing argument (possibly involving @allquotes)
 ',
     'file_name' => '',
     'line_nr' => 42,
@@ -5188,7 +5188,7 @@ $result_errors{'codequoteundirected_codequotebacktick'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':42: @codequotebacktick missing argument (possibly involving @allquotes)
+    'error_line' => '@codequotebacktick missing argument (possibly involving @allquotes)
 ',
     'file_name' => '',
     'line_nr' => 42,
@@ -5197,7 +5197,7 @@ $result_errors{'codequoteundirected_codequotebacktick'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':45: @codequoteundirected missing argument (possibly involving @allquotes)
+    'error_line' => '@codequoteundirected missing argument (possibly involving @allquotes)
 ',
     'file_name' => '',
     'line_nr' => 45,
@@ -5206,7 +5206,7 @@ $result_errors{'codequoteundirected_codequotebacktick'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':45: @codequotebacktick missing argument (possibly involving @allquotes)
+    'error_line' => '@codequotebacktick missing argument (possibly involving @allquotes)
 ',
     'file_name' => '',
     'line_nr' => 45,

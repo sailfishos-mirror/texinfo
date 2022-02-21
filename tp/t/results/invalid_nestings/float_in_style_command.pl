@@ -217,7 +217,7 @@ in float
 
 $result_errors{'float_in_style_command'} = [
   {
-    'error_line' => ':2: warning: @float should not appear in @code
+    'error_line' => 'warning: @float should not appear in @code
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -226,7 +226,7 @@ $result_errors{'float_in_style_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: @code missing closing brace
+    'error_line' => '@code missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -235,7 +235,7 @@ $result_errors{'float_in_style_command'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 6,

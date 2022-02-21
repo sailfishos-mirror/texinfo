@@ -107,7 +107,7 @@ $result_texts{'empty'} = '';
 
 $result_errors{'empty'} = [
   {
-    'error_line' => ':1: @columnfractions missing argument
+    'error_line' => '@columnfractions missing argument
 ',
     'file_name' => '',
     'line_nr' => 1,

@@ -69,7 +69,7 @@ $result_texts{'accent_no_closed_newline'} = 'e
 
 $result_errors{'accent_no_closed_newline'} = [
   {
-    'error_line' => ':1: @~ missing closing brace
+    'error_line' => '@~ missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,

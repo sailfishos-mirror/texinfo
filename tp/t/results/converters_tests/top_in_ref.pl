@@ -4378,7 +4378,7 @@ $result_menus{'top_in_ref'} = {
 
 $result_errors{'top_in_ref'} = [
   {
-    'error_line' => ':35: warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 35,
@@ -4387,7 +4387,7 @@ $result_errors{'top_in_ref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':36: warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 36,
@@ -4396,7 +4396,7 @@ $result_errors{'top_in_ref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':37: warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 37,
@@ -4405,7 +4405,7 @@ $result_errors{'top_in_ref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':38: warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete.
 ',
     'file_name' => '',
     'line_nr' => 38,

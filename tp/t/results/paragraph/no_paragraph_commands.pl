@@ -176,7 +176,7 @@ $result_converted{'html_text'}->{'no_paragraph_commands'} = '<br>
 
 $result_converted_errors{'html_text'}->{'no_paragraph_commands'} = [
   {
-    'error_line' => ':3: warning: @image file `aa\' (for HTML) not found, using `aa.ee\'
+    'error_line' => 'warning: @image file `aa\' (for HTML) not found, using `aa.ee\'
 ',
     'file_name' => '',
     'line_nr' => 3,

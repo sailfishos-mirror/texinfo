@@ -104,7 +104,7 @@ $result_texts{'inline_missing_first_arg'} = '. .
 
 $result_errors{'inline_missing_first_arg'} = [
   {
-    'error_line' => ':1: warning: @inlinefmt missing first argument
+    'error_line' => 'warning: @inlinefmt missing first argument
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -113,7 +113,7 @@ $result_errors{'inline_missing_first_arg'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @inlineraw missing first argument
+    'error_line' => 'warning: @inlineraw missing first argument
 ',
     'file_name' => '',
     'line_nr' => 1,

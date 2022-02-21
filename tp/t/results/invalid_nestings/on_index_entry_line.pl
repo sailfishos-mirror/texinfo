@@ -213,7 +213,7 @@ $result_texts{'on_index_entry_line'} = '';
 
 $result_errors{'on_index_entry_line'} = [
   {
-    'error_line' => ':1: warning: @indent should not appear in @cindex
+    'error_line' => 'warning: @indent should not appear in @cindex
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -222,7 +222,7 @@ $result_errors{'on_index_entry_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @titlefont should not appear in @cindex
+    'error_line' => 'warning: @titlefont should not appear in @cindex
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -231,7 +231,7 @@ $result_errors{'on_index_entry_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @anchor should not appear in @cindex
+    'error_line' => 'warning: @anchor should not appear in @cindex
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -240,7 +240,7 @@ $result_errors{'on_index_entry_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @footnote should not appear in @cindex
+    'error_line' => 'warning: @footnote should not appear in @cindex
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -249,7 +249,7 @@ $result_errors{'on_index_entry_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @exdent should only appear at the beginning of a line
+    'error_line' => 'warning: @exdent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -258,7 +258,7 @@ $result_errors{'on_index_entry_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @exdent should not appear in @cindex
+    'error_line' => 'warning: @exdent should not appear in @cindex
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -267,7 +267,7 @@ $result_errors{'on_index_entry_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 1,

@@ -545,7 +545,7 @@ $result_menus{'style_not_closed_no_newline_root_commands'}{'structure'}{'menu_ch
 
 $result_errors{'style_not_closed_no_newline_root_commands'} = [
   {
-    'error_line' => ':9: warning: @node should not appear in @code
+    'error_line' => 'warning: @node should not appear in @code
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -554,7 +554,7 @@ $result_errors{'style_not_closed_no_newline_root_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: @node seen before @code closing brace
+    'error_line' => '@node seen before @code closing brace
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -563,7 +563,7 @@ $result_errors{'style_not_closed_no_newline_root_commands'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':13: warning: @bye should not appear in @code
+    'error_line' => 'warning: @bye should not appear in @code
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -572,7 +572,7 @@ $result_errors{'style_not_closed_no_newline_root_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':12: @bye seen before @code closing brace
+    'error_line' => '@bye seen before @code closing brace
 ',
     'file_name' => '',
     'line_nr' => 12,

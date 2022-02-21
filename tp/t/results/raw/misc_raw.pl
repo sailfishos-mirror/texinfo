@@ -246,7 +246,7 @@ in verbatim2
 
 $result_errors{'misc_raw'} = [
   {
-    'error_line' => ':3: warning: @end should only appear at the beginning of a line
+    'error_line' => 'warning: @end should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 3,

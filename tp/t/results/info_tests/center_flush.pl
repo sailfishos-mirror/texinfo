@@ -625,7 +625,7 @@ $result_converted_errors{'info'}->{'center_flush'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':14: warning: @anchor outside of any node
+    'error_line' => 'warning: @anchor outside of any node
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -634,7 +634,7 @@ $result_converted_errors{'info'}->{'center_flush'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':29: warning: @anchor outside of any node
+    'error_line' => 'warning: @anchor outside of any node
 ',
     'file_name' => '',
     'line_nr' => 29,
@@ -643,7 +643,7 @@ $result_converted_errors{'info'}->{'center_flush'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':31: warning: @anchor outside of any node
+    'error_line' => 'warning: @anchor outside of any node
 ',
     'file_name' => '',
     'line_nr' => 31,

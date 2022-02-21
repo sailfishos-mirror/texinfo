@@ -856,7 +856,7 @@ $result_menus{'fonttextsize'} = {
 
 $result_errors{'fonttextsize'} = [
   {
-    'error_line' => ':16: warning: multiple @fonttextsize
+    'error_line' => 'warning: multiple @fonttextsize
 ',
     'file_name' => '',
     'line_nr' => 16,
@@ -865,7 +865,7 @@ $result_errors{'fonttextsize'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':21: warning: multiple @fonttextsize
+    'error_line' => 'warning: multiple @fonttextsize
 ',
     'file_name' => '',
     'line_nr' => 21,
@@ -874,7 +874,7 @@ $result_errors{'fonttextsize'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':21: Only @fonttextsize 10 or 11 is supported, not `8\'
+    'error_line' => 'Only @fonttextsize 10 or 11 is supported, not `8\'
 ',
     'file_name' => '',
     'line_nr' => 21,
@@ -883,7 +883,7 @@ $result_errors{'fonttextsize'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':26: warning: multiple @fonttextsize
+    'error_line' => 'warning: multiple @fonttextsize
 ',
     'file_name' => '',
     'line_nr' => 26,
@@ -892,7 +892,7 @@ $result_errors{'fonttextsize'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':26: Only @fonttextsize 10 or 11 is supported, not `15\'
+    'error_line' => 'Only @fonttextsize 10 or 11 is supported, not `15\'
 ',
     'file_name' => '',
     'line_nr' => 26,

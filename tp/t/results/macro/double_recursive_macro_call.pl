@@ -167,7 +167,7 @@ $result_texts{'double_recursive_macro_call'} = '
 
 $result_errors{'double_recursive_macro_call'} = [
   {
-    'error_line' => ':10: recursive call of macro mactwo is not allowed; use @rmacro if needed (possibly involving @macone)
+    'error_line' => 'recursive call of macro mactwo is not allowed; use @rmacro if needed (possibly involving @macone)
 ',
     'file_name' => '',
     'line_nr' => 10,

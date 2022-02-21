@@ -1139,7 +1139,7 @@ End:
 
 $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
   {
-    'error_line' => ':5: warning: menu entry name should not contain `:\'
+    'error_line' => 'warning: menu entry name should not contain `:\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -1148,7 +1148,7 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: menu entry node name should not contain `. \'
+    'error_line' => 'warning: menu entry node name should not contain `. \'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -1157,7 +1157,7 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: menu entry node name should not contain `,\'
+    'error_line' => 'warning: menu entry node name should not contain `,\'
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -1166,7 +1166,7 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':7: warning: menu entry node name should not contain `:\'
+    'error_line' => 'warning: menu entry node name should not contain `:\'
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -1175,7 +1175,7 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':12: warning: @node name should not contain `,\': node,comma
+    'error_line' => 'warning: @node name should not contain `,\': node,comma
 ',
     'file_name' => '',
     'line_nr' => 12,
@@ -1184,7 +1184,7 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':16: warning: @ref cross-reference name should not contain `:\'
+    'error_line' => 'warning: @ref cross-reference name should not contain `:\'
 ',
     'file_name' => '',
     'line_nr' => 16,
@@ -1193,7 +1193,7 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':16: warning: @ref node name should not contain `.\'
+    'error_line' => 'warning: @ref node name should not contain `.\'
 ',
     'file_name' => '',
     'line_nr' => 16,
@@ -1202,7 +1202,7 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':16: warning: @ref node name should not contain `,\'
+    'error_line' => 'warning: @ref node name should not contain `,\'
 ',
     'file_name' => '',
     'line_nr' => 16,
@@ -1211,7 +1211,7 @@ $result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: @ref node name should not contain `:\'
+    'error_line' => 'warning: @ref node name should not contain `:\'
 ',
     'file_name' => '',
     'line_nr' => 17,

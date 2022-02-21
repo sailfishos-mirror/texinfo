@@ -257,7 +257,7 @@ shortcontents shortcontents summarycontents ';
 
 $result_errors{'contents'} = [
   {
-    'error_line' => ':2: warning: @contents should only appear at the beginning of a line
+    'error_line' => 'warning: @contents should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -266,7 +266,7 @@ $result_errors{'contents'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: @contents should only appear at the beginning of a line
+    'error_line' => 'warning: @contents should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -275,7 +275,7 @@ $result_errors{'contents'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':7: warning: @shortcontents should only appear at the beginning of a line
+    'error_line' => 'warning: @shortcontents should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -284,7 +284,7 @@ $result_errors{'contents'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: @shortcontents should only appear at the beginning of a line
+    'error_line' => 'warning: @shortcontents should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -293,7 +293,7 @@ $result_errors{'contents'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @summarycontents should only appear at the beginning of a line
+    'error_line' => 'warning: @summarycontents should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 9,

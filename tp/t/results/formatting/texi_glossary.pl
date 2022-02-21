@@ -1519,7 +1519,7 @@ $result_menus{'texi_glossary'}{'structure'}{'menu_child'}{'structure'}{'menu_up'
 
 $result_errors{'texi_glossary'} = [
   {
-    'error_line' => 'glossary.texi:42: warning: @ifhtml should only appear at the beginning of a line (possibly involving @gentry)
+    'error_line' => 'warning: @ifhtml should only appear at the beginning of a line (possibly involving @gentry)
 ',
     'file_name' => 'glossary.texi',
     'line_nr' => 42,
@@ -1528,7 +1528,7 @@ $result_errors{'texi_glossary'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'glossary.texi:47: recursive call of macro glossarytext is not allowed; use @rmacro if needed (possibly involving @glossarytext)
+    'error_line' => 'recursive call of macro glossarytext is not allowed; use @rmacro if needed (possibly involving @glossarytext)
 ',
     'file_name' => 'glossary.texi',
     'line_nr' => 47,
@@ -1537,7 +1537,7 @@ $result_errors{'texi_glossary'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'glossary.texi:47: @item outside of table or list (possibly involving @glossarytext)
+    'error_line' => '@item outside of table or list (possibly involving @glossarytext)
 ',
     'file_name' => 'glossary.texi',
     'line_nr' => 47,
@@ -1546,7 +1546,7 @@ $result_errors{'texi_glossary'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'glossary.texi:47: unmatched `@end table\' (possibly involving @glossary)
+    'error_line' => 'unmatched `@end table\' (possibly involving @glossary)
 ',
     'file_name' => 'glossary.texi',
     'line_nr' => 47,
@@ -1555,7 +1555,7 @@ $result_errors{'texi_glossary'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'glossary.texi:42: @ref reference to nonexistent node `id1\' (possibly involving @gentry)
+    'error_line' => '@ref reference to nonexistent node `id1\' (possibly involving @gentry)
 ',
     'file_name' => 'glossary.texi',
     'line_nr' => 42,

@@ -564,7 +564,7 @@ $result_menus{'pagesizes'} = {
 
 $result_errors{'pagesizes'} = [
   {
-    'error_line' => ':11: warning: multiple @pagesizes
+    'error_line' => 'warning: multiple @pagesizes
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -573,7 +573,7 @@ $result_errors{'pagesizes'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':15: warning: multiple @pagesizes
+    'error_line' => 'warning: multiple @pagesizes
 ',
     'file_name' => '',
     'line_nr' => 15,
@@ -582,7 +582,7 @@ $result_errors{'pagesizes'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: multiple @pagesizes
+    'error_line' => 'warning: multiple @pagesizes
 ',
     'file_name' => '',
     'line_nr' => 17,

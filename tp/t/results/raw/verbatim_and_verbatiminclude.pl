@@ -1107,7 +1107,7 @@ In verbatim test text
 
 $result_converted_errors{'plaintext'}->{'verbatim_and_verbatiminclude'} = [
   {
-    'error_line' => ':25: @verbatiminclude: could not find verb.txt
+    'error_line' => '@verbatiminclude: could not find verb.txt
 ',
     'file_name' => '',
     'line_nr' => 25,
@@ -1116,7 +1116,7 @@ $result_converted_errors{'plaintext'}->{'verbatim_and_verbatiminclude'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':29: @verbatiminclude: could not find verb.txt
+    'error_line' => '@verbatiminclude: could not find verb.txt
 ',
     'file_name' => '',
     'line_nr' => 29,
@@ -1125,7 +1125,7 @@ $result_converted_errors{'plaintext'}->{'verbatim_and_verbatiminclude'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':33: @verbatiminclude: could not find verb.txt
+    'error_line' => '@verbatiminclude: could not find verb.txt
 ',
     'file_name' => '',
     'line_nr' => 33,

@@ -136,7 +136,7 @@ $result_texts{'empty_refs'} = '.
 
 $result_errors{'empty_refs'} = [
   {
-    'error_line' => ':1: @xref reference to nonexistent node `@:\'
+    'error_line' => '@xref reference to nonexistent node `@:\'
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -145,7 +145,7 @@ $result_errors{'empty_refs'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':2: @xref reference to nonexistent node `@asis{ }\'
+    'error_line' => '@xref reference to nonexistent node `@asis{ }\'
 ',
     'file_name' => '',
     'line_nr' => 2,

@@ -52,7 +52,7 @@ $result_texts{'ignored_text'} = '';
 
 $result_errors{'ignored_text'} = [
   {
-    'error_line' => ':1: warning: @ifinfo should only appear at the beginning of a line
+    'error_line' => 'warning: @ifinfo should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -61,7 +61,7 @@ $result_errors{'ignored_text'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: superfluous argument to @end ifinfo:  on the node line
+    'error_line' => 'warning: superfluous argument to @end ifinfo:  on the node line
 ',
     'file_name' => '',
     'line_nr' => 3,

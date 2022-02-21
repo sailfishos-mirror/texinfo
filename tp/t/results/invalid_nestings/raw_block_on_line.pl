@@ -76,7 +76,7 @@ $result_texts{'raw_block_on_line'} = '';
 
 $result_errors{'raw_block_on_line'} = [
   {
-    'error_line' => ':1: no matching `@end tex\'
+    'error_line' => 'no matching `@end tex\'
 ',
     'file_name' => '',
     'line_nr' => 1,

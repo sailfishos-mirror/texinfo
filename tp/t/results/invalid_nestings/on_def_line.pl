@@ -516,7 +516,7 @@ $result_texts{'on_def_line'} = ': in titlefont  exdent
 
 $result_errors{'on_def_line'} = [
   {
-    'error_line' => ':1: warning: @anchor should not appear in @deffn
+    'error_line' => 'warning: @anchor should not appear in @deffn
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -525,7 +525,7 @@ $result_errors{'on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @titlefont should not appear in @deffn
+    'error_line' => 'warning: @titlefont should not appear in @deffn
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -534,7 +534,7 @@ $result_errors{'on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @footnote should not appear in @deffn
+    'error_line' => 'warning: @footnote should not appear in @deffn
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -543,7 +543,7 @@ $result_errors{'on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @exdent should only appear at the beginning of a line
+    'error_line' => 'warning: @exdent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -552,7 +552,7 @@ $result_errors{'on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @exdent should not appear in @deffn
+    'error_line' => 'warning: @exdent should not appear in @deffn
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -561,7 +561,7 @@ $result_errors{'on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -570,7 +570,7 @@ $result_errors{'on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @anchor should not appear in @deffn
+    'error_line' => 'warning: @anchor should not appear in @deffn
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -579,7 +579,7 @@ $result_errors{'on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @titlefont should not appear in @deffnx
+    'error_line' => 'warning: @titlefont should not appear in @deffnx
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -588,7 +588,7 @@ $result_errors{'on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @footnote should not appear in @deffnx
+    'error_line' => 'warning: @footnote should not appear in @deffnx
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -597,7 +597,7 @@ $result_errors{'on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @exdent should only appear at the beginning of a line
+    'error_line' => 'warning: @exdent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -606,7 +606,7 @@ $result_errors{'on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @exdent should not appear in @deffnx
+    'error_line' => 'warning: @exdent should not appear in @deffnx
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -615,7 +615,7 @@ $result_errors{'on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: entry for index `fn\' outside of any node
+    'error_line' => 'warning: entry for index `fn\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 2,

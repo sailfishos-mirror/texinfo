@@ -971,7 +971,7 @@ $result_menus{'value_in_index_commands'} = {
 
 $result_errors{'value_in_index_commands'} = [
   {
-    'error_line' => ':35: warning: printing an index `cp\' merged in another one, `fn\'
+    'error_line' => 'warning: printing an index `cp\' merged in another one, `fn\'
 ',
     'file_name' => '',
     'line_nr' => 35,

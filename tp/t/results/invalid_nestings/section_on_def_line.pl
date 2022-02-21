@@ -155,7 +155,7 @@ $result_sectioning{'section_on_def_line'}{'structure'}{'section_childs'}[0]{'str
 
 $result_errors{'section_on_def_line'} = [
   {
-    'error_line' => ':1: warning: @section should only appear at the beginning of a line
+    'error_line' => 'warning: @section should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -164,7 +164,7 @@ $result_errors{'section_on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: @section should not appear in @deffn
+    'error_line' => 'warning: @section should not appear in @deffn
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -173,7 +173,7 @@ $result_errors{'section_on_def_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: @section seen before @end deffn
+    'error_line' => '@section seen before @end deffn
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -182,7 +182,7 @@ $result_errors{'section_on_def_line'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: unmatched `@end deffn\'
+    'error_line' => 'unmatched `@end deffn\'
 ',
     'file_name' => '',
     'line_nr' => 5,

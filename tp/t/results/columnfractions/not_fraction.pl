@@ -113,7 +113,7 @@ $result_texts{'not_fraction'} = '';
 
 $result_errors{'not_fraction'} = [
   {
-    'error_line' => ':1: column fraction not a number: aaa
+    'error_line' => 'column fraction not a number: aaa
 ',
     'file_name' => '',
     'line_nr' => 1,

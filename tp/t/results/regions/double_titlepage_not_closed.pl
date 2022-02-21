@@ -133,7 +133,7 @@ $result_texts{'double_titlepage_not_closed'} = '';
 
 $result_errors{'double_titlepage_not_closed'} = [
   {
-    'error_line' => ':6: region titlepage inside region titlepage is not allowed
+    'error_line' => 'region titlepage inside region titlepage is not allowed
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -142,7 +142,7 @@ $result_errors{'double_titlepage_not_closed'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':6: warning: multiple @titlepage
+    'error_line' => 'warning: multiple @titlepage
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -151,7 +151,7 @@ $result_errors{'double_titlepage_not_closed'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: no matching `@end titlepage\'
+    'error_line' => 'no matching `@end titlepage\'
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -160,7 +160,7 @@ $result_errors{'double_titlepage_not_closed'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':8: no matching `@end titlepage\'
+    'error_line' => 'no matching `@end titlepage\'
 ',
     'file_name' => '',
     'line_nr' => 8,

@@ -1171,7 +1171,7 @@ $result_menus{'part_node_node_part_appendix'}{'structure'}{'menu_child'}{'struct
 
 $result_errors{'part_node_node_part_appendix'} = [
   {
-    'error_line' => ':15: warning: @node precedes @part, but parts may not be associated with nodes
+    'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
 ',
     'file_name' => '',
     'line_nr' => 15,

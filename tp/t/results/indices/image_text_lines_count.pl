@@ -327,7 +327,7 @@ $result_converted{'html_text'}->{'image_text_lines_count'} = '<h1 class="node" i
 
 $result_converted_errors{'html_text'}->{'image_text_lines_count'} = [
   {
-    'error_line' => ':3: warning: @image file `count_image_text\' (for HTML) not found, using `count_image_text.jpg\'
+    'error_line' => 'warning: @image file `count_image_text\' (for HTML) not found, using `count_image_text.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 3,

@@ -577,7 +577,7 @@ $result_menus{'macro_and_commands_in_early_commands'} = {
 
 $result_errors{'macro_and_commands_in_early_commands'} = [
   {
-    'error_line' => ':11: warning: encoding `ISO-8859-1@\' is not a canonical texinfo encoding
+    'error_line' => 'warning: encoding `ISO-8859-1@\' is not a canonical texinfo encoding
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -586,7 +586,7 @@ $result_errors{'macro_and_commands_in_early_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: warning: unrecognized encoding name `ISO-8859-1@\'
+    'error_line' => 'warning: unrecognized encoding name `ISO-8859-1@\'
 ',
     'file_name' => '',
     'line_nr' => 11,

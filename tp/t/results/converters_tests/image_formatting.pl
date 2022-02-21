@@ -2603,7 +2603,7 @@ $result_converted{'html_text'}->{'image_formatting'} = '<h1 class="node" id="Top
 
 $result_converted_errors{'html_text'}->{'image_formatting'} = [
   {
-    'error_line' => ':9: warning: @image file `f-ile\' (for HTML) not found, using `f-ile.jpg\'
+    'error_line' => 'warning: @image file `f-ile\' (for HTML) not found, using `f-ile.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -2612,7 +2612,7 @@ $result_converted_errors{'html_text'}->{'image_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: warning: @image file `f--ile@.\' (for HTML) not found, using `f--ile@.file ext e--xt}\'
+    'error_line' => 'warning: @image file `f--ile@.\' (for HTML) not found, using `f--ile@.file ext e--xt}\'
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -2621,7 +2621,7 @@ $result_converted_errors{'html_text'}->{'image_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: warning: @image file `image\' (for HTML) not found, using `image.jpg\'
+    'error_line' => 'warning: @image file `image\' (for HTML) not found, using `image.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -2630,7 +2630,7 @@ $result_converted_errors{'html_text'}->{'image_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: warning: @image file `image\' (for HTML) not found, using `image.jpg\'
+    'error_line' => 'warning: @image file `image\' (for HTML) not found, using `image.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -2639,7 +2639,7 @@ $result_converted_errors{'html_text'}->{'image_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: @image file `f-ile\' (for HTML) not found, using `f-ile.jpg\'
+    'error_line' => 'warning: @image file `f-ile\' (for HTML) not found, using `f-ile.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -2648,7 +2648,7 @@ $result_converted_errors{'html_text'}->{'image_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':21: warning: @image file `f--ile@.\' (for HTML) not found, using `f--ile@.file ext e--xt}\'
+    'error_line' => 'warning: @image file `f--ile@.\' (for HTML) not found, using `f--ile@.file ext e--xt}\'
 ',
     'file_name' => '',
     'line_nr' => 21,
@@ -2657,7 +2657,7 @@ $result_converted_errors{'html_text'}->{'image_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':22: warning: @image file `image\' (for HTML) not found, using `image.jpg\'
+    'error_line' => 'warning: @image file `image\' (for HTML) not found, using `image.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 22,
@@ -2666,7 +2666,7 @@ $result_converted_errors{'html_text'}->{'image_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':22: warning: @image file `image\' (for HTML) not found, using `image.jpg\'
+    'error_line' => 'warning: @image file `image\' (for HTML) not found, using `image.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 22,
@@ -2747,7 +2747,7 @@ ccc</literallayout></textobject></inlinemediaobject>
 
 $result_converted_errors{'docbook'}->{'image_formatting'} = [
   {
-    'error_line' => ':9: warning: @image file `f-ile\' not found, using `f-ile.jpg\'
+    'error_line' => 'warning: @image file `f-ile\' not found, using `f-ile.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -2756,7 +2756,7 @@ $result_converted_errors{'docbook'}->{'image_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: warning: @image file `f--ile@.\' not found, using `f--ile@..jpg\'
+    'error_line' => 'warning: @image file `f--ile@.\' not found, using `f--ile@..jpg\'
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -2765,7 +2765,7 @@ $result_converted_errors{'docbook'}->{'image_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: @image file `f-ile\' not found, using `f-ile.jpg\'
+    'error_line' => 'warning: @image file `f-ile\' not found, using `f-ile.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -2774,7 +2774,7 @@ $result_converted_errors{'docbook'}->{'image_formatting'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':21: warning: @image file `f--ile@.\' not found, using `f--ile@..jpg\'
+    'error_line' => 'warning: @image file `f--ile@.\' not found, using `f--ile@..jpg\'
 ',
     'file_name' => '',
     'line_nr' => 21,

@@ -1451,7 +1451,7 @@ Line after finalout
 
 $result_errors{'many_lines'} = [
   {
-    'error_line' => ':1: warning: @pagesizes should only appear at the beginning of a line
+    'error_line' => 'warning: @pagesizes should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -1460,7 +1460,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':2: warning: @afourpaper should only appear at the beginning of a line
+    'error_line' => 'warning: @afourpaper should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -1469,7 +1469,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: @smallbook should only appear at the beginning of a line
+    'error_line' => 'warning: @smallbook should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -1478,7 +1478,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: @headings should only appear at the beginning of a line
+    'error_line' => 'warning: @headings should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -1487,7 +1487,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: bad argument to @headings: on line following headings
+    'error_line' => 'bad argument to @headings: on line following headings
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -1496,7 +1496,7 @@ $result_errors{'many_lines'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':5: warning: @oddfooting should only appear at the beginning of a line
+    'error_line' => 'warning: @oddfooting should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -1505,7 +1505,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: @everyheading should only appear at the beginning of a line
+    'error_line' => 'warning: @everyheading should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -1514,7 +1514,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':7: warning: @everyfooting should only appear at the beginning of a line
+    'error_line' => 'warning: @everyfooting should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -1523,7 +1523,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: @evenheading should only appear at the beginning of a line
+    'error_line' => 'warning: @evenheading should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -1532,7 +1532,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':9: warning: @evenfooting should only appear at the beginning of a line
+    'error_line' => 'warning: @evenfooting should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 9,
@@ -1541,7 +1541,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: warning: @oddheading should only appear at the beginning of a line
+    'error_line' => 'warning: @oddheading should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -1550,7 +1550,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: warning: @need should only appear at the beginning of a line
+    'error_line' => 'warning: @need should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -1559,7 +1559,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':11: bad argument to @need: 0.1 on line following
+    'error_line' => 'bad argument to @need: 0.1 on line following
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -1568,7 +1568,7 @@ $result_errors{'many_lines'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':12: warning: @need should only appear at the beginning of a line
+    'error_line' => 'warning: @need should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 12,
@@ -1577,7 +1577,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':13: warning: @setchapternewpage should only appear at the beginning of a line
+    'error_line' => 'warning: @setchapternewpage should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -1586,7 +1586,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':13: @setchapternewpage arg must be `on\', `off\' or `odd\', not `on line following setchapternewpage\'
+    'error_line' => '@setchapternewpage arg must be `on\', `off\' or `odd\', not `on line following setchapternewpage\'
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -1595,7 +1595,7 @@ $result_errors{'many_lines'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':14: warning: @raisesections should only appear at the beginning of a line
+    'error_line' => 'warning: @raisesections should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 14,
@@ -1604,7 +1604,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':15: warning: @lowersections should only appear at the beginning of a line
+    'error_line' => 'warning: @lowersections should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 15,
@@ -1613,7 +1613,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':16: warning: @kbdinputstyle should only appear at the beginning of a line
+    'error_line' => 'warning: @kbdinputstyle should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 16,
@@ -1622,7 +1622,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':16: @kbdinputstyle arg must be `code\'/`example\'/`distinct\', not `code something\'
+    'error_line' => '@kbdinputstyle arg must be `code\'/`example\'/`distinct\', not `code something\'
 ',
     'file_name' => '',
     'line_nr' => 16,
@@ -1631,7 +1631,7 @@ $result_errors{'many_lines'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':17: warning: @afourpaper should only appear at the beginning of a line
+    'error_line' => 'warning: @afourpaper should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -1640,7 +1640,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: multiple @afourpaper
+    'error_line' => 'warning: multiple @afourpaper
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -1649,7 +1649,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':18: warning: @afourlatex should only appear at the beginning of a line
+    'error_line' => 'warning: @afourlatex should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 18,
@@ -1658,7 +1658,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':19: warning: @afourwide should only appear at the beginning of a line
+    'error_line' => 'warning: @afourwide should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 19,
@@ -1667,7 +1667,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: @paragraphindent should only appear at the beginning of a line
+    'error_line' => 'warning: @paragraphindent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -1676,7 +1676,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':21: warning: @paragraphindent should only appear at the beginning of a line
+    'error_line' => 'warning: @paragraphindent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 21,
@@ -1685,7 +1685,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':22: warning: @paragraphindent should only appear at the beginning of a line
+    'error_line' => 'warning: @paragraphindent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 22,
@@ -1694,7 +1694,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':23: warning: @paragraphindent should only appear at the beginning of a line
+    'error_line' => 'warning: @paragraphindent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 23,
@@ -1703,7 +1703,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':24: warning: @firstparagraphindent should only appear at the beginning of a line
+    'error_line' => 'warning: @firstparagraphindent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 24,
@@ -1712,7 +1712,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':25: warning: @exampleindent should only appear at the beginning of a line
+    'error_line' => 'warning: @exampleindent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 25,
@@ -1721,7 +1721,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':25: @exampleindent arg must be numeric/`asis\', not `6 on line following exampleindent\'
+    'error_line' => '@exampleindent arg must be numeric/`asis\', not `6 on line following exampleindent\'
 ',
     'file_name' => '',
     'line_nr' => 25,
@@ -1730,7 +1730,7 @@ $result_errors{'many_lines'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':26: warning: @exampleindent should only appear at the beginning of a line
+    'error_line' => 'warning: @exampleindent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 26,
@@ -1739,7 +1739,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':27: warning: @footnotestyle should only appear at the beginning of a line
+    'error_line' => 'warning: @footnotestyle should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 27,
@@ -1748,7 +1748,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':28: warning: @footnotestyle should only appear at the beginning of a line
+    'error_line' => 'warning: @footnotestyle should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 28,
@@ -1757,7 +1757,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':28: warning: multiple @footnotestyle
+    'error_line' => 'warning: multiple @footnotestyle
 ',
     'file_name' => '',
     'line_nr' => 28,
@@ -1766,7 +1766,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':29: warning: @documentencoding should only appear at the beginning of a line
+    'error_line' => 'warning: @documentencoding should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 29,
@@ -1775,7 +1775,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':29: warning: encoding `US-ascii encoding name\' is not a canonical texinfo encoding
+    'error_line' => 'warning: encoding `US-ascii encoding name\' is not a canonical texinfo encoding
 ',
     'file_name' => '',
     'line_nr' => 29,
@@ -1784,7 +1784,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':29: warning: unrecognized encoding name `US-ascii encoding name\'
+    'error_line' => 'warning: unrecognized encoding name `US-ascii encoding name\'
 ',
     'file_name' => '',
     'line_nr' => 29,
@@ -1793,7 +1793,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':31: warning: @frenchspacing should only appear at the beginning of a line
+    'error_line' => 'warning: @frenchspacing should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 31,
@@ -1802,7 +1802,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':32: warning: @frenchspacing should only appear at the beginning of a line
+    'error_line' => 'warning: @frenchspacing should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 32,
@@ -1811,7 +1811,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':33: warning: @fonttextsize should only appear at the beginning of a line
+    'error_line' => 'warning: @fonttextsize should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 33,
@@ -1820,7 +1820,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':34: warning: @everyheadingmarks should only appear at the beginning of a line
+    'error_line' => 'warning: @everyheadingmarks should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 34,
@@ -1829,7 +1829,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':34: @everyheadingmarks arg must be `top\' or `bottom\', not `bottom on line following everyheadingmarks\'
+    'error_line' => '@everyheadingmarks arg must be `top\' or `bottom\', not `bottom on line following everyheadingmarks\'
 ',
     'file_name' => '',
     'line_nr' => 34,
@@ -1838,7 +1838,7 @@ $result_errors{'many_lines'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':38: warning: @finalout should only appear at the beginning of a line
+    'error_line' => 'warning: @finalout should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 38,
@@ -1847,7 +1847,7 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':40: warning: @finalout should only appear at the beginning of a line
+    'error_line' => 'warning: @finalout should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 40,

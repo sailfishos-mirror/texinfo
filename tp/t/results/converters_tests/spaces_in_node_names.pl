@@ -1010,7 +1010,7 @@ $result_menus{'spaces_in_node_names'}{'structure'}{'menu_child'}{'structure'}{'m
 
 $result_errors{'spaces_in_node_names'} = [
   {
-    'error_line' => ':11: warning: @verb should not appear in @node
+    'error_line' => 'warning: @verb should not appear in @node
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -1019,7 +1019,7 @@ $result_errors{'spaces_in_node_names'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: @verb should not appear in @ref
+    'error_line' => 'warning: @verb should not appear in @ref
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -1028,7 +1028,7 @@ $result_errors{'spaces_in_node_names'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: @menu entry node name `c@ \' different from node name `c@w{  }\'
+    'error_line' => 'warning: @menu entry node name `c@ \' different from node name `c@w{  }\'
 ',
     'file_name' => '',
     'line_nr' => 6,

@@ -987,7 +987,7 @@ $result_menus{'before_node_and_section'}{'structure'}{'menu_child'}{'structure'}
 
 $result_errors{'before_node_and_section'} = [
   {
-    'error_line' => ':3: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -1066,7 +1066,7 @@ End:
 
 $result_converted_errors{'info'}->{'before_node_and_section'} = [
   {
-    'error_line' => ':4: warning: @footnote outside of any node
+    'error_line' => 'warning: @footnote outside of any node
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -1075,7 +1075,7 @@ $result_converted_errors{'info'}->{'before_node_and_section'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: @anchor outside of any node
+    'error_line' => 'warning: @anchor outside of any node
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -1084,7 +1084,7 @@ $result_converted_errors{'info'}->{'before_node_and_section'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
     'line_nr' => 3,

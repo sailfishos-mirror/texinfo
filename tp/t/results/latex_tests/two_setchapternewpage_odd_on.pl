@@ -144,7 +144,7 @@ $result_texts{'two_setchapternewpage_odd_on'} = '
 
 $result_errors{'two_setchapternewpage_odd_on'} = [
   {
-    'error_line' => ':4: warning: multiple @setchapternewpage
+    'error_line' => 'warning: multiple @setchapternewpage
 ',
     'file_name' => '',
     'line_nr' => 4,

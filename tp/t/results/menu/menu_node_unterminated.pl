@@ -243,7 +243,7 @@ $result_menus{'menu_node_unterminated'} = {
 
 $result_errors{'menu_node_unterminated'} = [
   {
-    'error_line' => ':4: @menu reference to nonexistent node `Examples of Login Verification Functions
+    'error_line' => '@menu reference to nonexistent node `Examples of Login Verification Functions
 \'
 ',
     'file_name' => '',

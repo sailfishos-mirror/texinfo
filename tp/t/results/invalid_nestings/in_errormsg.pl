@@ -347,7 +347,7 @@ item
 
 $result_errors{'in_errormsg'} = [
   {
-    'error_line' => ':3: warning: @anchor should not appear in @errormsg
+    'error_line' => 'warning: @anchor should not appear in @errormsg
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -356,7 +356,7 @@ $result_errors{'in_errormsg'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':3: warning: @ref should not appear in @errormsg
+    'error_line' => 'warning: @ref should not appear in @errormsg
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -365,7 +365,7 @@ $result_errors{'in_errormsg'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: @table should not appear in @errormsg
+    'error_line' => 'warning: @table should not appear in @errormsg
 ',
     'file_name' => '',
     'line_nr' => 6,
@@ -374,7 +374,7 @@ $result_errors{'in_errormsg'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: @errormsg missing closing brace
+    'error_line' => '@errormsg missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -383,7 +383,7 @@ $result_errors{'in_errormsg'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':9: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 9,

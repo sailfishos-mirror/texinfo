@@ -441,7 +441,7 @@ $result_texts{'bad_enumerate_arguments'} = '
 
 $result_errors{'bad_enumerate_arguments'} = [
   {
-    'error_line' => ':1: bad argument to @enumerate
+    'error_line' => 'bad argument to @enumerate
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -450,7 +450,7 @@ $result_errors{'bad_enumerate_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':4: bad argument to @enumerate
+    'error_line' => 'bad argument to @enumerate
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -459,7 +459,7 @@ $result_errors{'bad_enumerate_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':7: bad argument to @enumerate
+    'error_line' => 'bad argument to @enumerate
 ',
     'file_name' => '',
     'line_nr' => 7,
@@ -468,7 +468,7 @@ $result_errors{'bad_enumerate_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':10: superfluous argument to @enumerate
+    'error_line' => 'superfluous argument to @enumerate
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -477,7 +477,7 @@ $result_errors{'bad_enumerate_arguments'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':13: bad argument to @enumerate
+    'error_line' => 'bad argument to @enumerate
 ',
     'file_name' => '',
     'line_nr' => 13,

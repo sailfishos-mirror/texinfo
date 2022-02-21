@@ -867,7 +867,7 @@ $result_converted_errors{'html'}->{'check_htmlxref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: no htmlxref.cnf entry found for `no_existing_no_manual.info\'
+    'error_line' => 'warning: no htmlxref.cnf entry found for `no_existing_no_manual.info\'
 ',
     'file_name' => '',
     'line_nr' => 5,
@@ -876,7 +876,7 @@ $result_converted_errors{'html'}->{'check_htmlxref'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: warning: no htmlxref.cnf entry found for `no_existing_no_manual.info\'
+    'error_line' => 'warning: no htmlxref.cnf entry found for `no_existing_no_manual.info\'
 ',
     'file_name' => '',
     'line_nr' => 6,

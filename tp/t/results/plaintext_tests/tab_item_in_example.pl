@@ -129,7 +129,7 @@ in item
 
 $result_errors{'tab_item_in_example'} = [
   {
-    'error_line' => ':2: ignoring @tab outside of multitable
+    'error_line' => 'ignoring @tab outside of multitable
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -138,7 +138,7 @@ $result_errors{'tab_item_in_example'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: @item outside of table or list
+    'error_line' => '@item outside of table or list
 ',
     'file_name' => '',
     'line_nr' => 3,

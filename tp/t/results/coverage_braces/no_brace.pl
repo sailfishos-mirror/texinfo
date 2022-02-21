@@ -80,7 +80,7 @@ $result_texts{'no_brace'} = 'TeXand code and footnote ';
 
 $result_errors{'no_brace'} = [
   {
-    'error_line' => ':1: @TeX expected braces
+    'error_line' => '@TeX expected braces
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -89,7 +89,7 @@ $result_errors{'no_brace'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: @code expected braces
+    'error_line' => '@code expected braces
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -98,7 +98,7 @@ $result_errors{'no_brace'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: @footnote expected braces
+    'error_line' => '@footnote expected braces
 ',
     'file_name' => '',
     'line_nr' => 1,

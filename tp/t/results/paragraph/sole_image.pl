@@ -103,7 +103,7 @@ $result_converted{'html_text'}->{'sole_image'} = '<img class="image" src="aa.jpg
 
 $result_converted_errors{'html_text'}->{'sole_image'} = [
   {
-    'error_line' => ':1: warning: @image file `aa\' (for HTML) not found, using `aa.jpg\'
+    'error_line' => 'warning: @image file `aa\' (for HTML) not found, using `aa.jpg\'
 ',
     'file_name' => '',
     'line_nr' => 1,

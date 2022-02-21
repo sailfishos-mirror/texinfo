@@ -1538,7 +1538,7 @@ End:
 
 $result_converted_errors{'info'}->{'float_copying'} = [
   {
-    'error_line' => ':3: @float output more than once: public domain
+    'error_line' => '@float output more than once: public domain
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -1547,7 +1547,7 @@ $result_converted_errors{'info'}->{'float_copying'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':19: @anchor output more than once: public domain anchor
+    'error_line' => '@anchor output more than once: public domain anchor
 ',
     'file_name' => '',
     'line_nr' => 19,
@@ -1556,7 +1556,7 @@ $result_converted_errors{'info'}->{'float_copying'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':3: @float output more than once: public domain
+    'error_line' => '@float output more than once: public domain
 ',
     'file_name' => '',
     'line_nr' => 3,
@@ -1565,7 +1565,7 @@ $result_converted_errors{'info'}->{'float_copying'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':19: @anchor output more than once: public domain anchor
+    'error_line' => '@anchor output more than once: public domain anchor
 ',
     'file_name' => '',
     'line_nr' => 19,
@@ -1574,7 +1574,7 @@ $result_converted_errors{'info'}->{'float_copying'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':10: @anchor output more than once: caption copying footnote anchor
+    'error_line' => '@anchor output more than once: caption copying footnote anchor
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -1583,7 +1583,7 @@ $result_converted_errors{'info'}->{'float_copying'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':10: @anchor output more than once: caption copying footnote anchor
+    'error_line' => '@anchor output more than once: caption copying footnote anchor
 ',
     'file_name' => '',
     'line_nr' => 10,

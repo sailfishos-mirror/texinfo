@@ -57,7 +57,7 @@ $result_texts{'code_not_closed'} = 'in code';
 
 $result_errors{'code_not_closed'} = [
   {
-    'error_line' => ':1: @code missing closing brace
+    'error_line' => '@code missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 1,

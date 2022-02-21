@@ -1276,7 +1276,7 @@ $result_menus{'in_table'} = {
 
 $result_errors{'in_table'} = [
   {
-    'error_line' => ':4: warning: @xref should not appear in @table
+    'error_line' => 'warning: @xref should not appear in @table
 ',
     'file_name' => '',
     'line_nr' => 4,
@@ -1285,7 +1285,7 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: @indent should not appear in @item
+    'error_line' => 'warning: @indent should not appear in @item
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -1294,7 +1294,7 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: @exdent should only appear at the beginning of a line
+    'error_line' => 'warning: @exdent should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -1303,7 +1303,7 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':8: warning: @exdent should not appear in @item
+    'error_line' => 'warning: @exdent should not appear in @item
 ',
     'file_name' => '',
     'line_nr' => 8,
@@ -1312,7 +1312,7 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: @ref missing closing brace
+    'error_line' => '@ref missing closing brace
 ',
     'file_name' => '',
     'line_nr' => 10,
@@ -1321,7 +1321,7 @@ $result_errors{'in_table'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':11: misplaced }
+    'error_line' => 'misplaced }
 ',
     'file_name' => '',
     'line_nr' => 11,
@@ -1330,7 +1330,7 @@ $result_errors{'in_table'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':12: warning: @center should not appear in @item
+    'error_line' => 'warning: @center should not appear in @item
 ',
     'file_name' => '',
     'line_nr' => 12,
@@ -1339,7 +1339,7 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':13: warning: @cindex should not appear in @item
+    'error_line' => 'warning: @cindex should not appear in @item
 ',
     'file_name' => '',
     'line_nr' => 13,
@@ -1348,7 +1348,7 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: @cindex should not appear in @item
+    'error_line' => 'warning: @cindex should not appear in @item
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -1357,7 +1357,7 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: @cindex should not appear in @item
+    'error_line' => 'warning: @cindex should not appear in @item
 ',
     'file_name' => '',
     'line_nr' => 20,
@@ -1366,7 +1366,7 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':17: warning: empty index key in @item
+    'error_line' => 'warning: empty index key in @item
 ',
     'file_name' => '',
     'line_nr' => 17,
@@ -1375,7 +1375,7 @@ $result_errors{'in_table'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':20: warning: empty index key in @item
+    'error_line' => 'warning: empty index key in @item
 ',
     'file_name' => '',
     'line_nr' => 20,

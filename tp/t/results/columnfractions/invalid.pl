@@ -113,7 +113,7 @@ $result_texts{'invalid'} = '';
 
 $result_errors{'invalid'} = [
   {
-    'error_line' => ':1: column fraction not a number: 2x.2
+    'error_line' => 'column fraction not a number: 2x.2
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -122,7 +122,7 @@ $result_errors{'invalid'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: column fraction not a number: 2.23x
+    'error_line' => 'column fraction not a number: 2.23x
 ',
     'file_name' => '',
     'line_nr' => 1,

@@ -696,7 +696,7 @@ $result_menus{'menu_in_example'} = {
 
 $result_errors{'menu_in_example'} = [
   {
-    'error_line' => ':4: warning: @menu in invalid context
+    'error_line' => 'warning: @menu in invalid context
 ',
     'file_name' => '',
     'line_nr' => 4,

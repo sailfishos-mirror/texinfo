@@ -360,7 +360,7 @@ it
 
 $result_errors{'multitable_begin_with_tab'} = [
   {
-    'error_line' => ':2: @tab before @item
+    'error_line' => '@tab before @item
 ',
     'file_name' => '',
     'line_nr' => 2,
@@ -369,7 +369,7 @@ $result_errors{'multitable_begin_with_tab'} = [
     'type' => 'error'
   },
   {
-    'error_line' => ':1: warning: @multitable has text but no @item
+    'error_line' => 'warning: @multitable has text but no @item
 ',
     'file_name' => '',
     'line_nr' => 1,
@@ -378,7 +378,7 @@ $result_errors{'multitable_begin_with_tab'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':6: @tab before @item
+    'error_line' => '@tab before @item
 ',
     'file_name' => '',
     'line_nr' => 6,

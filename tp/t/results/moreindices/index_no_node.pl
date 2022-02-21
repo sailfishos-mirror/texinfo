@@ -1506,7 +1506,7 @@ $result_sectioning{'index_no_node'}{'structure'}{'section_childs'}[3]{'structure
 
 $result_errors{'index_no_node'} = [
   {
-    'error_line' => 'index_no_node.texi:5: warning: entry for index `cp\' outside of any node
+    'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => 'index_no_node.texi',
     'line_nr' => 5,
@@ -1515,7 +1515,7 @@ $result_errors{'index_no_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'index_no_node.texi:7: warning: printindex before document beginning: @printindex cp
+    'error_line' => 'warning: printindex before document beginning: @printindex cp
 ',
     'file_name' => 'index_no_node.texi',
     'line_nr' => 7,
@@ -1524,7 +1524,7 @@ $result_errors{'index_no_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'index_no_node.texi:11: unknown index `bidule\' in @printindex
+    'error_line' => 'unknown index `bidule\' in @printindex
 ',
     'file_name' => 'index_no_node.texi',
     'line_nr' => 11,
@@ -1533,7 +1533,7 @@ $result_errors{'index_no_node'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'index_no_node.texi:19: warning: lowering the section level of @top appearing after a lower element
+    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
 ',
     'file_name' => 'index_no_node.texi',
     'line_nr' => 19,
