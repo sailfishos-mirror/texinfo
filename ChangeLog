@@ -1,3 +1,12 @@
+2022-02-21  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/texi2any.pl (handle_errors): print line_nr if 0. Although
+	it should not happen in practice.
+
+	* tp/t/test_parse_texi_line.t, tp/t/test_parser_registrar.t,
+	tp/t/test_protect_hashchar_at_line_beginning.t: check line error
+	messages line numbers.
+
 2022-02-21  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	No encoding for filenames in error messages.

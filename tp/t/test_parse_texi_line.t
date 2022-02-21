@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 30; }
+BEGIN { plan tests => 45; }
 
 use Texinfo::Convert::Texinfo;
 use Texinfo::Parser;
@@ -36,7 +36,11 @@ sub test_line($$$$)
   my $error_idx = 0;
   foreach my $error_message (@$error_warnings_list) {
     if (defined($errors_references) and $error_idx < scalar(@$errors_references)) {
-      is($error_message->{'error_line'}, $errors_references->[$error_idx]."\n",
+      my ($error_line_nr_reference, $error_line_reference)
+        = @{$errors_references->[$error_idx]};
+      is ($error_message->{'line_nr'}, $error_line_nr_reference,
+          "$test_explanation error line $error_idx");
+      is ($error_message->{'error_line'}, $error_line_reference."\n",
           "$test_explanation error message $error_idx");
     } else {
       warn "not caught: $error_message->{'error_line'}";
@@ -48,9 +52,9 @@ sub test_line($$$$)
 my @tests = (
 ["\@node a node\n", 'node line'],
 ["aa \@exdent in exdent", 'exdent error no end line',
-  ['warning: @exdent should only appear at the beginning of a line']],
+  [[1, 'warning: @exdent should only appear at the beginning of a line']]],
 ["aa \@exdent in exdent\n", 'exdent error with end line',
-  ['warning: @exdent should only appear at the beginning of a line']],
+  [[1, 'warning: @exdent should only appear at the beginning of a line']]],
 ['@node node
 a node
 
@@ -80,10 +84,10 @@ in chapter
 @listoffloats type
 
 @bye
-', 'long example', ['warning: @setfilename after the first element',
-                    'column fraction not a number: a',
-                    'column fraction not a number: b',
-                    '@columnfractions only meaningful on a @multitable line',
+', 'long example', [[4, 'warning: @setfilename after the first element'],
+                    [24, 'column fraction not a number: a'],
+                    [24, 'column fraction not a number: b'],
+                    [20, '@columnfractions only meaningful on a @multitable line'],
 ]]
 );
 

@@ -650,7 +650,7 @@ sub handle_errors($$$)
         }
         $s .= "$file:";
       }
-      if ($error_message->{'line_nr'}) {
+      if (defined($error_message->{'line_nr'})) {
         $s .= $error_message->{'line_nr'} . ': ';
       }
 

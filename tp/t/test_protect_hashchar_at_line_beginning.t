@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 6; }
+BEGIN { plan tests => 7; }
 
 use Texinfo::Parser;
 use Texinfo::Transformations;
@@ -37,7 +37,8 @@ sub run_test($$$;$)
 
   if (defined($error_message)) {
     my ($errors, $errors_count) = $registrar->errors();
-    if (!$error_message) {
+    my ($error_line_nr_reference, $error_line_reference) = @$error_message;
+    if (!$error_line_reference) {
       if ($errors and scalar(@$errors)) {
         print STDERR " --error-> $errors->[0]->{'error_line'}";
       } else {
@@ -45,7 +46,10 @@ sub run_test($$$;$)
       }
     } else {
       if ($errors and scalar(@$errors)) {
-        is($error_message, $errors->[0]->{'error_line'}, "error message: $name");
+        is($error_line_nr_reference, $errors->[0]->{'line_nr'},
+          "error line: $name");
+        is($error_line_reference, $errors->[0]->{'error_line'},
+          "error message: $name");
       } else {
         ok(0, "error message: $name");
       }
@@ -135,8 +139,8 @@ run_test('
 @macro mymacro {}
 # line 20 "ff"
 @end macro
-', 'in raw command', 'warning: could not protect hash character in @macro
-');
+', 'in raw command', [2, 'warning: could not protect hash character in @macro
+']);
 
 
 #{
