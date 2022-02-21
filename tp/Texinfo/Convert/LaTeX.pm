@@ -1264,10 +1264,9 @@ roundcorner=10pt}
   # needspace for \needspace. In texlive-latex-extra in debian
   # etoolbox for \patchcmd and \ifstrempty. In texlive-latex-recommended in debian
   # fontsize for \changefontsize. In texlive-latex-extra in debian
-  # mdframed is used for the formatting of @cartouche.
-  # framemethod=TikZ is needed for roundcorner, but there
-  # is an issue with \fbox in sectioning commands when hyperref and imakeidx
-  # are present too.  No round corners for now for @cartouche.
+  # mdframed is used for the formatting of @cartouche,
+  # framemethod=TikZ is needed for roundcorner.
+  # Possibility for hyperref for color:
   # \usepackage[linkbordercolor={0 0 0}]{hyperref}
   # titleps is used and not fancyhdr as with fancyhdr it is hard to get
   # the section or chapter title
@@ -1291,7 +1290,8 @@ roundcorner=10pt}
     $header .= "\\usepackage{array}\n";
   }
   if ($self->{'packages'}->{'mdframed'}) {
-    $header .= "\\usepackage{mdframed}\n";
+    # framemethod=tikz needed for roundcorners for @cartouche
+    $header .= "\\usepackage[framemethod=tikz]{mdframed}\n";
   }
   if ($self->{'packages'}->{'fontsize'}) {
     $header .= "\\usepackage{fontsize}\n";

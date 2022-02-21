@@ -1,5 +1,11 @@
 2022-02-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_latex_header): readd framemethod=tikz
+	option for mdframed for roundcorners for @cartouche formatting
+	now that the \fbox in sectioning command issue has been solved.
+
+2022-02-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_convert): add a context if
 	in heading formatting.  In heading formating, use 'error'
 	as a string instead of a \fbox for @error formatting in
