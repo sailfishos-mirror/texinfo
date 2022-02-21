@@ -85,6 +85,21 @@
 #
 # RELEVANT BUT NOT DECISIVE
 #
+# Rendering of @error using \fbox{} in sectioning commands leads to erroneous
+# table of contents with hyperref, and with xcolor there is even a failure.
+# The hyperref maintainer does not want to handle explicitely \fbox{} in
+# sectioning commands given the rarity of this use and also because there are
+# some workarounds.
+# In particular
+# \chapter{\texorpdfstring{\fbox{fbox}}{}}
+# or
+# \pdfstringdefDisableCommands{%
+# \def\fbox#1{[#1]}%
+# }
+#
+# See
+# https://github.com/latex3/hyperref/issues/207#issuecomment-920712424
+#
 # breaking in urls is not implemented, maybe there is some support already in
 # hyperref.  @urefbreakstyle, @/
 #
