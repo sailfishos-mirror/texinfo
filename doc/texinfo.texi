@@ -18369,6 +18369,11 @@ The option @option{--css-include=@var{file}} includes the contents
 details are somewhat tricky, as described in the following, to provide
 maximum flexibility.
 
+@cindex @samp{@@charset} specification, in CSS files
+The CSS file first line may be a @samp{@@charset} directive.  If present,
+this directive is used to determine the encoding of the CSS file.  The
+line is not copied into the output.
+
 @cindex @samp{@@import} specifications, in CSS files
 The CSS file may begin with so-called @samp{@@import} directives,
 which link to external CSS specifications for browsers to use when
@@ -18378,12 +18383,9 @@ explain how @command{makeinfo} handles them.
 
 @cindex Comments, in CSS files
 There can be more than one @samp{@@import}, but they have to come
-first in the file, with only whitespace and comments interspersed, no
-normal definitions.  (Technical exception: a @samp{@@charset}
-directive may precede the @samp{@@import}'s.  This does not alter
-@command{makeinfo}'s behavior, it just copies the @samp{@@charset} if
-present.)  Comments in CSS files are delimited by @samp{/* ... */}, as
-in C@.  An @samp{@@import} directive must be in one of these two forms:
+first in the file, with only whitespace and comments interspersed, no normal
+definitions.  Comments in CSS files are delimited by @samp{/* ... */}, as in
+C@.  An @samp{@@import} directive must be in one of these two forms:
 
 @example
 @@import url(http://example.org/foo.css);

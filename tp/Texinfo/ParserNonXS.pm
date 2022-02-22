@@ -37,7 +37,7 @@ use Carp qw(cluck);
 use Data::Dumper;
 
 # to detect if an encoding may be used to open the files
-use Encode;
+use Encode qw(find_encoding);
 
 # for fileparse
 use File::Basename;

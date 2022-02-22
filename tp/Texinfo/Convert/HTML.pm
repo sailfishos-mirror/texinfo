@@ -48,6 +48,8 @@ use File::Copy qw(copy);
 
 use Storable;
 
+use Encode qw(find_encoding);
+
 use Texinfo::Common;
 use Texinfo::Config;
 use Texinfo::Convert::Unicode;
@@ -7089,6 +7091,27 @@ sub _process_css_file($$$)
   my $line_nr = 0;
   while (my $line = <$fh>) {
     $line_nr++;
+    if ($line_nr == 1) {
+      # the rule is to assume utf-8.  There could also be a BOM, and
+      # the Content-Type: HTTP header but it is not relevant here.
+      # https://developer.mozilla.org/en-US/docs/Web/CSS/@charset
+      my $charset = 'utf-8';
+      my $charset_line;
+      if ($line =~ /^\@charset  *"([^"]+)" *; *$/) {
+        $charset = $1;
+        $charset_line = 1;
+      }
+      my $Encode_encoding_object = find_encoding($charset);
+      if (defined($Encode_encoding_object)) {
+        my $input_perl_encoding = $Encode_encoding_object->name();
+        if ($input_perl_encoding eq 'utf-8') {
+          binmode($fh, ":utf8");
+        } else {
+          binmode($fh, ":encoding($input_perl_encoding)");
+        }
+      }
+      next if ($charset_line);
+    }
     #print STDERR "Line: $line";
     if ($in_rules) {
       push @$rules, $line;

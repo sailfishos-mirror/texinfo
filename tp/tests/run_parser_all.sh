@@ -116,7 +116,7 @@ post_process_output ()
   fi
 }
 
-LC_ALL=C; export LC_ALL
+LC_ALL=C.UTF-8; export LC_ALL
 
 prepended_command=
 #prepended_command=time
@@ -228,7 +228,8 @@ if [ "z$clean" = 'zyes' -o "z$copy" = 'zyes' ]; then
 # there are better ways
     dir=`echo $line | awk '{print $1}'`
     file=`echo $line | awk '{print $2}'`
-    remaining=`echo $line | sed 's/[a-zA-Z0-9_./-]*  *[a-zA-Z0-9_./-]* *//'`
+    #remaining=`echo $line | sed 's/[a-zA-Z0-9_./-]*  *[a-zA-Z0-9_./-]* *//'`
+    remaining=`echo $line | sed 's/[a-zA-Z0-9_é./-]*  *[a-zA-Z0-9_é./-]* *//'`
     [ "z$dir" = 'z' -o "z$file" = 'z' ] && continue
     if [ "z$clean" = 'zyes' ]; then
       for command_dir in $commands; do
@@ -284,7 +285,8 @@ while read line; do
   fi
 
   basename=`basename $file .texi`
-  remaining=`echo $line | sed 's/[a-zA-Z0-9_./-]*  *[a-zA-Z0-9_./-]* *//'`
+  #remaining=`echo $line | sed 's/[a-zA-Z0-9_./-]*  *[a-zA-Z0-9_./-]* *//'`
+  remaining=`echo $line | sed 's/[a-zA-Z0-9_é./-]*  *[a-zA-Z0-9_é./-]* *//'`
   src_file="$srcdir/$testdir/$file"
   
   for command_dir in $commands; do

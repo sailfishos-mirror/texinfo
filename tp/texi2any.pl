@@ -28,7 +28,7 @@ use strict;
 # to determine the locale encoding
 use I18N::Langinfo qw(langinfo CODESET);
 # to decode command line arguments
-use Encode;
+use Encode qw(decode encode find_encoding);
 # for file names portability
 use File::Spec;
 # to determine the path separator and null file
@@ -345,7 +345,7 @@ sub _decode_i18n_string($$)
 {
   my $string = shift;
   my $encoding = shift;
-  return Encode::decode($encoding, $string);
+  return decode($encoding, $string);
 }
 
 sub _encode_message($)
@@ -353,7 +353,7 @@ sub _encode_message($)
   my $text = shift;
   my $encoding = get_conf('MESSAGE_OUTPUT_ENCODING_NAME');
   if (defined($encoding)) {
-    return Encode::encode($encoding, $text);
+    return encode($encoding, $text);
   } else {
     return $text;
   }
@@ -682,7 +682,7 @@ sub _decode_input($)
 
   my $encoding = get_conf('DATA_INPUT_ENCODING_NAME');
   if (defined($encoding)) {
-    return Encode::decode($encoding, $text);
+    return decode($encoding, $text);
   } else {
     return $text;
   }
@@ -879,17 +879,18 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021");
  'number-footnotes!' => sub { set_from_cmdline('NUMBER_FOOTNOTES', $_[1]); },
  'node-files!' => sub { set_from_cmdline('NODE_FILES', $_[1]); },
  'footnote-style=s' => sub {
-    if ($_[1] eq 'end' or $_[1] eq 'separate') {
-       set_from_cmdline('footnotestyle', $_[1]);
+    my $value = _decode_input($_[1]);
+    if ($value eq 'end' or $value eq 'separate') {
+       set_from_cmdline('footnotestyle', $value);
     } else {
-      # FIXME decode/encode?
-      die sprintf(__("%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"),
-                  $real_command_name, $_[1]);
+      die _encode_message(
+           sprintf(__("%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"),
+                  $real_command_name, $value));
     }
   },
- 'split=s' => sub {  my $split = $_[1];
+ 'split=s' => sub {  my $split = _decode_input($_[1]);
                      my @messages 
-                       = Texinfo::Common::warn_unknown_split($_[1]);
+                       = Texinfo::Common::warn_unknown_split($split);
                      if (@messages) {
                        foreach my $message (@messages) {
                          document_warn($message);
@@ -911,12 +912,10 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021");
                      $format = 'plaintext' if (!$_[1] and $format eq 'info'); },
  'output|out|o=s' => sub {
     my $var = 'OUTFILE';
-    # do not decode before calling -d as -d expects bytes
     if ($_[1] =~ m:/$: or -d $_[1]) {
       set_from_cmdline($var, undef);
       $var = 'SUBDIR';
     }
-    #set_from_cmdline($var, _decode_input($_[1]));
     set_from_cmdline($var, $_[1]);
     push @texi2dvi_args, '-o', $_[1];
   },
@@ -972,12 +971,13 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021");
  'error-limit|e=i' => sub { set_from_cmdline('ERROR_LIMIT', $_[1]); },
  'split-size=s' => sub {set_from_cmdline('SPLIT_SIZE', $_[1])},
  'paragraph-indent|p=s' => sub {
-    my $value = $_[1];
+    my $value = _decode_input($_[1]);
     if ($value =~ /^([0-9]+)$/ or $value eq 'none' or $value eq 'asis') {
-      set_from_cmdline('paragraphindent', $_[1]);
+      set_from_cmdline('paragraphindent', $value);
     } else {
-      die sprintf(__("%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"), 
-                  $real_command_name, $value);
+      die _encode_message(sprintf(
+       __("%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"),
+                  $real_command_name, $value));
     }
  },
  'fill-column|f=i' => sub {set_from_cmdline('FILLCOLUMN',$_[1]);},
@@ -1009,6 +1009,11 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021");
 
 
 exit 1 if (!$result_options);
+
+# those are strings combined with output so decode
+my $ref_css_refs = get_conf('CSS_REFS');
+my @input_css_refs = @{$ref_css_refs};
+@$ref_css_refs = map {_decode_input($_)} @input_css_refs;
 
 # Change some options depending on the settings of other ones set formats
 sub process_config {

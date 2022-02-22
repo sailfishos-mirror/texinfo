@@ -9,3 +9,11 @@ simplest_test_css simplest.texi --css-include file.css
 
 # check that command line overrides document
 documentlanguage_cmdline documentlanguage.texi --document-language=fr
+
+# some command-line arguments when incorrect cause texi2any to die.
+# easily tested by calling directly ./texi2any.pl and checking visually:
+# ./texi2any.pl --footnote-style=bâd
+# ./texi2any.pl --paragraph-indent=ïndent
+# check non ascii command line arguments
+non_ascii_command_line osé.texi --html --split=Mekanïk --document-language=Destruktïw -c 'Kommandöh vâl' -D TÛT -D 'vùr ké' -U ôndef -c 'FORMAT_MENU mînù' --macro-expand=@OUT_DIR@osé-texinfo.texi --internal-links=@OUT_DIR@intérnal.txt --css-include çss.css --css-include cêss.css --css-ref=rëf --css-ref=öref
+

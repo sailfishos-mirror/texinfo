@@ -28,6 +28,7 @@ use 5.006;
 # to determine the null file
 use Config;
 use File::Spec;
+# for find_encoding, resolve_alias and maybe utf8 related functions
 use Encode;
 
 use Texinfo::Documentlanguages;

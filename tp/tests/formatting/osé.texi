@@ -1,0 +1,15 @@
+\input texinfo.tex
+
+@setfilename osé.info
+
+@node Top
+@top Tôp
+
+@node Chaptêur
+@chapter Chapteùr
+
+@ifset TÛT
+isset TÛT
+@end ifset
+
+value vùr @value{vùr}.
