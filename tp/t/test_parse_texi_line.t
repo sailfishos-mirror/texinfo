@@ -10,6 +10,11 @@ BEGIN { plan tests => 45; }
 use Texinfo::Convert::Texinfo;
 use Texinfo::Parser;
 
+# For consistent error messages, use the C locale
+$ENV{LC_ALL} = 'C';
+$ENV{LANGUAGE} = 'en';
+
+
 # test regressions specific of parse_texi_line
 
 sub test_line($$$$)

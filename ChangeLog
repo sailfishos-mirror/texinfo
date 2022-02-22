@@ -1,5 +1,12 @@
 2022-02-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Fix test failures under non-English locale
+
+	* tp/t/test_parse_texi_line.t, tp/t/test_parser_registrar.t:
+	Set LC_ALL and LANGUAGE for consistent error messages.
+
+2022-02-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Always use installed translated messages
 
 	* tp/Texinfo/XS/parsetexi/api.c (init),

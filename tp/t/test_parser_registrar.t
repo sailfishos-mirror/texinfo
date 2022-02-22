@@ -10,8 +10,10 @@ BEGIN { plan tests => 9; }
 use Texinfo::Parser;
 use Texinfo::Report;
 
-# For consistent error message, use the C locale
+# For consistent error messages, use the C locale
 $ENV{LC_ALL} = 'C';
+$ENV{LANGUAGE} = 'en';
+
 
 ok(1, "modules loading");
 
