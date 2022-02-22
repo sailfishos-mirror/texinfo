@@ -632,6 +632,13 @@ element_to_perl_hash (ELEMENT *e)
 HV *
 build_texinfo_tree (void)
 {
+  if (! Root)
+      /* use an empty element with contents if there is nothing.
+         This should only happen if the input file was not opened
+         or no parse_* function was called after initialization
+         and should not happen with the current calling code.
+      */
+      Root = new_element (ET_NONE);
   element_to_perl_hash (Root);
   return Root->hv;
 }
