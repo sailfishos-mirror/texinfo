@@ -1,3 +1,12 @@
+2022-02-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
+       Fix translation of messages with XS modules
+
+       * tp/Texinfo/XSLoader.pm: require rather than use Texinfo::ModulePath
+       to prevent initialization being done again, incorrectly.  This led
+       to incorrect locale dirs being used due to
+       $Texinfo::ModulePath::texinfo_uninstalled being reset.
+
 2022-02-22  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/api.c (build_texinfo_tree): return

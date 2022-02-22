@@ -21,7 +21,7 @@ use warnings;
 
 use DynaLoader;
 
-use Texinfo::ModulePath;
+require Texinfo::ModulePath;
 
 our $TEXINFO_XS;
 
