@@ -254,6 +254,10 @@ sub _get_errors($)
 
   my $ERRORS;
   my $tree_stream = dump_errors();
+
+  # dump_errors outputs error messages in UTF-8 and we want to read them in
+  # as Perl strings
+  utf8::decode($tree_stream);
   eval $tree_stream;
   for my $error (@{$ERRORS}) {
     if ($error->{'type'} eq 'error') {
