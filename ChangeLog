@@ -1,5 +1,17 @@
 2022-02-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Always use installed translated messages
+
+	* tp/Texinfo/XS/parsetexi/api.c (init),
+	* tp/texi2any.pl: Unconditionally use installed messages regardless
+	of whether the program is installed or not.  Although it would be
+	better to use uninstalled messages for this, this hasn't been
+	implemented, and having access to translated messages when uninstalled
+	will make testing the translations easier.  Remove reference to
+	a non-existent 'maintain/regenerate_perl_module_files.sh' script.
+
+2022-02-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/ModulePath.pm.in: Add a comment warning against
 	using the module more than once.
 

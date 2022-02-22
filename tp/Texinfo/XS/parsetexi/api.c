@@ -44,11 +44,9 @@ ELEMENT *Root;
 
 #define LOCALEDIR DATADIR "/locale"
 
-/* Use the uninstalled locales dir.
-   NB the texinfo.mo files are not actually created here, only the
-   texinfo_document.mo files, which aren't used by parsetexi.
-   Hence, error messages will be translated only when the program is 
-   installed. */
+/* Use the uninstalled locales dir.  Currently unused.
+   The texinfo.mo files are not actually created here, only the
+   texinfo_document.mo files, which aren't used by parsetexi. */
 static void
 find_locales_dir (char *builddir)
 {
@@ -83,11 +81,9 @@ init (int texinfo_uninstalled, char *builddir)
 {
   setlocale (LC_ALL, "");
 
-  /* Use installed or uninstalled translation files for gettext. */
-  if (texinfo_uninstalled)
-    find_locales_dir (builddir);
-  else
-    bindtextdomain (PACKAGE, LOCALEDIR);
+  /* Note: this uses the installed translations even when running an
+     uninstalled program. */
+  bindtextdomain (PACKAGE, LOCALEDIR);
 
   textdomain (PACKAGE);
 

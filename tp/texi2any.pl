@@ -184,18 +184,17 @@ if ($Texinfo::ModulePath::texinfo_uninstalled) {
                                        'LocaleData');
   if (-d $locales_dir) {
     Locale::Messages::bindtextdomain ($strings_textdomain, $locales_dir);
-    # the messages in this domain are not regenerated automatically, 
-    # only when calling ./maintain/regenerate_perl_module_files.sh
-    Locale::Messages::bindtextdomain ($messages_textdomain, $locales_dir);
   } else {
     warn "Locales dir for document strings not found\n";
   }
 } else {
   Locale::Messages::bindtextdomain ($strings_textdomain, 
                                     File::Spec->catdir($datadir, 'locale'));
-  Locale::Messages::bindtextdomain ($messages_textdomain,
-                                    File::Spec->catdir($datadir, 'locale'));
 }
+
+# Note: this uses installed messages even when the program is uninstalled
+Locale::Messages::bindtextdomain ($messages_textdomain,
+                                File::Spec->catdir($datadir, 'locale'));
 
 
 # Version setting is complicated, because we cope with 
