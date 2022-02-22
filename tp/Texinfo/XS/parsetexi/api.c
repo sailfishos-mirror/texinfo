@@ -172,7 +172,7 @@ parse_file (char *filename)
   
   status = input_push_file (filename);
   if (status)
-    return 0;
+    return status;
 
   /* Strip off a leading directory path, by looking for the last
      '/' in filename. */
