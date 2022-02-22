@@ -9,6 +9,10 @@ This is the todo list for texi2any
 export XML_CATALOG_FILES=~/src/texinfo/tp/maintain/catalog.xml
 xmllint --nonet --noout --valid commands.xml
 
+Test with 8bit locale:
+export LANG=fr_FR; export LANGUAGE=fr_FR; export LC_ALL=fr_FR
+xterm &
+
 
 Before next release
 ===================

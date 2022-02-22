@@ -117,6 +117,7 @@ post_process_output ()
 }
 
 LC_ALL=C.UTF-8; export LC_ALL
+LANGUAGE=C.UTF-8; export LANGUAGE
 
 prepended_command=
 #prepended_command=time
