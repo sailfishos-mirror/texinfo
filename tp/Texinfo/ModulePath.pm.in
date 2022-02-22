@@ -2,6 +2,10 @@
 #
 # Add directories to @INC, Perl's module search path, to find modules,
 # either in the source or build directories.
+#
+# 'use Texinfo::ModulePath' should only occur once per program so that
+# the initialization is only done once.  This makes the way this module
+# is used very unusual.
 
 package Texinfo::ModulePath;
 

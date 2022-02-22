@@ -1,5 +1,10 @@
 2022-02-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/ModulePath.pm.in: Add a comment warning against
+	using the module more than once.
+
+2022-02-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
        Fix translation of messages with XS modules
 
        * tp/Texinfo/XSLoader.pm: require rather than use Texinfo::ModulePath
