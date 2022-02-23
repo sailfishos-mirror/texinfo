@@ -1,4 +1,4 @@
-# Copyright 2014-2021 Free Software Foundation, Inc.
+# Copyright 2014-2022 Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -245,31 +245,14 @@ sub parse_texi_file ($$)
 }
 
 # Copy the errors into the error list in Texinfo::Report.
-# TODO: Could we just access the error list directly instead of going
-# through Texinfo::Report line_error?
 sub _get_errors($)
 {
   my $self = shift;
   my ($registrar, $configuration_information) = _get_error_registrar($self);
 
-  my $ERRORS;
-  my $tree_stream = dump_errors();
+  my $ERRORS = get_errors ();
 
-  # dump_errors outputs error messages in UTF-8 and we want to read them in
-  # as Perl strings
-  utf8::decode($tree_stream);
-  eval $tree_stream;
   for my $error (@{$ERRORS}) {
-    my $error_location_info = $error->{'line_nr'};
-    if (defined($error_location_info)
-        and defined($error_location_info->{'file_name'})) {
-      # When dealing with file names, we want Perl strings representing
-      # sequences of bytes, not codepoints.
-      # FIXME this is not really correct, the final encoding may not be utf-8
-      # but this should be better handled, without decoding followed by
-      # encoding when a better interface is implemented.
-      utf8::encode($error_location_info->{'file_name'});
-    }
     if ($error->{'type'} eq 'error') {
       $registrar->line_error ($configuration_information,
                               $error->{'message'}, $error->{'line_nr'});

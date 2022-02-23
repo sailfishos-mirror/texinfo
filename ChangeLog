@@ -1,3 +1,16 @@
+2022-02-23  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Get errors from XS code without using eval
+
+	* tp/Texinfo/XS/parsetexi/api.c, tp/Texinfo/XS/parsetexi/Parsetexi.xs
+	(get_errors): New function to create error list.
+	* tp/Texinfo/XS/parsetexi/errors.c (dump_errors): Function removed.
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm: Call it to get the errors
+	and warnings from the XS module.
+
+	This allows better control of string encodings for messages
+	and filenames.  It may also be faster than calling eval.
+
 2022-02-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_errors): encode

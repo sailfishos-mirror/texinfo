@@ -24,6 +24,6 @@ HV *build_float_list (void);
 HV *build_index_data (void);
 HV *build_global_info (void);
 HV *build_global_info2 (void);
-
+AV *get_errors (void);
 
 #endif

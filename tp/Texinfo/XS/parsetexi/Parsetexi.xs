@@ -26,9 +26,6 @@ init (texinfo_uninstalled, srcdir)
      int texinfo_uninstalled
      char *srcdir
 
-char *
-dump_errors ()
-
 void
 wipe_errors ()
 
@@ -118,3 +115,6 @@ set_debug (int i)
 
 void
 set_accept_internalvalue()
+
+AV *
+get_errors ()

@@ -1095,3 +1095,91 @@ set_documentlanguage_override (char *value)
   global_documentlanguage_fixed = 1;
 }
 
+
+
+static SV *
+build_line_nr_hash (LINE_NR line_nr)
+{
+  HV *hv;
+
+  dTHX;
+
+  hv = newHV ();
+
+  if (line_nr.file_name)
+    {
+      hv_store (hv, "file_name", strlen ("file_name"),
+                newSVpv (line_nr.file_name, 0), 0);
+    }
+  else
+    {
+      hv_store (hv, "file_name", strlen ("file_name"),
+                newSVpv ("", 0), 0);
+    }
+  if (line_nr.line_nr)
+    {
+      hv_store (hv, "line_nr", strlen ("line_nr"),
+                newSViv (line_nr.line_nr), 0);
+    }
+  if (line_nr.macro)
+    {
+      hv_store (hv, "macro", strlen ("macro"),
+                newSVpv (line_nr.macro, 0), 0);
+    }
+  else
+    {
+      hv_store (hv, "macro", strlen ("macro"),
+                newSVpv ("", 0), 0);
+    }
+
+  return newRV_inc ((SV *) hv);
+}
+
+static SV *
+convert_error (int i)
+{
+  ERROR_MESSAGE e;
+  HV *hv;
+  SV *msg;
+
+  dTHX;
+
+  e = error_list[i];
+  hv = newHV ();
+
+  msg = newSVpv (e.message, 0);
+  SvUTF8_on (msg);
+
+  hv_store (hv, "message", strlen ("message"), msg, 0);
+  hv_store (hv, "type", strlen ("type"),
+              e.type == error ? newSVpv("error", strlen("error"))
+                              : newSVpv("warning", strlen("warning")),
+            0);
+
+  hv_store (hv, "line_nr", strlen ("line_nr"),
+            build_line_nr_hash(e.line_nr), 0);
+
+  return newRV_inc ((SV *) hv);
+
+}
+
+/* Errors */
+AV *
+get_errors (void)
+{
+  AV *av;
+  int i;
+
+  dTHX;
+
+  av = newAV ();
+
+  for (i = 0; i < error_number; i++)
+    {
+      SV *sv = convert_error (i);
+      av_push (av, sv);
+    }
+
+  return av;
+
+}

@@ -22,5 +22,13 @@ void line_error_ext (enum error_type type, LINE_NR *cmd_line_nr,
                      char *format, ...);
 void bug_message (char *format, ...);
 
-char *dump_errors (void);
+typedef struct {
+    char *message;
+    enum error_type type;
+    LINE_NR line_nr;
+} ERROR_MESSAGE;
+
+extern ERROR_MESSAGE *error_list;
+extern size_t error_number;
+
 #endif
