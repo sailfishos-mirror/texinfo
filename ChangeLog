@@ -1,5 +1,12 @@
 2022-02-23  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Recode filenames into input encoding
+
+	* tp/Texinfo/Common.pm (locale_include_file): Recode
+	the filename into the input encoding even if it is not UTF-8.
+
+2022-02-23  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Get errors from XS code without using eval
 
 	* tp/Texinfo/XS/parsetexi/api.c, tp/Texinfo/XS/parsetexi/Parsetexi.xs
