@@ -1118,7 +1118,8 @@ sub _convert($$;$)
           }
           my @files;
           foreach my $extension (@docbook_image_extensions) {
-            if ($self->Texinfo::Common::locate_include_file ("$basefile.$extension")) {
+            my $file_name = $self->encode_file_name("$basefile.$extension");
+            if ($self->Texinfo::Common::locate_include_file($file_name)) {
               push @files, ["$basefile.$extension", uc($extension)];
             }
           }

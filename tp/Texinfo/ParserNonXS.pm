@@ -3206,7 +3206,22 @@ sub _end_line($$$)
         } elsif ($superfluous_arg) {
           # An error message is issued below.
         } elsif ($command eq 'include') {
-          my $file = Texinfo::Common::locate_include_file($self, $text) ;
+          my $file_name = $text;
+          # When dealing with file names, we want Perl strings representing sequences
+          # of bytes, not codepoints in the internal perl encoding. 
+          #     This is necessary even if the name of the included file is purely
+          # ASCII, as the name of the directory it is located within may contain
+          # non-ASCII characters.
+          # Otherwise, the -e operator and similar may not work correctly.
+          if (defined $self->{'info'}->{'input_perl_encoding'}) {
+            my $encoding = $self->{'info'}->{'input_perl_encoding'};
+            if ($encoding and ($encoding eq 'utf-8' or $encoding eq 'utf-8-strict')) {
+              utf8::encode($file_name);
+            } else {
+              $file_name = Encode::encode($encoding, $file_name);
+            }
+          }
+          my $file = Texinfo::Common::locate_include_file($self, $file_name);
           if (defined($file)) {
             my $filehandle = do { local *FH };
             if (_open_in ($self, $filehandle, $file)) {
@@ -3223,6 +3238,8 @@ sub _end_line($$$)
               # expand the @-command
               $current->{'type'} = 'replaced';
             } else {
+              # FIXME $text does not show the include directory.  However using $file
+              # would require to decode it to perl internal codepoints
               $self->_command_error($current, $line_nr,
                               __("\@%s: could not open %s: %s"),
                               $command, $text, $!);

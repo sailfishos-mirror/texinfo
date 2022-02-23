@@ -1511,26 +1511,6 @@ sub locate_include_file($$)
   my $text = shift;
   my $file;
 
-  # Reverse the decoding of the file name from the input encoding.  When
-  # dealing with file names, we want Perl strings representing sequences of
-  # bytes, not Unicode codepoints.
-  #     This is necessary even if the name of the included file is purely
-  # ASCII, as the name of the directory it is located within may contain
-  # non-ASCII characters.
-  #   Otherwise, the -e operator and similar may not work correctly.
-  #
-  if ($configuration_information) {
-    my $info = Texinfo::Parser::global_information($configuration_information);
-    my $encoding = $info->{'input_perl_encoding'};
-    if ($encoding) {
-      if ($encoding eq 'utf-8' or $encoding eq 'utf-8-strict') {
-        utf8::encode($text);
-      } else {
-        $text = Encode::encode($encoding, $text);
-      }
-    }
-  }
-
   my $ignore_include_directories = 0;
 
   my ($volume, $directories, $filename) = File::Spec->splitpath($text);

@@ -261,6 +261,7 @@ sub html_image_file_location_name($$$$)
   my $image_file;
   my $image_basefile;
   my $image_extension;
+  # this variable is bytes encoded in the filesystem encoding
   my $image_path;
   if (defined($args->[0]->{'monospacetext'}) and $args->[0]->{'monospacetext'} ne '') {
     $image_basefile = $args->[0]->{'monospacetext'};
@@ -270,13 +271,16 @@ sub html_image_file_location_name($$$$)
       unshift @extensions, ("$extension", ".$extension");
     }
     foreach my $extension (@extensions) {
+      my $file_name = $self->encode_file_name($image_basefile.$extension);
       my $located_image_path
-           = $self->Texinfo::Common::locate_include_file($image_basefile.$extension);
+           = $self->Texinfo::Common::locate_include_file($file_name);
       if (defined($located_image_path) and $located_image_path ne '') {
         $image_path = $located_image_path;
         # use the @-command argument and not the file found using the
         # include paths.  It is considered that the files in include paths
         # will be moved by the caller anyway.
+        # If the file path found was to be used it should be decoded to perl
+        # codepoints too.
         $image_file = $image_basefile.$extension;
         $image_extension = $extension;
         last;

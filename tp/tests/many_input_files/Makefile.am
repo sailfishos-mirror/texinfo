@@ -12,16 +12,20 @@
 EXTRA_DIST = $(TESTS) \
   tex_l2h_res tex_t4ht_res different_encodings_res different_languages_gen_master_menu_res \
   input_files/no_master_menu_fr.texi \
-  input_files/no_master_menu_no_documentlanguage.texi
-
+  input_files/no_master_menu_no_documentlanguage.texi \
+  input_files/simple_including_file.texi \
+  input_files/dir_înclùde/file_image.png \
+  input_files/dir_înclùde/included_file.texi
 
 TESTS = tex_l2h.sh tex_t4ht.sh \
-  different_encodings.sh different_languages_gen_master_menu.sh
+  different_encodings.sh different_languages_gen_master_menu.sh \
+  input_dir_non_ascii.sh
 AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; top_srcdir="$(top_srcdir)"; export top_srcdir; builddir="$(builddir)"; export buildir; top_builddir="$(top_builddir)"; export top_builddir;
 
 tex_html_dirs = tex_l2h tex_t4ht
 
-tests_dirs = different_encodings different_languages_gen_master_menu
+tests_dirs = different_encodings different_languages_gen_master_menu \
+  input_dir_non_ascii
 
 long-checks: all
 	$(MAKE) $(AM_MAKEFLAGS) check LONG_TESTS=yes

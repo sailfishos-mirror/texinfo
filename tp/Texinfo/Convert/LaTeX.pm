@@ -2308,19 +2308,17 @@ sub _convert($$)
 
         my $image_file;
         foreach my $extension (@LaTeX_image_extensions) {
+          my $file_name = $self->encode_file_name("$basefile.$extension");
           my $located_file =
-            $self->Texinfo::Common::locate_include_file("$basefile.$extension");
+            $self->Texinfo::Common::locate_include_file($file_name);
           if (defined($located_file)) {
             # use the basename and not the file found.  It is agreed that it is
             # better, since in any case the files are moved.
+            # If the file path found was to be used it should be decoded to perl
+            # codepoints too.
             # using basefile with escaped characters, no extension to let LaTeX choose the
             # extension
             $image_file = $converted_basefile;
-            #my ($image_volume, $image_directories, $image_filename)
-            #     = File::Spec->splitpath($located_file);
-            ## using basefile with escaped characters
-            #$image_file = File::Spec->catpath($image_volume,
-            #                           $image_directories, $converted_basefile);
           }
         }
         if (not defined($image_file)) {

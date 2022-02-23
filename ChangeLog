@@ -1,3 +1,20 @@
+2022-02-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (locate_include_file),
+	tp/Texinfo/Convert/Converter.pm (encode_file_name, txt_image_text),
+	tp/Texinfo/Convert/DocBook.pm (_convert),
+	tp/Texinfo/Convert/HTML.pm (html_image_file_location_name),
+	tp/Texinfo/Convert/IXIN.pm (output_ixin),
+	tp/Texinfo/Convert/Info.pm (format_image),
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Utils.pm (expand_verbatiminclude),
+	tp/Texinfo/ParserNonXS.pm (_end_line): encode file name before
+	calling locate_include_file() in order to be able to pass file
+	names already encoded (case of CSS_FILES) and find the information
+	in different structures in converters and NonXS Parser.
+	Note in comments that no information source is available in
+	Texinfo/Convert/Utils.pm expand_verbatiminclude().
+
 2022-02-23  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Recode filenames into input encoding

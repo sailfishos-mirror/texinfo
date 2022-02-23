@@ -838,8 +838,9 @@ sub output_ixin($$)
         @extension = ($extension);
       }
       foreach my $extension (@extension, @image_files_extensions) {
-        my $filename = $basefile.'.'.$extension;
-        my $file = $self->Texinfo::Common::locate_include_file($filename);
+        my $file_name_text = "$basefile.$extension";
+        my $file_name = $self->encode_file_name($file_name_text);
+        my $file = $self->Texinfo::Common::locate_include_file($file_name);
         if (defined($file)) {
           my $filehandle = do { local *FH };
           if (open ($filehandle, $file)) {
@@ -866,7 +867,7 @@ sub output_ixin($$)
             }
             $blobs_index .= $self->ixin_element('blobentry', 
              ['bloblen', $blob_len, 'encoding', 'base64',
-              'mimetype', $mime_type, 'filename', $filename]) ."\n";
+              'mimetype', $mime_type, 'filename', $file_name_text]) ."\n";
           }
         }
       }

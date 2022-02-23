@@ -510,9 +510,12 @@ sub format_image($$)
     }
     my $image_file;
     foreach my $extension (@extensions) {
-      if ($self->Texinfo::Common::locate_include_file ($basefile.$extension)) {
+      my $file_name = $self->encode_file_name($basefile.$extension);
+      if ($self->Texinfo::Common::locate_include_file($file_name)) {
         # use the basename and not the file found.  It is agreed that it is
         # better, since in any case the files are moved.
+        # If the file path found was to be used it should be decoded to perl
+        # codepoints too.
         $image_file = $basefile.$extension;
         last;
       }

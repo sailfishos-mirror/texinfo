@@ -197,14 +197,18 @@ sub expand_verbatiminclude($$$)
   my $current = shift;
 
   return unless ($current->{'extra'} and defined($current->{'extra'}->{'text_arg'}));
-  my $text = $current->{'extra'}->{'text_arg'};
-  my $file = Texinfo::Common::locate_include_file($configuration_information, $text);
+  my $file_name_text = $current->{'extra'}->{'text_arg'};
+  # FIXME $file_name_text should be encoded to the file system
+  # encoding here to be passed to locate_include_file
+  my $file = Texinfo::Common::locate_include_file($configuration_information,
+                                                  $file_name_text);
 
   my $verbatiminclude;
 
   if (defined($file)) {
     if (!open(VERBINCLUDE, $file)) {
       if ($registrar) {
+        # FIXME $file should be decoded to perl internal codepoints here
         $registrar->line_error($configuration_information,
                                sprintf(__("could not read %s: %s"), $file, $!),
                                $current->{'line_nr'});
@@ -235,7 +239,7 @@ sub expand_verbatiminclude($$$)
   } elsif ($registrar) {
     $registrar->line_error($configuration_information,
                            sprintf(__("\@%s: could not find %s"),
-                                        $current->{'cmdname'}, $text),
+                                       $current->{'cmdname'}, $file_name_text),
                            $current->{'line_nr'});
   }
   return $verbatiminclude;
