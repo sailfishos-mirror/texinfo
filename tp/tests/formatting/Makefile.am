@@ -4,7 +4,7 @@ EXTRA_DIST = \
  inc_file.texi              test_need.texi \
  lightweight_markups.texi   japanese_long_name.texi  \
  osé.texi \
- çss.css cêss.css file.css list-of-tests  res_parser
+ çss.css cêss.css file.css an_ïmage.png list-of-tests  res_parser
 
 DISTCLEANFILES = tests.log tests.out
 

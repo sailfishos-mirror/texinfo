@@ -13,3 +13,11 @@ isset TÛT
 @end ifset
 
 value vùr @value{vùr}.
+
+@include included_akçentêd.texi
+
+@image{an_ïmage,,,öld}
+
+@image{dîrectory/imàge,,,âlt,.êxt}
+
+@include not_existïng.téxi

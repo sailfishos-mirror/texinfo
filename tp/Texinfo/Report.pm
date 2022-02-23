@@ -73,14 +73,14 @@ sub line_warn($$$$)
   my $configuration_information = shift;
   my $text = shift;
   chomp ($text);
-  my $line_number = shift;
-  return if (!defined($line_number));
+  my $error_location_info = shift;
+  return if (!defined($error_location_info));
   my $warn_line;
 
-  if ($line_number->{'macro'} ne '') {
+  if ($error_location_info->{'macro'} ne '') {
     $warn_line = sprintf(__p("Texinfo source file warning",
                              "warning: %s (possibly involving \@%s)\n"),
-                         $text, $line_number->{'macro'});
+                         $text, $error_location_info->{'macro'});
   } else {
     $warn_line = sprintf(__p("Texinfo source file warning", 
                              "warning: %s\n"),
@@ -90,7 +90,7 @@ sub line_warn($$$$)
                       and $configuration_information->get_conf('DEBUG'));
   push @{$self->{'errors_warnings'}},
        { 'type' => 'warning', 'text' => $text, 'error_line' => $warn_line,
-         %{$line_number} };
+         %{$error_location_info} };
 }
 
 # format a line error
@@ -100,18 +100,18 @@ sub line_error($$$$)
   my $configuration_information = shift;
   my $text = shift;
   chomp ($text);
-  my $line_number = shift;
-  if (defined($line_number)) {
+  my $error_location_info = shift;
+  if (defined($error_location_info)) {
     my $macro_text = '';
-    $macro_text = " (possibly involving \@$line_number->{'macro'})"
-       if ($line_number->{'macro'} ne '');
+    $macro_text = " (possibly involving \@$error_location_info->{'macro'})"
+       if ($error_location_info->{'macro'} ne '');
     my $error_text = "$text$macro_text\n";
     warn $error_text if (defined($configuration_information)
                          and $configuration_information->get_conf('DEBUG'));
     push @{$self->{'errors_warnings'}},
          { 'type' => 'error', 'text' => $text,
            'error_line' => $error_text,
-           %{$line_number} };
+           %{$error_location_info} };
   }
   $self->{'error_nrs'}++;
 }

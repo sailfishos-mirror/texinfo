@@ -260,6 +260,16 @@ sub _get_errors($)
   utf8::decode($tree_stream);
   eval $tree_stream;
   for my $error (@{$ERRORS}) {
+    my $error_location_info = $error->{'line_nr'};
+    if (defined($error_location_info)
+        and defined($error_location_info->{'file_name'})) {
+      # When dealing with file names, we want Perl strings representing
+      # sequences of bytes, not codepoints.
+      # FIXME this is not really correct, the final encoding may not be utf-8
+      # but this should be better handled, without decoding followed by
+      # encoding when a better interface is implemented.
+      utf8::encode($error_location_info->{'file_name'});
+    }
     if ($error->{'type'} eq 'error') {
       $registrar->line_error ($configuration_information,
                               $error->{'message'}, $error->{'line_nr'});
