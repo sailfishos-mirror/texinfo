@@ -16,7 +16,9 @@ int input_push_file (char *filename);
 void input_reset_input_stack (void);
 int expanding_macro (char *macro);
 int top_file_index (void);
+
 char *locate_include_file (char *filename);
+char *encode_file_name (char *filename);
 void set_input_encoding (char *encoding);
 void add_include_directory (char *filename);
 void clear_include_directories (void);

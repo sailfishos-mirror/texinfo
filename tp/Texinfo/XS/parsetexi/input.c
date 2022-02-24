@@ -52,9 +52,13 @@ typedef struct {
 
 enum character_encoding input_encoding;
 
+static char *input_encoding_name;
+
 void
 set_input_encoding (char *encoding)
 {
+  free (input_encoding_name); input_encoding_name = strdup (encoding);
+
   if (!strcasecmp (encoding, "utf-8"))
     input_encoding = ce_utf8;
   else if (!strcmp (encoding, "iso-8859-1")
@@ -162,16 +166,61 @@ text_buffer_iconv (TEXT *buf, iconv_t iconv_state,
 }
 
 
+static char *
+encode_with_iconv (iconv_t our_iconv,  char *s)
+{
+  static TEXT t;
+  ICONV_CONST char *inptr; size_t bytes_left;
+  size_t iconv_ret;
+
+  t.end = 0;
+  inptr = s;
+  bytes_left = strlen (s);
+  text_alloc (&t, 10);
+
+  while (1)
+    {
+      iconv_ret = text_buffer_iconv (&t, our_iconv,
+                                     &inptr, &bytes_left);
+
+      /* Make sure libiconv flushes out the last converted character.
+         This is required when the conversion is stateful, in which
+         case libiconv might not output the last character, waiting to
+         see whether it should be combined with the next one.  */
+      if (iconv_ret != (size_t) -1
+          && text_buffer_iconv (&t, our_iconv, 0, 0) != (size_t) -1)
+        /* Success: all of input converted. */
+        break;
+
+      if (bytes_left == 0)
+        break;
+
+      switch (errno)
+        {
+        case E2BIG:
+          text_alloc (&t, t.space + 20);
+          break;
+        case EILSEQ:
+        default:
+          fprintf(stderr, "%s:%d: encoding error at byte 0x%2x\n",
+            line_nr.file_name, line_nr.line_nr, *(unsigned char *)inptr);
+          inptr++; bytes_left--;
+          break;
+        }
+    }
+
+  t.text[t.end] = '\0';
+  return strdup (t.text);
+}
+
 /* Return conversion of S according to input_encoding.  This function
    frees S. */
 static char *
 convert_to_utf8 (char *s)
 {
   iconv_t our_iconv = (iconv_t) -1;
-  static TEXT t;
-  ICONV_CONST char *inptr; size_t bytes_left;
-  size_t iconv_ret;
   enum character_encoding enc;
+  char *ret;
 
   /* Convert from @documentencoding to UTF-8.
      It might be possible not to convert to UTF-8 and use an 8-bit encoding
@@ -180,7 +229,8 @@ convert_to_utf8 (char *s)
      file, then we'd have to keep track of which strings needed the UTF-8 flag
      and which didn't. */
 
-  /* Initialize conversions for the first time. */
+  /* Initialize conversions for the first time.  iconv_open returns
+     (iconv_t) -1 on failure so these should only be called once. */
   if (iconv_validate_utf8 == (iconv_t) 0)
     iconv_validate_utf8 = iconv_open ("UTF-8", "UTF-8");
   if (iconv_from_latin1 == (iconv_t) 0)
@@ -229,46 +279,36 @@ convert_to_utf8 (char *s)
       return s;
     }
 
-  t.end = 0;
-  inptr = s;
-  bytes_left = strlen (s);
-  text_alloc (&t, 10);
+  ret = encode_with_iconv (our_iconv, s);
+  free (s);
+  return ret;
+}
 
-  while (1)
+static iconv_t reverse_iconv;
+
+/* Reverse the decoding of the filename to the input encoding, to retrieve
+   the bytes that were present in the original Texinfo file.  Return
+   value to be freed by caller. */
+char *
+encode_file_name (char *filename)
+{
+  if (input_encoding != ce_utf8 && !reverse_iconv)
     {
-      iconv_ret = text_buffer_iconv (&t, our_iconv,
-                                     &inptr, &bytes_left);
-
-      /* Make sure libiconv flushes out the last converted character.
-         This is required when the conversion is stateful, in which
-         case libiconv might not output the last character, waiting to
-         see whether it should be combined with the next one.  */
-      if (iconv_ret != (size_t) -1
-          && text_buffer_iconv (&t, our_iconv, 0, 0) != (size_t) -1)
-        /* Success: all of input converted. */
-        break;
-
-      if (bytes_left == 0)
-        break;
-
-      switch (errno)
+      if (input_encoding_name)
         {
-        case E2BIG:
-          text_alloc (&t, t.space + 20);
-          break;
-        case EILSEQ:
-        default:
-          fprintf(stderr, "%s:%d: encoding error at byte 0x%2x\n",
-            line_nr.file_name, line_nr.line_nr, *(unsigned char *)inptr);
-          inptr++; bytes_left--;
-          break;
+          reverse_iconv = iconv_open (input_encoding_name, "UTF-8");
         }
     }
-
-  free (s);
-  t.text[t.end] = '\0';
-  return strdup (t.text);
+  if (reverse_iconv && reverse_iconv != (iconv_t) -1)
+    {
+      return encode_with_iconv (reverse_iconv, filename);
+    }
+  else
+    {
+      return strdup (filename);
+    }
 }
+
 
 int
 expanding_macro (char *macro)
@@ -537,11 +577,9 @@ locate_include_file (char *filename)
   struct stat dummy;
   int i, status;
 
-  /* Checks if filename is absolute or relative to current directory.
-     TODO: Could use macros in top-level config.h for this. */
-  /* TODO: The Perl code (in Common.pm, 'locate_include_file') handles 
-     a volume in a path (like "A:"), possibly more general treatment 
-     with File::Spec module. */
+  /* Checks if filename is absolute or relative to current directory. */
+  /* Note: the Perl code (in Common.pm, 'locate_include_file') handles 
+     a volume in a path (like "A:") using the File::Spec module. */
   if (!memcmp (filename, "/", 1)
       || !memcmp (filename, "../", 3)
       || !memcmp (filename, "./", 2))

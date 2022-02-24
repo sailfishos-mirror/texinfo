@@ -1425,7 +1425,10 @@ end_line_misc_line (ELEMENT *current)
               char *fullpath;
               debug ("Include %s", text);
 
-              fullpath = locate_include_file (text);
+              char *sys_filename = encode_file_name (text);
+              fullpath = locate_include_file (sys_filename);
+              free (sys_filename);
+
               if (!fullpath)
                 {
                   command_error (current,

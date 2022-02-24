@@ -1,5 +1,20 @@
 2022-02-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Include file name encoding for XS parser
+
+	* tp/Texinfo/XS/parsetexi/input.c
+	(set_input_encoding): Save input encoding name.
+	(encode_file_name): New function to re-encode using the input
+	encoding.
+	(encode_with_iconv): Split out from convert_to_utf8.
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line):
+	Call it before calling locate_include_file.
+
+	Suggestion from Patrice.
+
+2022-02-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Fix XS configure check
 
 	* tp/Texinfo/XSLoader.pm: Put 'require Texinfo::ModulePath'
