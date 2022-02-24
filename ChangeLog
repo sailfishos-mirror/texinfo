@@ -1,3 +1,12 @@
+2022-02-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Fix XS configure check
+
+	* tp/Texinfo/XSLoader.pm: Put 'require Texinfo::ModulePath'
+	inside an eval block and provide default values if the module
+	wasn't loaded successfully.  This will be the case for the
+	configure check using TestXS.pm.  Report from Patrice.
+
 2022-02-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (locate_include_file),
