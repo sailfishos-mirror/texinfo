@@ -19,3 +19,7 @@ In included téxt.
 @image{dîrectory/imàge,,,âlt,.êxt}
 
 @include not_existïng.téxi
+
+@verbatiminclude included_akçentêd.texi
+
+@verbatiminclude vi_not_existïng.téxi

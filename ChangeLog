@@ -1,3 +1,21 @@
+2022-02-24  Patrice Dumas  <pertusus@free.fr>
+
+	One function in Texinfo::Common to handle file name encoding
+
+	* tp/Texinfo/Common.pm (encode_file_name),
+	tp/Texinfo/Convert/Converter.pm (encoded_file_name),
+	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/Info.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Utils.pm
+	(expand_verbatiminclude), tp/Texinfo/ParserNonXS.pm: put the
+	main function encode_file_name() doing file name encoding
+	in Texinfo::Common and use encoded_file_name for Converters.
+	Return the file name encoding if there is a need to decode
+	the file name for error messages.
+
+	* tp/Texinfo/ParserNonXS.pm (_save_line_directive): encode CPP
+	line directive file name.
+
 2022-02-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Include file name encoding for XS parser

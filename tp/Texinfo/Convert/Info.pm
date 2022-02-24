@@ -510,7 +510,8 @@ sub format_image($$)
     }
     my $image_file;
     foreach my $extension (@extensions) {
-      my $file_name = $self->encode_file_name($basefile.$extension);
+      my ($file_name, $file_name_encoding)
+        = $self->encoded_file_name($basefile.$extension);
       if ($self->Texinfo::Common::locate_include_file($file_name)) {
         # use the basename and not the file found.  It is agreed that it is
         # better, since in any case the files are moved.

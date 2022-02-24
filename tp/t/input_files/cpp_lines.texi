@@ -47,4 +47,8 @@ line before
 
 @email{after verb}
 
+# line 5 "accentêd"
+
+@documentlanguage làng
+
 @bye

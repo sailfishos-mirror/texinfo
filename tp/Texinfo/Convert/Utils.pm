@@ -196,28 +196,38 @@ sub expand_verbatiminclude($$$)
   my $configuration_information = shift;
   my $current = shift;
 
-  return unless ($current->{'extra'} and defined($current->{'extra'}->{'text_arg'}));
+  my $input_encoding;
+
+  return unless ($current->{'extra'}
+                 and defined($current->{'extra'}->{'text_arg'}));
   my $file_name_text = $current->{'extra'}->{'text_arg'};
-  # FIXME $file_name_text should be encoded to the file system
-  # encoding here to be passed to locate_include_file
+  $input_encoding = $current->{'extra'}->{'input_perl_encoding'}
+        if (defined($current->{'extra'}->{'input_perl_encoding'}));
+
+  my ($file_name, $file_name_encoding)
+    = Texinfo::Common::encode_file_name($configuration_information,
+                                                    $file_name_text,
+                                                    $input_encoding);
+
   my $file = Texinfo::Common::locate_include_file($configuration_information,
-                                                  $file_name_text);
+                                                  $file_name);
 
   my $verbatiminclude;
 
   if (defined($file)) {
     if (!open(VERBINCLUDE, $file)) {
       if ($registrar) {
-        # FIXME $file should be decoded to perl internal codepoints here
+        my $decoded_file = $file;
+        # need to decode to the internal perl codepoints for error message
+        $decoded_file = Encode::decode($file_name_encoding, $file)
+           if (defined($file_name_encoding));
         $registrar->line_error($configuration_information,
-                               sprintf(__("could not read %s: %s"), $file, $!),
-                               $current->{'line_nr'});
+                      sprintf(__("could not read %s: %s"), $decoded_file, $!),
+                      $current->{'line_nr'});
       }
     } else {
-      if (defined $current->{'extra'}->{'input_perl_encoding'}) {
-        binmode(VERBINCLUDE, ":encoding("
-                             . $current->{'extra'}->{'input_perl_encoding'}
-                             . ")");
+      if (defined($input_encoding)) {
+        binmode(VERBINCLUDE, ":encoding(" . $input_encoding . ")");
       }
       $verbatiminclude = { 'cmdname' => 'verbatim',
                            'parent' => $current->{'parent'},
@@ -229,10 +239,14 @@ sub expand_verbatiminclude($$$)
       }
       if (!close (VERBINCLUDE)) {
         if ($registrar) {
+          my $decoded_file = $file;
+          # need to decode to the internal perl codepoints for error message
+          $decoded_file = Encode::decode($file_name_encoding, $file)
+             if (defined($file_name_encoding));
           $registrar->document_warn(
                  $configuration_information, sprintf(__(
                       "error on closing \@verbatiminclude file %s: %s"),
-                             $file, $!));
+                          $decoded_file, $!));
         }
       }
     }

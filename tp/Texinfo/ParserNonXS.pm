@@ -1989,7 +1989,13 @@ sub _save_line_directive
   my $input = $self->{'input'}->[0];
   return if !$input;
   $input->{'line_nr'} = $line_nr if $line_nr;
-  $input->{'name'} = $file_name if $file_name;
+  # need to convert to bytes for file name
+  if (defined($file_name)) {
+    my ($encoded_file_name, $file_name_encoding)
+       = Texinfo::Common::encode_file_name($self, $file_name,
+                 $self->{'info'}->{'input_perl_encoding'});
+    $input->{'name'} = $encoded_file_name;
+  }
 }
 
 # returns next text fragment, be it pending from a macro expansion or 
@@ -3206,21 +3212,11 @@ sub _end_line($$$)
         } elsif ($superfluous_arg) {
           # An error message is issued below.
         } elsif ($command eq 'include') {
-          my $file_name = $text;
-          # When dealing with file names, we want Perl strings representing sequences
+          # We want Perl strings representing sequences
           # of bytes, not codepoints in the internal perl encoding. 
-          #     This is necessary even if the name of the included file is purely
-          # ASCII, as the name of the directory it is located within may contain
-          # non-ASCII characters.
-          # Otherwise, the -e operator and similar may not work correctly.
-          if (defined $self->{'info'}->{'input_perl_encoding'}) {
-            my $encoding = $self->{'info'}->{'input_perl_encoding'};
-            if ($encoding and ($encoding eq 'utf-8' or $encoding eq 'utf-8-strict')) {
-              utf8::encode($file_name);
-            } else {
-              $file_name = Encode::encode($encoding, $file_name);
-            }
-          }
+          my ($file_name, $file_name_encoding)
+             = Texinfo::Common::encode_file_name($self, $text,
+                                   $self->{'info'}->{'input_perl_encoding'});
           my $file = Texinfo::Common::locate_include_file($self, $file_name);
           if (defined($file)) {
             my $filehandle = do { local *FH };
@@ -3233,13 +3229,16 @@ sub _end_line($$$)
                 'line_nr' => 0,
                 'pending' => [],
                 'fh' => $filehandle };
+              # TODO note that it is bytes.  No reason to have it used much
+              # Make sure to document that it is bytes.
+              # TODO add $file_name_encoding information?
               $current->{'extra'}->{'file'} = $file;
               # we set the type to replaced to tell converters not to
               # expand the @-command
               $current->{'type'} = 'replaced';
             } else {
-              # FIXME $text does not show the include directory.  However using $file
-              # would require to decode it to perl internal codepoints
+              # FIXME $text does not show the include directory.  Using $file
+              # would require to decode it to perl internal codepoints with $file_name_encoding
               $self->_command_error($current, $line_nr,
                               __("\@%s: could not open %s: %s"),
                               $command, $text, $!);

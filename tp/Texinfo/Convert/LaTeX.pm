@@ -2308,7 +2308,8 @@ sub _convert($$)
 
         my $image_file;
         foreach my $extension (@LaTeX_image_extensions) {
-          my $file_name = $self->encode_file_name("$basefile.$extension");
+          my ($file_name, $file_name_encoding)
+             = $self->encoded_file_name("$basefile.$extension");
           my $located_file =
             $self->Texinfo::Common::locate_include_file($file_name);
           if (defined($located_file)) {

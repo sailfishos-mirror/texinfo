@@ -271,7 +271,8 @@ sub html_image_file_location_name($$$$)
       unshift @extensions, ("$extension", ".$extension");
     }
     foreach my $extension (@extensions) {
-      my $file_name = $self->encode_file_name($image_basefile.$extension);
+      my ($file_name, $file_name_encoding)
+        = $self->encoded_file_name($image_basefile.$extension);
       my $located_image_path
            = $self->Texinfo::Common::locate_include_file($file_name);
       if (defined($located_image_path) and $located_image_path ne '') {
@@ -296,6 +297,7 @@ sub html_image_file_location_name($$$$)
       }
     }
   }
+  # TODO set and return $image_path_encoding?
   return ($image_file, $image_basefile, $image_extension, $image_path);
 }
 

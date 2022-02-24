@@ -839,7 +839,8 @@ sub output_ixin($$)
       }
       foreach my $extension (@extension, @image_files_extensions) {
         my $file_name_text = "$basefile.$extension";
-        my $file_name = $self->encode_file_name($file_name_text);
+        my ($file_name, $file_name_encoding)
+          = $self->encoded_file_name($file_name_text);
         my $file = $self->Texinfo::Common::locate_include_file($file_name);
         if (defined($file)) {
           my $filehandle = do { local *FH };

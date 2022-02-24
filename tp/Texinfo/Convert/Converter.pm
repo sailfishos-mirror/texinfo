@@ -1009,36 +1009,26 @@ sub present_bug_message($$;$)
   warn "You found a bug: $message\n\n".$additional_information;
 }
 
-# Reverse the decoding of the file name from the input encoding.  When
-# dealing with file names, we want Perl strings representing sequences of
-# bytes, not Unicode codepoints.
-#     This is necessary even if the name of the included file is purely
-# ASCII, as the name of the directory it is located within may contain
-# non-ASCII characters.
-#   Otherwise, the -e operator and similar may not work correctly.
-sub encode_file_name($$)
+# Reverse the decoding of the file name from the input encoding.
+# TODO document
+sub encoded_file_name($$)
 {
   my $self = shift;
   my $file_name = shift;
 
-  # FIXME use the locale instead?
-  my $info = $self->{'parser_info'};
-  if ($info) {
-    my $encoding = $info->{'input_perl_encoding'};
-    if ($encoding and ($encoding eq 'utf-8' or $encoding eq 'utf-8-strict')) {
-      utf8::encode($file_name);
-    } else {
-      $file_name = Encode::encode($encoding, $file_name);
-    }
-  }
-  return $file_name;
+  my $document_encoding;
+  $document_encoding = $self->{'parser_info'}->{'input_perl_encoding'}
+    if ($self->{'parser_info'}
+      and defined($self->{'parser_info'}->{'input_perl_encoding'}));
+  return Texinfo::Common::encode_file_name($self, $file_name, $document_encoding);
 }
 
 sub txt_image_text($$$)
 {
   my ($self, $element, $basefile) = @_;
 
-  my $text_file_name = $self->encode_file_name($basefile.'.txt');
+  my ($text_file_name, $file_name_encoding)
+    = $self->encoded_file_name($basefile.'.txt');
 
   my $txt_file = Texinfo::Common::locate_include_file($self, $text_file_name);
   if (!defined($txt_file)) {

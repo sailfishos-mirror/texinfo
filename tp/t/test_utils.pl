@@ -27,6 +27,8 @@ require Texinfo::ModulePath;
 Texinfo::ModulePath::init(undef, undef, 'updirs' => 2);
 
 # For consistent test results, use the C locale
+# Note that this should prevent displaying some for non ascii characters
+# in error messages in particular
 $ENV{LC_ALL} = 'C';
 $ENV{LANGUAGE} = 'en';
 
@@ -34,17 +36,10 @@ $ENV{LANGUAGE} = 'en';
 
 use Test::More;
 
-use Texinfo::Parser;
-use Texinfo::Convert::Text;
-use Texinfo::Convert::Texinfo;
-use Texinfo::Structuring;
-use Texinfo::Convert::Plaintext;
-use Texinfo::Convert::Info;
-use Texinfo::Convert::HTML;
-use Texinfo::Convert::TexinfoXML;
-use Texinfo::Convert::DocBook;
-use Texinfo::Convert::LaTeX;
-use Texinfo::Config;
+# to determine the locale encoding to output the Texinfo to Texinfo
+# result when regenerating
+use I18N::Langinfo qw(langinfo CODESET);
+use Encode;
 use File::Basename;
 use File::Copy;
 use File::Compare; # standard since 5.004
@@ -56,6 +51,19 @@ use Storable qw(dclone); # standard in 5.007003
 #use Data::Transformer;
 #use Struct::Compare;
 use Getopt::Long qw(GetOptions);
+
+use Texinfo::Common;
+use Texinfo::Convert::Texinfo;
+use Texinfo::Config;
+use Texinfo::Parser;
+use Texinfo::Convert::Text;
+use Texinfo::Structuring;
+use Texinfo::Convert::Plaintext;
+use Texinfo::Convert::Info;
+use Texinfo::Convert::LaTeX;
+use Texinfo::Convert::HTML;
+use Texinfo::Convert::TexinfoXML;
+use Texinfo::Convert::DocBook;
 
 # FIXME Is it really useful?
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
@@ -104,6 +112,9 @@ foreach my $dir ('t', 't/results', $output_files_dir) {
     die "mkdir $dir: $error\n";
   }
 }
+
+my $locale_encoding = langinfo(CODESET);
+$locale_encoding = undef if ($locale_encoding eq '');
 
 ok(1);
 
@@ -895,6 +906,8 @@ sub test($$)
       $result = $parser->parse_texi_piece($test_text);
     }
     if (defined($test_input_file_name)) {
+      # FIXME should we need to encode or do we assume that
+      # $test_input_file_name is already bytes?
       $parser->{'info'}->{'input_file_name'} = $test_input_file_name;
     }
   } else {
@@ -1144,8 +1157,16 @@ sub test($$)
     print OUT 'use utf8;'."\n\n";
 
     #print STDERR "Generate: ".Data::Dumper->Dump([$result], ['$res']);
+    # NOTE $test_name is in general used for directories and
+    # file names, and therefore should be be bytes.  Here it is used as a
+    # text string, if non ascii, it should be decoded to internal
+    # perl codepoints as OUT is encoded as utf8.  Alternatively it
+    # could be encoded to be used as file name, but it probably is not the
+    # best solution.
     my $out_result;
     {
+      # NOTE rare extra keys could be bytes.  They could be incorrectly
+      # encoded here.  Let's wait for actual cases before fixing.
       local $Data::Dumper::Sortkeys = \&filter_tree_keys;
       $out_result = Data::Dumper->Dump([$split_result], ['$result_trees{\''.$test_name.'\'}']);
     }
@@ -1172,6 +1193,8 @@ sub test($$)
     }
     {
       local $Data::Dumper::Sortkeys = 1;
+      # NOTE file names are bytes, therefore ther could be a need to
+      # decode them
       $out_result .= Data::Dumper->Dump([$errors], ['$result_errors{\''.$test_name.'\'}']) ."\n\n";
       $out_result .= Data::Dumper->Dump([$indices], ['$result_indices{\''.$test_name.'\'}']) ."\n\n"
          if ($indices);
@@ -1207,8 +1230,13 @@ sub test($$)
     print OUT $out_result;
     close (OUT);
     
-    print STDERR "--> $test_name\n".Texinfo::Convert::Texinfo::convert_to_texinfo($result)."\n" 
-            if ($self->{'generate'});
+    if ($self->{'generate'}) {
+      my $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($result);
+      if (defined($locale_encoding)) {
+        $texinfo_text = Encode::encode($locale_encoding, $texinfo_text);
+      }
+      print STDERR "--> $test_name\n". $texinfo_text ."\n";
+    }
   }
   if (!$self->{'generate'}) {
     %result_converted = ();
@@ -1377,6 +1405,7 @@ sub output_texi_file($)
   mkdir $dir or die 
      unless (-d $dir);
   my $file = "${dir}$test_name.texi";
+  # We have no idea about encodings, better use bytes everywhere
   open (OUTFILE, ">$file") or die ("Open $file: $!\n");
 
   my $first_line = "\\input texinfo \@c -*-texinfo-*-";

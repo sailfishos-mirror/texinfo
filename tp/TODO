@@ -19,6 +19,17 @@ Before next release
 
 for @example args, use *-user as class?
 
+
+byte encoding, check how used, check XS parser?
+l 3226 ParserNonXS.pm
+              unshift @{$self->{'input'}}, {
+                'name' => $file,
+
+bytes: (global_information)
+$self->{'info'}->{'input_file_name'}
+$self->{'info'}->{'input_directory'} 
+
+
 Bugs
 ====
 

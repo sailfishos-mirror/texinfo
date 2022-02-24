@@ -677,6 +677,47 @@ $result_trees{'cpp_lines'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => "l\x{e0}ng"
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'documentlanguage',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'lÃ ng'
+          },
+          'line_nr' => {
+            'file_name' => 'accentÃªd',
+            'line_nr' => 7,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
       'extra' => {
@@ -817,6 +858,11 @@ $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[32]{'contents'}[0]{'parent
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[32]{'contents'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[32];
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[32]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[33]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[34]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[35]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[35]{'args'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[35]{'args'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[35];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[35]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
 $result_trees{'cpp_lines'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'cpp_lines'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'cpp_lines'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cpp_lines'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'cpp_lines'}{'contents'}[1]{'parent'} = $result_trees{'cpp_lines'};
@@ -873,6 +919,9 @@ line before
 
 @email{after verb}
 
+
+@documentlanguage làng
+
 @bye
 ';
 
@@ -915,6 +964,8 @@ after inc.
 
 after verb
 
+
+
 ';
 
 $result_nodes{'cpp_lines'} = {
@@ -933,7 +984,17 @@ $result_menus{'cpp_lines'} = {
   'structure' => {}
 };
 
-$result_errors{'cpp_lines'} = [];
+$result_errors{'cpp_lines'} = [
+  {
+    'error_line' => "warning: l\x{e0}ng is not a valid language code
+",
+    'file_name' => 'accentÃªd',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => "l\x{e0}ng is not a valid language code",
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'cpp_lines'} = {};

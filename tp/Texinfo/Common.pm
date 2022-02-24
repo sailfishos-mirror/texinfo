@@ -1505,6 +1505,33 @@ sub parse_node_manual($)
 
 # misc functions also interesting for converters
 
+# Reverse the decoding of the file name from the input encoding.  When
+# dealing with file names, we want Perl strings representing sequences of
+# bytes, not Unicode codepoints.
+#     This is necessary even if the name of the included file is purely
+# ASCII, as the name of the directory it is located within may contain
+# non-ASCII characters.
+#   Otherwise, the -e operator and similar may not work correctly.
+# TODO document and add the possibility to use configuration_information
+sub encode_file_name($$;$)
+{
+  my $configuration_information = shift;
+  my $file_name = shift;
+  my $input_encoding = shift;
+
+  my $encoding;
+
+  if ($input_encoding and ($input_encoding eq 'utf-8'
+                           or $input_encoding eq 'utf-8-strict')) {
+    utf8::encode($file_name);
+    $encoding = 'utf-8';
+  } else {
+    $file_name = Encode::encode($input_encoding, $file_name);
+    $encoding = $input_encoding;
+  }
+  return ($file_name, $encoding);
+}
+
 sub locate_include_file($$)
 {
   my $configuration_information = shift;
