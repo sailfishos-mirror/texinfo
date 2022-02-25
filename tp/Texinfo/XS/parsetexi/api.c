@@ -293,6 +293,19 @@ build_node_spec (NODE_SPEC_EXTRA *value)
   return newRV_inc ((SV *)hv);
 }
 
+/* Used to create a "Perl-internal" string that represents a sequence
+   of Unicode codepoints with no specific encoding. */
+static SV *
+newSVpv_utf8 (char *str, STRLEN len)
+{
+  SV *sv;
+  dTHX;
+
+  sv = newSVpv (str, len);
+  SvUTF8_on (sv);
+  return sv;
+}
+
 /* Set E->hv and 'hv' on E's descendants.  e->parent->hv is assumed
    to already exist. */
 static void
@@ -402,22 +415,11 @@ element_to_perl_hash (ELEMENT *e)
 
   if (e->text.space > 0)
     {
-      sv = newSVpv (e->text.text, e->text.end);
+      sv = newSVpv_utf8 (e->text.text, e->text.end);
       if (e->cmd != CM_value)
         hv_store (e->hv, "text", strlen ("text"), sv, 0);
       else
         hv_store (e->hv, "type", strlen ("type"), sv, 0);
-
-      SvUTF8_on (sv);
-      /* The strings here have to be in UTF-8 to start with.
-         This leads to an unnecessary round trip with "@documentencoding 
-         ISO-8859-1" for Info and plain text output, when we first convert the 
-         characters in the input file to UTF-8, and convert them back again for 
-         the output.
-      
-         The alternative is to leave the UTF-8 flag off, and hope that Perl 
-         interprets 8-bit encodings like ISO-8859-1 correctly.  See
-         "How does Perl store UTF-8 strings?" in "man perlguts". */
     }
 
   if (e->extra_number > 0)
@@ -483,7 +485,7 @@ element_to_perl_hash (ELEMENT *e)
             case extra_string:
               { /* A simple string. */
               char *value = (char *) f;
-              STORE(newSVpv (value, 0));
+              STORE(newSVpv_utf8 (value, 0));
               break;
               }
             case extra_integer:
@@ -505,15 +507,14 @@ element_to_perl_hash (ELEMENT *e)
                 {
                   if (f->contents.list[j]->text.end > 0)
                     {
-                      av_push (av,
-                               newSVpv (f->contents.list[j]->text.text,
-                                        f->contents.list[j]->text.end));
+                      SV *sv = newSVpv_utf8 (f->contents.list[j]->text.text,
+                                             f->contents.list[j]->text.end);
+                      av_push (av, sv);
                     }
                   else
                     {
                       /* Empty strings permitted. */
-                      av_push (av,
-                               newSVpv ("", 0));
+                      av_push (av, newSVpv ("", 0));
                     }
                 }
               break;
@@ -577,8 +578,10 @@ element_to_perl_hash (ELEMENT *e)
                 hv_store (type, "content", strlen ("content"),
                           build_perl_array (&eft->content->contents), 0);
               if (eft->normalized)
-                hv_store (type, "normalized", strlen ("normalized"),
-                          newSVpv (eft->normalized, 0), 0);
+                {
+                  SV *sv = newSVpv_utf8 (eft->normalized, 0);
+                  hv_store (type, "normalized", strlen ("normalized"), sv, 0);
+                }
               STORE(newRV_inc ((SV *)type));
               break;
               }
@@ -617,7 +620,7 @@ element_to_perl_hash (ELEMENT *e)
 
       if (line_nr->macro)
         {
-          STORE("macro", newSVpv (line_nr->macro, 0));
+          STORE("macro", newSVpv_utf8 (line_nr->macro, 0));
         }
       else
         STORE("macro", newSVpv ("", 0));
@@ -745,7 +748,7 @@ build_single_index_data (INDEX *i)
       hv = (HV *) i->hv;
     }
 
-  STORE("name", newSVpv (i->name, 0));
+  STORE("name", newSVpv_utf8 (i->name, 0));
   STORE("in_code", i->in_code ? newSViv(1) : newSViv(0));
 
   if (i->merged_in)
@@ -767,7 +770,7 @@ build_single_index_data (INDEX *i)
       hv_store (ultimate->contained_hv, i->name, strlen (i->name),
                 newSViv (1), 0);
 
-      STORE("merged_in", newSVpv (ultimate->name, 0));
+      STORE("merged_in", newSVpv_utf8 (ultimate->name, 0));
 
       if (i->contained_hv)
         {
@@ -809,7 +812,7 @@ build_single_index_data (INDEX *i)
       e = &i->index_entries[j];
       entry = newHV ();
 
-      STORE2("index_name", newSVpv (i->name, 0));
+      STORE2("index_name", newSVpv_utf8 (i->name, 0));
       STORE2("index_at_command",
              newSVpv (command_name(e->index_at_command), 0));
       STORE2("index_type_command",
@@ -860,7 +863,7 @@ build_single_index_data (INDEX *i)
       if (e->node)
         STORE2("node", newRV_inc ((SV *)e->node->hv));
       if (e->sortas)
-        STORE2("sortas", newSVpv (e->sortas, 0));
+        STORE2("sortas", newSVpv_utf8 (e->sortas, 0));
 
       /* Create ignored_chars hash. */
       {
@@ -1124,12 +1127,12 @@ build_line_nr_hash (LINE_NR line_nr)
   if (line_nr.macro)
     {
       hv_store (hv, "macro", strlen ("macro"),
-                newSVpv (line_nr.macro, 0), 0);
+                newSVpv_utf8 (line_nr.macro, 0), 0);
     }
   else
     {
       hv_store (hv, "macro", strlen ("macro"),
-                newSVpv ("", 0), 0);
+                newSVpv_utf8 ("", 0), 0);
     }
 
   return newRV_inc ((SV *) hv);
@@ -1147,8 +1150,7 @@ convert_error (int i)
   e = error_list[i];
   hv = newHV ();
 
-  msg = newSVpv (e.message, 0);
-  SvUTF8_on (msg);
+  msg = newSVpv_utf8 (e.message, 0);
 
   hv_store (hv, "message", strlen ("message"), msg, 0);
   hv_store (hv, "type", strlen ("type"),

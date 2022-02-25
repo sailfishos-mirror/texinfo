@@ -704,7 +704,7 @@ $result_trees{'cpp_lines'} = {
           'cmdname' => 'documentlanguage',
           'extra' => {
             'spaces_before_argument' => ' ',
-            'text_arg' => 'lÃ ng'
+            'text_arg' => "l\x{e0}ng"
           },
           'line_nr' => {
             'file_name' => 'accentÃªd',

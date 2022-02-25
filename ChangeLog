@@ -1,3 +1,12 @@
+2022-02-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	UTF-8 flag on strings for XS parser
+
+	* tp/Texinfo/XS/parsetexi/api.c (newSVpv_utf8): New function.
+	(element_to_perl_hash, build_single_index_data, build_line_nr_hash)
+	(convert_error): Use it in many more places where the string being
+	created should be "Perl-internal".  Suggestion from Patrice.
+
 2022-02-24  Patrice Dumas  <pertusus@free.fr>
 
 	One function in Texinfo::Common to handle file name encoding
