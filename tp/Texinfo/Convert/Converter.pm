@@ -554,6 +554,16 @@ sub determine_files_and_directory($;$)
        = $self->{'global_commands'}->{'setfilename'}->{'extra'}->{'text_arg'};
   }
 
+  if ($setfilename) {
+    my $document_encoding;
+    my $ignored;
+    $document_encoding = $self->{'parser_info'}->{'input_perl_encoding'}
+      if ($self->{'parser_info'}
+            and defined($self->{'parser_info'}->{'input_perl_encoding'}));
+    ($setfilename, $ignored) = Texinfo::Common::encode_file_name(
+      $self, $setfilename, $document_encoding);
+  }
+
   my $input_basename_for_outfile = $input_basename;
   my $setfilename_for_outfile = $setfilename;
   # PREFIX overrides both setfilename and the input file base name

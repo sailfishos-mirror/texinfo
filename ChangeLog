@@ -1,3 +1,14 @@
+2022-02-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Encode @setfilename argument
+
+	* tp/Texinfo/Convert/Converter.pm (determine_files_and_directory):
+	Call Texinfo::Common::encode_file_name on @setfilename argument.
+
+	This mean that @setfilename works properly for a
+	'@documentencoding ISO-8859-1' and also means that
+	the OUTDIR customization variable works correctly.
+
 2022-02-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	UTF-8 flag on strings for XS parser
