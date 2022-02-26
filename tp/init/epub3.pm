@@ -358,7 +358,7 @@ sub epub_finish($$)
                   $container_file, $!));
     return 0;
   }
-  my $document_name = $self->{'document_name'};
+  my $document_name = $self->get_info('document_name');
   my $opf_filename = $document_name . '.opf';
   print $container_fh <<EOT;
 <?xml version="1.0"?>
