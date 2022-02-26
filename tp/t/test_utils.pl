@@ -27,8 +27,8 @@ require Texinfo::ModulePath;
 Texinfo::ModulePath::init(undef, undef, 'updirs' => 2);
 
 # For consistent test results, use the C locale
-# Note that this should prevent displaying some for non ascii characters
-# in error messages in particular
+# Note that this could prevent displaying non ascii characters
+# in error messages
 $ENV{LC_ALL} = 'C';
 $ENV{LANGUAGE} = 'en';
 
@@ -1158,15 +1158,12 @@ sub test($$)
 
     #print STDERR "Generate: ".Data::Dumper->Dump([$result], ['$res']);
     # NOTE $test_name is in general used for directories and
-    # file names, and therefore should be be bytes.  Here it is used as a
-    # text string, if non ascii, it should be decoded to internal
-    # perl codepoints as OUT is encoded as utf8.  Alternatively it
-    # could be encoded to be used as file name, but it probably is not the
-    # best solution.
+    # file names, here it is used as a text string.  If non ascii, it
+    # should be a character string in internal perl codepoints as OUT
+    # is encoded as utf8.  It should also be encoded to be used as file name
+    # in that case.
     my $out_result;
     {
-      # NOTE rare extra keys could be bytes.  They could be incorrectly
-      # encoded here.  Let's wait for actual cases before fixing.
       local $Data::Dumper::Sortkeys = \&filter_tree_keys;
       $out_result = Data::Dumper->Dump([$split_result], ['$result_trees{\''.$test_name.'\'}']);
     }
@@ -1193,8 +1190,11 @@ sub test($$)
     }
     {
       local $Data::Dumper::Sortkeys = 1;
-      # NOTE file names are bytes, therefore ther could be a need to
-      # decode them
+      # NOTE file names in error messages are bytes, there could be a
+      # need to decode them if there were file names with non ascii
+      # characters.
+      # FIXME remove the NOTE if file names in error messages are not bytes
+      # anymore
       $out_result .= Data::Dumper->Dump([$errors], ['$result_errors{\''.$test_name.'\'}']) ."\n\n";
       $out_result .= Data::Dumper->Dump([$indices], ['$result_indices{\''.$test_name.'\'}']) ."\n\n"
          if ($indices);
@@ -1405,11 +1405,13 @@ sub output_texi_file($)
   mkdir $dir or die 
      unless (-d $dir);
   my $file = "${dir}$test_name.texi";
-  # We have no idea about encodings, better use bytes everywhere
   open (OUTFILE, ">$file") or die ("Open $file: $!\n");
 
   my $first_line = "\\input texinfo \@c -*-texinfo-*-";
   if (!defined($test_text)) {
+    # We do not decode to character strings in internal perl encoding,
+    # we get bytes and output bytes already encoded, mixing with
+    # character strings containing ascii characters only.
     my $test_file;
     if ($test_options and $test_options->{'test_file'}) {
       $test_file = $input_files_dir . $test_options->{'test_file'};
@@ -1434,7 +1436,6 @@ sub output_texi_file($)
     $setfilename = "\@setfilename $test_name.info\n";
   }
   my $node_top;
-  my $top = '';
   if ($test_text =~ /^\@node +top[\s,]/mi or $test_text =~ /^\@node +top *$/mi) {
     $node_top = '';
   } else {
@@ -1453,15 +1454,17 @@ sub output_texi_file($)
   if ($test_text !~ /^\@bye *$/m) {
     $bye = '@bye';
   }
-  print OUTFILE "$first_line
-
-$setfilename
-$node_top
-$added_chapter
-
-$test_text
-
-$bye\n";
+  foreach my $output ($first_line, $setfilename, $node_top, $added_chapter) {
+    print OUTFILE "$output\n"
+      if ($output ne '');
+  }
+  # NOTE $test_text is already encoded if read from a file, but if it is
+  # a test string from a *.t file code, it is a perl character string.
+  # Therefore there should not be non ascii characters, or alternatively,
+  # there should be a way to get the encoding, maybe a regexp on the
+  # test string, or a key in $test_options in order to encode $test_text.
+  print OUTFILE $test_text;
+  print OUTFILE "$bye\n" if ($bye ne '');
   close (OUTFILE) or die "Close $file: $!\n";
 }
 
