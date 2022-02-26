@@ -1,5 +1,15 @@
 2022-02-26  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Attempt to fix copying image for epub3 test
+
+	* tp/Texinfo/Convert/HTML.pm (html_image_file_location_name):
+	Use the return value from Texinfo::Common::encode_file_name
+	for the image file name.
+	* tp/tests/formatting/list-of-tests (non_ascii_test_epub):
+	Enable test and commit results.
+
+2022-02-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Encode @setfilename argument
 
 	* tp/Texinfo/Convert/Converter.pm (determine_files_and_directory):

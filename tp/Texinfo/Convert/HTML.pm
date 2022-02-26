@@ -282,7 +282,7 @@ sub html_image_file_location_name($$$$)
         # will be moved by the caller anyway.
         # If the file path found was to be used it should be decoded to perl
         # codepoints too.
-        $image_file = $image_basefile.$extension;
+        $image_file = $file_name;
         $image_extension = $extension;
         last;
       }
