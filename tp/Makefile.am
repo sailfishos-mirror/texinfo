@@ -169,7 +169,6 @@ test_files = \
  t/init/translate_txiinternalvalue_macro.init \
  t/test_utils.pl \
  t/input_files/all_spaces.texi \
- t/input_files/at_commands_in_refs.texi \
  t/input_files/bib-example.texi \
  t/input_files/cond.texi \
  t/input_files/char_latin1_utf8_in_refs.texi \
