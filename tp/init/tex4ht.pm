@@ -32,6 +32,9 @@
 
 use strict;
 
+use Cwd;
+use Encode qw(encode);
+
 # Also for __(
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
@@ -45,7 +48,6 @@ texinfo_register_command_formatting('tex', \&tex4ht_do_tex);
 texinfo_register_command_formatting('displaymath', \&tex4ht_do_tex);
 
 {
-use Cwd;
 
 package Texinfo::TeX4HT;
 
@@ -131,21 +133,31 @@ sub tex4ht_prepare($$)
     $formats{$format}->{'basename'} = $tex4ht_basename . "_$format";
     my $suffix = '.tex';
     $suffix = '.texi' if ($format eq 'texi');
-    $formats{$format}->{'basefile'} = $formats{$format}->{'basename'} . $suffix;
-    $formats{$format}->{'html_file'} = $formats{$format}->{'basename'} . '.html';
-    $formats{$format}->{'rfile'} = File::Spec->catfile($tex4ht_out_dir,
-                                          $formats{$format}->{'basefile'});
-    my $rfile = $formats{$format}->{'rfile'};
+    $formats{$format}->{'basefile_name'}
+                 = $formats{$format}->{'basename'} . $suffix;
+    my ($encoded_basefile_name, $basefile_name_encoding)
+       = $self->encoded_file_name($formats{$format}->{'basefile_name'});
+    $formats{$format}->{'basefile_path'} = $encoded_basefile_name;
+    $formats{$format}->{'html_basefile_name'}
+                 = $formats{$format}->{'basename'} . '.html';
+    my ($encoded_html_basefile_name, $html_basefile_name_encoding)
+       = $self->encoded_file_name($formats{$format}->{'html_basefile_name'});
+    $formats{$format}->{'html_basefile_path'} = $encoded_html_basefile_name;
+
+    my $tex4ht_file_path_name = File::Spec->catfile($tex4ht_out_dir,
+                                    $formats{$format}->{'basefile_name'});
+    my ($encoded_tex4ht_file_path_name, $tex4ht_path_encoding)
+      = $self->encoded_file_name($tex4ht_file_path_name);
     $formats{$format}->{'counter'} = 0;
     $formats{$format}->{'output_counter'} = 0;
 
     if (scalar(@{$format_collected_commands{$format}}) > 0) {
       
       local *TEX4HT_TEXFILE;
-      unless (open (*TEX4HT_TEXFILE, ">$rfile")) {
+      unless (open (*TEX4HT_TEXFILE, ">$encoded_tex4ht_file_path_name")) {
         $self->document_warn($self,
                 sprintf(__("tex4ht.pm: could not open %s: %s"),
-                                      $rfile, $!));
+                                      $tex4ht_file_path_name, $!));
         return 1;
       }
       $formats{$format}->{'handle'} = *TEX4HT_TEXFILE;
@@ -270,8 +282,8 @@ sub tex4ht_process_format($$) {
 
   $self->document_warn($self,
               sprintf(__("tex4ht.pm: output file missing: %s"),
-                               $formats{$format}->{'basefile'}))
-    unless (-f $formats{$format}->{'basefile'});
+                               $formats{$format}->{'basefile_name'}))
+    unless (-f $formats{$format}->{'basefile_path'});
   # now run tex4ht
   my $options = '';
   if ($format eq 'tex' and defined($Texinfo::TeX4HT::tex4ht_options_tex)) {
@@ -282,13 +294,21 @@ sub tex4ht_process_format($$) {
     $options = $Texinfo::TeX4HT::tex4ht_options_texi;
   }
 
-  my $cmd = "$formats{$format}->{'exec'} $formats{$format}->{'basefile'} $options";
-  print STDERR "tex4ht command: $cmd\n" if ($self->get_conf('VERBOSE'));
+  my $cmd = "$formats{$format}->{'exec'} $formats{$format}->{'basefile_name'} $options";
+  # FIXME do not know what would be better here
+  my $encoding = $self->get_conf('MESSAGE_OUTPUT_ENCODING_NAME');
+  my $encoded_cmd;
+  if (defined($encoding)) {
+    $encoded_cmd = encode($encoding, $cmd);
+  } else {
+    $encoded_cmd = $cmd;
+  }
+  print STDERR "tex4ht command: $encoded_cmd\n" if ($self->get_conf('VERBOSE'));
   # do not use system in order to be sure that tex STDIN is not
   # mixed up with the main script STDIN.  It is important because
   # if tex fails, it will read from STDIN and the input may trigger
   # diverse actions by tex.
-  if (not(open(TEX4HT, "|-", $cmd))) {
+  if (not(open(TEX4HT, "|-", $encoded_cmd))) {
     $self->document_warn($self, sprintf(__(
                          "tex4ht.pm: command failed: %s"), $cmd));
     return 1;
@@ -301,8 +321,9 @@ sub tex4ht_process_format($$) {
   }
 
   # extract the html from the file created by tex4ht
-  my $html_basefile = $formats{$format}->{'html_file'};
-  unless (open (TEX4HT_HTMLFILE, $html_basefile)) {
+  my $html_basefile = $formats{$format}->{'html_basefile_name'};
+  my $encoded_html_basefile = $formats{$format}->{'html_basefile_path'};
+  unless (open (TEX4HT_HTMLFILE, $encoded_html_basefile)) {
     $self->document_warn($self,
               sprintf(__("tex4ht.pm: could not open %s: %s"),
                                   $html_basefile, $!));
@@ -310,8 +331,9 @@ sub tex4ht_process_format($$) {
   }
   my $got_count = 0;
   my $line;
+  # FIXME decode?
   while ($line = <TEX4HT_HTMLFILE>) {
-    #print STDERR "$html_basefile: while $line";
+    #print STDERR "$encoded_html_basefile: while $line";
     if ($line =~ /!-- tex4ht_begin $formats{$format}->{'basename'} (\w+) (\d+) --/) {
       my $command = $1;
       my $count = $2;

@@ -853,6 +853,11 @@ Texinfo home page: http://www.gnu.org/software/texinfo/") ."\n";
   return $makeinfo_help;
 }
 
+my %non_decoded_customization_variables;
+foreach my $variable_name ('MACRO_EXPAND', 'INTERNAL_LINKS') {
+  $non_decoded_customization_variables{$variable_name} = 1;
+}
+
 my $Xopt_arg_nr = 0;
 
 my $result_options = Getopt::Long::GetOptions (
@@ -954,7 +959,12 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021");
     locate_and_load_init_file($_[1], [ @conf_dirs, @program_init_dirs ]);
  },
  'set-customization-variable|c=s' => sub {
-   my $var_val = _decode_input($_[1]);
+   my $var_val;
+   if ($non_decoded_customization_variables{$_[1]}) {
+     $var_val = $_[1];
+   } else {
+     $var_val = _decode_input($_[1]);
+   }
    if ($var_val =~ s/^(\w+)\s*=?\s*//) {
      my $var = $1;
      my $value = $var_val;
@@ -1297,6 +1307,10 @@ while(@input_files) {
   my $main_configuration = Texinfo::MainConfig::new();
 
   my $parser_information = $parser->global_information();
+  my $input_perl_encoding;
+  if (defined($parser_information->{'input_perl_encoding'})) {
+    $input_perl_encoding = $parser_information->{'input_perl_encoding'};
+  }
   # encoding is needed for output files
   # encoding and documentlanguage are needed for gdt() in regenerate_master_menu
   Texinfo::Common::set_output_encodings($main_configuration, $parser_information);
@@ -1314,23 +1328,25 @@ while(@input_files) {
     require Texinfo::Convert::Texinfo;
     my $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     #print STDERR "$texinfo_text\n";
-    my $macro_expand_file = get_conf('MACRO_EXPAND');
+    my $encoded_macro_expand_file_name = get_conf('MACRO_EXPAND');
+    my $macro_expand_file_name = _decode_input($encoded_macro_expand_file_name);
     my $macro_expand_files_information = {};
     my $macro_expand_fh = Texinfo::Common::output_files_open_out(
-          $macro_expand_files_information, $main_configuration, $macro_expand_file);
+          $macro_expand_files_information, $main_configuration,
+          $encoded_macro_expand_file_name);
     my $error_macro_expand_file;
     if (defined($macro_expand_fh)) {
       print $macro_expand_fh $texinfo_text;
       Texinfo::Common::output_files_register_closed($macro_expand_files_information,
-                                                    $macro_expand_file);
+                                                    $encoded_macro_expand_file_name);
       if (!close($macro_expand_fh)) {
         document_warn(sprintf(__("error on closing macro expand file %s: %s\n"), 
-                              $macro_expand_file, $!));
+                              $macro_expand_file_name, $!));
         $error_macro_expand_file = 1;
       }
     } else {
       document_warn(sprintf(__("could not open %s for writing: %s\n"), 
-                            $macro_expand_file, $!));
+                            $macro_expand_file_name, $!));
       $error_macro_expand_file = 1;
     }
     push @opened_files, Texinfo::Common::output_files_opened_files(
@@ -1508,25 +1524,27 @@ while(@input_files) {
       = $converter->output_internal_links();
     # always create a file, even if empty.
     $internal_links_text = '' if (!defined($internal_links_text));
-    my $internal_links_file = get_conf('INTERNAL_LINKS');
+    my $encoded_internal_links_file_name = get_conf('INTERNAL_LINKS');
+    my $internal_links_file_name
+        = _decode_input($encoded_internal_links_file_name);
     my $internal_links_files_information = {};
     my $internal_links_fh = Texinfo::Common::output_files_open_out(
                               $internal_links_files_information, $converter,
-                                             $internal_links_file);
+                                        $encoded_internal_links_file_name);
     my $error_internal_links_file;
     if (defined ($internal_links_fh)) {
       print $internal_links_fh $internal_links_text;
       
       if (!close ($internal_links_fh)) {
         warn(sprintf(__("%s: error on closing internal links file %s: %s\n"), 
-                      $real_command_name, $internal_links_file, $!));
+                      $real_command_name, $internal_links_file_name, $!));
         $error_internal_links_file = 1;
       }
       Texinfo::Common::output_files_register_closed(
-              $internal_links_files_information, $internal_links_file);
+           $internal_links_files_information, $encoded_internal_links_file_name);
     } else {
       warn(sprintf(__("%s: could not open %s for writing: %s\n"), 
-                      $real_command_name, $internal_links_file, $!));
+                      $real_command_name, $internal_links_file_name, $!));
       $error_internal_links_file = 1;
     }
 
@@ -1553,7 +1571,11 @@ while(@input_files) {
                $converter_element_count_file, $tree, $use_sections,
                              get_conf('SORT_ELEMENT_COUNT_WORDS'));
 
-    my $sort_element_count_file = get_conf('SORT_ELEMENT_COUNT');
+    my $sort_element_count_file_name = get_conf('SORT_ELEMENT_COUNT');
+    my ($encoded_sort_element_count_file_name, $path_encoding)
+       = Texinfo::Common::encode_file_name($main_configuration,
+                                           $sort_element_count_file_name,
+                                           $input_perl_encoding);
     my $sort_elem_files_information = {};
     # FIXME using $converter here for the configuration is
     # not right, should be changed by something not associated
@@ -1561,21 +1583,21 @@ while(@input_files) {
     # is not much better
     my $sort_element_count_fh = Texinfo::Common::output_files_open_out(
                                $sort_elem_files_information, $converter,
-                                             $sort_element_count_file);
+                                    $encoded_sort_element_count_file_name);
     my $error_sort_element_count_file;
     if (defined ($sort_element_count_fh)) {
       print $sort_element_count_fh $sort_element_count_text;
       
       if (!close ($sort_element_count_fh)) {
         warn(sprintf(__("%s: error on closing internal links file %s: %s\n"), 
-                      $real_command_name, $sort_element_count_file, $!));
+                      $real_command_name, $sort_element_count_file_name, $!));
         $error_sort_element_count_file = 1;
       }
       Texinfo::Common::output_files_register_closed($sort_elem_files_information,
-                                              $sort_element_count_file);
+                                           $encoded_sort_element_count_file_name);
     } else {
       warn(sprintf(__("%s: could not open %s for writing: %s\n"), 
-                    $real_command_name, $sort_element_count_file, $!));
+                    $real_command_name, $sort_element_count_file_name, $!));
       $error_sort_element_count_file = 1;
     }
 

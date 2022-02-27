@@ -31,6 +31,8 @@ use Cwd;
 use File::Copy;
 use File::Spec;
 
+use Encode qw(encode);
+
 # also for __(
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
@@ -78,7 +80,8 @@ texinfo_set_from_init_file('L2H_CLEAN', 1);
 
 # init l2h defaults for files and names
 
-my ($l2h_name, $l2h_latex_file, $l2h_cache_file, $l2h_html_file, $l2h_prefix);
+my ($l2h_name, $l2h_latex_path_name, $l2h_cache_path_name, $l2h_html_path_name,
+    $l2h_prefix);
 
 # holds the status of latex2html operations. If 0 it means that there was
 # an error
@@ -181,27 +184,27 @@ sub l2h_process($$)
   ($docu_volume, $docu_directories, $no_file)
       = File::Spec->splitpath($docu_rdir, 1);
   $l2h_name =  "${docu_name}_l2h";
-  $l2h_latex_file = File::Spec->catpath($docu_volume, $docu_directories,
-                                        "${l2h_name}.tex");
-  $l2h_cache_file = File::Spec->catpath($docu_volume, $docu_directories,
+  $l2h_latex_path_name = File::Spec->catpath($docu_volume, $docu_directories,
+                                             "${l2h_name}.tex");
+  $l2h_cache_path_name = File::Spec->catpath($docu_volume, $docu_directories,
                                         "${docu_name}-l2h_cache.pm");
   # destination dir -- generated images are put there, should be the same
   # as dir of enclosing html document --
-  $l2h_html_file = File::Spec->catpath($docu_volume, $docu_directories,
+  $l2h_html_path_name = File::Spec->catpath($docu_volume, $docu_directories,
                                        "${l2h_name}.html");
   $l2h_prefix = "${l2h_name}_";
   $debug = $self->get_conf('DEBUG');
   $verbose = $self->get_conf('VERBOSE');
 
   unless ($self->get_conf('L2H_SKIP')) {
-    unless (open(L2H_LATEX, ">$l2h_latex_file")) {
+    unless (open(L2H_LATEX, ">$l2h_latex_path_name")) {
       $self->document_error($self, sprintf(__(
               "l2h: could not open latex file %s for writing: %s"),
-                                    $l2h_latex_file, $!));
+                                    $l2h_latex_path_name, $!));
       $status = 0;
       return;
     }
-    warn "# l2h: use ${l2h_latex_file} as latex file\n" if ($verbose);
+    warn "# l2h: use ${l2h_latex_path_name} as latex file\n" if ($verbose);
     print L2H_LATEX $l2h_latex_preamble;
   }
   # open the database that holds cached text
@@ -273,7 +276,7 @@ sub l2h_to_latex($$$$)
     $latex_count++;
     $count = $latex_count;
     # try whether we can get it from cache
-    my $cached_text = l2h_from_cache($text);
+    my $cached_text = l2h_from_cache($self, $text);
     if (defined($cached_text)) {
       $cached_count++;
       # put the cached result in the html result array
@@ -320,8 +323,8 @@ sub l2h_finish_to_latex($)
 ###################################
 # Use latex2html to generate corresponding html code and images
 #
-# to_html([$l2h_latex_file, [$l2h_html_dir]]):
-#   Call latex2html on $l2h_latex_file
+# to_html():
+#   Call latex2html on $l2h_latex_path_name
 #   Put images (prefixed with $l2h_name."_") and html file(s) in $l2h_html_dir
 #   Return 1, on success
 #          0, otherwise
@@ -360,9 +363,11 @@ sub l2h_to_html($)
   $call = $latex2html_command;
   # use init file, if specified
   my $init_file = $self->get_conf('L2H_FILE');
+  my ($encoded_init_file, $init_path_encoding)
+    = $self->encoded_file_name($init_file);
   $call .= " -init_file " . $init_file
     if (defined($init_file) and $init_file ne ''
-        and -f $init_file and -r $init_file);
+        and -f $encoded_init_file and -r $encoded_init_file);
   # set output dir
   $call .=  (($docu_rdir ne '') ? " -dir $docu_rdir" : " -no_subdir");
   # use l2h_tmp, if specified
@@ -375,10 +380,18 @@ sub l2h_to_html($)
         and $self->get_conf('L2H_HTML_VERSION') ne '');
   # options we want to be sure of
   $call .= " -address 0 -info 0 -split 0 -no_navigation -no_auto_link";
-  $call .= " -prefix $l2h_prefix $l2h_latex_file";
+  $call .= " -prefix $l2h_prefix $l2h_latex_path_name";
 
-  warn "# l2h: executing '$call'\n" if ($verbose);
-  if (system($call)) {
+  # FIXME do not know what would be better here
+  my $encoding = $self->get_conf('MESSAGE_OUTPUT_ENCODING_NAME');
+  my $encoded_call;
+  if (defined($encoding)) {
+    $encoded_call = encode($encoding, $call);
+  } else {
+    $encoded_call = $call;
+  }
+  warn "# l2h: executing '$encoded_call'\n" if ($verbose);
+  if (system($encoded_call)) {
     $self->document_error($self,
              sprintf(__("l2h: command did not succeed: %s"),
                                   $call));
@@ -392,7 +405,7 @@ sub l2h_to_html($)
 ##########################
 # Third stage: Extract generated contents from latex2html run
 # Initialize with: init_from_html
-#   open $l2h_html_file for reading
+#   open $l2h_html_path_name for reading
 #   reads in contents into array indexed by numbers
 #   return 1,  on success -- 0, otherwise
 # Finish with: finish
@@ -431,19 +444,30 @@ sub l2h_change_image_file_names($$)
                             "l2h: image has invalid extension: %s"), $src));
         next;
       }
-      while (-e File::Spec->catpath($docu_volume, $docu_directories,
-                                    "${docu_name}_${image_count}$ext")) {
+      while (1) {
+        my $image_file_name = "${docu_name}_${image_count}$ext";
+        my $image_file_path_name = File::Spec->catpath($docu_volume,
+                                  $docu_directories, $image_file_name);
+        my ($encoded_image_file_path_name, $image_path_encoding)
+          = $self->encoded_file_name($image_file_path_name);
+        unless (-e $encoded_image_file_path_name) {
+          last;
+        }
         $image_count++;
       }
       my $file_src
         = File::Spec->catpath($docu_volume, $docu_directories, $src);
+      my ($encoded_file_src, $src_file_encoding)
+        = $self->encoded_file_name($file_src);
       $dest = "${docu_name}_${image_count}$ext";
       my $file_dest
         = File::Spec->catpath($docu_volume, $docu_directories, $dest);
+      my ($encoded_file_dest, $dest_file_encoding)
+        = $self->encoded_file_name($file_dest);
       if ($debug) {
-        copy($file_src, $file_dest);
+        copy($encoded_file_src, $encoded_file_dest);
       } else {
-        if (!rename($file_src, $file_dest)) {
+        if (!rename($encoded_file_src, $encoded_file_dest)) {
           $self->document_warn($self,
                  sprintf(__("l2h: rename %s as %s failed: %s"),
                                        $file_src, $file_dest, $!));
@@ -466,18 +490,21 @@ sub l2h_init_from_html($)
     return 1;
   }
 
-  if (! open(L2H_HTML, "<$l2h_html_file")) {
+  my ($encoded_l2h_html_path_name, $l2h_html_path_encoding)
+    = $self->encoded_file_name($l2h_html_path_name);
+  if (! open(L2H_HTML, "<$encoded_l2h_html_path_name")) {
     $self->document_warn($self,
                 sprintf(__("l2h: could not open %s: %s"),
-                                 $l2h_html_file, $!));
+                                 $l2h_html_path_name, $!));
     return 0;
   }
-  warn "# l2h: use $l2h_html_file as html file\n" if ($verbose);
+  warn "# l2h: use $l2h_html_path_name as html file\n" if ($verbose);
 
   my $html_converted_count = 0;   # number of html resulting texts
                                   # retrieved in the file
 
   my ($count, $h_line);
+  # FIXME encoding?
   while ($h_line = <L2H_HTML>) {
     if ($h_line =~ /!-- l2h_begin $l2h_name ([0-9]+) --/) {
       $count = $1;
@@ -624,16 +651,18 @@ sub l2h_finish($)
 # FIXME it is clear that l2h stuff takes very long compared with texi2any
 # which is already quite long. However this also adds some complexity
 
-# I tried doing this with a dbm data base, but it did not store all
-# keys/values. Hence, I did as latex2html does it
+# It was originally tried with a dbm data base, but it did not store all
+# keys/values. Hence, do as latex2html does
 sub l2h_init_cache($)
 {
   my $self = shift;
-  if (-r $l2h_cache_file) {
-    my $rdo = do "$l2h_cache_file";
+  my ($encoded_l2h_cache_path_name, $l2h_cache_path_encoding)
+    = $self->encoded_file_name($l2h_cache_path_name);
+  if (-r $encoded_l2h_cache_path_name) {
+    my $rdo = do "$encoded_l2h_cache_path_name";
     $self->document_error($self,
                sprintf(__("l2h: could not load %s: %s"),
-                                  $l2h_cache_file, $@))
+                                  $l2h_cache_path_name, $@))
       unless ($rdo);
   }
 }
@@ -644,14 +673,18 @@ sub l2h_store_cache($)
   my $self = shift;
   return unless $latex_count;
   my ($key, $value);
-  unless (open(FH, ">$l2h_cache_file")) {
+  my ($encoded_l2h_cache_path_name, $l2h_cache_path_encoding)
+    = $self->encoded_file_name($l2h_cache_path_name);
+  unless (open(FH, ">$encoded_l2h_cache_path_name")) {
     $self->document_error($self,
           sprintf(__("l2h: could not open %s for writing: %s"),
-                                  $l2h_cache_file, $!));
+                                  $l2h_cache_path_name, $!));
     return;
   }
+  # FIXME encoding?  encode to utf8 and output use utf8;?
+  # Not necessarily as l2h_cache may be populated with non decoded
+  # strings.
   foreach my $key(sort(keys(%l2h_cache))) {
-  #while (($key, $value) = each %l2h_cache) {
     my $value = $l2h_cache{$key};
     # escape stuff
     $key =~ s|/|\\/|g;
@@ -671,13 +704,19 @@ sub l2h_store_cache($)
 
 # return cached html, if it exists for text, and if all pictures
 # are there, as well
-sub l2h_from_cache($)
+sub l2h_from_cache($$)
 {
+  my $self = shift;
   my $text = shift;
   my $cached = $l2h_cache{$text};
   if (defined($cached)) {
     while ($cached =~ m/SRC="(.*?)"/g) {
-      unless (-e File::Spec->catpath($docu_volume, $docu_directories, $1)) {
+      my $cached_image_file_name = $1;
+      my $cached_image_path_name = File::Spec->catpath($docu_volume,
+                                 $docu_directories, $cached_image_file_name);
+      my ($encoded_cached_image_path_name, $cached_image_path_encoding)
+        = $self->encoded_file_name($cached_image_path_name);
+      unless (-e $encoded_cached_image_path_name) {
         return undef;
       }
     }

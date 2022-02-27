@@ -320,8 +320,10 @@ sub output($$)
 
   my ($output_file, $destination_directory, $output_filename,
                   $document_name) = $self->determine_files_and_directory();
+  my ($encoded_destination_directory, $dir_encoding)
+    = $self->encoded_file_name($destination_directory);
   my ($succeeded, $created_directory)
-    = $self->create_destination_directory($destination_directory);
+    = $self->create_destination_directory($encoded_destination_directory);
   return undef unless $succeeded;
 
   if ($self->get_conf('USE_NODES')) {
@@ -345,24 +347,32 @@ sub output($$)
   my $output = '';
   if (!$tree_units or !defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
     # no page
-    my $outfile;
+    my $outfile_name;
+    my $encoded_outfile_name;
     if ($output_file ne '') {
       if ($self->get_conf('SPLIT')) {
-        $outfile = $self->top_node_filename($document_name);
+        my $top_node_file_name = $self->top_node_filename($document_name);
         if (defined($created_directory) and $created_directory ne '') {
-          $outfile = File::Spec->catfile($created_directory, $outfile);
+          $outfile_name = File::Spec->catfile($created_directory,
+                                              $top_node_file_name);
+        } else {
+          $outfile_name = $top_node_file_name;
         }
       } else {
-        $outfile = $output_file;
+        $outfile_name = $output_file;
       }
-      print STDERR "DO No pages, output in $outfile\n"
+      print STDERR "DO No pages, output in $outfile_name\n"
         if ($self->get_conf('DEBUG'));
+      my $path_encoding;
+      ($encoded_outfile_name, $path_encoding)
+        = $self->encoded_file_name($outfile_name);
       $fh = Texinfo::Common::output_files_open_out(
-                    $self->output_files_information(), $self, $outfile);
+                    $self->output_files_information(), $self,
+                    $encoded_outfile_name);
       if (!$fh) {
         $self->document_error($self,
                  sprintf(__("could not open %s for writing: %s"),
-                                      $outfile, $!));
+                                      $outfile_name, $!));
         return undef;
       }
     } else {
@@ -387,13 +397,14 @@ sub output($$)
       $output .= $self->write_or_return($self->convert($root), $fh);
     }
     # NOTE do not close STDOUT now to avoid a perl warning.
-    if ($fh and $outfile ne '-') {
+    # FIXME is it still true that there is such a warning?
+    if ($fh and $outfile_name ne '-') {
       Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $outfile);
+                  $self->output_files_information(), $encoded_outfile_name);
       if (!close($fh)) {
         $self->document_error($self,
                  sprintf(__("error on closing %s: %s"),
-                                      $outfile, $!));
+                                      $outfile_name, $!));
       }
     }
     return $output if ($output_file eq '');
@@ -527,6 +538,10 @@ sub determine_files_and_directory($;$)
   # determine input file base name
   my $input_basefile;
   if (defined($self->{'parser_info'}->{'input_file_name'})) {
+    # 'input_file_name' is not decoded, as it is derived from input
+    # file which is not decoded either.  We want to return only
+    # decoded character strings such that they can easily be mixed
+    # with other character strings, so we decode here.
     my $input_file_name = $self->{'parser_info'}->{'input_file_name'};
     my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
     if (defined($encoding)) {
@@ -1211,50 +1226,6 @@ sub table_item_content_tree($$$)
   }
   $table_item_tree->{'contents'} = $contents;
   return $table_item_tree;
-}
-
-# generic output method, not used anywhere.
-# FIXME remove?
-sub output_no_split($$)
-{
-  my $self = shift;
-  my $root = shift;
-
-  my ($output_file, $destination_directory) = $self->determine_files_and_directory();
-  my ($succeeded, $created_directory)
-    = $self->create_destination_directory($destination_directory);
-  return undef unless $succeeded;
-  
-  my $fh;
-  if (! $output_file eq '') {
-    $fh = Texinfo::Common::output_files_open_out(
-                             $self->output_files_information(), $self,
-                                     $output_file);
-    if (!$fh) {
-      $self->document_error($self,
-               sprintf(__("could not open %s for writing: %s"),
-                                    $output_file, $!));
-      return undef;
-    }
-  }
-
-  my $result = '';
-  if ($self->get_conf('USE_NODES')) {
-    $result .= $self->convert_document_nodes($root, $fh);
-  } else {
-    $result .= $self->convert_document_sections($root, $fh);
-  }
-
-  if ($fh and $output_file ne '-') {
-    Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $output_file);
-    if (!close ($fh)) {
-      $self->document_error($self,
-            sprintf(__("error on closing %s: %s"),
-                                    $output_file, $!));
-    }
-  }
-  return $result;
 }
 
 sub convert_accents($$$;$)

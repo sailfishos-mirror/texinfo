@@ -30,10 +30,12 @@
 # --debug=10 (or more), the tree is printed at the end of the run,
 # --debug=100 (or more), the tree is printed at each newline.
 
-
-use Texinfo::Convert::Converter;
-
 package DebugTexinfo::DebugTree;
+
+# also for __(
+use Texinfo::Common;
+use Texinfo::Structuring;
+use Texinfo::Convert::Converter;
 
 @ISA = qw(Texinfo::Convert::Converter);
 
@@ -58,22 +60,6 @@ sub output($$)
   # a file with the same name does not make sense for this format.
   # Given that this format is only to be used for debugging, this is
   # not an issue that really needs fixing.
-  my ($succeeded, $created_directory)
-    = $self->create_destination_directory($destination_directory);
-  return undef unless $succeeded;
-
-  my $fh;
-  if (! $output_file eq '') {
-    $fh = Texinfo::Common::output_files_open_out(
-                             $self->output_files_information(), $self,
-                                     $output_file);
-    if (!$fh) {
-      $self->document_error($self,
-           sprintf($self->__("could not open %s for writing: %s"),
-                                    $output_file, $!));
-      return undef;
-    }
-  }
 
   my $elements;
   if ($self) {
@@ -95,7 +81,42 @@ sub output($$)
     $root = {'type' => 'elements_root',
              'contents' => $elements };
   }
-  return $self->write_or_return(_print_tree($self, $root), $fh);
+
+  my ($encoded_destination_directory, $dir_encoding)
+    = $self->encoded_file_name($destination_directory);
+  my ($succeeded, $created_directory)
+    = $self->create_destination_directory($encoded_destination_directory);
+  return undef unless $succeeded;
+
+  my $fh;
+  my $encoded_output_file;
+  if (! $output_file eq '') {
+    my $path_encoding;
+    ($encoded_output_file, $path_encoding)
+      = $self->encoded_file_name($output_file);
+    $fh = Texinfo::Common::output_files_open_out(
+                             $self->output_files_information(), $self,
+                                     $encoded_output_file);
+    if (!$fh) {
+      $self->document_error($self,
+           sprintf(__("could not open %s for writing: %s"),
+                                    $output_file, $!));
+      return undef;
+    }
+  }
+  my $result = $self->write_or_return(_print_tree($self, $root), $fh);
+  # NOTE that we close STDOUT too here
+  if ($fh) {
+    Texinfo::Common::output_files_register_closed(
+             $self->output_files_information(), $encoded_output_file);
+    if (!close ($fh)) {
+      $self->document_error($self,
+               sprintf(__("error on closing %s: %s"),
+                                    $output_file, $!));
+      return undef;
+    }
+  }
+  return $result;
 }
 
 sub convert($$)

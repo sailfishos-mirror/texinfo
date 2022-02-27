@@ -9307,8 +9307,10 @@ sub output($$)
   # 'destination_directory' and 'output_filename' that are useful when split.
   my ($output_file, $destination_directory, $output_filename,
               $document_name) = $self->determine_files_and_directory();
+  my ($encoded_destination_directory, $dir_encoding)
+    = $self->encoded_file_name($destination_directory);
   my ($succeeded, $created_directory)
-    = $self->create_destination_directory($destination_directory);
+    = $self->create_destination_directory($encoded_destination_directory);
   return undef unless $succeeded;
 
   # set for init files

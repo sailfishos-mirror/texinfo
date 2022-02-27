@@ -59,7 +59,7 @@ sub highlight_open_inline_container_type($$$)
 }
 
 
-# the end of a string were randomly generated once for all.
+# the end of the string was randomly generated once for all.
 my $range_separator = '_______________________________________ highlight texinfo _GT Haib0aik zei4YieH';
 
 my %languages = ();
@@ -149,7 +149,9 @@ sub highlight_process($$)
 
   my @highlighted_commands = ('example');
 
-  my $collected_commands = Texinfo::Common::collect_commands_in_tree($document_root, \@highlighted_commands);
+  my $collected_commands
+    = Texinfo::Common::collect_commands_in_tree($document_root,
+                                             \@highlighted_commands);
   foreach my $cmdname (@highlighted_commands) {
     if (scalar(@{$collected_commands->{$cmdname}}) > 0) {
       foreach my $element (@{$collected_commands->{$cmdname}}) {
@@ -178,18 +180,19 @@ sub highlight_process($$)
     my $language_base = ${highlight_basename} . "_${language}";
     $languages{$language}->{'basefile'} = $language_base . "_input.$suffix";
     $languages{$language}->{'html_file'} = $language_base . '_output.html';
-    $languages{$language}->{'rfile'} = File::Spec->catfile($highlight_out_dir,
+    my $input_language_path_name = File::Spec->catfile($highlight_out_dir,
                                 $languages{$language}->{'basefile'});
-    $languages{$language}->{'r_html_file'} = File::Spec->catfile($highlight_out_dir,
+    my $html_result_path_name = File::Spec->catfile($highlight_out_dir,
                                 $languages{$language}->{'html_file'});
 
     # expand @example texts in an input file for highlight source
     # program
-    my $rfile = $languages{$language}->{'rfile'};
-    unless (open (HIGHLIGHT_LANG_IN, ">$rfile")) {
+    my ($encoded_input_language_path_name, $input_language_path_encoding)
+      = $self->encoded_file_name($input_language_path_name);
+    unless (open (HIGHLIGHT_LANG_IN, ">$encoded_input_language_path_name")) {
       $self->document_warn($self,
              sprintf(__("highlight_syntax.pm: could not open %s: %s"),
-                                      $rfile, $!));
+                                      $input_language_path_name, $!));
       return 0;
     }
 
@@ -230,15 +233,22 @@ sub highlight_process($$)
     # call source highlighting program
     my $version_option='';
     $version_option='--gen-version ' if ($self->get_conf('TEST'));
-    my $html_result_file = $languages{$language}->{'r_html_file'};
     my @option_line_ranges = ();
     foreach my $line_range (@{$languages{$language}->{'line_ranges'}}) {
       push @option_line_ranges, '"'.$line_range->[0].'-'.$line_range->[1].'"';
     }
     my $option_line_range_str = join(',', @option_line_ranges);
-    my $cmd = "source-highlight ${version_option}--src-lang=$language --out-format=html5 -i '$rfile' -o '$html_result_file' --line-range=$option_line_range_str --range-separator='$range_separator'";
+    my $cmd = "source-highlight ${version_option}--src-lang=$language --out-format=html5 -i '$input_language_path_name' -o '$html_result_path_name' --line-range=$option_line_range_str --range-separator='$range_separator'";
 
-    if (system($cmd)) {
+    # FIXME do not know what would be better here
+    my $encoding = $self->get_conf('MESSAGE_OUTPUT_ENCODING_NAME');
+    my $encoded_cmd;
+    if (defined($encoding)) {
+      $encoded_cmd = encode($encoding, $cmd);
+    } else {
+      $encoded_cmd = $cmd;
+    }
+    if (system($encoded_cmd)) {
       $self->document_error($self,
           sprintf(__("highlight_syntax.pm: command did not succeed: %s"),
                                   $cmd));
@@ -247,10 +257,12 @@ sub highlight_process($$)
 
     my $language_fragments_nr = $languages{$language}->{'counter'};
     # extract highlighted fragments
-    unless (open (HIGHLIGHT_LANG_OUT, $html_result_file)) {
+    my ($encoded_html_result_path_name, $html_result_path_encoding)
+      = $self->encoded_file_name($html_result_path_name);
+    unless (open (HIGHLIGHT_LANG_OUT, $encoded_html_result_path_name)) {
       $self->document_warn($self,
          sprintf(__("highlight_syntax.pm: could not open %s: %s"),
-                                  $html_result_file, $!));
+                                  $html_result_path_name, $!));
       return 0;
     }
     my $got_count = 0;
@@ -258,7 +270,7 @@ sub highlight_process($$)
     my $text;
     my $separators_count = 0;
     while ($line = <HIGHLIGHT_LANG_OUT>) {
-      #print STDERR "$html_result_file: while $line";
+      #print STDERR "$encoded_html_result_path_name: while $line";
       if ($line =~ /$range_separator/) {
         $separators_count++;
         if (defined($text)) {
@@ -281,7 +293,7 @@ sub highlight_process($$)
     }
     if ($separators_count != $language_fragments_nr +1) {
       $self->document_warn($self, sprintf(__(
-         "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments +1"),
+       "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments +1"),
                             $language, $separators_count, $language_fragments_nr+1));
     }
     if (defined($text) and $text ne '') {
@@ -315,7 +327,7 @@ sub highlight_preformatted_command($$$$$)
       and defined($commands{$cmdname}->{'results'}->{$command})) {
     if (not defined($language)) {
       $self->document_warn($self, sprintf(__(
-                       "highlight_syntax.pm: output has HTML item for \@%s but no language %s"),
+       "highlight_syntax.pm: output has HTML item for \@%s but no language %s"),
                                   $cmdname, $command));
     } else {
 

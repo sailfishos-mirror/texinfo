@@ -156,8 +156,7 @@ sub output($)
           $close_error = $!;
         }
         if ($out_file_nr == 1) {
-          Texinfo::Common::output_files_register_closed(
-             $self->output_files_information(), $output_file);
+          $self->_register_closed_info_file($output_file);
           if (defined($close_error)) {
             $self->document_error($self,
                   sprintf(__("error on closing %s: %s"),
@@ -184,9 +183,7 @@ sub output($)
                                  $complete_header_bytes];
           #print STDERR join(' --> ', @{$indirect_files[-1]}) ."\n";
         } else {
-          Texinfo::Common::output_files_register_closed(
-                           $self->output_files_information(),
-                           $output_file.'-'.$out_file_nr);
+          $self->_register_closed_info_file($output_file.'-'.$out_file_nr);
           if (defined($close_error)) {
             $self->document_error($self,
                   sprintf(__("error on closing %s: %s"),
@@ -215,8 +212,7 @@ sub output($)
   }
   my $tag_text = '';
   if ($out_file_nr > 1) {
-    Texinfo::Common::output_files_register_closed(
-      $self->output_files_information(), $output_file.'-'.$out_file_nr);
+    $self->_register_closed_info_file($output_file.'-'.$out_file_nr);
     if (!close ($fh)) {
       $self->document_error($self,
                sprintf(__("error on closing %s: %s"),
@@ -280,8 +276,7 @@ sub output($)
     # reopened after closing STDOUT.  So closing STDOUT is handled by the
     # caller.
     unless ($output_file eq '-') {
-      Texinfo::Common::output_files_register_closed(
-         $self->output_files_information(), $output_file);
+      $self->_register_closed_info_file($output_file);
       if (!close ($fh)) {
         $self->document_error($self,
                   sprintf(__("error on closing %s: %s"),
@@ -301,9 +296,12 @@ sub _open_info_file($$)
 {
   my $self = shift;
   my $filename = shift;
+
+  my ($encoded_filename, $path_encoding)
+      = $self->encoded_file_name($filename);
   my $fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
-                             $filename, 'use_binmode');
+                             $encoded_filename, 'use_binmode');
 
   if (!$fh) {
     $self->document_error($self, sprintf(
@@ -312,6 +310,18 @@ sub _open_info_file($$)
     return undef;
   }
   return $fh;
+}
+
+sub _register_closed_info_file($$)
+{
+  my $self = shift;
+  my $filename = shift;
+
+  my ($encoded_filename, $path_encoding)
+      = $self->encoded_file_name($filename);
+
+  Texinfo::Common::output_files_register_closed(
+             $self->output_files_information(), $encoded_filename)
 }
 
 sub _info_header($$$)

@@ -20,15 +20,75 @@ Before next release
 for @example args, use *-user as class?
 
 
-byte encoding, check how used, check XS parser?
-l 3226 ParserNonXS.pm
-              unshift @{$self->{'input'}}, {
-                'name' => $file,
+bytes.  To check that they can never be upgraded + document
+* texi2any.pl
+ @input_files = @ARGV
+  $input_file_arg
+ @include_dirs, 'INCLUDE_DIRECTORIES'
+ @css_files, CSS_FILES
+ MACRO_EXPAND
+ INTERNAL_LINKS
 
-bytes: (global_information)
-$self->{'info'}->{'input_file_name'}
-$self->{'info'}->{'input_directory'} 
+* ParserNonXS.pm
+ l 3226 ParserNonXS.pm
+               unshift @{$self->{'input'}}, {
+                 'name' => $file,
+ $self->{'info'}->{'input_file_name'}
+ $self->{'info'}->{'input_directory'}
 
+* XS Parser?
+
+
+check with latin1
+CPP directive with encoded characters, UTF8 Texinfo manual
+./texi2any.pl -I ./t/include/ ./t/input_files/cpp_lines.texi
+accentÃªd:7: warning: làng is not a valid language code
+The file is UTF-8 encoded, the @documentencoding is obeyed which leads
+to an incorrect encoding, in the Parser, to UTF-8, and not to the latin1
+encoding which should be used for the output messages encoding.
+This output is by (Gavin) design.
+
+Tests more interesting in non utf8 locale
+./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=0 -o résultat/encodé.txt ./t/input_files/simplest_no_node_section.texi
+
+./texi2any.pl -o encodé/ ./t/input_files/simplest.texi
+
++ need to have file names/file content encoded in the non utf8 locale
+test of non ascii included file name in utf8 locale is already in formatting:
+formatting/osé.texi:@include included_akçentêd.texi
+But the test needs also to be done in non utf8 locale
+./texi2any.pl include_acc.texi
+
+CPP line directive with accented characters already in tests:
+./t/input_files/cpp_lines.texi
+But the test needs also to be done in non utf8 locale (still TODO for XS Parser)
+./texi2any.pl cpp_line_latin1.texi
+
+Add tests even if not as interesting in UTF8 locale as in non UTF8
+./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=0 -o résultat/encodé.txt ./t/input_files/simplest_no_node_section.texi
+
+./texi2any.pl -o encodé/ ./t/input_files/simplest.texi
+
+./texi2any.pl -o encodé/assé.info ./t/input_files/simplest.texi
+
+test l2h with non ascii file names
+
+
+Should we warn if output is on STDOUT and OUTPUT_ENCODING_NAME != MESSAGE_OUTPUT_ENCODING_NAME?
+
+
+Check Archive::Zip/EPUB_CREATE_CONTAINER in epub with non ascii
+
+
+Document bytes in input:
+create_destination_directory
+output_files_register_closed
+output_files_open_out
+locate_include_file (also in output)
+
+
+Test of init/highlight_syntax.pm with non ascii characters in highlighted
+@example contents.
 
 Bugs
 ====
@@ -66,7 +126,7 @@ Tree documentation in ParserNonXS.pm
 replaced, elided, elided_block types.
 
 'extra'->'file' in replaced @include.
-extra->'comment_at_end' and extra->'spaces_after_argument' 
+extra->'comment_at_end' and extra->'spaces_after_argument'
 likely in many line commands
 
 'extra'->'isindex' for nodes.
@@ -160,7 +220,7 @@ Not sure it is a big deal.  An example in sectioning/at_commands_in_refs.
 
 warn when a @noindent/@indent appears within a paragraph.
 
-in info_tests/error_in_footnote there is an error message for each 
+in info_tests/error_in_footnote there is an error message for each
 listoffloats;  Line numbers are right, though, so maybe this is not
 an issue.
 
@@ -238,9 +298,9 @@ Automatic generation of node names from section names.  To be protected:
 In Info
 
 Nodes:
-* in every case 
+* in every case
   ( at the beginning
-* in Node line 
+* in Node line
   commas
 * In menu entry and *Note
   * if there is a label
@@ -321,19 +381,19 @@ correspond to the role in the document rather than to the formatting style.
 Interrogations and remarks
 ==========================
 
-Should more Converter ignore the last new line (with type 
+Should more Converter ignore the last new line (with type
 last_raw_newline) of a raw block format?
 
 There is no forward looking code anymore, so maybe a lex/yacc parser
-could be used for the main loop.  More simply, a binary tokenizer, at 
+could be used for the main loop.  More simply, a binary tokenizer, at
 least, could make for a notable speedup.
 
 def/end_of_lines_protected_in_footnote.pl the footnote is
    (1)  -- category: deffn_name arguments arg2 more args with end of line
-and not 
+and not
    (1)
  -- category: deffn_name arguments arg2 more args with end of line
-It happens this way because the paragraph starts right after the footnote 
+It happens this way because the paragraph starts right after the footnote
 number.
 
 in HTML, the argument of a quotation is ignored if the quotation is empty,
@@ -343,7 +403,7 @@ as in
 Is it really a bug?
 
 In @copying things like some raw formats may be expanded.  However it is
-not clear that it should be the same than in the main converter.  Maybe a 
+not clear that it should be the same than in the main converter.  Maybe a
 specific list of formats could be passed to Convert::Text::convert, which
 would be different (for example Info and Plaintext even if converting HTML).
 This requires a test, to begin with.
@@ -381,21 +441,21 @@ The @FIGURE @macro is, for html:
 
 Add @value to the corresponding commands categories?
 
-Use of specialized synopsis in DocBook is not a priority and it is not even 
+Use of specialized synopsis in DocBook is not a priority and it is not even
 obvious that it is interesting to do so.  The following notes explain the
 possibilities and issues extensively.
 
-Instead of synopsis it might seem to be relevant to use specialized synopsis, 
-funcsynopsis/funcprototype for deftype* and some def*, and other for object 
+Instead of synopsis it might seem to be relevant to use specialized synopsis,
+funcsynopsis/funcprototype for deftype* and some def*, and other for object
 oriented.  There are many issues such that this possibility do not appear
 appealing at all.
 
-1) there is no possibility to have a category.  So the category must be 
+1) there is no possibility to have a category.  So the category must be
    added somewhere as a role= or in the *synopsisinfo, or this should only
    be used for specialized @def, like @defun.
 
 2) @defmethod and @deftypemethod cannot really be mapped to methodsynopsis
-   as the class name is not associated with the method as in Texinfo, but 
+   as the class name is not associated with the method as in Texinfo, but
    instead  the method should be in a class in docbook.
 
 3) From the docbook reference for funcsynopsis
@@ -411,7 +471,7 @@ appealing at all.
   See also the mails from Per Bothner bug-texinfo, Sun, 22 Jul 2012 01:45:54.
 
 specialized @def, without a need for category:
-@defun and @deftypefun 
+@defun and @deftypefun
 <funcsynopsis><funcprototype><funcdef>TYPE <function>NAME</function><paramdef><parameter>args</parameter></paramdef></funcprototype></funcsynopsis>
 
 specialized @def, without a need for category, but without DocBook synopsis
@@ -422,7 +482,7 @@ is not available
 is not available
 
 Generic @def with a need for a category
-For deffn deftypefn (and defmac?, defspec?), the possibilities of 
+For deffn deftypefn (and defmac?, defspec?), the possibilities of
 funcsynopsis, with a category added could be used:
   <funcsynopsis><funcprototype><funcdef role=...>TYPE <function>NAME</function></funcdef><paramdef>PARAMTYPE <parameter>PARAM</parameter></paramdef></funcprototype></funcsynopsis>
 
@@ -435,7 +495,7 @@ is not available
 defcv, deftypecv: fieldsynopsis cannot be used since the class
 is not available
 
-Remaining @def without DocBook synopsis because there is no equivalent, 
+Remaining @def without DocBook synopsis because there is no equivalent,
 and requires a category
 defvr (defvar, defopt), deftypevr (deftypevar)
 deftp
@@ -445,7 +505,7 @@ deftp
 Missing test outputs as files in t/
 ===================================
 
-output files split (node or not split) could be interesting +texi2html 
+output files split (node or not split) could be interesting +texi2html
 style for some tests.  However, the test suite is already too long to
 run so such additions should be done with caution.
 
@@ -457,7 +517,7 @@ t/30sectioning.t
  character_and_spaces_in_refs
  character_and_spaces_in_node
  some_at_commands_in_ref_nodes
- at_commands_in_refs  
+ at_commands_in_refs
  character_and_spaces_in_refs <- mono/chapter
  rec_nodes (with USE_NODES and without)
  loop_nodes?

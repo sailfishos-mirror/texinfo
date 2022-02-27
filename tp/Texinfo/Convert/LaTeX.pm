@@ -914,15 +914,22 @@ sub output($$)
 
   my ($output_file, $destination_directory, $output_filename)
     = $self->determine_files_and_directory();
+
+  my ($encoded_destination_directory, $dir_encoding)
+    = $self->encoded_file_name($destination_directory);
   my ($succeeded, $created_directory)
-    = $self->create_destination_directory($destination_directory);
+    = $self->create_destination_directory($encoded_destination_directory);
   return undef unless $succeeded;
 
   my $fh;
+  my $encoded_output_file;
   if (! $output_file eq '') {
+    my $path_encoding;
+    ($encoded_output_file, $path_encoding)
+      = $self->encoded_file_name($output_file);
     $fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
-                             $output_file);
+                             $encoded_output_file);
     if (!$fh) {
       $self->document_error($self,
              sprintf(__("could not open %s for writing: %s"),
@@ -979,7 +986,7 @@ sub output($$)
   #print STDERR "OUTPUT fh:$fh|F:$output_file|$result";
   if ($fh and $output_file ne '-') {
     Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $output_file);
+                  $self->output_files_information(), $encoded_output_file);
     if (!close ($fh)) {
       $self->document_error($self,
                    sprintf(__("error on closing %s: %s"),

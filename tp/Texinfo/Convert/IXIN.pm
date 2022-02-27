@@ -18,7 +18,7 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
 # This module implements abstract functions that output the IXIN format
-# using lower level formatting funtions, here adapted to lisp like 
+# using lower level formatting funtions, here adapted to lisp like
 # output.  For other output, the output specific functions should be
 # redefined.  This module is not enough to output IXIN format, a module
 # inheriting both from a converter module and this module is required.
@@ -50,7 +50,7 @@ sub _ixin_version($)
 
 my %additional_setting_commands;
 # FIXME pagesizes is line
-foreach my $command ('pagesizes', 'everyheading', 'everyfooting', 
+foreach my $command ('pagesizes', 'everyheading', 'everyfooting',
                      'evenheading', 'evenfooting', 'oddheading', 'oddfooting',
                      'documentencoding', 'documentlanguage', 'clickstyle') {
   $additional_setting_commands{$command} = 1;
@@ -61,21 +61,21 @@ foreach my $command ('pagesizes', 'everyheading', 'everyfooting',
 # but are not setting commands.
 my %global_misc_not_setting_commands = (
   'printindex' => 1,
-);  
+);
 
 my @image_files_extensions = ('eps', 'gif', 'jpg', 'jpeg', 'pdf', 'png', 'svg',
                               'txt');
 my %extension_mime_mapping = (
   'eps' => 'application/postscript',
-  'gif' => 'image/gif', 
-  'jpg' => 'image/jpeg', 
+  'gif' => 'image/gif',
+  'jpg' => 'image/jpeg',
   'jpeg' => 'image/jpeg',
-  'pdf' => 'application/pdf', 
-  'png' => 'image/png', 
+  'pdf' => 'application/pdf',
+  'png' => 'image/png',
   'svg' => 'image/svg+xml',
   'txt' => 'text/plain',
   'tiff' => 'image/tiff',
-  '' => 'image/unknown', 
+  '' => 'image/unknown',
 );
 
 # output specific
@@ -109,7 +109,7 @@ sub _ixin_attributes($$$)
   my $result = '';
   if ($attributes) {
     for (my $i = 0; $i < scalar(@$attributes); $i += 2) {
-      if ($attribute_string_names{$name} 
+      if ($attribute_string_names{$name}
           and $attribute_string_names{$name}->{$attributes->[$i]}) {
         $result .= '"'
           .Texinfo::Convert::TexinfoSXML->protect_text($attributes->[$i+1]).'"';
@@ -207,7 +207,7 @@ sub _get_element($$)
   }
 }
 
-sub _count_bytes($$) 
+sub _count_bytes($$)
 {
   my $self = shift;
   my $string = shift;
@@ -239,9 +239,9 @@ sub _associated_node_id($$$;$)
     }
   }
   my $associated_node_id;
-  if (defined($node_command) 
+  if (defined($node_command)
       and defined($node_command->{'extra'}->{'normalized'})) {
-    $associated_node_id 
+    $associated_node_id
       = $node_label_number->{$node_command->{'extra'}->{'normalized'}};
   } else {
     $associated_node_id = -1;
@@ -268,15 +268,22 @@ sub output_ixin($$)
   my $root = shift;
 
   my ($outfile, $destination_directory) = $self->determine_files_and_directory();
+
+  my ($encoded_destination_directory, $dir_encoding)
+    = $self->encoded_file_name($destination_directory);
   my ($succeeded, $created_directory)
-    = $self->create_destination_directory($destination_directory);
+    = $self->create_destination_directory($encoded_destination_directory);
   return undef unless $succeeded;
 
   my $fh;
+  my $encoded_output_file;
   if (! $output_file eq '') {
+    my $path_encoding;
+    ($encoded_output_file, $path_encoding)
+      = $self->encoded_file_name($output_file);
     $fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
-                             $output_file);
+                             $encoded_output_file);
     if (!$fh) {
       $self->document_error($self,
                 sprintf(__("could not open %s for writing: %s"),
@@ -292,7 +299,7 @@ sub output_ixin($$)
 
   my $output_file = $self->ixin_none_element('filename');
   if ($output_file ne '') {
-    $result .= $self->ixin_list_element('filename', 
+    $result .= $self->ixin_list_element('filename',
                            ['name', $output_file]);
   }
   my $lang = $self->get_conf('documentlanguage');
@@ -332,7 +339,7 @@ sub output_ixin($$)
 
   my $tree_units = Texinfo::Structuring::split_by_node($root);
   # setting_commands is for @-commands appearing before the first node,
-  # while end_of_nodes_setting_commands holds, for @-commands names, the 
+  # while end_of_nodes_setting_commands holds, for @-commands names, the
   # last @-command element.
   my %setting_commands;
   my %end_of_nodes_setting_commands;
@@ -774,10 +781,10 @@ sub output_ixin($$)
       # already determined from listoffloats
       if (!defined($floats_information{$type}->{'type'})) {
         my $command = $self->{'floats'}->{$type}->[0];
-        if ($command->{'extra'}->{'type'} 
+        if ($command->{'extra'}->{'type'}
             and $command->{'extra'}->{'type'}->{'content'}) {
-          $floats_information{$type}->{'type'} 
-            = $self->convert_tree({'contents' 
+          $floats_information{$type}->{'type'}
+            = $self->convert_tree({'contents'
                            => $command->{'extra'}->{'type'}->{'content'}});
         }
       }
@@ -794,7 +801,7 @@ sub output_ixin($$)
     if ($floats_information{$type}->{'node_id'}) {
       foreach my $associated_node_id (@{$floats_information{$type}->{'node_id'}}) {
         $floats_index .= ' ';
-        $floats_index .= $self->ixin_list_element('floatindexnode', 
+        $floats_index .= $self->ixin_list_element('floatindexnode',
                                             ['nodeid', $associated_node_id]);
       }
     }
@@ -805,7 +812,6 @@ sub output_ixin($$)
   if ($floats_index ne '') {
     $floats_index = $self->ixin_open_element('floatsindex', ['floatsindexlen',
                                          $self->_count_bytes($floats_text)])
- 
        .$floats_index .$self->ixin_close_element('floatsindex');
   } else {
     $floats_index = $self->ixin_none_element('floatsindex');
@@ -866,7 +872,7 @@ sub output_ixin($$)
             } else {
               $mime_type = $extension_mime_mapping{''};
             }
-            $blobs_index .= $self->ixin_element('blobentry', 
+            $blobs_index .= $self->ixin_element('blobentry',
              ['bloblen', $blob_len, 'encoding', 'base64',
               'mimetype', $mime_type, 'filename', $file_name_text]) ."\n";
           }
@@ -875,12 +881,12 @@ sub output_ixin($$)
       #print STDERR "$basefile\n";
     }
   }
-  $blobs_index = $self->ixin_open_element('blobsindex', 
+  $blobs_index = $self->ixin_open_element('blobsindex',
                                             ['count', $blob_nr])
               .$blobs_index.$self->ixin_close_element('blobsindex')."\n";
 
   my @counts_attributes = ('nodeindexlen', $self->_count_bytes($nodes_index),
-                    'nodecounts', $node_nr, 
+                    'nodecounts', $node_nr,
                     'sectioningtreelen', $self->_count_bytes($sectioning_tree),
                     'labelslen', $self->_count_bytes($labels_text),
                     'blobsindexlen', $self->_count_bytes($blobs_index));
@@ -905,7 +911,7 @@ sub output_ixin($$)
 
   if ($fh and $output_file ne '-') {
     Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $output_file);
+                  $self->output_files_information(), $encoded_output_file);
     if (!close ($fh)) {
       $self->document_error($self,
                 sprintf(__("error on closing %s: %s"),

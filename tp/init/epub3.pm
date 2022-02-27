@@ -347,15 +347,17 @@ sub epub_finish($$)
                                          $meta_inf_directory, $!));
     return 0;
   }
-  my $container_file = File::Spec->catfile($meta_inf_directory,
+  my $container_file_path_name = File::Spec->catfile($meta_inf_directory,
                                            'container.xml');
+  my ($encoded_container_file_path_name, $container_path_encoding)
+    = $self->encoded_file_name($container_file_path_name);
   my $container_fh = Texinfo::Common::output_files_open_out(
-               $self->output_files_information(), $self, $container_file,
-               undef, 'utf-8');
+                          $self->output_files_information(), $self,
+                          $encoded_container_file_path_name, undef, 'utf-8');
   if (!defined($container_fh)) {
     $self->document_error($self,
          sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
-                  $container_file, $!));
+                  $container_file_path_name, $!));
     return 0;
   }
   my $document_name = $self->get_info('document_name');
@@ -371,49 +373,53 @@ sub epub_finish($$)
 EOT
 
   Texinfo::Common::output_files_register_closed(
-    $self->output_files_information(), $container_file);
+    $self->output_files_information(), $encoded_container_file_path_name);
   if (!close ($container_fh)) {
     $self->document_error($self,
          sprintf(__("epub3.pm: error on closing %s: %s"),
-                          $container_file, $!));
+                          $container_file_path_name, $!));
     return 0;
   }
 
   my $mimetype_filename = 'mimetype';
-  my $mimetype_file = File::Spec->catfile($epub_destination_directory,
-                                          $mimetype_filename);
+  my $mimetype_file_path_name = File::Spec->catfile($epub_destination_directory,
+                                                    $mimetype_filename);
+  my ($encoded_mimetype_file_path_name, $mimetype_path_encoding)
+    = $self->encoded_file_name($mimetype_file_path_name);
   my $mimetype_fh = Texinfo::Common::output_files_open_out(
-               $self->output_files_information(), $self, $mimetype_file,
-               undef, 'utf-8');
+                        $self->output_files_information(), $self,
+                        $encoded_mimetype_file_path_name, undef, 'utf-8');
   if (!defined($mimetype_fh)) {
     $self->document_error($self,
          sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
-                  $mimetype_file, $!));
+                  $mimetype_file_path_name, $!));
     return 0;
   }
   print $mimetype_fh 'application/epub+zip'."\n";
 
   Texinfo::Common::output_files_register_closed(
-    $self->output_files_information(), $mimetype_file);
+    $self->output_files_information(), $encoded_mimetype_file_path_name);
   if (!close ($mimetype_fh)) {
     $self->document_error($self,
          sprintf(__("epub3.pm: error on closing %s: %s"),
-                          $mimetype_file, $!));
+                          $mimetype_file_path_name, $!));
     return 0;
   }
   my $nav_id = 'nav';
-  my $nav_file;
+  my $nav_file_path_name;
   my $title = _epub_convert_tree_to_text($self, $self->get_info('title_tree'));
   if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}) {
-    $nav_file = File::Spec->catfile($epub_document_destination_directory,
-                                           $nav_filename);
+    $nav_file_path_name
+     = File::Spec->catfile($epub_document_destination_directory, $nav_filename);
+    my ($encoded_nav_file_path_name, $nav_path_encoding)
+      = $self->encoded_file_name($nav_file_path_name);
     my $nav_fh = Texinfo::Common::output_files_open_out(
-                 $self->output_files_information(), $self, $nav_file,
-                 undef, 'utf-8');
+                       $self->output_files_information(), $self,
+                       $encoded_nav_file_path_name, undef, 'utf-8');
     if (!defined($nav_fh)) {
       $self->document_error($self,
            sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
-                    $nav_file, $!));
+                    $nav_file_path_name, $!));
       return 0;
     }
     my $table_of_content_str = _epub_convert_tree_to_text($self,
@@ -488,11 +494,11 @@ EOT
     print $nav_fh '</body>'."\n".'</html>'."\n";
 
     Texinfo::Common::output_files_register_closed(
-      $self->output_files_information(), $nav_file);
+      $self->output_files_information(), $encoded_nav_file_path_name);
     if (!close ($nav_fh)) {
       $self->document_error($self,
            sprintf(__("epub3.pm: error on closing %s: %s"),
-                            $nav_file, $!));
+                            $nav_file_path_name, $!));
       return 0;
     }
   }
@@ -504,15 +510,17 @@ EOT
   # also to discuss
   # <meta property="dcterms:modified">2012-03-05T12:47:00Z</meta>
   # also <dc:rights>
-  my $opf_file = File::Spec->catfile($epub_destination_directory,
+  my $opf_file_path_name = File::Spec->catfile($epub_destination_directory,
                                         $epub_document_dir_name, $opf_filename);
+  my ($encoded_opf_file_path_name, $opf_path_encoding)
+    = $self->encoded_file_name($opf_file_path_name);
   my $opf_fh = Texinfo::Common::output_files_open_out(
-               $self->output_files_information(), $self, $opf_file,
-               undef, 'utf-8');
+                   $self->output_files_information(), $self,
+                   $encoded_opf_file_path_name, undef, 'utf-8');
   if (!defined($opf_fh)) {
     $self->document_error($self,
          sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
-                  $opf_file, $!));
+                  $opf_file_path_name, $!));
     return 0;
   }
   print $opf_fh <<EOT;
@@ -559,7 +567,7 @@ EOT
    <manifest>
 EOT
 
-  if (defined($nav_file)) {
+  if (defined($nav_file_path_name)) {
     print $opf_fh "      <item id=\"$nav_id\" properties=\"nav\" "
       . "media-type=\"application/xhtml+xml\" href=\"${epub_xhtml_dir}/${nav_filename}\"/>\n";
   }
@@ -631,7 +639,7 @@ EOT
 EOT
 
   # To put the nav file as part of the document
-  #if (defined($nav_file)) {
+  #if (defined($nav_file_path_name)) {
   #  print $opf_fh "      <itemref idref=\"${nav_id}\"/>\n";
   #}
   $id_count = 0;
@@ -657,11 +665,11 @@ EOT
 EOT
 
   Texinfo::Common::output_files_register_closed(
-    $self->output_files_information(), $opf_file);
+    $self->output_files_information(), $encoded_opf_file_path_name);
   if (!close ($opf_fh)) {
     $self->document_error($self,
          sprintf(__("epub3.pm: error on closing %s: %s"),
-                          $opf_file, $!));
+                          $opf_file_path_name, $!));
     return 0;
   }
 
@@ -669,7 +677,7 @@ EOT
     require Archive::Zip;
 
     my $zip = Archive::Zip->new();
-    $zip->addFile($mimetype_file, $mimetype_filename);
+    $zip->addFile($mimetype_file_path_name, $mimetype_filename);
     $zip->addTree($meta_inf_directory, $meta_inf_directory_name);
     $zip->addTree(File::Spec->catdir($epub_destination_directory,
                                      $epub_document_dir_name),

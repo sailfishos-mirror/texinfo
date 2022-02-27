@@ -214,16 +214,19 @@ sub chm_init($)
   $outdir = File::Spec->curdir() if ($outdir eq '');
 
   my $hhk_filename = $document_name . ".hhk";
-  my $hhk_file = File::Spec->catfile($outdir, $hhk_filename);
+  my $hhk_file_path_name = File::Spec->catfile($outdir, $hhk_filename);
+  my ($encoded_hhk_file_path_name, $hhk_path_encoding)
+    = $self->encoded_file_name($hhk_file_path_name);
   my $hhk_fh = Texinfo::Common::output_files_open_out(
-                      $self->output_files_information(), $self, $hhk_file);
+                      $self->output_files_information(), $self,
+                      $encoded_hhk_file_path_name);
   if (!defined($hhk_fh)) {
     $self->document_error($self,
          sprintf(__("chm.pm: could not open %s for writing: %s\n"), 
-                  $hhk_file, $!));
+                  $hhk_file_path_name, $!));
     return 0;
   }
-  print STDERR "# writing HTML Help index in $hhk_file...\n" 
+  print STDERR "# writing HTML Help index in $hhk_file_path_name...\n" 
      if ($self->get_conf('VERBOSE'));
   print $hhk_fh "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML//EN\">\n<HTML>\n";
   print $hhk_fh "<HEAD>\n<meta name=\"GENERATOR\" content=\""
@@ -252,27 +255,30 @@ sub chm_init($)
   }
   print $hhk_fh "</BODY>\n</HTML>\n";
   Texinfo::Common::output_files_register_closed(
-    $self->output_files_information(), $hhk_file);
+    $self->output_files_information(), $encoded_hhk_file_path_name);
   if (!close ($hhk_fh)) {
     $self->document_error($self,
            sprintf(__("chm.pm: error on closing %s: %s"),
-                          $hhk_file, $!));
+                          $hhk_file_path_name, $!));
     return 0;
   }
 
   my $hhc_filename = $document_name . ".hhc";
-  my $hhc_file = File::Spec->catfile($outdir, $hhc_filename);
+  my $hhc_file_path_name = File::Spec->catfile($outdir, $hhc_filename);
+  my ($encoded_hhc_file_path_name, $hhc_path_encoding)
+    = $self->encoded_file_name($hhc_file_path_name);
   my $hhc_fh = Texinfo::Common::output_files_open_out(
-                      $self->output_files_information(), $self, $hhc_file);
+                      $self->output_files_information(), $self,
+                      $encoded_hhc_file_path_name);
   # Not sure $! is still valid
   if (!defined($hhc_fh)) {
     $self->document_error($self,
          sprintf(__("chm.pm: could not open %s for writing: %s\n"), 
-                  $hhc_file, $!));
+                  $hhc_file_path_name, $!));
     return 0;
   }
 
-  print STDERR "# writing HTML Help project in $hhc_file...\n" 
+  print STDERR "# writing HTML Help project in $hhc_file_path_name...\n" 
      if ($self->get_conf('VERBOSE'));
   
   print $hhc_fh "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML//EN\">\n<HTML>\n";
@@ -327,26 +333,29 @@ sub chm_init($)
   }
   print $hhc_fh "</HTML>\n</BODY>\n";
   Texinfo::Common::output_files_register_closed(
-    $self->output_files_information(), $hhc_file);
+    $self->output_files_information(), $encoded_hhc_file_path_name);
   if (!close ($hhc_fh)) {
     $self->document_error($self,
            sprintf(__("chm.pm: error on closing %s: %s"),
-                          $hhc_file, $!));
+                          $hhc_file_path_name, $!));
     return 0;                  
   }
 
   my $hhp_filename = $document_name . ".hhp";
-  my $hhp_file = File::Spec->catfile($outdir, $hhp_filename);
+  my $hhp_file_path_name = File::Spec->catfile($outdir, $hhp_filename);
+  my ($encoded_hhp_file_path_name, $hhp_path_encoding)
+    = $self->encoded_file_name($hhp_file_path_name);
   my $hhp_fh = Texinfo::Common::output_files_open_out(
-                      $self->output_files_information(), $self, $hhp_file);
+                      $self->output_files_information(), $self,
+                      $encoded_hhp_file_path_name);
   # Not sure $! is still valid
   if (!defined($hhp_fh)) {
     $self->document_error(
            $self, sprintf(__("chm.pm: could not open %s for writing: %s\n"), 
-                  $hhp_file, $!));
+                  $hhp_file_path_name, $!));
     return 0;
   }
-  print STDERR "# writing HTML Help project in $hhp_file...\n" 
+  print STDERR "# writing HTML Help project in $hhp_file_path_name...\n" 
      if ($self->get_conf('VERBOSE'));
   my $language = $chm_languages{'en'};
   my $documentlanguage = $self->get_conf('documentlanguage');
@@ -391,11 +400,11 @@ EOT
   }
 
   Texinfo::Common::output_files_register_closed(
-    $self->output_files_information(), $hhp_file);
+    $self->output_files_information(), $encoded_hhp_file_path_name);
   if (!close ($hhp_fh)) {
     $self->document_error($self,
          sprintf(__("chm.pm: error on closing %s: %s"),
-                          $hhp_file, $!));
+                          $hhp_file_path_name, $!));
     return 0;                  
   }
 
