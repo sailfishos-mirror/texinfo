@@ -26,7 +26,7 @@ use strict;
 use File::Basename;
 # for file names portability
 use File::Spec;
-use Encode;
+use Encode qw(decode);
 
 use Carp qw(cluck confess);
 
@@ -527,9 +527,13 @@ sub determine_files_and_directory($;$)
   # determine input file base name
   my $input_basefile;
   if (defined($self->{'parser_info'}->{'input_file_name'})) {
+    my $input_file_name = $self->{'parser_info'}->{'input_file_name'};
+    my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+    if (defined($encoding)) {
+      $input_file_name = decode($encoding, $input_file_name);
+    }
     my ($directories, $suffix);
-    ($input_basefile, $directories, $suffix)
-       = fileparse($self->{'parser_info'}->{'input_file_name'});
+    ($input_basefile, $directories, $suffix) = fileparse($input_file_name);
   } else {
     # This could happen if called on a piece of texinfo
     $input_basefile = '';
@@ -552,16 +556,6 @@ sub determine_files_and_directory($;$)
            and defined($self->{'global_commands'}->{'setfilename'}->{'extra'}->{'text_arg'})) {
      $setfilename
        = $self->{'global_commands'}->{'setfilename'}->{'extra'}->{'text_arg'};
-  }
-
-  if ($setfilename) {
-    my $document_encoding;
-    my $ignored;
-    $document_encoding = $self->{'parser_info'}->{'input_perl_encoding'}
-      if ($self->{'parser_info'}
-            and defined($self->{'parser_info'}->{'input_perl_encoding'}));
-    ($setfilename, $ignored) = Texinfo::Common::encode_file_name(
-      $self, $setfilename, $document_encoding);
   }
 
   my $input_basename_for_outfile = $input_basename;

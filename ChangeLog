@@ -1,3 +1,16 @@
+2022-02-27  Patrice Dumas  <pertusus@free.fr>
+
+	Decode more inputs as perl character strings
+
+	* tp/Texinfo/Convert/Converter.pm (determine_files_and_directory):
+	do not encode setfilename, instead decode input file name.
+	* tp/Texinfo/Convert/HTML.pm (html_image_file_location_name):
+	do not return the encoded file name.
+	* tp/Texinfo/Convert/HTML.pm (encoded_file_name): call
+	encoded_file_name to encode file name just before calling
+	output_files_open_out().
+
+
 2022-02-26  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Attempt to fix copying image for epub3 test

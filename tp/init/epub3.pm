@@ -505,7 +505,7 @@ EOT
   # <meta property="dcterms:modified">2012-03-05T12:47:00Z</meta>
   # also <dc:rights>
   my $opf_file = File::Spec->catfile($epub_destination_directory,
-                                        $epub_document_dir_name, $opf_filename );
+                                        $epub_document_dir_name, $opf_filename);
   my $opf_fh = Texinfo::Common::output_files_open_out(
                $self->output_files_information(), $self, $opf_file,
                undef, 'utf-8');

@@ -282,7 +282,7 @@ sub html_image_file_location_name($$$$)
         # will be moved by the caller anyway.
         # If the file path found was to be used it should be decoded to perl
         # codepoints too.
-        $image_file = $file_name;
+        $image_file = $image_basefile.$extension;
         $image_extension = $extension;
         last;
       }
@@ -8919,12 +8919,16 @@ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating w
   }
   my $license_file = File::Spec->catdir($destination_directory,
                                         $path);
+  # sequence of bytes
+  my ($licence_file_path, $path_encoding)
+     = $self->encoded_file_name($license_file);
   my $fh = Texinfo::Common::output_files_open_out(
-                 $self->output_files_information(), $self, $license_file);
+                 $self->output_files_information(), $self,
+                 $licence_file_path);
   if (defined($fh)) {
     print $fh $a;
     Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $license_file);
+                  $self->output_files_information(), $licence_file_path);
     if (!close ($fh)) {
       $self->document_error($self,
                sprintf(__("error on closing %s: %s"),
@@ -8963,9 +8967,11 @@ sub _default_format_frame_files($$)
   } else {
     $toc_frame_outfile = $toc_frame_file;
   }
-  
+  # sequence of bytes
+  my ($frame_file_path, $frame_path_encoding)
+     = $self->encoded_file_name($frame_outfile);
   my $frame_fh = Texinfo::Common::output_files_open_out(
-                     $self->output_files_information(), $self, $frame_outfile);
+                     $self->output_files_information(), $self, $frame_file_path);
   if (defined($frame_fh)) {
     my $doctype = $self->get_conf('FRAMESET_DOCTYPE');
     my $root_html_element_attributes = $self->_root_html_element_attributes_string();
@@ -8987,7 +8993,7 @@ $doctype
 EOT
 
     Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $frame_outfile);
+                  $self->output_files_information(), $frame_file_path);
     if (!close ($frame_fh)) {
       $self->document_error($self,
           sprintf(__("error on closing frame file %s: %s"),
@@ -9000,9 +9006,12 @@ EOT
                                   $frame_outfile, $!));
     return 0;
   }
-
+  # sequence of bytes
+  my ($toc_frame_path, $toc_frame_path_encoding)
+       = $self->encoded_file_name($toc_frame_outfile);
   my $toc_frame_fh = Texinfo::Common::output_files_open_out(
-                      $self->output_files_information(), $self, $toc_frame_outfile);
+                      $self->output_files_information(), $self,
+                      $toc_frame_path);
   if (defined($toc_frame_fh)) {
 
     # this is needed to collect CSS rules.
@@ -9020,7 +9029,7 @@ EOT
     $self->{'current_filename'} = undef;
 
     Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $toc_frame_outfile);
+                  $self->output_files_information(), $toc_frame_path);
     if (!close ($toc_frame_fh)) {
       $self->document_error($self,
             sprintf(__("error on closing TOC frame file %s: %s"),
@@ -9486,6 +9495,7 @@ sub output($$)
       or !defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
     # no page
     my $no_page_out_filepath;
+    my $encoded_no_page_out_filepath;
     if ($output_file ne '') {
       my $no_page_output_filename;
       if ($self->get_conf('SPLIT')) {
@@ -9500,8 +9510,12 @@ sub output($$)
         $no_page_out_filepath = $output_file;
         $no_page_output_filename = $output_filename;
       }
+      my $path_encoding;
+      ($encoded_no_page_out_filepath, $path_encoding)
+        = $self->encoded_file_name($no_page_out_filepath);
       $fh = Texinfo::Common::output_files_open_out(
-              $self->output_files_information(), $self, $no_page_out_filepath);
+              $self->output_files_information(), $self,
+              $encoded_no_page_out_filepath);
       if (!$fh) {
         $self->document_error($self,
               sprintf(__("could not open %s for writing: %s"),
@@ -9545,7 +9559,7 @@ sub output($$)
     # NOTE do not close STDOUT now to avoid a perl warning.
     if ($fh and $no_page_out_filepath ne '-') {
       Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $no_page_out_filepath);
+            $self->output_files_information(), $encoded_no_page_out_filepath);
       if (!close($fh)) {
         $self->document_error($self,
               sprintf(__("error on closing %s: %s"),
@@ -9602,9 +9616,11 @@ sub output($$)
       $self->{'file_counters'}->{$element_filename}--;
       if ($self->{'file_counters'}->{$element_filename} == 0) {
         my $file_element = $files{$element_filename}->{'first_element'};
+        my ($encoded_out_filepath, $path_encoding)
+          = $self->encoded_file_name($out_filepath);
         my $file_fh = Texinfo::Common::output_files_open_out(
                          $self->output_files_information(), $self,
-                         $out_filepath);
+                         $encoded_out_filepath);
         if (!$file_fh) {
           $self->document_error($self,
                sprintf(__("could not open %s for writing: %s"),
@@ -9623,7 +9639,7 @@ sub output($$)
         # NOTE do not close STDOUT here to avoid a perl warning
         if ($out_filepath ne '-') {
           Texinfo::Common::output_files_register_closed(
-             $self->output_files_information(), $out_filepath);
+             $self->output_files_information(), $encoded_out_filepath);
           if (!close($file_fh)) {
             $self->document_error($self,
                        sprintf(__("error on closing %s: %s"),
@@ -9711,9 +9727,11 @@ sub output($$)
         } else {
           $out_filename = $node_filename;
         }
+        my ($encoded_out_filename, $path_encoding)
+          = $self->encoded_file_name($out_filename);
         my $file_fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
-                             $out_filename);
+                             $encoded_out_filename);
         if (!$file_fh) {
          $self->document_error($self, sprintf(__(
                                     "could not open %s for writing: %s"),
@@ -9721,7 +9739,7 @@ sub output($$)
         } else {
           print $file_fh $redirection_page;
           Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $out_filename);
+                  $self->output_files_information(), $encoded_out_filename);
           if (!close ($file_fh)) {
             $self->document_error($self, sprintf(__(
                              "error on closing redirection node file %s: %s"),
