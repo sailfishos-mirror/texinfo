@@ -1,3 +1,5 @@
+# Automatically generated
+use utf8;
 
 $l2h_cache_key = q/  \gdef\Desig{\buildrel \rm def \over \equiv}/;
 $l2h_cache{$l2h_cache_key} = q|  |;
@@ -31,4 +33,5 @@ $l2h_cache{$l2h_cache_key} = q|<SPAN CLASS="MATH"></SPAN>|;
 
 $l2h_cache_key = q/$\gdef\testmacro{a \equiv b} $/;
 $l2h_cache{$l2h_cache_key} = q|<SPAN CLASS="MATH"></SPAN>|;
+
 1;

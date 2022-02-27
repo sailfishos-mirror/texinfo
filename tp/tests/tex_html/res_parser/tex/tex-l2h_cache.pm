@@ -1,3 +1,5 @@
+# Automatically generated
+use utf8;
 
 $l2h_cache_key = q/
 $$ \chi^2 = \sum_{i=1}^N
@@ -80,4 +82,5 @@ $l2h_cache{$l2h_cache_key} = q|<!-- MATH
 <SPAN CLASS="MATH"><IMG
  STYLE="height: 3.96ex; vertical-align: -1.23ex; " SRC="tex_2.svg"
  ALT="${x^i}\over{\tan y}$"></SPAN>|;
+
 1;

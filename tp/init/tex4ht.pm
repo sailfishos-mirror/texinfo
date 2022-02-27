@@ -151,10 +151,14 @@ sub tex4ht_prepare($$)
     $formats{$format}->{'counter'} = 0;
     $formats{$format}->{'output_counter'} = 0;
 
+    # FIXME no clear way to use utf8 and support encoded characters.
+    # An attempt to encode to utf8 lead to worse results than letting
+    # perl encode to latin1.  But with other non ascii characters than
+    # latin1 characters, there will be utf8 output anyway.
     if (scalar(@{$format_collected_commands{$format}}) > 0) {
       
       local *TEX4HT_TEXFILE;
-      unless (open (*TEX4HT_TEXFILE, ">$encoded_tex4ht_file_path_name")) {
+      unless (open(*TEX4HT_TEXFILE, ">$encoded_tex4ht_file_path_name")) {
         $self->document_warn($self,
                 sprintf(__("tex4ht.pm: could not open %s: %s"),
                                       $tex4ht_file_path_name, $!));
@@ -313,7 +317,7 @@ sub tex4ht_process_format($$) {
                          "tex4ht.pm: command failed: %s"), $cmd));
     return 1;
   }
-  if (!close (TEX4HT)) {
+  if (!close(TEX4HT)) {
     $self->document_warn($self, sprintf(__(
                          "tex4ht.pm: closing communication failed: %s: %s"),
                          $cmd, $!));
@@ -323,7 +327,7 @@ sub tex4ht_process_format($$) {
   # extract the html from the file created by tex4ht
   my $html_basefile = $formats{$format}->{'html_basefile_name'};
   my $encoded_html_basefile = $formats{$format}->{'html_basefile_path'};
-  unless (open (TEX4HT_HTMLFILE, $encoded_html_basefile)) {
+  unless (open(TEX4HT_HTMLFILE, $encoded_html_basefile)) {
     $self->document_warn($self,
               sprintf(__("tex4ht.pm: could not open %s: %s"),
                                   $html_basefile, $!));

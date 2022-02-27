@@ -3,7 +3,7 @@ EXTRA_DIST = \
  tex_complex.texi \
  tex_in_copying.texi \
  math_not_closed.texi       tex_not_closed.texi \
- tex.texi tex_gdef.texi \
+ tex.texi tex_gdef.texi tex_encodé.texi \
  list-of-tests res_parser
 
 DISTCLEANFILES = tests.log tests.out

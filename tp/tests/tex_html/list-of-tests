@@ -20,6 +20,8 @@ tex_eqalign_l2h tex_eqalign.texi -c 'HTML_MATH l2h' --iftex
 math_not_closed math_not_closed.texi -c 'HTML_MATH l2h' --iftex
 tex_not_closed tex_not_closed.texi -c 'HTML_MATH l2h' --iftex
 tex_in_copying tex_in_copying.texi -c 'HTML_MATH l2h' --iftex
+tex_encoded_l2h tex_encodé.texi -c 'HTML_MATH l2h' --iftex
+tex_encoded_httex tex_encodé.texi --init tex4ht.pm --iftex
 formatting_singular ../layout/formatting.texi --init-file t2h_singular.init -c 'HTML_MATH l2h' -c 'EXTENSION htm' -c 'PREFIX sing' -c 'TOP_FILE index.htm' --no-verbose
 # The following could be added, mainly to test the full 
 # ../layout/formatting.texi processing with tex4ht, but

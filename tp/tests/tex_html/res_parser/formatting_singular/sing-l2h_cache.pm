@@ -1,3 +1,5 @@
+# Automatically generated
+use utf8;
 
 $l2h_cache_key = q/$$@"u @"{U} @~n @^a @'e @=o @`i @'{e} @dotless{i} @dotless{j} @`{@=E}
 @l{} @,{@'C} @,{@'C} @,c @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
@@ -169,4 +171,5 @@ $l2h_cache{$l2h_cache_key} = q|<!-- MATH
 <SPAN CLASS="MATH"><IMG
  STYLE="height: 3.22ex; vertical-align: -0.92ex; " SRC="sing_9.svg"
  ALT="$--a@minus{} {\frac{1}{2}}$"></SPAN>|;
+
 1;

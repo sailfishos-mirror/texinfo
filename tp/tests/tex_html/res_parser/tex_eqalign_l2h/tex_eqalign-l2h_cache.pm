@@ -1,3 +1,5 @@
+# Automatically generated
+use utf8;
 
 $l2h_cache_key = q/$$\leqalignno{
    \int v(t)\, dt &= u(t) + C&[3.1]\cr
@@ -47,4 +49,5 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
 $">
 </DIV>
 |;
+
 1;

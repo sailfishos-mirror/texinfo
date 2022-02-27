@@ -197,14 +197,19 @@ sub l2h_process($$)
   $verbose = $self->get_conf('VERBOSE');
 
   unless ($self->get_conf('L2H_SKIP')) {
-    unless (open(L2H_LATEX, ">$l2h_latex_path_name")) {
+    my ($encoded_l2h_latex_path_name, $l2h_latex_path_encoding)
+      = $self->encoded_file_name($l2h_latex_path_name);
+    unless (open(L2H_LATEX, ">$encoded_l2h_latex_path_name")) {
       $self->document_error($self, sprintf(__(
               "l2h: could not open latex file %s for writing: %s"),
                                     $l2h_latex_path_name, $!));
       $status = 0;
       return;
     }
-    warn "# l2h: use ${l2h_latex_path_name} as latex file\n" if ($verbose);
+    # according to the .log file latex2html is expecting utf-8 if no information
+    # is provided
+    binmode(L2H_LATEX, ':utf8');
+    warn "# l2h: use $encoded_l2h_latex_path_name as latex file\n" if ($verbose);
     print L2H_LATEX $l2h_latex_preamble;
   }
   # open the database that holds cached text
@@ -426,11 +431,10 @@ sub l2h_change_image_file_names($$)
   my $self = shift;
   my $content = shift;
   my @images = ($content =~ /SRC="(.*?)"/g);
-  my ($src, $dest);
 
-  for $src (@images) {
-    $dest = $l2h_img{$src};
-    unless ($dest) {
+  foreach my $src (@images) {
+    my $dest = $l2h_img{$src};
+    unless (defined($dest)) {
       my $ext = '';
       if ($src =~ /.*\.(.*)$/ and (!defined($self->get_conf('EXTENSION'))
                                     or $1 ne $self->get_conf('EXTENSION'))) {
@@ -498,13 +502,14 @@ sub l2h_init_from_html($)
                                  $l2h_html_path_name, $!));
     return 0;
   }
-  warn "# l2h: use $l2h_html_path_name as html file\n" if ($verbose);
+  # the file is UTF-8
+  binmode(L2H_HTML, ':utf8');
+  warn "# l2h: use $encoded_l2h_html_path_name as html file\n" if ($verbose);
 
   my $html_converted_count = 0;   # number of html resulting texts
                                   # retrieved in the file
 
   my ($count, $h_line);
-  # FIXME encoding?
   while ($h_line = <L2H_HTML>) {
     if ($h_line =~ /!-- l2h_begin $l2h_name ([0-9]+) --/) {
       $count = $1;
@@ -681,9 +686,10 @@ sub l2h_store_cache($)
                                   $l2h_cache_path_name, $!));
     return;
   }
-  # FIXME encoding?  encode to utf8 and output use utf8;?
-  # Not necessarily as l2h_cache may be populated with non decoded
-  # strings.
+  binmode(FH, ':utf8');
+
+  print FH "# Automatically generated\nuse utf8;\n";
+
   foreach my $key(sort(keys(%l2h_cache))) {
     my $value = $l2h_cache{$key};
     # escape stuff
@@ -698,8 +704,8 @@ sub l2h_store_cache($)
     print FH "\n\$l2h_cache_key = q/$key/;\n";
     print FH "\$l2h_cache{\$l2h_cache_key} = q|$value|;\n";
   }
-  print FH "1;";
-  close (FH);
+  print FH "\n1;\n";
+  close(FH);
 }
 
 # return cached html, if it exists for text, and if all pictures

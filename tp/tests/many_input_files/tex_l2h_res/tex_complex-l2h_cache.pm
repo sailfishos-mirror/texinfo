@@ -1,3 +1,5 @@
+# Automatically generated
+use utf8;
 
 $l2h_cache_key = q/$$
  U w V^\dagger
@@ -69,4 +71,5 @@ $l2h_cache{$l2h_cache_key} = q|<!-- MATH
 <SPAN CLASS="MATH"><IMG
  STYLE="height: 3.07ex; vertical-align: -0.57ex; " SRC="tex_complex_6.svg"
  ALT="$h \dot \psi^\phi$"></SPAN>|;
+
 1;

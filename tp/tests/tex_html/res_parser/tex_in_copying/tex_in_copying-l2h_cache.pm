@@ -1,3 +1,5 @@
+# Automatically generated
+use utf8;
 
 $l2h_cache_key = q/$$
 2 a = \dot{\phi}
@@ -34,4 +36,5 @@ a = \phi
 $">
 </DIV>
 |;
+
 1;
