@@ -262,7 +262,7 @@ sub html_image_file_location_name($$$$)
   my $image_basefile;
   my $image_extension;
   # this variable is bytes encoded in the filesystem encoding
-  my $image_path;
+  my ($image_path, $image_path_encoding);
   if (defined($args->[0]->{'monospacetext'}) and $args->[0]->{'monospacetext'} ne '') {
     $image_basefile = $args->[0]->{'monospacetext'};
     my $extension;
@@ -277,6 +277,7 @@ sub html_image_file_location_name($$$$)
            = $self->Texinfo::Common::locate_include_file($file_name);
       if (defined($located_image_path) and $located_image_path ne '') {
         $image_path = $located_image_path;
+        $image_path_encoding = $file_name_encoding;
         # use the @-command argument and not the file found using the
         # include paths.  It is considered that the files in include paths
         # will be moved by the caller anyway.
@@ -297,8 +298,8 @@ sub html_image_file_location_name($$$$)
       }
     }
   }
-  # TODO set and return $image_path_encoding?
-  return ($image_file, $image_basefile, $image_extension, $image_path);
+  return ($image_file, $image_basefile, $image_extension, $image_path,
+          $image_path_encoding);
 }
 
 sub css_add_info($$$;$)
@@ -9315,7 +9316,7 @@ sub output($$)
 
   # set for init files
   $self->{'document_name'} = $document_name;
-  $self->{'destination_directory'} = $created_directory;
+  $self->{'destination_directory'} = $destination_directory;
 
   # set information, to have it available for the conversions below,
   # in translate_names called by _prepare_conversion_tree_units and in

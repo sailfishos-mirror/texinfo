@@ -1,13 +1,14 @@
 #! /bin/sh
 
-LC_ALL=C; export LC_ALL
+LC_ALL=C.UTF-8; export LC_ALL
+LANGUAGE=C.UTF-8; export LANGUAGE
 
 if test "z$TEX_HTML_TESTS" != z'yes'; then
   echo "Skipping HTML TeX tests that are not easily reproducible"
   exit 77
 fi
 
-basename=tex_t4ht
+basename=tex_t4ht_output_dir_non_ascii
 diffs_dir=diffs
 raw_output_dir=raw_out
 logfile=$basename.log
@@ -35,8 +36,8 @@ raw_outdir=$raw_output_dir/$basename
 [ -d $raw_outdir ] && rm -rf $raw_outdir
 mkdir $basename
 : > $basename/$stdout_file
-echo "$PERL -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init --init-file tex4ht.pm --iftex --out $basename/ $srcdir/../tex_html/tex_complex.texi $srcdir/../tex_html/tex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2" >> $logfile
-$PERL -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init --init-file tex4ht.pm --iftex --out $basename/  $srcdir/../tex_html/tex_complex.texi $srcdir/../tex_html/tex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2
+echo "$PERL -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init --init-file tex4ht.pm --iftex --out $basename/encodé/ $srcdir/../tex_html/tex_encodé.texi $srcdir/../tex_html/tex_complex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2" >> $logfile
+$PERL -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init --init-file tex4ht.pm --iftex --out $basename/encodé/ $srcdir/../tex_html/tex_encodé.texi $srcdir/../tex_html/tex_complex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2
 
 return_code=0
 ret=$?
@@ -46,9 +47,10 @@ if [ $ret != 0 ]; then
 else
   outdir="$basename"
   cp -pr $outdir $raw_output_dir
-  rm -f $outdir/*_tex4ht_*.log \
-      $outdir/*_tex4ht_*.idv $outdir/*_tex4ht_*.dvi \
-      $outdir/*_tex4ht_tex.html $outdir/*.png $outdir/$stdout_file
+  destination_outdir=$outdir/encodé/
+  rm -f $destination_outdir/*_tex4ht_*.log \
+      $destination_outdir/*_tex4ht_*.idv $destination_outdir/*_tex4ht_*.dvi \
+      $destination_outdir/*_tex4ht_tex.html $destination_outdir/*.png $outdir/$stdout_file
 
   dir=${basename}
   if [ -d $srcdir/${dir}_res ]; then

@@ -44,6 +44,8 @@ use File::Copy;
 # for fileparse
 use File::Basename;
 
+use Encode qw(decode);
+
 # the Archive::Zip module is required below only if needed, that is
 # if EPUB_CREATE_CONTAINER is set.
 #use Archive::Zip;
@@ -153,8 +155,9 @@ sub epub_convert_image_command($$$$)
   my $result = &{$self->default_command_conversion($cmdname)}($self,
                                                  $cmdname, $command, $args);
 
-  my ($image_file, $image_basefile, $image_extension, $image_path)
-      = $self->html_image_file_location_name($cmdname, $command, $args);
+  my ($image_file, $image_basefile, $image_extension, $image_path,
+      $image_path_encoding)
+        = $self->html_image_file_location_name($cmdname, $command, $args);
   if (defined($image_file)) {
     if (not defined($image_path)) {
       $self->document_error($self,
@@ -164,21 +167,31 @@ sub epub_convert_image_command($$$$)
       my $images_destination_dir
                = File::Spec->catdir($epub_destination_directory,
                                     $epub_document_dir_name, $epub_images_dir_name);
-      if (! -d $images_destination_dir) {
-        if (!mkdir($images_destination_dir, oct(755))) {
+      my ($encoded_images_destination_dir, $images_destination_dir_encoding)
+        = $self->encoded_file_name($images_destination_dir);
+      if (! -d $encoded_images_destination_dir) {
+        if (!mkdir($encoded_images_destination_dir, oct(755))) {
           $self->document_error($self, sprintf(__(
                                  "could not create directory `%s': %s"),
                                          $images_destination_dir, $!));
           return $result;
         }
       }
-      my $image_destination_path = File::Spec->catfile($images_destination_dir,
-                                                       $image_file);
-      my $copy_succeeded = copy($image_path, $image_destination_path);
+      my $image_destination_path_name
+         = File::Spec->catfile($images_destination_dir, $image_file);
+      my ($encoded_image_dest_path_name, $image_dest_path_encoding)
+        = $self->encoded_file_name($image_destination_path_name);
+      my $copy_succeeded = copy($image_path, $encoded_image_dest_path_name);
       if (not $copy_succeeded) {
+        my $image_path_text;
+        if (defined($image_path_encoding)) {
+          $image_path_text = decode($image_path_encoding, $image_path);
+        } else {
+          $image_path_text = $image_path;
+        }
         $self->document_error($self, sprintf(__(
-                            "could not copy `%s' to `%s': %s"),
-                            $image_path, $image_destination_path, $!));
+                     "could not copy `%s' to `%s': %s"),
+                        $image_path_text, $image_destination_path_name, $!));
       }
       $epub_images{$image_file} = $image_extension;
     }
@@ -341,7 +354,9 @@ sub epub_finish($$)
   my $meta_inf_directory_name = 'META-INF';
   my $meta_inf_directory = File::Spec->catdir($epub_destination_directory,
                                               $meta_inf_directory_name);
-  if (!mkdir($meta_inf_directory, oct(755))) {
+  my ($encoded_meta_inf_directory, $meta_inf_directory_encoding)
+    = $self->encoded_file_name($meta_inf_directory);
+  if (!mkdir($encoded_meta_inf_directory, oct(755))) {
     $self->document_error($self, sprintf(__(
                                  "could not create directory `%s': %s"),
                                          $meta_inf_directory, $!));

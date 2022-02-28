@@ -156,7 +156,6 @@ sub tex4ht_prepare($$)
     # perl encode to latin1.  But with other non ascii characters than
     # latin1 characters, there will be utf8 output anyway.
     if (scalar(@{$format_collected_commands{$format}}) > 0) {
-      
       local *TEX4HT_TEXFILE;
       unless (open(*TEX4HT_TEXFILE, ">$encoded_tex4ht_file_path_name")) {
         $self->document_warn($self,
@@ -257,13 +256,15 @@ sub tex4ht_prepare($$)
 sub tex4ht_convert($)
 {
   my $self = shift;
-  unless (chdir $tex4ht_out_dir) {
+  my ($encoded_tex4ht_out_dir, $tex4ht_out_dir_encoding)
+    = $self->encoded_file_name($tex4ht_out_dir);
+  unless (chdir $encoded_tex4ht_out_dir) {
     $self->document_warn($self,
             sprintf(__("tex4ht.pm: chdir %s failed: %s"),
                          $tex4ht_out_dir, $!));
     return 0;
   }
-  print STDERR "cwd($tex4ht_out_dir): " . Cwd::cwd() ."\n"
+  print STDERR "cwd($encoded_tex4ht_out_dir): " . Cwd::cwd() ."\n"
     if ($self->get_conf('VERBOSE'));
 
   my $errors = 0;
@@ -397,8 +398,20 @@ sub tex4ht_finish($)
   # this is different from the warning in tex4ht_process_command as, here,
   # this is the number of retrieved fragment, not processed fragment.
   if ($self->get_conf('VERBOSE')) {
-    foreach my $command (keys(%commands)) {
-      if ($commands{$command}->{'output_counter'} != $commands{$command}->{'counter'}) {
+    foreach my $command (sort(keys(%commands))) {
+      if (not defined($commands{$command}->{'output_counter'})) {
+        if (defined($commands{$command}->{'counter'})) {
+          $self->document_warn($self, sprintf(__(
+           "tex4ht.pm: output counter UNDEF; expected %d, the number of items found in the document for \@%s"),
+                                 $commands{$command}->{'counter'}, $command));
+        } else {
+          $self->document_warn($self, sprintf(__(
+            "tex4ht.pm: UNDEF expected items in the document for \@%s"),
+                                             $command));
+        }
+      } elsif ($commands{$command}->{'output_counter'} != $commands{$command}->{'counter'}) {
+        # NOTE with math commands in @copying and multiple @insertcopying,
+        # there may be more items output than found in the document tree
         $self->document_warn($self, sprintf(__(
            "tex4ht.pm: processing retrieved %d items in HTML; expected %d, the number of items found in the document for \@%s"),
                                   $commands{$command}->{'output_counter'},

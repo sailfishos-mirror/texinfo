@@ -639,10 +639,24 @@ sub l2h_finish($)
     my $quoted_l2h_name = quotemeta($l2h_name);
     my $dir = $docu_rdir;
     $dir = File::Spec->curdir() if ($dir eq '');
-    if (opendir (DIR, $dir)) {
-      foreach my $file (grep { /^$quoted_l2h_name/ } readdir(DIR)) {
-      # FIXME error condition not checked
-        unlink File::Spec->catpath($docu_volume, $docu_directories, $file);
+    my ($encoded_dir, $dir_encoding) = $self->encoded_file_name($dir);
+    my ($encoded_docu_directories, $docu_directories_encoding)
+      = $self->encoded_file_name($docu_directories);
+    my ($encoded_docu_volume, $docu_volume_encoding)
+      = $self->encoded_file_name($docu_volume);
+    if (opendir (DIR, $encoded_dir)) {
+      foreach my $file (readdir(DIR)) {
+        # FIXME there is a mix of files created by texi2any and files
+        # created by latex2html.  The encoding of files created by
+        # texi2any and by latex2html could be different.  We could imagine
+        # that for latex2html it would be DATA_INPUT_ENCODING_NAME, without
+        # certainty.  We use the encoding used to encode our files
+        my $file_name = decode($dir_encoding, $file);
+        if ($file_name =~ /^$quoted_l2h_name/) {
+          # FIXME error condition not checked
+          unlink File::Spec->catpath($encoded_docu_volume,
+                                     $encoded_docu_directories, $file);
+        }
       }
     }
   }

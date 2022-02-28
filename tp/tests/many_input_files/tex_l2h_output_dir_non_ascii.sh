@@ -12,14 +12,15 @@
 #
 # Originally written by Patrice Dumas.
 
-LC_ALL=C; export LC_ALL
+LC_ALL=C.UTF-8; export LC_ALL
+LANGUAGE=C.UTF-8; export LANGUAGE
 
 if test "z$TEX_HTML_TESTS" != z'yes'; then
   echo "Skipping HTML TeX tests that are not easily reproducible ($0)"
   exit 77
 fi
 
-basename=tex_l2h
+basename=tex_l2h_output_dir_non_ascii
 diffs_dir=diffs
 raw_output_dir=raw_out
 logfile=$basename.log
@@ -53,8 +54,8 @@ raw_outdir=$raw_output_dir/$basename
 [ -d $raw_outdir ] && rm -rf $raw_outdir
 mkdir $basename
 : > $basename/$stdout_file
-echo "$PERL -I $srcdir/../.. -I $srcdir/../../maintain/lib/Unicode-EastAsianWidth/lib/ -I $srcdir/../../maintain/lib/libintl-perl/lib -I $srcdir/../../maintain/lib/Text-Unidecode/lib/ -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --set-customization-variable L2H_TMP=$tmp_dir --conf-dir $srcdir/../../init --set-customization-variable 'HTML_MATH l2h' --set-customization-variable L2H_FILE=$srcdir/../../t/init/l2h.init --set-customization-variable 'L2H_CLEAN=0' --iftex --out $basename/ $srcdir/../tex_html/tex_complex.texi $srcdir/../tex_html/tex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2" >> $logfile
-$PERL -I $srcdir/../.. -I $srcdir/../../maintain/lib/Unicode-EastAsianWidth/lib/ -I $srcdir/../../maintain/lib/libintl-perl/lib -I $srcdir/../../maintain/lib/Text-Unidecode/lib/ -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --set-customization-variable L2H_TMP=$tmp_dir --conf-dir $srcdir/../../init --set-customization-variable 'HTML_MATH l2h' --set-customization-variable L2H_FILE=$srcdir/../../t/init/l2h.init  --set-customization-variable 'L2H_CLEAN=0' --iftex --out $basename/ $srcdir/../tex_html/tex_complex.texi $srcdir/../tex_html/tex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2
+echo "$PERL -I $srcdir/../.. -I $srcdir/../../maintain/lib/Unicode-EastAsianWidth/lib/ -I $srcdir/../../maintain/lib/libintl-perl/lib -I $srcdir/../../maintain/lib/Text-Unidecode/lib/ -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --set-customization-variable L2H_TMP=$tmp_dir --conf-dir $srcdir/../../init --set-customization-variable 'HTML_MATH l2h' --set-customization-variable L2H_FILE=$srcdir/../../t/init/l2h.init  --set-customization-variable 'L2H_CLEAN=0' --iftex --out $basename/encodé/ $srcdir/../tex_html/tex_encodé.texi $srcdir/../tex_html/tex_complex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2" >> $logfile
+$PERL -I $srcdir/../.. -I $srcdir/../../maintain/lib/Unicode-EastAsianWidth/lib/ -I $srcdir/../../maintain/lib/libintl-perl/lib -I $srcdir/../../maintain/lib/Text-Unidecode/lib/ -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --set-customization-variable L2H_TMP=$tmp_dir --conf-dir $srcdir/../../init --set-customization-variable 'HTML_MATH l2h' --set-customization-variable L2H_FILE=$srcdir/../../t/init/l2h.init  --set-customization-variable 'L2H_CLEAN=0' --iftex --out $basename/encodé/ $srcdir/../tex_html/tex_encodé.texi $srcdir/../tex_html/tex_complex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2
 
 return_code=0
 ret=$?
@@ -63,26 +64,26 @@ if [ $ret != 0 ]; then
   return_code=1
 else
   outdir=$basename
-  cp -pr $outdir $raw_output_dir
-  rm -f $outdir/*_l2h_images.log $outdir/*.aux $outdir/*_l2h.css \
-        $outdir/*_l2h_images.out $outdir/*_l2h_images.pl $outdir/*_l2h_images.pdf \
-        $outdir/*.png $outdir/*.svg $outdir/$stdout_file
+  cp -pr "$outdir" "$raw_output_dir"
+  destination_outdir="$outdir/encodé/"
+  destination_raw_outdir="$raw_outdir/encodé/"
+  rm -f $destination_outdir/*_l2h_images.log $destination_outdir/*.aux $destination_outdir/*_l2h.css \
+        $destination_outdir/*_l2h_images.out $destination_outdir/*_l2h_images.pl $destination_outdir/*_l2h_images.pdf \
+        $destination_outdir/*.png $destination_outdir/*.svg $outdir/$stdout_file
   sed -e 's/^texexpand.*/texexpand /' \
       -e '/is no longer supported at.*line/d' "$raw_outdir/$basename.2" > "$outdir/$basename.2"
 
-  #for file in "$raw_outdir/"*.html "$raw_outdir/"*_l2h_images.pl "$raw_outdir/"*-l2h_cache.pm; do
-  for file in "$raw_outdir/"*.html "$raw_outdir/"*-l2h_cache.pm; do
+  for file in "$destination_raw_outdir/"*.html "$destination_raw_outdir/"*-l2h_cache.pm; do
     filename=`basename "$file"`
     sed -e 's/WIDTH="\([0-9]*\)\([0-9]\)"/WIDTH="100"/' \
         -e 's/CONTENT="LaTeX2HTML.*/CONTENT="LaTeX2HTML">/' \
         -e 's/with LaTeX2HTML.*/with LaTeX2HTML/' \
         -e 's/^# LaTeX2HTML.*/# LaTeX2HTML/' \
-         "$file" > "$outdir/$filename"
+         "$file" > "$destination_outdir/$filename"
   done
-    
-  for file in "$raw_outdir/"*_l2h_labels.pl; do
+  for file in "$destination_raw_outdir/"*_l2h_labels.pl; do
     filename=`basename "$file"`
-    sed -e 's/^# LaTeX2HTML.*/# LaTeX2HTML/' "$file" > "$outdir/$filename"
+    sed -e 's/^# LaTeX2HTML.*/# LaTeX2HTML/' "$file" > "$destination_outdir/$filename"
   done
 
   dir=$basename
