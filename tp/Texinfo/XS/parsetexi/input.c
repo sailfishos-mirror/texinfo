@@ -86,19 +86,6 @@ int input_space = 0;
 /* Current filename and line number.  Used for reporting. */
 SOURCE_INFO current_source_info;
 
-/* Change the line number of filename of the top input source.  Used to
-   record a #line directive.  If FILENAME is non-null, it should hbae
-   been returned from save_string. */
-void
-save_line_directive (int line_nr, char *filename)
-{
-  INPUT *top = &input_stack[input_number - 1];
-  if (line_nr)
-    top->source_info.line_nr = line_nr;
-  if (filename)
-    top->source_info.file_name = filename;
-}
-
 /* Collect text from the input sources until a newline is found.  This is used 
    instead of next_text when we need to be sure we get an entire line of 
    Texinfo input (for example as a line argument to a command), which might not 
@@ -289,7 +276,7 @@ static iconv_t reverse_iconv;
 
 /* Reverse the decoding of the filename to the input encoding, to retrieve
    the bytes that were present in the original Texinfo file.  Return
-   value to be freed by caller. */
+   value is freed by free_small_strings. */
 char *
 encode_file_name (char *filename)
 {
@@ -302,13 +289,36 @@ encode_file_name (char *filename)
     }
   if (reverse_iconv && reverse_iconv != (iconv_t) -1)
     {
-      return encode_with_iconv (reverse_iconv, filename);
+      char *s, *conv;
+      conv = encode_with_iconv (reverse_iconv, filename);
+      s = save_string (conv);
+      free (conv);
+      return s;
     }
   else
     {
-      return strdup (filename);
+      return save_string (filename);
     }
 }
+
+/* Change the line number of filename of the top input source.  Used to
+   record a #line directive. */
+void
+save_line_directive (int line_nr, char *filename)
+{
+  char *f = 0;
+  INPUT *top;
+
+  if (filename)
+    f = encode_file_name (filename);
+
+  top = &input_stack[input_number - 1];
+  if (line_nr)
+    top->source_info.line_nr = line_nr;
+  if (filename)
+    top->source_info.file_name = f;
+}
+
 
 
 int

@@ -1427,7 +1427,6 @@ end_line_misc_line (ELEMENT *current)
 
               char *sys_filename = encode_file_name (text);
               fullpath = locate_include_file (sys_filename);
-              free (sys_filename);
 
               if (!fullpath)
                 {
@@ -1446,7 +1445,6 @@ end_line_misc_line (ELEMENT *current)
                     }
                   else
                     included_file = 1;
-                  free (fullpath);
                 }
             }
           else if (current->cmd == CM_verbatiminclude)
