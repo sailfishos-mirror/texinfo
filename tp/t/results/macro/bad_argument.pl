@@ -29,12 +29,12 @@ $result_trees{'bad_argument'} = {
 ',
             'invalid_syntax' => 1
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -75,12 +75,12 @@ $result_trees{'bad_argument'} = {
 ',
             'invalid_syntax' => 1
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -126,12 +126,12 @@ $result_trees{'bad_argument'} = {
 ',
             'invalid_syntax' => 1
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -165,12 +165,12 @@ $result_trees{'bad_argument'} = {
 ',
             'invalid_syntax' => 1
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 13,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

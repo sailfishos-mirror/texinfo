@@ -57,12 +57,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'char_latin1_latin1_in_refs.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'char_latin1_latin1_in_refs.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -94,12 +94,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'iso-8859-1'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'char_latin1_latin1_in_refs.texi',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -150,12 +150,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'char_latin1_latin1_in_refs.texi',
         'line_nr' => 7,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -206,12 +206,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'char_latin1_latin1_in_refs.texi',
             'line_nr' => 10,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -280,12 +280,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                   'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'char_latin1_latin1_in_refs.texi',
                 'line_nr' => 13,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -337,12 +337,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                   'normalized' => '_00e9'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'char_latin1_latin1_in_refs.texi',
                 'line_nr' => 14,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -394,12 +394,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                   'normalized' => '_00e0-_00e8-_00f9'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'char_latin1_latin1_in_refs.texi',
                 'line_nr' => 15,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -451,12 +451,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                   'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'char_latin1_latin1_in_refs.texi',
                 'line_nr' => 16,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -508,12 +508,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                   'normalized' => '_00e7'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'char_latin1_latin1_in_refs.texi',
                 'line_nr' => 17,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -539,23 +539,23 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'char_latin1_latin1_in_refs.texi',
                 'line_nr' => 18,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'char_latin1_latin1_in_refs.texi',
             'line_nr' => 12,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -567,12 +567,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'char_latin1_latin1_in_refs.texi',
         'line_nr' => 8,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -608,12 +608,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
         'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'char_latin1_latin1_in_refs.texi',
         'line_nr' => 20,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -644,12 +644,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'char_latin1_latin1_in_refs.texi',
         'line_nr' => 21,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -685,12 +685,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
         'normalized' => '_00e9',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'char_latin1_latin1_in_refs.texi',
         'line_nr' => 23,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -721,12 +721,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'char_latin1_latin1_in_refs.texi',
         'line_nr' => 24,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -762,12 +762,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
         'normalized' => '_00e0-_00e8-_00f9',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'char_latin1_latin1_in_refs.texi',
         'line_nr' => 26,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -798,12 +798,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'char_latin1_latin1_in_refs.texi',
         'line_nr' => 27,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -839,12 +839,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
         'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'char_latin1_latin1_in_refs.texi',
         'line_nr' => 29,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -875,12 +875,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'char_latin1_latin1_in_refs.texi',
         'line_nr' => 30,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -916,12 +916,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
         'normalized' => '_00e7',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'char_latin1_latin1_in_refs.texi',
         'line_nr' => 32,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -974,12 +974,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                   'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'char_latin1_latin1_in_refs.texi',
                 'line_nr' => 35,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1010,12 +1010,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                   'normalized' => '_00e9'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'char_latin1_latin1_in_refs.texi',
                 'line_nr' => 36,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1046,12 +1046,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                   'normalized' => '_00e0-_00e8-_00f9'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'char_latin1_latin1_in_refs.texi',
                 'line_nr' => 37,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1082,12 +1082,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                   'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'char_latin1_latin1_in_refs.texi',
                 'line_nr' => 38,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1118,12 +1118,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
                   'normalized' => '_00e7'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'char_latin1_latin1_in_refs.texi',
                 'line_nr' => 39,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1173,12 +1173,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'char_latin1_latin1_in_refs.texi',
             'line_nr' => 41,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1214,12 +1214,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'char_latin1_latin1_in_refs.texi',
             'line_nr' => 42,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1255,12 +1255,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'char_latin1_latin1_in_refs.texi',
             'line_nr' => 43,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1296,12 +1296,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'char_latin1_latin1_in_refs.texi',
             'line_nr' => 44,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1337,12 +1337,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'char_latin1_latin1_in_refs.texi',
             'line_nr' => 45,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1378,12 +1378,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'char_latin1_latin1_in_refs.texi',
             'line_nr' => 46,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1396,12 +1396,12 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'char_latin1_latin1_in_refs.texi',
         'line_nr' => 33,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

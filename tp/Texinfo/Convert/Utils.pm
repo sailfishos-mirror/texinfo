@@ -231,7 +231,7 @@ sub expand_verbatiminclude($$$)
            if (defined($file_name_encoding));
         $registrar->line_error($configuration_information,
                       sprintf(__("could not read %s: %s"), $decoded_file, $!),
-                      $current->{'line_nr'});
+                      $current->{'source_info'});
       }
     } else {
       if (defined($input_encoding)) {
@@ -262,7 +262,7 @@ sub expand_verbatiminclude($$$)
     $registrar->line_error($configuration_information,
                            sprintf(__("\@%s: could not find %s"),
                                        $current->{'cmdname'}, $file_name_text),
-                           $current->{'line_nr'});
+                           $current->{'source_info'});
   }
   return $verbatiminclude;
 }

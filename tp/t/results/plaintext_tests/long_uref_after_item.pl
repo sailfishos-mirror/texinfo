@@ -58,12 +58,12 @@ $result_trees{'long_uref_after_item'} = {
                       ],
                       'cmdname' => 'uref',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -78,12 +78,12 @@ $result_trees{'long_uref_after_item'} = {
               'extra' => {
                 'item_number' => 1
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -108,24 +108,24 @@ $result_trees{'long_uref_after_item'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'command_as_argument' => {},
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

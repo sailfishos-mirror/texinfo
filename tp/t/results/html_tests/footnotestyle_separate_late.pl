@@ -32,12 +32,12 @@ $result_trees{'footnotestyle_separate_late'} = [
               'spaces_before_argument' => ' ',
               'text_arg' => 'footnotestyle_separate_late.info'
             },
-            'line_nr' => {
+            'parent' => {},
+            'source_info' => {
               'file_name' => '',
               'line_nr' => 1,
               'macro' => ''
-            },
-            'parent' => {}
+            }
           },
           {
             'parent' => {},
@@ -83,12 +83,12 @@ $result_trees{'footnotestyle_separate_late'} = [
                 'normalized' => 'Top',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -119,12 +119,12 @@ $result_trees{'footnotestyle_separate_late'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -160,12 +160,12 @@ $result_trees{'footnotestyle_separate_late'} = [
                 'normalized' => 'chap-f',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -215,12 +215,12 @@ $result_trees{'footnotestyle_separate_late'} = [
                       ],
                       'cmdname' => 'footnote',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 9,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -241,12 +241,12 @@ $result_trees{'footnotestyle_separate_late'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -282,12 +282,12 @@ $result_trees{'footnotestyle_separate_late'} = [
                 'normalized' => 'chap-s',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -337,12 +337,12 @@ $result_trees{'footnotestyle_separate_late'} = [
                       ],
                       'cmdname' => 'footnote',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 14,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -383,23 +383,23 @@ $result_trees{'footnotestyle_separate_late'} = [
                     ],
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 16,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'type' => 'document_root'

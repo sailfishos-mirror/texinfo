@@ -86,24 +86,24 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'itemize'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 4,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'command_as_argument' => {},
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'contents' => [
@@ -172,12 +172,12 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     'item_number' => 1,
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 7,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
@@ -202,24 +202,24 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'itemize'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 9,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'command_as_argument' => {},
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'contents' => [
@@ -294,12 +294,12 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     'item_number' => 1,
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 13,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
@@ -324,24 +324,24 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'itemize'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 14,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'command_as_argument' => {},
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'contents' => [
@@ -410,12 +410,12 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     'item_number' => 1,
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 17,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'cmdname' => 'item',
@@ -436,12 +436,12 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     'item_number' => 2,
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 19,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
@@ -466,24 +466,24 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'itemize'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 20,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'command_as_argument' => {},
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 16,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'contents' => [
@@ -520,23 +520,23 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 22,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

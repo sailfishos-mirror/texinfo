@@ -55,23 +55,23 @@ $result_trees{'symbol_after_block'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'html. On the line.'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -133,23 +133,23 @@ $result_trees{'symbol_after_block'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'html@ On the line.'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -193,12 +193,12 @@ $result_trees{'symbol_after_block'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 11,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -236,12 +236,12 @@ $result_trees{'symbol_after_block'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 15,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -288,12 +288,12 @@ $result_trees{'symbol_after_block'} = {
                 {
                   'cmdname' => 'emph',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 21,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'command_as_argument'
                 }
               ],
@@ -332,12 +332,12 @@ $result_trees{'symbol_after_block'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 22,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -387,12 +387,12 @@ $result_trees{'symbol_after_block'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table+'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 24,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -400,12 +400,12 @@ $result_trees{'symbol_after_block'} = {
             'end_command' => {},
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 21,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -420,12 +420,12 @@ $result_trees{'symbol_after_block'} = {
                 {
                   'cmdname' => 'emph',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 26,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'command_as_argument'
                 }
               ],
@@ -464,12 +464,12 @@ $result_trees{'symbol_after_block'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 27,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -523,12 +523,12 @@ $result_trees{'symbol_after_block'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table@'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 29,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -536,12 +536,12 @@ $result_trees{'symbol_after_block'} = {
             'end_command' => {},
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 26,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -573,12 +573,12 @@ $result_trees{'symbol_after_block'} = {
                 {
                   'cmdname' => 'bullet',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 33,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'command_as_argument'
                 }
               ],
@@ -611,12 +611,12 @@ $result_trees{'symbol_after_block'} = {
                 'item_number' => 1,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 34,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -641,12 +641,12 @@ $result_trees{'symbol_after_block'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize\'\''
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 35,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -654,12 +654,12 @@ $result_trees{'symbol_after_block'} = {
             'end_command' => {},
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 33,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -674,12 +674,12 @@ $result_trees{'symbol_after_block'} = {
                 {
                   'cmdname' => 'bullet',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 37,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'command_as_argument'
                 }
               ],
@@ -712,12 +712,12 @@ $result_trees{'symbol_after_block'} = {
                 'item_number' => 1,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 38,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -746,12 +746,12 @@ $result_trees{'symbol_after_block'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize@'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 39,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -759,12 +759,12 @@ $result_trees{'symbol_after_block'} = {
             'end_command' => {},
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 37,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -818,12 +818,12 @@ $result_trees{'symbol_after_block'} = {
                     ],
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 43,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'parent' => {},
@@ -854,12 +854,12 @@ $result_trees{'symbol_after_block'} = {
                         'cell_number' => 1,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 44,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'cmdname' => 'tab',
@@ -880,12 +880,12 @@ $result_trees{'symbol_after_block'} = {
                         'cell_number' => 2,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 44,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -920,12 +920,12 @@ $result_trees{'symbol_after_block'} = {
                         'cell_number' => 1,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 45,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'cmdname' => 'tab',
@@ -946,12 +946,12 @@ $result_trees{'symbol_after_block'} = {
                         'cell_number' => 2,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 45,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -987,12 +987,12 @@ $result_trees{'symbol_after_block'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable^'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 46,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -1001,12 +1001,12 @@ $result_trees{'symbol_after_block'} = {
             'max_columns' => 2,
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 43,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1043,12 +1043,12 @@ $result_trees{'symbol_after_block'} = {
                     ],
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 48,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'parent' => {},
@@ -1079,12 +1079,12 @@ $result_trees{'symbol_after_block'} = {
                         'cell_number' => 1,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 49,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'cmdname' => 'tab',
@@ -1105,12 +1105,12 @@ $result_trees{'symbol_after_block'} = {
                         'cell_number' => 2,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 49,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -1145,12 +1145,12 @@ $result_trees{'symbol_after_block'} = {
                         'cell_number' => 1,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 50,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'cmdname' => 'tab',
@@ -1171,12 +1171,12 @@ $result_trees{'symbol_after_block'} = {
                         'cell_number' => 2,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 50,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -1216,12 +1216,12 @@ $result_trees{'symbol_after_block'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable{'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 51,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -1230,12 +1230,12 @@ $result_trees{'symbol_after_block'} = {
             'max_columns' => 2,
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 48,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1306,23 +1306,23 @@ $result_trees{'symbol_after_block'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'flushleft!'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 57,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 55,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1380,23 +1380,23 @@ $result_trees{'symbol_after_block'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'flushleft@'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 61,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 59,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1467,23 +1467,23 @@ $result_trees{'symbol_after_block'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying*'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 67,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 65,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1541,23 +1541,23 @@ $result_trees{'symbol_after_block'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying@'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 71,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 69,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

@@ -47,12 +47,12 @@ $result_trees{'enumerate_argument_item'} = {
                 'item_number' => 1,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -73,12 +73,12 @@ $result_trees{'enumerate_argument_item'} = {
                 'item_number' => 2,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -103,12 +103,12 @@ $result_trees{'enumerate_argument_item'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -116,12 +116,12 @@ $result_trees{'enumerate_argument_item'} = {
             'enumerate_specification' => '1',
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -183,12 +183,12 @@ $result_trees{'enumerate_argument_item'} = {
                 'item_number' => 1,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -209,12 +209,12 @@ $result_trees{'enumerate_argument_item'} = {
                 'item_number' => 2,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -239,12 +239,12 @@ $result_trees{'enumerate_argument_item'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -252,12 +252,12 @@ $result_trees{'enumerate_argument_item'} = {
             'enumerate_specification' => 'A',
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -320,12 +320,12 @@ $result_trees{'enumerate_argument_item'} = {
                 'item_number' => 1,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -346,12 +346,12 @@ $result_trees{'enumerate_argument_item'} = {
                 'item_number' => 2,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -376,12 +376,12 @@ $result_trees{'enumerate_argument_item'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -389,12 +389,12 @@ $result_trees{'enumerate_argument_item'} = {
             'enumerate_specification' => 'z',
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 11,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

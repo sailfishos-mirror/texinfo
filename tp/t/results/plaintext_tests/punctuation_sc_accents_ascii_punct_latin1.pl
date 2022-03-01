@@ -53,12 +53,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ISO-8859-1'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -108,12 +108,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'punctuation_small_case_accents_latin1.texi',
         'line_nr' => 5,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -144,12 +144,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'punctuation_small_case_accents_latin1.texi',
         'line_nr' => 6,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -185,12 +185,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
         'normalized' => 'node-chap',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'punctuation_small_case_accents_latin1.texi',
         'line_nr' => 8,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -251,12 +251,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => '\'',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -277,12 +277,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'dfn',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -303,12 +303,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -329,12 +329,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'samp',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -350,12 +350,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'comma',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -371,12 +371,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'exclamdown',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -392,12 +392,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'dots',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -414,12 +414,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'geq',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -435,12 +435,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'enddots',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -456,12 +456,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'AA',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -482,12 +482,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => '\'',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -508,12 +508,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'dotaccent',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -529,12 +529,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'l',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -550,12 +550,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'copyright',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -571,12 +571,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'error',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -593,12 +593,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'quotedblleft',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 15,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -614,12 +614,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'quotedblright',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 15,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -635,12 +635,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'expansion',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 15,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -657,12 +657,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'minus',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 16,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -678,12 +678,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'registeredsymbol',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 16,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -723,12 +723,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'u',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -750,12 +750,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => '^',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 20,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -772,12 +772,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'aa',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 21,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -793,12 +793,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'AA',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 21,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -819,12 +819,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => '^',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 21,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -845,12 +845,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => '^',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 21,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -875,12 +875,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                       ],
                       'cmdname' => 'dotless',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_latin1.texi',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -889,12 +889,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => '~',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 21,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -915,12 +915,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'dotless',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 21,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -941,12 +941,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'udotaccent',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 21,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -971,12 +971,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                       ],
                       'cmdname' => '\'',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_latin1.texi',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -985,12 +985,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'v',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 21,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1019,12 +1019,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                               ],
                               'cmdname' => '~',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                                 'line_nr' => 21,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -1033,12 +1033,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                       ],
                       'cmdname' => ',',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_latin1.texi',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -1047,12 +1047,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => '=',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 21,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1069,12 +1069,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'equiv',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 22,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1095,12 +1095,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                       ],
                       'cmdname' => 'aa',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_latin1.texi',
                         'line_nr' => 23,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1116,12 +1116,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                       ],
                       'cmdname' => 'AA',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_latin1.texi',
                         'line_nr' => 23,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1142,12 +1142,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                       ],
                       'cmdname' => '^',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_latin1.texi',
                         'line_nr' => 23,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1168,12 +1168,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                       ],
                       'cmdname' => '^',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_latin1.texi',
                         'line_nr' => 23,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1198,12 +1198,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                               ],
                               'cmdname' => 'dotless',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                                 'line_nr' => 23,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -1212,12 +1212,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                       ],
                       'cmdname' => '~',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_latin1.texi',
                         'line_nr' => 23,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1238,12 +1238,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                       ],
                       'cmdname' => 'dotless',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_latin1.texi',
                         'line_nr' => 23,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1264,12 +1264,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                       ],
                       'cmdname' => 'udotaccent',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_latin1.texi',
                         'line_nr' => 23,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1294,12 +1294,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                               ],
                               'cmdname' => '\'',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                                 'line_nr' => 23,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -1308,12 +1308,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                       ],
                       'cmdname' => 'v',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_latin1.texi',
                         'line_nr' => 23,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1342,12 +1342,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                                       ],
                                       'cmdname' => '~',
                                       'contents' => [],
-                                      'line_nr' => {
+                                      'parent' => {},
+                                      'source_info' => {
                                         'file_name' => 'punctuation_small_case_accents_latin1.texi',
                                         'line_nr' => 23,
                                         'macro' => ''
-                                      },
-                                      'parent' => {}
+                                      }
                                     }
                                   ],
                                   'parent' => {},
@@ -1356,12 +1356,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                               ],
                               'cmdname' => ',',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                                 'line_nr' => 23,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -1370,12 +1370,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
                       ],
                       'cmdname' => '=',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_latin1.texi',
                         'line_nr' => 23,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -1384,12 +1384,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
               ],
               'cmdname' => 'sc',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
                 'line_nr' => 23,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1410,12 +1410,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct_latin1'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'punctuation_small_case_accents_latin1.texi',
         'line_nr' => 9,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

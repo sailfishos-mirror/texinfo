@@ -35,12 +35,12 @@ $result_trees{'email_in_node'} = {
               ],
               'cmdname' => 'email',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -77,12 +77,12 @@ $result_trees{'email_in_node'} = {
               ],
               'cmdname' => 'email',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -114,12 +114,12 @@ $result_trees{'email_in_node'} = {
               ],
               'cmdname' => 'email',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -155,12 +155,12 @@ $result_trees{'email_in_node'} = {
         'normalized' => 'a-c-',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

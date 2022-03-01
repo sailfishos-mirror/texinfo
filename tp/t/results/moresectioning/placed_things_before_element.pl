@@ -51,12 +51,12 @@ $result_trees{'placed_things_before_element'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'placed_things_before_element.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'placed_things_before_element.texi',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -79,12 +79,12 @@ $result_trees{'placed_things_before_element'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'placed_things_before_element.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -123,12 +123,12 @@ $result_trees{'placed_things_before_element'} = {
             ],
             'normalized' => 'An-anchor'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'placed_things_before_element.texi',
             'line_nr' => 6,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -173,12 +173,12 @@ $result_trees{'placed_things_before_element'} = {
                   'normalized' => 'An-anchor'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'placed_things_before_element.texi',
                 'line_nr' => 9,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -238,11 +238,6 @@ $result_trees{'placed_things_before_element'} = {
                       {}
                     ],
                     'normalized' => 'Anchor-in-footnote'
-                  },
-                  'line_nr' => {
-                    'file_name' => 'placed_things_before_element.texi',
-                    'line_nr' => 16,
-                    'macro' => ''
                   },
                   'parent' => {
                     'contents' => [
@@ -307,12 +302,12 @@ $result_trees{'placed_things_before_element'} = {
                                 'normalized' => 'An-anchor'
                               }
                             },
-                            'line_nr' => {
+                            'parent' => {},
+                            'source_info' => {
                               'file_name' => 'placed_things_before_element.texi',
                               'line_nr' => 19,
                               'macro' => ''
-                            },
-                            'parent' => {}
+                            }
                           },
                           {
                             'parent' => {},
@@ -330,11 +325,6 @@ $result_trees{'placed_things_before_element'} = {
                       ],
                       'cmdname' => 'footnote',
                       'contents' => [],
-                      'line_nr' => {
-                        'file_name' => 'placed_things_before_element.texi',
-                        'line_nr' => 14,
-                        'macro' => ''
-                      },
                       'parent' => {
                         'contents' => [
                           {},
@@ -346,9 +336,19 @@ $result_trees{'placed_things_before_element'} = {
                         ],
                         'parent' => {},
                         'type' => 'paragraph'
+                      },
+                      'source_info' => {
+                        'file_name' => 'placed_things_before_element.texi',
+                        'line_nr' => 14,
+                        'macro' => ''
                       }
                     },
                     'type' => 'brace_command_context'
+                  },
+                  'source_info' => {
+                    'file_name' => 'placed_things_before_element.texi',
+                    'line_nr' => 16,
+                    'macro' => ''
                   }
                 },
                 'node_argument' => {
@@ -358,12 +358,12 @@ $result_trees{'placed_things_before_element'} = {
                   'normalized' => 'Anchor-in-footnote'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'placed_things_before_element.texi',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -446,12 +446,12 @@ $result_trees{'placed_things_before_element'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'placed_things_before_element.texi',
                 'line_nr' => 24,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -465,12 +465,12 @@ $result_trees{'placed_things_before_element'} = {
               'normalized' => ''
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'placed_things_before_element.texi',
             'line_nr' => 22,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -509,12 +509,12 @@ $result_trees{'placed_things_before_element'} = {
                   'normalized' => 'float-anchor'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'placed_things_before_element.texi',
                 'line_nr' => 27,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -592,12 +592,12 @@ $result_trees{'placed_things_before_element'} = {
                   'normalized' => 'An-anchor'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'placed_things_before_element.texi',
                 'line_nr' => 30,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -623,23 +623,23 @@ $result_trees{'placed_things_before_element'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'placed_things_before_element.texi',
                 'line_nr' => 31,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'placed_things_before_element.texi',
             'line_nr' => 29,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -679,12 +679,12 @@ $result_trees{'placed_things_before_element'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'placed_things_before_element.texi',
             'line_nr' => 33,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -753,12 +753,12 @@ $result_trees{'placed_things_before_element'} = {
                   'normalized' => 'An-anchor'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'placed_things_before_element.texi',
                 'line_nr' => 38,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -806,12 +806,12 @@ $result_trees{'placed_things_before_element'} = {
                   'normalized' => 'Anchor-in-footnote'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'placed_things_before_element.texi',
                 'line_nr' => 41,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -832,12 +832,12 @@ $result_trees{'placed_things_before_element'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'placed_things_before_element.texi',
         'line_nr' => 35,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

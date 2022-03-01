@@ -30,12 +30,12 @@ $result_trees{'placed_things_before_node'} = {
             ],
             'normalized' => 'An-anchor'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -80,12 +80,12 @@ $result_trees{'placed_things_before_node'} = {
                   'normalized' => 'An-anchor'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -145,11 +145,6 @@ $result_trees{'placed_things_before_node'} = {
                       {}
                     ],
                     'normalized' => 'Anchor-in-footnote'
-                  },
-                  'line_nr' => {
-                    'file_name' => '',
-                    'line_nr' => 11,
-                    'macro' => ''
                   },
                   'parent' => {
                     'contents' => [
@@ -214,12 +209,12 @@ $result_trees{'placed_things_before_node'} = {
                                 'normalized' => 'An-anchor'
                               }
                             },
-                            'line_nr' => {
+                            'parent' => {},
+                            'source_info' => {
                               'file_name' => '',
                               'line_nr' => 14,
                               'macro' => ''
-                            },
-                            'parent' => {}
+                            }
                           },
                           {
                             'parent' => {},
@@ -237,11 +232,6 @@ $result_trees{'placed_things_before_node'} = {
                       ],
                       'cmdname' => 'footnote',
                       'contents' => [],
-                      'line_nr' => {
-                        'file_name' => '',
-                        'line_nr' => 9,
-                        'macro' => ''
-                      },
                       'parent' => {
                         'contents' => [
                           {},
@@ -253,9 +243,19 @@ $result_trees{'placed_things_before_node'} = {
                         ],
                         'parent' => {},
                         'type' => 'paragraph'
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 9,
+                        'macro' => ''
                       }
                     },
                     'type' => 'brace_command_context'
+                  },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 11,
+                    'macro' => ''
                   }
                 },
                 'node_argument' => {
@@ -265,12 +265,12 @@ $result_trees{'placed_things_before_node'} = {
                   'normalized' => 'Anchor-in-footnote'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -353,12 +353,12 @@ $result_trees{'placed_things_before_node'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -372,12 +372,12 @@ $result_trees{'placed_things_before_node'} = {
               'normalized' => ''
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 17,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -416,12 +416,12 @@ $result_trees{'placed_things_before_node'} = {
                   'normalized' => 'float-anchor'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 22,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -499,12 +499,12 @@ $result_trees{'placed_things_before_node'} = {
                   'normalized' => 'An-anchor'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 25,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -530,23 +530,23 @@ $result_trees{'placed_things_before_node'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 26,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 24,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -586,12 +586,12 @@ $result_trees{'placed_things_before_node'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 28,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -638,12 +638,12 @@ $result_trees{'placed_things_before_node'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 30,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -701,12 +701,12 @@ $result_trees{'placed_things_before_node'} = {
                   'normalized' => 'An-anchor'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 34,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -754,12 +754,12 @@ $result_trees{'placed_things_before_node'} = {
                   'normalized' => 'Anchor-in-footnote'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 37,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -774,12 +774,12 @@ $result_trees{'placed_things_before_node'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 31,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

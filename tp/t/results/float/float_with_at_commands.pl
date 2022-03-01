@@ -37,12 +37,12 @@ $result_trees{'float_with_at_commands'} = {
                   ],
                   'cmdname' => '\'',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -73,12 +73,12 @@ $result_trees{'float_with_at_commands'} = {
                   ],
                   'cmdname' => '`',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -99,12 +99,12 @@ $result_trees{'float_with_at_commands'} = {
                   ],
                   'cmdname' => '\'',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -149,12 +149,12 @@ $result_trees{'float_with_at_commands'} = {
                   ],
                   'cmdname' => '`',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 3,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -175,12 +175,12 @@ $result_trees{'float_with_at_commands'} = {
                   ],
                   'cmdname' => '\'',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 3,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -216,12 +216,12 @@ $result_trees{'float_with_at_commands'} = {
                           ],
                           'cmdname' => '`',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 4,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -242,12 +242,12 @@ $result_trees{'float_with_at_commands'} = {
                           ],
                           'cmdname' => '\'',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 4,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -267,12 +267,12 @@ $result_trees{'float_with_at_commands'} = {
               'extra' => {
                 'float' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -308,12 +308,12 @@ $result_trees{'float_with_at_commands'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -337,12 +337,12 @@ $result_trees{'float_with_at_commands'} = {
               'normalized' => 'entr@\'ee'
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -379,12 +379,12 @@ $result_trees{'float_with_at_commands'} = {
                   ],
                   'cmdname' => '\'',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 9,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -411,12 +411,12 @@ $result_trees{'float_with_at_commands'} = {
               'normalized' => 'entr@\'ee'
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

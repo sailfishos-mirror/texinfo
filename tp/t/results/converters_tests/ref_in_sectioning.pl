@@ -19,12 +19,12 @@ $result_trees{'ref_in_sectioning'} = {
             }
           ],
           'cmdname' => 'contents',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -70,12 +70,12 @@ $result_trees{'ref_in_sectioning'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -135,12 +135,12 @@ $result_trees{'ref_in_sectioning'} = {
                     'normalized' => 'node',
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 11,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -149,12 +149,12 @@ $result_trees{'ref_in_sectioning'} = {
                   'normalized' => 'node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -184,12 +184,12 @@ $result_trees{'ref_in_sectioning'} = {
                   'normalized' => 'node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -253,12 +253,12 @@ $result_trees{'ref_in_sectioning'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -342,12 +342,12 @@ $result_trees{'ref_in_sectioning'} = {
                   'normalized' => 'node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -399,12 +399,12 @@ $result_trees{'ref_in_sectioning'} = {
                   'normalized' => 'chap'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -430,23 +430,23 @@ $result_trees{'ref_in_sectioning'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -458,12 +458,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {},
     {
@@ -533,12 +533,12 @@ $result_trees{'ref_in_sectioning'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -565,12 +565,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 12,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -606,12 +606,12 @@ $result_trees{'ref_in_sectioning'} = {
         'normalized' => 'chap',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 14,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -641,12 +641,12 @@ $result_trees{'ref_in_sectioning'} = {
                   'normalized' => 'node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -673,12 +673,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 15,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -721,12 +721,12 @@ $result_trees{'ref_in_sectioning'} = {
                   'normalized' => 'node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 17,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -753,12 +753,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 17,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -783,12 +783,12 @@ $result_trees{'ref_in_sectioning'} = {
                       ],
                       'cmdname' => 'code',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 19,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -816,12 +816,12 @@ $result_trees{'ref_in_sectioning'} = {
                       ],
                       'cmdname' => 'samp',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 19,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -842,12 +842,12 @@ $result_trees{'ref_in_sectioning'} = {
                   'normalized' => 'node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -874,12 +874,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 19,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -904,12 +904,12 @@ $result_trees{'ref_in_sectioning'} = {
                       ],
                       'cmdname' => 'code',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -948,12 +948,12 @@ $result_trees{'ref_in_sectioning'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 21,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -980,12 +980,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 21,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1042,12 +1042,12 @@ $result_trees{'ref_in_sectioning'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 23,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1074,12 +1074,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 23,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1136,12 +1136,12 @@ $result_trees{'ref_in_sectioning'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 25,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1168,12 +1168,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 25,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1219,12 +1219,12 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'ref',
               'contents' => [],
               'extra' => {},
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 27,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1251,12 +1251,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 27,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1296,12 +1296,12 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'ref',
               'contents' => [],
               'extra' => {},
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 29,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1328,12 +1328,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 29,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1387,12 +1387,12 @@ $result_trees{'ref_in_sectioning'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 31,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1419,12 +1419,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 31,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1484,12 +1484,12 @@ $result_trees{'ref_in_sectioning'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 33,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1516,12 +1516,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 33,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1566,12 +1566,12 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'pxref',
               'contents' => [],
               'extra' => {},
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 35,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1598,12 +1598,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 35,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1651,12 +1651,12 @@ $result_trees{'ref_in_sectioning'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 37,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1683,12 +1683,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 37,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1725,12 +1725,12 @@ $result_trees{'ref_in_sectioning'} = {
               'cmdname' => 'xref',
               'contents' => [],
               'extra' => {},
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 39,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1757,12 +1757,12 @@ $result_trees{'ref_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 39,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

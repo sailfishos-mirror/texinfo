@@ -38,12 +38,12 @@ $result_trees{'menu_no_closed_entry_beginning'} = {
               'type' => 'menu_comment'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

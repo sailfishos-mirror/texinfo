@@ -29,12 +29,12 @@ $result_trees{'commands'} = {
               ],
               'cmdname' => 'TeX',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -60,12 +60,12 @@ $result_trees{'commands'} = {
               ],
               'cmdname' => '"',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -90,12 +90,12 @@ $result_trees{'commands'} = {
                       ],
                       'cmdname' => 'dotless',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -104,12 +104,12 @@ $result_trees{'commands'} = {
               ],
               'cmdname' => '^',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -130,12 +130,12 @@ $result_trees{'commands'} = {
               ],
               'cmdname' => '~',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -159,12 +159,12 @@ $result_trees{'commands'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -192,12 +192,12 @@ $result_trees{'commands'} = {
                       'extra' => {
                         'clickstyle' => 'arrow'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -210,12 +210,12 @@ $result_trees{'commands'} = {
               ],
               'cmdname' => 'clicksequence',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => '.',
@@ -254,12 +254,12 @@ $result_trees{'commands'} = {
               ],
               'cmdname' => 'email',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -280,12 +280,12 @@ $result_trees{'commands'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -311,12 +311,12 @@ $result_trees{'commands'} = {
               ],
               'cmdname' => 'sc',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -351,12 +351,12 @@ $result_trees{'commands'} = {
                   ],
                   'cmdname' => 'LaTeX',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 7,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -382,12 +382,12 @@ $result_trees{'commands'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 7,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -419,12 +419,12 @@ $result_trees{'commands'} = {
                   ],
                   'cmdname' => 'b',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 9,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -439,12 +439,12 @@ $result_trees{'commands'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

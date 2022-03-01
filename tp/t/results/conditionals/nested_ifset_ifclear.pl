@@ -83,12 +83,12 @@ $result_trees{'nested_ifset_ifclear'} = {
             'arg_line' => ' conditionals{}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

@@ -35,12 +35,12 @@ $result_trees{'macro_zero'} = {
             'arg_line' => ' zero
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

@@ -95,24 +95,24 @@ $result_trees{'end_of_line_protect_at_end'} = {
                 },
                 'original_def_cmdname' => 'deffn'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'def_line'
             }
           ],
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

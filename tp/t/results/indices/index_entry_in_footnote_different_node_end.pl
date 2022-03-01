@@ -104,12 +104,12 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
                   'normalized' => 'First'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -135,23 +135,23 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -209,12 +209,12 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
                             },
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 8,
                             'macro' => ''
                           },
-                          'parent' => {},
                           'type' => 'index_entry_command'
                         }
                       ],
@@ -294,12 +294,12 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
                         },
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 14,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'index_entry_command'
                     }
                   ],
@@ -309,12 +309,12 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
               ],
               'cmdname' => 'footnote',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -347,12 +347,12 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -403,12 +403,12 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 19,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'extra' => {
@@ -427,12 +427,12 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
         'normalized' => 'First',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 17,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

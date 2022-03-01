@@ -31,12 +31,12 @@ $result_trees{'shorttitlepage'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'html-shorttitlepage.info'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -65,12 +65,12 @@ $result_trees{'shorttitlepage'} = {
                   ],
                   'cmdname' => 'sc',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -91,12 +91,12 @@ $result_trees{'shorttitlepage'} = {
                   ],
                   'cmdname' => 'code',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -111,12 +111,12 @@ $result_trees{'shorttitlepage'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -162,12 +162,12 @@ $result_trees{'shorttitlepage'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -200,12 +200,12 @@ $result_trees{'shorttitlepage'} = {
               ],
               'cmdname' => 'sc',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -226,12 +226,12 @@ $result_trees{'shorttitlepage'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -282,12 +282,12 @@ $result_trees{'shorttitlepage'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 5,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

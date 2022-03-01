@@ -51,12 +51,12 @@ $result_trees{'delcomment'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'delcomment.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'delcomment.texi',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

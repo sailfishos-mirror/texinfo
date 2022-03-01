@@ -125,12 +125,12 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                     },
                     'original_def_cmdname' => 'deftypefun'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'def_line'
                 },
                 {
@@ -173,24 +173,24 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'deftypefun'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 4,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {},
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -215,23 +215,23 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -249,12 +249,12 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
             }
           ],
           'cmdname' => 'insertcopying',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 7,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -286,12 +286,12 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -309,12 +309,12 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
             }
           ],
           'cmdname' => 'insertcopying',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 11,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -360,12 +360,12 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 13,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -496,12 +496,12 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                 },
                 'original_def_cmdname' => 'deftypefun'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 16,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'def_line'
             },
             {
@@ -544,24 +544,24 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefun'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 18,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {},
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 16,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -573,12 +573,12 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 14,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

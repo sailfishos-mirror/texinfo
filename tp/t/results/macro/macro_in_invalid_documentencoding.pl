@@ -35,12 +35,12 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
             'arg_line' => ' badmacro
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -70,12 +70,12 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'badm'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

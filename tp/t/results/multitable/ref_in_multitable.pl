@@ -19,12 +19,12 @@ $result_trees{'ref_in_multitable'} = {
             }
           ],
           'cmdname' => 'novalidate',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -63,12 +63,12 @@ $result_trees{'ref_in_multitable'} = {
                   'normalized' => 'XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -114,12 +114,12 @@ $result_trees{'ref_in_multitable'} = {
                     ],
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 6,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'parent' => {},
@@ -151,12 +151,12 @@ $result_trees{'ref_in_multitable'} = {
                         'cell_number' => 1,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 7,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'cmdname' => 'tab',
@@ -190,12 +190,12 @@ $result_trees{'ref_in_multitable'} = {
                                   'normalized' => 'RRR-RRR-RRR-RRR-RRR-RRR-RRR-RRR-RRR-RRRR'
                                 }
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 8,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             },
                             {
                               'parent' => {},
@@ -211,12 +211,12 @@ $result_trees{'ref_in_multitable'} = {
                         'cell_number' => 2,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -246,12 +246,12 @@ $result_trees{'ref_in_multitable'} = {
                         'cell_number' => 1,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 9,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'cmdname' => 'tab',
@@ -285,12 +285,12 @@ $result_trees{'ref_in_multitable'} = {
                                   'normalized' => 'SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSS-SSSSS'
                                 }
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 10,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             },
                             {
                               'parent' => {},
@@ -306,12 +306,12 @@ $result_trees{'ref_in_multitable'} = {
                         'cell_number' => 2,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 10,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -366,12 +366,12 @@ $result_trees{'ref_in_multitable'} = {
                                               'normalized' => 'XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX'
                                             }
                                           },
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 11,
                                             'macro' => ''
-                                          },
-                                          'parent' => {}
+                                          }
                                         }
                                       ],
                                       'parent' => {},
@@ -384,12 +384,12 @@ $result_trees{'ref_in_multitable'} = {
                               ],
                               'cmdname' => 'footnote',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 11,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             },
                             {
                               'parent' => {},
@@ -404,12 +404,12 @@ $result_trees{'ref_in_multitable'} = {
                         'cell_number' => 1,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 11,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'cmdname' => 'tab',
@@ -438,12 +438,12 @@ $result_trees{'ref_in_multitable'} = {
                       'extra' => {
                         'cell_number' => 2
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 12,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -479,12 +479,12 @@ $result_trees{'ref_in_multitable'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -493,12 +493,12 @@ $result_trees{'ref_in_multitable'} = {
             'max_columns' => 2,
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -537,12 +537,12 @@ $result_trees{'ref_in_multitable'} = {
                   'normalized' => 'XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XX'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 16,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

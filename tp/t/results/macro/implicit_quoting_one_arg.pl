@@ -46,12 +46,12 @@ $result_trees{'implicit_quoting_one_arg'} = {
             'arg_line' => ' FIXAME{a}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -82,12 +82,12 @@ $result_trees{'implicit_quoting_one_arg'} = {
               ],
               'cmdname' => 'strong',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => 'FIXAME'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

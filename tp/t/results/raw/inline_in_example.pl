@@ -66,12 +66,12 @@ $result_trees{'inline_in_example'} = {
                           ],
                           'cmdname' => 'lbracechar',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 4,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -91,12 +91,12 @@ $result_trees{'inline_in_example'} = {
                     'expand_index' => 1,
                     'format' => 'plaintext'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -135,12 +135,12 @@ $result_trees{'inline_in_example'} = {
                     'expand_index' => 1,
                     'format' => 'plaintext'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 5,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -197,12 +197,12 @@ $result_trees{'inline_in_example'} = {
                           ],
                           'cmdname' => 'acronym',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 10,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -223,12 +223,12 @@ $result_trees{'inline_in_example'} = {
                     'expand_index' => 1,
                     'format' => 'html'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 8,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -262,23 +262,23 @@ $result_trees{'inline_in_example'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

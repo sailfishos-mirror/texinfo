@@ -42,12 +42,12 @@ $result_trees{'something_before_columnfractions'} = {
                     ],
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'parent' => {},
@@ -75,12 +75,12 @@ $result_trees{'something_before_columnfractions'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -89,12 +89,12 @@ $result_trees{'something_before_columnfractions'} = {
             'max_columns' => 2,
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

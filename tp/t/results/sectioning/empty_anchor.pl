@@ -19,12 +19,12 @@ $result_trees{'empty_anchor'} = {
           ],
           'cmdname' => 'anchor',
           'contents' => [],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -46,12 +46,12 @@ $result_trees{'empty_anchor'} = {
               ],
               'cmdname' => 'anchor',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

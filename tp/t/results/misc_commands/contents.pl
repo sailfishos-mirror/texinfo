@@ -43,12 +43,12 @@ $result_trees{'contents'} = {
             }
           ],
           'cmdname' => 'contents',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -78,12 +78,12 @@ $result_trees{'contents'} = {
             }
           ],
           'cmdname' => 'contents',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -106,12 +106,12 @@ $result_trees{'contents'} = {
             }
           ],
           'cmdname' => 'contents',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -138,12 +138,12 @@ $result_trees{'contents'} = {
             }
           ],
           'cmdname' => 'shortcontents',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 7,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -165,12 +165,12 @@ $result_trees{'contents'} = {
             }
           ],
           'cmdname' => 'shortcontents',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 8,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -192,12 +192,12 @@ $result_trees{'contents'} = {
             }
           ],
           'cmdname' => 'summarycontents',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

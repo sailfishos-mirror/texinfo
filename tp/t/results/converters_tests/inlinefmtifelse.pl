@@ -45,12 +45,12 @@ $result_trees{'inlinefmtifelse'} = {
                 'expand_index' => 2,
                 'format' => 'html'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -91,12 +91,12 @@ $result_trees{'inlinefmtifelse'} = {
                 'expand_index' => 2,
                 'format' => 'html'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -144,12 +144,12 @@ $result_trees{'inlinefmtifelse'} = {
                 'expand_index' => 2,
                 'format' => 'plaintext'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -190,12 +190,12 @@ $result_trees{'inlinefmtifelse'} = {
                 'expand_index' => 2,
                 'format' => 'plaintext'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -243,12 +243,12 @@ $result_trees{'inlinefmtifelse'} = {
                 'expand_index' => 2,
                 'format' => 'xml'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -308,12 +308,12 @@ $result_trees{'inlinefmtifelse'} = {
                 'expand_index' => 2,
                 'format' => 'docbook'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -373,12 +373,12 @@ $result_trees{'inlinefmtifelse'} = {
                 'expand_index' => 2,
                 'format' => 'tex'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -431,12 +431,12 @@ $result_trees{'inlinefmtifelse'} = {
                 'expand_index' => 2,
                 'format' => 'docbook'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -489,12 +489,12 @@ $result_trees{'inlinefmtifelse'} = {
                 'expand_index' => 2,
                 'format' => 'tex'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -547,12 +547,12 @@ $result_trees{'inlinefmtifelse'} = {
                 'expand_index' => 2,
                 'format' => 'latex'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 17,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

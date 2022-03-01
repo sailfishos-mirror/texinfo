@@ -18,12 +18,12 @@ $result_trees{'accents_errors'} = {
             {
               'cmdname' => 'ringaccent',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -40,12 +40,12 @@ $result_trees{'accents_errors'} = {
               'extra' => {
                 'spaces' => '  '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -67,12 +67,12 @@ $result_trees{'accents_errors'} = {
             {
               'cmdname' => 'ringaccent',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => '.',
@@ -102,12 +102,12 @@ $result_trees{'accents_errors'} = {
             {
               'cmdname' => '~',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -121,12 +121,12 @@ $result_trees{'accents_errors'} = {
             {
               'cmdname' => '~',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -148,12 +148,12 @@ $result_trees{'accents_errors'} = {
             {
               'cmdname' => '~',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => '.',

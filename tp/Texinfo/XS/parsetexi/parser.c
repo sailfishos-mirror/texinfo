@@ -169,8 +169,8 @@ register_global_command (ELEMENT *current)
 
   if (command_data(cmd).flags & CF_global)
     {
-      if (!current->line_nr.line_nr)
-        current->line_nr = line_nr;
+      if (!current->source_info.line_nr)
+        current->source_info = current_source_info;
       switch (cmd)
         {
 #define GLOBAL_CASE(cmx) \
@@ -221,8 +221,8 @@ register_global_command (ELEMENT *current)
     {
       ELEMENT **where = 0;
 
-      if (!current->line_nr.line_nr)
-        current->line_nr = line_nr;
+      if (!current->source_info.line_nr)
+        current->source_info = current_source_info;
       switch (cmd)
         {
         case CM_setfilename:
@@ -378,7 +378,8 @@ parse_texi_document (void)
         {
           /* This line is not part of the preamble_before_beginning.
              Shove back into input stream. */
-          input_push (line, 0, line_nr.file_name, line_nr.line_nr);
+          input_push (line, 0, current_source_info.file_name,
+                                   current_source_info.line_nr);
           break;
         }
 
@@ -1188,14 +1189,14 @@ superfluous_arg:
                       macro = lookup_macro (existing);
                       if (macro)
                         {
-                          line_error_ext (1, &current->line_nr,
+                          line_error_ext (1, &current->source_info,
                              "macro `%s' previously defined", name);
-                          line_error_ext (1, &macro->element->line_nr,
+                          line_error_ext (1, &macro->element->source_info,
                              "here is the previous definition of `%s'", name);
                         }
                       else if (!(existing & USER_COMMAND_BIT))
                         {
-                          line_error_ext (1, &current->line_nr,
+                          line_error_ext (1, &current->source_info,
                             "redefining Texinfo language command: @%s",
                             name);
                         }
@@ -1596,8 +1597,8 @@ value_valid:
                   else
                     {
                       line++; /* past '}' */
-                      input_push_text (strdup (line), line_nr.macro);
-                      input_push_text (strdup (value), line_nr.macro);
+                      input_push_text (strdup (line), current_source_info.macro);
+                      input_push_text (strdup (value), current_source_info.macro);
                       line += strlen (line);
                       retval = STILL_MORE_TO_PROCESS;
                     }
@@ -1868,8 +1869,8 @@ check_line_directive (char *line)
     return 0;
 
   /* Check input is coming directly from a file. */
-  if (!line_nr.file_name || !line_nr.file_name
-      || (line_nr.macro && *line_nr.macro))
+  if (!current_source_info.file_name || !current_source_info.file_name
+      || (current_source_info.macro && *current_source_info.macro))
     return 0;
 
   p += strspn (p, " \t");

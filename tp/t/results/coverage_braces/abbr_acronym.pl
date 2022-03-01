@@ -36,12 +36,12 @@ $result_trees{'abbr_acronym'} = {
               ],
               'cmdname' => 'acronym',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -63,12 +63,12 @@ $result_trees{'abbr_acronym'} = {
               ],
               'cmdname' => 'acronym',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -103,12 +103,12 @@ $result_trees{'abbr_acronym'} = {
                       ],
                       'cmdname' => 'comma',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -124,12 +124,12 @@ $result_trees{'abbr_acronym'} = {
                       ],
                       'cmdname' => 'enddots',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -138,12 +138,12 @@ $result_trees{'abbr_acronym'} = {
               ],
               'cmdname' => 'acronym',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -169,12 +169,12 @@ $result_trees{'abbr_acronym'} = {
                       ],
                       'cmdname' => '\'',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 4,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -190,12 +190,12 @@ $result_trees{'abbr_acronym'} = {
                       ],
                       'cmdname' => 'comma',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 4,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -222,12 +222,12 @@ $result_trees{'abbr_acronym'} = {
                       ],
                       'cmdname' => '\'',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 4,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -243,12 +243,12 @@ $result_trees{'abbr_acronym'} = {
                       ],
                       'cmdname' => 'comma',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 4,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -269,12 +269,12 @@ $result_trees{'abbr_acronym'} = {
                       ],
                       'cmdname' => 'b',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 4,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -287,12 +287,12 @@ $result_trees{'abbr_acronym'} = {
               ],
               'cmdname' => 'abbr',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -318,12 +318,12 @@ $result_trees{'abbr_acronym'} = {
                       ],
                       'cmdname' => '\'',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -339,12 +339,12 @@ $result_trees{'abbr_acronym'} = {
                       ],
                       'cmdname' => 'comma',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -357,12 +357,12 @@ $result_trees{'abbr_acronym'} = {
               ],
               'cmdname' => 'abbr',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

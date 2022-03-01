@@ -38,12 +38,12 @@ $result_trees{'ifset_in_command'} = {
               ],
               'cmdname' => 'file',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

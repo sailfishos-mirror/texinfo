@@ -22,12 +22,12 @@ $result_trees{'accent_on_table_line'} = {
                 {
                   'cmdname' => '~',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -65,12 +65,12 @@ $result_trees{'accent_on_table_line'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -107,12 +107,12 @@ $result_trees{'accent_on_table_line'} = {
                               ],
                               'cmdname' => 'code',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 3,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'extra' => {
@@ -127,12 +127,12 @@ $result_trees{'accent_on_table_line'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -165,12 +165,12 @@ $result_trees{'accent_on_table_line'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -178,12 +178,12 @@ $result_trees{'accent_on_table_line'} = {
             'end_command' => {},
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -211,12 +211,12 @@ $result_trees{'accent_on_table_line'} = {
                   ],
                   'cmdname' => '~',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 6,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'command_as_argument'
                 }
               ],
@@ -255,12 +255,12 @@ $result_trees{'accent_on_table_line'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 7,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -297,12 +297,12 @@ $result_trees{'accent_on_table_line'} = {
                               ],
                               'cmdname' => 'code',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 8,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'extra' => {
@@ -317,12 +317,12 @@ $result_trees{'accent_on_table_line'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -355,12 +355,12 @@ $result_trees{'accent_on_table_line'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -368,12 +368,12 @@ $result_trees{'accent_on_table_line'} = {
             'end_command' => {},
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

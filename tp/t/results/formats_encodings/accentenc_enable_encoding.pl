@@ -33,12 +33,12 @@ $result_trees{'accentenc_enable_encoding'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'ISO-8859-1'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -84,12 +84,12 @@ $result_trees{'accentenc_enable_encoding'} = {
         'normalized' => 'Top-node',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -137,12 +137,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '`',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -163,12 +163,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '`',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -206,12 +206,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '\'',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -232,12 +232,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '\'',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -275,12 +275,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '^',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -301,12 +301,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '^',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -344,12 +344,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '"',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -370,12 +370,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '"',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -413,12 +413,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '`',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -439,12 +439,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '`',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -482,12 +482,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '\'',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 16,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -508,12 +508,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '\'',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 16,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -551,12 +551,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '^',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 18,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -577,12 +577,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '^',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 18,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -620,12 +620,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '"',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 20,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -646,12 +646,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '"',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 20,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -689,12 +689,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => ',',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 22,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -715,12 +715,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => ',',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 22,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -758,12 +758,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '~',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 24,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -784,12 +784,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '~',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 24,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -827,12 +827,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '=',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 26,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -853,12 +853,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '=',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 26,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -896,12 +896,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'w',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 28,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -922,12 +922,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'H',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 28,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -951,12 +951,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 28,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -994,12 +994,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'dotaccent',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 30,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1023,12 +1023,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 30,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1066,12 +1066,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'ringaccent',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 32,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1095,12 +1095,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 32,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1138,12 +1138,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'tieaccent',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 34,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1181,12 +1181,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'u',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 36,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1210,12 +1210,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 36,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1253,12 +1253,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'ubaraccent',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 38,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1282,12 +1282,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 38,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1325,12 +1325,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'udotaccent',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 40,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1354,12 +1354,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 40,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1397,12 +1397,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'v',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 42,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1426,12 +1426,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 42,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1469,12 +1469,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'ogonek',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 44,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1498,12 +1498,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 44,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1541,12 +1541,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'ogonek',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 46,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1570,12 +1570,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 46,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1608,12 +1608,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'questiondown',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 48,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1629,12 +1629,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'exclamdown',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 48,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1667,12 +1667,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'aa',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 50,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1688,12 +1688,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'AA',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 50,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1726,12 +1726,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'ae',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 52,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1747,12 +1747,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'AE',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 52,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1768,12 +1768,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'oe',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 52,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1789,12 +1789,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'OE',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 52,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1832,12 +1832,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'dotless',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 54,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1858,12 +1858,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'dotless',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 54,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1896,12 +1896,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'l',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 56,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1917,12 +1917,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'L',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 56,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1955,12 +1955,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'o',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 58,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1976,12 +1976,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'O',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 58,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2014,12 +2014,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'ss',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 60,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2052,12 +2052,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => 'pounds',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 62,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2117,12 +2117,12 @@ $result_trees{'accentenc_enable_encoding'} = {
                       ],
                       'cmdname' => 'dotless',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 65,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -2131,12 +2131,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '`',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 65,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2178,12 +2178,12 @@ $result_trees{'accentenc_enable_encoding'} = {
                       ],
                       'cmdname' => 'dotless',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 67,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -2192,12 +2192,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '\'',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 67,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2239,12 +2239,12 @@ $result_trees{'accentenc_enable_encoding'} = {
                       ],
                       'cmdname' => 'dotless',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 69,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -2253,12 +2253,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '^',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 69,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2300,12 +2300,12 @@ $result_trees{'accentenc_enable_encoding'} = {
                       ],
                       'cmdname' => 'dotless',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 71,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -2314,12 +2314,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '"',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 71,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2379,12 +2379,12 @@ $result_trees{'accentenc_enable_encoding'} = {
                       ],
                       'cmdname' => 'dotless',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 74,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -2393,12 +2393,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '`',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 74,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2440,12 +2440,12 @@ $result_trees{'accentenc_enable_encoding'} = {
                       ],
                       'cmdname' => 'dotless',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 76,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -2454,12 +2454,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '\'',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 76,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2501,12 +2501,12 @@ $result_trees{'accentenc_enable_encoding'} = {
                       ],
                       'cmdname' => 'dotless',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 78,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -2515,12 +2515,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '^',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 78,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2562,12 +2562,12 @@ $result_trees{'accentenc_enable_encoding'} = {
                       ],
                       'cmdname' => 'dotless',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 80,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -2576,12 +2576,12 @@ $result_trees{'accentenc_enable_encoding'} = {
               ],
               'cmdname' => '"',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 80,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2596,12 +2596,12 @@ $result_trees{'accentenc_enable_encoding'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

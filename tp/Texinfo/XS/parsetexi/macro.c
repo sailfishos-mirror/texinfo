@@ -85,7 +85,7 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
 
   macro = new_element (ET_NONE);
   macro->cmd = cmd;
-  macro->line_nr = line_nr;
+  macro->source_info = current_source_info;
 
   add_extra_string (macro, "arg_line", strdup (line));
   /* Note this extra value isn't used much, so it might be possible

@@ -69,12 +69,12 @@ $result_trees{'sample_utf8'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'sample_utf8.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -97,12 +97,12 @@ $result_trees{'sample_utf8'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -128,12 +128,12 @@ $result_trees{'sample_utf8'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'UTF-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -227,23 +227,23 @@ $result_trees{'sample_utf8'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'sample_utf8.texi',
                     'line_nr' => 13,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -284,12 +284,12 @@ $result_trees{'sample_utf8'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'sample_utf8.texi',
                     'line_nr' => 16,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
@@ -342,12 +342,12 @@ $result_trees{'sample_utf8'} = {
                     }
                   ],
                   'cmdname' => 'insertcopying',
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'sample_utf8.texi',
                     'line_nr' => 20,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
@@ -372,23 +372,23 @@ $result_trees{'sample_utf8'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'sample_utf8.texi',
                     'line_nr' => 21,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 15,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -424,12 +424,12 @@ $result_trees{'sample_utf8'} = {
                 }
               ],
               'cmdname' => 'contents',
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 24,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -479,12 +479,12 @@ $result_trees{'sample_utf8'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'sample_utf8.texi',
         'line_nr' => 27,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -521,12 +521,12 @@ $result_trees{'sample_utf8'} = {
             }
           ],
           'cmdname' => 'insertcopying',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'sample_utf8.texi',
             'line_nr' => 30,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -600,12 +600,12 @@ $result_trees{'sample_utf8'} = {
                   'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 34,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -657,12 +657,12 @@ $result_trees{'sample_utf8'} = {
                   'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 36,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -714,12 +714,12 @@ $result_trees{'sample_utf8'} = {
                   'normalized' => 'Index-node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 37,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -745,23 +745,23 @@ $result_trees{'sample_utf8'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 38,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'sample_utf8.texi',
             'line_nr' => 33,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -779,12 +779,12 @@ $result_trees{'sample_utf8'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'sample_utf8.texi',
         'line_nr' => 28,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -820,12 +820,12 @@ $result_trees{'sample_utf8'} = {
         'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'sample_utf8.texi',
         'line_nr' => 41,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -885,12 +885,12 @@ $result_trees{'sample_utf8'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'sample_utf8.texi',
             'line_nr' => 44,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -939,12 +939,12 @@ $result_trees{'sample_utf8'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 47,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'index_entry_command'
             },
             {
@@ -980,12 +980,12 @@ $result_trees{'sample_utf8'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 48,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'index_entry_command'
             },
             {
@@ -1021,12 +1021,12 @@ $result_trees{'sample_utf8'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 49,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'index_entry_command'
             }
           ],
@@ -1098,12 +1098,12 @@ $result_trees{'sample_utf8'} = {
                 'item_number' => 1,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 54,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1129,12 +1129,12 @@ $result_trees{'sample_utf8'} = {
                 'item_number' => 2,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 57,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1159,24 +1159,24 @@ $result_trees{'sample_utf8'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'sample_utf8.texi',
                 'line_nr' => 59,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {},
             'enumerate_specification' => '1'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'sample_utf8.texi',
             'line_nr' => 53,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1188,12 +1188,12 @@ $result_trees{'sample_utf8'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'sample_utf8.texi',
         'line_nr' => 42,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1229,12 +1229,12 @@ $result_trees{'sample_utf8'} = {
         'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'sample_utf8.texi',
         'line_nr' => 61,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1282,12 +1282,12 @@ $result_trees{'sample_utf8'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'sample_utf8.texi',
         'line_nr' => 62,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1324,12 +1324,12 @@ $result_trees{'sample_utf8'} = {
         'normalized' => 'Index-node',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'sample_utf8.texi',
         'line_nr' => 66,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1380,12 +1380,12 @@ $result_trees{'sample_utf8'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'sample_utf8.texi',
             'line_nr' => 69,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1397,12 +1397,12 @@ $result_trees{'sample_utf8'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'sample_utf8.texi',
         'line_nr' => 67,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

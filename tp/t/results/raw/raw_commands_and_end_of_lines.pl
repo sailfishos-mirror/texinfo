@@ -61,23 +61,23 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'html'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -143,23 +143,23 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'html'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 10,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -228,23 +228,23 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'html'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 15,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -313,23 +313,23 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'html after the closing command.'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 20,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 18,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},
@@ -393,23 +393,23 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'html'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 24,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 22,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -478,23 +478,23 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'html. A symbol after the closing command.'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 29,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 27,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},
@@ -552,23 +552,23 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'tex'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 33,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 31,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -629,23 +629,23 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'tex'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 38,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 36,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -714,23 +714,23 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'tex'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 43,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 41,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -799,23 +799,23 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'tex after the closing command.'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 48,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 46,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},
@@ -879,23 +879,23 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'tex'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 52,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 50,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -964,23 +964,23 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'tex. A symbol after the closing command.'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 57,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 55,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},
@@ -1011,12 +1011,12 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 59,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1060,12 +1060,12 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 64,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1119,12 +1119,12 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 69,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1178,12 +1178,12 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 74,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1236,12 +1236,12 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 78,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1295,12 +1295,12 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 83,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [

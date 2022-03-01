@@ -77,7 +77,7 @@ enter_menu_entry_node (ELEMENT *current)
   description = new_element (ET_menu_entry_description);
   add_to_element_args (current, description);
   register_extra_menu_entry_information (current);
-  current->line_nr = line_nr;
+  current->source_info = current_source_info;
   remember_internal_xref (current);
 
   current = description;

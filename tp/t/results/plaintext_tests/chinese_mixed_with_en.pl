@@ -47,12 +47,12 @@ $result_trees{'chinese_mixed_with_en'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'chinese_mixed_with_en.texi',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},
@@ -82,12 +82,12 @@ $result_trees{'chinese_mixed_with_en'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'chinese_mixed_with_en.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'chinese_mixed_with_en.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -110,12 +110,12 @@ $result_trees{'chinese_mixed_with_en'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'chinese_mixed_with_en.texi',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -359,12 +359,12 @@ $result_trees{'chinese_mixed_with_en'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'chinese_mixed_with_en.texi',
         'line_nr' => 6,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

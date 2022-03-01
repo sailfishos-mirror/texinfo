@@ -101,12 +101,12 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'empty_lines_at_beginning_no_setfilename.texi',
         'line_nr' => 6,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -137,12 +137,12 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'empty_lines_at_beginning_no_setfilename.texi',
         'line_nr' => 7,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

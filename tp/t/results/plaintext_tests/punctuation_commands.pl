@@ -96,12 +96,12 @@ $result_trees{'punctuation_commands'} = {
               ],
               'cmdname' => 'enddots',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -117,12 +117,12 @@ $result_trees{'punctuation_commands'} = {
               ],
               'cmdname' => 'enddots',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -194,12 +194,12 @@ $result_trees{'punctuation_commands'} = {
               ],
               'cmdname' => 'enddots',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -281,12 +281,12 @@ $result_trees{'punctuation_commands'} = {
               ],
               'cmdname' => 'enddots',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 16,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

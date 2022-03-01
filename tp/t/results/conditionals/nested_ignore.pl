@@ -39,12 +39,12 @@ $result_trees{'nested_ignore'} = {
               'type' => 'last_raw_newline'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -88,12 +88,12 @@ $result_trees{'nested_ignore'} = {
               'type' => 'last_raw_newline'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -137,12 +137,12 @@ $result_trees{'nested_ignore'} = {
               'type' => 'last_raw_newline'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 11,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

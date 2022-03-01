@@ -70,12 +70,12 @@ $result_trees{'image_formatting'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -99,12 +99,12 @@ $result_trees{'image_formatting'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -142,12 +142,12 @@ $result_trees{'image_formatting'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -181,12 +181,12 @@ $result_trees{'image_formatting'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -224,12 +224,12 @@ $result_trees{'image_formatting'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -268,12 +268,12 @@ $result_trees{'image_formatting'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -311,12 +311,12 @@ $result_trees{'image_formatting'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -360,12 +360,12 @@ $result_trees{'image_formatting'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -403,12 +403,12 @@ $result_trees{'image_formatting'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -457,12 +457,12 @@ $result_trees{'image_formatting'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -500,12 +500,12 @@ $result_trees{'image_formatting'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -569,12 +569,12 @@ $result_trees{'image_formatting'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -612,12 +612,12 @@ $result_trees{'image_formatting'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -666,12 +666,12 @@ $result_trees{'image_formatting'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -769,12 +769,12 @@ $result_trees{'image_formatting'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -799,12 +799,12 @@ $result_trees{'image_formatting'} = {
                       ],
                       'cmdname' => 'file',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 10,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'cmdname' => '@',
@@ -865,12 +865,12 @@ $result_trees{'image_formatting'} = {
                       ],
                       'cmdname' => 'file',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 10,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -890,12 +890,12 @@ $result_trees{'image_formatting'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -920,12 +920,12 @@ $result_trees{'image_formatting'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -949,12 +949,12 @@ $result_trees{'image_formatting'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1016,12 +1016,12 @@ $result_trees{'image_formatting'} = {
                   ],
                   'cmdname' => 'code',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 14,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1045,12 +1045,12 @@ $result_trees{'image_formatting'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 14,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1088,12 +1088,12 @@ $result_trees{'image_formatting'} = {
                   ],
                   'cmdname' => 'code',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 15,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1127,12 +1127,12 @@ $result_trees{'image_formatting'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 15,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1170,12 +1170,12 @@ $result_trees{'image_formatting'} = {
                   ],
                   'cmdname' => 'code',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 16,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1214,12 +1214,12 @@ $result_trees{'image_formatting'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 16,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1257,12 +1257,12 @@ $result_trees{'image_formatting'} = {
                   ],
                   'cmdname' => 'code',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 17,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1306,12 +1306,12 @@ $result_trees{'image_formatting'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 17,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1349,12 +1349,12 @@ $result_trees{'image_formatting'} = {
                   ],
                   'cmdname' => 'code',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 18,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1403,12 +1403,12 @@ $result_trees{'image_formatting'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 18,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1446,12 +1446,12 @@ $result_trees{'image_formatting'} = {
                   ],
                   'cmdname' => 'code',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 19,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1515,12 +1515,12 @@ $result_trees{'image_formatting'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 19,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1558,12 +1558,12 @@ $result_trees{'image_formatting'} = {
                   ],
                   'cmdname' => 'code',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 20,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1612,12 +1612,12 @@ $result_trees{'image_formatting'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 20,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1715,12 +1715,12 @@ $result_trees{'image_formatting'} = {
                   ],
                   'cmdname' => 'code',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 21,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1745,12 +1745,12 @@ $result_trees{'image_formatting'} = {
                           ],
                           'cmdname' => 'file',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 21,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'cmdname' => '@',
@@ -1811,12 +1811,12 @@ $result_trees{'image_formatting'} = {
                           ],
                           'cmdname' => 'file',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 21,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -1836,12 +1836,12 @@ $result_trees{'image_formatting'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 21,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1866,12 +1866,12 @@ $result_trees{'image_formatting'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 22,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1895,12 +1895,12 @@ $result_trees{'image_formatting'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 22,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1934,23 +1934,23 @@ $result_trees{'image_formatting'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 23,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 13,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1996,12 +1996,12 @@ $result_trees{'image_formatting'} = {
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 25,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2059,12 +2059,12 @@ $result_trees{'image_formatting'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 28,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2091,12 +2091,12 @@ $result_trees{'image_formatting'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

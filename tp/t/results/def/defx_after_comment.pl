@@ -49,12 +49,12 @@ $result_trees{'defx_after_comment'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'extra' => {
@@ -123,12 +123,12 @@ $result_trees{'defx_after_comment'} = {
                 },
                 'original_def_cmdname' => 'deffn'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'def_line'
             },
             {
@@ -169,12 +169,12 @@ $result_trees{'defx_after_comment'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'bracketed_def_content'
                     },
                     {
@@ -246,12 +246,12 @@ $result_trees{'defx_after_comment'} = {
                 'original_def_cmdname' => 'deffnx',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'def_line'
             },
             {
@@ -273,24 +273,24 @@ $result_trees{'defx_after_comment'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {},
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

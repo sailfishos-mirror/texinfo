@@ -40,12 +40,12 @@ $result_trees{'macro_one_arg_end_of_file'} = {
             'arg_line' => ' onearg{arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

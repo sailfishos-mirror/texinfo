@@ -45,12 +45,12 @@ $result_trees{'bad_macro_name_with_underscore'} = {
             'arg_line' => ' the_macro {arg1, arg2}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

@@ -1094,7 +1094,7 @@ end_line_starting_block (ELEMENT *current)
       char *type = "";
       KEY_PAIR *k;
       EXTRA_FLOAT_TYPE *eft;
-      current->line_nr = line_nr;
+      current->source_info = current_source_info;
       if (current->args.number >= 2)
         {
           NODE_SPEC_EXTRA *float_label;
@@ -1898,7 +1898,7 @@ end_line_misc_line (ELEMENT *current)
                                  current);
               if (current->cmd == CM_top)
                 {
-                  line_error_ext (1, &current_part->line_nr,
+                  line_error_ext (1, &current_part->source_info,
                          "@part should not be associated with @top");
                 }
               current_part = 0;

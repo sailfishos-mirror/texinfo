@@ -42,12 +42,12 @@ $result_trees{'setfilename_in_paragraph'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'filename.info'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

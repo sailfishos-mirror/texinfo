@@ -52,12 +52,12 @@ $result_trees{'ifset_in_macro_set'} = {
             'arg_line' => ' note {arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

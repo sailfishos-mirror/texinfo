@@ -80,12 +80,12 @@ $result_trees{'space_in_image'} = {
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -115,12 +115,12 @@ $result_trees{'space_in_image'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

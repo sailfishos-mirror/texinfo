@@ -46,12 +46,12 @@ $result_trees{'expand_two_same'} = {
             'arg_line' => ' macrotwo { arg }
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -90,12 +90,12 @@ $result_trees{'expand_two_same'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => 'macrotwo'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -126,12 +126,12 @@ $result_trees{'expand_two_same'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => 'macrotwo'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

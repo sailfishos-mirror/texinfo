@@ -52,12 +52,12 @@ $result_trees{'bad_formal_arg'} = {
 ',
             'invalid_syntax' => 1
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -108,12 +108,12 @@ $result_trees{'bad_formal_arg'} = {
 ',
             'invalid_syntax' => 1
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -181,12 +181,12 @@ $result_trees{'bad_formal_arg'} = {
 ',
             'invalid_syntax' => 1
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 10,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

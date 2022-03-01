@@ -57,12 +57,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'equivalent_nodes.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'equivalent_nodes.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -107,12 +107,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
               ],
               'cmdname' => 'asis',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'equivalent_nodes.texi',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -185,12 +185,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
         'normalized' => 'before-top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'equivalent_nodes.texi',
         'line_nr' => 5,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -270,12 +270,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
                       ],
                       'cmdname' => 'strong',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'equivalent_nodes.texi',
                         'line_nr' => 12,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -313,12 +313,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
                   'normalized' => 'node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'equivalent_nodes.texi',
                 'line_nr' => 12,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -344,23 +344,23 @@ $result_trees{'equivalent_nodes_no_node'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'equivalent_nodes.texi',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'equivalent_nodes.texi',
             'line_nr' => 11,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -384,12 +384,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'equivalent_nodes.texi',
         'line_nr' => 7,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -445,12 +445,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
                   ],
                   'cmdname' => 'samp',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'equivalent_nodes.texi',
                     'line_nr' => 17,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -498,12 +498,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'equivalent_nodes.texi',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -516,12 +516,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
               'normalized' => 'Figure'
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'equivalent_nodes.texi',
             'line_nr' => 17,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -556,12 +556,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
               'normalized' => 'Figure'
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'equivalent_nodes.texi',
             'line_nr' => 21,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -599,12 +599,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
                   'normalized' => 'node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'equivalent_nodes.texi',
                 'line_nr' => 23,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -670,12 +670,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
                       ],
                       'cmdname' => 'samp',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'equivalent_nodes.texi',
                         'line_nr' => 25,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -693,12 +693,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
                   'normalized' => 'node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'equivalent_nodes.texi',
                 'line_nr' => 25,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -731,12 +731,12 @@ $result_trees{'equivalent_nodes_no_node'} = {
         'normalized' => 'node',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'equivalent_nodes.texi',
         'line_nr' => 15,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

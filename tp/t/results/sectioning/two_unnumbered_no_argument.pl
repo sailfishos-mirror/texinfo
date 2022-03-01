@@ -35,12 +35,12 @@ $result_trees{'two_unnumbered_no_argument'} = {
       'extra' => {
         'missing_argument' => 1
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -59,12 +59,12 @@ $result_trees{'two_unnumbered_no_argument'} = {
       'extra' => {
         'missing_argument' => 1
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

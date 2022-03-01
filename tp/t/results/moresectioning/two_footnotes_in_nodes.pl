@@ -57,12 +57,12 @@ $result_trees{'two_footnotes_in_nodes'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'two_footnotes_in_nodes.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'two_footnotes_in_nodes.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -112,12 +112,12 @@ $result_trees{'two_footnotes_in_nodes'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'two_footnotes_in_nodes.texi',
         'line_nr' => 5,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -188,12 +188,12 @@ $result_trees{'two_footnotes_in_nodes'} = {
               ],
               'cmdname' => 'footnote',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'two_footnotes_in_nodes.texi',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -254,12 +254,12 @@ $result_trees{'two_footnotes_in_nodes'} = {
               ],
               'cmdname' => 'footnote',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'two_footnotes_in_nodes.texi',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -337,12 +337,12 @@ $result_trees{'two_footnotes_in_nodes'} = {
                   'normalized' => 'chapter'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'two_footnotes_in_nodes.texi',
                 'line_nr' => 17,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -368,23 +368,23 @@ $result_trees{'two_footnotes_in_nodes'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'two_footnotes_in_nodes.texi',
                 'line_nr' => 18,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'two_footnotes_in_nodes.texi',
             'line_nr' => 16,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -396,12 +396,12 @@ $result_trees{'two_footnotes_in_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'two_footnotes_in_nodes.texi',
         'line_nr' => 6,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -437,12 +437,12 @@ $result_trees{'two_footnotes_in_nodes'} = {
         'normalized' => 'chapter',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'two_footnotes_in_nodes.texi',
         'line_nr' => 20,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -513,12 +513,12 @@ $result_trees{'two_footnotes_in_nodes'} = {
               ],
               'cmdname' => 'footnote',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'two_footnotes_in_nodes.texi',
                 'line_nr' => 23,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -579,12 +579,12 @@ $result_trees{'two_footnotes_in_nodes'} = {
               ],
               'cmdname' => 'footnote',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'two_footnotes_in_nodes.texi',
                 'line_nr' => 27,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -605,12 +605,12 @@ $result_trees{'two_footnotes_in_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'two_footnotes_in_nodes.texi',
         'line_nr' => 21,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

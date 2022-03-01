@@ -46,12 +46,12 @@ $result_trees{'double_recursive_macro_call'} = {
             'arg_line' => ' macone {arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -96,12 +96,12 @@ $result_trees{'double_recursive_macro_call'} = {
             'arg_line' => ' mactwo{arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

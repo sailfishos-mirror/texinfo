@@ -32,12 +32,12 @@ $result_trees{'empty_listoffloats'} = {
               'normalized' => ''
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

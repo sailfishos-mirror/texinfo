@@ -99,12 +99,12 @@ $result_trees{'formats_in_menu'} = {
                             {
                               'cmdname' => 'asis',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 5,
                                 'macro' => ''
                               },
-                              'parent' => {},
                               'type' => 'command_as_argument'
                             }
                           ],
@@ -143,12 +143,12 @@ $result_trees{'formats_in_menu'} = {
                                   'extra' => {
                                     'spaces_before_argument' => ' '
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 6,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'parent' => {},
@@ -198,12 +198,12 @@ $result_trees{'formats_in_menu'} = {
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'table'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 8,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -211,12 +211,12 @@ $result_trees{'formats_in_menu'} = {
                         'end_command' => {},
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -231,12 +231,12 @@ $result_trees{'formats_in_menu'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -326,12 +326,12 @@ $result_trees{'formats_in_menu'} = {
                         }
                       ],
                       'extra' => {},
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 11,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -357,12 +357,12 @@ $result_trees{'formats_in_menu'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -456,23 +456,23 @@ $result_trees{'formats_in_menu'} = {
                                 'spaces_before_argument' => ' ',
                                 'text_arg' => 'html'
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 19,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'extra' => {
                             'end_command' => {}
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 16,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -496,12 +496,12 @@ $result_trees{'formats_in_menu'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -558,12 +558,12 @@ $result_trees{'formats_in_menu'} = {
                           ],
                           'cmdname' => 'acronym',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 21,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -587,12 +587,12 @@ $result_trees{'formats_in_menu'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 21,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -660,23 +660,23 @@ $result_trees{'formats_in_menu'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'example'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 27,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
                     'end_command' => {}
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 24,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'contents' => [
@@ -717,23 +717,23 @@ $result_trees{'formats_in_menu'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 29,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'extra' => {
@@ -751,12 +751,12 @@ $result_trees{'formats_in_menu'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

@@ -57,12 +57,12 @@ $result_trees{'simple_imbricated_macro'} = {
             'arg_line' => ' truc {}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -109,12 +109,12 @@ $result_trees{'simple_imbricated_macro'} = {
                 'arg_line' => ' bidule {}
 '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => 'truc'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

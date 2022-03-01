@@ -26,12 +26,12 @@ $result_trees{'unmatched_brace'} = {
               ],
               'cmdname' => 'samp',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -60,12 +60,12 @@ $result_trees{'unmatched_brace'} = {
               ],
               'cmdname' => 'samp',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

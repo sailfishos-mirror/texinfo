@@ -33,12 +33,12 @@ $result_trees{'nested_enumerate'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'nested_enumerate.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -96,12 +96,12 @@ $result_trees{'nested_enumerate'} = {
                 'item_number' => 1,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -163,12 +163,12 @@ $result_trees{'nested_enumerate'} = {
                         'item_number' => 1,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 7,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'cmdname' => 'item',
@@ -230,12 +230,12 @@ $result_trees{'nested_enumerate'} = {
                                 'item_number' => 1,
                                 'spaces_before_argument' => ' '
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 10,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             },
                             {
                               'cmdname' => 'item',
@@ -297,12 +297,12 @@ $result_trees{'nested_enumerate'} = {
                                         'item_number' => 1,
                                         'spaces_before_argument' => ' '
                                       },
-                                      'line_nr' => {
+                                      'parent' => {},
+                                      'source_info' => {
                                         'file_name' => '',
                                         'line_nr' => 13,
                                         'macro' => ''
-                                      },
-                                      'parent' => {}
+                                      }
                                     },
                                     {
                                       'cmdname' => 'item',
@@ -323,12 +323,12 @@ $result_trees{'nested_enumerate'} = {
                                         'item_number' => 2,
                                         'spaces_before_argument' => ' '
                                       },
-                                      'line_nr' => {
+                                      'parent' => {},
+                                      'source_info' => {
                                         'file_name' => '',
                                         'line_nr' => 14,
                                         'macro' => ''
-                                      },
-                                      'parent' => {}
+                                      }
                                     },
                                     {
                                       'args' => [
@@ -353,36 +353,36 @@ $result_trees{'nested_enumerate'} = {
                                         'spaces_before_argument' => ' ',
                                         'text_arg' => 'enumerate'
                                       },
-                                      'line_nr' => {
+                                      'parent' => {},
+                                      'source_info' => {
                                         'file_name' => '',
                                         'line_nr' => 15,
                                         'macro' => ''
-                                      },
-                                      'parent' => {}
+                                      }
                                     }
                                   ],
                                   'extra' => {
                                     'end_command' => {},
                                     'enumerate_specification' => '1'
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 12,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'extra' => {
                                 'item_number' => 2,
                                 'spaces_before_argument' => ' '
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 11,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             },
                             {
                               'args' => [
@@ -407,36 +407,36 @@ $result_trees{'nested_enumerate'} = {
                                 'spaces_before_argument' => ' ',
                                 'text_arg' => 'enumerate'
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 16,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'extra' => {
                             'end_command' => {},
                             'enumerate_specification' => '1'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
                         'item_number' => 2,
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'args' => [
@@ -461,36 +461,36 @@ $result_trees{'nested_enumerate'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'enumerate'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 17,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
                     'end_command' => {},
                     'enumerate_specification' => '1'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 6,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'item_number' => 2,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -515,24 +515,24 @@ $result_trees{'nested_enumerate'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 18,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {},
             'enumerate_specification' => '1'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

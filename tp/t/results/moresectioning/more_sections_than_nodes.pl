@@ -57,12 +57,12 @@ $result_trees{'more_sections_than_nodes'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'more_sections_than_nodes.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'more_sections_than_nodes.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -112,12 +112,12 @@ $result_trees{'more_sections_than_nodes'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 5,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -205,12 +205,12 @@ $result_trees{'more_sections_than_nodes'} = {
                   'normalized' => 'n-c2'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'more_sections_than_nodes.texi',
                 'line_nr' => 9,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -262,12 +262,12 @@ $result_trees{'more_sections_than_nodes'} = {
                   'normalized' => 'n-c3'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'more_sections_than_nodes.texi',
                 'line_nr' => 10,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -319,12 +319,12 @@ $result_trees{'more_sections_than_nodes'} = {
                   'normalized' => 'n-c3-s1-s2'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'more_sections_than_nodes.texi',
                 'line_nr' => 11,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -350,23 +350,23 @@ $result_trees{'more_sections_than_nodes'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'more_sections_than_nodes.texi',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'more_sections_than_nodes.texi',
             'line_nr' => 8,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -378,12 +378,12 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 6,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -414,12 +414,12 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 14,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -455,12 +455,12 @@ $result_trees{'more_sections_than_nodes'} = {
         'normalized' => 'n-c2',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 16,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -491,12 +491,12 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 17,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -527,12 +527,12 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 19,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -623,12 +623,12 @@ $result_trees{'more_sections_than_nodes'} = {
         'normalized' => 'n-c3',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 21,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -716,12 +716,12 @@ $result_trees{'more_sections_than_nodes'} = {
                   'normalized' => 'n-c3-s-2'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'more_sections_than_nodes.texi',
                 'line_nr' => 25,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -747,23 +747,23 @@ $result_trees{'more_sections_than_nodes'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'more_sections_than_nodes.texi',
                 'line_nr' => 26,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'more_sections_than_nodes.texi',
             'line_nr' => 24,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -775,12 +775,12 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 22,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -811,12 +811,12 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 28,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -852,12 +852,12 @@ $result_trees{'more_sections_than_nodes'} = {
         'normalized' => 'n-c3-s-2',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 30,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -888,12 +888,12 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 31,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -924,12 +924,12 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 33,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -960,12 +960,12 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 35,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -996,12 +996,12 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 37,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1032,12 +1032,12 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 39,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1111,12 +1111,12 @@ $result_trees{'more_sections_than_nodes'} = {
         'normalized' => 'n-c3-s1-s2',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 41,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1147,12 +1147,12 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 42,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1183,12 +1183,12 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 44,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

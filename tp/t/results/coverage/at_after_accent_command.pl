@@ -17,12 +17,12 @@ $result_trees{'at_after_accent_command'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => '@',
@@ -35,12 +35,12 @@ $result_trees{'at_after_accent_command'} = {
             {
               'cmdname' => '^',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => '@',

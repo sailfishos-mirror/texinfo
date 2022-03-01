@@ -57,12 +57,12 @@ $result_trees{'direntry_dircategory_info_split'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry_dircategory.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'direntry_dircategory.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -93,12 +93,12 @@ $result_trees{'direntry_dircategory_info_split'} = {
                       ],
                       'cmdname' => 'var',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'direntry_dircategory.texi',
                         'line_nr' => 5,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -117,12 +117,12 @@ $result_trees{'direntry_dircategory_info_split'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'direntry_dircategory.texi',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},
@@ -208,12 +208,12 @@ $result_trees{'direntry_dircategory_info_split'} = {
                           ],
                           'cmdname' => 'var',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => 'direntry_dircategory.texi',
                             'line_nr' => 7,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -238,12 +238,12 @@ $result_trees{'direntry_dircategory_info_split'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'direntry_dircategory.texi',
                 'line_nr' => 7,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -269,23 +269,23 @@ $result_trees{'direntry_dircategory_info_split'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'direntry_dircategory.texi',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'direntry_dircategory.texi',
             'line_nr' => 6,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -314,12 +314,12 @@ $result_trees{'direntry_dircategory_info_split'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'direntry_dircategory.texi',
             'line_nr' => 10,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'cmdname' => 'direntry',
@@ -393,12 +393,12 @@ $result_trees{'direntry_dircategory_info_split'} = {
                   'normalized' => 'aaa'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'direntry_dircategory.texi',
                 'line_nr' => 12,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -447,23 +447,23 @@ $result_trees{'direntry_dircategory_info_split'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'direntry_dircategory.texi',
                 'line_nr' => 16,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'direntry_dircategory.texi',
             'line_nr' => 11,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -515,12 +515,12 @@ $result_trees{'direntry_dircategory_info_split'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'direntry_dircategory.texi',
         'line_nr' => 19,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -579,12 +579,12 @@ $result_trees{'direntry_dircategory_info_split'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'direntry_dircategory.texi',
             'line_nr' => 23,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'cmdname' => 'direntry',
@@ -670,12 +670,12 @@ $result_trees{'direntry_dircategory_info_split'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'direntry_dircategory.texi',
                 'line_nr' => 25,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -701,23 +701,23 @@ $result_trees{'direntry_dircategory_info_split'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'direntry_dircategory.texi',
                 'line_nr' => 26,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'direntry_dircategory.texi',
             'line_nr' => 24,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -786,12 +786,12 @@ $result_trees{'direntry_dircategory_info_split'} = {
                   'normalized' => 'chapter'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'direntry_dircategory.texi',
                 'line_nr' => 29,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -817,23 +817,23 @@ $result_trees{'direntry_dircategory_info_split'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'direntry_dircategory.texi',
                 'line_nr' => 30,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'direntry_dircategory.texi',
             'line_nr' => 28,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -845,12 +845,12 @@ $result_trees{'direntry_dircategory_info_split'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'direntry_dircategory.texi',
         'line_nr' => 20,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -886,12 +886,12 @@ $result_trees{'direntry_dircategory_info_split'} = {
         'normalized' => 'chapter',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'direntry_dircategory.texi',
         'line_nr' => 32,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -939,12 +939,12 @@ $result_trees{'direntry_dircategory_info_split'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'direntry_dircategory.texi',
         'line_nr' => 33,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

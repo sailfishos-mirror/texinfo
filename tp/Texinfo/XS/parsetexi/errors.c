@@ -65,7 +65,7 @@ size_t error_number = 0;
 static size_t error_space = 0;
 
 static void
-line_error_internal (enum error_type type, LINE_NR *cmd_line_nr,
+line_error_internal (enum error_type type, SOURCE_INFO *cmd_source_info,
                      char *format, va_list v)
 {
   char *message;
@@ -84,25 +84,25 @@ line_error_internal (enum error_type type, LINE_NR *cmd_line_nr,
   error_list[error_number].message = message;
   error_list[error_number].type = type;
 
-  if (cmd_line_nr)
+  if (cmd_source_info)
     {
-      if (cmd_line_nr->line_nr)
-        error_list[error_number++].line_nr = *cmd_line_nr;
+      if (cmd_source_info->line_nr)
+        error_list[error_number++].source_info = *cmd_source_info;
       else
-        error_list[error_number++].line_nr = line_nr;
+        error_list[error_number++].source_info = current_source_info;
     }
   else
-    error_list[error_number++].line_nr = line_nr;
+    error_list[error_number++].source_info = current_source_info;
 }
 
 void
-line_error_ext (enum error_type type, LINE_NR *cmd_line_nr,
+line_error_ext (enum error_type type, SOURCE_INFO *cmd_source_info,
                 char *format, ...)
 {
   va_list v;
 
   va_start (v, format);
-  line_error_internal (type, cmd_line_nr, format, v);
+  line_error_internal (type, cmd_source_info, format, v);
 }
 
 void
@@ -129,7 +129,7 @@ command_warn (ELEMENT *e, char *format, ...)
   va_list v;
 
   va_start (v, format);
-  line_error_internal (warning, &e->line_nr, format, v);
+  line_error_internal (warning, &e->source_info, format, v);
 }
 
 void
@@ -138,7 +138,7 @@ command_error (ELEMENT *e, char *format, ...)
   va_list v;
 
   va_start (v, format);
-  line_error_internal (error, &e->line_nr, format, v);
+  line_error_internal (error, &e->source_info, format, v);
 }
 
 void
@@ -156,12 +156,13 @@ bug_message_internal (char *format, va_list v)
   fprintf (stderr, "You found a bug: ");
   vfprintf (stderr, format, v);
   fprintf (stderr, "\n");
-  if (line_nr.file_name)
+  if (current_source_info.file_name)
     {
       fprintf (stderr,
-               "last location %s:%d", line_nr.file_name, line_nr.line_nr);
-      if (line_nr.macro)
-        fprintf (stderr, " (possibly involving @%s)", line_nr.macro);
+               "last location %s:%d", current_source_info.file_name,
+                                         current_source_info.line_nr);
+      if (current_source_info.macro)
+        fprintf (stderr, " (possibly involving @%s)", current_source_info.macro);
       fprintf (stderr, "\n");
     }
   exit (1);

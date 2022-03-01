@@ -58,12 +58,12 @@ $result_trees{'protect_comma_macro_line'} = {
             'arg_line' => ' macrotwo { arg }
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

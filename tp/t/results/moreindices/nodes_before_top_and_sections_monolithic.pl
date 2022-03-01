@@ -57,12 +57,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'more_before_top_section'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -175,12 +175,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 7,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -224,12 +224,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 10,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -266,12 +266,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 12,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -345,12 +345,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'normalized' => 'node-in-menu-before-top'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 15,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -376,23 +376,23 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 16,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 14,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -429,12 +429,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'normalized' => 'first-before-top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
         'line_nr' => 6,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -514,12 +514,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 20,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -557,12 +557,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 22,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -614,12 +614,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 25,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -659,12 +659,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'normalized' => 'node-in-menu-before-top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
         'line_nr' => 18,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -736,12 +736,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 29,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -779,12 +779,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 31,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -816,12 +816,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 33,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -870,12 +870,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 37,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -907,12 +907,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
         'line_nr' => 28,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -966,12 +966,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 40,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1058,12 +1058,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'normalized' => 'first'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 45,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -1115,12 +1115,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'normalized' => 'chapter'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 46,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -1172,12 +1172,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'normalized' => 'node-in-chapter'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 47,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -1203,23 +1203,23 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 48,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 44,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1231,12 +1231,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
         'line_nr' => 39,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1323,12 +1323,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 52,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'index_entry_command'
             },
             {
@@ -1364,12 +1364,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 53,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'index_entry_command'
             },
             {
@@ -1405,12 +1405,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 54,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'index_entry_command'
             }
           ],
@@ -1447,12 +1447,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 56,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1521,12 +1521,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'normalized' => 'second'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 59,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -1552,23 +1552,23 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 60,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 58,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1606,12 +1606,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'normalized' => 'first',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
         'line_nr' => 50,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1713,12 +1713,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'normalized' => 'a-node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 64,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -1770,12 +1770,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'normalized' => 'another'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 65,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -1801,23 +1801,23 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
                 'line_nr' => 66,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 63,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1849,12 +1849,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 68,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1887,12 +1887,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'normalized' => 'second',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
         'line_nr' => 62,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1984,12 +1984,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 72,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -2025,12 +2025,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 73,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -2066,12 +2066,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 74,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -2109,12 +2109,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'normalized' => 'another',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
         'line_nr' => 70,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -2199,12 +2199,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 77,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -2237,12 +2237,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 79,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2283,12 +2283,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 81,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -2324,12 +2324,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 82,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -2362,12 +2362,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 84,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2405,12 +2405,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'normalized' => 'a-node',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
         'line_nr' => 76,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -2485,12 +2485,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'normalized' => 'chapter',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
         'line_nr' => 86,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -2541,12 +2541,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 89,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2558,12 +2558,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
         'line_nr' => 87,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -2651,12 +2651,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_before_top_and_sections.texi',
             'line_nr' => 93,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -2694,12 +2694,12 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'normalized' => 'node-in-chapter',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_before_top_and_sections.texi',
         'line_nr' => 91,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

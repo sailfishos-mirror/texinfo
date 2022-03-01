@@ -410,14 +410,14 @@ sub _duplicate_element_keys($$)
   my $type = shift;
   my $current = shift;
 
-  if (exists($current->{'line_nr'})) {
+  if (exists($current->{'source_info'})) {
     # cannot use dclone as dclone changes integers to strings
-    #$current->{'line_nr'} = dclone($current->{'line_nr'});
-    my $new_line_nr = {};
-    foreach my $key(keys(%{$current->{'line_nr'}})) {
-      $new_line_nr->{$key} = $current->{'line_nr'}->{$key};
+    #$current->{'source_info'} = dclone($current->{'source_info'});
+    my $new_source_info = {};
+    foreach my $key(keys(%{$current->{'source_info'}})) {
+      $new_source_info->{$key} = $current->{'source_info'}->{$key};
     }
-    $current->{'line_nr'} = $new_line_nr;
+    $current->{'source_info'} = $new_source_info;
   }
 
   if (exists($current->{'extra'})) {
@@ -482,7 +482,7 @@ sub new_test($;$$$)
 }
 
 my @contents_keys = ('contents', 'args', 'parent',
-  'line_nr', 'node_content',  'nodes_manuals', 'misc_content', 'invalid_nesting', 
+  'source_info', 'node_content',  'nodes_manuals', 'misc_content', 'invalid_nesting', 
   'block_command_line_contents', 'spaces_after_command', 'spaces_before_argument',
   'end_command', 'text_arg', 'command_argument');
 my @menus_keys = ('menu_next', 'menu_up', 'menu_prev', 'menu_up_hash');

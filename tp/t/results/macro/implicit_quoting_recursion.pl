@@ -45,12 +45,12 @@ $result_trees{'implicit_quoting_recursion'} = {
             'arg_line' => ' cat{a,b}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

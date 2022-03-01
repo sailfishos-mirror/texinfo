@@ -75,12 +75,12 @@ $result_trees{'comma_value_in_macro_arg'} = {
             'arg_line' => ' macro1 { arg1 , arg2 }
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -115,12 +115,12 @@ $result_trees{'comma_value_in_macro_arg'} = {
               ],
               'cmdname' => 'emph',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => 'macro1'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -136,12 +136,12 @@ $result_trees{'comma_value_in_macro_arg'} = {
               ],
               'cmdname' => 'emph',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => 'macro1'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

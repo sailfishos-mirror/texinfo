@@ -33,12 +33,12 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'iso-8859-1'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -69,12 +69,12 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'verbatim_encoded_latin1.texi'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

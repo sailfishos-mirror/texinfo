@@ -33,12 +33,12 @@ $result_trees{'math_bracketed_not_closed_next_line'} = {
                           'type' => 'empty_line'
                         }
                       ],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'bracketed'
                     }
                   ],
@@ -48,12 +48,12 @@ $result_trees{'math_bracketed_not_closed_next_line'} = {
               ],
               'cmdname' => 'math',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},

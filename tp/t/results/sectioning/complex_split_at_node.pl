@@ -86,12 +86,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'Top',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -168,12 +168,12 @@ $result_trees{'complex_split_at_node'} = [
                           'normalized' => 'First-node'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 4,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -225,12 +225,12 @@ $result_trees{'complex_split_at_node'} = [
                           'normalized' => 'between-node'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -282,12 +282,12 @@ $result_trees{'complex_split_at_node'} = [
                           'normalized' => 'Second-node'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 6,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -339,12 +339,12 @@ $result_trees{'complex_split_at_node'} = [
                           'normalized' => 'Third-node-unnumbered'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 7,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -396,12 +396,12 @@ $result_trees{'complex_split_at_node'} = [
                           'normalized' => 'continuity'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -453,12 +453,12 @@ $result_trees{'complex_split_at_node'} = [
                           'normalized' => 'Last-node-no-description'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 9,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -484,23 +484,23 @@ $result_trees{'complex_split_at_node'} = [
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 10,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
                     'end_command' => {}
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 3,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -510,12 +510,12 @@ $result_trees{'complex_split_at_node'} = [
                 }
               ],
               'extra' => {},
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -589,12 +589,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'First-node',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -693,12 +693,12 @@ $result_trees{'complex_split_at_node'} = [
                           'normalized' => 'unnumbered'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 17,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -750,12 +750,12 @@ $result_trees{'complex_split_at_node'} = [
                           'normalized' => 'unnumbered2'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 18,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -807,12 +807,12 @@ $result_trees{'complex_split_at_node'} = [
                           'normalized' => 'numbered'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 19,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -856,23 +856,23 @@ $result_trees{'complex_split_at_node'} = [
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
                     'end_command' => {}
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 16,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -884,12 +884,12 @@ $result_trees{'complex_split_at_node'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -925,12 +925,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'unnumbered',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 23,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1018,12 +1018,12 @@ $result_trees{'complex_split_at_node'} = [
                           'normalized' => 'unnumbered-sub'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 27,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -1075,12 +1075,12 @@ $result_trees{'complex_split_at_node'} = [
                           'normalized' => 'numbered-sub'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 28,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -1132,12 +1132,12 @@ $result_trees{'complex_split_at_node'} = [
                           'normalized' => 'unnumbered-sub2'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 29,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -1189,12 +1189,12 @@ $result_trees{'complex_split_at_node'} = [
                           'normalized' => 'numbered-sub2'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 30,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -1220,23 +1220,23 @@ $result_trees{'complex_split_at_node'} = [
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 31,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
                     'end_command' => {}
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 26,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1248,12 +1248,12 @@ $result_trees{'complex_split_at_node'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 24,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1289,12 +1289,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'unnumbered-sub',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 33,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1325,12 +1325,12 @@ $result_trees{'complex_split_at_node'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 34,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1366,12 +1366,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'numbered-sub',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 36,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1402,12 +1402,12 @@ $result_trees{'complex_split_at_node'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 37,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1443,12 +1443,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'unnumbered-sub2',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 39,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1479,12 +1479,12 @@ $result_trees{'complex_split_at_node'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 40,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1520,12 +1520,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'numbered-sub2',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 42,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1556,12 +1556,12 @@ $result_trees{'complex_split_at_node'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 43,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1597,12 +1597,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'unnumbered2',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 45,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1690,12 +1690,12 @@ $result_trees{'complex_split_at_node'} = [
                           'normalized' => 'numbered-sub3'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 49,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -1721,23 +1721,23 @@ $result_trees{'complex_split_at_node'} = [
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 50,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
                     'end_command' => {}
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 48,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1749,12 +1749,12 @@ $result_trees{'complex_split_at_node'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 46,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1790,12 +1790,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'numbered-sub3',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 52,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1832,12 +1832,12 @@ $result_trees{'complex_split_at_node'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 53,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1873,12 +1873,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'numbered',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 56,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1909,12 +1909,12 @@ $result_trees{'complex_split_at_node'} = [
               'extra' => {
                 'spaces_before_argument' => '  '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 57,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -2002,12 +2002,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'between-node',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 59,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -2105,12 +2105,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'Second-node',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 63,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -2158,12 +2158,12 @@ $result_trees{'complex_split_at_node'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 67,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -2199,12 +2199,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'Third-node-unnumbered',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 71,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -2252,12 +2252,12 @@ $result_trees{'complex_split_at_node'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 72,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -2348,12 +2348,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'continuity',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 76,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -2406,12 +2406,12 @@ $result_trees{'complex_split_at_node'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 77,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -2473,12 +2473,12 @@ $result_trees{'complex_split_at_node'} = [
                     }
                   ],
                   'cmdname' => 'contents',
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 84,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -2509,12 +2509,12 @@ $result_trees{'complex_split_at_node'} = [
                 'normalized' => 'Last-node-no-description',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 82,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [

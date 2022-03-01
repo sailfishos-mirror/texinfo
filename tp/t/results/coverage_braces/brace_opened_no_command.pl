@@ -44,12 +44,12 @@ $result_trees{'brace_opened_no_command'} = {
                 ],
                 'normalized' => 'truc'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

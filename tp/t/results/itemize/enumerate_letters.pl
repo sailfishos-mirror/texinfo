@@ -47,12 +47,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 1,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -73,12 +73,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 2,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -99,12 +99,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 3,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -125,12 +125,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 4,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -151,12 +151,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 5,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -177,12 +177,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 6,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -203,12 +203,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 7,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -229,12 +229,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 8,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -255,12 +255,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 9,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -281,12 +281,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 10,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -307,12 +307,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 11,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -333,12 +333,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 12,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -359,12 +359,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 13,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -385,12 +385,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 14,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -411,12 +411,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 15,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 16,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -437,12 +437,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 16,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 17,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -463,12 +463,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 17,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 18,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -489,12 +489,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 18,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -515,12 +515,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 19,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 20,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -541,12 +541,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 20,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 21,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -567,12 +567,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 21,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 22,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -593,12 +593,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 22,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 23,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -619,12 +619,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 23,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 24,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -645,12 +645,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 24,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 25,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -671,12 +671,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 25,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 26,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -697,12 +697,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 26,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 27,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -723,12 +723,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 27,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 28,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -749,12 +749,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 28,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 29,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -775,12 +775,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 29,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 30,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -801,12 +801,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 30,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 31,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -827,12 +827,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 31,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 32,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -853,12 +853,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 32,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 33,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -879,12 +879,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 33,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 34,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -905,12 +905,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 34,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 35,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -931,12 +931,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 35,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 36,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -957,12 +957,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 36,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 37,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -983,12 +983,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 37,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 38,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1009,12 +1009,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 38,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 39,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1035,12 +1035,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 39,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 40,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1061,12 +1061,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 40,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 41,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1087,12 +1087,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 41,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 42,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1113,12 +1113,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 42,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 43,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1139,12 +1139,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 43,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 44,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1165,12 +1165,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 44,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 45,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1191,12 +1191,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 45,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 46,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1217,12 +1217,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 46,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 47,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1243,12 +1243,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 47,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 48,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1269,12 +1269,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 48,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 49,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1295,12 +1295,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 49,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 50,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1321,12 +1321,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 50,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 51,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1347,12 +1347,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 51,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 52,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1373,12 +1373,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 52,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 53,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1399,12 +1399,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 53,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 54,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1425,12 +1425,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 54,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 55,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1451,12 +1451,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 55,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 56,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1477,12 +1477,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 56,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 57,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1503,12 +1503,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 57,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 58,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1529,12 +1529,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 58,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 59,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1555,12 +1555,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 59,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 60,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1581,12 +1581,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 60,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 61,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1607,12 +1607,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 61,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 62,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1633,12 +1633,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 62,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 63,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1659,12 +1659,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 63,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 64,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1685,12 +1685,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 64,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 65,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1711,12 +1711,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 65,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 66,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1737,12 +1737,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 66,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 67,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1763,12 +1763,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 67,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 68,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1789,12 +1789,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 68,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 69,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1815,12 +1815,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 69,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 70,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1841,12 +1841,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 70,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 71,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1867,12 +1867,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 71,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 72,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1893,12 +1893,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 72,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 73,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1919,12 +1919,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 73,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 74,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1945,12 +1945,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 74,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 75,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1971,12 +1971,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 75,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 76,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -1997,12 +1997,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 76,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 77,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2023,12 +2023,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 77,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 78,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2049,12 +2049,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 78,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 79,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2075,12 +2075,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 79,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 80,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2101,12 +2101,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 80,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 81,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2127,12 +2127,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 81,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 82,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2153,12 +2153,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 82,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 83,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2179,12 +2179,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 83,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 84,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2205,12 +2205,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 84,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 85,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2231,12 +2231,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 85,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 86,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2257,12 +2257,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 86,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 87,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2283,12 +2283,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 87,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 88,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2309,12 +2309,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 88,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 89,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2335,12 +2335,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 89,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 90,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2361,12 +2361,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 90,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 91,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2387,12 +2387,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 91,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 92,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2413,12 +2413,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 92,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 93,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2439,12 +2439,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 93,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 94,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2465,12 +2465,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 94,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 95,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2491,12 +2491,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 95,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 96,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2517,12 +2517,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 96,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 97,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2543,12 +2543,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 97,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 98,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2569,12 +2569,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 98,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 99,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2595,12 +2595,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 99,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 100,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2621,12 +2621,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 100,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 101,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2647,12 +2647,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 101,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 102,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2673,12 +2673,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 102,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 103,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2699,12 +2699,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 103,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 104,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2725,12 +2725,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 104,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 105,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2751,12 +2751,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 105,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 106,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2777,12 +2777,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 106,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 107,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2803,12 +2803,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 107,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 108,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2829,12 +2829,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 108,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 109,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2855,12 +2855,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 109,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 110,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2881,12 +2881,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 110,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 111,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2907,12 +2907,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 111,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 112,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2933,12 +2933,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 112,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 113,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2959,12 +2959,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 113,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 114,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -2985,12 +2985,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 114,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 115,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3011,12 +3011,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 115,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 116,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3037,12 +3037,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 116,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 117,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3063,12 +3063,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 117,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 118,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3089,12 +3089,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 118,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 119,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3115,12 +3115,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 119,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 120,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3141,12 +3141,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 120,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 121,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3167,12 +3167,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 121,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 122,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3193,12 +3193,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 122,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 123,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3219,12 +3219,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 123,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 124,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3245,12 +3245,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 124,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 125,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3271,12 +3271,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 125,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 126,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3297,12 +3297,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 126,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 127,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3323,12 +3323,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 127,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 128,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3349,12 +3349,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 128,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 129,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3375,12 +3375,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 129,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 130,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3401,12 +3401,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 130,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 131,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3427,12 +3427,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 131,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 132,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3453,12 +3453,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 132,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 133,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3479,12 +3479,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 133,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 134,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3505,12 +3505,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 134,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 135,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3531,12 +3531,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 135,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 136,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3557,12 +3557,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 136,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 137,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3583,12 +3583,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 137,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 138,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3609,12 +3609,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 138,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 139,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3635,12 +3635,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 139,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 140,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3661,12 +3661,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 140,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 141,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3687,12 +3687,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 141,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 142,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3713,12 +3713,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 142,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 143,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3739,12 +3739,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 143,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 144,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3765,12 +3765,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 144,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 145,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3791,12 +3791,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 145,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 146,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3817,12 +3817,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 146,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 147,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3843,12 +3843,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 147,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 148,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3869,12 +3869,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 148,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 149,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3895,12 +3895,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 149,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 150,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3921,12 +3921,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 150,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 151,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3947,12 +3947,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 151,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 152,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3973,12 +3973,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 152,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 153,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -3999,12 +3999,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 153,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 154,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4025,12 +4025,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 154,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 155,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4051,12 +4051,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 155,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 156,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4077,12 +4077,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 156,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 157,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4103,12 +4103,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 157,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 158,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4129,12 +4129,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 158,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 159,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4155,12 +4155,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 159,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 160,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4181,12 +4181,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 160,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 161,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4207,12 +4207,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 161,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 162,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4233,12 +4233,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 162,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 163,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4259,12 +4259,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 163,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 164,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4285,12 +4285,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 164,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 165,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4311,12 +4311,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 165,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 166,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4337,12 +4337,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 166,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 167,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4363,12 +4363,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 167,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 168,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4389,12 +4389,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 168,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 169,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4415,12 +4415,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 169,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 170,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4441,12 +4441,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 170,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 171,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4467,12 +4467,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 171,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 172,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4493,12 +4493,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 172,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 173,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4519,12 +4519,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 173,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 174,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4545,12 +4545,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 174,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 175,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4571,12 +4571,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 175,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 176,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4597,12 +4597,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 176,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 177,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4623,12 +4623,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 177,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 178,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4649,12 +4649,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 178,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 179,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4675,12 +4675,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 179,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 180,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4701,12 +4701,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 180,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 181,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4727,12 +4727,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 181,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 182,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4753,12 +4753,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 182,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 183,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4779,12 +4779,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 183,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 184,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4805,12 +4805,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 184,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 185,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4831,12 +4831,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 185,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 186,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4857,12 +4857,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 186,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 187,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4883,12 +4883,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 187,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 188,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4909,12 +4909,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 188,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 189,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4935,12 +4935,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 189,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 190,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4961,12 +4961,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 190,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 191,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -4987,12 +4987,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 191,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 192,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5013,12 +5013,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 192,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 193,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5039,12 +5039,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 193,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 194,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5065,12 +5065,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 194,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 195,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5091,12 +5091,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 195,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 196,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5117,12 +5117,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 196,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 197,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5143,12 +5143,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 197,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 198,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5169,12 +5169,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 198,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 199,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5195,12 +5195,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 199,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 200,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5221,12 +5221,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 200,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 201,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5247,12 +5247,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 201,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 202,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5273,12 +5273,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 202,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 203,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5299,12 +5299,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 203,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 204,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5325,12 +5325,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 204,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 205,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5351,12 +5351,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 205,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 206,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'cmdname' => 'item',
@@ -5377,12 +5377,12 @@ $result_trees{'enumerate_letters'} = {
                 'item_number' => 206,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 207,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -5407,12 +5407,12 @@ $result_trees{'enumerate_letters'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 208,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -5420,12 +5420,12 @@ $result_trees{'enumerate_letters'} = {
             'enumerate_specification' => 'c',
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

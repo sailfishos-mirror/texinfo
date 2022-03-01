@@ -40,12 +40,12 @@ $result_trees{'multiline_verb_after_space'} = {
               'extra' => {
                 'delimiter' => '*'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

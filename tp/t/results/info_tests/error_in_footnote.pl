@@ -110,12 +110,12 @@ $result_trees{'error_in_footnote'} = {
                         {
                           'cmdname' => 'TeX',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 8,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -141,12 +141,12 @@ $result_trees{'error_in_footnote'} = {
                           ],
                           'cmdname' => 'strong',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -166,12 +166,12 @@ $result_trees{'error_in_footnote'} = {
                                     {
                                       'cmdname' => 'LaTeX',
                                       'contents' => [],
-                                      'line_nr' => {
+                                      'parent' => {},
+                                      'source_info' => {
                                         'file_name' => '',
                                         'line_nr' => 10,
                                         'macro' => ''
-                                      },
-                                      'parent' => {}
+                                      }
                                     },
                                     {
                                       'parent' => {},
@@ -197,12 +197,12 @@ $result_trees{'error_in_footnote'} = {
                                       ],
                                       'cmdname' => 'strong',
                                       'contents' => [],
-                                      'line_nr' => {
+                                      'parent' => {},
+                                      'source_info' => {
                                         'file_name' => '',
                                         'line_nr' => 11,
                                         'macro' => ''
-                                      },
-                                      'parent' => {}
+                                      }
                                     },
                                     {
                                       'parent' => {},
@@ -219,12 +219,12 @@ $result_trees{'error_in_footnote'} = {
                           ],
                           'cmdname' => 'footnote',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 10,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -240,12 +240,12 @@ $result_trees{'error_in_footnote'} = {
               'extra' => {
                 'float' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -275,12 +275,12 @@ $result_trees{'error_in_footnote'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -298,12 +298,12 @@ $result_trees{'error_in_footnote'} = {
               'normalized' => 'Text'
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -338,12 +338,12 @@ $result_trees{'error_in_footnote'} = {
               'normalized' => 'Text'
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 14,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -378,12 +378,12 @@ $result_trees{'error_in_footnote'} = {
               'normalized' => 'Text'
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 16,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'extra' => {
@@ -401,12 +401,12 @@ $result_trees{'error_in_footnote'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

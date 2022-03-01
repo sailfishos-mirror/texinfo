@@ -23,12 +23,12 @@ $result_trees{'empty_macro_no_arg'} = {
             'arg_line' => ' foo
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

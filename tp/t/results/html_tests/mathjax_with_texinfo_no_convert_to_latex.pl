@@ -40,12 +40,12 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                           'text' => '\\xi'
                         }
                       ],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'bracketed'
                     },
                     {
@@ -64,20 +64,20 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                           ],
                           'cmdname' => 'copyright',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 2,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'bracketed'
                     }
                   ],
@@ -87,12 +87,12 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
               ],
               'cmdname' => 'sup',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -113,12 +113,12 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
               ],
               'cmdname' => 'dotless',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -148,23 +148,23 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'displaymath'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -196,12 +196,12 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                       ],
                       'cmdname' => 'minus',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -217,12 +217,12 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                       ],
                       'cmdname' => 'geq',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -238,12 +238,12 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                       ],
                       'cmdname' => 'AA',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -264,12 +264,12 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
                       ],
                       'cmdname' => '^',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -278,12 +278,12 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
               ],
               'cmdname' => 'math',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

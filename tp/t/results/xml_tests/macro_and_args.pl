@@ -33,12 +33,12 @@ $result_trees{'macro_and_args'} = {
             'arg_line' => ' good { aaa, 2b-bb}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -82,12 +82,12 @@ $result_trees{'macro_and_args'} = {
 ',
             'invalid_syntax' => 1
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

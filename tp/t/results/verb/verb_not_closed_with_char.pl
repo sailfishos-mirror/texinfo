@@ -54,12 +54,12 @@ $result_trees{'verb_not_closed_with_char'} = {
               'extra' => {
                 'delimiter' => '*'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},

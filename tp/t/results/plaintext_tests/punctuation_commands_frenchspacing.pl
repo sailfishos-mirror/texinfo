@@ -33,12 +33,12 @@ $result_trees{'punctuation_commands_frenchspacing'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -127,12 +127,12 @@ $result_trees{'punctuation_commands_frenchspacing'} = {
               ],
               'cmdname' => 'enddots',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -148,12 +148,12 @@ $result_trees{'punctuation_commands_frenchspacing'} = {
               ],
               'cmdname' => 'enddots',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -225,12 +225,12 @@ $result_trees{'punctuation_commands_frenchspacing'} = {
               ],
               'cmdname' => 'enddots',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -312,12 +312,12 @@ $result_trees{'punctuation_commands_frenchspacing'} = {
               ],
               'cmdname' => 'enddots',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 17,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

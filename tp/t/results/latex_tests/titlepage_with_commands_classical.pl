@@ -33,12 +33,12 @@ $result_trees{'titlepage_with_commands_classical'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'titlepage_with_commands_classical.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -92,23 +92,23 @@ $result_trees{'titlepage_with_commands_classical'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 5,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -157,12 +157,12 @@ $result_trees{'titlepage_with_commands_classical'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 8,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
@@ -193,12 +193,12 @@ $result_trees{'titlepage_with_commands_classical'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 9,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
@@ -229,12 +229,12 @@ $result_trees{'titlepage_with_commands_classical'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 10,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
@@ -266,12 +266,12 @@ $result_trees{'titlepage_with_commands_classical'} = {
                     'spaces_before_argument' => ' ',
                     'titlepage' => {}
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 11,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
@@ -349,12 +349,12 @@ $result_trees{'titlepage_with_commands_classical'} = {
                                           'text' => 'a'
                                         }
                                       ],
-                                      'line_nr' => {
+                                      'parent' => {},
+                                      'source_info' => {
                                         'file_name' => '',
                                         'line_nr' => 17,
                                         'macro' => ''
                                       },
-                                      'parent' => {},
                                       'type' => 'bracketed'
                                     },
                                     {
@@ -364,12 +364,12 @@ $result_trees{'titlepage_with_commands_classical'} = {
                                           'text' => 'b'
                                         }
                                       ],
-                                      'line_nr' => {
+                                      'parent' => {},
+                                      'source_info' => {
                                         'file_name' => '',
                                         'line_nr' => 17,
                                         'macro' => ''
                                       },
-                                      'parent' => {},
                                       'type' => 'bracketed'
                                     },
                                     {
@@ -400,23 +400,23 @@ $result_trees{'titlepage_with_commands_classical'} = {
                                         'spaces_before_argument' => ' ',
                                         'text_arg' => 'displaymath'
                                       },
-                                      'line_nr' => {
+                                      'parent' => {},
+                                      'source_info' => {
                                         'file_name' => '',
                                         'line_nr' => 18,
                                         'macro' => ''
-                                      },
-                                      'parent' => {}
+                                      }
                                     }
                                   ],
                                   'extra' => {
                                     'end_command' => {}
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 16,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'parent' => {},
@@ -425,12 +425,12 @@ $result_trees{'titlepage_with_commands_classical'} = {
                           ],
                           'cmdname' => 'footnote',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 12,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -446,12 +446,12 @@ $result_trees{'titlepage_with_commands_classical'} = {
                     'spaces_before_argument' => ' ',
                     'titlepage' => {}
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 12,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
@@ -523,12 +523,12 @@ $result_trees{'titlepage_with_commands_classical'} = {
                     }
                   ],
                   'cmdname' => 'insertcopying',
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 24,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
@@ -553,23 +553,23 @@ $result_trees{'titlepage_with_commands_classical'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 25,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -619,12 +619,12 @@ $result_trees{'titlepage_with_commands_classical'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 27,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -655,12 +655,12 @@ $result_trees{'titlepage_with_commands_classical'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 28,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -696,12 +696,12 @@ $result_trees{'titlepage_with_commands_classical'} = {
         'normalized' => 'chapter',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 30,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -749,12 +749,12 @@ $result_trees{'titlepage_with_commands_classical'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 31,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

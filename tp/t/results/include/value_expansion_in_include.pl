@@ -191,12 +191,12 @@ $result_trees{'value_expansion_in_include'} = {
               ],
               'cmdname' => 'emph',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'incl-incl.txi',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -246,12 +246,12 @@ $result_trees{'value_expansion_in_include'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'incl-incl.txi'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 14,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -286,12 +286,12 @@ $result_trees{'value_expansion_in_include'} = {
               ],
               'cmdname' => 'emph',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'incl-incl.txi',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -341,12 +341,12 @@ $result_trees{'value_expansion_in_include'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'incl-incl.txi'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 19,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -381,12 +381,12 @@ $result_trees{'value_expansion_in_include'} = {
               ],
               'cmdname' => 'emph',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'incl-incl.txi',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -436,12 +436,12 @@ $result_trees{'value_expansion_in_include'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'incl-incl.txi'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 24,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'extra' => {
@@ -459,12 +459,12 @@ $result_trees{'value_expansion_in_include'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 10,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

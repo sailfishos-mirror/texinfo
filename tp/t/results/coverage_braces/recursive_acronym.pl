@@ -40,12 +40,12 @@ $result_trees{'recursive_acronym'} = {
                       ],
                       'cmdname' => 'acronym',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -61,12 +61,12 @@ $result_trees{'recursive_acronym'} = {
               ],
               'cmdname' => 'acronym',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

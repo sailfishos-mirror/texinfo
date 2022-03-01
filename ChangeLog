@@ -1,3 +1,26 @@
+2022-03-01  Patrice Dumas  <pertusus@free.fr>
+
+	Rename line_nr as source_info except when a line number
+
+	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/DocBook.pm,
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/Info.pm,
+	tp/Texinfo/Convert/NodeNameNormalization.pm,
+	tp/Texinfo/Convert/Plaintext.pm, tp/Texinfo/Convert/Utils.pm,
+	tp/Texinfo/ParserNonXS.pm, tp/Texinfo/Report.pm,
+	tp/Texinfo/Structuring.pm, tp/Texinfo/Transformations.pm,
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm, tp/Texinfo/XS/parsetexi/api.c,
+	tp/Texinfo/XS/parsetexi/end_line.c, tp/Texinfo/XS/parsetexi/errors.c,
+	tp/Texinfo/XS/parsetexi/handle_commands.c,
+	tp/Texinfo/XS/parsetexi/input.c (current_source_info),
+	tp/Texinfo/XS/parsetexi/macro.c, tp/Texinfo/XS/parsetexi/menus.c,
+	tp/Texinfo/XS/parsetexi/parser.c, tp/Texinfo/XS/parsetexi/separator.c,
+	tp/Texinfo/XS/parsetexi/tree_types.h (SOURCE_INFO):
+	rename line_nr variables and structures as source_info.
+	rename global line_nr as current_source_info in XS parser.
+	rename the LINE_NR type as SOURCE_INFO.
+
+	* tp/Texinfo/Report.pm: change in spacing.
+
 2022-02-28  Patrice Dumas  <pertusus@free.fr>
 
 	Allow customization of input file name and output file name encoding

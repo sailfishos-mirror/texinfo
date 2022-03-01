@@ -70,12 +70,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'punctuation_small_case_accents_utf8.texi',
         'line_nr' => 3,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -106,12 +106,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'punctuation_small_case_accents_utf8.texi',
         'line_nr' => 4,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -147,12 +147,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
         'normalized' => 'node-chap',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'punctuation_small_case_accents_utf8.texi',
         'line_nr' => 6,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -213,12 +213,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => '\'',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -239,12 +239,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'dfn',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -265,12 +265,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -291,12 +291,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'samp',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -312,12 +312,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'comma',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -333,12 +333,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'exclamdown',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -354,12 +354,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'dots',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -376,12 +376,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'geq',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -397,12 +397,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'enddots',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -418,12 +418,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'AA',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -444,12 +444,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => '\'',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -470,12 +470,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'dotaccent',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -491,12 +491,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'l',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -512,12 +512,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'copyright',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -533,12 +533,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'error',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -555,12 +555,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'quotedblleft',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -576,12 +576,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'quotedblright',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -597,12 +597,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'expansion',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -619,12 +619,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'minus',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -640,12 +640,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'registeredsymbol',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -685,12 +685,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'u',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 17,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -712,12 +712,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => '^',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 18,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -734,12 +734,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'aa',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -755,12 +755,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'AA',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -781,12 +781,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => '^',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -807,12 +807,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => '^',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -837,12 +837,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                       ],
                       'cmdname' => 'dotless',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 19,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -851,12 +851,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => '~',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -877,12 +877,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'dotless',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -903,12 +903,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'udotaccent',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -933,12 +933,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                       ],
                       'cmdname' => '\'',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 19,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -947,12 +947,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'v',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -981,12 +981,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                               ],
                               'cmdname' => '~',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                                 'line_nr' => 19,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -995,12 +995,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                       ],
                       'cmdname' => ',',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 19,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -1009,12 +1009,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => '=',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1031,12 +1031,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'equiv',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 20,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1057,12 +1057,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                       ],
                       'cmdname' => 'aa',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1078,12 +1078,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                       ],
                       'cmdname' => 'AA',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1104,12 +1104,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                       ],
                       'cmdname' => '^',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1130,12 +1130,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                       ],
                       'cmdname' => '^',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1160,12 +1160,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                               ],
                               'cmdname' => 'dotless',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                                 'line_nr' => 21,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -1174,12 +1174,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                       ],
                       'cmdname' => '~',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1200,12 +1200,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                       ],
                       'cmdname' => 'dotless',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1226,12 +1226,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                       ],
                       'cmdname' => 'udotaccent',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1256,12 +1256,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                               ],
                               'cmdname' => '\'',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                                 'line_nr' => 21,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -1270,12 +1270,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                       ],
                       'cmdname' => 'v',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1304,12 +1304,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                                       ],
                                       'cmdname' => '~',
                                       'contents' => [],
-                                      'line_nr' => {
+                                      'parent' => {},
+                                      'source_info' => {
                                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                                         'line_nr' => 21,
                                         'macro' => ''
-                                      },
-                                      'parent' => {}
+                                      }
                                     }
                                   ],
                                   'parent' => {},
@@ -1318,12 +1318,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                               ],
                               'cmdname' => ',',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                                 'line_nr' => 21,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -1332,12 +1332,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
                       ],
                       'cmdname' => '=',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -1346,12 +1346,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
               ],
               'cmdname' => 'sc',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 21,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1372,12 +1372,12 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'punctuation_small_case_accents_utf8.texi',
         'line_nr' => 7,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

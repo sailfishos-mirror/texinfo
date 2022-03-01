@@ -52,12 +52,12 @@ $result_trees{'quote_node_names'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodequote.texi',
         'line_nr' => 1,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -144,12 +144,12 @@ $result_trees{'quote_node_names'} = {
                     'normalized' => 'normal-node',
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'nodequote.texi',
                     'line_nr' => 35,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -158,12 +158,12 @@ $result_trees{'quote_node_names'} = {
                   'normalized' => 'normal-node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -207,12 +207,12 @@ $result_trees{'quote_node_names'} = {
                   'normalized' => 'normal-node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -294,12 +294,12 @@ $result_trees{'quote_node_names'} = {
                     'normalized' => 'blah_003ablah',
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'nodequote.texi',
                     'line_nr' => 27,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -308,12 +308,12 @@ $result_trees{'quote_node_names'} = {
                   'normalized' => 'blah_003ablah'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -357,12 +357,12 @@ $result_trees{'quote_node_names'} = {
                   'normalized' => 'blah_003ablah'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -444,12 +444,12 @@ $result_trees{'quote_node_names'} = {
                     'normalized' => 'blumpty_002efump',
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'nodequote.texi',
                     'line_nr' => 32,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -458,12 +458,12 @@ $result_trees{'quote_node_names'} = {
                   'normalized' => 'blumpty_002efump'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -507,12 +507,12 @@ $result_trees{'quote_node_names'} = {
                   'normalized' => 'blumpty_002efump'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -555,12 +555,12 @@ $result_trees{'quote_node_names'} = {
                   'normalized' => 'blah_003ablah'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -598,12 +598,12 @@ $result_trees{'quote_node_names'} = {
                       ],
                       'cmdname' => 'asis',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'nodequote.texi',
                         'line_nr' => 15,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -632,12 +632,12 @@ $result_trees{'quote_node_names'} = {
                           ],
                           'cmdname' => 'asis',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => 'nodequote.texi',
                             'line_nr' => 38,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -665,12 +665,12 @@ $result_trees{'quote_node_names'} = {
                     'normalized' => 'secret_002cnode',
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'nodequote.texi',
                     'line_nr' => 38,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -679,12 +679,12 @@ $result_trees{'quote_node_names'} = {
                   'normalized' => 'secret_002cnode'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 15,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -731,12 +731,12 @@ $result_trees{'quote_node_names'} = {
                   'normalized' => 'blah_003ablah'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 17,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -793,12 +793,12 @@ $result_trees{'quote_node_names'} = {
                       ],
                       'cmdname' => 'asis',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'nodequote.texi',
                         'line_nr' => 20,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -842,12 +842,12 @@ $result_trees{'quote_node_names'} = {
                   'normalized' => 'blah_003ablah'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 20,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -893,12 +893,12 @@ $result_trees{'quote_node_names'} = {
                       ],
                       'cmdname' => 'asis',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'nodequote.texi',
                         'line_nr' => 21,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -943,12 +943,12 @@ $result_trees{'quote_node_names'} = {
                   'normalized' => 'blumpty_002efump'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 21,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -1000,12 +1000,12 @@ $result_trees{'quote_node_names'} = {
                   'normalized' => 'normal-node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 22,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -1036,12 +1036,12 @@ $result_trees{'quote_node_names'} = {
                       ],
                       'cmdname' => 'asis',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'nodequote.texi',
                         'line_nr' => 23,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1073,12 +1073,12 @@ $result_trees{'quote_node_names'} = {
                       ],
                       'cmdname' => 'asis',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'nodequote.texi',
                         'line_nr' => 23,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -1117,12 +1117,12 @@ $result_trees{'quote_node_names'} = {
                   'normalized' => 'secret_002cnode'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 23,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -1166,23 +1166,23 @@ $result_trees{'quote_node_names'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 25,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodequote.texi',
             'line_nr' => 19,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1192,12 +1192,12 @@ $result_trees{'quote_node_names'} = {
         }
       ],
       'extra' => {},
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodequote.texi',
         'line_nr' => 2,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {},
     {
@@ -1246,12 +1246,12 @@ $result_trees{'quote_node_names'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodequote.texi',
         'line_nr' => 28,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {},
     {
@@ -1283,12 +1283,12 @@ $result_trees{'quote_node_names'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodequote.texi',
         'line_nr' => 33,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {},
     {
@@ -1320,12 +1320,12 @@ $result_trees{'quote_node_names'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodequote.texi',
         'line_nr' => 36,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {},
     {
@@ -1347,12 +1347,12 @@ $result_trees{'quote_node_names'} = {
               ],
               'cmdname' => 'asis',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodequote.texi',
                 'line_nr' => 39,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -1375,12 +1375,12 @@ $result_trees{'quote_node_names'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodequote.texi',
         'line_nr' => 39,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1434,12 +1434,12 @@ $result_trees{'quote_node_names'} = {
         'normalized' => 'top-secret-node',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodequote.texi',
         'line_nr' => 41,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

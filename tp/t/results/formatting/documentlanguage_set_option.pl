@@ -69,12 +69,12 @@ $result_trees{'documentlanguage_set_option'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'documentlanguage_set.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'documentlanguage_set.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -98,12 +98,12 @@ $result_trees{'documentlanguage_set_option'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'pt'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'documentlanguage_set.texi',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -134,12 +134,12 @@ $result_trees{'documentlanguage_set_option'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'documentlanguage_set.texi',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -189,12 +189,12 @@ $result_trees{'documentlanguage_set_option'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'documentlanguage_set.texi',
         'line_nr' => 7,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -246,12 +246,12 @@ $result_trees{'documentlanguage_set_option'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'documentlanguage_set.texi',
         'line_nr' => 8,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

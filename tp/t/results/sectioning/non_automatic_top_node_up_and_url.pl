@@ -69,12 +69,12 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                               ],
                               'cmdname' => 'acronym',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 1,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             },
                             {
                               'parent' => {},
@@ -90,12 +90,12 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                       ],
                       'cmdname' => 'acronym',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -139,12 +139,12 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                               ],
                               'cmdname' => 'acronym',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 1,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             },
                             {
                               'parent' => {},
@@ -160,12 +160,12 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                       ],
                       'cmdname' => 'acronym',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -218,12 +218,12 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                 'normalized' => 'Top',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -311,12 +311,12 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                           'normalized' => 'first'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -342,23 +342,23 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 6,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
                     'end_command' => {}
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 4,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -370,12 +370,12 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -441,12 +441,12 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                               ],
                               'cmdname' => 'acronym',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 8,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             },
                             {
                               'parent' => {},
@@ -462,12 +462,12 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                       ],
                       'cmdname' => 'acronym',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -514,12 +514,12 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
                 'normalized' => 'first',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'type' => 'document_root'

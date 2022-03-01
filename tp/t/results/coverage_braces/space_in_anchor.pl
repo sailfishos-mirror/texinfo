@@ -34,12 +34,12 @@ $result_trees{'space_in_anchor'} = {
             ],
             'normalized' => 'anchor-name'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [

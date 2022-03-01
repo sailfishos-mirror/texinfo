@@ -43,12 +43,12 @@ $result_trees{'inlineifsetifclear'} = {
                 'expand_index' => 1,
                 'format' => 'aaa'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -90,12 +90,12 @@ $result_trees{'inlineifsetifclear'} = {
               'extra' => {
                 'format' => 'aaa'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -167,12 +167,12 @@ $result_trees{'inlineifsetifclear'} = {
               'extra' => {
                 'format' => 'aaa'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -223,12 +223,12 @@ $result_trees{'inlineifsetifclear'} = {
                 'expand_index' => 1,
                 'format' => 'aaa'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

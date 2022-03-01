@@ -47,12 +47,12 @@ $result_trees{'test_image'} = {
             'arg_line' => ' files-char
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -148,12 +148,12 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -238,12 +238,12 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -255,12 +255,12 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 9,
                     'macro' => 'files-char'
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -346,12 +346,12 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -412,12 +412,12 @@ $result_trees{'test_image'} = {
                                           ],
                                           'cmdname' => 'dotless',
                                           'contents' => [],
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 9,
                                             'macro' => 'files-char'
-                                          },
-                                          'parent' => {}
+                                          }
                                         }
                                       ],
                                       'parent' => {},
@@ -426,12 +426,12 @@ $result_trees{'test_image'} = {
                                   ],
                                   'cmdname' => '^',
                                   'contents' => [],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 9,
                                     'macro' => 'files-char'
-                                  },
-                                  'parent' => {}
+                                  }
                                 },
                                 {
                                   'parent' => {},
@@ -456,12 +456,12 @@ $result_trees{'test_image'} = {
                           ],
                           'cmdname' => 'b',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -498,12 +498,12 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -574,12 +574,12 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -591,12 +591,12 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 9,
                     'macro' => 'files-char'
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -630,23 +630,23 @@ $result_trees{'test_image'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 7,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -746,12 +746,12 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'delimiter' => ':'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 14,
                     'macro' => 'files-char'
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -836,12 +836,12 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'delimiter' => ':'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 14,
                     'macro' => 'files-char'
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'parent' => {},
@@ -853,12 +853,12 @@ $result_trees{'test_image'} = {
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 14,
             'macro' => 'files-char'
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -940,12 +940,12 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'delimiter' => ':'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 14,
                         'macro' => 'files-char'
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -1006,12 +1006,12 @@ $result_trees{'test_image'} = {
                                       ],
                                       'cmdname' => 'dotless',
                                       'contents' => [],
-                                      'line_nr' => {
+                                      'parent' => {},
+                                      'source_info' => {
                                         'file_name' => '',
                                         'line_nr' => 14,
                                         'macro' => 'files-char'
-                                      },
-                                      'parent' => {}
+                                      }
                                     }
                                   ],
                                   'parent' => {},
@@ -1020,12 +1020,12 @@ $result_trees{'test_image'} = {
                               ],
                               'cmdname' => '^',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 14,
                                 'macro' => 'files-char'
-                              },
-                              'parent' => {}
+                              }
                             },
                             {
                               'parent' => {},
@@ -1050,12 +1050,12 @@ $result_trees{'test_image'} = {
                       ],
                       'cmdname' => 'b',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 14,
                         'macro' => 'files-char'
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1092,12 +1092,12 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'delimiter' => ':'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 14,
                         'macro' => 'files-char'
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -1168,12 +1168,12 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'delimiter' => ':'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 14,
                         'macro' => 'files-char'
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -1185,12 +1185,12 @@ $result_trees{'test_image'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
                 'macro' => 'files-char'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1228,12 +1228,12 @@ $result_trees{'test_image'} = {
             }
           ],
           'cmdname' => 'insertcopying',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 17,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1318,12 +1318,12 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 20,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -1408,12 +1408,12 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 20,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -1425,12 +1425,12 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 20,
                     'macro' => 'files-char'
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1510,12 +1510,12 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 20,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -1576,12 +1576,12 @@ $result_trees{'test_image'} = {
                                           ],
                                           'cmdname' => 'dotless',
                                           'contents' => [],
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 20,
                                             'macro' => 'files-char'
-                                          },
-                                          'parent' => {}
+                                          }
                                         }
                                       ],
                                       'parent' => {},
@@ -1590,12 +1590,12 @@ $result_trees{'test_image'} = {
                                   ],
                                   'cmdname' => '^',
                                   'contents' => [],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 20,
                                     'macro' => 'files-char'
-                                  },
-                                  'parent' => {}
+                                  }
                                 },
                                 {
                                   'parent' => {},
@@ -1620,12 +1620,12 @@ $result_trees{'test_image'} = {
                           ],
                           'cmdname' => 'b',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 20,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -1662,12 +1662,12 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 20,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -1738,12 +1738,12 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 20,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -1755,12 +1755,12 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 20,
                     'macro' => 'files-char'
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1794,23 +1794,23 @@ $result_trees{'test_image'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 21,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 19,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1911,12 +1911,12 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'delimiter' => ':'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 24,
                         'macro' => 'files-char'
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -2001,12 +2001,12 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'delimiter' => ':'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 24,
                         'macro' => 'files-char'
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -2018,12 +2018,12 @@ $result_trees{'test_image'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 24,
                 'macro' => 'files-char'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2105,12 +2105,12 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 24,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -2171,12 +2171,12 @@ $result_trees{'test_image'} = {
                                           ],
                                           'cmdname' => 'dotless',
                                           'contents' => [],
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 24,
                                             'macro' => 'files-char'
-                                          },
-                                          'parent' => {}
+                                          }
                                         }
                                       ],
                                       'parent' => {},
@@ -2185,12 +2185,12 @@ $result_trees{'test_image'} = {
                                   ],
                                   'cmdname' => '^',
                                   'contents' => [],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 24,
                                     'macro' => 'files-char'
-                                  },
-                                  'parent' => {}
+                                  }
                                 },
                                 {
                                   'parent' => {},
@@ -2215,12 +2215,12 @@ $result_trees{'test_image'} = {
                           ],
                           'cmdname' => 'b',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 24,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -2257,12 +2257,12 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 24,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -2333,12 +2333,12 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 24,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -2350,12 +2350,12 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 24,
                     'macro' => 'files-char'
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -2439,12 +2439,12 @@ $result_trees{'test_image'} = {
                               'extra' => {
                                 'delimiter' => ':'
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 26,
                                 'macro' => 'files-char'
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'extra' => {
@@ -2529,12 +2529,12 @@ $result_trees{'test_image'} = {
                               'extra' => {
                                 'delimiter' => ':'
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 26,
                                 'macro' => 'files-char'
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -2546,12 +2546,12 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'input_perl_encoding' => 'utf-8'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 26,
                         'macro' => 'files-char'
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -2633,12 +2633,12 @@ $result_trees{'test_image'} = {
                                   'extra' => {
                                     'delimiter' => ':'
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 26,
                                     'macro' => 'files-char'
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'extra' => {
@@ -2699,12 +2699,12 @@ $result_trees{'test_image'} = {
                                                   ],
                                                   'cmdname' => 'dotless',
                                                   'contents' => [],
-                                                  'line_nr' => {
+                                                  'parent' => {},
+                                                  'source_info' => {
                                                     'file_name' => '',
                                                     'line_nr' => 26,
                                                     'macro' => 'files-char'
-                                                  },
-                                                  'parent' => {}
+                                                  }
                                                 }
                                               ],
                                               'parent' => {},
@@ -2713,12 +2713,12 @@ $result_trees{'test_image'} = {
                                           ],
                                           'cmdname' => '^',
                                           'contents' => [],
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 26,
                                             'macro' => 'files-char'
-                                          },
-                                          'parent' => {}
+                                          }
                                         },
                                         {
                                           'parent' => {},
@@ -2743,12 +2743,12 @@ $result_trees{'test_image'} = {
                                   ],
                                   'cmdname' => 'b',
                                   'contents' => [],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 26,
                                     'macro' => 'files-char'
-                                  },
-                                  'parent' => {}
+                                  }
                                 },
                                 {
                                   'parent' => {},
@@ -2785,12 +2785,12 @@ $result_trees{'test_image'} = {
                                   'extra' => {
                                     'delimiter' => ':'
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 26,
                                     'macro' => 'files-char'
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'extra' => {
@@ -2861,12 +2861,12 @@ $result_trees{'test_image'} = {
                                   'extra' => {
                                     'delimiter' => ':'
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 26,
                                     'macro' => 'files-char'
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'parent' => {},
@@ -2878,12 +2878,12 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'input_perl_encoding' => 'utf-8'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 26,
                             'macro' => 'files-char'
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -2903,12 +2903,12 @@ $result_trees{'test_image'} = {
               'extra' => {
                 'float' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 26,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2938,12 +2938,12 @@ $result_trees{'test_image'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 27,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -2961,12 +2961,12 @@ $result_trees{'test_image'} = {
               'normalized' => 'Image'
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 23,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3001,12 +3001,12 @@ $result_trees{'test_image'} = {
               'normalized' => 'Image'
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 29,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3030,12 +3030,12 @@ $result_trees{'test_image'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 12,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

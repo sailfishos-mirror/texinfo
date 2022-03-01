@@ -40,12 +40,12 @@ $result_trees{'arg_not_closed'} = {
             'arg_line' => ' foo {arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

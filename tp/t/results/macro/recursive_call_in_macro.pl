@@ -40,12 +40,12 @@ $result_trees{'recursive_call_in_macro'} = {
             'arg_line' => ' anorecurse{arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

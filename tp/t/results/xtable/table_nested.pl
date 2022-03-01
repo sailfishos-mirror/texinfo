@@ -155,12 +155,12 @@ $result_trees{'table_nested'} = {
             'arg_line' => ' myvtable
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -204,12 +204,12 @@ $result_trees{'table_nested'} = {
                     {
                       'cmdname' => 'asis',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 27,
                         'macro' => 'myvtable'
                       },
-                      'parent' => {},
                       'type' => 'command_as_argument'
                     }
                   ],
@@ -259,12 +259,12 @@ $result_trees{'table_nested'} = {
                             },
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 27,
                             'macro' => 'myvtable'
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'args' => [
@@ -298,12 +298,12 @@ $result_trees{'table_nested'} = {
                             },
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 27,
                             'macro' => 'myvtable'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -378,12 +378,12 @@ $result_trees{'table_nested'} = {
                             },
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 27,
                             'macro' => 'myvtable'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -458,12 +458,12 @@ $result_trees{'table_nested'} = {
                             },
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 27,
                             'macro' => 'myvtable'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -496,12 +496,12 @@ $result_trees{'table_nested'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'vtable'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 27,
                     'macro' => 'myvtable'
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -509,12 +509,12 @@ $result_trees{'table_nested'} = {
                 'end_command' => {},
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 27,
                 'macro' => 'myvtable'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -540,12 +540,12 @@ $result_trees{'table_nested'} = {
                     {
                       'cmdname' => 'emph',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 27,
                         'macro' => 'myvtable'
                       },
-                      'parent' => {},
                       'type' => 'command_as_argument'
                     }
                   ],
@@ -584,12 +584,12 @@ $result_trees{'table_nested'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 27,
                             'macro' => 'myvtable'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -641,12 +641,12 @@ $result_trees{'table_nested'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 27,
                             'macro' => 'myvtable'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -696,12 +696,12 @@ $result_trees{'table_nested'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 27,
                     'macro' => 'myvtable'
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -709,12 +709,12 @@ $result_trees{'table_nested'} = {
                 'end_command' => {},
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 27,
                 'macro' => 'myvtable'
-              },
-              'parent' => {}
+              }
             },
             {
               'contents' => [
@@ -750,23 +750,23 @@ $result_trees{'table_nested'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 28,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 26,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -804,12 +804,12 @@ $result_trees{'table_nested'} = {
                     {
                       'cmdname' => 'asis',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 32,
                         'macro' => 'myvtable'
                       },
-                      'parent' => {},
                       'type' => 'command_as_argument'
                     }
                   ],
@@ -859,12 +859,12 @@ $result_trees{'table_nested'} = {
                             },
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 32,
                             'macro' => 'myvtable'
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'args' => [
@@ -898,12 +898,12 @@ $result_trees{'table_nested'} = {
                             },
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 32,
                             'macro' => 'myvtable'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -978,12 +978,12 @@ $result_trees{'table_nested'} = {
                             },
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 32,
                             'macro' => 'myvtable'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -1058,12 +1058,12 @@ $result_trees{'table_nested'} = {
                             },
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 32,
                             'macro' => 'myvtable'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -1096,12 +1096,12 @@ $result_trees{'table_nested'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'vtable'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 32,
                     'macro' => 'myvtable'
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -1109,12 +1109,12 @@ $result_trees{'table_nested'} = {
                 'end_command' => {},
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 32,
                 'macro' => 'myvtable'
-              },
-              'parent' => {}
+              }
             },
             {
               'contents' => [
@@ -1140,12 +1140,12 @@ $result_trees{'table_nested'} = {
                     {
                       'cmdname' => 'emph',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 32,
                         'macro' => 'myvtable'
                       },
-                      'parent' => {},
                       'type' => 'command_as_argument'
                     }
                   ],
@@ -1184,12 +1184,12 @@ $result_trees{'table_nested'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 32,
                             'macro' => 'myvtable'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -1241,12 +1241,12 @@ $result_trees{'table_nested'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 32,
                             'macro' => 'myvtable'
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -1296,12 +1296,12 @@ $result_trees{'table_nested'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 32,
                     'macro' => 'myvtable'
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -1309,12 +1309,12 @@ $result_trees{'table_nested'} = {
                 'end_command' => {},
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 32,
                 'macro' => 'myvtable'
-              },
-              'parent' => {}
+              }
             },
             {
               'contents' => [
@@ -1350,23 +1350,23 @@ $result_trees{'table_nested'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 33,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 31,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1416,12 +1416,12 @@ $result_trees{'table_nested'} = {
                         {
                           'cmdname' => 'asis',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 38,
                             'macro' => 'myvtable'
                           },
-                          'parent' => {},
                           'type' => 'command_as_argument'
                         }
                       ],
@@ -1471,12 +1471,12 @@ $result_trees{'table_nested'} = {
                                 },
                                 'spaces_before_argument' => ' '
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 38,
                                 'macro' => 'myvtable'
-                              },
-                              'parent' => {}
+                              }
                             },
                             {
                               'args' => [
@@ -1510,12 +1510,12 @@ $result_trees{'table_nested'} = {
                                 },
                                 'spaces_before_argument' => ' '
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 38,
                                 'macro' => 'myvtable'
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -1590,12 +1590,12 @@ $result_trees{'table_nested'} = {
                                 },
                                 'spaces_before_argument' => ' '
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 38,
                                 'macro' => 'myvtable'
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -1670,12 +1670,12 @@ $result_trees{'table_nested'} = {
                                 },
                                 'spaces_before_argument' => ' '
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 38,
                                 'macro' => 'myvtable'
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -1708,12 +1708,12 @@ $result_trees{'table_nested'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'vtable'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 38,
                         'macro' => 'myvtable'
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -1721,12 +1721,12 @@ $result_trees{'table_nested'} = {
                     'end_command' => {},
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 38,
                     'macro' => 'myvtable'
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1752,12 +1752,12 @@ $result_trees{'table_nested'} = {
                         {
                           'cmdname' => 'emph',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 38,
                             'macro' => 'myvtable'
                           },
-                          'parent' => {},
                           'type' => 'command_as_argument'
                         }
                       ],
@@ -1796,12 +1796,12 @@ $result_trees{'table_nested'} = {
                               'extra' => {
                                 'spaces_before_argument' => ' '
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 38,
                                 'macro' => 'myvtable'
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -1853,12 +1853,12 @@ $result_trees{'table_nested'} = {
                               'extra' => {
                                 'spaces_before_argument' => ' '
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 38,
                                 'macro' => 'myvtable'
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -1908,12 +1908,12 @@ $result_trees{'table_nested'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'table'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 38,
                         'macro' => 'myvtable'
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -1921,12 +1921,12 @@ $result_trees{'table_nested'} = {
                     'end_command' => {},
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 38,
                     'macro' => 'myvtable'
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'contents' => [
@@ -1962,23 +1962,23 @@ $result_trees{'table_nested'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 39,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 37,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -2003,23 +2003,23 @@ $result_trees{'table_nested'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 40,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 36,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

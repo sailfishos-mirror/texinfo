@@ -31,12 +31,12 @@ $result_trees{'invalid_clickstyle'} = {
               '@result'
             ]
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -63,12 +63,12 @@ $result_trees{'invalid_clickstyle'} = {
               'extra' => {
                 'clickstyle' => 'result'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -101,12 +101,12 @@ $result_trees{'invalid_clickstyle'} = {
               '@nocmd'
             ]
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -133,12 +133,12 @@ $result_trees{'invalid_clickstyle'} = {
               'extra' => {
                 'clickstyle' => 'nocmd'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -161,12 +161,12 @@ $result_trees{'invalid_clickstyle'} = {
             'arg_line' => ' something
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 10,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -193,12 +193,12 @@ $result_trees{'invalid_clickstyle'} = {
               'extra' => {
                 'clickstyle' => 'nocmd'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

@@ -803,11 +803,11 @@ sub _protect_hashchar_at_line_beginning($$$)
     if ($current->{'type'} and $current->{'type'} eq 'raw') {
       my $parent = $current->{'parent'};
       while ($parent) {
-        if ($parent->{'cmdname'} and $parent->{'line_nr'}) {
+        if ($parent->{'cmdname'} and $parent->{'source_info'}) {
           if ($registrar) {
             $registrar->line_warn($configuration_information, sprintf(__(
                 "could not protect hash character in \@%s"),
-                           $parent->{'cmdname'}), $parent->{'line_nr'});
+                           $parent->{'cmdname'}), $parent->{'source_info'});
           }
           last;
         }

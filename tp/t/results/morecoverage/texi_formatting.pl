@@ -51,12 +51,12 @@ $result_trees{'texi_formatting'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'formatting.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -87,12 +87,12 @@ $result_trees{'texi_formatting'} = {
                       ],
                       'cmdname' => '\'',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'formatting.texi',
                         'line_nr' => 4,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -120,12 +120,12 @@ $result_trees{'texi_formatting'} = {
                               ],
                               'cmdname' => 'TeX',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => 'formatting.texi',
                                 'line_nr' => 4,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -134,12 +134,12 @@ $result_trees{'texi_formatting'} = {
                       ],
                       'cmdname' => 'code',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'formatting.texi',
                         'line_nr' => 4,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -158,12 +158,12 @@ $result_trees{'texi_formatting'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},
@@ -253,12 +253,12 @@ $result_trees{'texi_formatting'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 6,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -297,12 +297,12 @@ $result_trees{'texi_formatting'} = {
                               ],
                               'cmdname' => '\'',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => 'formatting.texi',
                                 'line_nr' => 7,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             },
                             {
                               'parent' => {},
@@ -318,12 +318,12 @@ $result_trees{'texi_formatting'} = {
                               ],
                               'cmdname' => 'equiv',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => 'formatting.texi',
                                 'line_nr' => 7,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -332,12 +332,12 @@ $result_trees{'texi_formatting'} = {
                       ],
                       'cmdname' => 'code',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'formatting.texi',
                         'line_nr' => 7,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -394,12 +394,12 @@ $result_trees{'texi_formatting'} = {
                           ],
                           'cmdname' => 'asis',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => 'formatting.texi',
                             'line_nr' => 7,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -425,12 +425,12 @@ $result_trees{'texi_formatting'} = {
                           ],
                           'cmdname' => 'command',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => 'formatting.texi',
                             'line_nr' => 8,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -451,12 +451,12 @@ $result_trees{'texi_formatting'} = {
                           ],
                           'cmdname' => '`',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => 'formatting.texi',
                             'line_nr' => 8,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -481,12 +481,12 @@ $result_trees{'texi_formatting'} = {
                   ]
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 7,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -512,23 +512,23 @@ $result_trees{'texi_formatting'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 9,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 5,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},
@@ -569,12 +569,12 @@ $result_trees{'texi_formatting'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'formatting.texi',
         'line_nr' => 10,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -662,12 +662,12 @@ $result_trees{'texi_formatting'} = {
                   'normalized' => 'chapter'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 14,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -764,12 +764,12 @@ $result_trees{'texi_formatting'} = {
                   'normalized' => 'chapter2'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 18,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -795,23 +795,23 @@ $result_trees{'texi_formatting'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 19,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 13,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -841,12 +841,12 @@ $result_trees{'texi_formatting'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'coverage_macro.texi'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 21,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -905,23 +905,23 @@ $result_trees{'texi_formatting'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 26,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 23,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -962,12 +962,12 @@ $result_trees{'texi_formatting'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 29,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -990,12 +990,12 @@ $result_trees{'texi_formatting'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 30,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1018,12 +1018,12 @@ $result_trees{'texi_formatting'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 31,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1048,12 +1048,12 @@ $result_trees{'texi_formatting'} = {
                       ],
                       'cmdname' => '\'',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'formatting.texi',
                         'line_nr' => 32,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'args' => [
@@ -1070,12 +1070,12 @@ $result_trees{'texi_formatting'} = {
                       ],
                       'cmdname' => ',',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'formatting.texi',
                         'line_nr' => 32,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1095,12 +1095,12 @@ $result_trees{'texi_formatting'} = {
                 'spaces_before_argument' => ' ',
                 'titlepage' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 32,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1124,12 +1124,12 @@ $result_trees{'texi_formatting'} = {
                 'spaces_before_argument' => ' ',
                 'titlepage' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 33,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'contents' => [
@@ -1174,12 +1174,12 @@ $result_trees{'texi_formatting'} = {
                 }
               ],
               'cmdname' => 'insertcopying',
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 38,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -1204,23 +1204,23 @@ $result_trees{'texi_formatting'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'titlepage'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 39,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 28,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1249,12 +1249,12 @@ $result_trees{'texi_formatting'} = {
             }
           ],
           'cmdname' => 'insertcopying',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 42,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1341,23 +1341,23 @@ $result_trees{'texi_formatting'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 50,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 48,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1398,12 +1398,12 @@ $result_trees{'texi_formatting'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 52,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1439,12 +1439,12 @@ $result_trees{'texi_formatting'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 53,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1480,12 +1480,12 @@ $result_trees{'texi_formatting'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 54,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1521,12 +1521,12 @@ $result_trees{'texi_formatting'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 55,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1562,12 +1562,12 @@ $result_trees{'texi_formatting'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 56,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1603,12 +1603,12 @@ $result_trees{'texi_formatting'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 57,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1644,12 +1644,12 @@ $result_trees{'texi_formatting'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 58,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1685,12 +1685,12 @@ $result_trees{'texi_formatting'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 59,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1726,12 +1726,12 @@ $result_trees{'texi_formatting'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 60,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1767,12 +1767,12 @@ $result_trees{'texi_formatting'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 61,
             'macro' => ''
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -1822,12 +1822,12 @@ $result_trees{'texi_formatting'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 65,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1870,12 +1870,12 @@ $result_trees{'texi_formatting'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 68,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1918,12 +1918,12 @@ $result_trees{'texi_formatting'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 71,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1966,12 +1966,12 @@ $result_trees{'texi_formatting'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 74,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2014,12 +2014,12 @@ $result_trees{'texi_formatting'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 77,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2062,12 +2062,12 @@ $result_trees{'texi_formatting'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 80,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2091,12 +2091,12 @@ $result_trees{'texi_formatting'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'formatting.texi',
         'line_nr' => 11,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -2132,12 +2132,12 @@ $result_trees{'texi_formatting'} = {
         'normalized' => 'chapter',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'formatting.texi',
         'line_nr' => 84,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -2187,12 +2187,12 @@ $result_trees{'texi_formatting'} = {
               ],
               'cmdname' => 'footnote',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 87,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2256,12 +2256,12 @@ $result_trees{'texi_formatting'} = {
                           ],
                           'cmdname' => 'comma',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => 'formatting.texi',
                             'line_nr' => 91,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -2294,12 +2294,12 @@ $result_trees{'texi_formatting'} = {
                               ],
                               'cmdname' => 'comma',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => 'formatting.texi',
                                 'line_nr' => 91,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             },
                             {
                               'parent' => {},
@@ -2326,12 +2326,12 @@ $result_trees{'texi_formatting'} = {
                       'normalized' => 's_002d_002dect_002cion'
                     }
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'formatting.texi',
                     'line_nr' => 91,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'menu_entry'
                 },
                 {
@@ -2399,23 +2399,23 @@ $result_trees{'texi_formatting'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'menu'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'formatting.texi',
                     'line_nr' => 96,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 90,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -2440,23 +2440,23 @@ $result_trees{'texi_formatting'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'format'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 97,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 89,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2468,12 +2468,12 @@ $result_trees{'texi_formatting'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'formatting.texi',
         'line_nr' => 85,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -2493,12 +2493,12 @@ $result_trees{'texi_formatting'} = {
               ],
               'cmdname' => 'comma',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 99,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2534,12 +2534,12 @@ $result_trees{'texi_formatting'} = {
         'normalized' => 's_002d_002dect_002cion',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'formatting.texi',
         'line_nr' => 99,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -2627,12 +2627,12 @@ $result_trees{'texi_formatting'} = {
                   'normalized' => 'subsection'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 103,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -2737,12 +2737,12 @@ $result_trees{'texi_formatting'} = {
                       'normalized' => 'subsubsection-_0060_0060simple_002ddouble_002d_002d'
                     }
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'formatting.texi',
                     'line_nr' => 108,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'menu_entry'
                 },
                 {
@@ -2794,12 +2794,12 @@ $result_trees{'texi_formatting'} = {
                       'normalized' => 'subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027'
                     }
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'formatting.texi',
                     'line_nr' => 109,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'menu_entry'
                 },
                 {
@@ -2825,23 +2825,23 @@ $result_trees{'texi_formatting'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'detailmenu'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'formatting.texi',
                     'line_nr' => 110,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 105,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -2866,23 +2866,23 @@ $result_trees{'texi_formatting'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 111,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 102,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2894,12 +2894,12 @@ $result_trees{'texi_formatting'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'formatting.texi',
         'line_nr' => 100,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -2935,12 +2935,12 @@ $result_trees{'texi_formatting'} = {
         'normalized' => 'subsection',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'formatting.texi',
         'line_nr' => 113,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -3028,12 +3028,12 @@ $result_trees{'texi_formatting'} = {
                   'normalized' => 'subsubsection-_0060_0060simple_002ddouble_002d_002d'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 117,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -3085,12 +3085,12 @@ $result_trees{'texi_formatting'} = {
                   'normalized' => 'subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 118,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -3116,23 +3116,23 @@ $result_trees{'texi_formatting'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'formatting.texi',
                 'line_nr' => 119,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 116,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3161,12 +3161,12 @@ $result_trees{'texi_formatting'} = {
             ],
             'normalized' => 'anchor'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 121,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3184,12 +3184,12 @@ $result_trees{'texi_formatting'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'formatting.texi',
         'line_nr' => 114,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -3225,12 +3225,12 @@ $result_trees{'texi_formatting'} = {
         'normalized' => 'subsubsection-_0060_0060simple_002ddouble_002d_002d',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'formatting.texi',
         'line_nr' => 123,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -3261,12 +3261,12 @@ $result_trees{'texi_formatting'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'formatting.texi',
         'line_nr' => 124,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -3302,12 +3302,12 @@ $result_trees{'texi_formatting'} = {
         'normalized' => 'subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'formatting.texi',
         'line_nr' => 126,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -3338,12 +3338,12 @@ $result_trees{'texi_formatting'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'formatting.texi',
         'line_nr' => 127,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -3380,12 +3380,12 @@ $result_trees{'texi_formatting'} = {
         'normalized' => 'chapter2',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'formatting.texi',
         'line_nr' => 129,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -3436,12 +3436,12 @@ $result_trees{'texi_formatting'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 132,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -3467,12 +3467,12 @@ $result_trees{'texi_formatting'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 133,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3490,12 +3490,12 @@ $result_trees{'texi_formatting'} = {
             }
           ],
           'cmdname' => 'contents',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 135,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -3507,23 +3507,23 @@ $result_trees{'texi_formatting'} = {
             }
           ],
           'cmdname' => 'shortcontents',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'formatting.texi',
             'line_nr' => 136,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'formatting.texi',
         'line_nr' => 130,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

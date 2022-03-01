@@ -70,12 +70,12 @@ $result_trees{'value_in_macro_body'} = {
             'arg_line' => ' testvaluebody { arg }
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -110,12 +110,12 @@ $result_trees{'value_in_macro_body'} = {
               ],
               'cmdname' => 'emph',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => 'testvaluebody'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

@@ -57,12 +57,12 @@ $result_trees{'simplest_no_node_section'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'simplest_no_node_section.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'simplest_no_node_section.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

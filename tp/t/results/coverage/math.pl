@@ -31,12 +31,12 @@ $result_trees{'math'} = {
                           'text' => 'x^i'
                         }
                       ],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'bracketed'
                     },
                     {
@@ -50,12 +50,12 @@ $result_trees{'math'} = {
                           'text' => '\\tan y'
                         }
                       ],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'bracketed'
                     }
                   ],
@@ -65,12 +65,12 @@ $result_trees{'math'} = {
               ],
               'cmdname' => 'math',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -121,12 +121,12 @@ $result_trees{'math'} = {
                       ],
                       'cmdname' => 'code',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -147,12 +147,12 @@ $result_trees{'math'} = {
                       ],
                       'cmdname' => 'sub',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -173,12 +173,12 @@ $result_trees{'math'} = {
                       ],
                       'cmdname' => 'sup',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -187,12 +187,12 @@ $result_trees{'math'} = {
               ],
               'cmdname' => 'math',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -241,12 +241,12 @@ $result_trees{'math'} = {
                                       'text' => ' code '
                                     }
                                   ],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 8,
                                     'macro' => ''
                                   },
-                                  'parent' => {},
                                   'type' => 'bracketed'
                                 }
                               ],
@@ -256,20 +256,20 @@ $result_trees{'math'} = {
                           ],
                           'cmdname' => 'code',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 8,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'bracketed'
                     },
                     {
@@ -291,12 +291,12 @@ $result_trees{'math'} = {
                           'text' => 'i'
                         }
                       ],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'bracketed'
                     },
                     {
@@ -312,21 +312,21 @@ $result_trees{'math'} = {
                               'text' => 'f'
                             }
                           ],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 8,
                             'macro' => ''
                           },
-                          'parent' => {},
                           'type' => 'bracketed'
                         }
                       ],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'bracketed'
                     }
                   ],
@@ -339,12 +339,12 @@ $result_trees{'math'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -412,12 +412,12 @@ $result_trees{'math'} = {
               ],
               'cmdname' => 'sup',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -438,12 +438,12 @@ $result_trees{'math'} = {
               ],
               'cmdname' => 'sub',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

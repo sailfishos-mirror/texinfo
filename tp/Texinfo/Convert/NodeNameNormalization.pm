@@ -313,7 +313,7 @@ sub set_nodes_list_labels($$$)
                sprintf(__("empty node name after expansion `%s'"),
                      Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
                                    => $target->{'extra'}->{'node_content'}})),
-                            $target->{'line_nr'});
+                            $target->{'source_info'});
           delete $target->{'extra'}->{'node_content'};
         } else {
           if (defined $labels{$normalized}) {
@@ -322,11 +322,11 @@ sub set_nodes_list_labels($$$)
                          $target->{'cmdname'}, 
                    Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
                                     => $target->{'extra'}->{'node_content'}})),
-                               $target->{'line_nr'});
+                               $target->{'source_info'});
             $registrar->line_error($configuration_information,
               sprintf(__("here is the previous definition as \@%s"),
                                $labels{$normalized}->{'cmdname'}),
-                       $labels{$normalized}->{'line_nr'});
+                       $labels{$normalized}->{'source_info'});
             delete $target->{'extra'}->{'node_content'};
           } else {
             $labels{$normalized} = $target;
@@ -345,7 +345,7 @@ sub set_nodes_list_labels($$$)
         if ($target->{'cmdname'} eq 'node') {
           $registrar->line_error($configuration_information,
                sprintf(__("empty argument in \@%s"),
-                  $target->{'cmdname'}), $target->{'line_nr'});
+                  $target->{'cmdname'}), $target->{'source_info'});
           delete $target->{'extra'}->{'node_content'};
         }
       }

@@ -48,12 +48,12 @@ $result_trees{'menu_no_closed_in_entry'} = {
               'type' => 'menu_entry'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

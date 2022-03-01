@@ -47,12 +47,12 @@ $result_trees{'anchor_and_empty_lines'} = {
             ],
             'normalized' => 'in-anchor'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

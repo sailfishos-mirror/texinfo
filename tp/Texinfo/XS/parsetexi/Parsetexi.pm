@@ -261,10 +261,10 @@ sub _get_errors($)
   for my $error (@{$ERRORS}) {
     if ($error->{'type'} eq 'error') {
       $registrar->line_error ($configuration_information,
-                              $error->{'message'}, $error->{'line_nr'});
+                              $error->{'message'}, $error->{'source_info'});
     } else {
       $registrar->line_warn ($configuration_information,
-                             $error->{'message'}, $error->{'line_nr'});
+                             $error->{'message'}, $error->{'source_info'});
     }
   }
 }

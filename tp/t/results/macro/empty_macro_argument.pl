@@ -35,12 +35,12 @@ $result_trees{'empty_macro_argument'} = {
             'arg_line' => ' mymacro{}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -102,12 +102,12 @@ $result_trees{'empty_macro_argument'} = {
             'arg_line' => ' mytwo{arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 7,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

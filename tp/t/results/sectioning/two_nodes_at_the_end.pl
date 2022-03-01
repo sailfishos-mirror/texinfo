@@ -53,12 +53,12 @@ $result_trees{'two_nodes_at_the_end'} = [
                 'normalized' => 'Top',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -146,12 +146,12 @@ $result_trees{'two_nodes_at_the_end'} = [
                           'normalized' => 'chapter-1'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -203,12 +203,12 @@ $result_trees{'two_nodes_at_the_end'} = [
                           'normalized' => 'node-after-chapter-1'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 6,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -260,12 +260,12 @@ $result_trees{'two_nodes_at_the_end'} = [
                           'normalized' => 'node-after-chapter-2'
                         }
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 7,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'menu_entry'
                     },
                     {
@@ -291,23 +291,23 @@ $result_trees{'two_nodes_at_the_end'} = [
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
                     'end_command' => {}
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 4,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -319,12 +319,12 @@ $result_trees{'two_nodes_at_the_end'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -415,12 +415,12 @@ $result_trees{'two_nodes_at_the_end'} = [
                 'normalized' => 'chapter-1',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -451,12 +451,12 @@ $result_trees{'two_nodes_at_the_end'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -516,12 +516,12 @@ $result_trees{'two_nodes_at_the_end'} = [
                 'normalized' => 'node-after-chapter-1',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -557,12 +557,12 @@ $result_trees{'two_nodes_at_the_end'} = [
                 'normalized' => 'node-after-chapter-2',
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 17,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'type' => 'document_root'

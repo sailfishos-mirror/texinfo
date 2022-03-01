@@ -64,12 +64,12 @@ $result_trees{'ignored_value_definition'} = {
               'extra' => {
                 'format' => 'tex'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

@@ -62,12 +62,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 3,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'index_entry_command'
                 },
                 {
@@ -164,12 +164,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         },
                         'original_def_cmdname' => 'defun'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'def_line'
                     },
                     {
@@ -259,12 +259,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         'original_def_cmdname' => 'defunx',
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 6,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'def_line'
                     },
                     {
@@ -307,24 +307,24 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'defun'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
                     'end_command' => {},
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 5,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -339,12 +339,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         {
                           'cmdname' => 'asis',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 10,
                             'macro' => ''
                           },
-                          'parent' => {},
                           'type' => 'command_as_argument'
                         }
                       ],
@@ -395,12 +395,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                 },
                                 'spaces_before_argument' => ' '
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 11,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             },
                             {
                               'args' => [
@@ -435,12 +435,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                 },
                                 'spaces_before_argument' => ' '
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 12,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -473,12 +473,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'ftable'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 13,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -486,12 +486,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     'end_command' => {},
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 10,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -523,12 +523,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     ],
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 15,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -559,23 +559,23 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 17,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -625,12 +625,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 19,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -735,12 +735,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                   'normalized' => 'chapter'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 25,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -766,23 +766,23 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 26,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 24,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -794,12 +794,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 20,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -836,12 +836,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
         'normalized' => 'chapter',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 28,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -898,12 +898,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 32,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -915,12 +915,12 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 29,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

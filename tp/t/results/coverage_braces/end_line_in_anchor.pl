@@ -36,12 +36,12 @@ $result_trees{'end_line_in_anchor'} = {
             ],
             'normalized' => 'an-anchor'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

@@ -23,12 +23,12 @@ $result_trees{'command_not_closed_in_documentencoding'} = {
                   ],
                   'cmdname' => 'strong',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'parent' => {},
@@ -40,12 +40,12 @@ $result_trees{'command_not_closed_in_documentencoding'} = {
             'missing_argument' => 1,
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

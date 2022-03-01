@@ -35,12 +35,12 @@ $result_trees{'macro_no_arg_expansion'} = {
             'arg_line' => ' testone
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

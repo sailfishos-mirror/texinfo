@@ -30,12 +30,12 @@ $result_trees{'w_end_sentence'} = {
               ],
               'cmdname' => 'w',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},

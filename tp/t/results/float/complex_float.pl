@@ -52,12 +52,12 @@ $result_trees{'complex_float'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -122,12 +122,12 @@ $result_trees{'complex_float'} = {
               'normalized' => 'Text'
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -207,12 +207,12 @@ $result_trees{'complex_float'} = {
                   'normalized' => 'chapter'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -238,23 +238,23 @@ $result_trees{'complex_float'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 8,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -308,12 +308,12 @@ $result_trees{'complex_float'} = {
                   ],
                   'cmdname' => 'enddots',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 13,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -394,12 +394,12 @@ $result_trees{'complex_float'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 30,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'index_entry_command'
                 }
               ],
@@ -430,12 +430,12 @@ $result_trees{'complex_float'} = {
                     {
                       'cmdname' => 'emph',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 33,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'command_as_argument'
                     }
                   ],
@@ -474,12 +474,12 @@ $result_trees{'complex_float'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 34,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -529,12 +529,12 @@ $result_trees{'complex_float'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 36,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -542,12 +542,12 @@ $result_trees{'complex_float'} = {
                 'end_command' => {},
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 33,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -573,12 +573,12 @@ $result_trees{'complex_float'} = {
                     {
                       'cmdname' => 'minus',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 39,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'command_as_argument'
                     }
                   ],
@@ -616,12 +616,12 @@ $result_trees{'complex_float'} = {
                     'item_number' => 1,
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 40,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
@@ -646,12 +646,12 @@ $result_trees{'complex_float'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'itemize'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 42,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -659,12 +659,12 @@ $result_trees{'complex_float'} = {
                 'end_command' => {},
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 39,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -713,12 +713,12 @@ $result_trees{'complex_float'} = {
                       'normalized' => 'Top'
                     }
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 45,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -751,12 +751,12 @@ $result_trees{'complex_float'} = {
                   ],
                   'cmdname' => 'footnote',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 47,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -785,12 +785,12 @@ $result_trees{'complex_float'} = {
                   ],
                   'cmdname' => 'TeX',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 49,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -823,12 +823,12 @@ $result_trees{'complex_float'} = {
                                   ],
                                   'cmdname' => '\'',
                                   'contents' => [],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 49,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 },
                                 {
                                   'args' => [
@@ -849,12 +849,12 @@ $result_trees{'complex_float'} = {
                                           ],
                                           'cmdname' => 'dotless',
                                           'contents' => [],
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 49,
                                             'macro' => ''
-                                          },
-                                          'parent' => {}
+                                          }
                                         }
                                       ],
                                       'parent' => {},
@@ -863,12 +863,12 @@ $result_trees{'complex_float'} = {
                                   ],
                                   'cmdname' => '^',
                                   'contents' => [],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 49,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'parent' => {},
@@ -877,12 +877,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'b',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 49,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'args' => [
@@ -899,12 +899,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'url',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 49,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'parent' => {},
@@ -913,12 +913,12 @@ $result_trees{'complex_float'} = {
                   ],
                   'cmdname' => 'emph',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 49,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -939,12 +939,12 @@ $result_trees{'complex_float'} = {
                   ],
                   'cmdname' => 'sc',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 49,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -969,12 +969,12 @@ $result_trees{'complex_float'} = {
                   'extra' => {
                     'delimiter' => '!'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 49,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1018,12 +1018,12 @@ $result_trees{'complex_float'} = {
                   ],
                   'cmdname' => 'AE',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 49,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1060,12 +1060,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'enddots',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 51,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -1127,23 +1127,23 @@ $result_trees{'complex_float'} = {
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'example'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 55,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
                         'end_command' => {}
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 53,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1172,12 +1172,12 @@ $result_trees{'complex_float'} = {
                         ],
                         'normalized' => 'Anchor-in-caption'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 57,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1209,12 +1209,12 @@ $result_trees{'complex_float'} = {
                             {
                               'cmdname' => 'emph',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 60,
                                 'macro' => ''
                               },
-                              'parent' => {},
                               'type' => 'command_as_argument'
                             }
                           ],
@@ -1253,12 +1253,12 @@ $result_trees{'complex_float'} = {
                                   'extra' => {
                                     'spaces_before_argument' => ' '
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 61,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'parent' => {},
@@ -1308,12 +1308,12 @@ $result_trees{'complex_float'} = {
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'table'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 63,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -1321,12 +1321,12 @@ $result_trees{'complex_float'} = {
                         'end_command' => {},
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 60,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1406,12 +1406,12 @@ $result_trees{'complex_float'} = {
                                     'cell_number' => 1,
                                     'spaces_before_argument' => ' '
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 67,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 },
                                 {
                                   'cmdname' => 'tab',
@@ -1432,12 +1432,12 @@ $result_trees{'complex_float'} = {
                                     'cell_number' => 2,
                                     'spaces_before_argument' => ' '
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 67,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'extra' => {
@@ -1466,12 +1466,12 @@ $result_trees{'complex_float'} = {
                                     'cell_number' => 1,
                                     'spaces_before_argument' => ' '
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 68,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 },
                                 {
                                   'cmdname' => 'tab',
@@ -1492,12 +1492,12 @@ $result_trees{'complex_float'} = {
                                     'cell_number' => 2,
                                     'spaces_before_argument' => ' '
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 68,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'extra' => {
@@ -1533,12 +1533,12 @@ $result_trees{'complex_float'} = {
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'multitable'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 69,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -1560,12 +1560,12 @@ $result_trees{'complex_float'} = {
                         ],
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 66,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'contents' => [
@@ -1607,12 +1607,12 @@ $result_trees{'complex_float'} = {
                             },
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 71,
                             'macro' => ''
                           },
-                          'parent' => {},
                           'type' => 'index_entry_command'
                         }
                       ],
@@ -1643,12 +1643,12 @@ $result_trees{'complex_float'} = {
                             {
                               'cmdname' => 'minus',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 74,
                                 'macro' => ''
                               },
-                              'parent' => {},
                               'type' => 'command_as_argument'
                             }
                           ],
@@ -1686,12 +1686,12 @@ $result_trees{'complex_float'} = {
                             'item_number' => 1,
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 75,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'args' => [
@@ -1716,12 +1716,12 @@ $result_trees{'complex_float'} = {
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'itemize'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 77,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -1729,12 +1729,12 @@ $result_trees{'complex_float'} = {
                         'end_command' => {},
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 74,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -1783,12 +1783,12 @@ $result_trees{'complex_float'} = {
                               'normalized' => 'Top'
                             }
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 80,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -1821,12 +1821,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'footnote',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 82,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -1855,12 +1855,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'TeX',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 84,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -1893,12 +1893,12 @@ $result_trees{'complex_float'} = {
                                           ],
                                           'cmdname' => '\'',
                                           'contents' => [],
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 84,
                                             'macro' => ''
-                                          },
-                                          'parent' => {}
+                                          }
                                         },
                                         {
                                           'args' => [
@@ -1919,12 +1919,12 @@ $result_trees{'complex_float'} = {
                                                   ],
                                                   'cmdname' => 'dotless',
                                                   'contents' => [],
-                                                  'line_nr' => {
+                                                  'parent' => {},
+                                                  'source_info' => {
                                                     'file_name' => '',
                                                     'line_nr' => 84,
                                                     'macro' => ''
-                                                  },
-                                                  'parent' => {}
+                                                  }
                                                 }
                                               ],
                                               'parent' => {},
@@ -1933,12 +1933,12 @@ $result_trees{'complex_float'} = {
                                           ],
                                           'cmdname' => '^',
                                           'contents' => [],
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 84,
                                             'macro' => ''
-                                          },
-                                          'parent' => {}
+                                          }
                                         }
                                       ],
                                       'parent' => {},
@@ -1947,12 +1947,12 @@ $result_trees{'complex_float'} = {
                                   ],
                                   'cmdname' => 'b',
                                   'contents' => [],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 84,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 },
                                 {
                                   'args' => [
@@ -1969,12 +1969,12 @@ $result_trees{'complex_float'} = {
                                   ],
                                   'cmdname' => 'url',
                                   'contents' => [],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 84,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'parent' => {},
@@ -1983,12 +1983,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'emph',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 84,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -2009,12 +2009,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'sc',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 84,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -2039,12 +2039,12 @@ $result_trees{'complex_float'} = {
                           'extra' => {
                             'delimiter' => '!'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 84,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -2088,12 +2088,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'AE',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 84,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -2115,12 +2115,12 @@ $result_trees{'complex_float'} = {
                 'float' => {},
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 51,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2149,12 +2149,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'TeX',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 87,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -2187,12 +2187,12 @@ $result_trees{'complex_float'} = {
                                           ],
                                           'cmdname' => '\'',
                                           'contents' => [],
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 87,
                                             'macro' => ''
-                                          },
-                                          'parent' => {}
+                                          }
                                         },
                                         {
                                           'args' => [
@@ -2213,12 +2213,12 @@ $result_trees{'complex_float'} = {
                                                   ],
                                                   'cmdname' => 'dotless',
                                                   'contents' => [],
-                                                  'line_nr' => {
+                                                  'parent' => {},
+                                                  'source_info' => {
                                                     'file_name' => '',
                                                     'line_nr' => 87,
                                                     'macro' => ''
-                                                  },
-                                                  'parent' => {}
+                                                  }
                                                 }
                                               ],
                                               'parent' => {},
@@ -2227,12 +2227,12 @@ $result_trees{'complex_float'} = {
                                           ],
                                           'cmdname' => '^',
                                           'contents' => [],
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 87,
                                             'macro' => ''
-                                          },
-                                          'parent' => {}
+                                          }
                                         }
                                       ],
                                       'parent' => {},
@@ -2241,12 +2241,12 @@ $result_trees{'complex_float'} = {
                                   ],
                                   'cmdname' => 'b',
                                   'contents' => [],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 87,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 },
                                 {
                                   'args' => [
@@ -2263,12 +2263,12 @@ $result_trees{'complex_float'} = {
                                   ],
                                   'cmdname' => 'url',
                                   'contents' => [],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 87,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'parent' => {},
@@ -2277,12 +2277,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'emph',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 87,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -2303,12 +2303,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'sc',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 87,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -2333,12 +2333,12 @@ $result_trees{'complex_float'} = {
                           'extra' => {
                             'delimiter' => '!'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 87,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -2382,12 +2382,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'AE',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 87,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -2407,12 +2407,12 @@ $result_trees{'complex_float'} = {
               'extra' => {
                 'float' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 87,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -2448,12 +2448,12 @@ $result_trees{'complex_float'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 89,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -2473,12 +2473,12 @@ $result_trees{'complex_float'} = {
               'normalized' => 'Text'
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 12,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2490,12 +2490,12 @@ $result_trees{'complex_float'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -2531,12 +2531,12 @@ $result_trees{'complex_float'} = {
         'normalized' => 'chapter',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 91,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -2636,12 +2636,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'enddots',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 98,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -2703,23 +2703,23 @@ $result_trees{'complex_float'} = {
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'example'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 102,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
                         'end_command' => {}
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 100,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -2745,12 +2745,12 @@ $result_trees{'complex_float'} = {
                             {
                               'cmdname' => 'emph',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 105,
                                 'macro' => ''
                               },
-                              'parent' => {},
                               'type' => 'command_as_argument'
                             }
                           ],
@@ -2789,12 +2789,12 @@ $result_trees{'complex_float'} = {
                                   'extra' => {
                                     'spaces_before_argument' => ' '
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 106,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'parent' => {},
@@ -2844,12 +2844,12 @@ $result_trees{'complex_float'} = {
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'table'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 108,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -2857,12 +2857,12 @@ $result_trees{'complex_float'} = {
                         'end_command' => {},
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 105,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -2942,12 +2942,12 @@ $result_trees{'complex_float'} = {
                                     'cell_number' => 1,
                                     'spaces_before_argument' => ' '
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 112,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 },
                                 {
                                   'cmdname' => 'tab',
@@ -2968,12 +2968,12 @@ $result_trees{'complex_float'} = {
                                     'cell_number' => 2,
                                     'spaces_before_argument' => ' '
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 112,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'extra' => {
@@ -3002,12 +3002,12 @@ $result_trees{'complex_float'} = {
                                     'cell_number' => 1,
                                     'spaces_before_argument' => ' '
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 113,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 },
                                 {
                                   'cmdname' => 'tab',
@@ -3028,12 +3028,12 @@ $result_trees{'complex_float'} = {
                                     'cell_number' => 2,
                                     'spaces_before_argument' => ' '
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 113,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'extra' => {
@@ -3069,12 +3069,12 @@ $result_trees{'complex_float'} = {
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'multitable'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 114,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -3096,12 +3096,12 @@ $result_trees{'complex_float'} = {
                         ],
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 111,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'contents' => [
@@ -3143,12 +3143,12 @@ $result_trees{'complex_float'} = {
                             },
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 116,
                             'macro' => ''
                           },
-                          'parent' => {},
                           'type' => 'index_entry_command'
                         }
                       ],
@@ -3179,12 +3179,12 @@ $result_trees{'complex_float'} = {
                             {
                               'cmdname' => 'minus',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 119,
                                 'macro' => ''
                               },
-                              'parent' => {},
                               'type' => 'command_as_argument'
                             }
                           ],
@@ -3222,12 +3222,12 @@ $result_trees{'complex_float'} = {
                             'item_number' => 1,
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 120,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'args' => [
@@ -3252,12 +3252,12 @@ $result_trees{'complex_float'} = {
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'itemize'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 122,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
@@ -3265,12 +3265,12 @@ $result_trees{'complex_float'} = {
                         'end_command' => {},
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 119,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -3299,12 +3299,12 @@ $result_trees{'complex_float'} = {
                         ],
                         'normalized' => 'Anchor-in-caption-2'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 124,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -3359,12 +3359,12 @@ $result_trees{'complex_float'} = {
                               'normalized' => 'Top'
                             }
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 127,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -3397,12 +3397,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'footnote',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 129,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -3431,12 +3431,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'TeX',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 131,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -3469,12 +3469,12 @@ $result_trees{'complex_float'} = {
                                           ],
                                           'cmdname' => '\'',
                                           'contents' => [],
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 131,
                                             'macro' => ''
-                                          },
-                                          'parent' => {}
+                                          }
                                         },
                                         {
                                           'args' => [
@@ -3495,12 +3495,12 @@ $result_trees{'complex_float'} = {
                                                   ],
                                                   'cmdname' => 'dotless',
                                                   'contents' => [],
-                                                  'line_nr' => {
+                                                  'parent' => {},
+                                                  'source_info' => {
                                                     'file_name' => '',
                                                     'line_nr' => 131,
                                                     'macro' => ''
-                                                  },
-                                                  'parent' => {}
+                                                  }
                                                 }
                                               ],
                                               'parent' => {},
@@ -3509,12 +3509,12 @@ $result_trees{'complex_float'} = {
                                           ],
                                           'cmdname' => '^',
                                           'contents' => [],
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 131,
                                             'macro' => ''
-                                          },
-                                          'parent' => {}
+                                          }
                                         }
                                       ],
                                       'parent' => {},
@@ -3523,12 +3523,12 @@ $result_trees{'complex_float'} = {
                                   ],
                                   'cmdname' => 'b',
                                   'contents' => [],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 131,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 },
                                 {
                                   'args' => [
@@ -3545,12 +3545,12 @@ $result_trees{'complex_float'} = {
                                   ],
                                   'cmdname' => 'url',
                                   'contents' => [],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 131,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'parent' => {},
@@ -3559,12 +3559,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'emph',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 131,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -3585,12 +3585,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'sc',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 131,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -3615,12 +3615,12 @@ $result_trees{'complex_float'} = {
                           'extra' => {
                             'delimiter' => '!'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 131,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -3664,12 +3664,12 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'AE',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 131,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'parent' => {},
@@ -3691,12 +3691,12 @@ $result_trees{'complex_float'} = {
                 'float' => {},
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 98,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -3732,12 +3732,12 @@ $result_trees{'complex_float'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 134,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
@@ -3756,12 +3756,12 @@ $result_trees{'complex_float'} = {
               'normalized' => 'Text'
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 94,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3795,12 +3795,12 @@ $result_trees{'complex_float'} = {
                   'normalized' => 'text-with-a-lot-of-features'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 136,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -3821,12 +3821,12 @@ $result_trees{'complex_float'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 92,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

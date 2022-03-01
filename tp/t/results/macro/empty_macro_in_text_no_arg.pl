@@ -23,12 +23,12 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
             'arg_line' => ' texnl{}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -78,12 +78,12 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
             'arg_line' => ' texnltwo
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

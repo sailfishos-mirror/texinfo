@@ -41,12 +41,12 @@ $result_trees{'arg_body_expansion_order'} = {
             'arg_line' => ' othermacro
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -124,12 +124,12 @@ $result_trees{'arg_body_expansion_order'} = {
             'arg_line' => ' redefineothermacro {arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -187,12 +187,12 @@ $result_trees{'arg_body_expansion_order'} = {
             'arg_line' => ' othermacro
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 14,
             'macro' => 'redefineothermacro'
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

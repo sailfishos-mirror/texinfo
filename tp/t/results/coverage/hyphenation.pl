@@ -30,12 +30,12 @@ $result_trees{'hyphenation'} = {
           ],
           'cmdname' => 'hyphenation',
           'contents' => [],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

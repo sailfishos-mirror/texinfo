@@ -37,12 +37,12 @@ $result_trees{'listoffloats_with_commands'} = {
                   ],
                   'cmdname' => '\'',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -63,12 +63,12 @@ $result_trees{'listoffloats_with_commands'} = {
                   ],
                   'cmdname' => '`',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -97,12 +97,12 @@ $result_trees{'listoffloats_with_commands'} = {
               'normalized' => 'th@\'eor@`eme'
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

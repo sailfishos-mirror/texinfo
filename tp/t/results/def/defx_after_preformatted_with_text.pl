@@ -61,12 +61,12 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                           'extra' => {
                             'def_role' => 'name'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 2,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'extra' => {
@@ -135,12 +135,12 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                     },
                     'original_def_cmdname' => 'deffn'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'def_line'
                 },
                 {
@@ -180,12 +180,12 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                           'extra' => {
                             'def_role' => 'category'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 5,
                             'macro' => ''
                           },
-                          'parent' => {},
                           'type' => 'bracketed_def_content'
                         },
                         {
@@ -258,12 +258,12 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                     'original_def_cmdname' => 'deffnx',
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 5,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'def_line'
                 },
                 {
@@ -289,24 +289,24 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'deffn'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 6,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {},
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -331,23 +331,23 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

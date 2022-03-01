@@ -49,12 +49,12 @@ $result_trees{'inlineiffmtifelse_not_closed_three_arg'} = {
                 'expand_index' => 2,
                 'format' => 'html'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},

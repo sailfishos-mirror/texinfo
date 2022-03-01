@@ -47,12 +47,12 @@ $result_trees{'japanese_utf8'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'UTF-8'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},
@@ -82,12 +82,12 @@ $result_trees{'japanese_utf8'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'japanese_utf8.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -110,12 +110,12 @@ $result_trees{'japanese_utf8'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -145,12 +145,12 @@ $result_trees{'japanese_utf8'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ja'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -200,12 +200,12 @@ $result_trees{'japanese_utf8'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'japanese_utf8.texi',
         'line_nr' => 8,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -260,12 +260,12 @@ $result_trees{'japanese_utf8'} = {
                   ],
                   'cmdname' => 'copyright',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'japanese_utf8.texi',
                     'line_nr' => 12,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -309,12 +309,12 @@ $result_trees{'japanese_utf8'} = {
                   ],
                   'cmdname' => 'emph',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'japanese_utf8.texi',
                     'line_nr' => 14,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -353,12 +353,12 @@ $result_trees{'japanese_utf8'} = {
                   ],
                   'cmdname' => 'emph',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => 'japanese_utf8.texi',
                     'line_nr' => 18,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -392,23 +392,23 @@ $result_trees{'japanese_utf8'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
                 'line_nr' => 20,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'japanese_utf8.texi',
             'line_nr' => 11,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -500,12 +500,12 @@ $result_trees{'japanese_utf8'} = {
                   'normalized' => 'Preface'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
                 'line_nr' => 26,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -557,12 +557,12 @@ $result_trees{'japanese_utf8'} = {
                   'normalized' => 'Introduction'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
                 'line_nr' => 27,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -588,23 +588,23 @@ $result_trees{'japanese_utf8'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
                 'line_nr' => 28,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'japanese_utf8.texi',
             'line_nr' => 25,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -616,12 +616,12 @@ $result_trees{'japanese_utf8'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'japanese_utf8.texi',
         'line_nr' => 9,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -657,12 +657,12 @@ $result_trees{'japanese_utf8'} = {
         'normalized' => 'Preface',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'japanese_utf8.texi',
         'line_nr' => 30,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -716,12 +716,12 @@ $result_trees{'japanese_utf8'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'japanese_utf8.texi',
         'line_nr' => 31,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -757,12 +757,12 @@ $result_trees{'japanese_utf8'} = {
         'normalized' => 'Introduction',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'japanese_utf8.texi',
         'line_nr' => 36,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -810,12 +810,12 @@ $result_trees{'japanese_utf8'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'japanese_utf8.texi',
         'line_nr' => 37,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

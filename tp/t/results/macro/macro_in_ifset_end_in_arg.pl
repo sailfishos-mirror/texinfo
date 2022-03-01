@@ -40,12 +40,12 @@ $result_trees{'macro_in_ifset_end_in_arg'} = {
             'arg_line' => ' macroone {arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -93,12 +93,12 @@ $result_trees{'macro_in_ifset_end_in_arg'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ifset'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},

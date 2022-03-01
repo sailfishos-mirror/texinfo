@@ -1149,7 +1149,7 @@ sub _convert($$;$)
           if (!defined($image_text) and !$image_file_found) {
             $self->line_warn($self, sprintf(
                      __("\@image file `%s' not found, using `%s'"), 
-                       $basefile, "$basefile.jpg"), $element->{'line_nr'});
+                       $basefile, "$basefile.jpg"), $element->{'source_info'});
           }
 
           if ($is_inline) {
@@ -1273,7 +1273,7 @@ sub _convert($$;$)
         } else {
           $self->line_warn($self,
                   __("no argument specified for \@U"),
-                           $element->{'line_nr'});
+                           $element->{'source_info'});
           $result = '';
         }
         return $result;

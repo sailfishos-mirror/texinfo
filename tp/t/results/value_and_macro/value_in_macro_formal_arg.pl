@@ -76,12 +76,12 @@ $result_trees{'value_in_macro_formal_arg'} = {
 ',
             'invalid_syntax' => 1
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

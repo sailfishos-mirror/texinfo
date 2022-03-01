@@ -82,7 +82,7 @@ sub line_warn($$$$)
                              "warning: %s (possibly involving \@%s)\n"),
                          $text, $error_location_info->{'macro'});
   } else {
-    $warn_line = sprintf(__p("Texinfo source file warning", 
+    $warn_line = sprintf(__p("Texinfo source file warning",
                              "warning: %s\n"),
                          $text);
   }
@@ -127,10 +127,10 @@ sub document_warn($$$)
   if (defined($configuration_information)
       and defined($configuration_information->get_conf('PROGRAM'))
       and $configuration_information->get_conf('PROGRAM') ne '') {
-    $warn_line = sprintf(__p("whole document warning", "%s: warning: %s\n"), 
+    $warn_line = sprintf(__p("whole document warning", "%s: warning: %s\n"),
                   $configuration_information->get_conf('PROGRAM'), $text);
   } else {
-    $warn_line = sprintf(__p("whole document warning", "warning: %s\n"), 
+    $warn_line = sprintf(__p("whole document warning", "warning: %s\n"),
                          $text);
   }
   push @{$self->{'errors_warnings'}},
@@ -169,10 +169,10 @@ sub file_line_warn($$$;$)
   if (!defined($file)) {
     $warn_line = sprintf(__p("file warning", "warning: %s\n"), $text);
   } elsif (!defined($line_nr)) {
-    $warn_line = sprintf(__p("file warning", "%s: warning: %s\n"), 
+    $warn_line = sprintf(__p("file warning", "%s: warning: %s\n"),
                          $file, $text);
   } else {
-    $warn_line = sprintf(__p("file warning", "%s:%d: warning: %s\n"), 
+    $warn_line = sprintf(__p("file warning", "%s:%d: warning: %s\n"),
                          $file, $line_nr, $text);
   }
   #print STDERR "REPORT FILE_LINE_WARN $self $self->{'errors_warnings'}\n";
@@ -219,7 +219,7 @@ Texinfo::Report - Error storing for Texinfo modules
   
   if ($warning_happened) {
     $registrar->line_warn($converter, sprintf(__("\@%s is wrongly used"),
-                       $current->{'cmdname'}), $current->{'line_nr'});
+                       $current->{'cmdname'}), $current->{'source_info'});
   }
   
   my ($errors, $errors_count) = $registrar->errors();
@@ -235,9 +235,9 @@ Texinfo to other formats.  There is no promise of API stability.
 =head1 DESCRIPTION
 
 The Texinfo::Report module helps with error handling.  It is
-used by the Texinfo modules L<Texinfo::Parser> and 
+used by the Texinfo modules L<Texinfo::Parser> and
 L<Texinfo::Convert::Converter>.  To use this module, either create
-a new Texinfo::Report object or initialize another object 
+a new Texinfo::Report object or initialize another object
 such as to be able to call Texinfo::Report methods.  In any
 case, C<Texinfo::Report::new()> is called to setup the module.
 
@@ -246,7 +246,7 @@ other methods to store errors (and warnings).
 
 =head1 METHODS
 
-No method is exported in the default case.  
+No method is exported in the default case.
 
 The C<new> method initializes Texinfo::Report related fields.
 The errors collected are available through the C<errors> method, the other
@@ -272,7 +272,7 @@ X<C<errors>>
 
 This function returns as I<$error_count> the count of errors since
 calling C<new>.  The I<$error_warnings_list> is an array of hash references
-one for each error, warning or error line continuation.  Each of these has 
+one for each error, warning or error line continuation.  Each of these has
 the following keys:
 
 =over
@@ -300,25 +300,25 @@ The file name where the error or warning occurs.
 
 =item macro
 
-The user macro name that is expanded at the location of 
+The user macro name that is expanded at the location of
 the error or warning.
 
 =back
 
-=item $registrar->line_warn($text, $configuration_information, $line_nr)
+=item $registrar->line_warn($text, $configuration_information, $error_location_info)
 
-=item $registrar->line_error($text, $configuration_information, $line_nr)
+=item $registrar->line_error($text, $configuration_information, $error_location_info)
 X<C<line_warn>>
 X<C<line_error>>
 
 Register a warning or an error.  The I<$text> is the text of the
 error or warning.  The I<$configuration_information> object gives
 some information that can modify the messages or their delivery.
-The optional I<$line_nr> holds the information on the error or 
-warning location.  The I<$line_nr> structure corresponds to
-the I<line_nr> key of Texinfo tree elements as described
-in L<Texinfo::Parser/line_nr>, and is normally obtained from Texinfo
-elements I<line_nr> keys.
+The optional I<$error_location_info> holds the information on the error or
+warning location.  The I<$error_location_info> structure corresponds to
+the I<source_info> key of Texinfo tree elements as described
+in L<Texinfo::Parser/source_info>, and is normally obtained from Texinfo
+elements I<source_info> keys.
 
 =item $registrar->document_warn($configuration_information, $text)
 

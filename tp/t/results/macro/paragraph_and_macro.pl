@@ -23,12 +23,12 @@ $result_trees{'paragraph_and_macro'} = {
             'arg_line' => ' aempty
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -68,12 +68,12 @@ $result_trees{'paragraph_and_macro'} = {
             'arg_line' => ' aspace
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -113,12 +113,12 @@ $result_trees{'paragraph_and_macro'} = {
             'arg_line' => ' word
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 8,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

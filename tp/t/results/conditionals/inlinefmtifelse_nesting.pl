@@ -45,12 +45,12 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                       ],
                       'cmdname' => 'emph',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -66,12 +66,12 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                 'expand_index' => 2,
                 'format' => 'info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

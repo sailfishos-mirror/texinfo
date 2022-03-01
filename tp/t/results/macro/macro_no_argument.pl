@@ -16,12 +16,12 @@ $result_trees{'macro_no_argument'} = {
             'arg_line' => '',
             'invalid_syntax' => 1
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

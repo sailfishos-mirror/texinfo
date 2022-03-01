@@ -26,7 +26,7 @@ void clear_include_directories (void);
 char *save_string (char *string);
 void free_small_strings (void);
 
-extern LINE_NR line_nr;
+extern SOURCE_INFO current_source_info;
 
 extern int input_number;
 #endif

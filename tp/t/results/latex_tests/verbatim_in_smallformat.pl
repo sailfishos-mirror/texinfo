@@ -33,12 +33,12 @@ $result_trees{'verbatim_in_smallformat'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim_in_smallformat.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -81,12 +81,12 @@ $result_trees{'verbatim_in_smallformat'} = {
                   'type' => 'raw'
                 }
               ],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -117,23 +117,23 @@ $result_trees{'verbatim_in_smallformat'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'smallformat'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

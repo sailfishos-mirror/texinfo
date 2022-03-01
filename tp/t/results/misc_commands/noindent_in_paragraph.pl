@@ -18,12 +18,12 @@ $result_trees{'noindent_in_paragraph'} = {
             },
             {
               'cmdname' => 'noindent',
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'extra' => {
@@ -58,12 +58,12 @@ $result_trees{'noindent_in_paragraph'} = {
             },
             {
               'cmdname' => 'noindent',
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'extra' => {

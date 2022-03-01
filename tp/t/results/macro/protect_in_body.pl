@@ -45,12 +45,12 @@ $result_trees{'protect_in_body'} = {
             'arg_line' => ' macroone { arg1 , arg2 }
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -89,12 +89,12 @@ $result_trees{'protect_in_body'} = {
                       ],
                       'cmdname' => 'samp',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
                         'macro' => 'macroone'
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -103,12 +103,12 @@ $result_trees{'protect_in_body'} = {
               ],
               'cmdname' => 'emph',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => 'macroone'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -129,12 +129,12 @@ $result_trees{'protect_in_body'} = {
               ],
               'cmdname' => 'emph',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => 'macroone'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

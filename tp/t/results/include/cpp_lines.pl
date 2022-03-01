@@ -51,12 +51,12 @@ $result_trees{'cpp_lines'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'cpp_lines.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'cpp_lines.texi',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -91,12 +91,12 @@ $result_trees{'cpp_lines'} = {
               ],
               'cmdname' => 'email',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 68,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -189,12 +189,12 @@ $result_trees{'cpp_lines'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'g_f',
             'line_nr' => 48,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -234,12 +234,12 @@ $result_trees{'cpp_lines'} = {
             'arg_line' => ' macr
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'g_f',
             'line_nr' => 53,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -270,12 +270,12 @@ $result_trees{'cpp_lines'} = {
               ],
               'cmdname' => 'email',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 57,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -326,12 +326,12 @@ $result_trees{'cpp_lines'} = {
               ],
               'cmdname' => 'email',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 61,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -380,12 +380,12 @@ $result_trees{'cpp_lines'} = {
             'arg_line' => ' macrtwo
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'g_f',
             'line_nr' => 63,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -416,12 +416,12 @@ $result_trees{'cpp_lines'} = {
               ],
               'cmdname' => 'email',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 68,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -477,12 +477,12 @@ $result_trees{'cpp_lines'} = {
               ],
               'cmdname' => 'email',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 72,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -528,12 +528,12 @@ $result_trees{'cpp_lines'} = {
               ],
               'cmdname' => 'email',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'inc',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -567,12 +567,12 @@ $result_trees{'cpp_lines'} = {
               ],
               'cmdname' => 'email',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 75,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -617,12 +617,12 @@ $result_trees{'cpp_lines'} = {
               'extra' => {
                 'delimiter' => ':'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 77,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -656,12 +656,12 @@ $result_trees{'cpp_lines'} = {
               ],
               'cmdname' => 'email',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'g_f',
                 'line_nr' => 81,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -706,12 +706,12 @@ $result_trees{'cpp_lines'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => "l\x{e0}ng"
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'accentÃªd',
             'line_nr' => 7,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -735,12 +735,12 @@ $result_trees{'cpp_lines'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'g_f',
         'line_nr' => 70,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

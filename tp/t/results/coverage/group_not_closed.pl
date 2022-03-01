@@ -39,12 +39,12 @@ $result_trees{'group_not_closed'} = {
               'type' => 'paragraph'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

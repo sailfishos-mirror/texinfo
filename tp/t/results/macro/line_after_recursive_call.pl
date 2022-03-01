@@ -47,12 +47,12 @@ $result_trees{'line_after_recursive_call'} = {
             'arg_line' => ' mac
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

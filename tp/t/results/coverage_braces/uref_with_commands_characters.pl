@@ -34,12 +34,12 @@ $result_trees{'uref_with_commands_characters'} = {
                       ],
                       'cmdname' => 'strong',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -93,12 +93,12 @@ $result_trees{'uref_with_commands_characters'} = {
                               ],
                               'cmdname' => 'LaTeX',
                               'contents' => [],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 1,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -107,12 +107,12 @@ $result_trees{'uref_with_commands_characters'} = {
                       ],
                       'cmdname' => 'strong',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -124,12 +124,12 @@ $result_trees{'uref_with_commands_characters'} = {
               ],
               'cmdname' => 'uref',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

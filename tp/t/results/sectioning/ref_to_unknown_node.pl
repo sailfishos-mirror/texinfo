@@ -34,12 +34,12 @@ $result_trees{'ref_to_unknown_node'} = {
                   'normalized' => 'unknown-node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

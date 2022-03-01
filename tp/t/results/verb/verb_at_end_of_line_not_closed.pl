@@ -41,12 +41,12 @@ $result_trees{'verb_at_end_of_line_not_closed'} = {
               'extra' => {
                 'delimiter' => ''
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},

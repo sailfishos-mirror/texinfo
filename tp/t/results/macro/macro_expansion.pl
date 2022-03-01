@@ -69,12 +69,12 @@ $result_trees{'macro_expansion'} = {
             'arg_line' => ' macroone {arg1, arg2 }
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -118,12 +118,12 @@ $result_trees{'macro_expansion'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
             'macro' => 'macroone'
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -163,12 +163,12 @@ $result_trees{'macro_expansion'} = {
               ],
               'cmdname' => 'samp',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
                 'macro' => 'macroone'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -198,12 +198,12 @@ $result_trees{'macro_expansion'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 11,
             'macro' => 'macroone'
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -252,12 +252,12 @@ $result_trees{'macro_expansion'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 13,
             'macro' => 'macroone'
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -311,12 +311,12 @@ $result_trees{'macro_expansion'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 15,
             'macro' => 'macroone'
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -365,12 +365,12 @@ $result_trees{'macro_expansion'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 17,
             'macro' => 'macroone'
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -448,12 +448,12 @@ $result_trees{'macro_expansion'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 23,
             'macro' => 'macroone'
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [

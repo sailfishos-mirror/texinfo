@@ -103,12 +103,12 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
                 ],
                 'normalized' => 'ref'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -155,12 +155,12 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
                   'normalized' => 'ref'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -194,12 +194,12 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
         'normalized' => 'one-node',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

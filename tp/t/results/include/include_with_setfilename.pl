@@ -48,12 +48,12 @@ $result_trees{'include_with_setfilename'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'main_file.info'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

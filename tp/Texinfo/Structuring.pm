@@ -147,7 +147,7 @@ sub sectioning_structure($$$)
         if ($level - $previous_section->{'structure'}->{'section_level'} > 1) {
           $registrar->line_error($configuration_information,
            sprintf(__("raising the section level of \@%s which is too low"), 
-              $content->{'cmdname'}), $content->{'line_nr'});
+              $content->{'cmdname'}), $content->{'source_info'});
           $content->{'structure'}->{'section_level'}
               = $previous_section->{'structure'}->{'section_level'} + 1;
         }
@@ -181,12 +181,12 @@ sub sectioning_structure($$$)
               if ($level < $up->{'structure'}->{'section_level'}) {
                 $registrar->line_warn($configuration_information,
                  sprintf(__("no chapter-level command before \@%s"),
-                    $content->{'cmdname'}), $content->{'line_nr'});
+                    $content->{'cmdname'}), $content->{'source_info'});
               }
             } else {
               $registrar->line_warn($configuration_information,
   sprintf(__("lowering the section level of \@%s appearing after a lower element"), 
-                  $content->{'cmdname'}), $content->{'line_nr'});
+                  $content->{'cmdname'}), $content->{'source_info'});
               $content->{'structure'}->{'section_level'}
                  = $up->{'structure'}->{'section_level'} + 1;
             }
@@ -279,7 +279,7 @@ sub sectioning_structure($$$)
         and !$content->{'extra'}->{'part_associated_section'}) {
       $registrar->line_warn($configuration_information,
         sprintf(__("no sectioning command associated with \@%s"),
-          $content->{'cmdname'}), $content->{'line_nr'});
+          $content->{'cmdname'}), $content->{'source_info'});
     }
   }
   return $sec_root, \@sections_list;
@@ -310,7 +310,7 @@ sub warn_non_empty_parts($$$)
       if (!Texinfo::Common::is_content_empty($part)) {
         $registrar->line_warn($configuration_information,
                sprintf(__("\@%s not empty"),
-                         $part->{'cmdname'}), $part->{'line_nr'});
+                       $part->{'cmdname'}), $part->{'source_info'});
       }
     }
   }
@@ -370,7 +370,7 @@ sub _check_menu_entry($$$$$)
     $registrar->line_error($configuration_information,
       sprintf(__("\@%s reference to nonexistent node `%s'"), $command,
         node_extra_to_texi($menu_content->{'extra'}->{'menu_entry_node'})), 
-     $menu_content->{'line_nr'});
+      $menu_content->{'source_info'});
   } else {
     if (!_check_node_same_texinfo_code($menu_node, 
                            $menu_content->{'extra'}->{'menu_entry_node'})) {
@@ -380,7 +380,7 @@ sub _check_menu_entry($$$$$)
          node_extra_to_texi($menu_content->{'extra'}->{'menu_entry_node'}),
          $menu_node->{'cmdname'},
          node_extra_to_texi($menu_node->{'extra'})),
-       $menu_content->{'line_nr'});
+       $menu_content->{'source_info'});
     }
   }
 }
@@ -428,7 +428,7 @@ sub check_nodes_are_referenced
       $registrar->line_warn($configuration_information,
                             sprintf(__("node `%s' unreferenced"),
                                     node_extra_to_texi($node->{'extra'})),
-                            $node->{'line_nr'});
+                            $node->{'source_info'});
     }
   }
 }
@@ -461,7 +461,7 @@ sub set_menus_node_directions($$$$$$)
         foreach my $menu (@{$node->{'extra'}->{'menus'}}[1 .. $#{$node->{'extra'}->{'menus'}}]) {
           $registrar->line_warn($configuration_information,
                  sprintf(__("multiple \@%s"),
-                        $menu->{'cmdname'}), $menu->{'line_nr'});
+                         $menu->{'cmdname'}), $menu->{'source_info'});
         }
       }
       foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
@@ -597,7 +597,7 @@ sub complete_node_tree_with_menus($$$$)
                   $direction,
                   node_extra_to_texi($node->{'extra'}),
                   node_extra_to_texi($direction_associated_node->{'extra'})),
-                    $node->{'line_nr'});
+                    $node->{'source_info'});
                 }
               }
             }
@@ -616,7 +616,7 @@ sub complete_node_tree_with_menus($$$$)
                                    $direction,
                 node_extra_to_texi($node->{'extra'}),
                   ),
-                $node->{'line_nr'});
+                $node->{'source_info'});
             }
             $node->{'structure'}->{'node_'.$direction}
                = $node->{'structure'}->{'menu_'.$direction};
@@ -660,7 +660,7 @@ sub complete_node_tree_with_menus($$$$)
                   node_extra_to_texi($node->{'structure'}->{'node_'.$direction}->{'extra'}),
                   $direction,
                   node_extra_to_texi($node->{'structure'}->{'menu_'.$direction}->{'extra'})),
-                 $node->{'line_nr'});
+                 $node->{'source_info'});
         }
       }
     }
@@ -680,7 +680,7 @@ sub complete_node_tree_with_menus($$$$)
            __("node `%s' lacks menu item for `%s' despite being its Up target"), 
            node_extra_to_texi($node->{'structure'}->{'node_up'}->{'extra'}), 
            node_extra_to_texi($node->{'extra'})),
-         $node->{'structure'}->{'node_up'}->{'line_nr'});
+         $node->{'structure'}->{'node_up'}->{'source_info'});
       }
       # FIXME check that the menu_up_hash is not empty (except for Top)?
       # FIXME check that node_up is not an external node (except for Top)?
@@ -773,7 +773,7 @@ sub nodes_tree($$$$$)
                   node_extra_to_texi($node->{'extra'}),
                                      $node_target->{'cmdname'},
                   node_extra_to_texi($node_target->{'extra'})),
-                $node->{'line_nr'});
+                $node->{'source_info'});
             }
           } else {
             if ($configuration_information->get_conf('novalidate')) {
@@ -783,7 +783,7 @@ sub nodes_tree($$$$$)
                    sprintf(__("%s reference to nonexistent `%s'"),
                       $direction_texts{$direction},
                       node_extra_to_texi($node_direction)), 
-                   $node->{'line_nr'});
+                   $node->{'source_info'});
             }
           }
         }
@@ -1320,7 +1320,7 @@ sub associate_internal_references($$$$$)
         $registrar->line_error($configuration_information, 
             sprintf(__("\@%s reference to nonexistent node `%s'"),
                 $ref->{'cmdname'}, node_extra_to_texi($node_arg)),
-                $ref->{'line_nr'});
+                $ref->{'source_info'});
       }
     } else {
       my $node_target = $labels->{$node_arg->{'normalized'}};
@@ -1333,7 +1333,7 @@ sub associate_internal_references($$$$$)
                node_extra_to_texi($node_arg),
                $node_target->{'cmdname'},
                node_extra_to_texi($node_target->{'extra'})),
-           $ref->{'line_nr'});
+           $ref->{'source_info'});
       }
     }
   }
@@ -1635,7 +1635,7 @@ sub sort_indices($$$;$)
         $registrar->line_warn($configuration_information,
                      sprintf(__("empty index key in \@%s"),
                                  $entry->{'index_at_command'}),
-                        $entry->{'command'}->{'line_nr'});
+                        $entry->{'command'}->{'source_info'});
       } else {
         my $sortable_entry = {'entry' => $entry, 'key' => $entry_key,
            'number' => $entry->{'number'},

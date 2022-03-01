@@ -256,7 +256,7 @@ sub output($)
           $label->{'root'}->{'cmdname'},
           Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' =>
               $label->{'root'}->{'extra'}->{'node_content'}})),
-        $label->{'root'}->{'line_nr'});
+        $label->{'root'}->{'source_info'});
       next;
     } else {
       $seen_anchors{$label_text} = 1;
@@ -409,7 +409,7 @@ sub format_error_outside_of_any_node($$)
   if (!$self->{'current_node'}) {
     $self->line_warn($self,
          sprintf(__("\@%s outside of any node"),
-                     $element->{'cmdname'}), $element->{'line_nr'});
+                 $element->{'cmdname'}), $element->{'source_info'});
   }
 }
 
@@ -452,7 +452,7 @@ sub format_node($$)
     if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
       $self->line_warn($self, sprintf(__(
                  "\@node name should not contain `,': %s"), $node_text),
-                               $node->{'line_nr'});
+                               $node->{'source_info'});
     }
     if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
       $pre_quote = "\x{7f}";

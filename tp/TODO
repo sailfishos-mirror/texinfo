@@ -33,11 +33,14 @@ bytes.  To check that they can never be upgraded + document
  l 3226 ParserNonXS.pm
                unshift @{$self->{'input'}}, {
                  'name' => $file,
+  -> sets file_name in _next_text: 'file_name' => $input->{'name'}
  $self->{'info'}->{'input_file_name'}
  $self->{'info'}->{'input_directory'}
 
-* XS Parser?
+* XS Parser seems ok
 
+in input structure 
+ name -> input_file_name
 
 check with latin1
 CPP directive with encoded characters, UTF8 Texinfo manual
@@ -73,16 +76,17 @@ epub tests would also be interesting in 8 byte locale, with
 8 byte documents.  In the EPUB specification it is said
 6.1.3 File Paths and File Names
  File Names and Paths MUST be UTF-8 [Unicode] encoded.
+First step would be to force that.
 
 
 
-Add tests even if not as interesting in UTF8 locale as in non UTF8
+Add tests even if not as interesting in UTF8 locale as in non UTF8?
 ./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=0 -o résultat/encodé.txt ./t/input_files/simplest_no_node_section.texi
 
 
 
 Texinfo/Convert/Text.pm output()
-checks decoded/encoded + fix.  Need to verify input available information
+checks decoded/encoded and fix.  Need to verify input available information
 
 
 Should we warn if output is on STDOUT and OUTPUT_ENCODING_NAME != MESSAGE_OUTPUT_ENCODING_NAME?
@@ -101,6 +105,12 @@ Document bytes in output
 html_image_file_location_name: $image_path
 
 Document new return of html_image_file_location_name
+
+Document 
+LOCALE_OUTPUT_ENCODING_NAME.
+Add DOC_ENCODING_FOR_INPUT_FILE_NAME,
+DOC_ENCODING_FOR_OUTPUT_FILE_NAME,
+LOCALE_INPUT_FILE_NAME_ENCODING, LOCALE_OUTPUT_FILE_NAME_ENCODING.
 
 
 Test of init/highlight_syntax.pm with non ascii characters in highlighted

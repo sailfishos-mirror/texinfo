@@ -40,12 +40,12 @@ $result_trees{'include_after_empty_line_arg'} = {
             'arg_line' => ' mymacro{body}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -71,12 +71,12 @@ $result_trees{'include_after_empty_line_arg'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => 'mymacro'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

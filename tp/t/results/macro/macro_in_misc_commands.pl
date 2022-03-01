@@ -35,12 +35,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' text 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -80,12 +80,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' Top
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -137,12 +137,12 @@ $result_trees{'macro_in_misc_commands'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 9,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -184,12 +184,12 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 11,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -275,12 +275,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' en 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 16,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -314,12 +314,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' documentlanguagecommand 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 19,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -361,12 +361,12 @@ $result_trees{'macro_in_misc_commands'} = {
                 'spaces_before_argument' => '  ',
                 'text_arg' => 'en'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 23,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},
@@ -407,12 +407,12 @@ $result_trees{'macro_in_misc_commands'} = {
                 'spaces_before_argument' => '  ',
                 'text_arg' => 'en'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 26,
                 'macro' => 'documentlanguagecommand'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -455,12 +455,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' pagesizesarg
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 29,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -500,12 +500,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' afourpapermacro 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 33,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -540,12 +540,12 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 37,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -557,12 +557,12 @@ $result_trees{'macro_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'afourpaper',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 38,
             'macro' => 'afourpapermacro'
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -585,12 +585,12 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 39,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -613,12 +613,12 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 40,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -641,12 +641,12 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 41,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -680,12 +680,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' needarg
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 43,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -723,12 +723,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 47,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -762,12 +762,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' raisesectionsmacro 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 49,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -813,12 +813,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' lowersectionsmacro 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 53,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -880,12 +880,12 @@ $result_trees{'macro_in_misc_commands'} = {
                 ],
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 58,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},
@@ -962,12 +962,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' definfoenclosename 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 62,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1001,12 +1001,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 65,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1079,12 +1079,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' strongmacro 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 69,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1118,12 +1118,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' strongname 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 72,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1154,12 +1154,12 @@ $result_trees{'macro_in_misc_commands'} = {
               ],
               'cmdname' => 'strong',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 76,
                 'macro' => 'strongmacro'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1202,12 +1202,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 78,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1271,12 +1271,12 @@ $result_trees{'macro_in_misc_commands'} = {
               ],
               'cmdname' => 'kbd',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 82,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1319,12 +1319,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' kbdinputstylearg 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 84,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1356,12 +1356,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 87,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1389,12 +1389,12 @@ $result_trees{'macro_in_misc_commands'} = {
               'extra' => {
                 'code' => 1
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 89,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1443,12 +1443,12 @@ $result_trees{'macro_in_misc_commands'} = {
                   'extra' => {
                     'code' => 1
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 92,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'parent' => {},
@@ -1482,23 +1482,23 @@ $result_trees{'macro_in_misc_commands'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 93,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 91,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1532,12 +1532,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' asisarg 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 95,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1571,12 +1571,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' zero 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 98,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1610,12 +1610,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' nonearg 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 101,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1649,12 +1649,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' four 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 104,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1688,12 +1688,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' six 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 107,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1731,12 +1731,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 111,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -1762,12 +1762,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 112,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -1793,12 +1793,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 113,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -1824,12 +1824,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 114,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -1855,12 +1855,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 115,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -1886,12 +1886,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 116,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1925,12 +1925,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' endarg 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 118,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -1964,12 +1964,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' separatearg 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 121,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2001,12 +2001,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 124,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -2032,12 +2032,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 125,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2071,12 +2071,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' onarg 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 127,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2110,12 +2110,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' offarg 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 130,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2147,12 +2147,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 133,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -2178,12 +2178,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 134,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2235,12 +2235,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' ten 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 137,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2272,12 +2272,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 140,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -2323,12 +2323,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' falsearg 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 142,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2362,12 +2362,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' truearg
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 145,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2399,12 +2399,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 148,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2436,12 +2436,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 150,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2475,12 +2475,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' pagemacro 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 152,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2514,12 +2514,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' noindentmacro 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 155,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2553,12 +2553,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' refillmacro 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 158,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2610,12 +2610,12 @@ $result_trees{'macro_in_misc_commands'} = {
             },
             {
               'cmdname' => 'noindent',
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 163,
                 'macro' => 'noindentmacro'
-              },
-              'parent' => {}
+              }
             },
             {
               'extra' => {
@@ -2654,12 +2654,12 @@ $result_trees{'macro_in_misc_commands'} = {
         },
         {
           'cmdname' => 'noindent',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 165,
             'macro' => 'noindentmacro'
-          },
-          'parent' => {}
+          }
         },
         {
           'extra' => {
@@ -2678,12 +2678,12 @@ $result_trees{'macro_in_misc_commands'} = {
             },
             {
               'cmdname' => 'noindent',
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 166,
                 'macro' => 'noindentmacro'
-              },
-              'parent' => {}
+              }
             },
             {
               'extra' => {
@@ -2705,12 +2705,12 @@ $result_trees{'macro_in_misc_commands'} = {
             },
             {
               'cmdname' => 'noindent',
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 168,
                 'macro' => 'noindentmacro'
-              },
-              'parent' => {}
+              }
             },
             {
               'extra' => {
@@ -2815,12 +2815,12 @@ $result_trees{'macro_in_misc_commands'} = {
             },
             {
               'cmdname' => 'noindent',
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 174,
                 'macro' => 'noindentmacro'
-              },
-              'parent' => {}
+              }
             },
             {
               'extra' => {
@@ -2883,12 +2883,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' contentsmacro 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 176,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2906,12 +2906,12 @@ $result_trees{'macro_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'contents',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 179,
             'macro' => 'contentsmacro'
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -2969,12 +2969,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' exdentmacro 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 183,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3003,12 +3003,12 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 186,
             'macro' => 'exdentmacro'
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3042,12 +3042,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' two 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 188,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3079,12 +3079,12 @@ $result_trees{'macro_in_misc_commands'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 191,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3118,12 +3118,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' resultmacro 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 193,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3153,12 +3153,12 @@ $result_trees{'macro_in_misc_commands'} = {
               '@resultmacro'
             ]
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 197,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3227,12 +3227,12 @@ $result_trees{'macro_in_misc_commands'} = {
                   'normalized' => 'node-atext'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 200,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -3258,23 +3258,23 @@ $result_trees{'macro_in_misc_commands'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 201,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 199,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3286,12 +3286,12 @@ $result_trees{'macro_in_misc_commands'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 10,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -3327,12 +3327,12 @@ $result_trees{'macro_in_misc_commands'} = {
         'normalized' => 'node-atext',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 203,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -3369,12 +3369,12 @@ $result_trees{'macro_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'contents',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 206,
             'macro' => 'contentsmacro'
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3408,12 +3408,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' shortcontentsmacro 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 208,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3431,12 +3431,12 @@ $result_trees{'macro_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'shortcontents',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 211,
             'macro' => 'shortcontentsmacro'
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3470,12 +3470,12 @@ $result_trees{'macro_in_misc_commands'} = {
             'arg_line' => ' byemacro
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 213,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -3493,12 +3493,12 @@ $result_trees{'macro_in_misc_commands'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 204,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

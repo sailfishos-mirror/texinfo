@@ -98,12 +98,12 @@ $result_trees{'complex_nestings'} = {
                           'extra' => {
                             'def_role' => 'name'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 5,
                             'macro' => ''
                           },
-                          'parent' => {},
                           'type' => 'bracketed_def_content'
                         },
                         {
@@ -147,12 +147,12 @@ $result_trees{'complex_nestings'} = {
                           'extra' => {
                             'def_role' => 'arg'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 5,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'extra' => {
@@ -175,12 +175,12 @@ $result_trees{'complex_nestings'} = {
                           'extra' => {
                             'def_role' => 'arg'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 5,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'extra' => {
@@ -220,12 +220,12 @@ $result_trees{'complex_nestings'} = {
                     },
                     'original_def_cmdname' => 'defun'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 5,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'def_line'
                 },
                 {
@@ -263,12 +263,12 @@ $result_trees{'complex_nestings'} = {
                           'extra' => {
                             'def_role' => 'name'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 6,
                             'macro' => ''
                           },
-                          'parent' => {},
                           'type' => 'bracketed_def_content'
                         },
                         {
@@ -341,12 +341,12 @@ $result_trees{'complex_nestings'} = {
                     'original_def_cmdname' => 'defunx',
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 6,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'def_line'
                 },
                 {
@@ -368,12 +368,12 @@ $result_trees{'complex_nestings'} = {
                                   'extra' => {
                                     'def_role' => 'category'
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 7,
                                     'macro' => ''
                                   },
-                                  'parent' => {},
                                   'type' => 'bracketed_def_content'
                                 },
                                 {
@@ -394,12 +394,12 @@ $result_trees{'complex_nestings'} = {
                                   'extra' => {
                                     'def_role' => 'name'
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 7,
                                     'macro' => ''
                                   },
-                                  'parent' => {},
                                   'type' => 'bracketed_def_content'
                                 },
                                 {
@@ -500,12 +500,12 @@ $result_trees{'complex_nestings'} = {
                             },
                             'original_def_cmdname' => 'deffn'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 7,
                             'macro' => ''
                           },
-                          'parent' => {},
                           'type' => 'def_line'
                         },
                         {
@@ -548,12 +548,12 @@ $result_trees{'complex_nestings'} = {
                                           'extra' => {
                                             'def_role' => 'name'
                                           },
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 8,
                                             'macro' => ''
                                           },
-                                          'parent' => {},
                                           'type' => 'bracketed_def_content'
                                         },
                                         {
@@ -609,12 +609,12 @@ $result_trees{'complex_nestings'} = {
                                     },
                                     'original_def_cmdname' => 'defvar'
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 8,
                                     'macro' => ''
                                   },
-                                  'parent' => {},
                                   'type' => 'def_line'
                                 },
                                 {
@@ -670,12 +670,12 @@ $result_trees{'complex_nestings'} = {
                                           'extra' => {
                                             'def_role' => 'name'
                                           },
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 10,
                                             'macro' => ''
                                           },
-                                          'parent' => {},
                                           'type' => 'bracketed_def_content'
                                         },
                                         {
@@ -733,12 +733,12 @@ $result_trees{'complex_nestings'} = {
                                     'original_def_cmdname' => 'defvarx',
                                     'spaces_before_argument' => ' '
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 10,
                                     'macro' => ''
                                   },
-                                  'parent' => {},
                                   'type' => 'def_line'
                                 },
                                 {
@@ -772,12 +772,12 @@ $result_trees{'complex_nestings'} = {
                                             {
                                               'cmdname' => 'asis',
                                               'contents' => [],
-                                              'line_nr' => {
+                                              'parent' => {},
+                                              'source_info' => {
                                                 'file_name' => '',
                                                 'line_nr' => 14,
                                                 'macro' => ''
                                               },
-                                              'parent' => {},
                                               'type' => 'command_as_argument'
                                             }
                                           ],
@@ -816,12 +816,12 @@ $result_trees{'complex_nestings'} = {
                                                   'extra' => {
                                                     'spaces_before_argument' => ' '
                                                   },
-                                                  'line_nr' => {
+                                                  'parent' => {},
+                                                  'source_info' => {
                                                     'file_name' => '',
                                                     'line_nr' => 15,
                                                     'macro' => ''
-                                                  },
-                                                  'parent' => {}
+                                                  }
                                                 }
                                               ],
                                               'parent' => {},
@@ -884,12 +884,12 @@ $result_trees{'complex_nestings'} = {
                                                   'extra' => {
                                                     'spaces_before_argument' => ' '
                                                   },
-                                                  'line_nr' => {
+                                                  'parent' => {},
+                                                  'source_info' => {
                                                     'file_name' => '',
                                                     'line_nr' => 19,
                                                     'macro' => ''
-                                                  },
-                                                  'parent' => {}
+                                                  }
                                                 }
                                               ],
                                               'parent' => {},
@@ -922,12 +922,12 @@ $result_trees{'complex_nestings'} = {
                                             'spaces_before_argument' => ' ',
                                             'text_arg' => 'table'
                                           },
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 20,
                                             'macro' => ''
-                                          },
-                                          'parent' => {}
+                                          }
                                         }
                                       ],
                                       'extra' => {
@@ -935,12 +935,12 @@ $result_trees{'complex_nestings'} = {
                                         'end_command' => {},
                                         'spaces_before_argument' => ' '
                                       },
-                                      'line_nr' => {
+                                      'parent' => {},
+                                      'source_info' => {
                                         'file_name' => '',
                                         'line_nr' => 14,
                                         'macro' => ''
-                                      },
-                                      'parent' => {}
+                                      }
                                     },
                                     {
                                       'contents' => [
@@ -986,24 +986,24 @@ $result_trees{'complex_nestings'} = {
                                     'spaces_before_argument' => ' ',
                                     'text_arg' => 'defvar'
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 23,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
                               'extra' => {
                                 'end_command' => {},
                                 'spaces_before_argument' => ' '
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 8,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             }
                           ],
                           'parent' => {},
@@ -1032,24 +1032,24 @@ $result_trees{'complex_nestings'} = {
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'deffn'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 24,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
                       'extra' => {
                         'end_command' => {},
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 7,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'parent' => {},
@@ -1078,24 +1078,24 @@ $result_trees{'complex_nestings'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'defun'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 25,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {},
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'contents' => [
@@ -1132,23 +1132,23 @@ $result_trees{'complex_nestings'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 27,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'extra' => {
@@ -1166,12 +1166,12 @@ $result_trees{'complex_nestings'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

@@ -43,7 +43,7 @@ typedef struct {
     enum input_type type;
 
     FILE *file;
-    LINE_NR line_nr;
+    SOURCE_INFO source_info;
 
     char *text;  /* Input text to be parsed as Texinfo. */
     char *ptext; /* How far we are through 'text'.  Used to split 'text'
@@ -84,7 +84,7 @@ int input_number = 0;
 int input_space = 0;
 
 /* Current filename and line number.  Used for reporting. */
-LINE_NR line_nr;
+SOURCE_INFO current_source_info;
 
 /* Change the line number of filename of the top input source.  Used to
    record a #line directive.  If FILENAME is non-null, it should hbae
@@ -94,9 +94,9 @@ save_line_directive (int line_nr, char *filename)
 {
   INPUT *top = &input_stack[input_number - 1];
   if (line_nr)
-    top->line_nr.line_nr = line_nr;
+    top->source_info.line_nr = line_nr;
   if (filename)
-    top->line_nr.file_name = filename;
+    top->source_info.file_name = filename;
 }
 
 /* Collect text from the input sources until a newline is found.  This is used 
@@ -203,7 +203,8 @@ encode_with_iconv (iconv_t our_iconv,  char *s)
         case EILSEQ:
         default:
           fprintf(stderr, "%s:%d: encoding error at byte 0x%2x\n",
-            line_nr.file_name, line_nr.line_nr, *(unsigned char *)inptr);
+            current_source_info.file_name, current_source_info.line_nr,
+                                                 *(unsigned char *)inptr);
           inptr++; bytes_left--;
           break;
         }
@@ -316,8 +317,8 @@ expanding_macro (char *macro)
   int i;
   for (i = 0; i < input_number; i++)
     {
-      if (input_stack[i].line_nr.macro
-          && !strcmp (input_stack[i].line_nr.macro, macro))
+      if (input_stack[i].source_info.macro
+          && !strcmp (input_stack[i].source_info.macro, macro))
         {
           return 1;
         }
@@ -359,10 +360,10 @@ next_text (void)
           else
             i->ptext = p; /* The next time, we will pop the input source. */
 
-          if (!i->line_nr.macro)
-            i->line_nr.line_nr++;
+          if (!i->source_info.macro)
+            i->source_info.line_nr++;
 
-          line_nr = i->line_nr;
+          current_source_info = i->source_info;
 
           return new;
 
@@ -387,8 +388,8 @@ next_text (void)
               if (comment)
                 *comment = '\0';
 
-              i->line_nr.line_nr++;
-              line_nr = i->line_nr;
+              i->source_info.line_nr++;
+              current_source_info = i->source_info;
 
               return convert_to_utf8 (line);
             }
@@ -408,7 +409,7 @@ next_text (void)
             {
               if (fclose (input_stack[input_number - 1].file) == EOF)
                 fprintf (stderr, "error on closing %s: %s",
-                        input_stack[input_number - 1].line_nr.file_name,
+                        input_stack[input_number - 1].source_info.file_name,
                         strerror (errno));
             }
         }
@@ -436,9 +437,9 @@ input_push (char *text, char *macro, char *filename, int line_number)
 
   if (!macro)
     line_number--;
-  input_stack[input_number].line_nr.line_nr = line_number;
-  input_stack[input_number].line_nr.file_name = save_string (filename);
-  input_stack[input_number].line_nr.macro = save_string (macro);
+  input_stack[input_number].source_info.line_nr = line_number;
+  input_stack[input_number].source_info.file_name = save_string (filename);
+  input_stack[input_number].source_info.macro = save_string (macro);
   input_number++;
 }
 
@@ -493,9 +494,9 @@ input_push_text (char *text, char *macro)
       char *filename = 0;
       if (input_number > 0)
         {
-          filename = input_stack[input_number - 1].line_nr.file_name;
+          filename = input_stack[input_number - 1].source_info.file_name;
         }
-      input_push (text, macro, filename, line_nr.line_nr);
+      input_push (text, macro, filename, current_source_info.line_nr);
     }
 }
 
@@ -641,9 +642,9 @@ input_push_file (char *filename)
 
   input_stack[input_number].type = IN_file;
   input_stack[input_number].file = stream;
-  input_stack[input_number].line_nr.file_name = filename;
-  input_stack[input_number].line_nr.line_nr = 0;
-  input_stack[input_number].line_nr.macro = 0;
+  input_stack[input_number].source_info.file_name = filename;
+  input_stack[input_number].source_info.line_nr = 0;
+  input_stack[input_number].source_info.macro = 0;
   input_stack[input_number].text = 0;
   input_stack[input_number].ptext = 0;
   input_number++;

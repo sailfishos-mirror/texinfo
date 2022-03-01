@@ -17,12 +17,12 @@ $result_trees{'noindent_indent'} = {
         },
         {
           'cmdname' => 'indent',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'extra' => {
@@ -55,12 +55,12 @@ $result_trees{'noindent_indent'} = {
         },
         {
           'cmdname' => 'noindent',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'extra' => {
@@ -98,12 +98,12 @@ $result_trees{'noindent_indent'} = {
         },
         {
           'cmdname' => 'noindent',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'extra' => {
@@ -135,12 +135,12 @@ $result_trees{'noindent_indent'} = {
         },
         {
           'cmdname' => 'indent',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 11,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'extra' => {

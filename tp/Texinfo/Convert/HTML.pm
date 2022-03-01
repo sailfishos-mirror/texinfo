@@ -2827,7 +2827,8 @@ sub _convert_image_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  if (defined($args->[0]->{'monospacetext'}) and $args->[0]->{'monospacetext'} ne '') {
+  if (defined($args->[0]->{'monospacetext'})
+      and $args->[0]->{'monospacetext'} ne '') {
     my $basefile = $args->[0]->{'monospacetext'};
     return $basefile if ($self->in_string());
     my ($image_file, $image_basefile, $image_extension, $image_path)
@@ -2835,7 +2836,7 @@ sub _convert_image_command($$$$)
     if (not defined($image_path)) {
       $self->_noticed_line_warn(sprintf(
               __("\@image file `%s' (for HTML) not found, using `%s'"),
-                         $image_basefile, $image_file), $command->{'line_nr'});
+                 $image_basefile, $image_file), $command->{'source_info'});
     }
     if (defined($self->get_conf('IMAGE_LINK_PREFIX'))) {
       $image_file = $self->get_conf('IMAGE_LINK_PREFIX') . $image_file;
@@ -3730,7 +3731,7 @@ sub _convert_raw_command($$$$$)
     return $content;
   }
   $self->_noticed_line_warn(sprintf(__("raw format %s is not converted"),
-                                   $cmdname), $command->{'line_nr'});
+                                   $cmdname), $command->{'source_info'});
   return &{$self->formatting_function('format_protect_text')}($self, $content);
 }
 
@@ -8109,10 +8110,10 @@ sub _external_node_href($$$$)
     } else { # nothing specified for that manual, use default
       $target_split = $default_target_split;
       if ($self->get_conf('CHECK_HTMLXREF')) {
-        if (defined($source_command) and $source_command->{'line_nr'}) {
+        if (defined($source_command) and $source_command->{'source_info'}) {
           $self->line_warn($self, sprintf(__(
               "no htmlxref.cnf entry found for `%s'"), $manual_name),
-            $source_command->{'line_nr'});
+            $source_command->{'source_info'});
         } elsif (!$self->{'check_htmlxref_already_warned'}->{$manual_name}) {
           $self->document_warn($self, sprintf(__(
             "no htmlxref.cnf entry found for `%s'"), $manual_name),

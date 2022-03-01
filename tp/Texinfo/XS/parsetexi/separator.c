@@ -164,7 +164,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
       /* We need the line number here in case @ protects the
          end of the line.  */
       if (current->parent->parent->type == ET_def_line)
-        current->line_nr = line_nr;
+        current->source_info = current_source_info;
 
       e = new_element (ET_empty_spaces_before_argument);
       text_append (&e->text, ""); /* See comment in parser.c:merge_text */
@@ -183,7 +183,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
            || current_context() == ct_inlineraw)
     {
       ELEMENT *b = new_element (ET_bracketed);
-      b->line_nr = line_nr;
+      b->source_info = current_source_info;
       add_to_element_contents (current, b);
       current = b;
       debug ("BRACKETED in math");
@@ -279,7 +279,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       if (closed_command == CM_anchor)
         {
           NODE_SPEC_EXTRA *parsed_anchor;
-          current->parent->line_nr = line_nr;
+          current->parent->source_info = current_source_info;
           parsed_anchor = parse_node_manual (current);
           if (check_node_label (parsed_anchor, CM_anchor))
             {

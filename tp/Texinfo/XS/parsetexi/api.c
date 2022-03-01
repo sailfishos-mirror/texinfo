@@ -600,30 +600,30 @@ element_to_perl_hash (ELEMENT *e)
                   newRV_inc((SV *)extra), 0);
     }
 
-  if (e->line_nr.line_nr
+  if (e->source_info.line_nr
       && !(command_flags(e) & CF_INFOENCLOSE))
     {
 #define STORE(key, sv) hv_store (hv, key, strlen (key), sv, 0)
-      LINE_NR *line_nr = &e->line_nr;
+      SOURCE_INFO *source_info = &e->source_info;
       HV *hv = newHV ();
-      hv_store (e->hv, "line_nr", strlen ("line_nr"),
+      hv_store (e->hv, "source_info", strlen ("source_info"),
                 newRV_inc((SV *)hv), 0);
 
-      if (line_nr->file_name)
+      if (source_info->file_name)
         {
-          STORE("file_name", newSVpv (line_nr->file_name, 0));
+          STORE("file_name", newSVpv (source_info->file_name, 0));
         }
       else
         STORE("file_name", newSVpv ("", 0));
 
-      if (line_nr->line_nr)
+      if (source_info->line_nr)
         {
-          STORE("line_nr", newSViv (line_nr->line_nr));
+          STORE("line_nr", newSViv (source_info->line_nr));
         }
 
-      if (line_nr->macro)
+      if (source_info->macro)
         {
-          STORE("macro", newSVpv_utf8 (line_nr->macro, 0));
+          STORE("macro", newSVpv_utf8 (source_info->macro, 0));
         }
       else
         STORE("macro", newSVpv ("", 0));
@@ -1112,7 +1112,7 @@ set_locale_input_file_name_encoding (char *value)
 
 
 static SV *
-build_line_nr_hash (LINE_NR line_nr)
+build_source_info_hash (SOURCE_INFO source_info)
 {
   HV *hv;
 
@@ -1120,25 +1120,25 @@ build_line_nr_hash (LINE_NR line_nr)
 
   hv = newHV ();
 
-  if (line_nr.file_name)
+  if (source_info.file_name)
     {
       hv_store (hv, "file_name", strlen ("file_name"),
-                newSVpv (line_nr.file_name, 0), 0);
+                newSVpv (source_info.file_name, 0), 0);
     }
   else
     {
       hv_store (hv, "file_name", strlen ("file_name"),
                 newSVpv ("", 0), 0);
     }
-  if (line_nr.line_nr)
+  if (source_info.line_nr)
     {
       hv_store (hv, "line_nr", strlen ("line_nr"),
-                newSViv (line_nr.line_nr), 0);
+                newSViv (source_info.line_nr), 0);
     }
-  if (line_nr.macro)
+  if (source_info.macro)
     {
       hv_store (hv, "macro", strlen ("macro"),
-                newSVpv_utf8 (line_nr.macro, 0), 0);
+                newSVpv_utf8 (source_info.macro, 0), 0);
     }
   else
     {
@@ -1169,8 +1169,8 @@ convert_error (int i)
                               : newSVpv("warning", strlen("warning")),
             0);
 
-  hv_store (hv, "line_nr", strlen ("line_nr"),
-            build_line_nr_hash(e.line_nr), 0);
+  hv_store (hv, "source_info", strlen ("source_info"),
+            build_source_info_hash(e.source_info), 0);
 
   return newRV_inc ((SV *) hv);
 

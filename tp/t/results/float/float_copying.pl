@@ -132,12 +132,12 @@ $result_trees{'float_copying'} = {
                                                 ],
                                                 'normalized' => 'caption-copying-footnote-anchor'
                                               },
-                                              'line_nr' => {
+                                              'parent' => {},
+                                              'source_info' => {
                                                 'file_name' => '',
                                                 'line_nr' => 10,
                                                 'macro' => ''
-                                              },
-                                              'parent' => {}
+                                              }
                                             },
                                             {
                                               'parent' => {},
@@ -188,12 +188,12 @@ $result_trees{'float_copying'} = {
                                             },
                                             'spaces_before_argument' => ' '
                                           },
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 12,
                                             'macro' => ''
                                           },
-                                          'parent' => {},
                                           'type' => 'index_entry_command'
                                         },
                                         {
@@ -229,12 +229,12 @@ $result_trees{'float_copying'} = {
                                             },
                                             'spaces_before_argument' => ' '
                                           },
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 13,
                                             'macro' => ''
                                           },
-                                          'parent' => {},
                                           'type' => 'index_entry_command'
                                         },
                                         {
@@ -300,12 +300,12 @@ $result_trees{'float_copying'} = {
                                                     'normalized' => 'Copying-and-floats',
                                                     'spaces_before_argument' => ' '
                                                   },
-                                                  'line_nr' => {
+                                                  'parent' => {},
+                                                  'source_info' => {
                                                     'file_name' => '',
                                                     'line_nr' => 35,
                                                     'macro' => ''
-                                                  },
-                                                  'parent' => {}
+                                                  }
                                                 },
                                                 'node_argument' => {
                                                   'node_content' => [
@@ -314,12 +314,12 @@ $result_trees{'float_copying'} = {
                                                   'normalized' => 'Copying-and-floats'
                                                 }
                                               },
-                                              'line_nr' => {
+                                              'parent' => {},
+                                              'source_info' => {
                                                 'file_name' => '',
                                                 'line_nr' => 15,
                                                 'macro' => ''
-                                              },
-                                              'parent' => {}
+                                              }
                                             },
                                             {
                                               'parent' => {},
@@ -347,12 +347,12 @@ $result_trees{'float_copying'} = {
                                     'spaces_before_argument' => '
 '
                                   },
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 8,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 },
                                 {
                                   'parent' => {},
@@ -393,12 +393,12 @@ $result_trees{'float_copying'} = {
                                 ],
                                 'normalized' => 'public-domain-anchor'
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 19,
                                 'macro' => ''
-                              },
-                              'parent' => {}
+                              }
                             },
                             {
                               'parent' => {},
@@ -439,12 +439,12 @@ $result_trees{'float_copying'} = {
                                 },
                                 'spaces_before_argument' => ' '
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 20,
                                 'macro' => ''
                               },
-                              'parent' => {},
                               'type' => 'index_entry_command'
                             },
                             {
@@ -480,12 +480,12 @@ $result_trees{'float_copying'} = {
                                 },
                                 'spaces_before_argument' => ' '
                               },
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 21,
                                 'macro' => ''
                               },
-                              'parent' => {},
                               'type' => 'index_entry_command'
                             }
                           ],
@@ -498,12 +498,12 @@ $result_trees{'float_copying'} = {
                       'extra' => {
                         'float' => {}
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -534,12 +534,12 @@ $result_trees{'float_copying'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'float'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 23,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -557,12 +557,12 @@ $result_trees{'float_copying'} = {
                       'normalized' => 'Copyright notice'
                     }
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 3,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
@@ -587,23 +587,23 @@ $result_trees{'float_copying'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 24,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {}
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -653,12 +653,12 @@ $result_trees{'float_copying'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 26,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -695,12 +695,12 @@ $result_trees{'float_copying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 29,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -769,12 +769,12 @@ $result_trees{'float_copying'} = {
                   'normalized' => 'Copying-and-floats'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 32,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -800,23 +800,23 @@ $result_trees{'float_copying'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 33,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 31,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -828,12 +828,12 @@ $result_trees{'float_copying'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 27,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {},
     {
@@ -871,12 +871,12 @@ $result_trees{'float_copying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 38,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -888,12 +888,12 @@ $result_trees{'float_copying'} = {
             }
           ],
           'cmdname' => 'insertcopying',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 39,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -928,12 +928,12 @@ $result_trees{'float_copying'} = {
               'normalized' => 'Copyright notice'
             }
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 41,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -965,12 +965,12 @@ $result_trees{'float_copying'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 43,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -996,23 +996,23 @@ $result_trees{'float_copying'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 44,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 36,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

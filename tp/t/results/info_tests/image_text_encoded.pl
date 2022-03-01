@@ -33,12 +33,12 @@ $result_trees{'image_text_encoded'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'utf-8'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -64,12 +64,12 @@ $result_trees{'image_text_encoded'} = {
           'extra' => {
             'input_perl_encoding' => 'utf-8-strict'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

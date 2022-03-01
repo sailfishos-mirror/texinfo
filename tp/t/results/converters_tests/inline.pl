@@ -49,12 +49,12 @@ $result_trees{'inline'} = {
                 'expand_index' => 1,
                 'format' => 'html'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -93,12 +93,12 @@ $result_trees{'inline'} = {
                 'expand_index' => 1,
                 'format' => 'plaintext'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -137,12 +137,12 @@ $result_trees{'inline'} = {
                 'expand_index' => 1,
                 'format' => 'xml'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -181,12 +181,12 @@ $result_trees{'inline'} = {
                 'expand_index' => 1,
                 'format' => 'docbook'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -216,12 +216,12 @@ $result_trees{'inline'} = {
               'extra' => {
                 'format' => 'tex'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -271,12 +271,12 @@ $result_trees{'inline'} = {
                                               'text' => ' code '
                                             }
                                           ],
-                                          'line_nr' => {
+                                          'parent' => {},
+                                          'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 7,
                                             'macro' => ''
                                           },
-                                          'parent' => {},
                                           'type' => 'bracketed'
                                         }
                                       ],
@@ -286,20 +286,20 @@ $result_trees{'inline'} = {
                                   ],
                                   'cmdname' => 'code',
                                   'contents' => [],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 7,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 }
                               ],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 7,
                                 'macro' => ''
                               },
-                              'parent' => {},
                               'type' => 'bracketed'
                             },
                             {
@@ -309,12 +309,12 @@ $result_trees{'inline'} = {
                                   'text' => 'b'
                                 }
                               ],
-                              'line_nr' => {
+                              'parent' => {},
+                              'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 7,
                                 'macro' => ''
                               },
-                              'parent' => {},
                               'type' => 'bracketed'
                             }
                           ],
@@ -324,12 +324,12 @@ $result_trees{'inline'} = {
                       ],
                       'cmdname' => 'math',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 7,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'parent' => {},
@@ -349,12 +349,12 @@ $result_trees{'inline'} = {
                 'expand_index' => 1,
                 'format' => 'latex'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -411,12 +411,12 @@ $result_trees{'inline'} = {
                 'expand_index' => 1,
                 'format' => 'html'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -455,12 +455,12 @@ $result_trees{'inline'} = {
                 'expand_index' => 1,
                 'format' => 'plaintext'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -499,12 +499,12 @@ $result_trees{'inline'} = {
                 'expand_index' => 1,
                 'format' => 'xml'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -543,12 +543,12 @@ $result_trees{'inline'} = {
                 'expand_index' => 1,
                 'format' => 'docbook'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -578,12 +578,12 @@ $result_trees{'inline'} = {
               'extra' => {
                 'format' => 'tex'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -629,12 +629,12 @@ $result_trees{'inline'} = {
                                       'text' => ' code '
                                     }
                                   ],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 15,
                                     'macro' => ''
                                   },
-                                  'parent' => {},
                                   'type' => 'bracketed'
                                 }
                               ],
@@ -644,20 +644,20 @@ $result_trees{'inline'} = {
                           ],
                           'cmdname' => 'code',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 15,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 15,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'bracketed'
                     },
                     {
@@ -667,12 +667,12 @@ $result_trees{'inline'} = {
                           'text' => 'b'
                         }
                       ],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 15,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'bracketed'
                     },
                     {
@@ -693,12 +693,12 @@ $result_trees{'inline'} = {
                 'expand_index' => 1,
                 'format' => 'latex'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

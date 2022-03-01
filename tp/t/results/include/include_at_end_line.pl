@@ -32,12 +32,12 @@ $result_trees{'include_at_end_line'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'inc_file.texi'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

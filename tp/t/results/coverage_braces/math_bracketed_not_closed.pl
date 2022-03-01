@@ -22,12 +22,12 @@ $result_trees{'math_bracketed_not_closed'} = {
                           'text' => 'x^i'
                         }
                       ],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'bracketed'
                     },
                     {
@@ -41,12 +41,12 @@ $result_trees{'math_bracketed_not_closed'} = {
                           'text' => '\\tan '
                         }
                       ],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'bracketed'
                     }
                   ],
@@ -56,12 +56,12 @@ $result_trees{'math_bracketed_not_closed'} = {
               ],
               'cmdname' => 'math',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},

@@ -57,12 +57,12 @@ $result_trees{'nodes_after_top_before_chapter'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'nodes_after_top_before_chapter.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_after_top_before_chapter.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -175,12 +175,12 @@ $result_trees{'nodes_after_top_before_chapter'} = {
                   'normalized' => 'second-node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_after_top_before_chapter.texi',
                 'line_nr' => 9,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -232,12 +232,12 @@ $result_trees{'nodes_after_top_before_chapter'} = {
                   'normalized' => 'third-node'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_after_top_before_chapter.texi',
                 'line_nr' => 10,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -263,23 +263,23 @@ $result_trees{'nodes_after_top_before_chapter'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'nodes_after_top_before_chapter.texi',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'nodes_after_top_before_chapter.texi',
             'line_nr' => 8,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -303,12 +303,12 @@ $result_trees{'nodes_after_top_before_chapter'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_after_top_before_chapter.texi',
         'line_nr' => 6,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -419,12 +419,12 @@ $result_trees{'nodes_after_top_before_chapter'} = {
         'normalized' => 'second-node',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_after_top_before_chapter.texi',
         'line_nr' => 13,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -498,12 +498,12 @@ $result_trees{'nodes_after_top_before_chapter'} = {
         'normalized' => 'third-node',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_after_top_before_chapter.texi',
         'line_nr' => 17,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -540,12 +540,12 @@ $result_trees{'nodes_after_top_before_chapter'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'nodes_after_top_before_chapter.texi',
         'line_nr' => 18,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

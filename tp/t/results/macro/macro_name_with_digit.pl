@@ -35,12 +35,12 @@ $result_trees{'macro_name_with_digit'} = {
             'arg_line' => ' macro1
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -85,12 +85,12 @@ $result_trees{'macro_name_with_digit'} = {
             'arg_line' => ' macro11 {arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

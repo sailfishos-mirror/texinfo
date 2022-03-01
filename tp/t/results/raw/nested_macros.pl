@@ -82,12 +82,12 @@ $result_trees{'nested_macros'} = {
             'arg_line' => ' truc   { arg,  ex}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

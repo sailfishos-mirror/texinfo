@@ -35,12 +35,12 @@ $result_trees{'macro_for_ignored_line_command'} = {
             'arg_line' => ' pagemacro
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

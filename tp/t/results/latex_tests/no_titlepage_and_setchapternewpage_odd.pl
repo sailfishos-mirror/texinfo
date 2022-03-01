@@ -33,12 +33,12 @@ $result_trees{'no_titlepage_and_setchapternewpage_odd'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'no_titlepage_and_setchapternewpage_odd.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -64,12 +64,12 @@ $result_trees{'no_titlepage_and_setchapternewpage_odd'} = {
                 ],
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},

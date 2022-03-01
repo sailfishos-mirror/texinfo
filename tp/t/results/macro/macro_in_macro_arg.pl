@@ -41,12 +41,12 @@ $result_trees{'macro_in_macro_arg'} = {
             'arg_line' => ' macroone
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -91,12 +91,12 @@ $result_trees{'macro_in_macro_arg'} = {
             'arg_line' => ' macrotwo{arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -152,12 +152,12 @@ $result_trees{'macro_in_macro_arg'} = {
             'arg_line' => ' macrothree{text, arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 10,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

@@ -41,12 +41,12 @@ $result_trees{'macro_in_ifset'} = {
             'arg_line' => ' truc {}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

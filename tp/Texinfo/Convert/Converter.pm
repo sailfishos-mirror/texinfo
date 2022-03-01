@@ -1005,13 +1005,13 @@ sub present_bug_message($$;$)
   my $line_message = '';
   my $current_element_message = '';
   if ($current) {
-    if ($current->{'line_nr'}) {
-      my $line_number = $current->{'line_nr'};
-      my $file = $line_number->{'file_name'};
+    if ($current->{'source_info'}) {
+      my $source_info = $current->{'source_info'};
+      my $file = $source_info->{'file_name'};
       $line_message
-        = "in: $line_number->{'file_name'}:$line_number->{'line_nr'}";
-      if ($line_number->{'macro'} ne '') {
-        $line_message .= " (possibly involving $line_number->{'macro'})";
+        = "in: $source_info->{'file_name'}:$source_info->{'line_nr'}";
+      if ($source_info->{'macro'} ne '') {
+        $line_message .= " (possibly involving $source_info->{'macro'})";
       }
       $line_message .= "\n";
     }
@@ -1103,7 +1103,7 @@ sub txt_image_text($$$)
     } else {
       $self->line_warn($self,
                   sprintf(__("\@image file `%s' unreadable: %s"),
-                               $txt_file, $!), $element->{'line_nr'});
+                               $txt_file, $!), $element->{'source_info'});
     }
   }
   return undef;
@@ -1233,7 +1233,7 @@ sub table_item_content_tree($$$)
     my $command_as_argument
       = $table_command->{'extra'}->{'command_as_argument'};
     my $command = {'cmdname' => $command_as_argument->{'cmdname'},
-               'line_nr' => $element->{'line_nr'},
+               'source_info' => $element->{'source_info'},
                'parent' => $table_item_tree };
     if ($table_command->{'extra'}->{'command_as_argument_kbd_code'}) {
       $command->{'extra'}->{'code'} = 1;

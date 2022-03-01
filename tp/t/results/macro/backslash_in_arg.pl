@@ -68,12 +68,12 @@ $result_trees{'backslash_in_arg'} = {
             'arg_line' => ' funindex {TEXT}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -120,12 +120,12 @@ $result_trees{'backslash_in_arg'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 7,
             'macro' => 'funindex'
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -161,12 +161,12 @@ $result_trees{'backslash_in_arg'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 8,
             'macro' => 'funindex'
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -202,12 +202,12 @@ $result_trees{'backslash_in_arg'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
             'macro' => 'funindex'
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -243,12 +243,12 @@ $result_trees{'backslash_in_arg'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 10,
             'macro' => 'funindex'
           },
-          'parent' => {},
           'type' => 'index_entry_command'
         },
         {
@@ -275,12 +275,12 @@ $result_trees{'backslash_in_arg'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 11,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'extra' => {
@@ -299,12 +299,12 @@ $result_trees{'backslash_in_arg'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

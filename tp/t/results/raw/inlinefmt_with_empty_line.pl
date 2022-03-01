@@ -54,12 +54,12 @@ $result_trees{'inlinefmt_with_empty_line'} = {
                 'expand_index' => 1,
                 'format' => 'plaintext'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},
@@ -77,12 +77,12 @@ $result_trees{'inlinefmt_with_empty_line'} = {
               ],
               'cmdname' => 'lbracechar',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -128,12 +128,12 @@ $result_trees{'inlinefmt_with_empty_line'} = {
                 'expand_index' => 1,
                 'format' => 'html'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},
@@ -160,12 +160,12 @@ $result_trees{'inlinefmt_with_empty_line'} = {
               ],
               'cmdname' => 'acronym',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

@@ -51,12 +51,12 @@ $result_trees{'also_not_line'} = {
             },
             {
               'cmdname' => 'noindent',
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'extra' => {
@@ -91,12 +91,12 @@ $result_trees{'also_not_line'} = {
         },
         {
           'cmdname' => 'noindent',
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'extra' => {
@@ -115,12 +115,12 @@ $result_trees{'also_not_line'} = {
             },
             {
               'cmdname' => 'noindent',
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'extra' => {
@@ -142,12 +142,12 @@ $result_trees{'also_not_line'} = {
             },
             {
               'cmdname' => 'noindent',
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'extra' => {
@@ -240,12 +240,12 @@ $result_trees{'also_not_line'} = {
             },
             {
               'cmdname' => 'noindent',
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'extra' => {
@@ -282,12 +282,12 @@ $result_trees{'also_not_line'} = {
                 }
               ],
               'cmdname' => 'novalidate',
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 16,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},
@@ -320,12 +320,12 @@ $result_trees{'also_not_line'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 18,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -403,12 +403,12 @@ $result_trees{'also_not_line'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 23,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

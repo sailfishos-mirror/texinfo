@@ -25,12 +25,12 @@ $result_trees{'clickstyle'} = {
               '@result'
             ]
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -57,12 +57,12 @@ $result_trees{'clickstyle'} = {
               'extra' => {
                 'clickstyle' => 'result'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

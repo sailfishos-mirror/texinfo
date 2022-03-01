@@ -244,13 +244,13 @@ handle_other_command (ELEMENT *current, char **line_inout,
               current = begin_preformatted (current);
             }
           if (misc)
-            misc->line_nr = line_nr;
+            misc->source_info = current_source_info;
         }
       else
         {
           misc = new_element (ET_NONE);
           misc->cmd = cmd;
-          misc->line_nr = line_nr;
+          misc->source_info = current_source_info;
           add_to_element_contents (current, misc);
         }
       start_empty_line_after_command (current, &line, misc);
@@ -368,16 +368,16 @@ handle_line_command (ELEMENT *current, char **line_inout,
       if (!strchr (line, '\n'))
         {
           char *line2;
-          LINE_NR save_ln; 
+          SOURCE_INFO save_src_info; 
 
           input_push_text (strdup (line), 0);
 
-          save_ln = line_nr;
+          save_src_info = current_source_info;
           line2 = new_line ();
           if (line2)
             {
               line = line2;
-              line_nr = save_ln;
+              current_source_info = save_src_info;
             }
         }
 
@@ -436,7 +436,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
           destroy_element_and_children (misc);
           misc = new_element (ET_NONE);
           misc->cmd = equivalent_cmd;
-          misc->line_nr = line_nr;
+          misc->source_info = current_source_info;
 
           line_args = new_element (ET_line_arg);
           add_to_element_args (misc, line_args);
@@ -533,7 +533,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
             }
           misc = new_element (ET_NONE);
           misc->cmd = (cmd == CM_item_LINE) ? CM_item : CM_itemx;
-          misc->line_nr = line_nr;
+          misc->source_info = current_source_info;
           add_to_element_contents (current, misc);
         }
       else
@@ -541,7 +541,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
           /* Add to contents */
           misc = new_element (ET_NONE);
           misc->cmd = cmd;
-          misc->line_nr = line_nr;
+          misc->source_info = current_source_info;
 
           if (cmd == CM_subentry)
             {
@@ -910,11 +910,11 @@ handle_block_command (ELEMENT *current, char **line_inout,
           push_context (ct_def, cmd);
           block = new_element (ET_NONE);
           block->cmd = cmd;
-          block->line_nr = line_nr;
+          block->source_info = current_source_info;
           add_to_element_contents (current, block);
           current = block;
           def_line = new_element (ET_def_line);
-          def_line->line_nr = line_nr;
+          def_line->source_info = current_source_info;
           add_to_element_contents (current, def_line);
           current = def_line;
           add_extra_string_dup (current, "def_command", command_name(cmd));
@@ -1036,7 +1036,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
 
           }
         }
-      block->line_nr = line_nr;
+      block->source_info = current_source_info;
       register_global_command (block);
       start_empty_line_after_command (current, &line, block);
     }
@@ -1058,7 +1058,7 @@ handle_brace_command (ELEMENT *current, char **line_inout, enum command_id cmd)
   /* The line number information is only ever used for brace commands
      if the command is given with braces, but it's easier just to always
      store the information. */
-  e->line_nr = line_nr;
+  e->source_info = current_source_info;
 
   add_to_element_contents (current, e);
 

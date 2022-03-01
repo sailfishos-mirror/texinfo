@@ -34,12 +34,12 @@ $result_trees{'inlineifset_false_not_closed'} = {
               'extra' => {
                 'format' => 'aaa'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},

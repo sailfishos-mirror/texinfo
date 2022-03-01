@@ -18,14 +18,14 @@ void line_warn (char *format, ...);
 void command_error (ELEMENT *e, char *format, ...);
 void command_warn (ELEMENT *e, char *format, ...);
 void wipe_errors (void);
-void line_error_ext (enum error_type type, LINE_NR *cmd_line_nr,
+void line_error_ext (enum error_type type, SOURCE_INFO *cmd_source_info,
                      char *format, ...);
 void bug_message (char *format, ...);
 
 typedef struct {
     char *message;
     enum error_type type;
-    LINE_NR line_nr;
+    SOURCE_INFO source_info;
 } ERROR_MESSAGE;
 
 extern ERROR_MESSAGE *error_list;

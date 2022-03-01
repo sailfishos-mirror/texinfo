@@ -45,12 +45,12 @@ $result_trees{'form_feeds'} = {
             'arg_line' => ' mymacro{a, b}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -95,12 +95,12 @@ $result_trees{'form_feeds'} = {
             'arg_line' => ' oneargmacro{c}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

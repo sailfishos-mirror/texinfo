@@ -71,12 +71,12 @@ $result_trees{'macro_in_ifset_set'} = {
             'arg_line' => ' truc {}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -134,12 +134,12 @@ $result_trees{'macro_in_ifset_set'} = {
             'arg_line' => ' truc{}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 10,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

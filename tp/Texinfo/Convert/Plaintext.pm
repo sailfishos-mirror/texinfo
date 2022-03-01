@@ -1313,7 +1313,7 @@ sub process_printindex($$;$)
         sprintf(__("Index entry in \@%s with : produces invalid Info: %s"),
                 $entry->{'index_at_command'},
                 Texinfo::Convert::Texinfo::convert_to_texinfo($entry_tree)),
-                        $entry->{'command'}->{'line_nr'});
+                        $entry->{'command'}->{'source_info'});
     }
 
     my $entry_nr = '';
@@ -1358,7 +1358,7 @@ sub process_printindex($$;$)
       if (!$self->{'index_entries_no_node'}->{$entry}) {
         $self->line_warn($self,
              sprintf(__("entry for index `%s' outside of any node"),
-                                 $index_name), $entry->{'command'}->{'line_nr'});
+                        $index_name), $entry->{'command'}->{'source_info'});
         $self->{'index_entries_no_node'}->{$entry} = 1;
       }
     } else {
@@ -1460,7 +1460,7 @@ sub image_formatted_text($$$$)
   } else {
     $self->line_warn($self, sprintf(__(
                     "could not find \@image file `%s.txt' nor alternate text"),
-                             $basefile), $element->{'line_nr'});
+                             $basefile), $element->{'source_info'});
     $result = '['.$basefile.']';
   }
   return $result;
@@ -1821,7 +1821,7 @@ sub _convert($$)
              and $self->{'output_format'} eq 'info') {
           $self->line_warn($self, __(
     "\@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that"), 
-                           $element->{'line_nr'});
+                           $element->{'source_info'});
         }
       }
       $result .= _count_added($self, $formatter->{'container'},
@@ -2067,7 +2067,7 @@ sub _convert($$)
               if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
                 $self->line_warn($self, sprintf(__(
                    "\@%s cross-reference name should not contain `:'"),
-                                               $command), $element->{'line_nr'});
+                                         $command), $element->{'source_info'});
               }
               if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
                 $quoting_required = 1;
@@ -2105,7 +2105,7 @@ sub _convert($$)
               if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
                 $self->line_warn($self, sprintf(__(
                    "\@%s node name should not contain `%s'"), $command, $1),
-                                 $element->{'line_nr'});
+                                 $element->{'source_info'});
               }
               if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
                 $quoting_required = 1;
@@ -2138,7 +2138,7 @@ sub _convert($$)
             if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
               $self->line_warn($self, sprintf(__(
                  "\@%s node name should not contain `:'"), $command),
-                               $element->{'line_nr'});
+                               $element->{'source_info'});
             }
             if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
               $quoting_required = 1;
@@ -2185,11 +2185,11 @@ sub _convert($$)
                 my $char = substr($text, 0, 1);
                 $self->line_warn($self, sprintf(__(
                             "`.' or `,' must follow \@xref, not %s"),
-                                         $char), $element->{'line_nr'});
+                                         $char), $element->{'source_info'});
               } else {
                 $self->line_warn($self,
                            __("`.' or `,' must follow \@xref"),
-                                 $element->{'line_nr'});
+                                 $element->{'source_info'});
               }
             }
             my @added = ({'text' => '.'});
@@ -2975,7 +2975,7 @@ sub _convert($$)
               if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
                 $self->line_warn($self, sprintf(__(
                    "menu entry node name should not contain `%s'"), $1),
-                               $element->{'line_nr'});
+                               $element->{'source_info'});
               }
             }
             if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
@@ -2986,7 +2986,7 @@ sub _convert($$)
               if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
                 $self->line_warn($self, __(
                  "menu entry node name should not contain `:'"),
-                               $element->{'line_nr'});
+                               $element->{'source_info'});
               }
               if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
                 $pre_quote = $post_quote = "\x{7f}";
@@ -3006,7 +3006,7 @@ sub _convert($$)
             if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
               $self->line_warn($self, __(
                  "menu entry name should not contain `:'"),
-                               $element->{'line_nr'});
+                               $element->{'source_info'});
             }
             if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
               $pre_quote = $post_quote = "\x{7f}";

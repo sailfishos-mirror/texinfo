@@ -52,11 +52,11 @@ typedef struct ELEMENT_LIST {
     size_t space;
 } ELEMENT_LIST;
 
-typedef struct LINE_NR {
+typedef struct SOURCE_INFO {
     int line_nr;
     char *file_name;
     char *macro;
-} LINE_NR;
+} SOURCE_INFO;
 
 typedef struct ELEMENT {
     enum command_id cmd;
@@ -65,7 +65,7 @@ typedef struct ELEMENT {
     ELEMENT_LIST args;
     ELEMENT_LIST contents;
     struct ELEMENT *parent;
-    LINE_NR line_nr;
+    SOURCE_INFO source_info;
 
     KEY_PAIR *extra;
     size_t extra_number;

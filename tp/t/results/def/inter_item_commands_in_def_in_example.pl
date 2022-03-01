@@ -61,12 +61,12 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                           'extra' => {
                             'def_role' => 'name'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 2,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'extra' => {
@@ -135,12 +135,12 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                     },
                     'original_def_cmdname' => 'deffn'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'def_line'
                 },
                 {
@@ -209,12 +209,12 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                             'def_role' => 'name',
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 5,
                             'macro' => ''
                           },
-                          'parent' => {},
                           'type' => 'bracketed_def_content'
                         },
                         {
@@ -230,12 +230,12 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                           'extra' => {
                             'def_role' => 'arg'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 5,
                             'macro' => ''
                           },
-                          'parent' => {},
                           'type' => 'bracketed_def_content'
                         },
                         {
@@ -277,12 +277,12 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                     'original_def_cmdname' => 'deffnx',
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 5,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'def_line'
                 },
                 {
@@ -321,12 +321,12 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                             },
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 6,
                             'macro' => ''
                           },
-                          'parent' => {},
                           'type' => 'index_entry_command'
                         }
                       ],
@@ -379,12 +379,12 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                                   ],
                                   'cmdname' => 'samp',
                                   'contents' => [],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 7,
                                     'macro' => ''
-                                  },
-                                  'parent' => {}
+                                  }
                                 },
                                 {
                                   'parent' => {},
@@ -400,12 +400,12 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                           'extra' => {
                             'def_role' => 'name'
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 7,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         },
                         {
                           'extra' => {
@@ -461,12 +461,12 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                     'original_def_cmdname' => 'deffnx',
                     'spaces_before_argument' => ' '
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 7,
                     'macro' => ''
                   },
-                  'parent' => {},
                   'type' => 'def_line'
                 },
                 {
@@ -505,12 +505,12 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                             },
                             'spaces_before_argument' => ' '
                           },
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 8,
                             'macro' => ''
                           },
-                          'parent' => {},
                           'type' => 'index_entry_command'
                         },
                         {
@@ -555,24 +555,24 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'deffn'
                   },
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 11,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
                 'end_command' => {},
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -597,23 +597,23 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

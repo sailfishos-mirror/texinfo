@@ -35,12 +35,12 @@ $result_trees{'nested_macro_call'} = {
             'arg_line' => ' machin{}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -86,12 +86,12 @@ $result_trees{'nested_macro_call'} = {
             'arg_line' => ' truc{}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

@@ -40,12 +40,12 @@ $result_trees{'inline_expand_tex'} = {
               'extra' => {
                 'format' => 'html'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -75,12 +75,12 @@ $result_trees{'inline_expand_tex'} = {
               'extra' => {
                 'format' => 'plaintext'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -110,12 +110,12 @@ $result_trees{'inline_expand_tex'} = {
               'extra' => {
                 'format' => 'xml'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -145,12 +145,12 @@ $result_trees{'inline_expand_tex'} = {
               'extra' => {
                 'format' => 'docbook'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -190,12 +190,12 @@ $result_trees{'inline_expand_tex'} = {
                       ],
                       'cmdname' => 'code',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 6,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -211,12 +211,12 @@ $result_trees{'inline_expand_tex'} = {
                 'expand_index' => 1,
                 'format' => 'tex'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -246,12 +246,12 @@ $result_trees{'inline_expand_tex'} = {
               'extra' => {
                 'format' => 'latex'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -299,12 +299,12 @@ $result_trees{'inline_expand_tex'} = {
               'extra' => {
                 'format' => 'html'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -334,12 +334,12 @@ $result_trees{'inline_expand_tex'} = {
               'extra' => {
                 'format' => 'plaintext'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -369,12 +369,12 @@ $result_trees{'inline_expand_tex'} = {
               'extra' => {
                 'format' => 'xml'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -404,12 +404,12 @@ $result_trees{'inline_expand_tex'} = {
               'extra' => {
                 'format' => 'docbook'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -455,12 +455,12 @@ $result_trees{'inline_expand_tex'} = {
                                       'text' => ' code '
                                     }
                                   ],
-                                  'line_nr' => {
+                                  'parent' => {},
+                                  'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 14,
                                     'macro' => ''
                                   },
-                                  'parent' => {},
                                   'type' => 'bracketed'
                                 }
                               ],
@@ -470,20 +470,20 @@ $result_trees{'inline_expand_tex'} = {
                           ],
                           'cmdname' => 'code',
                           'contents' => [],
-                          'line_nr' => {
+                          'parent' => {},
+                          'source_info' => {
                             'file_name' => '',
                             'line_nr' => 14,
                             'macro' => ''
-                          },
-                          'parent' => {}
+                          }
                         }
                       ],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 14,
                         'macro' => ''
                       },
-                      'parent' => {},
                       'type' => 'bracketed'
                     },
                     {
@@ -504,12 +504,12 @@ $result_trees{'inline_expand_tex'} = {
                 'expand_index' => 1,
                 'format' => 'tex'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -539,12 +539,12 @@ $result_trees{'inline_expand_tex'} = {
               'extra' => {
                 'format' => 'latex'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

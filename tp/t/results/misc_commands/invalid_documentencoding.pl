@@ -45,12 +45,12 @@ $result_trees{'invalid_documentencoding'} = {
                   ],
                   'cmdname' => 'asis',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -66,12 +66,12 @@ $result_trees{'invalid_documentencoding'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'us-ascii'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -102,12 +102,12 @@ $result_trees{'invalid_documentencoding'} = {
                   ],
                   'cmdname' => 'asis',
                   'contents' => [],
-                  'line_nr' => {
+                  'parent' => {},
+                  'source_info' => {
                     'file_name' => '',
                     'line_nr' => 4,
                     'macro' => ''
-                  },
-                  'parent' => {}
+                  }
                 }
               ],
               'extra' => {
@@ -123,12 +123,12 @@ $result_trees{'invalid_documentencoding'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'latin1'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
@@ -152,12 +152,12 @@ $result_trees{'invalid_documentencoding'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'YS-ASCII'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -191,12 +191,12 @@ $result_trees{'invalid_documentencoding'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'bad encoding name'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -220,12 +220,12 @@ $result_trees{'invalid_documentencoding'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => '1'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -249,12 +249,12 @@ $result_trees{'invalid_documentencoding'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => '%'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -278,12 +278,12 @@ $result_trees{'invalid_documentencoding'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => '@'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -303,12 +303,12 @@ $result_trees{'invalid_documentencoding'} = {
                       ],
                       'cmdname' => 'TeX',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 10,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -324,12 +324,12 @@ $result_trees{'invalid_documentencoding'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'AAA'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -354,12 +354,12 @@ $result_trees{'invalid_documentencoding'} = {
                       ],
                       'cmdname' => '\'',
                       'contents' => [],
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 11,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
                   'extra' => {
@@ -375,12 +375,12 @@ $result_trees{'invalid_documentencoding'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'BBB'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'parent' => {},

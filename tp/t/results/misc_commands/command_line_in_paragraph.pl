@@ -38,12 +38,12 @@ $result_trees{'command_line_in_paragraph'} = {
                 'spaces_before_argument' => '  ',
                 'text_arg' => 'en'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

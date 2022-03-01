@@ -35,12 +35,12 @@ $result_trees{'ignored_macro_definition'} = {
             'arg_line' => ' mymacro{}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -85,12 +85,12 @@ $result_trees{'ignored_macro_definition'} = {
               'extra' => {
                 'format' => 'tex'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

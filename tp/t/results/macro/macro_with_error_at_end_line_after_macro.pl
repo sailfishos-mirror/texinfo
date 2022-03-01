@@ -40,12 +40,12 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
             'arg_line' => ' witherror{string}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -75,12 +75,12 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
           'extra' => {
             'missing_argument' => 1
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => 'witherror'
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

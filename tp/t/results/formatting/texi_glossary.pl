@@ -57,12 +57,12 @@ $result_trees{'texi_glossary'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'glossary'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -96,12 +96,12 @@ $result_trees{'texi_glossary'} = {
                 'arg_line' => ' glossarytext
 '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 5,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -153,12 +153,12 @@ $result_trees{'texi_glossary'} = {
                 'arg_line' => ' glossary
 '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 9,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -322,12 +322,12 @@ $result_trees{'texi_glossary'} = {
                 'arg_line' => ' gentry {id, name, text}
 '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 15,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -383,12 +383,12 @@ $result_trees{'texi_glossary'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'glossary.texi',
         'line_nr' => 35,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -476,12 +476,12 @@ $result_trees{'texi_glossary'} = {
                   'normalized' => 'glossary'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 39,
                 'macro' => ''
               },
-              'parent' => {},
               'type' => 'menu_entry'
             },
             {
@@ -507,23 +507,23 @@ $result_trees{'texi_glossary'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 40,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             }
           ],
           'extra' => {
             'end_command' => {}
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'glossary.texi',
             'line_nr' => 38,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -570,12 +570,12 @@ $result_trees{'texi_glossary'} = {
                   'normalized' => 'id1'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 42,
                 'macro' => 'gentry'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -665,12 +665,12 @@ $result_trees{'texi_glossary'} = {
                 'arg_line' => ' expandglossary{glossary}
 '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 42,
                 'macro' => 'gentry'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -734,12 +734,12 @@ $result_trees{'texi_glossary'} = {
                 'arg_line' => ' glossarytext
 '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 42,
                 'macro' => 'expandglossary'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -798,11 +798,6 @@ $result_trees{'texi_glossary'} = {
                       {}
                     ],
                     'normalized' => 'id2'
-                  },
-                  'line_nr' => {
-                    'file_name' => 'glossary.texi',
-                    'line_nr' => 47,
-                    'macro' => 'glossarytext'
                   },
                   'parent' => {
                     'contents' => [
@@ -870,14 +865,19 @@ $result_trees{'texi_glossary'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => 'glossary.texi',
                         'line_nr' => 46,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     'type' => 'paragraph'
+                  },
+                  'source_info' => {
+                    'file_name' => 'glossary.texi',
+                    'line_nr' => 47,
+                    'macro' => 'glossarytext'
                   }
                 },
                 'node_argument' => {
@@ -887,12 +887,12 @@ $result_trees{'texi_glossary'} = {
                   'normalized' => 'id2'
                 }
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 43,
                 'macro' => 'gentry'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -982,12 +982,12 @@ $result_trees{'texi_glossary'} = {
                 'arg_line' => ' expandglossary{glossary}
 '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 43,
                 'macro' => 'gentry'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1051,12 +1051,12 @@ $result_trees{'texi_glossary'} = {
                 'arg_line' => ' glossarytext
 '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 43,
                 'macro' => 'expandglossary'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -1083,12 +1083,12 @@ $result_trees{'texi_glossary'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'glossary.texi',
         'line_nr' => 36,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -1124,12 +1124,12 @@ $result_trees{'texi_glossary'} = {
         'normalized' => 'glossary',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'glossary.texi',
         'line_nr' => 45,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {}
   ],

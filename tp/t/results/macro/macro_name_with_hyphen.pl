@@ -45,12 +45,12 @@ $result_trees{'macro_name_with_hyphen'} = {
             'arg_line' => ' macro-one {arg-one, arg2}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -85,12 +85,12 @@ $result_trees{'macro_name_with_hyphen'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
                 'macro' => 'macro-one'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

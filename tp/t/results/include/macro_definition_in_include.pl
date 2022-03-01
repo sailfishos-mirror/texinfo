@@ -35,12 +35,12 @@ $result_trees{'macro_definition_in_include'} = {
             'arg_line' => ' themacro
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'macro_included.texi',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

@@ -35,12 +35,12 @@ $result_trees{'macro_in_early_commands'} = {
             'arg_line' => ' begin-file
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -79,12 +79,12 @@ $result_trees{'macro_in_early_commands'} = {
             'arg_line' => ' end-file-name {ext}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -120,12 +120,12 @@ $result_trees{'macro_in_early_commands'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'macro_in_passtexi_commands.info'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 8,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -159,12 +159,12 @@ $result_trees{'macro_in_early_commands'} = {
             'arg_line' => ' latin1 
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 10,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -204,12 +204,12 @@ $result_trees{'macro_in_early_commands'} = {
             'arg_line' => ' documentencoding-command
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 14,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -247,12 +247,12 @@ $result_trees{'macro_in_early_commands'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'ISO-8859-1'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 18,
             'macro' => 'documentencoding-command'
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -292,12 +292,12 @@ $result_trees{'macro_in_early_commands'} = {
             'arg_line' => ' multiinclude
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 20,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -349,12 +349,12 @@ $result_trees{'macro_in_early_commands'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 25,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [
@@ -407,12 +407,12 @@ $result_trees{'macro_in_early_commands'} = {
             'arg_line' => ' themacro
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'macro_included.texi',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -490,12 +490,12 @@ $result_trees{'macro_in_early_commands'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => '',
         'line_nr' => 26,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     }
   ],
   'type' => 'document_root'

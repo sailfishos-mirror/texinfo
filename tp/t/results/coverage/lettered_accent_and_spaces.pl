@@ -29,12 +29,12 @@ $result_trees{'lettered_accent_and_spaces'} = {
               'extra' => {
                 'spaces' => '    '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

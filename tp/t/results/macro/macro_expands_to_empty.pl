@@ -40,12 +40,12 @@ $result_trees{'macro_expands_to_empty'} = {
             'arg_line' => ' foo {arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

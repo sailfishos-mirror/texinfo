@@ -38,12 +38,12 @@ $result_trees{'verbatiminclude'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'incl-incl.txi'
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         }
       ],
       'parent' => {},

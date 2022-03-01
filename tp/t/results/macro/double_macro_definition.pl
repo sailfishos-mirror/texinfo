@@ -23,12 +23,12 @@ $result_trees{'double_macro_definition'} = {
             'arg_line' => ' foo
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -56,12 +56,12 @@ $result_trees{'double_macro_definition'} = {
             'arg_line' => ' foo
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

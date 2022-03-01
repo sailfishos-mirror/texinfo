@@ -57,12 +57,12 @@ $result_trees{'simplest_test_date_in_header'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'simplest.info'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => 'simplest.texi',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -144,12 +144,12 @@ $result_trees{'simplest_test_date_in_header'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'line_nr' => {
+      'parent' => {},
+      'source_info' => {
         'file_name' => 'simplest.texi',
         'line_nr' => 5,
         'macro' => ''
-      },
-      'parent' => {}
+      }
     },
     {
       'args' => [

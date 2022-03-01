@@ -49,12 +49,12 @@ $result_trees{'setfilename'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'file_comment'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -78,12 +78,12 @@ $result_trees{'setfilename'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'file_and_spaces'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -124,12 +124,12 @@ $result_trees{'setfilename'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'file_space_comment'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
@@ -158,12 +158,12 @@ $result_trees{'setfilename'} = {
                       'extra' => {
                         'delimiter' => ':'
                       },
-                      'line_nr' => {
+                      'parent' => {},
+                      'source_info' => {
                         'file_name' => '',
                         'line_nr' => 4,
                         'macro' => ''
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'cmdname' => ' ',
@@ -183,12 +183,12 @@ $result_trees{'setfilename'} = {
                 'missing_argument' => 1,
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
                 'macro' => ''
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},

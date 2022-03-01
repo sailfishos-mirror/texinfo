@@ -59,12 +59,12 @@ $result_trees{'empty_lines_at_beginning_no_setfilename_no_element'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => 'empty_lines_at_beginning_no_setfilename_no_element.texi',
             'line_nr' => 4,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},

@@ -40,12 +40,12 @@ $result_trees{'complex_argument'} = {
             'arg_line' => ' macrotwo{arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -103,12 +103,12 @@ $result_trees{'complex_argument'} = {
             'arg_line' => ' macrofour {}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -164,12 +164,12 @@ $result_trees{'complex_argument'} = {
             'arg_line' => ' macrothree{text, arg}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 12,
             'macro' => ''
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -204,12 +204,12 @@ $result_trees{'complex_argument'} = {
               'extra' => {
                 'delimiter' => '%'
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 38,
                 'macro' => 'macrothree'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -255,12 +255,12 @@ $result_trees{'complex_argument'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 38,
                 'macro' => 'macrothree'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -298,12 +298,12 @@ $result_trees{'complex_argument'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 38,
                 'macro' => 'macrothree'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
@@ -343,12 +343,12 @@ $result_trees{'complex_argument'} = {
               'type' => 'raw'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 38,
             'macro' => 'macrothree'
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -380,12 +380,12 @@ $result_trees{'complex_argument'} = {
               'type' => 'last_raw_newline'
             }
           ],
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 38,
             'macro' => 'macrothree'
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -424,12 +424,12 @@ $result_trees{'complex_argument'} = {
             'arg_line' => ' macroseven {truc}
 '
           },
-          'line_nr' => {
+          'parent' => {},
+          'source_info' => {
             'file_name' => '',
             'line_nr' => 38,
             'macro' => 'macrothree'
-          },
-          'parent' => {}
+          }
         },
         {
           'parent' => {},
@@ -513,12 +513,12 @@ $result_trees{'complex_argument'} = {
               ],
               'cmdname' => 'emph',
               'contents' => [],
-              'line_nr' => {
+              'parent' => {},
+              'source_info' => {
                 'file_name' => '',
                 'line_nr' => 41,
                 'macro' => 'macroseven'
-              },
-              'parent' => {}
+              }
             },
             {
               'parent' => {},
