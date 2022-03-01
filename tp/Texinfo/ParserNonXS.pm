@@ -1006,7 +1006,7 @@ sub parse_texi_file($$)
   
   $self->{'input'} = [{
        'pending' => [],
-       'name' => $file_name,
+       'input_file_name' => $file_name,
        'line_nr' => 0,
        'fh' => $filehandle
         }];
@@ -2009,7 +2009,7 @@ sub _save_line_directive
   if (defined($file_name)) {
     my ($encoded_file_name, $file_name_encoding)
        = _encode_file_name($self, $file_name);
-    $input->{'name'} = $encoded_file_name;
+    $input->{'input_file_name'} = $encoded_file_name;
   }
 }
 
@@ -2034,7 +2034,7 @@ sub _next_text($$)
       my $input_error = 0;
       local $SIG{__WARN__} = sub {
         my $message = shift;
-        print STDERR "$input->{'name'}" . ":"
+        print STDERR "$input->{'input_file_name'}" . ":"
                . ($input->{'line_nr'} + 1) . ": input error: $message";
         $input_error = 1;
       };
@@ -2055,17 +2055,17 @@ sub _next_text($$)
         $line =~ s/\x{7F}.*\s*//;
         $input->{'line_nr'}++;
         return ($line, {'line_nr' => $input->{'line_nr'}, 
-            'file_name' => $input->{'name'},
+            'file_name' => $input->{'input_file_name'},
             'macro' => ''});
       }
     }
     my $previous_input = shift(@{$self->{'input'}});
     # Don't close STDIN
-    if ($previous_input->{'fh'} and $previous_input->{'name'} ne '-') {
+    if ($previous_input->{'fh'} and $previous_input->{'input_file_name'} ne '-') {
       if (!close($previous_input->{'fh'})) {
         $self->{'registrar'}->document_warn($self,
                              sprintf(__("error on closing %s: %s"),
-                                     $previous_input->{'name'}, $!));
+                                $previous_input->{'input_file_name'}, $!));
       }
     }
   }
@@ -3239,7 +3239,7 @@ sub _end_line($$$)
               my ($directories, $suffix);
               ($file, $directories, $suffix) = fileparse($file);
               unshift @{$self->{'input'}}, { 
-                'name' => $file,
+                'input_file_name' => $file,
                 'line_nr' => 0,
                 'pending' => [],
                 'fh' => $filehandle };

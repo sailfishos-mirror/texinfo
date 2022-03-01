@@ -32,8 +32,11 @@ bytes.  To check that they can never be upgraded + document
 * ParserNonXS.pm
  l 3226 ParserNonXS.pm
                unshift @{$self->{'input'}}, {
-                 'name' => $file,
-  -> sets file_name in _next_text: 'file_name' => $input->{'name'}
+                 'input_file_name' => $file,
+  -> sets file_name in _next_text: 'file_name' => $input->{'input_file_name'}
+
+ l 2067 decode $previous_input->{'input_file_name'}
+
  $self->{'info'}->{'input_file_name'}
  $self->{'info'}->{'input_directory'}
 
