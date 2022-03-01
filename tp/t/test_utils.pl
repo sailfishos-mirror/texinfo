@@ -26,9 +26,12 @@ BEGIN {
 require Texinfo::ModulePath;
 Texinfo::ModulePath::init(undef, undef, 'updirs' => 2);
 
-# For consistent test results, use the C locale
+# NOTE in general file names and directory names are not encoded,
+# there will be problems if there are non ascii characters in those
+# strings.
+# For consistent test results, use the C locale.
 # Note that this could prevent displaying non ascii characters
-# in error messages
+# in error messages.
 $ENV{LC_ALL} = 'C';
 $ENV{LANGUAGE} = 'en';
 
@@ -66,9 +69,9 @@ use Texinfo::Convert::TexinfoXML;
 use Texinfo::Convert::DocBook;
 
 # FIXME Is it really useful?
-use vars qw(%result_texis %result_texts %result_trees %result_errors 
+use vars qw(%result_texis %result_texts %result_trees %result_errors
    %result_indices %result_sectioning %result_nodes %result_menus
-   %result_floats %result_converted %result_converted_errors 
+   %result_floats %result_converted %result_converted_errors
    %result_elements %result_directions_text %result_indices_sort_strings);
 
 my $strings_textdomain = 'texinfo_document';
@@ -144,7 +147,7 @@ our %extensions = (
   'latex' => 'tex',
 );
 
-my %xml_converter_defaults 
+my %xml_converter_defaults
     = Texinfo::Convert::TexinfoXML::converter_defaults(undef, undef);
 my $XML_DTD_VERSION = $xml_converter_defaults{'TEXINFO_DTD_VERSION'};
 
@@ -221,7 +224,7 @@ our $arg_output;
 our $nr_comparisons = 9;
 
 Getopt::Long::Configure("gnu_getopt");
-GetOptions('g|generate' => \$arg_generate, 'd|debug=i' => \$arg_debug, 
+GetOptions('g|generate' => \$arg_generate, 'd|debug=i' => \$arg_debug,
            'c|complete' => \$arg_complete, 'o|output' => \$arg_output);
 
 our $arg_test_case = shift @ARGV;
@@ -244,13 +247,13 @@ sub unsplit($)
     return;
   }
   foreach my $content (@{$root->{'contents'}}) {
-    if ($content->{'structure'} and $content->{'structure'}->{'associated_unit'}) {
+    if ($content->{'structure'}
+        and $content->{'structure'}->{'associated_unit'}) {
       delete $content->{'structure'}->{'associated_unit'};
       if (scalar(keys(%{$content->{'structure'}})) == 0) {
         delete $content->{'structure'};
       }
     }
-    #$content->{'parent'} = $root;
   }
   return;
 }
@@ -368,7 +371,7 @@ sub remove_keys($$;$)
     $been_there->{$root} = 1;
     foreach my $key (keys(%$root)) {
       next if (!defined($root->{$key}) or !ref($root->{$key})
-               or (ref($root->{$key}) ne 'HASH' 
+               or (ref($root->{$key}) ne 'HASH'
                     and ref($root->{$key}) ne 'ARRAY')
                or exists($been_there->{$root->{$key}}));
       #print STDERR "Recurse in $root $key\n";
@@ -471,7 +474,7 @@ sub new_test($;$$$)
   my $generate = shift;
   my $debug = shift;
   my $test_formats = shift;
-  my $test = {'name' => $name, 'generate' => $generate, 
+  my $test = {'name' => $name, 'generate' => $generate,
               'DEBUG' => $debug, 'test_formats' => $test_formats};
   
   if ($generate) {
@@ -482,16 +485,16 @@ sub new_test($;$$$)
 }
 
 my @contents_keys = ('contents', 'args', 'parent',
-  'source_info', 'node_content',  'nodes_manuals', 'misc_content', 'invalid_nesting', 
-  'block_command_line_contents', 'spaces_after_command', 'spaces_before_argument',
-  'end_command', 'text_arg', 'command_argument');
+  'source_info', 'node_content',  'nodes_manuals', 'misc_content',
+  'invalid_nesting', 'block_command_line_contents', 'spaces_after_command',
+  'spaces_before_argument', 'end_command', 'text_arg', 'command_argument');
 my @menus_keys = ('menu_next', 'menu_up', 'menu_prev', 'menu_up_hash');
 # 'section_number' is kept in other results as it may be the only clue
 # to know which section element it is.
-my @sections_keys = ('section_next', 'section_prev', 'section_up', 
-  'section_childs', 'associated_node', 'part_associated_section', 
+my @sections_keys = ('section_next', 'section_prev', 'section_up',
+  'section_childs', 'associated_node', 'part_associated_section',
   'toplevel_prev', 'toplevel_next', 'toplevel_up', 'section_level');
-my @node_keys = ('node_next', 'node_prev', 'node_up', 'menus', 
+my @node_keys = ('node_next', 'node_prev', 'node_up', 'menus',
   'associated_section');
 my %avoided_keys_tree;
 our @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys, 'structure',
@@ -504,7 +507,7 @@ sub filter_tree_keys { [grep {!$avoided_keys_tree{$_}} ( sort keys %{$_[0]} )] }
 #my @avoided_compare_tree = (@avoided_keys_tree, 'parent', 'node_tree');
 
 my %avoided_keys_sectioning;
-my @avoided_keys_sectioning = ('section_next', @contents_keys, @menus_keys, 
+my @avoided_keys_sectioning = ('section_next', @contents_keys, @menus_keys,
   @node_keys, 'menu_child', 'manual_content', 'toplevel_next');
 foreach my $avoided_key(@avoided_keys_sectioning) {
   $avoided_keys_sectioning{$avoided_key} = 1;
@@ -530,7 +533,7 @@ sub filter_menus_keys { [grep {!$avoided_keys_menus{$_}}
    ( sort keys %{$_[0]} )] }
 
 my %avoided_keys_floats;
-my @avoided_keys_floats = (@sections_keys, @contents_keys, @node_keys, 
+my @avoided_keys_floats = (@sections_keys, @contents_keys, @node_keys,
                            @menus_keys);
 foreach my $avoided_key(@avoided_keys_floats) {
   $avoided_keys_floats{$avoided_key} = 1;
@@ -571,7 +574,7 @@ sub close_files($)
         # FIXME or die?
         warn(sprintf("tp_utils.pl: error on closing %s: %s\n",
                     $converter_unclosed_files->{$unclosed_file}, $!));
-      } 
+      }
     }
   }
 }
@@ -585,16 +588,16 @@ sub convert_to_plaintext($$$$$$;$)
   my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
-  $converter_options 
+  $converter_options
     = set_converter_option_defaults($converter_options,
                                     $main_configuration, $format);
   if (!defined($converter_options->{'OUTFILE'})
       and defined($converter_options->{'SUBDIR'})) {
-    $converter_options->{'OUTFILE'} 
+    $converter_options->{'OUTFILE'}
       = $converter_options->{'SUBDIR'}.$test_name.".txt";
   }
   
-  my $converter = 
+  my $converter =
      Texinfo::Convert::Plaintext->converter({'DEBUG' => $self->{'DEBUG'},
                                              'parser' => $parser,
                                              'output_format' => 'plaintext',
@@ -621,11 +624,11 @@ sub convert_to_info($$$$$;$)
   my $main_configuration = shift;
   my $converter_options = shift;
   # FIXME plaintext too?
-  $converter_options 
+  $converter_options
     = set_converter_option_defaults($converter_options,
                                     $main_configuration, $format);
   
-  my $converter = 
+  my $converter =
      Texinfo::Convert::Info->converter ({'DEBUG' => $self->{'DEBUG'},
                                          'parser' => $parser,
                                          'output_format' => 'info',
@@ -646,12 +649,12 @@ sub convert_to_html($$$$$$;$)
   my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
-  $converter_options 
+  $converter_options
     = set_converter_option_defaults($converter_options,
                                     $main_configuration, 'html');
   
   $converter_options->{'SPLIT'} = 0
-    if ($format eq 'html_text' 
+    if ($format eq 'html_text'
         and !defined($converter_options->{'SPLIT'}));
   my $converter =
      Texinfo::Convert::HTML->converter ({'DEBUG' => $self->{'DEBUG'},
@@ -679,7 +682,7 @@ sub convert_to_xml($$$$$$;$)
   my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
-  $converter_options 
+  $converter_options
     = set_converter_option_defaults($converter_options,
                                     $main_configuration, 'xml');
   
@@ -690,7 +693,7 @@ sub convert_to_xml($$$$$$;$)
                                           %$converter_options });
 
   my $result;
-  if (defined($converter_options->{'OUTFILE'}) 
+  if (defined($converter_options->{'OUTFILE'})
       and $converter_options->{'OUTFILE'} eq '') {
     $result = $converter->convert($tree);
   } else {
@@ -711,7 +714,7 @@ sub convert_to_docbook($$$$$$;$)
   my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
-  $converter_options 
+  $converter_options
     = set_converter_option_defaults($converter_options,
                                     $main_configuration, 'docbook');
   
@@ -721,7 +724,7 @@ sub convert_to_docbook($$$$$$;$)
                                          'output_format' => 'docbook',
                                           %$converter_options });
   my $result;
-  if (defined($converter_options->{'OUTFILE'}) 
+  if (defined($converter_options->{'OUTFILE'})
       and $converter_options->{'OUTFILE'} eq ''
       and $format ne 'docbook_doc') {
     $result = $converter->convert($tree);
@@ -743,7 +746,7 @@ sub convert_to_latex($$$$$$;$)
   my $parser = shift;
   my $main_configuration = shift;
   my $converter_options = shift;
-  $converter_options 
+  $converter_options
     = set_converter_option_defaults($converter_options,
                                     $main_configuration, 'latex');
   
@@ -753,7 +756,7 @@ sub convert_to_latex($$$$$$;$)
                                          'output_format' => 'latex',
                                           %$converter_options });
   my $result;
-  if (defined($converter_options->{'OUTFILE'}) 
+  if (defined($converter_options->{'OUTFILE'})
       and $converter_options->{'OUTFILE'} eq '') {
     $result = $converter->convert($tree);
   } else {
@@ -767,7 +770,7 @@ sub convert_to_latex($$$$$$;$)
 
 # Run a single test case.  Each test case is an array
 # [TEST_NAME, TEST_TEXT, PARSER_OPTIONS, CONVERTER_OPTIONS]
-sub test($$) 
+sub test($$)
 {
   my $self = shift;
   my $test_case = shift;
@@ -876,7 +879,8 @@ sub test($$)
   my $init_file_directories = [$srcdir.'init/', $srcdir.'t/init/'];
   if ($parser_options and $parser_options->{'init_files'}) {
     foreach my $filename (@{$parser_options->{'init_files'}}) {
-      my $file = Texinfo::Common::locate_init_file($filename, $init_file_directories, 0);
+      my $file = Texinfo::Common::locate_init_file($filename,
+                                               $init_file_directories, 0);
       if (defined($file)) {
         Texinfo::Config::GNUT_load_init_file($file);
       } else {
@@ -885,11 +889,13 @@ sub test($$)
     }
     delete $parser_options->{'init_files'};
   }
-  my $completed_parser_options = {'INCLUDE_DIRECTORIES' => [$srcdir.'t/include/'],
-                                        'DEBUG' => $self->{'DEBUG'},
-                                       %$parser_options};
-  my $main_configuration = Texinfo::MainConfig::new({ %$completed_parser_options,
-                                                      %$added_main_configurations });
+  my $completed_parser_options =
+          {'INCLUDE_DIRECTORIES' => [$srcdir.'t/include/'],
+           'DEBUG' => $self->{'DEBUG'},
+            %$parser_options};
+  my $main_configuration = Texinfo::MainConfig::new({
+                                    %$completed_parser_options,
+                                    %$added_main_configurations });
 
   my $parser = Texinfo::Parser::parser($completed_parser_options);
 
@@ -920,13 +926,15 @@ sub test($$)
     print STDERR "ERROR: parsing result undef\n";
     my ($parser_errors, $parser_error_count) = $registrar->errors();
     foreach my $error_message (@$parser_errors) {
-      warn $error_message->{'error_line'} if ($error_message->{'type'} eq 'error');
+      warn $error_message->{'error_line'}
+        if ($error_message->{'type'} eq 'error');
     }
   }
 
   my $parser_information = $parser->global_information();
 
-  Texinfo::Common::set_output_encodings($main_configuration, $parser_information);
+  Texinfo::Common::set_output_encodings($main_configuration,
+                                        $parser_information);
 
   my $global_commands = $parser->global_commands_information();
   if ($global_commands->{'novalidate'}) {
@@ -942,10 +950,11 @@ sub test($$)
 
   my $structure_information = {};
   my ($sectioning_root, $sections_list)
-              = Texinfo::Structuring::sectioning_structure($registrar,
-                                                      $main_configuration, $result);
+        = Texinfo::Structuring::sectioning_structure($registrar,
+                                      $main_configuration, $result);
   if ($sectioning_root) {
-    Texinfo::Structuring::warn_non_empty_parts($registrar, $main_configuration,
+    Texinfo::Structuring::warn_non_empty_parts($registrar,
+                                               $main_configuration,
                                                $global_commands);
     $structure_information->{'sectioning_root'} = $sectioning_root;
     $structure_information->{'sections_list'} = $sections_list;
@@ -953,10 +962,12 @@ sub test($$)
 
   Texinfo::Structuring::number_floats($floats);
 
-  Texinfo::Structuring::set_menus_node_directions($registrar, $main_configuration,
-                  $parser_information, $global_commands, $nodes_list, $labels);
-  my $top_node = Texinfo::Structuring::nodes_tree($registrar, $main_configuration,
-                                    $parser_information, $nodes_list, $labels);
+  Texinfo::Structuring::set_menus_node_directions($registrar,
+                      $main_configuration, $parser_information,
+                      $global_commands, $nodes_list, $labels);
+  my $top_node = Texinfo::Structuring::nodes_tree($registrar,
+                         $main_configuration, $parser_information,
+                         $nodes_list, $labels);
   if (defined($top_node)) {
     $structure_information->{'top_node'} = $top_node;
   }
@@ -972,7 +983,7 @@ sub test($$)
   my ($errors, $error_nrs) = $registrar->errors();
   my $index_names = $parser->indices_information();
   # FIXME maybe it would be good to compare $merged_index_entries?
-  my $merged_index_entries 
+  my $merged_index_entries
      = Texinfo::Structuring::merge_indices($index_names);
   
   # only print indices information if it differs from the default
@@ -1006,7 +1017,8 @@ sub test($$)
     Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
   }
 
-  my $converted_text = Texinfo::Convert::Text::convert_to_text($result, {'TEST' => 1});
+  my $converted_text
+      = Texinfo::Convert::Text::convert_to_text($result, {'TEST' => 1});
 
   my %converted;
   my %converted_errors;
@@ -1031,13 +1043,13 @@ sub test($$)
           $test_out_dir = $base.'out_'.$format_type;
         }
         if (!defined($format_converter_options->{'SUBDIR'})) {
-          mkdir ($base) 
+          mkdir ($base)
             if (! -d $base);
           if (! -d $test_out_dir) {
-            mkdir ($test_out_dir); 
+            mkdir ($test_out_dir);
           } else {
             # remove any files from previous runs
-            unlink glob ("$test_out_dir/*"); 
+            unlink glob ("$test_out_dir/*");
           }
           $format_converter_options->{'SUBDIR'} = "$test_out_dir/";
         }
@@ -1048,14 +1060,14 @@ sub test($$)
       $format_converter_options->{'INCLUDE_DIRECTORIES'} = [
                                           $srcdir.'t/include/'];
       ($converted_errors{$format}, $converted{$format})
-           = &{$formats{$format}}($self, $test_name, $format_type, 
-                                  $result, $parser, 
-                                  $main_configuration, $format_converter_options);
+           = &{$formats{$format}}($self, $test_name, $format_type,
+                                  $result, $parser, $main_configuration,
+                                  $format_converter_options);
       $converted_errors{$format} = undef if (!@{$converted_errors{$format}});
 
       # output converted result and errors in files if $arg_output is set
       if ($arg_output) {
-        mkdir ("$output_files_dir/$self->{'name'}") 
+        mkdir ("$output_files_dir/$self->{'name'}")
           if (! -d "$output_files_dir/$self->{'name'}");
         my $extension;
         if ($extensions{$format}) {
@@ -1065,7 +1077,8 @@ sub test($$)
         }
 
         if (defined ($converted{$format})) {
-          my $outfile = "$output_files_dir/$self->{'name'}/$test_name.$extension";
+          my $outfile
+            = "$output_files_dir/$self->{'name'}/$test_name.$extension";
           if (!open (OUTFILE, ">$outfile")) {
             warn "Open $outfile: $!\n";
           } else {
@@ -1084,7 +1097,7 @@ sub test($$)
           }
         }
         if ($converted_errors{$format}) {
-          my $errors_file 
+          my $errors_file
             = "$output_files_dir/$self->{'name'}/${test_name}_$extension.err";
           if (!open (ERRFILE, ">$errors_file")) {
             warn "Open $errors_file: $!\n";
@@ -1101,9 +1114,9 @@ sub test($$)
   my $directions_text;
   # re-associate top level command with the document_root in case a converter
   # split the document, by resetting their 'parent' key.
-  # It may be noticed that this is only done after all conversions.  This 
-  # means that depending on the order of converters call, trees feed to 
-  # converters may have a document_root as top level command parent or 
+  # It may be noticed that this is only done after all conversions.  This
+  # means that depending on the order of converters call, trees feed to
+  # converters may have a document_root as top level command parent or
   # elements.  All the converters will have the document_root as argument.
   unsplit($result);
   my $elements;
@@ -1150,10 +1163,11 @@ sub test($$)
     }
     open (OUT, ">$out_file") or die "Open $out_file: $!\n";
     binmode (OUT, ":encoding(utf8)");
-    print OUT 'use vars qw(%result_texis %result_texts %result_trees %result_errors '."\n".
-              '   %result_indices %result_sectioning %result_nodes %result_menus'."\n".
-              '   %result_floats %result_converted %result_converted_errors '."\n".
-              '   %result_elements %result_directions_text %result_indices_sort_strings);'."\n\n";
+    print OUT
+     'use vars qw(%result_texis %result_texts %result_trees %result_errors '."\n".
+     '   %result_indices %result_sectioning %result_nodes %result_menus'."\n".
+     '   %result_floats %result_converted %result_converted_errors '."\n".
+     '   %result_elements %result_directions_text %result_indices_sort_strings);'."\n\n";
     print OUT 'use utf8;'."\n\n";
 
     #print STDERR "Generate: ".Data::Dumper->Dump([$result], ['$res']);
@@ -1165,9 +1179,11 @@ sub test($$)
     my $out_result;
     {
       local $Data::Dumper::Sortkeys = \&filter_tree_keys;
-      $out_result = Data::Dumper->Dump([$split_result], ['$result_trees{\''.$test_name.'\'}']);
+      $out_result = Data::Dumper->Dump([$split_result],
+                                       ['$result_trees{\''.$test_name.'\'}']);
     }
-    my $texi_string_result = Texinfo::Convert::Texinfo::convert_to_texinfo($result);
+    my $texi_string_result
+        = Texinfo::Convert::Texinfo::convert_to_texinfo($result);
     $out_result .= "\n".'$result_texis{\''.$test_name.'\'} = \''
           .protect_perl_string($texi_string_result)."';\n\n";
     $out_result .= "\n".'$result_texts{\''.$test_name.'\'} = \''
@@ -1181,11 +1197,13 @@ sub test($$)
     if ($top_node) {
       {
         local $Data::Dumper::Sortkeys = \&filter_nodes_keys;
-        $out_result .=  Data::Dumper->Dump([$top_node], ['$result_nodes{\''.$test_name.'\'}'])."\n";
+        $out_result .= Data::Dumper->Dump([$top_node],
+                               ['$result_nodes{\''.$test_name.'\'}'])."\n";
       }
       {
         local $Data::Dumper::Sortkeys = \&filter_menus_keys;
-        $out_result .=  Data::Dumper->Dump([$top_node], ['$result_menus{\''.$test_name.'\'}'])."\n";
+        $out_result .= Data::Dumper->Dump([$top_node],
+                             ['$result_menus{\''.$test_name.'\'}'])."\n";
       }
     }
     {
@@ -1195,34 +1213,42 @@ sub test($$)
       # characters.
       # FIXME remove the NOTE if file names in error messages are not bytes
       # anymore
-      $out_result .= Data::Dumper->Dump([$errors], ['$result_errors{\''.$test_name.'\'}']) ."\n\n";
-      $out_result .= Data::Dumper->Dump([$indices], ['$result_indices{\''.$test_name.'\'}']) ."\n\n"
+      $out_result .= Data::Dumper->Dump([$errors],
+                           ['$result_errors{\''.$test_name.'\'}']) ."\n\n";
+      $out_result .= Data::Dumper->Dump([$indices],
+                            ['$result_indices{\''.$test_name.'\'}']) ."\n\n"
          if ($indices);
     }
     if ($floats) {
       local $Data::Dumper::Sortkeys = \&filter_floats_keys;
-      $out_result .= Data::Dumper->Dump([$floats], ['$result_floats{\''.$test_name.'\'}']) ."\n\n";
+      $out_result .= Data::Dumper->Dump([$floats],
+                            ['$result_floats{\''.$test_name.'\'}']) ."\n\n";
     }
     if ($indices_sorted_sort_strings) {
       local $Data::Dumper::Sortkeys = 1;
-      $out_result .= Data::Dumper->Dump([$indices_sorted_sort_strings], 
-                                    ['$result_indices_sort_strings{\''.$test_name.'\'}']) ."\n\n";
+      $out_result .= Data::Dumper->Dump([$indices_sorted_sort_strings],
+                      ['$result_indices_sort_strings{\''.$test_name.'\'}'])
+                     ."\n\n";
     }
     if ($elements) {
       local $Data::Dumper::Sortkeys = \&filter_elements_keys;
-      $out_result .= Data::Dumper->Dump([$elements], ['$result_elements{\''.$test_name.'\'}']) ."\n\n";
+      $out_result .= Data::Dumper->Dump([$elements],
+                       ['$result_elements{\''.$test_name.'\'}'])
+                     ."\n\n";
       $out_result .= "\n".'$result_directions_text{\''.$test_name.'\'} = \''
-        .protect_perl_string($directions_text)."';\n\n";
+                             .protect_perl_string($directions_text)."';\n\n";
     }
     foreach my $format (@tested_formats) {
       if (defined($converted{$format})) {
         $out_result .= "\n".'$result_converted{\''.$format.'\'}->{\''
-          .$test_name.'\'} = \''.protect_perl_string($converted{$format})."';\n\n";
+                       .$test_name.'\'} = \''
+                       .protect_perl_string($converted{$format})."';\n\n";
       }
       if (defined($converted_errors{$format})) {
         local $Data::Dumper::Sortkeys = 1;
-        $out_result .= Data::Dumper->Dump([$converted_errors{$format}], 
-                 ['$result_converted_errors{\''.$format.'\'}->{\''.$test_name.'\'}']) ."\n\n";
+        $out_result .= Data::Dumper->Dump([$converted_errors{$format}],
+             ['$result_converted_errors{\''.$format.'\'}->{\''.$test_name.'\'}'])
+                       ."\n\n";
       }
     }
 
@@ -1251,14 +1277,15 @@ sub test($$)
     cmp_trimmed($top_node, $result_menus{$test_name}, \@avoided_keys_menus,
                 $test_name.' menus');
 
-    ok (Data::Compare::Compare($errors, $result_errors{$test_name}), 
+    ok (Data::Compare::Compare($errors, $result_errors{$test_name}),
         $test_name.' errors');
-    ok (Data::Compare::Compare($indices, $result_indices{$test_name}), 
+    ok (Data::Compare::Compare($indices, $result_indices{$test_name}),
         $test_name.' indices');
     ok (Data::Compare::Compare($indices_sorted_sort_strings,
                                $result_indices_sort_strings{$test_name}),
         $test_name.' indices sort');
-    ok (Texinfo::Convert::Texinfo::convert_to_texinfo($result) eq $result_texis{$test_name}, 
+    ok (Texinfo::Convert::Texinfo::convert_to_texinfo($result)
+                                              eq $result_texis{$test_name},
          $test_name.' texi');
     if ($todos{'text'}) {
       SKIP: {
@@ -1270,10 +1297,10 @@ sub test($$)
     }
     $tests_count = $nr_comparisons;
     if (defined($result_directions_text{$test_name})) {
-      cmp_trimmed($elements, $result_elements{$test_name}, 
+      cmp_trimmed($elements, $result_elements{$test_name},
                   \@avoided_keys_elements, $test_name.' elements');
       $tests_count++;
-      ok ($directions_text eq $result_directions_text{$test_name}, 
+      ok ($directions_text eq $result_directions_text{$test_name},
           $test_name.' directions text');
       $tests_count++;
     }
@@ -1316,19 +1343,19 @@ sub test($$)
           if ($todos{$format}) {
             SKIP: {
               skip $todos{$format}, 1;
-              ok ($converted{$format} 
+              ok ($converted{$format}
                               eq $result_converted{$format}->{$test_name},
                    $test_name.' converted '.$format);
             }
           } else {
-            ok ($converted{$format} 
+            ok ($converted{$format}
                            eq $result_converted{$format}->{$test_name},
                 $test_name.' converted '.$format);
           }
         }
         if ($reference_exists) {
           $tests_count += 1;
-          ok (Data::Compare::Compare($converted_errors{$format}, 
+          ok (Data::Compare::Compare($converted_errors{$format},
                $result_converted_errors{$format}->{$test_name}),
                $test_name.' errors '.$format);
         }
@@ -1339,11 +1366,11 @@ sub test($$)
 }
 
 # Main entry point for the tests.
-#   $NAME - a string, name of test
-#   $TEST_CASES - array of sub-tests
-#   If $TEST_CASE_NAME is given, only run that test.
-#   $GENERATE means to generate reference test results (-g from command line).
-#   $DEBUG for debugging.
+#  $NAME - a string, name of test
+#  $TEST_CASES - array of sub-tests
+#  If $TEST_CASE_NAME is given, only run that test.
+#  $GENERATE means to generate reference test results (-g from command line).
+#  $DEBUG for debugging.
 # The $ARG_COMPLETE variable is the -c option, to create Texinfo files for the
 # test cases.
 sub run_all($$;$$$)
@@ -1400,9 +1427,9 @@ sub output_texi_file($)
   my $test_options = shift @$test_case;
 
   my $dir = "$generated_texis_dir/$self->{'name'}/";
-  mkdir "$generated_texis_dir/" or die 
+  mkdir "$generated_texis_dir/" or die
      unless (-d "$generated_texis_dir/");
-  mkdir $dir or die 
+  mkdir $dir or die
      unless (-d $dir);
   my $file = "${dir}$test_name.texi";
   open (OUTFILE, ">$file") or die ("Open $file: $!\n");
@@ -1436,7 +1463,8 @@ sub output_texi_file($)
     $setfilename = "\@setfilename $test_name.info\n";
   }
   my $node_top;
-  if ($test_text =~ /^\@node +top[\s,]/mi or $test_text =~ /^\@node +top *$/mi) {
+  if ($test_text =~ /^\@node +top[\s,]/mi
+      or $test_text =~ /^\@node +top *$/mi) {
     $node_top = '';
   } else {
     $node_top = "\@node Top\n";
