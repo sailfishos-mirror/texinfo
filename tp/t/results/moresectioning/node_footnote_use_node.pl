@@ -1620,8 +1620,9 @@ $result_floats{'node_footnote_use_node'} = {};
 
 $result_converted_errors{'file_html'}->{'node_footnote_use_node'} = [
   {
-    'error_line' => 'node_footnote.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'node_footnote.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

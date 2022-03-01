@@ -644,8 +644,9 @@ $result_indices_sort_strings{'double_index_entry'} = {
 
 $result_converted_errors{'file_html'}->{'double_index_entry'} = [
   {
-    'error_line' => 'double_index_entry.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'double_index_entry.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

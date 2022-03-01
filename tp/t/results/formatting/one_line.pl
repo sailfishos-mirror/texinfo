@@ -88,8 +88,9 @@ span.program-in-footer {font-size: smaller}
 
 $result_converted_errors{'html'}->{'one_line'} = [
   {
-    'error_line' => 'one_line.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'one_line.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

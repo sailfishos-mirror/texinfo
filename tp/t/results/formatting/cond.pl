@@ -509,8 +509,9 @@ This is html text.
 
 $result_converted_errors{'html'}->{'cond'} = [
   {
-    'error_line' => 'cond.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'cond.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

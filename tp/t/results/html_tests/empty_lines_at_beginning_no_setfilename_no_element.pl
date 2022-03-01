@@ -184,8 +184,9 @@ div.center {text-align:center}
 
 $result_converted_errors{'html'}->{'empty_lines_at_beginning_no_setfilename_no_element'} = [
   {
-    'error_line' => 'empty_lines_at_beginning_no_setfilename_no_element.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'empty_lines_at_beginning_no_setfilename_no_element.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

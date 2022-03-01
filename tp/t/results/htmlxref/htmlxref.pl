@@ -3665,14 +3665,18 @@ $result_floats{'htmlxref'} = {};
 
 $result_converted_errors{'file_html'}->{'htmlxref'} = [
   {
-    'error_line' => 'htmlxref.cnf:15: warning: unrecognized type: foo
+    'error_line' => 'warning: unrecognized type: foo
 ',
+    'file_name' => 'htmlxref.cnf',
+    'line_nr' => 15,
     'text' => 'unrecognized type: foo',
     'type' => 'warning'
   },
   {
-    'error_line' => 'htmlxref.cnf:16: warning: missing type
+    'error_line' => 'warning: missing type
 ',
+    'file_name' => 'htmlxref.cnf',
+    'line_nr' => 16,
     'text' => 'missing type',
     'type' => 'warning'
   }

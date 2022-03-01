@@ -795,8 +795,9 @@ pre.menu-preformatted {font-family: serif}
 
 $result_converted_errors{'html'}->{'simple_menu_in_example'} = [
   {
-    'error_line' => 'simple_menu_in_example.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'simple_menu_in_example.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

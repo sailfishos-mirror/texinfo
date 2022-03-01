@@ -3777,8 +3777,9 @@ $result_floats{'sectioning_frames'} = {};
 
 $result_converted_errors{'file_html'}->{'sectioning_frames'} = [
   {
-    'error_line' => 'sectioning.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'sectioning.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

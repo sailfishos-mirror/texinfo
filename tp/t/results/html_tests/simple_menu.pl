@@ -2321,8 +2321,9 @@ in detaildescription
 
 $result_converted_errors{'html'}->{'simple_menu'} = [
   {
-    'error_line' => 'simple_menu.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'simple_menu.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

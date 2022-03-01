@@ -659,8 +659,9 @@ sub handle_errors($$$)
         $s .= "$file:";
       }
       if (defined($error_message->{'line_nr'})) {
-        $s .= $error_message->{'line_nr'} . ': ';
+        $s .= $error_message->{'line_nr'} . ':';
       }
+      $s .= ' ' if ($s ne '');
 
       $s .= _encode_message($error_message->{'error_line'});
       warn $s;

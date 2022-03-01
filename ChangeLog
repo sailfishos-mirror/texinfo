@@ -17,6 +17,20 @@
 
 2022-03-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_parse_htmlxref_files)
+	(_load_htmlxref_files, _prepare_css): decode file names for messages,
+	encode file names for filesystem access.  Other minor changes in the
+	code.
+
+	* tp/Texinfo/Convert/HTML.pm (_parse_htmlxref_files, _process_css_file)
+	(output), tp/Texinfo/Convert/Info.pm (output), tp/Texinfo/Report.pm
+	(line_warn, line_error), tp/texi2any.pl: use
+	Texinfo::Report::line_warn instead of Texinfo::Report::file_line_warn
+	and similarly for error, by setting up $error_location_info using the
+	file name and line number.
+
+2022-03-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (parse_texi_file, _save_line_directive)
 	(_next_text, _end_line): use a structure similar with source_info
 	within the input for the current file informations. Like in the XS

@@ -6536,15 +6536,22 @@ sub _parse_htmlxref_files($$)
   my $htmlxref;
 
   foreach my $file (@$files) {
-    my ($fname) = $file;
+    my $fname = $file;
     if ($self->get_conf('TEST')) {
-      $fname =~ s/([^\/]+\/)*//; # strip directories for out-of-source builds
+      my ($volume, $directories);
+      # strip directories for out-of-source builds reproducible file names
+      ($volume, $directories, $fname) = File::Spec->splitpath($file);
     }
     print STDERR "html refs config file: $file\n" if ($self->get_conf('DEBUG'));
-    unless (open (HTMLXREF, $file)) {
+    unless (open(HTMLXREF, $file)) {
+      my $htmlxref_file_name = $file;
+      my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+      if (defined($encoding)) {
+        $htmlxref_file_name = decode($encoding, $htmlxref_file_name);
+      }
       $self->document_warn($self,
         sprintf(__("could not open html refs config file %s: %s"),
-          $file, $!));
+          $htmlxref_file_name, $!));
       next;
     }
     my $line_nr = 0;
@@ -6571,12 +6578,13 @@ sub _parse_htmlxref_files($$)
       my $split_or_mono = shift @htmlxref;
       #print STDERR "$split_or_mono $Texi2HTML::Config::htmlxref_entries{$split_or_mono} $line_nr\n";
       if (!defined($split_or_mono)) {
-        $self->file_line_warn(__("missing type"),
-                                        $fname, $line_nr);
+        $self->line_warn($self, __("missing type"),
+                 {'file_name' => $fname, 'line_nr' => $line_nr});
         next;
       } elsif (!defined($htmlxref_entries{$split_or_mono})) {
-        $self->file_line_warn(sprintf(__("unrecognized type: %s"),
-                                      $split_or_mono), $fname, $line_nr);
+        $self->line_warn($self, sprintf(__("unrecognized type: %s"),
+                                        $split_or_mono),
+                    {'file_name' => $fname, 'line_nr' => $line_nr});
         next;
       }
       my $href = shift @htmlxref;
@@ -6623,19 +6631,18 @@ sub _load_htmlxref_files {
   unshift @htmlxref_dirs, '.';
 
   my @texinfo_htmlxref_files;
-  my $init_file_from_conf = $self->get_conf('HTMLXREF');
-  if ($init_file_from_conf) {
-    if (!$self->get_conf('TEST')) {
-      @texinfo_htmlxref_files = ( $init_file_from_conf );
-    } else {
-      @texinfo_htmlxref_files
-      = Texinfo::Common::locate_init_file ($init_file_from_conf,
-        \@htmlxref_dirs, 1);
-    }
-  } elsif (!$self->get_conf('TEST')) {
+  my $htmlxref_file_name = 'htmlxref.cnf';
+  my $htmlxref_file_name_from_conf = $self->get_conf('HTMLXREF');
+  $htmlxref_file_name = $htmlxref_file_name_from_conf
+    if (defined($htmlxref_file_name_from_conf));
+
+  # no htmlxref for tests, unless explicitely specified with HTMLXREF
+  if (!$self->get_conf('TEST') or defined($htmlxref_file_name_from_conf)) {
+    my ($encoded_htmlxref_file_name, $htmlxref_file_encoding)
+      = $self->encoded_output_file_name($htmlxref_file_name);
     @texinfo_htmlxref_files
-      = Texinfo::Common::locate_init_file ('htmlxref.cnf',
-                                           \@htmlxref_dirs, 1);
+      = Texinfo::Common::locate_init_file($encoded_htmlxref_file_name,
+                                          \@htmlxref_dirs, 1);
   }
   $self->{'htmlxref_files'} = \@texinfo_htmlxref_files;
 
@@ -7075,7 +7082,7 @@ sub _default_format_css_lines($;$)
     $css_text .= "$element_class {$css_style}\n"
       if defined($css_style );
   }
-  $css_text .= join('',@css_rule_lines) . "\n"
+  $css_text .= join('', @css_rule_lines) . "\n"
     if (@css_rule_lines);
   $css_text .= "-->\n</style>\n";
   foreach my $ref (@$css_refs) {
@@ -7090,6 +7097,7 @@ sub _process_css_file($$$)
   my $self = shift;
   my $fh =shift;
   my $file = shift;
+
   my $in_rules = 0;
   my $in_comment = 0;
   my $in_import = 0;
@@ -7105,6 +7113,7 @@ sub _process_css_file($$$)
       # https://developer.mozilla.org/en-US/docs/Web/CSS/@charset
       my $charset = 'utf-8';
       my $charset_line;
+      # should always be the first line
       if ($line =~ /^\@charset  *"([^"]+)" *; *$/) {
         $charset = $1;
         $charset_line = 1;
@@ -7179,12 +7188,12 @@ sub _process_css_file($$$)
       }
     }
   }
-  $self->file_line_warn(sprintf(__("string not closed in css file"),
-                        $file, $line_nr)) if ($in_string);
-  $self->file_line_warn(sprintf(__("--css-include ended in comment"),
-                        $file, $line_nr)) if ($in_comment);
-  $self->file_line_warn(sprintf(__("\@import not finished in css file"),
-                        $file, $line_nr))
+  $self->line_warn($self, __("string not closed in css file"),
+                 {'file_name' => $file, 'line_nr' => $line_nr}) if ($in_string);
+  $self->line_warn($self, __("--css-include ended in comment"),
+                 {'file_name' => $file, 'line_nr' => $line_nr}) if ($in_comment);
+  $self->line_warn($self, __("\@import not finished in css file"),
+                 {'file_name' => $file, 'line_nr' => $line_nr})
     if ($in_import and !$in_comment and !$in_string);
   return ($imports, $rules);
 }
@@ -7208,25 +7217,40 @@ sub _prepare_css($)
     } else {
       $css_file = $self->Texinfo::Common::locate_include_file($file);
       unless (defined($css_file)) {
+        my $input_file_name = $file;
+        my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+        if (defined($encoding)) {
+          $input_file_name = decode($encoding, $input_file_name);
+        }
         $self->document_warn($self, sprintf(
-               __("CSS file %s not found"), $file));
+               __("CSS file %s not found"), $input_file_name));
         next;
       }
       unless (open (CSSFILE, $css_file)) {
+        my $css_file_name = $css_file;
+        my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+        if (defined($encoding)) {
+          $css_file_name = decode($encoding, $css_file_name);
+        }
         $self->document_warn($self, sprintf(__(
              "could not open --include-file %s: %s"),
-              $css_file, $!));
+              $css_file_name, $!));
         next;
       }
       $css_file_fh = \*CSSFILE;
     }
     my ($import_lines, $rules_lines);
     ($import_lines, $rules_lines)
-      = $self->_process_css_file ($css_file_fh, $css_file);
+      = $self->_process_css_file($css_file_fh, $css_file);
     if (!close($css_file_fh)) {
+      my $css_file_name = $css_file;
+      my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+      if (defined($encoding)) {
+        $css_file_name = decode($encoding, $css_file_name);
+      }
       $self->document_warn($self,
             sprintf(__("error on closing CSS file %s: %s"),
-                                   $css_file, $!));
+                                   $css_file_name, $!));
     }
     push @css_import_lines, @$import_lines;
     push @css_rule_lines, @$rules_lines;
@@ -9438,9 +9462,9 @@ sub output($$)
     $self->{'title_string'} = $self->convert_tree_new_formatting_context(
           {'type' => '_string', 'contents' => [$self->{'title_tree'}]},
           'title_string');
-    $self->file_line_warn(__(
+    $self->line_warn($self, __(
                          "must specify a title with a title command or \@top"),
-                         $self->{'parser_info'}->{'input_file_name'});
+                     {'file_name' => $self->{'parser_info'}->{'input_file_name'}});
   } else {
     $self->{'title_string'} = $html_title_string;
   }

@@ -36,9 +36,6 @@ bytes.  To check that they can never be upgraded + document
  and in error messages through line_warn line_error.
  $source_info->{'file_name'} passed through 
 
- l 2071 decode
-         $previous_input->{'input_file_info'}->{'file_name'}, $!));
-
  $self->{'info'}->{'input_file_name'}
  $self->{'info'}->{'input_directory'}
 
@@ -95,6 +92,10 @@ Should we warn if output is on STDOUT and OUTPUT_ENCODING_NAME != MESSAGE_OUTPUT
 
 
 Check Archive::Zip/EPUB_CREATE_CONTAINER in epub with non ascii
+
+
+To check, requires bytes in input both for directory and file name
+locate_init_file
 
 
 Document bytes in input:

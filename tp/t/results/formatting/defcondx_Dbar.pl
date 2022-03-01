@@ -420,8 +420,9 @@ $result_floats{'defcondx_Dbar'} = {};
 
 $result_converted_errors{'file_html'}->{'defcondx_Dbar'} = [
   {
-    'error_line' => 'defxcond.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'defxcond.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

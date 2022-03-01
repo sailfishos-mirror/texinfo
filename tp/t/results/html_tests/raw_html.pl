@@ -134,8 +134,9 @@ $result_converted{'html'}->{'raw_html'} = '<!DOCTYPE html>
 
 $result_converted_errors{'html'}->{'raw_html'} = [
   {
-    'error_line' => 'raw_html.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'raw_html.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

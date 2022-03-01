@@ -159,8 +159,9 @@ $result_floats{'simplest_no_node_section'} = {};
 
 $result_converted_errors{'file_html'}->{'simplest_no_node_section'} = [
   {
-    'error_line' => 'simplest_no_node_section.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'simplest_no_node_section.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }
@@ -169,8 +170,9 @@ $result_converted_errors{'file_html'}->{'simplest_no_node_section'} = [
 
 $result_converted_errors{'file_info'}->{'simplest_no_node_section'} = [
   {
-    'error_line' => 'simplest_no_node_section.texi: warning: document without nodes
+    'error_line' => 'warning: document without nodes
 ',
+    'file_name' => 'simplest_no_node_section.texi',
     'text' => 'document without nodes',
     'type' => 'warning'
   }

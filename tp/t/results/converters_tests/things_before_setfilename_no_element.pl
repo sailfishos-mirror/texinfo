@@ -1379,8 +1379,9 @@ $result_converted{'html'}->{'things_before_setfilename_no_element'} = '<!DOCTYPE
 
 $result_converted_errors{'html'}->{'things_before_setfilename_no_element'} = [
   {
-    'error_line' => 'things_before_setfilename_no_element.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'things_before_setfilename_no_element.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }
@@ -1473,8 +1474,9 @@ End:
 
 $result_converted_errors{'info'}->{'things_before_setfilename_no_element'} = [
   {
-    'error_line' => 'things_before_setfilename_no_element.texi: warning: document without nodes
+    'error_line' => 'warning: document without nodes
 ',
+    'file_name' => 'things_before_setfilename_no_element.texi',
     'text' => 'document without nodes',
     'type' => 'warning'
   }

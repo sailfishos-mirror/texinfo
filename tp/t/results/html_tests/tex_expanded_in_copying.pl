@@ -196,8 +196,9 @@ $result_converted{'html'}->{'tex_expanded_in_copying'} = '<!DOCTYPE html>
 
 $result_converted_errors{'html'}->{'tex_expanded_in_copying'} = [
   {
-    'error_line' => 'tex_expanded_in_copying.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'tex_expanded_in_copying.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

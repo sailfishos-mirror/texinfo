@@ -37,8 +37,9 @@ $result_floats{'empty'} = {};
 
 $result_converted_errors{'file_html'}->{'empty'} = [
   {
-    'error_line' => 'empty.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'empty.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }
@@ -47,8 +48,9 @@ $result_converted_errors{'file_html'}->{'empty'} = [
 
 $result_converted_errors{'file_info'}->{'empty'} = [
   {
-    'error_line' => 'empty.texi: warning: document without nodes
+    'error_line' => 'warning: document without nodes
 ',
+    'file_name' => 'empty.texi',
     'text' => 'document without nodes',
     'type' => 'warning'
   }

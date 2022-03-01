@@ -804,8 +804,9 @@ $result_floats{'nodes_after_top_before_chapter_use_nodes_chapter'} = {};
 
 $result_converted_errors{'file_html'}->{'nodes_after_top_before_chapter_use_nodes_chapter'} = [
   {
-    'error_line' => 'nodes_after_top_before_chapter.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'nodes_after_top_before_chapter.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

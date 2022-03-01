@@ -2783,8 +2783,9 @@ $result_indices_sort_strings{'nodes_before_top_no_nodes'} = {
 
 $result_converted_errors{'file_html'}->{'nodes_before_top_no_nodes'} = [
   {
-    'error_line' => 'nodes_before_top.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'nodes_before_top.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

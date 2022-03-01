@@ -77,7 +77,8 @@ sub line_warn($$$$)
   return if (!defined($error_location_info));
   my $warn_line;
 
-  if ($error_location_info->{'macro'} ne '') {
+  if (defined($error_location_info->{'macro'})
+      and $error_location_info->{'macro'} ne '') {
     $warn_line = sprintf(__p("Texinfo source file warning",
                              "warning: %s (possibly involving \@%s)\n"),
                          $text, $error_location_info->{'macro'});
@@ -88,9 +89,12 @@ sub line_warn($$$$)
   }
   warn $warn_line if (defined($configuration_information)
                       and $configuration_information->get_conf('DEBUG'));
+  my %location_info = %{$error_location_info};
+  delete $location_info{'file_name'} if (exists ($location_info{'file_name'})
+                                  and not defined($location_info{'file_name'}));
   push @{$self->{'errors_warnings'}},
        { 'type' => 'warning', 'text' => $text, 'error_line' => $warn_line,
-         %{$error_location_info} };
+         %location_info };
 }
 
 # format a line error
@@ -108,6 +112,9 @@ sub line_error($$$$)
     my $error_text = "$text$macro_text\n";
     warn $error_text if (defined($configuration_information)
                          and $configuration_information->get_conf('DEBUG'));
+    my %location_info = %{$error_location_info};
+    delete $location_info{'file_name'} if (exists ($location_info{'file_name'})
+                                  and not defined($location_info{'file_name'}));
     push @{$self->{'errors_warnings'}},
          { 'type' => 'error', 'text' => $text,
            'error_line' => $error_text,
@@ -156,52 +163,6 @@ sub document_error($$$)
     { 'type' => 'error', 'text' => $text, 'error_line' => $error_line };
   $self->{'error_nrs'}++;
 }
-
-sub file_line_warn($$$;$)
-{
-  my $self = shift;
-  my $text = shift;
-  chomp($text);
-  my $file = shift;
-  my $line_nr = shift;
-
-  my $warn_line;
-  if (!defined($file)) {
-    $warn_line = sprintf(__p("file warning", "warning: %s\n"), $text);
-  } elsif (!defined($line_nr)) {
-    $warn_line = sprintf(__p("file warning", "%s: warning: %s\n"),
-                         $file, $text);
-  } else {
-    $warn_line = sprintf(__p("file warning", "%s:%d: warning: %s\n"),
-                         $file, $line_nr, $text);
-  }
-  #print STDERR "REPORT FILE_LINE_WARN $self $self->{'errors_warnings'}\n";
-  push @{$self->{'errors_warnings'}},
-    { 'type' => 'warning', 'text' => $text, 'error_line' => $warn_line};
-}
-
-sub file_line_error($$$;$)
-{
-  my $self = shift;
-  my $text = shift;
-  chomp($text);
-  my $file = shift;
-  my $line_nr = shift;
-
-  my $error_line;
-  if (!defined($file)) {
-    $error_line = "$text\n";
-  } elsif (!defined($line_nr)) {
-    $error_line = "$file: $text\n";
-  } else {
-    $error_line = "$file:$line_nr: $text\n";
-  }
-  #print STDERR "REPORT FILE_LINE_WARN $self $self->{'errors_warnings'}\n";
-  push @{$self->{'errors_warnings'}},
-    { 'type' => 'error', 'text' => $text, 'error_line' => $error_line};
-  $self->{'error_nrs'}++;
-}
-
 
 1;
 
@@ -315,10 +276,14 @@ Register a warning or an error.  The I<$text> is the text of the
 error or warning.  The I<$configuration_information> object gives
 some information that can modify the messages or their delivery.
 The optional I<$error_location_info> holds the information on the error or
-warning location.  The I<$error_location_info> structure corresponds to
-the I<source_info> key of Texinfo tree elements as described
-in L<Texinfo::Parser/source_info>, and is normally obtained from Texinfo
-elements I<source_info> keys.
+warning location.  The I<$error_location_info> reference on hash may be
+obtained from Texinfo elements I<source_info> keys.   It may also
+be setup to point to a file name, using the C<file_name> key and
+to a line number, using the C<line_nr> key.  The C<file_name> key value
+should be a binary string.
+
+The I<source_info> key of Texinfo tree elements is described
+in more details in L<Texinfo::Parser/source_info>.
 
 =item $registrar->document_warn($configuration_information, $text)
 
@@ -329,15 +294,6 @@ X<C<document_error>>
 Register a document-wide error or warning.  I<$text> is the error or
 warning message.  The I<$configuration_information> object gives
 some information that can modify the messages or their delivery.
-
-=item $registrar->file_line_warn($text, $file, $line_nr)
-
-=item $registrar->file_line_error($text, $file, $line_nr)
-X<C<file_line_warn>>
-X<C<file_line_error>>
-
-Register the error or warning message I<$text> for file I<$file>, with,
-optionally the line I<$line_nr> in the file.
 
 =back
 

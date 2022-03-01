@@ -1043,8 +1043,9 @@ $result_floats{'equivalent_nodes'} = {
 
 $result_converted_errors{'file_html'}->{'equivalent_nodes'} = [
   {
-    'error_line' => 'equivalent_nodes.texi: warning: must specify a title with a title command or @top
+    'error_line' => 'warning: must specify a title with a title command or @top
 ',
+    'file_name' => 'equivalent_nodes.texi',
     'text' => 'must specify a title with a title command or @top',
     'type' => 'warning'
   }

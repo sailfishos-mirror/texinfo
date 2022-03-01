@@ -101,8 +101,8 @@ sub output($)
   my @indirect_files;
   if (!defined($tree_units) or not defined($tree_units->[0]->{'extra'})
       or not defined($tree_units->[0]->{'extra'}->{'unit_command'})) {
-    $self->file_line_warn(__("document without nodes"), 
-                          $self->{'parser_info'}->{'input_file_name'});
+    $self->line_warn($self, __("document without nodes"),
+             {'file_name' => $self->{'parser_info'}->{'input_file_name'}});
     my $output = $header.$self->convert_tree($root);
     $self->count_context_bug_message('no element ');
 
@@ -118,8 +118,8 @@ sub output($)
   } else {
     unless ($self->{'structuring'} and $self->{'structuring'}->{'top_node'}
      and $self->{'structuring'}->{'top_node'}->{'extra'}->{'normalized'} eq 'Top') {
-      $self->file_line_warn(__("document without Top node"),
-                            $self->{'parser_info'}->{'input_file_name'});
+      $self->line_warn($self, __("document without Top node"),
+             {'file_name' => $self->{'parser_info'}->{'input_file_name'}});
     }
     $out_file_nr = 1;
     my $first_node = 0;
@@ -132,7 +132,7 @@ sub output($)
         $first_node = 1;
         if (defined($self->{'text_before_first_node'})) {
           $complete_header .= $self->{'text_before_first_node'};
-          $complete_header_bytes += 
+          $complete_header_bytes +=
             Texinfo::Convert::Plaintext::count_bytes($self,
                                    $self->{'text_before_first_node'});
         }
@@ -147,9 +147,9 @@ sub output($)
         $result .= $node_text;
       }
       $self->update_count_context();
-      if (defined($self->get_conf('SPLIT_SIZE')) 
-          and $self->{'count_context'}->[-1]->{'bytes'} > 
-                  $out_file_nr * $self->get_conf('SPLIT_SIZE') 
+      if (defined($self->get_conf('SPLIT_SIZE'))
+          and $self->{'count_context'}->[-1]->{'bytes'} >
+                  $out_file_nr * $self->get_conf('SPLIT_SIZE')
           and @nodes_root_elements and $fh) {
         my $close_error;
         if (!close ($fh)) {
@@ -177,7 +177,7 @@ sub output($)
           # and add the file with a number.
           @{$self->{'opened_files'}} = grep {$_ ne $output_file}
                @{$self->{'opened_files'}};
-          push @{$self->{'opened_files'}}, 
+          push @{$self->{'opened_files'}},
                    $output_file.'-'.$out_file_nr;
           push @indirect_files, [$output_filename.'-'.$out_file_nr,
                                  $complete_header_bytes];
@@ -354,7 +354,7 @@ sub _info_header($$$)
   if ($self->{'global_commands'} and $self->{'global_commands'}->{'copying'}) {
     print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
     $self->{'in_copying_header'} = 1;
-    my $copying = $self->convert_tree({'contents' => 
+    my $copying = $self->convert_tree({'contents' =>
           $self->{'global_commands'}->{'copying'}->{'contents'}});
     $result .= $copying;
     $result .= $self->process_footnotes();
