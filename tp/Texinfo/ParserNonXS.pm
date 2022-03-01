@@ -37,7 +37,7 @@ use Carp qw(cluck);
 use Data::Dumper;
 
 # to detect if an encoding may be used to open the files
-use Encode qw(find_encoding);
+use Encode qw(find_encoding decode);
 
 # for fileparse
 use File::Basename;
@@ -211,23 +211,23 @@ my %parser_default_configuration = (
 #                         by @-commands.  For example documentlanguage.
 
 
-# A line information is an hash reference with the keys:
+# A source information is an hash reference with the keys:
 # line_nr        the line number
 # file_name      the file name
 # macro          if in a macro expansion, the name of the macro
 #
-# A text fragment information is a 2 element array reference, the first is the
-# text fragment, the second is the line information.
+# A text fragment with source information is a 2 element array reference,
+# the first is the text, the second is the source information.
 
 # The input structure is an array, the first is the most recently included
-# file.  The last element may be a file if the parsing is done on a file,
-# with parse_texi_file, or simply pending text, if called on text.
+# file.  The last element may corresponnd to a file if the parsing is done
+# on a file, with parse_texi_file, or simply pending text, if called on text.
 # each element of the array is a hash reference.  The key are:
-# pending    an array reference containing pending text fragments, either the
-#            text given in input or macro expansion text.
-# name       file name
-# line_nr    current line number in the file
-# fh         filehandle for the file
+# pending             an array reference containing pending text fragments
+#                     with source information, either the text given in
+#                     input or macro expansion text.
+# input_file_info     source information corresponding to the current file.
+# fh                  filehandle for the file.
 
 # The commands in initialization_overrides are not set in the document if
 # set at the parser initialization.
@@ -869,8 +869,9 @@ sub _text_to_lines($)
   return $lines;
 }
 
-# construct a text fragments array matching a lines array, based on information
-# supplied.
+# construct a text fragments with source information array matching
+# a lines array, based on information supplied.
+#
 # If $FIRST_LINE is undef, no line numbers are set.
 # Otherwise, if $FIXED_LINE_NUMBER is set the line number is not
 # increased, else it is increased, beginning at $FIRST_LINE.
@@ -920,6 +921,9 @@ sub _prepare_input_from_text($$;$$$$)
 
 # entry point for text fragments.
 # Used in some tests.
+# To be in line with the XS Parser,
+#  $lines_nr should only be an integer and text a string.
+#  $file, $macro, $fixed_line_number should never be used.
 sub parse_texi_piece($$;$$$$)
 {
   my ($self, $text, $lines_nr, $file, $macro, $fixed_line_number) = @_;
@@ -937,6 +941,9 @@ sub parse_texi_piece($$;$$$$)
   return $tree;
 }
 
+# To be in line with the XS Parser,
+#  $lines_nr should only be an integer and text a string.
+#  $file, $macro, $fixed_line_number should never be used.
 sub parse_texi_line($$;$$$$)
 {
   my ($self, $text, $lines_nr, $file, $macro, $fixed_line_number) = @_;
@@ -951,6 +958,9 @@ sub parse_texi_line($$;$$$$)
   return $tree;
 }
 
+# To be in line with the XS Parser,
+#  $lines_nr should only be an integer and text a string.
+#  $file, $macro, $fixed_line_number should never be used.
 sub parse_texi_text($$;$$$$)
 {
   my ($self, $text, $lines_nr, $file, $macro, $fixed_line_number) = @_;
@@ -963,6 +973,7 @@ sub parse_texi_text($$;$$$$)
   return $self->_parse_texi_document();
 }
 
+# $FILE_NAME the name of the opened file should be a binary string.
 sub _open_in {
   my ($self, $filehandle, $file_name) = @_;
 
@@ -986,6 +997,7 @@ sub _open_in {
 }
 
 # parse a texi file
+# $INPUT_FILE_PATH is the name of the parsed file should be a binary string.
 sub parse_texi_file($$)
 {
   my ($self, $input_file_path) = @_;
@@ -1006,10 +1018,12 @@ sub parse_texi_file($$)
   
   $self->{'input'} = [{
        'pending' => [],
-       'input_file_name' => $file_name,
-       'line_nr' => 0,
+       'input_file_info' => {
+          'file_name' => $file_name,
+          'line_nr' => 0,
+       },
        'fh' => $filehandle
-        }];
+    }];
 
   return $self->_parse_texi_document();
 }
@@ -1022,7 +1036,7 @@ sub _parse_texi_document($)
      = _setup_document_root_and_before_node_section();
 
   # it should be set by the first _next_text() call, so no need
-  # to preset it to a more precise line_nr structure.
+  # to preset it to a more precise source_info structure.
   my $source_info = undef;
 
   # put the empty lines and the \input line in a container at the beginning
@@ -1086,6 +1100,7 @@ sub global_commands_information($)
 # perl_encoding
 # input_encoding_name
 # input_file_name
+# input_directory
 sub global_information($)
 {
   my $self = shift;
@@ -1287,9 +1302,9 @@ sub _begin_preformatted($$)
   return $current;
 }
 
-# wrapper around line_warn.  Set line_nr to be the line_nr of the command,
-# corresponding to the opening of the command.  Call line_warn with
-# sprintf if needed.
+# wrapper around line_warn.  Set source_info to be the source_info of
+# the command, corresponding to the opening of the command.
+# Call line_warn with sprintf if needed.
 sub _command_warn($$$$;@)
 {
   my $self = shift;
@@ -1316,7 +1331,7 @@ sub _command_error($$$$;@)
 
   # use the beginning of the @-command for the error message
   # line number if available. 
-  # FIXME line_nr currently not registered for regular brace commands
+  # FIXME source_info currently not registered for regular brace commands
   if ($current->{'source_info'}) {
     $source_info = $current->{'source_info'};
   }
@@ -2004,17 +2019,17 @@ sub _save_line_directive
 
   my $input = $self->{'input'}->[0];
   return if !$input;
-  $input->{'line_nr'} = $line_nr if $line_nr;
+  $input->{'input_file_info'}->{'line_nr'} = $line_nr if $line_nr;
   # need to convert to bytes for file name
   if (defined($file_name)) {
     my ($encoded_file_name, $file_name_encoding)
        = _encode_file_name($self, $file_name);
-    $input->{'input_file_name'} = $encoded_file_name;
+    $input->{'input_file_info'}->{'file_name'} = $encoded_file_name;
   }
 }
 
-# returns next text fragment, be it pending from a macro expansion or 
-# text or file
+# returns next text fragment with source information, be it
+# pending from a macro expansion or pending text, or read from file.
 sub _next_text($$)
 {
   my ($self, $source_info) = @_;
@@ -2022,20 +2037,22 @@ sub _next_text($$)
   while (@{$self->{'input'}}) {
     my $input = $self->{'input'}->[0];
     if (@{$input->{'pending'}}) {
-      my $new_text = shift @{$input->{'pending'}};
-      if ($new_text->[1] and $new_text->[1]->{'end_macro'}) {
-        delete $new_text->[1]->{'end_macro'};
+      my $new_text_and_info = shift @{$input->{'pending'}};
+      if ($new_text_and_info->[1] and $new_text_and_info->[1]->{'end_macro'}) {
+        delete $new_text_and_info->[1]->{'end_macro'};
         my $top_macro = shift @{$self->{'macro_stack'}};
         print STDERR "SHIFT MACRO_STACK(@{$self->{'macro_stack'}}): $top_macro->{'args'}->[0]->{'text'}\n"
           if ($self->{'DEBUG'});
       }
-      return ($new_text->[0], $new_text->[1]);
+      # corresponds to (line, new source_info)
+      return ($new_text_and_info->[0], $new_text_and_info->[1]);
     } elsif ($input->{'fh'}) {
       my $input_error = 0;
       local $SIG{__WARN__} = sub {
         my $message = shift;
-        print STDERR "$input->{'input_file_name'}" . ":"
-               . ($input->{'line_nr'} + 1) . ": input error: $message";
+        print STDERR "$input->{'input_file_info'}->{'file_name'}" . ":"
+               . ($input->{'input_file_info'}->{'line_nr'} + 1)
+               . ": input error: $message";
         $input_error = 1;
       };
       my $fh = $input->{'fh'};
@@ -2053,19 +2070,33 @@ sub _next_text($$)
         }
         # DEL as comment character
         $line =~ s/\x{7F}.*\s*//;
-        $input->{'line_nr'}++;
-        return ($line, {'line_nr' => $input->{'line_nr'}, 
-            'file_name' => $input->{'input_file_name'},
-            'macro' => ''});
+        $input->{'input_file_info'}->{'line_nr'}++;
+        my $new_source_info = {
+          'line_nr' => $input->{'input_file_info'}->{'line_nr'},
+          'file_name' => $input->{'input_file_info'}->{'file_name'},
+          'macro' => ''};
+        return ($line, $new_source_info);
       }
     }
     my $previous_input = shift(@{$self->{'input'}});
     # Don't close STDIN
-    if ($previous_input->{'fh'} and $previous_input->{'input_file_name'} ne '-') {
+    if ($previous_input->{'fh'}
+        and $previous_input->{'input_file_info'}->{'file_name'} ne '-') {
       if (!close($previous_input->{'fh'})) {
+        # need to decode for error message
+        my $file_name_encoding;
+        if (defined($previous_input->{'file_name_encoding'})) {
+          $file_name_encoding = $previous_input->{'file_name_encoding'};
+        } else {
+          $file_name_encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+        }
+        my $file_name = $previous_input->{'input_file_info'}->{'file_name'};
+        if (defined($file_name_encoding)) {
+          $file_name = decode($file_name_encoding, $file_name);
+        }
         $self->{'registrar'}->document_warn($self,
                              sprintf(__("error on closing %s: %s"),
-                                $previous_input->{'input_file_name'}, $!));
+                                     $file_name, $!));
       }
     }
   }
@@ -2213,7 +2244,7 @@ sub _expand_macro_body($$$$) {
           }
         } else {
           $self->_line_error(sprintf(__(
-         "\\ in \@%s expansion followed `%s' instead of parameter name or \\"), 
+         "\\ in \@%s expansion followed `%s' instead of parameter name or \\"),
              $macro->{'element'}->{'args'}->[0]->{'text'}, $arg), $source_info);
           $result .= '\\' . $arg;
         }
@@ -3239,8 +3270,10 @@ sub _end_line($$$)
               my ($directories, $suffix);
               ($file, $directories, $suffix) = fileparse($file);
               unshift @{$self->{'input'}}, { 
-                'input_file_name' => $file,
-                'line_nr' => 0,
+                'input_file_info' => {'file_name' => $file,
+                                      'line_nr' => 0,
+                                     },
+                'file_name_encoding' => $file_name_encoding,
                 'pending' => [],
                 'fh' => $filehandle };
               # TODO note that it is bytes.  No reason to have it used much
@@ -3288,7 +3321,8 @@ sub _end_line($$$)
 
             $self->{'info'}->{'input_perl_encoding'} = $perl_encoding;
             foreach my $input (@{$self->{'input'}}) {
-              binmode($input->{'fh'}, ":encoding($perl_encoding)") if ($input->{'fh'});
+              binmode($input->{'fh'}, ":encoding($perl_encoding)")
+                if ($input->{'fh'});
             }
           }
         } elsif ($command eq 'documentlanguage') {
@@ -3305,15 +3339,14 @@ sub _end_line($$$)
         # note that the argument to expand replaced @-commands is
         # set, such that @include that are removed from the tree
         # with type set to replaced are still shown in error messages.
-        my $texi_line 
+        my $texi_line
           = Texinfo::Convert::Texinfo::convert_to_texinfo($current->{'args'}->[0], 1);
         $texi_line =~ s/^\s*//a;
         $texi_line =~ s/\s*$//a;
 
-        $self->_command_error($current, $source_info, 
+        $self->_command_error($current, $source_info,
                        __("bad argument to \@%s: %s"),
                        $command, $texi_line);
-        
       }
     } elsif ($command eq 'node') {
       foreach my $arg (@{$current->{'args'}}) {
@@ -3692,7 +3725,7 @@ sub _check_line_directive {
       and $source_info->{'file_name'} ne ''
       and !$source_info->{'macro'}
       and $line =~ /^\s*#\s*(line)? (\d+)(( "([^"]+)")(\s+\d+)*)?\s*$/) {
-    _save_line_directive ($self, int($2), $5);
+    _save_line_directive($self, int($2), $5);
     return 1;
   }
   return 0;
@@ -3771,8 +3804,11 @@ sub _parse_texi($$$)
 
     if ($self->{'DEBUG'}) {
       my $line_text = '';
-      $line_text = "$source_info->{'line_nr'}.$source_info->{'macro'}" if ($source_info);
-      print STDERR "NEW LINE(".join('|', $self->_get_context_stack()).":@{$self->{'conditionals_stack'}}:$line_text): $line";
+      $line_text = "$source_info->{'line_nr'}.$source_info->{'macro'}"
+         if ($source_info);
+      print STDERR "NEW LINE("
+         .join('|', $self->_get_context_stack())
+         .":@{$self->{'conditionals_stack'}}:$line_text): $line";
       #print STDERR "CONTEXT_STACK ".join('|',$self->_get_context_stack())."\n";
     }
 
@@ -4069,12 +4105,17 @@ sub _parse_texi($$$)
         print STDERR "UNSHIFT MACRO_STACK: $expanded_macro->{'args'}->[0]->{'text'}\n"
           if ($self->{'DEBUG'});
         my $new_lines = _complete_line_nr($expanded_lines, 
-                            $source_info->{'line_nr'}, $source_info->{'file_name'},
-                            $expanded_macro->{'args'}->[0]->{'text'}, 1);
+                         $source_info->{'line_nr'}, $source_info->{'file_name'},
+                         $expanded_macro->{'args'}->[0]->{'text'}, 1);
         $source_info->{'end_macro'} = 1;
+        # first put the line that was interrupted by the macro call
+        # on the input pending text with information stack
         unshift @{$self->{'input'}->[0]->{'pending'}}, [$line, $source_info];
+        # current line is the first from macro expansion
         my $new_text = shift @$new_lines;
         ($line, $source_info) = ($new_text->[0], $new_text->[1]);
+        # then put the following macro expansion lines with information on the
+        # pending text with information stack
         unshift @{$self->{'input'}->[0]->{'pending'}}, @$new_lines;
 
       # Now handle all the cases that may lead to command closing
@@ -6273,7 +6314,7 @@ of a macro.
 X<C<parse_texi_file>>
 
 The file with name I<$file_name> is considered to be a Texinfo file and
-is parsed into a tree.
+is parsed into a tree.  I<$file_name> should be a binary string.
 
 undef is returned if the file couldn't be read.
 
@@ -6328,7 +6369,12 @@ C<input_perl_encoding> string is a corresponding Perl encoding name.
 
 =item input_file_name
 
-The name of the main Texinfo input file.
+=item input_directory
+
+The name of the main Texinfo input file and the associated directory.
+Binary strings.  They should come from the command line and can
+be decoded with the encoding in the customization variable
+C<DATA_INPUT_ENCODING_NAME>.
 
 =back
 
@@ -6574,7 +6620,7 @@ Is associated to a macro definition element
    'contents' => [{'text' => "coucou \arg\ after arg\n", 'type' => 'raw'}],
    'extra' => {'arg_line' => " mymacro{arg}\n", }}
 
-= item merged_indices
+=item merged_indices
 
 The associated hash reference holds merged indices information, each key
 is merged in the value.  Same as setting C<@synindex> or C<syncodeindex>.
@@ -6664,10 +6710,10 @@ containers, C<@node> and sectioning commands.
 
 The parent element.
 
-=item line_nr
+=item source_info
 
 An hash reference corresponding to information on the location of the
-element in the Texinfo input manual.  It should only be available for
+element in the Texinfo input manual.  It should mainly be available for
 @-command elements, and only for @-commands that are considered to be
 complex enough that the location in the document is needed, for example
 to prepare an error message.

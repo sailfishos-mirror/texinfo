@@ -1,5 +1,15 @@
 2022-03-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (parse_texi_file, _save_line_directive)
+	(_next_text, _end_line): use a structure similar with source_info
+	within the input for the current file informations. Like in the XS
+	parser.  Add the information on the @include file name encoding.
+	Use this information to decode the file name in an error message.
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_line): reindent.
+
+2022-03-01  Patrice Dumas  <pertusus@free.fr>
+
 	Rename line_nr as source_info except when a line number
 
 	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/DocBook.pm,

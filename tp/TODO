@@ -30,20 +30,19 @@ bytes.  To check that they can never be upgraded + document
  INTERNAL_LINKS
 
 * ParserNonXS.pm
- l 3226 ParserNonXS.pm
-               unshift @{$self->{'input'}}, {
-                 'input_file_name' => $file,
-  -> sets file_name in _next_text: 'file_name' => $input->{'input_file_name'}
+ file name, in ->{'file_name'}
+ Can come from parse_texi_file, CPP line or @include file, through
+ $self->{'input'}, and $source_info, ends up in the tree in source_info
+ and in error messages through line_warn line_error.
+ $source_info->{'file_name'} passed through 
 
- l 2067 decode $previous_input->{'input_file_name'}
+ l 2071 decode
+         $previous_input->{'input_file_info'}->{'file_name'}, $!));
 
  $self->{'info'}->{'input_file_name'}
  $self->{'info'}->{'input_directory'}
 
 * XS Parser seems ok
-
-in input structure 
- name -> input_file_name
 
 check with latin1
 CPP directive with encoded characters, UTF8 Texinfo manual

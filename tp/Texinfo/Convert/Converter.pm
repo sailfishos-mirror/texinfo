@@ -1794,6 +1794,8 @@ C<$output_file> is an empty string. I<$document_name> is C<$output_filename>
 without extension.  I<$input_basefile> is based on the input texinfo file name,
 with the file name portion only (without directory).
 
+The strings returned are text strings.
+
 =item ($caption, $prepended) = $converter->float_name_caption($float)
 X<C<float_name_caption>>
 

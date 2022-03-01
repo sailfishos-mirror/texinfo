@@ -339,25 +339,25 @@ sub parse_texi_text($$;$$$$)
 # Replacement for Texinfo::Parser::parse_texi_line
 sub parse_texi_line($$;$$$$)
 {
-    my $self = shift;
-    my $text = shift;
-    my $lines_nr = shift;
-    my $file = shift;
-    my $macro = shift;
-    my $fixed_line_number = shift;
+  my $self = shift;
+  my $text = shift;
+  my $lines_nr = shift;
+  my $file = shift;
+  my $macro = shift;
+  my $fixed_line_number = shift;
 
-    return undef if (!defined($text));
+  return undef if (!defined($text));
 
-    $lines_nr = 1 if (not defined($lines_nr));
+  $lines_nr = 1 if (not defined($lines_nr));
 
-    $self = parser() if (!defined($self));
-    utf8::upgrade($text);
-    parse_string($text, $lines_nr);
-    my $tree = build_texinfo_tree ();
+  $self = parser() if (!defined($self));
+  utf8::upgrade($text);
+  parse_string($text, $lines_nr);
+  my $tree = build_texinfo_tree ();
 
-    _set_errors_node_lists_labels_indices($self);
+  _set_errors_node_lists_labels_indices($self);
 
-    return $tree;
+  return $tree;
 }
 
 # Public interfaces of Texinfo::Parser
