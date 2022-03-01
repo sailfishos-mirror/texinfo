@@ -5,7 +5,7 @@
 	* tp/Texinfo/XS/parsetexi/input.c (encode_file_name): Save
 	return value with save_string.
 	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line):
-	Update call to end_line_misc_line.
+	Update call to encode_file_name.
 	* tp/Texinfo/XS/parsetexi/input.c (save_line_directive):
 	Call encode_file_name on argument. Do not save reference to
 	argument.
