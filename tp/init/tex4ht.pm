@@ -136,18 +136,18 @@ sub tex4ht_prepare($$)
     $formats{$format}->{'basefile_name'}
                  = $formats{$format}->{'basename'} . $suffix;
     my ($encoded_basefile_name, $basefile_name_encoding)
-       = $self->encoded_file_name($formats{$format}->{'basefile_name'});
+       = $self->encoded_output_file_name($formats{$format}->{'basefile_name'});
     $formats{$format}->{'basefile_path'} = $encoded_basefile_name;
     $formats{$format}->{'html_basefile_name'}
                  = $formats{$format}->{'basename'} . '.html';
     my ($encoded_html_basefile_name, $html_basefile_name_encoding)
-       = $self->encoded_file_name($formats{$format}->{'html_basefile_name'});
+       = $self->encoded_output_file_name($formats{$format}->{'html_basefile_name'});
     $formats{$format}->{'html_basefile_path'} = $encoded_html_basefile_name;
 
     my $tex4ht_file_path_name = File::Spec->catfile($tex4ht_out_dir,
                                     $formats{$format}->{'basefile_name'});
     my ($encoded_tex4ht_file_path_name, $tex4ht_path_encoding)
-      = $self->encoded_file_name($tex4ht_file_path_name);
+      = $self->encoded_output_file_name($tex4ht_file_path_name);
     $formats{$format}->{'counter'} = 0;
     $formats{$format}->{'output_counter'} = 0;
 
@@ -257,7 +257,7 @@ sub tex4ht_convert($)
 {
   my $self = shift;
   my ($encoded_tex4ht_out_dir, $tex4ht_out_dir_encoding)
-    = $self->encoded_file_name($tex4ht_out_dir);
+    = $self->encoded_output_file_name($tex4ht_out_dir);
   unless (chdir $encoded_tex4ht_out_dir) {
     $self->document_warn($self,
             sprintf(__("tex4ht.pm: chdir %s failed: %s"),
@@ -300,8 +300,7 @@ sub tex4ht_process_format($$) {
   }
 
   my $cmd = "$formats{$format}->{'exec'} $formats{$format}->{'basefile_name'} $options";
-  # FIXME do not know what would be better here
-  my $encoding = $self->get_conf('MESSAGE_OUTPUT_ENCODING_NAME');
+  my $encoding = $self->get_conf('LOCALE_OUTPUT_ENCODING_NAME');
   my $encoded_cmd;
   if (defined($encoding)) {
     $encoded_cmd = encode($encoding, $cmd);

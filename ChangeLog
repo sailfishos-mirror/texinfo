@@ -1,5 +1,29 @@
 2022-02-28  Patrice Dumas  <pertusus@free.fr>
 
+	Allow customization of input file name and output file name encoding
+
+	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/Converter.pm
+	(encoded_input_file_name, encoded_output_file_name),
+	tp/Texinfo/Convert/Utils.pm (expand_verbatiminclude),
+	tp/Texinfo/ParserNonXS.pm (_encode_file_name),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser),
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs, tp/Texinfo/XS/parsetexi/api.c,
+	tp/Texinfo/XS/parsetexi/conf.c
+	(conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME)
+	(set_locale_input_file_name_encoding), tp/texi2any.pl: 
+	rename customization variable
+	MESSAGE_OUTPUT_ENCODING_NAME as LOCALE_OUTPUT_ENCODING_NAME.
+	Add DOC_ENCODING_FOR_INPUT_FILE_NAME,
+	DOC_ENCODING_FOR_OUTPUT_FILE_NAME,
+	LOCALE_INPUT_FILE_NAME_ENCODING, LOCALE_OUTPUT_FILE_NAME_ENCODING.
+	separate functions for input and output file names and use
+	the customization variables to determine if @documentencoding
+	is used or locale encoding.  In the default case, the locale
+	encoding is used for output, the @documentencoding for input, except
+	on windows.
+
+2022-02-28  Patrice Dumas  <pertusus@free.fr>
+
 	Decode/encode fixes
 
 	* tp/Texinfo/Convert/HTML.pm (output): set 'destination_directory'

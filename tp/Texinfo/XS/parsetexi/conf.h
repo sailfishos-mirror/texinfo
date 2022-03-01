@@ -20,6 +20,7 @@ typedef struct CONF {
     int show_menu;
     int cpp_line_directives;
     int ignore_space_after_braced_command_name;
+    int doc_encoding_for_input_file_name;
 } CONF;
 
 extern CONF conf;
@@ -27,6 +28,7 @@ extern CONF conf;
 void conf_set_show_menu (int i);
 void conf_set_CPP_LINE_DIRECTIVES (int i);
 void conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME (int i);
+void conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i);
 void reset_conf (void);
 
 #endif

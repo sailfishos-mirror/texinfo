@@ -41,10 +41,17 @@ conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME (int i)
 }
 
 void
+conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
+{
+  conf.doc_encoding_for_input_file_name = i;
+}
+
+void
 reset_conf (void)
 {
   memset (&conf, 0, sizeof (conf));
   conf.show_menu = 1;
   conf.cpp_line_directives = 1;
   conf.ignore_space_after_braced_command_name = 1;
+  conf.doc_encoding_for_input_file_name = 1;
 }

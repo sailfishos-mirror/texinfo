@@ -107,6 +107,13 @@ void
 conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME (int i)
 
 void
+conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
+
+void
+set_locale_input_file_name_encoding (value)
+     char *value
+
+void
 set_documentlanguage_override (value)
      char *value
 

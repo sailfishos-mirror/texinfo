@@ -204,10 +204,18 @@ sub expand_verbatiminclude($$$)
   $input_encoding = $current->{'extra'}->{'input_perl_encoding'}
         if (defined($current->{'extra'}->{'input_perl_encoding'}));
 
-  my ($file_name, $file_name_encoding)
-    = Texinfo::Common::encode_file_name($configuration_information,
+  my ($file_name, $file_name_encoding);
+  if ($configuration_information->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
+    ($file_name, $file_name_encoding)
+      = Texinfo::Common::encode_file_name($configuration_information,
                                                     $file_name_text,
                                                     $input_encoding);
+  } else {
+    ($file_name, $file_name_encoding)
+      = Texinfo::Common::encode_file_name($configuration_information,
+                                                    $file_name_text,
+    $configuration_information->get_conf('LOCALE_INPUT_FILE_NAME_ENCODING'));
+  }
 
   my $file = Texinfo::Common::locate_include_file($configuration_information,
                                                   $file_name);

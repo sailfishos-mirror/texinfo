@@ -116,6 +116,12 @@ sub parser (;$$)
         conf_set_CPP_LINE_DIRECTIVES($conf->{$key});
       } elsif ($key eq 'DEBUG') {
         set_debug($conf->{$key}) if $conf->{$key};
+      } elsif ($key eq 'DOC_ENCODING_FOR_INPUT_FILE_NAME') {
+        conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME ($conf->{$key});
+      } elsif ($key eq 'LOCALE_INPUT_FILE_NAME_ENCODING') {
+        if (defined ($conf->{$key})) {
+          set_locale_input_file_name_encoding ($conf->{$key});
+        }
       } elsif ($key eq 'accept_internalvalue') {
         set_accept_internalvalue();
       } elsif ($key eq 'registrar') {

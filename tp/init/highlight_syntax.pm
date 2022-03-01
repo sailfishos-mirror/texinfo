@@ -188,7 +188,7 @@ sub highlight_process($$)
     # expand @example texts in an input file for highlight source
     # program
     my ($encoded_input_language_path_name, $input_language_path_encoding)
-      = $self->encoded_file_name($input_language_path_name);
+      = $self->encoded_output_file_name($input_language_path_name);
     unless (open (HIGHLIGHT_LANG_IN, ">$encoded_input_language_path_name")) {
       $self->document_warn($self,
              sprintf(__("highlight_syntax.pm: could not open %s: %s"),
@@ -240,8 +240,7 @@ sub highlight_process($$)
     my $option_line_range_str = join(',', @option_line_ranges);
     my $cmd = "source-highlight ${version_option}--src-lang=$language --out-format=html5 -i '$input_language_path_name' -o '$html_result_path_name' --line-range=$option_line_range_str --range-separator='$range_separator'";
 
-    # FIXME do not know what would be better here
-    my $encoding = $self->get_conf('MESSAGE_OUTPUT_ENCODING_NAME');
+    my $encoding = $self->get_conf('LOCALE_OUTPUT_ENCODING_NAME');
     my $encoded_cmd;
     if (defined($encoding)) {
       $encoded_cmd = encode($encoding, $cmd);
@@ -258,8 +257,8 @@ sub highlight_process($$)
     my $language_fragments_nr = $languages{$language}->{'counter'};
     # extract highlighted fragments
     my ($encoded_html_result_path_name, $html_result_path_encoding)
-      = $self->encoded_file_name($html_result_path_name);
-    unless (open (HIGHLIGHT_LANG_OUT, $encoded_html_result_path_name)) {
+      = $self->encoded_output_file_name($html_result_path_name);
+    unless (open(HIGHLIGHT_LANG_OUT, $encoded_html_result_path_name)) {
       $self->document_warn($self,
          sprintf(__("highlight_syntax.pm: could not open %s: %s"),
                                   $html_result_path_name, $!));

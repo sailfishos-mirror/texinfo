@@ -198,7 +198,7 @@ sub l2h_process($$)
 
   unless ($self->get_conf('L2H_SKIP')) {
     my ($encoded_l2h_latex_path_name, $l2h_latex_path_encoding)
-      = $self->encoded_file_name($l2h_latex_path_name);
+      = $self->encoded_output_file_name($l2h_latex_path_name);
     unless (open(L2H_LATEX, ">$encoded_l2h_latex_path_name")) {
       $self->document_error($self, sprintf(__(
               "l2h: could not open latex file %s for writing: %s"),
@@ -368,8 +368,10 @@ sub l2h_to_html($)
   $call = $latex2html_command;
   # use init file, if specified
   my $init_file = $self->get_conf('L2H_FILE');
+  # FIXME not clear whether encoded_input_file_name or encoded_output_file_name
+  # should be used here
   my ($encoded_init_file, $init_path_encoding)
-    = $self->encoded_file_name($init_file);
+    = $self->encoded_input_file_name($init_file);
   $call .= " -init_file " . $init_file
     if (defined($init_file) and $init_file ne ''
         and -f $encoded_init_file and -r $encoded_init_file);
@@ -387,8 +389,7 @@ sub l2h_to_html($)
   $call .= " -address 0 -info 0 -split 0 -no_navigation -no_auto_link";
   $call .= " -prefix $l2h_prefix $l2h_latex_path_name";
 
-  # FIXME do not know what would be better here
-  my $encoding = $self->get_conf('MESSAGE_OUTPUT_ENCODING_NAME');
+  my $encoding = $self->get_conf('LOCALE_OUTPUT_ENCODING_NAME');
   my $encoded_call;
   if (defined($encoding)) {
     $encoded_call = encode($encoding, $call);
@@ -453,7 +454,7 @@ sub l2h_change_image_file_names($$)
         my $image_file_path_name = File::Spec->catpath($docu_volume,
                                   $docu_directories, $image_file_name);
         my ($encoded_image_file_path_name, $image_path_encoding)
-          = $self->encoded_file_name($image_file_path_name);
+          = $self->encoded_output_file_name($image_file_path_name);
         unless (-e $encoded_image_file_path_name) {
           last;
         }
@@ -462,12 +463,12 @@ sub l2h_change_image_file_names($$)
       my $file_src
         = File::Spec->catpath($docu_volume, $docu_directories, $src);
       my ($encoded_file_src, $src_file_encoding)
-        = $self->encoded_file_name($file_src);
+        = $self->encoded_output_file_name($file_src);
       $dest = "${docu_name}_${image_count}$ext";
       my $file_dest
         = File::Spec->catpath($docu_volume, $docu_directories, $dest);
       my ($encoded_file_dest, $dest_file_encoding)
-        = $self->encoded_file_name($file_dest);
+        = $self->encoded_output_file_name($file_dest);
       if ($debug) {
         copy($encoded_file_src, $encoded_file_dest);
       } else {
@@ -495,7 +496,7 @@ sub l2h_init_from_html($)
   }
 
   my ($encoded_l2h_html_path_name, $l2h_html_path_encoding)
-    = $self->encoded_file_name($l2h_html_path_name);
+    = $self->encoded_output_file_name($l2h_html_path_name);
   if (! open(L2H_HTML, "<$encoded_l2h_html_path_name")) {
     $self->document_warn($self,
                 sprintf(__("l2h: could not open %s: %s"),
@@ -639,11 +640,11 @@ sub l2h_finish($)
     my $quoted_l2h_name = quotemeta($l2h_name);
     my $dir = $docu_rdir;
     $dir = File::Spec->curdir() if ($dir eq '');
-    my ($encoded_dir, $dir_encoding) = $self->encoded_file_name($dir);
+    my ($encoded_dir, $dir_encoding) = $self->encoded_output_file_name($dir);
     my ($encoded_docu_directories, $docu_directories_encoding)
-      = $self->encoded_file_name($docu_directories);
+      = $self->encoded_output_file_name($docu_directories);
     my ($encoded_docu_volume, $docu_volume_encoding)
-      = $self->encoded_file_name($docu_volume);
+      = $self->encoded_output_file_name($docu_volume);
     if (opendir (DIR, $encoded_dir)) {
       foreach my $file (readdir(DIR)) {
         # FIXME there is a mix of files created by texi2any and files
@@ -676,7 +677,7 @@ sub l2h_init_cache($)
 {
   my $self = shift;
   my ($encoded_l2h_cache_path_name, $l2h_cache_path_encoding)
-    = $self->encoded_file_name($l2h_cache_path_name);
+    = $self->encoded_output_file_name($l2h_cache_path_name);
   if (-r $encoded_l2h_cache_path_name) {
     my $rdo = do "$encoded_l2h_cache_path_name";
     $self->document_error($self,
@@ -693,7 +694,7 @@ sub l2h_store_cache($)
   return unless $latex_count;
   my ($key, $value);
   my ($encoded_l2h_cache_path_name, $l2h_cache_path_encoding)
-    = $self->encoded_file_name($l2h_cache_path_name);
+    = $self->encoded_output_file_name($l2h_cache_path_name);
   unless (open(FH, ">$encoded_l2h_cache_path_name")) {
     $self->document_error($self,
           sprintf(__("l2h: could not open %s for writing: %s"),
@@ -735,7 +736,7 @@ sub l2h_from_cache($$)
       my $cached_image_path_name = File::Spec->catpath($docu_volume,
                                  $docu_directories, $cached_image_file_name);
       my ($encoded_cached_image_path_name, $cached_image_path_encoding)
-        = $self->encoded_file_name($cached_image_path_name);
+        = $self->encoded_output_file_name($cached_image_path_name);
       unless (-e $encoded_cached_image_path_name) {
         return undef;
       }

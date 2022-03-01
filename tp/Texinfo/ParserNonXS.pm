@@ -1982,6 +1982,21 @@ sub _item_multitable_parent($)
   return undef;
 }
 
+sub _encode_file_name($$)
+{
+  my ($self, $file_name) = @_;
+
+  my ($encoded_file_name, $file_name_encoding);
+
+  if ($self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
+    return Texinfo::Common::encode_file_name($self, $file_name,
+                 $self->{'info'}->{'input_perl_encoding'});
+  } else {
+    return Texinfo::Common::encode_file_name($self, $file_name,
+             $self->get_conf('LOCALE_INPUT_FILE_NAME_ENCODING'));
+  }
+}
+
 sub _save_line_directive
 {
   my ($self, $line_nr, $file_name) = @_;
@@ -1992,8 +2007,7 @@ sub _save_line_directive
   # need to convert to bytes for file name
   if (defined($file_name)) {
     my ($encoded_file_name, $file_name_encoding)
-       = Texinfo::Common::encode_file_name($self, $file_name,
-                 $self->{'info'}->{'input_perl_encoding'});
+       = _encode_file_name($self, $file_name);
     $input->{'name'} = $encoded_file_name;
   }
 }
@@ -3214,9 +3228,7 @@ sub _end_line($$$)
         } elsif ($command eq 'include') {
           # We want Perl strings representing sequences
           # of bytes, not codepoints in the internal perl encoding. 
-          my ($file_name, $file_name_encoding)
-             = Texinfo::Common::encode_file_name($self, $text,
-                                   $self->{'info'}->{'input_perl_encoding'});
+          my ($file_name, $file_name_encoding) = _encode_file_name($self, $text);
           my $file = Texinfo::Common::locate_include_file($self, $file_name);
           if (defined($file)) {
             my $filehandle = do { local *FH };

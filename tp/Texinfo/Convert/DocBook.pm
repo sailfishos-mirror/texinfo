@@ -307,7 +307,7 @@ sub output($$)
     = $self->determine_files_and_directory();
 
   my ($encoded_destination_directory, $dir_encoding)
-    = $self->encoded_file_name($destination_directory);
+    = $self->encoded_output_file_name($destination_directory);
   my ($succeeded, $created_directory)
     = $self->create_destination_directory($encoded_destination_directory);
   return undef unless $succeeded;
@@ -317,7 +317,7 @@ sub output($$)
   if (! $output_file eq '') {
     my $path_encoding;
     ($encoded_output_file, $path_encoding)
-      = $self->encoded_file_name($output_file);
+      = $self->encoded_output_file_name($output_file);
     $fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
                              $encoded_output_file);
@@ -1126,7 +1126,7 @@ sub _convert($$;$)
           my @files;
           foreach my $extension (@docbook_image_extensions) {
             my ($file_name, $file_name_encoding)
-               = $self->encoded_file_name("$basefile.$extension");
+               = $self->encoded_input_file_name("$basefile.$extension");
             if ($self->Texinfo::Common::locate_include_file($file_name)) {
               push @files, ["$basefile.$extension", uc($extension)];
             }

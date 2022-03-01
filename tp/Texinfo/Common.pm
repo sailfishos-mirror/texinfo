@@ -108,6 +108,8 @@ my %default_parser_common_customization = (
   'DEBUG' => 0,     # if >= 10, tree is printed in texi2any.pl after parsing.
                     # If >= 100 tree is printed every line.
   'FORMAT_MENU' => 'menu',           # if not 'menu' no menu error related.
+  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,  # if set, use LOCALE_INPUT_FILE_NAME_ENCODING
+                                            # for input file name encoding
 );
 
 # Customization variables obeyed only by the parser, and the default values.
@@ -254,6 +256,10 @@ our %default_converter_customization = (
   'DEBUG'                 => 0,
   'TEST'                  => 0,
   'TEXTCONTENT_COMMENT',  => undef,  # in textcontent format
+  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,  # if set, use LOCALE_INPUT_FILE_NAME_ENCODING
+                                            # for input file name encoding
+  'DOC_ENCODING_FOR_OUTPUT_FILE_NAME' => 0, # if set, use LOCALE_OUTPUT_FILE_NAME_ENCODING
+                                            # for output file name encoding
 );
 
 # Some are for all converters, EXTENSION for instance, some for
@@ -281,6 +287,8 @@ my @variable_string_settables = (
 'DEFAULT_RULE',
 'DEF_TABLE',
 'DO_ABOUT',
+'DOC_ENCODING_FOR_INPUT_FILE_NAME',
+'DOC_ENCODING_FOR_OUTPUT_FILE_NAME',
 'DOCTYPE',
 'EXTENSION',
 'EXTERNAL_CROSSREF_EXTENSION',
@@ -319,7 +327,9 @@ my @variable_string_settables = (
 'MAX_HEADER_LEVEL',
 'MENU_ENTRY_COLON',
 'MENU_SYMBOL',
-'MESSAGE_OUTPUT_ENCODING_NAME',
+'LOCALE_OUTPUT_ENCODING_NAME',
+'LOCALE_INPUT_FILE_NAME_ENCODING',
+'LOCALE_OUTPUT_FILE_NAME_ENCODING',
 'MONOLITHIC',
 'NO_CSS',
 'NO_NUMBER_FOOTNOTE_SYMBOL',
@@ -1512,7 +1522,7 @@ sub parse_node_manual($)
 # ASCII, as the name of the directory it is located within may contain
 # non-ASCII characters.
 #   Otherwise, the -e operator and similar may not work correctly.
-# TODO document and add the possibility to use configuration_information
+# TODO document.  Use configuration_information?
 sub encode_file_name($$;$)
 {
   my $configuration_information = shift;
@@ -1525,7 +1535,7 @@ sub encode_file_name($$;$)
                            or $input_encoding eq 'utf-8-strict')) {
     utf8::encode($file_name);
     $encoding = 'utf-8';
-  } else {
+  } elsif (defined($input_encoding)) {
     $file_name = Encode::encode($input_encoding, $file_name);
     $encoding = $input_encoding;
   }

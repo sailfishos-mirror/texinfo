@@ -15,6 +15,7 @@ void set_debug (int);
 void wipe_values (void);
 void reset_context_stack (void);
 void set_documentlanguage_override (char *value);
+void set_locale_input_file_name_encoding (char *value);
 
 
 HV *build_texinfo_tree (void);

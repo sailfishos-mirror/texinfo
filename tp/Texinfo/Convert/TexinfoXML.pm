@@ -429,7 +429,7 @@ sub output($$)
        = $self->determine_files_and_directory();
 
   my ($encoded_destination_directory, $dir_encoding)
-    = $self->encoded_file_name($destination_directory);
+    = $self->encoded_output_file_name($destination_directory);
   my ($succeeded, $created_directory)
     = $self->create_destination_directory($encoded_destination_directory);
   return undef unless $succeeded;
@@ -440,7 +440,7 @@ sub output($$)
   if (! $output_file eq '') {
     my $path_encoding;
     ($encoded_output_file, $path_encoding)
-      = $self->encoded_file_name($output_file);
+      = $self->encoded_output_file_name($output_file);
     $fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
                              $encoded_output_file);

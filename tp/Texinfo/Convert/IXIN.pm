@@ -270,7 +270,7 @@ sub output_ixin($$)
   my ($outfile, $destination_directory) = $self->determine_files_and_directory();
 
   my ($encoded_destination_directory, $dir_encoding)
-    = $self->encoded_file_name($destination_directory);
+    = $self->encoded_output_file_name($destination_directory);
   my ($succeeded, $created_directory)
     = $self->create_destination_directory($encoded_destination_directory);
   return undef unless $succeeded;
@@ -280,7 +280,7 @@ sub output_ixin($$)
   if (! $output_file eq '') {
     my $path_encoding;
     ($encoded_output_file, $path_encoding)
-      = $self->encoded_file_name($output_file);
+      = $self->encoded_output_file_name($output_file);
     $fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
                              $encoded_output_file);
@@ -846,7 +846,7 @@ sub output_ixin($$)
       foreach my $extension (@extension, @image_files_extensions) {
         my $file_name_text = "$basefile.$extension";
         my ($file_name, $file_name_encoding)
-          = $self->encoded_file_name($file_name_text);
+          = $self->encoded_input_file_name($file_name_text);
         my $file = $self->Texinfo::Common::locate_include_file($file_name);
         if (defined($file)) {
           my $filehandle = do { local *FH };

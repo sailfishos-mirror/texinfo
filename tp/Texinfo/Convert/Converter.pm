@@ -321,7 +321,7 @@ sub output($$)
   my ($output_file, $destination_directory, $output_filename,
                   $document_name) = $self->determine_files_and_directory();
   my ($encoded_destination_directory, $dir_encoding)
-    = $self->encoded_file_name($destination_directory);
+    = $self->encoded_output_file_name($destination_directory);
   my ($succeeded, $created_directory)
     = $self->create_destination_directory($encoded_destination_directory);
   return undef unless $succeeded;
@@ -365,7 +365,7 @@ sub output($$)
         if ($self->get_conf('DEBUG'));
       my $path_encoding;
       ($encoded_outfile_name, $path_encoding)
-        = $self->encoded_file_name($outfile_name);
+        = $self->encoded_output_file_name($outfile_name);
       $fh = Texinfo::Common::output_files_open_out(
                     $self->output_files_information(), $self,
                     $encoded_outfile_name);
@@ -1030,16 +1030,41 @@ sub present_bug_message($$;$)
 
 # Reverse the decoding of the file name from the input encoding.
 # TODO document
-sub encoded_file_name($$)
+sub encoded_input_file_name($$)
 {
   my $self = shift;
   my $file_name = shift;
 
-  my $document_encoding;
-  $document_encoding = $self->{'parser_info'}->{'input_perl_encoding'}
-    if ($self->{'parser_info'}
-      and defined($self->{'parser_info'}->{'input_perl_encoding'}));
-  return Texinfo::Common::encode_file_name($self, $file_name, $document_encoding);
+  if ($self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
+    my $document_encoding;
+    $document_encoding = $self->{'parser_info'}->{'input_perl_encoding'}
+      if ($self->{'parser_info'}
+        and defined($self->{'parser_info'}->{'input_perl_encoding'}));
+    return Texinfo::Common::encode_file_name($self, $file_name,
+                                             $document_encoding);
+  } else {
+    return Texinfo::Common::encode_file_name($self, $file_name,
+                       $self->get_conf('LOCALE_INPUT_FILE_NAME_ENCODING'));
+  }
+}
+
+# TODO document
+sub encoded_output_file_name($$)
+{
+  my $self = shift;
+  my $file_name = shift;
+
+  if ($self->get_conf('DOC_ENCODING_FOR_OUTPUT_FILE_NAME')) {
+    my $document_encoding;
+    $document_encoding = $self->{'parser_info'}->{'input_perl_encoding'}
+      if ($self->{'parser_info'}
+        and defined($self->{'parser_info'}->{'input_perl_encoding'}));
+    return Texinfo::Common::encode_file_name($self, $file_name,
+                                             $document_encoding);
+  } else {
+    return Texinfo::Common::encode_file_name($self, $file_name,
+                       $self->get_conf('LOCALE_OUTPUT_FILE_NAME_ENCODING'));
+  }
 }
 
 sub txt_image_text($$$)
@@ -1047,7 +1072,7 @@ sub txt_image_text($$$)
   my ($self, $element, $basefile) = @_;
 
   my ($text_file_name, $file_name_encoding)
-    = $self->encoded_file_name($basefile.'.txt');
+    = $self->encoded_input_file_name($basefile.'.txt');
 
   my $txt_file = Texinfo::Common::locate_include_file($self, $text_file_name);
   if (!defined($txt_file)) {

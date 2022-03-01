@@ -149,6 +149,9 @@ reset_parser (void)
   global_documentlanguage = 0;
   global_documentlanguage_fixed = 0;
 
+  free (locale_input_file_name_encoding);
+  locale_input_file_name_encoding = 0;
+
   global_accept_internalvalue = 0;
 }
 
@@ -1096,6 +1099,14 @@ set_documentlanguage_override (char *value)
   free (global_documentlanguage);
   global_documentlanguage = strdup (value);
   global_documentlanguage_fixed = 1;
+}
+
+/* used if conf.doc_encoding_for_input_file_name is 0 */
+void
+set_locale_input_file_name_encoding (char *value)
+{
+  free (locale_input_file_name_encoding);
+  locale_input_file_name_encoding = strdup (value);
 }
 
 

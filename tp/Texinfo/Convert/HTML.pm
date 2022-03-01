@@ -272,7 +272,7 @@ sub html_image_file_location_name($$$$)
     }
     foreach my $extension (@extensions) {
       my ($file_name, $file_name_encoding)
-        = $self->encoded_file_name($image_basefile.$extension);
+        = $self->encoded_input_file_name($image_basefile.$extension);
       my $located_image_path
            = $self->Texinfo::Common::locate_include_file($file_name);
       if (defined($located_image_path) and $located_image_path ne '') {
@@ -8922,7 +8922,7 @@ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating w
                                         $path);
   # sequence of bytes
   my ($licence_file_path, $path_encoding)
-     = $self->encoded_file_name($license_file);
+     = $self->encoded_output_file_name($license_file);
   my $fh = Texinfo::Common::output_files_open_out(
                  $self->output_files_information(), $self,
                  $licence_file_path);
@@ -8970,7 +8970,7 @@ sub _default_format_frame_files($$)
   }
   # sequence of bytes
   my ($frame_file_path, $frame_path_encoding)
-     = $self->encoded_file_name($frame_outfile);
+     = $self->encoded_output_file_name($frame_outfile);
   my $frame_fh = Texinfo::Common::output_files_open_out(
                      $self->output_files_information(), $self, $frame_file_path);
   if (defined($frame_fh)) {
@@ -9009,7 +9009,7 @@ EOT
   }
   # sequence of bytes
   my ($toc_frame_path, $toc_frame_path_encoding)
-       = $self->encoded_file_name($toc_frame_outfile);
+       = $self->encoded_output_file_name($toc_frame_outfile);
   my $toc_frame_fh = Texinfo::Common::output_files_open_out(
                       $self->output_files_information(), $self,
                       $toc_frame_path);
@@ -9309,7 +9309,7 @@ sub output($$)
   my ($output_file, $destination_directory, $output_filename,
               $document_name) = $self->determine_files_and_directory();
   my ($encoded_destination_directory, $dir_encoding)
-    = $self->encoded_file_name($destination_directory);
+    = $self->encoded_output_file_name($destination_directory);
   my ($succeeded, $created_directory)
     = $self->create_destination_directory($encoded_destination_directory);
   return undef unless $succeeded;
@@ -9515,7 +9515,7 @@ sub output($$)
       }
       my $path_encoding;
       ($encoded_no_page_out_filepath, $path_encoding)
-        = $self->encoded_file_name($no_page_out_filepath);
+        = $self->encoded_output_file_name($no_page_out_filepath);
       $fh = Texinfo::Common::output_files_open_out(
               $self->output_files_information(), $self,
               $encoded_no_page_out_filepath);
@@ -9620,7 +9620,7 @@ sub output($$)
       if ($self->{'file_counters'}->{$element_filename} == 0) {
         my $file_element = $files{$element_filename}->{'first_element'};
         my ($encoded_out_filepath, $path_encoding)
-          = $self->encoded_file_name($out_filepath);
+          = $self->encoded_output_file_name($out_filepath);
         my $file_fh = Texinfo::Common::output_files_open_out(
                          $self->output_files_information(), $self,
                          $encoded_out_filepath);
@@ -9731,7 +9731,7 @@ sub output($$)
           $out_filename = $node_filename;
         }
         my ($encoded_out_filename, $path_encoding)
-          = $self->encoded_file_name($out_filename);
+          = $self->encoded_output_file_name($out_filename);
         my $file_fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
                              $encoded_out_filename);

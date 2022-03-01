@@ -168,7 +168,7 @@ sub epub_convert_image_command($$$$)
                = File::Spec->catdir($epub_destination_directory,
                                     $epub_document_dir_name, $epub_images_dir_name);
       my ($encoded_images_destination_dir, $images_destination_dir_encoding)
-        = $self->encoded_file_name($images_destination_dir);
+        = $self->encoded_output_file_name($images_destination_dir);
       if (! -d $encoded_images_destination_dir) {
         if (!mkdir($encoded_images_destination_dir, oct(755))) {
           $self->document_error($self, sprintf(__(
@@ -180,7 +180,7 @@ sub epub_convert_image_command($$$$)
       my $image_destination_path_name
          = File::Spec->catfile($images_destination_dir, $image_file);
       my ($encoded_image_dest_path_name, $image_dest_path_encoding)
-        = $self->encoded_file_name($image_destination_path_name);
+        = $self->encoded_output_file_name($image_destination_path_name);
       my $copy_succeeded = copy($image_path, $encoded_image_dest_path_name);
       if (not $copy_succeeded) {
         my $image_path_text;
@@ -355,7 +355,7 @@ sub epub_finish($$)
   my $meta_inf_directory = File::Spec->catdir($epub_destination_directory,
                                               $meta_inf_directory_name);
   my ($encoded_meta_inf_directory, $meta_inf_directory_encoding)
-    = $self->encoded_file_name($meta_inf_directory);
+    = $self->encoded_output_file_name($meta_inf_directory);
   if (!mkdir($encoded_meta_inf_directory, oct(755))) {
     $self->document_error($self, sprintf(__(
                                  "could not create directory `%s': %s"),
@@ -365,7 +365,7 @@ sub epub_finish($$)
   my $container_file_path_name = File::Spec->catfile($meta_inf_directory,
                                            'container.xml');
   my ($encoded_container_file_path_name, $container_path_encoding)
-    = $self->encoded_file_name($container_file_path_name);
+    = $self->encoded_output_file_name($container_file_path_name);
   my $container_fh = Texinfo::Common::output_files_open_out(
                           $self->output_files_information(), $self,
                           $encoded_container_file_path_name, undef, 'utf-8');
@@ -400,7 +400,7 @@ EOT
   my $mimetype_file_path_name = File::Spec->catfile($epub_destination_directory,
                                                     $mimetype_filename);
   my ($encoded_mimetype_file_path_name, $mimetype_path_encoding)
-    = $self->encoded_file_name($mimetype_file_path_name);
+    = $self->encoded_output_file_name($mimetype_file_path_name);
   my $mimetype_fh = Texinfo::Common::output_files_open_out(
                         $self->output_files_information(), $self,
                         $encoded_mimetype_file_path_name, undef, 'utf-8');
@@ -427,7 +427,7 @@ EOT
     $nav_file_path_name
      = File::Spec->catfile($epub_document_destination_directory, $nav_filename);
     my ($encoded_nav_file_path_name, $nav_path_encoding)
-      = $self->encoded_file_name($nav_file_path_name);
+      = $self->encoded_output_file_name($nav_file_path_name);
     my $nav_fh = Texinfo::Common::output_files_open_out(
                        $self->output_files_information(), $self,
                        $encoded_nav_file_path_name, undef, 'utf-8');
@@ -528,7 +528,7 @@ EOT
   my $opf_file_path_name = File::Spec->catfile($epub_destination_directory,
                                         $epub_document_dir_name, $opf_filename);
   my ($encoded_opf_file_path_name, $opf_path_encoding)
-    = $self->encoded_file_name($opf_file_path_name);
+    = $self->encoded_output_file_name($opf_file_path_name);
   my $opf_fh = Texinfo::Common::output_files_open_out(
                    $self->output_files_information(), $self,
                    $encoded_opf_file_path_name, undef, 'utf-8');

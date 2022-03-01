@@ -138,6 +138,7 @@ char *global_clickstyle = 0;
 char *global_documentlanguage = 0;
 int global_documentlanguage_fixed = 0;
 int global_accept_internalvalue = 0;
+char *locale_input_file_name_encoding = 0;
 
 enum kbd_enum global_kbdinputstyle = kbd_distinct;
 

@@ -298,7 +298,7 @@ sub _open_info_file($$)
   my $filename = shift;
 
   my ($encoded_filename, $path_encoding)
-      = $self->encoded_file_name($filename);
+      = $self->encoded_output_file_name($filename);
   my $fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
                              $encoded_filename, 'use_binmode');
@@ -318,7 +318,7 @@ sub _register_closed_info_file($$)
   my $filename = shift;
 
   my ($encoded_filename, $path_encoding)
-      = $self->encoded_file_name($filename);
+      = $self->encoded_output_file_name($filename);
 
   Texinfo::Common::output_files_register_closed(
              $self->output_files_information(), $encoded_filename)
@@ -521,7 +521,7 @@ sub format_image($$)
     my $image_file;
     foreach my $extension (@extensions) {
       my ($file_name, $file_name_encoding)
-        = $self->encoded_file_name($basefile.$extension);
+        = $self->encoded_input_file_name($basefile.$extension);
       if ($self->Texinfo::Common::locate_include_file($file_name)) {
         # use the basename and not the file found.  It is agreed that it is
         # better, since in any case the files are moved.

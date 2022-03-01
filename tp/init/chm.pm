@@ -216,7 +216,7 @@ sub chm_init($)
   my $hhk_filename = $document_name . ".hhk";
   my $hhk_file_path_name = File::Spec->catfile($outdir, $hhk_filename);
   my ($encoded_hhk_file_path_name, $hhk_path_encoding)
-    = $self->encoded_file_name($hhk_file_path_name);
+    = $self->encoded_output_file_name($hhk_file_path_name);
   my $hhk_fh = Texinfo::Common::output_files_open_out(
                       $self->output_files_information(), $self,
                       $encoded_hhk_file_path_name);
@@ -266,7 +266,7 @@ sub chm_init($)
   my $hhc_filename = $document_name . ".hhc";
   my $hhc_file_path_name = File::Spec->catfile($outdir, $hhc_filename);
   my ($encoded_hhc_file_path_name, $hhc_path_encoding)
-    = $self->encoded_file_name($hhc_file_path_name);
+    = $self->encoded_output_file_name($hhc_file_path_name);
   my $hhc_fh = Texinfo::Common::output_files_open_out(
                       $self->output_files_information(), $self,
                       $encoded_hhc_file_path_name);
@@ -344,7 +344,7 @@ sub chm_init($)
   my $hhp_filename = $document_name . ".hhp";
   my $hhp_file_path_name = File::Spec->catfile($outdir, $hhp_filename);
   my ($encoded_hhp_file_path_name, $hhp_path_encoding)
-    = $self->encoded_file_name($hhp_file_path_name);
+    = $self->encoded_output_file_name($hhp_file_path_name);
   my $hhp_fh = Texinfo::Common::output_files_open_out(
                       $self->output_files_information(), $self,
                       $encoded_hhp_file_path_name);

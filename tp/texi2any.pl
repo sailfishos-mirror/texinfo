@@ -299,9 +299,18 @@ my $main_program_set_options = {
     'PROGRAM' => $real_command_name, 
     'TEXINFO_DTD_VERSION' => $texinfo_dtd_version,
     'DATA_INPUT_ENCODING_NAME' => $locale_encoding,
-    'MESSAGE_OUTPUT_ENCODING_NAME' => $locale_encoding,
-    'FILE_NAMES_ENCODING_NAME' => $file_name_encoding,
+    'LOCALE_OUTPUT_ENCODING_NAME' => $locale_encoding,
+    'LOCALE_INPUT_FILE_NAME_ENCODING' => $file_name_encoding,
+    'LOCALE_OUTPUT_FILE_NAME_ENCODING' => $file_name_encoding,
 };
+
+# use locale on Windows to set encoding of input file name as
+# system calls obey locale pages even if the filesystem uses
+# utf16 internally
+# FIXME better explanation?
+if ($^O eq 'MSWin32') {
+  $main_program_set_options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'} = 0;
+}
 
 # defaults for options relevant in the main program. Also used as
 # defaults for all the converters.
@@ -351,7 +360,7 @@ sub _decode_i18n_string($$)
 sub _encode_message($)
 {
   my $text = shift;
-  my $encoding = get_conf('MESSAGE_OUTPUT_ENCODING_NAME');
+  my $encoding = get_conf('LOCALE_OUTPUT_ENCODING_NAME');
   if (defined($encoding)) {
     return encode($encoding, $text);
   } else {
