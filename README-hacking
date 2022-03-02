@@ -204,6 +204,10 @@ and/or "autoreconf --verbose --force --install" and/or util/srclist-txi
 to update ancilliary files in build-aux and elsewhere.  Check changes before
 committing.
 
+run all tests with valgrind
+
+NYTProf profiling for Perl code to check for avoidable hotspots
+
 try groff.texinfo from groff source repo.
 Check "make ccheck" and "make vcheck" work in "doc/refcard".
 process doc/texinfo-tex-test.texi with TeX and check that output is good.
