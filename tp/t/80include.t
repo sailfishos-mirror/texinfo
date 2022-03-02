@@ -147,7 +147,13 @@ After.'],
 @verbatiminclude verbatim_encoded_latin1.texi
 ', {'test_formats' => ['plaintext']}],
 ['cpp_lines',
-undef, {'test_file' => 'cpp_lines.texi'}
+undef, {'test_file' => 'cpp_lines.texi'},
+],
+['cpp_line_before_first_node',
+undef, {'test_file' => 'cpp_line_before_first_node.texi'},
+],
+['cpp_line_latin1',
+undef, {'test_file' => 'cpp_line_latin1.texi'},
 ],
 );
 

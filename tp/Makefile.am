@@ -170,17 +170,19 @@ test_files = \
  t/test_utils.pl \
  t/input_files/all_spaces.texi \
  t/input_files/bib-example.texi \
- t/input_files/cond.texi \
  t/input_files/char_latin1_utf8_in_refs.texi \
  t/input_files/char_latin1_latin1_in_refs.texi \
  t/input_files/char_latin2_latin2_in_refs.texi \
  t/input_files/chinese_mixed_with_en.texi \
+ t/input_files/cond.texi \
  t/input_files/contents_at_document_begin.texi \
  t/input_files/contents_at_end_document_after_node.texi \
  t/input_files/contents_at_end_document.texi \
  t/input_files/contents_in_document.texi \
  t/input_files/contents_no_section.texi \
+ t/input_files/cpp_line_before_first_node.texi \
  t/input_files/cpp_lines.texi \
+ t/input_files/cpp_line_latin1.texi \
  t/input_files/defxcond.texi \
  t/input_files/delcomment.texi \
  t/input_files/direntry_dircategory.texi \
