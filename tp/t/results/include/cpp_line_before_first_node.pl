@@ -129,8 +129,8 @@ $result_errors{'cpp_line_before_first_node'} = [
   {
     'error_line' => 'unknown command `gggg\'
 ',
-    'file_name' => 'cpp_line_before_first_node.texi',
-    'line_nr' => 5,
+    'file_name' => 'foo.ptexi',
+    'line_nr' => 102,
     'macro' => '',
     'text' => 'unknown command `gggg\'',
     'type' => 'error'

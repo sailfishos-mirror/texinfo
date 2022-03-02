@@ -377,9 +377,8 @@ parse_texi_document (void)
       if (*linep && !looking_at (linep, "\\input"))
         {
           /* This line is not part of the preamble_before_beginning.
-             Shove back into input stream. */
-          input_push (line, 0, current_source_info.file_name,
-                                   current_source_info.line_nr);
+             Push back into input stream. */
+          input_pushback (line);
           break;
         }
 

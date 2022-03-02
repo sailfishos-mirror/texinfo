@@ -1,3 +1,15 @@
+2022-03-02  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Fix #line directive early in file.
+
+	* tp/Texinfo/XS/parsetexi/input.c (input_pushback): New function.
+	(next_text): Return string passed to input_pushback before any
+	other input.
+	* tp/Texinfo/XS/parsetexi/parser.c (parse_texi_document): Call
+	input_pushback after collecting 'preamble_before_beginning' element.
+	This preserves the source line information when a #line directive
+	appears immediately after the \input line.
+
 2022-03-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Info.pm (output): encode directory name

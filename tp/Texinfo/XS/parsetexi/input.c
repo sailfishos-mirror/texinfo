@@ -50,6 +50,8 @@ typedef struct {
                     into lines. */
 } INPUT;
 
+static char *input_pushback_string;
+
 enum character_encoding input_encoding;
 
 static char *input_encoding_name;
@@ -338,6 +340,15 @@ expanding_macro (char *macro)
 
 char *save_string (char *string);
 
+void
+input_pushback (char *string)
+{
+  if (input_pushback_string)
+    fprintf (stderr,
+             "texi2any (XS module): bug: input_pushback called twice\n");
+  input_pushback_string = string;
+}
+
 /* Return value to be freed by caller.  Return null if we are out of input. */
 char *
 next_text (void)
@@ -346,6 +357,14 @@ next_text (void)
   char *line = 0;
   size_t n;
   FILE *input_file;
+
+  if (input_pushback_string)
+    {
+      char *s;
+      s = input_pushback_string;
+      input_pushback_string = 0;
+      return s;
+    }
 
   while (input_number > 0)
     {
