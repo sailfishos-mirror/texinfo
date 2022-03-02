@@ -116,8 +116,6 @@ sub test_enable_encoding ($)
                                  \&Texinfo::Convert::Text::ascii_accent_fallback);
 
   if (defined($reference)) {
-    #ok (Encode::decode('iso-8859-1', $reference) eq $result, $name);
-    #ok ($reference eq Encode::encode('iso-8859-1', $result), $name);
     is (Encode::encode('iso-8859-1', $result), $reference, $name);
   } else {
     my ($ord, $hex) = ord_hex_string($result);
@@ -198,8 +196,5 @@ is ($result, "\x{00E5}", 'enable encoding @aa{}');
 
 $result = Texinfo::Convert::Text::convert_to_text($res_aa, {'enabled_encoding' => 'iso-8859-1'});
 is ($result, "\x{00E5}", 'enable encoding latin1 @aa{}');
-#print STDERR "$result\n";
-#print STDERR "`$result'\n".ord($result)."\n".sprintf("%x\n",ord($result));
-#print STDERR "".Encode::encode('utf8', "\x{00E5}\n");
 
 1;

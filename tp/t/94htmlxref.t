@@ -1,4 +1,3 @@
-# $Id: 02coverage.t 8055 2018-08-13 11:41:21Z gavin $
 use strict;
 
 use lib '.';
