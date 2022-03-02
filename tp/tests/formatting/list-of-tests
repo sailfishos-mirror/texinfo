@@ -23,3 +23,4 @@ non_ascii_command_line osé.texi --html --split=Mekanïk --document-language=Des
 
 # test for the copying of image with non ascii characters for epub
 non_ascii_test_epub osé.texi --init epub3.pm -c 'EPUB_CREATE_CONTAINER 0'
+

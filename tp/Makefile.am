@@ -202,6 +202,8 @@ test_files = \
  t/input_files/index_split.texi \
  t/input_files/japanese_utf8.texi \
  t/input_files/japanese_shift_jis.texi \
+ t/input_files/manual_simple_utf8_with_error.texi \
+ t/input_files/manual_simple_latin1_with_error.texi \
  t/input_files/minimal_empty_empty.texi \
  t/input_files/minimal_empty_with_bye.texi \
  t/input_files/minimal_empty_with_input.texi \

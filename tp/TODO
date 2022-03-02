@@ -34,38 +34,60 @@ bytes.  To check that they can never be upgraded + document
  Can come from parse_texi_file, CPP line or @include file, through
  $self->{'input'}, and $source_info, ends up in the tree in source_info
  and in error messages through line_warn line_error.
- $source_info->{'file_name'} passed through 
+ $source_info->{'file_name'} passed through
 
  $self->{'info'}->{'input_file_name'}
  $self->{'info'}->{'input_directory'}
 
 * XS Parser seems ok
 
-check with latin1
-CPP directive with encoded characters, UTF8 Texinfo manual
+Tests in non utf8 locales
+
+Tests ok
+
+t/formats_encodings.t manual_simple_utf8_with_error
+utf8 manual with errors involving non ascii strings
+./texi2any.pl ./t/input_files/manual_simple_utf8_with_error.texi
+
+t/formats_encodings.t manual_simple_latin1_with_error
+latin1 manual with errors involving non ascii strings
+./texi2any.pl ./t/input_files/manual_simple_latin1_with_error.texi
+
+tests/formatting cpp_lines
+CPP directive with non ascii characters, utf8 manual
 ./texi2any.pl -I ./t/include/ ./t/input_files/cpp_lines.texi
 accentÃªd:7: warning: làng is not a valid language code
 The file is UTF-8 encoded, the @documentencoding is obeyed which leads
-to an incorrect encoding, in the Parser, to UTF-8, and not to the latin1
+in the Parser, to an UTF-8 encoding of include file name, and not to the latin1
 encoding which should be used for the output messages encoding.
 This output is by (Gavin) design.
 
-Tests more interesting in non utf8 locale
-./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=0 -o résultat/encodé.txt ./t/input_files/simplest_no_node_section.texi
-
+many_input_files/output_dir_file_non_ascii.sh
+non ascii output directory, utf8 manual
 ./texi2any.pl -o encodé/ ./t/input_files/simplest.texi
 
-+ need to have file names/file content encoded in the non utf8 locale
 test of non ascii included file name in utf8 locale is already in formatting:
 formatting/osé.texi:@include included_akçentêd.texi
-But the test needs also to be done in non utf8 locale
-./texi2any.pl include_acc.texi
+./texi2any.pl --force -I tests/ tests/formatting/os*.texi
+The file name is utf-8 encoded in messages, which is expected as we do not
+decode/encode file names from the command linr for messages
+osÃ©.texi:15: warning: undefined flag: vùr
 
-CPP line directive with accented characters already in tests:
-./t/input_files/cpp_lines.texi
-But the test needs also to be done in non utf8 locale (still TODO for XS Parser)
-./texi2any.pl cpp_line_latin1.texi
+t/80include.t cpp_line_latin1
+CPP directive with non ascii characters, latin1 manual
+./texi2any.pl --force ./t/input_files/cpp_line_latin1.texi
 
+Issue to add 'tests/included_lat'$'\356''n1.texi' in make dist
+tests/other manual_include_accented_file_name_latin1
+./texi2any.pl --force -I tests/ tests/other/manual_include_accented_file_name_latin1.texi
+
+
+additional tests TODO
++ need to have file names/file content encoded in the non utf8 locale
++ the test needs also to be done in non utf8 locale
+
+tests/many_input_files/tex_l2h_output_dir_non_ascii.sh
+tests/many_input_files/tex_t4ht_output_dir_non_ascii.sh
 test l2h and tex4ht with non ascii file names in non utf8 locale.
 corresponds to tex_l2h_output_dir_non_ascii.sh
 tex_t4ht_output_dir_non_ascii.sh.
@@ -77,8 +99,7 @@ epub tests would also be interesting in 8 byte locale, with
  File Names and Paths MUST be UTF-8 [Unicode] encoded.
 First step would be to force that.
 
-
-
+Test more interesting in non utf8 locale
 Add tests even if not as interesting in UTF8 locale as in non UTF8?
 ./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=0 -o résultat/encodé.txt ./t/input_files/simplest_no_node_section.texi
 
@@ -109,7 +130,7 @@ html_image_file_location_name: $image_path
 
 Document new return of html_image_file_location_name
 
-Document 
+Document
 LOCALE_OUTPUT_ENCODING_NAME.
 Add DOC_ENCODING_FOR_INPUT_FILE_NAME,
 DOC_ENCODING_FOR_OUTPUT_FILE_NAME,

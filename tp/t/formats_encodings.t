@@ -351,6 +351,12 @@ undef, {'test_file' => 'japanese_shift_jis.texi'}
 ['sample_utf8',
 undef, {'test_file' => 'sample_utf8.texi'}
 ],
+['manual_simple_utf8_with_error',
+undef, {'test_file' => 'manual_simple_utf8_with_error.texi'}
+],
+['manual_simple_latin1_with_error',
+undef, {'test_file' => 'manual_simple_latin1_with_error.texi'}
+],
 ['at_commands_in_refs_utf8',
 '@setfilename at_commands_in_refs_utf8.info
 @documentencoding utf-8
