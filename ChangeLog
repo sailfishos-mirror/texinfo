@@ -1,3 +1,7 @@
+2022-03-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* NEWS: List new customization variables for filename encoding.
+
 2022-03-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Fix #line directive early in file.
