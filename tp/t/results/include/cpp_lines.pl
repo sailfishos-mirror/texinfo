@@ -708,7 +708,7 @@ $result_trees{'cpp_lines'} = {
           },
           'parent' => {},
           'source_info' => {
-            'file_name' => 'accentêd',
+            'file_name' => 'accentÃªd',
             'line_nr' => 7,
             'macro' => ''
           }
@@ -988,7 +988,7 @@ $result_errors{'cpp_lines'} = [
   {
     'error_line' => "warning: l\x{e0}ng is not a valid language code
 ",
-    'file_name' => 'accentêd',
+    'file_name' => 'accentÃªd',
     'line_nr' => 7,
     'macro' => '',
     'text' => "l\x{e0}ng is not a valid language code",

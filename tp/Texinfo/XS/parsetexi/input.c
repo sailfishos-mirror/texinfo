@@ -55,11 +55,17 @@ static char *input_pushback_string;
 enum character_encoding input_encoding;
 
 static char *input_encoding_name;
+static iconv_t reverse_iconv; /* used in encode_file_name */
 
 void
 set_input_encoding (char *encoding)
 {
   free (input_encoding_name); input_encoding_name = strdup (encoding);
+  if (reverse_iconv)
+    {
+      iconv_close (reverse_iconv);
+      reverse_iconv = (iconv_t) 0;
+    }
 
   if (!strcasecmp (encoding, "utf-8"))
     input_encoding = ce_utf8;
@@ -273,8 +279,6 @@ convert_to_utf8 (char *s)
   free (s);
   return ret;
 }
-
-static iconv_t reverse_iconv;
 
 /* Reverse the decoding of the filename to the input encoding, to retrieve
    the bytes that were present in the original Texinfo file.  Return

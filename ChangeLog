@@ -1,5 +1,10 @@
 2022-03-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/input.c (set_input_encoding): Reset
+	reverse_iconv conversion used in encode_name.  Report from Patrice.
+
+2022-03-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* NEWS: List new customization variables for filename encoding.
 
 2022-03-02  Gavin Smith  <gavinsmith0123@gmail.com>
