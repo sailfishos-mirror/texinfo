@@ -24,6 +24,19 @@
 # @-commands whose output is modified by those customization keys, however,
 # the difference between the parsers won't have any visible effect.
 
+# In general, the Parser works with character strings decoded from the
+# command line, from input files or from the parsed document and returns
+# character strings.  There are exceptions for the following files and
+# directory names that are binary strings:
+# * the input file name passed through parse_texi_file is a binary string
+# * the 'file_name' values in 'source_info' from convert_errors and in
+#   the tree elements 'source_info' are returned as binary strings
+#
+# The following parser information is directly determined from the
+# input file name as binary strings
+# ->{'info'}->{'input_file_name'}
+# ->{'info'}->{'input_directory'}
+
 package Texinfo::Parser;
 
 use 5.00405;
