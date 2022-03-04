@@ -1,3 +1,17 @@
+2022-03-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	File name encoding variables for XS parser
+
+	* tp/Texinfo/XS/parsetexi/input.c
+	(doc_encoding_for_input_file_name, locale_input_file_name_encoding):
+	Put these variables in this file, to represent
+	DOC_ENCODING_FOR_INPUT_FILE_NAME and LOCALE_OUTPUT_ENCODING_NAME.
+	(encode_file_name): Obey these variables as is done in ParserNonXS.pm.
+
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser): Reset both of these
+	variables.
+	(set_DOC_ENCODING_FOR_INPUT_FILE_NAME): Renamed and moved function.
+
 2022-03-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/input.c (set_input_encoding): Reset
