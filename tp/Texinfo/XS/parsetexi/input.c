@@ -280,17 +280,32 @@ convert_to_utf8 (char *s)
   return ret;
 }
 
+
+int doc_encoding_for_input_file_name = 1;
+char *locale_input_file_name_encoding = 0;
+
 /* Reverse the decoding of the filename to the input encoding, to retrieve
    the bytes that were present in the original Texinfo file.  Return
    value is freed by free_small_strings. */
 char *
 encode_file_name (char *filename)
 {
-  if (input_encoding != ce_utf8 && !reverse_iconv)
+  if (!reverse_iconv)
     {
-      if (input_encoding_name)
+      if (doc_encoding_for_input_file_name)
         {
-          reverse_iconv = iconv_open (input_encoding_name, "UTF-8");
+          if (input_encoding != ce_utf8 && input_encoding_name)
+            {
+              reverse_iconv = iconv_open (input_encoding_name, "UTF-8");
+            }
+        }
+      else
+        {
+          if (locale_input_file_name_encoding)
+            {
+              reverse_iconv = iconv_open (locale_input_file_name_encoding,
+                                          "UTF-8");
+            }
         }
     }
   if (reverse_iconv && reverse_iconv != (iconv_t) -1)
