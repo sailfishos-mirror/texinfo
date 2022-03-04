@@ -15,7 +15,7 @@ if test "z$TEX_HTML_TESTS" != z"yes"; then
 fi
 
 dir=tex_html
-name='tex_encoded_l2h'
+name='tex_encoded_latin1_httex'
 mkdir -p $dir
 
 "$srcdir"/run_parser_all.sh -dir $dir $name

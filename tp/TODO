@@ -73,6 +73,21 @@ tests/other manual_include_accented_file_name_latin1
 ./texi2any.pl --force -I tests/ tests/other/manual_include_accented_file_name_latin1.texi
 
 
+rename with utf8
+#./texi2any.pl tests/tex_html/tex_encodé.texi
+
+Not ok:
+./texi2any.pl --html --init init/latex2html.pm tests/tex_html/tex_encod??.texi
+ -> the input file name is decoded using DATA_INPUT_ENCODING_NAME
+    which is set to ISO-8859-1, although the file name is in utf8.
+./texi2any.pl -c 'DATA_INPUT_ENCODING_NAME utf-8' --html --init init/latex2html.pm tests/tex_html/tex_encod??.texi
+Errors out with
+# l2h: use tex_encodé_html/tex_encodé_l2h.html as html file
+utf8 "\xE9" does not map to Unicode at ./init/latex2html.pm line 515, <L2H_HTML> line 6.
+which corresponds to <TITLE>tex_encodé_l2h</TITLE>, with the é encoded in latin1.
+Probably latex2html outputs the latin1 file names as it gets from the command
+line.
+
 additional tests TODO
 + need to have file names/file content encoded in the non utf8 locale
 + the test needs also to be checked in non utf8 locale
