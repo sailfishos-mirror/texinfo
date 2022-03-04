@@ -108,8 +108,9 @@ my %default_parser_common_customization = (
   'DEBUG' => 0,     # if >= 10, tree is printed in texi2any.pl after parsing.
                     # If >= 100 tree is printed every line.
   'FORMAT_MENU' => 'menu',           # if not 'menu' no menu error related.
-  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,  # if set, use LOCALE_INPUT_FILE_NAME_ENCODING
-                                            # for input file name encoding
+  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,  # if true use the document encoding for input
+                                            # file names encoding, else use
+                                            # LOCALE_INPUT_FILE_NAME_ENCODING
 );
 
 # Customization variables obeyed only by the parser, and the default values.
@@ -256,10 +257,12 @@ our %default_converter_customization = (
   'DEBUG'                 => 0,
   'TEST'                  => 0,
   'TEXTCONTENT_COMMENT',  => undef,  # in textcontent format
-  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,  # if set, use LOCALE_INPUT_FILE_NAME_ENCODING
-                                            # for input file name encoding
-  'DOC_ENCODING_FOR_OUTPUT_FILE_NAME' => 0, # if set, use LOCALE_OUTPUT_FILE_NAME_ENCODING
-                                            # for output file name encoding
+  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,  # if true use the document encoding for input
+                                            # file names encoding, else use
+                                            # LOCALE_INPUT_FILE_NAME_ENCODING
+  'DOC_ENCODING_FOR_OUTPUT_FILE_NAME' => 0, # if true use the document encoding for input
+                                            # file names encoding, else use
+                                            # LOCALE_OUTPUT_FILE_NAME_ENCODING
 );
 
 # Some are for all converters, EXTENSION for instance, some for
