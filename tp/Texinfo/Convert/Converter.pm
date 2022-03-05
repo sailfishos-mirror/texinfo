@@ -322,8 +322,9 @@ sub output($$)
                   $document_name) = $self->determine_files_and_directory();
   my ($encoded_destination_directory, $dir_encoding)
     = $self->encoded_output_file_name($destination_directory);
-  my ($succeeded, $created_directory)
-    = $self->create_destination_directory($encoded_destination_directory);
+  my $succeeded
+    = $self->create_destination_directory($encoded_destination_directory,
+                                          $destination_directory);
   return undef unless $succeeded;
 
   if ($self->get_conf('USE_NODES')) {
@@ -352,8 +353,8 @@ sub output($$)
     if ($output_file ne '') {
       if ($self->get_conf('SPLIT')) {
         my $top_node_file_name = $self->top_node_filename($document_name);
-        if (defined($created_directory) and $created_directory ne '') {
-          $outfile_name = File::Spec->catfile($created_directory,
+        if (defined($destination_directory) and $destination_directory ne '') {
+          $outfile_name = File::Spec->catfile($destination_directory,
                                               $top_node_file_name);
         } else {
           $outfile_name = $top_node_file_name;
@@ -908,21 +909,22 @@ sub _set_tree_units_files($$$$$$)
   }
 }
 
-sub create_destination_directory($$)
+sub create_destination_directory($$$)
 {
   my $self = shift;
-  my $destination_directory = shift;
+  my $destination_directory_path = shift;
+  my $destination_directory_name = shift;
 
-  if (defined($destination_directory)
-      and ! -d $destination_directory) {
-    if (!mkdir($destination_directory, oct(755))) {
+  if (defined($destination_directory_path)
+      and ! -d $destination_directory_path) {
+    if (!mkdir($destination_directory_path, oct(755))) {
       $self->document_error($self, sprintf(__(
                                 "could not create directory `%s': %s"),
-                                          $destination_directory, $!));
-      return (0, $destination_directory);
+                                   $destination_directory_name, $!));
+      return 0;
     }
   }
-  return (1, $destination_directory);
+  return 1;
 }
 
 
@@ -1765,12 +1767,14 @@ calls C<convert_tree> on the elements.  If the optional I<$file_handler>
 is given in argument, the result are output in I<$file_handler>, otherwise
 the resulting string is returned.
 
-=item ($succeeded, $created_directory) = $converter->create_destination_directory($destination_directory)
+=item $succeeded = $converter->create_destination_directory($destination_directory_path, $destination_directory_name)
 X<C<create_destination_directory>>
 
-Create destination directory.  I<$succeeded> is true if the creation was
-successful or uneeded, false otherwise.  I<$created_directory> is the directory
-actually created, which should be the same as I<$destination_directory>.
+Create destination directory I<$destination_directory_path>.
+I<$destination_directory_path> should be a binary string, while
+I<$destination_directory_name> should be a character string, to be used in
+error messages.  I<$succeeded> is true if the creation was successful or
+uneeded, false otherwise.
 
 =item ($output_file, $destination_directory, $output_filename, $document_name, $input_basefile) = $converter->determine_files_and_directory($output_format)
 X<C<determine_files_and_directory>>

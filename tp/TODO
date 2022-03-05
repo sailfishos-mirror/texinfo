@@ -22,10 +22,6 @@ for @example args, use *-user as class?
 Test of init/highlight_syntax.pm with non ascii characters in highlighted
 @example contents.
 
-Convert/Converter.pm
-move create_destination_directory error message out of create_destination_directory
-or pass directory as a character string, or encoding?
-
 
 bytes.  To check that they can never be upgraded + document
 * texi2any.pl

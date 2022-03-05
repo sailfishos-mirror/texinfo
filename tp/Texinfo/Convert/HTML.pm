@@ -9335,8 +9335,9 @@ sub output($$)
               $document_name) = $self->determine_files_and_directory();
   my ($encoded_destination_directory, $dir_encoding)
     = $self->encoded_output_file_name($destination_directory);
-  my ($succeeded, $created_directory)
-    = $self->create_destination_directory($encoded_destination_directory);
+  my $succeeded
+    = $self->create_destination_directory($encoded_destination_directory,
+                                          $destination_directory);
   return undef unless $succeeded;
 
   # set for init files
@@ -9508,7 +9509,7 @@ sub output($$)
 
   if ($self->get_conf('FRAMES')) {
     my $status = &{$self->formatting_function('format_frame_files')}($self,
-                                                        $created_directory);
+                                                      $destination_directory);
     return undef if (!$status);
   }
 
@@ -9528,8 +9529,8 @@ sub output($$)
       my $no_page_output_filename;
       if ($self->get_conf('SPLIT')) {
         $no_page_output_filename = $self->top_node_filename($document_name);
-        if (defined($created_directory) and $created_directory ne '') {
-          $no_page_out_filepath = File::Spec->catfile($created_directory,
+        if (defined($destination_directory) and $destination_directory ne '') {
+          $no_page_out_filepath = File::Spec->catfile($destination_directory,
                                                     $no_page_output_filename);
         } else {
           $no_page_out_filepath = $no_page_output_filename;
@@ -9679,7 +9680,7 @@ sub output($$)
     }
     delete $self->{'current_filename'};
     if ($self->get_conf('INFO_JS_DIR')) {
-      my $jsdir = File::Spec->catdir($created_directory,
+      my $jsdir = File::Spec->catdir($destination_directory,
                                      $self->get_conf('INFO_JS_DIR'));
       if (!-d $jsdir) {
         if (-f $jsdir) {
@@ -9712,7 +9713,7 @@ sub output($$)
 
   my $jslicenses = $self->get_info('jslicenses');
   if ($jslicenses and scalar(%$jslicenses)) {
-    $self->_do_jslicenses_file($created_directory);
+    $self->_do_jslicenses_file($destination_directory);
   }
 
   my $finish_status = $self->run_stage_handlers($root, 'finish');
@@ -9749,8 +9750,8 @@ sub output($$)
           = &{$self->formatting_function('format_node_redirection_page')}($self,
                                                                          $node);
         my $out_filename;
-        if (defined($created_directory) and $created_directory ne '') {
-          $out_filename = File::Spec->catfile($created_directory,
+        if (defined($destination_directory) and $destination_directory ne '') {
+          $out_filename = File::Spec->catfile($destination_directory,
                                               $node_filename);
         } else {
           $out_filename = $node_filename;

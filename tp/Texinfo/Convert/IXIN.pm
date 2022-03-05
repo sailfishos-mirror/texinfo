@@ -271,8 +271,9 @@ sub output_ixin($$)
 
   my ($encoded_destination_directory, $dir_encoding)
     = $self->encoded_output_file_name($destination_directory);
-  my ($succeeded, $created_directory)
-    = $self->create_destination_directory($encoded_destination_directory);
+  my $succeeded
+    = $self->create_destination_directory($encoded_destination_directory,
+                                          $destination_directory);
   return undef unless $succeeded;
 
   my $fh;

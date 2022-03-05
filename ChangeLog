@@ -1,5 +1,13 @@
 2022-03-05  Patrice Dumas  <pertusus@free.fr>
 
+	Pass created directory charcter string for error messages
+
+	* tp/Texinfo/Convert/Converter.pm (create_destination_directory):
+	add an argument for created directory name as character string for
+	use in error message.
+
+2022-03-05  Patrice Dumas  <pertusus@free.fr>
+
 	Encode more file names for epub
 
 	* tp/init/epub3.pm: set OUTPUT_ENCODING_NAME and
