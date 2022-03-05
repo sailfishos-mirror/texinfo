@@ -1,5 +1,10 @@
 2022-03-05  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/init/latex2html.pm (l2h_to_html): Do not call
+	encoded_input_file_name with an undefined or empty argument.
+
+2022-03-05  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Fix man page bold, italic, underline for Debian man
 
 	* info/man.c (get_manpage_from_formatter): Set MAN_KEEP_FORMATTING=1

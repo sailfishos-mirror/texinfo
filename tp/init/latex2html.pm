@@ -370,11 +370,12 @@ sub l2h_to_html($)
   my $init_file = $self->get_conf('L2H_FILE');
   # FIXME not clear whether encoded_input_file_name or encoded_output_file_name
   # should be used here
-  my ($encoded_init_file, $init_path_encoding)
-    = $self->encoded_input_file_name($init_file);
-  $call .= " -init_file " . $init_file
-    if (defined($init_file) and $init_file ne ''
-        and -f $encoded_init_file and -r $encoded_init_file);
+  if (defined($init_file) and $init_file ne '') {
+    my ($encoded_init_file, $init_path_encoding)
+      = $self->encoded_input_file_name($init_file);
+    $call .= " -init_file " . $init_file
+      if -f $encoded_init_file and -r $encoded_init_file;
+  }
   # set output dir
   $call .=  (($docu_rdir ne '') ? " -dir $docu_rdir" : " -no_subdir");
   # use l2h_tmp, if specified
