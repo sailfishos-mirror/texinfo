@@ -5,12 +5,12 @@
 @top top
 
 @node chapter
-@chapter chap
+@chapter châp
 
 Texinfo
 @example texinfo
 @code{texinfo}
-@@code@{protected@}
+@@code@{protécted@}
 @end example
 
 C++
@@ -20,14 +20,14 @@ C++
 #include <iostream>
 
 int main() @{
-    std::cout << "Hello World!";
+    std::cout << "Hello Wörld!";
     return 0;
 @}
 @end example
 
 perl
 @example perl
-my $list = ['a', 'b'];
+my $list = ['ça', 'bôù'];
 sub do ($) @{
   my $arg = shift;
   return $arg + 4;

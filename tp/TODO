@@ -19,9 +19,6 @@ Before next release
 
 for @example args, use *-user as class?
 
-Test of init/highlight_syntax.pm with non ascii characters in highlighted
-@example contents.
-
 
 bytes.  To check that they can never be upgraded + document
 * texi2any.pl

@@ -1,7 +1,7 @@
 Automatically generated
 
 _______________________ 0
-my $list = ['a', 'b'];
+my $list = ['ça', 'bôù'];
 sub do ($) {
   my $arg = shift;
   return $arg + 4;

@@ -2,5 +2,5 @@ Automatically generated
 
 _______________________ 0
 texinfo
-@code{protected}
+@code{protécted}
 _______________________ 0
