@@ -1,7 +1,6 @@
 /* man.c: How to read and format man files.
 
-   Copyright 1995-2019 Free Software Foundation, 
-   Inc.
+   Copyright 1995-2022 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -301,6 +300,10 @@ get_manpage_from_formatter (char *formatter_args[])
   int pipes[2];
   pid_t child;
   int formatter_status = 0;
+
+  putenv ("MAN_KEEP_FORMATTING=1"); /* Get codes for bold etc. */
+  putenv ("GROFF_SGR=1"); /* for Debian whose man outputs
+                             'overstrike' sequences without this */
 
   /* Open a pipe to this program, read the output, and save it away
      in FORMATTED_PAGE.  The reader end of the pipe is pipes[0]; the

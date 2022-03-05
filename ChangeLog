@@ -1,3 +1,12 @@
+2022-03-05  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Fix man page bold, italic, underline for Debian man
+
+	* info/man.c (get_manpage_from_formatter): Set MAN_KEEP_FORMATTING=1
+	and GROFF_SGR=1 in environment.
+	* doc/info-stnd.texi (Invoking Info) <-R>: Comment out text about
+	GROFF_SGR as it is hardcoded now.
+
 2022-03-05  Patrice Dumas  <pertusus@free.fr>
 
 	Pass created directory charcter string for error messages

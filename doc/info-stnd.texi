@@ -453,6 +453,7 @@ sequences are displayed as other control characters are; for example, an
 @key{ESC} byte is displayed as @samp{^[}.  The @code{--raw-escapes} and
 @code{-R} options do not do anything, but are included for completeness.
 
+@ignore
 @cindex man pages, bold and underline
 @vindex GROFF_SGR
 Some versions of Groff (@pxref{Top,,,groff,Groff}) produce man pages
@@ -463,6 +464,7 @@ your terminal supports these sequences, Info will display any bold or
 underlined text in man pages.  Some distributions have modified Groff
 to require setting the @code{GROFF_SGR} environment variable to get
 these sequences.  @xref{Invoking grotty,,, groff, Groff}.
+@end ignore
 
 @item --restore=@var{dribble-file}
 @cindex @code{--restore} command line option
