@@ -37,6 +37,9 @@
 
 use strict;
 
+# for accented character in a comment
+use utf8;
+
 use File::Path;
 use File::Spec;
 use File::Copy;
@@ -63,7 +66,9 @@ texinfo_set_from_init_file('EPUB_CREATE_CONTAINER', 1);
 
 texinfo_set_format_from_init_file('html');
 
-# output valid XHTML
+# output valid XHTML as per the specification
+# Any Publication Resource that is an XML-Based Media Type MUST
+# be a conformant XML 1.0 Document ... MUST be encoded in UTF-8 or UTF-16.
 texinfo_set_from_init_file('HTML_ROOT_ELEMENT_ATTRIBUTES',
                            'xmlns="http://www.w3.org/1999/xhtml"');
 texinfo_set_from_init_file('NO_CUSTOM_HTML_ATTRIBUTE', 1);
@@ -71,6 +76,16 @@ texinfo_set_from_init_file('USE_XML_SYNTAX', 1);
 texinfo_set_from_init_file('DOCTYPE', '<?xml version="1.0" encoding="UTF-8"?>'."\n"
                                       .'<!DOCTYPE html>');
 texinfo_set_from_init_file('USE_NUMERIC_ENTITY', 1);
+texinfo_set_from_init_file('OUTPUT_ENCODING_NAME', 'utf-8');
+
+# this is actually the default
+texinfo_set_from_init_file('DOC_ENCODING_FOR_OUTPUT_FILE_NAME', 0);
+# the specification says "File Names and Paths MUST be UTF-8 [Unicode] encoded."
+# This is also needed for Archive::Zip in case there are non ascii
+# file name.
+# As a conséquence, the epub file file name is also always utf-8 encoded.
+texinfo_set_from_init_file('LOCALE_OUTPUT_FILE_NAME_ENCODING', 'utf-8');
+
 
 # the copiable anchor paragraph sign is always present and no link is
 # shown in the calibre epub reader.  Since it looks strange, unset.
@@ -172,7 +187,7 @@ sub epub_convert_image_command($$$$)
       if (! -d $encoded_images_destination_dir) {
         if (!mkdir($encoded_images_destination_dir, oct(755))) {
           $self->document_error($self, sprintf(__(
-                                 "could not create directory `%s': %s"),
+                             "could not create images directory `%s': %s"),
                                          $images_destination_dir, $!));
           return $result;
         }
@@ -294,7 +309,9 @@ sub epub_setup($)
   }
 
   my $err_remove_tree;
-  File::Path::remove_tree($epub_destination_directory,
+  my ($encoded_epub_destination_directory, $epub_destination_dir_encoding)
+    = $self->encoded_output_file_name($epub_destination_directory);
+  File::Path::remove_tree($encoded_epub_destination_directory,
                           {'error' => $err_remove_tree});
   if ($err_remove_tree and scalar(@$err_remove_tree)) {
     for my $diag (@$err_remove_tree) {
@@ -313,7 +330,9 @@ sub epub_setup($)
     return 0;
   }
   my $err_make_path;
-  File::Path::make_path($epub_document_destination_directory,
+  my ($encoded_epub_document_destination_directory, $epub_doc_dest_dir_encoding)
+    = $self->encoded_output_file_name($epub_document_destination_directory);
+  File::Path::make_path($encoded_epub_document_destination_directory,
                         {'mode' => 0755, 'error' => $err_make_path});
   if ($err_make_path and scalar(@$err_make_path)) {
     for my $diag (@$err_make_path) {
@@ -358,7 +377,7 @@ sub epub_finish($$)
     = $self->encoded_output_file_name($meta_inf_directory);
   if (!mkdir($encoded_meta_inf_directory, oct(755))) {
     $self->document_error($self, sprintf(__(
-                                 "could not create directory `%s': %s"),
+                   "could not create meta informations directory `%s': %s"),
                                          $meta_inf_directory, $!));
     return 0;
   }
@@ -691,14 +710,47 @@ EOT
   if ($self->get_conf('EPUB_CREATE_CONTAINER')) {
     require Archive::Zip;
 
+    # this is needed if there are non ascii file names, otherwise, for instance
+    # with calibre the files cannot be read, one get
+    # "There is no item named 'EPUB/osé.opf' in the archive"
+    # even though unzip -l lists the file well.  More testing is probably
+    # needed on other plaforms.
+    local $Archive::Zip::UNICODE = 1;
     my $zip = Archive::Zip->new();
-    $zip->addFile($mimetype_file_path_name, $mimetype_filename);
-    $zip->addTree($meta_inf_directory, $meta_inf_directory_name);
-    $zip->addTree(File::Spec->catdir($epub_destination_directory,
-                                     $epub_document_dir_name),
-                  $epub_document_dir_name);
+    my $mimetype_added
+      = $zip->addFile($encoded_mimetype_file_path_name, $mimetype_filename);
+    if (not(defined($mimetype_added))) {
+      $self->document_error($self,
+        sprintf(__("epub3.pm: error adding %s to archive"),
+               $mimetype_file_path_name));
+      return 0;
+    }
 
-    unless ($zip->writeToFileNamed($epub_outfile) == Archive::Zip->AZ_OK) {
+    my $meta_inf_directory_ret_code
+      = $zip->addTree($encoded_meta_inf_directory, $meta_inf_directory_name);
+    if ($meta_inf_directory_ret_code != Archive::Zip->AZ_OK) {
+      $self->document_error($self,
+        sprintf(__("epub3.pm: error adding %s to archive"),
+               $meta_inf_directory));
+      return 0;
+    }
+
+    my $epub_document_dir_path = File::Spec->catdir($epub_destination_directory,
+                                                    $epub_document_dir_name);
+    my ($encoded_epub_document_dir_path, $epub_document_dir_path_encoding)
+      = $self->encoded_output_file_name($epub_document_dir_path);
+    my $epub_document_dir_name_ret_code
+      = $zip->addTree($encoded_epub_document_dir_path, $epub_document_dir_name);
+    if ($epub_document_dir_name_ret_code != Archive::Zip->AZ_OK) {
+      $self->document_error($self,
+        sprintf(__("epub3.pm: error adding %s to archive"),
+               $epub_document_dir_path));
+      return 0;
+    }
+
+    my ($encoded_epub_outfile, $epub_outfile_encoding)
+      = $self->encoded_output_file_name($epub_outfile);
+    unless ($zip->writeToFileNamed($encoded_epub_outfile) == Archive::Zip->AZ_OK) {
       $self->document_error($self,
            sprintf(__("epub3.pm: error writing archive %s"),
                    $epub_outfile));

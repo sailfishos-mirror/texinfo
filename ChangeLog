@@ -1,3 +1,14 @@
+2022-03-05  Patrice Dumas  <pertusus@free.fr>
+
+	Encode more file names for epub
+
+	* tp/init/epub3.pm: set OUTPUT_ENCODING_NAME and
+	LOCALE_OUTPUT_FILE_NAME_ENCODING to utf-8 as mandated by the
+	specification.
+
+	* tp/init/epub3.pm (epub_setup, epub_finish): encode file and
+	directory names.  Check more errors from Archive::Zip.
+
 2022-03-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	File name encoding variables for XS parser
