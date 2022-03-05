@@ -44,6 +44,7 @@ use strict;
 use warnings;
 
 use Storable qw(dclone); # standard in 5.007003
+use Encode qw(decode);
 
 use Texinfo::Common;
 use Texinfo::Report;
@@ -137,8 +138,8 @@ sub parser (;$$)
         }
       } elsif ($key eq 'accept_internalvalue') {
         set_accept_internalvalue();
-      } elsif ($key eq 'registrar') {
-        # no action needed
+      } elsif ($key eq 'registrar' or $key eq 'DATA_INPUT_ENCODING_NAME') {
+        # no action needed, only used in perl code
       } else {
         warn "ignoring parser configuration value \"$key\"\n";
       }
@@ -234,14 +235,19 @@ use File::Basename; # for fileparse
 sub parse_texi_file ($$)
 {
   my $self = shift;
-  my $file_name = shift;
+  my $input_file_path = shift;
   my $tree_stream;
 
-  my $status = parse_file ($file_name);
+  my $status = parse_file ($input_file_path);
   if ($status) {
     my ($registrar, $configuration_information) = _get_error_registrar($self);
+    my $input_file_name = $input_file_path;
+    my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+    if (defined($encoding)) {
+      $input_file_name = decode($encoding, $input_file_path);
+    }
     $registrar->document_error($configuration_information,
-       sprintf(__("could not open %s: %s"), $file_name, $!));
+       sprintf(__("could not open %s: %s"), $input_file_name, $!));
     return undef;
   }
 
@@ -256,7 +262,7 @@ sub parse_texi_file ($$)
 
   ############################################################
 
-  my ($basename, $directories, $suffix) = fileparse($file_name);
+  my ($basename, $directories, $suffix) = fileparse($input_file_path);
   $self->{'info'}->{'input_file_name'} = $basename;
   $self->{'info'}->{'input_directory'} = $directories;
 

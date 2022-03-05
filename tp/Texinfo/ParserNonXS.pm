@@ -1012,16 +1012,21 @@ sub _open_in {
 }
 
 # parse a texi file
-# $INPUT_FILE_PATH is the name of the parsed file should be a binary string.
+# $INPUT_FILE_PATH is the name of the parsed file and should be a binary string.
 sub parse_texi_file($$)
 {
   my ($self, $input_file_path) = @_;
 
   my $filehandle = do { local *FH };
   if (!_open_in($self, $filehandle, $input_file_path)) {
+    my $input_file_name = $input_file_path;
+    my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+    if (defined($encoding)) {
+      $input_file_name = decode($encoding, $input_file_path);
+    }
     $self->{'registrar'}->document_error($self,
                  sprintf(__("could not open %s: %s"),
-                                  $input_file_path, $!));
+                                  $input_file_name, $!));
     return undef;
   }
 

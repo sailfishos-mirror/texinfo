@@ -229,8 +229,7 @@ sub converter(;$)
     }
   }
 
-  Texinfo::Common::set_output_encodings($converter,
-    $converter->{'parser_info'});
+  Texinfo::Common::set_output_encodings($converter, $converter->{'parser_info'});
 
   # turn the array to a hash for speed.  Not sure it really matters for such
   # a small array.
@@ -1051,22 +1050,13 @@ sub encoded_input_file_name($$)
 }
 
 # TODO document
+# A wrapper around Texinfo::Utils::encoded_output_file_name() that
+# can be called in converters through an objet oriented syntax.
 sub encoded_output_file_name($$)
 {
   my $self = shift;
   my $file_name = shift;
-
-  if ($self->get_conf('DOC_ENCODING_FOR_OUTPUT_FILE_NAME')) {
-    my $document_encoding;
-    $document_encoding = $self->{'parser_info'}->{'input_perl_encoding'}
-      if ($self->{'parser_info'}
-        and defined($self->{'parser_info'}->{'input_perl_encoding'}));
-    return Texinfo::Common::encode_file_name($self, $file_name,
-                                             $document_encoding);
-  } else {
-    return Texinfo::Common::encode_file_name($self, $file_name,
-                       $self->get_conf('LOCALE_OUTPUT_FILE_NAME_ENCODING'));
-  }
+  return Texinfo::Convert::Utils::encoded_output_file_name($self, $file_name);
 }
 
 sub txt_image_text($$$)

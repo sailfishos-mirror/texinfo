@@ -3,7 +3,7 @@ EXTRA_DIST = \
  ignore_and_comments.texi   split_nocopying.texi \
  inc_file.texi              test_need.texi \
  lightweight_markups.texi   japanese_long_name.texi  \
- osé.texi \
+ osé_utf8.texi osé_utf8_no_setfilename.texi \
  çss.css cêss.css file.css an_ïmage.png list-of-tests  res_parser
 
 DISTCLEANFILES = tests.log tests.out

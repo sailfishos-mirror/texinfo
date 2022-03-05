@@ -9,6 +9,28 @@
 
 2022-03-05  Patrice Dumas  <pertusus@free.fr>
 
+	Encode file names in Parser and Text Converter
+
+	* tp/Texinfo/Common.pm (%default_parser_common_customization),
+	tp/Texinfo/ParserNonXS.pm (parse_texi_file),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser, parse_texi_file):
+	add DATA_INPUT_ENCODING_NAME as a Parser configuration variable
+	and use it to decode the file name in error message for not
+	opened input file.
+
+	* tp/Texinfo/Convert/Converter.pm (encoded_output_file_name),
+	tp/Texinfo/Convert/Text.pm (converter, output, set_conf),
+	tp/Texinfo/Convert/Utils.pm (encoded_output_file_name):
+	move encoded_output_file_name from Texinfo::Convert::Converter
+	to Texinfo::Convert::Utils, but keep a wrapper to be able
+	to call the function from converters in object oriented style.
+	in Texinfo::Convert::Text, call set_output_encodings,
+	encoded_output_file_name, decode command line strings and encode 
+	file names and output file contents.  Define set_conf() for
+	Texinfo::Common::set_output_encodings() call.
+
+2022-03-05  Patrice Dumas  <pertusus@free.fr>
+
 	Pass created directory charcter string for error messages
 
 	* tp/Texinfo/Convert/Converter.pm (create_destination_directory):

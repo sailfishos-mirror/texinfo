@@ -1,6 +1,6 @@
 \input texinfo.tex
 
-@setfilename osé.info
+@setfilename osé_utf8.info
 
 @node Top
 @top Tôp

@@ -1,18 +1,18 @@
 \input texinfo.tex
 
-@setfilename osé_utf8.info
-
 @node Top
 @top Tôp
 
 @node Chaptêur
 @chapter Chapteùr
 
+@ifset TÛT
 isset TÛT
+@end ifset
 
-value vùr ké.
+value vùr @value{vùr}.
 
-In included téxt.
+@include included_akçentêd.texi
 
 @image{an_ïmage,,,öld}
 

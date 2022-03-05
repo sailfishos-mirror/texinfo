@@ -29,7 +29,8 @@ bytes.  To check that they can never be upgraded + document
  MACRO_EXPAND
  INTERNAL_LINKS
 
-Tests in non utf8 locales
+
+Tests in non utf8 locale (in practice tested in latin1 locale)
 
 Tests with correct or acceptable results
 
@@ -55,11 +56,11 @@ non ascii output directory, utf8 manual
 ./texi2any.pl -o encodé/ ./t/input_files/simplest.texi
 
 test of non ascii included file name in utf8 locale is already in formatting:
-formatting/osé.texi:@include included_akçentêd.texi
-./texi2any.pl --force -I tests/ tests/formatting/os*.texi
+formatting/osé_utf8.texi:@include included_akçentêd.texi
+./texi2any.pl --force -I tests/ tests/formatting/os*_utf8.texi
 The file name is utf-8 encoded in messages, which is expected as we do not
 decode/encode file names from the command line for messages
-osÃ©.texi:15: warning: undefined flag: vùr
+osÃ©_utf8.texi:15: warning: undefined flag: vùr
 
 t/80include.t cpp_line_latin1
 CPP directive with non ascii characters, latin1 manual
@@ -83,12 +84,29 @@ The file names and file contents looks right, though, with latin1 only
 encoded characters.
 
 epub for utf8 encoded manual in latin1 locale
-./texi2any.pl --force -I tests/ --init init/epub3.pm tests/formatting/os*.texi
+./texi2any.pl --force -I tests/ --init init/epub3.pm tests/formatting/os*_utf8.texi
 
 epub for latin1 encoded manual in latin1 locale
 cp tests/tex_html/tex_encode_latin1.texi tex_encodé_latin1.texi
 ./texi2any.pl --init init/epub3.pm tex_encodé_latin1.texi
 
+./texi2any.pl --force -I tests/ -c TEXINFO_OUTPUT_FORMAT=rawtext tests/formatting/os*_utf8.texi
+output file name is in latin1, but the encoding inside is utf8 consistent
+with the document encoding.
+
+./texi2any.pl --force -I tests/ -c TEXINFO_OUTPUT_FORMAT=rawtext tests/formatting/os*_utf8_no_setfilename.texi
+output file name is utf8 because the utf8 encoded input file name
+is decoded using the locale latin1 encoding keeping the 8bit characters
+from the utf8 encoding, and the encoding inside is utf8
+consistent with the document encoding.
+
+./texi2any.pl --force -I tests/ -o encodé/raw.txt -c TEXINFO_OUTPUT_FORMAT=rawtext tests/formatting/os*_utf8.texi
+encodé/raw.txt encoded in latin1, and the encoding inside is utf8
+consistent with the document encoding.
+
+./texi2any.pl --force -I tests/ -c TEXINFO_OUTPUT_FORMAT=rawtext -c 'SUBDIR=subdîr' tests/formatting/os*_utf8.texi
+subdîr/osé_utf8.txt encoded in latin1, and the encoding inside is utf8
+consistent with the document encoding.
 
 Tests with incorrect results, though not bugs
 
@@ -126,17 +144,15 @@ mixing latin1 and utf8.
 Tests in utf8 locales.  The archive epub file is not tested in the automated tests.
 
 epub for utf8 encoded manual in utf8 locale
-./texi2any.pl --force -I tests/ --init init/epub3.pm tests/formatting/os*.texi
+./texi2any.pl --force -I tests/ --init init/epub3.pm tests/formatting/osé_utf8.texi
 
+Two following tests not important enough to have regression test
+./texi2any.pl --force -I tests/ -o encodé/raw.txt -c TEXINFO_OUTPUT_FORMAT=rawtext tests/formatting/os*_utf8.texi
+./texi2any.pl --force -I tests/ -c TEXINFO_OUTPUT_FORMAT=rawtext -c 'SUBDIR=subdîr' tests/formatting/os*_utf8.texi
 
 Test more interesting in non utf8 locale
 Add tests even if not as interesting in UTF8 locale as in non UTF8?
 ./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=0 -o résultat/encodé.txt ./t/input_files/simplest_no_node_section.texi
-
-
-
-Texinfo/Convert/Text.pm output()
-checks decoded/encoded and fix.  Need to verify input available information
 
 
 Associated code to check, requires bytes in input both for directory and

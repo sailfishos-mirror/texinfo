@@ -19,8 +19,14 @@ cpp_lines ../../t/input_files/cpp_lines.texi
 # ./texi2any.pl --footnote-style=bâd
 # ./texi2any.pl --paragraph-indent=ïndent
 # check non ascii command line arguments and css files
-non_ascii_command_line osé.texi --html --split=Mekanïk --document-language=Destruktïw -c 'Kommandöh vâl' -D TÛT -D 'vùr ké' -U ôndef -c 'FORMAT_MENU mînù' --macro-expand=@OUT_DIR@osé-texinfo.texi --internal-links=@OUT_DIR@intérnal.txt --css-include çss.css --css-include cêss.css --css-ref=rëf --css-ref=öref
+non_ascii_command_line osé_utf8.texi --html --split=Mekanïk --document-language=Destruktïw -c 'Kommandöh vâl' -D TÛT -D 'vùr ké' -U ôndef -c 'FORMAT_MENU mînù' --macro-expand=@OUT_DIR@osé-texinfo.texi --internal-links=@OUT_DIR@intérnal.txt --css-include çss.css --css-include cêss.css --css-ref=rëf --css-ref=öref
 
 # test for the copying of image with non ascii characters for epub
-non_ascii_test_epub osé.texi --init epub3.pm -c 'EPUB_CREATE_CONTAINER 0'
+non_ascii_test_epub osé_utf8.texi --init epub3.pm -c 'EPUB_CREATE_CONTAINER 0'
+
+# check that the output is right when based on @setfilename
+non_ascii_test_rawtext osé_utf8.texi -c TEXINFO_OUTPUT_FORMAT=rawtext
+
+# check that the output is right when based on input file name
+non_ascii_no_setfilename_test_rawtext osé_utf8_no_setfilename.texi -c TEXINFO_OUTPUT_FORMAT=rawtext
 

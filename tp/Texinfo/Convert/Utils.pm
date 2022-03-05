@@ -308,6 +308,26 @@ sub numbered_heading($$$;$)
   return $result;
 }
 
+# TODO document
+# this requires a converter argument
+sub encoded_output_file_name($$)
+{
+  my $self = shift;
+  my $file_name = shift;
+
+  if ($self->get_conf('DOC_ENCODING_FOR_OUTPUT_FILE_NAME')) {
+    my $document_encoding;
+    $document_encoding = $self->{'parser_info'}->{'input_perl_encoding'}
+      if ($self->{'parser_info'}
+        and defined($self->{'parser_info'}->{'input_perl_encoding'}));
+    return Texinfo::Common::encode_file_name($self, $file_name,
+                                             $document_encoding);
+  } else {
+    return Texinfo::Common::encode_file_name($self, $file_name,
+                       $self->get_conf('LOCALE_OUTPUT_FILE_NAME_ENCODING'));
+  }
+}
+
 # this requires a converter argument.  It is defined here, in order
 # to hide from the caller the 'translated_commands' converter key
 # that is set by Texinfo::Convert::Converter.  This is especially

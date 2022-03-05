@@ -26,6 +26,7 @@ use File::Basename;
 
 use Data::Dumper;
 use Carp qw(cluck carp);
+use Encode qw(decode);
 
 use Texinfo::Common;
 use Texinfo::Convert::Unicode;
@@ -690,6 +691,9 @@ sub converter($)
     }
   }
 
+  Texinfo::Common::set_output_encodings($converter, $converter->{'parser_info'})
+    if ($converter->{'parser_info'});
+
   bless $converter;
   return $converter;
 }
@@ -719,9 +723,13 @@ sub output($$)
   #print STDERR "OUTPUT\n";
   my $input_basename;
   if (defined($self->{'parser_info'}->{'input_file_name'})) {
+    my $input_file_name = $self->{'parser_info'}->{'input_file_name'};
+    my $encoding = $self->{'DATA_INPUT_ENCODING_NAME'};
+    if (defined($encoding)) {
+      $input_file_name = decode($encoding, $input_file_name);
+    }
     my ($directories, $suffix);
-    ($input_basename, $directories, $suffix)
-       = fileparse($self->{'parser_info'}->{'input_file_name'});
+    ($input_basename, $directories, $suffix) = fileparse($input_file_name);
   } else {
     # This could happen if called on a piece of texinfo
     $input_basename = '';
@@ -748,11 +756,14 @@ sub output($$)
     }
     if (defined($self->{'SUBDIR'})) {
       my $destination_directory = File::Spec->canonpath($self->{'SUBDIR'});
-      if (! -d $destination_directory) {
-        if (!mkdir($destination_directory, oct(755))) {
-          #sprintf(__(
-          #   "could not create directory `%s': %s"),
-          #   $destination_directory, $!));
+      my ($encoded_destination_directory, $destination_directory_encoding)
+        = Texinfo::Convert::Utils::encoded_output_file_name($self,
+                                                     $destination_directory);
+      if (! -d $encoded_destination_directory) {
+        if (!mkdir($encoded_destination_directory, oct(755))) {
+          warn sprintf(__(
+             "could not create directory `%s': %s"),
+             $destination_directory, $!)."\n";
           return undef;
         }
       }
@@ -760,14 +771,36 @@ sub output($$)
     }
   } else {
     $outfile = $self->{'OUTFILE'};
+    my ($output_basename, $output_directories, $output_suffix)
+      = fileparse($outfile);
+    if (defined($output_directories) and $output_directories ne './'
+        and $output_directories ne '.' and $output_directories ne '') {
+      my ($encoded_output_directories, $output_directories_encoding)
+        = Texinfo::Convert::Utils::encoded_output_file_name($self,
+                                                       $output_directories);
+      if (! -d $encoded_output_directories) {
+        if (!mkdir($encoded_output_directories, oct(755))) {
+          warn sprintf(__(
+             "could not create directory `%s': %s"),
+             $output_directories, $!)."\n";
+        }
+      }
+    }
   }
   my $fh;
   $self->{'output_files'} = {};
+  my ($encoded_outfile, $outfile_encoding);
   if (defined($outfile)) {
+    ($encoded_outfile, $outfile_encoding)
+      = Texinfo::Convert::Utils::encoded_output_file_name($self, $outfile);
     $fh = Texinfo::Common::output_files_open_out(
                              $self->{'output_files'}, $self,
-                             $outfile);
-    return undef if (!$fh);
+                             $encoded_outfile);
+    if (!$fh) {
+      warn sprintf(__("could not open %s for writing: %s"),
+                  $outfile, $!)."\n";
+      return undef;
+    }
   }
   # mostly relevant for 'enabled_encoding', other options should be the same.
   my %options = copy_options_for_convert_text($self);
@@ -781,7 +814,7 @@ sub output($$)
   if ($fh) {
     print $fh $result;
     Texinfo::Common::output_files_register_closed(
-                  $self->{'output_files'}, $outfile);
+                  $self->{'output_files'}, $encoded_outfile);
     return undef if (!close($fh));
     $result = '';
   }
@@ -794,6 +827,16 @@ sub get_conf($$)
   my $key = shift;
 
   return $self->{$key};
+}
+
+# used in Texinfo::Common::set_output_encodings
+sub set_conf($$$)
+{
+  my $self = shift;
+  my $conf = shift;
+  my $value = shift;
+
+  $self->{$conf} = $value;
 }
 
 sub errors()
