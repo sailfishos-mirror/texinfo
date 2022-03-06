@@ -446,6 +446,9 @@ The archive epub file is not tested in the automated tests.
 epub for utf8 encoded manual in utf8 locale
 ./texi2any.pl --force -I tests/ --init init/epub3.pm tests/formatting/osé_utf8.texi
 
+The following tests require latin1 encoded file names
+./texi2any.pl tex_encod*_latin1.texi
+
 The following tests not important enough to have regression test
 ./texi2any.pl --force -I tests/ -o encodé/raw.txt -c TEXINFO_OUTPUT_FORMAT=rawtext tests/formatting/os*_utf8.texi
 ./texi2any.pl --force -I tests/ -c TEXINFO_OUTPUT_FORMAT=rawtext -c 'SUBDIR=subdîr' tests/formatting/os*_utf8.texi

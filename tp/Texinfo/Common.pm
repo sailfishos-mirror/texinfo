@@ -112,6 +112,8 @@ my %default_parser_common_customization = (
                                             # file names encoding, else use
                                             # LOCALE_INPUT_FILE_NAME_ENCODING
   'DATA_INPUT_ENCODING_NAME' => undef, # encoding of command line strings
+  'LOCALE_INPUT_FILE_NAME_ENCODING' => undef, # used for input file encoding if
+                                              # DOC_ENCODING_FOR_INPUT_FILE_NAME is 0
 );
 
 # Customization variables obeyed only by the parser, and the default values.

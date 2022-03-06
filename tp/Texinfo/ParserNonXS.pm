@@ -750,7 +750,7 @@ sub parser(;$$)
 
   _setup_conf($parser, $conf);
 
-  # Now initialize command hash that are dynamically modified, notably
+  # Initialize command hash that are dynamically modified, notably
   # those for index commands, and lists, based on defaults
   $parser->{'line_commands'} = dclone(\%line_commands);
   $parser->{'valid_nestings'} = dclone(\%default_valid_nestings);
@@ -760,7 +760,6 @@ sub parser(;$$)
   $parser->{'close_paragraph_commands'} = {%close_paragraph_commands};
   $parser->{'close_preformatted_commands'} = {%close_preformatted_commands};
 
-  
   # handle user provided state.
 
   # Currently not done, as none of the user provided configuration

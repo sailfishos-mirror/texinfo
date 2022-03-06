@@ -21,6 +21,12 @@
 
 2022-03-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%default_parser_common_customization):
+	set DOC_ENCODING_FOR_INPUT_FILE_NAME as a parser customization
+	variable.  Report from Gavin.
+
+2022-03-06  Patrice Dumas  <pertusus@free.fr>
+
 	Document that some functions are getting or returning binary strings
 
 	* doc/customization_api.texi (Dynamic Converter Formatting
