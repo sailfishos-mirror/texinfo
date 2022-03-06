@@ -1,5 +1,16 @@
 2022-03-06  Patrice Dumas  <pertusus@free.fr>
 
+	Document that some functions are getting or returning binary strings
+
+	* doc/customization_api.texi (Dynamic Converter Formatting
+	Information): update html_image_file_location_name() returned
+	values documentation.
+
+	* tp/Texinfo/Common.pm: change variable names, document in
+	comments which strings are binary strings.
+
+2022-03-06  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Other Customization Variables), NEWS: document
 	DATA_INPUT_ENCODING_NAME, DOC_ENCODING_FOR_INPUT_FILE_NAME,
 	DOC_ENCODING_FOR_OUTPUT_FILE_NAME, LOCALE_INPUT_FILE_NAME_ENCODING,

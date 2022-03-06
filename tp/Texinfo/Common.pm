@@ -1193,19 +1193,22 @@ sub locate_init_file($$$)
 }
 
 
-# internal API to open and register files.  In general $self is
-# stored as $converter->{'output_files'} and should be accessed
-# through $converter->output_files_information();
+# internal API to open, set encoding and register files.
+# In general $SELF is stored as $converter->{'output_files'}
+# and should be accessed through $converter->output_files_information();
 # All the opened files are registered, except for stdout,
 # and the closing of files should be registered too with
 # output_files_register_closed() below.  This makes possible to
 # unlink all the opened files and close the files not already
 # closed.
+# $FILE_PATH is the file path, it should be a binary string.
+# If $USE_BINMODE is set, call binmode() to set binary mode.
+# $OUTPUT_ENCODING argument overrides the output encoding.
 sub output_files_open_out($$$;$$)
 {
   my $self = shift;
   my $configuration_information = shift;
-  my $file = shift;
+  my $file_path = shift;
   my $use_binmode = shift;
   my $output_encoding = shift;
 
@@ -1216,16 +1219,16 @@ sub output_files_open_out($$$;$$)
     $encoding = $configuration_information->get_conf('OUTPUT_PERL_ENCODING');
   }
 
-  if ($file eq '-') {
+  if ($file_path eq '-') {
     binmode(STDOUT) if $use_binmode;
     binmode(STDOUT, ":encoding($encoding)") if (defined($encoding));
     if ($self) {
-      $self->{'unclosed_files'}->{$file} = \*STDOUT;
+      $self->{'unclosed_files'}->{$file_path} = \*STDOUT;
     }
     return \*STDOUT;
   }
   my $filehandle = do { local *FH };
-  if (!open ($filehandle, '>', $file)) {
+  if (!open ($filehandle, '>', $file_path)) {
     return undef;
   }
   # We run binmode to turn off outputting LF as CR LF under MS-Windows,
@@ -1243,20 +1246,23 @@ sub output_files_open_out($$$;$$)
     binmode($filehandle, ":encoding($encoding)");
   }
   if ($self) {
-    push @{$self->{'opened_files'}}, $file;
-    $self->{'unclosed_files'}->{$file} = $filehandle;
+    push @{$self->{'opened_files'}}, $file_path;
+    $self->{'unclosed_files'}->{$file_path} = $filehandle;
   }
   return $filehandle;
 }
 
+# see the description of $SELF in output_files_open_out
+# comment above.
+# $FILE is the file path, it should be a binary string.
 sub output_files_register_closed($$)
 {
   my $self = shift;
-  my $filename = shift;
-  if ($self->{'unclosed_files'}->{$filename}) {
-    delete $self->{'unclosed_files'}->{$filename};
+  my $file_path = shift;
+  if ($self->{'unclosed_files'}->{$file_path}) {
+    delete $self->{'unclosed_files'}->{$file_path};
   } else {
-    cluck "$filename not opened\n";
+    cluck "$file_path not opened\n";
   }
 }
 
@@ -1550,18 +1556,19 @@ sub encode_file_name($$;$)
 sub locate_include_file($$)
 {
   my $configuration_information = shift;
-  my $text = shift;
-  my $file;
+  my $input_file_path = shift;
 
   my $ignore_include_directories = 0;
 
-  my ($volume, $directories, $filename) = File::Spec->splitpath($text);
+  my ($volume, $directories, $filename)
+     = File::Spec->splitpath($input_file_path);
   my @directories = File::Spec->splitdir($directories);
 
-  #print STDERR "$configuration_information $text @{$configuration_information->get_conf('INCLUDE_DIRECTORIES')}\n";
+  #print STDERR "$configuration_information $input_file_path ".
+  # @{$configuration_information->get_conf('INCLUDE_DIRECTORIES')}\n";
   # If the path is absolute or begins with . or .., do not search in
   # include directories.
-  if (File::Spec->file_name_is_absolute($text)) {
+  if (File::Spec->file_name_is_absolute($input_file_path)) {
     $ignore_include_directories = 1;
   } else {
     foreach my $dir (@directories) {
@@ -1574,9 +1581,9 @@ sub locate_include_file($$)
     }
   }
 
-  #if ($text =~ m,^(/|\./|\.\./),) {
+  my $found_file;
   if ($ignore_include_directories) {
-    $file = $text if (-e $text and -r $text);
+    $found_file = $input_file_path if (-e $input_file_path and -r $input_file_path);
   } else {
     my @dirs;
     if ($configuration_information
@@ -1593,12 +1600,11 @@ sub locate_include_file($$)
       my $possible_file = File::Spec->catpath($include_volume,
         File::Spec->catdir(File::Spec->splitdir($include_directories),
                            @directories), $filename);
-      #$file = "$include_dir/$text" if (-e "$include_dir/$text" and -r "$include_dir/$text");
-      $file = "$possible_file" if (-e "$possible_file" and -r "$possible_file");
-      last if (defined($file));
+      $found_file = "$possible_file" if (-e "$possible_file" and -r "$possible_file");
+      last if (defined($found_file));
     }
   }
-  return $file;
+  return $found_file;
 }
 
 sub _informative_command_value($)
@@ -3129,11 +3135,15 @@ Return true if the I<$tree> has content that could be formatted.
 I<$do_not_ignore_index_entries> is optional.  If set, index entries
 are considered to be formatted.
 
-=item $file = $converter->locate_include_file($filename)
+=item $file = $converter->locate_include_file($file_path)
 X<C<locate_include_file>>
 
-Locate I<$filename> in include directories also used to find texinfo files
-included in Texinfo documents.
+Locate I<$file_path>.  If I<$file_path> is an absolute path or has C<.>
+or C<..> in the path directories it is checked that the path exists and is a
+file.  Otherwise, the file name in I<$file_path> is located in include
+directories also used to find texinfo files included in Texinfo documents.
+I<$file_path> should be a binary string.  C<undef> is returned if the file was
+not found, otherwise the file found is returned as a binary string.
 
 =item move_index_entries_after_items_in_tree($tree)
 X<C<move_index_entries_after_items_in_tree>>

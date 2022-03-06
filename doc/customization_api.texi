@@ -2424,7 +2424,7 @@ not in a multiple expanded context.
 
 To get the location of an image file, use @code{html_image_file_location_name}:
 
-@deftypefun {($image_file, $image_basefile, $image_extension, $image_path)} @
+@deftypefun {($image_file, $image_basefile, $image_extension, $image_path, $image_path_encoding)} @
  $converter->html_image_file_location_name ($command_name, \%element, \@@args)
 @var{$command_name}, @var{\%element} and @var{\@@args} should be the arguments
 of an @code{@@image} @@-command formatting (@pxref{Command Tree Element
@@ -2436,7 +2436,10 @@ formatting of the @code{@@image} command in the default case.  @var{$image_basef
 is the base file name of the image, without extension, corresponding to the
 @code{@@image} @@-command first argument.  @var{$image_extension} is the image
 file extension (without a leading dot).  @var{$image_path} is the path to the
-actual image file, @code{undef} if no file was found.
+actual image file, @code{undef} if no file was found.  @var{$image_path} is
+returned as a binary string, the other strings returned are character strings.
+@var{$image_path_encoding} is the encoding used to encode the image path to a
+binary string.
 @end deftypefun
 
 @xref{Conversion in Preformatted Context} for information on getting

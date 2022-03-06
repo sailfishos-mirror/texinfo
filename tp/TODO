@@ -35,7 +35,7 @@ and @ref{Inserting Accents}.
 Texinfo input manual encoding?
 
 
-bytes.  To check that they can never be upgraded + document
+bytes.  document
 * texi2any.pl
  @input_files = @ARGV
   $input_file_arg
@@ -43,17 +43,6 @@ bytes.  To check that they can never be upgraded + document
  @css_files, CSS_FILES
  MACRO_EXPAND
  INTERNAL_LINKS
-
-Document bytes in input:
-create_destination_directory
-output_files_register_closed
-output_files_open_out
-locate_include_file (also in output)
-
-Document bytes in output
-html_image_file_location_name: $image_path
-
-Document new return of html_image_file_location_name
 
 
 Bugs

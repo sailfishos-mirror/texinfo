@@ -1764,7 +1764,7 @@ X<C<create_destination_directory>>
 
 Create destination directory I<$destination_directory_path>.
 I<$destination_directory_path> should be a binary string, while
-I<$destination_directory_name> should be a character string, to be used in
+I<$destination_directory_name> should be a character string, that can be used in
 error messages.  I<$succeeded> is true if the creation was successful or
 uneeded, false otherwise.
 
