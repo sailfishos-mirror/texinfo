@@ -29,14 +29,6 @@ bytes.  To check that they can never be upgraded + document
  MACRO_EXPAND
  INTERNAL_LINKS
 
-
-
-
-Associated code to check, requires bytes in input both for directory and
-file name and return bytes
-locate_init_file
-
-
 Document bytes in input:
 create_destination_directory
 output_files_register_closed

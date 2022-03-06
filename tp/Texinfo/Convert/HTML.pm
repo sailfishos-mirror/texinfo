@@ -6529,6 +6529,7 @@ my %htmlxref_entries = (
  'mono' => [ 'mono', 'chapter', 'section', 'node' ],
 );
 
+# $FILES is an array reference of file names binary strings.
 sub _parse_htmlxref_files($$)
 {
   my $self = shift;

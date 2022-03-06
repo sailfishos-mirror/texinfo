@@ -877,6 +877,10 @@ sub test($$)
   }
 
   my $init_file_directories = [$srcdir.'init/', $srcdir.'t/init/'];
+  # the init file names are supposed to be binary strings.  Since they
+  # are not encoded anywhere, probably only non ascii file names should
+  # be used.
+  # FIXME what if srcdir is non ascii (srcdir is truly a binary string).
   if ($parser_options and $parser_options->{'init_files'}) {
     foreach my $filename (@{$parser_options->{'init_files'}}) {
       my $file = Texinfo::Common::locate_init_file($filename,

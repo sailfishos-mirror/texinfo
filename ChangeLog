@@ -1,3 +1,15 @@
+2022-03-06  Patrice Dumas  <pertusus@free.fr>
+
+	Decode init file names in messages
+
+	* tp/Texinfo/Config.pm (_GNUT_decode_input, GNUT_load_init_file),
+	tp/texi2any.pl (locate_and_load_init_file): add _GNUT_decode_input()
+	in Texinfo::Config duplicating _decode_input() from texi2any.pl.
+	Decode init file names in messages both in texi2any.pl and
+	Texinfo::Config.
+
+	Changes in comments in other files.
+
 2022-03-05  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/init/latex2html.pm (l2h_to_html): Do not call

@@ -96,6 +96,19 @@ sub _GNUT_encode_message($)
 }
 
 # duplicated from texi2any.pl
+sub _GNUT_decode_input($)
+{
+  my $text = shift;
+
+  my $encoding = texinfo_get_conf('DATA_INPUT_ENCODING_NAME');
+  if (defined($encoding)) {
+    return decode($encoding, $text);
+  } else {
+    return $text;
+  }
+}
+
+# duplicated from texi2any.pl
 sub _GNUT_document_warn($) {
   return if (texinfo_get_conf('NO_WARN'));
   my $text = shift;
@@ -106,14 +119,18 @@ sub _GNUT_document_warn($) {
 }
 
 # called from texi2any.pl main program.
-# eval init file in the Texinfo::Config namespace.
+# eval $FILE in the Texinfo::Config namespace. $FILE should be a binary string.
 sub GNUT_load_init_file($) {
   my $file = shift;
   eval { require($file) ;};
   my $e = $@;
   if ($e ne '') {
-    _GNUT_document_warn(sprintf(__("error loading %s: %s\n"),
-                                 $file, $e));
+    # $e may not be correctly encoded, but it is not clear what is to
+    # be expected.  In the eval documentation there is only information
+    # on the string eval case, not the block eval used here, and the
+    # information is not particularly clear.
+    _GNUT_document_warn(sprintf(__("error loading %s: %s"),
+                _GNUT_decode_input($file), $e));
   }
 }
 

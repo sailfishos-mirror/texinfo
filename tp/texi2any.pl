@@ -321,9 +321,10 @@ my $main_program_default_options = {
 
 # determine configuration directories.
 
+# used as part of binary strings
 my $conf_file_name = 'Config' ;
 
-# directories for texinfo configuration files
+# directories for texinfo configuration files, used as part of binary strings.
 my @language_config_dirs = File::Spec->catdir($curdir, '.texinfo');
 push @language_config_dirs, File::Spec->catdir($ENV{'HOME'}, '.texinfo') 
                                 if (defined($ENV{'HOME'}));
@@ -333,6 +334,7 @@ push @language_config_dirs, File::Spec->catdir($datadir, 'texinfo')
                                if (defined($datadir));
 my @texinfo_config_dirs = ($curdir, @language_config_dirs);
 
+# these variables are used as part of binary strings.
 my @program_config_dirs;
 my @program_init_dirs;
 
@@ -377,6 +379,19 @@ sub document_warn($) {
                    "%s: warning: %s\n"), $real_command_name, $text)));
 }
 
+sub _decode_input($)
+{
+  my $text = shift;
+
+  my $encoding = get_conf('DATA_INPUT_ENCODING_NAME');
+  if (defined($encoding)) {
+    return decode($encoding, $text);
+  } else {
+    return $text;
+  }
+}
+
+# arguments are binary strings.
 sub locate_and_load_init_file($$)
 {
   my $filename = shift;
@@ -387,7 +402,8 @@ sub locate_and_load_init_file($$)
     # evaluate the code in the Texinfo::Config namespace
     Texinfo::Config::GNUT_load_init_file($file);
   } else {
-    document_warn(sprintf(__("could not read init file %s"), $filename));
+    document_warn(sprintf(__("could not read init file %s"),
+                          _decode_input($filename)));
   }
 }
 
@@ -684,18 +700,6 @@ sub _get_converter_default($)
   #  return $Texinfo::Common::document_settable_unique_at_commands{$option};
   #}
   return undef;
-}
-
-sub _decode_input($)
-{
-  my $text = shift;
-
-  my $encoding = get_conf('DATA_INPUT_ENCODING_NAME');
-  if (defined($encoding)) {
-    return decode($encoding, $text);
-  } else {
-    return $text;
-  }
 }
 
 # translation related todo to be done when the string change anyway to
