@@ -461,22 +461,25 @@ sub l2h_change_image_file_names($$)
         }
         $image_count++;
       }
-      my $file_src
-        = File::Spec->catpath($docu_volume, $docu_directories, $src);
-      my ($encoded_file_src, $src_file_encoding)
-        = $self->encoded_output_file_name($file_src);
+      my $encoded_src = Encode::encode('UTF-8', $src);
+      my ($encoded_dir, $encoded_dir_encoding)
+        = $self->encoded_output_file_name($docu_directories);
+      my $encoded_file_src
+        = File::Spec->catpath($docu_volume, $encoded_dir, $encoded_src);
+
       $dest = "${docu_name}_${image_count}$ext";
       my $file_dest
         = File::Spec->catpath($docu_volume, $docu_directories, $dest);
       my ($encoded_file_dest, $dest_file_encoding)
         = $self->encoded_output_file_name($file_dest);
+
       if ($debug) {
         copy($encoded_file_src, $encoded_file_dest);
       } else {
         if (!rename($encoded_file_src, $encoded_file_dest)) {
           $self->document_warn($self,
                  sprintf(__("l2h: rename %s as %s failed: %s"),
-                                       $file_src, $file_dest, $!));
+                                 $encoded_file_src, $encoded_file_dest, $!));
         }
       }
       $l2h_img{$src} = $dest;
