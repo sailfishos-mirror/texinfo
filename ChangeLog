@@ -1,5 +1,9 @@
 2022-03-06  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/TODO: Move winning latex2html test cases.
+
+2022-03-06  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Attempt to fix latex2html init file under Latin-1 locale
 
 	* tp/init/latex2html.pm: Force several encoding variables to

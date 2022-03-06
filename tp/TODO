@@ -415,30 +415,19 @@ résultat/encodé.txt file name encoded in latin1.
 ./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=0 -o char_latin1_latin1_in_refs_tree.txt ./t/input_files/char_latin1_latin1_in_refs.texi
 char_latin1_latin1_in_refs_tree.txt content encoded in latin1
 
+utf8 encoded manual name and latex2html in latin1 locale
+./texi2any.pl --html --init init/latex2html.pm tests/tex_html/tex_encod*_utf8.texi
+
+
 Tests with incorrect results, though not bugs
 *********************************************
 
-utf8 encoded manual name and latex2html in latin1 locale
-./texi2any.pl --html --init init/latex2html.pm tests/tex_html/tex_encod*_utf8.texi
- -> the input file name is decoded using DATA_INPUT_ENCODING_NAME
-    which is set to ISO-8859-1, although the file name is in utf8.
-./texi2any.pl -c 'DATA_INPUT_ENCODING_NAME utf-8' -c 'L2H_CLEAN 0' --html --init init/latex2html.pm tests/tex_html/tex_encod*_utf8.texi
-Errors out with
-utf8 "\xE9" does not map to Unicode at ./init/latex2html.pm line 515, <L2H_HTML> line 6.
-which corresponds to tex_encodé_utf8_html/tex_encodé_utf8_l2h.html
-<TITLE>tex_encodé_utf8_l2h</TITLE>, with the é encoded in latin1.
-Probably latex2html outputs the latin1 file names as it gets from the command
-line binary encoded.  There are also utf8 encoded characters in the file.
 
 latin1 encoded manual name and latex2html in latin1 locale
 cp tests/tex_html/tex_encode_latin1.texi tex_encodé_latin1.texi
 ./texi2any.pl -c 'L2H_CLEAN 0' --html --init init/latex2html.pm tex_encodé_latin1.texi
-Errors out with
-utf8 "\xE9" does not map to Unicode at ./init/latex2html.pm line 515, <L2H_HTML> line 6.
-which corresponds to tex_encodé_latin1_html/tex_encodé_latin1_l2h.html
-<TITLE>tex_encodé_latin1_l2h</TITLE> with the é encoded in latin1.
-Probably latex2html outputs the latin1 file names as it gets from the command
-line binary encoded.  There are also utf8 encoded characters in the file.
+
+ - code assumes UTF-8 filenames are being used so the file is not found
 
 utf8 encoded manual name and tex4ht in latin1 locale
 ./texi2any.pl --html --init init/tex4ht.pm tests/tex_html/tex_encod*_utf8.texi
