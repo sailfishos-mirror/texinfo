@@ -183,6 +183,7 @@ sub l2h_process($$)
   my $dir = $destination_directory;
   $dir = File::Spec->curdir() if ($dir eq '');
   my $dir_encoding;
+  # $destination_directory_string is used in binary file path strings
   ($destination_directory_string, $dir_encoding)
     = $self->encoded_output_file_name($dir);
 
@@ -377,6 +378,8 @@ sub l2h_to_html($)
     $self->document_error($self, __("l2h: command not set"));
     return 0;
   }
+  # the final call is obtained by concatenating $call_start encoded
+  # and strings based on already encoded file paths.
   my $call_start = $latex2html_command;
   # use init file, if specified
   my $init_file = $self->get_conf('L2H_FILE');
@@ -416,16 +419,15 @@ sub l2h_to_html($)
   } else {
     $encoded_call_start = $call_start;
   }
-  # already encoded
+  # concatenante strings containing already encoded file paths
   my $encoded_call = $encoded_call_start . $encoded_destination_dir_option
        ." -prefix $l2h_prefix_string $l2h_latex_path_string";
   my $call = $call_start . $destination_dir_option
        ." -prefix $l2h_prefix $l2h_latex_path_name";
   warn "# l2h: executing '$encoded_call'\n" if ($verbose);
   if (system($encoded_call)) {
-    $self->document_error($self,
-             sprintf(__("l2h: command did not succeed: %s"),
-                                  $call));
+    $self->document_error($self, sprintf(__("l2h: command did not succeed: %s"),
+                                         $call));
     return 0;
   } else  {
     warn "# l2h: latex2html finished successfully\n" if ($verbose);
@@ -476,6 +478,8 @@ sub l2h_change_image_file_names($$)
       }
       while (1) {
         my $image_file_name = "${docu_name}_${image_count}$ext";
+        # encode in UTF-8 as latex2html uses $l2h_latex_path_string, which
+        # is UTF-8 encoded to setup the file names
         my $encoded_image_file_name = encode('UTF-8', $image_file_name);
         my $image_file_path = File::Spec->catfile($destination_directory_string,
                                                   $encoded_image_file_name);
@@ -527,7 +531,7 @@ sub l2h_init_from_html($)
                                  $l2h_html_path_name, $!));
     return 0;
   }
-  # the file is UTF-8
+  # the file content is UTF-8 encoded
   binmode(L2H_HTML, ':utf8');
   warn "# l2h: use $l2h_html_path_string as html file\n" if ($verbose);
 
@@ -664,7 +668,9 @@ sub l2h_finish($)
     my $quoted_l2h_name = quotemeta($l2h_name);
     if (opendir (DIR, $destination_directory_string)) {
       foreach my $file (readdir(DIR)) {
-        # we should have made sure that all the files are encoded in utf-8
+        # we have made sure that all the files names are encoded
+        # in UTF-8, but doing it above or by passing UTF-8 encoded
+        # file names to latex2html
         my $file_name = decode('UTF-8', $file);
         if ($file_name =~ /^$quoted_l2h_name/) {
           # FIXME error condition not checked
