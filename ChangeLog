@@ -1,5 +1,12 @@
 2022-03-06  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Attempt to fix latex2html init file under Latin-1 locale
+
+	* tp/init/latex2html.pm: Force several encoding variables to
+	UTF-8.  Otherwise incorrect image paths are used in the output file.
+
+2022-03-06  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Fix latex2html init file under Latin-1 locale
 
 	* tp/init/latex2html.pm (l2h_change_image_file_name):

@@ -66,6 +66,10 @@ texinfo_set_from_init_file('L2H_FILE', undef);
 # latex2html are cleaned (they all have the prefix <document name>_l2h_).
 texinfo_set_from_init_file('L2H_CLEAN', 1);
 
+texinfo_set_from_init_file('DATA_INPUT_ENCODING_NAME', 'UTF-8');
+texinfo_set_from_init_file('LOCALE_OUTPUT_FILE_NAME_ENCODING', 'UTF-8');
+texinfo_set_from_init_file('LOCALE_OUTPUT_ENCODING_NAME', 'UTF-8');
+
 
 # latex2html conversions consist of 2 stages:
 # 1) l2h_process
