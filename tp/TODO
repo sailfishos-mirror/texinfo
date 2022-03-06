@@ -20,6 +20,21 @@ Before next release
 for @example args, use *-user as class?
 
 
+@item --enable-encoding
+@itemx --disable-encoding
+@opindex --enable-encoding
+@opindex --disable-encoding
+@vindex ENABLE_ENCODING
+By default, or with @option{--enable-encoding}, output accented and
+special characters in Info and plain text output based on
+@samp{@@documentencoding}.  With @option{--disable-encoding}, 7-bit
+ASCII transliterations are output.  @xref{@code{@@documentencoding}},
+and @ref{Inserting Accents}.
+
+=> does not really depend on @documentencoding, change to read
+Texinfo input manual encoding?
+
+
 bytes.  To check that they can never be upgraded + document
 * texi2any.pl
  @input_files = @ARGV
@@ -39,12 +54,6 @@ Document bytes in output
 html_image_file_location_name: $image_path
 
 Document new return of html_image_file_location_name
-
-Document
-LOCALE_OUTPUT_ENCODING_NAME.
-Add DOC_ENCODING_FOR_INPUT_FILE_NAME,
-DOC_ENCODING_FOR_OUTPUT_FILE_NAME,
-LOCALE_INPUT_FILE_NAME_ENCODING, LOCALE_OUTPUT_FILE_NAME_ENCODING.
 
 
 Bugs
