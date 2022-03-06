@@ -6,3 +6,8 @@ highlight_syntax_example highlight_example.texi --html --init=highlight_syntax.p
 # FIXME here because the included file can not be in dist
 manual_include_accented_file_name_latin1 manual_include_accented_file_name_latin1.texi --info
 
+manual_include_accented_file_name_latin1_explicit_encoding manual_include_accented_file_name_latin1.texi --info -c DOC_ENCODING_FOR_INPUT_FILE_NAME=0 -c LOCALE_INPUT_FILE_NAME_ENCODING=ISO-8859-1
+
+# fails to find the latin1 encoded include file as the locale encoding
+# of the test suite is utf8
+manual_include_accented_file_name_latin1_use_locale_encoding manual_include_accented_file_name_latin1.texi --info -c DOC_ENCODING_FOR_INPUT_FILE_NAME=0
