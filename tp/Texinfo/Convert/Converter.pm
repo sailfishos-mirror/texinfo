@@ -545,7 +545,9 @@ sub determine_files_and_directory($;$)
     my $input_file_name = $self->{'parser_info'}->{'input_file_name'};
     my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
     if (defined($encoding)) {
-      $input_file_name = decode($encoding, $input_file_name);
+      $input_file_name = decode($encoding, $input_file_name, sub { '?' });
+      # use '?' as replacement character rather than U+FFFD in case it
+      # is re-encoded to an encoding without this character
     }
     my ($directories, $suffix);
     ($input_basefile, $directories, $suffix) = fileparse($input_file_name);
