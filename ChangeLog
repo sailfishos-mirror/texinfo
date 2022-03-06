@@ -1,3 +1,15 @@
+2022-03-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/init/latex2html.pm (l2h_process, l2h_to_html)
+	(l2h_change_image_file_names, l2h_finish, l2h_from_cache): do
+	not use a volume, consistently with the HTML converter.
+	Do not force encoding variables to UTF-8, but instead encode
+	separately the directory as in the HTML Converter and the files
+	related to latex2html in UTF-8, such that the files output by
+	latex2html only contains UTF-8.  Also encode separately
+	the file names in the latex2html command line and the remaining
+	of the command line.  Based on Gavin report.
+
 2022-03-06  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/TODO: Move winning latex2html test cases.

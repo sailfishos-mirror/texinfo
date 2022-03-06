@@ -66,10 +66,6 @@ texinfo_set_from_init_file('L2H_FILE', undef);
 # latex2html are cleaned (they all have the prefix <document name>_l2h_).
 texinfo_set_from_init_file('L2H_CLEAN', 1);
 
-texinfo_set_from_init_file('DATA_INPUT_ENCODING_NAME', 'UTF-8');
-texinfo_set_from_init_file('LOCALE_OUTPUT_FILE_NAME_ENCODING', 'UTF-8');
-texinfo_set_from_init_file('LOCALE_OUTPUT_ENCODING_NAME', 'UTF-8');
-
 
 # latex2html conversions consist of 2 stages:
 # 1) l2h_process
@@ -84,8 +80,8 @@ texinfo_set_from_init_file('LOCALE_OUTPUT_ENCODING_NAME', 'UTF-8');
 
 # init l2h defaults for files and names
 
-my ($l2h_name, $l2h_latex_path_name, $l2h_cache_path_name, $l2h_html_path_name,
-    $l2h_prefix);
+my ($l2h_name, $l2h_latex_path_name, $l2h_latex_path_string, $l2h_cache_path_name,
+    $l2h_html_path_name, $l2h_html_path_string, $l2h_prefix, $l2h_prefix_string);
 
 # holds the status of latex2html operations. If 0 it means that there was
 # an error
@@ -93,9 +89,8 @@ my $status = 0;
 
 my $debug;
 my $verbose;
-my $docu_rdir;
-my $docu_volume;
-my $docu_directories;
+my $destination_directory;
+my $destination_directory_string;
 my $docu_name;
 
 my %commands_counters;
@@ -180,30 +175,43 @@ sub l2h_process($$)
   return if (defined($self->get_conf('OUTFILE'))
         and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
 
-
   $docu_name = $self->get_info('document_name');
-  $docu_rdir = $self->get_info('destination_directory');
-  $docu_rdir = '' if (!defined($docu_rdir));
-  my $no_file;
-  ($docu_volume, $docu_directories, $no_file)
-      = File::Spec->splitpath($docu_rdir, 1);
-  $l2h_name =  "${docu_name}_l2h";
-  $l2h_latex_path_name = File::Spec->catpath($docu_volume, $docu_directories,
-                                             "${l2h_name}.tex");
-  $l2h_cache_path_name = File::Spec->catpath($docu_volume, $docu_directories,
-                                        "${docu_name}-l2h_cache.pm");
   # destination dir -- generated images are put there, should be the same
   # as dir of enclosing html document --
-  $l2h_html_path_name = File::Spec->catpath($docu_volume, $docu_directories,
-                                       "${l2h_name}.html");
+  $destination_directory = $self->get_info('destination_directory');
+  $destination_directory = '' if (!defined($destination_directory));
+  my $dir = $destination_directory;
+  $dir = File::Spec->curdir() if ($dir eq '');
+  my $dir_encoding;
+  ($destination_directory_string, $dir_encoding)
+    = $self->encoded_output_file_name($dir);
+
+  $l2h_name = "${docu_name}_l2h";
+  my $l2h_latex_file_name =  "${l2h_name}.tex";
+  $l2h_latex_path_name = File::Spec->catfile($destination_directory,
+                                             "${l2h_name}.tex");
+  # we use utf-8 encoding irrespective of what is used in texi2any
+  # because latex2html use the file name in the resulting file and
+  # it needs to be utf-8
+  my $encoded_l2h_latex_file_name = encode('UTF-8', $l2h_latex_file_name);
+  $l2h_latex_path_string = File::Spec->catfile($destination_directory_string,
+                                               $encoded_l2h_latex_file_name);
+  $l2h_cache_path_name = File::Spec->catfile($destination_directory,
+                                        "${docu_name}-l2h_cache.pm");
+  my $l2h_html_file_name = "${l2h_name}.html";
+  $l2h_html_path_name = File::Spec->catfile($destination_directory,
+                                            "${l2h_name}.html");
+  my $encoded_l2h_html_file_name = encode('UTF-8', $l2h_html_file_name);
+  $l2h_html_path_string = File::Spec->catfile($destination_directory_string,
+                                              $encoded_l2h_html_file_name);
+
   $l2h_prefix = "${l2h_name}_";
+  $l2h_prefix_string = encode('UTF-8', $l2h_prefix);
   $debug = $self->get_conf('DEBUG');
   $verbose = $self->get_conf('VERBOSE');
 
   unless ($self->get_conf('L2H_SKIP')) {
-    my ($encoded_l2h_latex_path_name, $l2h_latex_path_encoding)
-      = $self->encoded_output_file_name($l2h_latex_path_name);
-    unless (open(L2H_LATEX, ">$encoded_l2h_latex_path_name")) {
+    unless (open(L2H_LATEX, ">$l2h_latex_path_string")) {
       $self->document_error($self, sprintf(__(
               "l2h: could not open latex file %s for writing: %s"),
                                     $l2h_latex_path_name, $!));
@@ -213,7 +221,7 @@ sub l2h_process($$)
     # according to the .log file latex2html is expecting utf-8 if no information
     # is provided
     binmode(L2H_LATEX, ':utf8');
-    warn "# l2h: use $encoded_l2h_latex_path_name as latex file\n" if ($verbose);
+    warn "# l2h: use $l2h_latex_path_string as latex file\n" if ($verbose);
     print L2H_LATEX $l2h_latex_preamble;
   }
   # open the database that holds cached text
@@ -333,7 +341,7 @@ sub l2h_finish_to_latex($)
 # Use latex2html to generate corresponding html code and images
 #
 # to_html():
-#   Call latex2html on $l2h_latex_path_name
+#   Call latex2html on $l2h_latex_path_string
 #   Put images (prefixed with $l2h_name."_") and html file(s) in $l2h_html_dir
 #   Return 1, on success
 #          0, otherwise
@@ -341,7 +349,7 @@ sub l2h_finish_to_latex($)
 sub l2h_to_html($)
 {
   my $self = shift;
-  my ($call, $dotbug);
+  my $dotbug;
   # when there are no tex constructs to convert (happens in case everything
   # comes from the cache), there is no latex2html run
   if ($self->get_conf('L2H_SKIP') or ($latex_converted_count == 0)) {
@@ -369,38 +377,50 @@ sub l2h_to_html($)
     $self->document_error($self, __("l2h: command not set"));
     return 0;
   }
-  $call = $latex2html_command;
+  my $call_start = $latex2html_command;
   # use init file, if specified
   my $init_file = $self->get_conf('L2H_FILE');
   # FIXME not clear whether encoded_input_file_name or encoded_output_file_name
   # should be used here
   if (defined($init_file) and $init_file ne '') {
+    # FIXME likely incorrect, should use the same encoding as
+    # the encoding used to encode call
     my ($encoded_init_file, $init_path_encoding)
       = $self->encoded_input_file_name($init_file);
-    $call .= " -init_file " . $init_file
+    $call_start .= " -init_file " . $init_file
       if -f $encoded_init_file and -r $encoded_init_file;
   }
   # set output dir
-  $call .=  (($docu_rdir ne '') ? " -dir $docu_rdir" : " -no_subdir");
+  my $encoded_destination_dir_option = ' -no_subdir';
+  my $destination_dir_option = $encoded_destination_dir_option;
+  if ($destination_directory ne '') {
+    $encoded_destination_dir_option = " -dir ".$destination_directory_string;
+    $destination_dir_option = " -dir ".$destination_directory;
+  }
   # use l2h_tmp, if specified
-  $call .= " -tmp ".$self->get_conf('L2H_TMP')
+  $call_start .= " -tmp ".$self->get_conf('L2H_TMP')
     if (defined($self->get_conf('L2H_TMP'))
         and $self->get_conf('L2H_TMP') ne '');
   # use a given html version if specified
-  $call .= " -html_version ".$self->get_conf('L2H_HTML_VERSION')
+  $call_start .= " -html_version ".$self->get_conf('L2H_HTML_VERSION')
     if (defined($self->get_conf('L2H_HTML_VERSION'))
         and $self->get_conf('L2H_HTML_VERSION') ne '');
   # options we want to be sure of
-  $call .= " -address 0 -info 0 -split 0 -no_navigation -no_auto_link";
-  $call .= " -prefix $l2h_prefix $l2h_latex_path_name";
+  $call_start .= " -address 0 -info 0 -split 0 -no_navigation -no_auto_link";
 
+  # FIXME use utf-8 here?
   my $encoding = $self->get_conf('LOCALE_OUTPUT_ENCODING_NAME');
-  my $encoded_call;
+  my $encoded_call_start;
   if (defined($encoding)) {
-    $encoded_call = encode($encoding, $call);
+    $encoded_call_start = encode($encoding, $call_start);
   } else {
-    $encoded_call = $call;
+    $encoded_call_start = $call_start;
   }
+  # already encoded
+  my $encoded_call = $encoded_call_start . $encoded_destination_dir_option
+       ." -prefix $l2h_prefix_string $l2h_latex_path_string";
+  my $call = $call_start . $destination_dir_option
+       ." -prefix $l2h_prefix $l2h_latex_path_name";
   warn "# l2h: executing '$encoded_call'\n" if ($verbose);
   if (system($encoded_call)) {
     $self->document_error($self,
@@ -416,7 +436,7 @@ sub l2h_to_html($)
 ##########################
 # Third stage: Extract generated contents from latex2html run
 # Initialize with: init_from_html
-#   open $l2h_html_path_name for reading
+#   open $l2h_html_path_string for reading
 #   reads in contents into array indexed by numbers
 #   return 1,  on success -- 0, otherwise
 # Finish with: finish
@@ -456,34 +476,32 @@ sub l2h_change_image_file_names($$)
       }
       while (1) {
         my $image_file_name = "${docu_name}_${image_count}$ext";
-        my $image_file_path_name = File::Spec->catpath($docu_volume,
-                                  $docu_directories, $image_file_name);
-        my ($encoded_image_file_path_name, $image_path_encoding)
-          = $self->encoded_output_file_name($image_file_path_name);
-        unless (-e $encoded_image_file_path_name) {
+        my $encoded_image_file_name = encode('UTF-8', $image_file_name);
+        my $image_file_path = File::Spec->catfile($destination_directory_string,
+                                                  $encoded_image_file_name);
+        unless (-e $image_file_path) {
           last;
         }
         $image_count++;
       }
+      my $src_file = File::Spec->catfile($destination_directory, $src);
       my $encoded_src = Encode::encode('UTF-8', $src);
-      my ($encoded_dir, $encoded_dir_encoding)
-        = $self->encoded_output_file_name($docu_directories);
       my $encoded_file_src
-        = File::Spec->catpath($docu_volume, $encoded_dir, $encoded_src);
+        = File::Spec->catfile($destination_directory_string, $encoded_src);
 
       $dest = "${docu_name}_${image_count}$ext";
       my $file_dest
-        = File::Spec->catpath($docu_volume, $docu_directories, $dest);
-      my ($encoded_file_dest, $dest_file_encoding)
-        = $self->encoded_output_file_name($file_dest);
-
+        = File::Spec->catfile($destination_directory, $dest);
+      my $encoded_dest = Encode::encode('UTF-8', $dest);
+      my $encoded_file_dest = File::Spec->catfile($destination_directory_string, 
+                                                  $encoded_dest);
       if ($debug) {
         copy($encoded_file_src, $encoded_file_dest);
       } else {
         if (!rename($encoded_file_src, $encoded_file_dest)) {
           $self->document_warn($self,
                  sprintf(__("l2h: rename %s as %s failed: %s"),
-                                 $encoded_file_src, $encoded_file_dest, $!));
+                                 $src_file, $file_dest, $!));
         }
       }
       $l2h_img{$src} = $dest;
@@ -503,9 +521,7 @@ sub l2h_init_from_html($)
     return 1;
   }
 
-  my ($encoded_l2h_html_path_name, $l2h_html_path_encoding)
-    = $self->encoded_output_file_name($l2h_html_path_name);
-  if (! open(L2H_HTML, "<$encoded_l2h_html_path_name")) {
+  if (! open(L2H_HTML, "<$l2h_html_path_string")) {
     $self->document_warn($self,
                 sprintf(__("l2h: could not open %s: %s"),
                                  $l2h_html_path_name, $!));
@@ -513,7 +529,7 @@ sub l2h_init_from_html($)
   }
   # the file is UTF-8
   binmode(L2H_HTML, ':utf8');
-  warn "# l2h: use $encoded_l2h_html_path_name as html file\n" if ($verbose);
+  warn "# l2h: use $l2h_html_path_string as html file\n" if ($verbose);
 
   my $html_converted_count = 0;   # number of html resulting texts
                                   # retrieved in the file
@@ -646,25 +662,13 @@ sub l2h_finish($)
     warn "# l2h: removing temporary files generated by l2h extension\n"
      if ($verbose);
     my $quoted_l2h_name = quotemeta($l2h_name);
-    my $dir = $docu_rdir;
-    $dir = File::Spec->curdir() if ($dir eq '');
-    my ($encoded_dir, $dir_encoding) = $self->encoded_output_file_name($dir);
-    my ($encoded_docu_directories, $docu_directories_encoding)
-      = $self->encoded_output_file_name($docu_directories);
-    my ($encoded_docu_volume, $docu_volume_encoding)
-      = $self->encoded_output_file_name($docu_volume);
-    if (opendir (DIR, $encoded_dir)) {
+    if (opendir (DIR, $destination_directory_string)) {
       foreach my $file (readdir(DIR)) {
-        # FIXME there is a mix of files created by texi2any and files
-        # created by latex2html.  The encoding of files created by
-        # texi2any and by latex2html could be different.  We could imagine
-        # that for latex2html it would be DATA_INPUT_ENCODING_NAME, without
-        # certainty.  We use the encoding used to encode our files
-        my $file_name = decode($dir_encoding, $file);
+        # we should have made sure that all the files are encoded in utf-8
+        my $file_name = decode('UTF-8', $file);
         if ($file_name =~ /^$quoted_l2h_name/) {
           # FIXME error condition not checked
-          unlink File::Spec->catpath($encoded_docu_volume,
-                                     $encoded_docu_directories, $file);
+          unlink File::Spec->catfile($destination_directory_string, $file);
         }
       }
     }
@@ -741,11 +745,12 @@ sub l2h_from_cache($$)
   if (defined($cached)) {
     while ($cached =~ m/SRC="(.*?)"/g) {
       my $cached_image_file_name = $1;
-      my $cached_image_path_name = File::Spec->catpath($docu_volume,
-                                 $docu_directories, $cached_image_file_name);
-      my ($encoded_cached_image_path_name, $cached_image_path_encoding)
-        = $self->encoded_output_file_name($cached_image_path_name);
-      unless (-e $encoded_cached_image_path_name) {
+      my $encoded_cached_image_file_name
+            = encode('UTF-8', $cached_image_file_name);
+      my $cached_image_path_string
+         = File::Spec->catfile($destination_directory_string,
+                               $encoded_cached_image_file_name);
+      unless (-e $cached_image_path_string) {
         return undef;
       }
     }

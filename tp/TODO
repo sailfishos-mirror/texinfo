@@ -416,18 +416,24 @@ résultat/encodé.txt file name encoded in latin1.
 char_latin1_latin1_in_refs_tree.txt content encoded in latin1
 
 utf8 encoded manual name and latex2html in latin1 locale
-./texi2any.pl --html --init init/latex2html.pm tests/tex_html/tex_encod*_utf8.texi
-
-
-Tests with incorrect results, though not bugs
-*********************************************
-
+./texi2any.pl --verbose -c 'DATA_INPUT_ENCODING_NAME=utf-8' --html --init init/latex2html.pm -c 'L2H_CLEAN 0' tests/tex_html/tex_encod*_utf8.texi
+DATA_INPUT_ENCODING_NAME=utf-8 is required in order to have the
+input file name correctly decoded as the document_name
 
 latin1 encoded manual name and latex2html in latin1 locale
 cp tests/tex_html/tex_encode_latin1.texi tex_encodé_latin1.texi
 ./texi2any.pl -c 'L2H_CLEAN 0' --html --init init/latex2html.pm tex_encodé_latin1.texi
 
- - code assumes UTF-8 filenames are being used so the file is not found
+
+Tests with incorrect results, though not bugs
+*********************************************
+
+utf8 encoded manual name and latex2html in latin1 locale
+./texi2any.pl --html --init init/latex2html.pm -c 'L2H_CLEAN 0' tests/tex_html/tex_encod*_utf8.texi
+No error, but the file names are like
+ tex_encodÃ©_utf8_html/tex_encodÃ'$'\203''Â©_utf8_l2h.html
+That's in particular because the document_name is incorrect because it is decoded
+as if it was latin1.
 
 utf8 encoded manual name and tex4ht in latin1 locale
 ./texi2any.pl --html --init init/tex4ht.pm tests/tex_html/tex_encod*_utf8.texi
