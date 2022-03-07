@@ -1304,6 +1304,67 @@ documentation, in particular a list of types and of information in the elements
 @code{extra} hash (@pxref{Texinfo::Parser TEXINFO TREE,,,tp_api}).
 
 
+@node Encoding file path strings
+@section Encoding file path strings
+
+The strings in the customization functions are character strings.  For most purposes,
+this is right, and the encoding in output files is taken care of by the converter.
+Operations on directories and file names, however, such as the creation of a directory
+or the opening of a file require binary strings.
+
+To encode file names consistently with file name encoding used in the conversion to
+HTML, there is a function @code{encoded_output_file_name}:
+
+@deftypefun {$encoded_name, $encoding} $converter->encoded_output_file_name ($character_string_name)
+Encode @var{$character_string_name} in the same way as other file name are
+encoded in the converter, based on @code{DOC_ENCODING_FOR_OUTPUT_FILE_NAME},
+and @code{LOCALE_OUTPUT_FILE_NAME_ENCODING} or on input file encoding
+(@pxref{Other Customization Variables,,, texinfo, Texinfo}).  Return the
+encoded name and the encoding used to encode the name.
+@end deftypefun
+
+There is also a similar function for the input file names encoding,
+@code{encoded_input_file_name}, which uses
+@code{DOC_ENCODING_FOR_INPUT_FILE_NAME} and
+@code{LOCALE_INPUT_FILE_NAME_ENCODING} and is less likely to be useful.
+
+When calling external commands, the command line arguments should also
+be encoded.  To do similarly with other codes, the customization variable
+@code{LOCALE_OUTPUT_ENCODING_NAME} should be used.  Already encoded file
+names may be used.  For example
+
+@example
+use Encode qw(encode);
+
+....
+
+my ($encoded_file_path, $encoding)
+  = $converter->encoded_output_file_name($file_name);
+
+my $fh = open($encoded_file_path);
+
+.....
+
+my $call_start = "command --set '$action' ";
+my $encoding = $converter->get_conf('LOCALE_OUTPUT_ENCODING_NAME');
+if (defined($encoding)) @{
+  $encoded_call_start = encode($encoding, $call_start);
+@} else @{
+  $encoded_call_start = $call_start;
+@}
+my $encoded_call = $encoded_call_start . $encoded_file_path;
+my $call = $call_start . $file_name;
+if (system($encoded_call)) @{
+ $converter->document_error($converter,
+     sprintf(__("command did not succeed: %s"),
+            $call));
+@}
+@end example
+
+More information on perl and encodings in
+@uref{https://perldoc.perl.org/perlunifaq, perlunifaq}.
+
+
 @node Setting the Context for Conversion
 @section Setting the Context for Conversion
 
@@ -2015,7 +2076,7 @@ The function used is:
 function. Returns the default formatting function reference.
 @end deftypefun
 
-The string that should be usedd to register or call each of the formatting functions
+The string that should be used to register or call each of the formatting functions
 and the call of the formatting functions are documented in the following sections of
 the manual, depending on where they are relevant.
 
@@ -2462,7 +2523,7 @@ done in the sectioning commands conversion function only.
 The function for registering opened section extent is
 @code{register_opened_section_level}:
 
-@defun $converter->register_opened_section_level($level, $closing_text)
+@defun $converter->register_opened_section_level ($level, $closing_text)
 @var{$level} is the sectioning command level.  It is typically
 obtained with @code{section->@{'structure'@}->@{'section_level'@}}
 (@pxref{Texinfo Tree Elements in User Defined Functions}).
@@ -2473,7 +2534,7 @@ section level @var{$level} is closed.
 The function for closing registered section extents is
 @code{close_registered_sections_level}:
 
-@deftypefun @@closing_texts $converter->close_registered_sections_level($level)
+@deftypefun @@closing_texts $converter->close_registered_sections_level ($level)
 @var{$level} is the sectioning command level.  Opened section are closed
 down to section level @var{$level}.  The closing texts are returned in the
 @var{@@closing_texts} array in order.
@@ -2849,7 +2910,7 @@ functions formatting their argument elsewhere, two functions are available:
 @code{register_footnote} to be called where they appear in the document, and
 @code{get_pending_footnotes} to be called where they are formatted.
 
-@defun $converter->register_footnote(\%element, $footnote_id, @
+@defun $converter->register_footnote (\%element, $footnote_id, @
   $foot_in_doc_id, $number_in_doc, $footnote_location_filename, $multi_expanded_region)
 @var{\%element} is the footnote texinfo tree element. @var{$footnote_id} is the
 identifier for the location where the footnote arguments are expanded.

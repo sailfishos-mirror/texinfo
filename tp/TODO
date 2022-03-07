@@ -35,7 +35,7 @@ and @ref{Inserting Accents}.
 Texinfo input manual encoding?
 
 
-bytes.  document
+bytes.  document more somewhere?
 * texi2any.pl
  @input_files = @ARGV
   $input_file_arg
@@ -43,6 +43,9 @@ bytes.  document
  @css_files, CSS_FILES
  MACRO_EXPAND
  INTERNAL_LINKS
+* Parser:
+ $self->{'parser_info'}->{'input_file_name'}
+ $self->{'info'}->{'input_directory'}
 
 
 Bugs

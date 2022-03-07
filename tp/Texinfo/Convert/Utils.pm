@@ -308,7 +308,6 @@ sub numbered_heading($$$;$)
   return $result;
 }
 
-# TODO document
 # this requires a converter argument
 sub encoded_output_file_name($$)
 {
@@ -401,6 +400,16 @@ returns a texinfo tree corresponding to the category of the
 I<$def_line> taking the class into account, if there is one.
 If I<$converter> is not defined, the resulting string won't be
 translated.
+
+=item ($encoded_name, $encoding) = $converter->encoded_output_file_name($converter, $character_string_name)
+X<C<encoded_output_file_name>>
+
+Encode I<$character_string_name> in the same way as other file name are
+encoded in converters, based on customization variables, and possibly
+on the input file encoding.  Return the encoded name and the encoding
+used to encode the name.  The I<$converter> argument is not optional
+and is used both to access to customization variables and to access to parser
+information.
 
 =item $tree = expand_today($converter)
 X<C<expand_today>>

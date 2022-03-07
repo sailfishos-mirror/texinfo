@@ -1535,7 +1535,7 @@ sub parse_node_manual($)
 # ASCII, as the name of the directory it is located within may contain
 # non-ASCII characters.
 #   Otherwise, the -e operator and similar may not work correctly.
-# TODO document.  Use configuration_information?
+# TODO Really use configuration_information?  Document when the API is final
 sub encode_file_name($$;$)
 {
   my $configuration_information = shift;

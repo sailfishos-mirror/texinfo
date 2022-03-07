@@ -1032,7 +1032,6 @@ sub present_bug_message($$;$)
 }
 
 # Reverse the decoding of the file name from the input encoding.
-# TODO document
 sub encoded_input_file_name($$)
 {
   my $self = shift;
@@ -1051,7 +1050,6 @@ sub encoded_input_file_name($$)
   }
 }
 
-# TODO document
 # A wrapper around Texinfo::Utils::encoded_output_file_name() that
 # can be called in converters through an objet oriented syntax.
 sub encoded_output_file_name($$)
@@ -1791,6 +1789,21 @@ without extension.  I<$input_basefile> is based on the input texinfo file name,
 with the file name portion only (without directory).
 
 The strings returned are text strings.
+
+=item ($encoded_name, $encoding) = $converter->encoded_input_file_name($character_string_name)
+
+=item ($encoded_name, $encoding) = $converter->encoded_output_file_name($character_string_name)
+X<C<encoded_input_file_name>> X<C<encoded_output_file_name>>
+
+Encode I<$character_string_name> in the same way as other file name are
+encoded in the converter, based on customization variables, and possibly
+on the input file encoding.  Return the encoded name and the encoding
+used to encode the name.  The C<encoded_input_file_name> and
+C<encoded_output_file_name> functions use different customization variables to
+determine the encoding.
+
+Note that C<encoded_output_file_name> is a wrapper around the
+function with the same name in L<<< Texinfo::Convert::Utils::encoded_output_file_name|Texinfo::Convert::Utils/($encoded_name, $encoding) = $converter->encoded_output_file_name($converter, $character_string_name) >>>.
 
 =item ($caption, $prepended) = $converter->float_name_caption($float)
 X<C<float_name_caption>>
