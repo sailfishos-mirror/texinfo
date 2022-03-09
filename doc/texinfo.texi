@@ -8689,7 +8689,7 @@ so that it appears among the other entries beginning with `M'.
 @cindex Indexing, advanced
 @cindex Advanced indexing
 
-Texinfo provides several further commands for indexing,
+Texinfo provides several further commands for indexing.
 
 @findex @@subentry
 First, you can create @dfn{multilevel} index entries, allowing you
