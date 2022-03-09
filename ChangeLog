@@ -1,5 +1,14 @@
 2022-03-09  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Document index node name requirement
+
+	* doc/texinfo.tex (Printing Indices & Menus): Document
+	requirement for "Index" to appear in node name.  Edit and
+	trim extraneous language.
+	(Advanced Indexing): Edit slightly.
+
+2022-03-09  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Find first index entry under initial substring search
 
 	* info/next_index_match): Reset index search by setting index to -1
