@@ -338,7 +338,7 @@ next_index_match (FILE_BUFFER *fb, char *string, int offset, int dir,
 
       if (i < 0 || !index_index[i])
 	{
-          offset = 0;
+          offset = -1;
           index_initial = 1;
 	}
     }
@@ -355,7 +355,7 @@ next_index_match (FILE_BUFFER *fb, char *string, int offset, int dir,
 
       if (i < 0 || !index_index[i])
 	{
-          offset = 0;
+          offset = -1;
           index_initial = 0;
           index_partial = 1;
 	}
