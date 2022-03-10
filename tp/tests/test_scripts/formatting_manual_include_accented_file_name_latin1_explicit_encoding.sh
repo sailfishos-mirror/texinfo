@@ -8,13 +8,7 @@ fi
 one_test_logs_dir=test_log
 
 
-
-if test "z$OTHER_TESTS" != z"yes"; then
-  echo "Skipping other tests that are not easily reproducible"
-  exit 77
-fi
-
-dir=other
+dir=formatting
 name='manual_include_accented_file_name_latin1_explicit_encoding'
 mkdir -p $dir
 

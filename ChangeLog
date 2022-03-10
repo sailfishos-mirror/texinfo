@@ -1,5 +1,10 @@
 2022-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/Makefile.am (check_DATA): copy and change file name
+	encoding from utf8 to latin1 for latin1 encoded file name for tests.
+
+2022-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	Add NO_TOP_NODE_OUTPUT to discard Top node for "book like" styles
 
 	* NEWS, doc/texinfo.texi (Other Customization Variables),
