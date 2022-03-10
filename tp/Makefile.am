@@ -268,6 +268,7 @@ AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; top_srcdir="$(top_srcd
 maintenance_files = \
   maintain/all_tests.sh \
   maintain/change_perl_modules_version.sh \
+  maintain/copy_change_file_name_encoding.pl \
   maintain/language-subtag-registry \
   maintain/regenerate_cmd_tests.sh \
   maintain/regenerate_converters_documentation.sh \

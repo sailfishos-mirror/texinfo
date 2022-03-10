@@ -61,7 +61,9 @@ tex-html-checks tex-html-check: all
 other-checks: all
 	$(MAKE) $(AM_MAKEFLAGS) check OTHER_TESTS=yes TESTS='$(type_other_one_test_files_generated_list)' SUBDIRS=
 
-# FIXME add
-# included_lat*n1.texi
+#check-local:
+#	$(PERL) $(srcdir)/maintain/copy_change_file_name_encoding.pl $(serdir)/input/included_latîn1.texi .
+
 EXTRA_DIST = run_parser_all.sh parser_tests.sh \
- $(one_test_files_generated_list) coverage_macro.texi included_akçentêd.texi
+ $(one_test_files_generated_list) coverage_macro.texi included_akçentêd.texi \
+ input/included_latîn1.texi
