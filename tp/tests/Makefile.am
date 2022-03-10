@@ -64,8 +64,7 @@ other-checks: all
 check_DATA = input_file_names_recoded_stamp.txt
 
 input_file_names_recoded_stamp.txt: $(srcdir)/input/included_latîn1.texi
-	$(PERL) $(srcdir)/../maintain/copy_change_file_name_encoding.pl $(srcdir)/input/included_latîn1.texi .
-	: > $@
+	if $(PERL) $(srcdir)/../maintain/copy_change_file_name_encoding.pl $(srcdir)/input/included_latîn1.texi . ; then echo 'OK' > $@ ; else echo 'FAILED' > $@ ; fi
 
 distclean-local:
 	rm -f input_file_names_recoded_stamp.txt included_lat*n1.texi

@@ -7,6 +7,16 @@
 # are permitted in any medium without royalty provided the copyright
 # notice and this notice are preserved.
 
+check_need_recoded_file_names ()
+{
+   if echo "$remaining" | grep 'Need recoded file names' >/dev/null; then
+     if [ "$no_recoded_file_names" = 'yes' ]; then
+       echo "S: (no recoded file names) $current"
+       return 1
+     fi
+   fi
+   return 0
+}
 
 check_latex2html_and_tex4ht ()
 {
@@ -185,6 +195,11 @@ if which html2wiki > /dev/null 2>&1; then
   no_html2wiki=no
 fi
 
+no_recoded_file_names=yes
+if sed 1q input_file_names_recoded_stamp.txt | grep 'OK' >/dev/null; then
+  no_recoded_file_names=no
+fi
+
 one_test=no
 if test -n "$1"; then
   one_test=yes
@@ -325,7 +340,15 @@ while read line; do
     results_dir="$srcdir/$testdir/${res_dir}${dir_suffix}"
     one_test_done=yes
 
-    check_latex2html_and_tex4ht || continue 2
+    skipped_test=no
+    check_need_recoded_file_names || skipped_test=yes
+    check_latex2html_and_tex4ht || skipped_test=yes
+    if [ "$skipped_test" = 'yes' ] ; then
+      if test $one_test = 'yes' ; then
+        return_code=77
+      fi
+      continue 2
+    fi
 
     dir=$current
     test -d "${outdir}$dir" && rm -rf "${outdir}$dir"

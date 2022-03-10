@@ -115,6 +115,20 @@ for the test results, a filter script should be used instead.  An
 example of such a script can be seen in po_document/fix-translations.sh.
 
 
+Test requiring recoded file names
+=================================
+
+Some test require the possibility to recode file names, in general from
+UTF-8 to a non UTF-8 encoding whan the test require a file name in a
+non UTF-8 encoding.  The recoding of file names required by these
+tests are done by make check, and it is possible to do it manually
+with make input_file_names_recoded_stamp.txt.  If the recoding fails,
+for instance if the recoding leads to invalid UTF-8 and the file system does
+not accept invalid UTF-8, input_file_names_recoded_stamp.txt will contain
+FAILED, and the test requiring the files with recoded file names will
+be skipped.
+
+
 TeX4ht and LaTeX2HTML tests
 ===========================
 The tex4ht and latex2HTML related tests are not run automatically, as
@@ -180,6 +194,11 @@ a_test_split_chapter manual.texi --split chapter
 specifies that the results of the processing of manual.texi with additional
 command line arguments --split chapter will be in the a_test_split_chapter
 directory.
+
+"Need recoded file names" should appear on a line for a test requiring
+recoded file names. for example
+
+manual_include_accented_file_name_latin1 manual_include_accented_file_name_latin1.texi -D 'needrecodedfilenames Need recoded file names'
 
 Common .texi
 ------------

@@ -31,11 +31,14 @@ non_ascii_test_rawtext osé_utf8.texi -c TEXINFO_OUTPUT_FORMAT=rawtext
 non_ascii_no_setfilename_test_rawtext osé_utf8_no_setfilename.texi -c TEXINFO_OUTPUT_FORMAT=rawtext
 
 # test of non utf8 encoded file name in non utf8 document
-manual_include_accented_file_name_latin1 manual_include_accented_file_name_latin1.texi --info
+# "Need recoded file names" string is used in test driving script
+# to determine that the recoding of file names need to have
+# succeeded for this test not to be skipped
+manual_include_accented_file_name_latin1 manual_include_accented_file_name_latin1.texi --info -D 'needrecodedfilenames Need recoded file names'
 
-manual_include_accented_file_name_latin1_explicit_encoding manual_include_accented_file_name_latin1.texi --info -c DOC_ENCODING_FOR_INPUT_FILE_NAME=0 -c LOCALE_INPUT_FILE_NAME_ENCODING=ISO-8859-1
+manual_include_accented_file_name_latin1_explicit_encoding manual_include_accented_file_name_latin1.texi --info -c DOC_ENCODING_FOR_INPUT_FILE_NAME=0 -c LOCALE_INPUT_FILE_NAME_ENCODING=ISO-8859-1 -D 'needrecodedfilenames Need recoded file names'
 
 # fails to find the latin1 encoded include file as the locale encoding
 # of the test suite is utf8
-manual_include_accented_file_name_latin1_use_locale_encoding manual_include_accented_file_name_latin1.texi --info -c DOC_ENCODING_FOR_INPUT_FILE_NAME=0
+manual_include_accented_file_name_latin1_use_locale_encoding manual_include_accented_file_name_latin1.texi --info -c DOC_ENCODING_FOR_INPUT_FILE_NAME=0 -D 'needrecodedfilenames Need recoded file names'
 

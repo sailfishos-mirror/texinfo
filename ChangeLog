@@ -1,5 +1,19 @@
 2022-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/Makefile.am (input_file_names_recoded_stamp.txt):
+	record in the file if the recoding succeeded or failed.
+
+	* tp/tests/run_parser_all.sh: if 'Need recoded file names'
+	appears on a test line, skip the test if the recoding of
+	file names failed.
+
+	* tp/tests/run_parser_all.sh: if a prerequisite for a test is
+	missing, such as not recoded file names needed, or latex2html
+	or tex4ht not present, and only one test is run, return 77 to
+	have the test marked as skipped instead of succeeding.
+
+2022-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/Makefile.am (check_DATA): copy and change file name
 	encoding from utf8 to latin1 for latin1 encoded file name for tests.
 
