@@ -67,6 +67,9 @@ input_file_names_recoded_stamp.txt: $(srcdir)/input/included_latîn1.texi
 	$(PERL) $(srcdir)/../maintain/copy_change_file_name_encoding.pl $(srcdir)/input/included_latîn1.texi .
 	: > $@
 
+distclean-local:
+	rm -f input_file_names_recoded_stamp.txt included_lat*n1.texi
+
 EXTRA_DIST = run_parser_all.sh parser_tests.sh \
  $(one_test_files_generated_list) coverage_macro.texi included_akçentêd.texi \
  input/included_latîn1.texi

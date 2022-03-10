@@ -1,6 +1,5 @@
 EXTRA_DIST = \
  highlight_example.texi \
- manual_include_accented_file_name_latin1.texi \
  list-of-tests res_parser_html
 
 DISTCLEANFILES = tests.log tests.out
