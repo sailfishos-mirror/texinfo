@@ -405,11 +405,11 @@ from the utf8 encoding, and the encoding inside is utf8
 consistent with the document encoding.
 
 ./texi2any.pl --force -I tests/ -o encodé/raw.txt -c TEXINFO_OUTPUT_FORMAT=rawtext tests/formatting/os*_utf8.texi
-encodé/raw.txt encoded in latin1, and the encoding inside is utf8
+encodé/raw.txt file name encoded in latin1, and the encoding inside is utf8
 consistent with the document encoding.
 
 ./texi2any.pl --force -I tests/ -c TEXINFO_OUTPUT_FORMAT=rawtext -c 'SUBDIR=subdîr' tests/formatting/os*_utf8.texi
-subdîr/osé_utf8.txt encoded in latin1, and the encoding inside is utf8
+subdîr/osé_utf8.txt file name encoded in latin1, and the encoding inside is utf8
 consistent with the document encoding.
 
 ./texi2any.pl --set TEXINFO_OUTPUT_FORMAT=debugtree --set USE_NODES=0 -o résultat/encodé.txt ./t/input_files/simplest_no_node_section.texi
@@ -421,7 +421,8 @@ char_latin1_latin1_in_refs_tree.txt content encoded in latin1
 utf8 encoded manual name and latex2html in latin1 locale
 ./texi2any.pl --verbose -c 'DATA_INPUT_ENCODING_NAME=utf-8' --html --init init/latex2html.pm -c 'L2H_CLEAN 0' tests/tex_html/tex_encod*_utf8.texi
 DATA_INPUT_ENCODING_NAME=utf-8 is required in order to have the
-input file name correctly decoded as the document_name
+input file name correctly decoded as document_name which is used
+in init file to set the file names.
 
 latin1 encoded manual name and latex2html in latin1 locale
 cp tests/tex_html/tex_encode_latin1.texi tex_encodé_latin1.texi

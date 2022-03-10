@@ -1,3 +1,16 @@
+2022-03-10  Patrice Dumas  <pertusus@free.fr>
+
+	Add NO_TOP_NODE_OUTPUT to discard Top node for "book like" styles
+
+	* NEWS, doc/texinfo.texi (Other Customization Variables),
+	tp/Texinfo/Common.pm (@variable_string_settables),
+	tp/Texinfo/Convert/HTML.pm (%defaults, _convert_heading_command)
+	(output), tp/init/book.pm, tp/init/epub3.pm: add NO_TOP_NODE_OUTPUT
+	customization variable.  If set, the Top node content output is
+	discarded.  If set and USE_TITLEPAGE_FOR_TITLE is undef (the default
+	now), set USE_TITLEPAGE_FOR_TITLE.  Set NO_TOP_NODE_OUTPUT in
+	tp/init/book.pm and tp/init/epub3.pm.
+
 2022-03-09  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Document index node name requirement

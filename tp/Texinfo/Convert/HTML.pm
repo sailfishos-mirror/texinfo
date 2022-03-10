@@ -1791,7 +1791,7 @@ my %defaults = (
   'xrefautomaticsectiontitle' => 'on',
   'SHOW_TITLE'           => 1,
   'SECTION_NAME_IN_TITLE' => 0,
-  'USE_TITLEPAGE_FOR_TITLE' => 0,
+  'USE_TITLEPAGE_FOR_TITLE' => undef,
   'MONOLITHIC'           => 1,
   'CHAPTER_HEADER_LEVEL' => 2,
   'MAX_HEADER_LEVEL'     => 4,
@@ -3549,6 +3549,68 @@ sub _convert_heading_command($$$$$)
 
   my $element_id = $self->command_id($element);
 
+  print STDERR "CONVERT elt heading $element "
+        .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
+          if ($self->get_conf('DEBUG'));
+  my $tree_unit;
+  if ($Texinfo::Common::root_commands{$element->{'cmdname'}}
+      and $element->{'structure'}->{'associated_unit'}) {
+    $tree_unit = $element->{'structure'}->{'associated_unit'};
+  }
+  my $element_header = '';
+  if ($tree_unit) {
+    $element_header = &{$self->formatting_function('format_element_header')}(
+                                        $self, $cmdname, $element, $tree_unit);
+  }
+
+  my $tables_of_contents = '';
+  my $structuring = $self->get_info('structuring');
+  if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top'
+      and $cmdname eq 'top'
+      and $structuring and $structuring->{'sectioning_root'}
+      and scalar(@{$structuring->{'sections_list'}}) > 1) {
+    foreach my $content_command_name ('contents', 'shortcontents') {
+      if ($self->get_conf($content_command_name)) {
+        my $contents_text
+          = $self->_contents_inline_element($content_command_name, undef);
+        if ($contents_text ne '') {
+          $tables_of_contents .= $contents_text;
+        }
+      }
+    }
+  }
+
+  my $mini_toc = '';
+  if ($tables_of_contents eq ''
+      and $self->get_conf('FORMAT_MENU') eq 'sectiontoc'
+      and $Texinfo::Common::sectioning_heading_commands{$cmdname}) {
+    $mini_toc = _mini_toc($self, $element);
+  }
+
+  if ($self->get_conf('NO_TOP_NODE_OUTPUT')
+      and $Texinfo::Common::root_commands{$cmdname}) {
+    my $in_skipped_node_top
+      = $self->shared_conversion_state('in_skipped_node_top', 0);
+    if ($cmdname eq 'node') {
+      if ($$in_skipped_node_top == 0
+          and $element->{'extra'}
+          and $element->{'extra'}->{'normalized'} eq 'Top') {
+        $$in_skipped_node_top = 1;
+      } elsif ($$in_skipped_node_top == 1) {
+        $$in_skipped_node_top = -1;
+      }
+    }
+    if ($$in_skipped_node_top == 1) {
+      my $id_class = $cmdname;
+      $result .= &{$self->formatting_function('format_separate_anchor')}($self,
+                                                        $element_id, $id_class);
+      $result .= $element_header;
+      $result .= $tables_of_contents;
+      $result .= $mini_toc;
+      return $result;
+    }
+  }
+
   my @heading_classes;
   my $level_corrected_cmdname = $cmdname;
   if (defined $element->{'structure'}->{'section_level'}) {
@@ -3577,20 +3639,6 @@ sub _convert_heading_command($$$$$)
            and $Texinfo::Common::root_commands{$cmdname}) {
     $opening_section = $element;
     $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
-  }
-
-  print STDERR "CONVERT elt heading $element "
-        .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
-          if ($self->get_conf('DEBUG'));
-  my $tree_unit;
-  if ($Texinfo::Common::root_commands{$element->{'cmdname'}}
-      and $element->{'structure'}->{'associated_unit'}) {
-    $tree_unit = $element->{'structure'}->{'associated_unit'};
-  }
-  my $element_header = '';
-  if ($tree_unit) {
-    $element_header = &{$self->formatting_function('format_element_header')}(
-                                        $self, $cmdname, $element, $tree_unit);
   }
 
   # $heading not defined may happen if the command is a @node, for example
@@ -3690,28 +3738,8 @@ sub _convert_heading_command($$$$$)
   }
   $result .= $content if (defined($content));
 
-  my $table_of_contents_was_output = 0.;
-  my $structuring = $self->get_info('structuring');
-  if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top'
-      and $cmdname eq 'top'
-      and $structuring and $structuring->{'sectioning_root'}
-      and scalar(@{$structuring->{'sections_list'}}) > 1) {
-    foreach my $content_command_name ('contents', 'shortcontents') {
-      if ($self->get_conf($content_command_name)) {
-        my $contents_text
-          = $self->_contents_inline_element($content_command_name, undef);
-        if ($contents_text ne '') {
-          $result .= $contents_text;
-          $table_of_contents_was_output = 1;
-        }
-      }
-    }
-  }
-  if (not $table_of_contents_was_output
-      and $self->get_conf('FORMAT_MENU') eq 'sectiontoc'
-      and $Texinfo::Common::sectioning_heading_commands{$cmdname}) {
-    $result .= _mini_toc($self, $element);
-  }
+  $result .= $tables_of_contents;
+  $result .= $mini_toc;
   return $result;
 }
 
@@ -9286,6 +9314,11 @@ sub output($$)
   if ($self->get_conf('CONVERT_TEXINFO_MATH_TO_LATEX')) {
     $self->{'options_latex_math'}
      = { Texinfo::Convert::LaTeX::copy_options_for_convert_to_latex_math($self) };
+  }
+
+  if ($self->get_conf('NO_TOP_NODE_OUTPUT')
+      and not defined($self->get_conf('USE_TITLEPAGE_FOR_TITLE'))) {
+    $self->set_conf('USE_TITLEPAGE_FOR_TITLE', 1);
   }
 
   # the configuration has potentially been modified for

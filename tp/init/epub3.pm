@@ -86,6 +86,10 @@ texinfo_set_from_init_file('DOC_ENCODING_FOR_OUTPUT_FILE_NAME', 0);
 # As a conséquence, the epub file file name is also always utf-8 encoded.
 texinfo_set_from_init_file('LOCALE_OUTPUT_FILE_NAME_ENCODING', 'utf-8');
 
+# a "book like" output is most likely expected for epub.  So we set
+# NO_TOP_NODE_OUTPUT, which in turn sets titlepage to be used
+# if not specified.
+texinfo_set_from_init_file('NO_TOP_NODE_OUTPUT', 1);
 
 # the copiable anchor paragraph sign is always present and no link is
 # shown in the calibre epub reader.  Since it looks strange, unset.

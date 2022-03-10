@@ -19,6 +19,7 @@ See the manual for detailed information.
    LOCALE_OUTPUT_ENCODING_NAME, LOCALE_INPUT_FILE_NAME_ENCODING,
    LOCALE_OUTPUT_FILE_NAME_ENCODING, DOC_ENCODING_FOR_INPUT_FILE_NAME, and
    DOC_ENCODING_FOR_OUTPUT_FILE_NAME
+ . new customization variable NO_TOP_NODE_OUTPUT
  . rename COPIABLE_ANCHORS as COPIABLE_LINKS
  . L2H customization variable removed.  Replaced by HTML_MATH set to l2h.
  . Meaning of USE_NUMERIC_ENTITY changed to be using numeric entities in

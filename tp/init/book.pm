@@ -27,7 +27,8 @@ use Texinfo::Structuring;
 
 texinfo_set_from_init_file('contents', 1);
 texinfo_set_from_init_file('CONTENTS_OUTPUT_LOCATION', 'inline');
-texinfo_set_from_init_file('USE_TITLEPAGE_FOR_TITLE', 1);
+texinfo_set_from_init_file('NO_TOP_NODE_OUTPUT', 1);
+#texinfo_set_from_init_file('USE_TITLEPAGE_FOR_TITLE', 1);
 
 my @book_buttons = ('Back', 'Forward', ' ', 'Contents', 'Index', 'About');
 
@@ -182,6 +183,74 @@ sub book_convert_heading_command($$$$$)
 
   my $element_id = $self->command_id($element);
 
+  print STDERR "CONVERT elt heading $element "
+        .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
+          if ($self->get_conf('DEBUG'));
+  my $tree_unit;
+  if ($Texinfo::Common::root_commands{$element->{'cmdname'}}
+      and $element->{'structure'}->{'associated_unit'}) {
+    $tree_unit = $element->{'structure'}->{'associated_unit'};
+  }
+  my $element_header = '';
+  if ($tree_unit) {
+    $element_header = &{$self->formatting_function('format_element_header')}(
+                                        $self, $cmdname, $element, $tree_unit);
+  }
+
+  my $tables_of_contents = '';
+  my $structuring = $self->get_info('structuring');
+  if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top'
+      and $cmdname eq 'top'
+      and $structuring and $structuring->{'sectioning_root'}
+      and scalar(@{$structuring->{'sections_list'}}) > 1) {
+    foreach my $content_command_name ('contents', 'shortcontents') {
+      if ($self->get_conf($content_command_name)) {
+        my $contents_text
+          = $self->_contents_inline_element($content_command_name, undef);
+        if ($contents_text ne '') {
+          $tables_of_contents .= $contents_text;
+        }
+      }
+    }
+  }
+
+  my $sub_toc = '';
+  if ($tables_of_contents eq ''
+      and $element->{'structure'}->{'section_childs'}
+      and @{$element->{'structure'}->{'section_childs'}}
+      # FIXME why not @top?
+      and $cmdname ne 'top'
+      and $Texinfo::Common::sectioning_heading_commands{$cmdname}) {
+    $sub_toc .= $self->html_attribute_class('ul', [$toc_numbered_mark_class]).">\n";
+    $sub_toc .= book_print_sub_toc($self, $element,
+                                  $element->{'structure'}->{'section_childs'}->[0]);
+    $sub_toc .= "</ul>\n";
+  }
+
+  if ($self->get_conf('NO_TOP_NODE_OUTPUT')
+      and $Texinfo::Common::root_commands{$cmdname}) {
+    my $in_skipped_node_top
+      = $self->shared_conversion_state('in_skipped_node_top', 0);
+    if ($cmdname eq 'node') {
+      if ($$in_skipped_node_top == 0
+          and $element->{'extra'}
+          and $element->{'extra'}->{'normalized'} eq 'Top') {
+        $$in_skipped_node_top = 1;
+      } elsif ($$in_skipped_node_top == 1) {
+        $$in_skipped_node_top = -1;
+      }
+    }
+    if ($$in_skipped_node_top == 1) {
+      my $id_class = $cmdname;
+      $result .= &{$self->formatting_function('format_separate_anchor')}($self,
+                                                        $element_id, $id_class);
+      $result .= $element_header;
+      $result .= $tables_of_contents;
+      $result .= $sub_toc;
+      return $result;
+    }
+  }
+
   my @heading_classes;
   my $level_corrected_cmdname = $cmdname;
   if (defined $element->{'structure'}->{'section_level'}) {
@@ -210,20 +279,6 @@ sub book_convert_heading_command($$$$$)
            and $Texinfo::Common::root_commands{$cmdname}) {
     $opening_section = $element;
     $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
-  }
-
-  print STDERR "CONVERT elt heading $element "
-        .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
-          if ($self->get_conf('DEBUG'));
-  my $tree_unit;
-  if ($Texinfo::Common::root_commands{$element->{'cmdname'}}
-      and $element->{'structure'}->{'associated_unit'}) {
-    $tree_unit = $element->{'structure'}->{'associated_unit'};
-  }
-  my $element_header = '';
-  if ($tree_unit) {
-    $element_header = &{$self->formatting_function('format_element_header')}(
-                                        $self, $cmdname, $element, $tree_unit);
   }
 
   # $heading not defined may happen if the command is a @node, for example
@@ -295,12 +350,12 @@ sub book_convert_heading_command($$$$$)
     if ($self->get_conf('TOC_LINKS')
         and $Texinfo::Common::root_commands{$cmdname}
         and $Texinfo::Common::sectioning_heading_commands{$cmdname}) {
-      my $content_href = $self->command_contents_href($element, 'contents',
-                                        $self->{'current_filename'});
-      if ($content_href) {
+      my $content_href = $self->command_contents_href($element, 'contents');
+      if ($content_href ne '') {
         $heading = "<a href=\"$content_href\">$heading</a>";
       }
     }
+
 
     my $heading_class = $level_corrected_cmdname;
     unshift @heading_classes, $heading_class;
@@ -323,15 +378,10 @@ sub book_convert_heading_command($$$$$)
                                                        $heading_id, $cmdname);
   }
 
-  if ($element->{'structure'}->{'section_childs'}
-      and @{$element->{'structure'}->{'section_childs'}}
-      and $cmdname ne 'top') {
-    $result .= $self->html_attribute_class('ul', [$toc_numbered_mark_class]).">\n";
-    $result .= book_print_sub_toc($self, $element,
-                                  $element->{'structure'}->{'section_childs'}->[0]);
-    $result .= "</ul>\n";
-  }
+  $result .= $tables_of_contents;
+  $result .= $sub_toc;
   $result .= $content if (defined($content));
+
   return $result;
 }
 

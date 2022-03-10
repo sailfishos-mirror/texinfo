@@ -16836,6 +16836,11 @@ The maximal number of recursive calls of @@-commands defined through
 @code{@@rmacro}; default 100000.  The purpose of this variable is to
 avoid infinite recursions.
 
+@item NO_TOP_NODE_OUTPUT
+If set do not output the Top node content.  The Top node is still
+parsed, but the content is discarded.  Not set in the default case
+for HTML.
+
 @item NO_USE_SETFILENAME
 If set, do not use @code{@@setfilename} to set the document name;
 instead, base the output document name only on the input file name.
@@ -17027,7 +17032,8 @@ the extension.  You should not need to explicitly set this variable.
 
 @item USE_TITLEPAGE_FOR_TITLE
 Use the full @code{@@titlepage} as the title, not a simple title string;
-default false.
+default @samp{undef}.  If set to @samp{undef}, setting
+@code{NO_TOP_NODE_OUTPUT} also sets @code{USE_TITLEPAGE_FOR_TITLE}.
 
 @item USE_UNIDECODE
 @pindex Text::Unidecode
