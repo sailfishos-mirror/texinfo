@@ -5435,10 +5435,6 @@ kbd: <userinput>``simple-double--three---four----\'\' `simple\' quotedblleft: &#
 samp: &#8216;<literal>``simple-double--three---four----\'\' `simple\' quotedblleft: &#8220;</literal>&#8217; 
 
 </para></legalnotice></bookinfo>
-
-
-
-
 <chapter label="" id="Top">
 <title>test quotes</title>
 

@@ -58,12 +58,7 @@ For plaintext, I propose to have two options
   text before the first @node or sectioning command is not output.
 Default is non book.
 
-DocBook is book-like, but does not allow any text outside of semantic
-elements.  Text can be in abstract, dedication, preface, chapter but not
-directly in <book>.  Title information and @copying are already used to
-format the beginning of DocBook output.  I propose to ignore text before
-the first @node or sectioning (unless there is a semantic markup), and
-also not to output the Top node, both being changes.
+DocBook is book-like.  I propose not to output the Top node.
 
 Ignoring Top node: only danger here is if people were using the output
 of DocBook to create HTML and relying on the Top node there as being

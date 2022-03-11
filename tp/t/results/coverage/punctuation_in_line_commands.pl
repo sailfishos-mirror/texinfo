@@ -1285,8 +1285,7 @@ $result_converted{'xml'}->{'punctuation_in_line_commands'} = '
 ';
 
 
-$result_converted{'docbook'}->{'punctuation_in_line_commands'} = '
-<chapter label="" id="node_0021-After-punc">
+$result_converted{'docbook'}->{'punctuation_in_line_commands'} = '<chapter label="" id="node_0021-After-punc">
 <title>top! After punc</title>
 
 <variablelist><varlistentry><term>item! After punc

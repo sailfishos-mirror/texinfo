@@ -752,8 +752,7 @@ $result_converted{'plaintext'}->{'subentry_and_sortas'} = '1 Index
 ';
 
 
-$result_converted{'docbook'}->{'subentry_and_sortas'} = '
-<chapter label="" id="Top">
+$result_converted{'docbook'}->{'subentry_and_sortas'} = '<chapter label="" id="Top">
 <title></title>
 
 </chapter>

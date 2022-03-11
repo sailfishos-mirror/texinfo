@@ -1613,6 +1613,11 @@ sub _convert($$;$)
         pop @{$self->{'lang_stack'}};
       }
     }
+  } elsif ($element->{'type'} and $element->{'type'} eq 'before_node_section') {
+    # ignore text before the first @node or sectioning command
+    # as DocBook does not allow content not within some semantic
+    # markup
+    return '';
   }
   
   #warn " returning $result\n";

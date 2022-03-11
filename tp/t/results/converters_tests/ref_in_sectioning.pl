@@ -2685,8 +2685,7 @@ $result_converted{'xml'}->{'ref_in_sectioning'} = '<contents></contents>
 ';
 
 
-$result_converted{'docbook'}->{'ref_in_sectioning'} = '
-<chapter label="" id="Top">
+$result_converted{'docbook'}->{'ref_in_sectioning'} = '<chapter label="" id="Top">
 <title>for example <link linkend="node">node</link> (see <link linkend="node">node</link>) (see <citetitle>Manual</citetitle>)</title>
 
 

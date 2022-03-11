@@ -1580,8 +1580,7 @@ $result_converted{'xml'}->{'things_before_setfilename'} = '<preamblebeforebeginn
 ';
 
 
-$result_converted{'docbook'}->{'things_before_setfilename'} = '
-<chapter label="" id="Top">
+$result_converted{'docbook'}->{'things_before_setfilename'} = '<chapter label="" id="Top">
 <title>top section</title>
 
 <para>Ref to anchor

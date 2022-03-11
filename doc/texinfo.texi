@@ -3039,7 +3039,8 @@ The first node of a Texinfo file is the @dfn{Top} node, except in an
 included file (@pxref{Include Files}).  The Top node should contain
 a short summary and a master menu.  @xref{The Top Node} for more
 information on the Top node contents and examples.  Straight text
-before the Top node outside of any node should be avoided.
+before the Top node outside of any node should be avoided.  Such
+text, if present, is not output for DocBook.
 
 
 Here is a description of the node pointers to be used in the Top node:

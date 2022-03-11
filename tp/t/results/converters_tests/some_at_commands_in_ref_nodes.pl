@@ -1862,8 +1862,7 @@ $result_converted{'xml'}->{'some_at_commands_in_ref_nodes'} = '
 ';
 
 
-$result_converted{'docbook'}->{'some_at_commands_in_ref_nodes'} = '
-<chapter label="" id="Top">
+$result_converted{'docbook'}->{'some_at_commands_in_ref_nodes'} = '<chapter label="" id="Top">
 <title>Top</title>
 
 

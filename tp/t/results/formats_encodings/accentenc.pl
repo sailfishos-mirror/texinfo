@@ -3464,8 +3464,7 @@ $result_converted{'xml'}->{'accentenc'} = '<documentencoding encoding="ISO-8859-
 ';
 
 
-$result_converted{'docbook'}->{'accentenc'} = '
-<chapter label="" id="Top-node">
+$result_converted{'docbook'}->{'accentenc'} = '<chapter label="" id="Top-node">
 <title>top</title>
 
 <para>should be e&#8216;: &#232; &#232;

@@ -1257,8 +1257,7 @@ $result_indices_sort_strings{'subentries'} = {
 
 
 
-$result_converted{'docbook'}->{'subentries'} = '
-<chapter label="" id="Top">
+$result_converted{'docbook'}->{'subentries'} = '<chapter label="" id="Top">
 <title></title>
 
 </chapter>

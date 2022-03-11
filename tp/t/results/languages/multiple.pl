@@ -1319,8 +1319,6 @@ $result_converted{'docbook_doc'}->{'multiple'} = '<?xml version="1.0"?>
 <bookinfo><legalnotice><synopsis><indexterm role="vr"><primary>a de copying</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>copying</classname></ooclass> <property>a</property> <emphasis role="arg">b</emphasis></synopsis>
 <blockquote><para>erreur&#8594;
 </para></blockquote></legalnotice></bookinfo>
-
-
 <anchor id="Top"/>
 
 <synopsis><indexterm role="vr"><primary>BBB de fr</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>fr</classname></ooclass> <property>BBB</property> <emphasis role="arg">CCC</emphasis></synopsis>

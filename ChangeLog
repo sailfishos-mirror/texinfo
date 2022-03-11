@@ -1,5 +1,13 @@
 2022-03-11  Patrice Dumas  <pertusus@free.fr>
 
+	Do not output text before node or sections in DocBook
+
+	* NEWS, doc/texinfo.texi (First Node), tp/Texinfo/Convert/DocBook.pm
+	(_convert): do not output text before the first @node or sectioning
+	command, in 'before_node_section' element type.
+
+2022-03-11  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi @code{@@settitle}): no title in the
 	document anymore in the default case in HTML.
 

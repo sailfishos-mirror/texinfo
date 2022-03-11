@@ -724,12 +724,28 @@ sub convert_to_docbook($$$$$$;$)
                                          'output_format' => 'docbook',
                                           %$converter_options });
   my $result;
+  my $tree_for_conversion;
+  # 'before_node_section' is ignored in conversion to DocBook and it is
+  # the type, in 'document_root' that holds content that appear out of any
+  # @node and sectioning command.  To be able to have tests of simple
+  # Texinfo code out of any sectioning or @node command with DocBook,
+  # a tree consisting in a sole 'before_node_section' is duplicated
+  # as a tree with an element without type replacing the 'before_node_section'
+  # type element, with the same contents.
+  if ($tree->{'contents'} and scalar(@{$tree->{'contents'}}) == 1) {
+    $tree_for_conversion = {
+      'type' => $tree->{'type'},
+      'contents' => [{'contents' => $tree->{'contents'}->[0]->{'contents'}}]
+    }
+  } else {
+    $tree_for_conversion = $tree;
+  }
   if (defined($converter_options->{'OUTFILE'})
       and $converter_options->{'OUTFILE'} eq ''
       and $format ne 'docbook_doc') {
-    $result = $converter->convert($tree);
+    $result = $converter->convert($tree_for_conversion);
   } else {
-    $result = $converter->output($tree);
+    $result = $converter->output($tree_for_conversion);
     close_files($converter);
     $result = undef if (defined($result) and ($result eq ''));
   }

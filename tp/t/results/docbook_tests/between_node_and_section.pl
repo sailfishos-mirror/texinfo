@@ -432,8 +432,7 @@ $result_floats{'between_node_and_section'} = {};
 
 
 
-$result_converted{'docbook'}->{'between_node_and_section'} = '
-<chapter label="1" id="chap">
+$result_converted{'docbook'}->{'between_node_and_section'} = '<chapter label="1" id="chap">
 <title>Chap</title>
 
 <sect1 label="1.1" id="sec1">

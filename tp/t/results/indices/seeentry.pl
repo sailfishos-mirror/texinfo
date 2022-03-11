@@ -758,8 +758,7 @@ $result_floats{'seeentry'} = {};
 
 
 
-$result_converted{'docbook'}->{'seeentry'} = '
-<chapter label="" id="Top">
+$result_converted{'docbook'}->{'seeentry'} = '<chapter label="" id="Top">
 <title></title>
 
 </chapter>

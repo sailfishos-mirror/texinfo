@@ -4,7 +4,4 @@
   <!ENTITY latex "LaTeX">
 ]>
 <book id="simplest_no_node_section.xml" lang="en">
-
-<para>This is a very simple texi manual &#160; &lt;&gt;.
-</para>
 </book>

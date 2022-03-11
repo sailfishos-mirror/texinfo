@@ -682,8 +682,7 @@ $result_converted{'xml'}->{'weird_accents'} = '<documentencoding encoding="ISO-8
 ';
 
 
-$result_converted{'docbook'}->{'weird_accents'} = '
-<chapter label="" id="Top">
+$result_converted{'docbook'}->{'weird_accents'} = '<chapter label="" id="Top">
 <title>top</title>
 
 <para>&#297;&#772;
