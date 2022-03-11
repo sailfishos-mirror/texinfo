@@ -1781,8 +1781,7 @@ more on headings for @TeX{}, see @ref{Heading Generation}.
 @cindex @code{<title>} HTML tag
 In the HTML file produced by @command{makeinfo}, @var{title} serves as
 the document @samp{<title>} and it becomes the default document
-description in the @samp{<head>} part.  It also appears at the very
-beginning of the output in an @code{<h1>} heading.
+description in the @samp{<head>} part.
 
 When the title page is used in the output, as is generally the case for printed
 output, the title in the @code{@@settitle} command does not affect the title as

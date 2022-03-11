@@ -1,5 +1,10 @@
 2022-03-11  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi @code{@@settitle}): no title in the
+	document anymore in the default case in HTML.
+
+2022-03-11  Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS, doc/texinfo.texi (HTML Customization Variables)
 	(Other Customization Variables), tp/Texinfo/Convert/HTML.pm
 	(%defaults, output, _set_variables_texi2html): set SHOW_TITLE

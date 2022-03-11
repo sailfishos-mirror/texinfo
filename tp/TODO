@@ -70,12 +70,6 @@ of DocBook to create HTML and relying on the Top node there as being
 a table of contents.  I expect it would be fine, though, as DocBook
 tools would probably supply their own table of contents.
 
-HTML:
-It may be fine not to output anything for @settitle specifically in
-the default output, as long as there are enough headings output for
-other reasons.
-
-
 
 
 Bugs
