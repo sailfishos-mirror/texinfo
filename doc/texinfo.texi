@@ -16839,7 +16839,14 @@ avoid infinite recursions.
 @item NO_TOP_NODE_OUTPUT
 If set do not output the Top node content.  The Top node is still
 parsed, but the content is discarded.  Not set in the default case
-for HTML.
+for HTML.  If @code{USE_TITLEPAGE_FOR_TITLE} is @samp{undef}, setting
+@code{NO_TOP_NODE_OUTPUT} also sets @code{USE_TITLEPAGE_FOR_TITLE}.
+
+Setting @code{NO_TOP_NODE_OUTPUT}, which removes the Top node and adds
+a title page corresponds more to the formatting of a book.  Setting
+@code{NO_TOP_NODE_OUTPUT} to false, with @code{USE_TITLEPAGE_FOR_TITLE}
+remaining @samp{undef}, and false, corresponds more to a document setup for
+browsing, with a direct access to the information at the Top node.
 
 @item NO_USE_SETFILENAME
 If set, do not use @code{@@setfilename} to set the document name;

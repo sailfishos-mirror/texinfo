@@ -1,5 +1,11 @@
 2022-03-10  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Other Customization Variables): expand
+	on NO_TOP_NODE_OUTPUT corresponding more to book formatting
+	if set, or to browsing if not set.
+
+2022-03-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/Makefile.am (input_file_names_recoded_stamp.txt):
 	record in the file if the recoding succeeded or failed.
 
