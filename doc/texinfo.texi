@@ -16541,7 +16541,9 @@ Output the built-in default CSS rules on the standard output and exit.
 
 @item SHOW_TITLE
 If set, output the title at the beginning of the document;
-default true.
+default @samp{undef}.  If set to @samp{undef}, setting
+@code{NO_TOP_NODE_OUTPUT} also sets @code{SHOW_TITLE}.
+
 
 @item SIMPLE_MENU
 If set, use a simple preformatted style for the menu,
@@ -16839,14 +16841,14 @@ avoid infinite recursions.
 @item NO_TOP_NODE_OUTPUT
 If set do not output the Top node content.  The Top node is still
 parsed, but the content is discarded.  Not set in the default case
-for HTML.  If @code{USE_TITLEPAGE_FOR_TITLE} is @samp{undef}, setting
-@code{NO_TOP_NODE_OUTPUT} also sets @code{USE_TITLEPAGE_FOR_TITLE}.
+for HTML.  If @code{SHOW_TITLE} is @samp{undef}, setting
+@code{NO_TOP_NODE_OUTPUT} also sets @code{SHOW_TITLE}.
 
 Setting @code{NO_TOP_NODE_OUTPUT}, which removes the Top node and adds
 a title page corresponds more to the formatting of a book.  Setting
-@code{NO_TOP_NODE_OUTPUT} to false, with @code{USE_TITLEPAGE_FOR_TITLE}
-remaining @samp{undef}, and false, corresponds more to a document setup for
-browsing, with a direct access to the information at the Top node.
+@code{NO_TOP_NODE_OUTPUT} to false, with @code{SHOW_TITLE} remaining
+@samp{undef}, and false, corresponds more to a document setup for browsing,
+with a direct access to the information at the Top node.
 
 @item NO_USE_SETFILENAME
 If set, do not use @code{@@setfilename} to set the document name;
@@ -17039,8 +17041,7 @@ the extension.  You should not need to explicitly set this variable.
 
 @item USE_TITLEPAGE_FOR_TITLE
 Use the full @code{@@titlepage} as the title, not a simple title string;
-default @samp{undef}.  If set to @samp{undef}, setting
-@code{NO_TOP_NODE_OUTPUT} also sets @code{USE_TITLEPAGE_FOR_TITLE}.
+default true.  Only relevant if @code{SHOW_TITLE} is set.
 
 @item USE_UNIDECODE
 @pindex Text::Unidecode

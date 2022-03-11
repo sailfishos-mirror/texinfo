@@ -710,7 +710,7 @@ Ref to float
 @end menu
 
 @cindex index entry
-'],
+', {}, {'SHOW_TITLE' => 1}],
 ['placed_things_before_element',
 '@anchor{An anchor}
 

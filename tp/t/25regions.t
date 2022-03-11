@@ -99,13 +99,13 @@ In footnote.
 $format_in_titlepage_text
 ],
 ['format_in_titlepage_titlepage',
-$format_in_titlepage_text, {}, {'USE_TITLEPAGE_FOR_TITLE' => 1}
+$format_in_titlepage_text, {}, {'SHOW_TITLE' => 1}
 ],
 ['anchor_in_titlepage',
 $anchor_in_titlepage_text
 ],
 ['anchor_in_titlepage_titlepage',
-$anchor_in_titlepage_text, {}, {'USE_TITLEPAGE_FOR_TITLE' => 1}
+$anchor_in_titlepage_text, {}, {'SHOW_TITLE' => 1}
 ],
 ['ref_in_copying',
 '@copying

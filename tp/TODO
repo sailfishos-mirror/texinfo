@@ -47,6 +47,36 @@ bytes.  document more somewhere?
  $self->{'parser_info'}->{'input_file_name'}
  $self->{'info'}->{'input_directory'}
 
+For plaintext, I propose to have two options
+* book-like: format the text before the first @node or sectioning
+  command, not necessarily the @titlepage, but at least determine
+  some title.  Do not output the Top node.
+* non book: do not output the text before the first @node or
+  sectioning command. If there is @*content before the first @node or
+  sectioning command, the table of content is is still output
+  before the first node or sectioning command.  The change is that
+  text before the first @node or sectioning command is not output.
+Default is non book.
+
+DocBook is book-like, but does not allow any text outside of semantic
+elements.  Text can be in abstract, dedication, preface, chapter but not
+directly in <book>.  Title information and @copying are already used to
+format the beginning of DocBook output.  I propose to ignore text before
+the first @node or sectioning (unless there is a semantic markup), and
+also not to output the Top node, both being changes.
+
+Ignoring Top node: only danger here is if people were using the output
+of DocBook to create HTML and relying on the Top node there as being
+a table of contents.  I expect it would be fine, though, as DocBook
+tools would probably supply their own table of contents.
+
+HTML:
+It may be fine not to output anything for @settitle specifically in
+the default output, as long as there are enough headings output for
+other reasons.
+
+
+
 
 Bugs
 ====

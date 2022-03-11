@@ -1789,9 +1789,9 @@ my %defaults = (
   'BODYTEXT'             => undef,
   'documentlanguage'     => 'en',
   'xrefautomaticsectiontitle' => 'on',
-  'SHOW_TITLE'           => 1,
+  'SHOW_TITLE'           => undef,
   'SECTION_NAME_IN_TITLE' => 0,
-  'USE_TITLEPAGE_FOR_TITLE' => undef,
+  'USE_TITLEPAGE_FOR_TITLE' => 1,
   'MONOLITHIC'           => 1,
   'CHAPTER_HEADER_LEVEL' => 2,
   'MAX_HEADER_LEVEL'     => 4,
@@ -9317,8 +9317,8 @@ sub output($$)
   }
 
   if ($self->get_conf('NO_TOP_NODE_OUTPUT')
-      and not defined($self->get_conf('USE_TITLEPAGE_FOR_TITLE'))) {
-    $self->set_conf('USE_TITLEPAGE_FOR_TITLE', 1);
+      and not defined($self->get_conf('SHOW_TITLE'))) {
+    $self->set_conf('SHOW_TITLE', 1);
   }
 
   # the configuration has potentially been modified for
@@ -10225,6 +10225,7 @@ sub _set_variables_texi2html()
   ['USE_ACCESSKEY', 0],
   ['NODE_NAME_IN_MENU', 0],
   ['SHORT_TOC_LINK_TO_TOC', 0],
+  ['SHOW_TITLE', 1],
   ['USE_UP_NODE_FOR_ELEMENT_UP', 1],
   ['USE_REL_REV', 0],
   ['USE_LINKS', 0],
@@ -10233,7 +10234,6 @@ sub _set_variables_texi2html()
   ['PROGRAM_NAME_IN_FOOTER', 1],
   ['PROGRAM_NAME_IN_ABOUT', 1],
   ['HEADER_IN_TABLE', 1],
-  ['USE_TITLEPAGE_FOR_TITLE', 1],
   ['MENU_ENTRY_COLON', ''],
   ['INDEX_ENTRY_COLON', ''],
   ['DO_ABOUT', undef],

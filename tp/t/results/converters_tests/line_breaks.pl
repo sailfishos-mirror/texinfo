@@ -624,6 +624,7 @@ h1.settitle {text-align:center}
 
 <body lang="en">
 <h1 class="settitle">the manual <br> new version</h1>
+<hr>
 
 <h1 class="title">AWK As A Major Systems Programming <br> Language&mdash;Revisited</h1>
 

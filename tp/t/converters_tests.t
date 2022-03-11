@@ -293,7 +293,7 @@ Text
 @quotation Q@* uotation
 T
 @end quotation
-'],
+', {}, {'SHOW_TITLE' => 1}],
 ['test_deftypefnnewline',
 '@setfilename test_deftypefnnewline.info
 

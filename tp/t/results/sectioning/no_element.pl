@@ -978,6 +978,7 @@ h1.settitle {text-align:center}
 
 <body lang="en">
 <h1 class="settitle">no_element test</h1>
+<hr>
 
 
 <a class="anchor" id="An-anchor"></a>

@@ -1,3 +1,14 @@
+2022-03-11  Patrice Dumas  <pertusus@free.fr>
+
+	* NEWS, doc/texinfo.texi (HTML Customization Variables)
+	(Other Customization Variables), tp/Texinfo/Convert/HTML.pm
+	(%defaults, output, _set_variables_texi2html): set SHOW_TITLE
+	to undef, and have NO_TOP_NODE_OUTPUT set SHOW_TITLE to 1
+	if SHOW_TITLE is undef.  Set USE_TITLEPAGE_FOR_TITLE to 1.
+	That way, there is no title in the default case, as it is
+	redundant with the @top header, there is a title only if
+	NO_TOP_NODE_OUTPUT is set.
+
 2022-03-10  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (Other Customization Variables): expand

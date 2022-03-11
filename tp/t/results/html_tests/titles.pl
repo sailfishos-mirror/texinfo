@@ -428,6 +428,7 @@ h1.settitle {text-align:center}
 
 <body lang="en">
 <h1 class="settitle">@title <small class="sc">HTML</small> <code class="code">test</code></h1>
+<hr>
 
 <div class="top-level-extent" id="Top">
 <h1 class="top" id="Top-of-_0040title-HTML-test">Top of @title <small class="sc">HTML</small> <code class="code">test</code></h1>

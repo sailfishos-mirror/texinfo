@@ -437,7 +437,7 @@ aa
 Top.
 
 Second paragraph.
-'],
+', {}, {'SHOW_TITLE' => 1}],
 ['shorttitlepage',
 '@setfilename html-shorttitlepage.info
 @shorttitlepage @@title @sc{html} @code{test}
@@ -448,7 +448,7 @@ Second paragraph.
 Top.
 
 Second paragraph.
-'],
+', {}, {'SHOW_TITLE' => 1}],
 ['html_in_copying',
 '
 @copying
@@ -506,7 +506,7 @@ In top.
 
 @contents
 
-', {}, {'CONTENTS_OUTPUT_LOCATION' => 'after_title'}],
+', {}, {'SHOW_TITLE' => 1, 'CONTENTS_OUTPUT_LOCATION' => 'after_title'}],
 ['text_before_top_and_summarycontents_after_title',
 '
 Some text before top
@@ -520,7 +520,7 @@ In top.
 
 @summarycontents
 
-', {}, {'CONTENTS_OUTPUT_LOCATION' => 'after_title'}],
+', {}, {'SHOW_TITLE' => 1, 'CONTENTS_OUTPUT_LOCATION' => 'after_title'}],
 ['example_class',
 '@example perl
 foreach my $unclosed_file (keys(%unclosed_files)) @{

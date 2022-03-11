@@ -82,7 +82,7 @@ $result_trees{'sample_utf8'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'Sample'
+                      'text' => "Sample \x{793a}\x{4f8b} \x{104}\x{118} \x{f9}"
                     }
                   ],
                   'extra' => {
@@ -1620,7 +1620,7 @@ $result_trees{'sample_utf8'}{'contents'}[9]{'parent'} = $result_trees{'sample_ut
 $result_texis{'sample_utf8'} = '\\input texinfo   @c -*-texinfo-*-
 @c %**start of header
 @setfilename sample_utf8.info
-@settitle Sample
+@settitle Sample 示例 ĄĘ ù
 @documentencoding UTF-8
 @c %**end of header
 
