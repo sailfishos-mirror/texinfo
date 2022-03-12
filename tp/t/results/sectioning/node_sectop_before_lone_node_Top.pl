@@ -560,10 +560,6 @@ $result_converted{'docbook'}->{'node_sectop_before_lone_node_Top'} = '<chapter l
 
 <para>in node before
 </para>
-<anchor id="Top"/>
-
-<para>in node Top
-</para>
 </chapter>
 <chapter label="1" id="chap">
 <title>chap</title>

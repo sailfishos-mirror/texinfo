@@ -369,6 +369,10 @@ $result_converted{'html'}->{'unnumbered_before_top_node'} = '<!DOCTYPE html>
 ';
 
 
-$result_converted{'docbook'}->{'unnumbered_before_top_node'} = '';
+$result_converted{'docbook'}->{'unnumbered_before_top_node'} = '<chapter label="">
+<title>before nodes</title>
+
+</chapter>
+';
 
 1;

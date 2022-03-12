@@ -519,7 +519,6 @@ $result_converted{'docbook'}->{'section_before_after_top_node_last_node'} = '<ch
 
 </chapter>
 <anchor id="node-after"/>
-</chapter>
 ';
 
 

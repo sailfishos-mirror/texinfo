@@ -591,10 +591,6 @@ $result_converted{'docbook'}->{'section_before_top'} = '<sect1 label="1" id="sec
 <title>section</title>
 
 </sect1>
-<sect1 label="" id="Top">
-<title>top</title>
-
-</sect1>
 ';
 
 1;

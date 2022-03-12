@@ -953,11 +953,6 @@ $result_converted{'docbook'}->{'section_chapter_before_top_nodes'} = '<sect1 lab
 
 
 </sect1>
-<sect1 label="" id="Top">
-<title>top</title>
-
-
-</sect1>
 ';
 
 

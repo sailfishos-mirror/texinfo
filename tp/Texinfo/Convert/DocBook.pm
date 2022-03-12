@@ -282,6 +282,10 @@ sub convert($$)
   if (! defined($self->{'lang_stack'})) {
     $self->{'lang_stack'} = [''];
   }
+  # could even set to 0 if defined?
+  $self->{'in_skipped_node_top'} = 0
+    if (! defined($self->{'in_skipped_node_top'}));
+
   return $self->convert_document_sections($root);
 }
 
@@ -345,7 +349,7 @@ sub output($$)
   }
 
   $self->{'lang_stack'} = [];
-  $self->{'in_skipped_node_top'} = undef;
+  $self->{'in_skipped_node_top'} = 0;
   my $lang = $DEFAULT_LANG;
   $self->set_global_document_commands('preamble', ['documentlanguage']);
   if (defined($self->get_conf('documentlanguage'))) {
@@ -623,6 +627,7 @@ sub _convert_argument_and_end_line($$)
   return ($converted, $end_line);
 }
 
+my $debug_global_element_nr = 0;
 
 
 sub _convert($$;$);
@@ -632,14 +637,19 @@ sub _convert($$;$)
   my $self = shift;
   my $element = shift;
 
+  my $debug_element_nr;
   #if (1) {
-  if (0) { # too verbose even for debugging, but for the bottom line ...
-    warn "root\n";
-    warn "  Command: $element->{'cmdname'}\n" if ($element->{'cmdname'});
-    warn "  Type: $element->{'type'}\n" if ($element->{'type'});
-    warn "  Text: $element->{'text'}\n" if (defined($element->{'text'}));
-    #warn "  Special def_command: $element->{'extra'}->{'def_command'}\n"
-    #  if (defined($element->{'extra'}) and $element->{'extra'}->{'def_command'});
+  if (0) { # verbose even for debugging
+    $debug_element_nr = $debug_global_element_nr++;
+    print STDERR "element $debug_element_nr";
+    print STDERR " cmd: $element->{'cmdname'}," if ($element->{'cmdname'});
+    print STDERR " type: $element->{'type'}" if ($element->{'type'});
+    my $text = $element->{'text'};
+    if (defined($text)) {
+      $text =~ s/\n/\\n/;
+      print STDERR " text: $text";
+    }
+    print STDERR "\n";
   }
 
   return '' if ($element->{'type'} and $ignored_types{$element->{'type'}});
@@ -779,11 +789,11 @@ sub _convert($$;$)
         if ($Texinfo::Common::root_commands{$element->{'cmdname'}}) {
           if ($self->get_conf('NO_TOP_NODE_OUTPUT')) {
             if ($element->{'cmdname'} eq 'node') {
-              if (not defined($self->{'in_skipped_node_top'})
-                  and $element->{'extra'}
+              if ($element->{'extra'}
                   and $element->{'extra'}->{'normalized'} eq 'Top') {
                 $self->{'in_skipped_node_top'} = 1;
-              } else {
+              } elsif (defined($self->{'in_skipped_node_top'})
+                       and $self->{'in_skipped_node_top'} == 1) {
                 $self->{'in_skipped_node_top'} = -1;
               }
             }
@@ -795,7 +805,7 @@ sub _convert($$;$)
               $result .= "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>\n";
             }
           } else {
-            # start the section at the associated or at the sectioning command
+            # start the section at the associated node or at the sectioning command
             # if there is no associated node
             my $section_element;
             if ($element->{'cmdname'} eq 'node') {
@@ -1546,7 +1556,10 @@ sub _convert($$;$)
       $result .= $self->{'pending_prepend'};
       delete $self->{'pending_prepend'};
     }
+    #my $nr = -1;
     foreach my $content (@{$element->{'contents'}}) {
+      #$nr++;
+      #print STDERR "C$debug_element_nr[$nr] ".Texinfo::Common::debug_print_element_short($content)."\n";
       $result .= $self->_convert($content);
     }
     pop @{$self->{'document_context'}->[-1]->{'monospace'}}
@@ -1589,21 +1602,9 @@ sub _convert($$;$)
     my $format = pop @{$self->{'document_context'}->[-1]->{'preformatted_stack'}};
     die "BUG $format ne $docbook_preformatted_formats{$element->{'type'}}"
       if ($format ne $docbook_preformatted_formats{$element->{'type'}});
-
-  # The command is closed either when the corresponding tree element
-  # is done, and the command is not associated to an element, or when
-  # the element is closed.
-  } elsif (($element->{'type'} and $element->{'type'} eq 'unit'
-            and $element->{'extra'} and $element->{'extra'}->{'unit_command'})
-           or ($element->{'cmdname'}
-               and $Texinfo::Common::root_commands{$element->{'cmdname'}}
-               and $element->{'cmdname'} ne 'node'
-               and !($element->{'structure'}->{'associated_unit'}
-                     and $element->{'structure'}->{'associated_unit'}->{'extra'}
-                     and $element->{'structure'}->{'associated_unit'}->{'extra'}->{'unit_command'} eq $element))) {
-    if ($element->{'type'} and $element->{'type'} eq 'unit') {
-      $element = $element->{'extra'}->{'unit_command'};
-    }
+  # close sectioning command
+  } elsif ($element->{'cmdname'} and $element->{'cmdname'} ne 'node'
+           and $Texinfo::Common::root_commands{$element->{'cmdname'}}) {
     my $docbook_sectioning_element = $self->_docbook_section_element($element);
     if ($docbook_sectioning_element eq 'part'
         and !Texinfo::Common::is_content_empty($element)) {
