@@ -443,4 +443,7 @@ $result_converted{'xml'}->{'top_node_part_top'} = '<node name="Top" spaces=" "><
 </top>
 ';
 
+
+$result_converted{'docbook'}->{'top_node_part_top'} = '';
+
 1;

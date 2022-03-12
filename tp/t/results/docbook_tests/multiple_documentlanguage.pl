@@ -804,11 +804,7 @@ $result_floats{'multiple_documentlanguage'} = {};
 
 
 
-$result_converted{'docbook'}->{'multiple_documentlanguage'} = '<chapter label="" id="Top" lang="ja">
-<title>top</title>
-
-</chapter>
-<chapter label="1" id="chap" lang="ja">
+$result_converted{'docbook'}->{'multiple_documentlanguage'} = '<chapter label="1" id="chap" lang="ja">
 <title>Chap no new language</title>
 
 </chapter>

@@ -31,6 +31,10 @@ my @test_cases = (
 @end copying
 
 @node Top
+@top top
+
+@node chap
+@chapter Chap
 
 @defivar fr BBB CCC
 @error{}

@@ -874,11 +874,7 @@ $result_floats{'double_seeentry_seealso'} = {};
 
 
 
-$result_converted{'docbook'}->{'double_seeentry_seealso'} = '<chapter label="" id="Top">
-<title>top</title>
-
-</chapter>
-<chapter label="1" id="node-index">
+$result_converted{'docbook'}->{'double_seeentry_seealso'} = '<chapter label="1" id="node-index">
 <title>Chapter Index</title>
 
 <indexterm role="cp"><primary>aaa</primary><see>ccc</see></indexterm>

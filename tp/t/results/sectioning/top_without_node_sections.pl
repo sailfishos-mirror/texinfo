@@ -654,4 +654,17 @@ $result_converted{'html'}->{'top_without_node_sections'} = '<!DOCTYPE html>
 </html>
 ';
 
+
+$result_converted{'docbook'}->{'top_without_node_sections'} = '<chapter label="">
+<title>top section</title>
+<para>Top section
+</para>
+</chapter>
+<chapter label="1" id="second">
+<title>Chapter</title>
+
+<para>Text of chapter
+</para></chapter>
+';
+
 1;

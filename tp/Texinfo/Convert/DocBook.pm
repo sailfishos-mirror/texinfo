@@ -57,6 +57,7 @@ my %defaults = (
   'OPEN_QUOTE_SYMBOL'    => '&#'.hex('2018').';',
   'CLOSE_QUOTE_SYMBOL'   => '&#'.hex('2019').';',
   'USE_NUMERIC_ENTITY'   => 1,
+  'NO_TOP_NODE_OUTPUT'   => 1,
 );
 
 my @docbook_image_extensions
@@ -344,6 +345,7 @@ sub output($$)
   }
 
   $self->{'lang_stack'} = [];
+  $self->{'in_skipped_node_top'} = undef;
   my $lang = $DEFAULT_LANG;
   $self->set_global_document_commands('preamble', ['documentlanguage']);
   if (defined($self->get_conf('documentlanguage'))) {
@@ -774,63 +776,76 @@ sub _convert($$;$)
           return '';
         }
       } elsif ($type eq 'line') {
-        if ($element->{'cmdname'} eq 'node'
-            and (not $element->{'extra'}
-                 or not $element->{'extra'}->{'associated_section'})) {
-          if ($element->{'extra'} and defined($element->{'extra'}->{'normalized'})) {
-            $result .= "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>\n";
-          }
-        } elsif ($Texinfo::Common::root_commands{$element->{'cmdname'}}) {
-          # start the section at the associated or at the sectioning command
-          # if there is no associated node
-          my $section_element;
-          if ($element->{'cmdname'} eq 'node') {
-            $section_element = $element->{'extra'}->{'associated_section'};
-          } elsif (not $element->{'extra'}
-                   or not $element->{'extra'}->{'associated_node'}) {
-            $section_element = $element;
-          }
-          if ($section_element) {
-            my $section_attribute = $attribute_text;
-            # FIXME it is not clear that a label should be set for
-            # @appendix* or @chapter/@*section as the formatter should be
-            # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
-            # having a label (empty) is important.
-            my $label = '';
-            if (defined($section_element->{'structure'}->{'section_number'})
-              and ($self->get_conf('NUMBER_SECTIONS')
-                   or !defined($self->get_conf('NUMBER_SECTIONS')))) {
-              # Looking at docbook2html output, Appendix is appended in the
-              # section title, so only the letter is used.
-              $label = $section_element->{'structure'}->{'section_number'};
-            }
-            my $docbook_sectioning_element
-               = $self->_docbook_section_element($section_element);
-            if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
-              $section_attribute .= " label=\"$label\"";
-            }
-            if ($section_element->{'extra'} and $section_element->{'extra'}->{'associated_node'}) {
-              $section_attribute
-               .= " id=\"$section_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
-            }
-            my $language = '';
-            if (defined($self->get_conf('documentlanguage'))) {
-              $language = $self->get_conf('documentlanguage');
-              if ($self->{'lang_stack'}->[-1] ne $self->get_conf('documentlanguage')) {
-                $section_attribute .= ' lang="'.$self->get_conf('documentlanguage').'"';
+        if ($Texinfo::Common::root_commands{$element->{'cmdname'}}) {
+          if ($self->get_conf('NO_TOP_NODE_OUTPUT')) {
+            if ($element->{'cmdname'} eq 'node') {
+              if (not defined($self->{'in_skipped_node_top'})
+                  and $element->{'extra'}
+                  and $element->{'extra'}->{'normalized'} eq 'Top') {
+                $self->{'in_skipped_node_top'} = 1;
+              } else {
+                $self->{'in_skipped_node_top'} = -1;
               }
             }
-            push @{$self->{'lang_stack'}}, $language;
-            $result .= "<$docbook_sectioning_element${section_attribute}>\n";
-            if ($section_element->{'args'} and $section_element->{'args'}->[0]) {
-              my ($arg, $end_line) = $self->_convert_argument_and_end_line($section_element);
-              $result .= "<title>$arg</title>$end_line";
-              chomp ($result);
-              $result .= "\n";
+          }
+          if ($element->{'cmdname'} eq 'node'
+              and (not $element->{'extra'}
+                   or not $element->{'extra'}->{'associated_section'})) {
+            if ($element->{'extra'} and defined($element->{'extra'}->{'normalized'})) {
+              $result .= "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>\n";
             }
-            if ($docbook_sectioning_element eq 'part'
-                and !Texinfo::Common::is_content_empty($section_element)) {
-              $result .= "<partintro>\n";
+          } else {
+            # start the section at the associated or at the sectioning command
+            # if there is no associated node
+            my $section_element;
+            if ($element->{'cmdname'} eq 'node') {
+              $section_element = $element->{'extra'}->{'associated_section'};
+            } elsif (not $element->{'extra'}
+                     or not $element->{'extra'}->{'associated_node'}) {
+              $section_element = $element;
+            }
+            if ($section_element) {
+              my $section_attribute = $attribute_text;
+              # FIXME it is not clear that a label should be set for
+              # @appendix* or @chapter/@*section as the formatter should be
+              # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
+              # having a label (empty) is important.
+              my $label = '';
+              if (defined($section_element->{'structure'}->{'section_number'})
+                and ($self->get_conf('NUMBER_SECTIONS')
+                     or !defined($self->get_conf('NUMBER_SECTIONS')))) {
+                # Looking at docbook2html output, Appendix is appended in the
+                # section title, so only the letter is used.
+                $label = $section_element->{'structure'}->{'section_number'};
+              }
+              my $docbook_sectioning_element
+                 = $self->_docbook_section_element($section_element);
+              if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
+                $section_attribute .= " label=\"$label\"";
+              }
+              if ($section_element->{'extra'} and $section_element->{'extra'}->{'associated_node'}) {
+                $section_attribute
+                 .= " id=\"$section_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
+              }
+              my $language = '';
+              if (defined($self->get_conf('documentlanguage'))) {
+                $language = $self->get_conf('documentlanguage');
+                if ($self->{'lang_stack'}->[-1] ne $self->get_conf('documentlanguage')) {
+                  $section_attribute .= ' lang="'.$self->get_conf('documentlanguage').'"';
+                }
+              }
+              push @{$self->{'lang_stack'}}, $language;
+              $result .= "<$docbook_sectioning_element${section_attribute}>\n";
+              if ($section_element->{'args'} and $section_element->{'args'}->[0]) {
+                my ($arg, $end_line) = $self->_convert_argument_and_end_line($section_element);
+                $result .= "<title>$arg</title>$end_line";
+                chomp ($result);
+                $result .= "\n";
+              }
+              if ($docbook_sectioning_element eq 'part'
+                  and !Texinfo::Common::is_content_empty($section_element)) {
+                $result .= "<partintro>\n";
+              }
             }
           }
         } elsif ($Texinfo::Common::sectioning_heading_commands{$element->{'cmdname'}}) {
@@ -1619,7 +1634,14 @@ sub _convert($$;$)
     # markup
     return '';
   }
-  
+
+  if ($element->{'cmdname'}
+      and $Texinfo::Common::root_commands{$element->{'cmdname'}}
+      and defined($self->{'in_skipped_node_top'})
+      and $self->{'in_skipped_node_top'} == 1) {
+    return '';
+  }
+
   #warn " returning $result\n";
   return $result;
 }

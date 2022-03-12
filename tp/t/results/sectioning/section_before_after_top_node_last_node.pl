@@ -514,6 +514,15 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top section</a> &nbsp; </p>
 ';
 
 
+$result_converted{'docbook'}->{'section_before_after_top_node_last_node'} = '<chapter label="">
+<title>before</title>
+
+</chapter>
+<anchor id="node-after"/>
+</chapter>
+';
+
+
 $result_converted{'latex'}->{'section_before_after_top_node_last_node'} = '
 \\begin{document}
 \\chapter*{before}

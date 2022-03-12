@@ -32,7 +32,7 @@ my $test_text =
 
 '.$sections_no_top_text;
 
-my $chapter_sections_text = 
+my $chapter_sections_text =
 '@unnumbered unnumbered
 
 @chapter First chapter
@@ -50,12 +50,12 @@ my $chapter_sections_text =
 @chapter Chapter 2
 ';
 
-my $top_chapter_sections_text = 
+my $top_chapter_sections_text =
 '@top top
 
 '.$chapter_sections_text;
 
-my $unnumbered_top_without_node_text = 
+my $unnumbered_top_without_node_text =
 '@node a node,,,(dir)
 @unnumbered unnumbered
 
@@ -516,7 +516,7 @@ $nodes_after_top_before_chapter_text
 '],
 # automatic directions are confused by the following setup
 # as @node Top next is with the first non Top node which
-# happens to be before.  Then the next node for the 
+# happens to be before.  Then the next node for the
 # node before node is obtained with toplevel next which is
 # the node associated with the chapter, after the Top node!
 ['node_sectop_before_lone_node_Top',
@@ -1249,8 +1249,8 @@ $unnumbered_top_without_node_text,
 @end menu
 
 @node first
-',{'test_split' => 'node'}, 
-  {'TOP_NODE_UP' => '@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals', 
+',{'test_split' => 'node'},
+  {'TOP_NODE_UP' => '@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals',
    'TOP_NODE_UP_URL' => 'http://www.gnu.org/manual/'}
 ],
 ['non_automatic_top_node_up_url',
@@ -1273,7 +1273,7 @@ $unnumbered_top_without_node_text,
 @end menu
 
 @node first, , Top, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
-',{'test_split' => 'node'}, 
+',{'test_split' => 'node'},
   {'TOP_NODE_UP' => '@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals'}
 ],
 ['non_automatic_top_node_up_and_url',
@@ -2057,10 +2057,13 @@ foreach my $test (@test_out_files) {
   $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
 }
 
-my @xml_tests_converted_tests = ('section_before_part', 'chapter_before_part', 
+my @xml_tests_converted_tests = ('section_before_part', 'chapter_before_part',
   'part_before_top', 'double_part', 'section_in_unnumbered_plaintext',
   'two_unnumbered_no_argument', 'two_nodes_between_chapters',
   'chapter_before_and_after_part');
+
+my @docbook_tests_converted_tests = ('node_sectop_before_chapter_no_node',
+  'node_sectop_before_lone_node_Top');
 
 my @latex_tests_converted_tests = ('two_nodes_at_the_end',
   'node_sectop_before_chapter_no_node',
@@ -2072,8 +2075,10 @@ my @file_latex_tests_converted_tests = ('node_sectop_before_chapter_no_node',
 foreach my $test (@tests_converted) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html';
-  push @{$test->[2]->{'test_formats'}}, 'xml' 
+  push @{$test->[2]->{'test_formats'}}, 'xml'
     if (grep {$_ eq $test->[0]} @xml_tests_converted_tests);
+  push @{$test->[2]->{'test_formats'}}, 'docbook'
+    if (grep {$_ eq $test->[0]} @docbook_tests_converted_tests);
   push @{$test->[2]->{'test_formats'}}, 'latex'
     if (grep {$_ eq $test->[0]} @latex_tests_converted_tests);
   push @{$test->[2]->{'test_formats'}}, 'file_latex'
@@ -2082,11 +2087,11 @@ foreach my $test (@tests_converted) {
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
-my @xml_tests_info_tests = ('part_chapter_after_top', 
+my @xml_tests_info_tests = ('part_chapter_after_top',
   'part_node_after_top', 'part_node_before_top',
   'chapter_between_nodes', 'nodes_no_node_top_explicit_directions',
   'part_node_chapter_after_top', 'node_part_chapter_after_top',
-  'node_part_chapter_after_chapter', 'section_before_top', 
+  'node_part_chapter_after_chapter', 'section_before_top',
   'section_node_before_part', 'top_node_part_top',
   'chapter_node_before_and_after_part',
   'more_nodes_than_sections', 'part_node_chapter_appendix',
@@ -2095,7 +2100,15 @@ my @xml_tests_info_tests = ('part_chapter_after_top',
   'explicit_node_directions', 'nodes_after_top_before_chapter_nodes',
   'double_node_anchor_float');
 
-my @docbook_tests_info_tests = ('double_node_anchor_float');
+my @docbook_tests_info_tests = (
+  'chapter_between_nodes', 'section_before_after_top_node_last_node',
+  'section_before_after_top_node', 'part_node_before_top part_node_after_top',
+  'part_chapter_after_top node_part_chapter_after_top',
+  'node_part_chapter_after_chapter',
+  'part_node_chapter_appendix part_node_part_appendix',
+  'unnumbered_before_top_node', 'section_before_top',
+  'section_chapter_before_top_nodes', 'top_node_part_top',
+  'top_without_node_sections', 'double_node_anchor_float');
 
 my @latex_tests_info_tests = ('chapter_between_nodes',
   'section_before_after_top_node_last_node',
@@ -2110,7 +2123,7 @@ my @file_latex_tests_info_tests = ('chapter_between_nodes',
 foreach my $test (@tests_info) {
   push @{$test->[2]->{'test_formats'}}, 'info';
   push @{$test->[2]->{'test_formats'}}, 'html';
-  push @{$test->[2]->{'test_formats'}}, 'xml' 
+  push @{$test->[2]->{'test_formats'}}, 'xml'
     if (grep {$_ eq $test->[0]} @xml_tests_info_tests);
   push @{$test->[2]->{'test_formats'}}, 'docbook'
     if (grep {$_ eq $test->[0]} @docbook_tests_info_tests);
@@ -2124,13 +2137,15 @@ foreach my $test (@tests_info) {
   }
 }
 
-my @xml_tests_cases_tests = ('part_before_section', 
+my @xml_tests_cases_tests = ('part_before_section',
 'section_before_chapter',
-'top_part_chapter', 'section_before_top_no_node', 
+'top_part_chapter', 'section_before_top_no_node',
 'section_chapter_before_top', 'sectioning_part_appendix',
 'part_chapter_appendix', 'sectioning_part_appendix_no_top',
 'top_chapter_sections', 'chapter_sections',
 'more_sections_than_nodes');
+
+my @docbook_tests_cases_tests = ('hole_in_sectioning');
 
 my @latex_tests_cases_tests = ('loop_nodes', 'lone_Top_node',
  'nodes_before_top', 'nodes_before_after_top',
@@ -2143,6 +2158,8 @@ my @file_latex_tests_cases_tests = ('loop_nodes', 'lone_Top_node',
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'xml'
     if (grep {$_ eq $test->[0]} @xml_tests_cases_tests);
+  push @{$test->[2]->{'test_formats'}}, 'docbook'
+    if (grep {$_ eq $test->[0]} @docbook_tests_cases_tests);
   push @{$test->[2]->{'test_formats'}}, 'latex'
     if (grep {$_ eq $test->[0]} @latex_tests_cases_tests);
   if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests) {
@@ -2153,7 +2170,7 @@ foreach my $test (@test_cases) {
 
 our ($arg_test_case, $arg_generate, $arg_debug);
 
-run_all ('sectioning', [@test_cases, @tests_converted, 
+run_all ('sectioning', [@test_cases, @tests_converted,
                         @test_out_files, @tests_info], $arg_test_case,
    $arg_generate, $arg_debug);
 

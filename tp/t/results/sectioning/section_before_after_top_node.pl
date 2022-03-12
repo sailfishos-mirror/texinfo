@@ -428,6 +428,13 @@ $result_converted{'html'}->{'section_before_after_top_node'} = '<!DOCTYPE html>
 ';
 
 
+$result_converted{'docbook'}->{'section_before_after_top_node'} = '<chapter label="">
+<title>before</title>
+
+</chapter>
+';
+
+
 $result_converted{'latex'}->{'section_before_after_top_node'} = '
 \\begin{document}
 \\chapter*{before}

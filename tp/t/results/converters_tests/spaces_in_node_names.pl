@@ -1109,10 +1109,7 @@ $result_converted{'xml'}->{'spaces_in_node_names'} = '<node name="Top" spaces=" 
 </para>';
 
 
-$result_converted{'docbook'}->{'spaces_in_node_names'} = '<anchor id="Top"/>
-
-
-<anchor id="a--"/>
+$result_converted{'docbook'}->{'spaces_in_node_names'} = '<anchor id="a--"/>
 
 <anchor id="b-"/>
 

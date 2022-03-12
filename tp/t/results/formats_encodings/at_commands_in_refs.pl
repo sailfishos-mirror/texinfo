@@ -23425,12 +23425,7 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node name="Top" spaces=" "
 ';
 
 
-$result_converted{'docbook'}->{'at_commands_in_refs'} = '<chapter label="" id="Top">
-<title>Top</title>
-
-
-</chapter>
-<chapter label="1" id="-_007b-_007d">
+$result_converted{'docbook'}->{'at_commands_in_refs'} = '<chapter label="1" id="-_007b-_007d">
 <title> { }</title>
 
 </chapter>

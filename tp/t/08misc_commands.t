@@ -297,6 +297,10 @@ aaa
 '],
 ['ref_in_center',
 '@node Top
+@top top
+
+@node chap
+@chapter Chapter
 
 @center @ref{Top}
 
@@ -402,6 +406,9 @@ Titlepage
 @node Top 
 @top test quotes
 
+@node chap
+@chapter Chapter
+
 @allquotes{}
 
 @example
@@ -414,6 +421,9 @@ Titlepage
 
 @node Top  @comment @node Top
 @top top element@  @comment @top
+
+@node chap @comment @node chap
+@chapter Chapter@  @comment @chapter
 
 @frenchspacing on @c comment frenchspacing
 

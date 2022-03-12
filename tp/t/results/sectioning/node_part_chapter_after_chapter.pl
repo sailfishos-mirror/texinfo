@@ -1455,4 +1455,20 @@ $result_converted{'xml'}->{'node_part_chapter_after_chapter'} = '<node name="Top
 </part>
 ';
 
+
+$result_converted{'docbook'}->{'node_part_chapter_after_chapter'} = '<chapter label="1" id="chapter-node">
+<title>chapter node</title>
+
+
+</chapter>
+<chapter label="2" id="part-chapter-node">
+<title>chapter with part node</title>
+<part label="">
+<title>part</title>
+
+
+</chapter>
+</part>
+';
+
 1;

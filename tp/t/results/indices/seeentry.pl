@@ -758,11 +758,7 @@ $result_floats{'seeentry'} = {};
 
 
 
-$result_converted{'docbook'}->{'seeentry'} = '<chapter label="" id="Top">
-<title></title>
-
-</chapter>
-<chapter label="1" id="chapter-index">
+$result_converted{'docbook'}->{'seeentry'} = '<chapter label="1" id="chapter-index">
 <title>Index</title>
 
 <indexterm role="cp"><primary>aaa</primary><see>bbb</see></indexterm>

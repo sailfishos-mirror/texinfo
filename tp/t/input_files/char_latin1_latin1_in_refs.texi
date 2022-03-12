@@ -7,8 +7,6 @@
 @node Top
 @top top
 
-@printindex cp
-
 @menu
 * ä ë ï ö ü ÿ Ä Ë Ï Ö Ü::
 * é::
@@ -19,6 +17,8 @@
 
 @node ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
 @chapter ä ë ï ö ü ÿ Ä Ë Ï Ö Ü
+
+@printindex cp
 
 @node é
 @chapter é

@@ -836,6 +836,16 @@ $result_converted{'xml'}->{'chapter_between_nodes'} = '<setfilename file="chapte
 ';
 
 
+$result_converted{'docbook'}->{'chapter_between_nodes'} = '<sect1 label="1.1" id="section-node">
+<title>section</title>
+
+<para>section.
+</para>
+</sect1>
+</chapter>
+';
+
+
 $result_converted{'latex'}->{'chapter_between_nodes'} = '
 \\begin{document}
 \\section{section}

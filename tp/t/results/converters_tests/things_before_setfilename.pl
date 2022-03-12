@@ -976,6 +976,83 @@ $result_trees{'things_before_setfilename'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'spaces_before_argument' => ' '
+      },
+      'parent' => {},
+      'source_info' => {
+        'file_name' => 'things_before_setfilename.texi',
+        'line_nr' => 47,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'chap'
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [],
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'chap'
+          }
+        ],
+        'normalized' => 'chap',
+        'spaces_before_argument' => ' '
+      },
+      'parent' => {},
+      'source_info' => {
+        'file_name' => 'things_before_setfilename.texi',
+        'line_nr' => 49,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Chapter'
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'chapter',
+      'contents' => [
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'contents' => [
@@ -1011,7 +1088,7 @@ $result_trees{'things_before_setfilename'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename.texi',
-                'line_nr' => 50,
+                'line_nr' => 53,
                 'macro' => ''
               }
             },
@@ -1064,7 +1141,7 @@ $result_trees{'things_before_setfilename'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename.texi',
-                'line_nr' => 53,
+                'line_nr' => 56,
                 'macro' => ''
               }
             },
@@ -1090,7 +1167,7 @@ $result_trees{'things_before_setfilename'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => 'things_before_setfilename.texi',
-        'line_nr' => 47,
+        'line_nr' => 50,
         'macro' => ''
       }
     }
@@ -1241,25 +1318,34 @@ $result_trees{'things_before_setfilename'}{'contents'}[1]{'parent'} = $result_tr
 $result_trees{'things_before_setfilename'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2]{'args'}[0];
 $result_trees{'things_before_setfilename'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2];
 $result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[1];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'label'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[1];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[1];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[3];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'label'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'};
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[3];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[3];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2];
-$result_trees{'things_before_setfilename'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[2];
 $result_trees{'things_before_setfilename'}{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename'};
+$result_trees{'things_before_setfilename'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[3]{'args'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[3];
+$result_trees{'things_before_setfilename'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[3]{'parent'} = $result_trees{'things_before_setfilename'};
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4]{'args'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'contents'}[1];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'extra'}{'label'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'contents'}[1];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'label'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'};
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[4];
+$result_trees{'things_before_setfilename'}{'contents'}[4]{'parent'} = $result_trees{'things_before_setfilename'};
 
 $result_texis{'things_before_setfilename'} = '\\input texinfo
 
@@ -1309,6 +1395,9 @@ In float
 @node Top
 @top top section
 
+@node chap
+@chapter Chapter
+
 Ref to anchor
 @ref{An anchor}
 
@@ -1348,6 +1437,9 @@ In float
 top section
 ***********
 
+1 Chapter
+*********
+
 Ref to anchor
 An anchor
 
@@ -1366,10 +1458,32 @@ $result_sectioning{'things_before_setfilename'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'structure' => {}
           }
         },
         'structure' => {
+          'section_childs' => [
+            {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'associated_node' => {
+                  'cmdname' => 'node',
+                  'extra' => {
+                    'normalized' => 'chap'
+                  },
+                  'structure' => {}
+                }
+              },
+              'structure' => {
+                'section_level' => 1,
+                'section_number' => 1,
+                'section_up' => {},
+                'toplevel_prev' => {},
+                'toplevel_up' => {}
+              }
+            }
+          ],
           'section_level' => 0,
           'section_up' => {}
         }
@@ -1378,6 +1492,9 @@ $result_sectioning{'things_before_setfilename'} = {
     'section_level' => -1
   }
 };
+$result_sectioning{'things_before_setfilename'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'things_before_setfilename'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'things_before_setfilename'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'things_before_setfilename'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'things_before_setfilename'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'things_before_setfilename'}{'structure'}{'section_childs'}[0];
 $result_sectioning{'things_before_setfilename'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'things_before_setfilename'};
 
 $result_nodes{'things_before_setfilename'} = {
@@ -1389,14 +1506,36 @@ $result_nodes{'things_before_setfilename'} = {
       'structure' => {}
     },
     'normalized' => 'Top'
+  },
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {},
+          'structure' => {
+            'section_number' => 1
+          }
+        },
+        'normalized' => 'chap'
+      },
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    }
   }
 };
+$result_nodes{'things_before_setfilename'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'things_before_setfilename'};
+$result_nodes{'things_before_setfilename'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'things_before_setfilename'};
 
 $result_menus{'things_before_setfilename'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'things_before_setfilename'} = [
@@ -1476,6 +1615,9 @@ $result_indices_sort_strings{'things_before_setfilename'} = {
 $result_converted{'plaintext'}->{'things_before_setfilename'} = 'top section
 ***********
 
+1 Chapter
+*********
+
 Ref to anchor *note An anchor::
 
    Ref to footnote anchor *note Anchor in footnote::
@@ -1498,6 +1640,12 @@ $result_converted{'html'}->{'things_before_setfilename'} = '<!DOCTYPE html>
 
 <link href="#Top" rel="start" title="Top">
 <link href="#Top" rel="index" title="Top">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<style type="text/css">
+<!--
+ul.toc-numbered-mark {list-style: none}
+-->
+</style>
 
 
 </head>
@@ -1505,7 +1653,29 @@ $result_converted{'html'}->{'things_before_setfilename'} = '<!DOCTYPE html>
 <body lang="en">
 
 <div class="top-level-extent" id="Top">
+<div class="nav-panel">
+<p>
+Next: <a href="#chap" accesskey="n" rel="next">Chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
+</div>
 <h1 class="top" id="top-section">top section</h1>
+
+<div class="element-contents" id="SEC_Contents">
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="toc-numbered-mark">
+  <li><a id="toc-Chapter" href="#chap">1 Chapter</a></li>
+</ul>
+</div>
+</div>
+<hr>
+<div class="chapter-level-extent" id="chap">
+<div class="nav-panel">
+<p>
+Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
+</div>
+<h2 class="chapter" id="Chapter">1 Chapter</h2>
 
 <p>Ref to anchor
 <a class="ref" href="#An-anchor">An anchor</a>
@@ -1513,6 +1683,7 @@ $result_converted{'html'}->{'things_before_setfilename'} = '<!DOCTYPE html>
 <p>Ref to footnote anchor
 <a class="ref" href="#Anchor-in-footnote">Anchor in footnote</a>
 </p>
+</div>
 </div>
 
 
@@ -1567,8 +1738,12 @@ $result_converted{'xml'}->{'things_before_setfilename'} = '<preamblebeforebeginn
 
 <setfilename file="things_before_setfilename.info" spaces=" ">things_before_setfilename.info </setfilename>
 
-<node name="Top" spaces=" "><nodename>Top</nodename></node>
+<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top spaces=" "><sectiontitle>top section</sectiontitle>
+
+</top>
+<node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
 
 <para>Ref to anchor
 <ref label="An-anchor"><xrefnodename>An anchor</xrefnodename></ref>
@@ -1576,12 +1751,12 @@ $result_converted{'xml'}->{'things_before_setfilename'} = '<preamblebeforebeginn
 <para>Ref to footnote anchor
 <ref label="Anchor-in-footnote"><xrefnodename>Anchor in footnote</xrefnodename></ref>
 </para>
-</top>
+</chapter>
 ';
 
 
-$result_converted{'docbook'}->{'things_before_setfilename'} = '<chapter label="" id="Top">
-<title>top section</title>
+$result_converted{'docbook'}->{'things_before_setfilename'} = '<chapter label="1" id="chap">
+<title>Chapter</title>
 
 <para>Ref to anchor
 <link linkend="An-anchor">An anchor</link>
@@ -1597,10 +1772,20 @@ $result_converted{'info'}->{'things_before_setfilename'} = 'This is things_befor
 things_before_setfilename.texi.
 
 
-File: things_before_setfilename.info,  Node: Top,  Up: (dir)
+File: things_before_setfilename.info,  Node: Top,  Next: chap,  Up: (dir)
 
 top section
 ***********
+
+* Menu:
+
+* chap::
+
+
+File: things_before_setfilename.info,  Node: chap,  Prev: Top,  Up: Top
+
+1 Chapter
+*********
 
 Ref to anchor *note An anchor::
 
@@ -1610,6 +1795,7 @@ Ref to anchor *note An anchor::
 
 Tag Table:
 Node: Top87
+Node: chap208
 
 End Tag Table
 

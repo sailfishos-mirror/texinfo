@@ -586,4 +586,15 @@ $result_converted{'xml'}->{'section_before_top'} = '<node name="section-node" sp
 </unnumberedsec>
 ';
 
+
+$result_converted{'docbook'}->{'section_before_top'} = '<sect1 label="1" id="section-node">
+<title>section</title>
+
+</sect1>
+<sect1 label="" id="Top">
+<title>top</title>
+
+</sect1>
+';
+
 1;

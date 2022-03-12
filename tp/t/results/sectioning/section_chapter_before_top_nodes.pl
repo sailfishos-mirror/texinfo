@@ -944,6 +944,23 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 ';
 
 
+$result_converted{'docbook'}->{'section_chapter_before_top_nodes'} = '<sect1 label="1" id="section-node">
+<title>section</title>
+
+</sect1>
+<sect1 label="2" id="chapter-node">
+<title>chapter</title>
+
+
+</sect1>
+<sect1 label="" id="Top">
+<title>top</title>
+
+
+</sect1>
+';
+
+
 $result_converted{'latex'}->{'section_chapter_before_top_nodes'} = '
 \\begin{document}
 \\section{section}

@@ -209,6 +209,8 @@ $top_in_ref_text
 @node chap
 @chapter @ref{node} just node
 
+@section for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})
+
 @section @ref{node, cross ref name}  node, crossref arg2
 
 @section @ref{@code{node},, @samp{title}}  code node, samptitle arg3
@@ -432,6 +434,10 @@ Line
 '],
 ['complex_nestings',
 '@node Top
+@top top
+
+@node chap
+@chapter Chapter
 
 @example
 deffs
@@ -468,6 +474,10 @@ explanation
 '],
 ['image_formatting',
 '@node Top
+@top top
+
+@node chap
+@chapter Chapter
 
 @code{@@image@{f--ile@}} @image{f--ile}
 @code{@@image@{f--ile,l--i@}} @image{f--ile,l--i}
@@ -503,6 +513,10 @@ in para
 '],
 ['footnote_no_number',
 '@node Top
+@top top
+
+@node chap
+@chapter Chapter
 
 Para@footnote{Footnote 1.}.
 
@@ -510,6 +524,10 @@ Para2@footnote{Footnote 2.}.
 ',{} , {'NUMBER_FOOTNOTES' => 0}],
 ['footnote_no_number_separate',
 '@node Top
+@top top
+
+@node chap
+@chapter Chapter
 
 Para@footnote{Footnote 1.}.
 
@@ -572,6 +590,10 @@ in example @r{in r---now @code{in co---de}}
 '],
 ['index_entry_in_preformatted',
 '@node Top
+@top top
+
+@node chap
+@chapter Chapter
 
 @example
 @cindex first
@@ -584,6 +606,10 @@ text2
 '],
 ['printindex_merged_indices_code_style',
 '@node Top
+@top top
+
+@node chap
+@chapter Chapter
 
 @synindex cp fn
 
@@ -617,10 +643,14 @@ discussion
 '],
 ['at_commands_in_raw',
 '@node Top
+@top top
 
 @macro othermacro{}
 Other macro
 @end macro
+
+@node chap
+@chapter Chapter
 
 @html
 <b>in b@footnote{in footnote}.</b>

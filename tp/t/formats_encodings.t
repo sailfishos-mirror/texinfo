@@ -95,6 +95,9 @@ my $weird_accents_text = '@documentencoding ISO-8859-1
 @node Top
 @top top
 
+@node chap
+@chapter Chapter
+
 @={@~{@dotless{i}}}
 
 @={@,{@~{n}}}

@@ -1,3 +1,13 @@
+2022-03-12  Patrice Dumas  <pertusus@free.fr>
+
+	Do not output Top node in DocBook
+
+	* NEWS, doc/texinfo.texi (The Top Node, HTML Customization Variables)
+	(Other Customization Variables), tp/Texinfo/Convert/DocBook.pm
+	(%defaults, _convert): do not output Top node in DocBook.  If
+	NO_TOP_NODE_OUTPUT is set to false, the Top node is output.  This
+	possibility may be temporary.
+
 2022-03-11  Patrice Dumas  <pertusus@free.fr>
 
 	Do not output text before node or sections in DocBook

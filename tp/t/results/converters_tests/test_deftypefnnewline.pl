@@ -3572,11 +3572,7 @@ $result_converted{'xml'}->{'test_deftypefnnewline'} = '<setfilename file="test_d
 ';
 
 
-$result_converted{'docbook'}->{'test_deftypefnnewline'} = '<chapter label="" id="Top">
-<title>top</title>
-
-</chapter>
-<chapter label="1" id="chapter">
+$result_converted{'docbook'}->{'test_deftypefnnewline'} = '<chapter label="1" id="chapter">
 <title>chap</title>
 
 <synopsis><indexterm role="fn"><primary>name</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <returnvalue>data-type</returnvalue> <function>name</function> <type>arguments...</type></synopsis>

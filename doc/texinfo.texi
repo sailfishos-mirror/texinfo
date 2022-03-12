@@ -2512,7 +2512,7 @@ main text of the document.
 The `Top' node is the node in which a reader enters an Info manual.
 As such, it should contain a very brief description of the manual
 (including the version number).  The contents of the `Top' node do
-not appear in printed output.
+not appear in printed output nor in DocBook output.
 
 @findex top
 It is conventional to write a @code{@@top} sectioning command
@@ -16542,7 +16542,7 @@ Output the built-in default CSS rules on the standard output and exit.
 @item SHOW_TITLE
 If set, output the title at the beginning of the document;
 default @samp{undef}.  If set to @samp{undef}, setting
-@code{NO_TOP_NODE_OUTPUT} also sets @code{SHOW_TITLE}.
+@code{NO_TOP_NODE_OUTPUT} also sets @code{SHOW_TITLE} for HTML.
 
 
 @item SIMPLE_MENU
@@ -16842,13 +16842,20 @@ avoid infinite recursions.
 If set do not output the Top node content.  The Top node is still
 parsed, but the content is discarded.  Not set in the default case
 for HTML.  If @code{SHOW_TITLE} is @samp{undef}, setting
-@code{NO_TOP_NODE_OUTPUT} also sets @code{SHOW_TITLE}.
+@code{NO_TOP_NODE_OUTPUT} also sets @code{SHOW_TITLE} for HTML.
 
 Setting @code{NO_TOP_NODE_OUTPUT}, which removes the Top node and adds
 a title page corresponds more to the formatting of a book.  Setting
 @code{NO_TOP_NODE_OUTPUT} to false, with @code{SHOW_TITLE} remaining
 @samp{undef}, and false, corresponds more to a document setup for browsing,
 with a direct access to the information at the Top node.
+
+For DocBook, @code{NO_TOP_NODE_OUTPUT} is set to true.  Setting
+@code{NO_TOP_NODE_OUTPUT} to false causes the Top node content to be
+output.  It is not recommended to output the Top node in DocBook as
+the title and copying informations are always output.  This option
+is kept for DocBook for compatibility, as before 2022 the Top node was output
+in DocBook.  It could be removed in the future.
 
 @item NO_USE_SETFILENAME
 If set, do not use @code{@@setfilename} to set the document name;

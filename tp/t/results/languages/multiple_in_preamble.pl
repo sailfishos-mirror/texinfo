@@ -1339,10 +1339,6 @@ $result_converted{'docbook_doc'}->{'multiple_in_preamble'} = '<?xml version="1.0
 <legalnotice><synopsis><indexterm role="vr"><primary>a de copying</primary></indexterm><phrase role="category"><emphasis role="bold">Instance Variable</emphasis>:</phrase> <ooclass><classname>copying</classname></ooclass> <property>a</property> <emphasis role="arg">b</emphasis></synopsis>
 <blockquote><para>greška&#8594;
 </para></blockquote></legalnotice></bookinfo>
-<chapter label="" id="Top">
-<title>top section</title>
-
-</chapter>
 <chapter label="1" id="chapter">
 <title>chap</title>
 

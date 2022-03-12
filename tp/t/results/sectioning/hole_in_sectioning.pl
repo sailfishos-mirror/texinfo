@@ -322,4 +322,26 @@ $result_errors{'hole_in_sectioning'} = [
 $result_floats{'hole_in_sectioning'} = {};
 
 
+
+$result_converted{'docbook'}->{'hole_in_sectioning'} = '<chapter label="">
+<title>Top</title>
+
+</chapter>
+<chapter label="1">
+<title>Chapter</title>
+
+<sect1 label="1.1">
+<title>section</title>
+
+<sect2 label="1.1.1">
+<title>subsubsection with no subsection above</title>
+
+</sect2>
+<sect2 label="1.1.2">
+<title>the subsection</title>
+</sect2>
+</sect1>
+</chapter>
+';
+
 1;

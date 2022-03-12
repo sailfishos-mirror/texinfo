@@ -1224,14 +1224,7 @@ $result_floats{'special_docbook_unnumbered'} = {};
 
 
 
-$result_converted{'docbook'}->{'special_docbook_unnumbered'} = '<chapter label="" id="Top">
-<title>top</title>
-
-<para>This is the top.
-</para>
-
-</chapter>
-<dedication id="Dedication">
+$result_converted{'docbook'}->{'special_docbook_unnumbered'} = '<dedication id="Dedication">
 <title>a dedication</title>
 
 <para>Dedicated

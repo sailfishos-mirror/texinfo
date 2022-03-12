@@ -1001,10 +1001,7 @@ $result_converted{'xml'}->{'spaces_in_empty_node_names'} = '<node name="Top" spa
 </para>';
 
 
-$result_converted{'docbook'}->{'spaces_in_empty_node_names'} = '<anchor id="Top"/>
-
-
-
+$result_converted{'docbook'}->{'spaces_in_empty_node_names'} = '
 
 
 <para><link linkend="--">&#160;&#160;</link>

@@ -4549,9 +4549,7 @@ $result_converted{'xml'}->{'top_in_ref'} = '<node name="Top" spaces=" "><nodenam
 </para>';
 
 
-$result_converted{'docbook'}->{'top_in_ref'} = '<anchor id="Top"/>
-
-<anchor id="refs-node"/>
+$result_converted{'docbook'}->{'top_in_ref'} = '<anchor id="refs-node"/>
 
 <para><literal>@ref{Top,cross ref name}</literal> <link linkend="Top">cross ref name</link>
 <literal>@ref{Top,,title}</literal> <link linkend="Top">title</link>

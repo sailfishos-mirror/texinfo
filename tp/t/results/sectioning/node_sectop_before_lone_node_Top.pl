@@ -555,6 +555,24 @@ Up: <a href="#node-before" accesskey="u" rel="up">top sectionning</a> &nbsp; </p
 ';
 
 
+$result_converted{'docbook'}->{'node_sectop_before_lone_node_Top'} = '<chapter label="" id="node-before">
+<title>top sectionning</title>
+
+<para>in node before
+</para>
+<anchor id="Top"/>
+
+<para>in node Top
+</para>
+</chapter>
+<chapter label="1" id="chap">
+<title>chap</title>
+
+<para>in chap
+</para></chapter>
+';
+
+
 $result_converted{'latex'}->{'node_sectop_before_lone_node_Top'} = '
 \\begin{document}
 \\part*{top sectionning}

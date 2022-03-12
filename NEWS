@@ -45,7 +45,9 @@ See the manual for detailed information.
      . do not add a title in the default case, SHOW_TITLE has to be set
        (or NO_TOP_NODE_OUTPUT). Set USE_TITLEPAGE_FOR_TITLE to true.
  . DocBook output:
-     . do not output text before the first @node or sectioning @-command.
+     . do not output Top node nor text before the first @node or sectioning
+       @-command.  NO_TOP_NODE_OUTPUT can be set to false to output Top node
+       for now.
 
 6.8 (3 July 2021)
 * Language

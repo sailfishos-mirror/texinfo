@@ -1862,12 +1862,7 @@ $result_converted{'xml'}->{'some_at_commands_in_ref_nodes'} = '
 ';
 
 
-$result_converted{'docbook'}->{'some_at_commands_in_ref_nodes'} = '<chapter label="" id="Top">
-<title>Top</title>
-
-
-</chapter>
-<chapter label="1" id="A-SC-_00d1-_00c5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1">
+$result_converted{'docbook'}->{'some_at_commands_in_ref_nodes'} = '<chapter label="1" id="A-SC-_00d1-_00c5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1">
 <title>A SC node &#239; &#239; &#274;&#768; &#322; &#262;&#807; &#161;</title>
 
 <para>see .
