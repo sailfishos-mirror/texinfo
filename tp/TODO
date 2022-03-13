@@ -58,21 +58,9 @@ For plaintext, I propose to have two options
   text before the first @node or sectioning command is not output.
 Default is non book.
 
-sectioning DocBook tests incorrect:
-part inside chapter bad nesting
-node_part_chapter_after_chapter
 
-node Top not ignored
-node_sectop_before_lone_node_Top
-
-section_before_after_top_node_last_node, chapter_between_nodes
-chapter not opened but closed
-
-section_chapter_before_top_nodes, section_chapter_before_top_nodes
-node Top not ignored
-
-unnumbered_before_top_node
-@unnumbered ignored
+Add DocBook test like node_part_chapter_after_chapter with non
+empty part.
 
 
 Bugs

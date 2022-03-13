@@ -1,5 +1,10 @@
 2022-03-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_convert): open the @path associated
+	to a sectioning command right before opening the sectioning command.
+
+2022-03-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (convert, output, _convert): close
 	sectioning command where the tree element is closed, not based on
 	the unit element, in order to have the top level elements processed

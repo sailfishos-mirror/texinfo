@@ -1461,10 +1461,10 @@ $result_converted{'docbook'}->{'node_part_chapter_after_chapter'} = '<chapter la
 
 
 </chapter>
-<chapter label="2" id="part-chapter-node">
-<title>chapter with part node</title>
 <part label="">
 <title>part</title>
+<chapter label="2" id="part-chapter-node">
+<title>chapter with part node</title>
 
 
 </chapter>

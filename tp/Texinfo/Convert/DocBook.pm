@@ -811,31 +811,42 @@ sub _convert($$;$)
             if ($element->{'cmdname'} eq 'node') {
               $section_element = $element->{'extra'}->{'associated_section'};
             } elsif (not $element->{'extra'}
-                     or not $element->{'extra'}->{'associated_node'}) {
+                     or (not $element->{'extra'}->{'associated_node'}
+                         and not $element->{'extra'}->{'part_associated_section'})) {
               $section_element = $element;
             }
+            # open the section, and, if associated to a part, the associated part
+            my @opened_elements;
             if ($section_element) {
-              my $section_attribute = $attribute_text;
+              if ($section_element->{'extra'}
+                  and $section_element->{'extra'}->{'associated_part'}) {
+                push @opened_elements,
+                     $section_element->{'extra'}->{'associated_part'};
+              }
+              push @opened_elements, $section_element;
+            }
+            foreach my $opened_element (@opened_elements) {
+              my $section_attribute = '';
               # FIXME it is not clear that a label should be set for
               # @appendix* or @chapter/@*section as the formatter should be
               # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
               # having a label (empty) is important.
               my $label = '';
-              if (defined($section_element->{'structure'}->{'section_number'})
+              if (defined($opened_element->{'structure'}->{'section_number'})
                 and ($self->get_conf('NUMBER_SECTIONS')
                      or !defined($self->get_conf('NUMBER_SECTIONS')))) {
                 # Looking at docbook2html output, Appendix is appended in the
                 # section title, so only the letter is used.
-                $label = $section_element->{'structure'}->{'section_number'};
+                $label = $opened_element->{'structure'}->{'section_number'};
               }
               my $docbook_sectioning_element
-                 = $self->_docbook_section_element($section_element);
+                 = $self->_docbook_section_element($opened_element);
               if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
                 $section_attribute .= " label=\"$label\"";
               }
-              if ($section_element->{'extra'} and $section_element->{'extra'}->{'associated_node'}) {
+              if ($opened_element->{'extra'} and $opened_element->{'extra'}->{'associated_node'}) {
                 $section_attribute
-                 .= " id=\"$section_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
+                 .= " id=\"$opened_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
               }
               my $language = '';
               if (defined($self->get_conf('documentlanguage'))) {
@@ -846,12 +857,14 @@ sub _convert($$;$)
               }
               push @{$self->{'lang_stack'}}, $language;
               $result .= "<$docbook_sectioning_element${section_attribute}>\n";
-              if ($section_element->{'args'} and $section_element->{'args'}->[0]) {
-                my ($arg, $end_line) = $self->_convert_argument_and_end_line($section_element);
+              if ($opened_element->{'args'} and $opened_element->{'args'}->[0]) {
+                my ($arg, $end_line) = $self->_convert_argument_and_end_line($opened_element);
                 $result .= "<title>$arg</title>$end_line";
                 chomp ($result);
                 $result .= "\n";
               }
+              # FIXME likely to be incorrect unless the part is before another part
+              # check not $element->{'extra'}->{'part_associated_section'}?
               if ($docbook_sectioning_element eq 'part'
                   and !Texinfo::Common::is_content_empty($section_element)) {
                 $result .= "<partintro>\n";

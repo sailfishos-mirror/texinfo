@@ -843,6 +843,9 @@ anchor ref @anchor{ref}.
 
 ref to ref @ref{ref}.
 '],
+# NOTE that the DocBook output is incorrect because the chapter opened
+# in the Top node is not output, while the closing element is output
+# at the end of the document
 ['chapter_between_nodes',
 '@setfilename chapter_between_nodes.info
 
