@@ -237,8 +237,7 @@ sub protect_perl_string($)
   return $string;
 }
 
-# re-associate top level command with the document_root in case a converter
-# split the document, by resetting their 'parent' key.
+# remove the association with document units
 sub unsplit($)
 {
   my $root = shift;
@@ -247,9 +246,10 @@ sub unsplit($)
     return;
   }
   foreach my $content (@{$root->{'contents'}}) {
-    if ($content->{'structure'}
-        and $content->{'structure'}->{'associated_unit'}) {
-      delete $content->{'structure'}->{'associated_unit'};
+    if ($content->{'structure'}) {
+      if ($content->{'structure'}->{'associated_unit'}) {
+        delete $content->{'structure'}->{'associated_unit'};
+      }
       if (scalar(keys(%{$content->{'structure'}})) == 0) {
         delete $content->{'structure'};
       }

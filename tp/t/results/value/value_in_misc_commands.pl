@@ -3355,8 +3355,7 @@ $result_sectioning{'value_in_misc_commands'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           }
         },
         'structure' => {
@@ -3379,16 +3378,14 @@ $result_nodes{'value_in_misc_commands'} = {
       'structure' => {}
     },
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'value_in_misc_commands'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'value_in_misc_commands'} = [

@@ -1098,8 +1098,7 @@ $result_nodes{'macro_in_index_commands'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'macro_in_index_commands'} = {
@@ -1107,8 +1106,7 @@ $result_menus{'macro_in_index_commands'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'macro_in_index_commands'} = [

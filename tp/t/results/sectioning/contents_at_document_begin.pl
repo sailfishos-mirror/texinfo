@@ -293,8 +293,7 @@ $result_sectioning{'contents_at_document_begin'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           }
         },
         'structure' => {
@@ -333,16 +332,14 @@ $result_nodes{'contents_at_document_begin'} = {
       'structure' => {}
     },
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'contents_at_document_begin'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'contents_at_document_begin'} = [];

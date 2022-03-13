@@ -207,8 +207,7 @@ $result_sectioning{'node_in_copying_not_closed'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           }
         },
         'structure' => {
@@ -231,16 +230,14 @@ $result_nodes{'node_in_copying_not_closed'} = {
       'structure' => {}
     },
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'node_in_copying_not_closed'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'node_in_copying_not_closed'} = [

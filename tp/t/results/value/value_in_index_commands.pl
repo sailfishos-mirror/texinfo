@@ -956,8 +956,7 @@ $result_nodes{'value_in_index_commands'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'value_in_index_commands'} = {
@@ -965,8 +964,7 @@ $result_menus{'value_in_index_commands'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'value_in_index_commands'} = [

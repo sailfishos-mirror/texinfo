@@ -1261,8 +1261,7 @@ $result_nodes{'in_table'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'in_table'} = {
@@ -1270,8 +1269,7 @@ $result_menus{'in_table'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'in_table'} = [

@@ -539,8 +539,7 @@ $result_sectioning{'macro_and_commands_in_early_commands'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           }
         },
         'structure' => {
@@ -563,16 +562,14 @@ $result_nodes{'macro_and_commands_in_early_commands'} = {
       'structure' => {}
     },
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'macro_and_commands_in_early_commands'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'macro_and_commands_in_early_commands'} = [

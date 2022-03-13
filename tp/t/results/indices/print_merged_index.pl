@@ -143,8 +143,7 @@ $result_nodes{'print_merged_index'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'print_merged_index'} = {
@@ -152,8 +151,7 @@ $result_menus{'print_merged_index'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'print_merged_index'} = [

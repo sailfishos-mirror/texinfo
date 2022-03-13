@@ -261,8 +261,7 @@ $result_sectioning{'cpp_line_latin1'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           }
         },
         'structure' => {
@@ -285,16 +284,14 @@ $result_nodes{'cpp_line_latin1'} = {
       'structure' => {}
     },
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'cpp_line_latin1'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'cpp_line_latin1'} = [

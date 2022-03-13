@@ -140,16 +140,14 @@ $result_nodes{'a_comma_after_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Commands'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'a_comma_after_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Commands'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'a_comma_after_node'} = [

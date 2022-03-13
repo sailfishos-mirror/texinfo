@@ -220,16 +220,14 @@ $result_nodes{'unknown_node_in_menu'} = {
       }
     ],
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'unknown_node_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'unknown_node_in_menu'} = [

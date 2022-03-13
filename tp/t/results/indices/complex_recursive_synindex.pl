@@ -1093,8 +1093,7 @@ $result_nodes{'complex_recursive_synindex'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'complex_recursive_synindex'} = {
@@ -1102,8 +1101,7 @@ $result_menus{'complex_recursive_synindex'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'complex_recursive_synindex'} = [

@@ -734,16 +734,14 @@ $result_nodes{'node_line_arguments'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'one-arg1'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'node_line_arguments'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'one-arg1'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'node_line_arguments'} = [

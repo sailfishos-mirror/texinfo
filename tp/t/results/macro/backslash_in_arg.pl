@@ -378,8 +378,7 @@ $result_nodes{'backslash_in_arg'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'backslash_in_arg'} = {
@@ -387,8 +386,7 @@ $result_menus{'backslash_in_arg'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'backslash_in_arg'} = [];

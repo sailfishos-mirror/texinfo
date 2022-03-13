@@ -108,16 +108,14 @@ $result_nodes{'node_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'node'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'node_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'node'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'node_in_copying'} = [

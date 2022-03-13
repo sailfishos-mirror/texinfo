@@ -366,8 +366,7 @@ $result_sectioning{'text_before_line_command'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'LD-Version-Scripts'
-            },
-            'structure' => {}
+            }
           }
         },
         'structure' => {
@@ -393,16 +392,14 @@ $result_nodes{'text_before_line_command'} = {
       }
     },
     'normalized' => 'LD-Version-Scripts'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'text_before_line_command'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'LD-Version-Scripts'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'text_before_line_command'} = [

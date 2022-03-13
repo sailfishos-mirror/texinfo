@@ -229,16 +229,14 @@ $result_nodes{'menu_node_unterminated'} = {
       }
     ],
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'menu_node_unterminated'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'menu_node_unterminated'} = [

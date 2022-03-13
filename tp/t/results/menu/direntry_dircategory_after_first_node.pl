@@ -316,8 +316,7 @@ $result_sectioning{'direntry_dircategory_after_first_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            },
-            'structure' => {}
+            }
           }
         },
         'structure' => {
@@ -340,16 +339,14 @@ $result_nodes{'direntry_dircategory_after_first_node'} = {
       'structure' => {}
     },
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'direntry_dircategory_after_first_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'direntry_dircategory_after_first_node'} = [

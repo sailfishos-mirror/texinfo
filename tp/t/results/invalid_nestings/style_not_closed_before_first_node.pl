@@ -134,16 +134,14 @@ $result_nodes{'style_not_closed_before_first_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'style_not_closed_before_first_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'style_not_closed_before_first_node'} = [
