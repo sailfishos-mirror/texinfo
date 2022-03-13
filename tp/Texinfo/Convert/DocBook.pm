@@ -256,6 +256,8 @@ my %docbook_preformatted_formats = (
    'menu_description' => 'literallayout',
 );
 
+my %sectioning_commands_done;
+
 sub converter_defaults($$)
 {
   return %defaults;
@@ -286,6 +288,7 @@ sub convert($$)
   $self->{'in_skipped_node_top'} = 0
     if (! defined($self->{'in_skipped_node_top'}));
 
+  %sectioning_commands_done = ();
   return $self->convert_document_sections($root);
 }
 
@@ -488,6 +491,7 @@ sub output($$)
     $header .= "<bookinfo>$document_info</bookinfo>\n";
   }
 
+  %sectioning_commands_done = ();
   my $result = '';
   $result .= $self->write_or_return($header, $fh);
   $result .= $self->convert_document_sections($root, $fh);
@@ -805,25 +809,34 @@ sub _convert($$;$)
               $result .= "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>\n";
             }
           } else {
-            # start the section at the associated node or at the sectioning command
-            # if there is no associated node
+            # start the section at the associated node or part, or at the sectioning
+            # command if there is no associated node nor part
             my $section_element;
+            my $part;
             if ($element->{'cmdname'} eq 'node') {
               $section_element = $element->{'extra'}->{'associated_section'};
-            } elsif (not $element->{'extra'}
-                     or (not $element->{'extra'}->{'associated_node'}
-                         and not $element->{'extra'}->{'part_associated_section'})) {
+            } elsif ($element->{'cmdname'} eq 'part') {
+              $part = $element;
+              if ($element->{'extra'}->{'part_associated_section'}) {
+                $section_element = $element->{'extra'}->{'part_associated_section'};
+              }
+            } else {
               $section_element = $element;
             }
-            # open the section, and, if associated to a part, the associated part
+            if ($section_element and $section_element->{'extra'}
+                and $section_element->{'extra'}->{'associated_part'}) {
+              $part = $section_element->{'extra'}->{'associated_part'};
+            }
             my @opened_elements;
-            if ($section_element) {
-              if ($section_element->{'extra'}
-                  and $section_element->{'extra'}->{'associated_part'}) {
-                push @opened_elements,
-                     $section_element->{'extra'}->{'associated_part'};
+            # we need to check if the section was already done in case there is
+            # both a node and a part, we do not know in which order they appear.
+            if (not ($section_element
+                     and $sectioning_commands_done{$section_element})) {
+              push @opened_elements, $part if $part;
+              if ($section_element) {
+                push @opened_elements, $section_element;
+                $sectioning_commands_done{$section_element} = 1;
               }
-              push @opened_elements, $section_element;
             }
             foreach my $opened_element (@opened_elements) {
               my $section_attribute = '';
@@ -863,10 +876,13 @@ sub _convert($$;$)
                 chomp ($result);
                 $result .= "\n";
               }
-              # FIXME likely to be incorrect unless the part is before another part
-              # check not $element->{'extra'}->{'part_associated_section'}?
+              # if associated with a sectioning element, the part is opened before the
+              # sectioning element, such that the part content appears after the sectioning
+              # command opening, no need for partintro.
               if ($docbook_sectioning_element eq 'part'
-                  and !Texinfo::Common::is_content_empty($section_element)) {
+                  and not ($opened_element->{'extra'}
+                           and $opened_element->{'extra'}->{'part_associated_section'})
+                  and !Texinfo::Common::is_content_empty($opened_element)) {
                 $result .= "<partintro>\n";
               }
             }
@@ -1620,6 +1636,8 @@ sub _convert($$;$)
            and $Texinfo::Common::root_commands{$element->{'cmdname'}}) {
     my $docbook_sectioning_element = $self->_docbook_section_element($element);
     if ($docbook_sectioning_element eq 'part'
+        and not ($element->{'extra'}
+                 and $element->{'extra'}->{'part_associated_section'})
         and !Texinfo::Common::is_content_empty($element)) {
       $result .= "</partintro>\n";
     }

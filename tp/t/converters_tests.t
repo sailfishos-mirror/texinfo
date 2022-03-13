@@ -734,6 +734,51 @@ Macros that should not be defined: @mymacro{}. @macroarg{with arg}.
 
 ', {'EXPANDED_FORMATS' => ['html']}, {'EXPANDED_FORMATS' => ['html']}
 ], 
+['non_empty_part',
+'@node Top
+@top top
+
+@menu
+* chapter node::
+* part chapter node::
+@end menu
+
+@part part I
+
+Content I
+
+@chapter chap in Top node
+
+@part Part II
+
+Content II
+
+@node part chapter node
+@part part III
+
+Content III
+
+@chapter chapter with part node
+
+@part Part IV
+
+Content IV
+
+@part Part V
+
+Content V
+
+@chapter with part no node
+
+@part Part VI
+
+Content VI
+
+@node node between part and chapter
+
+@chapter chapter after part node
+
+',]
 );
 
 my @html_text_cases = (
@@ -766,6 +811,7 @@ my %info_tests = (
  'things_before_setfilename_no_element' => 1,
  'spaces_in_node_names' => 1,
  'spaces_in_empty_node_names' => 1,
+  'non_empty_part' => 1,
 );
 
 my %html_tests = (
@@ -783,6 +829,7 @@ my %docbooc_doc_tests = (
 my %latex_tests = (
   'inline' => 1,
   'test_sp' => 1,
+  'non_empty_part' => 1,
 );
 
 foreach my $test (@test_cases) {

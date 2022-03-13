@@ -59,10 +59,6 @@ For plaintext, I propose to have two options
 Default is non book.
 
 
-Add DocBook test like node_part_chapter_after_chapter with non
-empty part.
-
-
 Bugs
 ====
 
