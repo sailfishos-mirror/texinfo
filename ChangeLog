@@ -1,3 +1,11 @@
+2022-03-13  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Top node ends at @part.
+
+	* doc/texinfo.tex (\ignorenode): Stop ignoring Top node at a
+	@part line, in case one immediately follows the Top node.  Report
+	from Patrice.
+
 2022-03-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/DocBook.pm (convert, output): call convert_tree()
