@@ -289,7 +289,7 @@ sub convert($$)
     if (! defined($self->{'in_skipped_node_top'}));
 
   %sectioning_commands_done = ();
-  return $self->convert_document_sections($root);
+  return $self->convert_tree($root);
 }
 
 sub convert_tree($$)
@@ -494,7 +494,7 @@ sub output($$)
   %sectioning_commands_done = ();
   my $result = '';
   $result .= $self->write_or_return($header, $fh);
-  $result .= $self->convert_document_sections($root, $fh);
+  $result .= $self->write_or_return($self->convert_tree($root), $fh);
   $result .= $self->write_or_return("</book>\n", $fh);
   if ($fh and $output_file ne '-') {
     Texinfo::Common::output_files_register_closed(

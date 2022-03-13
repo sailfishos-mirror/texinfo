@@ -1,5 +1,10 @@
 2022-03-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (convert, output): call convert_tree()
+	instead of convert_document_sections().
+
+2022-03-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (_convert): start a sectioning
 	command associated with both a part and a node with the first
 	appearing.  Do not add partinfo if the part is associated with a
