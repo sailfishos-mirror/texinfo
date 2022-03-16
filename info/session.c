@@ -3689,6 +3689,39 @@ DECLARE_INFO_COMMAND (info_view_file, _("Read the name of a file and select it")
 /*                                                                  */
 /* **************************************************************** */
 
+struct info_namelist_entry
+{
+  struct info_namelist_entry *next;
+  char name[1];
+};
+
+static int
+info_namelist_add (struct info_namelist_entry **ptop, const char *name)
+{
+  struct info_namelist_entry *p;
+
+  for (p = *ptop; p; p = p->next)
+    if (fncmp (p->name, name) == 0)
+      return 1;
+
+  p = xmalloc (sizeof (*p) + strlen (name));
+  strcpy (p->name, name);
+  p->next = *ptop;
+  *ptop = p;
+  return 0;
+}
+
+static void
+info_namelist_free (struct info_namelist_entry *top)
+{
+  while (top)
+    {
+      struct info_namelist_entry *next = top->next;
+      free (top);
+      top = next;
+    }
+}
+
 enum
   {
     DUMP_SUCCESS,

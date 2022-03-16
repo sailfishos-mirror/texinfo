@@ -1,3 +1,11 @@
+2022-03-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Move functions
+
+	* info/info-utils.c, info/session.c
+	(struct info_namelist_entry, info_namelist_add, info_namelist_free):
+	Move to session.c as this is the only place these are used.
+
 2022-03-13  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Top node ends at @part.
