@@ -26,6 +26,19 @@ void name_internal_node (NODE *node, char *name);
    Info window. */
 WINDOW *get_internal_info_window (char *name);
 
+/* Used with multibyte iterator mbi_iterator_t. */
+#define ITER_SETBYTES(iter,n) ((iter).cur.bytes = n)
+#define ITER_LIMIT(iter) ((iter).limit - (iter).cur.ptr)
+
+int ansi_escape (mbi_iterator_t iter, size_t *plen);
+
+/* Return a pointer to a string which is the printed representation
+   of CHARACTER if it were printed at HPOS. */
+char *printed_representation (mbi_iterator_t *iter,
+                                     int *delim, size_t pl_chars,
+                                     size_t *pchars, size_t *pbytes);
+
+
 struct text_buffer
 {
   char *base;
