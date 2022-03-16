@@ -19,6 +19,7 @@
 
 #include "info.h"
 #include "info-utils.h"
+#include "util.h"
 #include "session.h"
 #include "echo-area.h"
 #include "indices.h"

@@ -21,6 +21,7 @@
 #include "session.h"
 #include "display.h"
 #include "info-utils.h"
+#include "util.h"
 #include "echo-area.h"
 
 /* Non-zero means that C-g was used to quit reading input. */

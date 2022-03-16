@@ -20,6 +20,7 @@
 #include "info.h"
 #include "display.h"
 #include "session.h"
+#include "util.h"
 #include "tag.h"
 #include "signals.h"
 #include "variables.h"

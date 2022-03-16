@@ -20,6 +20,7 @@
 #include "info.h"
 #include "session.h"
 #include "info-utils.h"
+#include "util.h"
 #include "footnotes.h"
 
 /* Nonzero means attempt to show footnotes when displaying a new window. */

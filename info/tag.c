@@ -19,6 +19,7 @@
 #include "info.h"
 #include "tag.h" 
 #include "info-utils.h"
+#include "util.h"
 
 struct tag_handler
 {

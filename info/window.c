@@ -21,6 +21,7 @@
 #include "session.h"
 #include "display.h"
 #include "info-utils.h"
+#include "util.h"
 #include "doc.h"
 #include "tag.h"
 #include "variables.h"

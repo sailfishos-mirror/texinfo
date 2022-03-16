@@ -20,6 +20,7 @@
 #include "info.h"
 #include "filesys.h"
 #include "info-utils.h"
+#include "util.h"
 #include "session.h"
 #include "indices.h"
 #include "dribble.h"

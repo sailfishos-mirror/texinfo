@@ -19,6 +19,7 @@
 
 #include "info.h"
 #include "info-utils.h"
+#include "util.h"
 #include "filesys.h"
 #include "session.h"
 #include "doc.h"

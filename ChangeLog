@@ -1,5 +1,19 @@
 2022-03-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Split info/info-utils.c
+
+	* info/info-utils.c, info/util.c:
+	(file_buffer_of_window, node_printed_rep, filename_non_directory)
+	(internal_info_node_p, name_internal_node, get_internal_info_window)
+	(text_buffer_init, text_buffer_free, text_buffer_vprintf)
+	(text_buffer_alloc, text_buffer_space_left, text_buffer_iconv)
+	(text_buffer_add_string, text_buffer_fill, text_buffer_add_char)
+	(text_buffer_printf, fncmp):
+	New file util.c to hold some of the functions from info-utils.c.
+	Include new header file where required.
+
+2022-03-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Move functions
 
 	* info/info-utils.c, info/session.c

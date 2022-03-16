@@ -36,7 +36,7 @@ ginfo_SOURCES = dir.c display.c display.h doc.h dribble.c dribble.h \
   infomap.c infomap.h infopath.c m-x.c man.c man.h nodemenu.c \
   nodes.c nodes.h search.c search.h session.c session.h signals.c signals.h \
   tag.c tag.h termdep.h terminal.c terminal.h tilde.c tilde.h \
-  variables.c variables.h window.c window.h
+  util.c util.h variables.c variables.h window.c window.h
 nodist_ginfo_SOURCES = doc.c funs.h
 
 # The files `doc.c' and `funs.h' are created by ./makedoc run over the

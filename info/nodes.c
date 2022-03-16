@@ -23,6 +23,7 @@
 #include "search.h"
 #include "filesys.h"
 #include "info-utils.h"
+#include "util.h"
 #include "tag.h"
 #include "man.h"
 #include "variables.h"
