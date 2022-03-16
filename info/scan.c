@@ -1,4 +1,4 @@
-/* info-utils.c -- miscellanous.
+/* scan.c -- miscellanous.
 
    Copyright 1993-2020 Free Software Foundation, Inc.
 
@@ -19,7 +19,7 @@
 
 #include "info.h"
 #include "session.h"
-#include "info-utils.h"
+#include "scan.h"
 #include "util.h"
 #include "tag.h"
 
@@ -470,7 +470,7 @@ static struct text_buffer printed_rep = { 0 };
 
 /* Return pointer to string that is the printed representation of character
    (or other logical unit) at ITER if it were printed at screen column
-   PL_CHARS.  Use ITER_SETBYTES (info-utils.h) on ITER if we need to advance 
+   PL_CHARS.  Use ITER_SETBYTES (scan.h) on ITER if we need to advance 
    past a unit that the multibyte iteractor doesn't know about (like an ANSI 
    escape sequence).  If ITER points at an end-of-line character, set *DELIM to 
    this character.  *PCHARS gets the number of screen columns taken up by

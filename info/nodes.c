@@ -22,7 +22,7 @@
 #include "nodes.h"
 #include "search.h"
 #include "filesys.h"
-#include "info-utils.h"
+#include "scan.h"
 #include "util.h"
 #include "tag.h"
 #include "man.h"

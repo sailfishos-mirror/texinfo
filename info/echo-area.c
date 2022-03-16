@@ -20,7 +20,7 @@
 #include "info.h"
 #include "session.h"
 #include "display.h"
-#include "info-utils.h"
+#include "scan.h"
 #include "util.h"
 #include "echo-area.h"
 

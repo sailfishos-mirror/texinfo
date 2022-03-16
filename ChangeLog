@@ -1,5 +1,11 @@
 2022-03-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Rename info/info-utils.c
+
+	* info/info-utils.c, info/scan.c: Rename file.
+
+2022-03-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Split info/info-utils.c
 
 	* info/info-utils.c, info/util.c:

@@ -1,4 +1,4 @@
-/* info-utils.h -- Exported functions and variables from info-utils.c.
+/* scan.h -- Exported functions and variables from scan.c.
 
    Copyright 1993-2019 Free Software Foundation, Inc.
 
@@ -17,8 +17,8 @@
 
    Originally written by Brian Fox. */
 
-#ifndef INFO_UTILS_H
-#define INFO_UTILS_H
+#ifndef SCAN_H
+#define SCAN_H
 
 #include "nodes.h"
 #include "window.h"

@@ -18,7 +18,7 @@
    Originally written by Brian Fox. */
 
 #include "info.h"
-#include "info-utils.h"
+#include "scan.h"
 #include "filesys.h"
 #include "tilde.h"
 

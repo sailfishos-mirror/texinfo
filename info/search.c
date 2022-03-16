@@ -21,7 +21,7 @@
 #include <regex.h>
 
 #include "session.h"
-#include "info-utils.h"
+#include "scan.h"
 #include "search.h"
 
 

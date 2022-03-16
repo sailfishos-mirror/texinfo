@@ -20,7 +20,7 @@
 #ifndef INFO_DISPLAY_H
 #define INFO_DISPLAY_H
 
-#include "info-utils.h"
+#include "scan.h"
 #include "terminal.h"
 
 typedef struct {

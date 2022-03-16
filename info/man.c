@@ -31,6 +31,7 @@
 #include "nodes.h"
 #include "man.h"
 #include "variables.h"
+#include "scan.h"
 
 #if !defined (_POSIX_VERSION)
 #define pid_t int

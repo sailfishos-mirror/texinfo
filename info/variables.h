@@ -21,7 +21,6 @@
 #define INFO_VARIABLES_H
 
 #include "window.h"
-#include "info-utils.h"
 
 /* A variable (in the Info sense) is an integer value with a user-visible
    name.  You may supply an array of strings to complete over when the
