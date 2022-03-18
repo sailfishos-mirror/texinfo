@@ -1,3 +1,14 @@
+2022-03-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Handle index entries beginning (
+
+	* info/scan.c (scan_reference_label): If label is in an index, do
+	not check for a bracketed filename.  This supports index entries
+	beginning with a '(' character.  This should allow practically
+	any character to appear anywhere in an index entry.
+	* info/t/index-paren.sh: New test.
+	* info/t/README: Edit.
+
 2022-03-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Move functions between files

@@ -1124,7 +1124,7 @@ scan_reference_label (REFERENCE *entry, int in_index)
   int len, label_len = 0;
 
   /* Handle case of cross-reference like (FILE)NODE::. */
-  if (inptr[0] == '(')
+  if (inptr[0] == '(' && !in_index)
     label_len = read_bracketed_filename (inptr, &entry->filename);
 
   /* Search forward to ":" to get label name.  Cross-references may have
