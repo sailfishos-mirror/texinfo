@@ -12,7 +12,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 2.86ex; vertical-align: -0.78ex; " SRC="tex_encodé_utf8_1.svg"
+ STYLE="height: 2.63ex; vertical-align: -0.78ex; " SRC="tex_encodé_utf8_1.svg"
  ALT="$\displaystyle é \partial_{\eta} g(\eta(t),\varphi(t));
 $">
 </DIV>
@@ -28,7 +28,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 5.61ex; vertical-align: -2.12ex; " SRC="tex_encodé_utf8_3.svg"
+ STYLE="height: 5.37ex; vertical-align: -2.12ex; " SRC="tex_encodé_utf8_3.svg"
  ALT="$\displaystyle é ï î \int v(t)\, dt = u(t) + C
 $">
 </DIV>
@@ -39,7 +39,7 @@ $l2h_cache{$l2h_cache_key} = q|<!-- MATH
  $(I-D) é \varphi(t)$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.78ex; vertical-align: -0.70ex; " SRC="tex_encodé_utf8_2.svg"
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="tex_encodé_utf8_2.svg"
  ALT="$(I-D) é \varphi(t)$"></SPAN>|;
 
 1;

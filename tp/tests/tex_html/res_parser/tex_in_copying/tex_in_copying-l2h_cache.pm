@@ -12,7 +12,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 3.07ex; vertical-align: -0.57ex; " SRC="tex_in_copying_2.svg"
+ STYLE="height: 2.84ex; vertical-align: -0.57ex; " SRC="tex_in_copying_2.svg"
  ALT="$\displaystyle 2 a = \dot{\phi}
 $">
 </DIV>
@@ -31,7 +31,7 @@ a = \phi
  -->
 
 <IMG
- STYLE="height: 2.52ex; vertical-align: -0.57ex; " SRC="tex_in_copying_1.svg"
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="tex_in_copying_1.svg"
  ALT="$\displaystyle a = \phi
 $">
 </DIV>
