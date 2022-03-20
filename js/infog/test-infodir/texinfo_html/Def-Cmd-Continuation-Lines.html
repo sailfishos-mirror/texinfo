@@ -1,35 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<!-- This manual is for GNU Texinfo (version 6.7dev, 18 October 2019),
+<!-- Created by Texinfo 6.8dev+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for GNU Texinfo (version 6.8dev, 23 February 2022),
 a documentation system that can produce both online information and a
 printed manual from a single source using semantic markup.
 
-Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997,
-1998, 1999, 2001, 2001, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019 Free Software
-Foundation, Inc.
+Copyright (C) 1988, 1990-1993, 1995-1999, 2001-2022 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
-Invariant Sections, with the Front-Cover Texts being "A GNU Manual",
-and with the Back-Cover Texts as in (a) below.  A copy of the license
-is included in the section entitled "GNU Free Documentation
-License".
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Def Cmd Continuation Lines (GNU Texinfo 6.8dev)</title>
 
-(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-modify this GNU manual.  Buying copies from the FSF supports it in
-developing GNU and promoting software freedom." -->
-<!-- Created by GNU Texinfo 6.7dev, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Def Cmd Continuation Lines (GNU Texinfo 6.7dev)</title>
-
-<meta name="description" content="Def Cmd Continuation Lines (GNU Texinfo 6.7dev)">
-<meta name="keywords" content="Def Cmd Continuation Lines (GNU Texinfo 6.7dev)">
+<meta name="description" content="Def Cmd Continuation Lines (GNU Texinfo 6.8dev)">
+<meta name="keywords" content="Def Cmd Continuation Lines (GNU Texinfo 6.8dev)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Command-and-Variable-Index.html" rel="index" title="Command and Variable Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -38,20 +32,9 @@ developing GNU and promoting software freedom." -->
 <link href="Def-Cmd-Template.html" rel="prev" title="Def Cmd Template">
 <style type="text/css">
 <!--
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-ul.no-bullet {list-style: none}
+span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
@@ -59,23 +42,24 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Def-Cmd-Continuation-Lines"></span><div class="header">
+<div class="section-level-extent" id="Def-Cmd-Continuation-Lines">
+<div class="nav-panel">
 <p>
-Next: <a href="Optional-Arguments.html" accesskey="n" rel="next">Optional Arguments</a>, Previous: <a href="Def-Cmd-Template.html" accesskey="p" rel="prev">Def Cmd Template</a>, Up: <a href="Definition-Commands.html" accesskey="u" rel="up">Definition Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Optional-Arguments.html" accesskey="n" rel="next">Optional and Repeated Arguments</a>, Previous: <a href="Def-Cmd-Template.html" accesskey="p" rel="prev">The Template for a Definition</a>, Up: <a href="Definition-Commands.html" accesskey="u" rel="up">Definition Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<span id="Definition-Command-Continuation-Lines"></span><h3 class="section">Definition Command Continuation Lines</h3>
-<span id="index-Continuation-lines-in-definition-commands"></span>
-<span id="index-Definition-command-headings_002c-continuing"></span>
-<span id="index-_0040_0040-as-continuation-in-definition-commands"></span>
+<h3 class="section" id="Definition-Command-Continuation-Lines">13.2 Definition Command Continuation Lines</h3>
+<a class="index-entry-id" id="index-Continuation-lines-in-definition-commands"></a>
+<a class="index-entry-id" id="index-Definition-command-headings_002c-continuing"></a>
+<a class="index-entry-id" id="index-_0040-as-continuation-in-definition-commands"></a>
 
 <p>The heading line of a definition command can get very long.
 Therefore, Texinfo has a special syntax allowing them to be continued
-over multiple lines of the source file: a lone &lsquo;<samp>@</samp>&rsquo; at the end of
+over multiple lines of the source file: a lone &lsquo;<samp class="samp">@</samp>&rsquo; at the end of
 each line to be continued.  Here&rsquo;s an example:
 </p>
 <div class="example">
-<pre class="example">@defun fn-name @
+<pre class="example-preformatted">@defun fn-name @
   arg1 arg2 arg3
 This is the basic continued defun.
 @end defun
@@ -83,8 +67,8 @@ This is the basic continued defun.
 
 <p>produces:
 </p>
-<dl>
-<dt id="index-fn_002dname">Function: <strong>fn-name</strong> <em>arg1 arg2 arg3</em></dt>
+<dl class="first-deffn first-defun-alias-first-deffn">
+<dt class="deffn defun-alias-deffn" id="index-fn_002dname"><span class="category-def">Function: </span><span><strong class="strong">fn-name</strong> <em class="emph">arg1 arg2 arg3</em><a class="copiable-link" href='#index-fn_002dname'> &para;</a></span></dt>
 <dd><p>This is the basic continued defun.
 </p></dd></dl>
 
@@ -93,30 +77,36 @@ typed on one source line.
 </p>
 <p>Although this example only shows a one-line continuation,
 continuations may extend over any number of lines, in the same way;
-put an <code>@</code> at the end of each line to be continued.
+put an <code class="code">@</code> at the end of each line to be continued.
 </p>
-<span id="index-Whitespace_002c-collapsed-around-continuations"></span>
-<span id="index-Collapsing-whitespace-around-continuations"></span>
-<p>In general, any number of spaces or tabs before the <code>@</code>
+<a class="index-entry-id" id="index-Whitespace_002c-collapsed-around-continuations"></a>
+<a class="index-entry-id" id="index-Collapsing-whitespace-around-continuations"></a>
+<p>In general, any number of spaces or tabs before the <code class="code">@</code>
 continuation character are collapsed into a single space.  There is one
 exception: the Texinfo processors will not fully collapse whitespace
 around a continuation inside braces.  For example:
 </p>
 <div class="example">
-<pre class="example">@deffn {Category @
+<pre class="example-preformatted">@deffn {Category @
   Name} &hellip;
 </pre></div>
 
 <p>The output (not shown) has excess space between &lsquo;Category&rsquo;
 and &lsquo;Name&rsquo;.  To avoid this, elide the unwanted whitespace in your
-input, or put the continuation <code>@</code> outside braces.
+input, or put the continuation <code class="code">@</code> outside braces.
 </p>
-<p><code>@</code> does not function as a continuation character in <em>any</em>
-other context.  Ordinarily, &lsquo;<samp>@</samp>&rsquo; followed by a whitespace
+<p><code class="code">@</code> does not function as a continuation character in <em class="emph">any</em>
+other context.  Ordinarily, &lsquo;<samp class="samp">@</samp>&rsquo; followed by a whitespace
 character (space, tab, newline) produces a normal interword space
-(see <a href="Multiple-Spaces.html">Multiple Spaces</a>).
+(see <a class="pxref" href="Multiple-Spaces.html">Multiple Spaces</a>).
 </p>
 
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Optional-Arguments.html">Optional and Repeated Arguments</a>, Previous: <a href="Def-Cmd-Template.html">The Template for a Definition</a>, Up: <a href="Definition-Commands.html">Definition Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
 
 
 

@@ -1,35 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<!-- This manual is for GNU Texinfo (version 6.7dev, 18 October 2019),
+<!-- Created by Texinfo 6.8dev+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for GNU Texinfo (version 6.8dev, 23 February 2022),
 a documentation system that can produce both online information and a
 printed manual from a single source using semantic markup.
 
-Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997,
-1998, 1999, 2001, 2001, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019 Free Software
-Foundation, Inc.
+Copyright (C) 1988, 1990-1993, 1995-1999, 2001-2022 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
-Invariant Sections, with the Front-Cover Texts being "A GNU Manual",
-and with the Back-Cover Texts as in (a) below.  A copy of the license
-is included in the section entitled "GNU Free Documentation
-License".
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Three Arguments (GNU Texinfo 6.8dev)</title>
 
-(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-modify this GNU manual.  Buying copies from the FSF supports it in
-developing GNU and promoting software freedom." -->
-<!-- Created by GNU Texinfo 6.7dev, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Three Arguments (GNU Texinfo 6.7dev)</title>
-
-<meta name="description" content="Three Arguments (GNU Texinfo 6.7dev)">
-<meta name="keywords" content="Three Arguments (GNU Texinfo 6.7dev)">
+<meta name="description" content="Three Arguments (GNU Texinfo 6.8dev)">
+<meta name="keywords" content="Three Arguments (GNU Texinfo 6.8dev)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Command-and-Variable-Index.html" rel="index" title="Command and Variable Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -38,20 +32,7 @@ developing GNU and promoting software freedom." -->
 <link href="Two-Arguments.html" rel="prev" title="Two Arguments">
 <style type="text/css">
 <!--
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-ul.no-bullet {list-style: none}
 -->
 </style>
 
@@ -59,13 +40,14 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Three-Arguments"></span><div class="header">
+<div class="subsection-level-extent" id="Three-Arguments">
+<div class="nav-panel">
 <p>
-Next: <a href="Four-and-Five-Arguments.html" accesskey="n" rel="next">Four and Five Arguments</a>, Previous: <a href="Two-Arguments.html" accesskey="p" rel="prev">Two Arguments</a>, Up: <a href="_0040xref.html" accesskey="u" rel="up"><code>@xref</code></a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Four-and-Five-Arguments.html" accesskey="n" rel="next"><code class="code">@xref</code> with Four and Five Arguments</a>, Previous: <a href="Two-Arguments.html" accesskey="p" rel="prev"><code class="code">@xref</code> with Two Arguments</a>, Up: <a href="_0040xref.html" accesskey="u" rel="up"><code class="code">@xref</code></a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<span id="g_t_0040xref-with-Three-Arguments"></span><h4 class="subsection"><code>@xref</code> with Three Arguments</h4>
-<span id="index-Three_002dargument-form-of-cross_002dreferences"></span>
+<h4 class="subsection" id="g_t_0040xref-with-Three-Arguments">5.4.3 <code class="code">@xref</code> with Three Arguments</h4>
+<a class="index-entry-id" id="index-Three_002dargument-form-of-cross_002dreferences"></a>
 
 <p>A third argument replaces the node name in the TeX output.  The third
 argument should be the name of the section in the printed output, or
@@ -74,25 +56,25 @@ else state the topic discussed by that section.
 <p>The template is like this:
 </p>
 <div class="example">
-<pre class="example">@xref{<var>node-name</var>, <var>online-label</var>, <var>printed-label</var>}.
-</pre></div>
+<div class="group"><pre class="example-preformatted">@xref{<var class="var">node-name</var>, <var class="var">online-label</var>, <var class="var">printed-label</var>}.
+</pre></div></div>
 
 <p>For example,
 </p>
 <div class="example">
-<pre class="example">@xref{Electrical Effects, Lightning, Thunder and Lightning},
+<div class="group"><pre class="example-preformatted">@xref{Electrical Effects, Lightning, Thunder and Lightning},
 for details.
-</pre></div>
+</pre></div></div>
 
 <p>produces
 </p>
 <div class="example">
-<pre class="example">*Note Lightning: Electrical Effects, for details.
+<pre class="example-preformatted">*Note Lightning: Electrical Effects, for details.
 </pre></div>
 
 <p>in Info and
 </p>
-<blockquote>
+<blockquote class="quotation">
 <p>See Section 5.2 [Thunder and Lightning], page 57, for details.
 </p></blockquote>
 
@@ -103,26 +85,26 @@ third argument serves for both.  (Note how two commas, side by side, mark
 the empty second argument.)
 </p>
 <div class="example">
-<pre class="example">@xref{Electrical Effects, , Thunder and Lightning},
+<div class="group"><pre class="example-preformatted">@xref{Electrical Effects, , Thunder and Lightning},
 for details.
-</pre></div>
+</pre></div></div>
 
 <p>produces
 </p>
 <div class="example">
-<pre class="example">*Note Thunder and Lightning: Electrical Effects, for details.
+<pre class="example-preformatted">*Note Thunder and Lightning: Electrical Effects, for details.
 </pre></div>
 
 <p>in Info and
 </p>
-<blockquote>
+<blockquote class="quotation">
 <p>See Section 5.2 [Thunder and Lightning], page 57, for details.
 </p></blockquote>
 
 <p>in a printed manual.
 </p>
 <p>The third argument to cross-references must observe some of the
-restrictions for node names (see <a href="Node-Line-Requirements.html">Node Line Requirements</a>).  The
+restrictions for node names (see <a class="pxref" href="Node-Line-Requirements.html"><code class="code">@node</code> Line Requirements</a>).  The
 most common issue is that colons cannot be used, since that interferes
 with the parsing of the Info file.
 </p>
@@ -131,26 +113,29 @@ just the first argument if the node name and the section title are the
 same (or nearly so), and with the first and third arguments only if the
 node name and title are different.
 </p>
-<span id="index-xrefautomaticsectiontitle"></span>
+<a class="index-entry-id" id="index-xrefautomaticsectiontitle"></a>
 <p>Texinfo offers a setting to use the section title instead of node
 names by default in cross-references (an explicitly specified third
 argument still takes precedence):
 </p>
 <div class="example">
-<pre class="example">@xrefautomaticsectiontitle on
+<pre class="example-preformatted">@xrefautomaticsectiontitle on
 </pre></div>
 
 <p>Typically this line would be given near the beginning of the document
 and used for the whole manual.  But you can turn it off if you want
-(<code>@xrefautomaticsectiontitle off</code>), for example, if you&rsquo;re
+(<code class="code">@xrefautomaticsectiontitle off</code>), for example, if you&rsquo;re
 including some other sub-document that doesn&rsquo;t have suitable section
-names.
+names.  This setting also applies to node headers in HTML, if
+<code class="code">@xrefautomaticsectiontitle</code> is on, the sections names are used
+in node headers instead of the node names when possible.
 </p>
 
+</div>
 <hr>
-<div class="header">
+<div class="nav-panel">
 <p>
-Next: <a href="Four-and-Five-Arguments.html" accesskey="n" rel="next">Four and Five Arguments</a>, Previous: <a href="Two-Arguments.html" accesskey="p" rel="prev">Two Arguments</a>, Up: <a href="_0040xref.html" accesskey="u" rel="up"><code>@xref</code></a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Four-and-Five-Arguments.html"><code class="code">@xref</code> with Four and Five Arguments</a>, Previous: <a href="Two-Arguments.html"><code class="code">@xref</code> with Two Arguments</a>, Up: <a href="_0040xref.html"><code class="code">@xref</code></a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

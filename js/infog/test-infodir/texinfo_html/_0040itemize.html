@@ -1,35 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<!-- This manual is for GNU Texinfo (version 6.7dev, 18 October 2019),
+<!-- Created by Texinfo 6.8dev+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for GNU Texinfo (version 6.8dev, 23 February 2022),
 a documentation system that can produce both online information and a
 printed manual from a single source using semantic markup.
 
-Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997,
-1998, 1999, 2001, 2001, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019 Free Software
-Foundation, Inc.
+Copyright (C) 1988, 1990-1993, 1995-1999, 2001-2022 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
-Invariant Sections, with the Front-Cover Texts being "A GNU Manual",
-and with the Back-Cover Texts as in (a) below.  A copy of the license
-is included in the section entitled "GNU Free Documentation
-License".
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>@itemize (GNU Texinfo 6.8dev)</title>
 
-(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-modify this GNU manual.  Buying copies from the FSF supports it in
-developing GNU and promoting software freedom." -->
-<!-- Created by GNU Texinfo 6.7dev, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>@itemize (GNU Texinfo 6.7dev)</title>
-
-<meta name="description" content="@itemize (GNU Texinfo 6.7dev)">
-<meta name="keywords" content="@itemize (GNU Texinfo 6.7dev)">
+<meta name="description" content="@itemize (GNU Texinfo 6.8dev)">
+<meta name="keywords" content="@itemize (GNU Texinfo 6.8dev)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Command-and-Variable-Index.html" rel="index" title="Command and Variable Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -38,20 +32,9 @@ developing GNU and promoting software freedom." -->
 <link href="Introducing-Lists.html" rel="prev" title="Introducing Lists">
 <style type="text/css">
 <!--
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-ul.no-bullet {list-style: none}
+ul.mark-bullet {list-style-type: disc}
+ul.mark-minus {list-style-type: "\2212"}
 -->
 </style>
 
@@ -59,46 +42,47 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="g_t_0040itemize"></span><div class="header">
+<div class="section-level-extent" id="g_t_0040itemize">
+<div class="nav-panel">
 <p>
-Next: <a href="_0040enumerate.html" accesskey="n" rel="next"><code>@enumerate</code></a>, Previous: <a href="Introducing-Lists.html" accesskey="p" rel="prev">Introducing Lists</a>, Up: <a href="Lists-and-Tables.html" accesskey="u" rel="up">Lists and Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="_0040enumerate.html" accesskey="n" rel="next"><code class="code">@enumerate</code>: Making a Numbered or Lettered List</a>, Previous: <a href="Introducing-Lists.html" accesskey="p" rel="prev">Introducing Lists</a>, Up: <a href="Lists-and-Tables.html" accesskey="u" rel="up">Lists and Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<span id="g_t_0040itemize_003a-Making-an-Itemized-List"></span><h3 class="section"><code>@itemize</code>: Making an Itemized List</h3>
+<h3 class="section" id="g_t_0040itemize_003a-Making-an-Itemized-List">8.2 <code class="code">@itemize</code>: Making an Itemized List</h3>
 
-<span id="itemize"></span><span id="index-itemize"></span>
-<span id="index-Itemization"></span>
+<a class="anchor" id="itemize"></a><a class="index-entry-id" id="index-itemize"></a>
+<a class="index-entry-id" id="index-Itemization"></a>
 
-<p>The <code>@itemize</code> command produces a sequence of &ldquo;items&rdquo;, each
+<p>The <code class="code">@itemize</code> command produces a sequence of &ldquo;items&rdquo;, each
 starting with a bullet or other mark inside the left margin, and
 generally indented.
 </p>
-<span id="index-_0040w_002c-for-blank-items"></span>
-<p>Begin an itemized list by writing <code>@itemize</code> at the beginning of
+<a class="index-entry-id" id="index-_0040w_002c-for-blank-items"></a>
+<p>Begin an itemized list by writing <code class="code">@itemize</code> at the beginning of
 a line.  Follow the command, on the same line, with a character or a
 Texinfo command that generates a mark.  Usually, you will use
-<code>@bullet</code> after <code>@itemize</code>, but you can use
-<code>@minus</code>, or any command or character that results in a single
+<code class="code">@bullet</code> after <code class="code">@itemize</code>, but you can use
+<code class="code">@minus</code>, or any command or character that results in a single
 character in the Info file.  (When you write the mark command such as
-<code>@bullet</code> after an <code>@itemize</code> command, you may omit the
-&lsquo;<samp>{}</samp>&rsquo;.)  If you don&rsquo;t specify a mark command, the default is
-<code>@bullet</code>.  If you don&rsquo;t want any mark at all, but still want
-logical items, use <code>@w{}</code> (in this case the braces are
+<code class="code">@bullet</code> after an <code class="code">@itemize</code> command, you may omit the
+&lsquo;<samp class="samp">{}</samp>&rsquo;.)  If you don&rsquo;t specify a mark command, the default is
+<code class="code">@bullet</code>.  If you don&rsquo;t want any mark at all, but still want
+logical items, use <code class="code">@w{}</code> (in this case the braces are
 required).
 </p>
-<span id="index-item"></span>
-<p>After the <code>@itemize</code>, write your items, each starting with
-<code>@item</code>.  Text can follow on the same line as the <code>@item</code>.
+<a class="index-entry-id" id="index-item"></a>
+<p>After the <code class="code">@itemize</code>, write your items, each starting with
+<code class="code">@item</code>.  Text can follow on the same line as the <code class="code">@item</code>.
 The text of an item can continue for more than one paragraph.
 </p>
-<p>There should be at least one <code>@item</code> inside the <code>@itemize</code>
-environment.  If none are present, <code>makeinfo</code> gives a warning.
+<p>There should be at least one <code class="code">@item</code> inside the <code class="code">@itemize</code>
+environment.  If none are present, <code class="code">makeinfo</code> gives a warning.
 If you just want indented text and not a list of items, use
-<code>@indentedblock</code>; see <a href="_0040indentedblock.html"><code>@indentedblock</code></a>.
+<code class="code">@indentedblock</code>; see <a class="pxref" href="_0040indentedblock.html"><code class="code">@indentedblock</code>: Indented text blocks</a>.
 </p>
-<p>Index entries and comments that are given before an <code>@item</code>
+<p>Index entries and comments that are given before an <code class="code">@item</code>
 including the first, are automatically moved (internally) to after the
-<code>@item</code>, so the output is as expected.  Historically this has
+<code class="code">@item</code>, so the output is as expected.  Historically this has
 been a common practice.
 </p>
 <p>Usually, you should put a blank line between items.  This puts a blank
@@ -106,12 +90,12 @@ line in the Info file. (TeX inserts the proper vertical space in
 any case.)  Except when the entries are very brief, these blank lines
 make the list look better.
 </p>
-<p>Here is an example of the use of <code>@itemize</code>, followed by the
-output it produces.  <code>@bullet</code> produces an &lsquo;<samp>*</samp>&rsquo; in Info and
+<p>Here is an example of the use of <code class="code">@itemize</code>, followed by the
+output it produces.  <code class="code">@bullet</code> produces an &lsquo;<samp class="samp">*</samp>&rsquo; in Info and
 a round dot in other output formats.
 </p>
 <div class="example">
-<pre class="example">@itemize @bullet
+<div class="group"><pre class="example-preformatted">@itemize @bullet
 @item
 Some text for foo.
 
@@ -119,15 +103,15 @@ Some text for foo.
 Some text
 for bar.
 @end itemize
-</pre></div>
+</pre></div></div>
 
 <p>This produces:
 </p>
-<blockquote>
-<ul>
-<li> Some text for foo.
+<blockquote class="quotation">
+<ul class="itemize mark-bullet">
+<li>Some text for foo.
 
-</li><li> Some text
+</li><li>Some text
 for bar.
 </li></ul>
 </blockquote>
@@ -136,7 +120,7 @@ for bar.
 list marked with dashes embedded in a list marked with bullets:
 </p>
 <div class="example">
-<pre class="example">@itemize @bullet
+<div class="group"><pre class="example-preformatted">@itemize @bullet
 @item
 First item.
 
@@ -151,29 +135,30 @@ Second inner item.
 @item
 Second outer item.
 @end itemize
-</pre></div>
+</pre></div></div>
 
 <p>This produces:
 </p>
-<blockquote>
-<ul>
-<li> First item.
+<blockquote class="quotation">
+<ul class="itemize mark-bullet">
+<li>First item.
 
-<ul class="no-bullet">
-<li>- Inner item.
+<ul class="itemize mark-minus">
+<li>Inner item.
 
-</li><li>- Second inner item.
+</li><li>Second inner item.
 </li></ul>
 
-</li><li> Second outer item.
+</li><li>Second outer item.
 </li></ul>
 </blockquote>
 
 
+</div>
 <hr>
-<div class="header">
+<div class="nav-panel">
 <p>
-Next: <a href="_0040enumerate.html" accesskey="n" rel="next"><code>@enumerate</code></a>, Previous: <a href="Introducing-Lists.html" accesskey="p" rel="prev">Introducing Lists</a>, Up: <a href="Lists-and-Tables.html" accesskey="u" rel="up">Lists and Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="_0040enumerate.html"><code class="code">@enumerate</code>: Making a Numbered or Lettered List</a>, Previous: <a href="Introducing-Lists.html">Introducing Lists</a>, Up: <a href="Lists-and-Tables.html">Lists and Tables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

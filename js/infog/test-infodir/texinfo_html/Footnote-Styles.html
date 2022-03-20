@@ -1,57 +1,40 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<!-- This manual is for GNU Texinfo (version 6.7dev, 18 October 2019),
+<!-- Created by Texinfo 6.8dev+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for GNU Texinfo (version 6.8dev, 23 February 2022),
 a documentation system that can produce both online information and a
 printed manual from a single source using semantic markup.
 
-Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997,
-1998, 1999, 2001, 2001, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019 Free Software
-Foundation, Inc.
+Copyright (C) 1988, 1990-1993, 1995-1999, 2001-2022 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
-Invariant Sections, with the Front-Cover Texts being "A GNU Manual",
-and with the Back-Cover Texts as in (a) below.  A copy of the license
-is included in the section entitled "GNU Free Documentation
-License".
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Footnote Styles (GNU Texinfo 6.8dev)</title>
 
-(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-modify this GNU manual.  Buying copies from the FSF supports it in
-developing GNU and promoting software freedom." -->
-<!-- Created by GNU Texinfo 6.7dev, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Footnote Styles (GNU Texinfo 6.7dev)</title>
-
-<meta name="description" content="Footnote Styles (GNU Texinfo 6.7dev)">
-<meta name="keywords" content="Footnote Styles (GNU Texinfo 6.7dev)">
+<meta name="description" content="Footnote Styles (GNU Texinfo 6.8dev)">
+<meta name="keywords" content="Footnote Styles (GNU Texinfo 6.8dev)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Command-and-Variable-Index.html" rel="index" title="Command and Variable Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Footnotes.html" rel="up" title="Footnotes">
-<link href="Indices.html" rel="next" title="Indices">
 <link href="Footnote-Commands.html" rel="prev" title="Footnote Commands">
 <style type="text/css">
 <!--
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-ul.no-bullet {list-style: none}
+span.r {font-family: initial; font-weight: normal}
+span.w-nolinebreak-text {white-space: nowrap}
+ul.mark-bullet {list-style-type: disc}
 -->
 </style>
 
@@ -59,95 +42,97 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Footnote-Styles"></span><div class="header">
+<div class="subsection-level-extent" id="Footnote-Styles">
+<div class="nav-panel">
 <p>
 Previous: <a href="Footnote-Commands.html" accesskey="p" rel="prev">Footnote Commands</a>, Up: <a href="Footnotes.html" accesskey="u" rel="up">Footnotes</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<span id="Footnote-Styles-1"></span><h4 class="subsection">Footnote Styles</h4>
+<h4 class="subsection" id="Footnote-Styles-1">9.3.2 Footnote Styles</h4>
 
 <p>Info has two footnote styles, which determine where the text of the
 footnote is located:
 </p>
-<ul>
-<li> <span id="index-End-node-footnote-style"></span>
+<ul class="itemize mark-bullet">
+<li><a class="index-entry-id" id="index-End-node-footnote-style"></a>
 In the &lsquo;End&rsquo; node style, all the footnotes for a single node are
 placed at the end of that node.  The footnotes are separated from the
-rest of the node by a line of dashes with the word &lsquo;<samp>Footnotes</samp>&rsquo;
-within it.  Each footnote begins with an &lsquo;<samp>(<var>n</var>)</samp>&rsquo; reference
+rest of the node by a line of dashes with the word &lsquo;<samp class="samp">Footnotes</samp>&rsquo;
+within it.  Each footnote begins with an &lsquo;<samp class="samp">(<var class="var">n</var>)</samp>&rsquo; reference
 mark.
 
 <p>Here is an example of the Info output for a single footnote in the
 end-of-node style:
 </p>
 <div class="example">
-<pre class="example">--------- Footnotes ---------
+<div class="group"><pre class="example-preformatted">--------- Footnotes ---------
 
 (1)  Here is a sample footnote.
-</pre></div>
+</pre></div></div>
 
-</li><li> <span id="index-Separate-footnote-style"></span>
+</li><li><a class="index-entry-id" id="index-Separate-footnote-style"></a>
 In the &lsquo;Separate&rsquo; node style, all the footnotes for a single
 node are placed in an automatically constructed node of
 their own.  In this style, a &ldquo;footnote reference&rdquo; follows
-each &lsquo;<samp>(<var>n</var>)</samp>&rsquo; reference mark in the body of the
+each &lsquo;<samp class="samp">(<var class="var">n</var>)</samp>&rsquo; reference mark in the body of the
 node.  The footnote reference is actually a cross-reference
 which you use to reach the footnote node.
 
 <p>The name of the node with the footnotes is constructed
-by appending &lsquo;<samp><span class="nolinebreak">-Footnotes</span></samp>&rsquo;<!-- /@w --> to the name of the node
+by appending &lsquo;<samp class="samp"><span class="w-nolinebreak-text">-Footnotes</span></samp>&rsquo;<!-- /@w --> to the name of the node
 that contains the footnotes. (Consequently, the footnotes&rsquo;
-node for the <samp>Footnotes</samp> node is
-<samp><span class="nolinebreak">Footnotes-Footnotes</span></samp><!-- /@w -->!)  The footnotes&rsquo; node has an
+node for the <samp class="file">Footnotes</samp> node is
+<samp class="file"><span class="w-nolinebreak-text">Footnotes-Footnotes</span></samp><!-- /@w -->!)  The footnotes&rsquo; node has an
 &lsquo;Up&rsquo; node pointer that leads back to its parent node.
 </p>
 <p>Here is how the first footnote in this manual looks after being
 formatted for Info in the separate node style:
 </p>
 <div class="example">
-<pre class="example">File: texinfo.info  Node: Overview-Footnotes, Up: Overview
+<div class="group"><pre class="example-preformatted">File: texinfo.info  Node: Overview-Footnotes, Up: Overview
 
 (1) The first syllable of &quot;Texinfo&quot; is pronounced like &quot;speck&quot;, not
 &quot;hex&quot;. &hellip;
-</pre></div>
+</pre></div></div>
 </li></ul>
 
 <p>Unless your document has long and important footnotes (as in, say,
-Gibbon&rsquo;s <cite>Decline and Fall &hellip;</cite>), we recommend the &lsquo;<samp>end</samp>&rsquo;
+Gibbon&rsquo;s <cite class="cite">Decline and Fall &hellip;</cite>), we recommend the &lsquo;<samp class="samp">end</samp>&rsquo;
 style, as it is simpler for readers to follow.
 </p>
-<span id="index-footnotestyle"></span>
-<p>Use the <code>@footnotestyle</code> command to specify an Info file&rsquo;s
+<a class="index-entry-id" id="index-footnotestyle"></a>
+<p>Use the <code class="code">@footnotestyle</code> command to specify an Info file&rsquo;s
 footnote style.  Write this command at the beginning of a line followed
-by an argument, either &lsquo;<samp>end</samp>&rsquo; for the end node style or
-&lsquo;<samp>separate</samp>&rsquo; for the separate node style.
+by an argument, either &lsquo;<samp class="samp">end</samp>&rsquo; for the end node style or
+&lsquo;<samp class="samp">separate</samp>&rsquo; for the separate node style.
 </p>
 <p>For example,
 </p>
 <div class="example">
-<pre class="example">@footnotestyle end
+<pre class="example-preformatted">@footnotestyle end
 </pre></div>
 <p>or
 </p><div class="example">
-<pre class="example">@footnotestyle separate
+<pre class="example-preformatted">@footnotestyle separate
 </pre></div>
 
-<p>Write a <code>@footnotestyle</code> command before or shortly after the
+<p>Write a <code class="code">@footnotestyle</code> command before or shortly after the
 end-of-header line at the beginning of a Texinfo file.  (You should
-include any <code>@footnotestyle</code> command between the start-of-header
+include any <code class="code">@footnotestyle</code> command between the start-of-header
 and end-of-header lines, so the region formatting commands will format
 footnotes as specified.)
 </p>
-<p>In HTML, when the footnote style is &lsquo;<samp>end</samp>&rsquo;, or if the output is
+<p>In HTML, when the footnote style is &lsquo;<samp class="samp">end</samp>&rsquo;, or if the output is
 not split, footnotes are put at the end of the output.  If set to
-&lsquo;<samp>separate</samp>&rsquo;, and the output is split, they are placed in a
+&lsquo;<samp class="samp">separate</samp>&rsquo;, and the output is split, they are placed in a
 separate file.
 </p>
 
+</div>
 <hr>
-<div class="header">
+<div class="nav-panel">
 <p>
-Previous: <a href="Footnote-Commands.html" accesskey="p" rel="prev">Footnote Commands</a>, Up: <a href="Footnotes.html" accesskey="u" rel="up">Footnotes</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="Footnote-Commands.html">Footnote Commands</a>, Up: <a href="Footnotes.html">Footnotes</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

@@ -1,35 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<!-- This manual is for GNU Texinfo (version 6.7dev, 18 October 2019),
+<!-- Created by Texinfo 6.8dev+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for GNU Texinfo (version 6.8dev, 23 February 2022),
 a documentation system that can produce both online information and a
 printed manual from a single source using semantic markup.
 
-Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997,
-1998, 1999, 2001, 2001, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019 Free Software
-Foundation, Inc.
+Copyright (C) 1988, 1990-1993, 1995-1999, 2001-2022 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
-Invariant Sections, with the Front-Cover Texts being "A GNU Manual",
-and with the Back-Cover Texts as in (a) below.  A copy of the license
-is included in the section entitled "GNU Free Documentation
-License".
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Format with texi2dvi (GNU Texinfo 6.8dev)</title>
 
-(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-modify this GNU manual.  Buying copies from the FSF supports it in
-developing GNU and promoting software freedom." -->
-<!-- Created by GNU Texinfo 6.7dev, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Format with texi2dvi (GNU Texinfo 6.7dev)</title>
-
-<meta name="description" content="Format with texi2dvi (GNU Texinfo 6.7dev)">
-<meta name="keywords" content="Format with texi2dvi (GNU Texinfo 6.7dev)">
+<meta name="description" content="Format with texi2dvi (GNU Texinfo 6.8dev)">
+<meta name="keywords" content="Format with texi2dvi (GNU Texinfo 6.8dev)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Command-and-Variable-Index.html" rel="index" title="Command and Variable Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -38,20 +32,9 @@ developing GNU and promoting software freedom." -->
 <link href="Use-TeX.html" rel="prev" title="Use TeX">
 <style type="text/css">
 <!--
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-ul.no-bullet {list-style: none}
+kbd.kbd {font-style: oblique}
+span.r {font-family: initial; font-weight: normal}
 -->
 </style>
 
@@ -59,184 +42,184 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Format-with-texi2dvi"></span><div class="header">
+<div class="section-level-extent" id="Format-with-texi2dvi">
+<div class="nav-panel">
 <p>
-Next: <a href="Format-with-tex_002ftexindex.html" accesskey="n" rel="next">Format with <code>tex</code>/<code>texindex</code></a>, Previous: <a href="Use-TeX.html" accesskey="p" rel="prev">Use TeX</a>, Up: <a href="Hardcopy.html" accesskey="u" rel="up">Hardcopy</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Format-with-tex_002ftexindex.html" accesskey="n" rel="next">Format with <code class="command">tex</code>/<code class="command">texindex</code></a>, Previous: <a href="Use-TeX.html" accesskey="p" rel="prev">Use TeX</a>, Up: <a href="Hardcopy.html" accesskey="u" rel="up">Formatting and Printing Hardcopy</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<span id="Format-with-texi2dvi-1"></span><h3 class="section">Format with <code>texi2dvi</code></h3>
+<h3 class="section" id="Format-with-texi2dvi-1">18.2 Format with <code class="command">texi2dvi</code></h3>
 
-<span id="index-texi2dvi-_0028shell-script_0029"></span>
-<span id="index-DVI_002c-output-in"></span>
+<a class="index-entry-id" id="index-texi2dvi-_0028shell-script_0029"></a>
+<a class="index-entry-id" id="index-texi2pdf-_0028shell-script_0029"></a>
+<a class="index-entry-id" id="index-DVI_002c-output-in"></a>
 
-<p>The <code>texi2dvi</code> program takes care of all the steps for producing
-a TeX DVI file from a Texinfo document.  Similarly, <code>texi2pdf</code>
+<p>The <code class="code">texi2dvi</code> program takes care of all the steps for producing
+a TeX DVI file from a Texinfo document.  Similarly, <code class="code">texi2pdf</code>
 produces a PDF file.
 </p>
-<p>To run <code>texi2dvi</code> or <code>texi2pdf</code> on an input file
-<samp>foo.texi</samp>, do this (where &lsquo;<samp>prompt$ </samp>&rsquo; is your shell prompt):
+<p>To run <code class="code">texi2dvi</code> or <code class="code">texi2pdf</code> on an input file
+<samp class="file">foo.texi</samp>, do this (where &lsquo;<samp class="samp">prompt$ </samp>&rsquo; is your shell prompt):
 </p>
 <div class="example">
-<pre class="example">prompt$ <kbd>texi2dvi foo.texi</kbd>
-prompt$ <kbd>texi2pdf foo.texi</kbd>
+<pre class="example-preformatted">prompt$ <kbd class="kbd">texi2dvi foo.texi</kbd>
+prompt$ <kbd class="kbd">texi2pdf foo.texi</kbd>
 </pre></div>
 
-<p>As shown in this example, the input filenames to <code>texi2dvi</code> and
-<code>texi2pdf</code> must include any extension, such as &lsquo;<samp>.texi</samp>&rsquo;.
-(Under MS-DOS and perhaps in other circumstances, you may need to run
-&lsquo;<samp>sh texi2dvi foo.texi</samp>&rsquo; instead of relying on the operating system
-to invoke the shell on the &lsquo;<samp>texi2dvi</samp>&rsquo; script.)
+<p>As shown in this example, the file names given to <code class="code">texi2dvi</code> and
+<code class="code">texi2pdf</code> must include any extension, such as &lsquo;<samp class="samp">.texi</samp>&rsquo;.
 </p>
-<p>For a list of all the options, run &lsquo;<samp>texi2dvi --help</samp>&rsquo;.  Some of the
+<p>For a list of all the options, run &lsquo;<samp class="samp">texi2dvi --help</samp>&rsquo;.  Some of the
 options are discussed below.
 </p>
-<span id="index-_002d_002dpdf_002c-for-texi2dvi"></span>
-<span id="index-pdftexi2dvi"></span>
-<p>With the <samp>--pdf</samp> option, <code>texi2dvi</code> produces PDF output
-instead of DVI (see <a href="PDF-Output.html">PDF Output</a>), by running <code>pdftex</code>
-instead of <code>tex</code>.  Alternatively, the command
-<code>texi2pdf</code> is an abbreviation for running &lsquo;<samp>texi2dvi
---pdf</samp>&rsquo;.  The command <code>pdftexi2dvi</code> is also provided as a
-convenience for AUC-TeX (see <cite><a href="../auctex/index.html#Top">AUC-TeX</a></cite>), as it
-prefers to merely prepend &lsquo;<samp>pdf</samp>&rsquo; to DVI producing tools to have
+<a class="index-entry-id" id="index-_002d_002dpdf_002c-for-texi2dvi"></a>
+<a class="index-entry-id" id="index-pdftexi2dvi"></a>
+<p>With the <samp class="option">--pdf</samp> option, <code class="command">texi2dvi</code> produces PDF output
+instead of DVI (see <a class="pxref" href="PDF-Output.html">PDF Output</a>), by running <code class="command">pdftex</code>
+instead of <code class="command">tex</code>.  Alternatively, the command
+<code class="command">texi2pdf</code> is an abbreviation for running &lsquo;<samp class="samp">texi2dvi
+--pdf</samp>&rsquo;.  The command <code class="command">pdftexi2dvi</code> is also provided as a
+convenience for AUC-TeX (see <cite class="cite"><a data-manual="auctex" href="https://www.gnu.org/software/auctex/manual/auctex/index.html#Top">AUC-TeX</a></cite>), as it
+prefers to merely prepend &lsquo;<samp class="samp">pdf</samp>&rsquo; to DVI producing tools to have
 PDF producing tools.
 </p>
-<span id="index-_002d_002ddvipdf_002c-for-texi2dvi"></span>
-<span id="index-dvipdfmx"></span>
-<p>With the <samp>--dvipdf</samp> option, <code>texi2dvi</code> produces PDF
+<a class="index-entry-id" id="index-_002d_002ddvipdf_002c-for-texi2dvi"></a>
+<a class="index-entry-id" id="index-dvipdfmx"></a>
+<p>With the <samp class="option">--dvipdf</samp> option, <code class="command">texi2dvi</code> produces PDF
 output by running TeX and then a DVI-to-PDF program: if the
-<code>DVIPDF</code> environment variable is set, that value is used, else the
-first program extant among <code>dvipdfmx</code>, <code>dvipdfm</code>,
-<code>dvipdf</code>, <code>dvi2pdf</code>, <code>dvitopdf</code>.  This method generally
-supports CJK typesetting better than <code>pdftex</code>.
+<code class="env">DVIPDF</code> environment variable is set, that value is used, else the
+first program extant among <code class="code">dvipdfmx</code>, <code class="code">dvipdfm</code>,
+<code class="code">dvipdf</code>, <code class="code">dvi2pdf</code>, <code class="code">dvitopdf</code>.  This method generally
+supports CJK typesetting better than <code class="command">pdftex</code>.
 </p>
-<span id="index-_002d_002dps_002c-for-texi2dvi"></span>
-<span id="index-dvips-1"></span>
-<p>With the <samp>--ps</samp> option, <code>texi2dvi</code> produces PostScript
-instead of DVI, by running <code>tex</code> and then <code>dvips</code>
-(see <cite><a href="../dvips/index.html#Top">Dvips</a></cite>).  (Or the value of the <code>DVIPS</code>
+<a class="index-entry-id" id="index-_002d_002dps_002c-for-texi2dvi"></a>
+<a class="index-entry-id" id="index-dvips-1"></a>
+<p>With the <samp class="option">--ps</samp> option, <code class="command">texi2dvi</code> produces PostScript
+instead of DVI, by running <code class="command">tex</code> and then <code class="command">dvips</code>
+(see <cite class="cite"><a data-manual="dvips" href="https://tug.org/texinfohtml/dvips.html#Top">Dvips</a></cite>).  (Or the value of the <code class="env">DVIPS</code>
 environment variable, if set.)
 </p>
-<span id="index-_002d_002dlanguage_002c-for-texi2dvi"></span>
-<span id="index-LaTeX_002c-processing-with-texi2dvi"></span>
-<p><code>texi2dvi</code> can also be used to process LaTeX files.
-Normally <code>texi2dvi</code> is able to guess the input file language
+<a class="index-entry-id" id="index-_002d_002dlanguage_002c-for-texi2dvi"></a>
+<a class="index-entry-id" id="index-LaTeX_002c-processing-with-texi2dvi"></a>
+<p><code class="command">texi2dvi</code> can also be used to process LaTeX files.
+Normally <code class="command">texi2dvi</code> is able to guess the input file language
 by its contents and file name extension; however, if it guesses wrong
 you can explicitly specify the input language using
-<samp>--language=<var>lang</var></samp> command line option, where <var>lang</var>
-is either &lsquo;<samp>latex</samp>&rsquo; or &lsquo;<samp>texinfo</samp>&rsquo;.
+<samp class="option">--language=<var class="var">lang</var></samp> command line option, where <var class="var">lang</var>
+is either &lsquo;<samp class="samp">latex</samp>&rsquo; or &lsquo;<samp class="samp">texinfo</samp>&rsquo;.
 </p>
-<span id="index-_002d_002dcommand_002c-for-texi2dvi"></span>
-<p>One useful option to <code>texi2dvi</code> is &lsquo;<samp>--command=<var>cmd</var></samp>&rsquo;.
-This inserts <var>cmd</var> on a line by itself at the start of the file
+<a class="index-entry-id" id="index-_002d_002dcommand_002c-for-texi2dvi"></a>
+<p>One useful option to <code class="code">texi2dvi</code> is &lsquo;<samp class="samp">--command=<var class="var">cmd</var></samp>&rsquo;.
+This inserts <var class="var">cmd</var> on a line by itself at the start of the file
 in a temporary copy of the input file, before
 running TeX.  With this, you can specify different printing
-formats, such as <code>@smallbook</code> (see <a href="_0040smallbook.html"><code>@smallbook</code></a>),
-<code>@afourpaper</code> (see <a href="A4-Paper.html">A4 Paper</a>), or <code>@pagesizes</code>
-(see <a href="_0040pagesizes.html"><code>@pagesizes</code></a>), without actually changing the document
+formats, such as <code class="code">@smallbook</code> (see <a class="pxref" href="_0040smallbook.html"><code class="code">@smallbook</code>: Printing &ldquo;Small&rdquo; Books</a>),
+<code class="code">@afourpaper</code> (see <a class="pxref" href="A4-Paper.html">Printing on A4 Paper</a>), or <code class="code">@pagesizes</code>
+(see <a class="pxref" href="_0040pagesizes.html"><code class="code">@pagesizes</code> [<var class="var">width</var>][, <var class="var">height</var>]: Custom Page Sizes</a>), without actually changing the document
 source.  (You can also do this on a site-wide basis with
-<samp>texinfo.cnf</samp>; see <a href="Preparing-for-TeX.html">Preparing for TeX</a>).
+<samp class="file">texinfo.cnf</samp>; see <a class="pxref" href="Preparing-for-TeX.html">Preparing for TeX</a>).
 </p>
-<p>The option <samp>-E</samp> (equivalently, <samp>-e</samp> and
-<samp>--expand</samp>) does Texinfo macro expansion using
-<code>makeinfo</code> instead of the TeX implementation (see <a href="Macro-Details.html">Macro Details</a>).  Each implementation has its own limitations and
+<p>The option <samp class="option">-E</samp> (equivalently, <samp class="option">-e</samp> and
+<samp class="option">--expand</samp>) does Texinfo macro expansion using
+<code class="command">makeinfo</code> instead of the TeX implementation (see <a class="pxref" href="Macro-Details.html">Macro Details and Caveats</a>).  Each implementation has its own limitations and
 advantages.  If this option is used, no line in the source file
-may begin with the string <code>@c&nbsp;_texi2dvi</code> or the
-string <code>@c&nbsp;(_texi2dvi)</code>.
+may begin with the string <code class="code">@c&nbsp;_texi2dvi</code> or the
+string <code class="code">@c&nbsp;(_texi2dvi)</code>.
 </p>
-<p><code>texi2dvi</code> takes the <samp>--build=<var>mode</var></samp> option to 
+<p><code class="command">texi2dvi</code> takes the <samp class="option">--build=<var class="var">mode</var></samp> option to 
 specify where the TeX compilation takes place, and, as a
 consequence, how auxiliary files are treated.  The build mode
 can also be set using the environment variable 
-<code>TEXI2DVI_BUILD_MODE</code>.  The valid values for <var>mode</var> are:
+<code class="env">TEXI2DVI_BUILD_MODE</code>.  The valid values for <var class="var">mode</var> are:
 </p>
-<dl compact="compact">
-<dt>&lsquo;<samp>local</samp>&rsquo;</dt>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">local</samp>&rsquo;</dt>
 <dd><p>Compile in the current directory, leaving all the auxiliary
  files around.  This is the traditional TeX use.
 </p>
 </dd>
-<dt>&lsquo;<samp>tidy</samp>&rsquo;</dt>
-<dd><p>Compile in a local <code>*.t2d</code> directory, where the auxiliary files
+<dt>&lsquo;<samp class="samp">tidy</samp>&rsquo;</dt>
+<dd><p>Compile in a local <code class="code">*.t2d</code> directory, where the auxiliary files
  are left.  Output files are copied back to the original file.
 </p>
-<p>Using the &lsquo;<samp>tidy</samp>&rsquo; mode brings several advantages:
- </p><ul class="no-bullet">
-<li>- the current directory is not cluttered with plethora of temporary files.
- </li><li>- clutter can be even further reduced using <samp>--build-dir=dir</samp>: all
-   the <code>*.t2d</code> directories are stored there.
- </li><li>- clutter can be reduced to zero using, e.g.,
-   <samp>--build-dir=/tmp/\$USER.t2d</samp> or <samp>--build-dir=\$HOME/.t2d</samp>.
- </li><li>- the output file is updated after every successful TeX run, for
-   sake of concurrent visualization of the output.  In a &lsquo;<samp>local</samp>&rsquo; build
+<p>Using the &lsquo;<samp class="samp">tidy</samp>&rsquo; mode brings several advantages:
+ </p><ul class="itemize" style="list-style-type: '-'">
+<li>the current directory is not cluttered with plethora of temporary files.
+ </li><li>clutter can be even further reduced using <samp class="option">--build-dir=dir</samp>: all
+   the <code class="code">*.t2d</code> directories are stored there.
+ </li><li>clutter can be reduced to zero using, e.g.,
+   <samp class="option">--build-dir=/tmp/\$USER.t2d</samp> or <samp class="option">--build-dir=\$HOME/.t2d</samp>.
+ </li><li>the output file is updated after every successful TeX run, for
+   sake of concurrent visualization of the output.  In a &lsquo;<samp class="samp">local</samp>&rsquo; build
    the viewer stops during the whole TeX run.
- </li><li>- if the compilation fails, the previous state of the output file
+ </li><li>if the compilation fails, the previous state of the output file
    is preserved.
- </li><li>- <acronym>PDF</acronym> and <acronym>DVI</acronym> compilation are kept in separate
+ </li><li><acronym class="acronym">PDF</acronym> and <acronym class="acronym">DVI</acronym> compilation are kept in separate
    subdirectories
    preventing any possibility of auxiliary file incompatibility.
  </li></ul>
 
-<p>On the other hand, because &lsquo;<samp>tidy</samp>&rsquo; compilation takes place in another
+<p>On the other hand, because &lsquo;<samp class="samp">tidy</samp>&rsquo; compilation takes place in another
  directory, occasionally TeX won&rsquo;t be able to find some files (e.g., when
- using <code>\graphicspath</code>): in that case, use <samp>-I</samp> to specify the
+ using <code class="code">\graphicspath</code>): in that case, use <samp class="option">-I</samp> to specify the
  additional directories to consider.
 </p>
 </dd>
-<dt>&lsquo;<samp>clean</samp>&rsquo;</dt>
-<dd><p>Same as &lsquo;<samp>tidy</samp>&rsquo;, but remove the auxiliary directory afterwards.
+<dt>&lsquo;<samp class="samp">clean</samp>&rsquo;</dt>
+<dd><p>Same as &lsquo;<samp class="samp">tidy</samp>&rsquo;, but remove the auxiliary directory afterwards.
  Every compilation therefore requires the full cycle.
 </p></dd>
 </dl>
 
-<span id="index-etex"></span>
-<span id="index-pdfetex"></span>
-<p><code>texi2dvi</code> will use <code>etex</code> (or <code>pdfetex</code>) if
+<a class="index-entry-id" id="index-etex"></a>
+<a class="index-entry-id" id="index-pdfetex"></a>
+<p><code class="command">texi2dvi</code> will use <code class="command">etex</code> (or <code class="command">pdfetex</code>) if
 it is available, because it runs faster in some cases, and
 provides additional tracing information when debugging
-<samp>texinfo.tex</samp>.  Nevertheless, this extended version of TeX is
+<samp class="file">texinfo.tex</samp>.  Nevertheless, this extended version of TeX is
 not required, and the DVI output is identical.
-(These days, <code>pdftex</code> and <code>pdfetex</code> are exactly the
-same, but we still run <code>pdfetex</code> to cater to ancient TeX
+(These days, <code class="command">pdftex</code> and <code class="command">pdfetex</code> are exactly the
+same, but we still run <code class="command">pdfetex</code> to cater to ancient TeX
 installations.)
 </p>
-<span id="index-filename-recorder-for-TeX"></span>
-<span id="index-_005copenout-line-in-log-file"></span>
-<p><code>texi2dvi</code> attempts to detect auxiliary files output by TeX, 
-either by using the <samp>-recorder</samp> option, or by scanning for 
-&lsquo;<samp>\openout</samp>&rsquo; in the log file that a run of TeX produces.  You may
-control how <code>texi2dvi</code> does this with the <code>TEXI2DVI_USE_RECORDER</code>
+<a class="index-entry-id" id="index-file-recorder-for-TeX"></a>
+<a class="index-entry-id" id="index-_005copenout-line-in-log-file"></a>
+<p><code class="command">texi2dvi</code> attempts to detect auxiliary files output by TeX, 
+either by using the <samp class="option">-recorder</samp> option, or by scanning for 
+&lsquo;<samp class="samp">\openout</samp>&rsquo; in the log file that a run of TeX produces.  You may
+control how <code class="command">texi2dvi</code> does this with the <code class="env">TEXI2DVI_USE_RECORDER</code>
 environment variable.  Valid values are:
 </p>
-<dl compact="compact">
-<dt>&lsquo;<samp>yes</samp>&rsquo;</dt>
-<dd><p>use the <samp>-recorder</samp> option, no checks.
+<dl class="table">
+<dt>&lsquo;<samp class="samp">yes</samp>&rsquo;</dt>
+<dd><p>use the <samp class="option">-recorder</samp> option, no checks.
 </p>
 </dd>
-<dt>&lsquo;<samp>no</samp>&rsquo;</dt>
-<dd><p>scan for &lsquo;<samp>\openout</samp>&rsquo; in the log file, no checks.
+<dt>&lsquo;<samp class="samp">no</samp>&rsquo;</dt>
+<dd><p>scan for &lsquo;<samp class="samp">\openout</samp>&rsquo; in the log file, no checks.
 </p>
 </dd>
-<dt>&lsquo;<samp>yesmaybe</samp>&rsquo;</dt>
-<dd><p>check whether <samp>-recorder</samp> option is supported, and if yes
-use it, otherwise check for tracing &lsquo;<samp>\openout</samp>&rsquo; in the log file is 
+<dt>&lsquo;<samp class="samp">yesmaybe</samp>&rsquo;</dt>
+<dd><p>check whether <samp class="option">-recorder</samp> option is supported, and if yes
+use it, otherwise check for tracing &lsquo;<samp class="samp">\openout</samp>&rsquo; in the log file is 
 supported, and if yes use it, else it is an error.
 </p>
 </dd>
-<dt>&lsquo;<samp>nomaybe</samp>&rsquo;</dt>
-<dd><p>same as &lsquo;<samp>yesmaybe</samp>&rsquo;, except that the &lsquo;<samp>\openout</samp>&rsquo; trace in log 
+<dt>&lsquo;<samp class="samp">nomaybe</samp>&rsquo;</dt>
+<dd><p>same as &lsquo;<samp class="samp">yesmaybe</samp>&rsquo;, except that the &lsquo;<samp class="samp">\openout</samp>&rsquo; trace in log 
 file is checked first.
 </p></dd>
 </dl>
 
-<p>The default is &lsquo;<samp>nomaybe</samp>&rsquo;.  This environment variable is provided 
+<p>The default is &lsquo;<samp class="samp">nomaybe</samp>&rsquo;.  This environment variable is provided 
 for troubleshooting purposes, and may change or disappear in the future.
 </p>
 
+</div>
 <hr>
-<div class="header">
+<div class="nav-panel">
 <p>
-Next: <a href="Format-with-tex_002ftexindex.html" accesskey="n" rel="next">Format with <code>tex</code>/<code>texindex</code></a>, Previous: <a href="Use-TeX.html" accesskey="p" rel="prev">Use TeX</a>, Up: <a href="Hardcopy.html" accesskey="u" rel="up">Hardcopy</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Format-with-tex_002ftexindex.html">Format with <code class="command">tex</code>/<code class="command">texindex</code></a>, Previous: <a href="Use-TeX.html">Use TeX</a>, Up: <a href="Hardcopy.html">Formatting and Printing Hardcopy</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

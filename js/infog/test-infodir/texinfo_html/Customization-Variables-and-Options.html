@@ -1,35 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<!-- This manual is for GNU Texinfo (version 6.7dev, 18 October 2019),
+<!-- Created by Texinfo 6.8dev+dev, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual is for GNU Texinfo (version 6.8dev, 23 February 2022),
 a documentation system that can produce both online information and a
 printed manual from a single source using semantic markup.
 
-Copyright (C) 1988, 1990, 1991, 1992, 1993, 1995, 1996, 1997,
-1998, 1999, 2001, 2001, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019 Free Software
-Foundation, Inc.
+Copyright (C) 1988, 1990-1993, 1995-1999, 2001-2022 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
-Invariant Sections, with the Front-Cover Texts being "A GNU Manual",
-and with the Back-Cover Texts as in (a) below.  A copy of the license
-is included in the section entitled "GNU Free Documentation
-License".
+Invariant Sections, with no Front-Cover Texts, and with no Back-Cover
+Texts.  A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Customization Variables and Options (GNU Texinfo 6.8dev)</title>
 
-(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-modify this GNU manual.  Buying copies from the FSF supports it in
-developing GNU and promoting software freedom." -->
-<!-- Created by GNU Texinfo 6.7dev, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Customization Variables and Options (GNU Texinfo 6.7dev)</title>
-
-<meta name="description" content="Customization Variables and Options (GNU Texinfo 6.7dev)">
-<meta name="keywords" content="Customization Variables and Options (GNU Texinfo 6.7dev)">
+<meta name="description" content="Customization Variables and Options (GNU Texinfo 6.8dev)">
+<meta name="keywords" content="Customization Variables and Options (GNU Texinfo 6.8dev)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="texi2any">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="index.html" rel="start" title="Top">
 <link href="Command-and-Variable-Index.html" rel="index" title="Command and Variable Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
@@ -38,20 +32,9 @@ developing GNU and promoting software freedom." -->
 <link href="Customization-Variables-for-_0040_002dCommands.html" rel="prev" title="Customization Variables for @-Commands">
 <style type="text/css">
 <!--
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.display {margin-left: 3.2em}
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-ul.no-bullet {list-style: none}
+span:hover a.copiable-link {visibility: visible}
 -->
 </style>
 
@@ -59,180 +42,133 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Customization-Variables-and-Options"></span><div class="header">
+<div class="subsection-level-extent" id="Customization-Variables-and-Options">
+<div class="nav-panel">
 <p>
 Next: <a href="HTML-Customization-Variables.html" accesskey="n" rel="next">HTML Customization Variables</a>, Previous: <a href="Customization-Variables-for-_0040_002dCommands.html" accesskey="p" rel="prev">Customization Variables for @-Commands</a>, Up: <a href="Customization-Variables.html" accesskey="u" rel="up">Customization Variables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<span id="Customization-Variables-and-Options-1"></span><h4 class="subsection">Customization Variables and Options</h4>
+<h4 class="subsection" id="Customization-Variables-and-Options-1">19.4.2 Customization Variables and Options</h4>
 
-<span id="index-Customization-variables-for-options"></span>
-<span id="index-Options_002c-customization-variables-for"></span>
+<a class="index-entry-id" id="index-Customization-variables-for-options"></a>
+<a class="index-entry-id" id="index-Options_002c-customization-variables-for"></a>
 
 <p>The following table gives the customization variables associated with
-some command line options.  See <a href="Invoking-texi2any.html">Invoking <code>texi2any</code></a>, for the
+some command line options.  See <a class="xref" href="Invoking-texi2any.html">Invoking <code class="command">texi2any</code>/<code class="command">makeinfo</code> from a Shell</a>, for the
 meaning of the options.
 </p>
-<table>
+<table class="multitable">
 <thead><tr><th width="50%">Option</th><th width="50%">Variable</th></tr></thead>
-<tr><td width="50%"><span id="index-ENABLE_005fENCODING"></span>
-<samp>--enable-encoding</samp></td><td width="50%"><code>ENABLE_ENCODING</code></td></tr>
-<tr><td width="50%"><samp>--document-language</samp></td><td width="50%"><code>documentlanguage</code></td></tr>
-<tr><td width="50%"><span id="index-ERROR_005fLIMIT"></span>
-<samp>--error-limit</samp></td><td width="50%"><code>ERROR_LIMIT</code></td></tr>
-<tr><td width="50%"><span id="index-FILLCOLUMN"></span>
-<samp>--fill-column</samp></td><td width="50%"><code>FILLCOLUMN</code>
-<span id="index-footnotestyle-1"></span></td></tr>
-<tr><td width="50%"><samp>--footnote-style</samp></td><td width="50%"><code>footnotestyle</code></td></tr>
-<tr><td width="50%"><span id="index-FORCE"></span>
-<samp>--force</samp></td><td width="50%"><code>FORCE</code>
-<span id="index-INTERNAL_005fLINKS"></span></td></tr>
-<tr><td width="50%"><samp>--internal-links</samp></td><td width="50%"><code>INTERNAL_LINKS</code></td></tr>
-<tr><td width="50%"><span id="index-MACRO_005fEXPAND"></span>
-<samp>--macro-expand</samp></td><td width="50%"><code>MACRO_EXPAND</code></td></tr>
-<tr><td width="50%"><samp>--headers</samp></td><td width="50%"><code>HEADERS</code>, <code>SHOW_MENU</code></td></tr>
-<tr><td width="50%"><span id="index-NO_005fWARN"></span>
-<samp>--no-warn</samp></td><td width="50%"><code>NO_WARN</code></td></tr>
-<tr><td width="50%"><span id="index-novalidate-1"></span>
-<samp>--no-validate</samp></td><td width="50%"><code>novalidate</code></td></tr>
-<tr><td width="50%"><span id="index-NUMBER_005fFOOTNOTES"></span>
-<samp>--number-footnotes</samp></td><td width="50%"><code>NUMBER_FOOTNOTES</code></td></tr>
-<tr><td width="50%"><span id="index-NUMBER_005fSECTIONS"></span>
-<samp>--number-sections</samp></td><td width="50%"><code>NUMBER_SECTIONS</code></td></tr>
-<tr><td width="50%"><span id="index-NODE_005fFILES"></span>
-<samp>--node-files</samp></td><td width="50%"><code>NODE_FILES</code></td></tr>
-<tr><td width="50%"><span id="index-OUTFILE"></span>
-<span id="index-SUBDIR"></span>
-<samp>--output</samp></td><td width="50%"><code>OUTFILE</code>, <code>SUBDIR</code></td></tr>
-<tr><td width="50%"><span id="index-paragraphindent-1"></span>
-<samp>--paragraph-indent</samp></td><td width="50%"><code>paragraphindent</code></td></tr>
-<tr><td width="50%"><span id="index-SILENT"></span>
-<samp>--silent</samp></td><td width="50%"><code>SILENT</code></td></tr>
-<tr><td width="50%"><span id="index-SPLIT"></span>
-<samp>--split</samp></td><td width="50%"><code>SPLIT</code></td></tr>
-<tr><td width="50%"><span id="index-SPLIT_005fSIZE"></span>
-<samp>--split-size</samp></td><td width="50%"><code>SPLIT_SIZE</code></td></tr>
-<tr><td width="50%"><span id="index-TRANSLITERATE_005fFILE_005fNAMES"></span>
-<samp>--transliterate-file-names</samp></td><td width="50%"><code>TRANSLITERATE_FILE_NAMES</code></td></tr>
-<tr><td width="50%"><span id="index-VERBOSE"></span>
-<samp>--verbose</samp></td><td width="50%"><code>VERBOSE</code></td></tr>
+<tbody><tr><td width="50%"><samp class="option">--enable-encoding</samp></td><td width="50%"><code class="code">ENABLE_ENCODING</code></td></tr>
+<tr><td width="50%"><samp class="option">--document-language</samp></td><td width="50%"><code class="code">documentlanguage</code></td></tr>
+<tr><td width="50%"><samp class="option">--error-limit</samp></td><td width="50%"><code class="code">ERROR_LIMIT</code></td></tr>
+<tr><td width="50%"><samp class="option">--fill-column</samp></td><td width="50%"><code class="code">FILLCOLUMN</code></td></tr>
+<tr><td width="50%"><samp class="option">--footnote-style</samp></td><td width="50%"><code class="code">footnotestyle</code></td></tr>
+<tr><td width="50%"><samp class="option">--force</samp></td><td width="50%"><code class="code">FORCE</code></td></tr>
+<tr><td width="50%"><samp class="option">--internal-links</samp></td><td width="50%"><code class="code">INTERNAL_LINKS</code></td></tr>
+<tr><td width="50%"><samp class="option">--macro-expand</samp></td><td width="50%"><code class="code">MACRO_EXPAND</code></td></tr>
+<tr><td width="50%"><samp class="option">--headers</samp></td><td width="50%"><code class="code">HEADERS</code>, <code class="code">FORMAT_MENU</code></td></tr>
+<tr><td width="50%"><samp class="option">--no-warn</samp></td><td width="50%"><code class="code">NO_WARN</code></td></tr>
+<tr><td width="50%"><a class="index-entry-id" id="index-novalidate-1"></a>
+<samp class="option">--no-validate</samp></td><td width="50%"><code class="code">novalidate</code></td></tr>
+<tr><td width="50%"><samp class="option">--number-footnotes</samp></td><td width="50%"><code class="code">NUMBER_FOOTNOTES</code></td></tr>
+<tr><td width="50%"><samp class="option">--number-sections</samp></td><td width="50%"><code class="code">NUMBER_SECTIONS</code></td></tr>
+<tr><td width="50%"><samp class="option">--node-files</samp></td><td width="50%"><code class="code">NODE_FILES</code></td></tr>
+<tr><td width="50%"><samp class="option">--output</samp></td><td width="50%"><code class="code">OUTFILE</code>, <code class="code">SUBDIR</code></td></tr>
+<tr><td width="50%"><a class="index-entry-id" id="index-paragraphindent-1"></a>
+<samp class="option">--paragraph-indent</samp></td><td width="50%"><code class="code">paragraphindent</code></td></tr>
+<tr><td width="50%"><samp class="option">--silent</samp></td><td width="50%"><code class="code">SILENT</code></td></tr>
+<tr><td width="50%"><samp class="option">--split</samp></td><td width="50%"><code class="code">SPLIT</code></td></tr>
+<tr><td width="50%"><samp class="option">--split-size</samp></td><td width="50%"><code class="code">SPLIT_SIZE</code></td></tr>
+<tr><td width="50%"><samp class="option">--transliterate-file-names</samp></td><td width="50%"><code class="code">TRANSLITERATE_FILE_NAMES</code></td></tr>
+<tr><td width="50%"><samp class="option">--verbose</samp></td><td width="50%"><code class="code">VERBOSE</code></td></tr>
+</tbody>
 </table>
 
-<p>Setting such a customization variable to a value &lsquo;<samp>foo</samp>&rsquo; is
-essentially the same as specifying the <code>--<var>opt</var>=foo</code> if the
-option takes an argument, or <code>--<var>opt</var></code> if not.
+<p>Setting such a customization variable to a value &lsquo;<samp class="samp">foo</samp>&rsquo; is
+essentially the same as specifying the <code class="code">--<var class="var">opt</var>=foo</code> if the
+option takes an argument, or <code class="code">--<var class="var">opt</var></code> if not.
 </p>
-<span id="index-TEXINFO_005fOUTPUT_005fFORMAT-1"></span>
-<p>In addition, the customization variable <code>TEXINFO_OUTPUT_FORMAT</code>
-allows specifying what <code>makeinfo</code> outputs, either one of the usual
+<a class="index-entry-id" id="index-TEXINFO_005fOUTPUT_005fFORMAT-1"></a>
+<p>In addition, the customization variable <code class="code">TEXINFO_OUTPUT_FORMAT</code>
+allows specifying what <code class="code">makeinfo</code> outputs, either one of the usual
 output formats that can be specified with options, or various other
 forms:
 </p>
-<dl compact="compact">
-<dt>&lsquo;<samp>docbook</samp>&rsquo;
-<span id="index-docbook-1"></span>
-</dt>
-<dt>&lsquo;<samp>dvi</samp>&rsquo;
-<span id="index-dvi"></span>
-</dt>
-<dt>&lsquo;<samp>dvipdf</samp>&rsquo;
-<span id="index-dvipdf"></span>
-</dt>
-<dt>&lsquo;<samp>html</samp>&rsquo;
-<span id="index-html-1"></span>
-</dt>
-<dt>&lsquo;<samp>info</samp>&rsquo;
-<span id="index-info"></span>
-</dt>
-<dt>&lsquo;<samp>pdf</samp>&rsquo;
-<span id="index-pdf"></span>
-</dt>
-<dt>&lsquo;<samp>plaintext</samp>&rsquo;
-<span id="index-plaintext"></span>
-</dt>
-<dt>&lsquo;<samp>ps</samp>&rsquo;
-<span id="index-ps"></span>
-</dt>
-<dt>&lsquo;<samp>xml</samp>&rsquo;
-<span id="index-xml-1"></span>
-</dt>
+<dl class="ftable">
+<dt id='index-docbook-1'><span>&lsquo;<samp class="samp">docbook</samp>&rsquo;<a class="copiable-link" href='#index-docbook-1'> &para;</a></span></dt>
+<dt id='index-dvi'><span>&lsquo;<samp class="samp">dvi</samp>&rsquo;<a class="copiable-link" href='#index-dvi'> &para;</a></span></dt>
+<dt id='index-dvipdf'><span>&lsquo;<samp class="samp">dvipdf</samp>&rsquo;<a class="copiable-link" href='#index-dvipdf'> &para;</a></span></dt>
+<dt id='index-html-1'><span>&lsquo;<samp class="samp">html</samp>&rsquo;<a class="copiable-link" href='#index-html-1'> &para;</a></span></dt>
+<dt id='index-info'><span>&lsquo;<samp class="samp">info</samp>&rsquo;<a class="copiable-link" href='#index-info'> &para;</a></span></dt>
+<dt id='index-pdf'><span>&lsquo;<samp class="samp">pdf</samp>&rsquo;<a class="copiable-link" href='#index-pdf'> &para;</a></span></dt>
+<dt id='index-plaintext'><span>&lsquo;<samp class="samp">plaintext</samp>&rsquo;<a class="copiable-link" href='#index-plaintext'> &para;</a></span></dt>
+<dt id='index-ps'><span>&lsquo;<samp class="samp">ps</samp>&rsquo;<a class="copiable-link" href='#index-ps'> &para;</a></span></dt>
+<dt id='index-xml-1'><span>&lsquo;<samp class="samp">xml</samp>&rsquo;<a class="copiable-link" href='#index-xml-1'> &para;</a></span></dt>
 <dd><p>These correspond to the command-line options (and
-<code>TEXINFO_OUTPUT_FORMAT</code> environment variable values) of the same
-name.  See <a href="Invoking-texi2any.html">Invoking <code>texi2any</code></a>.
+<code class="code">TEXINFO_OUTPUT_FORMAT</code> environment variable values) of the same
+name.  See <a class="xref" href="Invoking-texi2any.html">Invoking <code class="command">texi2any</code>/<code class="command">makeinfo</code> from a Shell</a>.
 </p>
 </dd>
-<dt>&lsquo;<samp>debugtree</samp>&rsquo;
-<span id="index-debugtree"></span>
-</dt>
-<dd><span id="index-tree-representation_002c-for-debugging"></span>
-<span id="index-debugging-document_002c-with-tree-representation"></span>
+<dt id='index-debugtree'><span>&lsquo;<samp class="samp">debugtree</samp>&rsquo;<a class="copiable-link" href='#index-debugtree'> &para;</a></span></dt>
+<dd><a class="index-entry-id" id="index-tree-representation_002c-for-debugging"></a>
+<a class="index-entry-id" id="index-debugging-document_002c-with-tree-representation"></a>
 <p>Instead of generating a regular output format, output a text representation
 of the tree obtained by parsing the input texinfo document.
 </p>
 </dd>
-<dt>&lsquo;<samp>parse</samp>&rsquo;
-<span id="index-parse"></span>
-</dt>
+<dt id='index-parse'><span>&lsquo;<samp class="samp">parse</samp>&rsquo;<a class="copiable-link" href='#index-parse'> &para;</a></span></dt>
 <dd><p>Do only Texinfo source parsing; there is no output.
 </p>
 </dd>
-<dt>&lsquo;<samp>plaintexinfo</samp>&rsquo;
-<span id="index-plaintexinfo"></span>
-</dt>
-<dd><p>Output the Texinfo source with all the macros, <code>@include</code> and
-<code>@value{}</code> expanded.  This is similar to setting
-<samp>--macro-expand</samp>, but instead of being output in addition to
+<dt id='index-plaintexinfo'><span>&lsquo;<samp class="samp">plaintexinfo</samp>&rsquo;<a class="copiable-link" href='#index-plaintexinfo'> &para;</a></span></dt>
+<dd><p>Output the Texinfo source with all the macros, <code class="code">@include</code> and
+<code class="code">@value{}</code> expanded.  This is similar to setting
+<samp class="option">--macro-expand</samp>, but instead of being output in addition to
 the normal conversion, output of Texinfo is the main output.
 </p>
 </dd>
-<dt>&lsquo;<samp>rawtext</samp>&rsquo;
-<span id="index-rawtext"></span>
-</dt>
-<dd><span id="index-raw-text-output"></span>
+<dt id='index-rawtext'><span>&lsquo;<samp class="samp">rawtext</samp>&rsquo;<a class="copiable-link" href='#index-rawtext'> &para;</a></span></dt>
+<dd><a class="index-entry-id" id="index-raw-text-output"></a>
 <p>Output raw text, with minimal formatting.  For example, footnotes are
 ignored and there is no paragraph filling.  This is used by the parser
 for file names and copyright text in HTML comments, for example.
 </p>
 </dd>
-<dt>&lsquo;<samp>structure</samp>&rsquo;
-<span id="index-structure"></span>
-</dt>
+<dt id='index-structure'><span>&lsquo;<samp class="samp">structure</samp>&rsquo;<a class="copiable-link" href='#index-structure'> &para;</a></span></dt>
 <dd><p>Do only Texinfo source parsing and determination of the document
 structure; there is no output.
 </p>
 </dd>
-<dt>&lsquo;<samp>texinfosxml</samp>&rsquo;
-<span id="index-texinfosxml"></span>
-</dt>
-<dd><span id="index-SXML-output"></span>
-<span id="index-S_002dexpressions_002c-output-format"></span>
+<dt id='index-texinfosxml'><span>&lsquo;<samp class="samp">texinfosxml</samp>&rsquo;<a class="copiable-link" href='#index-texinfosxml'> &para;</a></span></dt>
+<dd><a class="index-entry-id" id="index-SXML-output"></a>
+<a class="index-entry-id" id="index-S_002dexpressions_002c-output-format"></a>
 <p>Output the document in TexinfoSXML representation, a syntax for
 writing XML data using Lisp S-expressions.
 </p>
 </dd>
-<dt>&lsquo;<samp>textcontent</samp>&rsquo;
-<span id="index-textcontent"></span>
-</dt>
-<dd><span id="index-spell-checking"></span>
-<span id="index-word-counting"></span>
-<span id="index-detexinfo"></span>
-<span id="index-stripping-Texinfo-commands"></span>
+<dt id='index-textcontent'><span>&lsquo;<samp class="samp">textcontent</samp>&rsquo;<a class="copiable-link" href='#index-textcontent'> &para;</a></span></dt>
+<dd><a class="index-entry-id" id="index-spell-checking"></a>
+<a class="index-entry-id" id="index-word-counting"></a>
+<a class="index-entry-id" id="index-detexinfo"></a>
+<a class="index-entry-id" id="index-stripping-Texinfo-commands"></a>
 <p>Output the text content only, stripped of commands; this is useful for
 spell checking or word counting, for example.  The trivial
-<code>detexinfo</code> script setting this is in the <samp>util</samp> directory
+<code class="code">detexinfo</code> script setting this is in the <samp class="file">util</samp> directory
 of the Texinfo source as an example.  It&rsquo;s one line:
 </p>
 <div class="example">
-<pre class="example">exec texi2any -c TEXINPUT_OUTPUT_FORMAT=textcontent &quot;$@&quot;
+<pre class="example-preformatted">exec texi2any -c TEXINPUT_OUTPUT_FORMAT=textcontent &quot;$@&quot;
 </pre></div>
 </dd>
 </dl>
 
 
+</div>
 <hr>
-<div class="header">
+<div class="nav-panel">
 <p>
-Next: <a href="HTML-Customization-Variables.html" accesskey="n" rel="next">HTML Customization Variables</a>, Previous: <a href="Customization-Variables-for-_0040_002dCommands.html" accesskey="p" rel="prev">Customization Variables for @-Commands</a>, Up: <a href="Customization-Variables.html" accesskey="u" rel="up">Customization Variables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
+Next: <a href="HTML-Customization-Variables.html">HTML Customization Variables</a>, Previous: <a href="Customization-Variables-for-_0040_002dCommands.html">Customization Variables for @-Commands</a>, Up: <a href="Customization-Variables.html">Customization Variables</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Command-and-Variable-Index.html" title="Index" rel="index">Index</a>]</p>
 </div>
 
 
