@@ -12,8 +12,9 @@
 
 void debug (int level, char *fmt, ...);
 
-char *default_path[] = { "/usr/share/doc",
-                         "/usr/local/share/doc",
+/* TODO: Also use the configure-time value of ${datarootdir}. */
+char *default_path[] = { "/usr/share/texinfo/html",
+                         "/usr/local/share/texinfo/html",
                          NULL };
 
 static GArray *dirs;

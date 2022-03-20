@@ -1,5 +1,10 @@
 2022-03-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* TODO.HTML: Update to state location where HTML files are
+	sought.
+
+2022-03-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* util/texi2dvi (xref_file_p): Remove unused.
 
 2022-03-20  Gavin Smith  <gavinsmith0123@gmail.com>
