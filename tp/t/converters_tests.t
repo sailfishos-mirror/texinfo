@@ -86,6 +86,56 @@ my $top_in_ref_text =
 @code{@@inforef@{Top,,file name@}} @inforef{Top,,file name}
 ';
 
+my $non_empty_part_text =
+'@part part before
+
+Content before
+
+@node Top
+@top top
+
+@menu
+* chapter node::
+* part chapter node::
+@end menu
+
+@part part I
+
+Content I
+
+@chapter chap in Top node
+
+@part Part II
+
+Content II
+
+@node part chapter node
+@part part III
+
+Content III
+
+@chapter chapter with part node
+
+@part Part IV
+
+Content IV
+
+@part Part V
+
+Content V
+
+@chapter with part no node
+
+@part Part VI
+
+Content VI
+
+@node node between part and chapter
+
+@chapter chapter after part node
+
+';
+
 my @test_cases = (
 ['accent_with_text',
 '@u{--a} @dotless{--b} @^{--@dotless{i}} @^{--@dotless{j}} @^{--a}
@@ -735,56 +785,17 @@ Macros that should not be defined: @mymacro{}. @macroarg{with arg}.
 ', {'EXPANDED_FORMATS' => ['html']}, {'EXPANDED_FORMATS' => ['html']}
 ], 
 ['non_empty_part',
-'@node Top
-@top top
-
-@menu
-* chapter node::
-* part chapter node::
-@end menu
-
-@part part I
-
-Content I
-
-@chapter chap in Top node
-
-@part Part II
-
-Content II
-
-@node part chapter node
-@part part III
-
-Content III
-
-@chapter chapter with part node
-
-@part Part IV
-
-Content IV
-
-@part Part V
-
-Content V
-
-@chapter with part no node
-
-@part Part VI
-
-Content VI
-
-@node node between part and chapter
-
-@chapter chapter after part node
-
-',]
+$non_empty_part_text
+,]
 );
 
 my @html_text_cases = (
 ['top_in_ref_keep_top',
 $top_in_ref_text,
 {}, {'KEEP_TOP_EXTERNAL_REF' => 1}],
+['non_empty_part_no_top_node_output',
+$non_empty_part_text,
+{}, {'NO_TOP_NODE_OUTPUT' => 1}],
 );
 
 my @file_tests = (

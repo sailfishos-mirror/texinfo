@@ -3591,10 +3591,17 @@ sub _convert_heading_command($$$$$)
       and $Texinfo::Common::root_commands{$cmdname}) {
     my $in_skipped_node_top
       = $self->shared_conversion_state('in_skipped_node_top', 0);
+    my $node_element;
     if ($cmdname eq 'node') {
-      if ($$in_skipped_node_top == 0
-          and $element->{'extra'}
-          and $element->{'extra'}->{'normalized'} eq 'Top') {
+      $node_element = $element;
+    } elsif ($cmdname eq 'part' and $element->{'extra'}
+             and $element->{'extra'}->{'part_following_node'}) {
+      $node_element = $element->{'extra'}->{'part_following_node'};
+    }
+    if ($node_element) {
+      if ($node_element->{'extra'}
+          and $node_element->{'extra'}->{'normalized'}
+          and $node_element->{'extra'}->{'normalized'} eq 'Top') {
         $$in_skipped_node_top = 1;
       } elsif ($$in_skipped_node_top == 1) {
         $$in_skipped_node_top = -1;

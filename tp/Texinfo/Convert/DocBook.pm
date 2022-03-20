@@ -792,9 +792,19 @@ sub _convert($$;$)
       } elsif ($type eq 'line') {
         if ($Texinfo::Common::root_commands{$element->{'cmdname'}}) {
           if ($self->get_conf('NO_TOP_NODE_OUTPUT')) {
+            my $node_element;
             if ($element->{'cmdname'} eq 'node') {
-              if ($element->{'extra'}
-                  and $element->{'extra'}->{'normalized'} eq 'Top') {
+              $node_element = $element;
+            } elsif ($element->{'cmdname'} eq 'part' and $element->{'extra'}
+                   and $element->{'extra'}->{'part_following_node'}) {
+              $node_element = $element->{'extra'}->{'part_following_node'};
+            }
+            if ($node_element) {
+              # $node_element->{'extra'}->{'normalized'} not defined happens for
+              # empty nodes
+              if ($node_element->{'extra'}
+                  and $node_element->{'extra'}->{'normalized'}
+                  and $node_element->{'extra'}->{'normalized'} eq 'Top') {
                 $self->{'in_skipped_node_top'} = 1;
               } elsif (defined($self->{'in_skipped_node_top'})
                        and $self->{'in_skipped_node_top'} == 1) {

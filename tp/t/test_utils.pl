@@ -493,9 +493,10 @@ my @menus_keys = ('menu_next', 'menu_up', 'menu_prev', 'menu_up_hash');
 # to know which section element it is.
 my @sections_keys = ('section_next', 'section_prev', 'section_up',
   'section_childs', 'associated_node', 'part_associated_section',
-  'toplevel_prev', 'toplevel_next', 'toplevel_up', 'section_level');
+  'part_following_node', 'section_level',
+  'toplevel_prev', 'toplevel_next', 'toplevel_up');
 my @node_keys = ('node_next', 'node_prev', 'node_up', 'menus',
-  'associated_section');
+  'associated_section', 'node_preceding_part');
 my %avoided_keys_tree;
 our @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys, 'structure',
    'menu_child', 'unit_next', 'directions', 'page_next', 'remaining_args');

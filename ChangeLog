@@ -1,3 +1,19 @@
+2022-03-20  Patrice Dumas  <pertusus@free.fr>
+
+	@part without sectioning command associated with following node
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/Convert/DocBook.pm (_convert), tp/Texinfo/Convert/HTML.pm
+	(_convert_heading_command), tp/Texinfo/Convert/LaTeX.pm (output)
+	(_convert), tp/Texinfo/Structuring.pm (split_by_node):
+	Add extra key 'node_preceding_part' to a @part tree element
+	followed directly by a node and 'part_following_node' to the node.
+	When ignoring Top node content use part_following_node information
+	to group a part before a node with the node.
+	In split_by_node() associate a part with the following sectioning
+	command or node tree unit.
+
 2022-03-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* TODO.HTML: Update to state location where HTML files are

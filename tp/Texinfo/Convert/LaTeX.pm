@@ -944,14 +944,25 @@ sub output($$)
   # determine if there is a Top node at the end of the document
   my $in_top_node = undef;
   foreach my $element_content (@{$root->{'contents'}}) {
-    if ($element_content->{'cmdname'}
-        and $element_content->{'cmdname'} eq 'node') {
-      if ($element_content->{'extra'}->{'normalized'} eq 'Top') {
-        $in_top_node = 1;
-      } else {
-        if ($in_top_node) {
-          $in_top_node = 0;
-          last;
+    my $node_element;
+    if ($element_content->{'cmdname'}) {
+      my $cmdname = $element_content->{'cmdname'};
+      if ($cmdname eq 'node') {
+        $node_element = $element_content;
+      } elsif ($cmdname eq 'part' and $element_content->{'extra'}
+               and $element_content->{'extra'}->{'part_following_node'}) {
+        $node_element = $element_content->{'extra'}->{'part_following_node'};
+      }
+      if ($node_element) {
+        if ($node_element->{'extra'}
+            and $node_element->{'extra'}->{'normalized'}
+            and $node_element->{'extra'}->{'normalized'} eq 'Top') {
+          $in_top_node = 1;
+        } else {
+          if ($in_top_node) {
+            $in_top_node = 0;
+            last;
+          }
         }
       }
     }
@@ -2054,13 +2065,22 @@ sub _convert($$)
   my $result = '';
 
   if ($self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
-    if ((defined($cmdname) and $cmdname eq 'node')
+    my $node_element;
+    if (defined($cmdname) and $cmdname eq 'node') {
+      $node_element = $element;
+    } elsif (defined($cmdname) and $cmdname eq 'part' and $element->{'extra'}
+             and $element->{'extra'}->{'part_following_node'}) {
+      $node_element = $element->{'extra'}->{'part_following_node'};
+    }
+    if (($node_element
+         and not ($node_element->{'extra'}
+                  and $node_element->{'extra'}->{'normalized'}
+                  and $node_element->{'extra'}->{'normalized'} eq 'Top'))
          or (defined($type) and $type eq 'ignored_top_node_paragraph')) {
       delete $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'};
-    }
-    elsif (! defined($cmdname)
-           or (not ($informative_commands{$cmdname}
-                    or $sectioning_heading_commands{$cmdname}))) {
+    } elsif (! defined($cmdname)
+             or (not ($informative_commands{$cmdname}
+                      or $sectioning_heading_commands{$cmdname}))) {
       return '';
     }
   }
@@ -2909,45 +2929,56 @@ sub _convert($$)
         _push_new_context($self, 'float'.$latex_float_name);
         $result .= "\\begin{$latex_float_name}\n";
       }
-    } elsif ($cmdname eq 'node') {
-      if ($element->{'extra'}->{'normalized'} eq 'Top') {
+    } elsif ($cmdname eq 'node' or $sectioning_heading_commands{$cmdname}) {
+      my $node_element;
+      if ($cmdname eq 'node') {
+        $node_element = $element;
+      } elsif ($cmdname eq 'part' and $element->{'extra'}
+               and $element->{'extra'}->{'part_following_node'}) {
+        $node_element = $element->{'extra'}->{'part_following_node'};
+      }
+      if ($node_element->{'extra'}
+          and $node_element->{'extra'}->{'normalized'}
+          and $node_element->{'extra'}->{'normalized'} eq 'Top') {
         $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'} = 1;
       } else {
-        # add the label only if not associated with a section
-        if (not $element->{'extra'}->{'associated_section'}) {
-          my $node_label
-            = _tree_anchor_label($element->{'extra'}->{'node_content'});
-          $result .= "\\label{$node_label}%\n";
-        }
-      }
-    } elsif ($sectioning_heading_commands{$cmdname}) {
-      if ($cmdname eq 'appendix' and not $self->{'appendix_done'}) {
-        $result .= "\\appendix\n";
-        $self->{'appendix_done'} = 1;
-      }
-      if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
-        my $heading = '';
-        if ($element->{'args'}->[0]->{'contents'}) {
-          $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'} = 1;
-          $heading = $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}});
-          delete $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'};
-        }
-
-        my $section_cmd = $section_map{$cmdname};
-        if (not defined($section_map{$cmdname})) {
-          die "BUG: no section_map for $cmdname";
-        }
-      
-        if ($cmdname ne 'centerchap') {
-          $result .= "\\".$section_cmd."{$heading}\n";
+        if ($cmdname eq 'node') {
+          # add the label only if not associated with a section
+          if (not $element->{'extra'}->{'associated_section'}) {
+            my $node_label
+              = _tree_anchor_label($element->{'extra'}->{'node_content'});
+            $result .= "\\label{$node_label}%\n";
+          }
         } else {
-          $result .= "\\".$section_cmd."{\\centering $heading}\n";
-        }
-        if ($element->{'extra'}->{'associated_node'}) {
-          my $associated_node = $element->{'extra'}->{'associated_node'};
-          my $node_label
-            = _tree_anchor_label($associated_node->{'extra'}->{'node_content'});
-          $result .= "\\label{$node_label}%\n";
+          if ($cmdname eq 'appendix' and not $self->{'appendix_done'}) {
+            $result .= "\\appendix\n";
+            $self->{'appendix_done'} = 1;
+          }
+          if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
+            my $heading = '';
+            if ($element->{'args'}->[0]->{'contents'}) {
+              $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'} = 1;
+              $heading = $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}});
+              delete $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'};
+            }
+    
+            my $section_cmd = $section_map{$cmdname};
+            if (not defined($section_map{$cmdname})) {
+              die "BUG: no section_map for $cmdname";
+            }
+          
+            if ($cmdname ne 'centerchap') {
+              $result .= "\\".$section_cmd."{$heading}\n";
+            } else {
+              $result .= "\\".$section_cmd."{\\centering $heading}\n";
+            }
+            if ($element->{'extra'}->{'associated_node'}) {
+              my $associated_node = $element->{'extra'}->{'associated_node'};
+              my $node_label
+                = _tree_anchor_label($associated_node->{'extra'}->{'node_content'});
+              $result .= "\\label{$node_label}%\n";
+            }
+          }
         }
       }
     } elsif (($cmdname eq 'item' or $cmdname eq 'itemx')

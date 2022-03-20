@@ -1718,7 +1718,17 @@ end_line_misc_line (ELEMENT *current)
             }
           register_label (current, label);
         }
-
+      if (current_part
+          && !lookup_extra (current_part, "part_associated_section"))
+        {
+         /* we only associate a part to the following node if the
+            part is not already associate to a sectioning command,
+            but the part can be associated to the sectioning command later
+            if a sectioning command follows the node. */
+          add_extra_element (current, "node_preceding_part", current_part);
+          add_extra_element (current_part, "part_following_node",
+                                 current);
+        }
       current_node = current;
     }
   else if (current->cmd == CM_listoffloats)

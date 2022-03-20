@@ -820,8 +820,7 @@ sub split_by_node($)
   push @$tree_units, $current;
   my @pending_parts = ();
   foreach my $content (@{$root->{'contents'}}) {
-    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'part'
-        and $content->{'extra'}->{'part_associated_section'}) {
+    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'part') {
       push @pending_parts, $content;
       next;
     }
@@ -845,6 +844,14 @@ sub split_by_node($)
     push @{$current->{'contents'}}, $content;
     $content->{'structure'}->{'associated_unit'} = $current;
   }
+  if (@pending_parts) {
+    foreach my $part (@pending_parts) {
+      push @{$current->{'contents'}}, $part;
+      $part->{'structure'}->{'associated_unit'} = $current;
+    }
+    @pending_parts = ();
+  }
+
   return $tree_units;
 }
 

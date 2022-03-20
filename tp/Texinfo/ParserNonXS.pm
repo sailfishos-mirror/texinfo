@@ -3378,6 +3378,18 @@ sub _end_line($$$)
                            $source_info);
      _register_label($self->{'targets'}, $current,
                    $current->{'extra'}->{'nodes_manuals'}->[0]);
+     if ($self->{'current_part'}) {
+       my $part = $self->{'current_part'};
+       if (not $part->{'extra'}
+           or not $part->{'extra'}->{'part_associated_section'}) {
+         # we only associate a part to the following node if the
+         # part is not already associate to a sectioning command,
+         # but the part can be associated to the sectioning command later
+         # if a sectioning command follows the node.
+         $current->{'extra'}->{'node_preceding_part'} = $part;
+         $part->{'extra'}->{'part_following_node'} = $current;
+       }
+     }
      $self->{'current_node'} = $current;
     } elsif ($command eq 'listoffloats') {
       _parse_float_type($current);
@@ -7216,14 +7228,18 @@ key for the normalized label, built as specified in the Texinfo manual
 in the B<HTML Xref> node.
 
 An I<associated_section> key holds the tree element of the
-sectioning command that follows the node.
+sectioning command that follows the node.  An I<node_preceding_part>
+key holds the tree element of the C<@part> that precedes the node,
+if there is no sectioning command between the C<@part> and the node.
 
 A node containing a menu have a I<menus> key which refers to an array of
 references to menu elements occuring in the node.
 
 =item C<@part>
 
-The next sectioning command is in I<part_associated_section>.
+The next sectioning command tree element is in I<part_associated_section>.
+The following node tree element is in I<part_following_node> if there is
+no sectioning command between the C<@part> and the node.
 
 =item sectioning command
 
