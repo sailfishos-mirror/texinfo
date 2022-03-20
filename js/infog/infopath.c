@@ -58,21 +58,19 @@ locate_manual (const char *manual)
         continue;
       closedir (d);
 
-      char *s = 0, *s2 = 0;
+      char *s = 0;
 
-      asprintf(&s, "%s/%s/%s.html", datadir, manual, manual);
-      asprintf(&s2, "%s/index.html", s);
+      asprintf(&s, "%s/%s_html", datadir, manual);
 
       debug (1, "CHECK %s\n", s);
 
       struct stat dummy;
       if (stat (s, &dummy) != -1)
         {
-          free (s2);
           return s;
         }
 
-      free (s); free (s2);
+      free (s);
     }
   return 0;
 }
@@ -96,7 +94,8 @@ parse_external_url (const char *url, char **manual, char **node)
 
   while (1)
     {
-      /* p1 and p2 are two subsequent / in the string. */
+      /* p1 and p2 are two subsequent / in the string.  Try to move them
+         both forward. */
 
       q = strchr (p2+1, '/');
       if (!q)
@@ -113,16 +112,18 @@ parse_external_url (const char *url, char **manual, char **node)
   memcpy (m, p, q - p);
   m[q - p] = '\0';
 
-  /* Strip a .html extension off the directory if there is one. */
+  /* Strip a _html extension off the directory if there is one. */
   char *e;
-  if ((e = strstr (m, ".html")))
+  if ((e = strstr (m, "_html")))
     *e = '\0';
 
   *manual = m;
 
   q++; /* after '/' */
+
+  /* remove .html file extension */
   p = strchr (q, '.');
-  if (memcmp (p, ".html", 5) != 0)
+  if (!p || memcmp (p, ".html", 5) != 0)
     goto failure;
   n = malloc (p - q + 1);
   memcpy (n, q, p - q);
@@ -133,7 +134,7 @@ parse_external_url (const char *url, char **manual, char **node)
   return;
 
 failure:
-  g_print ("failure\n");
+  debug (1, "EXTRACT FAILED <%s>\n", url);
   free (m); free(n);
   *manual = 0;
   *node = 0;
