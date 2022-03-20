@@ -1,5 +1,9 @@
 2022-03-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* util/texi2dvi (xref_file_p): Remove unused.
+
+2022-03-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* util/texi2dvi (list_dir_to_abs):
 	Remove unused function (not used since the code was added
 	in 2005-11-18.)

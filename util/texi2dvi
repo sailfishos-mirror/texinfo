@@ -656,24 +656,6 @@ index_file_p ()
   return 0
 }
 
-########### not used currently
-# xref_file_p FILE - Return success if FILE is an xref file (indexes,
-# tables and lists).
-xref_file_p ()
-{
-  test -f "$1" || return 1
-  # If the file is not suitable to be an index or xref file, don't
-  # process it.  It's suitable if the first character is a
-  # backslash or right quote or at, as long as the first line isn't
-  # \input texinfo.
-  case `$SED '1q' "$1"` in
-    "\\input texinfo"*) return 1;;
-    [\\''@]*)           return 0;;
-           *)           return 1;;
-  esac
-}
-
-
 # Used in generated_files_get
 generated_files_get_from_log ()
 {
