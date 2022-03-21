@@ -17,5 +17,5 @@
 srcdir=${srcdir:-.}
 . $srcdir/t/Init-test.inc
 
-$ginfo index-paren \( | grep "Node: Node 2"
+$ginfo index-paren \( | grep "Node: Node 1"
 
