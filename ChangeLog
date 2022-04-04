@@ -1,3 +1,12 @@
+2022-04-04  Patrice Dumas  <pertusus@free.fr>
+
+	Update po files
+
+	* po/Makevars (XGETTEXT_OPTIONS): add --from-code=UTF-8 for
+	tp/init/epub3.pm which has still an encoded character in a comment.
+
+	* tp/init/epub3.pm: remove an encoded character in a comment.
+
 2022-03-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* po/POTFILES.in: Update.
