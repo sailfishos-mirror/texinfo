@@ -1,4 +1,4 @@
-/* utils.c --  various utility functions
+/* util.c --  various utility functions
 
    Copyright 1993-2022 Free Software Foundation, Inc.
 
