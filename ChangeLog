@@ -1,3 +1,14 @@
+2022-04-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Fix @multitable inside @raggedright
+
+	* doc/texinfo.tex (\domultitable): Do not set \rightskip to 0pt
+	as this interferes with the \rightskip setting in @raggedright.
+	* doc/texinfo-tex-test.texi (@multitable): Add test case.
+
+	Werner Lemberg reported that @multitable inside @raggedright led
+	to 'Underful \hbox' warnings.
+
 2022-04-04  Patrice Dumas  <pertusus@free.fr>
 
 	Update po files
@@ -7,7 +18,7 @@
 
 	* tp/init/epub3.pm: remove an encoded character in a comment.
 
-2022-03-20  Gavin Smith  <gavinsmith0123@gmail.com>
+2022-04-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* po/POTFILES.in: Update.
 

@@ -1703,6 +1703,17 @@ after after after after after after after after
 after after after after after after after after
 after after after after after after after after
 
+in @t{@@raggedright} (check warnings re @samp{Underful \hbox} etc.):
+
+@raggedright
+@multitable @columnfractions 0.2 0.2 0.2
+@item foofoo foofoo foofoo foofoo
+  @tab barbar barbar barbar barbar
+  @tab bazbaz bazbaz bazbaz bazbaz
+@end multitable
+@end raggedright
+
+
 
 @section Definitions
 
