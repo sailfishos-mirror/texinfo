@@ -1,5 +1,16 @@
 2022-04-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Avoid undefined hash key access in get_file_information
+
+	* tp/Texinfo/Convert/HTML.pm (get_file_information):
+	Account for the possibility that there is no current filename.
+	This is the case when node redirection pages are being output.
+	Use filename argument as intended.
+
+	Many errors were printed when "make -C doc wwwdoc-build" was done.
+
+2022-04-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Msys2 OS detection in texi2dvi
 
 	* util/texi2dvi: Do not set MSYSTEM via OSTYPE environment

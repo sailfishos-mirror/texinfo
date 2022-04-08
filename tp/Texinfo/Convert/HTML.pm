@@ -1495,10 +1495,11 @@ sub get_file_information($$;$)
   if (not defined($filename)) {
     $filename = $self->{'current_filename'};
   }
-  if (not exists($self->{'files_information'}->{$self->{'current_filename'}}->{$key})) {
+  if (not defined($filename)
+       or not exists($self->{'files_information'}->{$filename}->{$key})) {
     return (0, undef);
   }
-  return (1, $self->{'files_information'}->{$self->{'current_filename'}}->{$key})
+  return (1, $self->{'files_information'}->{$filename}->{$key})
 }
 
 # information from converter available 'read-only', in general set up before
