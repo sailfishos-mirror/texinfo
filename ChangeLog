@@ -1,5 +1,15 @@
 2022-04-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Fix MathJax referencing in docs build.
+
+	* doc/Makefile.am (wwwdoc-build): Set MATHJAX_SCRIPT and
+	MATHJAX_SOURCE to absolute URLs rather than relative paths.
+	This means that gendocs.sh produces working references in
+	both split and non-split output.
+	* README-hacking: Update.
+
+2022-04-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* README-hacking: Mention infog subdirectory.
 
 2022-04-04  Gavin Smith  <gavinsmith0123@gmail.com>

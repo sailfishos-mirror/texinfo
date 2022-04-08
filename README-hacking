@@ -304,14 +304,13 @@ including:
 
 Build web documentation with
   make -C doc wwwdoc-build
+
 Copy documentation files to web checkout with, e.g.
   make -C doc \
   wwwdoc-install www_target=../../TEXINFO_WEB_PAGES/texinfo/manual/
 Check for removed files with, e.g. ls -ltu $(www_target)/*/html_node, 
 followed by cvs rm -f.  Likewise, check for added files with
 cvs -qn update, followed by cvs add.  When done, run cvs commit.
-(Note: MathJax referencing is currently broken for generating the
-non-split manual.)
 
 #  Official releases only: Contact root@tug.org to update texinfo at tug.org.
 # If root@tug.org doesn't reply, can try webmaster@tug.org,
