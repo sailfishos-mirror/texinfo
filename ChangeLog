@@ -1,3 +1,7 @@
+2022-04-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* README-hacking: Mention infog subdirectory.
+
 2022-04-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Fix @multitable inside @raggedright

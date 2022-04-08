@@ -136,6 +136,7 @@ In addition to the subdirectories listed in README, there is the
 following directory in the source control repository:
 
 js/ - Work on enhanced browsing of HTML manuals with JavaScript
+infog/ - HTML-Info reader using WebKitGTK library
 
 
 
