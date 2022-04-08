@@ -80,12 +80,9 @@ IFS="$space$tab$newline"
 # directories in TEXINPUTS -- except for Cygwin and Msys, where COMSPEC
 # might be inherited, but : is used.
 
-# In the case of Msys, uname returns a value derived from MSYSTEM, as
-# MSYSTEM is user configurable, it is not so safe to use it to detect
-# Msys. It is safer to use OSTYPE, this is why we set MSYSTEM to
-# $OSTYPE before calling uname
 if test -n "$COMSPEC$ComSpec" \
-   && MSYSTEM=$OSTYPE uname | $EGREP -iv 'cygwin|msys' >/dev/null; then
+   && uname | $EGREP -iv 'cygwin|msys' >/dev/null \
+   && test "$OSTYPE" != msys ; then
   path_sep=";"
 else
   path_sep=":"
@@ -198,9 +195,9 @@ EOF
 version ()
 {
   cat <<EOF
-texi2dvi (GNU Texinfo 6.8)
+texi2dvi (GNU Texinfo 6.8dev)
 
-Copyright (C) 2021 Free Software Foundation, Inc.
+Copyright (C) 2022 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
