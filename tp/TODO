@@ -17,8 +17,6 @@ xterm &
 Before next release
 ===================
 
-for @example args, use *-user as class?
-
 
 @item --enable-encoding
 @itemx --disable-encoding
