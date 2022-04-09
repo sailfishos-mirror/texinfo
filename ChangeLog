@@ -1,5 +1,14 @@
 2022-04-09  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	user- prefix for @example args
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_preformatted_command):
+	Prefix HTML class name from @example arg with 'user-'.
+	* doc/texinfo.texi (@example): Document.
+	* NEWS: Edit and update.
+
+2022-04-09  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\domultitable): Zero \rightskip but keep
 	stretch.  This is intended to allow @multitable to be nested
 	inside @quotation, the formatting of which was broken by change
@@ -264,10 +273,12 @@
 
 	Find first index entry under initial substring search
 
-	* info/next_index_match): Reset index search by setting index to -1
-	index instead of 0.  Otherwise the first index entry is skipped
-	when checking for initial substrings.  The very first index entry
-	in an Info file would not be found with a non-exact search.
+	* info/indices.c (next_index_match): Reset index search by
+	setting index to -1 index instead of 0.  Otherwise the first
+	index entry is skipped when checking for initial substrings.
+	The very first index entry in an Info file would not be found
+	with a non-exact search.
+
 	Report from Sergey Matveev <stargrave@stargrave.org>.
 
 2022-03-06  Patrice Dumas  <pertusus@free.fr>

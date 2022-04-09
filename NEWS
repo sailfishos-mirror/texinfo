@@ -19,6 +19,8 @@ See the manual for detailed information.
    LOCALE_OUTPUT_ENCODING_NAME, LOCALE_INPUT_FILE_NAME_ENCODING,
    LOCALE_OUTPUT_FILE_NAME_ENCODING, DOC_ENCODING_FOR_INPUT_FILE_NAME, and
    DOC_ENCODING_FOR_OUTPUT_FILE_NAME
+ . thorough review of character encoding issues
+ . reform throughout the code in general
  . new customization variable NO_TOP_NODE_OUTPUT
  . rename COPIABLE_ANCHORS as COPIABLE_LINKS
  . L2H customization variable removed.  Replaced by HTML_MATH set to l2h.
@@ -37,17 +39,26 @@ See the manual for detailed information.
  . remove CSS_LINES customization variable and add SHOW_BUILTIN_CSS_RULES.
  . remove PRE_ABOUT, AFTER_ABOUT, add PROGRAM_NAME_IN_ABOUT.
  . HTML output:
+     . output only the CSS rules that are needed in an output file
      . use <code> tag for the output of @t instead of <tt>
      . systematic addition of classes attribute in HTML elements based on the
        Texinfo @-command names.  Renaming of class attributes to avoid
        confusion with @-commands formatting and describe the role in the
        document rather than the formatting style.
+     . classes from @example arguments are prefixed with 'user-'
      . do not add a title in the default case, SHOW_TITLE has to be set
        (or NO_TOP_NODE_OUTPUT). Set USE_TITLEPAGE_FOR_TITLE to true.
  . DocBook output:
      . do not output Top node nor text before the first @node or sectioning
        @-command.  NO_TOP_NODE_OUTPUT can be set to false to output Top node
        for now.
+
+* info
+  . better support for index entries containing parentheses
+  . better support for getting bold text etc. when displaying manpages
+
+* texinfo.tex
+  . do not ignore @part page immediately following Top node
 
 6.8 (3 July 2021)
 * Language

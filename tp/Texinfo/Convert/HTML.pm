@@ -3860,7 +3860,7 @@ sub _convert_preformatted_command($$$$$)
         my $converted_arg
           = Texinfo::Convert::NodeNameNormalization::convert($example_arg);
         if ($converted_arg ne '') {
-          push @classes, $converted_arg;
+          push @classes, 'user-' . $converted_arg;
         }
       }
     }

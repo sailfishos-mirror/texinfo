@@ -6717,9 +6717,11 @@ use the @code{@@r} command (@pxref{Fonts}).
 
 You may optionally give arguments to the @code{@@example} command,
 separated by commas if there is more than one.  In the HTML output,
-any such arguments are output as class names.  This may be useful for
-adding syntax highlighting to manuals for code samples.  We recommend
-that when you give multiple arguments to @code{@@example}, you
+any such arguments are output as class names, prefixed by the string
+@samp{user-}.  This may be useful for adding syntax highlighting to
+manuals for code samples.
+
+We recommend that when you give multiple arguments to @code{@@example}, you
 use the first argument to specify the language of the code (e.g.@:
 @samp{C}, @samp{lisp}, @samp{Cplusplus}).  You may find uses for other
 arguments, such as providing a formatting hint or marking code samples
