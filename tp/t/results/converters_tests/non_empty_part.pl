@@ -1718,6 +1718,16 @@ $result_converted{'xml'}->{'non_empty_part'} = '<part spaces=" "><sectiontitle>p
 
 
 $result_converted{'docbook'}->{'non_empty_part'} = '<part label="">
+<title>part I</title>
+<chapter label="1">
+<title>chap in Top node</title>
+
+<para>Content I
+</para>
+
+</chapter>
+</part>
+<part label="">
 <title>Part II</title>
 <partintro>
 
@@ -1767,7 +1777,13 @@ $result_converted{'docbook'}->{'non_empty_part'} = '<part label="">
 ';
 
 
-$result_converted{'latex'}->{'non_empty_part'} = '\\part{Part II}
+$result_converted{'latex'}->{'non_empty_part'} = '\\part{part I}
+
+Content I
+
+\\chapter{chap in Top node}
+
+\\part{Part II}
 
 Content II
 

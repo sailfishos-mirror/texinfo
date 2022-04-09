@@ -9,7 +9,13 @@ $result_trees{'top_node_part_top'} = [
   {
     'contents' => [
       {
-        'contents' => [],
+        'contents' => [
+          {
+            'contents' => [],
+            'parent' => {},
+            'type' => 'preamble_before_content'
+          }
+        ],
         'parent' => {
           'contents' => [
             {},
@@ -142,6 +148,7 @@ $result_trees{'top_node_part_top'} = [
     'type' => 'unit'
   }
 ];
+$result_trees{'top_node_part_top'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_part_top'}[0]{'contents'}[0];
 $result_trees{'top_node_part_top'}[0]{'contents'}[0]{'parent'}{'contents'}[0] = $result_trees{'top_node_part_top'}[0]{'contents'}[0];
 $result_trees{'top_node_part_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_part_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0];
 $result_trees{'top_node_part_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'top_node_part_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
@@ -444,6 +451,87 @@ $result_converted{'xml'}->{'top_node_part_top'} = '<node name="Top" spaces=" "><
 ';
 
 
-$result_converted{'docbook'}->{'top_node_part_top'} = '';
+$result_converted{'docbook'}->{'top_node_part_top'} = '<part label="">
+<title>part</title>
+<chapter label="" id="Top">
+<title>top</title>
+
+</part>
+</chapter>
+';
+
+
+$result_converted{'latex'}->{'top_node_part_top'} = '\\begin{document}
+\\part{part}
+
+\\part*{top}
+\\label{anchor:Top}%
+';
+
+
+$result_converted{'file_latex'}->{'top_node_part_top'} = '\\documentclass{book}
+\\usepackage{amsfonts}
+\\usepackage{amsmath}
+\\usepackage[gen]{eurosym}
+\\usepackage[T1]{fontenc}
+\\usepackage{textcomp}
+\\usepackage{graphicx}
+\\usepackage{etoolbox}
+\\usepackage{titleps}
+\\usepackage{float}
+% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+\\usepackage[hidelinks]{hyperref}
+\\usepackage[utf8]{inputenc}
+
+\\newcommand{\\GNUTexinfosettitle}{No Title}%
+
+% redefine the \\mainmatter command such that it does not clear page
+% as if in double page
+\\makeatletter
+\\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
+\\makeatother
+% add command aliases to use the same command in book and report
+\\newcommand\\GNUTexinfomainmatter{\\mainmatter}
+\\newcommand\\GNUTexinfofrontmatter{\\frontmatter}
+% command that does nothing used to help with substitutions in commands
+\\newcommand{\\GNUTexinfoplaceholder}[1]{}
+
+% plain page style, for part and chapter, which call \\thispagestyle{plain}
+\\renewpagestyle{plain}{\\sethead[\\thepage{}][][]
+                             {}{}{\\thepage{}}}
+
+% single header
+\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
+                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+
+% called when setting single headers
+\\newcommand{\\GNUTexinfosetsingleheader}{\\pagestyle{single}}
+
+% double header
+\\newpagestyle{double}{\\sethead[\\thepage{}][][\\GNUTexinfosettitle]
+                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+
+% called when setting double headers
+\\newcommand{\\GNUTexinfosetdoubleheader}{\\pagestyle{double}}
+
+
+% avoid pagebreak and headings setting for a sectionning command
+\\newcommand{\\GNUTexinfonopagebreakheading}[2]{\\let\\clearpage\\relax \\let\\cleardoublepage\\relax \\let\\thispagestyle\\GNUTexinfoplaceholder #1{#2}}
+
+\\renewcommand{\\includegraphics}[1]{\\fbox{FIG #1}}
+
+% set default for @setchapternewpage
+\\makeatletter
+\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
+\\makeatother
+\\GNUTexinfosetsingleheader{}%
+
+\\begin{document}
+\\part{part}
+
+\\part*{top}
+\\label{anchor:Top}%
+\\end{document}
+';
 
 1;

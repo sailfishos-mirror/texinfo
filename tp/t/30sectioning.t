@@ -1122,6 +1122,9 @@ Top node
 
 @part part
 '],
+# FIXME in DocBook the nesting is incorrect, part is opened before chapter
+# and is closed first too.  This is not an important bug, however, as
+# this construct is not normal, and @top has no equivalent in DocBook.
 ['top_node_part_top',
 '@node Top
 
@@ -2116,12 +2119,13 @@ my @docbook_tests_info_tests = (
 my @latex_tests_info_tests = ('chapter_between_nodes',
   'section_before_after_top_node_last_node',
   'section_before_after_top_node',
-  'section_chapter_before_top_nodes', 'unnumbered_top_without_node_sections');
+  'section_chapter_before_top_nodes', 'unnumbered_top_without_node_sections',
+  'top_node_part_top');
 
 my @file_latex_tests_info_tests = ('chapter_between_nodes',
   'section_before_after_top_node_last_node',
   'section_before_after_top_node',
-  'section_chapter_before_top_nodes');
+  'section_chapter_before_top_nodes', 'top_node_part_top');
 
 foreach my $test (@tests_info) {
   push @{$test->[2]->{'test_formats'}}, 'info';

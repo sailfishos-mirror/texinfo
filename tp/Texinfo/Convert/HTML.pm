@@ -3599,8 +3599,8 @@ sub _convert_heading_command($$$$$)
              and $element->{'extra'}->{'part_following_node'}) {
       $node_element = $element->{'extra'}->{'part_following_node'};
     }
-    if ($node_element) {
-      if ($node_element->{'extra'}
+    if ($node_element or $cmdname eq 'part') {
+      if ($node_element and $node_element->{'extra'}
           and $node_element->{'extra'}->{'normalized'}
           and $node_element->{'extra'}->{'normalized'} eq 'Top') {
         $$in_skipped_node_top = 1;

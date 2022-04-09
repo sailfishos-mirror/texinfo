@@ -1527,10 +1527,21 @@ $result_converted{'html_text'}->{'non_empty_part_no_top_node_output'} = '<a clas
 <p>
  &nbsp; </p>
 </div>
-<a class="node" id="Top"></a><a class="top" id="top"></a><a class="part" id="part-I"></a><ul class="mini-toc">
+<a class="node" id="Top"></a><a class="top" id="top"></a><div class="part-level-extent" id="part-I">
+<h1 class="part">part I</h1>
+<hr>
+
+<p>Content I
+</p>
+<ul class="mini-toc">
 <li><a href="#chap-in-Top-node" accesskey="1">chap in Top node</a></li>
 </ul>
-<a class="chapter" id="chap-in-Top-node"></a><hr>
+<div class="chapter-level-extent" id="chap-in-Top-node">
+<h2 class="chapter">1 chap in Top node</h2>
+
+<hr>
+</div>
+</div>
 <div class="part-level-extent" id="Part-II">
 <div class="nav-panel">
 <p>

@@ -903,7 +903,7 @@ sub _associate_other_nodes_to_sections($$)
     = $additional_node_section_associations;
 }
 
-# mark in the tree where the \begin{document} should be,
+# this type marks where the \begin{document} should be,
 # after the @-commands in preamble.  It is not setup
 # when using parse_texi_piece only.
 my $latex_document_type = 'preamble_before_content';
@@ -953,7 +953,7 @@ sub output($$)
                and $element_content->{'extra'}->{'part_following_node'}) {
         $node_element = $element_content->{'extra'}->{'part_following_node'};
       }
-      if ($node_element) {
+      if ($node_element or $cmdname eq 'part') {
         if ($node_element->{'extra'}
             and $node_element->{'extra'}->{'normalized'}
             and $node_element->{'extra'}->{'normalized'} eq 'Top') {
@@ -2076,7 +2076,8 @@ sub _convert($$)
          and not ($node_element->{'extra'}
                   and $node_element->{'extra'}->{'normalized'}
                   and $node_element->{'extra'}->{'normalized'} eq 'Top'))
-         or (defined($type) and $type eq 'ignored_top_node_paragraph')) {
+         or (defined($type) and $type eq 'ignored_top_node_paragraph')
+        or (defined($cmdname) and $cmdname eq 'part')) {
       delete $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'};
     } elsif (! defined($cmdname)
              or (not ($informative_commands{$cmdname}
