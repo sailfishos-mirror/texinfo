@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-03-13.19}
+\def\texinfoversion{2022-04-09.08}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -4409,6 +4409,7 @@ $$%
       % Find the correct column width
       \hsize=\expandafter\csname col\the\colcount\endcsname
       %
+      \advance\rightskip by -1\rightskip % Zero leaving only any stretch
       \ifnum\colcount=1
         \advance\hsize by\leftskip % Add indent of surrounding text
       \else

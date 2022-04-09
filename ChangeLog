@@ -1,3 +1,11 @@
+2022-04-09  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\domultitable): Zero \rightskip but keep
+	stretch.  This is intended to allow @multitable to be nested
+	inside @quotation, the formatting of which was broken by change
+	on 2022-04-04 for @raggedright.  Report from Werner.
+	* doc/texinfo-tex-test.texi (@multitable): Add test case.
+
 2022-04-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Avoid undefined hash key access in get_file_information
