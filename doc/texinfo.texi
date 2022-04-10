@@ -17324,7 +17324,6 @@ Texinfo to Info.
 * @code{texinfo-format} commands::     Two Info formatting commands written
                                  in Emacs Lisp are an alternative
                                  to @code{makeinfo}.
-* Batch Formatting::            How to format for Info in Emacs batch mode.
 * Tag and Split Files::         How tagged and split files help Info
                                  to run better.
 @end menu
