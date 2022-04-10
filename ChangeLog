@@ -1,5 +1,12 @@
 2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex: Remove or disambiguate many duplicate
+	index entries to ease lookup.
+	(Invoking texi2any): List latex as a permissible value of
+	TEXINFO_OUTPUT_FORMAT.
+
+2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* README-hacking: Add note to check for index duplicates.
 
 2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>

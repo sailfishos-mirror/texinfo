@@ -883,7 +883,7 @@ much related information, see @uref{http://www.w3.org/MarkUp/}.
 
 @item DVI
 @cindex DVI output, overview
-@pindex dvips
+@pindex dvips @r{(program)}
 @pindex xdvi
 (Generated via @command{texi2dvi}.)  The DeVIce Independent binary
 format is output by the @TeX{} typesetting program
@@ -1991,7 +1991,6 @@ output implicitly in plain text or @TeX{}; it's up to you to use
 @code{@@insertcopying} to emit the copying information.  See the next section
 for details.
 
-@findex copyright
 The @code{@@copyright@{@}} command generates a @samp{c} inside a
 circle when the output format supports this glyph (print and HTML
 always do, for instance).  When the glyph is not supported in the
@@ -2514,7 +2513,6 @@ As such, it should contain a very brief description of the manual
 (including the version number).  The contents of the `Top' node do
 not appear in printed output nor in DocBook output.
 
-@findex top
 It is conventional to write a @code{@@top} sectioning command
 line containing the title of the document immediately after the
 @code{@@node Top} line (@pxref{@code{@@top} Command}).  This command
@@ -2700,7 +2698,6 @@ into nodes.)
 @cindex Ending a Texinfo file
 @cindex Texinfo file ending
 @cindex File ending
-@findex bye
 
 The end of a Texinfo file should include commands to create indices
 (@pxref{Printing Indices & Menus}), and the @code{@@bye} command to mark
@@ -3944,7 +3941,6 @@ unnumbered section.
 @item @@appendixsec
 @itemx @@appendixsection
 @findex appendixsection
-@findex appendixsec
 @code{@@appendixsection} is a longer spelling of the
 @code{@@appendixsec} command; the two are synonymous.
 
@@ -6453,7 +6449,6 @@ Quotations and examples are blocks of text consisting of one or more
 whole paragraphs that are set off from the bulk of the text and
 treated differently.  They are usually indented in the output.
 
-@findex end
 In Texinfo, you always begin a quotation or example by writing an
 @@-command at the beginning of a line by itself, and end it by writing
 an @code{@@end} command that is also at the beginning of a line by
@@ -7284,7 +7279,6 @@ command and end the list with an @code{@@end enumerate} command.
 Begin an itemized list with an @code{@@itemize} command, followed on
 the same line by a formatting command such as @code{@@bullet}, and end
 the list with an @code{@@end itemize} command.
-@findex end
 
 Precede each element of a list with an @code{@@item} or @code{@@itemx}
 command.
@@ -7362,7 +7356,7 @@ character in the Info file.  (When you write the mark command such as
 logical items, use @code{@@w@{@}} (in this case the braces are
 required).
 
-@findex item
+@findex item @r{in @code{@@itemize}}
 After the @code{@@itemize}, write your items, each starting with
 @code{@@item}.  Text can follow on the same line as the @code{@@item}.
 The text of an item can continue for more than one paragraph.
@@ -7628,7 +7622,7 @@ reliably use a new command defined with @code{@@macro}, although an
 @code{@@alias} (for a suitable predefined command) is acceptable.
 @xref{Defining New Texinfo Commands}.
 
-@findex item
+@findex item @r{in @code{@@table}}
 Begin each table entry with an @code{@@item} command at the beginning
 of a line.  Write the text for the first column on the same line as the
 @code{@@item} command.  Write the text for the second column on the line
@@ -7840,7 +7834,7 @@ particularly likely to be useful.
 @cindex Multitable rows
 @cindex Rows, of a multitable
 
-@findex item
+@findex item @r{in @code{@@multitable}}
 @findex tab
 After the @code{@@multitable} command defining the column widths (see
 the previous section), you begin each row in the body of a multitable
@@ -9493,8 +9487,7 @@ When a period, exclamation point or question mark is
 at the end of a sentence, slightly more space is
 inserted after it in a typeset manual.
 
-@findex <colon> @r{(suppress end-of-sentence space)}
-@findex :
+@findex : @r{(suppress end-of-sentence space)}
 Usually, Texinfo can determine automatically when a period ends a 
 sentence.  However, special commands are needed in some circumstances.
 Use the @code{@@:} command after a period, question mark, exclamation
@@ -14045,7 +14038,6 @@ Both M4 (@pxref{Preprocessor features,,, m4, GNU M4}) and CPP
 @ref{Preprocessor Output,,, cpp, The C Preprocessor}) can generate
 such lines.
 
-@vindex CPP_LINE_DIRECTIVES
 The @command{makeinfo} program recognizes these lines by default,
 except within @code{@@verbatim} blocks (@pxref{@code{@@verbatim}}).
 Their recognition can be turned off completely with
@@ -15961,14 +15953,13 @@ Generate Texinfo XML output (rather than Info).
 @node @command{texi2any} Environment Variables
 @section Environment Variables Recognized by @command{texi2any}
 
-@vindex TEXINFO_OUTPUT_FORMAT
 @cindex Environment variable @code{TEXINFO_OUTPUT_FORMAT}
 @command{makeinfo} also reads the environment variable
 @env{TEXINFO_OUTPUT_FORMAT} to determine the output format, if not
 overridden by a command line option.  The value should be one of:
 
 @example
-docbook  dvi  dvipdf  html  info  pdf  plaintext  ps  xml
+docbook  dvi  dvipdf  html  info  latex  pdf  plaintext  ps  xml
 @end example
 
 If not set or otherwise specified, Info output is the default.
@@ -16222,7 +16213,7 @@ allows specifying what @code{makeinfo} outputs, either one of the usual
 output formats that can be specified with options, or various other
 forms:
 
-@ftable @samp
+@table @samp
 @item docbook
 @itemx dvi
 @itemx dvipdf
@@ -16280,7 +16271,7 @@ of the Texinfo source as an example.  It's one line:
 @example
 exec texi2any -c TEXINPUT_OUTPUT_FORMAT=textcontent "$@@"
 @end example
-@end ftable
+@end table
 
 
 @node HTML Customization Variables
@@ -16798,7 +16789,6 @@ The extension added to the output file name.  The default is different
 for each output format.
 
 @item FORMAT_MENU
-@opindex --no-headers
 If set to @samp{menu}, output Texinfo menus.  This is the default for
 Info.  @samp{sectiontoc} is the default setting for HTML, where instead
 of the contents of @code{@@menu} blocks being output, a list of subordinate
@@ -18580,7 +18570,6 @@ the directory is @file{./} (or just the empty string), and the file is
 
 @end itemize
 
-@vindex BASEFILENAME_LENGTH
 Another rule, that only holds for file names, is that base file names
 are truncated to 245 characters, to allow for an extension to be
 appended and still comply with the 255-character limit which is common
@@ -19070,6 +19059,7 @@ the end of the line.  If there is an argument, it is separated from
 the command name by a space.  Braces are not used.
 
 @item 3. Block commands
+@findex end
 These commands are written at the start of a line, with general text on
 following lines, terminated by a matching @code{@@end} command on a
 line of its own.  For example, @code{@@example}, then the lines of a
