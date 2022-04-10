@@ -1,5 +1,9 @@
 2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* README-hacking: Add note to check for index duplicates.
+
+2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Conditional Commands, Conditional Not Commands)
 	(Raw Formatter Commands, Inline Conditionals):
 	Document conditionals for LaTeX.
