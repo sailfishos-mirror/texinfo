@@ -449,9 +449,9 @@ pre.menu-comment-preformatted {font-family: serif}
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-<tt class="verb"> in verb
+<code class="verb"> in verb
 
-</tt>
+</code>
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
 

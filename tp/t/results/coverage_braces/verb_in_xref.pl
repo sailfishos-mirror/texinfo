@@ -233,10 +233,10 @@ ggg : Top.
 
 $result_converted{'html_text'}->{'verb_in_xref'} = '<h1 class="node" id="Top">Top</h1>
 
-<p>See <a class="xref" href="#Top"><tt class="verb">with
+<p>See <a class="xref" href="#Top"><code class="verb">with
 verb
 
-ggg </tt></a>.
+ggg </code></a>.
 </p>';
 
 1;

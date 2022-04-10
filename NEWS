@@ -33,7 +33,7 @@ See the manual for detailed information.
      . output only the CSS rules that are needed in an output file
      . remove CSS_LINES variable and add SHOW_BUILTIN_CSS_RULES.
        (custom CSS can still be output using EXTRA_HEAD.)
-     . use <code> tag for the output of @t instead of <tt>
+     . use <code> tag for the output of @t and @verb instead of <tt>
      . systematic addition of classes attribute in HTML elements based on the
        Texinfo @-command names.  Renaming of class attributes to avoid
        confusion with @-commands formatting and describe the role in the

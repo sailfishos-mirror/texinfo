@@ -1,5 +1,16 @@
 2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	<code> for @verb
+
+	* tp/Texinfo/Convert/HTML.pm (%style_attribute_commands):
+	Output @verb with <code> instead of <tt>.
+	* NEWS: Mention.
+
+	@verb is a rarely used command and this was one of the last uses
+	of non-HTML5 tags.
+
+2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Fonts): More on possible uses for @t.
 	Comment out rationale for longer command names.
 

@@ -2437,7 +2437,7 @@ $style_commands_element{'normal'} = {
       'sup'         => 'sup',
       't'           => 'code',
       'var'         => 'var',
-      'verb'        => 'tt',
+      'verb'        => 'code',
 };
 
 my %style_commands_formatting;
