@@ -1,5 +1,10 @@
 2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Info Formatting): Remove documentation
+	that is duplicated elsewhere.
+
+2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Creating an Info File):
 	Remove node.  Replace links to this node.
 	(makeinfo in Emacs, texinfo-format commands):

@@ -21573,59 +21573,8 @@ sequentially updates all the nodes in the region.
 @cindex Running an Info formatter
 @cindex Info formatting
 
-
 Texinfo mode provides several commands for formatting part or all of a
-Texinfo file for Info.  Often, when you are writing a document, you
-want to format only part of a file---that is, a region.
-
-You can use either the @code{texinfo-format-region} or the
-@code{makeinfo-region} command to format a region:
-
-@table @kbd
-@findex texinfo-format-region
-@item  C-c C-e C-r
-@itemx M-x texinfo-format-region
-@itemx C-c C-m C-r
-@itemx M-x makeinfo-region
-Format the current region for Info.
-@end table
-
-You can use either the @code{texinfo-format-buffer} or the
-@code{makeinfo-buffer} command to format a whole buffer:
-
-@table @kbd
-@findex texinfo-format-buffer
-@item  C-c C-e C-b
-@itemx M-x texinfo-format-buffer
-@itemx C-c C-m C-b
-@itemx M-x makeinfo-buffer
-Format the current buffer for Info.
-@end table
-
-@need 1000
-For example, after writing a Texinfo file, you can type the following:
-
-@example
-C-u C-c C-u m
-@exdent or
-C-u M-x texinfo-master-menu
-@end example
-
-@noindent
-This updates all the nodes and menus.  Then type the following to create
-an Info file:
-
-@example
-C-c C-m C-b
-@exdent or
-M-x makeinfo-buffer
-@end example
-
-Of course, you can also run @code{makeinfo} from an operating system shell.
-
-The @code{makeinfo} program provides better error messages than either of
-the Emacs formatting commands.  We recommend it.  The @code{makeinfo} program
-is independent of Emacs.
+Texinfo file for Info.
 
 @menu
 * @code{makeinfo} in Emacs::           How to run @code{makeinfo} from Emacs.
@@ -21635,7 +21584,6 @@ is independent of Emacs.
 @end menu
 
 
-
 @node @code{makeinfo} in Emacs
 @subsection Running @code{makeinfo} Within Emacs
 
@@ -21643,6 +21591,10 @@ is independent of Emacs.
 @cindex Running @code{makeinfo} in Emacs
 @cindex @code{makeinfo} inside Emacs
 @cindex Shell, running @code{makeinfo} in
+
+The @command{makeinfo} program provides better error messages
+than either of the Emacs formatting commands.  We recommend it.
+The @command{makeinfo} program is independent of Emacs.
 
 You can run @code{makeinfo} in GNU Emacs Texinfo mode by using either the
 @code{makeinfo-region} or the @code{makeinfo-buffer} commands.  In
