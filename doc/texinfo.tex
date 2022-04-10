@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-04-09.08}
+\def\texinfoversion{2022-04-10.11}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -4432,7 +4432,7 @@ $$%
 
 \message{conditionals,}
 
-% @iftex, @ifnotdocbook, @ifnothtml, @ifnotinfo, @ifnotplaintext,
+% @iftex, @ifnotdocbook, @ifnothtml, @ifnotinfo, @ifnotlatex, @ifnotplaintext,
 % @ifnotxml always succeed.  They currently do nothing; we don't
 % attempt to check whether the conditionals are properly nested.  But we
 % have to remember that they are conditionals, so that @end doesn't
@@ -4446,6 +4446,7 @@ $$%
 \makecond{ifnotdocbook}
 \makecond{ifnothtml}
 \makecond{ifnotinfo}
+\makecond{ifnotlatex}
 \makecond{ifnotplaintext}
 \makecond{ifnotxml}
 
@@ -4458,10 +4459,12 @@ $$%
 \def\ifdocbook{\doignore{ifdocbook}}
 \def\ifhtml{\doignore{ifhtml}}
 \def\ifinfo{\doignore{ifinfo}}
+\def\iflatex{\doignore{iflatex}}
 \def\ifnottex{\doignore{ifnottex}}
 \def\ifplaintext{\doignore{ifplaintext}}
 \def\ifxml{\doignore{ifxml}}
 \def\ignore{\doignore{ignore}}
+\def\latex{\doignore{latex}}
 \def\menu{\doignore{menu}}
 \def\xml{\doignore{xml}}
 
