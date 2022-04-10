@@ -11,55 +11,76 @@ See the manual for detailed information.
 
 6.X
 * texi2any
- . Use manual_name_html as output directory for split HTML instead of
-   manual_name or manual_name.html
- . LaTeX added as an output format, selected with --latex
+ . LaTeX added as an output format, selected with --latex.
  . epub support (how??)
- . new customization variables:
-   LOCALE_OUTPUT_ENCODING_NAME, LOCALE_INPUT_FILE_NAME_ENCODING,
-   LOCALE_OUTPUT_FILE_NAME_ENCODING, DOC_ENCODING_FOR_INPUT_FILE_NAME, and
-   DOC_ENCODING_FOR_OUTPUT_FILE_NAME
- . thorough review of character encoding issues
  . reform throughout the code in general
- . new customization variable NO_TOP_NODE_OUTPUT
- . rename COPIABLE_ANCHORS as COPIABLE_LINKS
- . L2H customization variable removed.  Replaced by HTML_MATH set to l2h.
- . Meaning of USE_NUMERIC_ENTITY changed to be using numeric entities in
-   priority.  Former effect is now always on.
- . ENABLE_ENCODING_USE_ENTITY customization variable removed.  Always
-   as if it was false.
- . New customization variable ASCII_PUNCTUATION to use plain ASCII characters
-   for quotation marks and a few other symbols
- . IGNORE_BEFORE_SETFILENAME customization variable removed.  Always set.
- . USE_XML_SYNTAX, HTML_ROOT_ELEMENT_ATTRIBUTES and NO_CUSTOM_HTML_ATTRIBUTE
-   customization variables added that can be used to output valid XHTML.
- . Rename OVERVIEW_LINK_TO_TOC as SHORT_TOC_LINK_TO_TOC, rename
-   BEFORE_OVERVIEW as BEFORE_SHORT_TOC_LINES and AFTER_OVERVIEW as
-   AFTER_SHORT_TOC_LINES.
- . remove CSS_LINES customization variable and add SHOW_BUILTIN_CSS_RULES.
- . remove PRE_ABOUT, AFTER_ABOUT, add PROGRAM_NAME_IN_ABOUT.
+ . thorough review of character encoding issues
+ . new customization variables involved with character encoding:
+     LOCALE_OUTPUT_ENCODING_NAME, LOCALE_INPUT_FILE_NAME_ENCODING,
+     LOCALE_OUTPUT_FILE_NAME_ENCODING, DOC_ENCODING_FOR_INPUT_FILE_NAME, and
+     DOC_ENCODING_FOR_OUTPUT_FILE_NAME
+ . IGNORE_BEFORE_SETFILENAME variable removed.  former effect
+   is always on.
+ . new variable NO_TOP_NODE_OUTPUT
  . HTML output:
+     . USE_XML_SYNTAX, HTML_ROOT_ELEMENT_ATTRIBUTES and
+       NO_CUSTOM_HTML_ATTRIBUTE variables added that can be used to output
+       valid XHTML.
+     . Use manual_name_html as output directory for split HTML instead of
+       manual_name or manual_name.html
+     . default DOCTYPE declaration changed to plain HTML5 style rather than
+       HTML4 DTD reference
      . output only the CSS rules that are needed in an output file
+     . remove CSS_LINES variable and add SHOW_BUILTIN_CSS_RULES.
+       (custom CSS can still be output using EXTRA_HEAD.)
      . use <code> tag for the output of @t instead of <tt>
      . systematic addition of classes attribute in HTML elements based on the
        Texinfo @-command names.  Renaming of class attributes to avoid
        confusion with @-commands formatting and describe the role in the
        document rather than the formatting style.
      . classes from @example arguments are prefixed with 'user-'
+     . COPIABLE_ANCHORS renamed to COPIABLE_LINKS
      . do not add a title in the default case, SHOW_TITLE has to be set
-       (or NO_TOP_NODE_OUTPUT). Set USE_TITLEPAGE_FOR_TITLE to true.
+       (or NO_TOP_NODE_OUTPUT).
+     . default value of USE_TITLEPAGE_FOR_TITLE is now true.
+     . L2H variable removed.  replaced by HTML_MATH set to l2h.
+     . rename OVERVIEW_LINK_TO_TOC to SHORT_TOC_LINK_TO_TOC, and rename
+       BEFORE_OVERVIEW to BEFORE_SHORT_TOC_LINE and AFTER_OVERVIEW to
+       AFTER_SHORT_TOC_LINES.
+     . remove PRE_ABOUT, AFTER_ABOUT, and add PROGRAM_NAME_IN_ABOUT
+     . new variable CONVERT_TEXINFO_MATH_TO_LATEX
+     . link to table of contents from short table of contents only if a
+       table of contents is actually output
  . DocBook output:
      . do not output Top node nor text before the first @node or sectioning
        @-command.  NO_TOP_NODE_OUTPUT can be set to false to output Top node
        for now.
+ . HTML/DocBook output:
+     . meaning of USE_NUMERIC_ENTITY changed to be using numeric entities in
+       priority.  former effect is now always on.
+     . ENABLE_ENCODING_USE_ENTITY variable removed.  former effect is now
+       always off.
+ . info output
+     . new customization variable ASCII_PUNCTUATION to use plain ASCII
+       characters for quotation marks and a few other symbols
 
 * info
   . better support for index entries containing parentheses
   . better support for getting bold text etc. when displaying manpages
+  . bug fixed where the first index entry in a file could be ignored
+  . M-C-f closes as well as opens footnotes window
+  . do not crash if run in Brazillian Portuguese locale
 
 * texinfo.tex
   . do not ignore @part page immediately following Top node
 
+* Language
+  . new commands @latex, @iflatex, @ifnotlatex for new LaTeX output format
+
+* Other
+  . build fixed for glibc 2.34
+
+
 6.8 (3 July 2021)
 * Language
   . new command @displaymath for formatting of mathematical notation
