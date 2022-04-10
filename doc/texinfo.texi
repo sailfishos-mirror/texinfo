@@ -21242,7 +21242,6 @@ about the page commands.
 @subsection Using @code{texinfo-show-structure}
 
 @cindex Showing the structure of a file
-@findex texinfo-show-structure
 
 It is not always easy to keep track of the nodes, chapters, sections, and
 subsections of a Texinfo file.  This is especially true if you are revising

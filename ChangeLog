@@ -1,5 +1,10 @@
 2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Using texinfo-show-structure):
+	Remove duplicate index entry.
+
+2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Using texinfo-show-structure, Using occur):
 	Subordinate to Showing the Structure.
 	(Catching Mistakes): Delete extraneous text.
