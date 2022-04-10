@@ -1,5 +1,10 @@
 2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Tag and Split Files): Move up a level.
+	(Info Formatting): Remove an unnecessary cross-reference.
+
+2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Catching Mistakes): Lower all section
 	commands a level and remove use of @lowersections/@raisesections.
 

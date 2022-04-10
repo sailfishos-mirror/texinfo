@@ -547,6 +547,8 @@ Creating and Installing Info Files
 
 * Creating an Info File::
 * Installing an Info File::
+* Tag and Split Files::         How tagged and split files help Info
+                                 to run better.
 * Info Format FAQ::
 
 Creating an Info File
@@ -555,8 +557,6 @@ Creating an Info File
 * @code{texinfo-format} commands::     Two Info formatting commands written
                                  in Emacs Lisp are an alternative
                                  to @code{makeinfo}.
-* Tag and Split Files::         How tagged and split files help Info
-                                 to run better.
 
 Installing an Info File
 
@@ -17304,6 +17304,8 @@ itself.
 @menu
 * Creating an Info File::
 * Installing an Info File::
+* Tag and Split Files::         How tagged and split files help Info
+                                 to run better.
 * Info Format FAQ::
 @end menu
 
@@ -17324,8 +17326,6 @@ Texinfo to Info.
 * @code{texinfo-format} commands::     Two Info formatting commands written
                                  in Emacs Lisp are an alternative
                                  to @code{makeinfo}.
-* Tag and Split Files::         How tagged and split files help Info
-                                 to run better.
 @end menu
 
 
@@ -17470,93 +17470,6 @@ A peculiarity of the @code{texinfo-format-buffer} and
 fill) paragraphs that contain @code{@@w} or @code{@@*} commands.
 
 
-@node Tag and Split Files
-@subsection Tag Files and Split Files
-@cindex Making a tag table automatically
-@cindex Tag table, making automatically
-
-If a Texinfo file has more than 30,000 bytes,
-@code{texinfo-format-buffer} automatically creates a tag table
-for its Info file; @code{makeinfo} always creates a tag table.  With
-a @dfn{tag table}, Info can jump to new nodes more quickly than it can
-otherwise.
-
-@cindex Indirect subfiles
-In addition, if the Texinfo file contains more than about 300,000
-bytes, @code{texinfo-format-buffer} and @code{makeinfo} split the
-large Info file into shorter @dfn{indirect} subfiles of about 300,000
-bytes each.  Big files are split into smaller files so that Emacs does
-not need to make a large buffer to hold the whole of a large Info
-file; instead, Emacs allocates just enough memory for the small, split-off
-file that is needed at the time.  This way, Emacs avoids wasting
-memory when you run Info.  (Before splitting was implemented, Info
-files were always kept short and @dfn{include files} were designed as
-a way to create a single, large printed manual out of the smaller Info
-files.  @xref{Include Files}, for more information.  Include files are
-still used for very large documents, such as @cite{The Emacs Lisp
-Reference Manual}, in which each chapter is a separate file.)
-
-When a file is split, Info itself makes use of a shortened version of
-the original file that contains just the tag table and references to
-the files that were split off.  The split-off files are called
-@dfn{indirect} files.
-
-The split-off files have names that are created by appending @w{@samp{-1}},
-@w{@samp{-2}}, @w{@samp{-3}} and so on to the file name specified by the
-@code{@@setfilename} command.  The shortened version of the original file
-continues to have the name specified by @code{@@setfilename}.
-
-At one stage in writing this document, for example, the Info file was saved
-as the file @file{test-texinfo} and that file looked like this:
-
-@example
-@group
-Info file: test-texinfo,    -*-Text-*-
-produced by texinfo-format-buffer
-from file: new-texinfo-manual.texinfo
-
-^_
-Indirect:
-test-texinfo-1: 102
-test-texinfo-2: 50422
-@end group
-@group
-test-texinfo-3: 101300
-^_^L
-Tag table:
-(Indirect)
-Node: overview^?104
-Node: info file^?1271
-@end group
-@group
-Node: printed manual^?4853
-Node: conventions^?6855
-@dots{}
-@end group
-@end example
-
-@noindent
-(But @file{test-texinfo} had far more nodes than are shown here.)  Each of
-the split-off, indirect files, @file{test-texinfo-1},
-@file{test-texinfo-2}, and @file{test-texinfo-3}, is listed in this file
-after the line that says @samp{Indirect:}.  The tag table is listed after
-the line that says @samp{Tag table:}.
-
-In the list of indirect files, the number following the file name
-records the cumulative number of bytes in the preceding indirect
-files, not counting the file list itself, the tag table, or any
-permissions text in the first file.  In the tag table, the number
-following the node name records the location of the beginning of the
-node, in bytes from the beginning of the (unsplit) output.
-
-If you are using @code{texinfo-format-buffer} to create Info files,
-you may want to run the @code{Info-validate} command.  (The
-@code{makeinfo} command does such a good job on its own, you do not
-need @code{Info-validate}.)  However, you cannot run the @kbd{M-x
-Info-validate} node-checking command on indirect files.  For
-information on how to prevent files from being split and how to
-validate the structure of the nodes, see @ref{Using
-@code{Info-validate}}.
 
 
 @node Installing an Info File
@@ -18052,6 +17965,96 @@ Suppress updating of the directory file.
 Display version information and exit successfully.
 
 @end table
+
+@node Tag and Split Files
+@section Tag Files and Split Files
+@cindex Making a tag table automatically
+@cindex Tag table, making automatically
+
+If a Texinfo file has more than 30,000 bytes,
+@code{texinfo-format-buffer} automatically creates a tag table
+for its Info file; @code{makeinfo} always creates a tag table.  With
+a @dfn{tag table}, Info can jump to new nodes more quickly than it can
+otherwise.
+
+@cindex Indirect subfiles
+In addition, if the Texinfo file contains more than about 300,000
+bytes, @code{texinfo-format-buffer} and @code{makeinfo} split the
+large Info file into shorter @dfn{indirect} subfiles of about 300,000
+bytes each.  Big files are split into smaller files so that Emacs does
+not need to make a large buffer to hold the whole of a large Info
+file; instead, Emacs allocates just enough memory for the small, split-off
+file that is needed at the time.  This way, Emacs avoids wasting
+memory when you run Info.  (Before splitting was implemented, Info
+files were always kept short and @dfn{include files} were designed as
+a way to create a single, large printed manual out of the smaller Info
+files.  @xref{Include Files}, for more information.  Include files are
+still used for very large documents, such as @cite{The Emacs Lisp
+Reference Manual}, in which each chapter is a separate file.)
+
+When a file is split, Info itself makes use of a shortened version of
+the original file that contains just the tag table and references to
+the files that were split off.  The split-off files are called
+@dfn{indirect} files.
+
+The split-off files have names that are created by appending @w{@samp{-1}},
+@w{@samp{-2}}, @w{@samp{-3}} and so on to the file name specified by the
+@code{@@setfilename} command.  The shortened version of the original file
+continues to have the name specified by @code{@@setfilename}.
+
+At one stage in writing this document, for example, the Info file was saved
+as the file @file{test-texinfo} and that file looked like this:
+
+@example
+@group
+Info file: test-texinfo,    -*-Text-*-
+produced by texinfo-format-buffer
+from file: new-texinfo-manual.texinfo
+
+^_
+Indirect:
+test-texinfo-1: 102
+test-texinfo-2: 50422
+@end group
+@group
+test-texinfo-3: 101300
+^_^L
+Tag table:
+(Indirect)
+Node: overview^?104
+Node: info file^?1271
+@end group
+@group
+Node: printed manual^?4853
+Node: conventions^?6855
+@dots{}
+@end group
+@end example
+
+@noindent
+(But @file{test-texinfo} had far more nodes than are shown here.)  Each of
+the split-off, indirect files, @file{test-texinfo-1},
+@file{test-texinfo-2}, and @file{test-texinfo-3}, is listed in this file
+after the line that says @samp{Indirect:}.  The tag table is listed after
+the line that says @samp{Tag table:}.
+
+In the list of indirect files, the number following the file name
+records the cumulative number of bytes in the preceding indirect
+files, not counting the file list itself, the tag table, or any
+permissions text in the first file.  In the tag table, the number
+following the node name records the location of the beginning of the
+node, in bytes from the beginning of the (unsplit) output.
+
+If you are using @code{texinfo-format-buffer} to create Info files,
+you may want to run the @code{Info-validate} command.  (The
+@code{makeinfo} command does such a good job on its own, you do not
+need @code{Info-validate}.)  However, you cannot run the @kbd{M-x
+Info-validate} node-checking command on indirect files.  For
+information on how to prevent files from being split and how to
+validate the structure of the nodes, see @ref{Using
+@code{Info-validate}}.
+
+
 
 @node Info Format FAQ
 @section Info Format FAQ
@@ -21784,8 +21787,6 @@ Of course, you can also run @code{makeinfo} from an operating system shell.
 The @code{makeinfo} program provides better error messages than either of
 the Emacs formatting commands.  We recommend it.  The @code{makeinfo} program
 is independent of Emacs.
-
-@xref{Creating an Info File} for details about Info formatting.
 
 
 @node Printing
