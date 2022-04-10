@@ -1,5 +1,11 @@
 2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (makeinfo Advantages): Remove node.
+	(Info Formatting): Move some text here.
+	(Printing): Delete a useless comment.
+
+2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex: Remove or disambiguate many duplicate
 	index entries to ease lookup.
 	(Invoking texi2any): List latex as a permissible value of

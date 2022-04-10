@@ -551,7 +551,6 @@ Creating and Installing Info Files
 
 Creating an Info File
 
-* @command{makeinfo} Advantages::         @command{makeinfo} provides better error checking.
 * @code{makeinfo} in Emacs::           How to run @code{makeinfo} from Emacs.
 * @code{texinfo-format} commands::     Two Info formatting commands written
                                  in Emacs Lisp are an alternative
@@ -14106,9 +14105,7 @@ directives are not recognized, the line numbers emitted by the
 @code{@@errormsg@{@}} command (@pxref{Conditional Commands}), or by
 @TeX{} itself, are the (incorrect) line numbers from the derived file
 which @TeX{} is reading, rather than the preprocessor-specified line
-numbers.  This is another example of why we recommend running
-@command{makeinfo} for the best diagnostics (@pxref{@command{makeinfo}
-Advantages}).
+numbers.
 
 
 @node @samp{#line} Syntax Details
@@ -17326,7 +17323,6 @@ For information on installing the Info file in the Info system,
 @pxref{Installing an Info File}.
 
 @menu
-* @command{makeinfo} Advantages::         @command{makeinfo} provides better error checking.
 * @code{makeinfo} in Emacs::           How to run @code{makeinfo} from Emacs.
 * @code{texinfo-format} commands::     Two Info formatting commands written
                                  in Emacs Lisp are an alternative
@@ -17336,22 +17332,6 @@ For information on installing the Info file in the Info system,
                                  to run better.
 @end menu
 
-
-@node @command{makeinfo} Advantages
-@subsection @code{makeinfo} Advantages
-
-@anchor{makeinfo advantages}@c old name
-
-The @code{makeinfo} utility creates an Info file from a Texinfo source
-providing better error messages than either of the Emacs formatting
-commands.  We recommend it.  The @code{makeinfo} program is
-independent of Emacs.  You can run @code{makeinfo} in any of three
-ways: from an operating system shell, from a shell inside Emacs, or by
-typing the @kbd{C-c C-m C-r} or the @kbd{C-c C-m C-b} command in
-Texinfo mode in Emacs.
-
-The @code{texinfo-format-region} and the @code{texinfo-format-buffer}
-commands may be useful if you cannot run @code{makeinfo}.
 
 
 @node @code{makeinfo} in Emacs
@@ -21778,11 +21758,13 @@ interactive), the @code{texinfo-sequential-node-update} command
 sequentially updates all the nodes in the region.
 @end table
 
+
 @node Info Formatting
 @section Formatting for Info
 @cindex Formatting for Info
 @cindex Running an Info formatter
 @cindex Info formatting
+
 
 Texinfo mode provides several commands for formatting part or all of a
 Texinfo file for Info.  Often, when you are writing a document, you
@@ -21831,10 +21813,16 @@ C-c C-m C-b
 M-x makeinfo-buffer
 @end example
 
+Of course, you can also run @code{makeinfo} from an operating system shell.
+
+The @code{makeinfo} program provides better error messages than either of
+the Emacs formatting commands.  We recommend it.  The @code{makeinfo} program
+is independent of Emacs.
+
 @xref{Creating an Info File} for details about Info formatting.
 
+
 @node Printing
-@comment node-name,  next,  previous,  up
 @section Printing
 @cindex Formatting for printing
 @cindex Printing a region or buffer
