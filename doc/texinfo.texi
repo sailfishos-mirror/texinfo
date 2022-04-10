@@ -616,8 +616,6 @@ Catching Mistakes
 * @command{makeinfo} Preferred::          @code{makeinfo} finds errors.
 * Debugging with Info::         How to catch errors with Info formatting.
 * Debugging with @TeX{}::          How to catch errors with @TeX{} formatting.
-* Using @code{texinfo-show-structure}:: How to use @code{texinfo-show-structure}.
-* Using @code{occur}::                 How to list all lines containing a pattern.
 * Running @code{Info-validate}::       How to find badly referenced nodes.
 
 Global Document Commands
@@ -21235,6 +21233,125 @@ commands to move forward and backward by chapter, and to use the
 @xref{Pages, , , emacs, The GNU Emacs Manual}, for more information
 about the page commands.
 
+@menu
+* Using @code{texinfo-show-structure}:: How to use @code{texinfo-show-structure}.
+* Using @code{occur}::                 How to list all lines containing a pattern.
+@end menu
+
+@node Using @code{texinfo-show-structure}
+@subsection Using @code{texinfo-show-structure}
+
+@cindex Showing the structure of a file
+@findex texinfo-show-structure
+
+It is not always easy to keep track of the nodes, chapters, sections, and
+subsections of a Texinfo file.  This is especially true if you are revising
+or adding to a Texinfo file that someone else has written.
+
+In GNU Emacs, in Texinfo mode, the @code{texinfo-show-structure}
+command lists all the lines that begin with the @@-commands that
+specify the structure: @code{@@chapter}, @code{@@section},
+@code{@@appendix}, and so on.  With an argument (@w{@kbd{C-u}}
+as prefix argument, if interactive),
+the command also shows the @code{@@node} lines.  The
+@code{texinfo-show-structure} command is bound to @kbd{C-c C-s} in
+Texinfo mode, by default.
+
+The lines are displayed in a buffer called the @samp{*Occur*} buffer,
+indented by hierarchical level.  For example, here is a part of what was
+produced by running @code{texinfo-show-structure} on this manual:
+
+@example
+@group
+Lines matching "^@@\\(chapter \\|sect\\|subs\\|subh\\|
+unnum\\|major\\|chapheading \\|heading \\|appendix\\)"
+in buffer texinfo.texi.
+@dots{}
+4177:@@chapter Nodes
+4198:    @@heading Two Paths
+4231:    @@section Node and Menu Illustration
+4337:    @@section The @@code@{@@@@node@} Command
+4393:        @@subheading Choosing Node and Pointer Names
+4417:        @@subsection How to Write a @@code@{@@@@node@} Line
+4469:        @@subsection @@code@{@@@@node@} Line Tips
+@dots{}
+@end group
+@end example
+
+This says that lines 4337, 4393, and 4417 of @file{texinfo.texi} begin
+with the @code{@@section}, @code{@@subheading}, and @code{@@subsection}
+commands respectively.  If you move your cursor into the @samp{*Occur*}
+window, you can position the cursor over one of the lines and use the
+@kbd{C-c C-c} command (@code{occur-mode-goto-occurrence}), to jump to
+the corresponding spot in the Texinfo file.  @xref{Other Repeating
+Search, , Using Occur, emacs, The GNU Emacs Manual}, for more
+information about @code{occur-mode-goto-occurrence}.
+
+The first line in the @samp{*Occur*} window describes the @dfn{regular
+expression} specified by @var{texinfo-heading-pattern}.  This regular
+expression is the pattern that @code{texinfo-show-structure} looks for.
+@xref{Regexps, , Using Regular Expressions, emacs, The GNU Emacs Manual},
+for more information.
+
+When you invoke the @code{texinfo-show-structure} command, Emacs will
+display the structure of the whole buffer.  If you want to see the
+structure of just a part of the buffer, of one chapter, for example,
+use the @kbd{C-x n n} (@code{narrow-to-region}) command to mark the
+region.  (@xref{Narrowing, , , emacs, The GNU Emacs Manual}.)  This is
+how the example used above was generated.  (To see the whole buffer
+again, use @kbd{C-x n w} (@code{widen}).)
+
+If you call @code{texinfo-show-structure} with a prefix argument by
+typing @w{@kbd{C-u C-c C-s}}, it will list lines beginning with
+@code{@@node} as well as the lines beginning with the @@-sign commands
+for @code{@@chapter}, @code{@@section}, and the like.
+
+You can remind yourself of the structure of a Texinfo file by looking at
+the list in the @samp{*Occur*} window; and if you have mis-named a node
+or left out a section, you can correct the mistake.
+
+@node Using @code{occur}
+@subsection Using @code{occur}
+
+@cindex Occurrences, listing with @code{@@occur}
+@findex occur
+
+Sometimes the @code{texinfo-show-structure} command produces too much
+information.  Perhaps you want to remind yourself of the overall structure
+of a Texinfo file, and are overwhelmed by the detailed list produced by
+@code{texinfo-show-structure}.  In this case, you can use the @code{occur}
+command directly.  To do this, type:
+
+@example
+@kbd{M-x occur}
+@end example
+
+@noindent
+and then, when prompted, type a @dfn{regexp}, a regular expression for
+the pattern you want to match.  (@xref{Regexps, , Regular Expressions,
+emacs, The GNU Emacs Manual}.)  The @code{occur} command works from
+the current location of the cursor in the buffer to the end of the
+buffer.  If you want to run @code{occur} on the whole buffer, place
+the cursor at the beginning of the buffer.
+
+For example, to see all the lines that contain the word
+@samp{@@chapter} in them, just type @samp{@@chapter}.  This will
+produce a list of the chapters.  It will also list all the sentences
+with @samp{@@chapter} in the middle of the line.
+
+If you want to see only those lines that start with the word
+@samp{@@chapter}, type @samp{^@@chapter} when prompted by
+@code{occur}.  If you want to see all the lines that end with a word
+or phrase, end the last word with a @samp{$}; for example,
+@samp{catching mistakes$}.  This can be helpful when you want to see
+all the nodes that are part of the same chapter or section and
+therefore have the same `Up' pointer.
+
+@xref{Other Repeating Search, , Using Occur, emacs , The GNU Emacs Manual},
+for more information.
+
+
+
 
 @node Updating Nodes and Menus
 @section Updating Nodes and Menus
@@ -21990,9 +22107,6 @@ kinds of mistake you can make with Texinfo: you can make mistakes with
 @@-commands, and you can make mistakes with the structure of the nodes
 and chapters.
 
-Emacs has two tools for catching the @@-command mistakes and two for
-catching structuring mistakes.
-
 For finding problems with @@-commands, you can run @TeX{} or a region
 formatting command on the region that has a problem; indeed, you can
 run these commands on each region as you write it.
@@ -22005,8 +22119,6 @@ command and you can use the @kbd{M-x Info-validate} command.
 * @command{makeinfo} Preferred::          @code{makeinfo} finds errors.
 * Debugging with Info::         How to catch errors with Info formatting.
 * Debugging with @TeX{}::          How to catch errors with @TeX{} formatting.
-* Using @code{texinfo-show-structure}:: How to use @code{texinfo-show-structure}.
-* Using @code{occur}::                 How to list all lines containing a pattern.
 * Running @code{Info-validate}::       How to find badly referenced nodes.
 @end menu
 
@@ -22263,118 +22375,6 @@ write the header lines in the Texinfo file and run the @TeX{} command
 again. (Note the use of the backslash, @samp{\}.  @TeX{} uses @samp{\}
 instead of @samp{@@}; and in this circumstance, you are working
 directly with @TeX{}, not with Texinfo.)
-
-@node Using @code{texinfo-show-structure}
-@subsection Using @code{texinfo-show-structure}
-
-@cindex Showing the structure of a file
-@findex texinfo-show-structure
-
-It is not always easy to keep track of the nodes, chapters, sections, and
-subsections of a Texinfo file.  This is especially true if you are revising
-or adding to a Texinfo file that someone else has written.
-
-In GNU Emacs, in Texinfo mode, the @code{texinfo-show-structure}
-command lists all the lines that begin with the @@-commands that
-specify the structure: @code{@@chapter}, @code{@@section},
-@code{@@appendix}, and so on.  With an argument (@w{@kbd{C-u}}
-as prefix argument, if interactive),
-the command also shows the @code{@@node} lines.  The
-@code{texinfo-show-structure} command is bound to @kbd{C-c C-s} in
-Texinfo mode, by default.
-
-The lines are displayed in a buffer called the @samp{*Occur*} buffer,
-indented by hierarchical level.  For example, here is a part of what was
-produced by running @code{texinfo-show-structure} on this manual:
-
-@example
-@group
-Lines matching "^@@\\(chapter \\|sect\\|subs\\|subh\\|
-unnum\\|major\\|chapheading \\|heading \\|appendix\\)"
-in buffer texinfo.texi.
-@dots{}
-4177:@@chapter Nodes
-4198:    @@heading Two Paths
-4231:    @@section Node and Menu Illustration
-4337:    @@section The @@code@{@@@@node@} Command
-4393:        @@subheading Choosing Node and Pointer Names
-4417:        @@subsection How to Write a @@code@{@@@@node@} Line
-4469:        @@subsection @@code@{@@@@node@} Line Tips
-@dots{}
-@end group
-@end example
-
-This says that lines 4337, 4393, and 4417 of @file{texinfo.texi} begin
-with the @code{@@section}, @code{@@subheading}, and @code{@@subsection}
-commands respectively.  If you move your cursor into the @samp{*Occur*}
-window, you can position the cursor over one of the lines and use the
-@kbd{C-c C-c} command (@code{occur-mode-goto-occurrence}), to jump to
-the corresponding spot in the Texinfo file.  @xref{Other Repeating
-Search, , Using Occur, emacs, The GNU Emacs Manual}, for more
-information about @code{occur-mode-goto-occurrence}.
-
-The first line in the @samp{*Occur*} window describes the @dfn{regular
-expression} specified by @var{texinfo-heading-pattern}.  This regular
-expression is the pattern that @code{texinfo-show-structure} looks for.
-@xref{Regexps, , Using Regular Expressions, emacs, The GNU Emacs Manual},
-for more information.
-
-When you invoke the @code{texinfo-show-structure} command, Emacs will
-display the structure of the whole buffer.  If you want to see the
-structure of just a part of the buffer, of one chapter, for example,
-use the @kbd{C-x n n} (@code{narrow-to-region}) command to mark the
-region.  (@xref{Narrowing, , , emacs, The GNU Emacs Manual}.)  This is
-how the example used above was generated.  (To see the whole buffer
-again, use @kbd{C-x n w} (@code{widen}).)
-
-If you call @code{texinfo-show-structure} with a prefix argument by
-typing @w{@kbd{C-u C-c C-s}}, it will list lines beginning with
-@code{@@node} as well as the lines beginning with the @@-sign commands
-for @code{@@chapter}, @code{@@section}, and the like.
-
-You can remind yourself of the structure of a Texinfo file by looking at
-the list in the @samp{*Occur*} window; and if you have mis-named a node
-or left out a section, you can correct the mistake.
-
-@node Using @code{occur}
-@subsection Using @code{occur}
-
-@cindex Occurrences, listing with @code{@@occur}
-@findex occur
-
-Sometimes the @code{texinfo-show-structure} command produces too much
-information.  Perhaps you want to remind yourself of the overall structure
-of a Texinfo file, and are overwhelmed by the detailed list produced by
-@code{texinfo-show-structure}.  In this case, you can use the @code{occur}
-command directly.  To do this, type:
-
-@example
-@kbd{M-x occur}
-@end example
-
-@noindent
-and then, when prompted, type a @dfn{regexp}, a regular expression for
-the pattern you want to match.  (@xref{Regexps, , Regular Expressions,
-emacs, The GNU Emacs Manual}.)  The @code{occur} command works from
-the current location of the cursor in the buffer to the end of the
-buffer.  If you want to run @code{occur} on the whole buffer, place
-the cursor at the beginning of the buffer.
-
-For example, to see all the lines that contain the word
-@samp{@@chapter} in them, just type @samp{@@chapter}.  This will
-produce a list of the chapters.  It will also list all the sentences
-with @samp{@@chapter} in the middle of the line.
-
-If you want to see only those lines that start with the word
-@samp{@@chapter}, type @samp{^@@chapter} when prompted by
-@code{occur}.  If you want to see all the lines that end with a word
-or phrase, end the last word with a @samp{$}; for example,
-@samp{catching mistakes$}.  This can be helpful when you want to see
-all the nodes that are part of the same chapter or section and
-therefore have the same `Up' pointer.
-
-@xref{Other Repeating Search, , Using Occur, emacs , The GNU Emacs Manual},
-for more information.
 
 
 @node Running @code{Info-validate}
