@@ -547,13 +547,10 @@ Customization Variables
 
 Creating and Installing Info Files
 
-* Creating an Info File::
 * Installing an Info File::
 * Tag and Split Files::         How tagged and split files help Info
                                  to run better.
 * Info Format FAQ::
-
-Creating an Info File
 
 * @code{makeinfo} in Emacs::           How to run @code{makeinfo} from Emacs.
 * @code{texinfo-format} commands::     Two Info formatting commands written
@@ -17300,176 +17297,16 @@ notes, but may still be useful to some.
 @chapter Creating and Installing Info Files
 
 This chapter describes how to create and install Info files.
-@xref{Info Files}, for general information about the file format
-itself.
+See also @ref{Generic Translator @command{texi2any}} and @ref{Info Formatting}.
+@xref{Info Files}, for general information about the file format.
+
 
 @menu
-* Creating an Info File::
 * Installing an Info File::
 * Tag and Split Files::         How tagged and split files help Info
                                  to run better.
 * Info Format FAQ::
 @end menu
-
-
-@node Creating an Info File
-@section Creating an Info File
-@cindex Creating an Info file
-@cindex Info, creating an online file
-@cindex Formatting a file for Info
-
-@code{makeinfo} is a program that converts a Texinfo file into an Info
-file, HTML file, or plain text.  @code{texinfo-format-region} and
-@code{texinfo-format-buffer} are GNU Emacs functions that convert
-Texinfo to Info.
-
-@menu
-* @code{makeinfo} in Emacs::           How to run @code{makeinfo} from Emacs.
-* @code{texinfo-format} commands::     Two Info formatting commands written
-                                 in Emacs Lisp are an alternative
-                                 to @code{makeinfo}.
-@end menu
-
-
-
-@node @code{makeinfo} in Emacs
-@subsection Running @code{makeinfo} Within Emacs
-
-@c anchor{makeinfo in Emacs}@c prev name
-@cindex Running @code{makeinfo} in Emacs
-@cindex @code{makeinfo} inside Emacs
-@cindex Shell, running @code{makeinfo} in
-
-You can run @code{makeinfo} in GNU Emacs Texinfo mode by using either the
-@code{makeinfo-region} or the @code{makeinfo-buffer} commands.  In
-Texinfo mode, the commands are bound to @kbd{C-c C-m C-r} and @kbd{C-c
-C-m C-b} by default.
-
-@table @kbd
-@item C-c C-m C-r
-@itemx M-x makeinfo-region
-Format the current region for Info.
-@findex makeinfo-region
-
-@item C-c C-m C-b
-@itemx M-x makeinfo-buffer
-Format the current buffer for Info.
-@findex makeinfo-buffer
-@end table
-
-When you invoke @code{makeinfo-region} the output goes to a temporary
-buffer.  When you invoke @code{makeinfo-buffer} output goes to the
-file set with @code{@@setfilename} (@pxref{@code{@@setfilename}}).
-
-The Emacs @code{makeinfo-region} and @code{makeinfo-buffer} commands
-run the @code{makeinfo} program in a temporary shell buffer.  If
-@code{makeinfo} finds any errors, Emacs displays the error messages in
-the temporary buffer.
-
-@cindex Errors, parsing
-@cindex Parsing errors
-@findex next-error
-You can parse the error messages by typing @kbd{C-x `}
-(@code{next-error}).  This causes Emacs to go to and position the
-cursor on the line in the Texinfo source that @code{makeinfo} thinks
-caused the error.  @xref{Compilation, , Running @code{make} or
-Compilers Generally, emacs, The GNU Emacs Manual}, for more
-information about using the @code{next-error} command.
-
-In addition, you can kill the shell in which the @code{makeinfo}
-command is running or make the shell buffer display its most recent
-output.
-
-@table @kbd
-@item C-c C-m C-k
-@itemx M-x makeinfo-kill-job
-@findex makeinfo-kill-job
-Kill the current running @code{makeinfo} job
-(from @code{makeinfo-region} or @code{makeinfo-buffer}).
-
-@item C-c C-m C-l
-@itemx M-x makeinfo-recenter-output-buffer
-@findex makeinfo-recenter-output-buffer
-Redisplay the @code{makeinfo} shell buffer to display its most recent
-output.
-@end table
-
-@noindent
-(Note that the parallel commands for killing and recentering a @TeX{}
-job are @kbd{C-c C-t C-k} and @kbd{C-c C-t C-l}.  @xref{Texinfo Mode
-Printing}.)
-
-You can specify options for @code{makeinfo} by setting the
-@code{makeinfo-options} variable with either the @kbd{M-x
-customize} or the @kbd{M-x set-variable} command, or by setting the
-variable in your @file{.emacs} initialization file.
-
-For example, you could write the following in your @file{.emacs} file:
-
-@example
-@group
-(setq makeinfo-options
-     "--paragraph-indent=0 --no-split
-      --fill-column=70 --verbose")
-@end group
-@end example
-
-@noindent
-@c Writing these three cross-references using xref results in
-@c three references to the same named manual, which looks strange.
-@iftex
-For more information, see @ref{@command{makeinfo} Options}, as well as
-``Easy Customization Interface,'' ``Examining and Setting Variables,''
-and ``Init File'' in @cite{The GNU Emacs Manual}.
-@end iftex
-@ifnottex
-For more information, see@*
-@ref{Easy Customization, , Easy Customization Interface, emacs, The GNU Emacs Manual},@*
-@ref{Examining, , Examining and Setting Variables, emacs, The GNU Emacs Manual},@*
-@ref{Init File, , , emacs, The GNU Emacs Manual}, and@*
-@ref{@command{makeinfo} Options}.
-@end ifnottex
-
-
-@node @code{texinfo-format} commands
-@subsection The @code{texinfo-format@dots{}} Commands
-
-@c anchor{texinfo-format commands}@c prev name
-
-In GNU Emacs in Texinfo mode, you can format part or all of a Texinfo
-file with the @code{texinfo-format-region} command.  This formats the
-current region and displays the formatted text in a temporary buffer
-called @samp{*Info Region*}.
-
-Similarly, you can format a buffer with the
-@code{texinfo-format-buffer} command.  This command creates a new
-buffer and generates the Info file in it.  Typing @kbd{C-x C-s} will
-save the Info file under the name specified by the
-@code{@@setfilename} line which must be near the beginning of the
-Texinfo file.
-
-@table @kbd
-@item C-c C-e C-r
-@itemx @code{texinfo-format-region}
-@findex texinfo-format-region
-Format the current region for Info.
-
-@item C-c C-e C-b
-@itemx @code{texinfo-format-buffer}
-@findex texinfo-format-buffer
-Format the current buffer for Info.
-@end table
-
-The @code{texinfo-format-region} and @code{texinfo-format-buffer}
-commands provide you with some error checking, and other functions can
-provide you with further help in finding formatting errors.  These
-procedures are described in an appendix; see @ref{Catching Mistakes}.
-However, the @code{makeinfo} program provides better error checking
-(@pxref{@code{makeinfo} in Emacs}).
-
-A peculiarity of the @code{texinfo-format-buffer} and
-@code{texinfo-format-region} commands is that they do not indent (nor
-fill) paragraphs that contain @code{@@w} or @code{@@*} commands.
 
 
 
@@ -21656,8 +21493,8 @@ Incidentally, the @code{makeinfo} command will create an Info file for a
 hierarchically organized Texinfo file that lacks `Next', `Previous' and
 `Up' pointers.  Thus, if you can be sure that your Texinfo file will be
 formatted with @code{makeinfo}, you have no need for the update node
-commands.  (@xref{Creating an Info File}, for more information about
-@code{makeinfo}.)
+commands.  (@xref{Generic Translator @command{texi2any}}, for more
+information about @code{makeinfo}.)
 
 
 @node Other Updating Commands
@@ -21789,6 +21626,156 @@ Of course, you can also run @code{makeinfo} from an operating system shell.
 The @code{makeinfo} program provides better error messages than either of
 the Emacs formatting commands.  We recommend it.  The @code{makeinfo} program
 is independent of Emacs.
+
+@menu
+* @code{makeinfo} in Emacs::           How to run @code{makeinfo} from Emacs.
+* @code{texinfo-format} commands::     Two Info formatting commands written
+                                 in Emacs Lisp are an alternative
+                                 to @code{makeinfo}.
+@end menu
+
+
+
+@node @code{makeinfo} in Emacs
+@subsection Running @code{makeinfo} Within Emacs
+
+@c anchor{makeinfo in Emacs}@c prev name
+@cindex Running @code{makeinfo} in Emacs
+@cindex @code{makeinfo} inside Emacs
+@cindex Shell, running @code{makeinfo} in
+
+You can run @code{makeinfo} in GNU Emacs Texinfo mode by using either the
+@code{makeinfo-region} or the @code{makeinfo-buffer} commands.  In
+Texinfo mode, the commands are bound to @kbd{C-c C-m C-r} and @kbd{C-c
+C-m C-b} by default.
+
+@table @kbd
+@item C-c C-m C-r
+@itemx M-x makeinfo-region
+Format the current region for Info.
+@findex makeinfo-region
+
+@item C-c C-m C-b
+@itemx M-x makeinfo-buffer
+Format the current buffer for Info.
+@findex makeinfo-buffer
+@end table
+
+When you invoke @code{makeinfo-region} the output goes to a temporary
+buffer.  When you invoke @code{makeinfo-buffer} output goes to the
+file set with @code{@@setfilename} (@pxref{@code{@@setfilename}}).
+
+The Emacs @code{makeinfo-region} and @code{makeinfo-buffer} commands
+run the @code{makeinfo} program in a temporary shell buffer.  If
+@code{makeinfo} finds any errors, Emacs displays the error messages in
+the temporary buffer.
+
+@cindex Errors, parsing
+@cindex Parsing errors
+@findex next-error
+You can parse the error messages by typing @kbd{C-x `}
+(@code{next-error}).  This causes Emacs to go to and position the
+cursor on the line in the Texinfo source that @code{makeinfo} thinks
+caused the error.  @xref{Compilation, , Running @code{make} or
+Compilers Generally, emacs, The GNU Emacs Manual}, for more
+information about using the @code{next-error} command.
+
+In addition, you can kill the shell in which the @code{makeinfo}
+command is running or make the shell buffer display its most recent
+output.
+
+@table @kbd
+@item C-c C-m C-k
+@itemx M-x makeinfo-kill-job
+@findex makeinfo-kill-job
+Kill the current running @code{makeinfo} job
+(from @code{makeinfo-region} or @code{makeinfo-buffer}).
+
+@item C-c C-m C-l
+@itemx M-x makeinfo-recenter-output-buffer
+@findex makeinfo-recenter-output-buffer
+Redisplay the @code{makeinfo} shell buffer to display its most recent
+output.
+@end table
+
+@noindent
+(Note that the parallel commands for killing and recentering a @TeX{}
+job are @kbd{C-c C-t C-k} and @kbd{C-c C-t C-l}.  @xref{Texinfo Mode
+Printing}.)
+
+You can specify options for @code{makeinfo} by setting the
+@code{makeinfo-options} variable with either the @kbd{M-x
+customize} or the @kbd{M-x set-variable} command, or by setting the
+variable in your @file{.emacs} initialization file.
+
+For example, you could write the following in your @file{.emacs} file:
+
+@example
+@group
+(setq makeinfo-options
+     "--paragraph-indent=0 --no-split
+      --fill-column=70 --verbose")
+@end group
+@end example
+
+@noindent
+@c Writing these three cross-references using xref results in
+@c three references to the same named manual, which looks strange.
+@iftex
+For more information, see @ref{@command{makeinfo} Options}, as well as
+``Easy Customization Interface,'' ``Examining and Setting Variables,''
+and ``Init File'' in @cite{The GNU Emacs Manual}.
+@end iftex
+@ifnottex
+For more information, see@*
+@ref{Easy Customization, , Easy Customization Interface, emacs, The GNU Emacs Manual},@*
+@ref{Examining, , Examining and Setting Variables, emacs, The GNU Emacs Manual},@*
+@ref{Init File, , , emacs, The GNU Emacs Manual}, and@*
+@ref{@command{makeinfo} Options}.
+@end ifnottex
+
+
+@node @code{texinfo-format} commands
+@subsection The @code{texinfo-format@dots{}} Commands
+
+@c anchor{texinfo-format commands}@c prev name
+
+In GNU Emacs in Texinfo mode, you can format part or all of a Texinfo
+file with the @code{texinfo-format-region} command.  This formats the
+current region and displays the formatted text in a temporary buffer
+called @samp{*Info Region*}.
+
+Similarly, you can format a buffer with the
+@code{texinfo-format-buffer} command.  This command creates a new
+buffer and generates the Info file in it.  Typing @kbd{C-x C-s} will
+save the Info file under the name specified by the
+@code{@@setfilename} line which must be near the beginning of the
+Texinfo file.
+
+@table @kbd
+@item C-c C-e C-r
+@itemx @code{texinfo-format-region}
+@findex texinfo-format-region
+Format the current region for Info.
+
+@item C-c C-e C-b
+@itemx @code{texinfo-format-buffer}
+@findex texinfo-format-buffer
+Format the current buffer for Info.
+@end table
+
+The @code{texinfo-format-region} and @code{texinfo-format-buffer}
+commands provide you with some error checking, and other functions can
+provide you with further help in finding formatting errors.  These
+procedures are described in an appendix; see @ref{Catching Mistakes}.
+However, the @code{makeinfo} program provides better error checking
+(@pxref{@code{makeinfo} in Emacs}).
+
+A peculiarity of the @code{texinfo-format-buffer} and
+@code{texinfo-format-region} commands is that they do not indent (nor
+fill) paragraphs that contain @code{@@w} or @code{@@*} commands.
+
+
 
 
 @node Printing
@@ -22610,7 +22597,7 @@ table and split the file manually.
 You should split a large file or else let the
 @code{texinfo-format-buffer} or @code{makeinfo-buffer} command do it
 for you automatically.  (Generally you will let one of the formatting
-commands do this job for you.  @xref{Creating an Info File}.)
+commands do this job for you.  @xref{Info Formatting}.)
 
 The split-off files are called the indirect subfiles.
 

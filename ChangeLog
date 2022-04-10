@@ -1,5 +1,12 @@
 2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Creating an Info File):
+	Remove node.  Replace links to this node.
+	(makeinfo in Emacs, texinfo-format commands):
+	Subordinate to Info Formatting node in appendix.
+
+2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi: Comment out credit for cover art, which
 	is not included in this version of the manual.
 
