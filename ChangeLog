@@ -1,5 +1,10 @@
 2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Catching Mistakes): Lower all section
+	commands a level and remove use of @lowersections/@raisesections.
+
+2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Batch Processing):
 	Move node to Texinfo mode appendix.
 	(Creating an Info File): Remove unnecessary cross-reference.

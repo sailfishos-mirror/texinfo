@@ -22034,9 +22034,8 @@ M-x texinfo-sequential-node-update
 @end example
 
 
-@lowersections
 @node Catching Mistakes
-@appendix Catching Mistakes
+@section Catching Mistakes
 @cindex Structure, catching mistakes in
 @cindex Nodes, catching mistakes
 @cindex Catching mistakes
@@ -22072,7 +22071,7 @@ command and you can use the @kbd{M-x Info-validate} command.
 
 
 @node @command{makeinfo} Preferred
-@section @command{makeinfo} Preferred
+@subsection @command{makeinfo} Preferred
 
 @c anchor{makeinfo Preferred}@c prev name
 
@@ -22092,7 +22091,7 @@ may want to use the tools described in this section.
 
 
 @node Debugging with Info
-@section Catching Errors with Info Formatting
+@subsection Catching Errors with Info Formatting
 @cindex Catching errors with Info formatting
 @cindex Debugging with Info formatting
 
@@ -22197,7 +22196,7 @@ from the `Catching Mistakes' node by typing @kbd{l}
 
 
 @node Debugging with @TeX{}
-@section Debugging with @TeX{}
+@subsection Debugging with @TeX{}
 @cindex Catching errors with @TeX{} formatting
 @cindex Debugging with @TeX{} formatting
 
@@ -22325,7 +22324,7 @@ instead of @samp{@@}; and in this circumstance, you are working
 directly with @TeX{}, not with Texinfo.)
 
 @node Using @code{texinfo-show-structure}
-@section Using @code{texinfo-show-structure}
+@subsection Using @code{texinfo-show-structure}
 
 @cindex Showing the structure of a file
 @findex texinfo-show-structure
@@ -22397,7 +22396,7 @@ the list in the @samp{*Occur*} window; and if you have mis-named a node
 or left out a section, you can correct the mistake.
 
 @node Using @code{occur}
-@section Using @code{occur}
+@subsection Using @code{occur}
 
 @cindex Occurrences, listing with @code{@@occur}
 @findex occur
@@ -22438,7 +22437,7 @@ for more information.
 
 
 @node Running @code{Info-validate}
-@section Finding Badly Referenced Nodes
+@subsection Finding Badly Referenced Nodes
 
 @anchor{Running Info-Validate}@c old name
 @findex Info-validate
@@ -22470,7 +22469,7 @@ if you write an Info file from scratch.
 
 
 @node Using @code{Info-validate}
-@subsection Using @code{Info-validate}
+@subsubsection Using @code{Info-validate}
 
 @cindex Using @code{Info-validate}
 @cindex Info validating a large file
@@ -22528,7 +22527,7 @@ argument so that it does not split the Info file; and you must create a
 tag table for the unsplit file.
 
 @node Unsplit
-@subsection Creating an Unsplit File
+@subsubsection Creating an Unsplit File
 @cindex Creating an unsplit file
 @cindex Unsplit file creation
 
@@ -22565,7 +22564,7 @@ a tag table for it.
 @cindex Tag table, making manually
 
 @node Tagifying
-@subsection Tagifying a File
+@subsubsection Tagifying a File
 
 After creating an unsplit Info file, you must create a tag table for
 it.  Visit the Info file you wish to tagify and type:
@@ -22602,7 +22601,7 @@ tag table and split the file automatically, or you can make the tag
 table and split the file manually.
 
 @node Splitting
-@subsection Splitting a File Manually
+@subsubsection Splitting a File Manually
 @cindex Splitting an Info file manually
 @cindex Info files @subentry splitting manually
 
@@ -22646,7 +22645,7 @@ the tag table and a directory of subfiles.
 
 
 @node Batch Formatting
-@appendix Batch Formatting
+@section Batch Formatting
 @cindex Batch formatting for Info
 @cindex Info batch formatting
 
@@ -22676,8 +22675,6 @@ you can continue working in it.  (When you run
 @code{texinfo-format-region} or @code{texinfo-format-buffer}, you cannot
 use that Emacs for anything else until the command finishes.)
 
-
-@raisesections
 
 
 @node Global Document Commands
