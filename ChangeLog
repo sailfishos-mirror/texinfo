@@ -1,5 +1,11 @@
 2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Batch Processing):
+	Move node to Texinfo mode appendix.
+	(Creating an Info File): Remove unnecessary cross-reference.
+
+2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (makeinfo Advantages): Remove node.
 	(Info Formatting): Move some text here.
 	(Printing): Delete a useless comment.

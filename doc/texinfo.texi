@@ -555,7 +555,6 @@ Creating an Info File
 * @code{texinfo-format} commands::     Two Info formatting commands written
                                  in Emacs Lisp are an alternative
                                  to @code{makeinfo}.
-* Batch Formatting::            How to format for Info in Emacs batch mode.
 * Tag and Split Files::         How tagged and split files help Info
                                  to run better.
 
@@ -603,6 +602,7 @@ Using Texinfo Mode
 * Info Formatting::             How to format for Info.
 * Printing::                    How to format and print part or all of a file.
 * Texinfo Mode Summary::        Summary of all the Texinfo mode commands.
+* Batch Formatting::            How to format for Info in Emacs batch mode.
 
 Updating Nodes and Menus
 
@@ -17319,9 +17319,6 @@ file, HTML file, or plain text.  @code{texinfo-format-region} and
 @code{texinfo-format-buffer} are GNU Emacs functions that convert
 Texinfo to Info.
 
-For information on installing the Info file in the Info system,
-@pxref{Installing an Info File}.
-
 @menu
 * @code{makeinfo} in Emacs::           How to run @code{makeinfo} from Emacs.
 * @code{texinfo-format} commands::     Two Info formatting commands written
@@ -17473,37 +17470,6 @@ A peculiarity of the @code{texinfo-format-buffer} and
 @code{texinfo-format-region} commands is that they do not indent (nor
 fill) paragraphs that contain @code{@@w} or @code{@@*} commands.
 
-
-@node Batch Formatting
-@subsection Batch Formatting
-@cindex Batch formatting for Info
-@cindex Info batch formatting
-
-You can format Texinfo files for Info using @code{batch-texinfo-format}
-and Emacs batch mode.  You can run Emacs in batch mode from any shell,
-including a shell inside of Emacs.  (@xref{Initial Options,,,
-emacs, The GNU Emacs Manual}.)
-
-Here is a shell command to format all the files that end in
-@file{.texinfo} in the current directory:
-
-@example
-emacs -batch -funcall batch-texinfo-format *.texinfo
-@end example
-
-@noindent
-Emacs processes all the files listed on the command line, even if an
-error occurs while attempting to format some of them.
-
-Run @code{batch-texinfo-format} only with Emacs in batch mode as shown;
-it is not interactive.  It kills the batch mode Emacs on completion.
-
-@code{batch-texinfo-format} is convenient if you lack @code{makeinfo}
-and want to format several Texinfo files at once.  When you use Batch
-mode, you create a new Emacs process.  This frees your current Emacs, so
-you can continue working in it.  (When you run
-@code{texinfo-format-region} or @code{texinfo-format-buffer}, you cannot
-use that Emacs for anything else until the command finishes.)
 
 @node Tag and Split Files
 @subsection Tag Files and Split Files
@@ -21134,6 +21100,7 @@ commands and tools to help ease your work.
 * Printing::                    How to format and print part or all of a file.
 * Texinfo Mode Summary::        Summary of all the Texinfo mode commands.
 * Catching Mistakes::           How to find mistakes in formatting.
+* Batch Formatting::            How to format for Info in Emacs batch mode.
 @end menu
 
 @node Texinfo Mode Overview
@@ -22676,6 +22643,39 @@ by appending @samp{-} and a number to the original file name.
 
 The primary file still functions as an Info file, but it contains just
 the tag table and a directory of subfiles.
+
+
+@node Batch Formatting
+@appendix Batch Formatting
+@cindex Batch formatting for Info
+@cindex Info batch formatting
+
+You can format Texinfo files for Info using @code{batch-texinfo-format}
+and Emacs batch mode.  You can run Emacs in batch mode from any shell,
+including a shell inside of Emacs.  (@xref{Initial Options,,,
+emacs, The GNU Emacs Manual}.)
+
+Here is a shell command to format all the files that end in
+@file{.texinfo} in the current directory:
+
+@example
+emacs -batch -funcall batch-texinfo-format *.texinfo
+@end example
+
+@noindent
+Emacs processes all the files listed on the command line, even if an
+error occurs while attempting to format some of them.
+
+Run @code{batch-texinfo-format} only with Emacs in batch mode as shown;
+it is not interactive.  It kills the batch mode Emacs on completion.
+
+@code{batch-texinfo-format} is convenient if you lack @code{makeinfo}
+and want to format several Texinfo files at once.  When you use Batch
+mode, you create a new Emacs process.  This frees your current Emacs, so
+you can continue working in it.  (When you run
+@code{texinfo-format-region} or @code{texinfo-format-buffer}, you cannot
+use that Emacs for anything else until the command finishes.)
+
 
 @raisesections
 
