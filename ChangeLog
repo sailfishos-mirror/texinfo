@@ -1,5 +1,11 @@
 2022-04-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* install-info/tests/defs.in, util/texi2dvi:
+	Assign EGREP variable using quotes for better
+	shell portability.
+
+2022-04-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	grep instead of List::Util::any
 
 	* tp/Texinfo/Transformations.pm (_reassociate_to_node):

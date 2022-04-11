@@ -60,7 +60,7 @@ if test -z "$TMPDIR"; then
   export TMPDIR
 fi
 
-: ${EGREP=grep -E}
+: ${EGREP='grep -E'}
 
 # Systems which define $COMSPEC or $ComSpec use semicolons to separate
 # directories in TEXINPUTS -- except for Cygwin et al., where COMSPEC
