@@ -1,3 +1,8 @@
+2022-04-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Texinfo Mode Summary): Remove text implying
+	that makeinfo is written in C.
+
 2022-04-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Using texinfo-show-structure):

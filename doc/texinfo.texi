@@ -22013,7 +22013,7 @@ The Info formatting commands that are written in Emacs Lisp are
 invoked by typing @kbd{C-c C-e} and then either @kbd{C-r} for a region
 or @kbd{C-b} for the whole buffer.
 
-The Info formatting commands that are written in C and based on the
+The Info formatting commands that are based on the
 @code{makeinfo} program are invoked by typing @kbd{C-c C-m} and then
 either @kbd{C-r} for a region or @kbd{C-b} for the whole buffer.
 
