@@ -2501,7 +2501,7 @@ main text of the document.
 @node The Top Node
 @section The `Top' Node and Master Menu
 @cindex Top node
-@cindex Node, `Top'
+@cindex Node, @samp{Top}
 @anchor{Top Node Example}@c
 
 The `Top' node is the node in which a reader enters an Info manual.
