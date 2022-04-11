@@ -995,9 +995,9 @@ sub _align_lines($$$$$$)
       # for debugging.
       $orig_line = $line;
       $removed_line_bytes_end -= count_bytes($self, $chomped);
-      $line =~ s/^(\s*)//a;
+      $line =~ s/^(\s*)//;
       $removed_line_bytes_begin -= count_bytes($self, $1);
-      $line =~ s/(\s*)$//a;
+      $line =~ s/(\s*)$//;
       $removed_line_bytes_end -= count_bytes($self, $1);
       my $line_width = Texinfo::Convert::Unicode::string_width($line);
       if ($line_width == 0) {
@@ -1818,7 +1818,7 @@ sub _convert($$)
         if ($command eq 'strong' 
              and scalar (@{$element->{'args'}->[0]->{'contents'}})
              and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}
-             and $element->{'args'}->[0]->{'contents'}->[0]->{'text'} =~ /^Note\s/ai
+             and $element->{'args'}->[0]->{'contents'}->[0]->{'text'} =~ /^Note\s/i
              and $self->{'output_format'}
              and $self->{'output_format'} eq 'info') {
           $self->line_warn($self, __(
@@ -2079,7 +2079,7 @@ sub _convert($$)
           my $post_quote = $pre_quote;
           $name_text .= _convert($self, {'contents' => [
                 {'text' => "$post_quote: "}]});
-          $name_text =~ s/^(\s*)/$1$pre_quote/a if $pre_quote;
+          $name_text =~ s/^(\s*)/$1$pre_quote/ if $pre_quote;
           $result .= $name_text;
           _count_added($self,$self->{'formatters'}[-1]{'container'},
                        $pre_quote)
@@ -2099,9 +2099,9 @@ sub _convert($$)
 
           my $node_text_checked = $node_text 
              .get_pending($self->{'formatters'}->[-1]->{'container'});
-          $maybe_file =~ s/^\s*//a;
+          $maybe_file =~ s/^\s*//;
           $maybe_file = quotemeta $maybe_file;
-          $node_text_checked =~ s/^\s*$maybe_file//a;
+          $node_text_checked =~ s/^\s*$maybe_file//;
           $quoting_required = 0;
           if ($node_text_checked =~ /([,\t\.])/m ) {
               if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
@@ -2116,7 +2116,7 @@ sub _convert($$)
           $pre_quote = $quoting_required ? "\x{7f}" : '';
           $post_quote = $pre_quote;
           if ($pre_quote) {
-            $node_text =~ s/^(\s*)/$1$pre_quote/a;
+            $node_text =~ s/^(\s*)/$1$pre_quote/;
             _count_added($self,$self->{'formatters'}[-1]{'container'},
                          $pre_quote);
           }
@@ -2163,7 +2163,7 @@ sub _convert($$)
               shift @{$self->{'current_contents'}->[-1]};
             }
 
-            $node_text =~ s/^(\s*)/$1$pre_quote/a;
+            $node_text =~ s/^(\s*)/$1$pre_quote/;
           }
           $result .= $node_text;
         }
@@ -2183,7 +2183,7 @@ sub _convert($$)
             if ($command eq 'xref') {
               if ($next and defined($next->{'text'}) and $next->{'text'} =~ /\S/) {
                 my $text = $next->{'text'};
-                $text =~ s/^\s*//a;
+                $text =~ s/^\s*//;
                 my $char = substr($text, 0, 1);
                 $self->line_warn($self, sprintf(__(
                             "`.' or `,' must follow \@xref, not %s"),
@@ -2650,7 +2650,7 @@ sub _convert($$)
             my $old_context = pop @{$self->{'context'}};
             delete $self->{'multiple_pass'};
             die if ($old_context ne 'listoffloats');
-            while ($caption_text =~ s/^\s*(\p{Unicode::EastAsianWidth::InFullwidth}\s*|\S+\s*)//a) {
+            while ($caption_text =~ s/^\s*(\p{Unicode::EastAsianWidth::InFullwidth}\s*|\S+\s*)//) {
               my $new_word = $1;
               $new_word =~ s/\n//g;
               if ((Texinfo::Convert::Unicode::string_width($new_word) +
@@ -2973,7 +2973,7 @@ sub _convert($$)
           delete $self->{'formatters'}->[-1]->{'suppress_styles'};
           $pre_quote = $post_quote = '';
           if ($entry_name_seen) {
-            if ($node_text =~ /([,\t]|\.\s)/a) {
+            if ($node_text =~ /([,\t]|\.\s)/) {
               if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
                 $self->line_warn($self, sprintf(__(
                    "menu entry node name should not contain `%s'"), $1),
