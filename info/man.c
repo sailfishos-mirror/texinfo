@@ -310,7 +310,8 @@ get_manpage_from_formatter (char *formatter_args[])
      in FORMATTED_PAGE.  The reader end of the pipe is pipes[0]; the
      writer end is pipes[1]. */
 #if PIPE_USE_FORK
-  pipe (pipes);
+  if (pipe (pipes) == -1)
+    return 0; /* Creating pipe failed. */
 
   child = fork ();
   if (child == -1)
