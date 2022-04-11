@@ -120,7 +120,7 @@ make_footnotes_node (NODE *node)
     char *header;
     long text_start = fn_start;
 
-    asprintf (&header,
+    xasprintf (&header,
               "*** Footnotes appearing in the node '%s' ***\n",
               node->nodename);
 

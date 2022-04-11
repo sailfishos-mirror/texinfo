@@ -164,7 +164,7 @@ info_file_find_next_in_path (char *filename, int *path_index, struct stat *finfo
             {
               /* Prefix "./" to it. */
               char *s;
-              asprintf (&s, "%s%s", "./", with_extension);
+              xasprintf (&s, "%s%s", "./", with_extension);
               free (with_extension);
               return s;
             }

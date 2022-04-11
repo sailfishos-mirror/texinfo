@@ -20,6 +20,25 @@
 #include "util.h"
 #include "tag.h"
 
+/* wrapper for asprintf */
+static int
+xvasprintf (char **ptr, const char *template, va_list ap)
+{
+  int ret;
+  ret = vasprintf (ptr, template, ap);
+  if (ret < 0)
+    abort (); /* out of memory */
+  return ret;
+}
+
+int
+xasprintf (char **ptr, const char *template, ...)
+{
+  va_list v;
+  va_start (v, template);
+  return xvasprintf (ptr, template, v);
+}
+
 /* Return the file buffer which belongs to WINDOW's node. */
 FILE_BUFFER *
 file_buffer_of_window (WINDOW *window)

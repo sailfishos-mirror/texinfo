@@ -2765,7 +2765,7 @@ info_follow_menus (NODE *initial_node, char **menus, char **error,
           if (error)
             {
               free (*error);
-              asprintf (error, _("No menu in node '%s'"),
+              xasprintf (error, _("No menu in node '%s'"),
                         node_printed_rep (initial_node));
             }
           debug (3, ("no menu found"));
@@ -2787,7 +2787,7 @@ info_follow_menus (NODE *initial_node, char **menus, char **error,
           if (error)
             {
               free (*error);
-              asprintf (error, _("No menu item '%s' in node '%s'"),
+              xasprintf (error, _("No menu item '%s' in node '%s'"),
                         arg, node_printed_rep (initial_node));
             }
           debug (3, ("no entry found"));
@@ -2811,7 +2811,7 @@ info_follow_menus (NODE *initial_node, char **menus, char **error,
 	  if (error)
             {
               free (*error);
-              asprintf (error,
+              xasprintf (error,
                         _("Unable to find node referenced by '%s' in '%s'"),
                         entry->label,
                         node_printed_rep (initial_node));
@@ -3392,8 +3392,8 @@ find_invocation_node_by_nodename (FILE_BUFFER *fb, char *program)
   if (!n)
     return 0;
 
-  asprintf (&try1, "Invoking %s", program);
-  asprintf (&try2, "%s invocation", program);
+  xasprintf (&try1, "Invoking %s", program);
+  xasprintf (&try2, "%s invocation", program);
   for (; *n; n++)
     {
       if ((*n)->nodename
@@ -4235,13 +4235,13 @@ ask_for_search_string (int case_sensitive, int use_regex, int direction)
   char *line, *prompt;
 
   if (search_string)
-    asprintf (&prompt, _("%s%s%s [%s]: "),
+    xasprintf (&prompt, _("%s%s%s [%s]: "),
              use_regex ? _("Regexp search") : _("Search"),
              case_sensitive ? _(" case-sensitively") : "",
              direction < 0 ? _(" backward") : "",
              search_string);
   else
-    asprintf (&prompt, _("%s%s%s: "),
+    xasprintf (&prompt, _("%s%s%s: "),
              use_regex ? _("Regexp search") : _("Search"),
              case_sensitive ? _(" case-sensitively") : "",
              direction < 0 ? _(" backward") : "");
@@ -4631,7 +4631,7 @@ DECLARE_INFO_COMMAND (info_tree_search,
 
   /* TODO: Display manual name */
   /* TRANSLATORS: %s is the title of a node. */
-  asprintf (&prompt, _("Search under %s: "),
+  xasprintf (&prompt, _("Search under %s: "),
             window->node->nodename);
   line = info_read_in_echo_area (prompt); free (prompt);
   if (!line)

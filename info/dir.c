@@ -89,7 +89,7 @@ build_dir_node (void)
 /* Space for an appended compressed file extension, like ".gz". */
 #define PADDING "XXXXXXXXX"
 
-     len = asprintf (&fullpath, "%s/dir%s", this_dir, PADDING);
+     len = xasprintf (&fullpath, "%s/dir%s", this_dir, PADDING);
      fullpath[len - strlen(PADDING)] = '\0';
 
      result = info_check_compressed (fullpath, &finfo);
@@ -248,13 +248,13 @@ dir_entry_of_infodir (char *label, char *searchdir)
   NODE *dir_node;
   REFERENCE *entry;
 
-  len = asprintf (&dir_fullpath, "%s/dir%s", searchdir, PADDING);
+  len = xasprintf (&dir_fullpath, "%s/dir%s", searchdir, PADDING);
   dir_fullpath[len - strlen(PADDING)] = '\0';
 
   if (!IS_ABSOLUTE(dir_fullpath))
     {
       char *tmp;
-      asprintf (&tmp, "./%s", dir_fullpath);
+      xasprintf (&tmp, "./%s", dir_fullpath);
       free (dir_fullpath);
       dir_fullpath = tmp;
     }

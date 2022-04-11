@@ -183,7 +183,7 @@ get_initial_file (int *argc, char ***argv, char **error)
           /* Prefix "./" to the filename to prevent a lookup
              in INFOPATH.  */
           char *s;
-          asprintf (&s, "%s%s", "./", user_filename);
+          xasprintf (&s, "%s%s", "./", user_filename);
           free (user_filename);
           user_filename = s;
         }
@@ -275,7 +275,7 @@ get_initial_file (int *argc, char ***argv, char **error)
           return;
         }
       else
-        asprintf (error, _("No menu item '%s' in node '%s'"),
+        xasprintf (error, _("No menu item '%s' in node '%s'"),
             (*argv)[0], "(dir)Top");
     }
 
@@ -413,7 +413,7 @@ add_initial_nodes (int argc, char **argv, char **error)
               if (!node_nodename)
                 {
                   free (*error);
-                  asprintf (error, _("Cannot find node '%s'"),
+                  xasprintf (error, _("Cannot find node '%s'"),
                             user_nodenames[i]);
                   continue;
                 }

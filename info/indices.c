@@ -652,9 +652,9 @@ DECLARE_INFO_COMMAND (info_index_apropos,
   struct text_buffer message;
 
   if (index_search)
-    asprintf (&prompt, "%s [%s]: ", _("Index apropos"), index_search);
+    xasprintf (&prompt, "%s [%s]: ", _("Index apropos"), index_search);
   else
-    asprintf (&prompt, "%s: ", _("Index apropos"));
+    xasprintf (&prompt, "%s: ", _("Index apropos"));
   line = info_read_in_echo_area (prompt);
   free (prompt);
 
@@ -850,7 +850,7 @@ create_virtual_index (FILE_BUFFER *file_buffer, char *index_search)
     }
 
   node = info_create_node ();
-  asprintf (&node->nodename, "Index for '%s'", index_search);
+  xasprintf (&node->nodename, "Index for '%s'", index_search);
   node->fullpath = file_buffer->filename;
   node->contents = text_buffer_base (&text);
   node->nodelen = text_buffer_off (&text) - 1;
@@ -887,9 +887,9 @@ DECLARE_INFO_COMMAND (info_virtual_index,
     
   /* Default to last search if there is one. */
   if (index_search)
-    asprintf (&prompt, "%s [%s]: ", _("Index topic"), index_search);
+    xasprintf (&prompt, "%s [%s]: ", _("Index topic"), index_search);
   else
-    asprintf (&prompt, "%s: ", _("Index topic"));
+    xasprintf (&prompt, "%s: ", _("Index topic"));
   line = info_read_maybe_completing (prompt, index_index);
   free (prompt);
 

@@ -1,5 +1,12 @@
 2022-04-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	wrapper for asprintf
+
+	* info/util.c (xasprintf): New function to wrap asprintf and
+	avoid compiler warnings due to unused return values.  Use everywhere.
+
+2022-04-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi
 	(HTML Customization Variables) <CONVERT_TEXINFO_MATH_TO_LATEX>:
 	Elaborate slightly.
