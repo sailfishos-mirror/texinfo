@@ -1,5 +1,14 @@
 2022-04-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	grep instead of List::Util::any
+
+	* tp/Texinfo/Transformations.pm (_reassociate_to_node):
+	Use grep operator instead of List::Util::any in an attempt
+	to be compatible with older Perls.  Reverses change on
+	Mon Jan 3 21:15:21 2022 +0100 (not in ChangeLog).
+
+2022-04-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	use re '/a';
 
 	* tp/Texinfo/ParserNonXS.pm, tp/Texinfo/Convert/Plaintext.pm, 

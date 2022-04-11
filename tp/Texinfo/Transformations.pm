@@ -1,6 +1,6 @@
 # Transformations.pm: some transformations of the document tree
 #
-# Copyright 2010-2019 Free Software Foundation, Inc.
+# Copyright 2010-2022 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,8 +25,6 @@ use 5.00405;
 use strict;
 
 use Carp qw(cluck);
-
-use List::Util qw(any);
 
 use Texinfo::Common;
 use Texinfo::Translations;
@@ -287,7 +285,7 @@ sub _reassociate_to_node($$$$)
     if ($previous_node) {
       if (not defined($previous_node->{'extra'}->{'menus'})
           or not scalar(@{$previous_node->{'extra'}->{'menus'}})
-          or not (any {$current eq $_} @{$previous_node->{'extra'}->{'menus'}})) {
+          or not (grep {$current eq $_} @{$previous_node->{'extra'}->{'menus'}})) {
         print STDERR "Bug: menu $current not in previous node $previous_node\n";
       } else {
         @{$previous_node->{'extra'}->{'menus'}}
