@@ -1,5 +1,12 @@
 2022-04-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Invoking texi2any)
+	(Customization Variables and Options, Other Customization Variables):
+	Refer to the program consistently as texi2any rather than makeinfo
+	throughout the chapter.
+
+2022-04-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Texinfo Mode Summary): Remove text implying
 	that makeinfo is written in C.
 

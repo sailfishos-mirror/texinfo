@@ -15541,9 +15541,9 @@ style.  The value set by this option overrides the value set in a
 Texinfo file by a @code{@@footnotestyle} command (@pxref{Footnote
 Styles}).
 
-When the footnote style is @samp{separate}, @code{makeinfo} makes a
+When the footnote style is @samp{separate}, @code{texi2any} makes a
 new node containing the footnotes found in the current node.  When the
-footnote style is @samp{end}, @code{makeinfo} places the footnote
+footnote style is @samp{end}, @code{texi2any} places the footnote
 references at the end of the current node.
 
 In HTML, when the footnote style is @samp{end}, or if the output is
@@ -15662,7 +15662,7 @@ Generate @LaTeX{} output.
 @vindex MACRO_EXPAND
 Output the Texinfo source, with all Texinfo macros expanded, to
 @var{file}.  Normally, the result of macro expansion is used
-internally by @code{makeinfo} and then discarded.
+internally by @code{texi2any} and then discarded.
 
 @item --no-headers
 @opindex --no-headers
@@ -15708,16 +15708,16 @@ than HTML@.  @xref{Generating HTML}.
 @opindex --no-pointer-validate
 @cindex Pointer validation
 @anchor{Pointer Validation}@c
-Suppress the pointer-validation phase of @code{makeinfo}---a dangerous
+Suppress the pointer-validation phase of @code{texi2any}---a dangerous
 thing to do.  This can also be done with the @code{@@novalidate}
 command (@pxref{Formatting Partial Documents}).
 
-If you do not suppress pointer validation, @code{makeinfo} will check the
+If you do not suppress pointer validation, @code{texi2any} will check the
 validity of cross-references and menu entries in the Texinfo file, as
 well as node pointers if they are given explicitly.
 
 @ignore @c TODO this may not be accurate
-If node pointers are implicitly determined, @code{makeinfo} checks
+If node pointers are implicitly determined, @code{texi2any} checks
 that the tree constructed from the document's menus matches the
 tree constructed from the sectioning commands.  For example, if a
 chapter-level menu mentions nodes @var{n1} and @var{n2}, in that order,
@@ -15785,13 +15785,13 @@ If @var{file} is @samp{-}, output goes to standard output and
 If @var{file} is a directory or ends with a @samp{/} the usual rules
 are used to determine the output file name (namely, use
 @code{@@setfilename} or the input file name) but the files are written
-to the @var{file} directory.  For example, @samp{makeinfo -o bar/
+to the @var{file} directory.  For example, @samp{texi2any -o bar/
 foo.texi}, with or without @option{--no-split}, will write
 @file{bar/foo.info}, and possibly other files, under @file{bar/}.
 
 When generating HTML and output is split, @var{file} is used as the
 name for the directory into which all files are written.  For example,
-@samp{makeinfo -o bar --html foo.texi} will write
+@samp{texi2any -o bar --html foo.texi} will write
 @file{bar/index.html}, among other files.
 
 @item --output-indent=@var{val}
@@ -15922,8 +15922,8 @@ Cause @var{var} to be undefined.  This is equivalent to @code{@@clear
 @item --verbose
 @opindex --verbose
 @vindex VERBOSE
-Cause @code{makeinfo} to display messages saying what it is doing.
-Normally, @code{makeinfo} only outputs messages if there are errors or
+Cause @code{texi2any} to display messages saying what it is doing.
+Normally, @code{texi2any} only outputs messages if there are errors or
 warnings.
 
 @item --version
@@ -15948,7 +15948,7 @@ Generate Texinfo XML output (rather than Info).
 @section Environment Variables Recognized by @command{texi2any}
 
 @cindex Environment variable @code{TEXINFO_OUTPUT_FORMAT}
-@command{makeinfo} also reads the environment variable
+@command{texi2any} also reads the environment variable
 @env{TEXINFO_OUTPUT_FORMAT} to determine the output format, if not
 overridden by a command line option.  The value should be one of:
 
@@ -16203,7 +16203,7 @@ option takes an argument, or @code{--@var{opt}} if not.
 
 @vindex TEXINFO_OUTPUT_FORMAT
 In addition, the customization variable @code{TEXINFO_OUTPUT_FORMAT}
-allows specifying what @code{makeinfo} outputs, either one of the usual
+allows specifying what @code{texi2any} outputs, either one of the usual
 output formats that can be specified with options, or various other
 forms:
 
@@ -16703,7 +16703,6 @@ which means the current directory.
 @end vtable
 
 
-
 @node Other Customization Variables
 @subsection Other Customization Variables
 
@@ -16972,7 +16971,7 @@ The only one executed by default is
 Here's an example of updating the master menu in a document:
 
 @example
-makeinfo \
+texi2any \
   -c TREE_TRANSFORMATIONS=regenerate_master_menu \
   -c TEXINFO_OUTPUT_FORMAT=plaintexinfo \
   mydoc.texi \
