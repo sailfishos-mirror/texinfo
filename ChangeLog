@@ -399,7 +399,7 @@
 
 	Document index node name requirement
 
-	* doc/texinfo.tex (Printing Indices & Menus): Document
+	* doc/texinfo.texi (Printing Indices & Menus): Document
 	requirement for "Index" to appear in node name.  Edit and
 	trim extraneous language.
 	(Advanced Indexing): Edit slightly.
