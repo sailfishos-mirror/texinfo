@@ -1,5 +1,21 @@
 2022-04-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	use re '/a';
+
+	* tp/Texinfo/ParserNonXS.pm, tp/Texinfo/Convert/Plaintext.pm, 
+	tp/Texinfo/Convert/ParagraphNonXS.pm, tp/Texinfo/Convert/HTML.pm:
+	Add a use directive turning on /a flag for regexes.  Make it
+	conditional on using at least Perl 5.14, when this flag was
+	introduced. Remove /a flags from regexes throughout.
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command):
+	Use \p{Alpha} instead of [[:alpha:]].
+	* tp/Texinfo/Convert/Plaintext.pm (_convert):
+	Use \p{Upper} instead of [[:upper:]].
+
+	This is intended to increase compatibility with older Perls.
+
+2022-04-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (The Top Node):
 	Avoid unnecessary non-ASCII quotes in Info index.
 

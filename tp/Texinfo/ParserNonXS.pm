@@ -47,6 +47,10 @@ package Texinfo::Parser;
 use 5.006;
 use strict;
 
+# stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
+# used to match Unicode character classes.
+use if $] >= 5.014, re => '/a';
+
 # debug
 use Carp qw(cluck);
 use Data::Dumper;
@@ -1220,13 +1224,13 @@ sub _parse_macro_command_line($$$$$;$)
   my $macro = { 'cmdname' => $command, 'parent' => $parent, 'contents' => [],
                'extra' => {'arg_line' => $line}, 'source_info' => $source_info };
   # REMACRO
-  if ($line =~ /^\s+([[:alnum:]][[:alnum:]_-]*)\s*(.*)/a) {
+  if ($line =~ /^\s+([[:alnum:]][[:alnum:]_-]*)\s*(.*)/) {
     my $macro_name = $1;
     my $args_def = $2;
     my @args;
 
-    if ($args_def =~ s/^\s*{\s*(.*?)\s*}\s*//a) {
-      @args = split(/\s*,\s*/a, $1);
+    if ($args_def =~ s/^\s*{\s*(.*?)\s*}\s*//) {
+      @args = split(/\s*,\s*/, $1);
     }
  
     print STDERR "MACRO \@$command $macro_name\n" if ($self->{'DEBUG'});
@@ -1246,7 +1250,7 @@ sub _parse_macro_command_line($$$$$;$)
     }
     # accept an @-command after the arguments in case there is a @c or
     # @comment
-    if ($args_def =~ /^\s*[^\@]/a) {
+    if ($args_def =~ /^\s*[^\@]/) {
       $self->_line_error(sprintf(__("bad syntax for \@%s argument: %s"),
                                  $command, $args_def),
                          $source_info);
@@ -1931,9 +1935,9 @@ sub _merge_text {
   my $paragraph;
 
   my $no_merge_with_following_text = 0;
-  if ($text =~ /\S/a) {
+  if ($text =~ /\S/) {
     my $leading_spaces;
-    if ($text =~ /^(\s+)/a) {
+    if ($text =~ /^(\s+)/) {
       $leading_spaces = $1;
     }
     if ($current->{'contents'} and @{$current->{'contents'}}
@@ -1945,7 +1949,7 @@ sub _merge_text {
       $no_merge_with_following_text = 1;
     }
     if (_abort_empty_line($self, $current, $leading_spaces)) {
-      $text =~ s/^(\s+)//a;
+      $text =~ s/^(\s+)//;
     }
 
     $paragraph = _begin_paragraph($self, $current);
@@ -2360,25 +2364,25 @@ sub _isolate_last_space
             or ($current->{'contents'}->[-1]->{'type'}
                   and (!$current->{'type'}
                         or $current->{'type'} ne 'line_arg'))
-            or $current->{'contents'}->[-1]->{'text'} !~ /\s+$/a;
+            or $current->{'contents'}->[-1]->{'text'} !~ /\s+$/;
 
   if ($current->{'type'} and $current->{'type'} eq 'menu_entry_node') {
-    if ($current->{'contents'}->[-1]->{'text'} !~ /\S/a) {
+    if ($current->{'contents'}->[-1]->{'text'} !~ /\S/) {
       $current->{'contents'}->[-1]->{'type'} = 'space_at_end_menu_node';
     } else {
-      $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//a;
+      $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
       my $new_spaces = { 'text' => $1, 'parent' => $current,
         'type' => 'space_at_end_menu_node' };
       push @{$current->{'contents'}}, $new_spaces;
     }
   } else {
     # Store final spaces in 'spaces_after_argument'.
-    if ($current->{'contents'}->[-1]->{'text'} !~ /\S/a) {
+    if ($current->{'contents'}->[-1]->{'text'} !~ /\S/) {
       my $end_spaces = $current->{'contents'}->[-1]->{'text'};
       pop @{$current->{'contents'}};
       $current->{'extra'}->{'spaces_after_argument'} = $end_spaces;
     } else {
-      $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//a;
+      $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
       $current->{'extra'}->{'spaces_after_argument'} = $1;
     }
   }
@@ -3024,8 +3028,8 @@ sub _end_line($$$)
           # TODO: this should be a warning or an error - all prototypes
           # on a @multitable line should be in braces, as documented in the
           # Texinfo manual.
-          if ($content->{'text'} =~ /\S/a) {
-            foreach my $prototype (split /\s+/a, $content->{'text'}) {
+          if ($content->{'text'} =~ /\S/) {
+            foreach my $prototype (split /\s+/, $content->{'text'}) {
               push @prototype_row, { 'text' => $prototype,
                                      'type' => 'row_prototype' }
                 unless ($prototype eq '');
@@ -3134,7 +3138,7 @@ sub _end_line($$$)
           if (!(($arg->{'cmdname'}
                  and ($arg->{'cmdname'} eq 'c'
                       or $arg->{'cmdname'} eq 'comment'))
-                or (defined($arg->{'text'}) and $arg->{'text'} !~ /\S/a))) {
+                or (defined($arg->{'text'}) and $arg->{'text'} !~ /\S/))) {
             delete $current->{'extra'}->{'command_as_argument'}->{'type'};
             delete $current->{'extra'}->{'command_as_argument'};
             last;
@@ -3260,12 +3264,12 @@ sub _end_line($$$)
                 if (defined($end_command));
             }
             # non ascii spaces are also superfluous arguments
-            if (($superfluous_arg or $line =~ /\S/a)
+            if (($superfluous_arg or $line =~ /\S/)
                 and defined($end_command)) {
               my $texi_line
                 = Texinfo::Convert::Texinfo::convert_to_texinfo(
                                                        $current->{'args'}->[0]);
-              $texi_line =~ s/^\s*([[:alnum:]][[:alnum:]-]+)//a;
+              $texi_line =~ s/^\s*([[:alnum:]][[:alnum:]-]+)//;
               $self->_command_error($current, $source_info,
                              __("superfluous argument to \@%s %s: %s"),
                              $command, $end_command, $texi_line);
@@ -3362,8 +3366,8 @@ sub _end_line($$$)
         # with type set to replaced are still shown in error messages.
         my $texi_line
           = Texinfo::Convert::Texinfo::convert_to_texinfo($current->{'args'}->[0], 1);
-        $texi_line =~ s/^\s*//a;
-        $texi_line =~ s/\s*$//a;
+        $texi_line =~ s/^\s*//;
+        $texi_line =~ s/\s*$//;
 
         $self->_command_error($current, $source_info,
                        __("bad argument to \@%s: %s"),
@@ -3610,7 +3614,7 @@ sub _end_line($$$)
 sub _start_empty_line_after_command($$$) {
   my ($line, $current, $command) = @_;
 
-  $line =~ s/^([^\S\r\n]*)//a;
+  $line =~ s/^([^\S\r\n]*)//;
   push @{$current->{'contents'}}, { 'type' => 'empty_line_after_command',
                                     'text' => $1,
                                     'parent' => $current,
@@ -3871,7 +3875,7 @@ sub _parse_texi($$$)
         # FIXME: should we continue with this element instead?
         _abort_empty_line($self, $current);
       }
-      $line =~ s/^([^\S\r\n]*)//a;
+      $line =~ s/^([^\S\r\n]*)//;
       push @{$current->{'contents'}}, { 'type' => 'empty_line',
                                         'text' => $1,
                                         'parent' => $current };
@@ -3934,7 +3938,7 @@ sub _parse_texi($$$)
           $self->_line_warn(sprintf(
                 __("superfluous argument to \@%s %s: %s"), 'end', $end_command,
                                     $line), $source_info)
-            if ($line =~ /\S/a and $line !~ /^\s*\@c(omment)?\b/a);
+            if ($line =~ /\S/ and $line !~ /^\s*\@c(omment)?\b/);
           # store toplevel macro specification
           if (($end_command eq 'macro' or $end_command eq 'rmacro')
                and (! $current->{'parent'}
@@ -3988,7 +3992,7 @@ sub _parse_texi($$$)
             last;
           } else {
             print STDERR "CLOSED raw $end_command\n" if ($self->{'DEBUG'});
-            $line =~ s/^([^\S\r\n]*)//a;
+            $line =~ s/^([^\S\r\n]*)//;
             # Start an element to have the spaces at the end of the line
             # ignored.
             push @{$current->{'contents'}},
@@ -4002,7 +4006,7 @@ sub _parse_texi($$$)
               and $current->{'contents'}->[-1]->{'type'}
               and $current->{'contents'}->[-1]->{'type'} eq 'empty_line_after_command'
               and $current->{'contents'}->[-1]->{'text'} !~ /\n/
-              and $line !~ /\S/a) {
+              and $line !~ /\S/) {
             $current->{'contents'}->[-1]->{'text'} .= $line;
           } else {
             push @{$current->{'contents'}},
@@ -4080,7 +4084,7 @@ sub _parse_texi($$$)
         my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
         my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
         my $arguments = [];
-        if ($line =~ s/^\s*{\s*//a) { # macro with args
+        if ($line =~ s/^\s*{\s*//) { # macro with args
           ($arguments, $line, $source_info)
            = _expand_macro_arguments($self, $expanded_macro, $line, $source_info);
         } elsif (($args_number >= 2) or ($args_number <1)) {
@@ -4095,7 +4099,7 @@ sub _parse_texi($$$)
             ($line, $source_info) = _new_line($self, $source_info);
             $line = '' if (!defined($line));
           }
-          $line =~ s/^\s*//a if ($line =~ /\S/a);
+          $line =~ s/^\s*// if ($line =~ /\S/);
           my $has_end_of_line = chomp $line;
           $arguments = [$line];
           $line = "\n" if ($has_end_of_line);
@@ -4175,9 +4179,9 @@ sub _parse_texi($$$)
           #    $current->{'parent'}->{'parent'}->{'cmdname'});
           #}
           # Note that non ascii spaces do not count as spaces
-          if ($line =~ /^[^\S\r\n]/a) {
+          if ($line =~ /^[^\S\r\n]/) {
             if ($current->{'cmdname'} =~ /^[a-zA-Z]/) {
-              $line =~ s/^([^\S\r\n]+)//a;
+              $line =~ s/^([^\S\r\n]+)//;
               $current->{'extra'}->{'spaces'} = ''
                 if (!defined($current->{'extra'}->{'spaces'}));
               $current->{'extra'}->{'spaces'} .= $1;
@@ -4233,7 +4237,7 @@ sub _parse_texi($$$)
         } else {
           # ignore space after a braced @-command like TeX does
           if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'}
-              and $line =~ s/^\s+//a) {
+              and $line =~ s/^\s+//) {
             next;
           }
           $self->_line_error(sprintf(__("\@%s expected braces"),
@@ -4261,14 +4265,14 @@ sub _parse_texi($$$)
       } elsif ($current->{'contents'} and @{$current->{'contents'}}
                and $current->{'contents'}->[-1]->{'type'}
                and $current->{'contents'}->[-1]->{'type'} eq 'menu_star') {
-        if ($line !~ /^\s+/a) {
+        if ($line !~ /^\s+/) {
           print STDERR "ABORT MENU STAR ($line)\n" if ($self->{'DEBUG'});
           delete $current->{'contents'}->[-1]->{'type'};
         } else {
           print STDERR "MENU ENTRY (certainly)\n" if ($self->{'DEBUG'});
           # this is the menu star collected previously
           pop @{$current->{'contents'}};
-          $line =~ s/^(\s+)//a;
+          $line =~ s/^(\s+)//;
           my $leading_text = '*' . $1;
           if ($current->{'type'} eq 'preformatted'
               and $current->{'parent'}->{'type'}
@@ -4314,12 +4318,12 @@ sub _parse_texi($$$)
         if ($separator eq ':' and $line =~ s/^(:)//) {
           $current->{'args'}->[-1]->{'text'} .= $1;
         # a . not followed by a space.  Not a separator.
-        } elsif ($separator eq '.' and $line =~ /^\S/a) {
+        } elsif ($separator eq '.' and $line =~ /^\S/) {
           pop @{$current->{'args'}};
           $current = $current->{'args'}->[-1];
           $current = _merge_text($self, $current, $separator);
         # here we collect spaces following separators.
-        } elsif ($line =~ s/^([^\S\r\n]+)//a) {
+        } elsif ($line =~ s/^([^\S\r\n]+)//) {
           # FIXME a trailing end of line could be considered to be part
           # of the separator. Right now it is part of the description,
           # since it is catched (in the next while) as one of the case below
@@ -4378,10 +4382,10 @@ sub _parse_texi($$$)
         }
 
         if ($command eq 'value' or $command eq 'txiinternalvalue') {
-          $line =~ s/^\s*//a
+          $line =~ s/^\s*//
              if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'});
           # REVALUE
-          if ($line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//a) {
+          if ($line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
             my $value = $1;
             if ($command eq 'value') {
               if (exists($self->{'values'}->{$value})) {
@@ -4460,7 +4464,7 @@ sub _parse_texi($$$)
             and $current->{'contents'}
             and $current->{'contents'}->[-1]
             and $current->{'contents'}->[-1]->{'text'}) {
-          $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//a;
+          $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
           if ($1 ne '') {
             if ($current->{'contents'}->[-1]->{'text'} eq '') {
               $current->{'contents'}->[-1]->{'text'} = $1;
@@ -4594,7 +4598,7 @@ sub _parse_texi($$$)
                 my ($new_line, $new_line_source_info) = _new_line($self, $source_info);
                 $line .= $new_line if (defined($new_line));
               }
-              $line =~ s/^(\s*)//a;
+              $line =~ s/^(\s*)//;
               if ($1) {
                 $current = _merge_text($self, $current, $1);
               }
@@ -4882,7 +4886,7 @@ sub _parse_texi($$$)
             my $ifvalue_true = 0;
             if ($command eq 'ifclear' or $command eq 'ifset') {
               # REVALUE
-              if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/a) {
+              if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/) {
                 my $name = $1;
                 if ((exists($self->{'values'}->{$name}) and $command eq 'ifset')
                     or (!exists($self->{'values'}->{$name})
@@ -4901,7 +4905,7 @@ sub _parse_texi($$$)
             } elsif ($command eq 'ifcommanddefined'
                      or $command eq 'ifcommandnotdefined') {
               # REMACRO
-              if ($line =~ /^\s+([[:alnum:]][[:alnum:]\-]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/a) {
+              if ($line =~ /^\s+([[:alnum:]][[:alnum:]\-]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/) {
                 my $name = $1;
                 my $command_is_defined = (
                   exists($Texinfo::Common::all_commands{$name})
@@ -5011,7 +5015,7 @@ sub _parse_texi($$$)
                     'type' => 'elided_block',
                     'contents' => []
                   };
-                  while (not $line =~ /^\s*\@end\s+$command/a) {
+                  while (not $line =~ /^\s*\@end\s+$command/) {
                     ($line, $source_info) = _new_line($self, $source_info);
                     if (!$line) {
                       # unclosed block
@@ -5183,7 +5187,7 @@ sub _parse_texi($$$)
               } else {
                 $self->_push_context('ct_brace_command', $command);
               }
-              $line =~ s/([^\S\f\n]*)//a;
+              $line =~ s/([^\S\f\n]*)//;
               $current->{'type'} = 'brace_command_context';
               push @{$current->{'contents'}}, {
                             'type' => 'empty_spaces_before_argument',
@@ -5717,11 +5721,11 @@ sub _parse_special_misc_command($$$$)
   my $remaining;
   if ($command eq 'set') {
     # REVALUE
-    if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)(\@(c|comment)((\@|\s+).*)?|\s+(.*?))?\s*$/a) {
-      if ($line =~ s/\@(c|comment)((\@|\s+).*)?$//a) {
+    if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)(\@(c|comment)((\@|\s+).*)?|\s+(.*?))?\s*$/) {
+      if ($line =~ s/\@(c|comment)((\@|\s+).*)?$//) {
         $has_comment = 1;
       }
-      $line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)(\s+(.*?))?\s*$/a;
+      $line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)(\s+(.*?))?\s*$/;
       my $name = $1;
       my $arg = $3;
       $arg = '' if (!defined($arg));
@@ -5736,7 +5740,7 @@ sub _parse_special_misc_command($$$$)
     }
   } elsif ($command eq 'clear') {
     # REVALUE
-    if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/a) {
+    if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/) {
       $args = [$1];
       delete $self->{'values'}->{$1};
       $has_comment = 1 if (defined($3));
@@ -5749,7 +5753,7 @@ sub _parse_special_misc_command($$$$)
     }
   } elsif ($command eq 'unmacro') {
     # REMACRO
-    if ($line =~ /^\s+([[:alnum:]][[:alnum:]\-]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/a) {
+    if ($line =~ /^\s+([[:alnum:]][[:alnum:]\-]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/) {
       $args = [$1];
       delete $self->{'macros'}->{$1};
       $has_comment = 1 if (defined($3));
@@ -5763,11 +5767,11 @@ sub _parse_special_misc_command($$$$)
     }
   } elsif ($command eq 'clickstyle') {
     # REMACRO
-    if ($line =~ /^\s+@([[:alnum:]][[:alnum:]\-]*)(\{\})?\s*/a) {
+    if ($line =~ /^\s+@([[:alnum:]][[:alnum:]\-]*)(\{\})?\s*/) {
       $args = ['@'.$1];
       $self->{'clickstyle'} = $1;
       $remaining = $line;
-      $remaining =~ s/^\s+@([[:alnum:]][[:alnum:]\-]*)(\{\})?\s*(\@(c|comment)((\@|\s+).*)?)?//a;
+      $remaining =~ s/^\s+@([[:alnum:]][[:alnum:]\-]*)(\{\})?\s*(\@(c|comment)((\@|\s+).*)?)?//;
       $has_comment = 1 if (defined($4));
     } else {
       $self->_line_error(sprintf(__(
@@ -5835,7 +5839,7 @@ sub _parse_line_command_args($$$)
 
   if ($command eq 'alias') {
     # REMACRO
-    if ($line =~ s/^([[:alnum:]][[:alnum:]-]*)(\s*=\s*)([[:alnum:]][[:alnum:]-]*)$//a) {
+    if ($line =~ s/^([[:alnum:]][[:alnum:]-]*)(\s*=\s*)([[:alnum:]][[:alnum:]-]*)$//) {
       my $new_command = $1;
       my $existing_command = $3;
       $args = [$1, $3];
@@ -5853,7 +5857,7 @@ sub _parse_line_command_args($$$)
   } elsif ($command eq 'definfoenclose') {
     # REMACRO
     # FIXME not clear if non ascii spaces are ok in the args
-    if ($line =~ s/^([[:alnum:]][[:alnum:]\-]*)\s*,\s*([^\s,]*)\s*,\s*([^\s,]*)$//a) {
+    if ($line =~ s/^([[:alnum:]][[:alnum:]\-]*)\s*,\s*([^\s,]*)\s*,\s*([^\s,]*)$//) {
       $args = [$1, $2, $3 ];
       $self->{'definfoenclose'}->{$1} = [ $2, $3 ];
       print STDERR "DEFINFOENCLOSE \@$1: $2, $3\n" if ($self->{'DEBUG'});
@@ -5868,7 +5872,7 @@ sub _parse_line_command_args($$$)
                               __("bad argument to \@%s"), $command), $source_info);
     }
   } elsif ($command eq 'columnfractions') {
-    my @possible_fractions = split (/\s+/a, $line);
+    my @possible_fractions = split (/\s+/, $line);
     if (!@possible_fractions) {
       $self->_line_error(sprintf(__("empty \@%s"), $command),
                              $source_info);
@@ -5919,7 +5923,7 @@ sub _parse_line_command_args($$$)
     }
   } elsif ($command eq 'synindex' || $command eq 'syncodeindex') {
     # REMACRO
-    if ($line =~ /^([[:alnum:]][[:alnum:]\-]*)\s+([[:alnum:]][[:alnum:]\-]*)$/a) {
+    if ($line =~ /^([[:alnum:]][[:alnum:]\-]*)\s+([[:alnum:]][[:alnum:]\-]*)$/) {
       my $index_from = $1;
       my $index_to = $2;
       $self->_line_error(sprintf(__("unknown source index in \@%s: %s"),

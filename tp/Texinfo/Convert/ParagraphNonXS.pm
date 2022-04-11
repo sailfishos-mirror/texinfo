@@ -26,6 +26,8 @@ package Texinfo::Convert::Paragraph;
 use 5.006;
 use strict;
 
+use if $] >= 5.014, re => '/a';  # ASCII-only character classes in regexes
+
 use Unicode::EastAsianWidth;
 use Carp qw(cluck);
 
@@ -311,9 +313,8 @@ sub add_text($$)
   my $protect_spaces_flag = $paragraph->{'protect_spaces'};
 
   my @segments = split
-    /(\s+)|(\p{InFullwidth})|((?:[^\s\p{InFullwidth}])+)/a,
+    /(\s+)|(\p{InFullwidth})|((?:[^\s\p{InFullwidth}])+)/,
     $text;
-  # the /a flag limits the \s to ASCII spaces
 
   # Check now if a newline exists anywhere in the string to
   # try to eliminate regex checks later.
@@ -412,7 +413,7 @@ sub add_text($$)
         # do nothing in the case of a continuation of after_punctuation_characters
       } elsif (!$paragraph->{'unfilled'}
           and $tmp =~
-        /(^|[^[:upper:]$after_punctuation_characters$end_sentence_character])
+        /(^|[^\p{Upper}$after_punctuation_characters$end_sentence_character])
          [$after_punctuation_characters]*[$end_sentence_character]
          [$end_sentence_character\x08$after_punctuation_characters]*$/x) {
         if ($paragraph->{'frenchspacing'}) {

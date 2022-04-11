@@ -1,6 +1,6 @@
 # Plaintext.pm: output tree as text with filling.
 #
-# Copyright 2010-2020 Free Software Foundation, Inc.
+# Copyright 2010-2022 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -27,6 +27,8 @@ use 5.00405;
 use if $] >= 5.012, feature => qw(unicode_strings);
 
 use strict;
+
+use if $] >= 5.014, re => '/a';
 
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
@@ -1745,7 +1747,7 @@ sub _convert($$)
       }
 
       if ($accented_text_original
-            and $accented_text_original !~ /[[:upper:]]/
+            and $accented_text_original !~ /\p{Upper}/
           or $formatter->{'var'} 
           or $formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
         allow_end_sentence($formatter->{'container'});

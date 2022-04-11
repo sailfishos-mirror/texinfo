@@ -1,6 +1,6 @@
 # HTML.pm: output tree as HTML.
 #
-# Copyright 2011-2021 Free Software Foundation, Inc.
+# Copyright 2011-2022 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -39,6 +39,8 @@ use 5.00405;
 #  For older Perls, you can use utf8::upgrade on the strings, where the
 # difference matters.
 use if $] >= 5.012, feature => 'unicode_strings';
+
+use if $] >= 5.014, re => '/a';  # ASCII-only character classes in regexes
 
 use strict;
 
@@ -4613,9 +4615,8 @@ sub _convert_tab_command($$$$$)
     }
   }
 
-  # remove only ascii spaces to keep special formatting spaces
-  $content =~ s/^\s*//a;
-  $content =~ s/\s*$//a;
+  $content =~ s/^\s*//;
+  $content =~ s/\s*$//;
 
   if ($self->in_string()) {
     return $content;
@@ -4942,7 +4943,7 @@ sub _convert_printindex_command($$$$)
       my $target_prefix = "t_i";
       $index_element_id = $target_prefix;
     }
-    my $is_symbol = $letter !~ /^[[:alpha:]]/;
+    my $is_symbol = $letter !~ /^\p{Alpha}/;
     my $identifier;
     if ($is_symbol) {
       $symbol_idx++;
