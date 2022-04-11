@@ -546,16 +546,16 @@ sub _protect_sentence_ends ($) {
   # in front of the full stop.  The choice of BS for this is arbitrary.
   $text =~ s/(?<=[^\p{Upper}])
              (?=[$end_sentence][$after_punctuation]*(?:\s|$))
-             /\x08/xag;
+             /\x08/xg;
 
   # Also insert a control character at end of string, to protect a full stop 
   # that may follow later.
 
-  #$text =~ s/(?<=[^\p{Upper}\s][$after_punctuation]*)$/\x08/a;
+  #$text =~ s/(?<=[^\p{Upper}\s][$after_punctuation]*)$/\x08/;
   # Perl doesn't support "variable length lookbehind"
 
   $text = reverse $text;
-  $text =~ s/^(?=[$after_punctuation]*(?:[^\p{Upper}\s]))/\x08/xa;
+  $text =~ s/^(?=[$after_punctuation]*(?:[^\p{Upper}\s]))/\x08/;
   $text = reverse $text;
 
   return $text;
