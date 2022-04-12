@@ -1,3 +1,11 @@
+2022-04-12  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	CONVERT_TO_LATEX_IN_MATH
+
+	* tp/Texinfo/Common.pm (@variable_string_settables):
+	Rename CONVERT_TEXINFO_MATH_TO_LATEX to CONVERT_TO_LATEX_IN_MATH.
+	* NEWS, doc/texinfo.texi: Update.
+
 2022-04-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* install-info/tests/defs.in, util/texi2dvi:

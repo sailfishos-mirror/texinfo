@@ -471,7 +471,7 @@ $mathjax_with_texinfo, {'test_formats' => ['latex', 'file_latex'],
 {'HTML_MATH' => 'mathjax', 'ENABLE_ENCODING' => 1,},],
 ['mathjax_with_texinfo_no_convert_to_latex',
 $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax',
-                            'CONVERT_TEXINFO_MATH_TO_LATEX' => 0}],
+                            'CONVERT_TO_LATEX_IN_MATH' => 0}],
 ['empty_lines_at_beginning_no_setfilename',
 undef, {'test_file' => 'empty_lines_at_beginning_no_setfilename.texi'}
 ],

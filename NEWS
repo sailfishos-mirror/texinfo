@@ -48,7 +48,7 @@ See the manual for detailed information.
        BEFORE_OVERVIEW to BEFORE_SHORT_TOC_LINE and AFTER_OVERVIEW to
        AFTER_SHORT_TOC_LINES.
      . remove PRE_ABOUT, AFTER_ABOUT, and add PROGRAM_NAME_IN_ABOUT
-     . new variable CONVERT_TEXINFO_MATH_TO_LATEX
+     . new variable CONVERT_TO_LATEX_IN_MATH
      . link to table of contents from short table of contents only if a
        table of contents is actually output
  . DocBook output:

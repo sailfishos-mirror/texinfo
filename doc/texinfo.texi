@@ -16350,7 +16350,7 @@ end of the document if not split, or in a separate file.  If set to
 @samp{after_title} the tables of contents are output after the title; default
 @samp{after_top}.
 
-@item CONVERT_TEXINFO_MATH_TO_LATEX
+@item CONVERT_TO_LATEX_IN_MATH
 If set, try to convert any Texinfo @@-commands inside @code{@@math} and
 @code{@@displaymath} to @LaTeX{}.  Default @code{undef}.  If undefined, set
 if @code{HTML_MATH} is set.

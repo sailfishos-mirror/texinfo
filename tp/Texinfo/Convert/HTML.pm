@@ -1711,7 +1711,7 @@ my (%BUTTONS_TEXT, %BUTTONS_GOTO, %BUTTONS_NAME, %SPECIAL_ELEMENTS_HEADING);
 my %defaults = (
   'AVOID_MENU_REDUNDANCY' => 0,
   'CONTENTS_OUTPUT_LOCATION' => 'after_top',
-  'CONVERT_TEXINFO_MATH_TO_LATEX' => undef,
+  'CONVERT_TO_LATEX_IN_MATH' => undef,
   'ENABLE_ENCODING'      => 0,
   'EXTERNAL_CROSSREF_EXTENSION' => undef, # based on EXTENSION
   'FORMAT_MENU'           => 'sectiontoc',
@@ -9316,11 +9316,11 @@ sub output($$)
   }
 
   if ($self->get_conf('HTML_MATH')
-      and not defined($self->get_conf('CONVERT_TEXINFO_MATH_TO_LATEX'))) {
-    $self->set_conf('CONVERT_TEXINFO_MATH_TO_LATEX', 1);
+      and not defined($self->get_conf('CONVERT_TO_LATEX_IN_MATH'))) {
+    $self->set_conf('CONVERT_TO_LATEX_IN_MATH', 1);
   }
 
-  if ($self->get_conf('CONVERT_TEXINFO_MATH_TO_LATEX')) {
+  if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH')) {
     $self->{'options_latex_math'}
      = { Texinfo::Convert::LaTeX::copy_options_for_convert_to_latex_math($self) };
   }
@@ -9995,7 +9995,7 @@ sub _convert($$;$)
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'upper_case'}++;
       } elsif ($math_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'math'}++;
-        $convert_to_latex = 1 if ($self->get_conf('CONVERT_TEXINFO_MATH_TO_LATEX'));
+        $convert_to_latex = 1 if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH'));
       } elsif ($command_name eq 'w') {
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'space_protected'}++;
       }
