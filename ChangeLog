@@ -1,5 +1,16 @@
 2022-04-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Avoid divergent test results due to wcwidth
+
+	* tp/t/02coverage.t (commands),
+	* tp/t/03coverage_braces.t (abbr_acronym):
+	Add blank lines in test to avoid divergent line wrapping on Solaris,
+	where wcwidth returns 2 instead of 1 for the UTF-8 en dash.  This
+	sequence occurs more often in the test results than before since
+	ASCII_PUNCTUATION changes on 2021-12-29.
+
+2022-04-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	unsigned char for isspace
 
 	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),

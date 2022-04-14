@@ -46,6 +46,7 @@ my @test_cases = (
 '@acronym{--a,an accronym}
 @acronym{--a}
 @acronym{--a,an accronym @comma{} @enddots{}}
+
 @abbr{@\'E--a. @comma{}A., @\'Etude--@comma{} @b{Autonome} }
 @abbr{@\'E--a. @comma{}A.}
 '],

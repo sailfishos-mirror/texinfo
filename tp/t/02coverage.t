@@ -8,6 +8,7 @@ require 't/test_utils.pl';
 my @test_cases = (
 ['commands','@@ @TeX{} @
 @"e @^{@dotless{i}} @~{a} @ringaccent a
+
 @clicksequence{File @click{} Open}@.
 @email{a, b} @code{code --- -- \'\' ``}
 --- -- \'\' ``. @sc{small caps}.
