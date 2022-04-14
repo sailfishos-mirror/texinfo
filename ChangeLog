@@ -1,5 +1,29 @@
 2022-04-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Change locale for tp/tests
+
+	* tp/tests/run_parser_all.sh: Change LC_ALL and LANGUAGE
+	from C.UTF-8 to en_US.UTF-8.  This is an attempt to make the
+	tests run on more systems.  On one system without a C.UTF-8
+	locale, Perl printed:
+
+	  perl: warning: Setting locale failed.
+	  perl: warning: Please check that your locale settings:
+	         LC_ALL = "C.UTF-8",
+	         LC_COLLATE = "",
+	         LC_CTYPE = "",
+	         LC_MESSAGES = "",
+	         LC_MONETARY = "",
+	         LC_NUMERIC = "",
+	         LC_TIME = "",
+	         LANG = "en_US.UTF-8"
+	      are supported and installed on your system.
+	  perl: warning: Falling back to the standard locale ("C").
+
+	The previous values were given on 2022-02-22 (not in ChangeLog).
+
+2022-04-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Conditionally skip a test
 
 	* tp/t/test_utils.pl (test): Check for 'skip' setting in options
