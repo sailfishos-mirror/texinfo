@@ -365,7 +365,19 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'text' => '
 '
-            },
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
             {
               'args' => [
                 {
@@ -379,7 +391,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 12,
+                'line_nr' => 13,
                 'macro' => ''
               }
             },
@@ -400,7 +412,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 12,
+                'line_nr' => 13,
                 'macro' => ''
               }
             },
@@ -421,7 +433,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 12,
+                'line_nr' => 13,
                 'macro' => ''
               }
             },
@@ -447,7 +459,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 12,
+                'line_nr' => 13,
                 'macro' => ''
               }
             },
@@ -473,7 +485,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 12,
+                'line_nr' => 13,
                 'macro' => ''
               }
             },
@@ -494,7 +506,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 12,
+                'line_nr' => 13,
                 'macro' => ''
               }
             },
@@ -515,7 +527,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 12,
+                'line_nr' => 13,
                 'macro' => ''
               }
             },
@@ -536,7 +548,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 12,
+                'line_nr' => 13,
                 'macro' => ''
               }
             },
@@ -558,7 +570,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 13,
+                'line_nr' => 14,
                 'macro' => ''
               }
             },
@@ -579,7 +591,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 13,
+                'line_nr' => 14,
                 'macro' => ''
               }
             },
@@ -600,7 +612,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 13,
+                'line_nr' => 14,
                 'macro' => ''
               }
             },
@@ -622,7 +634,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 14,
+                'line_nr' => 15,
                 'macro' => ''
               }
             },
@@ -643,7 +655,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 14,
+                'line_nr' => 15,
                 'macro' => ''
               }
             },
@@ -688,7 +700,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 17,
+                'line_nr' => 18,
                 'macro' => ''
               }
             },
@@ -715,7 +727,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 18,
+                'line_nr' => 19,
                 'macro' => ''
               }
             },
@@ -737,7 +749,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 19,
+                'line_nr' => 20,
                 'macro' => ''
               }
             },
@@ -758,7 +770,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 19,
+                'line_nr' => 20,
                 'macro' => ''
               }
             },
@@ -784,7 +796,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 19,
+                'line_nr' => 20,
                 'macro' => ''
               }
             },
@@ -810,7 +822,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 19,
+                'line_nr' => 20,
                 'macro' => ''
               }
             },
@@ -840,7 +852,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                        'line_nr' => 19,
+                        'line_nr' => 20,
                         'macro' => ''
                       }
                     }
@@ -854,7 +866,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 19,
+                'line_nr' => 20,
                 'macro' => ''
               }
             },
@@ -880,7 +892,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 19,
+                'line_nr' => 20,
                 'macro' => ''
               }
             },
@@ -906,7 +918,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 19,
+                'line_nr' => 20,
                 'macro' => ''
               }
             },
@@ -936,7 +948,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                        'line_nr' => 19,
+                        'line_nr' => 20,
                         'macro' => ''
                       }
                     }
@@ -950,7 +962,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 19,
+                'line_nr' => 20,
                 'macro' => ''
               }
             },
@@ -984,7 +996,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                                'line_nr' => 19,
+                                'line_nr' => 20,
                                 'macro' => ''
                               }
                             }
@@ -998,7 +1010,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                        'line_nr' => 19,
+                        'line_nr' => 20,
                         'macro' => ''
                       }
                     }
@@ -1012,7 +1024,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 19,
+                'line_nr' => 20,
                 'macro' => ''
               }
             },
@@ -1034,7 +1046,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 20,
+                'line_nr' => 21,
                 'macro' => ''
               }
             },
@@ -1060,7 +1072,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                        'line_nr' => 21,
+                        'line_nr' => 22,
                         'macro' => ''
                       }
                     },
@@ -1081,7 +1093,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                        'line_nr' => 21,
+                        'line_nr' => 22,
                         'macro' => ''
                       }
                     },
@@ -1107,7 +1119,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                        'line_nr' => 21,
+                        'line_nr' => 22,
                         'macro' => ''
                       }
                     },
@@ -1133,7 +1145,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                        'line_nr' => 21,
+                        'line_nr' => 22,
                         'macro' => ''
                       }
                     },
@@ -1163,7 +1175,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                                'line_nr' => 21,
+                                'line_nr' => 22,
                                 'macro' => ''
                               }
                             }
@@ -1177,7 +1189,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                        'line_nr' => 21,
+                        'line_nr' => 22,
                         'macro' => ''
                       }
                     },
@@ -1203,7 +1215,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                        'line_nr' => 21,
+                        'line_nr' => 22,
                         'macro' => ''
                       }
                     },
@@ -1229,7 +1241,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                        'line_nr' => 21,
+                        'line_nr' => 22,
                         'macro' => ''
                       }
                     },
@@ -1259,7 +1271,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                                'line_nr' => 21,
+                                'line_nr' => 22,
                                 'macro' => ''
                               }
                             }
@@ -1273,7 +1285,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                        'line_nr' => 21,
+                        'line_nr' => 22,
                         'macro' => ''
                       }
                     },
@@ -1307,7 +1319,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                                        'line_nr' => 21,
+                                        'line_nr' => 22,
                                         'macro' => ''
                                       }
                                     }
@@ -1321,7 +1333,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                                'line_nr' => 21,
+                                'line_nr' => 22,
                                 'macro' => ''
                               }
                             }
@@ -1335,7 +1347,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                        'line_nr' => 21,
+                        'line_nr' => 22,
                         'macro' => ''
                       }
                     }
@@ -1349,7 +1361,7 @@ $result_trees{'test_accents_sc_use_numeric_entity'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
-                'line_nr' => 21,
+                'line_nr' => 22,
                 'macro' => ''
               }
             },
@@ -1432,149 +1444,151 @@ $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3
 $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[12];
 $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[12]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
 $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[13]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[14];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[14]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[15]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[16];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[16]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[17]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[18]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[18];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[18]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[19]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[20]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[20]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[20]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[20];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[20]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[21]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[22]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[22]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[22]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[22];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[22]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[23]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[24]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[24];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[24]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[25]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[26]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[26];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[26]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[27]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[28]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[28];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[28]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[29]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[30]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[30];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[30]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[31]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[32]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[32];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[32]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[33]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[34]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[34];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[34]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[35]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[36]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[36];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[36]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[37]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[38]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[38];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[38]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'contents'}[39]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3];
 $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4];
 $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[2];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[4];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[4]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[5]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[6]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[6];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[6]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[7]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[8]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[8]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[9]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[10];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[10]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[11]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[12];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[12]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[13]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[14];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[14]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[15]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[16];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[16]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[17]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[18]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[18];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[18]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[19]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[20]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[20];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[20]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[21]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[22]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[22];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[22]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[23]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[24]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[24];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[24]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'contents'}[25]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5];
 $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[0]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[2]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[2];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[4];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[5]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[6]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[7]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[8]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[8];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[8]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[9]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[10]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[10];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[10]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[11]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[12]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[12]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[12]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[12]{'args'}[0]{'contents'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[12]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[12]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[12];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[12]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[13]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[14]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[14]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[14];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[14]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[15]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[16]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[16]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[16];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[16]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[17]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[18]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[18]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[18]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[18]{'args'}[0]{'contents'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[18]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[18]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[18]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[18];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[18]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[19]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[20]{'args'}[0]{'contents'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[20]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[20]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[20]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[20];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[20]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[21]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[22]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[22];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[22]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[23]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[2];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[4];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[6]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[8];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[10]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[10];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[11]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[12]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[12]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[12];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[12]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[13]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[14];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[14]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[15]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[16];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'contents'}[16]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[24]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
-$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'contents'}[25]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6];
 $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4];
 $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[0]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[2]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[2];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[3]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[4];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[4]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[5]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[6];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[6]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[7]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[8]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[8]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[9]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[10]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[10];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[10]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[11]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'args'}[0]{'contents'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[12];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[13]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[14]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[14]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[14];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[14]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[15]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[16]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[16]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[16];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[16]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[17]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'args'}[0]{'contents'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[18];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[19]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[20];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[21]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[22]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[22];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[22]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[23]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[2];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[4]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[4];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[6]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[6];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[10]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[10];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[11]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[12]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[12]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[12];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[12]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[13]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[15]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'contents'}[25]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[8]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4];
+$result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'contents'}[9]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4];
 $result_trees{'test_accents_sc_use_numeric_entity'}{'contents'}[4]{'parent'} = $result_trees{'test_accents_sc_use_numeric_entity'};
 
 $result_texis{'test_accents_sc_use_numeric_entity'} = '\\input texinfo
@@ -1588,6 +1602,7 @@ $result_texis{'test_accents_sc_use_numeric_entity'} = '\\input texinfo
 ``in double q\'\'. `in simple q\'.
 
 @\'e, --- @dfn{def} -- @code{in code}. @samp{in samp} aé. @comma{} @exclamdown{}. @dots{}
+
 @geq{} @enddots{} @AA{} @\'e @dotaccent{A} @l{}. @copyright{}. @error{}.
 @quotedblleft{} in quotes @quotedblright{}. @expansion{}
 @minus{} @registeredsymbol{}
@@ -1611,6 +1626,7 @@ $result_texts{'test_accents_sc_use_numeric_entity'} = 'top section
 "in double q". `in simple q\'.
 
 e\', -- def - in code. in samp aé. , !. ...
+
 >= ... AA e\' A. /l. (C). error-->.
 " in quotes ". ==>
 - (R)
@@ -1742,7 +1758,8 @@ $result_converted{'html_text'}->{'test_accents_sc_use_numeric_entity'} = '<div c
 <p>&#8220;in double q&#8221;. &#8216;in simple q&#8217;.
 </p>
 <p>&#233;, &#8212; <em class="dfn">def</em> &#8211; <code class="code">in code</code>. &#8216;<samp class="samp">in samp</samp>&#8217; aé. &#44; &#161;. &#8230;
-&#8805; <small class="enddots">...</small> &#197; &#233; &#550; &#322;. &#169;. error&#8594;.
+</p>
+<p>&#8805; <small class="enddots">...</small> &#197; &#233; &#550; &#322;. &#169;. error&#8594;.
 &#8220; in quotes &#8221;. &#8614;
 &#8722; &#174;
 </p>

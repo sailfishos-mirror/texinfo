@@ -6,8 +6,9 @@ top section
 
 "in double q".  'in simple q'.
 
-   é, -- "def" - 'in code'.  'in samp' aé.  , ¡.  ... >= ...  Å é A. /l.
-(C).  error->.  "  in quotes ".  ==> - (R)
+   é, -- "def" - 'in code'.  'in samp' aé.  , ¡.  ...
+
+   >= ...  Å é A. /l.  (C).  error->.  "  in quotes ".  ==> - (R)
 
    -a( -a^ å Å ê Ê i~ i .r r'< ñ,=.  == Å Å Ê Ê I~ I .R R'< Ñ,=.
 
