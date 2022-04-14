@@ -1,4 +1,4 @@
-/* Copyright 2010-2021 Free Software Foundation, Inc.
+/* Copyright 2010-2022 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -867,7 +867,7 @@ xspara_add_text (char *text)
           continue;
         }
 
-      if (isspace (*p))
+      if (isspace ((unsigned char) *p))
         {
           state.last_letter = L'\0';
 

@@ -1,3 +1,12 @@
+2022-04-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	unsigned char for isspace
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	* tp/Texinfo/XS/xspara.c (xspara_add_text):
+	Cast argument to isspace to unsigned char.  This avoids varying
+	test results on Solaris 10 and 11.
+
 2022-04-12  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	CONVERT_TO_LATEX_IN_MATH

@@ -1,5 +1,5 @@
 /* end_line.c -- what to do at the end of a whole line of input */
-/* Copyright 2010-2021 Free Software Foundation, Inc.
+/* Copyright 2010-2022 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -1658,14 +1658,14 @@ end_line_misc_line (ELEMENT *current)
           p = convert_to_texinfo (args_child_by_index(current, 0));
 
           texi_line = p;
-          while (isspace (*texi_line))
+          while (isspace ((unsigned char) *texi_line))
             texi_line++;
 
           /* Trim leading and trailing whitespace. */
           p1 = strchr (texi_line, '\0');
           if (p1 > texi_line)
             {
-              while (p1 > texi_line && isspace (p1[-1]))
+              while (p1 > texi_line && isspace ((unsigned char) p1[-1]))
                 p1--;
               c = *p1;
               *p1 = '\0';
