@@ -211,8 +211,4 @@ foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'xml';
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('multitable', [@test_cases, @test_invalid], $arg_test_case,
-   $arg_generate, $arg_debug);
-
+run_all('multitable', [@test_cases, @test_invalid]);

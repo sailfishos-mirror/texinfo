@@ -38,8 +38,4 @@ In verb
 '],
 );
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('verb', \@test_cases, $arg_test_case,
-   $arg_generate, $arg_debug);
-
+run_all('verb', \@test_cases);

@@ -744,11 +744,5 @@ foreach my $test (@test_cases_file_text) {
   push @{$test->[2]->{'test_formats'}}, ('html_text', 'file_html');
 }
 
-
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('html_tests', [@test_cases, @test_cases_text, @test_cases_file_text,
-                        @file_tests], $arg_test_case, $arg_generate, $arg_debug);
-
-1;
-
+run_all('html_tests', [@test_cases, @test_cases_text,
+                       @test_cases_file_text, @file_tests]);

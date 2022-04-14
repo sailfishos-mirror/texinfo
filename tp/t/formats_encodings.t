@@ -439,8 +439,5 @@ foreach my $test (@file_tests) {
   }
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-run_all ('formats_encodings', [@test_cases, @test_full_doc, @file_tests, @html_text_cases],
-   $arg_test_case, $arg_generate, $arg_debug);
-
-1;
+run_all('formats_encodings', [@test_cases, @test_full_doc, 
+                              @file_tests, @html_text_cases]);

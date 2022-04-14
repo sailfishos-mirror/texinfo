@@ -2175,9 +2175,5 @@ foreach my $test (@test_cases) {
   }
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('sectioning', [@test_cases, @tests_converted,
-                        @test_out_files, @tests_info], $arg_test_case,
-   $arg_generate, $arg_debug);
-
+run_all('sectioning', [@test_cases, @tests_converted,
+                       @test_out_files, @tests_info]);

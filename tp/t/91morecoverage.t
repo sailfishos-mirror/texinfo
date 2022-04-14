@@ -26,7 +26,4 @@ foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, ('info', 'html', 'html_text');
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('morecoverage', [@test_cases], $arg_test_case,
-   $arg_generate, $arg_debug);
+run_all('morecoverage', [@test_cases]);

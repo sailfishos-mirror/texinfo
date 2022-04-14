@@ -42,18 +42,19 @@ use Test::More;
 # to determine the locale encoding to output the Texinfo to Texinfo
 # result when regenerating
 use I18N::Langinfo qw(langinfo CODESET);
-use Encode;
-use File::Basename;
-use File::Copy;
-use File::Compare; # standard since 5.004
-use Data::Dumper;
-use Data::Compare;
-use Test::Deep;
+use Encode ();
+#use File::Basename;
+#use File::Copy;
+use File::Compare qw(compare); # standard since 5.004
+use Data::Dumper ();
+use Data::Compare ();
+use Test::Deep ();
 use Storable qw(dclone); # standard in 5.007003
 #use Data::Diff;
 #use Data::Transformer;
 #use Struct::Compare;
 use Getopt::Long qw(GetOptions);
+use Locale::Messages ();
 
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
@@ -68,14 +69,15 @@ use Texinfo::Convert::HTML;
 use Texinfo::Convert::TexinfoXML;
 use Texinfo::Convert::DocBook;
 
-# FIXME Is it really useful?
+# the tests reference perl results file is loaded through a require
+# with those variables.
 use vars qw(%result_texis %result_texts %result_trees %result_errors
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors
    %result_elements %result_directions_text %result_indices_sort_strings);
 
 my $strings_textdomain = 'texinfo_document';
-Locale::Messages->select_package ('gettext_pp');
+Locale::Messages->select_package('gettext_pp');
 
 my $srcdir = $ENV{'srcdir'};
 my $locales_srcdir;
@@ -98,14 +100,14 @@ if (! defined($localesdir)) {
   warn "No locales directory found, some tests will fail\n";
 }
 
-Locale::Messages::bindtextdomain ('texinfo_document', $localesdir);
-Locale::Messages::bindtextdomain ('texinfo', $localesdir);
+Locale::Messages::bindtextdomain('texinfo_document', $localesdir);
+Locale::Messages::bindtextdomain('texinfo', $localesdir);
 
 my $generated_texis_dir = 't_texis';
 
 my $input_files_dir = $srcdir."t/input_files/";
 
-our $output_files_dir = 't/output_files/';
+my $output_files_dir = 't/output_files/';
 foreach my $dir ('t', 't/results', $output_files_dir) {
   my $error;
   # to avoid a race conditon, first create the dir then test that it
@@ -121,7 +123,7 @@ $locale_encoding = undef if ($locale_encoding eq '');
 
 ok(1);
 
-our %formats = (
+my %formats = (
   'plaintext' => \&convert_to_plaintext,
   'file_plaintext' => \&convert_to_plaintext,
   'info' => \&convert_to_info,
@@ -138,7 +140,7 @@ our %formats = (
   'file_latex' => \&convert_to_latex,
 );
 
-our %extensions = (
+my %extensions = (
   'plaintext' => 'txt',
   'html_text' => 'html',
   'xml' => 'xml',
@@ -162,49 +164,9 @@ my %outfile_preamble = (
 '."<!DOCTYPE texinfo PUBLIC \"-//GNU//DTD TexinfoML V${XML_DTD_VERSION}//EN\" \"http://www.gnu.org/software/texinfo/dtd/${XML_DTD_VERSION}/texinfo.dtd\">
 ".'<texinfo xml:lang="en">
 ', "</texinfo>\n"],
- 'html_text' => ['<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title>Untitled Document</title>
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="Generator" content="tp">
-<style type="text/css">
-<!--
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
-blockquote.smallquotation {font-size: smaller}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-div.lisp {margin-left: 3.2em}
-div.smalldisplay {margin-left: 3.2em}
-div.smallexample {margin-left: 3.2em}
-div.smalllisp {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-pre.smalldisplay {font-family: inherit; font-size: smaller}
-pre.smallexample {font-size: smaller}
-pre.smallformat {font-family: inherit; font-size: smaller}
-pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space: nowrap}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: serif; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-ul.no-bullet {list-style: none}
--->
-</style>
-</head>
-
-<body>
-',
-'</body>
-</html>
-'],
-# FIXME complete
+ # done dynamically for CSS
+ 'html_text' => \&output_preamble_postamble_html,
+# FIXME do dynamically
  'latex' => ['\documentclass{book}
 \usepackage{makeidx}\makeindex
 \usepackage{amsfonts}
@@ -217,17 +179,18 @@ ul.no-bullet {list-style: none}
 ']
 );
 
-our $arg_generate;
-our $arg_debug;
-our $arg_complete;
-our $arg_output;
-our $nr_comparisons = 9;
+my $arg_generate;
+my $arg_debug;
+my $arg_complete;
+my $arg_output;
+my $nr_comparisons = 9;
 
 Getopt::Long::Configure("gnu_getopt");
+# complete: output a complete texinfo file based on the test
 GetOptions('g|generate' => \$arg_generate, 'd|debug=i' => \$arg_debug,
            'c|complete' => \$arg_complete, 'o|output' => \$arg_output);
 
-our $arg_test_case = shift @ARGV;
+my $arg_test_case = shift @ARGV;
 
 sub protect_perl_string($)
 {
@@ -498,7 +461,7 @@ my @sections_keys = ('section_next', 'section_prev', 'section_up',
 my @node_keys = ('node_next', 'node_prev', 'node_up', 'menus',
   'associated_section', 'node_preceding_part');
 my %avoided_keys_tree;
-our @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys, 'structure',
+my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys, 'structure',
    'menu_child', 'unit_next', 'directions', 'page_next', 'remaining_args');
 foreach my $avoided_key(@avoided_keys_tree) {
   $avoided_keys_tree{$avoided_key} = 1;
@@ -612,7 +575,7 @@ sub convert_to_plaintext($$$$$$;$)
     $result = undef if (defined($result) and ($result eq ''));
   }
   my ($errors, $error_nrs) = $converter->errors();
-  return ($errors, $result);
+  return ($errors, $result, $converter);
 }
 
 sub convert_to_info($$$$$;$)
@@ -638,7 +601,7 @@ sub convert_to_info($$$$$;$)
   close_files($converter);
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
   my ($errors, $error_nrs) = $converter->errors();
-  return ($errors, $result);
+  return ($errors, $result, $converter);
 }
 
 sub convert_to_html($$$$$$;$)
@@ -664,6 +627,8 @@ sub convert_to_html($$$$$$;$)
                                           %$converter_options });
   my $result;
   if ($format eq 'html_text') {
+    # this is needed for CSS rules output, in case $arg_output is set
+    $converter->{'current_filename'} = '';
     $result = $converter->convert($tree);
   } else {
     $result = $converter->output($tree);
@@ -671,7 +636,7 @@ sub convert_to_html($$$$$$;$)
   }
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
   my ($errors, $error_nrs) = $converter->errors();
-  return ($errors, $result);
+  return ($errors, $result, $converter);
 }
 
 sub convert_to_xml($$$$$$;$)
@@ -703,7 +668,7 @@ sub convert_to_xml($$$$$$;$)
     $result = undef if (defined($result) and ($result eq ''));
   }
   my ($errors, $error_nrs) = $converter->errors();
-  return ($errors, $result);
+  return ($errors, $result, $converter);
 }
 
 sub convert_to_docbook($$$$$$;$)
@@ -751,7 +716,7 @@ sub convert_to_docbook($$$$$$;$)
     $result = undef if (defined($result) and ($result eq ''));
   }
   my ($errors, $error_nrs) = $converter->errors();
-  return ($errors, $result);
+  return ($errors, $result, $converter);
 }
 
 sub convert_to_latex($$$$$$;$)
@@ -782,7 +747,33 @@ sub convert_to_latex($$$$$$;$)
     $result = undef if (defined($result) and ($result eq ''));
   }
   my ($errors, $error_nrs) = $converter->errors();
-  return ($errors, $result);
+  return ($errors, $result, $converter);
+}
+
+sub output_preamble_postamble_html($$)
+{
+  my $converter = shift;
+  my $postamble = shift;
+
+  if ($postamble) {
+    return '</body>
+</html>
+'
+  } else {
+    return '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="tp">
+'
+.&{$converter->formatting_function('format_css_lines')}($converter,
+                    $converter->{'current_filename'})
+.'</head>
+<body>
+';
+  }
 }
 
 # Run a single test case.  Each test case is an array
@@ -1080,7 +1071,8 @@ sub test($$)
       $format_converter_options->{'TEST'} = 1;
       $format_converter_options->{'INCLUDE_DIRECTORIES'} = [
                                           $srcdir.'t/include/'];
-      ($converted_errors{$format}, $converted{$format})
+      my $converter;
+      ($converted_errors{$format}, $converted{$format}, $converter)
            = &{$formats{$format}}($self, $test_name, $format_type,
                                   $result, $parser, $main_configuration,
                                   $format_converter_options);
@@ -1108,11 +1100,19 @@ sub test($$)
               binmode(OUTFILE, ":encoding($info->{'perl_encoding'})");
             }
             if ($outfile_preamble{$format}) {
-              print OUTFILE $outfile_preamble{$format}->[0];
+              if (ref($outfile_preamble{$format}) eq 'CODE') {
+                print OUTFILE &{$outfile_preamble{$format}}($converter, 0);
+              } else {
+                print OUTFILE $outfile_preamble{$format}->[0];
+              }
             }
             print OUTFILE $converted{$format};
             if ($outfile_preamble{$format}) {
-              print OUTFILE $outfile_preamble{$format}->[1];
+              if (ref($outfile_preamble{$format}) eq 'CODE') {
+                print OUTFILE &{$outfile_preamble{$format}}($converter, 1);
+              } else {
+                print OUTFILE $outfile_preamble{$format}->[1];
+              }
             }
             close (OUTFILE) or warn "Close $outfile: $!\n";
           }
@@ -1386,33 +1386,28 @@ sub test($$)
   return $tests_count;
 }
 
-# Main entry point for the tests.
+# Main entry point for the tests.  Called from *.t files.
 #  $NAME - a string, name of test
 #  $TEST_CASES - array of sub-tests
-#  If $TEST_CASE_NAME is given, only run that test.
-#  $GENERATE means to generate reference test results (-g from command line).
-#  $DEBUG for debugging.
-# The $ARG_COMPLETE variable is the -c option, to create Texinfo files for the
-# test cases.
-sub run_all($$;$$$)
+#
+# variables set from command line:
+#  If $ARG_TEST_CASE is set, only run that test.
+#  $ARG_GENERATE set means to generate reference test results (-g from command line).
+#  $ARG_DEBUG is used for debugging (-d from command line).
+#  The $ARG_COMPLETE variable is the -c option, to create Texinfo files for the
+#  test cases.
+sub run_all($$)
 {
   my $name = shift;
   my $test_cases = shift;
-  my $test_case_name = shift;
-  my $generate = shift;
-  my $debug = shift;
 
-  my $test = new_test($name, $generate, $debug);
+  my $test = new_test($name, $arg_generate, $arg_debug);
   my $ran_tests;
-  if (defined($test_case_name)) {
-    if ($test_case_name =~ /^\d+$/) {
-      $ran_tests = [ $test_cases->[$test_case_name-1] ];
-    } else {
-      foreach my $test_case (@$test_cases) {
-        if ($test_case->[0] eq $test_case_name) {
-          $ran_tests = [ $test_case ];
-          last;
-        }
+  if (defined($arg_test_case)) {
+    foreach my $test_case (@$test_cases) {
+      if ($test_case->[0] eq $arg_test_case) {
+        $ran_tests = [ $test_case ];
+        last;
       }
     }
   } else {
@@ -1431,7 +1426,7 @@ sub run_all($$;$$$)
       $test_nrs += $test->test($test_case);
     }
   }
-  if ($generate or $arg_complete) {
+  if ($arg_generate or $arg_complete) {
     plan tests => 1;
   } else {
     plan tests => (1 + $test_nrs);
@@ -1477,12 +1472,6 @@ sub output_texi_file($)
       }
     }
   }
-  my $setfilename;
-  if ($test_text =~ /^\@setfilename/m) {
-    $setfilename = ''
-  } else {
-    $setfilename = "\@setfilename $test_name.info\n";
-  }
   my $node_top;
   if ($test_text =~ /^\@node +top[\s,]/mi
       or $test_text =~ /^\@node +top *$/mi) {
@@ -1503,7 +1492,7 @@ sub output_texi_file($)
   if ($test_text !~ /^\@bye *$/m) {
     $bye = '@bye';
   }
-  foreach my $output ($first_line, $setfilename, $node_top, $added_chapter) {
+  foreach my $output ($first_line, $node_top, $added_chapter) {
     print OUTFILE "$output\n"
       if ($output ne '');
   }

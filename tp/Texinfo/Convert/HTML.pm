@@ -326,9 +326,17 @@ sub css_get_info($$;$) {
   my $css_info = shift;
 
   if ($spec eq 'rules') {
-    return @{$self->{'css_rule_lines'}};
+    if (defined($self->{'css_rule_lines'})) {
+      return @{$self->{'css_rule_lines'}};
+    } else {
+      return ();
+    }
   } elsif ($spec eq 'imports') {
-    return @{$self->{'css_import_lines'}};
+    if (defined($self->{'css_import_lines'})) {
+      return @{$self->{'css_import_lines'}};
+    } else {
+      return ();
+    }
   } else {
     if (defined($css_info)) {
       if ($self->{'css_element_class_styles'}->{$css_info}) {

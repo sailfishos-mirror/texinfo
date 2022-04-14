@@ -88,10 +88,4 @@ foreach my $test (@test_cases) {
   $test->[2]->{'test_formats'} = ['docbook'];
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('docbook_tests', [@test_cases], $arg_test_case,
-   $arg_generate, $arg_debug);
-
-1;
-
+run_all('docbook_tests', [@test_cases]);

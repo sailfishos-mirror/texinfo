@@ -47,8 +47,4 @@ result: @emph{\\arg\\} the \\the\\ thearg \\thearg\\ with value \\the@value{argu
 );
 
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('value_and_macro', \@test_cases, $arg_test_case,
-   $arg_generate, $arg_debug);
-
+run_all('value_and_macro', \@test_cases);

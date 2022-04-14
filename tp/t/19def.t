@@ -590,8 +590,4 @@ foreach my $test (@test_info) {
   $test->[2]->{'test_formats'} = ['info', 'html'];
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('def', [@test_cases, @test_info, @test_invalid, @test_printindex], $arg_test_case,
-   $arg_generate, $arg_debug);
-
+run_all('def', [@test_cases, @test_info, @test_invalid, @test_printindex]);

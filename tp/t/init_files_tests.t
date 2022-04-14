@@ -30,14 +30,8 @@ pt @error{}.
 }],
 );
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'html';
 }
 
-run_all ('init_files_tests', [@test_cases], $arg_test_case,
-   $arg_generate, $arg_debug);
-
-1;
-
+run_all('init_files_tests', [@test_cases]);

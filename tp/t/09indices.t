@@ -753,8 +753,4 @@ foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_info';
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('indices', [@test_cases, @test_formatted, @file_tests], 
-   $arg_test_case, $arg_generate, $arg_debug);
-
+run_all('indices', [@test_cases, @test_formatted, @file_tests]);

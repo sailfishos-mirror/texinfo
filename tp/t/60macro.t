@@ -1051,8 +1051,4 @@ The @gentry{id1, name1, text1\, arg1 } is used in many cases while
 );
 
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('macro', \@test_cases, $arg_test_case,
-   $arg_generate, $arg_debug);
-
+run_all('macro', \@test_cases);

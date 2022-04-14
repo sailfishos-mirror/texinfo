@@ -329,8 +329,4 @@ foreach my $test (@test_cases) {
   }
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('xtable', [@test_cases, @test_invalid], $arg_test_case,
-   $arg_generate, $arg_debug);
-
+run_all('xtable', [@test_cases, @test_invalid]);

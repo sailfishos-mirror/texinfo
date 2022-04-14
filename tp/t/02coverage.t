@@ -850,7 +850,4 @@ foreach my $test (@test_cases) {
   }
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('coverage', [@test_cases, @test_tree], $arg_test_case,
-   $arg_generate, $arg_debug);
+run_all('coverage', [@test_cases, @test_tree]);

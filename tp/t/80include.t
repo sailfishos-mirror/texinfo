@@ -157,8 +157,4 @@ undef, {'test_file' => 'cpp_line_latin1.texi'},
 ],
 );
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('include', \@test_cases, $arg_test_case,
-   $arg_generate, $arg_debug);
-
+run_all('include', \@test_cases);

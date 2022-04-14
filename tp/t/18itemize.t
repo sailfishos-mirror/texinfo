@@ -633,8 +633,4 @@ foreach my $test (@test_full_doc) {
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('itemize', [@test_cases, @test_full_doc, @test_invalid], $arg_test_case,
-   $arg_generate, $arg_debug);
-
+run_all('itemize', [@test_cases, @test_full_doc, @test_invalid]);

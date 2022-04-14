@@ -566,8 +566,4 @@ foreach my $test (@formatted_cases) {
   $test->[2]->{'test_formats'} = ['plaintext'];
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('invalid_nestings', [@test_cases, @formatted_cases], $arg_test_case,
-   $arg_generate, $arg_debug);
-
+run_all('invalid_nestings', [@test_cases, @formatted_cases]);

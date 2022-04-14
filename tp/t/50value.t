@@ -351,8 +351,4 @@ line
 ']
 );
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('value', \@test_cases, $arg_test_case,
-   $arg_generate, $arg_debug);
-
+run_all('value', \@test_cases);

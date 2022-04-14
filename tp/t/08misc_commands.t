@@ -591,8 +591,4 @@ foreach my $test (@converted_test_cases) {
   }
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('misc_commands', [@test_cases, @converted_test_cases], $arg_test_case,
-   $arg_generate, $arg_debug);
-
+run_all('misc_commands', [@test_cases, @converted_test_cases]);

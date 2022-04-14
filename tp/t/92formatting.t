@@ -169,7 +169,4 @@ foreach my $test (@test_cases) {
   $test->[3]->{'PROGRAM'} = 'texi2any';
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('formatting', [@test_cases], $arg_test_case,
-   $arg_generate, $arg_debug);
+run_all('formatting', [@test_cases]);

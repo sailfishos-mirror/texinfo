@@ -344,9 +344,4 @@ foreach my $test (@test_cases) {
     if (grep {$_ eq $test->[0]} @latex_tests_cases_tests);
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('coverage_braces', [@test_cases, @test_invalid], $arg_test_case,
-   $arg_generate, $arg_debug);
-
-1;
+run_all('coverage_braces', [@test_cases, @test_invalid]);

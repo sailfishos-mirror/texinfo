@@ -142,8 +142,4 @@ foreach my $test (@test_formatted) {
   push @{$test->[2]->{'test_formats'}}, 'html';
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('regions', [@test_cases, @test_formatted], $arg_test_case,
-   $arg_generate, $arg_debug);
-
+run_all('regions', [@test_cases, @test_formatted]);

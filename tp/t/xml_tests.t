@@ -349,10 +349,4 @@ foreach my $test (@test_cases) {
   $test->[2]->{'test_formats'} = ['xml'];
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('xml_tests', [@test_cases], $arg_test_case,
-   $arg_generate, $arg_debug);
-
-1;
-
+run_all('xml_tests', [@test_cases]);

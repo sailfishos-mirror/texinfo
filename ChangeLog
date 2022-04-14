@@ -1,3 +1,13 @@
+2022-04-14  Patrice Dumas  <pertusus@free.fr>
+
+	Improve test results optional output files
+
+	* tp/Texinfo/Convert/HTML.pm (css_get_info): handle undef
+	'css_rule_lines' and 'css_import_lines'.
+
+	* tp/t/test_utils.pl: dynamic CSS in HTML preamble.  Other
+	cleanups.
+
 2022-04-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Avoid divergent test results due to wcwidth

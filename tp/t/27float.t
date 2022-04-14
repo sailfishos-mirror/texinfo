@@ -541,8 +541,4 @@ foreach my $test (@test_cases) {
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('float', \@test_cases, $arg_test_case,
-   $arg_generate, $arg_debug);
-
+run_all('float', \@test_cases);

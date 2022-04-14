@@ -644,9 +644,4 @@ foreach my $test (@file_tests) {
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
-our ($arg_test_case, $arg_generate, $arg_debug);
-
-run_all ('latex_tests', [@test_cases, @file_tests], $arg_test_case,
-   $arg_generate, $arg_debug);
-
-1;
+run_all('latex_tests', [@test_cases, @file_tests]);
