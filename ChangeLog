@@ -2,6 +2,15 @@
 
 	Change locale for tp/tests
 
+	* tp/tests/many_input_files/input_dir_non_ascii.sh,
+	* tp/tests/many_input_files/output_dir_file_non_ascii.sh,
+	* tp/tests/many_input_files/output_dir_non_ascii.sh:
+	Change LC_ALL and LANGUAGE from C.UTF-8 to en_US.UTF-8.
+
+2022-04-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Change locale for tp/tests
+
 	* tp/tests/run_parser_all.sh: Change LC_ALL and LANGUAGE
 	from C.UTF-8 to en_US.UTF-8.  This is an attempt to make the
 	tests run on more systems.  On one system without a C.UTF-8
