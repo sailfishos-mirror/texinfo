@@ -157,7 +157,9 @@ XXX XXX XXX XXX XXX XXX XXX XXX XX}.
 @item '."\x{2007}\x{2007}535".' @tab explanation
 @item 49303 @tab explanation
 @end multitable
-'],
+',
+{'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, },
+],
 );
 
 my @test_invalid = (

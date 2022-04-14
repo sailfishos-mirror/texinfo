@@ -1,3 +1,12 @@
+2022-04-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Conditionally skip a test
+
+	* tp/t/test_utils.pl (test): Check for 'skip' setting in options
+	and skip test if it is set.
+	* tp/t/21multitable.t (multitable_figure_space): Skip test
+	for Perl older than 5.14.
+
 2022-04-14  Patrice Dumas  <pertusus@free.fr>
 
 	Improve test results optional output files

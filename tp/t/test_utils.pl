@@ -867,6 +867,16 @@ sub test($$)
     }
   }
 
+  if ($parser_options->{'skip'}) {
+      SKIP: {
+        skip "$test_name: $parser_options->{'skip'}", 1;
+        ok 1, $test_name;
+      }
+    return 1;
+  } elsif (exists($parser_options->{'skip'})) {
+    delete $parser_options->{'skip'};
+  }
+
   my %todos;
   if ($parser_options->{'todo'}) {
     %todos = %{$parser_options->{'todo'}};
