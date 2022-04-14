@@ -1,5 +1,14 @@
 2022-04-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	ASCII_PUNCTUATION for some tests
+
+	* tp/tests/layout/list-of-tests
+	(formatting_info, formatting_plaintext): Set ASCII_PUNCTUATION for
+	these tests in an attempt to make line breaking decisions more
+	consistent across platforms in the results.
+
+2022-04-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Change locale for tp/tests
 
 	* tp/tests/many_input_files/input_dir_non_ascii.sh,
