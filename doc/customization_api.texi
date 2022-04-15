@@ -688,9 +688,8 @@ customization variables @code{USE_NODES}
 (@pxref{HTML Customization Variables,,, texinfo, Texinfo}).
 
 For example, when generating Info, the nodes are the units; when
-generating Docbook, sectioning commands are the main element
-unit component; and when generating HTML, either case may happen
-(@pxref{Two Paths,,, texinfo, Texinfo}).
+generating HTML, either case may happen (@pxref{Two Paths,,, texinfo,
+Texinfo}).
 
 @item Top element
 @cindex Top element
@@ -724,7 +723,7 @@ More details:
 @item The @emph{Table of contents} should only be formatted if
 @code{@@contents} is present in the document.
 
-@item Similarly the @emph{Overview} should only appear if
+@item Similarly the @emph{Short table of contents} should only appear if
 @code{@@shortcontents} or @code{@@summarycontents} is present.
 
 @item The customization variables @code{contents} and
@@ -732,12 +731,12 @@ More details:
 respective elements.
 
 @vindex CONTENTS_OUTPUT_LOCATION@r{, Elements}
-@item If @code{CONTENTS_OUTPUT_LOCATION} is set to @samp{separate_element},
-the @emph{Table of contents} and @emph{Overview} elements are separate
-(@pxref{Contents and Short Table of Contents Customization}).  Otherwise
-the @emph{Table of contents} and @emph{Overview} elements are directly
-included within the document, at locations depending on the specific
-@code{CONTENTS_OUTPUT_LOCATION} value.
+@item If @code{CONTENTS_OUTPUT_LOCATION} is set to @samp{separate_element}, the
+@emph{Table of contents} and @emph{Short table of contents} elements are
+separate (@pxref{Contents and Short Table of Contents Customization}).
+Otherwise the @emph{Table of contents} and @emph{Short table of contents}
+elements are directly included within the document, at locations depending on
+the specific @code{CONTENTS_OUTPUT_LOCATION} value.
 
 @item When generating HTML, the @emph{Footnotes page} should only
 be present if the footnotes appear on a separate page (@pxref{Footnote
@@ -752,8 +751,7 @@ without navigation information, or if @code{DO_ABOUT} is not set.
 @end table
 
 It is common not to have anything but normal element units, especially in
-case of monolithic output.  It is usually with HTML output that
-special elements may be present.
+case of monolithic output.
 
 @vindex USE_NODES
 The main component of elements is sections if @code{USE_NODES} is 0;
@@ -1609,7 +1607,7 @@ are explained in the next sections.
 For example:
 @example
 sub my_node_file_name($$$) @{
-  my ($converter, $element, $filename) = shift;
+  my ($converter, $element, $filename) = @@_;
   # ....
   return $node_file_name
 @}
@@ -1638,7 +1636,7 @@ merely the command line option @option{--output} (@pxref{Invoking
 variable overrides the base name of the file given by @code{@@setfilename} or
 the file name and should not contain any directory components.  To alter
 intermediate directories, use the @code{SUBDIR} customization variable.
-Finally, The extension may also be overriden by the customization variable
+Finally, the extension may also be overriden by the customization variable
 @code{EXTENSION}.  This variable should be @code{undef} if no extension is to
 be added.
 
@@ -1908,7 +1906,7 @@ text.  @xref{Converter Object and Conversion Functions}.
 Text is kept as is, special HTML characters are not protected.  Appears only
 as @code{@@inlineraw} second argument.
 
-@item string.
+@item string
 In string context. @xref{Init File Expansion Contexts}.
 
 @end table
@@ -2404,13 +2402,13 @@ for a @var{$level} 2 heading.
 
 @item format_program_string
 
-@deftypefn {Function Reference} {$text} program_string ($converter)
+@deftypefn {Function Reference} {$text} format_program_string ($converter)
 This function reference should return the formatted program
 string.
 @end deftypefn
 
 @item format_protect_text
-@deftypefn {Function Reference} {$text} format_comment  @
+@deftypefn {Function Reference} {$text} format_protect_text  @
                                            ($converter, $input_text)
 Return @var{$input_text} with HTML special characters and form feeds
 protected.
@@ -2962,7 +2960,7 @@ can be replaced by a user defined function.
 @deftypefn {Function Reference} $footnotes_segment format_footnotes_segment @
    ($converter)
 Returns the footnotes formatted.  In the default case, the function reference
-calls @code{format_footnotes_segment} and also sets up a header with
+calls @code{format_footnotes_sequence} and also sets up a header with
 @code{format_heading_text} (@pxref{Basic Formatting Customization}), using the
 customization variables @code{FOOTNOTE_END_HEADER_LEVEL} and
 @code{SPECIAL_ELEMENTS_HEADING} with the @code{footnotes} special element
@@ -3043,14 +3041,15 @@ reference:
 tree element, but it is only set if @code{format_contents} is called from a
 Texinfo tree element conversion, and not as a special element body formatting.
 @var{$filename} is optional and should correspond to the filename where the
-formatting happens, for links.  If unset, the current file name is used.
+formatting happens, for links.
 
 In the default function, structuring information is used
 to format the table of contents (@pxref{Conversion General Information}),
 and @code{command_contents_href} (@pxref{Other Links@comma{} Headings and
 Associated Information for Special Elements}) and @code{command_href}
 (@pxref{Target Commands Links@comma{} Texts and Associated Commands})
-are used for links.
+are used for links.  If @var{$filename} is unset, the current file name
+is used, using @code{$converter->get_info('current_filename')}.
 
 Return formatted table of contents or short table of contents.
 @end deftypefn
@@ -3396,10 +3395,11 @@ the @code{</body>} element.
 
 @cindex Title page, cusstomization
 
-The ``title page'' is used to format the HTML title if @code{USE_TITLEPAGE_FOR_TITLE}
+If @code{SHOW_TITLE} is not set, no title is output.  @code{SHOW_TITLE} is @samp{undef}
+in the default case.  If @samp{undef}, @code{SHOW_TITLE} is set if @code{NO_TOP_NODE_OUTPUT}
+is set.  The ``title page'' is used to format the HTML title if @code{USE_TITLEPAGE_FOR_TITLE}
 is set, otherwise the @code{simpletitle} is used.  @code{USE_TITLEPAGE_FOR_TITLE}
-is not set in the default case.  If @code{SHOW_TITLE} is not set, no title is output.
-@code{SHOW_TITLE} is set in the default case. @xref{HTML Customization Variables,,, texinfo, Texinfo}
+is set in the default case.  @xref{HTML Customization Variables,,, texinfo, Texinfo}.
 
 The following function reference provides full control on the ``title page''
 formatting:
