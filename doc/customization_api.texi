@@ -1302,10 +1302,14 @@ documentation, in particular a list of types and of information in the elements
 @code{extra} hash (@pxref{Texinfo::Parser TEXINFO TREE,,,tp_api}).
 
 
-@node Encoding file path strings
-@section Encoding file path strings
+@node Encoding and Decoding File Path Strings
+@section Encoding and Decoding File Path Strings
 
-The strings in the customization functions are character strings.  For most purposes,
+
+@node Encoding File Path Strings
+@subsection Encoding File Path Strings
+
+In general, the strings in the customization functions are character strings.  For most purposes,
 this is right, and the encoding in output files is taken care of by the converter.
 Operations on directories and file names, however, such as the creation of a directory
 or the opening of a file require binary strings.
@@ -1356,6 +1360,26 @@ if (system($encoded_call)) @{
  $converter->document_error($converter,
      sprintf(__("command did not succeed: %s"),
             $call));
+@}
+@end example
+
+
+@node Decoding File Path Strings
+@subsection Decoding File Path Strings
+
+The binary strings that could be accessed correspond to the customization
+variables strings or arrays @code{INCLUDE_DIRECTORIES}, @code{CSS_FILES},
+@code{MACRO_EXPAND} and @code{INTERNAL_LINKS}.  If they need to be decoded into
+character strings, for example to appear in error messages, it is possible to
+use the @code{DATA_INPUT_ENCODING_NAME} customization variable value as
+encoding name to mimic how the decoding of these strings from the command line
+is done in the main program and in the converters.  For example:
+
+@example
+my $macro_expand_fname = $self->get_conf('MACRO_EXPAND');
+my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+if (defined($encoding)) @{
+  $macro_expand_fname = Encode::decode($encoding, $macro_expand_fname);
 @}
 @end example
 
@@ -1502,10 +1526,14 @@ put into comments (@pxref{@code{@@copying},,, texinfo, Texinfo}).
 The file name of the current document unit being converted.
 
 @item destination_directory
-Destination directory for the output files.
+Destination directory for the output files.  It is common to use that string in directory
+or file paths with functions requiring binary strings.  In that case the
+character string needs to be encoded.  @xref{Encoding File Path Strings}.
 
 @item document_name
-Base name of the document.
+Base name of the document.  It is common to use that string in in directory or
+file paths with functions requiring binary strings.  In that case the character
+string needs to be encoded.  @xref{Encoding File Path Strings}.
 
 @item documentdescription_string
 @code{@@documentdescription} argument converted in a string context

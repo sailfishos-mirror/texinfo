@@ -437,6 +437,8 @@ my @css_files = ();
 my @css_refs = ();
 my @include_dirs = ();
 my @expanded_formats = ();
+# note that CSS_FILES and INCLUDE_DIRECTORIES are not decoded when
+# read from the command line and should be binary strings
 my $cmdline_options = { 'CSS_FILES' => \@css_files,
                         'CSS_REFS' => \@css_refs,
                         'INCLUDE_DIRECTORIES' => \@include_dirs,
@@ -1228,6 +1230,7 @@ if (get_conf('SHOW_BUILTIN_CSS_RULES')) {
 
 # Main processing, process all the files given on the command line
 
+# Note that the input file names are binary strings and are not decoded
 my @input_files = @ARGV;
 # use STDIN if not a tty, like makeinfo does
 @input_files = ('-') if (!scalar(@input_files) and !-t STDIN);

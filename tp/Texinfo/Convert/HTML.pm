@@ -50,7 +50,7 @@ use File::Copy qw(copy);
 
 use Storable;
 
-use Encode qw(find_encoding);
+use Encode qw(find_encoding decode);
 
 use Texinfo::Common;
 use Texinfo::Config;
