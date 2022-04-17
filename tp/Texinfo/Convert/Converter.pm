@@ -64,9 +64,9 @@ my %defaults = (
 
 # defaults for all converters that are not defined elsewhere.
 # undef values in general marks information passed by the caller that
-# is valid in the parser configuration initialization hash, but
-# is not considered as "configuration", and is available directly
-# in the converter, not through get_conf().
+# is valid in the parser initialization hash, but is not considered
+# as "configuration/customization". It is not available through get_conf()
+# but is available directly in the converter as a hash key.
 # FIXME separate the two types of information and check that those
 # items are not valid customization options?
 my %common_converters_defaults = (

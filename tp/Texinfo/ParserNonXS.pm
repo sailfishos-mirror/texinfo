@@ -3677,7 +3677,6 @@ sub _register_extra_menu_entry_information($$;$)
           $self->_line_error(__("empty node name in menu entry"), $source_info);
         }
       } else {
-        delete $parsed_entry_node->{'normalized'};
         $current->{'extra'}->{'menu_entry_node'} = $parsed_entry_node;
       }
     } elsif ($arg->{'type'} eq 'menu_entry_description') {
@@ -6692,7 +6691,7 @@ of tree element.  Tree elements associated with an @-command have a
 C<cmdname> key holding the @-command name.  Tree elements corresponding
 to text fragments have a C<text> key holding the corresponding text.
 Finally, the last category is other elements, which in most cases have
-a I<type> key holding their name.  Text fragments and @-command elements
+a C<type> key holding their name.  Text fragments and @-command elements
 may also have an associated type when such information is needed.
 
 The children of an @-command or of other container element are in the array
@@ -6944,10 +6943,11 @@ leads to prepending text such as 'Function'.
 
 =back
 
-=head3 Types of container elements
+=head3 Tree container elements
 
-The other types of element are the following.  These are containers with
-other elements appearing in their C<contents>.
+Some types of element are containers of portions of the tree,
+either for the whole tree, or for contents appearing before C<@node>
+and sectioning commands.
 
 =over
 
@@ -6971,14 +6971,23 @@ Content before nodes and sectioning commands at the beginning of C<document_root
 This container holds everything appearing before the first content, including
 the C<\input texinfo.tex> line and following blank lines.
 
+=item preamble_before_setfilename
+
+This container holds everything that appears before C<@setfilename>.
+
 =item preamble_before_content
 
 This container holds everything appearing before the first formatted content,
 corresponding to the I<Texinfo preamble> in the Texinfo manual.
 
-=item preamble_before_setfilename
+=back
 
-This container holds everything that appears before C<@setfilename>.
+=head3 Types of container elements
+
+The other types of element are the following.  These are containers with
+other elements appearing in their C<contents>.
+
+=over
 
 =item paragraph
 
@@ -7008,10 +7017,10 @@ taking arguments surrounded by braces (and in some cases separated by
 commas).  I<brace_command_context> is used for @-commands with braces
 that start a new context (C<@footnote>, C<@caption>, C<@math>).
 
-I<line_arg> is used for commands that take the texinfo code on the
-rest of the line as their argument (for example (C<@settitle>, C<@node>,
-C<@section> and similar).  I<block_line_arg> is similar but is used for
-commands that start a new block (which is to be ended with C<@end>).
+I<line_arg> is used for commands that take the texinfo code on the rest of the
+line as their argument, such as C<@settitle>, C<@node>, C<@section>.
+I<block_line_arg> is similar but is used for commands that start a new block
+(which is to be ended with C<@end>).
 
 For example
 
@@ -7238,6 +7247,9 @@ if there is no sectioning command between the C<@part> and the node.
 
 A node containing a menu have a I<menus> key which refers to an array of
 references to menu elements occuring in the node.
+
+The first node containing a C<@printindex> @-command has the I<isindex>
+key set.
 
 =item C<@part>
 

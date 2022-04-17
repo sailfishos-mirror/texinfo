@@ -393,17 +393,17 @@ sub complete_node_menu($;$)
       foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
         foreach my $entry (@{$menu->{'contents'}}) {
           if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
-            my $entry_node = $entry->{'extra'}->{'menu_entry_node'};
-            if (! $entry_node->{'manual_content'}
-                and defined($entry_node->{'normalized'})) {
-              $existing_entries{$entry_node->{'normalized'}}
+            my ($normalized_entry_node, $node)
+              = _normalized_entry_associated_internal_node($entry);
+            if (defined($normalized_entry_node)) {
+              $existing_entries{$normalized_entry_node}
                 = [$menu, $entry];
             }
           }
         }
       }
     }
-    #print STDERR join('|', keys(%existing_entries))."\n";
+    #print STDERR "existing_entries: ".join('|', keys(%existing_entries))."\n";
     my @pending;
     my $current_menu;
     foreach my $node_entry (@node_childs) {
@@ -433,7 +433,7 @@ sub complete_node_menu($;$)
       if (!$current_menu) {
         my $section = $node->{'extra'}->{'associated_section'};
         $current_menu =
-       Texinfo::Structuring::new_block_command (\@pending, $section, 'menu');
+          Texinfo::Structuring::new_block_command(\@pending, $section, 'menu');
         _prepend_new_menu_in_node_section($node, $section, $current_menu);
       } else {
         foreach my $entry (@pending) {
@@ -511,14 +511,11 @@ sub _print_down_menus($$)
       foreach my $entry (@{$menu->{'contents'}}) {
         if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
           push @master_menu_contents, Texinfo::Common::copy_tree($entry);
-          # gather node children to recusrsively print their menus
-          my $entry_node = $entry->{'extra'}->{'menu_entry_node'};
-          if (! $entry_node->{'manual_content'}
-              and defined($entry_node->{'normalized'})) {
-            my $node = $labels->{$entry_node->{'normalized'}};
-            if (defined($node) and $node->{'extra'}) {
-              push @node_children, $node;
-            }
+          # gather node children to recursively print their menus
+          my ($normalized_entry_node, $node)
+               = _normalized_entry_associated_internal_node($entry, $labels);
+          if (defined($node) and $node->{'extra'}) {
+            push @node_children, $node;
           }
         }
       }
@@ -565,6 +562,30 @@ if (0) {
   gdt(' --- The Detailed Node Listing ---');
 }
 
+sub _normalized_entry_associated_internal_node($;$)
+{
+  my $entry = shift;
+  my $labels = shift;
+
+  my $entry_node = $entry->{'extra'}->{'menu_entry_node'};
+  # 'normalized' is added by Texinfo::Structuring::associate_internal_references
+  # so it could be possible not to have 'normalized' set.  In that case, it could
+  # still be determined with NodeNameNormalization::normalize_node.
+  my $normalized_entry_node = $entry_node->{'normalized'};
+  #my $normalized_entry_node
+  #  = Texinfo::Convert::NodeNameNormalization::normalize_node(
+  #                   {'contents' => $entry_node->{'node_content'}});
+  if (! $entry_node->{'manual_content'}
+      and defined($normalized_entry_node)) {
+    if ($labels) {
+      return ($normalized_entry_node, $labels->{$normalized_entry_node});
+    } else {
+      return ($normalized_entry_node, undef);
+    }
+  }
+  return (undef, undef);
+}
+
 sub new_master_menu($$)
 {
   my $self = shift;
@@ -577,13 +598,10 @@ sub new_master_menu($$)
     foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
       foreach my $entry (@{$menu->{'contents'}}) {
         if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
-          my $entry_node = $entry->{'extra'}->{'menu_entry_node'};
-          if (! $entry_node->{'manual_content'}
-              and defined($entry_node->{'normalized'})) {
-            my $node = $labels->{$entry_node->{'normalized'}};
-            if (defined($node) and $node->{'extra'}) {
-              push @master_menu_contents, _print_down_menus($node, $labels);
-            }
+          my ($normalized_entry_node, $node)
+               = _normalized_entry_associated_internal_node($entry, $labels);
+          if (defined($node) and $node->{'extra'}) {
+            push @master_menu_contents, _print_down_menus($node, $labels);
           }
         }
       }

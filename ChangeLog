@@ -1,3 +1,21 @@
+2022-04-17  Patrice Dumas  <pertusus@free.fr>
+
+	Avoid duplication in @detailmenu master menu output by pod2texi
+
+	* Pod-Simple-Texinfo/pod2texi.pl (_fix_texinfo_tree): call
+	Texinfo::Structuring::associate_internal_references() to have
+	'normalized' keys set for menu entries.
+
+	* tp/Texinfo/Transformations.pm
+	(_normalized_entry_associated_internal_node): add a function for
+	similar code.
+
+	* tp/Texinfo/ParserNonXS.pm (_register_extra_menu_entry_information):
+	no need to delete menu entry 'normalized' as it is not set.
+
+	* tp/Texinfo/Structuring.pm, tp/Texinfo/ParserNonXS.pm: minor changes
+	in code style, comments and POD.
+
 2022-04-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	ASCII_PUNCTUATION for some tests

@@ -410,7 +410,7 @@ sub check_nodes_are_referenced
   # consider nodes in @*ref commands to be referenced
   if (defined($refs)) {
     foreach my $ref (@$refs) {
-      my $node_arg = $ref->{'extra'}{'node_argument'};
+      my $node_arg = $ref->{'extra'}->{'node_argument'};
       if ($node_arg->{'node_content'}) {
         my $normalized =
            Texinfo::Convert::NodeNameNormalization::normalize_node(
@@ -1289,8 +1289,10 @@ sub print_element_directions($)
   return $result;
 }
 
-# For each internal reference command, set the 'label' key in the 'extra' 
-# hash of the reference tree element to the associated labeled tree element.
+# For each internal reference command, set the 'normalized' key in the
+# 'menu_entry_node' for menu entries, and 'node_argument' for @*ref.
+# Set the 'label' key in the 'extra' hash of the reference tree element
+# to the associated labeled tree element.
 sub associate_internal_references($$$$$)
 {
   my $registrar = shift;
@@ -1302,7 +1304,7 @@ sub associate_internal_references($$$$$)
   return if (!defined($refs));
   foreach my $ref (@$refs) {
     my $node_arg;
-    $node_arg = $ref->{'extra'}{'menu_entry_node'};
+    $node_arg = $ref->{'extra'}->{'menu_entry_node'};
     
     if (defined $node_arg) {
       if ($node_arg->{'node_content'}) {
@@ -1315,7 +1317,7 @@ sub associate_internal_references($$$$$)
       next;
     }
     
-    $node_arg = $ref->{'extra'}{'node_argument'};
+    $node_arg = $ref->{'extra'}->{'node_argument'};
     if ($node_arg->{'node_content'}) {
       my $normalized =
            Texinfo::Convert::NodeNameNormalization::normalize_node(
@@ -1537,7 +1539,7 @@ sub new_complete_node_menu
   }
 
   my $section = $node->{'extra'}->{'associated_section'};
-  my $new_menu = new_block_command (\@pending, $section, 'menu');
+  my $new_menu = new_block_command(\@pending, $section, 'menu');
 
   return $new_menu;
 }
@@ -1798,10 +1800,12 @@ information, labels or refs are obtained from a parser, see L<Texinfo::Parser>.
 X<C<associate_internal_references>>
 
 Verify that internal references (C<@ref> and similar without
-fourth of fifth argument) have an associated node, anchor or float.
-Set the C<label> key in the C<extra> hash of the reference tree
-element to the associated labeled tree element.  Register errors
-in I<$registrar>.
+fourth of fifth argument and menu entries) have an associated node, anchor or
+float.  Set the C<normalized> key in the C<extra> hash C<menu_entry_node> hash
+for menu entries and in the C<extra> hash C<node_argument> hash for internal
+references C<@ref> and similar @-commands.  Set the C<label> key in the
+C<extra> hash of the reference tree element to the associated labeled tree
+element.  Register errors in I<$registrar>.
 
 =item check_nodes_are_referenced($registrar, $configuration_information, $nodes_list, $top_node, $labels, $refs)
 X<C<check_nodes_are_referenced>>

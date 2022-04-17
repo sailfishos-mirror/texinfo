@@ -72,13 +72,16 @@ replaced, elided, elided_block types.
 extra->'comment_at_end' and extra->'spaces_after_argument'
 likely in many line commands
 
-'extra'->'isindex' for nodes.
-
 Other
 -----
 
 For converter writers,
 'output_init_conf' and 'converter_init_conf'.
+
+'translated_commands' in converters is not documented anywhere nor is there
+a clean way to set it from user code with an API.  Not urgent, as long as
+it is not possible for users to register translated strings and provide with
+translations.
 
 
 Delayed bugs

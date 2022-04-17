@@ -293,9 +293,17 @@ sub _fix_texinfo_tree($$$$;$)
   }
   my ($sectioning_root, $sections_list)
     = Texinfo::Structuring::sectioning_structure($registrar, $texi_parser, $tree);
+  my ($updated_labels, $updated_targets_list, $updated_nodes_list)
+        = $texi_parser->labels_information();
+  my $refs = $texi_parser->internal_references_information();
+  my $parser_information = $texi_parser->global_information();
+  # this is needed to set 'normalized' for menu entries, they are
+  # used in complete_tree_nodes_menus.
+  Texinfo::Structuring::associate_internal_references($registrar, $texi_parser,
+                                  $parser_information, $updated_labels, $refs);
   Texinfo::Transformations::complete_tree_nodes_menus($tree)
     if ($section_nodes);
-  Texinfo::Transformations::regenerate_master_menu($texi_parser, $labels)
+  Texinfo::Transformations::regenerate_master_menu($texi_parser, $updated_labels)
      if ($do_master_menu);
   return ($texi_parser, $tree);
 }
