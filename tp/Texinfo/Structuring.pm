@@ -1323,26 +1323,27 @@ sub associate_internal_references($$$$$)
            Texinfo::Convert::NodeNameNormalization::normalize_node(
               {'contents' => $node_arg->{'node_content'} });
       $node_arg->{'normalized'} = $normalized;
-    }
-    if (!defined($labels->{$node_arg->{'normalized'}})) {
-      if (!$configuration_information->get_conf('novalidate')) {
-        $registrar->line_error($configuration_information, 
-            sprintf(__("\@%s reference to nonexistent node `%s'"),
-                $ref->{'cmdname'}, node_extra_to_texi($node_arg)),
-                $ref->{'source_info'});
-      }
-    } else {
-      my $node_target = $labels->{$node_arg->{'normalized'}};
-      $ref->{'extra'}->{'label'} = $node_target;
-      if (!$configuration_information->get_conf('novalidate')
-          and !_check_node_same_texinfo_code($node_target, $node_arg)) {
-        $registrar->line_warn($configuration_information,
-           sprintf(__("\@%s to `%s', different from %s name `%s'"), 
-               $ref->{'cmdname'},
-               node_extra_to_texi($node_arg),
-               $node_target->{'cmdname'},
-               node_extra_to_texi($node_target->{'extra'})),
-           $ref->{'source_info'});
+
+      if (!defined($labels->{$node_arg->{'normalized'}})) {
+        if (!$configuration_information->get_conf('novalidate')) {
+          $registrar->line_error($configuration_information, 
+              sprintf(__("\@%s reference to nonexistent node `%s'"),
+                  $ref->{'cmdname'}, node_extra_to_texi($node_arg)),
+                  $ref->{'source_info'});
+        }
+      } else {
+        my $node_target = $labels->{$node_arg->{'normalized'}};
+        $ref->{'extra'}->{'label'} = $node_target;
+        if (!$configuration_information->get_conf('novalidate')
+            and !_check_node_same_texinfo_code($node_target, $node_arg)) {
+          $registrar->line_warn($configuration_information,
+             sprintf(__("\@%s to `%s', different from %s name `%s'"), 
+                 $ref->{'cmdname'},
+                 node_extra_to_texi($node_arg),
+                 $node_target->{'cmdname'},
+                 node_extra_to_texi($node_target->{'extra'})),
+             $ref->{'source_info'});
+        }
       }
     }
   }

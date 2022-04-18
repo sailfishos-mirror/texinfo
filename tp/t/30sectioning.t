@@ -614,6 +614,9 @@ undef, {'test_file' => 'special_spaces_in_nodes.texi',
 ['only_special_spaces_node',
 undef, {'test_file' => 'only_special_spaces_node.texi',
         'skip' => ($] < 5.018) ? 'Perl too old: LINE TABULATION in /a needed' : undef, }],
+['in_menu_only_special_spaces_node',
+undef, {'test_file' => 'in_menu_only_special_spaces_node.texi',
+        'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, }],
 ['double_node_anchor_float',
 '@node node1
 
