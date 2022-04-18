@@ -920,14 +920,14 @@ xspara_add_text (char *text)
                       /* Only save the first space. */
                       if (state.unfilled || state.space_counter < 1)
                         {
-                          if (*p == '\n' || *p == '\r')
+                          if (*p == '\n')
                             {
                               if (!state.unfilled)
                                 {
                                   text_append_n (&state.space, " ", 1);
                                   state.space_counter++;
                                 }
-                              else if (*p == '\n')
+                              else
                                 {
                                   xspara__add_pending_word (&result, 0);
                                   xspara__end_line ();

@@ -366,16 +366,15 @@ sub add_text($$)
             # Only save the first space
             if ($paragraph->{'unfilled'}
                 or length($paragraph->{'space'}) < 1) {
-              if ($spaces =~ /[\n\r]/) {
+              if ($spaces =~ /\n/) {
                 if (!$paragraph->{'unfilled'}) {
                   $paragraph->{'space'} = ' ';
-                } elsif ($spaces =~ /\n/) {
+                } else {
                   $result .= _add_pending_word ($paragraph);
                   $result .= _end_line ($paragraph);
                 }
               } else {
                 if (!$paragraph->{'unfilled'}) {
-                  $spaces =~ s/\r/ /g;
                   $paragraph->{'space'} .= substr ($spaces, 0, 1);
                 } else {
                   $paragraph->{'space'} .= $spaces;
