@@ -1,3 +1,8 @@
+2022-04-18  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (add_text): consider \r
+	to end a line, as in the XS code.
+
 2022-04-17  Patrice Dumas  <pertusus@free.fr>
 
 	Avoid duplication in @detailmenu master menu output by pod2texi

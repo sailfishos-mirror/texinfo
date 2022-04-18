@@ -608,6 +608,8 @@ $character_and_spaces_in_refs_text],
 @node /;<=>?[\\]^_`|~,local   node,!_"#$%&\'()*+-., other nodes
 @node  local   node,,/;<=>?[\\]^_`|~,other nodes
 '],
+['special_spaces_in_nodes',
+undef, {'test_file' => 'special_spaces_in_nodes.texi'}],
 ['double_node_anchor_float',
 '@node node1
 

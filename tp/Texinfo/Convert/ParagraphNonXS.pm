@@ -323,7 +323,8 @@ sub add_text($$)
   my $debug_flag = $paragraph->{'DEBUG'};
   while (@segments) {
     # $empty_segment should be an empty string; the other variables
-    # here were recognized as field separators by splice.
+    # here were recognized as field separators by split, the separator
+    # set to something else than undef for the separator matching.
     my ($empty_segment, $spaces, $fullwidth_segment, $added_word)
      = splice (@segments, 0, 4);
 
@@ -365,7 +366,7 @@ sub add_text($$)
             # Only save the first space
             if ($paragraph->{'unfilled'}
                 or length($paragraph->{'space'}) < 1) {
-              if ($spaces =~ /\n/) {
+              if ($spaces =~ /[\n\r]/) {
                 if (!$paragraph->{'unfilled'}) {
                   $paragraph->{'space'} = ' ';
                 } elsif ($spaces =~ /\n/) {
