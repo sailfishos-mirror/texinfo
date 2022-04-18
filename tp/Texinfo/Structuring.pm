@@ -1,4 +1,4 @@
-# Structuring.pm: extract information about a document structure based on the 
+# Structuring.pm: extract information about a document structure based on the
 #                 document tree.
 #
 # Copyright 2010-2019 Free Software Foundation, Inc.
@@ -32,7 +32,7 @@ use strict;
 
 use Texinfo::Common;
 
-# for error messages 
+# for error messages
 use Texinfo::Convert::Texinfo qw(node_extra_to_texi);
 # for debugging.  Also for index entries sorting.
 use Texinfo::Convert::Text;
@@ -146,7 +146,7 @@ sub sectioning_structure($$$)
       if ($previous_section->{'structure'}->{'section_level'} < $level) {
         if ($level - $previous_section->{'structure'}->{'section_level'} > 1) {
           $registrar->line_error($configuration_information,
-           sprintf(__("raising the section level of \@%s which is too low"), 
+           sprintf(__("raising the section level of \@%s which is too low"),
               $content->{'cmdname'}), $content->{'source_info'});
           $content->{'structure'}->{'section_level'}
               = $previous_section->{'structure'}->{'section_level'} + 1;
@@ -185,7 +185,7 @@ sub sectioning_structure($$$)
               }
             } else {
               $registrar->line_warn($configuration_information,
-  sprintf(__("lowering the section level of \@%s appearing after a lower element"), 
+  sprintf(__("lowering the section level of \@%s appearing after a lower element"),
                   $content->{'cmdname'}), $content->{'source_info'});
               $content->{'structure'}->{'section_level'}
                  = $up->{'structure'}->{'section_level'} + 1;
@@ -193,12 +193,12 @@ sub sectioning_structure($$$)
           }
         }
         if ($appendix_commands{$content->{'cmdname'}} and !$in_appendix
-            and $content->{'structure'}->{'section_level'} <= $number_top_level 
+            and $content->{'structure'}->{'section_level'} <= $number_top_level
             and $up->{'cmdname'} and $up->{'cmdname'} eq 'part') {
           $up = $up->{'structure'}->{'section_up'};
         }
         if ($new_upper_part_element) {
-          # In that case the root has to be updated because the first 
+          # In that case the root has to be updated because the first
           # 'part' just appeared
           $sec_root->{'structure'}->{'section_level'} = $level - 1;
           push @{$sec_root->{'structure'}->{'section_childs'}}, $content;
@@ -218,7 +218,8 @@ sub sectioning_structure($$$)
           $command_unnumbered[$content->{'structure'}->{'section_level'}] = 1;
         }
       }
-    } else { # first section determines the level of the root.  It is 
+    } else {
+      # first section determines the level of the root.  It is
       # typically -1 when there is a @top.
       $sec_root->{'structure'}->{'section_level'} = $level - 1;
       $sec_root->{'structure'}->{'section_childs'} = [$content];
@@ -265,7 +266,7 @@ sub sectioning_structure($$$)
       }
     }
     $previous_section = $content;
-    if ($content->{'cmdname'} ne 'part' 
+    if ($content->{'cmdname'} ne 'part'
         and $content->{'structure'}->{'section_level'} <= $number_top_level) {
       if ($previous_toplevel) {
         $previous_toplevel->{'structure'}->{'toplevel_next'} = $content;
@@ -275,8 +276,8 @@ sub sectioning_structure($$$)
       if ($section_top and $content ne $section_top) {
         $content->{'structure'}->{'toplevel_up'} = $section_top;
       }
-    } elsif ($content->{'cmdname'} eq 'part' 
-        and !$content->{'extra'}->{'part_associated_section'}) {
+    } elsif ($content->{'cmdname'} eq 'part'
+             and !$content->{'extra'}->{'part_associated_section'}) {
       $registrar->line_warn($configuration_information,
         sprintf(__("no sectioning command associated with \@%s"),
           $content->{'cmdname'}), $content->{'source_info'});
@@ -333,7 +334,7 @@ sub _check_node_same_texinfo_code($$)
   my $node_texi;
   if ($node_extra and $node_extra->{'node_content'}) {
     my @contents_node = @{$node_extra->{'node_content'}};
-    pop @contents_node if ($contents_node[-1]->{'type'} 
+    pop @contents_node if ($contents_node[-1]->{'type'}
                and $contents_node[-1]->{'type'} eq 'space_at_end_menu_node');
     $node_texi = Texinfo::Convert::Texinfo::convert_to_texinfo(
       {'contents' => \@contents_node});
@@ -369,13 +370,13 @@ sub _check_menu_entry($$$$$)
   if (!$menu_node) {
     $registrar->line_error($configuration_information,
       sprintf(__("\@%s reference to nonexistent node `%s'"), $command,
-        node_extra_to_texi($menu_content->{'extra'}->{'menu_entry_node'})), 
+           node_extra_to_texi($menu_content->{'extra'}->{'menu_entry_node'})),
       $menu_content->{'source_info'});
   } else {
-    if (!_check_node_same_texinfo_code($menu_node, 
+    if (!_check_node_same_texinfo_code($menu_node,
                            $menu_content->{'extra'}->{'menu_entry_node'})) {
       $registrar->line_warn($configuration_information,
-       sprintf(__("\@%s entry node name `%s' different from %s name `%s'"), 
+       sprintf(__("\@%s entry node name `%s' different from %s name `%s'"),
          $command,
          node_extra_to_texi($menu_content->{'extra'}->{'menu_entry_node'}),
          $menu_node->{'cmdname'},
@@ -450,7 +451,7 @@ sub set_menus_node_directions($$$$$$)
 
   # First go through all the menus and set menu_up, menu_next and menu_prev,
   # and warn for unknown nodes.
-  # Remark: since the @menu are only checked if they are in @node, 
+  # Remark: since the @menu are only checked if they are in @node,
   # menu entries before the first node, or @menu nested inside
   # another command such as @format, may be treated slightly
   # differently; at least, there are no error messages for them.
@@ -480,8 +481,8 @@ sub set_menus_node_directions($$$$$$)
                 _check_menu_entry($registrar, $configuration_information,
                                   $labels, 'menu', $menu_content);
               }
-              # this may happen more than once for a given node if the node 
-              # is in more than one menu.  Therefore all the menu up node 
+              # this may happen more than once for a given node if the node
+              # is in more than one menu.  Therefore all the menu up node
               # are kept in $menu_node->{'structure'}->{'menu_up_hash'}
               if ($menu_node) {
                 $menu_node->{'structure'}->{'menu_up'} = $node;
@@ -592,12 +593,12 @@ sub complete_node_tree_with_menus($$$$)
           and $section->{'structure'}->{'section_up'}{'extra'}{'associated_node'}{'menus'}
           and @{$section->{'structure'}->{'section_up'}{'extra'}{'associated_node'}{'menus'}}
                     and !$node->{'structure'}->{'menu_'.$direction}) {
-                  $registrar->line_warn($configuration_information, 
-          sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
-                  $direction,
-                  node_extra_to_texi($node->{'extra'}),
-                  node_extra_to_texi($direction_associated_node->{'extra'})),
-                    $node->{'source_info'});
+                  $registrar->line_warn($configuration_information,
+           sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
+                   $direction,
+                   node_extra_to_texi($node->{'extra'}),
+                   node_extra_to_texi($direction_associated_node->{'extra'})),
+                                        $node->{'source_info'});
                 }
               }
             }
@@ -677,8 +678,8 @@ sub complete_node_tree_with_menus($$$$)
           and @{$node->{'structure'}->{'node_up'}->{'extra'}->{'menus'}}) {
         $registrar->line_warn($configuration_information,
          sprintf(
-           __("node `%s' lacks menu item for `%s' despite being its Up target"), 
-           node_extra_to_texi($node->{'structure'}->{'node_up'}->{'extra'}), 
+           __("node `%s' lacks menu item for `%s' despite being its Up target"),
+           node_extra_to_texi($node->{'structure'}->{'node_up'}->{'extra'}),
            node_extra_to_texi($node->{'extra'})),
          $node->{'structure'}->{'node_up'}->{'source_info'});
       }
@@ -705,8 +706,8 @@ sub nodes_tree($$$$$)
     if ($node->{'extra'}->{'normalized'} eq 'Top') {
       $top_node = $node;
     }
-    my $automatic_directions = 
-      (scalar(@{$node->{'extra'}->{'nodes_manuals'}}) == 1);
+    my $automatic_directions
+        = (scalar(@{$node->{'extra'}->{'nodes_manuals'}}) == 1);
 
     if ($automatic_directions) {
       if ($node->{'extra'}->{'normalized'} ne 'Top') {
@@ -758,7 +759,7 @@ sub nodes_tree($$$$$)
           $node->{'structure'}->{'node_'.$direction} = { 'extra' => $node_direction };
         } else {
           if ($labels->{$node_direction->{'normalized'}}) {
-            my $node_target 
+            my $node_target
                = $labels->{$node_direction->{'normalized'}};
             $node->{'structure'}->{'node_'.$direction} = $node_target;
 
@@ -782,7 +783,7 @@ sub nodes_tree($$$$$)
               $registrar->line_error($configuration_information,
                    sprintf(__("%s reference to nonexistent `%s'"),
                       $direction_texts{$direction},
-                      node_extra_to_texi($node_direction)), 
+                      node_extra_to_texi($node_direction)),
                    $node->{'source_info'});
             }
           }
@@ -958,11 +959,11 @@ sub _label_target_element($)
       'extra' => {'manual_content' => $label->{'extra'}->{'manual_content'}}};
   
     if ($label->{'extra'}->{'node_content'}) {
-      $external_node->{'extra'}->{'node_content'} 
+      $external_node->{'extra'}->{'node_content'}
         = $label->{'extra'}->{'node_content'};
-      $external_node->{'extra'}->{'normalized'} = 
-        Texinfo::Convert::NodeNameNormalization::normalize_node(
-          {'contents' => $label->{'extra'}->{'node_content'}});
+      $external_node->{'extra'}->{'normalized'}
+        = Texinfo::Convert::NodeNameNormalization::normalize_node(
+                   {'contents' => $label->{'extra'}->{'node_content'}});
     }
     return $external_node;
   } elsif ($label->{'cmdname'} and $label->{'cmdname'} eq 'node') {
@@ -1326,7 +1327,7 @@ sub associate_internal_references($$$$$)
 
       if (!defined($labels->{$node_arg->{'normalized'}})) {
         if (!$configuration_information->get_conf('novalidate')) {
-          $registrar->line_error($configuration_information, 
+          $registrar->line_error($configuration_information,
               sprintf(__("\@%s reference to nonexistent node `%s'"),
                   $ref->{'cmdname'}, node_extra_to_texi($node_arg)),
                   $ref->{'source_info'});
@@ -1337,7 +1338,7 @@ sub associate_internal_references($$$$$)
         if (!$configuration_information->get_conf('novalidate')
             and !_check_node_same_texinfo_code($node_target, $node_arg)) {
           $registrar->line_warn($configuration_information,
-             sprintf(__("\@%s to `%s', different from %s name `%s'"), 
+             sprintf(__("\@%s to `%s', different from %s name `%s'"),
                  $ref->{'cmdname'},
                  node_extra_to_texi($node_arg),
                  $node_target->{'cmdname'},
@@ -1463,19 +1464,19 @@ sub new_node_menu_entry
          'parent' => $description->{'contents'}->[0]};
 
   if ($use_sections) {
-    $entry->{'args'} 
+    $entry->{'args'}
      = [{'text' => '* ', 'type' => 'menu_entry_leading_text'},
-       $menu_entry_name, 
-       {'text' => ': ', 'type' => 'menu_entry_separator'},
-       $menu_entry_node, 
-       {'text' => '.', 'type' => 'menu_entry_separator'},
-       $description];
+        $menu_entry_name,
+        {'text' => ': ', 'type' => 'menu_entry_separator'},
+        $menu_entry_node,
+        {'text' => '.', 'type' => 'menu_entry_separator'},
+        $description];
   } else {
-    $entry->{'args'} 
+    $entry->{'args'}
      = [{'text' => '* ', 'type' => 'menu_entry_leading_text'},
-       $menu_entry_node, 
-       {'text' => '::', 'type' => 'menu_entry_separator'},
-       $description];
+        $menu_entry_node,
+        {'text' => '::', 'type' => 'menu_entry_separator'},
+        $description];
   }
 
   foreach my $arg(@{$entry->{'args'}}) {
@@ -1505,14 +1506,14 @@ sub new_block_command($$$)
   my $parent = shift;
   my $command_name = shift;
 
-  my $end = {'cmdname' => 'end', 'extra' => 
+  my $end = {'cmdname' => 'end', 'extra' =>
                  {'command_argument' => $command_name,
                   'text_arg' => $command_name}};
   push @{$end->{'args'}},
     {'type' => 'line_arg', 'parent' => $end};
   push @{$end->{'args'}->[0]->{'contents'}},
          ({'text' => $command_name, 'parent' => $end->{'args'}->[0]},
-          {'type' => 'spaces_at_end', 'text' => "\n", 
+          {'type' => 'spaces_at_end', 'text' => "\n",
            'parent' => $end->{'args'}->[0]});
   $end->{'args'}->[0]->{'extra'} = {'spaces_before_argument' => ' '};
   my $new_block = {'cmdname' => $command_name, 'parent' => $parent,
@@ -1748,8 +1749,8 @@ Texinfo::Structuring - information on Texinfo::Parser tree
     $index_entries_sorted = sort_indices($registrar, $config,
                                          $merged_index_entries);
   }
- 
- 
+
+
 =head1 NOTES
 
 The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
