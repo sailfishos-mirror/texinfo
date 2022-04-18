@@ -611,7 +611,8 @@ $character_and_spaces_in_refs_text],
 ['special_spaces_in_nodes',
 undef, {'test_file' => 'special_spaces_in_nodes.texi'}],
 ['only_special_spaces_node',
-undef, {'test_file' => 'only_special_spaces_node.texi'}],
+undef, {'test_file' => 'only_special_spaces_node.texi',
+        'skip' => ($] < 5.018) ? 'Perl too old: LINE TABULATION in /a needed' : undef, }],
 ['double_node_anchor_float',
 '@node node1
 

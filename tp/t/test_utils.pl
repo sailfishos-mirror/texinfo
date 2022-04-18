@@ -197,6 +197,8 @@ sub protect_perl_string($)
   my $string = shift;
   $string =~ s/\\/\\\\/g;
   $string =~ s/'/\\'/g;
+  # \r can be mangled upon reading if at end of line
+  $string =~ s/\r/'."\\r".'/g;
   return $string;
 }
 
@@ -1212,6 +1214,13 @@ sub test($$)
       local $Data::Dumper::Sortkeys = \&filter_tree_keys;
       $out_result = Data::Dumper->Dump([$split_result],
                                        ['$result_trees{\''.$test_name.'\'}']);
+      if ($out_result =~ /\r/) {
+        # \r can be mangled upon reading if at end of line, with Useqq it is
+        # protected
+        local $Data::Dumper::Useqq = 1;
+        $out_result = Data::Dumper->Dump([$split_result],
+                                         ['$result_trees{\''.$test_name.'\'}']);
+      }
     }
     my $texi_string_result
         = Texinfo::Convert::Texinfo::convert_to_texinfo($result);
@@ -1315,9 +1324,8 @@ sub test($$)
     ok (Data::Compare::Compare($indices_sorted_sort_strings,
                                $result_indices_sort_strings{$test_name}),
         $test_name.' indices sort');
-    ok (Texinfo::Convert::Texinfo::convert_to_texinfo($result)
-                                              eq $result_texis{$test_name},
-         $test_name.' texi');
+    my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($result);
+    is ($texi_result, $result_texis{$test_name}, $test_name.' texi');
     if ($todos{'text'}) {
       SKIP: {
         skip $todos{'text'}, 1;
