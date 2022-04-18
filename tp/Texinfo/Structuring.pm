@@ -1422,6 +1422,9 @@ sub new_node_menu_entry
   my ($node, $use_sections) = @_;
 
   my $node_contents = $node->{'extra'}->{'node_content'};
+
+  # can happen with node without argument or with empty argument
+  return undef if (not defined($node_contents));
   
   my ($name_contents, $menu_entry_name);
   if ($use_sections) {
@@ -1533,9 +1536,9 @@ sub new_complete_node_menu
   }
 
   my @pending;
-  for my $child (@node_childs) {
+  foreach my $child (@node_childs) {
     my $entry = new_node_menu_entry($child, $use_sections);
-    push @pending, $entry;
+    push @pending, $entry if defined($entry);
   }
 
   my $section = $node->{'extra'}->{'associated_section'};
@@ -1952,6 +1955,7 @@ X<C<new_node_menu_entry>>
 
 Returns the texinfo tree corresponding to a single menu entry pointing to
 I<$node>.  If I<$use_sections> is set, use the section name instead of node name.
+Returns C<undef> if the node argument is missing.
 
 =item $top_node = nodes_tree($registrar, $configuration_information, $parser_information, $nodes_list, $labels)
 X<C<nodes_tree>>

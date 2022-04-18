@@ -10,6 +10,12 @@
 
 2022-04-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (new_node_menu_entry)
+	(new_complete_node_menu): handle node with {'extra'}->{'node_content'}
+	undef, as happens for node with empty argument.
+
+2022-04-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/ParagraphNonXS.pm (add_text): consider \r
 	to end a line, as in the XS code.
 
