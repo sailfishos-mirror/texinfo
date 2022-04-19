@@ -1,3 +1,12 @@
+2022-04-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	vertical tab
+
+	* tp/Texinfo/XS/parsetexi/parser.c
+	(whitespace_chars, whitespace_chars_except_newline):
+	Add \v in order to be consistent with \s regex class in
+	newer Perl.  From Patrice.
+
 2022-04-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (associate_internal_references): check

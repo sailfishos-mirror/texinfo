@@ -176,14 +176,9 @@ $result_trees{'only_special_spaces_node'} = {
     {
       "args" => [
         {
-          "contents" => [
-            {
-              "parent" => {},
-              "text" => "\13"
-            }
-          ],
+          "contents" => [],
           "extra" => {
-            "spaces_after_argument" => "\n"
+            "spaces_after_argument" => " \t\f\13\n"
           },
           "parent" => {},
           "type" => "line_arg"
@@ -193,14 +188,8 @@ $result_trees{'only_special_spaces_node'} = {
       "contents" => [],
       "extra" => {
         "nodes_manuals" => [
-          {
-            "node_content" => [
-              {}
-            ],
-            "normalized" => "-"
-          }
-        ],
-        "spaces_before_argument" => " \t\f"
+          undef
+        ]
       },
       "parent" => {},
       "source_info" => {
@@ -557,9 +546,7 @@ $result_trees{'only_special_spaces_node'}{"contents"}[4]{"args"}[0]{"contents"}[
 $result_trees{'only_special_spaces_node'}{"contents"}[4]{"args"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[4];
 $result_trees{'only_special_spaces_node'}{"contents"}[4]{"contents"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[4];
 $result_trees{'only_special_spaces_node'}{"contents"}[4]{"parent"} = $result_trees{'only_special_spaces_node'};
-$result_trees{'only_special_spaces_node'}{"contents"}[5]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[5]{"args"}[0];
 $result_trees{'only_special_spaces_node'}{"contents"}[5]{"args"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[5];
-$result_trees{'only_special_spaces_node'}{"contents"}[5]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'only_special_spaces_node'}{"contents"}[5]{"args"}[0]{"contents"}[0];
 $result_trees{'only_special_spaces_node'}{"contents"}[5]{"parent"} = $result_trees{'only_special_spaces_node'};
 $result_trees{'only_special_spaces_node'}{"contents"}[6]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[6]{"args"}[0];
 $result_trees{'only_special_spaces_node'}{"contents"}[6]{"args"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[6];
@@ -855,12 +842,12 @@ $result_errors{'only_special_spaces_node'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'empty node name after expansion `\'
+    'error_line' => 'empty argument in @node
 ',
     'file_name' => 'only_special_spaces_node.texi',
     'line_nr' => 8,
     'macro' => '',
-    'text' => 'empty node name after expansion `\'',
+    'text' => 'empty argument in @node',
     'type' => 'error'
   },
   {

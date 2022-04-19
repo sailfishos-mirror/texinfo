@@ -24,11 +24,11 @@
 #include "input.h"
 
 
-const char *whitespace_chars = " \t\f\r\n";
+const char *whitespace_chars = " \t\v\f\r\n";
 const char *digit_chars = "0123456789";
 
 // [^\S\r\n] in Perl
-const char *whitespace_chars_except_newline = " \t\f";
+const char *whitespace_chars_except_newline = " \t\v\f";
 
 /* Check if the contents of S2 appear at S1). */
 int
