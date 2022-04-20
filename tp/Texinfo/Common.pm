@@ -1453,13 +1453,15 @@ sub parse_node_manual($)
 {
   my $label_contents_container = shift;
 
-  my @contents = @{$label_contents_container->{'contents'}};
-
   my $manual;
   my $result;
   my ($end_paren, $spaces_after);
 
-  if ($contents[0] and $contents[0]->{'text'} and $contents[0]->{'text'} =~ /^\(/) {
+  return undef, undef if (not $label_contents_container->{'contents'});
+  my @contents = @{$label_contents_container->{'contents'}};
+
+  if (scalar(@contents) and $contents[0]
+      and $contents[0]->{'text'} and $contents[0]->{'text'} =~ /^\(/) {
     my $braces_count = 1;
     if ($contents[0]->{'text'} !~ /^\($/) {
       my $brace = shift @contents;

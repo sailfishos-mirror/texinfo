@@ -193,8 +193,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                 }
               ],
               "extra" => {
-                "menu_entry_description" => {},
-                "menu_entry_node" => undef
+                "menu_entry_description" => {}
               },
               "parent" => {},
               "source_info" => {
@@ -238,8 +237,7 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                 }
               ],
               "extra" => {
-                "menu_entry_description" => {},
-                "menu_entry_node" => undef
+                "menu_entry_description" => {}
               },
               "parent" => {},
               "source_info" => {
@@ -1351,6 +1349,24 @@ $result_menus{'in_menu_only_special_spaces_node'} = {
 $result_menus{'in_menu_only_special_spaces_node'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'in_menu_only_special_spaces_node'};
 
 $result_errors{'in_menu_only_special_spaces_node'} = [
+  {
+    'error_line' => 'empty node name in menu entry
+',
+    'file_name' => 'in_menu_only_special_spaces_node.texi',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => 'empty node name in menu entry',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'empty node name in menu entry
+',
+    'file_name' => 'in_menu_only_special_spaces_node.texi',
+    'line_nr' => 8,
+    'macro' => '',
+    'text' => 'empty node name in menu entry',
+    'type' => 'error'
+  },
   {
     'error_line' => "empty node name after expansion `\x{2000}\x{2001}\x{2002}'
 ",

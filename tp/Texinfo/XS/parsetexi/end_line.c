@@ -802,20 +802,21 @@ kdbinputstyle_invalid:
 }
 
 /* NODE->contents is the Texinfo for the specification of a node.  This
-   function sets three fields on the returned object:
+   function sets two fields on the returned object:
 
      manual_content - Texinfo tree for a manual name extracted from the
                       node specification.
      node_content - Texinfo tree for the node name on its own
-     normalized - a string with the node name after HTML node name
-                  normalization is applied
 
    Objects returned from this function are used as an 'extra' key in a
    few places: the elements of a 'nodes_manuals' array (itself an extra key),
    the 'menu_entry_node' key on a 'menu_entry' element (not to be confused
    with an ET_menu_entry_node element, which occurs in the args of a 
    'menu_entry' element), and in the 'node_argument' key of a cross-reference 
-   command (like @xref). */
+   command (like @xref).
+
+   This function does not return 0 if there is no content for the node, as
+   the 'nodes_manuals' is delimited by a 0. */
 NODE_SPEC_EXTRA *
 parse_node_manual (ELEMENT *node)
 {

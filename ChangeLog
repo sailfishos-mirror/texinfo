@@ -1,3 +1,25 @@
+2022-04-20  Patrice Dumas  <pertusus@free.fr>
+
+	Fix both parsers to do the same tree with empty menu entry nodes
+
+	* tp/Texinfo/XS/parsetexi/menus.c
+	(register_extra_menu_entry_information): to determine that there
+	is no node content returned by parse_node_manual(), check that
+	manual_content and node_content fields are both null, as
+	parsed_entry_node is never null.  parsed_entry_node cannot be null
+	because the return of parse_node_manual() can be used in nodes_manuals
+	which is null delimited.
+
+	* tp/Texinfo/Common.pm (parse_node_manual), tp/Texinfo/ParserNonXS.pm
+	(_isolate_last_space, _parse_node_manual, _end_line, _parse_texi):
+	do not set contents for type 'menu_entry_name' and 'menu_entry_node'
+	if empty.
+
+	* tp/Texinfo/ParserNonXS.pm (_register_extra_menu_entry_information):
+	do not call Texinfo::Convert::NodeNameNormalization::normalize_node
+	to check if node is empty, simply check that it has contents as is
+	done in the XS Parser.
+
 2022-04-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	vertical tab
