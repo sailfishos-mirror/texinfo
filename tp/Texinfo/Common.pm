@@ -1,6 +1,6 @@
 # Common.pm: definition of commands. Common code of other Texinfo modules.
 #
-# Copyright 2010-2022 Free Software Foundation, Inc.
+# Copyright 2010-2020 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -1453,15 +1453,13 @@ sub parse_node_manual($)
 {
   my $label_contents_container = shift;
 
+  my @contents = @{$label_contents_container->{'contents'}};
+
   my $manual;
   my $result;
   my ($end_paren, $spaces_after);
 
-  return undef, undef if (not $label_contents_container->{'contents'});
-  my @contents = @{$label_contents_container->{'contents'}};
-
-  if (scalar(@contents) and $contents[0]
-      and $contents[0]->{'text'} and $contents[0]->{'text'} =~ /^\(/) {
+  if ($contents[0] and $contents[0]->{'text'} and $contents[0]->{'text'} =~ /^\(/) {
     my $braces_count = 1;
     if ($contents[0]->{'text'} !~ /^\($/) {
       my $brace = shift @contents;

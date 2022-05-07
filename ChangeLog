@@ -1,5 +1,27 @@
 2022-05-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Reinstate empty contents
+
+	Reverse the following change, from 2022-04-20.
+
+	* tp/Texinfo/Common.pm (parse_node_manual), tp/Texinfo/ParserNonXS.pm
+	(_isolate_last_space, _parse_node_manual, _end_line, _parse_texi):
+	do not set contents for type 'menu_entry_name' and 'menu_entry_node'
+	if empty.
+
+	With this reversion, I have run the test suite to pass both under
+	TEXINFO_XS=omit and TEXINFO_XS_PARSER=0.
+
+	There were various test failures with TEXINFO_XS=omit and
+	TEXINFO_XS_PARSER=0 due to inconsistent results.
+
+	Where an element can have contents, it will be simplest if
+	it always has the contents element, as in the C code there
+	is no distinction between an empty contents array and no
+	contents at all.
+
+2022-05-07  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Fix segfault for empty contents
 
 	* tp/Texinfo/XS/misc.c (xs_merge_text): Check if the

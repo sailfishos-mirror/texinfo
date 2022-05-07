@@ -2347,19 +2347,19 @@ sub _isolate_last_space
 {
   my ($self, $current) = @_;
 
-  return if (!$current->{'contents'} or !scalar(@{$current->{'contents'}}));
+  return if (!$current->{'contents'} or !@{$current->{'contents'}});
 
   # Store a final comment command in the 'extra' hash.
-  if ($current->{'contents'}->[-1]->{'cmdname'}
+  if (scalar(@{$current->{'contents'}}) >= 1
+      and $current->{'contents'}->[-1]->{'cmdname'}
       and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
             or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
-    $current->{'extra'}->{'comment_at_end'} = pop @{$current->{'contents'}};
-    # TODO: @c should probably not be allowed inside most brace commands
-    # as this would be difficult to implement properly in TeX.
+     $current->{'extra'}->{'comment_at_end'} = pop @{$current->{'contents'}};
+     # TODO: @c should probably not be allowed inside most brace commands
+     # as this would be difficult to implement properly in TeX.
   }
 
-  return if !$current->{'contents'}
-            or !scalar(@{$current->{'contents'}})
+  return if !@{$current->{'contents'}}
             or !defined($current->{'contents'}->[-1]->{'text'})
             or ($current->{'contents'}->[-1]->{'type'}
                   and (!$current->{'type'}
@@ -2401,8 +2401,7 @@ sub _parse_node_manual($)
   my $label_contents_container = shift;
   my ($parsed_node_manual, $modified_node_content)
     = Texinfo::Common::parse_node_manual($label_contents_container);
-  $label_contents_container->{'contents'} = $modified_node_content
-    if (defined($modified_node_content));
+  $label_contents_container->{'contents'} = $modified_node_content;
   return $parsed_node_manual;
 }
 
@@ -2834,13 +2833,13 @@ sub _end_line($$$)
     my $empty_menu_entry_node = 0;
     my $end_comment;
     if ($current->{'type'} eq 'menu_entry_node') {
-      if ($current->{'contents'} and scalar(@{$current->{'contents'}})
+      if (@{$current->{'contents'}}
           and $current->{'contents'}->[-1]->{'cmdname'}
           and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
             or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
         $end_comment = pop @{$current->{'contents'}};
       }
-      if (not $current->{'contents'} or not scalar(@{$current->{'contents'}})
+      if (!@{$current->{'contents'}}
            # empty if only the end of line or spaces, including non ascii spaces
            or (@{$current->{'contents'}} == 1
                and defined($current->{'contents'}->[-1]->{'text'})
@@ -2884,7 +2883,7 @@ sub _end_line($$$)
       }
       if ($description_or_menu_comment) {
         $current = $description_or_menu_comment;
-        if ($current->{'contents'} and $current->{'contents'}->[-1]
+        if ($current->{'contents'}->[-1]
             and $current->{'contents'}->[-1]->{'type'}
             and $current->{'contents'}->[-1]->{'type'} eq 'preformatted') {
           $current = $current->{'contents'}->[-1];
@@ -4303,6 +4302,7 @@ sub _parse_texi($$$)
                                    'text' => $leading_text,
                                    'parent' => $current },
                                  { 'type' => 'menu_entry_name',
+                                   'contents' => [],
                                    'parent' => $current } ];
           $current = $current->{'args'}->[-1];
         }
@@ -4337,6 +4337,7 @@ sub _parse_texi($$$)
         } elsif ($separator =~ /^:/) {
           print STDERR "MENU ENTRY $separator\n" if ($self->{'DEBUG'});
           push @{$current->{'args'}}, { 'type' => 'menu_entry_node',
+                                        'contents' => [],
                                         'parent' => $current };
           $current = $current->{'args'}->[-1];
         # anything else is the end of the menu node following a menu_entry_name
