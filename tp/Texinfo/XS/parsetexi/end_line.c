@@ -813,10 +813,7 @@ kdbinputstyle_invalid:
    the 'menu_entry_node' key on a 'menu_entry' element (not to be confused
    with an ET_menu_entry_node element, which occurs in the args of a 
    'menu_entry' element), and in the 'node_argument' key of a cross-reference 
-   command (like @xref).
-
-   This function does not return 0 if there is no content for the node, as
-   the 'nodes_manuals' is delimited by a 0. */
+   command (like @xref). */
 NODE_SPEC_EXTRA *
 parse_node_manual (ELEMENT *node)
 {

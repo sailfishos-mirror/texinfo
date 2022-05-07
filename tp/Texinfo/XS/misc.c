@@ -274,29 +274,31 @@ xs_merge_text (HV *self, HV *current, SV *text_in)
           leading_spaces_sv = newSVpv (text, leading_spaces);
         }
 
-      svp = hv_fetch (current,
-                      "contents", strlen ("contents"), 0);
-      contents_array = (AV *)SvRV(*svp);
-      
-      contents_num = av_len(contents_array) + 1;
-      if (contents_num > 0)
+      svp = hv_fetch (current, "contents", strlen ("contents"), 0);
+      if (svp)
         {
-          HV *last_elt;
-          char *type = 0;
-
-          last_elt = (HV *)
-            SvRV (*av_fetch (contents_array, contents_num - 1, 0));
-
-          svp = hv_fetch (last_elt, "type", strlen ("type"), 0);
-          if (svp)
-            type = SvPV_nolen (*svp);
-          if (type
-              && (!strcmp (type, "empty_line_after_command")
-                  || !strcmp (type, "empty_spaces_after_command")
-                  || !strcmp (type, "empty_spaces_before_argument")
-                  || !strcmp (type, "empty_spaces_after_close_brace")))
+          contents_array = (AV *)SvRV(*svp);
+          
+          contents_num = av_len(contents_array) + 1;
+          if (contents_num > 0)
             {
-              no_merge_with_following_text = 1;
+              HV *last_elt;
+              char *type = 0;
+
+              last_elt = (HV *)
+                SvRV (*av_fetch (contents_array, contents_num - 1, 0));
+
+              svp = hv_fetch (last_elt, "type", strlen ("type"), 0);
+              if (svp)
+                type = SvPV_nolen (*svp);
+              if (type
+                  && (!strcmp (type, "empty_line_after_command")
+                      || !strcmp (type, "empty_spaces_after_command")
+                      || !strcmp (type, "empty_spaces_before_argument")
+                      || !strcmp (type, "empty_spaces_after_close_brace")))
+                {
+                  no_merge_with_following_text = 1;
+                }
             }
         }
 

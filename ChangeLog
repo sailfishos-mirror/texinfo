@@ -1,3 +1,15 @@
+2022-05-07  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Fix segfault for empty contents
+
+	* tp/Texinfo/XS/misc.c (xs_merge_text): Check if the
+	contents array was defined.
+	* tp/Texinfo/XS/end_line.c (parse_node_manual): Remove confusing
+	comment.
+
+	Since recent change, there could be a segfault under
+	TEXINFO_XS_PARSER=0 due to the contents array not being defined.
+
 2022-04-20  Patrice Dumas  <pertusus@free.fr>
 
 	Fix both parsers to do the same tree with empty menu entry nodes
