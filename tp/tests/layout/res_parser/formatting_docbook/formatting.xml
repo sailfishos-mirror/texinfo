@@ -139,7 +139,8 @@ but , ,
 @guillemotright &#187;
 @guilsinglleft &#8249;
 @guilsinglright &#8250;
-@textdegree &#176;
+</para>
+<para>@textdegree &#176;
 @euro &#8364;
 @arrow &#8594;
 @leq &#8804;
@@ -992,7 +993,8 @@ but , ,
 @guillemotright &#187;
 @guilsinglleft &#8249;
 @guilsinglright &#8250;
-@textdegree &#176;
+</para>
+<para>@textdegree &#176;
 @euro &#8364;
 @arrow &#8594;
 @leq &#8804;
@@ -1832,7 +1834,8 @@ but , ,
 @guillemotright &#187;
 @guilsinglleft &#8249;
 @guilsinglright &#8250;
-@textdegree &#176;
+</para>
+<para>@textdegree &#176;
 @euro &#8364;
 @arrow &#8594;
 @leq &#8804;
@@ -2668,6 +2671,7 @@ but , ,
 @guillemotright &#187;
 @guilsinglleft &#8249;
 @guilsinglright &#8250;
+
 @textdegree &#176;
 @euro &#8364;
 @arrow &#8594;

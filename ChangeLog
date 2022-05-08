@@ -1,5 +1,13 @@
 2022-05-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Line breaking fix in test suite
+
+	* tp/tests/coverage_macro.texi:
+	Add blank line in attempt to get consistent line breaking
+	decisions on Solaris, where wcwidth returns 2 for more characters.
+
+2022-05-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/t/plaintext_tests.t (non_break_spaces):
 	Skip test on older Perl.
 

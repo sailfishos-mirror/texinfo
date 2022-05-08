@@ -130,6 +130,7 @@ but , ,@:
 @@guillemotright @guillemotright{}
 @@guilsinglleft @guilsinglleft{}
 @@guilsinglright @guilsinglright{}
+
 @@textdegree @textdegree{}
 @@euro @euro{}
 @@arrow @arrow{}
@@ -1215,7 +1216,8 @@ but , ,&noeos;
 &arobase;guillemotright &guillemotright;
 &arobase;guilsinglleft &lsaquo;
 &arobase;guilsinglright &rsaquo;
-&arobase;textdegree &deg;
+</para>
+<para>&arobase;textdegree &deg;
 &arobase;euro &euro;
 &arobase;arrow &rarr;
 &arobase;leq &le;
@@ -2285,7 +2287,8 @@ but , ,&noeos;
 &arobase;guillemotright &guillemotright;
 &arobase;guilsinglleft &lsaquo;
 &arobase;guilsinglright &rsaquo;
-&arobase;textdegree &deg;
+</para>
+<para>&arobase;textdegree &deg;
 &arobase;euro &euro;
 &arobase;arrow &rarr;
 &arobase;leq &le;
@@ -3382,7 +3385,8 @@ but , ,&noeos;
 &arobase;guillemotright &guillemotright;
 &arobase;guilsinglleft &lsaquo;
 &arobase;guilsinglright &rsaquo;
-&arobase;textdegree &deg;
+</para>
+<para>&arobase;textdegree &deg;
 &arobase;euro &euro;
 &arobase;arrow &rarr;
 &arobase;leq &le;
@@ -4446,6 +4450,7 @@ but , ,&noeos;
 &arobase;guillemotright &guillemotright;
 &arobase;guilsinglleft &lsaquo;
 &arobase;guilsinglright &rsaquo;
+
 &arobase;textdegree &deg;
 &arobase;euro &euro;
 &arobase;arrow &rarr;

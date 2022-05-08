@@ -150,6 +150,7 @@ but , ,
 @guillemotright >>
 @guilsinglleft <
 @guilsinglright >
+
 @textdegree o
 @euro Euro
 @arrow ->
@@ -966,6 +967,7 @@ but , ,
 @guillemotright >>
 @guilsinglleft <
 @guilsinglright >
+
 @textdegree o
 @euro Euro
 @arrow ->

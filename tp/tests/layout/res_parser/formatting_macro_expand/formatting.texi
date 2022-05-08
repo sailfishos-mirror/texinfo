@@ -127,6 +127,7 @@ but , ,@:
 @@guillemotright @guillemotright{}
 @@guilsinglleft @guilsinglleft{}
 @@guilsinglright @guilsinglright{}
+
 @@textdegree @textdegree{}
 @@euro @euro{}
 @@arrow @arrow{}
@@ -1213,6 +1214,7 @@ but , ,@:
 @@guillemotright @guillemotright{}
 @@guilsinglleft @guilsinglleft{}
 @@guilsinglright @guilsinglright{}
+
 @@textdegree @textdegree{}
 @@euro @euro{}
 @@arrow @arrow{}
@@ -2291,6 +2293,7 @@ but , ,@:
 @@guillemotright @guillemotright{}
 @@guilsinglleft @guilsinglleft{}
 @@guilsinglright @guilsinglright{}
+
 @@textdegree @textdegree{}
 @@euro @euro{}
 @@arrow @arrow{}
@@ -3395,6 +3398,7 @@ but , ,@:
 @@guillemotright @guillemotright{}
 @@guilsinglleft @guilsinglleft{}
 @@guilsinglright @guilsinglright{}
+
 @@textdegree @textdegree{}
 @@euro @euro{}
 @@arrow @arrow{}
@@ -4467,6 +4471,7 @@ but , ,@:
 @@guillemotright @guillemotright{}
 @@guilsinglleft @guilsinglleft{}
 @@guilsinglright @guilsinglright{}
+
 @@textdegree @textdegree{}
 @@euro @euro{}
 @@arrow @arrow{}
