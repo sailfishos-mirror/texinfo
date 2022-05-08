@@ -967,7 +967,9 @@ undef, {'test_file' => 'japanese_utf8.texi'}
 undef, {'test_file' => 'chinese_mixed_with_en.texi'}
 ],
 ['non_break_spaces',
-undef, {'test_file' => 'non_break_spaces.texi'}
+undef,
+{'test_file' => 'non_break_spaces.texi',
+ 'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, },
 ],
 ['all_spaces',
 undef, {'test_file' => 'all_spaces.texi', 

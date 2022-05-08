@@ -1,3 +1,8 @@
+2022-05-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/t/plaintext_tests.t (non_break_spaces):
+	Skip test on older Perl.
+
 2022-05-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Reinstate empty contents
