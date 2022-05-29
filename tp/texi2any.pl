@@ -299,7 +299,7 @@ my $main_program_set_options = {
     'PROGRAM' => $real_command_name, 
     'TEXINFO_DTD_VERSION' => $texinfo_dtd_version,
     'COMMAND_LINE_ENCODING' => $locale_encoding,
-    'LOCALE_OUTPUT_ENCODING_NAME' => $locale_encoding,
+    'MESSAGE_ENCODING' => $locale_encoding,
     'LOCALE_INPUT_FILE_NAME_ENCODING' => $file_name_encoding,
     'LOCALE_OUTPUT_FILE_NAME_ENCODING' => $file_name_encoding,
 };
@@ -362,7 +362,7 @@ sub _decode_i18n_string($$)
 sub _encode_message($)
 {
   my $text = shift;
-  my $encoding = get_conf('LOCALE_OUTPUT_ENCODING_NAME');
+  my $encoding = get_conf('MESSAGE_ENCODING');
   if (defined($encoding)) {
     return encode($encoding, $text);
   } else {

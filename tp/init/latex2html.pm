@@ -412,7 +412,7 @@ sub l2h_to_html($)
   $call_start .= " -address 0 -info 0 -split 0 -no_navigation -no_auto_link";
 
   # FIXME use utf-8 here?
-  my $encoding = $self->get_conf('LOCALE_OUTPUT_ENCODING_NAME');
+  my $encoding = $self->get_conf('MESSAGE_ENCODING');
   my $encoded_call_start;
   if (defined($encoding)) {
     $encoded_call_start = encode($encoding, $call_start);

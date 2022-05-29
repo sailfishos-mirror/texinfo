@@ -300,7 +300,7 @@ sub tex4ht_process_format($$) {
   }
 
   my $cmd = "$formats{$format}->{'exec'} $formats{$format}->{'basefile_name'} $options";
-  my $encoding = $self->get_conf('LOCALE_OUTPUT_ENCODING_NAME');
+  my $encoding = $self->get_conf('MESSAGE_ENCODING');
   my $encoded_cmd;
   if (defined($encoding)) {
     $encoded_cmd = encode($encoding, $cmd);

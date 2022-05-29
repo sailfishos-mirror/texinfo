@@ -87,7 +87,7 @@ sub GNUT_initialize_config($$$) {
 sub _GNUT_encode_message($)
 {
   my $text = shift;
-  my $encoding = texinfo_get_conf('LOCALE_OUTPUT_ENCODING_NAME');
+  my $encoding = texinfo_get_conf('MESSAGE_ENCODING');
   if (defined($encoding)) {
     return Encode::encode($encoding, $text);
   } else {

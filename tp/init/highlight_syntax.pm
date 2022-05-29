@@ -240,7 +240,7 @@ sub highlight_process($$)
     my $option_line_range_str = join(',', @option_line_ranges);
     my $cmd = "source-highlight ${version_option}--src-lang=$language --out-format=html5 -i '$input_language_path_name' -o '$html_result_path_name' --line-range=$option_line_range_str --range-separator='$range_separator'";
 
-    my $encoding = $self->get_conf('LOCALE_OUTPUT_ENCODING_NAME');
+    my $encoding = $self->get_conf('MESSAGE_ENCODING');
     my $encoded_cmd;
     if (defined($encoding)) {
       $encoded_cmd = encode($encoding, $cmd);

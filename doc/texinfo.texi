@@ -16825,17 +16825,18 @@ is unset.  Default is based on the locale encoding.
 Encoding for output file names if @code{DOC_ENCODING_FOR_INPUT_FILE_NAME}
 is unsed.  Default is based on the locale encoding.
 
-@item LOCALE_OUTPUT_ENCODING_NAME
-Encoding used to encode messages output by @command{texi2any} and command line
-arguments strings passed to commands called from @command{texi2any}.  For
-example @command{latex2html} will be called from @command{texi2any} if
-@code{HTML_MATH} is set to @samp{l2h}.  Default is based on the locale
-encoding.
-
 @item MAX_MACRO_CALL_NESTING
 The maximal number of recursive calls of @@-commands defined through
 @code{@@rmacro}; default 100000.  The purpose of this variable is to
 avoid infinite recursions.
+
+@item MESSAGE_ENCODING
+Encoding used to encode messages output by @command{texi2any}.  Default is
+based on the locale encoding.
+
+It is also used for command-line argument passed to commands called from
+@command{texi2any}.  For example, @command{latex2html} will be called from
+@command{texi2any} if @code{HTML_MATH} is set to @samp{l2h}.
 
 @item NO_TOP_NODE_OUTPUT
 If set do not output the Top node content.  The Top node is still
