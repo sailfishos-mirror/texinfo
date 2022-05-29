@@ -1,5 +1,9 @@
 2022-05-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* TODO: Mention DATA_INPUT_ENCODING_NAME.
+
+2022-05-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi: Remove link to old SVN repository in comment.
 
 2022-05-08  Gavin Smith  <gavinsmith0123@gmail.com>
