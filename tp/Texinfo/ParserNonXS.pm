@@ -1023,7 +1023,7 @@ sub parse_texi_file($$)
   my $filehandle = do { local *FH };
   if (!_open_in($self, $filehandle, $input_file_path)) {
     my $input_file_name = $input_file_path;
-    my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+    my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
     if (defined($encoding)) {
       $input_file_name = decode($encoding, $input_file_path);
     }
@@ -2112,7 +2112,7 @@ sub _next_text($$)
         if (defined($previous_input->{'file_name_encoding'})) {
           $file_name_encoding = $previous_input->{'file_name_encoding'};
         } else {
-          $file_name_encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+          $file_name_encoding = $self->get_conf('COMMAND_LINE_ENCODING');
         }
         my $file_name = $previous_input->{'input_file_info'}->{'file_name'};
         if (defined($file_name_encoding)) {
@@ -6420,7 +6420,7 @@ C<input_perl_encoding> string is a corresponding Perl encoding name.
 The name of the main Texinfo input file and the associated directory.
 Binary strings.  They should come from the command line and can
 be decoded with the encoding in the customization variable
-C<DATA_INPUT_ENCODING_NAME>.
+C<COMMAND_LINE_ENCODING>.
 
 =back
 

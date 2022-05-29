@@ -100,7 +100,7 @@ sub _GNUT_decode_input($)
 {
   my $text = shift;
 
-  my $encoding = texinfo_get_conf('DATA_INPUT_ENCODING_NAME');
+  my $encoding = texinfo_get_conf('COMMAND_LINE_ENCODING');
   if (defined($encoding)) {
     return decode($encoding, $text);
   } else {

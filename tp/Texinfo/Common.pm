@@ -111,7 +111,7 @@ my %default_parser_common_customization = (
   'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,  # if true use the document encoding for input
                                             # file names encoding, else use
                                             # LOCALE_INPUT_FILE_NAME_ENCODING
-  'DATA_INPUT_ENCODING_NAME' => undef, # encoding of command line strings
+  'COMMAND_LINE_ENCODING' => undef, # encoding of command line strings
   'LOCALE_INPUT_FILE_NAME_ENCODING' => undef, # used for input file encoding if
                                               # DOC_ENCODING_FOR_INPUT_FILE_NAME is 0
 );
@@ -286,6 +286,7 @@ my @variable_string_settables = (
 'CHAPTER_HEADER_LEVEL',
 'CHECK_HTMLXREF',
 'CLOSE_QUOTE_SYMBOL',
+'COMMAND_LINE_ENCODING',
 'COMPLEX_FORMAT_IN_TABLE',
 'CONTENTS_OUTPUT_LOCATION',
 'CONVERT_TO_LATEX_IN_MATH',
@@ -327,7 +328,6 @@ my @variable_string_settables = (
 'L2H_L2H',
 'L2H_SKIP',
 'L2H_TMP',
-'DATA_INPUT_ENCODING_NAME',
 'MATHJAX_SCRIPT',
 'MATHJAX_SOURCE',
 'MAX_HEADER_LEVEL',

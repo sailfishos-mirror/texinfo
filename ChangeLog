@@ -1,6 +1,13 @@
 2022-05-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
-	* TODO: Mention DATA_INPUT_ENCODING_NAME.
+	Rename DATA_INPUT_ENCODING_NAME to COMMAND_LINE_ENCODING.
+
+	* tp/Texinfo/Common.pm (@variable_string_settables):
+	Rename DATA_INPUT_ENCODING_NAME to COMMAND_LINE_ENCODING.
+
+2022-05-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* NEWS: Mention DATA_INPUT_ENCODING_NAME.
 
 2022-05-29  Gavin Smith  <gavinsmith0123@gmail.com>
 

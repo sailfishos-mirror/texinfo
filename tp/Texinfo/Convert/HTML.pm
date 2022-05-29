@@ -6591,7 +6591,7 @@ sub _parse_htmlxref_files($$)
     print STDERR "html refs config file: $file\n" if ($self->get_conf('DEBUG'));
     unless (open(HTMLXREF, $file)) {
       my $htmlxref_file_name = $file;
-      my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+      my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
       if (defined($encoding)) {
         $htmlxref_file_name = decode($encoding, $htmlxref_file_name);
       }
@@ -7264,7 +7264,7 @@ sub _prepare_css($)
       $css_file = $self->Texinfo::Common::locate_include_file($file);
       unless (defined($css_file)) {
         my $input_file_name = $file;
-        my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+        my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
         if (defined($encoding)) {
           $input_file_name = decode($encoding, $input_file_name);
         }
@@ -7274,7 +7274,7 @@ sub _prepare_css($)
       }
       unless (open (CSSFILE, $css_file)) {
         my $css_file_name = $css_file;
-        my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+        my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
         if (defined($encoding)) {
           $css_file_name = decode($encoding, $css_file_name);
         }
@@ -7290,7 +7290,7 @@ sub _prepare_css($)
       = $self->_process_css_file($css_file_fh, $css_file);
     if (!close($css_file_fh)) {
       my $css_file_name = $css_file;
-      my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+      my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
       if (defined($encoding)) {
         $css_file_name = decode($encoding, $css_file_name);
       }

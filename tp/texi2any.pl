@@ -298,7 +298,7 @@ my $main_program_set_options = {
     'PACKAGE_URL' => $configured_url,
     'PROGRAM' => $real_command_name, 
     'TEXINFO_DTD_VERSION' => $texinfo_dtd_version,
-    'DATA_INPUT_ENCODING_NAME' => $locale_encoding,
+    'COMMAND_LINE_ENCODING' => $locale_encoding,
     'LOCALE_OUTPUT_ENCODING_NAME' => $locale_encoding,
     'LOCALE_INPUT_FILE_NAME_ENCODING' => $file_name_encoding,
     'LOCALE_OUTPUT_FILE_NAME_ENCODING' => $file_name_encoding,
@@ -383,7 +383,7 @@ sub _decode_input($)
 {
   my $text = shift;
 
-  my $encoding = get_conf('DATA_INPUT_ENCODING_NAME');
+  my $encoding = get_conf('COMMAND_LINE_ENCODING');
   if (defined($encoding)) {
     return decode($encoding, $text);
   } else {
@@ -469,9 +469,9 @@ my $parser_options = {'values' => {'txicommandconditionals' => 1}};
 my $init_files_options = Texinfo::Config::GNUT_initialize_config(
       $real_command_name, $main_program_default_options, $cmdline_options);
 
-# FIXME should we reset the messages encoding if 'DATA_INPUT_ENCODING_NAME'
+# FIXME should we reset the messages encoding if 'COMMAND_LINE_ENCODING'
 # is reset?
-my $messages_encoding = get_conf('DATA_INPUT_ENCODING_NAME');
+my $messages_encoding = get_conf('COMMAND_LINE_ENCODING');
 if (defined($messages_encoding) and $messages_encoding ne 'us-ascii') {
   my $Encode_encoding_object = find_encoding($messages_encoding);
   my $perl_messages_encoding = $Encode_encoding_object->name();

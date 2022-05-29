@@ -414,8 +414,8 @@ résultat/encodé.txt file name encoded in latin1.
 char_latin1_latin1_in_refs_tree.txt content encoded in latin1
 
 utf8 encoded manual name and latex2html in latin1 locale
-./texi2any.pl --verbose -c 'DATA_INPUT_ENCODING_NAME=utf-8' --html --init init/latex2html.pm -c 'L2H_CLEAN 0' tests/tex_html/tex_encod*_utf8.texi
-DATA_INPUT_ENCODING_NAME=utf-8 is required in order to have the
+./texi2any.pl --verbose -c 'COMMAND_LINE_ENCODING=utf-8' --html --init init/latex2html.pm -c 'L2H_CLEAN 0' tests/tex_html/tex_encod*_utf8.texi
+COMMAND_LINE_ENCODING=utf-8 is required in order to have the
 input file name correctly decoded as document_name which is used
 in init file to set the file names.
 

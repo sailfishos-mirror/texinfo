@@ -724,7 +724,7 @@ sub output($$)
   my $input_basename;
   if (defined($self->{'parser_info'}->{'input_file_name'})) {
     my $input_file_name = $self->{'parser_info'}->{'input_file_name'};
-    my $encoding = $self->{'DATA_INPUT_ENCODING_NAME'};
+    my $encoding = $self->{'COMMAND_LINE_ENCODING'};
     if (defined($encoding)) {
       $input_file_name = decode($encoding, $input_file_name);
     }

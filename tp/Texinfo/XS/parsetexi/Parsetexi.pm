@@ -138,7 +138,7 @@ sub parser (;$$)
         }
       } elsif ($key eq 'accept_internalvalue') {
         set_accept_internalvalue();
-      } elsif ($key eq 'registrar' or $key eq 'DATA_INPUT_ENCODING_NAME') {
+      } elsif ($key eq 'registrar' or $key eq 'COMMAND_LINE_ENCODING') {
         # no action needed, only used in perl code
       } else {
         warn "ignoring parser configuration value \"$key\"\n";
@@ -242,7 +242,7 @@ sub parse_texi_file ($$)
   if ($status) {
     my ($registrar, $configuration_information) = _get_error_registrar($self);
     my $input_file_name = $input_file_path;
-    my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+    my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
     if (defined($encoding)) {
       $input_file_name = decode($encoding, $input_file_path);
     }
