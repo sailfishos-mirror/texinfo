@@ -16731,14 +16731,17 @@ to a quote character if @option{--enable-encoding} is set and the output
 encoding includes that character.
 The default for Info is the same as @code{OPEN_QUOTE_SYMBOL} (see below).
 
+@item COMMAND_LINE_ENCODING
+Encoding used to decode command-line arguments.  Default is based on the locale
+encoding.  This may affect file names inserted into output files or error
+messages printed by the program.
+
+Note that some file and directory names from the command line may
+not be decoded immediately, and may not be decoded at all.
+
 @item CPP_LINE_DIRECTIVES
 Recognize @code{#line} directives in a ``preprocessing'' pass
 (@pxref{External Macro Processors}); on by default.
-
-@item DATA_INPUT_ENCODING_NAME
-Encoding used to decode command line arguments.  Default is based on the locale
-encoding.  Note that some file and directory names from the command line may
-not be decoded immediately, and may not be decoded at all.
 
 @item DEBUG
 If set, debugging output is generated; default is off (zero).

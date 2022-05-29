@@ -18,7 +18,7 @@ See the manual for detailed information.
  . new customization variables involved with character encoding:
      LOCALE_OUTPUT_ENCODING_NAME, LOCALE_INPUT_FILE_NAME_ENCODING,
      LOCALE_OUTPUT_FILE_NAME_ENCODING, DOC_ENCODING_FOR_INPUT_FILE_NAME,
-     DOC_ENCODING_FOR_OUTPUT_FILE_NAME and DATA_INPUT_ENCODING_NAME.
+     DOC_ENCODING_FOR_OUTPUT_FILE_NAME and COMMAND_LINE_ENCODING.
  . IGNORE_BEFORE_SETFILENAME variable removed.  former effect
    is always on.
  . new variable NO_TOP_NODE_OUTPUT
