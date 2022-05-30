@@ -12,8 +12,8 @@
 #
 # Originally written by Patrice Dumas.
 
-LC_ALL=C.UTF-8; export LC_ALL
-LANGUAGE=C.UTF-8; export LANGUAGE
+LC_ALL=en_US.UTF-8; export LC_ALL
+LANGUAGE=en_US.UTF-8; export LANGUAGE
 
 if test "z$TEX_HTML_TESTS" != z'yes'; then
   echo "Skipping HTML TeX tests that are not easily reproducible ($0)"

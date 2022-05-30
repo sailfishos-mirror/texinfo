@@ -1,3 +1,10 @@
+2022-05-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/tests/many_input_files/tex_l2h_output_dir_non_ascii.sh,
+	tests/many_input_files/tex_t4ht_output_dir_non_ascii.sh:
+	Change LC_ALL and LANGUAGE from C.UTF-8 to en_US.UTF-8,
+	Gavin idea.
+
 2022-05-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Rename LOCALE_OUTPUT_ENCODING_NAME to MESSAGE_ENCODING. 
