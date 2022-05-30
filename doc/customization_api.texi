@@ -1332,7 +1332,7 @@ There is also a similar function for the input file names encoding,
 
 When calling external commands, the command line arguments should also
 be encoded.  To do similarly with other codes, the customization variable
-@code{LOCALE_OUTPUT_ENCODING_NAME} should be used.  Already encoded file
+@code{MESSAGE_ENCODING} should be used.  Already encoded file
 names may be used.  For example
 
 @example
@@ -1348,7 +1348,7 @@ my $fh = open($encoded_file_path);
 .....
 
 my $call_start = "command --set '$action' ";
-my $encoding = $converter->get_conf('LOCALE_OUTPUT_ENCODING_NAME');
+my $encoding = $converter->get_conf('MESSAGE_ENCODING');
 if (defined($encoding)) @{
   $encoded_call_start = encode($encoding, $call_start);
 @} else @{
@@ -1371,13 +1371,13 @@ The binary strings that could be accessed correspond to the customization
 variables strings or arrays @code{INCLUDE_DIRECTORIES}, @code{CSS_FILES},
 @code{MACRO_EXPAND} and @code{INTERNAL_LINKS}.  If they need to be decoded into
 character strings, for example to appear in error messages, it is possible to
-use the @code{DATA_INPUT_ENCODING_NAME} customization variable value as
+use the @code{COMMAND_LINE_ENCODING} customization variable value as
 encoding name to mimic how the decoding of these strings from the command line
 is done in the main program and in the converters.  For example:
 
 @example
 my $macro_expand_fname = $self->get_conf('MACRO_EXPAND');
-my $encoding = $self->get_conf('DATA_INPUT_ENCODING_NAME');
+my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
 if (defined($encoding)) @{
   $macro_expand_fname = Encode::decode($encoding, $macro_expand_fname);
 @}
