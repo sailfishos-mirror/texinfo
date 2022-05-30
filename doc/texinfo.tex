@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-04-10.11}
+\def\texinfoversion{2022-05-30.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -11361,6 +11361,7 @@ directory should work if nowhere else does.}
 \message{and turning on texinfo input format.}
 
 \def^^L{\par} % remove \outer, so ^L can appear in an @comment
+\catcode`\^^K = 10 % treat vertical tab as whitespace
 
 % DEL is a comment character, in case @c does not suffice.
 \catcode`\^^? = 14
