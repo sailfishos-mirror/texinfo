@@ -1,3 +1,11 @@
+2022-05-31  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Consistent test results
+
+	* tp/Texinfo/XS/parsetexi/api.c (element_to_perl_hash):
+	Output empty contents array for ET_menu_entry_node, to
+	be consistent with pure Perl module.
+
 2022-05-30  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex: Give vertical tab the category code
