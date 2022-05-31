@@ -12,8 +12,8 @@
 #
 # Originally written by Patrice Dumas.
 
-LC_ALL=en_US.UTF-8; export LC_ALL
-LANGUAGE=en_US.UTF-8; export LANGUAGE
+LC_ALL=C; export LC_ALL
+LANGUAGE=en; export LANGUAGE
 
 basename=output_dir_non_ascii
 diffs_dir=diffs
@@ -38,8 +38,10 @@ raw_outdir=$raw_output_dir/$basename
 mkdir $basename
 : > $basename/$stdout_file
 
-echo "$PERL -I $srcdir/../.. -I $srcdir/../../maintain/lib/Unicode-EastAsianWidth/lib/ -I $srcdir/../../maintain/lib/libintl-perl/lib -I $srcdir/../../maintain/lib/Text-Unidecode/lib/ -w $srcdir/../../texi2any.pl --html --no-split --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init --out $basename/encodé/ $srcdir/../formatting/simplest.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2" >> $logfile
-$PERL -I $srcdir/../.. -I $srcdir/../../maintain/lib/Unicode-EastAsianWidth/lib/ -I $srcdir/../../maintain/lib/libintl-perl/lib -I $srcdir/../../maintain/lib/Text-Unidecode/lib/ -w $srcdir/../../texi2any.pl --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init --out $basename/encodé/ $srcdir/../formatting/simplest.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2
+# note that it is important to have -c 'COMMAND_LINE_ENCODING UTF-8' before --out
+# such that --out is correctly decoded
+echo "$PERL -I $srcdir/../.. -I $srcdir/../../maintain/lib/Unicode-EastAsianWidth/lib/ -I $srcdir/../../maintain/lib/libintl-perl/lib -I $srcdir/../../maintain/lib/Text-Unidecode/lib/ -w $srcdir/../../texi2any.pl --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init -c 'COMMAND_LINE_ENCODING UTF-8' --out $basename/encodé/ $srcdir/../formatting/simplest.texi -c LOCALE_OUTPUT_FILE_NAME_ENCODING=UTF-8 --force >> $basename/$stdout_file 2>$basename/${basename}.2" >> $logfile
+$PERL -I $srcdir/../.. -I $srcdir/../../maintain/lib/Unicode-EastAsianWidth/lib/ -I $srcdir/../../maintain/lib/libintl-perl/lib -I $srcdir/../../maintain/lib/Text-Unidecode/lib/ -w $srcdir/../../texi2any.pl --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init -c 'COMMAND_LINE_ENCODING UTF-8' --out $basename/encodé/ $srcdir/../formatting/simplest.texi -c LOCALE_OUTPUT_FILE_NAME_ENCODING=UTF-8 --force >> $basename/$stdout_file 2>$basename/${basename}.2
 
 return_code=0
 ret=$?

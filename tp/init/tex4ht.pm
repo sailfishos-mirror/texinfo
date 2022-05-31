@@ -301,12 +301,18 @@ sub tex4ht_process_format($$) {
 
   my $cmd = "$formats{$format}->{'exec'} $formats{$format}->{'basefile_name'} $options";
   my $encoding = $self->get_conf('MESSAGE_ENCODING');
-  my $encoded_cmd;
+  my $encoded_exec;
+  my $encoded_options;
   if (defined($encoding)) {
-    $encoded_cmd = encode($encoding, $cmd);
+    $encoded_exec = encode($encoding, $formats{$format}->{'exec'});
+    $encoded_options = encode($encoding, $options);
   } else {
-    $encoded_cmd = $cmd;
+    $encoded_exec = $formats{$format}->{'exec'};
+    $encoded_options = $options;
   }
+  my $encoded_cmd = $encoded_exec . " " . $formats{$format}->{'basefile_path'}
+                    . " $encoded_options";
+
   print STDERR "tex4ht command: $encoded_cmd\n" if ($self->get_conf('VERBOSE'));
   # do not use system in order to be sure that tex STDIN is not
   # mixed up with the main script STDIN.  It is important because

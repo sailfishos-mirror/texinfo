@@ -12,8 +12,8 @@
 #
 # Originally written by Patrice Dumas.
 
-LC_ALL=en_US.UTF-8; export LC_ALL
-LANGUAGE=en_US.UTF-8; export LANGUAGE
+LC_ALL=C; export LC_ALL
+LANGUAGE=en; export LANGUAGE
 
 basename=input_dir_non_ascii
 diffs_dir=diffs

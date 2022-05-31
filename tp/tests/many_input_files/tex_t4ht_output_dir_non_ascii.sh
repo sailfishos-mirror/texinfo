@@ -1,7 +1,7 @@
 #! /bin/sh
 
-LC_ALL=en_US.UTF-8; export LC_ALL
-LANGUAGE=en_US.UTF-8; export LANGUAGE
+LC_ALL=C; export LC_ALL
+LANGUAGE=en; export LANGUAGE
 
 if test "z$TEX_HTML_TESTS" != z'yes'; then
   echo "Skipping HTML TeX tests that are not easily reproducible"
@@ -36,8 +36,11 @@ raw_outdir=$raw_output_dir/$basename
 [ -d $raw_outdir ] && rm -rf $raw_outdir
 mkdir $basename
 : > $basename/$stdout_file
-echo "$PERL -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init --init-file tex4ht.pm --iftex --out $basename/encodé/ $srcdir/../tex_html/tex_encodé_utf8.texi $srcdir/../tex_html/tex_complex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2" >> $logfile
-$PERL -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init --init-file tex4ht.pm --iftex --out $basename/encodé/ $srcdir/../tex_html/tex_encodé_utf8.texi $srcdir/../tex_html/tex_complex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2
+
+# note that it is important to have -c 'COMMAND_LINE_ENCODING UTF-8' before --out
+# such that --out is correctly decoded
+echo "$PERL -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init --init-file tex4ht.pm --iftex -c 'COMMAND_LINE_ENCODING UTF-8' --out $basename/encodé/ $srcdir/../tex_html/tex_encodé_utf8.texi $srcdir/../tex_html/tex_complex.texi -c LOCALE_OUTPUT_FILE_NAME_ENCODING=UTF-8 --force >> $basename/$stdout_file 2>$basename/${basename}.2" >> $logfile
+$PERL -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init --init-file tex4ht.pm --iftex -c 'COMMAND_LINE_ENCODING UTF-8' --out $basename/encodé/ $srcdir/../tex_html/tex_encodé_utf8.texi $srcdir/../tex_html/tex_complex.texi -c LOCALE_OUTPUT_FILE_NAME_ENCODING=UTF-8 --force >> $basename/$stdout_file 2>$basename/${basename}.2
 
 return_code=0
 ret=$?

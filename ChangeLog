@@ -1,3 +1,21 @@
+2022-06-01  Patrice Dumas  <pertusus@free.fr>
+
+	C locale for remaining tests
+
+	* tp/init/tex4ht.pm (tex4ht_process_format): use already
+	encoded file name on the command line.
+
+	* tp/tests/many_input_files/input_dir_non_ascii.sh,
+	tp/tests/many_input_files/output_dir_file_non_ascii.sh,
+	tp/tests/many_input_files/output_dir_non_ascii.sh,
+	tp/tests/many_input_files/tex_l2h_output_dir_non_ascii.sh,
+	tp/tests/many_input_files/tex_t4ht_output_dir_non_ascii.sh:
+	Set LC_ALL to C and LANG to en, both previously
+	en_US.UTF-8 (last changed on 2022-02-14).  Set extra variables
+	on tests to use UTF-8 encoding where required.
+	* tp/tests/tex_html/list-of-tests: Set extra variables on
+	tests to use UTF-8 encoding where required.
+
 2022-05-31  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Documentation of whitespace
