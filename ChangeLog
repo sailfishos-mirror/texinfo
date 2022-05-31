@@ -1,5 +1,10 @@
 2022-06-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Info.pm (output): add missing second
+	argument of create_destination_directory().
+
+2022-06-01  Patrice Dumas  <pertusus@free.fr>
+
 	C locale for remaining tests
 
 	* tp/init/tex4ht.pm (tex4ht_process_format): use already
