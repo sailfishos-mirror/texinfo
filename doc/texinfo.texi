@@ -1354,14 +1354,24 @@ any number of hyphens in the source remain as they are in literal
 contexts, such as @code{@@code} and @code{@@example}.
 
 @item
-Do not use tab characters in a Texinfo file!
-(Except perhaps in verbatim modes.)  @TeX{} uses variable-width fonts,
-which means that it is impractical at best to define a tab to work in
-all circumstances.  Consequently, @TeX{} treats tabs like single
-spaces, and that is not what they look like in the source.
-Furthermore, @code{makeinfo} does nothing special with tabs, and thus
-a tab character in your input file will usually have a different
-appearance in the output.
+@emph{Whitespace}.  Texinfo files are plain text files composed of lines
+terminated by the usual newline character (line feed).  Both @TeX{} and
+@command{texi2any} read input one line at a time.  Paragraphs are terminated
+by an empty line or a line containing only spaces. A sequence of several
+spaces in text is usually treated the same as a single space (except in
+verbatim modes).
+
+Other ASCII whitespace (tab, form feed, carriage return) may be treated
+the same as space characters, although the results may differ depending
+on output format.  Hence, there is not much point in using these
+in documents.  Non-ASCII spaces, such as Unicode ``em space'', are
+not recognized as whitespace at all and will be treated as regular,
+non-whitespace characters.
+
+However, in verbatim modes, for example in code samples, tab characters
+may produce the correct formatting in the output.
+
+@ignore @c Excessive detail?
 
 To avoid this problem, Texinfo mode in GNU Emacs inserts
 multiple spaces when you press the @key{TAB} key.  Also, you can run
@@ -1399,6 +1409,7 @@ Completely removed, as they are not allowed.
 
 As you can see, because of these differing requirements of the output
 formats, it's not possible to use form feeds completely portably.
+@end ignore
 
 @end itemize
 

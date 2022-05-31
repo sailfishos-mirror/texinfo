@@ -1,5 +1,14 @@
 2022-05-31  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Documentation of whitespace
+
+	* doc/texinfo.texi (Conventions): Consolidate treatment
+	of whitespace characters expanding on ASCII vs. Unicode
+	spaces and comment out some excessive detail about
+	form feeds.
+
+2022-05-31  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	C locale for some tests
 
 	* tp/tests/run_parser_all.sh: Set LC_ALL to C and LANG to en,
