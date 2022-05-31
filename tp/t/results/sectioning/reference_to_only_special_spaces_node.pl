@@ -1,0 +1,811 @@
+use vars qw(%result_texis %result_texts %result_trees %result_errors 
+   %result_indices %result_sectioning %result_nodes %result_menus
+   %result_floats %result_converted %result_converted_errors 
+   %result_elements %result_directions_text %result_indices_sort_strings);
+
+use utf8;
+
+$result_trees{'reference_to_only_special_spaces_node'} = {
+  'contents' => [
+    {
+      'contents' => [
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'parent' => {},
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
+        }
+      ],
+      'parent' => {},
+      'type' => 'before_node_section'
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Top'
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [],
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'Top'
+          }
+        ],
+        'normalized' => 'Top',
+        'spaces_before_argument' => ' '
+      },
+      'parent' => {},
+      'source_info' => {
+        'file_name' => 'reference_to_only_special_spaces_node.texi',
+        'line_nr' => 2,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'top'
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'top',
+      'contents' => [
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'spaces_before_argument' => ' '
+      },
+      'parent' => {},
+      'source_info' => {
+        'file_name' => 'reference_to_only_special_spaces_node.texi',
+        'line_nr' => 3,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => "\x{2000}\x{2001}\x{2002}"
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [],
+      'extra' => {
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => '-'
+          }
+        ],
+        'spaces_before_argument' => ' '
+      },
+      'parent' => {},
+      'source_info' => {
+        'file_name' => 'reference_to_only_special_spaces_node.texi',
+        'line_nr' => 5,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => "EN QUAD|\x{2000}| EM QUAD|\x{2001}| EN SPACE|\x{2002}|"
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'chapter',
+      'contents' => [
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => "\x{2000}\x{2001}\x{2002}"
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => "\x{2000}\x{2001}\x{2002}"
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'ref',
+              'contents' => [],
+              'extra' => {
+                'node_argument' => {
+                  'node_content' => [
+                    {}
+                  ],
+                  'normalized' => '-'
+                }
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'reference_to_only_special_spaces_node.texi',
+                'line_nr' => 8,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'spaces_before_argument' => ' '
+      },
+      'parent' => {},
+      'source_info' => {
+        'file_name' => 'reference_to_only_special_spaces_node.texi',
+        'line_nr' => 6,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => "\x{2000}\x{2001}\x{2002}"
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'code',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'reference_to_only_special_spaces_node.texi',
+                'line_nr' => 10,
+                'macro' => ''
+              }
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [],
+      'extra' => {
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => '-'
+          }
+        ],
+        'spaces_before_argument' => ' '
+      },
+      'parent' => {},
+      'source_info' => {
+        'file_name' => 'reference_to_only_special_spaces_node.texi',
+        'line_nr' => 10,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => "EN QUAD|\x{2000}| EM QUAD|\x{2001}| EN SPACE|\x{2002}|"
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'code',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'reference_to_only_special_spaces_node.texi',
+                'line_nr' => 11,
+                'macro' => ''
+              }
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'chapter',
+      'contents' => [
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => "\x{2000}\x{2001}\x{2002}"
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'code',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => 'reference_to_only_special_spaces_node.texi',
+                        'line_nr' => 13,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => "\x{2000}\x{2001}\x{2002}"
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'code',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => 'reference_to_only_special_spaces_node.texi',
+                        'line_nr' => 13,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'ref',
+              'contents' => [],
+              'extra' => {
+                'node_argument' => {
+                  'node_content' => [
+                    {}
+                  ],
+                  'normalized' => '-'
+                }
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'reference_to_only_special_spaces_node.texi',
+                'line_nr' => 13,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'spaces_before_argument' => ' '
+      },
+      'parent' => {},
+      'source_info' => {
+        'file_name' => 'reference_to_only_special_spaces_node.texi',
+        'line_nr' => 11,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'misc_arg'
+        }
+      ],
+      'cmdname' => 'bye',
+      'parent' => {}
+    }
+  ],
+  'type' => 'document_root'
+};
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[0]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'};
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[1]{'args'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[1];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[1]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'};
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[2]{'args'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[2];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[2];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[2]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'};
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3]{'args'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'};
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'args'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[1];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'};
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[5]{'args'}[0]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[5]{'args'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[5];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[5]{'args'}[0]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[5]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'};
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'args'}[0]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'args'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[1];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'};
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[7];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[7]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'};
+
+$result_texis{'reference_to_only_special_spaces_node'} = '
+@node Top
+@top top
+
+@node    
+@chapter EN QUAD| | EM QUAD| | EN SPACE| |
+
+@ref{    ,    }.
+
+@node @code{   }
+@chapter @code{EN QUAD| | EM QUAD| | EN SPACE| |}
+
+@ref{@code{   }, @code{   }}.
+
+
+@bye
+';
+
+
+$result_texts{'reference_to_only_special_spaces_node'} = 'top
+***
+
+1 EN QUAD| | EM QUAD| | EN SPACE| |
+***********************************
+
+   .
+
+2 EN QUAD| | EM QUAD| | EN SPACE| |
+***********************************
+
+   .
+
+
+';
+
+$result_sectioning{'reference_to_only_special_spaces_node'} = {
+  'structure' => {
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'Top'
+            },
+            'structure' => {}
+          }
+        },
+        'structure' => {
+          'section_childs' => [
+            {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'associated_node' => {
+                  'cmdname' => 'node',
+                  'extra' => {},
+                  'structure' => {}
+                }
+              },
+              'structure' => {
+                'section_level' => 1,
+                'section_number' => 1,
+                'section_up' => {},
+                'toplevel_prev' => {},
+                'toplevel_up' => {}
+              }
+            },
+            {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'associated_node' => {
+                  'cmdname' => 'node',
+                  'extra' => {}
+                }
+              },
+              'structure' => {
+                'section_level' => 1,
+                'section_number' => 2,
+                'section_prev' => {},
+                'section_up' => {},
+                'toplevel_prev' => {},
+                'toplevel_up' => {}
+              }
+            }
+          ],
+          'section_level' => 0,
+          'section_up' => {}
+        }
+      }
+    ],
+    'section_level' => -1
+  }
+};
+$result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
+$result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
+$result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'reference_to_only_special_spaces_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'reference_to_only_special_spaces_node'};
+
+$result_nodes{'reference_to_only_special_spaces_node'} = {
+  'cmdname' => 'node',
+  'extra' => {
+    'associated_section' => {
+      'cmdname' => 'top',
+      'extra' => {},
+      'structure' => {}
+    },
+    'normalized' => 'Top'
+  },
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {},
+          'structure' => {
+            'section_number' => 1
+          }
+        }
+      },
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
+  }
+};
+$result_nodes{'reference_to_only_special_spaces_node'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'reference_to_only_special_spaces_node'};
+
+$result_menus{'reference_to_only_special_spaces_node'} = {
+  'cmdname' => 'node',
+  'extra' => {
+    'normalized' => 'Top'
+  },
+  'structure' => {}
+};
+
+$result_errors{'reference_to_only_special_spaces_node'} = [
+  {
+    'error_line' => "empty node name after expansion `\x{2000}\x{2001}\x{2002}'
+",
+    'file_name' => 'reference_to_only_special_spaces_node.texi',
+    'line_nr' => 5,
+    'macro' => '',
+    'text' => "empty node name after expansion `\x{2000}\x{2001}\x{2002}'",
+    'type' => 'error'
+  },
+  {
+    'error_line' => "empty node name after expansion `\@code{\x{2000}\x{2001}\x{2002}}'
+",
+    'file_name' => 'reference_to_only_special_spaces_node.texi',
+    'line_nr' => 10,
+    'macro' => '',
+    'text' => "empty node name after expansion `\@code{\x{2000}\x{2001}\x{2002}}'",
+    'type' => 'error'
+  },
+  {
+    'error_line' => "\@ref reference to nonexistent node `\x{2000}\x{2001}\x{2002}'
+",
+    'file_name' => 'reference_to_only_special_spaces_node.texi',
+    'line_nr' => 8,
+    'macro' => '',
+    'text' => "\@ref reference to nonexistent node `\x{2000}\x{2001}\x{2002}'",
+    'type' => 'error'
+  },
+  {
+    'error_line' => "\@ref reference to nonexistent node `\@code{\x{2000}\x{2001}\x{2002}}'
+",
+    'file_name' => 'reference_to_only_special_spaces_node.texi',
+    'line_nr' => 13,
+    'macro' => '',
+    'text' => "\@ref reference to nonexistent node `\@code{\x{2000}\x{2001}\x{2002}}'",
+    'type' => 'error'
+  }
+];
+
+
+$result_floats{'reference_to_only_special_spaces_node'} = {};
+
+
+
+$result_converted{'info'}->{'reference_to_only_special_spaces_node'} = 'This is , produced from reference_to_only_special_spaces_node.texi.
+
+
+File: ,  Node: Top,  Next: ,  Up: (dir)
+
+top
+***
+
+* Menu:
+
+1 EN QUAD| | EM QUAD| | EN SPACE| |
+***********************************
+
+*note    :    .
+
+2 ‘EN QUAD| | EM QUAD| | EN SPACE| |’
+*************************************
+
+*note ‘   ’:    .
+
+
+
+Tag Table:
+Node: Top69
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
+';
+
+
+$result_converted{'html'}->{'reference_to_only_special_spaces_node'} = '<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>top</title>
+
+<meta name="description" content="top">
+<meta name="keywords" content="top">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="#Top" rel="start" title="Top">
+
+
+</head>
+
+<body lang="en">
+<div class="top-level-extent" id="Top">
+<div class="nav-panel">
+<p>
+Next: <a href="" accesskey="n" rel="next">EN QUAD| | EM QUAD| | EN SPACE| |</a> &nbsp; </p>
+</div>
+<h1 class="top" id="top">top</h1>
+
+<ul class="mini-toc">
+<li>EN QUAD| | EM QUAD| | EN SPACE| |</li>
+<li><code class="code">EN QUAD| | EM QUAD| | EN SPACE| |</code></li>
+</ul>
+<hr>
+<div class="chapter-level-extent">
+<div class="nav-panel">
+<p>
+Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
+</div>
+<h2 class="chapter" id="EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c">1 EN QUAD| | EM QUAD| | EN SPACE| |</h2>
+
+<p>&lsquo;   &rsquo;.
+</p>
+<hr>
+</div>
+<div class="chapter-level-extent">
+<div class="nav-panel">
+<p>
+ &nbsp; </p>
+</div>
+<h2 class="chapter" id="EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c-1">2 <code class="code">EN QUAD| | EM QUAD| | EN SPACE| |</code></h2>
+
+<p>&lsquo;<code class="code">   </code>&rsquo;.
+</p>
+
+</div>
+</div>
+
+
+
+</body>
+</html>
+';
+
+1;

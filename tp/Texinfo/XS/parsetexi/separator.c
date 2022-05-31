@@ -207,9 +207,6 @@ handle_open_brace (ELEMENT *current, char **line_inout)
 /* Return 1 if an element is all whitespace.
    Note that this function isn't completely reliable because it
    doesn't look deep into the element tree.
-   In the perl code it calls 
-   Texinfo::Convert::NodeNameNormalization::normalize_node,
-   and checks that the result isn't all hyphens.
  */
 int
 check_empty_expansion (ELEMENT *e)

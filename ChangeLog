@@ -1,5 +1,12 @@
 2022-06-01  Patrice Dumas  <pertusus@free.fr>
 
+	Same empty expansion check in perl and XS parser
+
+	* tp/Texinfo/ParserNonXS.pm (_check_empty_expansion, _parse_texi):
+	new function _check_empty_expansion based on XS parser function.
+
+2022-06-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Info.pm (output): add missing second
 	argument of create_destination_directory().
 

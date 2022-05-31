@@ -73,7 +73,7 @@ use Texinfo::Report;
 # in error messages, and for macro body expansion
 use Texinfo::Convert::Texinfo;
 
-# to normalize node name, anchor, float arg, and first *ref argument.
+# to call set_nodes_list_labels
 use Texinfo::Convert::NodeNameNormalization;
 
 # to complete indices translations.
@@ -2911,7 +2911,7 @@ sub _end_line($$$)
         my $arg = shift @{$menu_entry->{'args'}};
         if (defined($arg->{'text'})) {
           $current = _merge_text($self, $current, $arg->{'text'});
-        } else {
+        } elsif ($arg->{'contents'}) {
           while (@{$arg->{'contents'}}) {
             my $content = shift @{$arg->{'contents'}};
             if (defined($content->{'text'})) {
@@ -3654,6 +3654,33 @@ sub _check_node_label($$$$)
 
   _check_internal_node($self, $parsed_node, $source_info);
   return _check_empty_node($self, $parsed_node, $command, $source_info);
+}
+
+# Return 1 if an element is all whitespace.
+# Note that this function isn't completely reliable because it
+# doesn't look deep into the element tree.
+# Consistent with XS parser
+sub _check_empty_expansion($)
+{
+  my $current = shift;
+
+  foreach my $content (@$current) {
+    if (!(($content->{'cmdname'}
+           and ($content->{'cmdname'} eq ' ' or $content->{'cmdname'} eq "\t"
+                or $content->{'cmdname'} eq "\n"
+                or $content->{'cmdname'} eq 'c'
+                or $content->{'cmdname'} eq 'comment'
+                or $content->{'cmdname'} eq ':'))
+           or ($content->{'type'}
+               and ($content->{'type'} eq 'empty_spaces_before_argument'
+                    or $content->{'type'} eq 'spaces_at_end'))
+           or (defined($content->{'text'}) and $content->{'text'} !~ /\S/))) {
+        #or (not $content->{'cmdname'} and not $content->{'type'}
+        #    and defined($content->{'text'}) and $content->{'text'} eq '')
+      return 0;
+    }
+  }
+  return 1;
 }
 
 sub _register_extra_menu_entry_information($$;$)
@@ -5336,10 +5363,7 @@ sub _parse_texi($$$)
                   }
                 }
                 if (defined($args[1])) {
-                  my $normalized_cross_ref_name
-                    = Texinfo::Convert::NodeNameNormalization::normalize_node(
-                                                      {'contents' => $args[1]});
-                  if ($normalized_cross_ref_name !~ /[^-]/) {
+                  if (_check_empty_expansion($args[1])) {
                     $self->_line_warn(sprintf(__(
                     "in \@%s empty cross reference name after expansion `%s'"),
                           $closed_command,
@@ -5349,10 +5373,7 @@ sub _parse_texi($$$)
                   }
                 }
                 if ($closed_command ne 'inforef' and defined($args[2])) {
-                  my $normalized_cross_ref_title =
-                    Texinfo::Convert::NodeNameNormalization::normalize_node(
-                                                     {'contents' => $args[2]});
-                  if ($normalized_cross_ref_title !~ /[^-]/) {
+                  if (_check_empty_expansion($args[2])) {
                     $self->_line_warn(sprintf(__(
                      "in \@%s empty cross reference title after expansion `%s'"),
                           $closed_command,
