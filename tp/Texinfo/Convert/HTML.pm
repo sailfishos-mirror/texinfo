@@ -9872,9 +9872,10 @@ sub _protect_class_name($$)
   return &{$self->formatting_function('format_protect_text')}($self, $class_name);
 }
 
+my $debug;  # whether to print debugging output
+
 # Convert tree element $ELEMENT, and return HTML text for the output files.
 sub _convert($$;$);
-
 sub _convert($$;$)
 {
   my $self = shift;
@@ -9895,7 +9896,10 @@ sub _convert($$;$)
     $command_type .= $element->{'type'};
   }
 
-  if ($self->get_conf('DEBUG')) {
+  $debug = $self->get_conf('DEBUG') if !defined($debug);
+  # cache return value of get_conf for speed
+
+  if ($debug) {
     $explanation = 'NO EXPLANATION' if (!defined($explanation));
     print STDERR "ELEMENT($explanation):$element (".join('|',@{$self->{'document_context'}->[-1]->{'formatting_context'}})."), ->";
     print STDERR " cmd: $element->{'cmdname'}," if ($element->{'cmdname'});
@@ -9919,7 +9923,7 @@ sub _convert($$;$)
        or ($element->{'cmdname'}
             and exists($self->{'commands_conversion'}->{$element->{'cmdname'}})
             and !defined($self->{'commands_conversion'}->{$element->{'cmdname'}}))) {
-    if ($self->get_conf('DEBUG')) {
+    if ($debug) {
       my $string = 'IGNORED';
       $string .= " \@$element->{'cmdname'}" if ($element->{'cmdname'});
       $string .= " $element->{'type'}" if ($element->{'type'});
@@ -9943,13 +9947,13 @@ sub _convert($$;$)
                                                       $element->{'type'},
                                                       $element,
                                                       $element->{'text'});
-    print STDERR "DO TEXT => `$result'\n" if ($self->get_conf('DEBUG'));
+    print STDERR "DO TEXT => `$result'\n" if $debug;
     return $result;
   }
 
   if ($element->{'extra'} and $element->{'extra'}->{'missing_argument'}
              and (!$element->{'contents'} or !@{$element->{'contents'}})) {
-    print STDERR "MISSING_ARGUMENT\n" if ($self->get_conf('DEBUG'));
+    print STDERR "MISSING_ARGUMENT\n" if $debug;
     return '';
   }
 
@@ -10200,8 +10204,7 @@ sub _convert($$;$)
       pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
       pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
     }
-    print STDERR "DO type ($type_name) => `$result'\n"
-      if ($self->get_conf('DEBUG'));
+    print STDERR "DO type ($type_name) => `$result'\n" if $debug;
     return $result;
     # no type, no cmdname, but contents.
   } elsif ($element->{'contents'}) {
@@ -10212,11 +10215,10 @@ sub _convert($$;$)
       $content_formatted .= $self->_convert($content, "$command_type C[$i]");
       $i++;
     }
-    print STDERR "UNNAMED HOLDER => `$content_formatted'\n"
-      if ($self->get_conf('DEBUG'));
+    print STDERR "UNNAMED HOLDER => `$content_formatted'\n" if $debug;
     return $content_formatted;
   } else {
-    print STDERR "UNNAMED empty\n" if ($self->get_conf('DEBUG'));
+    print STDERR "UNNAMED empty\n" if $debug;
     if ($self->{'types_conversion'}->{''}) {
       return &{$self->{'types_conversion'}->{''}} ($self, $element);
     } else {

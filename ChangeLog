@@ -1,5 +1,13 @@
 2022-06-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	texi2any --html performance improvement
+
+	* tp/Texinfo/Convert/HTML.pm (_convert): Cache debug flag
+	as get_conf was being called many times.  Profiled with
+	Devel::NYTProf.
+
+2022-06-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (HTML Translation): Edit and trim.
 
 2022-06-03  Gavin Smith  <gavinsmith0123@gmail.com>
