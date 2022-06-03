@@ -1,3 +1,14 @@
+2022-06-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Minor manual modernizations
+
+	* doc/texinfo.texi
+	(Output Formats): Remove list of browser names.
+	(HTML Translation): Remove reference to Lynx, Emacs W3, and
+	HTML 1.0.  (Tzvetelin Katchov suggested updating this list.)
+	(Output Formats, PDF Output): Remove words "some years ago".
+	(Invoking texi2any): Capitalize Cascading Style Sheets.
+
 2022-06-03  Tzvetelin Katchov <katchov@gnu.org>  (tiny change)
 
 	* doc/texinfo.texi (Formay with texi2dvi): remove extra space

@@ -860,15 +860,16 @@ omitted.
 
 @item HTML
 @cindex HTML output, overview
-@cindex Mozilla
-@cindex Lynx
-@cindex Emacs-W3
+@c @cindex Mozilla
+@c @cindex Lynx
+@c @cindex Emacs-W3
 (Generated via @command{makeinfo --html}.)  HTML, standing for Hyper
-Text Markup Language, has become the most commonly used language for
-writing documents on the World Wide Web.  Web browsers, such as
-Mozilla, Lynx, and Emacs-W3, can render this language online.  There
+Text Markup Language, is the language for writing documents on the World
+Wide Web.  Web browsers
+@c such as Mozilla, Lynx, and Emacs-W3
+can render this language online.  There
 are many versions of HTML, both different standards and
-browser-specific variations.  @command{makeinfo} tries to use a subset
+browser-specific variations.  @command{makeinfo} uses a subset
 of the language that can be interpreted by any common browser,
 intentionally not using many newer or less widely-supported tags.
 Although the native output is thus rather plain, it can be customized
@@ -933,7 +934,7 @@ customizability of the output than would be possible with the plain
 @cindex DocBook output, overview
 @cindex XML DocBook output, overview
 (Generated via @command{makeinfo --docbook}.)  This is an XML-based
-format developed some years ago, primarily for technical
+format, primarily for technical
 documentation.  It therefore bears some resemblance, in broad
 outline, to Texinfo.  See @uref{http://www.docbook.org}.  Various
 converters from DocBook @emph{to} Texinfo have also been developed;
@@ -15311,8 +15312,8 @@ program instead of plain @command{tex}.  That is, run @samp{pdftex
 foo.texi} instead of @samp{tex foo.texi}.
 
 @dfn{PDF} stands for `Portable Document Format'. It was invented by
-Adobe Systems some years ago for document interchange, based on their
-PostScript language.  Related links:
+Adobe Systems for document interchange, based on their PostScript language.
+Related links:
 
 @itemize
 @item
@@ -15463,7 +15464,7 @@ several directories separated by the usual path separator character
 @item --css-include=@var{file}
 @opindex --css-include
 When producing HTML, literally include the contents of @var{file},
-which should contain W3C cascading style sheets specifications, in the
+which should contain Cascading Style Sheets specifications, in the
 @samp{<style>} block of the HTML output.  If @var{file} is @samp{-},
 read standard input.  @xref{HTML CSS}.
 
@@ -18098,16 +18099,15 @@ To repeat what was said at the top: please report output from an
 error-free run of @code{makeinfo} which has @emph{practical} browser
 portability problems as a bug (@pxref{Reporting Bugs}).
 
-A few other general points about the HTML output follow.
+A few other points about the HTML output:
 
 @cindex Navigation bar, in HTML output
 @strong{Navigation bar:} By default, a navigation bar is inserted at the
 start of each node, analogous to Info output.  If the
 @samp{--no-headers} option is used, the navigation bar is only
-inserted at the beginning of split files.  Header @code{<link>}
-elements in split output can support Info-like navigation with
-browsers like Lynx and @w{Emacs W3} which implement this HTML@tie{}1.0
-feature.
+inserted at the beginning of split files.  Header @code{<link>} elements
+in split output support Info-like navigation with browsers which implement
+this feature.
 
 @cindex Footnote styles, in HTML
 @strong{Footnotes:} for HTML, when the footnote style is @samp{end},
