@@ -5428,15 +5428,16 @@ sub _convert_text($$$)
   return $text if ($self->in_raw());
   $text = uc($text) if ($self->in_upper_case());
   $text = &{$self->formatting_function('format_protect_text')}($self, $text);
-  if ($self->get_conf('ENABLE_ENCODING')
-      and $self->get_conf('OUTPUT_ENCODING_NAME')
-      and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
+
+  if ($self->{'conf'}->{'ENABLE_ENCODING'}
+      and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'}
+      and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'} eq 'utf-8') {
     $text = Texinfo::Convert::Unicode::unicode_text($text,
                                         ($self->in_code() or $self->in_math()));
   } elsif (!$self->in_code() and !$self->in_math()) {
-    if ($self->get_conf('USE_NUMERIC_ENTITY')) {
+    if ($self->{'conf'}->{'USE_NUMERIC_ENTITY'}) {
       $text = $self->xml_format_text_with_numeric_entities($text);
-    } elsif ($self->get_conf('USE_ISO')) {
+    } elsif ($self->{'conf'}->{'USE_ISO'}) {
       $text =~ s/---/\&mdash\;/g;
       $text =~ s/--/\&ndash\;/g;
       $text =~ s/``/\&ldquo\;/g;

@@ -1,3 +1,12 @@
+2022-06-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	texi2any --html performance improvement
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_text):
+	Hard-code access to 'conf' array rather than calling
+	get_conf method.  This is a heavily used function.
+	Profiled with Devel::NYTProf.
+
 2022-06-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	texi2any --html performance improvement
