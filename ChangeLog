@@ -1,3 +1,7 @@
+2022-06-03  Tzvetelin Katchov <katchov@gnu.org>  (tiny change)
+
+	* doc/texinfo.texi (Formay with texi2dvi): remove extra space
+
 2022-06-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Link updates in manual.
