@@ -860,7 +860,6 @@ omitted.
 
 @item HTML
 @cindex HTML output, overview
-@cindex W3 consortium
 @cindex Mozilla
 @cindex Lynx
 @cindex Emacs-W3
@@ -873,9 +872,7 @@ browser-specific variations.  @command{makeinfo} tries to use a subset
 of the language that can be interpreted by any common browser,
 intentionally not using many newer or less widely-supported tags.
 Although the native output is thus rather plain, it can be customized
-at various levels, if desired.  For details of the HTML language and
-much related information, see @uref{http://www.w3.org/MarkUp/}.
-@xref{Generating HTML}.
+at various levels, if desired.   @xref{Generating HTML}.
 
 @item DVI
 @cindex DVI output, overview
@@ -15324,7 +15321,7 @@ reader}.  (It can also preview PostScript documents.)
 
 @item
 @code{xpdf}, a freely available standalone
-@uref{http://www.foolabs.com/xpdf/, PDF reader} for the X window
+@uref{https://www.xpdfreader.com/, PDF reader} for the X window
 system.
 
 @item
