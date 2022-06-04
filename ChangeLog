@@ -1,5 +1,19 @@
 2022-06-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Joint tree transformation
+
+	* tp/Texinfo/Common.pm (html_joint_transformation):
+	Peform both the 'move_index_entries_after_items' and the
+	'relate_index_entries_to_table_entries_in_tree' transformations
+	together.
+	* tp/texi2any.pl: Use this for HTML and also LaTeX.
+
+	This is much faster because of the slowness of recursively
+	traversing the parse tree with Perl subroutine calls.  It means
+	we traverse the tree one fewer time.
+
+2022-06-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_text):
 	Call _default_format_protect_text without method call syntax.
 

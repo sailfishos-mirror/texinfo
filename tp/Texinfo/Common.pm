@@ -2647,7 +2647,7 @@ sub _relate_index_entry_to_table_entry($)
   }
 }
 
-sub _relate_index_entries_to_table_entries_in_tree($$$)
+sub _relate_index_entries_to_table_entries_in_tree($$)
 {
   my ($type, $current) = @_;
 
@@ -2663,6 +2663,26 @@ sub relate_index_entries_to_table_entries_in_tree($)
   return modify_tree($tree,
                      \&_relate_index_entries_to_table_entries_in_tree);
 }
+
+sub _html_joint_transformation($)
+{
+  my $type = shift;
+  my $current = shift;
+
+  _move_index_entries_after_items($type, $current);
+  _relate_index_entries_to_table_entries_in_tree($type, $current);
+  return ($current);
+}
+
+# Peform both the 'move_index_entries_after_items' and the
+# 'relate_index_entries_to_table_entries_in_tree' transformations
+# together.  This is faster because the tree is only traversed once.
+sub html_joint_transformation($)
+{
+  my $tree = shift;
+  return modify_tree($tree, \&_html_joint_transformation);
+}
+
 
 # register a label, that is something that may be the target of a reference
 # and must be unique in the document.  Corresponds to @node, @anchor and
@@ -3191,6 +3211,12 @@ X<C<relate_index_entries_to_table_entries_in_tree>>
 In @*table @-commands, reassociate the index entry information from an index
 @-command appearing right after an @item line to the @item first element.
 Remove the index @-command from the tree.
+
+=item html_joint_transformation($tree)
+X<C<html_joint_transformation>>
+
+Do both C<relate_index_entries_to_table_entries_in_tree>
+and C<move_index_entries_after_items> together.
 
 =item $level = section_level($section)
 X<C<section_level>>

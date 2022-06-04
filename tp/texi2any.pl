@@ -528,16 +528,14 @@ my %formats_table = (
              'split' => 1,
              'internal_links' => 1,
              'simple_menu' => 1,
-             'move_index_entries_after_items' => 1,
-             'relate_index_entries_to_table_entries' => 1,
+             'joint_transformation' => 1,
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::HTML'
            },
   'latex' => {
              'floats' => 1,
              'internal_links' => 1,
-             'move_index_entries_after_items' => 1,
-             'relate_index_entries_to_table_entries' => 1,
+             'joint_transformation' => 1,
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::LaTeX'
            },
@@ -1392,6 +1390,10 @@ while(@input_files) {
   if ($formats_table{$format}->{'relate_index_entries_to_table_entries'}
       or $tree_transformations{'relate_index_entries_to_table_entries'}) {
     Texinfo::Common::relate_index_entries_to_table_entries_in_tree($tree);
+  }
+
+  if ($formats_table{$format}->{'joint_transformation'}) {
+    Texinfo::Common::html_joint_transformation($tree);
   }
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
