@@ -1,4 +1,4 @@
-2022-06-05  Gavin Smith  <gavinsmith0123@gmail.com>
+2022-06-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Override _default_format_protect_text instead
 
@@ -9,7 +9,7 @@
 	* tp/Texinfo/Convert/Converter.pm: Do not override xml_protect_text.
 	* tp/texi2any.pl: Call import method on dynamically loaded modules.
 
-2022-06-05  Gavin Smith  <gavinsmith0123@gmail.com>
+2022-06-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	texi2any --html performance improvement - XS override
 
@@ -18,7 +18,7 @@
 	* tp/Texinfo/Convert/Converter.pm: Override xml_protect_text
 	with XS implementation.
 
-2022-06-05  Gavin Smith  <gavinsmith0123@gmail.com>
+2022-06-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	texi2any --html performance improvement
 
