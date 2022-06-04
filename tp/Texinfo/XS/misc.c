@@ -1,4 +1,4 @@
-/* Copyright 2010-2019 Free Software Foundation, Inc.
+/* Copyright 2010-2022 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -633,4 +633,54 @@ void xs_parse_texi_regex (SV *text_in,
     }
 
   return;
+}
+
+char *
+xs_xml_protect_text (char *text)
+{
+  char *p, *q;
+  static char *new;
+  int new_space, new_len;
+
+  dTHX; /* Perl boilerplate. */
+
+  p = text;
+  new_space = strlen (text);
+  new = realloc (new, new_space + 1);
+  new_len = 0;
+
+#define ADDN(s, n) \
+  if (new_len + n - 1 >= new_space - 1)           \
+    {                                             \
+      new_space += n;                             \
+      new = realloc (new, (new_space *= 2) + 1);  \
+    }                                             \
+  memcpy(new + new_len, s, n);                    \
+  new_len += n;
+
+  while (1)
+    {
+      q = p + strcspn (p, "<>&\"");
+      ADDN(p, q - p);
+      if (!*q)
+        break;
+      switch (*q)
+        {
+        case '<':
+          ADDN("&lt;", 4);
+          break;
+        case '>':
+          ADDN("&gt;", 4);
+          break;
+        case '&':
+          ADDN("&amp;", 5);
+          break;
+        case '"':
+          ADDN("&quot;", 6);
+          break;
+        }
+      p = q + 1;
+    }
+  new[new_len] = '\0';
+  return new;
 }

@@ -9,3 +9,4 @@ void xs_parse_texi_regex (SV *text,
                           char **,
                           char **,
                           char **);
+char *xs_xml_protect_text (char *);
