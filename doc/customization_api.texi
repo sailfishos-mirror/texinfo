@@ -179,7 +179,7 @@ to HTML@footnote{The @code{Texinfo::Convert::HTML} module also implements the
 HTML converter which go through the tree and call user defined functions.}.
 In @code{Texinfo::Convert::HTML} the API may not be followed strictly for
 performance reasons, in that case there should always be a @samp{API info:}
-comment which shows what the API conformat code should be.
+comment which shows what the API conformant code should be.
 The Licenses conditions of the diverse files used as example should be taken
 into account when reusing code.
 
