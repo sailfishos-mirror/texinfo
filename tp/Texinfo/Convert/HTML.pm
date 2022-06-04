@@ -9859,34 +9859,6 @@ sub output($$)
   return undef;
 }
 
-# Convert the 'contents' of a tree element.
-sub _conversion_contents($$$)
-{
-  my $self = shift;
-  my $element = shift;
-  my $command_type = shift;
-
-  if (ref($element->{'contents'}) ne 'ARRAY') {
-    cluck "for $element contents not an array: $element->{'contents'}";
-    print STDERR Texinfo::Common::debug_print_element($element);
-  }
-
-  my $element_contents_formatted = '';
-  my $content_idx = 0;
-  foreach my $content (@{$element->{'contents'}}) {
-    my $formatted_content = $self->_convert($content, "$command_type c[$content_idx]");
-    if (!defined($formatted_content)) {
-      cluck "content not defined for $command_type [$content_idx]\n";
-      print STDERR "element is: ".Texinfo::Common::debug_print_element($element);
-      print STDERR "content is: ".Texinfo::Common::debug_print_element($content);
-    } else {
-      $element_contents_formatted .= $formatted_content;
-    }
-    $content_idx++;
-  }
-  return $element_contents_formatted;
-}
-
 #my $characters_replaced_from_class_names = quotemeta('[](),~#:/\\@+=!;.,?* ');
 # FIXME not clear what character should be allowed and which ones replaced besides space
 my $characters_replaced_from_class_names = quotemeta(' ');
@@ -10050,7 +10022,12 @@ sub _convert($$;$)
                                 {'contents' => $element->{'contents'}},
                                          $self->{'options_latex_math'});
         } else {
-          $content_formatted = $self->_conversion_contents($element, $command_type);
+          $content_formatted = '';
+          my $content_idx = 0;
+          foreach my $content (@{$element->{'contents'}}) {
+            $content_formatted .= _convert($self, $content, "$command_type c[$content_idx]");
+            $content_idx++;
+          }
         }
       }
       my $args_formatted;
@@ -10206,7 +10183,12 @@ sub _convert($$;$)
         $content_formatted = $self->_convert($element->{'args'}->[0]);
       }
     } elsif ($element->{'contents'}) {
-      $content_formatted = $self->_conversion_contents($element, $command_type);
+      $content_formatted = '';
+      my $content_idx = 0;
+      foreach my $content (@{$element->{'contents'}}) {
+        $content_formatted .= _convert($self, $content, "$command_type c[$content_idx]");
+        $content_idx++;
+      }
     }
 
     if (exists($self->{'types_conversion'}->{$type_name})) {
