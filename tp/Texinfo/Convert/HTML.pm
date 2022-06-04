@@ -5501,11 +5501,11 @@ sub _convert_text($$$)
   #} elsif (!$self->in_code() and !$self->in_math()) {
   } elsif (!$context->{'monospace'}->[-1] and !$context->{'math'}) {
     # API info: get_conf() API code conforming would be:
-    #if ($self->{'conf'}->{'USE_NUMERIC_ENTITY'}) {
+    #if ($self->get_conf('USE_NUMERIC_ENTITY')) {
     if ($self->{'conf'}->{'USE_NUMERIC_ENTITY'}) {
       $text = $self->xml_format_text_with_numeric_entities($text);
     # API info: get_conf() API code conforming would be:
-    #} elsif ($self->{'conf'}->{'USE_ISO'}) {
+    #} elsif ($self->get_conf('USE_ISO')) {
     } elsif ($self->{'conf'}->{'USE_ISO'}) {
       $text = _entity_text($text);
     } else {
