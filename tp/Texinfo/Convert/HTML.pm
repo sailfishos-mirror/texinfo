@@ -201,7 +201,7 @@ sub html_attribute_class($$;$)
       $self->_collect_css_element_class("$element.$style_class");
     }
   }
-  my $class_str = join(' ', map {$self->_protect_class_name($_)} @$classes);
+  my $class_str = join(' ', map {_protect_class_name($self, $_)} @$classes);
   return "<$element class=\"$class_str\"$style";
 }
 
@@ -3407,7 +3407,8 @@ sub _default_format_navigation_panel($$$$;$)
     }
 
     my ($active, $passive, $need_delimiter)
-      = &{$self->formatting_function('format_button')}($self, $button);
+       = &{$self->{'formatting_function'}->{'format_button'}}($self, $button);
+      # = &{$self->formatting_function('format_button')}($self, $button);
     if ($self->get_conf('HEADER_IN_TABLE')) {
       if (defined($active)) {
         $result .= $active;
@@ -9868,7 +9869,9 @@ sub _protect_class_name($$)
   my $self = shift;
   my $class_name = shift;
   $class_name =~ s/[$characters_replaced_from_class_names]/-/g;
-  return &{$self->formatting_function('format_protect_text')}($self, $class_name);
+
+  return _default_format_protect_text($self, $class_name);
+  #return &{$self->formatting_function('format_protect_text')}($self, $class_name);
 }
 
 my $debug;  # whether to print debugging output

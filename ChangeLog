@@ -1,5 +1,16 @@
 2022-06-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	texi2any --html performance improvements
+
+	* tp/Texinfo/Convert/HTML.pm
+	(html_attribute_class): Change a method call to a regular call.
+	(_protect_class_name): Call _default_format_protect_text directly.
+	(_default_format_navigation_panel):
+	Access 'formatting_function' hash instead of calling
+	'formatting_function' function.
+
+2022-06-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/HTML.pm (html_attribute_class):
 	Hard-code access to 'conf' array rather than calling get_conf.
 
