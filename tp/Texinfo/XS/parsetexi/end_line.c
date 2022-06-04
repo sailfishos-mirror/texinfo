@@ -1138,7 +1138,8 @@ end_line_starting_block (ELEMENT *current)
               ELEMENT *g = current->args.list[0]->contents.list[0];
               /* Check if @enumerate specification is either a single
                  letter or a string of digits. */
-              if (g->text.end == 1 && isalpha (g->text.text[0])
+              if (g->text.end == 1
+                    && isalpha ((unsigned char) g->text.text[0])
                   || (g->text.end > 0
                       && !*(g->text.text
                             + strspn (g->text.text, "0123456789"))))
@@ -1611,7 +1612,7 @@ end_line_misc_line (ELEMENT *current)
                  just check if the language code looks right. */
 
               p = text;
-              while (isalpha (*p))
+              while (isalpha ((unsigned char) *p))
                 p++;
               if (*p && *p != '_')
                 {
@@ -1636,7 +1637,7 @@ end_line_misc_line (ELEMENT *current)
                       p = q;
                       /* Language code should be of the form LL_CC,
                          language code followed by country code. */
-                      while (isalpha (*p))
+                      while (isalpha ((unsigned char) *p))
                         p++;
                       if (*p || p - q > 4)
                         {

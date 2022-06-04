@@ -1,5 +1,14 @@
 2022-06-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Cast for isalpha and isalnum arguments
+
+	* Texinfo/XS/parsetexi/end_line.c (end_line_starting_block)
+	(end_line_misc_line),
+	* Texinfo/XS/parsetexi/parser.c (read_command_name):
+	Cast arguments to isalnum and isalpha to unsigned char.
+
+2022-06-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	New XS override
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_text, _entity_text):

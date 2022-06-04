@@ -48,10 +48,10 @@ read_command_name (char **ptr)
   char *ret = 0;
 
   q = p;
-  if (!isalnum (*q))
+  if (!isalnum ((unsigned char) *q))
     return 0; /* Invalid. */
 
-  while (isalnum (*q) || *q == '-' || *q == '_')
+  while (isalnum ((unsigned char) *q) || *q == '-' || *q == '_')
     q++;
   ret = strndup (p, q - p);
   p = q;
@@ -68,7 +68,7 @@ read_flag_name (char **ptr)
   char *ret = 0;
 
   q = p;
-  if (!isalnum (*q) && *q != '-' && *q != '_')
+  if (!isalnum ((unsigned char) *q) && *q != '-' && *q != '_')
     return 0; /* Invalid. */
 
   while (!strchr (whitespace_chars, *q)
@@ -1428,7 +1428,7 @@ superfluous_arg:
         {
           if (strchr (whitespace_chars_except_newline, *line))
             {
-              if (isalpha (command_name(current->cmd)[0]))
+              if (isalpha ((unsigned char) command_name(current->cmd)[0]))
               /* e.g. @dotaccent */
                 {
                   char *p; char *s;
@@ -1479,7 +1479,7 @@ superfluous_arg:
                   line_error ("@dotless expects `i' or `j' as argument, "
                               "not `%c'", *line);
                 }
-              if (isalpha (command_name(current->cmd)[0]))
+              if (isalpha ((unsigned char) command_name(current->cmd)[0]))
                 e->type = ET_space_command_arg;
               while (current->contents.number > 0)
                 destroy_element (pop_element_from_contents (current));
