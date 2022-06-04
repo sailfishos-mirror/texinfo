@@ -169,7 +169,8 @@ sub html_attribute_class($$;$)
   if (defined($classes) and ref($classes) ne 'ARRAY') {
     confess("html_attribute_class: $classes not an array ref (for $element)");
   }
-  if (!defined($classes) or scalar(@$classes) == 0 or $self->get_conf('NO_CSS')) {
+  if (!defined($classes) or scalar(@$classes) == 0
+        or $self->{'conf'}->{'NO_CSS'}) {
     if ($element eq 'span') {
       return '';
     } else {
@@ -179,7 +180,7 @@ sub html_attribute_class($$;$)
 
   my $style = '';
 
-  if ($self->get_conf('INLINE_CSS_STYLE')) {
+  if ($self->{'conf'}->{'INLINE_CSS_STYLE'}) {
     my @styles = ();
     foreach my $style_class (@$classes) {
       if (not defined($style_class)) {
