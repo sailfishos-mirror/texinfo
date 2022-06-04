@@ -100,6 +100,27 @@ xs_unicode_text (text_in, ...)
  OUTPUT:
      RETVAL
 
+SV *
+xs_entity_text (text_in)
+     SV *text_in
+ PREINIT:
+     char *text;
+     char *retval;
+ CODE:
+     /* Make sure the input is in UTF-8. */
+     if (!SvUTF8 (text_in))
+       sv_utf8_upgrade (text_in);
+
+     text = SvPV_nolen (text_in);
+
+     retval = xs_entity_text (text);
+
+     RETVAL = newSVpv (retval, 0);
+     SvUTF8_on (RETVAL);
+
+ OUTPUT:
+     RETVAL
+
 void
 xs_parse_texi_regex (text)
      SV *text

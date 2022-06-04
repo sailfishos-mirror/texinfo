@@ -82,6 +82,9 @@ sub import {
     Texinfo::XSLoader::override(
       "Texinfo::Convert::HTML::_default_format_protect_text",
       "Texinfo::MiscXS::default_format_protect_text");
+    Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_entity_text",
+      "Texinfo::MiscXS::entity_text");
     $module_loaded = 1;
   }
   # The usual import method
@@ -5431,6 +5434,21 @@ sub _convert_definfoenclose_type($$$$) {
 $default_types_conversion{'definfoenclose_command'}
   = \&_convert_definfoenclose_type;
 
+# Note: has an XS override
+sub _entity_text
+{
+  my $text = shift;
+
+  $text =~ s/---/\&mdash\;/g;
+  $text =~ s/--/\&ndash\;/g;
+  $text =~ s/``/\&ldquo\;/g;
+  $text =~ s/''/\&rdquo\;/g;
+  $text =~ s/'/\&rsquo\;/g;
+  $text =~ s/`/\&lsquo\;/g;
+
+  return $text;
+}
+
 sub _convert_text($$$)
 {
   my $self = shift;
@@ -5464,12 +5482,7 @@ sub _convert_text($$$)
     if ($self->{'conf'}->{'USE_NUMERIC_ENTITY'}) {
       $text = $self->xml_format_text_with_numeric_entities($text);
     } elsif ($self->{'conf'}->{'USE_ISO'}) {
-      $text =~ s/---/\&mdash\;/g;
-      $text =~ s/--/\&ndash\;/g;
-      $text =~ s/``/\&ldquo\;/g;
-      $text =~ s/''/\&rdquo\;/g;
-      $text =~ s/'/\&rsquo\;/g;
-      $text =~ s/`/\&lsquo\;/g;
+      $text = _entity_text($text);
     } else {
       $text =~ s/``/&quot;/g;
       $text =~ s/''/&quot;/g;

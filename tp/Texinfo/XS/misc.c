@@ -547,6 +547,85 @@ xs_unicode_text (char *text, int in_code)
   return new;
 }
 
+char *
+xs_entity_text (char *text)
+{
+  char *p, *q;
+  static char *new;
+  int new_space, new_len;
+
+  dTHX; /* Perl boilerplate. */
+
+  p = text;
+  new_space = strlen (text);
+  new = realloc (new, new_space + 1);
+  new_len = 0;
+
+#define ADDN(s, n) \
+  if (new_len + n - 1 >= new_space - 1)           \
+    {                                             \
+      new_space += n;                             \
+      new = realloc (new, (new_space *= 2) + 1);  \
+    }                                             \
+  memcpy(new + new_len, s, n);                    \
+  new_len += n;
+
+  while (1)
+    {
+      q = p + strcspn (p, "-`'");
+      ADDN(p, q - p);
+      if (!*q)
+        break;
+      switch (*q)
+        {
+        case '-':
+          if (!memcmp (q, "---", 3))
+            {
+              p = q + 3;
+              ADDN("&mdash;", 7);
+            }
+          else if (!memcmp (q, "--", 2))
+            {
+              p = q + 2;
+              ADDN("&ndash;", 7);
+            }
+          else
+            {
+              p = q + 1;
+              ADD1(*q);
+            }
+          break;
+        case '`':
+          if (!memcmp (q, "``", 2))
+            {
+              p = q + 2;
+              ADDN("&ldquo;", 7);
+            }
+          else
+            {
+              p = q + 1;
+              ADDN("&lsquo;", 7);
+            }
+          break;
+        case '\'':
+          if (!memcmp (q, "''", 2))
+            {
+              p = q + 2;
+              ADDN("&rdquo;", 7);
+            }
+          else
+            {
+              p = q + 1;
+              ADDN("&rsquo;", 7);
+            }
+          break;
+        }
+    }
+
+  new[new_len] = '\0';
+  return new;
+}
+
 /* Return list ($at_command, $open_brace, $asterisk, $single_letter_command,
        $separator_match) */
 void xs_parse_texi_regex (SV *text_in,

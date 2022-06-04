@@ -1,5 +1,17 @@
 2022-06-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	New XS override
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_text, _entity_text):
+	Split out _entity_text, used for USE_ISO.
+
+	* tp/Texinfo/XS/MiscXS.xs,
+	* tp/Texinfo/XS/misc.c (xs_entity_test): New function.
+	* tp/Texinfo/Convert/HTML.pm: Override _entity_text
+	with XS implementation.
+
+2022-06-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Joint tree transformation
 
 	* tp/Texinfo/Common.pm (html_joint_transformation):
