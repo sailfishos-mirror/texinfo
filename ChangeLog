@@ -1,5 +1,16 @@
 2022-06-05  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Override _default_format_protect_text instead
+
+	* tp/Texinfo/XS/misc.c, tp/Texinfo/XS/MiscXS.xs
+	(xs_xml_protect_text, xs_default_format_protect_text): Rename and
+	also handle form feeds.
+	* tp/Texinfo/Convert/HTML.pm: Override _default_format_protect_text.
+	* tp/Texinfo/Convert/Converter.pm: Do not override xml_protect_text.
+	* tp/texi2any.pl: Call import method on dynamically loaded modules.
+
+2022-06-05  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	texi2any --html performance improvement - XS override
 
 	* tp/Texinfo/XS/MiscXS.xs,

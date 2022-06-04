@@ -636,7 +636,7 @@ void xs_parse_texi_regex (SV *text_in,
 }
 
 char *
-xs_xml_protect_text (char *text)
+xs_default_format_protect_text (char *text)
 {
   char *p, *q;
   static char *new;
@@ -660,7 +660,7 @@ xs_xml_protect_text (char *text)
 
   while (1)
     {
-      q = p + strcspn (p, "<>&\"");
+      q = p + strcspn (p, "<>&\"\f");
       ADDN(p, q - p);
       if (!*q)
         break;
@@ -677,6 +677,9 @@ xs_xml_protect_text (char *text)
           break;
         case '"':
           ADDN("&quot;", 6);
+          break;
+        case '\f':
+          ADDN("&#12;", 5);
           break;
         }
       p = q + 1;

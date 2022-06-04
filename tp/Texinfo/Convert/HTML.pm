@@ -76,6 +76,19 @@ use vars qw($VERSION @ISA);
 
 $VERSION = '6.8dev';
 
+our $module_loaded = 0;
+sub import {
+  if (!$module_loaded) {
+    Texinfo::XSLoader::override(
+      "Texinfo::Convert::HTML::_default_format_protect_text",
+      "Texinfo::MiscXS::default_format_protect_text");
+    $module_loaded = 1;
+  }
+  # The usual import method
+  goto &Exporter::import;
+}
+
+
 
 # misc commands that are of use for formatting.
 my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
@@ -3026,7 +3039,8 @@ sub _default_format_comment($$) {
   return $self->xml_comment(' '.$text);
 }
 
-sub _default_format_protect_text($$) {
+# Note: has an XS override
+sub _default_format_protect_text {
   my $self = shift;
   my $text = shift;
   my $result = $self->xml_protect_text($text);

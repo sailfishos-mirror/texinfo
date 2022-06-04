@@ -57,19 +57,6 @@ xml_accents
 
 $VERSION = '6.8dev';
 
-our $module_loaded = 0;
-sub import {
-  if (!$module_loaded) {
-    Texinfo::XSLoader::override(
-      "Texinfo::Convert::Converter::xml_protect_text",
-      "Texinfo::MiscXS::xml_protect_text");
-    $module_loaded = 1;
-  }
-  # The usual import method
-  goto &Exporter::import;
-}
-
-
 my %defaults = (
   'documentlanguage'     => undef,
 );
@@ -1395,8 +1382,7 @@ sub xml_format_text_with_numeric_entities($$)
   return $text;
 }
 
-# Note: has an XS override
-sub xml_protect_text
+sub xml_protect_text($$)
 {
   my $self = shift;
   my $text = shift;

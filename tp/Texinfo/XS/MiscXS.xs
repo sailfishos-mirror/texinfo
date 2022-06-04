@@ -134,7 +134,7 @@ xs_parse_texi_regex (text)
      SvUTF8_on(ST(5));
 
 SV *
-xs_xml_protect_text (self, text_in)
+xs_default_format_protect_text (self, text_in)
      SV *self
      SV *text_in
  PREINIT:
@@ -147,7 +147,7 @@ xs_xml_protect_text (self, text_in)
 
      text = SvPV_nolen (text_in);
 
-     retval = xs_xml_protect_text (text);
+     retval = xs_default_format_protect_text (text);
 
      RETVAL = newSVpv (retval, 0);
      SvUTF8_on (RETVAL);
