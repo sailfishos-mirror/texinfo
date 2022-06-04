@@ -5423,11 +5423,14 @@ sub _convert_text($$$)
   my $text = shift;
 
   if ($self->in_verbatim()) {
-    return &{$self->formatting_function('format_protect_text')}($self, $text);
+    return $self->_default_format_protect_text($text);
+    #return &{$self->formatting_function('format_protect_text')}($self, $text);
   }
   return $text if ($self->in_raw());
   $text = uc($text) if ($self->in_upper_case());
-  $text = &{$self->formatting_function('format_protect_text')}($self, $text);
+
+  $text = $self->_default_format_protect_text($text);
+  #$text = &{$self->formatting_function('format_protect_text')}($self, $text);
 
   if ($self->{'conf'}->{'ENABLE_ENCODING'}
       and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'}
