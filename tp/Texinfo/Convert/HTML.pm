@@ -5436,12 +5436,19 @@ sub _convert_text($$$)
   my $element = shift;
   my $text = shift;
 
-  if ($self->in_verbatim()) {
+  my $context = $self->{'document_context'}->[-1];
+
+  #if ($self->in_verbatim()) { # inline these calls for speed
+  if ($context->{'verbatim'}) {
     return $self->_default_format_protect_text($text);
     #return &{$self->formatting_function('format_protect_text')}($self, $text);
   }
-  return $text if ($self->in_raw());
-  $text = uc($text) if ($self->in_upper_case());
+  return $text if $context->{'raw'};
+  #return $text if ($self->in_raw());
+
+  my $formatting_context = $context->{'formatting_context'}->[-1];
+  $text = uc($text) if $formatting_context->{'upper_case'};
+  #$text = uc($text) if ($self->in_upper_case());
 
   $text = $self->_default_format_protect_text($text);
   #$text = &{$self->formatting_function('format_protect_text')}($self, $text);
@@ -5450,8 +5457,8 @@ sub _convert_text($$$)
       and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'}
       and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'} eq 'utf-8') {
     $text = Texinfo::Convert::Unicode::unicode_text($text,
-                                        ($self->in_code() or $self->in_math()));
-  } elsif (!$self->in_code() and !$self->in_math()) {
+                                        (in_code($self) or in_math($self)));
+  } elsif (!$context->{'monospace'}->[-1] and !$context->{'math'}) {
     if ($self->{'conf'}->{'USE_NUMERIC_ENTITY'}) {
       $text = $self->xml_format_text_with_numeric_entities($text);
     } elsif ($self->{'conf'}->{'USE_ISO'}) {
@@ -5470,9 +5477,10 @@ sub _convert_text($$$)
     }
   }
 
-  return $text if ($self->in_preformatted());
+  return $text if (in_preformatted($self));
 
-  if ($self->in_non_breakable_space()) {
+  #if ($self->in_non_breakable_space()) {
+  if ($formatting_context->{'space_protected'}) {
     if ($text =~ /(\S*[_-]\S*)/) {
       my $open = $self->html_attribute_class('span', ['w-nolinebreak-text']);
       if ($open ne '') {
