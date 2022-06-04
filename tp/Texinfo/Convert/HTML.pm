@@ -5452,7 +5452,7 @@ sub _convert_text($$$)
   $text = uc($text) if $formatting_context->{'upper_case'};
   #$text = uc($text) if ($self->in_upper_case());
 
-  $text = $self->_default_format_protect_text($text);
+  $text = _default_format_protect_text($self, $text);
   #$text = &{$self->formatting_function('format_protect_text')}($self, $text);
 
   if ($self->{'conf'}->{'ENABLE_ENCODING'}
