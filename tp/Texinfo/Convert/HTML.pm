@@ -417,8 +417,8 @@ my %special_list_mark_css_string_no_arg_command = (
 # tried to use HYPHEN BULLET \2043 for use as in a bullet list, but, at least
 # with my test of firefox the result is very different from a bullet.
 # hyphen minus or hyphen \2010 are even smaller than hyphen bullet.
-# Use the Unicode codepoint used normally is for a mathematical minus \2212
-# even though it is too large, but the others are too short...
+# Use the Unicode codepoint used normally for a mathematical minus \2212
+# even though it is too large, since the others are too short...
 # (which is actually the default, but this could change).
   #'minus' => '-',
   #'minus' => '\2010 ',
@@ -2247,6 +2247,10 @@ $default_no_arg_commands_formatting{'preformatted'}->{'*'}->{'text'} = "\n";
 # escaped code points in CSS
 # https://www.w3.org/TR/css-syntax/#consume-escaped-code-point
 # Consume as many hex digits as possible, but no more than 5. Note that this means 1-6 hex digits have been consumed in total. If the next input code point is whitespace, consume it as well. Interpret the hex digits as a hexadecimal number.
+# Note that in style= HTML attributes entities are used to
+# protect CSS strings.  For example, the CSS string a'b"
+# is protected as CSS as a\'b", and " is escaped in an HTML style
+# attribute: style="list-style-type: 'a\'b&quot;'"
 
 foreach my $no_brace_command (keys(%no_brace_commands)) {
   $default_no_arg_commands_formatting{'css_string'}->{$no_brace_command}->{'text'}

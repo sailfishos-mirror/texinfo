@@ -22,6 +22,14 @@ my $itemize_arguments_text = '
 @item item a``b`c
 @end itemize
 
+@itemize a\'"
+@item item a\'"
+@end itemize
+
+@itemize b\\<&
+@item item b\\<&
+@end itemize
+
 @itemize @today
 @item item today @today{}
 @end itemize
