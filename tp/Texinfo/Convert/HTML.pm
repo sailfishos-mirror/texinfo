@@ -173,6 +173,8 @@ sub html_attribute_class($$;$)
     confess("html_attribute_class: $classes not an array ref (for $element)");
   }
   if (!defined($classes) or scalar(@$classes) == 0
+      # API info: get_conf() API code conforming would be:
+      #  or $self->get_conf('NO_CSS')) {
         or $self->{'conf'}->{'NO_CSS'}) {
     if ($element eq 'span') {
       return '';
@@ -183,6 +185,8 @@ sub html_attribute_class($$;$)
 
   my $style = '';
 
+  # API info: get_conf() API code conforming would be:
+  #  if ($self->get_conf('INLINE_CSS_STYLE')) {
   if ($self->{'conf'}->{'INLINE_CSS_STYLE'}) {
     my @styles = ();
     foreach my $style_class (@$classes) {
@@ -3414,8 +3418,9 @@ sub _default_format_navigation_panel($$$$;$)
     }
 
     my ($active, $passive, $need_delimiter)
+      # API info: using the API to allow for customization would be:
+      #  = &{$self->formatting_function('format_button')}($self, $button);
        = &{$self->{'formatting_function'}->{'format_button'}}($self, $button);
-      # = &{$self->formatting_function('format_button')}($self, $button);
     if ($self->get_conf('HEADER_IN_TABLE')) {
       if (defined($active)) {
         $result .= $active;
@@ -5462,29 +5467,45 @@ sub _convert_text($$$)
 
   my $context = $self->{'document_context'}->[-1];
 
-  #if ($self->in_verbatim()) { # inline these calls for speed
-  if ($context->{'verbatim'}) {
-    return $self->_default_format_protect_text($text);
+  # API info: in_verbatim() API code conforming would be:
+  #if ($self->in_verbatim()) {
+  if ($context->{'verbatim'}) { # inline these calls for speed
+    # API info: using the API to allow for customization would be:
     #return &{$self->formatting_function('format_protect_text')}($self, $text);
+    return $self->_default_format_protect_text($text);
   }
   return $text if $context->{'raw'};
+  # API info: in_raw() API code conforming would be:
   #return $text if ($self->in_raw());
 
   my $formatting_context = $context->{'formatting_context'}->[-1];
   $text = uc($text) if $formatting_context->{'upper_case'};
+  # API info: in_upper_case() API code conforming would be:
   #$text = uc($text) if ($self->in_upper_case());
 
-  $text = _default_format_protect_text($self, $text);
+  # API info: using the API to allow for customization would be:
   #$text = &{$self->formatting_function('format_protect_text')}($self, $text);
+  $text = _default_format_protect_text($self, $text);
 
+  # API info: get_conf() API code conforming would be:
+  #if ($self->get_conf('ENABLE_ENCODING')
+  #    and $self->get_conf('OUTPUT_ENCODING_NAME')
+  #    and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
   if ($self->{'conf'}->{'ENABLE_ENCODING'}
       and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'}
       and $self->{'conf'}->{'OUTPUT_ENCODING_NAME'} eq 'utf-8') {
     $text = Texinfo::Convert::Unicode::unicode_text($text,
                                         (in_code($self) or in_math($self)));
+  # API info: in_code() API code conforming and
+  # API info: in_math() API code conforming would be:
+  #} elsif (!$self->in_code() and !$self->in_math()) {
   } elsif (!$context->{'monospace'}->[-1] and !$context->{'math'}) {
+    # API info: get_conf() API code conforming would be:
+    #if ($self->{'conf'}->{'USE_NUMERIC_ENTITY'}) {
     if ($self->{'conf'}->{'USE_NUMERIC_ENTITY'}) {
       $text = $self->xml_format_text_with_numeric_entities($text);
+    # API info: get_conf() API code conforming would be:
+    #} elsif ($self->{'conf'}->{'USE_ISO'}) {
     } elsif ($self->{'conf'}->{'USE_ISO'}) {
       $text = _entity_text($text);
     } else {
@@ -5498,6 +5519,7 @@ sub _convert_text($$$)
 
   return $text if (in_preformatted($self));
 
+  # API info: in_non_breakable_space() API code conforming would be:
   #if ($self->in_non_breakable_space()) {
   if ($formatting_context->{'space_protected'}) {
     if ($text =~ /(\S*[_-]\S*)/) {
@@ -9887,8 +9909,9 @@ sub _protect_class_name($$)
   my $class_name = shift;
   $class_name =~ s/[$characters_replaced_from_class_names]/-/g;
 
+  # API info: using the API to allow for customization would be:
+  #  return &{$self->formatting_function('format_protect_text')}($self, $class_name);
   return _default_format_protect_text($self, $class_name);
-  #return &{$self->formatting_function('format_protect_text')}($self, $class_name);
 }
 
 my $debug;  # whether to print debugging output

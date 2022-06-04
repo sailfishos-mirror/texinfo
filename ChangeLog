@@ -1,3 +1,15 @@
+2022-06-04  Patrice Dumas  <pertusus@free.fr>
+
+	Document strict API use in comments when the API is not used
+
+	* tp/Texinfo/Convert/HTML.pm: use # API info: comments to
+	document what strict API use would have been when the API is not
+	used for speed.
+
+	* doc/customization_api.texi (Init File Basics, Basic Formatting
+	Customization): document # API info: comments. Document that
+	customized format_protect_text function may not be called everywhere.
+
 2022-06-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Cast for isalpha and isalnum arguments
