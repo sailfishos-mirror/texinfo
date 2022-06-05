@@ -894,7 +894,7 @@ Con@TeX{}t, etc.)
 @cindex PostScript output, overview
 (Generated via @command{texi2dvi --ps}.)  PostScript is a page
 description language that became widely used around 1985 and is still
-used today.  @uref{http://en.wikipedia.org/wiki/PostScript} gives a
+used today.  @uref{https://en.wikipedia.org/wiki/PostScript} gives a
 basic description and more preferences.  By default, Texinfo uses the
 @command{dvips} program to convert @TeX{}'s DVI output to PostScript.
 @xref{Top,,, dvips, Dvips}.
@@ -908,7 +908,7 @@ interchange, based on their previous PostScript language.  It can
 represent the exact appearance of a document, including fonts and
 graphics, and supporting arbitrary scaling.  It is intended to be
 platform-independent and easily viewable, among other design goals;
-@uref{http://en.wikipedia.org/wiki/Portable_Document_Format} and
+@uref{https://en.wikipedia.org/wiki/Portable_Document_Format} and
 @uref{http://tug.org/TUGboat/tb22-3/tb72beebe-pdf.pdf} have some
 background.  By default, Texinfo uses the @command{pdftex} program, an
 extension of @TeX{}, to output PDF; see
@@ -9969,7 +9969,7 @@ preferable; these are available in the CM-Super font package
 Both distributions include installation instructions.
 
 Traditions for quotation mark usage vary to a great extent between
-languages (@url{http://en.wikipedia.org/wiki/Quotation_mark}).
+languages (@url{https://en.wikipedia.org/wiki/Quotation_mark}).
 Texinfo does not provide commands or configurations for typesetting
 quotation marks according to the numerous traditions.  Therefore, you
 have to choose the commands appropriate for the language of your
@@ -12363,7 +12363,7 @@ relatively frequently, we don't attempt to list them here.  The valid
 language codes are on the official home page for ISO@tie{}639,
 @url{http://www.loc.gov/standards/iso639-2/}.  The country codes and
 the official web site for ISO@tie{}3166 can be found via
-@url{http://en.wikipedia.org/wiki/ISO_3166}.
+@url{https://en.wikipedia.org/wiki/ISO_3166}.
 
 
 @node @code{@@documentencoding}
@@ -14864,7 +14864,7 @@ initial'' shown in the index:
 @pindex ti.twjr
 Although not a matter of functionality, readers may be interested to
 know that the new @command{texindex} is a literate program
-(@url{http://en.wikipedia.org/wiki/Literate_programming}) using
+(@url{https://en.wikipedia.org/wiki/Literate_programming}) using
 Texinfo for documentation and (portable) @code{awk} for code.  A
 single source file, @file{texindex/ti.twjr} in this case, produces the
 runnable program, a printable document, and an online document.

@@ -1,3 +1,8 @@
+2022-06-05  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi: Change all Wikipedia links to use https.
+	From Tzvetelin Katchov <katchov@gnu.org>.
+
 2022-06-04  Patrice Dumas  <pertusus@free.fr>
 
 	Document strict API use in comments when the API is not used
