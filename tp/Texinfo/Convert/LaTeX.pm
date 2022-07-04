@@ -32,7 +32,7 @@
 #}
 #
 # it seems that LaTeX \indent only works with \setlength{\parindent}{0pt}
-# which makes it quite different from Texinfo @indent which should requires
+# which makes it quite different from Texinfo @indent which should require
 # a different conversion
 #
 # @exdent is not implemented
@@ -76,10 +76,10 @@
 #
 #   \mbox{-}\nobreak\hspace{0pt}
 #
-# Note that the texinfo.tex code do more, for instance turs off normal
+# Note that the texinfo.tex code does more, for instance turns off normal
 # hyphenation, sets plainfrenchspacing (see \tclose), and sets line breaks
 # at _ and - with several special cases, such as no break right after one
-# or two hyphen, no breake between __ or hyphen.  See near \global\def\code
+# or two hyphen, no break between __ or hyphen.  See near \global\def\code
 # in texinfo.tex.
 #
 #
@@ -88,14 +88,11 @@
 # breaking in urls is not implemented, maybe there is some support already in
 # hyperref.  @urefbreakstyle, @/
 #
-# Translations
-#
-# Need thinking.  In texi2any?  In LaTeX?  If in
-# texi2any in general no need for something as complex as gdt leading
-# to a Texinfo tree, as we can provide strings to be translated already in
-# LaTeX with the same property than Texinfo strings with LaTeX commands
-# allowing to be, to some extent, already not so dependent of the language
-# and/or encoding.
+# Need some thinking/discussion for translations.  In texi2any?  In LaTeX?  If
+# in texi2any in general no need for something as complex as gdt leading to a
+# Texinfo tree, as we can provide strings to be translated already in LaTeX
+# with the same property than Texinfo strings with LaTeX commands avoiding,
+# to some extent, dependence on the language and/or encoding.
 #
 # It seems that \chaptername doesn't become Appendix for a sectioning command
 # appearing after \appendix
@@ -112,54 +109,52 @@
 # The \geometry command does not really reset the geometry after
 # \begin{document} according to the documentation, something else should be
 # used to switch paper definition after document begin if needed.  Not
-# necessarily a bad thing not to be able to change paper geometry after
-# the beginning of the document.
+# necessarily a bad thing not to be able to change paper geometry after the
+# beginning of the document.
 #
 # @pagesizes uses \newgeometry which forgets about previous settings except for
 # paper size.  It could be a good thing to change geometry that way, but it is
 # not how Texinfo TeX does it.
 #
-# The environment used for @quotation is quote as it seems to match in term
-# of output, but the description of quote does not really match with what
-# is supposed to be the @quotation output.
+# The environment used for @quotation is quote as it seems to match in term of
+# output, but the description of quote does not really match with what is
+# supposed to be the @quotation output.
 #
 #
 # CAN WAIT
 #
 # Use texinfo.cnf?  Here?  in texi2any.pl?
 #
-# @need is implemented in a specific way, maybe there could be a
-# definition of \mil instead.
+# @need is implemented in a specific way, maybe there could be a definition of
+# \mil instead.
 #
 # @fonttextsize with \changefontsize does not seems to change fonts much.  It
 # seems to change in the text, but only 10pt, and does not seems to change
 # sections font sizes.
 #
-# The \listof result does not seems very good.  Also it does not
-# use the type (name) of float.
+# The \listof result does not seems very good.  Also it does not use the type
+# (name) of float.
 #
-# in TeX, acronym is in a smaller font (1pt less). Can this be
-# easily done in LaTeX?  Is it really useful to do that?
+# in TeX, acronym is in a smaller font (1pt less). Can this be easily done in
+# LaTeX?  Is it really useful to do that?
 #
-# interline spacing in @title multi lines in @titlepage and between
-# multiple @author is not as good as in Texinfo TeX output/
-# example titlepage_classical in t/latex_tests.t can show it.
+# interline spacing in @title multi lines in @titlepage and between multiple
+# @author is not as good as in Texinfo TeX output/ example titlepage_classical
+# in t/latex_tests.t can show it.
 #
-# shorttitlepage in Texinfo TeX does not seem to break line.
-# Probably ok.
+# shorttitlepage in Texinfo TeX does not seem to break line.  Probably ok.
 #
-# for external references it seems that Texinfo TeX points to
-# a file, it could be relevant to do the same in LaTeX.
+# for external references it seems that Texinfo TeX points to a file, it could
+# be relevant to do the same in LaTeX.
 #
 # Nothing specific is done for @headings singleafter and @headings doubleafter
 # compared to @headings single and @headings double
 #
-# The support of \global\urefurlonlylinktrue would be rather easy, but maybe
-# need to make it a proper @-command.  Similarly \global\def\linkcolor and
-# \global\def\urlcolor should probably only implemented if there is a
-# corresponding @-command.  There are options for colors in hyperref, like
-# linkbordercolor but it is unlear whether it can be used to distinguish links
-# and urls.
+# The support of \global\urefurlonlylinktrue would be rather easy, but
+# need to make it a proper @-command first.  Similar for 
+# \global\def\linkcolor and \global\def\urlcolor.  There are options for
+# colors in hyperref, like linkbordercolor but it is unlear whether it
+# can be used to distinguish links and urls.
 #
 # In the manual it is said that majorheading generates a larger vertical
 # whitespace before the heading than @chapheading command.  It is not
@@ -171,7 +166,7 @@
 # preformatted environment the @quotation @author formatting will be the same
 # as in the main text?
 #
-# index entry between @table and fist @item cause an empty \item[] to be
+# index entry between @table and first @item causes an empty \item[] to be
 # output.
 
 package Texinfo::Convert::LaTeX;
