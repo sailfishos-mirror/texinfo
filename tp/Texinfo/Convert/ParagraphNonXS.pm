@@ -281,14 +281,6 @@ sub set_space_protection($$;$$$$)
     if defined($ignore_columns);
   $paragraph->{'keep_end_lines'} = $keep_end_lines
     if defined($keep_end_lines);
-  if (!$paragraph->{'frenchspacing'} and $frenchspacing
-    and $paragraph->{'end_sentence'} and $paragraph->{'counter'} != 0 
-    and $paragraph->{'space'} and !defined($paragraph->{'word'})) {
-    $paragraph->{'space'} .= ' ' x (2 - length($paragraph->{'space'}));
-    print STDERR "SWITCH frenchspacing end sentence space\n" 
-       if ($paragraph->{'DEBUG'});
-    delete $paragraph->{'end_sentence'};
-  }
   $paragraph->{'frenchspacing'} = $frenchspacing
     if defined($frenchspacing);
   $paragraph->{'double_width_no_break'} = $double_width_no_break

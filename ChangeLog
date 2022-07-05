@@ -1,3 +1,10 @@
+2022-07-05  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (set_space_protection),
+	* tp/Texinfo/XS/xspara.c (xs_set_space_protection):
+	Remove code making end of sentence up to two spaces as it is not
+	clear that this is necessary or correct.
+
 2022-06-05  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi: Change all Wikipedia links to use https.
