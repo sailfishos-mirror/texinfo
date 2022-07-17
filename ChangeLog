@@ -1,3 +1,43 @@
+2022-17-07  Patrice Dumas  <pertusus@free.fr>
+
+	Documentation: LaTeX output, move Emacs related info, other changes
+
+	* doc/texinfo.texi: edit to use printed output instead of @TeX{}
+	if also relevant for LaTeX, and add specific informations
+	for LaTeX output.
+	(Hardcopy with @TeX{}): rename Hardcopy as Hardcopy with @TeX{}.
+	(Minimum, Emacs Editing, Sample Include File)
+	(Invoking @command{texi2any}): discourage using .tex as extension
+	for Texinfo documents, encourage .texi.  Remove duplicate
+	information on extensions in Emacs Editing node.
+	(Texinfo File Header, Writing a Node, Texinfo Mode Printing)
+	(Updating Commands, @code{@@smallbook}, Preferred): remove or
+	move Emacs specific information.  Also recall that using automatic
+	pointers and menus is possible and usually better.
+	(Start of Header, End of Header): merge as Start and End of Header
+	and put after Texinfo Preamble node.
+	(Reporting Bugs): link to GNU Coding Standards
+	instead of Emacs manual, and propose diff -u too.
+	(Output Formats, Short Sample, The Top Node, Master Menu Parts)
+	(Nodes, @code{@@top} Command, Fonts, PDF Output): remove some
+	text with erroneous, redundant or useless information.
+	(Adding Output Formats): link to tp_api.
+	(History): update on Multilingual support, to take into account
+	that there is now C again.  Add a sentence to describe that there
+	was no back-end contribution.
+	(Texinfo Document Structure, Node Menu Illustration): do not
+	present the usual structuring following the sectioning structure
+	as the only one recommended.  Other structures (for example the
+	guide/topic structure of the Mallard language) would be equally
+	relevant.
+
+	* tp/texi2any.pl, doc/texinfo.texi (Invoking @command{texi2any}):
+	add --iflatex and --no-iflatex.
+
+	* doc/texinfo.texi (Menus), NEWS: document that a menu in Info output
+	is automatically added if there is no @menu at all in a node with
+	automatic directions.
+
 2022-07-05  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/ParagraphNonXS.pm (set_space_protection),

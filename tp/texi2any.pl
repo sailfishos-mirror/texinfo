@@ -819,24 +819,24 @@ the behavior is identical, and does not depend on the installed name.\n")
   -P DIR                        prepend DIR to the \@include search path.
   -U VAR                        undefine the variable VAR, as with \@clear.\n")
 ."\n";
-  # TODO: avoid \n in translated strings, split each option in a translatable
-  # string.  Report from Benno Schulenberg
-  $makeinfo_help .= __("Conditional processing in input:
-  --ifdocbook       process \@ifdocbook and \@docbook even if
-                      not generating Docbook.
-  --ifhtml          process \@ifhtml and \@html even if not generating HTML.
-  --ifinfo          process \@ifinfo even if not generating Info.
-  --ifplaintext     process \@ifplaintext even if not generating plain text.
-  --iftex           process \@iftex and \@tex.
-  --ifxml           process \@ifxml and \@xml.
-  --no-ifdocbook    do not process \@ifdocbook and \@docbook text.
-  --no-ifhtml       do not process \@ifhtml and \@html text.
-  --no-ifinfo       do not process \@ifinfo text.
-  --no-ifplaintext  do not process \@ifplaintext text.
-  --no-iftex        do not process \@iftex and \@tex text.
-  --no-ifxml        do not process \@ifxml and \@xml text.
-
-  Also, for the --no-ifFORMAT options, do process \@ifnotFORMAT text.\n")
+  $makeinfo_help .= __("Conditional processing in input:")."\n"
+.__("  --ifdocbook       process \@ifdocbook and \@docbook even if
+                      not generating Docbook.")."\n"
+.__("  --ifhtml          process \@ifhtml and \@html even if not generating HTML.")."\n"
+.__("  --ifinfo          process \@ifinfo even if not generating Info.")."\n"
+.__("  --iflatex         process \@iflatex and \@latex.")."\n"
+.__("  --ifplaintext     process \@ifplaintext even if not generating plain text.")."\n"
+.__("  --iftex           process \@iftex and \@tex.")."\n"
+.__("  --ifxml           process \@ifxml and \@xml.")."\n"
+.__("  --no-ifdocbook    do not process \@ifdocbook and \@docbook text.")."\n"
+.__("  --no-ifhtml       do not process \@ifhtml and \@html text.")."\n"
+.__("  --no-ifinfo       do not process \@ifinfo text.")."\n"
+.__("  --no-iflatex      do not process \@iflatex and \@latex text.")."\n"
+.__("  --no-ifplaintext  do not process \@ifplaintext text.")."\n"
+.__("  --no-iftex        do not process \@iftex and \@tex text.")."\n"
+.__("  --no-ifxml        do not process \@ifxml and \@xml text.")."\n"
+."\n"
+.__("  Also, for the --no-ifFORMAT options, do process \@ifnotFORMAT text.")."\n"
 ."\n";
   # TODO: avoid \n in translated strings, split each option in a translatable
   # string.  Report from Benno Schulenberg
@@ -845,7 +845,8 @@ the behavior is identical, and does not depend on the installed name.\n")
   if generating HTML, --ifhtml is on and the others are off;
   if generating Info, --ifinfo is on and the others are off;
   if generating plain text, --ifplaintext is on and the others are off;
-  if generating XML, --ifxml is on and the others are off.\n")
+  if generating LaTeX, --iflatex is on and the others are off;
+  if generating XML, --ifxml is on and the others are off.")."\n"
 ."\n";
   # TODO: avoid \n in translated strings, split each option in a translatable
   # string.  Report from Benno Schulenberg
