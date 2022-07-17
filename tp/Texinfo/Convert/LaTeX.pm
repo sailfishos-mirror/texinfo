@@ -151,7 +151,7 @@
 # compared to @headings single and @headings double
 #
 # The support of \global\urefurlonlylinktrue would be rather easy, but
-# need to make it a proper @-command first.  Similar for 
+# need to make it a proper @-command first.  Similar for
 # \global\def\linkcolor and \global\def\urlcolor.  There are options for
 # colors in hyperref, like linkbordercolor but it is unlear whether it
 # can be used to distinguish links and urls.
@@ -282,7 +282,7 @@ foreach my $block_math_command (keys(%math_commands)) {
 
 my %ignored_misc_commands;
 foreach my $misc_command (keys(%misc_commands)) {
-  $ignored_misc_commands{$misc_command} = 1 
+  $ignored_misc_commands{$misc_command} = 1
     unless ($formatted_misc_commands{$misc_command});
 }
 
@@ -415,7 +415,7 @@ foreach my $text_only_no_arg_brace_command
      (keys(%LaTeX_text_only_no_arg_brace_commands)) {
   my $LaTeX_command =
     "\\$LaTeX_text_only_no_arg_brace_commands{$text_only_no_arg_brace_command}\{\}";
-  $LaTeX_no_arg_brace_commands{'text'}->{$text_only_no_arg_brace_command} 
+  $LaTeX_no_arg_brace_commands{'text'}->{$text_only_no_arg_brace_command}
     = $LaTeX_command;
   $LaTeX_no_arg_brace_commands{'math'}->{$text_only_no_arg_brace_command}
     = '\mathord{\text{'.$LaTeX_command.'}}';
@@ -448,7 +448,7 @@ my %LaTeX_accent_commands = (
   }
 );
 
-# accent in math and not in text is the same in 
+# accent in math and not in text is the same in
 # Texinfo and LaTeX.
 foreach my $accent_command (keys %{$LaTeX_accent_commands{'math'}}) {
   if (not exists($LaTeX_accent_commands{'text'}->{$accent_command})) {
@@ -457,7 +457,7 @@ foreach my $accent_command (keys %{$LaTeX_accent_commands{'math'}}) {
 }
 
 # TODO command that could be used for translation \sectionname does
-# not exist in the default case.  it is defined in the pagenote package together with 
+# not exist in the default case.  it is defined in the pagenote package together with
 # \pagename which is page in the default case, but it is unclear if this
 # can be used as a basis for translations
 my %LaTeX_in_heading_commands = (
@@ -734,12 +734,12 @@ sub converter_initialize($)
   %{$self->{'ignored_commands'}} = %ignored_commands;
 
   foreach my $format (keys(%format_raw_commands)) {
-    $self->{'ignored_commands'}->{$format} = 1 
+    $self->{'ignored_commands'}->{$format} = 1
        unless ($self->{'expanded_formats_hash'}->{$format});
   }
 
   %{$self->{'quotes_map'}} = %quotes_map;
-  $self->{'convert_text_options'} 
+  $self->{'convert_text_options'}
       = {Texinfo::Convert::Text::copy_options_for_convert_text($self)};
 
   # this condition means that there is no way to turn off
@@ -1661,7 +1661,7 @@ my $default_chapter_page_code = $odd_chapter_new_page_code;
 # To make sure that we substitute the right code, we add a
 # distinctive code that does nothing.  This is needed when
 # code is simply removed or when simple code is substituted.
-my $chapter_new_page_marking_placeholder 
+my $chapter_new_page_marking_placeholder
    = '\GNUTexinfoplaceholder{setchapternewpage placeholder}';
 
 my %setchapternewpage_new_page_spec_code = (
@@ -2009,7 +2009,7 @@ sub _index_entry($$)
       push @result, $result;
     }
     my $seeresult = '';
-   SEEENTRY: 
+   SEEENTRY:
     foreach my $subentry_command (@$subentry_commands) {
       foreach my $seecommand (('seeentry', 'seealso')) {
         if ($subentry_command->{'extra'}->{$seecommand}
@@ -2330,6 +2330,7 @@ sub _convert($$)
         # what should be escaped and how
         my $converted_basefile = _protect_text($self, $basefile);
 
+        # FIXME why do that if $converted_basefile is used even if no file is found?
         my $image_file;
         foreach my $extension (@LaTeX_image_extensions) {
           my ($file_name, $file_name_encoding)
@@ -2407,7 +2408,7 @@ sub _convert($$)
         if (defined($element->{'args'}->[0])
             and @{$element->{'args'}->[0]->{'contents'}}) {
           $email = $element->{'args'}->[0]->{'contents'};
-          $email_text 
+          $email_text
             = $self->_protect_url(Texinfo::Convert::Text::convert_to_text(
                 {'contents' => $email},
                 {'code' => 1,
@@ -2427,7 +2428,7 @@ sub _convert($$)
         if (scalar(@{$element->{'args'}}) == 3
              and defined($element->{'args'}->[2])
              and @{$element->{'args'}->[2]->{'contents'}}) {
-          unshift @{$self->{'current_contents'}->[-1]}, 
+          unshift @{$self->{'current_contents'}->[-1]},
             {'contents' => $element->{'args'}->[2]->{'contents'}};
         } elsif (@{$element->{'args'}->[0]->{'contents'}}) {
           my $url_content = $element->{'args'}->[0]->{'contents'};
@@ -2442,7 +2443,7 @@ sub _convert($$)
             my $description = _convert($self, {'contents',
                                    $element->{'args'}->[1]->{'contents'}});
             my $text = $self->gdt('{text} ({url})',
-                          {'text' => $description, 'url' => "\\nolinkurl{$url_text}"}, 
+                          {'text' => $description, 'url' => "\\nolinkurl{$url_text}"},
                                        'translated_text');
             $result .= "\\href{$url_text}{$text}";
             return $result;
@@ -2453,7 +2454,7 @@ sub _convert($$)
         } elsif (scalar(@{$element->{'args'}}) == 2
                  and defined($element->{'args'}->[1])
                  and @{$element->{'args'}->[1]->{'contents'}}) {
-          unshift @{$self->{'current_contents'}->[-1]}, 
+          unshift @{$self->{'current_contents'}->[-1]},
             {'contents' => $element->{'args'}->[1]->{'contents'}};
         }
       }
@@ -2627,13 +2628,13 @@ sub _convert($$)
             # When processing with TeX, a comma is automatically inserted after the page number
             # for cross-references to within the same manual, unless the closing brace of the argument
             # is followed by non-whitespace (such as a comma or period).
-            # 
+            #
             # If an unwanted comma is added, follow the argument with a command such as @:
             if ($reference->{'cmdname'} and $reference->{'cmdname'} eq 'node'
                 and $section_command) {
               if ($section_command->{'structure'}->{'section_level'} > 1) {
                 # TODO command that could be used for translation \sectionname does
-                # not exist in the default case.  it is defined in the pagenote package together with 
+                # not exist in the default case.  it is defined in the pagenote package together with
                 # \pagename which is page in the default case, but it is unclear if this
                 # can be used as a basis for translations
                 $result .= "\\hyperref[$reference_label]{Section~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
@@ -2707,8 +2708,8 @@ sub _convert($$)
         if (scalar (@{$element->{'args'}}) == 2
             and defined($element->{'args'}->[-1])
             and @{$element->{'args'}->[-1]->{'contents'}}) {
-          my $prepended = $self->gdt('{abbr_or_acronym} ({explanation})', 
-                           {'abbr_or_acronym' => $argument, 
+          my $prepended = $self->gdt('{abbr_or_acronym} ({explanation})',
+                           {'abbr_or_acronym' => $argument,
                             'explanation' => $element->{'args'}->[-1]->{'contents'}});
           $result .= _convert($self, $prepended);
         } else {
@@ -2791,7 +2792,7 @@ sub _convert($$)
 
       if (defined($shortcaption)) {
         _push_new_context($self, 'latex_shortcaption');
-        my $shortcaption_text = _convert($self, 
+        my $shortcaption_text = _convert($self,
                        {'contents' => $shortcaption->{'args'}->[0]->{'contents'}});
         _pop_context($self);
         $result .= '['.$shortcaption_text.']';
@@ -2835,7 +2836,7 @@ sub _convert($$)
       }
       return $result;
     } elsif ($cmdname eq 'value') {
-      my $expansion = $self->gdt('@{No value for `{value}\'@}', 
+      my $expansion = $self->gdt('@{No value for `{value}\'@}',
                                     {'value' => $element->{'type'}});
       $expansion = {'type' => 'paragraph',
                     'contents' => [$expansion]};
@@ -2880,7 +2881,7 @@ sub _convert($$)
         if ($element->{'args'} and $element->{'args'}->[0]
             and $element->{'args'}->[0]->{'contents'}
             and @{$element->{'args'}->[0]->{'contents'}}) {
-          my $prepended = $self->gdt('@b{{quotation_arg}:} ', 
+          my $prepended = $self->gdt('@b{{quotation_arg}:} ',
              {'quotation_arg' => $element->{'args'}->[0]->{'contents'}});
           $result .= $self->_convert($prepended);
         }
@@ -3049,7 +3050,7 @@ sub _convert($$)
     } elsif ($cmdname eq 'insertcopying') {
       if ($self->{'global_commands'}
           and $self->{'global_commands'}->{'copying'}) {
-        unshift @{$self->{'current_contents'}->[-1]}, 
+        unshift @{$self->{'current_contents'}->[-1]},
            {'contents' => $self->{'global_commands'}->{'copying'}->{'contents'}};
       }
       return $result;
@@ -3270,10 +3271,10 @@ sub _convert($$)
         and !($element->{'extra'}
                 and ($element->{'extra'}->{'index_entry'}))
         # commands like def*x are not processed above, since only the def_line
-        # associated is processed. If they have no name and no category they 
+        # associated is processed. If they have no name and no category they
         # are not considered as index entries either so they have a specific
         # condition
-        and !($def_commands{$cmdname} 
+        and !($def_commands{$cmdname}
               and $cmdname =~ /x$/)) {
       warn "Unhandled $cmdname\n";
       $result .= "!!!!!!!!! Unhandled $cmdname !!!!!!!!!\n";
@@ -3386,11 +3387,11 @@ sub _convert($$)
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'arguments' => $arguments};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree 
+              $tree
                 = $self->gdt("\@tie{}-- {category} on {class}:\@*{type}\@*{name} {arguments}",
                              $strings);
             } else {
-              $tree 
+              $tree
                 = $self->gdt("\@tie{}-- {category} on {class}: {type} {name} {arguments}",
                              $strings);
             }
@@ -3401,11 +3402,11 @@ sub _convert($$)
                     'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree 
+              $tree
                 = $self->gdt("\@tie{}-- {category} on {class}:\@*{type}\@*{name}",
                              $strings);
             } else {
-              $tree 
+              $tree
                 = $self->gdt("\@tie{}-- {category} on {class}: {type} {name}",
                              $strings);
             }
@@ -3419,11 +3420,11 @@ sub _convert($$)
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'arguments' => $arguments};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree 
+              $tree
                 = $self->gdt("\@tie{}-- {category} of {class}:\@*{type}\@*{name} {arguments}",
                              $strings);
             } else {
-              $tree 
+              $tree
                 = $self->gdt("\@tie{}-- {category} of {class}: {type} {name} {arguments}",
                              $strings);
             }
@@ -3434,11 +3435,11 @@ sub _convert($$)
                     'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree 
+              $tree
                 = $self->gdt("\@tie{}-- {category} of {class}:\@*{type}\@*{name}",
                              $strings);
             } else {
-              $tree 
+              $tree
                 = $self->gdt("\@tie{}-- {category} of {class}: {type} {name}",
                              $strings);
             }
