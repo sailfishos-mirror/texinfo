@@ -620,7 +620,7 @@ boilerplate is a minimal beginning for a Texinfo document.
 =item B<--setfilename>=I<STR>
 
 Use I<STR> in top boilerplate before menu and includes for C<@setfilename>.
-The default is based onthe output file name.  This option is especially
+The default is based on the output file name.  This option is especially
 useful if the top boilerplate is output on the standard output.
 
 =item B<--subdir>=I<NAME>
