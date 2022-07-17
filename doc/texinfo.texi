@@ -2745,12 +2745,13 @@ Nodes are used as the targets of cross-references.  Cross-references,
 such as the one at the end of this sentence, are made with @code{@@xref}
 and related commands; see @ref{Cross References}.  Cross-references can
 be sprinkled throughout the text, and provide a way to represent links
-that do not fit a hierarchical structure.
+that do not fit the main document structure.  Other @@-commands may also
+be the target of cross-references (@pxref{@code{@@anchor}}, @pxref{Floats}).
 
 Normally, you put a node command immediately before each chapter
 structuring command---for example, an @code{@@section} or
 @code{@@subsection} line.  (@xref{Chapter Structuring}.)
-You must do this even if you do not intend to format the file for Info.
+You should do this even if you do not intend to format the file for Info.
 This is because printed output uses both @code{@@node} names and
 chapter-structuring names in the output for cross-references.  The only
 time you are likely to use the chapter structuring commands without also
@@ -2786,7 +2787,8 @@ the node, like this:
 @end example
 
 After you have inserted a @code{@@node} line, you should immediately
-write an @@-command for the chapter or section and insert its name.
+write the @@-command for the associated chapter or section (if any)
+and insert its name.
 
 You may optionally follow the node name argument to @code{@@node}
 with up to three optional arguments on the rest of the same line,
@@ -2884,9 +2886,11 @@ for example, in this manual the @samp{@@dots} node is output as
 @file{__0040dots.html}.
 @end itemize
 
-Because node names are used in cross-references, it is not desirable
-to casually change them once published.  Such name changes invalidate
-references from other manuals, from mail archives, and so on.
+Because node names are used in cross-references, it is not desirable to
+casually change them once published.  When you delete or rename a node, it is
+usually a good idea to define an @code{@@anchor} with the old name.
+That way, references from other manuals, from mail archives, and so on
+are not invalidated.  @xref{@code{@@anchor}}.
 
 The pointers from a given node enable you to reach other nodes and
 consist simply of the names of those nodes.
@@ -2923,6 +2927,10 @@ them all ``Summary''.  You may, however, duplicate the titles of
 chapters, sections, and the like.  Thus you can end each chapter with
 a section called ``Summary'', so long as the node names for those
 sections are all different.
+
+Unicity extends to anchor names
+(@pxref{@code{@@anchor}}) and float labels (@pxref{@code{@@float}}). Node names,
+anchor names, and float labels may not conflict.
 
 @item
 @cindex Commands in node names
@@ -2965,8 +2973,9 @@ Unfortunately, you cannot reliably use periods, commas, or colons
 within a node name; these can confuse the Info reader.  Also, a node
 name may not start with a left parenthesis preceding a right
 parenthesis, as in @code{(not)allowed}, since this syntax is used to
-specify an external manual.  (Perhaps these limitations will be
-removed some day.)
+specify an external manual.  These limitations will be removed some
+day when Info-reading programs that recognize quoting of node names
+become common (@pxref{INFO_SPECIAL_CHARS_QUOTE}).
 
 @command{makeinfo} warns about such problematic usage in node names,
 menu items, and cross-references.  If you don't want to see the
@@ -3354,12 +3363,11 @@ starting with @w{@samp{* }} are menu entries.
 @cindex Hierarchical documents, and menus
 Technically, menus can carry you to any node, regardless of the
 structure of the document; even to nodes in a different Info file.
-However, we do not recommend making use of this, because it is hard
-for readers to follow.  Also, the @command{makeinfo} implicit pointer
-creation feature (@pxref{Writing a Node}) and GNU
-Emacs Texinfo mode updating commands work only to create menus of
-subordinate nodes in a hierarchically structured document.  It is much
-better to use cross-references to refer to arbitrary nodes.
+However, the @command{makeinfo} implicit pointer creation feature
+(@pxref{Writing a Node}) and GNU Emacs Texinfo mode updating commands
+work only to create menus of subordinate nodes in a hierarchically
+structured document.  In a hierarchically structured document, it is
+much better to use cross-references to refer to arbitrary nodes.
 
 In Info, a user selects a node with the @kbd{m} (@code{Info-menu})
 command.  The menu entry name is what the user types after the @kbd{m}
@@ -4243,14 +4251,14 @@ in an entry that you can follow using the Info @samp{f} command.
 (@xref{Help-Xref,, Following cross-references, info, Info}.)  In HTML, a
 cross-reference results in an hyperlink.
 
-The various cross-reference commands use nodes (or anchors,
-@pxref{@code{@@anchor}}) to define cross-reference locations.
-Printed output needs nodes to define cross-reference locations.  When
-@TeX{} generates a DVI file, it records each node's page number and uses
-the page numbers in making references.  Thus, even if you are writing a
-manual that will only be printed, and not used online, you must 
-nonetheless write @code{@@node} lines in order to name the places to 
-which you make cross-references.
+The various cross-reference commands use nodes, anchors
+(@pxref{@code{@@anchor}}) or float labels (@pxref{@code{@@float}}) to define
+cross-reference locations.  When @TeX{} generates a DVI file, it records each
+cross-reference location page number and uses the page numbers in making
+references.  Thus, even if you are writing a manual that will only be printed,
+and not used online, you must nonetheless write @code{@@node} lines (or
+@code{@@anchor} anchors) in order to name the places to which you make
+cross-references.
 
 @need 800
 @node Cross Reference Commands
@@ -4355,8 +4363,9 @@ The node or anchor name (required, except for reference to whole
 manuals).  This is the location to which the cross-reference takes
 you.  In a printed document, the location of the node provides the
 page reference only for references within the same document.
-Use @code{@@node} to define the node (@pxref{Writing a Node}), or 
-@code{@@anchor} (@pxref{@code{@@anchor}}).
+Use @code{@@node} to define the node (@pxref{Writing a Node}),
+@code{@@anchor} (@pxref{@code{@@anchor}}), or @code{@@float} with
+a label (@pxref{@code{@@float}}).
 
 Write a node name in a cross-reference in exactly the same way as in
 the @code{@@node} line, including the same capitalization; otherwise, the
@@ -5002,10 +5011,13 @@ text when they jump to the anchor.  You can put the @code{@@anchor}
 command on a line by itself if that helps readability of the source.
 Whitespace (including newlines) is ignored after @code{@@anchor}.
 
-Anchor names and node names may not conflict.  Anchors and nodes are
+Anchor names, node names and float labels may not conflict.  Anchors,
+nodes and float labels are
 given similar treatment in some ways; for example, the
 @code{goto-node} command takes either an anchor name or a node name as
-an argument.  (@xref{Go to node,,, info, Info}.)
+an argument.  (@xref{Go to node,,, info, Info}.).  Anchors names and float
+labels could also appear in menus (@pxref{Menus}) and node direction
+pointers (@pxref{Writing a Node}), although this is not recommended.
 
 Also like node names, anchor names cannot include some characters
 (@pxref{Node Line Requirements}).
@@ -18434,8 +18446,9 @@ the @samp{-} and @samp{_} characters are all that can be used.
 (Although HTML anchors can contain most characters, XHTML is more
 restrictive.)
 
-Cross-references in Texinfo can refer either to nodes or anchors
-(@pxref{@code{@@anchor}}).  However, anchors are treated identically
+Cross-references in Texinfo can refer either to nodes, anchors
+(@pxref{@code{@@anchor}}) or float labels (@pxref{@code{@@float}}).
+However, anchors and float labels are treated identically
 to nodes in this context, so we'll continue to say ``node'' names for
 simplicity.
 
