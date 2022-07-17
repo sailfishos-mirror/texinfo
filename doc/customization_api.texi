@@ -551,7 +551,7 @@ first step of parsing the Texinfo code, which cannot be customized.}.
 The function used is @code{texinfo_register_type_format_info}:
 
 @defun texinfo_register_type_format_info ($type, $code_type, $pre_class_type)
-@var{$type} is the type of the container.  If @var{code_type} is set, the container
+@var{$type} is the type of the container.  If @var{$code_type} is set, the container
 contents are assumed to be in code context. @xref{Init File Expansion
 Contexts}. If @var{$pre_class_type} is set, the HTML @code{<pre>} elements
 class attribute are based on @var{$pre_class_type}, if there are such HTML
@@ -763,10 +763,10 @@ conversely, the main component is nodes if @code{USE_NODES} is set.
 When sections are the main components of element units, ``isolated'' nodes
 not directly associated with a sectioning command are associated with
 the following sectioning command, while sectioning commands without
-nodes constitute an element.  Conversely, when nodes are the main
+nodes constitute element units.  Conversely, when nodes are the main
 components of elements, isolated sections not associated with nodes
 are associated with the previous node, and isolated nodes are
-elements.
+element units.
 
 
 @node Directions
@@ -783,8 +783,8 @@ associated with a button (@pxref{Simple Navigation Panel Customization}).
 
 Each element direction has a name and a reference to the element unit they
 point to, when such an element exists.  The element is either a
-global element (for example, the first element) or relative to the
-current element (for example, the next element unit).  Such relative
+global element unit (for example, the first element) or relative to the
+current element unit (for example, the next element unit).  Such relative
 elements are determined with respect to the document structure defined
 by the section structuring commands (@code{@@chapter},
 @code{@@unnumbered}@dots{}) or by the nodes if the node pointers are
@@ -1137,7 +1137,7 @@ the elements, but it can be interesting in some cases.
 
 @deftypefun $converted_text $converter->convert_tree (\%element, $explanation)
 @var{\%element} is a Texinfo tree element. @var{$explanation} is
-optional, it is a tree explaining why the function was called, to help
+optional, it is a string explaining why the function was called, to help
 in case of debugging.  The function returns @var{\%element} converted.
 @end deftypefun
 

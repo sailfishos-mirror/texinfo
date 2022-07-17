@@ -1702,14 +1702,14 @@ also initialized as a L<Texinfo::Report>.
 
 =back
 
-To help with these initializations, the modules can define two methods:
+To help with these initializations, the modules subclassing C<Texinfo::Convert::Converter> can define two methods:
 
 =over
 
 =item %defaults = $converter->converter_defaults($options)
 X<C<converter_defaults>>
 
-The converter can provide a defaults hash for configuration options.
+The module can provide a defaults hash for converter configuration options.
 The I<$options> hash reference holds options for the converter.
 
 =item converter_initialize
