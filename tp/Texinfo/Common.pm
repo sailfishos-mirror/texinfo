@@ -226,6 +226,7 @@ my %default_main_program_command_line_options = (
   'ERROR_LIMIT'          => 100,     # --error-limit
   'FORCE'                => undef,   # --force
   'NO_WARN'              => undef,   # --no-warn
+  'SILENT'               => undef,   # --silent.    Not used.  For completeness
 
   # following also used in converters
   'FORMAT_MENU'          => 'menu',  # --headers.  Modified by the format.

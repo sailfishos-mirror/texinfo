@@ -1,5 +1,10 @@
 2022-18-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%default_main_program_command_line_options):
+	add 'SILENT' for --silent for completeness.  It is not used anywhere.
+
+2022-18-07  Patrice Dumas  <pertusus@free.fr>
+
 	Simplify node names information, add more on explicit pointers
 
 	* doc/texinfo.texi (Node Line Requirements): simplify information
