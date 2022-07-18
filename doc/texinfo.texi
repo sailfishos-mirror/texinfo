@@ -16715,41 +16715,38 @@ others' distribution systems.
 
 This table lists the customization variables which can be used when 
 @command{latex2html} is being used to convert @code{@@math} and
-@code{@@tex} sections for HTML@.  To actually convert @code{@@tex} sections,
-@option{--iftex} should be used.
+@code{@@tex} sections for HTML@.  These customization variables
+are relevant only if @code{HTML_MATH} is set to @samp{l2h}.
+
+To actually convert @code{@@tex} sections, @option{--iftex} should be used.
 
 @vtable @code
 @item L2H_CLEAN
-(Relevant only if @code{HTML_MATH} is set to @samp{l2h}.)  If set, the intermediate files
-generated in relation with @command{latex2html} are removed; default
-true.
+If set, the intermediate files generated in relation with @command{latex2html}
+are removed; default true.
 
 @item L2H_FILE
-(Relevant only if @code{HTML_MATH} is set to @samp{l2h}.)  If set, the given file is used
-as @command{latex2html}'s init file; default unset.
+If set, the given file is used as @command{latex2html}'s init file; default
+unset.
 
 @item L2H_HTML_VERSION
-(Relevant only if @code{HTML_MATH} is set to @samp{l2h}.)  The HTML version used in the
-@command{latex2html} call; default unset.
+The HTML version used in the @command{latex2html} call; default unset.
 
 @item L2H_L2H
-(Relevant only if @code{HTML_MATH} is set to @samp{l2h}.)  The program invoked as
-@command{latex2html}; default is @code{latex2html}.
+The program invoked as @command{latex2html}; default is @code{latex2html}.
 
 @item L2H_SKIP
-(Relevant only if @code{HTML_MATH} is set to @samp{l2h}.)  If set to a true value, the
-actual call to @command{latex2html} is skipped; previously generated
-content is reused instead.  If set to 0, the cache is not used at all.
-If set to @samp{undef}, the cache is used for as many @TeX{} fragments as
-possible and for any remaining the command is run.  The default is
+If set to a true value, the actual call to @command{latex2html} is skipped;
+previously generated content is reused instead.  If set to 0, the cache is not
+used at all.  If set to @samp{undef}, the cache is used for as many @TeX{}
+fragments as possible and for any remaining the command is run.  The default is
 @samp{undef}.
 
 @item L2H_TMP
-(Relevant only if @code{HTML_MATH} is set to @samp{l2h}.)  Set the directory used for
-temporary files.  None of the file name components in this directory
-name may start with @samp{.}; otherwise, @command{latex2html} will
-fail (because of @command{dvips}).  The default is the empty string,
-which means the current directory.
+Set the directory used for temporary files.  None of the file name components
+in this directory name may start with @samp{.}; otherwise, @command{latex2html}
+will fail (because of @command{dvips}).  The default is the empty string, which
+means the current directory.
 
 @end vtable
 
@@ -16922,7 +16919,7 @@ default true.
 
 @item OPEN_QUOTE_SYMBOL
 When an opening quote is needed, e.g., for @samp{@@samp} output, use
-the specified character; default @code{&#8216;} for DocBook..
+the specified character; default @code{&#8216;} for DocBook.
 Undefined in the default case in HTML and set to @code{&lsquo;}
 if @code{USE_NUMERIC_ENTITY} is not set, to @code{&#8217;} if set, and
 to a quote character if @option{--enable-encoding} is set and the output
