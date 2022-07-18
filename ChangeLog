@@ -1,5 +1,11 @@
 2022-18-07  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi: add additional information on DocBook output.
+	(Generating HTML): remove the sentence saying that DocBook and
+	XML output are not described in detail, they are correctly described.
+
+2022-18-07  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (@command{latex2html} Customization Variables):
 	write only once that the customization variables are only relevant
 	if using latex2html.
