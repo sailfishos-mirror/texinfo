@@ -2928,38 +2928,27 @@ chapters, sections, and the like.  Thus you can end each chapter with
 a section called ``Summary'', so long as the node names for those
 sections are all different.
 
-Unicity extends to anchor names
-(@pxref{@code{@@anchor}}) and float labels (@pxref{@code{@@float}}). Node names,
-anchor names, and float labels may not conflict.
+Unicity extends to anchor names (@pxref{@code{@@anchor}}) and float labels
+(@pxref{@code{@@float}}). Node names, anchor names, and float labels may not
+conflict.
 
 @item
 @cindex Commands in node names
 @cindex @sortas{at} @@-commands @subentry in node names
-Node names can contain @@-commands.  The output is generally the
-natural result of the command; for example, using @code{@@TeX@{@}} in a
-node name results in the @TeX{} logo being output, as it would be in
-normal text.  Cross-references should use @code{@@TeX@{@}} just as the
-node name does.
-
-For Info and HTML output, especially, it is necessary to expand
-commands to some sequence of plain characters; for instance,
-@code{@@TeX@{@}} expands to the three letters @samp{TeX} in the Info
-node name.  However, cross-references to the node should not take the
-``shortcut'' of using @samp{TeX}; stick to the actual node name,
-commands and all.
+Node names can contain @@-commands@footnote{Prior to the Texinfo 5 release in 2013, this feature was supported in
+an ad hoc way (the @option{--commands-in-node-names} option to
+@command{makeinfo}).  Now it is part of the language.
+}.  For example, using
+@code{@@TeX@{@}} in a node name results in the @TeX{} logo being
+output, as it would be in normal text.  Cross-references should
+use @code{@@TeX@{@}} just as the node name does.
 
 Some commands do not make sense in node names; for instance,
 environments (e.g., @code{@@quotation}), commands that read a whole
 line as their argument (e.g., @code{@@sp}), and plenty of others.
-
 For the complete list of commands that are allowed, and their
 expansion for HTML identifiers and file names, @pxref{HTML Xref
-Command Expansion}.  The expansions for Info are generally given with
-the description of the command.
-
-Prior to the Texinfo 5 release in 2013, this feature was supported in
-an ad hoc way (the @option{--commands-in-node-names} option to
-@command{makeinfo}).  Now it is part of the language.
+Command Expansion}.
 
 @item
 @cindex Colon in node name
@@ -2983,14 +2972,13 @@ warnings, you can set the customization variable
 @code{INFO_SPECIAL_CHARS_WARNING} to @samp{0} (@pxref{Other
 Customization Variables}).
 
-Also, if you insist on using these characters in node names (accepting
-the resulting substandard Info output), in order not to confuse the
-Texinfo processors you must still escape those characters, by using
-either special insertions (@pxref{Inserting a Comma}) or @code{@@asis}
+If you insist on using these characters in node names, in order not
+to confuse the Texinfo processors you must still escape those characters,
+by using either special insertions (@pxref{Inserting a Comma}) or @code{@@asis}
 (@pxref{@code{@@asis}}).  For example:
 
 @example
-@@node foo@@asis@{::@}bar
+@@node foo@@asis@{::@}bar@@comma@{@} baz
 @end example
 
 As an example of avoiding the special characters, the following is a
@@ -3027,10 +3015,6 @@ single space.  For example:
 @end example
 
 @noindent all define the same node, namely @samp{foo bar}. 
-In menu entries, this is the name that should be used: no leading or
-trailing spaces, and a single internal space.  (For cross-references,
-the node name used in the Texinfo sources is automatically normalized
-in this way.)
 @end itemize
 
 
@@ -3082,8 +3066,7 @@ $ @kbd{makeinfo --html -c TOP_NODE_UP_URL=/manual/} ...
 
 @item
 @cindex Prev node of Top node
-The `Prev' node of the Top node is usually either omitted or also set
-to @file{(dir)}.  Either is fine.
+The `Prev' node of the Top node is usually omitted.
 
 @item
 @cindex Next node of Top node
@@ -3147,7 +3130,7 @@ for printed output.  The @samp{Top} is not output for DocBook either.
 @cindex Structure, of Texinfo documents
 @cindex Double structure, of Texinfo documents
 
-@anchor{Two Paths}@c node name
+@anchor{Two Paths}@c old node name
 
 Nodes can contain @dfn{menus}, which contain the names of @dfn{child
 nodes} within the parent node; for example, a node corresponding to a
@@ -3158,11 +3141,21 @@ In addition, nodes contain @dfn{node pointers} that name other nodes.
 The `Next' and `Previous' pointers link nodes at the same sectioning
 level into a chain.  As you might imagine, the `Next' pointer links to
 the next node, and the `Previous' pointer links to the previous node.
+In general, `Next' and `Previous' refer to nodes at the @emph{same
+hierarchical level} in the manual, not necessarily to the next node
+within the Texinfo file.  In the Texinfo file, the subsequent node may
+be at a lower level---a section-level node most often follows a chapter-level
+node, for example.
 Thus, for example, all the nodes that are at the level of sections
 within a chapter are linked together, and the order in this chain
 is the same as the order of the children in the menu of the parent
 chapter.  Each child node records the parent node name as its `Up'
 pointer.
+
+Since the `Top' node is the only node at that level, `Next'
+refers to the first following node, which is almost always a chapter
+or chapter-level node.  This is an exception to the rule of
+`Next' being at the same hierarchical level.
 
 @cindex @code{accesskey} @subentry in HTML output of nodes
 The Info and HTML output from @command{makeinfo} for each node includes
@@ -3239,17 +3232,6 @@ name of the `Previous' node is ``Chapter@tie{}1'', and the name of the
 node names if your document is hierarchically organized , but the 
 pointer relationships still obtain.
 
-@quotation Note
-In general, `Next' and `Previous' refer to nodes at the @emph{same
-hierarchical level} in the manual, not necessarily to the next node
-within the Texinfo file.  In the Texinfo file, the subsequent node may
-be at a lower level---a section-level node most often follows a chapter-level
-node, for example.  (The `Top' node contains the exception to this
-rule.  Since the `Top' node is the only node at that level, `Next'
-refers to the first following node, which is almost always a chapter
-or chapter-level node.)
-@end quotation
-
 To go to Sections 2.1 and 2.2 using Info, you need a menu inside
 Chapter 2.  (@xref{Menus}.)  You would write the menu just before the
 beginning of Section 2.1, like this:
@@ -3263,7 +3245,19 @@ beginning of Section 2.1, like this:
 @end group
 @end example
 
-Using explicit pointers, the node for Sect.@: 2.1 is written like this:
+The automatic pointers for the node for Sect.@: 2.1 correspond to:
+
+@example
+@group
+@@node     Sect. 2.1, Sect. 2.2, ,         Chapter 2
+@@comment  node-name, next,      previous, up
+@end group
+@end example
+
+Note that no `Prev' pointer is generated, since there is
+no other node at the same hierarchical level before Sect.@: 2.1.
+
+Using explicit pointers, the node for Sect.@: 2.1 could be written like this:
 
 @example
 @group
@@ -3272,13 +3266,21 @@ Using explicit pointers, the node for Sect.@: 2.1 is written like this:
 @end group
 @end example
 
-In Info format, the `Next' and `Previous' pointers of a node usually
+With automatic pointers, the `Next' and `Previous' pointers of a node
 lead to other nodes at the same level---from chapter to chapter or
-from section to section (sometimes, as shown, the `Previous' pointer
-points up); an `Up' pointer usually leads to a node at the level above
-(closer to the `Top' node); and a `Menu' leads to nodes at a level
-below (closer to `leaves').  (A cross-reference can point to a node at
-any level; see @ref{Cross References}.)
+from section to section.  As shown, when using explicit pointers, 
+the pointers can also lead somewhere else, here, for
+example, the `Previous' pointer points up.  An `Up' pointer usually
+leads to a node at the level above (closer to the `Top' node; and a
+`Menu' leads to nodes at a level below (closer to `leaves').
+(A cross-reference can point to a node at any level; see
+@ref{Cross References}.)
+
+Technically, explicit node pointers can carry you to any node,
+regardless of the structure of the document; even to nodes in a
+different Info file.  However, it would be very confusing for readers
+to have the `Next', `Previous' and `Up' pointers lead to nodes that
+do not correspond, even loosely, to the next, previous and up node.
 
 A @code{@@node} command and a chapter structuring command are
 conventionally used together, in that order, often followed by
@@ -3315,7 +3317,10 @@ manuals and do not appear in them.
 
 Menus are automatically generated by @command{texi2any} when outputting
 Info for nodes followed by a sectioning command, without menu, and with
-automatic pointers.
+automatic pointers.  In a hierarchically organized manual with sectioning
+commands associated with nodes and with node pointers lefet out, you should
+only write menus if you want to have descriptions especially formatted
+in Info.
 
 @menu
 * Writing a Menu::              What is a menu?

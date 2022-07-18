@@ -1,3 +1,24 @@
+2022-18-07  Patrice Dumas  <pertusus@free.fr>
+
+	Simplify node names information, add more on explicit pointers
+
+	* doc/texinfo.texi (Node Line Requirements): simplify information
+	on node names requirements to match with current implementation
+	and avoid implementation details.
+	(First Node): Top Prev node is not set in the usual case.
+	(Texinfo Document Structure, Node Menu Illustration): move the
+	information from the Note in Node Menu Illustration to
+	Texinfo Document Structure to explain better that Next and Prev
+	at the same hierarchical level earlier.  Remove the Note as it
+	is redundant with other explanations (before and after).
+	Be more explicit in the examples on the differences between
+	automatic and explicit node pointers.  Add a paragraph to explain
+	that technically explicit node pointers can lead anywhere, but
+	that it is a bad idea to use that feature.
+	(Menus): be more explicit that menus need not to be written in
+	a hierarchically organized manual with automatic pointers unless
+	specific formatting is wanted.
+
 2022-17-07  Patrice Dumas  <pertusus@free.fr>
 
 	Document float labels and anchors are used like nodes, other changes
