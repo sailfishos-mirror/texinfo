@@ -1,6 +1,16 @@
 2022-07-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi
+	(@setfilename): "Tell the name" -> "Give the name" in menu entries
+	leading to this node.  Do not separate sentences with commas.  Other
+	edits for grammar.
+	(Titlepage & Copyright Page): "similar with" -> "similar to"
+	(small): Remove mention of Texinfo-XML transliteration as not much
+	information is given here.
+
+2022-07-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi
 	(Nodes): No need to compare cross-references with the "document
 	structure".
 	(Node Line Requirements): Avoid obscure word "unicity".  Tweak

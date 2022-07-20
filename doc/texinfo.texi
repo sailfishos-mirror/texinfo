@@ -170,7 +170,7 @@ Writing a Texinfo File
 Texinfo File Header
 
 * First Line::                  The first line of a Texinfo file.
-* @code{@@setfilename}::                Tell the name of the output file.
+* @code{@@setfilename}::                Give the name of the output file.
 * @code{@@settitle}::                   Create a title for the printed work.
 * Texinfo Preamble::            Start of the Texinfo file up to first content.
 * Start and End of Header::     Formatting a region in Emacs requires this.
@@ -1625,7 +1625,7 @@ at the beginning of output files, or the language used in file headers.
 
 @menu
 * First Line::                  The first line of a Texinfo file.
-* @code{@@setfilename}::                Tell the name of the output file.
+* @code{@@setfilename}::                Give the name of the output file.
 * @code{@@settitle}::                   Create a title for the printed work.
 * Texinfo Preamble::            Start of the Texinfo file up to first content.
 * Start and End of Header::     Formatting a region in Emacs requires this.
@@ -1718,12 +1718,12 @@ when generating HTML, for example), or add a dot followed by the
 extension (@samp{.html} for HTML) if the given name has no extension.
 
 @code{@@setfilename} used to be required by the Texinfo processors
-and some other programs.  It should not be the case anymore,
+and some other programs.  This should not be the case any more;
 @code{@@setfilename} can be omitted.  If the Texinfo input is
-processed from standard input, without input file name to deduce the
+processed from standard input, without an input file name to deduce the
 base file name from, @code{@@setfilename} could still be relevant.
-This is not the only way, @option{--output} option specifies
-the output file name on @command{texi2any} command-line
+This is not the only way, however: @option{--output} option specifies
+the output file name on the @command{texi2any} command-line
 (@pxref{Invoking @command{texi2any}}).
 
 @cindex Length of file names
@@ -2121,7 +2121,7 @@ writing it out again.
 
 The title and copyright pages appear in printed manuals, but not in
 most other output formats.  In HTML, the best way to get a title page
-similar with printed manuals is to set the @code{NO_TOP_NODE_OUTPUT}
+similar to printed manuals is to set the @code{NO_TOP_NODE_OUTPUT}
 customization variable (@pxref{@code{NO_TOP_NODE_OUTPUT}}).
 
 @menu
@@ -7233,8 +7233,6 @@ In printed output, however, the @code{@@small@dots{}} commands typeset text in
 a smaller font than the non-small example commands.  Thus, for
 instance, code examples can contain longer lines and still fit on a
 page without needing to be rewritten.
-
-A specific element is also retained in the Texinfo@tie{}XML transliteration.
 
 Mark the end of a @code{@@small@dots{}} block with a corresponding
 @code{@@end small@dots{}}.  For example, pair @code{@@smallexample} with
