@@ -12408,10 +12408,13 @@ the official web site for ISO@tie{}3166 can be found via
 @cindex Character set, declaring
 @cindex Document input encoding
 
-The @code{@@documentencoding} command declares the input document
-encoding, and can also affect the encoding of the output.  Write it on
-a line by itself, with a valid encoding specification following, near
-the beginning of the file.
+In the default case, the input and output document encoding are assumed
+to be UTF-8, which is compatible with 7-bit ASCII.  The
+@code{@@documentencoding} command declares the input document encoding, and
+also affects the encoding of the output.  Write it on a line by itself, with a
+valid encoding specification following, near the beginning of the file if your
+document encoding is not the default encoding or if you want to set the
+encoding explicitly.
 
 @example
 @@documentencoding @var{enc}
@@ -12421,7 +12424,7 @@ Texinfo supports these encodings:
 
 @table @code
 @item US-ASCII
-This has no particular effect, but it's included for completeness.
+Character encoding based on the English alphabet.
 
 @item UTF-8
 The default.  The vast global character encoding, expressed in 8-bit bytes.
@@ -12447,49 +12450,51 @@ This is the commonly used encoding for the Ukrainian language.
 
 @end table
 
-Specifying an encoding @var{enc} has the following effects:
-
 @cindex Local Variables section, for encoding
 @cindex Info output, and encoding
 In Info output, a so-called `Local Variables' section (@pxref{File
 Variables,,, emacs, The GNU Emacs Manual}) is output including
-@var{enc}.  This allows Info readers to set the encoding
+the output encoding.  This allows Info readers to set the encoding
 appropriately.  It looks like this:
 
 @example
 Local Variables:
-coding: @var{enc}
+coding: UTF-8
 End:
 @end example
 
 Also, in Info and plain text output, unless the option
 @option{--disable-encoding} is given to @command{makeinfo}, accent
 constructs and special characters, such as @code{@@'e}, are output as
-the actual 8-bit or UTF-8 character in the given encoding where
+the actual 8-bit or UTF-8 character in the output encoding where
 possible.
 
 @cindex HTML output, and encodings
 @cindex @code{http-equiv}, and charset specification
 @cindex @code{<meta>} HTML tag, and charset specification
 In HTML output, a @samp{<meta>} tag is output, in the @samp{<head>}
-section of the HTML, that specifies @var{enc}.  Web servers and
+section of the HTML, that specifies the output encoding.  Web servers and
 browsers cooperate to use this information so the correct encoding is
 used to display the page, if supported by the system.  That looks like
 this:
 
 @example
 <meta http-equiv="Content-Type" content="text/html;
-     charset=@var{enc}">
+     charset=utf-8">
 @end example
 
-In HTML output, if the option @option{--enable-encoding} is given
-to @command{texi2any}, accent constructs and special characters, such
-as @code{@@'e} or @code{``}, are output as the actual 8-bit or UTF-8
-character in the given encoding where possible.  Otherwise HTML entities
-are used for those characters.
+In HTML and @LaTeX{} output, if the option @option{--enable-encoding} is given
+to @command{texi2any}, accent constructs and special characters, such as
+@code{@@'e} or @code{``}, are output as the actual 8-bit or UTF-8 character in
+the output encoding where possible.  Otherwise HTML entities are used for those
+characters in HTML, and @LaTeX{} macros are used in @LaTeX{}.
 
-In XML and DocBook output, UTF-8 is always used for the output,
-according to the conventions of those formats.
+In XML and DocBook output, if the encoding is different from UTF-8,
+an @code{encoding} attribute is added to the XML declaration.
+If the option @option{--enable-encoding} is given to @command{texi2any},
+accent constructs such as @code{@@'e} are output as the actual 8-bit or
+UTF-8 character in the output encoding where possible.  Otherwise XML
+entities are used for those constructs.
 
 @cindex Computer Modern fonts
 In @TeX{} output, the characters which are supported in the standard
@@ -12505,11 +12510,11 @@ all that effort.
 
 In @LaTeX{} output, code loading the @samp{inputenc} package is output
 based on the encoding.  This, by itself, does not ensures that all
-the characters can be subsequently output.  The fonts used in the
-default case should cover the specific Texinfo glyphs, but not all
-the possible encoded characters.  You may need to load
-different fonts in the Texinfo preamble and use
-@code{\DeclareUnicodeCharacter} with a UTF-8 encoding.  For example
+the characters from the input document  can be subsequently output.
+The fonts used in the default case should cover the specific Texinfo
+glyphs, but not all the possible encoded characters.  You may need to
+load different fonts in the Texinfo preamble and use
+@code{\DeclareUnicodeCharacter} with a UTF-8 encoding.  For example:
 @example
 @@latex
 \DeclareUnicodeCharacter@{017B@}@{\.Z@}
@@ -15559,10 +15564,15 @@ Info (@pxref{@command{texi2any} Printed Output}).
 @vindex ENABLE_ENCODING
 By default, or with @option{--enable-encoding}, output accented and
 special characters in Info and plain text output based on
-@samp{@@documentencoding}.  With @option{--disable-encoding}, 7-bit
-ASCII transliterations are output.  @xref{@code{@@documentencoding}},
-and @ref{Inserting Accents}.
+the document encoding.  With @option{--disable-encoding}, 7-bit
+ASCII transliterations are output.
 
+By default, or with @option{--disable-encoding}, output accented and
+special characters in HTML, TexinfoXML and DocBook using XML entities.
+With @option{--enable-encoding}, output accented characters in HTML,
+TexinfoXML and DocBook output and special characters in HTML output
+based on the document encoding.  @xref{@code{@@documentencoding}},
+and @ref{Inserting Accents}.
 
 @item --error-limit=@var{limit}
 @itemx -e @var{limit}

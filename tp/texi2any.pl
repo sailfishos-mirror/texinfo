@@ -769,22 +769,30 @@ the behavior is identical, and does not depend on the installed name.\n")
                                 a directory or ends with a /,
                                 put the output file there.
                                 Otherwise, DEST names the output file.")."\n"
+.__(
+"      --disable-encoding      do not output accented and special characters
+                                in Info output based on document encoding.")."\n"
+.__(
+"      --enable-encoding       based on document encoding, output accented
+                                characters in XML-based output as well as
+                                special characters in HTML instead of
+                                entities.")."\n"
 ."\n";
-  # TODO: avoid \n in translated strings, split each option in a translatable
-  # string.  Report from Benno Schulenberg
-  $makeinfo_help .= sprintf(__("Options for Info and plain text:
-      --disable-encoding      do not output accented and special characters
-                                in Info output based on \@documentencoding.
-      --enable-encoding       override --disable-encoding (default).
-      --fill-column=NUM       break Info lines at NUM columns (default %d).
-      --footnote-style=STYLE  output footnotes in Info according to STYLE:
+  $makeinfo_help .= sprintf(__("Options for Info and plain text:")."\n"
+.__(
+"      --fill-column=NUM       break Info lines at NUM columns (default %d).")."\n"
+.__(
+"      --footnote-style=STYLE  output footnotes in Info according to STYLE:
                                 `separate' to put them in their own node;
                                 `end' to put them at the end of the node, in
-                                which they are defined (this is the default).
-      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default %d).
+                                which they are defined (this is the default).")."\n"
+.__(
+"      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default %d).
                                 If VAL is `none', do not indent; if VAL is
-                                `asis', preserve existing indentation.
-      --split-size=NUM        split Info files at size NUM (default %d).\n"),
+                                `asis', preserve existing indentation.")."\n"
+.__(
+"      --split-size=NUM        split Info files at size NUM (default %d).")."\n"
+."\n".
     _get_converter_default('FILLCOLUMN'),
     _get_converter_default('paragraphindent'), 
     _get_converter_default('SPLIT_SIZE'))

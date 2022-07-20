@@ -17,22 +17,6 @@ xterm &
 Before next release
 ===================
 
-
-@item --enable-encoding
-@itemx --disable-encoding
-@opindex --enable-encoding
-@opindex --disable-encoding
-@vindex ENABLE_ENCODING
-By default, or with @option{--enable-encoding}, output accented and
-special characters in Info and plain text output based on
-@samp{@@documentencoding}.  With @option{--disable-encoding}, 7-bit
-ASCII transliterations are output.  @xref{@code{@@documentencoding}},
-and @ref{Inserting Accents}.
-
-=> does not really depend on @documentencoding, change to read
-Texinfo input manual encoding?
-
-
 Bugs
 ====
 

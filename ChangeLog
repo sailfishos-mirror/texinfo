@@ -40,6 +40,20 @@
 
 2022-20-07  Patrice Dumas  <pertusus@free.fr>
 
+	Input/output encoding is used irrespective of @documentencoding
+
+	* doc/texinfo.texi (@code{@@documentencoding}): the output of
+	encoding information does not depends on @documentencoding being
+	set.  Emphasize more than UTF-8 is the default encoding.
+	Explain what --enable-encoding does for LaTeX.
+	Correct the description for XML and DocBook, they are affected by
+	@documentencoding and --enable-encoding.
+
+	* doc/texinfo.texi (Invoking @command{texi2any}), tp/texi2any.pl:
+	document what --enable-encoding does for HTML, TexinfoXML and DocBook.
+
+2022-20-07  Patrice Dumas  <pertusus@free.fr>
+
 	Describe @-commands roles in Command List, not formatting
 
 	* doc/texinfo.texi (Command List): explain the role of the
