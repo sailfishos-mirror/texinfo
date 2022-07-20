@@ -1,4 +1,13 @@
-2022-07-05  Gavin Smith  <gavinsmith0123@gmail.com>
+2022-07-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi
+	(Nodes): No need to compare cross-references with the "document
+	structure".
+	(Node Line Requirements): Avoid obscure word "unicity".  Tweak
+	reference to node name quoting support.
+	(Cross Reference Parts): Consistent referencing to xref targets.
+
+2022-07-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Edit recent changes for grammar and style and make other minor edits.
 
