@@ -1,5 +1,9 @@
 2022-07-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Texinfo Preamble): Rename to "Preamble" and edit.
+
+2022-07-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi
 	(@setfilename): "Tell the name" -> "Give the name" in menu entries
 	leading to this node.  Do not separate sentences with commas.  Other

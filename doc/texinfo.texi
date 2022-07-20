@@ -172,7 +172,7 @@ Texinfo File Header
 * First Line::                  The first line of a Texinfo file.
 * @code{@@setfilename}::                Give the name of the output file.
 * @code{@@settitle}::                   Create a title for the printed work.
-* Texinfo Preamble::            Start of the Texinfo file up to first content.
+* Preamble::                    Start of the Texinfo file up to first content.
 * Start and End of Header::     Formatting a region in Emacs requires this.
 
 Document Permissions
@@ -1627,7 +1627,7 @@ at the beginning of output files, or the language used in file headers.
 * First Line::                  The first line of a Texinfo file.
 * @code{@@setfilename}::                Give the name of the output file.
 * @code{@@settitle}::                   Create a title for the printed work.
-* Texinfo Preamble::            Start of the Texinfo file up to first content.
+* Preamble::                    Start of the Texinfo file up to first content.
 * Start and End of Header::     Formatting a region in Emacs requires this.
 @end menu
 
@@ -1782,48 +1782,53 @@ generally appears as a @code{@@subtitle} so it would be omitted from the
 
 
 
-@node Texinfo Preamble
-@subsection Texinfo Preamble
+@node Preamble
+@subsection Preamble
 @cindex Preamble
 @cindex Texinfo Preamble
 
-The @dfn{Texinfo preamble} corresponds to the beginning of the Texinfo file
-up to the first content directly output.  It typically includes the
+The @dfn{preamble} starts at the beginning of the Texinfo file and continues
+until the first directly output material.  It typically includes the
 file header (@pxref{Texinfo File Header}), the @code{@@copying} block
-specifying the document permissions (@xref{@code{@@copying}}) and the
-@code{@@titlepage} (@pxref{Titlepage & Copyright Page}) specification.
+specifying the document permissions (@pxref{@code{@@copying}}) and the
+@code{@@titlepage} specification (@pxref{Titlepage & Copyright Page}).
 
-Commands that affects document formatting as a whole but do not produce
-output, or do not produce output straight away, such as @code{@@settitle}
-(@pxref{@code{@@settitle}}), @code{@@documentlanguage},
-(@pxref{@code{@@documentlanguage}}), commands setting the headings,
-setting information on indentation, on hyphenation or on table of contents
-(@pxref{Contents}) do not stop the the preamble.  The preamble can also contain
+The preamble may contain commands that affect document formatting
+as a whole but which do not produce output, or do not produce output
+straight away, such as @code{@@settitle} (@pxref{@code{@@settitle}}),
+@code{@@documentlanguage}, (@pxref{@code{@@documentlanguage}}),
+commands setting the headings, controlling indentation or hyphenation,
+or the table of contents (@pxref{Contents}).
+
+@ignore
+The preamble can also contain
 raw formatter commands (@pxref{Raw Formatter Commands}), but it is not checked
 that the content of these commands is actually preamble material and not
 regular output.
+@end ignore
 
 Any text that starts a paragraph, @@-commands that are formatted
-as quotations, tables, lists and so on, @code{@@node} (@pxref{Nodes})
+as quotations, tables, lists and so on, and @code{@@node} (@pxref{Nodes})
 and chapter structuring commands (@pxref{Chapter Structuring}) end the
 preamble.
 
-How the preamble affects the formatting depends on the output format.  In
-plaintext, it has no effect, it is simply output at the beginning of the
-document, for example a @code{@@contents} in the preamble is substituted by
-the table of contents (@pxref{Contents}).  For @LaTeX{} output, the preamble
-is important as the @code{\begin@{document@}} line is output at the end
-of the preamble.
+The concept of the preamble is significant for @LaTeX{} output, as the
+@code{\begin@{document@}} line is output at the end of the preamble.
 
-In HTML and Info the preamble is not treated especially in the output. But
-it is also used to determine which information is set for some header formatting.
-Commands that affect header formatting are set to the information current at
-the very end of the preamble.  This concerns for example commands specifying
-the indentation or the language (@pxref{@code{@@documentlanguage}}).
+In plaintext, the preamble is simply output as usual at the beginning of the
+document; for example, a @code{@@contents} in the preamble is output as
+the table of contents (@pxref{Contents}).  
 
-For example, for the following document, the HTML and Info copying comments are formatted
-with @code{@@documentlanguage} set to @samp{pt}, as it is the last @code{@@documentlanguage}
-before the end of the preamble.
+There is not much special treatment of the preamble for HTML and Info
+output either.  However, some settings current at the very end of
+the preamble may be used for the document as a whole, regardless of
+what follows.  This may apply to commands specifying the indentation,
+or the language (@pxref{@code{@@documentlanguage}}).
+
+For example, for the following document, the HTML and Info copying
+comments are formatted with @code{@@documentlanguage} set to @samp{pt},
+as it is the last @code{@@documentlanguage} before the end of the
+preamble.
 
 @example
 @group
