@@ -1,5 +1,17 @@
 2022-20-07  Patrice Dumas  <pertusus@free.fr>
 
+	Describe @-commands roles in Command List, not formatting
+
+	* doc/texinfo.texi (Command List): explain the role of the
+	@-commands, not the formatting.  Avoid details on output
+	format specificities when it is not crucial for the understanding
+	of the @-command role.  Move or duplicate some information to the main
+	nodes describing some @-commands.  Update some @-commands descriptions.
+	(Command Contexts): explain @shortcaption context along with
+	@caption.
+
+2022-20-07  Patrice Dumas  <pertusus@free.fr>
+
 	No HTML features list, explain how HTML evolves
 
 	* doc/texinfo.texi (HTML Translation): do not list explicitly
