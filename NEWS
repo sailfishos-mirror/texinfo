@@ -22,8 +22,6 @@ See the manual for detailed information.
  . IGNORE_BEFORE_SETFILENAME variable removed.  former effect
    is always on.
  . new variable NO_TOP_NODE_OUTPUT
- . add automatically a menu in Info output if there is no @menu at all
-   in a node with automatic directions
  . HTML output:
      . USE_XML_SYNTAX, HTML_ROOT_ELEMENT_ATTRIBUTES and
        NO_CUSTOM_HTML_ATTRIBUTE variables added that can be used to output

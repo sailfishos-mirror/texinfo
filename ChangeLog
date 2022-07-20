@@ -1,3 +1,24 @@
+2022-07-05  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Edit recent changes for grammar and style and make other minor edits.
+
+	* doc/texinfo.texi (Reporting Bugs, Histroy, Minimum, @settitle)
+	(Image Syntax, @dmn, Inserting Math, Inserting Unicode, Line Breaks)
+	(@- @hyphenation, @w, @documentencoding, @need)
+	(Defining New Texinfo Commands, @definfoenclose, Hardcopy with TeX)
+	(Texinfo Mode Printing, Command List, Tips, @setchapternewpage)
+	(@headings, Custom Headings, A4 Paper): Various fixes:
+
+	- "Cause TeX to" was changed in some places to "Cause to" but the
+	  result of this was ungrammatical in many places.
+	- Do not use commas to separate sentences.
+	- non printed -> non-printed
+
+	(Hardcopy with TeX): Add anchor for old name.
+
+	* NEWS: Remove entry about generating menus as this is not a
+	new feature.
+
 2022-20-07  Patrice Dumas  <pertusus@free.fr>
 
 	Describe @-commands roles in Command List, not formatting

@@ -819,7 +819,7 @@ better to include too much than to leave out something important.
 It is critical to send an actual input file that reproduces the
 problem.  What's not critical is to ``narrow down'' the example to the
 smallest possible input---the actual input with which you discovered
-the bug will suffice.  (Of course, if you do experiments, the
+the bug will suffice.  (Of course, if you do make experiments, the
 smaller the input file, the better.)
 
 Any problems with the Info reader in Emacs should be reported to
@@ -1222,7 +1222,7 @@ enormous effort.
 Asian languages.  At that time, doing it in C would have been tantamount
 to rewriting the entire program.  Since then, the parser and bits of
 converter back-ends have been rewritten in C, but the converter
-back-ends are still mostly in Perl which has a good multilingual
+back-ends are still mostly in Perl which has good multilingual
 support built in.
 
 @item Additional back-ends.  The @command{makeinfo} code had become
@@ -1230,7 +1230,7 @@ convoluted to the point where adding a new back-end was quite complex,
 requiring complex interactions with existing back-ends.  In contrast,
 the new implementation provides a clean tree-based representation for
 all back-ends to work from.  People have requested numerous different
-back-ends (@LaTeX{}, the latest (X)HTML, @dots{}), this change made them
+back-ends (@LaTeX{}, the latest (X)HTML, @dots{}); this change made them
 much more feasible to implement.  Which leads to the last item:
 
 @item Making contributions easier.  In general, due to the cleaner
@@ -1467,8 +1467,8 @@ regarding nesting of such commands, @pxref{Conditional Nesting}.)
 
 By convention, the name of a Texinfo file ends with one of the 
 extensions @file{.texi}, @file{.texinfo}, @file{.txi}, or 
-@file{.tex}.  It is discouraged to use @file{.tex} as this extension
-is already used by @TeX{} and @LaTeX{} input files. The most common
+@file{.tex}.  Using @file{.tex} is discouraged as this extension
+is already used by @TeX{} and @LaTeX{} input files.  The most common
 and recommended extension is @file{.texi}.
 
 In order to be made into a printed manual and other output
@@ -1763,7 +1763,7 @@ that generates actual output.  The best place for it is right after
 the @code{@@setfilename} command, if present (described in the previous
 section).
 
-This command tells the title to use in a header or footer
+This command gives the title to use in a header or footer
 for double-sided printed output, in case such headings are output.  For
 more on headings for printed output, see @ref{Heading Generation}.
 
@@ -8230,7 +8230,7 @@ For DocBook, @code{makeinfo} outputs references to
 subsequent DocBook processor is supposed to choose the appropriate one.)
 
 @item
-For @LaTeX{}, @file{@var{filename}} without extension is used,
+For @LaTeX{}, @file{@var{filename}} without any extension is used;
 the subsequent @LaTeX{} processor is supposed to choose the
 appropriate image type.
 
@@ -9722,7 +9722,7 @@ Not everyone uses this style.  Some people prefer `8.27@tie{}in.'@: or
 so that no line break can occur between the number and the dimension.
 Also, if you write a period after an abbreviation within a sentence
 (as with the `in.'@: above), you should write @samp{@@:} after the
-period to prevent inserting extra whitespace in printed output, as shown
+period to avoid inserting extra whitespace in printed output, as shown
 here.  @xref{Not Ending a Sentence}.
 
 
@@ -10074,8 +10074,8 @@ The @code{@@math} command has no special effect on the Info
 output or (by default) the HTML output, merely outputting
 the contents verbatim.
 
-For printed output output, @code{@@math} switches into math mode.
-This allows you to use all the
+For printed output, @code{@@math} switches into @TeX{} ``math mode''.
+This allows you to use plain @TeX{}
 math control sequences for symbols, functions, and so on,
 starting with @samp{\}.  It's best to use @samp{\} instead of @samp{@@}
 for any such mathematical commands; otherwise, @command{texi2any}
@@ -10121,9 +10121,11 @@ some contexts, it is better to use @TeX{}'s @samp{_} and @samp{^}
 characters to denote subscripts and superscripts within mathematical
 expressions.  In general, the contents of @code{@@math} or
 @code{@@displaymath} should be plain @TeX{} or @LaTeX{} only, with no
-interspersed Texinfo commands.  In general, plain @TeX{} will be
-correctly output in @LaTeX{}, while @LaTeX{} specific math code
-will not be correctly output when processed with @TeX{}.
+interspersed Texinfo commands.
+
+In general, plain @TeX{} will be correctly output in @LaTeX{},
+while @LaTeX{} specific math code will not be correctly output when
+processed with @TeX{}.
 
 @ignore
 @findex @sortas{\} \ @r{(literal \ in @code{@@math})}
@@ -10784,7 +10786,7 @@ viable for @file{texinfo.tex} to support whole additional scripts
 (Japanese, Urdu, @dots{}).  The @code{@@U} command does nothing to
 change this.  If the specified character is not supported in @TeX{},
 an error is given.  @LaTeX{} output has more possibilities regarding
-UTF-8, but could also require adding code to load fonts and declare
+UTF-8, but could require extra code to load fonts and declare
 how UTF-8 characters are output.  (@xref{@code{@@documentencoding}}.)
 
 @cindex Entity reference in HTML et al.
@@ -10917,40 +10919,42 @@ effect on the other output formats.
 
 
 @node @code{@@- @@hyphenation}
-@section @code{@@-} and @code{@@hyphenation}: Helping Printed Output Hyphenation
+@section @code{@@-} and @code{@@hyphenation}: Hyphenation in Printed Output
 
 @anchor{- and hyphenation}@c old name
 @findex @sortas{-} - @r{(discretionary hyphen)}
 @findex hyphenation
 @cindex Hyphenation, helping @TeX{} do
-@cindex Hyphenation, helping @LaTeX{} do
 @cindex Fine-tuning, and hyphenation
 
 Although @TeX{}'s hyphenation algorithm is generally pretty good, it
 does miss useful hyphenation points from time to time.  (Or, far more
 rarely, insert an incorrect hyphenation.)  So, for documents with an
 unusual vocabulary or when fine-tuning for a printed edition, you may
-wish to help out.  Texinfo supports two commands for this:
+wish to specify hyphenation points explicitly.  Texinfo supports two
+commands for this:
 
 @table @code
 @item @@-
-Insert a discretionary hyphen, i.e., a place where @TeX{} or
-@LaTeX{} can (but does not have to) hyphenate.  This is especially
-useful when you notice an overfull hbox is due to @TeX{} missing a
-hyphenation (@pxref{Overfull hboxes}).  @TeX{} will not insert any
-hyphenation points itself into a word containing @code{@@-}.
+
+Insert a discretionary hyphen, i.e., a place where a word can be
+broken across lines with a hyphen.  This is especially useful when you
+notice that an overfull hbox is due to @TeX{} missing a hyphenation
+(@pxref{Overfull hboxes}).  @TeX{} will not insert any hyphenation
+points itself into a word containing @code{@@-}.
 
 @item @@hyphenation@{@var{hy-phen-a-ted words}@}
-Tell @TeX{} and @LaTeX{} how to hyphenate @var{hy-phen-a-ted words}.
-As shown, you put a @samp{-} at each hyphenation point.  For example:
+Give hyphenation points for certain words.  For example:
 @example
 @@hyphenation@{man-u-script man-u-scripts@}
 @end example
-@noindent @TeX{} only uses the specified hyphenation points when the
-words match exactly, so give all necessary variants, such as plurals.
+
+@noindent As shown, you put a @samp{-} at each hyphenation point.
+@TeX{} only uses the specified hyphenation points when the words match
+exactly, so give all necessary variants, such as plurals.
 @end table
 
-Info, HTML, and other non printed output is not hyphenated, so none of
+Info, HTML, and other non-printed output is not hyphenated, so none of
 these commands have any effect there.
 
 
@@ -11027,10 +11031,9 @@ a normal interword space that does stretch and shrink (in the printed
 output); for that, see the @code{@@tie} command in the next section.
 
 @cindex Hyphenation, preventing
-In printed output, you can also use the @code{@@w} command to prevent from
-automatically hyphenating a long name or phrase that happens to fall
-near the end of a line.  @command{makeinfo} does not ever hyphenate
-words.
+In printed output, you can also use the @code{@@w} command to prevent
+a long name or phrase being automatically hyphenated, for example if
+it happens to fall near the end of a line.
 
 @cindex Keyword expansion, preventing
 @cindex Version control keywords, preventing expansion of
@@ -11193,9 +11196,9 @@ remain on the current page.  Do not use braces around the argument
 formats since they are not paginated.
 
 @need 800
-This paragraph is preceded by a @code{@@need} command that tells
-to start a new page in printed output if fewer than 800 mils (eight-tenths
-inch) remain on the page.  It looks like this:
+This paragraph is preceded by a @code{@@need} command that starts a
+new page in printed output if fewer than 800 mils (eight-tenths inch)
+remain on the page.  It looks like this:
 
 @example
 @group
@@ -12510,7 +12513,7 @@ the characters can be subsequently output.  The fonts used in the
 default case should cover the specific Texinfo glyphs, but not all
 the possible encoded characters.  You may need to load
 different fonts in the Texinfo preamble and use
-@code{\DeclareUnicodeCharacter} with an UTF-8 encoding.  For example
+@code{\DeclareUnicodeCharacter} with a UTF-8 encoding.  For example
 @example
 @@latex
 \DeclareUnicodeCharacter@{017B@}@{\.Z@}
@@ -13410,7 +13413,7 @@ command.
 
 @item
 @samp{@@definfoenclose} allows you to define new commands with
-customized output for all non printed output formats.
+customized output for all non-printed output formats.
 
 @end itemize
 
@@ -13965,7 +13968,7 @@ character) @samp{-}.
 @findex definfoenclose
 
 An @code{@@definfoenclose} command may be used to define a
-highlighting command for all the non printed output formats.  A command
+highlighting command for all the non-printed output formats.  A command
 defined using @code{@@definfoenclose} marks text by enclosing it in
 strings that precede and follow the text.
 
@@ -14507,6 +14510,7 @@ Texinfo files.
 
 @node Hardcopy with @TeX{}
 @chapter Formatting and Printing Hardcopy with @TeX{}
+@anchor{Hardcopy} @c old name
 @cindex Format and print hardcopy
 @cindex Printing hardcopy
 @cindex Hardcopy, printing it
@@ -15016,6 +15020,13 @@ Run @code{texi2dvi} on the current buffer.
 @itemx M-x texinfo-tex-region
 Run @TeX{} on the current region.
 
+If @@-commands related to printed output are between the
+start-of-header and end-of-header lines, then
+@code{texinfo-tex-region} will format the
+region accordingly.  For example, if you write the @code{@@smallbook} command
+between the start-of-header and end-of-header lines, @code{texinfo-tex-region},
+will format the region in ``small'' book size.
+
 @item C-c C-t C-i
 @itemx M-x texinfo-texindex
 Sort the indices of a Texinfo file formatted with
@@ -15055,14 +15066,7 @@ commands are run to show its most recent output.
 @end table
 
 @need 1000
-If @@-commands related to printed output are between the
-start-of-header and end-of-header lines, the Texinfo mode @TeX{}
-region formatting command, @code{texinfo-tex-region}, will format the
-region accordingly.  For example, if you write the @code{@@smallbook} command
-between the start-of-header and end-of-header lines, @code{texinfo-tex-region},
-will format the region in ``small'' book size.
-
-The usual sequence of commands for formatting a buffer is as
+Thus, the usual sequence of commands for formatting a buffer is as
 follows (with comments to the right):
 
 @example
@@ -18986,7 +18990,7 @@ Produces no output, but allows a line break.  @xref{Line Breaks}.
 @item @@:
 Tell printed output processors to refrain from inserting extra
 whitespace after an immediately preceding period, question mark,
-exclamation mark, or colon, as normally would.  @xref{Not Ending a Sentence}.
+exclamation mark, or colon.  @xref{Not Ending a Sentence}.
 
 @item @@=
 Generate a macron (bar) accent over the next character, as in @=o.
@@ -19949,9 +19953,8 @@ Generate a minimal title page.  @xref{@code{@@titlepage}}.
 Set @var{text} in a @slanted{slanted} font if possible.  @xref{Fonts}.
 
 @item @@smallbook
-Cause to produce a printed manual in a 7 by 9.25 inch format
-rather than the regular 8.5 by 11 inch format.
-@xref{@code{@@smallbook}}.  Also, see @ref{small}.
+In printed output, use a 7 by 9.25 inch format rather than the
+regular 8.5 by 11 inch format.  @xref{@code{@@smallbook}}.
 
 @item @@smalldisplay
 Begin a kind of example.  Like @code{@@display}, but use a smaller
@@ -20113,7 +20116,8 @@ Headings, , How to Make Your Own Headings}.
 Mark the topmost @code{@@node} in the file, which must be defined on
 the line immediately preceding the @code{@@top} command.  The title is
 formatted as a chapter-level heading.  In @TeX{} the @code{@@top}
-command is merely a synonym for @code{@@unnumbered}.
+command is merely a synonym for @code{@@unnumbered}.  In @LaTeX{}
+@code{\part*} is used.
 
 @item @@U@{@var{hex}@}
 Output a representation of Unicode character U+@var{hex}.
@@ -20560,7 +20564,7 @@ around them.
 
 @item
 Use three hyphens in a row, @samp{---}, to indicate a long dash.
-The Info formatter reduce three hyphens to two, a long dash is
+The Info formatter reduces three hyphens to two; a long dash is
 typeset in other output formats.
 @end itemize
 
@@ -22693,19 +22697,19 @@ You can specify one of three alternatives with the
 @table @asis
 
 @item @code{@@setchapternewpage off}
-Cause to typeset a new chapter on the same page as the last
-chapter, after skipping some vertical whitespace.  Also, cause to
-format page headers for single-sided printing.
+Typeset a new chapter on the same page as the last chapter, after
+skipping some vertical whitespace.  Also, format page headers for
+single-sided printing.
 
 @item @code{@@setchapternewpage on}
-Cause to start new chapters on new pages and to format page
-headers for single-sided printing.  This is the form most often used for
-short reports or personal printing. This is the default.
+Start new chapters on new pages and format page headers for
+single-sided printing.  This is the form most often used for short
+reports or personal printing. This is the default.
 
 @item @code{@@setchapternewpage odd}
-Cause to start new chapters on new, odd-numbered pages
-(right-handed pages) and to typeset for double-sided printing.  This is
-the form most often used for books and manuals.
+Start new chapters on new, odd-numbered pages (right-handed pages)
+and typeset for double-sided printing.  This is the form most often
+used for books and manuals.
 @end table
 
 Texinfo does not have a @code{@@setchapternewpage even} command,
@@ -22810,15 +22814,15 @@ on}, @code{double} otherwise.
 @end table
 
 For example, suppose you write @code{@@setchapternewpage off} before the
-@code{@@titlepage} command such as to start a new chapter on the
+@code{@@titlepage} command to start a new chapter on the
 same page as the end of the last chapter.  This command also causes
 page headers to be typeset for single-sided printing.  To cause
 page headers to be typeset for double-sided printing, write @code{@@headings
 double} after the @code{@@end titlepage} command.
 
-You can stop from generating any page headings at all by
-writing @code{@@headings off} on a line of its own immediately after the
-line containing the @code{@@end titlepage} command, like this:
+You can stop any page headings at all from being generated by writing
+@code{@@headings off} on a line of its own immediately after the line
+containing the @code{@@end titlepage} command, like this:
 
 @example
 @@end titlepage
@@ -22827,7 +22831,7 @@ line containing the @code{@@end titlepage} command, like this:
 
 @noindent
 The @code{@@headings off} command overrides the @code{@@end titlepage}
-command, which would otherwise cause to print page headings.
+command, which would otherwise turn on print page headings.
 
 
 @node Heading Format
@@ -22924,9 +22928,9 @@ predefined heading commands with the @code{@@headings off} command
 before defining your own specifications.
 
 @need 1000
-Here is how to tell to place the chapter name at the left, the
-page number in the center, and the date at the right of every header
-for both even- and odd-numbered pages:
+Here is how to place the chapter name at the left, the page number in
+the center, and the date at the right of every header for both even-
+and odd-numbered pages:
 
 @example
 @group
@@ -23256,10 +23260,9 @@ that do not require changing the source file.
 @cindex Paper size, A4
 @cindex European A4 paper
 @findex afourpaper
-You can tell to format a document for printing on ISO 216
-A4 paper size with the @code{@@afourpaper} command.  Write the command on
-a line by itself near the beginning of the Texinfo file, before the
-title page.
+You can format a document for printing on ISO 216 A4 paper size with
+the @code{@@afourpaper} command.  Write the command on a line by
+itself near the beginning of the Texinfo file, before the title page.
 
 @cindex A5 paper, printing on
 @findex afourlatex
