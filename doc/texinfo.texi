@@ -18271,7 +18271,7 @@ allows using external style sheets.
   You may find the file
 @file{texi2html/examples/texinfo-bright-colors.css} useful for
 visualizing the CSS elements in Texinfo output.
-@ignore
+@end ignore
 
 The option @option{--css-include=@var{file}} includes the contents
 @var{file} in the HTML output, as you might expect.  However, the
