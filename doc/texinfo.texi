@@ -1,6 +1,5 @@
 \input texinfo.tex    @c -*-texinfo-*-
 
-@c Automake requires this
 @setfilename texinfo.info
 
 @c Automake automatically updates version.texi to @set VERSION and
@@ -171,7 +170,7 @@ Writing a Texinfo File
 Texinfo File Header
 
 * First Line::                  The first line of a Texinfo file.
-* @code{@@setfilename}::                Tell Info the name of the Info file.
+* @code{@@setfilename}::                Tell the name of the output file.
 * @code{@@settitle}::                   Create a title for the printed work.
 * Texinfo Preamble::            Start of the Texinfo file up to first content.
 * Start and End of Header::     Formatting a region in Emacs requires this.
@@ -1626,7 +1625,7 @@ at the beginning of output files, or the language used in file headers.
 
 @menu
 * First Line::                  The first line of a Texinfo file.
-* @code{@@setfilename}::                Tell Info the name of the Info file.
+* @code{@@setfilename}::                Tell the name of the output file.
 * @code{@@settitle}::                   Create a title for the printed work.
 * Texinfo Preamble::            Start of the Texinfo file up to first content.
 * Start and End of Header::     Formatting a region in Emacs requires this.
@@ -1672,7 +1671,12 @@ from the file extension automatically.
 @subsection @code{@@setfilename}: Set the Output File Name
 
 @anchor{setfilename}@c old name
+@c used in references when the reference is not about @setfilename
+@c in particular, but about the output file name, be it from @setfilename
+@c or from the input file name.
+@anchor{Setting the Output File Name}
 @findex setfilename
+@cindex output file name
 
 The @code{@@setfilename} line specifies the name of the output file to
 be generated.
@@ -1689,7 +1693,8 @@ The name must be different from the name of the
 Texinfo file.  There are two conventions for choosing the name: you
 can either remove the extension (such as @samp{.texi}) entirely from
 the input file name, or (recommended) replace it with the @samp{.info}
-extension.
+extension.  It is not advised to base the @code{@@setfilename} name
+on a entirely different name than the input name.
 
 @cindex Ignored before @code{@@setfilename}
 @cindex @samp{\input} source line ignored
@@ -1711,9 +1716,14 @@ final extension with the output format-specific extension (@samp{html}
 when generating HTML, for example), or add a dot followed by the
 extension (@samp{.html} for HTML) if the given name has no extension.
 
-@code{@@setfilename} used to be required by the Texinfo processors, and 
-some other programs may still expect it to be present; for example, 
-Automake (@pxref{Texinfo,,,automake, GNU Automake}).
+@code{@@setfilename} used to be required by the Texinfo processors
+and some other programs.  It should not be the case anymore,
+@code{@@setfilename} can be omitted.  If the Texinfo input is
+processed from standard input, without input file name to deduce the
+base file name from, @code{@@setfilename} could still be relevant.
+This is not the only way, @option{--output} option specifies
+the output file name on @command{texi2any} command-line
+(@pxref{Invoking @command{texi2any}}).
 
 @cindex Length of file names
 @cindex File name collision
@@ -1727,13 +1737,9 @@ short indirect subfiles, and name them by appending @samp{-1},
 file name.  (@xref{Tag and Split Files}.)  The subfile name
 @file{texinfo.info-10}, for example, is too long for old systems with
 a 14-character limit on filenames; so the Info file name for this
-document is @file{texinfo} rather than @file{texinfo.info}.  When
-@code{makeinfo} is running on operating systems such as MS-DOS which
-impose severe limits on file names, it may remove some characters from
-the original file name to leave enough space for the subfile suffix,
-thus producing files named @file{texin-10}, @file{gcc.i12}, etc.
-
-See also the @option{--output} option in @ref{Invoking @command{texi2any}}.
+document could be @file{texinfo} rather than @file{texinfo.info} on
+such a system.  @code{@@setfilename} is a way to specify an
+alternative name.
 
 
 @node @code{@@settitle}
@@ -1753,7 +1759,8 @@ Write the @code{@@settitle} command at the beginning of a line and
 follow it on the same line by the title.  Do not write anything else
 on the line.  The @code{@@settitle} command should precede everything
 that generates actual output.  The best place for it is right after
-the @code{@@setfilename} command (described in the previous section).
+the @code{@@setfilename} command, if present (described in the previous
+section).
 
 This command tells the title to use in a header or footer
 for double-sided printed output, in case such headings are output.  For
@@ -2112,7 +2119,9 @@ include the permission text from the previous section, instead of
 writing it out again.
 
 The title and copyright pages appear in printed manuals, but not in
-most other output formats.
+most other output formats.  In HTML, the best way to get a title page
+similar with printed manuals is to set the @code{NO_TOP_NODE_OUTPUT}
+customization variable (@pxref{@code{NO_TOP_NODE_OUTPUT}}).
 
 @menu
 * @code{@@titlepage}::                  Create a title for the printed document.
@@ -2564,7 +2573,8 @@ This is a short sample Texinfo file.
 A @dfn{master menu} is the main menu.  It is customary to include a
 detailed menu listing all the nodes in the document in this menu.
 Like any other menu, a master menu is enclosed in @code{@@menu} and
-@code{@@end menu} and does not appear in the printed output.
+@code{@@end menu} and does not appear in the printed output nor in
+DocBook output.
 
 The master menu contains entries for the major nodes in the Texinfo
 file: the nodes for the chapters, chapter-like sections, and the
@@ -3015,6 +3025,8 @@ single space.  For example:
 @end example
 
 @noindent all define the same node, namely @samp{foo bar}. 
+In menu entries, a single internal space should be used in node
+names or some versions of some Info readers will not find the node.
 @end itemize
 
 
@@ -3229,7 +3241,7 @@ This @code{@@node} line says that the name of this node is
 ``Chapter@tie{}2'', the name of the `Next' node is ``Chapter 3'', the
 name of the `Previous' node is ``Chapter@tie{}1'', and the name of the
 `Up' node is ``Top''.  You can (and should) omit writing out these
-node names if your document is hierarchically organized , but the 
+node names if your document is hierarchically organized, but the 
 pointer relationships still obtain.
 
 To go to Sections 2.1 and 2.2 using Info, you need a menu inside
@@ -3478,17 +3490,6 @@ If you find yourself with a lot of text before a menu, we generally
 recommend moving all but a couple of paragraphs into a new subnode.
 Otherwise, it is easy for readers to miss the menu.
 
-@ignore
-Years ago, we recommended using a @samp{@@heading} command within an
-@code{@@ifinfo} conditional instead of the normal sectioning commands
-after a very short node with a menu.  This had the advantage of making
-the printed output look better, because there was no very short text
-between two headings on the page.  But it does not work with
-@command{makeinfo}'s implicit pointer creation, and it also makes the
-XML output incorrect, since it does not reflect the true document
-structure.  So, we no longer recommend this.
-@end ignore
-
 
 @node Menu Parts
 @subsection The Parts of a Menu
@@ -3625,6 +3626,7 @@ presumes that you are referring to the `Top' node.  Examples:
 The GNU Emacs Texinfo mode menu updating commands only work with nodes
 within the current buffer, so you cannot use them to create menus that
 refer to other files.  You must write such menus by hand.
+@xref{Updating Nodes and Menus}.
 
 
 @node Chapter Structuring
@@ -5850,9 +5852,8 @@ passed to that function.
 
 Do not use @code{@@var} for the names of normal variables in computer
 programs.  These are specific names, so @code{@@code} is correct for
-them (@code{@@code}).  For example, the Emacs Lisp variable
-@code{texinfo-tex-command} is not a metasyntactic variable; it is
-properly formatted using @code{@@code}.
+them.  For example, the Emacs Lisp variable @code{texinfo-tex-command}
+is not a metasyntactic variable; it is properly formatted using @code{@@code}.
 
 Do not use @code{@@var} for environment variables either; @code{@@env}
 is correct for them (see the next section).
@@ -7234,7 +7235,7 @@ a smaller font than the non-small example commands.  Thus, for
 instance, code examples can contain longer lines and still fit on a
 page without needing to be rewritten.
 
-A smaller font size is also retained in the Texinfo@tie{}XML transliteration.
+A specific element is also retained in the Texinfo@tie{}XML transliteration.
 
 Mark the end of a @code{@@small@dots{}} block with a corresponding
 @code{@@end small@dots{}}.  For example, pair @code{@@smallexample} with
@@ -7955,10 +7956,10 @@ some similar type.
 A float is so-named because, in principle, it can be moved to the
 bottom or top of the current page, or to a following page, in the
 printed output.  (Floating does not make sense in other output
-formats.)  In the present version of Texinfo, however, this floating
-is unfortunately not yet implemented.  Instead, the floating material
-is simply output at the current location, more or less as if it were
-an @code{@@group} (@pxref{@code{@@group}}).
+formats.)  In every output format except for @LaTeX{}, however,
+this floating is unfortunately not yet implemented.  Instead, the
+floating material is simply output at the current location, more
+or less as if it were an @code{@@group} (@pxref{@code{@@group}}).
 
 @menu
 * @code{@@float}::                      Producing floating material.
@@ -8022,6 +8023,14 @@ not be numbered and consequently will not appear in the
 
 @noindent Ordinarily, you specify both @var{type} and @var{label}, to get a
 labeled and numbered float.
+
+In the @LaTeX{} output, code loading the @code{float} package is
+output in the preamble if @code{@@float} are present.
+A @code{@@float} with type @samp{figure} or @samp{table}
+(case insensitive) is already defined by the package.  Other
+float types lead to the definition of a new float environment,
+with names based on the @code{@@float} type with anything else
+than letters and @samp{-} removed.
 
 @cindex Floats @subentry numbering of
 @cindex Numbering of floats
@@ -8138,8 +8147,11 @@ Each line in the list of floats contains the float type (if any),
 the float number, and the caption, if any---the @code{@@shortcaption}
 argument, if it was specified, else the @code{@@caption} argument.
 In Info, the result is a menu where each float can be selected.  In
-HTML, each line is a link to the float.  In printed output, the page
-number is included.
+HTML, each line is a link to the float.  In @TeX{} output, the page
+number is included.  In @LaTeX{} output, @code{\listoffigures} is output for
+the @samp{figure} (case insensitive) float type, @code{\listoftables} is output
+for the @samp{table} (case insensitive) float type.  For other float types, a
+specific @code{\listof} command is output.
 
 Unnumbered floats (those without cross-reference labels) are omitted
 from the list of floats.
@@ -8922,7 +8934,7 @@ In HTML output, @code{@@printindex} produces links to the index
 entries.
 
 @item
-In XML and DocBook output, it simply records the index to be printed.
+In DocBook and @LaTeX{} output, it simply records the index to be printed.
 @end itemize
 
 
@@ -9496,9 +9508,6 @@ Spacey@ @ @ @
 example.
 @end example
 
-Other possible uses of @code{@@@kbd{SPACE}} have been subsumed by
-@code{@@multitable} (@pxref{Multi-column Tables}).
-
 Do not follow any of these commands with braces.
 
 To produce a non-breakable space, see @ref{@code{@@tie}}.
@@ -9673,9 +9682,7 @@ This is text. Two sentences. Three sentences. Non-French spacing.
 @code{@@frenchspacing} also affects the output after @code{@@.},
 @code{@@!}, and @code{@@?} (@pxref{Ending a Sentence}).
 
-@code{@@frenchspacing} has no effect on the HTML or DocBook output;
-for XML, it outputs a transliteration of itself (@pxref{Output
-Formats}).
+@code{@@frenchspacing} has no effect on the HTML or DocBook output.
 
 
 @node @code{@@dmn}
@@ -9742,11 +9749,11 @@ character.
 Exception: the argument to @code{@@tieaccent} must be enclosed in
 braces (since it is two characters instead of one).
 
-To get the true accented characters output in Info, not just the ASCII
-transliterations, it is necessary to specify @code{@@documentencoding}
-with an encoding which supports the required characters
-(@pxref{@code{@@documentencoding}}).  In this case, you can also use
-non-ASCII (e.g., pre-accented) characters in the source file.
+In Info and plain text output, accent constructs are output as the true
+accented characters if the document encoding supports the required characters,
+unless the option @option{--disable-encoding} is given to @command{makeinfo}
+(@pxref{@code{@@documentencoding}}).  ASCII transliterations are used if the
+encoded characters are not output.
 
 @findex " @r{(umlaut accent)}
 @cindex Umlaut accent
@@ -10905,7 +10912,7 @@ The @code{@@/} command can be useful within long urls or other
 identifiers where @TeX{} can't find a good place to break.  @TeX{}
 will automatically break urls at the natural places (@pxref{URL Line
 Breaking}), so only use @code{@@/} if you need it.  @code{@@/} has no
-effect on the other output format.
+effect on the other output formats.
 
 
 @node @code{@@- @@hyphenation}
@@ -11084,9 +11091,8 @@ reasons, namely that it produces an @samp{\hbox}).
 @cindex Line spacing
 
 A line beginning with and containing only @code{@@sp @var{n}}
-generates @var{n} blank lines of space in both the printed manual and
-the Info file.  @code{@@sp} also forces a paragraph break.  For
-example,
+generates @var{n} blank lines of space.  @code{@@sp} also
+forces a paragraph break.  For example,
 
 @example
 @@sp 2
@@ -11125,8 +11131,8 @@ The @code{@@group} command (on a line by itself) is used inside an
 @code{@@example} or similar construct to begin an unsplittable vertical
 group, which will appear entirely on one page in the printed output.
 The group is terminated by a line containing only @code{@@end group}.
-These two lines produce no output of their own, and in the Info file
-output they have no effect at all.
+These two lines produce no output of their own, and have an effect in
+@TeX{} output only.
 
 @c Once said that these environments
 @c turn off vertical spacing between ``paragraphs''.
@@ -15678,8 +15684,8 @@ blocks will be.
 Generate Info output.  By default, if the output file contains more
 than about 300,000 bytes, it is split into shorter subfiles of about
 that size.  The name of the output file and any subfiles is determined
-by @code{@@setfilename} (@pxref{@code{@@setfilename}}).  @xref{Tag and
-Split Files}.
+by @code{@@setfilename}, if present (@pxref{Setting the Output File Name}).
+@xref{Tag and Split Files}.
 
 @item --init-file=@var{file}
 @opindex --init-file=@var{file}
@@ -15725,8 +15731,8 @@ Do not include menus or node separator lines in the output.
 
 When generating Info, this is the same as using @option{--plaintext},
 resulting in a simple plain text file.  Furthermore,
-@code{@@setfilename} is ignored, and output is to standard output
-unless overridden with @option{-o}.  (This behavior is for backward
+@code{@@setfilename} and input file name are ignored, and output is to standard
+output unless overridden with @option{-o}.  (This behavior is for backward
 compatibility.)
 
 @cindex Navigation links, omitting
@@ -15828,7 +15834,7 @@ Specify that the output should be directed to @var{file}.  This
 overrides any file name specified in a @code{@@setfilename} command
 found in the Texinfo source.  If neither @code{@@setfilename} nor this
 option are specified, the input file name is used to determine the
-output name.  @xref{@code{@@setfilename}}.
+output name.  @xref{Setting the Output File Name}.
 
 If @var{file} is @samp{-}, output goes to standard output and
 @samp{--no-split} is implied.
@@ -15899,8 +15905,9 @@ plain text file that you can (for example) send in email without
 complications, or include in a distribution (for example, an
 @file{INSTALL} file).
 
-With this option, @code{@@setfilename} is ignored and the output goes
-to standard output by default; this can be overridden with @option{-o}.
+With this option, @code{@@setfilename} and input file name are ignored
+and the output goes to standard output by default; this can be
+overridden with @option{-o}.
 
 @item --ps
 @opindex --ps
@@ -16585,6 +16592,11 @@ If set,  when output is split, use the argument of the chapter
 structuring command (e.g., @code{@@chapter} or @code{@@section})
 in the @code{<title>} instead of the argument to @code{@@node}.
 
+@item SHORT_TOC_LINK_TO_TOC
+If set, the cross-references in the Short table of contents links to the
+corresponding Table of Contents entries, if a Table of Contents is output;
+default true.
+
 @item SHOW_BUILTIN_CSS_RULES
 Output the built-in default CSS rules on the standard output and exit.
 
@@ -16592,7 +16604,6 @@ Output the built-in default CSS rules on the standard output and exit.
 If set, output the title at the beginning of the document;
 default @samp{undef}.  If set to @samp{undef}, setting
 @code{NO_TOP_NODE_OUTPUT} also sets @code{SHOW_TITLE} for HTML.
-
 
 @item SIMPLE_MENU
 If set, use a simple preformatted style for the menu,
@@ -16647,6 +16658,10 @@ practical effect.
 
 @item USE_REL_REV
 Use @code{rel} in cross-references; default true.
+
+@item USE_TITLEPAGE_FOR_TITLE
+Use the full @code{@@titlepage} as the title, not a simple title string;
+default true.  Only relevant if @code{SHOW_TITLE} is set.
 
 @item USE_XML_SYNTAX
 Use XML/XHTML compatible syntax.
@@ -16849,7 +16864,9 @@ Default true, matching the @TeX{} behavior.
 
 @item INDEX_SPECIAL_CHARS_WARNING
 If set, warn about @samp{:} in index entry, as it leads to invalid entries in
-index menus in output Info files.  For Info and plaintext only.
+index menus in output Info files.  For Info and plaintext only.  Default false,
+because parsing problems there don't prevent navigation; readers can still
+relatively easily find their way to the node in question.
 
 @anchor{INFO_SPECIAL_CHARS_QUOTE}
 @item INFO_SPECIAL_CHARS_QUOTE
@@ -16861,9 +16878,8 @@ construct where they appear with quoting characters, as described in
 @item INFO_SPECIAL_CHARS_WARNING
 If set, warn about problematic constructs for Info output (such as the
 string @samp{::}) in node names, menu items, and cross-references;
-default true.  Do not warn about index entries, since parsing problems
-there don't prevent navigation; readers can still relatively easily
-find their way to the node in question.
+default true.  Similar warnings in index entries are covered by
+@code{INDEX_SPECIAL_CHARS_WARNING}.
 
 @item LOCALE_INPUT_FILE_NAME_ENCODING
 Encoding used for input file names if @code{DOC_ENCODING_FOR_INPUT_FILE_NAME}
@@ -16887,6 +16903,7 @@ It is also used for command-line argument passed to commands called from
 @command{texi2any} if @code{HTML_MATH} is set to @samp{l2h}.
 
 @item NO_TOP_NODE_OUTPUT
+@anchor{@code{NO_TOP_NODE_OUTPUT}}
 If set do not output the Top node content.  The Top node is still
 parsed, but the content is discarded.  Not set in the default case
 for HTML.  If @code{SHOW_TITLE} is @samp{undef}, setting
@@ -16936,10 +16953,8 @@ Normalized encoding name used for output files.  Should be a usable
 charset name in HTML, typically one of the preferred IANA encoding
 names.  By default, if an input encoding is set (typically through
 @code{@@documentencoding}), this information is used to set the output 
-encoding name.  If no input encoding is specified, the default output 
-encoding name may be set by the output format.  In particular, the 
-XML-based formats use @code{utf-8} for @code{OUTPUT_ENCODING_NAME} if 
-the encoding is not otherwise specified.  @xref{@code{@@documentencoding}}.
+encoding name, otherwise the output encoding is based on the
+default encoding.  @xref{@code{@@documentencoding}}.
 
 @item PACKAGE
 @itemx PACKAGE_VERSION
@@ -16954,18 +16969,13 @@ Autoconf, Automake, and @code{configure}.
 @item PREFIX
 The output file prefix, which is prepended to some output file names.
 By default it is set by @code{@@setfilename} or from the input file
-(@pxref{@code{@@setfilename}}).  How this value is used depends on the
+(@pxref{Setting the Output File Name}).  How this value is used depends on the
 value of other customization variables or command line options, such
 as whether the output is split.  The default is unset.
 
 @item PROGRAM
 Name of the program used.  By default, it is set to the name of the
 program launched, with a trailing @samp{.pl} removed.
-
-@item SHORT_TOC_LINK_TO_TOC
-If set, the cross-references in the Short table of contents links to the
-corresponding Table of Contents entries, if a Table of Contents is output;
-default true.
 
 @item SORT_ELEMENT_COUNT
 @pindex texi-elements-by-size
@@ -17093,10 +17103,6 @@ is no @@top section.  Not set by default.
 Default is on for Info, off for other output.  If set, use exactly
 what @code{@@setfilename} gives for the output file name, including
 the extension.  You should not need to explicitly set this variable.
-
-@item USE_TITLEPAGE_FOR_TITLE
-Use the full @code{@@titlepage} as the title, not a simple title string;
-default true.  Only relevant if @code{SHOW_TITLE} is set.
 
 @item USE_UNIDECODE
 @pindex Text::Unidecode
@@ -17886,9 +17892,10 @@ the files that were split off.  The split-off files are called
 @dfn{indirect} files.
 
 The split-off files have names that are created by appending @w{@samp{-1}},
-@w{@samp{-2}}, @w{@samp{-3}} and so on to the file name specified by the
-@code{@@setfilename} command.  The shortened version of the original file
-continues to have the name specified by @code{@@setfilename}.
+@w{@samp{-2}}, @w{@samp{-3}} and so on to the output file name, specified
+by the @code{@@setfilename} command or the input file name.  The shortened
+version of the original file continues to have the name specified by
+@code{@@setfilename} or the input file name.
 
 At one stage in writing this document, for example, the Info file was saved
 as the file @file{test-texinfo} and that file looked like this:
@@ -18054,7 +18061,22 @@ other programs.  This chapter gives some details on such HTML output.
 
 @command{makeinfo} has many user-definable customization variables
 with which you can influence the HTML output.  @xref{Customization
-Variables}.
+Variables}.  You can also write so-called @dfn{initialization files}, or
+@dfn{init files} for short, to modify almost every aspect of HTML output
+formatting.  Initialization files contain code and are loaded by
+@option{--init-file} (@pxref{Invoking @command{texi2any}}).
+
+Some initialization files are maintained with Texinfo and installed
+in the default case.  For example, @file{chm.pm} produces the intermediate
+compressed HTML Help format files that can be subsequently converted to
+the CHM format.  As another example, @file{highlight_syntax.pm} uses
+@command{source-highlight} for syntax highlighting of @code{@@example}
+blocks using the first argument to specify the language of the code
+(@pxref{@code{@@example}}). @xref{,,,source-highlight, GNU Source-highlight}.
+
+The draft documentation of @command{texi2any} program HTML output
+adaptation using customization files is in a separate
+manual.  @xref{,,,customization_api,GNU Texinfo @command{texi2any} Output Customization}.
 
 @menu
 * HTML Translation::       Details of the HTML output.
@@ -18195,20 +18217,20 @@ for every node in order to more reliably support cross-references to
 that manual (@pxref{HTML Xref}).
 
 When splitting, the HTML output files are written into a subdirectory.  The
-subdirectory name is derived from the base name from @code{@@setfilename} (that
+subdirectory name is derived from the base name (that
 is, any extension is removed), with @code{_html} postpended. For example, HTML
-output for @code{@@setfilename gcc.info} would be written into a subdirectory
-named @samp{gcc_html/}.  The subdirectory name is based in the input file name
-if there is no @code{@@setfilename}.
+output for @file{gcc.texi} would be written into a subdirectory
+named @samp{gcc_html/}.  The subdirectory name is based on @code{@@setfilename}
+or on the input file name (@pxref{Setting the Output File Name}).
 
 @noindent In any case, the top-level output file within the directory
 is always named @samp{index.html}.
 
 Monolithic output (@code{--no-split}) is named according to
-@code{@@setfilename} (with any @samp{.info} extension is replaced with
-@samp{.html}), @code{--output} (the argument is used literally), or
+@code{@@setfilename}, if present (with any @samp{.info} extension replaced
+with @samp{.html}), @code{--output} (the argument is used literally), or
 based on the input file name as a last resort
-(@pxref{@code{@@setfilename}}).
+(@pxref{Setting the Output File Name}).
 
 
 @node HTML CSS
@@ -18242,9 +18264,14 @@ You can influence the CSS in the HTML output with two
 @cindex Visualizing Texinfo CSS
 The option @option{--css-ref=@var{url}} adds to each output HTML file
 a @samp{<link>} tag referencing a CSS at the given @var{url}.  This
-allows using external style sheets.  You may find the file
+allows using external style sheets.
+
+@c not in Texinfo anymore
+@ignore
+  You may find the file
 @file{texi2html/examples/texinfo-bright-colors.css} useful for
 visualizing the CSS elements in Texinfo output.
+@ignore
 
 The option @option{--css-include=@var{file}} includes the contents
 @var{file} in the HTML output, as you might expect.  However, the
@@ -18856,10 +18883,6 @@ This will produce the following output in the @samp{<head>} of the HTML:
 @example
 <meta name=description content="descriptive text.">
 @end example
-
-@code{@@documentdescription} must be specified before the first node of
-the document.
-
 
 
 @node @@-Command Details
@@ -21777,6 +21800,7 @@ Format the current buffer for Info.
 @end table
 
 When you invoke @code{makeinfo-region} the output goes to a temporary
+@c FIXME or to the file based on input file name?
 buffer.  When you invoke @code{makeinfo-buffer} output goes to the
 file set with @code{@@setfilename} (@pxref{@code{@@setfilename}}).
 

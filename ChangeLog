@@ -1,3 +1,35 @@
+2022-20-07  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (@code{@@setfilename}): state clearly that
+	@setfilename is optionnal, and give some example where it could
+	still be relevant.  Add an @anchor{Setting the Output File Name}
+	and use it everywhere the reference is to the output fine name set,
+	be it from @setfilename or from the input file name, and not
+	directly about the @setfilename @-command.
+	(@code{@@settitle}): advertise NO_TOP_NODE_OUTPUT as the best way
+	to get a title similar with printed manuals in HTML.
+	(Node Line Requirements): readd a sentence on constraints on
+	spaces in menu entry node names, after testing that what matters
+	are the internal spaces.
+	(Menu Location): remove obsolete @ignore'ed block text.
+	(Floats, @code{@@float}, @code{@@listoffloats}): information on
+	floats with LaTeX.
+	(Inserting Accents): adapt for changes in default encoding.
+	(HTML Customization Variables): move USE_TITLEPAGE_FOR_TITLE and
+	SHORT_TOC_LINK_TO_TOC to HTML Customization Variables.
+	Explain why INDEX_SPECIAL_CHARS_WARNING is set to false in
+	INDEX_SPECIAL_CHARS_WARNING explanation, refer to
+	INDEX_SPECIAL_CHARS_WARNING in INFO_SPECIAL_CHARS_WARNING.
+	(Generating HTML): mention that initialization files can be used
+	to customize even more the HTML output. Give example of such files
+	in Texinfo.  Link to the draft customization_api manual.
+	(HTML CSS): @ignore text about texinfo-bright-colors.css as it
+	is not in Texinfo anymore.
+
+	* doc/texinfo.texi: misc other changes, in particular remove
+	information on Texinfo XML transliteration when it is simply said that
+	a transliteration is produced.
+
 2022-18-07  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi: add additional information on DocBook output.
