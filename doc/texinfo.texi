@@ -20112,8 +20112,7 @@ Headings, , How to Make Your Own Headings}.
 Mark the topmost @code{@@node} in the file, which must be defined on
 the line immediately preceding the @code{@@top} command.  The title is
 formatted as a chapter-level heading.  In @TeX{} the @code{@@top}
-command is merely a synonym for @code{@@unnumbered}.  In @LaTeX{}
-@code{\part*} is used.
+command is merely a synonym for @code{@@unnumbered}.
 
 @item @@U@{@var{hex}@}
 Output a representation of Unicode character U+@var{hex}.
