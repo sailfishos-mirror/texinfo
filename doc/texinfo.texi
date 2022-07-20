@@ -18133,55 +18133,24 @@ to the output (i.e., suppressing the normal escaping of input
 @samp{<}, @samp{>} and @samp{&} characters which have special
 significance in HTML)@.  @xref{Conditional Commands}.
 
+@cindex HTML output, browser compatibility of
 @strong{Standards}:
-It is intentionally not our goal, and not even possible, to pass
+It is intentionally not our goal, and not even always possible, to pass
 through every conceivable validation test without any diagnostics.
 Different validation tests have different goals, often about pedantic
 enforcement of some standard or another.  Our overriding goal is to
 help users, not blindly comply with standards.
 
 Please report output from an
-error-free run of @code{makeinfo} which has @emph{practical} browser
+error-free run of @command{makeinfo} which has @emph{practical} browser
 portability problems as a bug (@pxref{Reporting Bugs}).
 
-@cindex HTML output, browser compatibility of
-Some known use of features by HTML version:
-
-@itemize
-@item
-The HTML@tie{}4 @samp{id} attribute is used.
-
-@item
-The HTML@tie{}4 @samp{lang} attribute on the @samp{<html>} attribute
-is used.
-
-@item
-Some HTML@tie{}4 elements are used: @code{span}, @code{thead}, 
-@code{abbr}, @code{acronym}.
-
-@item
-CSS is used
-
-@item
-Entities that are not in the HTML@tie{}3.2 standard are also used.
-
-@item
-HTML@tie{}3.2 tables are generated for the @code{@@multitable} command
-(@pxref{Multi-column Tables})
-@c but they should degrade reasonably in browsers without table support.
-@end itemize
-
-@ignore
-@pindex html32.pm
-(using
-@samp{--init-file=html32.pm} produced strict HTML@tie{}3.2 output, but
-this has not been tested lately;
-@pxref{Invoking @command{texi2any}}):
-@end ignore
-
-
-
-
+In practice, the HTML produced by @command{makeinfo} is slowly adjusted
+over time towards the latest HTML standard, while also trying to keep
+compatibility with earlier produced HTML.  We use transitional markup
+and try to be slow enough to give time for the diverse HTML readers
+to adjust (and for standards to reincorporate useful features that were
+dropped@dots{}).
 
 
 @node HTML Splitting

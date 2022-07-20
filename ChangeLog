@@ -1,5 +1,14 @@
 2022-20-07  Patrice Dumas  <pertusus@free.fr>
 
+	No HTML features list, explain how HTML evolves
+
+	* doc/texinfo.texi (HTML Translation): do not list explicitly
+	HTML features used, but rather explain how makeinfo implements
+	latest standard features while trying to be backward compatible
+	as best as possible too.
+
+2022-20-07  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (@code{@@setfilename}): state clearly that
 	@setfilename is optionnal, and give some example where it could
 	still be relevant.  Add an @anchor{Setting the Output File Name}
