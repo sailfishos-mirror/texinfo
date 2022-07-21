@@ -1,3 +1,19 @@
+2022-07-21  Patrice Dumas  <pertusus@free.fr>
+
+	Move Emacs multiple file updates nodes to Emacs mode node
+
+	* doc/texinfo.texi (Update Multiple Files, Include Files Requirements)
+	(Include Files, Other Updating Commands):
+	rename '@code{texinfo-multiple-files-update}' as 'Update Multiple
+	Files'.  Move 'Update Multiple Files' and 'Include Files Requirements'
+	out of 'Include Files' to 'Updating Nodes and Menus' in Emacs
+	Texinfo mode description.
+	Move information related to texinfo-multiple-files-update from
+	'Other Updating Commands' to 'Update Multiple Files'.
+
+	* doc/texinfo.texi (Sample Include File): update and simplify the
+	example.
+
 2022-07-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Texinfo Preamble): Rename to "Preamble" and edit.

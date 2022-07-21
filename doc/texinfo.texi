@@ -500,9 +500,6 @@ External Macro Processors: Line Directives
 Include Files
 
 * Using Include Files::         How to use the @code{@@include} command.
-* @code{texinfo-multiple-files-update}:: How to create and update nodes and
-                                     menus when using included files.
-* Include Files Requirements::  @code{texinfo-multiple-files-update} needs.
 * Sample Include File::         A sample outer file with included files
                                      within it; and a sample included file.
 
@@ -607,6 +604,10 @@ Updating Nodes and Menus
 * Updating Commands::           Five major updating commands.
 * Updating Requirements::       How to structure a Texinfo file for
                                   using the updating command.
+* Update Multiple Files::       How to create and update nodes and
+                                  menus when using included files.
+* Include Files Requirements::  How to structure outer file and include
+                                  files for the updating command.
 * Other Updating Commands::     How to indent descriptions, insert
                                   missing nodes lines, and update
                                   nodes in sequence.
@@ -14222,9 +14223,6 @@ collection of conveniently small parts.
 
 @menu
 * Using Include Files::         How to use the @code{@@include} command.
-* @code{texinfo-multiple-files-update}:: How to create and update nodes and
-                                     menus when using included files.
-* Include Files Requirements::  @code{texinfo-multiple-files-update} needs.
 * Sample Include File::         A sample outer file with included files
                                      within it; and a sample included file.
 * @code{@@verbatiminclude}::            Including a file verbatim.
@@ -14262,110 +14260,9 @@ In the long-ago past, you were required to write an
 longer.  Now, it does not matter whether you write such a line.  If an
 @code{@@setfilename} line exists in an included file, it is ignored.
 
-
-@node @code{texinfo-multiple-files-update}
-@section @code{texinfo-multiple-files-update}
-
-@findex texinfo-multiple-files-update
-
-GNU Emacs Texinfo mode provides the
-@code{texinfo-multiple-files-update} command.  This command creates or
-updates `Next', `Previous', and `Up' pointers of included files as
-well as those in the outer or overall Texinfo file, and it creates or
-updates a main menu in the outer file.  Depending on whether you call
-it with optional arguments, the command updates only the pointers in
-the first @code{@@node} line of the included files or all of them:
-
-@table @kbd
-@item M-x texinfo-multiple-files-update
-Called without any arguments:
-
-@itemize @minus
-@item
-Create or update the `Next', `Previous', and `Up' pointers of the
-first @code{@@node} line in each file included in an outer or overall
-Texinfo file.
-
-@item
-Create or update the `Top' level node pointers of the outer or
-overall file.
-
-@item
-Create or update a main menu in the outer file.
-@end itemize
-
-@item C-u M-x texinfo-multiple-files-update
-Called with @kbd{C-u} as a prefix argument:
-
-@itemize @minus{}
-@item
-Create or update pointers in the first @code{@@node} line in each
-included file.
-
-@item
-Create or update the `Top' level node pointers of the outer file.
-
-@item
-Create and insert a master menu in the outer file.  The master menu
-is made from all the menus in all the included files.
-@end itemize
-
-@item C-u 8 M-x texinfo-multiple-files-update
-Called with a numeric prefix argument, such as @kbd{C-u 8}:
-
-@itemize @minus
-@item
-Create or update @emph{all} the `Next', `Previous', and `Up' pointers
-of all the included files.
-
-@item
-Create or update @emph{all} the menus of all the included
-files.
-
-@item
-Create or update the `Top' level node pointers of the outer or
-overall file.
-
-@item
-And then create a master menu in the outer file.  This is similar to
-invoking @code{texinfo-master-menu} with an argument when you are
-working with just one file.
-@end itemize
-@end table
-
-Note the use of the prefix argument in interactive use: with a regular
-prefix argument, just @w{@kbd{C-u}}, the
-@code{texinfo-multiple-files-update} command inserts a master menu;
-with a numeric prefix argument, such as @kbd{C-u 8}, the command
-updates @emph{every} pointer and menu in @emph{all} the files and
-then inserts a master menu.
-
-
-@node Include Files Requirements
-@section Include Files Requirements
-@cindex Include files requirements
-@cindex Requirements for include files
-
-If you plan to use the @code{texinfo-multiple-files-update} command,
-the outer Texinfo file that lists included files within it should
-contain nothing but the beginning and end parts of a Texinfo file, and
-a number of @code{@@include} commands listing the included files.  It
-should not even include indices, which should be listed in an included
-file of their own.
-
-Moreover, each of the included files must contain exactly one highest
-level node (conventionally, @code{@@chapter} or equivalent),
-and this node must be the first node in the included file.
-Furthermore, each of these highest level nodes in each included file
-must be at the same hierarchical level in the file structure.
-Usually, each is a @code{@@chapter}, an @code{@@appendix}, or an
-@code{@@unnumbered} node.  Thus, normally, each included file contains
-one, and only one, chapter or equivalent-level node.
-
-The outer file should contain only @emph{one} node, the `Top' node.  It
-should @emph{not} contain any nodes besides the single `Top' node.  The
-@code{texinfo-multiple-files-update} command will not process
-them.
+GNU Emacs Texinfo mode provides @code{texinfo-multiple-files-update}
+to update node pointers and master menu with multiple include files.
+@xref{Update Multiple Files}.
 
 
 @node Sample Include File
@@ -14375,25 +14272,19 @@ them.
 @cindex @code{@@include} file sample
 
 Here is an example of an outer Texinfo file with @code{@@include} files
-within it before running @code{texinfo-multiple-files-update}, which
-would insert a main or master menu:
+within it:
 
 @example
 @group
 \input texinfo @@c -*-texinfo-*-
-@c %**start of header
+
 @@settitle Include Example
-@c %**end of header
+
 @end group
 
-... @xref{Sample Texinfo Files}, for
-examples of the rest of the frontmatter ...
-
 @group
-@@ifnottex
 @@node Top
 @@top Include Example
-@@end ifnottex
 @end group
 
 @group
@@ -21409,6 +21300,10 @@ and to create menus in a file that has none.
 * Updating Commands::           Five major updating commands.
 * Updating Requirements::       How to structure a Texinfo file for
                                   using the updating command.
+* Update Multiple Files::       How to create and update nodes and
+                                  menus when using included files.
+* Include Files Requirements::  How to structure outer file and include
+                                  files for the updating command.
 * Other Updating Commands::     How to indent descriptions, insert
                                   missing nodes lines, and update
                                   nodes in sequence.
@@ -21649,11 +21544,126 @@ a menu of subsections within a section, and so on.  This means that
 you must have a `Top' node if you want a menu of chapters.
 
 
+@node Update Multiple Files
+@subsection Update Outer File and Include Files
+
+@anchor{@code{texinfo-multiple-files-update}}@c old node name
+
+@findex texinfo-multiple-files-update
+
+GNU Emacs Texinfo mode provides the
+@code{texinfo-multiple-files-update} command.  This command creates or
+updates `Next', `Previous', and `Up' pointers of included files as
+well as those in the outer or overall Texinfo file, and it creates or
+updates a main menu in the outer file.  Depending on whether you call
+it with optional arguments, the command updates only the pointers in
+the first @code{@@node} line of the included files or all of them.
+
+With @kbd{C-u} as a prefix argument, create and insert a master menu in
+the outer file.  With a numeric prefix argument, such as @kbd{C-u 2}, first
+update all the menus and all the `Next', `Previous', and `Up' pointers
+of all the included files before creating and inserting a master menu in
+the outer file.
+
+In more details:
+
+@table @kbd
+@item M-x texinfo-multiple-files-update
+Called without any arguments:
+
+@itemize @minus
+@item
+Create or update the `Next', `Previous', and `Up' pointers of the
+first @code{@@node} line in each file included in an outer or overall
+Texinfo file.
+
+@item
+Create or update the `Top' level node pointers of the outer or
+overall file.
+
+@item
+Create or update a main menu in the outer file.
+@end itemize
+
+@item C-u M-x texinfo-multiple-files-update
+Called with @kbd{C-u} as a prefix argument:
+
+@itemize @minus{}
+@item
+Create or update pointers in the first @code{@@node} line in each
+included file.
+
+@item
+Create or update the `Top' level node pointers of the outer file.
+
+@item
+Create and insert a master menu in the outer file.  The master menu
+is made from all the menus in all the included files.
+@end itemize
+
+@item C-u 8 M-x texinfo-multiple-files-update
+Called with a numeric prefix argument, such as @kbd{C-u 8}:
+
+@itemize @minus
+@item
+Create or update @emph{all} the `Next', `Previous', and `Up' pointers
+of all the included files.
+
+@item
+Create or update @emph{all} the menus of all the included
+files.
+
+@item
+Create or update the `Top' level node pointers of the outer or
+overall file.
+
+@item
+And then create a master menu in the outer file.  This is similar to
+invoking @code{texinfo-master-menu} with an argument when you are
+working with just one file.
+@end itemize
+@end table
+
+Note the use of the prefix argument in interactive use: with a regular
+prefix argument, just @w{@kbd{C-u}}, the
+@code{texinfo-multiple-files-update} command inserts a master menu;
+with a numeric prefix argument, such as @kbd{C-u 8}, the command
+updates @emph{every} pointer and menu in @emph{all} the files and
+then inserts a master menu.
+
+
+@node Include Files Requirements
+@subsection Include Files Requirements
+@cindex Include files requirements
+@cindex Requirements for include files
+
+If you plan to use the @code{texinfo-multiple-files-update} command,
+the outer Texinfo file that lists included files within it should
+contain nothing but the beginning and end parts of a Texinfo file, and
+a number of @code{@@include} commands listing the included files.  It
+should not even include indices, which should be listed in an included
+file of their own.
+
+Moreover, each of the included files must contain exactly one highest
+level node (conventionally, @code{@@chapter} or equivalent),
+and this node must be the first node in the included file.
+Furthermore, each of these highest level nodes in each included file
+must be at the same hierarchical level in the file structure.
+Usually, each is a @code{@@chapter}, an @code{@@appendix}, or an
+@code{@@unnumbered} node.  Thus, normally, each included file contains
+one, and only one, chapter or equivalent-level node.
+
+The outer file should contain only @emph{one} node, the `Top' node.  It
+should @emph{not} contain any nodes besides the single `Top' node.  The
+@code{texinfo-multiple-files-update} command will not process
+them.
+
+
 @node Other Updating Commands
 @subsection Other Updating Commands
 
-In addition to the five major updating commands, Texinfo mode
-possesses several less frequently used updating commands:
+In addition to major updating commands, Texinfo mode possesses several less
+frequently used updating commands:
 
 @table @kbd
 @item M-x texinfo-insert-node-lines
@@ -21682,17 +21692,6 @@ This command inserts titles as node names in @code{@@node} lines; the
 Inserting Frequently Used Commands}) inserts titles as descriptions in
 menu entries, a different action.  However, in both cases, you need to
 edit the inserted text.
-
-@item M-x texinfo-multiple-files-update
-@findex texinfo-multiple-files-update @r{(in brief)}
-Update nodes and menus in a document built from several separate files.
-With @kbd{C-u} as a prefix argument, create and insert a master menu in
-the outer file.  With a numeric prefix argument, such as @kbd{C-u 2}, first
-update all the menus and all the `Next', `Previous', and `Up' pointers
-of all the included files before creating and inserting a master menu in
-the outer file.  The @code{texinfo-multiple-files-update} command is
-described in the appendix on @code{@@include} files.
-@xref{@code{texinfo-multiple-files-update}}.
 
 @item M-x texinfo-indent-menu-description
 @findex texinfo-indent-menu-description
