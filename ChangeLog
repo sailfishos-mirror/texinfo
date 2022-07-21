@@ -42,7 +42,7 @@
 	* NEWS: Remove entry about generating menus as this is not a
 	new feature.
 
-2022-20-07  Patrice Dumas  <pertusus@free.fr>
+2022-07-20  Patrice Dumas  <pertusus@free.fr>
 
 	Input/output encoding is used irrespective of @documentencoding
 
@@ -56,7 +56,7 @@
 	* doc/texinfo.texi (Invoking @command{texi2any}), tp/texi2any.pl:
 	document what --enable-encoding does for HTML, TexinfoXML and DocBook.
 
-2022-20-07  Patrice Dumas  <pertusus@free.fr>
+2022-07-20  Patrice Dumas  <pertusus@free.fr>
 
 	Describe @-commands roles in Command List, not formatting
 
@@ -68,7 +68,7 @@
 	(Command Contexts): explain @shortcaption context along with
 	@caption.
 
-2022-20-07  Patrice Dumas  <pertusus@free.fr>
+2022-07-20  Patrice Dumas  <pertusus@free.fr>
 
 	No HTML features list, explain how HTML evolves
 
@@ -77,7 +77,7 @@
 	latest standard features while trying to be backward compatible
 	as best as possible too.
 
-2022-20-07  Patrice Dumas  <pertusus@free.fr>
+2022-07-20  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (@code{@@setfilename}): state clearly that
 	@setfilename is optionnal, and give some example where it could
@@ -109,24 +109,24 @@
 	information on Texinfo XML transliteration when it is simply said that
 	a transliteration is produced.
 
-2022-18-07  Patrice Dumas  <pertusus@free.fr>
+2022-07-18  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi: add additional information on DocBook output.
 	(Generating HTML): remove the sentence saying that DocBook and
 	XML output are not described in detail, they are correctly described.
 
-2022-18-07  Patrice Dumas  <pertusus@free.fr>
+2022-07-18  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (@command{latex2html} Customization Variables):
 	write only once that the customization variables are only relevant
 	if using latex2html.
 
-2022-18-07  Patrice Dumas  <pertusus@free.fr>
+2022-07-18  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%default_main_program_command_line_options):
 	add 'SILENT' for --silent for completeness.  It is not used anywhere.
 
-2022-18-07  Patrice Dumas  <pertusus@free.fr>
+2022-07-18  Patrice Dumas  <pertusus@free.fr>
 
 	Simplify node names information, add more on explicit pointers
 
@@ -147,7 +147,7 @@
 	a hierarchically organized manual with automatic pointers unless
 	specific formatting is wanted.
 
-2022-17-07  Patrice Dumas  <pertusus@free.fr>
+2022-07-17  Patrice Dumas  <pertusus@free.fr>
 
 	Document float labels and anchors are used like nodes, other changes
 
@@ -167,7 +167,7 @@
 	(Node Line Requirements): link to INFO_SPECIAL_CHARS_QUOTE
 	to state that the limitation in node names will be removed some day.
 
-2022-17-07  Patrice Dumas  <pertusus@free.fr>
+2022-07-17  Patrice Dumas  <pertusus@free.fr>
 
 	Documentation: LaTeX output, move Emacs related info, other changes
 
