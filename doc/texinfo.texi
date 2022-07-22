@@ -1105,7 +1105,6 @@ It is GNU software written by Brendan O'Dea, available from
 @uref{http://www.gnu.org/software/help2man}.
 
 
-
 @node History
 @section History
 
@@ -1508,7 +1507,6 @@ the minimum, which can be useful for short documents, is just the two
 lines at the beginning and the one line at the end.
 
 
-
 @node Short Sample Texinfo File
 @anchor{Short Sample}@c
 @anchor{Sample Beginning}@c
@@ -1672,7 +1670,6 @@ to use Texinfo mode when the file is edited:
 from the file extension automatically.
 
 
-
 @node @code{@@setfilename}
 @subsection @code{@@setfilename}: Set the Output File Name
 
@@ -1785,7 +1782,6 @@ A practice we recommend is to include the version or edition number of the
 manual in the @code{@@settitle} title; on the title page, the version number
 generally appears as a @code{@@subtitle} so it would be omitted from the
 @code{@@title}.  @xref{@code{@@titlepage}}.
-
 
 
 @node Preamble
@@ -2208,8 +2204,6 @@ page.  In HTML, @code{@@shorttitlepage} can play the same role as
 @code{@@settitle}, if @code{@@settitle} is not set.  @xref{@code{@@settitle}}.
 
 
-
-
 @node @code{@@title @@subtitle @@author}
 @subsection @code{@@title}, @code{@@subtitle}, and @code{@@author}
 
@@ -2428,7 +2422,6 @@ You could include other title-like information for the plain text
 output in the same place.
 
 
-
 @node Heading Generation
 @subsection Heading Generation
 
@@ -2643,6 +2636,7 @@ Beginning a Texinfo File
 @end group
 @end example
 
+
 @node The Body of the Document
 @section The Body of the Document
 
@@ -2747,8 +2741,6 @@ the last line to be processed.  For example:
 A @code{@@bye} command terminates Texinfo processing.  It should be on
 a line by itself.  Anything following @code{@@bye} is completely
 ignored.
-
-
 
 
 @node Nodes
@@ -3406,6 +3398,7 @@ first nine entries.  This allows people using web browsers to follow
 the first menu entries using (typically) @kbd{M-@var{digit}}, e.g.,
 @kbd{M-1} for the first entry.
 
+
 @node Menu Example
 @subsection A Menu Example
 @cindex Menu example
@@ -3552,7 +3545,6 @@ interfere with its parsing in Info.  If you don't want to see the
 warnings, you can set the customization variable
 @code{INFO_SPECIAL_CHARS_WARNING} to @samp{0} (@pxref{Other
 Customization Variables}).
-
 
 
 @node Less Cluttered Menu Entry
@@ -4280,6 +4272,8 @@ and not used online, you must nonetheless write @code{@@node} lines (or
 cross-references.
 
 @need 800
+
+
 @node Cross Reference Commands
 @section Different Cross-reference Commands
 @cindex Different cross-reference commands
@@ -4479,6 +4473,7 @@ beginning of a sentence.
 * Three Arguments::             @code{@@xref} with three arguments.
 * Four and Five Arguments::     @code{@@xref} with four and five arguments.
 @end menu
+
 
 @node One Argument
 @subsection @code{@@xref} with One Argument
@@ -6773,7 +6768,6 @@ single spaces, and that is not what they look like.
 @end quotation
 
 
-
 @node @code{@@verbatim}
 @section @code{@@verbatim}: Literal Text
 
@@ -7217,6 +7211,7 @@ Info, you'll see the @code{@@cartouche} had no effect):
 
 @code{@@cartouche} also implies @code{@@group} (@pxref{@code{@@group}}).
 
+
 @node small
 @section @code{@@small@dots{}} Block Commands
 
@@ -7272,7 +7267,6 @@ commands (such as @code{@@example} instead of @code{@@smallexample}),
 unless you have a good reason for it.
 
 
-
 @node Lists and Tables
 @chapter Lists and Tables
 @cindex Making lists and tables
@@ -7290,6 +7284,7 @@ the first column; multi-column tables are also supported.
 * Two-column Tables::           How to construct a two-column table.
 * Multi-column Tables::         How to construct generalized tables.
 @end menu
+
 
 @node Introducing Lists
 @section Introducing Lists
@@ -7620,6 +7615,7 @@ explanatory exhibits, and command-line option summaries.
 * @code{@@itemx}::                      How to put more entries in the first column.
 @end menu
 
+
 @node @code{@@table}
 @subsection Using the @code{@@table} Command
 
@@ -7705,6 +7701,7 @@ inside @code{@@display}.  Since @code{@@display} is line-oriented, it
 doesn't make sense to use them together.  If you want to indent a
 table, try @code{@@quotation} (@pxref{@code{@@quotation}}) or
 @code{@@indentedblock} (@pxref{@code{@@indentedblock}}).
+
 
 @node @code{@@ftable @@vtable}
 @subsection @code{@@ftable} and @code{@@vtable}
@@ -7803,6 +7800,7 @@ multitable} completes the table.  Details in the sections below.
 * Multitable Column Widths::    Defining multitable column widths.
 * Multitable Rows::             Defining multitable rows, with examples.
 @end menu
+
 
 @node Multitable Column Widths
 @subsection Multitable Column Widths
@@ -8739,6 +8737,7 @@ txiindexbackslashignore} causes the @samp{\mathopsup} entry in the
 index for this manual to be sorted as if it were @samp{mathopsup},
 so that it appears among the other entries beginning with `M'.
 
+
 @node Advanced Indexing
 @section Advanced Indexing Commands
 @cindex Indexing, advanced
@@ -8801,6 +8800,7 @@ commas in the correct places for you.
 
 These features are the most useful with printed documents, and
 when translating Texinfo to DocBook.
+
 
 @node Index Entries
 @section Making Index Entries
@@ -11529,6 +11529,7 @@ can be used for other programming languages.
 * Data Types::                  The definition command for data types.
 * Abstract Objects::            Commands for object-oriented programming.
 @end menu
+
 
 @node Functions Commands
 @subsection Functions and Similar Entities
@@ -14483,8 +14484,6 @@ and you can get it over the Internet or on physical media.  See
 @c please keep that text in sync with www.gnu.org/prep/FTP
 
 
-
-
 @node Format with @command{texi2dvi}
 @section Format with @command{texi2dvi}
 
@@ -14879,6 +14878,7 @@ key commands for formatting and printing.
 * Texinfo Mode Printing::       How to format and print in Texinfo mode.
 * Compile-Command::             How to print using Emacs's compile command.
 @end menu
+
 
 @node Emacs Shell Printing
 @subsection Printing From an Emacs Shell
@@ -17180,8 +17180,10 @@ included below.  The version included in the manual is also an example of
 * pod2texi manual page::      @command{pod2texi} invokation in a manual page format
 @end menu
 
+
 @node pod2texi manual page
 @include pod2texi.texi
+
 
 @node @command{texi2html}
 @section @command{texi2html}: Ancestor of @command{texi2any}
@@ -17290,8 +17292,6 @@ See also @ref{Generic Translator @command{texi2any}} and @ref{Info Formatting}.
 @end menu
 
 
-
-
 @node Installing an Info File
 @section Installing an Info File
 @cindex Installing an Info file
@@ -17365,7 +17365,6 @@ true in general, it is a special case for @file{dir}.
 
 See the @file{util/dir-example} file in the Texinfo distribution for
 a large sample @code{dir} file.
-
 
 
 @node New Info File
@@ -17787,6 +17786,7 @@ Display version information and exit successfully.
 
 @end table
 
+
 @node Tag and Split Files
 @section Tag Files and Split Files
 
@@ -17870,6 +17870,7 @@ Info-validate} node-checking command on indirect files.  For
 information on how to prevent files from being split with
 @code{texinfo-format-buffer} and how to validate the structure of the nodes,
 see @ref{Using @code{Info-validate}}.
+
 
 @node Info Format FAQ
 @section Info Format FAQ
@@ -17965,8 +17966,6 @@ If you want more, you are recommended to use the HTML output from
 @command{texi2any} instead.
 
 @end table
-
-
 
 
 @node Generating HTML
@@ -18742,6 +18741,7 @@ distributed with Texinfo, please email @email{bug-texinfo@@gnu.org} as
 usual.  You can get the latest version from
 @url{http://ftpmirror.gnu.org/@/texinfo/@/htmlxref.cnf}.
 
+
 @node @code{@@documentdescription}
 @section @code{@@documentdescription}: Summary Text
 @anchor{documentdescription}@c old name
@@ -18779,6 +18779,7 @@ This will produce the following output in the @samp{<head>} of the HTML:
 
 Here are the details of @@-commands: information about their syntax, a 
 list of commands, and information about where commands can appear.
+
 
 @node Command Syntax
 @section @@-Command Syntax
@@ -20769,7 +20770,6 @@ This manual is for GNU Sample (version @value{VERSION}, @value{UPDATED}).
 * Index::
 @end menu
 
-
 @node Invoking sample
 @chapter Invoking sample
 
@@ -20780,12 +20780,10 @@ This is a sample manual.  There is no sample program to
 invoke, but if there were, you could see its basic usage
 and command line options here.
 
-
 @node GNU Free Documentation License
 @appendix GNU Free Documentation License
 
 @include fdl.texi
-
 
 @node Index
 @unnumbered Index
@@ -20883,6 +20881,7 @@ commands and tools to help ease your work.
 * Splitting::                   How to split a file manually.
 * Batch Formatting::            How to format for Info in Emacs batch mode.
 @end menu
+
 
 @node Texinfo Mode Overview
 @section Texinfo Mode Overview
@@ -21897,8 +21896,6 @@ A peculiarity of the @code{texinfo-format-buffer} and
 fill) paragraphs that contain @code{@@w} or @code{@@*} commands.
 
 
-
-
 @node Printing
 @section Printing
 @cindex Formatting for printing
@@ -21962,6 +21959,7 @@ end-of-header lines.)
 
 @xref{Hardcopy with @TeX{}}, for a description of the other @TeX{} related
 commands, such as @code{tex-show-print-queue}.
+
 
 @node Texinfo Mode Summary
 @section Texinfo Mode Summary
@@ -22526,6 +22524,7 @@ on a large file, you must run @code{texinfo-format-buffer} with an
 argument so that it does not split the Info file; and you must create a
 tag table for the unsplit file.
 
+
 @node Unsplit
 @subsubsection Creating an Unsplit File
 @cindex Creating an unsplit file
@@ -22564,6 +22563,7 @@ a tag table for it.
 @cindex Making a tag table manually
 @cindex Tag table, making manually
 
+
 @node Tagifying
 @subsubsection Tagifying a File
 
@@ -22600,6 +22600,7 @@ After you have validated the node structure, you can rerun
 @code{texinfo-format-buffer} in the normal way so it will construct a
 tag table and split the file automatically, or you can make the tag
 table and split the file manually.
+
 
 @node Splitting
 @section Splitting a File Manually
@@ -22671,7 +22672,6 @@ you can continue working in it.  (When you run
 use that Emacs for anything else until the command finishes.)
 
 
-
 @node Global Document Commands
 @appendix Global Document Commands
 @cindex Global Document Commands
@@ -22691,6 +22691,7 @@ They are generally all given before the Top node, if they are given at all.
 * @code{@@pagesizes}::                  How to print with customized page sizes.
 * Magnification::               How to print scaled up output.
 @end menu
+
 
 @node @code{@@setchapternewpage}
 @section @code{@@setchapternewpage}: Blank Pages Before Chapters
@@ -22765,7 +22766,6 @@ pages) use the @option{--texinfo} option to @command{texi2dvi} to
 specify the output you want.
 
 
-
 @node Headings
 @section Page Headings
 @anchor{Headings Introduced}@c old name
@@ -22805,6 +22805,7 @@ right part is set flushright.
 * Heading Format::              Standard page heading formats.
 * Custom Headings::             How to create your own headings and footings.
 @end menu
+
 
 @node @code{@@headings}
 @subsection The @code{@@headings} Command

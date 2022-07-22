@@ -235,7 +235,7 @@ my %default_main_program_command_line_options = (
 # used in main program, defaults documented in manual
 my %default_main_program_customization = (
   'CHECK_NORMAL_MENU_STRUCTURE' => 0, # output warnings when node with
-            # automatic direction does directions in menu are not consistent
+            # automatic direction and directions in menu are not consistent
             # with sectionning, and when node directions are not consistent
             # with menu directions.
   'DUMP_TREE'                   => undef,

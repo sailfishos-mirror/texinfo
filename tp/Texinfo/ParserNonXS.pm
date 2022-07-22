@@ -2747,7 +2747,7 @@ sub _enter_index_entry($$$$$$$)
 }
 
 # Used for file names and index sort strings to allow including the special
-# Texinfo characters.
+# Texinfo characters but not other command nor element type.
 sub _convert_to_text {
   my $e = shift;
 
