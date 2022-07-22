@@ -509,9 +509,7 @@ Formatting and Printing Hardcopy with @TeX{}
 * Format with @command{texi2dvi}::        The simplest way to format.
 * Format with @command{tex}/@command{texindex}::    Formatting with explicit shell commands.
 * Print with @command{lpr}::              How to print.
-* Within Emacs::                How to format and print from an Emacs shell.
-* Texinfo Mode Printing::       How to format and print in Texinfo mode.
-* Compile-Command::             How to print using Emacs's compile command.
+* Printing with Emacs::         How to format with @TeX{} and print with Emacs.
 * Requirements Summary::        @TeX{} formatting requirements summary.
 * Preparing for @TeX{}::           What to do before you use @TeX{}.
 * Overfull hboxes::             What are and what to do with overfull hboxes.
@@ -521,6 +519,12 @@ Format with @command{tex}/@command{texindex}
 
 * Formatting Partial Documents::
 * Details of @command{texindex}::
+
+Formatting and Printing with Emacs
+
+* Emacs Shell Printing::        How to format and print from an Emacs shell.
+* Texinfo Mode Printing::       How to format and print in Texinfo mode.
+* Compile-Command::             How to print using Emacs's compile command.
 
 @command{texi2any}: The Generic Translator for Texinfo
 
@@ -597,6 +601,8 @@ Using Texinfo Mode
 * Info Formatting::             How to format for Info.
 * Printing::                    How to format and print part or all of a file.
 * Texinfo Mode Summary::        Summary of all the Texinfo mode commands.
+* Catching Mistakes::           How to find mistakes in formatting.
+* Splitting::                   How to split a file manually.
 * Batch Formatting::            How to format for Info in Emacs batch mode.
 
 Updating Nodes and Menus
@@ -618,6 +624,12 @@ Catching Mistakes
 * Debugging with @TeX{}::          How to catch errors with @TeX{} formatting.
 * Running @code{Info-validate}::       How to find badly referenced nodes.
 
+Finding Badly Referenced Nodes
+
+* Using @code{Info-validate}::         How to run @code{Info-validate}.
+* Unsplit::                     How to create an unsplit file.
+* Tagifying::                   How to tagify a file.
+
 Global Document Commands
 
 * @code{@@setchapternewpage}::          Start chapters on right-hand pages.
@@ -638,13 +650,6 @@ Page Headings
                                         and double or single sided printing.
 * Heading Format::              Standard page heading formats.
 * Custom Headings::             How to create your own headings and footings.
-
-Finding Badly Referenced Nodes
-
-* Using @code{Info-validate}::         How to run @code{Info-validate}.
-* Unsplit::                     How to create an unsplit file.
-* Tagifying::                   How to tagify a file.
-* Splitting::                   How to split a file manually.
 
 Info Format Specification
 
@@ -14317,10 +14322,11 @@ The full contents of @file{concept-index.texi} might be as simple as this:
 @end group
 @end example
 
+@c FIXME not sure that this is of general interest for Texinfo
 The outer Texinfo source file for @cite{The GNU Emacs Lisp Reference
-Manual} is named @file{elisp.texi}.  This outer file contains a master
-menu with 417 entries and a list of 41 @code{@@include}
-files.
+Manual} is named @file{elisp.texi}.  This outer file
+has already contained a master menu with 417 entries and a list of
+41 @code{@@include} files.
 
 
 @node @code{@@verbatiminclude}
@@ -14448,9 +14454,7 @@ Details are in the following sections.
 * Format with @command{texi2dvi}::        The simplest way to format.
 * Format with @command{tex}/@command{texindex}::    Formatting with explicit shell commands.
 * Print with @command{lpr}::              How to print.
-* Within Emacs::                How to format and print from an Emacs shell.
-* Texinfo Mode Printing::       How to format and print in Texinfo mode.
-* Compile-Command::             How to print using Emacs's compile command.
+* Printing with Emacs::         How to format with @TeX{} and print with Emacs.
 * Requirements Summary::        @TeX{} formatting requirements summary.
 * Preparing for @TeX{}::           What to do before you use @TeX{}.
 * Overfull hboxes::             What are and what to do with overfull hboxes.
@@ -14748,6 +14752,7 @@ written for the cross-references.
 * Details of @command{texindex}::
 @end menu
 
+
 @node Formatting Partial Documents
 @subsection Formatting Partial Documents
 
@@ -14801,7 +14806,6 @@ initial'' shown in the index:
 ...
 @@printindex cp
 @end example
-
 
 @cindex Literate programming, with Texinfo and @code{awk}
 @cindex Texinfo, and literate programming
@@ -14863,8 +14867,23 @@ way for your machine (e.g., by sending to the appropriate port,
 usually @samp{PRN}).
 
 
-@node Within Emacs
-@section Printing From an Emacs Shell
+@node Printing with Emacs
+@section Formatting and Printing with Emacs
+
+GNU Emacs can be used for formatting and printing with @TeX{},
+from an Emacs Shell.  Texinfo mode also provides predefined
+key commands for formatting and printing.
+
+@menu
+* Emacs Shell Printing::        How to format and print from an Emacs shell.
+* Texinfo Mode Printing::       How to format and print in Texinfo mode.
+* Compile-Command::             How to print using Emacs's compile command.
+@end menu
+
+@node Emacs Shell Printing
+@subsection Printing From an Emacs Shell
+
+@anchor{Within Emacs} @c old node name
 @cindex Print, format from Emacs shell
 @cindex Format, print from Emacs shell
 @cindex Shell, format, print from
@@ -14897,7 +14916,7 @@ and printing in Texinfo mode.
 
 
 @node Texinfo Mode Printing
-@section Formatting and Printing in Texinfo Mode
+@subsection Formatting and Printing in Texinfo Mode
 @cindex Region printing in Texinfo mode
 @cindex Format and print in Texinfo mode
 @cindex Print and format in Texinfo mode
@@ -15019,7 +15038,7 @@ the @kbd{M-x customize} command.
 
 
 @node Compile-Command
-@section Using the Local Variables List
+@subsection Using the Local Variables List
 @cindex Local variables
 @cindex Compile command for formatting
 @cindex Format with the compile command
@@ -17486,8 +17505,9 @@ In order for the Info file to work with @code{install-info}, you include
 the commands @code{@@dircategory} and
 @code{@@direntry}@dots{}@code{@@end direntry} in the Texinfo source
 file.  Use @code{@@direntry} to specify the menu entries to add to the
-Info directory file, and use @code{@@dircategory} to specify which part
-of the Info directory to put it in.  @xref{Directory Category}.
+Info directory file.  Use @code{@@dircategory} to specify a category
+for the manual, which determines which part of the Info directory to
+put it in.  @xref{Directory Category}.
 
 Here is how these commands are used in this manual:
 
@@ -17769,29 +17789,24 @@ Display version information and exit successfully.
 
 @node Tag and Split Files
 @section Tag Files and Split Files
-@cindex Making a tag table automatically
-@cindex Tag table, making automatically
 
-If a Texinfo file has more than 30,000 bytes,
-@code{texinfo-format-buffer} automatically creates a tag table
-for its Info file; @code{makeinfo} always creates a tag table.  With
-a @dfn{tag table}, Info can jump to new nodes more quickly than it can
-otherwise.
+@cindex Tag table
+@cindex nonsplit Info file
+@cindex split Info file
+Info files always contain a @dfn{tag table}, to be able to jump to
+nodes quickly.  Info files can be @dfn{nonsplit} (also called
+@dfn{unsplit}) or @dfn{split}.
 
 @cindex Indirect subfiles
-In addition, if the Texinfo file contains more than about 300,000
-bytes, @code{texinfo-format-buffer} and @code{makeinfo} split the
-large Info file into shorter @dfn{indirect} subfiles of about 300,000
-bytes each.  Big files are split into smaller files so that Emacs does
-not need to make a large buffer to hold the whole of a large Info
-file; instead, Emacs allocates just enough memory for the small, split-off
-file that is needed at the time.  This way, Emacs avoids wasting
-memory when you run Info.  (Before splitting was implemented, Info
-files were always kept short and @dfn{include files} were designed as
-a way to create a single, large printed manual out of the smaller Info
-files.  @xref{Include Files}, for more information.  Include files are
-still used for very large documents, such as @cite{The Emacs Lisp
-Reference Manual}, in which each chapter is a separate file.)
+If the Info file contains less than about 300,000 characters the
+file should be nonsplit.  In that case, the tag table should
+appear at the end of the Info file.  If the Texinfo file contains
+more than about 300,000 characters, Texinfo processors split the
+large Info file into shorter @dfn{indirect} subfiles of about
+300,000 characters each.  With @command{texi2any}, splitting
+may be prevented by @option{--no-split}, and the default size
+of 300,000 characters may be modified with @option{--split-size}
+(@pxref{Invoking @command{texi2any}}).
 
 When a file is split, Info itself makes use of a shortened version of
 the original file that contains just the tag table and references to
@@ -17852,11 +17867,9 @@ you may want to run the @code{Info-validate} command.  (The
 @code{makeinfo} command does such a good job on its own, you do not
 need @code{Info-validate}.)  However, you cannot run the @kbd{M-x
 Info-validate} node-checking command on indirect files.  For
-information on how to prevent files from being split and how to
-validate the structure of the nodes, see @ref{Using
-@code{Info-validate}}.
-
-
+information on how to prevent files from being split with
+@code{texinfo-format-buffer} and how to validate the structure of the nodes,
+see @ref{Using @code{Info-validate}}.
 
 @node Info Format FAQ
 @section Info Format FAQ
@@ -17981,7 +17994,7 @@ the CHM format.  As another example, @file{highlight_syntax.pm} uses
 blocks using the first argument to specify the language of the code
 (@pxref{@code{@@example}}). @xref{,,,source-highlight, GNU Source-highlight}.
 
-The draft documentation of @command{texi2any} program HTML output
+The draft documentation of @command{texi2any} HTML output
 adaptation using customization files is in a separate
 manual.  @xref{,,,customization_api,GNU Texinfo @command{texi2any} Output Customization}.
 
@@ -20664,7 +20677,7 @@ The @file{version.texi} in the @code{@@include} command is maintained
 automatically by Automake (@pxref{Texinfo,,, automake, GNU Automake}).
 It sets the @samp{VERSION}, @samp{UPDATED} and @samp{UPDATED-MONTH} 
 values used elsewhere.  If your distribution doesn't use Automake, but
-you do use Emacs, you may find the time-stamp.el package helpful
+you do use Emacs, you may find the @code{time-stamp.el} package helpful
 (@pxref{Time Stamps,,, emacs, The GNU Emacs Manual}).
 
 @item
@@ -20673,9 +20686,10 @@ only one index where possible, to make it easier for readers to look up
 index entries.
 
 @item
-The @code{@@dircategory} is for constructing the Info directory.
-@xref{Installing Dir Entries}, which includes a variety of recommended
-category names.
+The @code{@@dircategory} specify a category for the manual.  It is
+used for constructing the Info directory.  @xref{Directory Category},
+which includes a variety of recommended category names.
+@xref{Installing Dir Entries}.
 
 @item
 The `Invoking' node is a GNU standard to help users find the basic
@@ -20866,6 +20880,7 @@ commands and tools to help ease your work.
 * Printing::                    How to format and print part or all of a file.
 * Texinfo Mode Summary::        Summary of all the Texinfo mode commands.
 * Catching Mistakes::           How to find mistakes in formatting.
+* Splitting::                   How to split a file manually.
 * Batch Formatting::            How to format for Info in Emacs batch mode.
 @end menu
 
@@ -20905,6 +20920,7 @@ Typeset and print part or all of a file.
 Perhaps the two most helpful features are those for inserting frequently
 used @@-commands and for creating node pointers and menus.
 
+
 @node Emacs Editing
 @section The Usual GNU Emacs Editing Commands
 
@@ -20940,6 +20956,7 @@ Like all other Emacs features, you can customize or enhance Texinfo
 mode as you wish.  In particular, the keybindings are very easy to
 change.  The keybindings described here are the default or standard
 ones.
+
 
 @node Inserting
 @section Inserting Frequently Used Commands
@@ -21094,6 +21111,7 @@ whole job.  You must edit the inserted text since a title tends to use
 the same words as a node name but a useful description uses different
 words.
 
+
 @node Showing the Structure
 @section Showing the Sectioning Structure of a File
 @cindex Showing the sectioning structure of a file
@@ -21159,6 +21177,7 @@ about the page commands.
 * Using @code{texinfo-show-structure}:: How to use @code{texinfo-show-structure}.
 * Using @code{occur}::                 How to list all lines containing a pattern.
 @end menu
+
 
 @node Using @code{texinfo-show-structure}
 @subsection Using @code{texinfo-show-structure}
@@ -21231,6 +21250,7 @@ You can remind yourself of the structure of a Texinfo file by looking at
 the list in the @samp{*Occur*} window; and if you have mis-named a node
 or left out a section, you can correct the mistake.
 
+
 @node Using @code{occur}
 @subsection Using @code{occur}
 
@@ -21270,8 +21290,6 @@ therefore have the same `Up' pointer.
 
 @xref{Other Repeating Search, , Using Occur, emacs , The GNU Emacs Manual},
 for more information.
-
-
 
 
 @node Updating Nodes and Menus
@@ -21533,8 +21551,7 @@ or like this (without the explicit node pointers):
 In this example, `Comments' is the name of both the node and the
 section.  The next node is called `Minimum' and the previous node is
 called `Conventions'.  The `Comments' section is within the `Overview'
-node, which is specified by the `Up' pointer.  (Instead of an
-@code{@@comment} line, you may also write an @code{@@ifinfo} line.)
+node, which is specified by the `Up' pointer.
 
 If a file has a `Top' node, it must be called @samp{top} or @samp{Top}
 and be the first node in the file.
@@ -21662,8 +21679,8 @@ them.
 @node Other Updating Commands
 @subsection Other Updating Commands
 
-In addition to major updating commands, Texinfo mode possesses several less
-frequently used updating commands:
+In addition to the major updating commands, Texinfo mode possesses several
+less frequently used updating commands:
 
 @table @kbd
 @item M-x texinfo-insert-node-lines
@@ -22430,7 +22447,15 @@ files, not on Texinfo files.
 
 The @code{makeinfo} program validates pointers automatically, so you
 do not need to use the @code{Info-validate} command if you are using
-@code{makeinfo}.  You only may need to use @code{Info-validate} if you
+@code{makeinfo}.  With the customization variable
+@code{CHECK_NORMAL_MENU_STRUCTURE} set, @command{makeinfo} will also
+warn if the nodes pointers (either explicitly or automatically set)
+are not consistent with the order of node menu entries.
+@command{makeinfo} does not check that every `Next' pointer is matched
+by a `Previous' (in the node where the `Next' points) which points back,
+since it may be correct for a non standard document structure.
+
+You only may need to use @code{Info-validate} if you
 are unable to run @code{makeinfo} and instead must create an Info file
 using @code{texinfo-format-region} or @code{texinfo-format-buffer}, or
 if you write an Info file from scratch.
@@ -22439,7 +22464,6 @@ if you write an Info file from scratch.
 * Using @code{Info-validate}::         How to run @code{Info-validate}.
 * Unsplit::                     How to create an unsplit file.
 * Tagifying::                   How to tagify a file.
-* Splitting::                   How to split a file manually.
 @end menu
 
 
@@ -22488,8 +22512,9 @@ In node "Texinfo Mode", should have Previous: Overview
 @end example
 
 @noindent
-This is because every `Next' pointer should be matched by a
-`Previous' (in the node where the `Next' points) which points back.
+This is because, with a standard document structure, every `Next' pointer
+should be matched by a `Previous' (in the node where the `Next' points)
+which points back.
 
 @code{Info-validate} also checks that all menu entries and cross-references
 point to actual nodes.
@@ -22511,6 +22536,7 @@ tag table.  The command will not work on the indirect subfiles that
 are generated when a master file is split.  If you have a large file
 (longer than 300,000 bytes or so), you need to run the
 @code{texinfo-format-buffer} or @code{makeinfo-buffer} command in such
+@c FIXME probably always a tag table with makeinfo-buffer?
 a way that it does not create indirect subfiles.  You will also need
 to create a tag table for the Info file.  After you have done this,
 you can run @code{Info-validate} and look for badly referenced
@@ -22576,7 +22602,7 @@ tag table and split the file automatically, or you can make the tag
 table and split the file manually.
 
 @node Splitting
-@subsubsection Splitting a File Manually
+@section Splitting a File Manually
 @cindex Splitting an Info file manually
 @cindex Info files @subentry splitting manually
 
@@ -22587,19 +22613,13 @@ commands do this job for you.  @xref{Info Formatting}.)
 
 The split-off files are called the indirect subfiles.
 
-Info files are split to save memory.  With smaller files, Emacs does not
-have to make such a large buffer to hold the information.
+Tag tables are created automatically by the formatting command;
+you only need to create a tag table yourself if you are doing
+the job manually.  @xref{Tagifying}, for information about
+creating a tag table.
 
-If an Info file has more than 30 nodes, you should also make a tag
-table for it.  @xref{Using @code{Info-validate}}, for information
-about creating a tag table.  (Again, tag tables are usually created
-automatically by the formatting command; you only need to create a tag
-table yourself if you are doing the job manually.  Most likely, you
-will do this for a large, unsplit file on which you have run
-@code{Info-validate}.)
-
-Visit the Info file you wish to tagify and split and type the two
-commands:
+Visit the Info file you wish to tagify and split manually and type the
+two commands:
 
 @example
 M-x Info-tagify
@@ -22616,7 +22636,7 @@ written in the same directory the original file is in, with names generated
 by appending @samp{-} and a number to the original file name.
 
 The primary file still functions as an Info file, but it contains just
-the tag table and a directory of subfiles.
+the tag table and a directory of subfiles.  @xref{Tag and Split Files}.
 
 
 @node Batch Formatting
@@ -22656,7 +22676,7 @@ use that Emacs for anything else until the command finishes.)
 @appendix Global Document Commands
 @cindex Global Document Commands
 
-Here are additional commands which affect the document as a whole.  Nearly all 
+Here are additional commands which affect the document as a whole.  Most
 of these commands are for customizing the appearance of the printed output.
 They are generally all given before the Top node, if they are given at all.
 
@@ -22989,8 +23009,7 @@ Use the @samp{@@this@dots{}} series of @@-commands to
 provide the names of chapters
 and sections and the page number.  You can use the
 @samp{@@this@dots{}} commands in the left, center, or right portions
-of headers and footers, or anywhere else in a Texinfo file so long as
-they are between @code{@@iftex} and @code{@@end iftex} commands.
+of headers and footers.
 
 @need 1000
 Here are the @samp{@@this@dots{}} commands:
@@ -23039,7 +23058,7 @@ For @code{@@include} files only: expands to the name of the current
 @code{@@include} file, this command has no effect.  This command does
 @emph{not} provide the name of the current Texinfo source file unless
 it is an @code{@@include} file.  (@xref{Include Files}, for more
-information about @code{@@include} files.)  No effect for @LaTeX{}.
+information about @code{@@include} files.)  Not expanded in @LaTeX{}.
 @end table
 
 @noindent
@@ -23094,10 +23113,10 @@ argument is the same as with the @samp{@@every...} commands.
 Write these commands immediately after the @code{@@...contents}
 commands, or after the @code{@@end titlepage} command if you don't
 have a table of contents or if it is printed at the end of your
-manual.
+manual.  These commands have no effect in @LaTeX{}.
 
-By default the @code{@@this...} commands reflect the situation at the
-bottom of a page both in headings and in footings.
+By default, for @TeX{}, the @code{@@this...} commands reflect the situation at
+the bottom of a page both in headings and in footings.
 
 
 @node @code{@@paragraphindent}

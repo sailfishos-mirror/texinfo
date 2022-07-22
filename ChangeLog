@@ -1,3 +1,26 @@
+2022-07-22  Patrice Dumas  <pertusus@free.fr>
+
+	Update Emacs related documentation, other changes
+
+	* doc/texinfo.texi (Printing with Emacs, Emacs Shell Printing): add
+	the 'Printing with Emacs', rename 'Within Emacs' as 'Emacs Shell
+	Printing', and put 'Emacs Shell Printing', 'Texinfo Mode Printing'
+	and 'Compile-Command' in 'Printing with Emacs'.
+	(Tag and Split Files, Splitting): update based on changes in Emacs,
+	thanks to Robert Pluim information, texinfo-format-buffer always create a
+	tag table.
+	(Splitting): move up to the same level of 'Catching Mistakes'.
+	(Installing Dir Entries, GNU Sample Texts): inform that @dircategory
+	specify a manual category in addition to being used in Info (dir).
+	(Running @code{Info-validate}, @code{Info-validate}): describe the
+	use of CHECK_NORMAL_MENU_STRUCTURE to make more checks with makeinfo,
+	and that makeinfo never checks that a Next pointer corresponds to
+	a Prev pointer.  Write explicitly that a Next pointer always
+	corresponding to a Prev pointer is not a strict requirement, but
+	for 'standard' documents.
+
+	* doc/texinfo.texi: other minor changes.
+
 2022-07-21  Patrice Dumas  <pertusus@free.fr>
 
 	Move Emacs multiple file updates nodes to Emacs mode node
