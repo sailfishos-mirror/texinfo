@@ -132,7 +132,7 @@ sub parser (;$$)
         set_debug($conf->{$key}) if $conf->{$key};
       } elsif ($key eq 'DOC_ENCODING_FOR_INPUT_FILE_NAME') {
         set_DOC_ENCODING_FOR_INPUT_FILE_NAME ($conf->{$key});
-      } elsif ($key eq 'LOCALE_INPUT_FILE_NAME_ENCODING') {
+      } elsif ($key eq 'INPUT_FILE_NAME_ENCODING') {
         if (defined ($conf->{$key})) {
           set_locale_input_file_name_encoding ($conf->{$key});
         }

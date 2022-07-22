@@ -214,7 +214,7 @@ sub expand_verbatiminclude($$$)
     ($file_name, $file_name_encoding)
       = Texinfo::Common::encode_file_name($configuration_information,
                                                     $file_name_text,
-    $configuration_information->get_conf('LOCALE_INPUT_FILE_NAME_ENCODING'));
+    $configuration_information->get_conf('INPUT_FILE_NAME_ENCODING'));
   }
 
   my $file = Texinfo::Common::locate_include_file($configuration_information,
@@ -323,7 +323,7 @@ sub encoded_output_file_name($$)
                                              $document_encoding);
   } else {
     return Texinfo::Common::encode_file_name($self, $file_name,
-                       $self->get_conf('LOCALE_OUTPUT_FILE_NAME_ENCODING'));
+                       $self->get_conf('OUTPUT_FILE_NAME_ENCODING'));
   }
 }
 

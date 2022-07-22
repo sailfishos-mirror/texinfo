@@ -2033,7 +2033,7 @@ sub _encode_file_name($$)
                  $self->{'info'}->{'input_perl_encoding'});
   } else {
     return Texinfo::Common::encode_file_name($self, $file_name,
-             $self->get_conf('LOCALE_INPUT_FILE_NAME_ENCODING'));
+             $self->get_conf('INPUT_FILE_NAME_ENCODING'));
   }
 }
 

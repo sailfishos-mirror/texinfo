@@ -300,8 +300,8 @@ my $main_program_set_options = {
     'TEXINFO_DTD_VERSION' => $texinfo_dtd_version,
     'COMMAND_LINE_ENCODING' => $locale_encoding,
     'MESSAGE_ENCODING' => $locale_encoding,
-    'LOCALE_INPUT_FILE_NAME_ENCODING' => $file_name_encoding,
-    'LOCALE_OUTPUT_FILE_NAME_ENCODING' => $file_name_encoding,
+    'INPUT_FILE_NAME_ENCODING' => $file_name_encoding,
+    'OUTPUT_FILE_NAME_ENCODING' => $file_name_encoding,
 };
 
 # use locale on Windows to set encoding of input file name as

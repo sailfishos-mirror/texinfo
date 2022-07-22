@@ -19,16 +19,16 @@ cpp_lines ../../t/input_files/cpp_lines.texi -c MESSAGE_ENCODING=UTF-8
 # ./texi2any.pl --footnote-style=bâd
 # ./texi2any.pl --paragraph-indent=ïndent
 # check non ascii command line arguments and css files
-non_ascii_command_line osé_utf8.texi -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c LOCALE_OUTPUT_FILE_NAME_ENCODING=UTF-8 --html --split=Mekanïk --document-language=Destruktïw -c 'Kommandöh vâl' -D TÛT -D 'vùr ké' -U ôndef -c 'FORMAT_MENU mînù' --macro-expand=@OUT_DIR@osé-texinfo.texi --internal-links=@OUT_DIR@intérnal.txt --css-include çss.css --css-include cêss.css --css-ref=rëf --css-ref=öref
+non_ascii_command_line osé_utf8.texi -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --html --split=Mekanïk --document-language=Destruktïw -c 'Kommandöh vâl' -D TÛT -D 'vùr ké' -U ôndef -c 'FORMAT_MENU mînù' --macro-expand=@OUT_DIR@osé-texinfo.texi --internal-links=@OUT_DIR@intérnal.txt --css-include çss.css --css-include cêss.css --css-ref=rëf --css-ref=öref
 
 # test for the copying of image with non ascii characters for epub
-non_ascii_test_epub osé_utf8.texi -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c LOCALE_OUTPUT_FILE_NAME_ENCODING=UTF-8 --init epub3.pm -c 'EPUB_CREATE_CONTAINER 0' -c 'COMMAND_LINE_ENCODING UTF-8'
+non_ascii_test_epub osé_utf8.texi -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --init epub3.pm -c 'EPUB_CREATE_CONTAINER 0' -c 'COMMAND_LINE_ENCODING UTF-8'
 
 # check that the output is right when based on @setfilename
-non_ascii_test_rawtext osé_utf8.texi -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c LOCALE_OUTPUT_FILE_NAME_ENCODING=UTF-8 -c LOCALE_INPUT_FILE_NAME_ENCODING=UTF-8 -c TEXINFO_OUTPUT_FORMAT=rawtext -c 'COMMAND_LINE_ENCODING UTF-8'
+non_ascii_test_rawtext osé_utf8.texi -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 -c TEXINFO_OUTPUT_FORMAT=rawtext -c 'COMMAND_LINE_ENCODING UTF-8'
 
 # check that the output is right when based on input file name
-non_ascii_no_setfilename_test_rawtext osé_utf8_no_setfilename.texi -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c LOCALE_OUTPUT_FILE_NAME_ENCODING=UTF-8 -c LOCALE_INPUT_FILE_NAME_ENCODING=UTF-8 -c TEXINFO_OUTPUT_FORMAT=rawtext
+non_ascii_no_setfilename_test_rawtext osé_utf8_no_setfilename.texi -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 -c TEXINFO_OUTPUT_FORMAT=rawtext
 
 # test of non utf8 encoded file name in non utf8 document
 # "Need recoded file names" string is used in test driving script
@@ -36,9 +36,9 @@ non_ascii_no_setfilename_test_rawtext osé_utf8_no_setfilename.texi -c COMMAND_L
 # succeeded for this test not to be skipped
 manual_include_accented_file_name_latin1 manual_include_accented_file_name_latin1.texi --info -D 'needrecodedfilenames Need recoded file names'
 
-manual_include_accented_file_name_latin1_explicit_encoding manual_include_accented_file_name_latin1.texi --info -c DOC_ENCODING_FOR_INPUT_FILE_NAME=0 -c LOCALE_INPUT_FILE_NAME_ENCODING=ISO-8859-1 -D 'needrecodedfilenames Need recoded file names'
+manual_include_accented_file_name_latin1_explicit_encoding manual_include_accented_file_name_latin1.texi --info -c DOC_ENCODING_FOR_INPUT_FILE_NAME=0 -c INPUT_FILE_NAME_ENCODING=ISO-8859-1 -D 'needrecodedfilenames Need recoded file names'
 
 # fails to find the latin1 encoded include file as the locale encoding
 # of the test suite is utf8
-manual_include_accented_file_name_latin1_use_locale_encoding manual_include_accented_file_name_latin1.texi --info -c DOC_ENCODING_FOR_INPUT_FILE_NAME=0 -D 'needrecodedfilenames Need recoded file names' -c MESSAGE_ENCODING=UTF-8 -c LOCALE_INPUT_FILE_NAME_ENCODING=UTF-8
+manual_include_accented_file_name_latin1_use_locale_encoding manual_include_accented_file_name_latin1.texi --info -c DOC_ENCODING_FOR_INPUT_FILE_NAME=0 -D 'needrecodedfilenames Need recoded file names' -c MESSAGE_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8
 

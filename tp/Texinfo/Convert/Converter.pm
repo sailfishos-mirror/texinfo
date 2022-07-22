@@ -1045,7 +1045,7 @@ sub encoded_input_file_name($$)
                                              $document_encoding);
   } else {
     return Texinfo::Common::encode_file_name($self, $file_name,
-                       $self->get_conf('LOCALE_INPUT_FILE_NAME_ENCODING'));
+                       $self->get_conf('INPUT_FILE_NAME_ENCODING'));
   }
 }
 

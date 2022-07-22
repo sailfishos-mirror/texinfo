@@ -110,10 +110,10 @@ my %default_parser_common_customization = (
   'FORMAT_MENU' => 'menu',           # if not 'menu' no menu error related.
   'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,  # if true use the document encoding for input
                                             # file names encoding, else use
-                                            # LOCALE_INPUT_FILE_NAME_ENCODING
+                                            # INPUT_FILE_NAME_ENCODING
   'COMMAND_LINE_ENCODING' => undef, # encoding of command line strings
-  'LOCALE_INPUT_FILE_NAME_ENCODING' => undef, # used for input file encoding if
-                                              # DOC_ENCODING_FOR_INPUT_FILE_NAME is 0
+  'INPUT_FILE_NAME_ENCODING' => undef, # used for input file encoding if
+                                       # DOC_ENCODING_FOR_INPUT_FILE_NAME is 0
 );
 
 # Customization variables obeyed only by the parser, and the default values.
@@ -263,10 +263,10 @@ our %default_converter_customization = (
   'TEXTCONTENT_COMMENT',  => undef,  # in textcontent format
   'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,  # if true use the document encoding for input
                                             # file names encoding, else use
-                                            # LOCALE_INPUT_FILE_NAME_ENCODING
+                                            # INPUT_FILE_NAME_ENCODING
   'DOC_ENCODING_FOR_OUTPUT_FILE_NAME' => 0, # if true use the document encoding for input
                                             # file names encoding, else use
-                                            # LOCALE_OUTPUT_FILE_NAME_ENCODING
+                                            # OUTPUT_FILE_NAME_ENCODING
 );
 
 # Some are for all converters, EXTENSION for instance, some for
@@ -320,6 +320,7 @@ my @variable_string_settables = (
 'INFO_SPECIAL_CHARS_QUOTE',
 'INFO_SPECIAL_CHARS_WARNING',
 'INLINE_CSS_STYLE',
+'INPUT_FILE_NAME_ENCODING',
 'JS_WEBLABELS',
 'JS_WEBLABELS_FILE',
 'KEEP_TOP_EXTERNAL_REF',
@@ -335,8 +336,6 @@ my @variable_string_settables = (
 'MENU_ENTRY_COLON',
 'MENU_SYMBOL',
 'MESSAGE_ENCODING',
-'LOCALE_INPUT_FILE_NAME_ENCODING',
-'LOCALE_OUTPUT_FILE_NAME_ENCODING',
 'MONOLITHIC',
 'NO_CSS',
 'NO_NUMBER_FOOTNOTE_SYMBOL',
@@ -348,6 +347,7 @@ my @variable_string_settables = (
 'NO_USE_SETFILENAME',
 'OPEN_QUOTE_SYMBOL',
 'OUTPUT_ENCODING_NAME',
+'OUTPUT_FILE_NAME_ENCODING',
 'OUTPUT_PERL_ENCODING',
 'PACKAGE',
 'PACKAGE_AND_VERSION',

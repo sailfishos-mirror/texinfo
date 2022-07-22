@@ -84,7 +84,7 @@ texinfo_set_from_init_file('DOC_ENCODING_FOR_OUTPUT_FILE_NAME', 0);
 # This is also needed for Archive::Zip in case there are non ascii
 # file name.
 # As a consequence, the epub file file name is also always utf-8 encoded.
-texinfo_set_from_init_file('LOCALE_OUTPUT_FILE_NAME_ENCODING', 'utf-8');
+texinfo_set_from_init_file('OUTPUT_FILE_NAME_ENCODING', 'utf-8');
 
 # a "book like" output is most likely expected for epub.  So we set
 # NO_TOP_NODE_OUTPUT, which in turn sets titlepage to be used
