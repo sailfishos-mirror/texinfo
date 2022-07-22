@@ -2,6 +2,14 @@
 
 	Rename LOCALE_INPUT_FILE_NAME_ENCODING
 
+	* doc/texinfo.texi (Other Customization Variables):
+	Rename LOCALE_INPUT_FILE_NAME_ENCODING and
+	LOCALE_OUTPUT_FILE_NAME_ENCODING by removing LOCALE_ prefix.
+
+2022-07-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Rename LOCALE_INPUT_FILE_NAME_ENCODING
+
 	* tp/Texinfo/Common.pm (@variable_string_settables):
 	Rename LOCALE_INPUT_FILE_NAME_ENCODING and
 	LOCALE_OUTPUT_FILE_NAME_ENCODING by removing LOCALE_ prefix.
