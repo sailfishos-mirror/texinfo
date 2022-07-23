@@ -601,8 +601,8 @@ Using Texinfo Mode
 * Info Formatting::             How to format for Info.
 * Printing::                    How to format and print part or all of a file.
 * Texinfo Mode Summary::        Summary of all the Texinfo mode commands.
+* Formatting Info files::       Processing directly Info files.
 * Catching Mistakes::           How to find mistakes in formatting.
-* Splitting::                   How to split a file manually.
 * Batch Formatting::            How to format for Info in Emacs batch mode.
 
 Updating Nodes and Menus
@@ -617,6 +617,12 @@ Updating Nodes and Menus
 * Other Updating Commands::     How to indent descriptions, insert
                                   missing nodes lines, and update
                                   nodes in sequence.
+
+Direct Formatting of Info files
+
+* Tagifying::                   How to tagify a file.
+* Splitting::                   How to split a file manually.
+
 Catching Mistakes
 
 * @command{makeinfo} Preferred::          @code{makeinfo} finds errors.
@@ -627,8 +633,8 @@ Catching Mistakes
 Finding Badly Referenced Nodes
 
 * Using @code{Info-validate}::         How to run @code{Info-validate}.
-* Unsplit::                     How to create an unsplit file.
-* Tagifying::                   How to tagify a file.
+* Unsplit and Tagify::          How to create an unsplit file and add
+                                  a tag table for validation.
 
 Global Document Commands
 
@@ -20877,8 +20883,8 @@ commands and tools to help ease your work.
 * Info Formatting::             How to format for Info.
 * Printing::                    How to format and print part or all of a file.
 * Texinfo Mode Summary::        Summary of all the Texinfo mode commands.
+* Formatting Info files::       Processing directly Info files.
 * Catching Mistakes::           How to find mistakes in formatting.
-* Splitting::                   How to split a file manually.
 * Batch Formatting::            How to format for Info in Emacs batch mode.
 @end menu
 
@@ -22142,6 +22148,97 @@ M-x texinfo-sequential-node-update
 @end example
 
 
+@node Formatting Info files
+@section Direct Formatting of Info files
+
+@cindex Direct formatting of Info files
+In general, there is no need to edit or process Info files.  Most of the
+content of Info file is plain text, but the tag tables require computing
+offsets for nodes and indirect files (@pxref{Tag and Split Files}), which is
+impractical.  The Texinfo processors output well-formatted Info from Texinfo
+input.  Also, lot of information from the Texinfo source is lost in the Info
+file.  The Texinfo source is therefore more suitable to analyse a manual, be it
+for error reporting, for statistics, or to set up translations.
+
+Still, especially with manually written Info files, there are some situations
+where it may be interesting to process Info files directly, in particular
+to compute Info files node offsets and to compute split Info files file
+offsets.  Two Emacs commands do that.  @code{Info-tagify} adds a tag table
+for a nonsplit file lacking one.  This function is also useful for Info
+file validation (@pxref{Running @code{Info-validate}}).  It is
+also possible to split a nonsplit Info file with @code{Info-split}.
+
+@menu
+* Tagifying::                   How to tagify a file.
+* Splitting::                   How to split a file manually.
+@end menu
+
+
+@node Tagifying
+@subsection Tagifying a File
+@cindex Making a tag table manually
+@cindex Tag table, making manually
+@cindex Info files @subentry making a tag table
+
+Texinfo processors create tag tables automatically.  The only exception
+arise when @code{texinfo-format-buffer} is called with a prefix, as
+@kbd{C-u M-x texinfo-format-buffer}, to create an non split Info
+file without a tag table (which can be useful in some cases for Info file
+validation, @pxref{Unsplit and Tagify}).  Adding a tag table is therefore
+more generally useful for manually written Info files.
+
+To create a tag table for an nonsplit file, visit the Info file you
+wish to tagify and type:
+
+@example
+M-x Info-tagify
+@end example
+
+@noindent
+(Note the uppercase @samp{I} in @code{Info-tagify}.)  This creates an
+Info file with a tag table.  A tag table is part of a well formed Info
+file (@pxref{Tag and Split Files}).  A tag table is also needed to validate
+or split the Info file.
+
+
+@node Splitting
+@subsection Splitting a File Manually
+@cindex Splitting an Info file manually
+@cindex Info files @subentry splitting manually
+
+You should split a large file or else let the
+@code{texinfo-format-buffer} or @code{makeinfo-buffer} command do it
+for you automatically.  (Generally you will let one of the formatting
+commands do this job for you.  @xref{Info Formatting}.)
+
+The split-off files are called the indirect subfiles.
+
+Tag tables are created automatically by the formatting command;
+you only need to create a tag table yourself if you are doing
+the job manually.  @xref{Tagifying}, for information about
+creating a tag table.
+
+Visit the Info file you wish to tagify and split manually and type the
+two commands:
+
+@example
+M-x Info-tagify
+M-x Info-split
+@end example
+
+@noindent
+(Note that the @samp{I} in @samp{Info} is uppercase.)
+
+When you use the @code{Info-split} command, the buffer is modified into a
+(small) Info file which lists the indirect subfiles.  This file should be
+saved in place of the original visited file.  The indirect subfiles are
+written in the same directory the original file is in, with names generated
+by appending @samp{-} and a number to the original file name.
+
+The primary file still functions as an Info file, but it contains just
+the tag table and a directory of subfiles.  @xref{Tag and Split Files}.
+
+
 @node Catching Mistakes
 @section Catching Mistakes
 @cindex Structure, catching mistakes in
@@ -22460,8 +22557,8 @@ if you write an Info file from scratch.
 
 @menu
 * Using @code{Info-validate}::         How to run @code{Info-validate}.
-* Unsplit::                     How to create an unsplit file.
-* Tagifying::                   How to tagify a file.
+* Unsplit and Tagify::          How to create an unsplit file and add
+                                  a tag table for validation.
 @end menu
 
 
@@ -22525,8 +22622,10 @@ argument so that it does not split the Info file; and you must create a
 tag table for the unsplit file.
 
 
-@node Unsplit
-@subsubsection Creating an Unsplit File
+@node Unsplit and Tagify
+@subsubsection Creating an Unsplit File and Adding a Tag Table
+@anchor{Unsplit} @c old name
+
 @cindex Creating an unsplit file
 @cindex Unsplit file creation
 
@@ -22558,25 +22657,16 @@ C-u C-c C-e C-b
 @end example
 
 @noindent
-When you do this, Texinfo will not split the file and will not create
-a tag table for it.
-@cindex Making a tag table manually
-@cindex Tag table, making manually
-
-
-@node Tagifying
-@subsubsection Tagifying a File
+When you do this, @code{texinfo-format-buffer} will not split the file and will
+not create a tag table for it.
 
 After creating an unsplit Info file, you must create a tag table for
-it.  Visit the Info file you wish to tagify and type:
+it (@pxref{Tagifying}).  Visit the unsplit Info file created by
+@code{texinfo-format-buffer} and type:
 
 @example
 M-x Info-tagify
 @end example
-
-@noindent
-(Note the uppercase @samp{I} in @code{Info-tagify}.)  This creates an
-Info file with a tag table that you can validate.
 
 The third step is to validate the Info file:
 
@@ -22599,45 +22689,7 @@ M-x Info-validate
 After you have validated the node structure, you can rerun
 @code{texinfo-format-buffer} in the normal way so it will construct a
 tag table and split the file automatically, or you can make the tag
-table and split the file manually.
-
-
-@node Splitting
-@section Splitting a File Manually
-@cindex Splitting an Info file manually
-@cindex Info files @subentry splitting manually
-
-You should split a large file or else let the
-@code{texinfo-format-buffer} or @code{makeinfo-buffer} command do it
-for you automatically.  (Generally you will let one of the formatting
-commands do this job for you.  @xref{Info Formatting}.)
-
-The split-off files are called the indirect subfiles.
-
-Tag tables are created automatically by the formatting command;
-you only need to create a tag table yourself if you are doing
-the job manually.  @xref{Tagifying}, for information about
-creating a tag table.
-
-Visit the Info file you wish to tagify and split manually and type the
-two commands:
-
-@example
-M-x Info-tagify
-M-x Info-split
-@end example
-
-@noindent
-(Note that the @samp{I} in @samp{Info} is uppercase.)
-
-When you use the @code{Info-split} command, the buffer is modified into a
-(small) Info file which lists the indirect subfiles.  This file should be
-saved in place of the original visited file.  The indirect subfiles are
-written in the same directory the original file is in, with names generated
-by appending @samp{-} and a number to the original file name.
-
-The primary file still functions as an Info file, but it contains just
-the tag table and a directory of subfiles.  @xref{Tag and Split Files}.
+table and split the file manually (@pxref{Splitting}).
 
 
 @node Batch Formatting

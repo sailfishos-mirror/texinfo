@@ -1,3 +1,16 @@
+2022-07-23  Patrice Dumas  <pertusus@free.fr>
+
+	Separate information on formatting directly Info files
+
+	* doc/texinfo.texi (Formatting Info files, Unsplit and Tagify):
+	Add 'Formatting Info files' at the section level to contain
+	information on direct processing of Info files with Emacs.  It
+	contains 'Tagifying' and 'Splitting', keeping from 'Tagifying'
+	only the part about Tagifying, not the part about Info file
+	validation.  Merge 'Unsplit' and 'Tagifying' as 'Unsplit and Tagify'
+	in 'Running @code{Info-validate}' keeping only the information
+	relevant for Info file validation.
+
 2022-07-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Rename LOCALE_INPUT_FILE_NAME_ENCODING
