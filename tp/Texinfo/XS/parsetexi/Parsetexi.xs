@@ -110,7 +110,11 @@ void
 set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
 
 void
-set_locale_input_file_name_encoding (value)
+set_input_file_name_encoding (value)
+     char *value
+
+void
+set_locale_encoding (value)
      char *value
 
 void

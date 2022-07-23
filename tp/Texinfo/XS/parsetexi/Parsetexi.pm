@@ -134,7 +134,11 @@ sub parser (;$$)
         set_DOC_ENCODING_FOR_INPUT_FILE_NAME ($conf->{$key});
       } elsif ($key eq 'INPUT_FILE_NAME_ENCODING') {
         if (defined ($conf->{$key})) {
-          set_locale_input_file_name_encoding ($conf->{$key});
+          set_input_file_name_encoding ($conf->{$key});
+        }
+      } elsif ($key eq 'LOCALE_ENCODING') {
+        if (defined ($conf->{$key})) {
+          set_locale_encoding ($conf->{$key});
         }
       } elsif ($key eq 'accept_internalvalue') {
         set_accept_internalvalue();

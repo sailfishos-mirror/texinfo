@@ -150,8 +150,10 @@ reset_parser (void)
   global_documentlanguage_fixed = 0;
 
   doc_encoding_for_input_file_name = 1;
-  free (locale_input_file_name_encoding);
-  locale_input_file_name_encoding = 0;
+  free (input_file_name_encoding);
+  input_file_name_encoding = 0;
+  free (locale_encoding);
+  locale_encoding = 0;
 
   global_accept_internalvalue = 0;
 }
@@ -1110,14 +1112,19 @@ set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
   doc_encoding_for_input_file_name = i;
 }
 
-/* used if doc_encoding_for_input_file_name is 0 */
 void
-set_locale_input_file_name_encoding (char *value)
+set_input_file_name_encoding (char *value)
 {
-  free (locale_input_file_name_encoding);
-  locale_input_file_name_encoding = strdup (value);
+  free (input_file_name_encoding);
+  input_file_name_encoding = strdup (value);
 }
 
+void
+set_locale_encoding (char *value)
+{
+  free (locale_encoding);
+  locale_encoding = strdup (value);
+}
 
 
 static SV *

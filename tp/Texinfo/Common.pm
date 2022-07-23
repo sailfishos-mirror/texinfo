@@ -1,6 +1,6 @@
 # Common.pm: definition of commands. Common code of other Texinfo modules.
 #
-# Copyright 2010-2020 Free Software Foundation, Inc.
+# Copyright 2010-2022 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -108,12 +108,9 @@ my %default_parser_common_customization = (
   'DEBUG' => 0,     # if >= 10, tree is printed in texi2any.pl after parsing.
                     # If >= 100 tree is printed every line.
   'FORMAT_MENU' => 'menu',           # if not 'menu' no menu error related.
-  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,  # if true use the document encoding for input
-                                            # file names encoding, else use
-                                            # INPUT_FILE_NAME_ENCODING
+  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,
   'COMMAND_LINE_ENCODING' => undef, # encoding of command line strings
-  'INPUT_FILE_NAME_ENCODING' => undef, # used for input file encoding if
-                                       # DOC_ENCODING_FOR_INPUT_FILE_NAME is 0
+  'INPUT_FILE_NAME_ENCODING' => undef, # used for input file encoding
 );
 
 # Customization variables obeyed only by the parser, and the default values.
@@ -261,12 +258,8 @@ our %default_converter_customization = (
   'DEBUG'                 => 0,
   'TEST'                  => 0,
   'TEXTCONTENT_COMMENT',  => undef,  # in textcontent format
-  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,  # if true use the document encoding for input
-                                            # file names encoding, else use
-                                            # INPUT_FILE_NAME_ENCODING
-  'DOC_ENCODING_FOR_OUTPUT_FILE_NAME' => 0, # if true use the document encoding for input
-                                            # file names encoding, else use
-                                            # OUTPUT_FILE_NAME_ENCODING
+  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,
+  'DOC_ENCODING_FOR_OUTPUT_FILE_NAME' => 0,
 );
 
 # Some are for all converters, EXTENSION for instance, some for
@@ -324,6 +317,7 @@ my @variable_string_settables = (
 'JS_WEBLABELS',
 'JS_WEBLABELS_FILE',
 'KEEP_TOP_EXTERNAL_REF',
+'LOCALE_ENCODING',
 'L2H_CLEAN',
 'L2H_FILE',
 'L2H_HTML_VERSION',

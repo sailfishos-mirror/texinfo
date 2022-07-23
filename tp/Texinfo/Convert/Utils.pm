@@ -204,18 +204,20 @@ sub expand_verbatiminclude($$$)
   $input_encoding = $current->{'extra'}->{'input_perl_encoding'}
         if (defined($current->{'extra'}->{'input_perl_encoding'}));
 
-  my ($file_name, $file_name_encoding);
-  if ($configuration_information->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
-    ($file_name, $file_name_encoding)
-      = Texinfo::Common::encode_file_name($configuration_information,
-                                                    $file_name_text,
-                                                    $input_encoding);
+  my $encoding;
+  my $input_file_name_encoding = $configuration_information->get_conf('INPUT_FILE_NAME_ENCODING');
+  if ($input_file_name_encoding) {
+    $encoding = $input_file_name_encoding;
+  } elsif ($configuration_information->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
+    $encoding = $input_encoding;
   } else {
-    ($file_name, $file_name_encoding)
+    $encoding = $configuration_information->get_conf('LOCALE_ENCODING');
+  }
+
+  my ($file_name, $file_name_encoding)
       = Texinfo::Common::encode_file_name($configuration_information,
                                                     $file_name_text,
-    $configuration_information->get_conf('INPUT_FILE_NAME_ENCODING'));
-  }
+                                                    $encoding);
 
   my $file = Texinfo::Common::locate_include_file($configuration_information,
                                                   $file_name);
@@ -314,17 +316,19 @@ sub encoded_output_file_name($$)
   my $self = shift;
   my $file_name = shift;
 
-  if ($self->get_conf('DOC_ENCODING_FOR_OUTPUT_FILE_NAME')) {
-    my $document_encoding;
-    $document_encoding = $self->{'parser_info'}->{'input_perl_encoding'}
+  my $encoding;
+  my $output_file_name_encoding = $self->get_conf('OUTPUT_FILE_NAME_ENCODING');
+  if ($output_file_name_encoding) {
+    $encoding = $output_file_name_encoding;
+  } elsif ($self->get_conf('DOC_ENCODING_FOR_OUTPUT_FILE_NAME')) {
+    $encoding = $self->{'parser_info'}->{'input_perl_encoding'}
       if ($self->{'parser_info'}
         and defined($self->{'parser_info'}->{'input_perl_encoding'}));
-    return Texinfo::Common::encode_file_name($self, $file_name,
-                                             $document_encoding);
   } else {
-    return Texinfo::Common::encode_file_name($self, $file_name,
-                       $self->get_conf('OUTPUT_FILE_NAME_ENCODING'));
+    $encoding = $self->get_conf('LOCALE_ENCODING');
   }
+
+  return Texinfo::Common::encode_file_name($self, $file_name, $encoding);
 }
 
 # this requires a converter argument.  It is defined here, in order

@@ -32,6 +32,7 @@ extern SOURCE_INFO current_source_info;
 extern int input_number;
 
 extern int doc_encoding_for_input_file_name;
-extern char *locale_input_file_name_encoding;
+extern char *input_file_name_encoding;
+extern char *locale_encoding;
 
 #endif

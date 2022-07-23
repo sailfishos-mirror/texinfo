@@ -1036,17 +1036,19 @@ sub encoded_input_file_name($$)
   my $self = shift;
   my $file_name = shift;
 
-  if ($self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
-    my $document_encoding;
-    $document_encoding = $self->{'parser_info'}->{'input_perl_encoding'}
+  my $encoding;
+  my $input_file_name_encoding = $self->get_conf('INPUT_FILE_NAME_ENCODING');
+  if ($input_file_name_encoding) {
+    $encoding = $input_file_name_encoding;
+  } elsif ($self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
+    $encoding = $self->{'parser_info'}->{'input_perl_encoding'}
       if ($self->{'parser_info'}
         and defined($self->{'parser_info'}->{'input_perl_encoding'}));
-    return Texinfo::Common::encode_file_name($self, $file_name,
-                                             $document_encoding);
   } else {
-    return Texinfo::Common::encode_file_name($self, $file_name,
-                       $self->get_conf('INPUT_FILE_NAME_ENCODING'));
+    $encoding = $self->get_conf('LOCALE_ENCODING');
   }
+
+  return Texinfo::Common::encode_file_name($self, $file_name, $encoding);
 }
 
 # A wrapper around Texinfo::Utils::encoded_output_file_name() that

@@ -1,6 +1,6 @@
-# Parser.pm: parse texinfo code into a tree.
+# ParserNonXS.pm: parse texinfo code into a tree.
 #
-# Copyright 2010-2020 Free Software Foundation, Inc.
+# Copyright 2010-2022 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -2026,15 +2026,17 @@ sub _encode_file_name($$)
 {
   my ($self, $file_name) = @_;
 
-  my ($encoded_file_name, $file_name_encoding);
-
-  if ($self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
-    return Texinfo::Common::encode_file_name($self, $file_name,
-                 $self->{'info'}->{'input_perl_encoding'});
+  my $encoding;
+  my $input_file_name_encoding = $self->get_conf('INPUT_FILE_NAME_ENCODING');
+  if ($input_file_name_encoding) {
+    $encoding = $input_file_name_encoding;
+  } elsif ($self->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
+    $encoding = $self->{'info'}->{'input_perl_encoding'};
   } else {
-    return Texinfo::Common::encode_file_name($self, $file_name,
-             $self->get_conf('INPUT_FILE_NAME_ENCODING'));
+    $encoding = $self->get_conf('LOCALE_ENCODING');
   }
+
+  return Texinfo::Common::encode_file_name($self, $file_name, $encoding);
 }
 
 sub _save_line_directive

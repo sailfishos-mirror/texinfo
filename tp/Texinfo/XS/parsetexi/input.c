@@ -282,7 +282,8 @@ convert_to_utf8 (char *s)
 
 
 int doc_encoding_for_input_file_name = 1;
-char *locale_input_file_name_encoding = 0;
+char *input_file_name_encoding = 0;
+char *locale_encoding = 0;
 
 /* Reverse the decoding of the filename to the input encoding, to retrieve
    the bytes that were present in the original Texinfo file.  Return
@@ -292,20 +293,20 @@ encode_file_name (char *filename)
 {
   if (!reverse_iconv)
     {
-      if (doc_encoding_for_input_file_name)
+      if (input_file_name_encoding)
+        {
+          reverse_iconv = iconv_open (input_file_name_encoding, "UTF-8");
+        }
+      else if (doc_encoding_for_input_file_name)
         {
           if (input_encoding != ce_utf8 && input_encoding_name)
             {
               reverse_iconv = iconv_open (input_encoding_name, "UTF-8");
             }
         }
-      else
+      else if (locale_encoding)
         {
-          if (locale_input_file_name_encoding)
-            {
-              reverse_iconv = iconv_open (locale_input_file_name_encoding,
-                                          "UTF-8");
-            }
+          reverse_iconv = iconv_open (locale_encoding, "UTF-8");
         }
     }
   if (reverse_iconv && reverse_iconv != (iconv_t) -1)

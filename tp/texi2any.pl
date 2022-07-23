@@ -282,8 +282,6 @@ if ($texinfo_dtd_version eq '@' . 'TEXINFO_DTD_VERSION@') {
 # code points.
 my $locale_encoding = langinfo(CODESET);
 $locale_encoding = undef if ($locale_encoding eq '');
-my $file_name_encoding = $locale_encoding;
-$file_name_encoding = 'utf-8' if (not defined($file_name_encoding));
 
 # Used in case it is not hardcoded in configure and for standalone perl module
 $texinfo_dtd_version = $configured_version
@@ -300,8 +298,7 @@ my $main_program_set_options = {
     'TEXINFO_DTD_VERSION' => $texinfo_dtd_version,
     'COMMAND_LINE_ENCODING' => $locale_encoding,
     'MESSAGE_ENCODING' => $locale_encoding,
-    'INPUT_FILE_NAME_ENCODING' => $file_name_encoding,
-    'OUTPUT_FILE_NAME_ENCODING' => $file_name_encoding,
+    'LOCALE_ENCODING' => $locale_encoding
 };
 
 # use locale on Windows to set encoding of input file name as

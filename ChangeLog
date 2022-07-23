@@ -1,3 +1,47 @@
+2022-07-23  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Give INPUT_FILE_NAME_ENCODING, OUTPUT_FILE_NAME_ENCODING priority
+
+	* tp/Texinfo/Common.pm (@variable_string_settables):
+	Add LOCALE_ENCODING.
+	* tp/texi2any.pl: Save locale in LOCALE_ENCODING configuration
+	variable.  Do not set INPUT_FILE_NAME_ENCODING or
+	OUTPUT_FILE_NAME_ENCODING.  Do not provide a UTF-8 default value
+	for the locale encoding.
+
+	* tp/Texinfo/Convert/Converter.pm (encoded_input_file_name),
+	* tp/Texinfo/Convert/Utils.pm
+	(expand_verbatiminclude, encoded_output_file_name),
+	* tp/Texinfo/ParserNonXS.pm (_encode_file_name),
+	* tp/Texinfo/XS/parsetexi/input.c (encode_file_name):
+	First check INPUT_FILE_NAME_ENCODING, then the document encoding
+	if DOC_ENCODING_FOR_INPUT_FILE_NAME is set, and thirdly the locale
+	encoding saved in LOCALE_ENCODING.  Likewise for
+	OUTPUT_FILE_NAME_ENCODING and DOC_ENCODING_FOR_OUTPUT_FILE_NAME.
+	(Note that Texinfo::Common::encode_file_name can be called
+	with an undefined encoding argument, so things will likely work
+	even if LOCALE_ENCODING ends up being undefined.)
+
+	* tp/Texinfo/XS/parsetexi/input.c (locale_encoding),
+	* tp/Texinfo/XS/parsetexi/api.c, tp/Texinfo/XS/parsetexi/Parsetexi.xs
+	(set_locale_encoding): New.
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser):
+	Propagate LOCALE_ENCODING setting.
+
+	* tp/Texinfo/XS/parsetexi/input.c
+	(locale_input_file_name_encoding, input_file_name_encoding),
+	* tp/Texinfo/XS/parsetexi/api.c, tp/Texinfo/XS/parsetexi/Parsetexi.xs
+	(set_locale_input_file_name_encoding, set_input_file_name_encoding):
+	Rename.
+
+	* tp/tests/formatting/list-of-tests
+	(manual_include_accented_file_name_latin1_explicit_encoding)
+	(manual_include_accented_file_name_latin1_use_locale_encoding):
+	Remove now unnecessary -c DOC_ENCODING_FOR_INPUT_FILE_NAME=0
+	setting.
+	(non_ascii_test_epub, non_ascii_test_rawtext): Delete duplicate
+	COMMAND_LINE_ENCODING setting.
+
 2022-07-23  Patrice Dumas  <pertusus@free.fr>
 
 	Separate information on formatting directly Info files
