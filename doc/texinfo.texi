@@ -16748,7 +16748,8 @@ If set, debugging output is generated; default is off (zero).
 If set, use the input Texinfo document encoding information for
 the encoding of input file names, such as file names specified as
 @code{@@include} or @code{@@verbatiminclude} arguments.  If unset, use
-the locale encoding instead.  Default is set.
+the locale encoding instead.  Default is set, except on MS-Windows where
+the locale encoding is used by default.
 
 Note that this is for file names only; @code{@@documentencoding} is always
 used for the encoding of file content (@pxref{@code{@@documentencoding}}).
@@ -16758,7 +16759,8 @@ The @code{INPUT_FILE_NAME_ENCODING} variable overrides this variable.
 @item DOC_ENCODING_FOR_OUTPUT_FILE_NAME
 If set, use the input Texinfo document encoding information for the
 encoding of output file names, such as files specified with @option{--output}.
-If unset, use the locale encoding instead.  Default is unset.
+If unset, use the locale encoding instead.  Default is unset, so files
+names are encoded using the current locale.
 
 Note that this is for file names only; @code{OUTPUT_ENCODING_NAME}
 is used for the encoding of file content.
@@ -16820,8 +16822,13 @@ default true.  Similar warnings in index entries are covered by
 @code{INDEX_SPECIAL_CHARS_WARNING}.
 
 @item INPUT_FILE_NAME_ENCODING
+@cindex Encoding @subentry input file names
 Encoding used for input file names.  This variable overrides
-any encoding from the document or current locale.
+any encoding from the document or current locale.  Normally, you do
+not need to set this variable, but it can be used if file names are
+in a certain character encoding on a filesystem.  An alternative is to
+set @code{DOC_ENCODING_FOR_INPUT_FILE_NAME} to @samp{0} to use the locale
+encoding.  See also @code{OUTPUT_FILE_NAME_ENCODING}.
 
 @item MAX_MACRO_CALL_NESTING
 The maximal number of recursive calls of @@-commands defined through
@@ -16891,8 +16898,13 @@ encoding name, otherwise the output encoding is based on the
 default encoding.  @xref{@code{@@documentencoding}}.
 
 @item OUTPUT_FILE_NAME_ENCODING
+@cindex Encoding @subentry output file names
 Encoding used for output file names.  This variable overrides
 any encoding from the document or current locale.
+
+Normally, you do not need to set this variable, but it can be used if file
+names should be created in a certain character encoding on a filesystem.
+See also @code{INPUT_FILE_NAME_ENCODING}.
 
 @item PACKAGE
 @itemx PACKAGE_VERSION

@@ -2,6 +2,12 @@
 
 	INPUT_FILE_NAME_ENCODING, OUTPUT_FILE_NAME_ENCODING documentation
 
+	* doc/texinfo.texi (Other Customization Variables): Elaborate.
+
+2022-07-23  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	INPUT_FILE_NAME_ENCODING, OUTPUT_FILE_NAME_ENCODING documentation
+
 	* doc/texinfo.texi (Other Customization Variables): Update.
 
 2022-07-23  Gavin Smith  <gavinsmith0123@gmail.com>
