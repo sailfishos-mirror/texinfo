@@ -1,3 +1,23 @@
+2022-07-23  Patrice Dumas  <pertusus@free.fr>
+
+	Describe output file and encoding early. More semantic @title, etc.
+
+	* doc/texinfo.texi (Minimum, @code{@@setfilename}): state the
+	default output file name when the input file name extension is
+	described, in 'Minimum'.
+	texi2any does not need \input texinfo nor @bye, do not implicitly
+	say that.
+	(Minimum): give the information on the default encoding here, to
+	have this information early in the manual.
+	(Minimum, Texinfo File Header): treat @settitle as any other
+	preamble @-command.
+	(Texinfo File Header, @code{@@documentencoding}): use consistently
+	'preamble' and not 'Texinfo preamble'.
+	(@code{@@titlepage}, @code{@@title @@subtitle @@author}): insist
+	less on the formatting of @title, @subtitle and @author, using wording
+	less definitive on the formatting, as it is semantic and formatting
+	could change over time or across formats.
+
 2022-07-23  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	INPUT_FILE_NAME_ENCODING, OUTPUT_FILE_NAME_ENCODING documentation

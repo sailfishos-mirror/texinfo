@@ -1218,7 +1218,8 @@ if (defined(get_conf('FORMAT_MENU'))
 
 # using no warnings is wrong, but a way to avoid a spurious warning.
 no warnings 'once';
-my @parser_settable_options = keys(%Texinfo::Common::default_parser_customization_values);
+my @parser_settable_options
+      = keys(%Texinfo::Common::default_parser_customization_values);
 # Copy relevant customization variables into the parser options.
 foreach my $parser_settable_option (@parser_settable_options) {
   if (defined(get_conf($parser_settable_option))) {
