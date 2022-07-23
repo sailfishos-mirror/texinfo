@@ -16748,16 +16748,22 @@ If set, debugging output is generated; default is off (zero).
 If set, use the input Texinfo document encoding information for
 the encoding of input file names, such as file names specified as
 @code{@@include} or @code{@@verbatiminclude} arguments.  If unset, use
-the @code{INPUT_FILE_NAME_ENCODING} value instead.  Default is set.  Note
-that this is for file names only; @code{@@documentencoding} is always used for
-the encoding of file content (@pxref{@code{@@documentencoding}}).
+the locale encoding instead.  Default is set.
+
+Note that this is for file names only; @code{@@documentencoding} is always
+used for the encoding of file content (@pxref{@code{@@documentencoding}}).
+
+The @code{INPUT_FILE_NAME_ENCODING} variable overrides this variable.
 
 @item DOC_ENCODING_FOR_OUTPUT_FILE_NAME
 If set, use the input Texinfo document encoding information for the
 encoding of output file names, such as files specified with @option{--output}.
-If unset, use the @code{OUTPUT_FILE_NAME_ENCODING} value.  Default
-is unset.  Note that this is for file names only; @code{OUTPUT_ENCODING_NAME}
+If unset, use the locale encoding instead.  Default is unset.
+
+Note that this is for file names only; @code{OUTPUT_ENCODING_NAME}
 is used for the encoding of file content.
+
+The @code{OUTPUT_FILE_NAME_ENCODING} variable overrides this variable.
 
 @item DOCTYPE
 @vindex SystemLiteral
@@ -16814,8 +16820,8 @@ default true.  Similar warnings in index entries are covered by
 @code{INDEX_SPECIAL_CHARS_WARNING}.
 
 @item INPUT_FILE_NAME_ENCODING
-Encoding used for input file names if @code{DOC_ENCODING_FOR_INPUT_FILE_NAME}
-is unset.  Default is based on the locale encoding.
+Encoding used for input file names.  This variable overrides
+any encoding from the document or current locale.
 
 @item MAX_MACRO_CALL_NESTING
 The maximal number of recursive calls of @@-commands defined through
@@ -16885,8 +16891,8 @@ encoding name, otherwise the output encoding is based on the
 default encoding.  @xref{@code{@@documentencoding}}.
 
 @item OUTPUT_FILE_NAME_ENCODING
-Encoding for output file names if @code{DOC_ENCODING_FOR_OUTPUT_FILE_NAME}
-is unused.  The default is based on the locale encoding.
+Encoding used for output file names.  This variable overrides
+any encoding from the document or current locale.
 
 @item PACKAGE
 @itemx PACKAGE_VERSION
