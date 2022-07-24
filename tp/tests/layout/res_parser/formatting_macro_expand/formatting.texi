@@ -959,9 +959,8 @@ $\\frac{a < b @code{tex \\hbox{ code }}}{b}$ ``
 
 
 
-@set invalid
+@ifclear valid
 @c invalid texinfo
-@ifset invalid
 
 Somehow invalid use of @@,:@*
 @@, @,
@@ -1093,7 +1092,7 @@ Various deff lines
 @code{@@inforef@{,cross ref name, file name@}} @inforef{,cross ref name, file name}
 @code{@@inforef@{@}} @inforef{}
 
-@end ifset
+@end ifclear
 
 @end macro
 
@@ -2040,7 +2039,6 @@ in verbatim ''
 
 
 
-@set invalid
 @c invalid texinfo
 
 Somehow invalid use of @@,:@*
@@ -3119,7 +3117,6 @@ in verbatim ''
 
 
 
-@set invalid
 @c invalid texinfo
 
 Somehow invalid use of @@,:@*
@@ -4224,7 +4221,6 @@ in verbatim ''
 
 
 
-@set invalid
 @c invalid texinfo
 
 Somehow invalid use of @@,:@*
@@ -5297,7 +5293,6 @@ in verbatim ''
 
 
 
-@set invalid
 @c invalid texinfo
 
 Somehow invalid use of @@,:@*
