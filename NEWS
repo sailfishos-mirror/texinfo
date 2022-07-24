@@ -16,7 +16,7 @@ See the manual for detailed information.
  . reform throughout the code in general
  . thorough review of character encoding issues
  . new customization variables involved with character encoding:
-     LOCALE_INPUT_FILE_NAME_ENCODING, LOCALE_OUTPUT_FILE_NAME_ENCODING,
+     INPUT_FILE_NAME_ENCODING, OUTPUT_FILE_NAME_ENCODING,
      DOC_ENCODING_FOR_INPUT_FILE_NAME, DOC_ENCODING_FOR_OUTPUT_FILE_NAME,
      MESSAGE_ENCODING and COMMAND_LINE_ENCODING.
  . IGNORE_BEFORE_SETFILENAME variable removed.  former effect
