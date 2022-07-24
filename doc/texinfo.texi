@@ -346,7 +346,7 @@ Inserting Images
 Footnotes
 
 * Footnote Commands::           How to write a footnote in Texinfo.
-* Footnote Styles::             Controlling how footnotes appear in Info.
+* Footnote Styles::             Controlling how footnotes appear.
 
 Indices
 
@@ -1801,9 +1801,8 @@ for double-sided printed output, in case such headings are output.  For
 more on headings for printed output, see @ref{Heading Generation}.
 
 @cindex @code{<title>} HTML tag
-In the HTML file produced by @command{makeinfo}, @var{title} serves as
-the document @samp{<title>} and it becomes the default document
-description in the @samp{<head>} part.
+In HTML, @var{title} serves as the document @samp{<title>} and it becomes
+the default document description in the @samp{<head>} part.
 
 When the title page is used in the output, as is generally the case for printed
 output, the title in the @code{@@settitle} command does not affect the title as
@@ -8441,7 +8440,7 @@ instead of in footnotes throughout.
 
 @menu
 * Footnote Commands::           How to write a footnote in Texinfo.
-* Footnote Styles::             Controlling how footnotes appear in Info.
+* Footnote Styles::             Controlling how footnotes appear.
 @end menu
 
 
@@ -8504,17 +8503,19 @@ an @code{@@table} must be entirely on the same line as the
 @node Footnote Styles
 @subsection Footnote Styles
 
-Info has two footnote styles, which determine where the text of the
-footnote is located:
+Online formats have two footnote styles, which determine where
+the text of the footnote is located, the @samp{end} and @samp{separate}
+footnote style.
 
-@itemize @bullet
-@cindex @samp{@r{End}} node footnote style
-@item
-In the `End' node style, all the footnotes for a single node are
-placed at the end of that node.  The footnotes are separated from the
-rest of the node by a line of dashes with the word @samp{Footnotes}
-within it.  Each footnote begins with an @samp{(@var{n})} reference
-mark.
+@table @samp
+@cindex @samp{end} node footnote style
+@cindex Footnote style @subentry @samp{end}
+@item end
+For Info, in the @samp{end} node style, all the footnotes for a single
+node are placed at the end of that node.  The footnotes are separated
+from the rest of the node by a line of dashes with the word
+@samp{Footnotes} within it.  Each footnote begins with an
+@samp{(@var{n})} reference mark.
 
 @need 700
 @noindent
@@ -8529,11 +8530,15 @@ end-of-node style:
 @end group
 @end example
 
-@cindex @samp{@r{Separate}} footnote style
-@item
-In the `Separate' node style, all the footnotes for a single
-node are placed in an automatically constructed node of
-their own.  In this style, a ``footnote reference'' follows
+In HTML, when the footnote style is @samp{end}, or if the output is
+not split, footnotes are put at the end of each output file.
+
+@cindex @samp{separate} footnote style
+@cindex Footnote style @subentry @samp{separate}
+@item separate
+For Info, in the @samp{separate} node style, all the footnotes
+for a single node are placed in an automatically constructed
+node of their own.  In this style, a ``footnote reference'' follows
 each @samp{(@var{n})} reference mark in the body of the
 node.  The footnote reference is actually a cross-reference
 which you use to reach the footnote node.
@@ -8553,18 +8558,21 @@ formatted for Info in the separate node style:
 @group
 File: texinfo.info  Node: Overview-Footnotes, Up: Overview
 
-(1) The first syllable of "Texinfo" is pronounced like "speck", not
-"hex". @dots{}
+(1) The first syllable of "Texinfo" is pronounced like
+"speck", not "hex". @dots{}
 @end group
 @end example
-@end itemize
+
+In HTML, when the footnote style is @samp{separate}, and the output
+is split, footnotes are placed in a separate file.
+@end table
 
 Unless your document has long and important footnotes (as in, say,
 Gibbon's @cite{Decline and Fall @dots{}}), we recommend the @samp{end}
 style, as it is simpler for readers to follow.
 
 @findex footnotestyle
-Use the @code{@@footnotestyle} command to specify an Info file's
+Use the @code{@@footnotestyle} command to specify the
 footnote style.  Write this command at the beginning of a line followed
 by an argument, either @samp{end} for the end node style or
 @samp{separate} for the separate node style.
@@ -8581,16 +8589,7 @@ or
 @@footnotestyle separate
 @end example
 
-Write a @code{@@footnotestyle} command before or shortly after the
-end-of-header line at the beginning of a Texinfo file.  (You should
-include any @code{@@footnotestyle} command between the start-of-header
-and end-of-header lines, so the region formatting commands will format
-footnotes as specified.)
-
-In HTML, when the footnote style is @samp{end}, or if the output is
-not split, footnotes are put at the end of the output.  If set to
-@samp{separate}, and the output is split, they are placed in a
-separate file.
+Write a @code{@@footnotestyle} command in the Texinfo file preamble.
 
 
 @node Indices
@@ -18027,11 +18026,11 @@ If you want more, you are recommended to use the HTML output from
 @cindex Generating HTML
 @cindex Outputting HTML
 
-@command{makeinfo} generates Info output by default, but given the
+@command{texi2any} generates Info output by default, but given the
 @option{--html} option, it will generate HTML, for web browsers and
 other programs.  This chapter gives some details on such HTML output.
 
-@command{makeinfo} has many user-definable customization variables
+@command{texi2any} has many user-definable customization variables
 with which you can influence the HTML output.  @xref{Customization
 Variables}.  You can also write so-called @dfn{initialization files}, or
 @dfn{init files} for short, to modify almost every aspect of HTML output
@@ -18064,21 +18063,13 @@ manual.  @xref{,,,customization_api,GNU Texinfo @command{texi2any} Output Custom
 
 @cindex HTML translation
 
-The HTML generated by @command{makeinfo} generates standard HTML
+The HTML generated by @command{texi2any} generates standard HTML
 output.  The output is intentionally quite plain for maximum portability
 and accessibility.
 
 You can customize the output via CSS (@pxref{HTML CSS}) or other
 means (@pxref{Customization Variables}).  If you cannot accomplish
 a reasonable customization, feel free to report that.
-
-@ignore
-We do not wish to depart from our basic goal of widest
-readability for the core output.  For example, using fancy CSS may
-make it possible for the HTML output to more closely resemble the
-@TeX{} output in some details, but this result is not even close to
-being worth the ensuing difficulties.
-@end ignore
 
 @cindex Navigation bar, in HTML output
 @strong{Navigation bar:} By default, a navigation bar is inserted at the
@@ -18088,16 +18079,9 @@ inserted at the beginning of split files.  Header @code{<link>} elements
 in split output support Info-like navigation with browsers which implement
 this feature.
 
-@cindex Footnote styles, in HTML
-@strong{Footnotes:} For HTML, when the footnote style is @samp{end},
-or if the output is not split, footnotes are put at the end of the
-output.  If the footnote style is set to @samp{separate}, and the
-output is split, they are placed in a separate file.  @xref{Footnote
-Styles}.
-
 @cindex Escaping to HTML
 @cindex Raw HTML
-@strong{Raw HTML}: @command{makeinfo} will include segments of Texinfo
+@strong{Raw HTML}: @command{texi2any} will include segments of Texinfo
 source between @code{@@ifhtml} and @code{@@end ifhtml} in the HTML
 output (but not any of the other conditionals, by default).  Source
 between @code{@@html} and @code{@@end html} is passed without change
@@ -18114,10 +18098,10 @@ enforcement of some standard or another.  Our overriding goal is to
 help users, not blindly comply with standards.
 
 Please report output from an
-error-free run of @command{makeinfo} which has @emph{practical} browser
+error-free run of @command{texi2any} which has @emph{practical} browser
 portability problems as a bug (@pxref{Reporting Bugs}).
 
-In practice, the HTML produced by @command{makeinfo} is slowly adjusted
+In practice, the HTML produced by @command{texi2any} is slowly adjusted
 over time towards the latest HTML standard, while also trying to keep
 compatibility with earlier produced HTML.  We use transitional markup
 and try to be slow enough to give time for the diverse HTML readers
@@ -18131,7 +18115,7 @@ dropped@dots{}).
 @cindex HTML output, split
 
 When splitting output at nodes (which is the default),
-@command{makeinfo} writes HTML output into (basically) one output file
+@command{texi2any} writes HTML output into (basically) one output file
 per Texinfo source @code{@@node}.
 
 Each output file name is the node name with spaces replaced by
@@ -18142,7 +18126,7 @@ different nodes having the same name after this treatment, they are
 written consecutively to the same file, with HTML anchors so each can
 be referred to independently.
 
-If @command{makeinfo} is run on a system which does not distinguish
+If @command{texi2any} is run on a system which does not distinguish
 case in file names, nodes which are the same except for case (e.g.,
 @samp{index} and @samp{Index}) will also be folded into the same
 output file with anchors.  You can also pretend to be on a case

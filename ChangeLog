@@ -4,6 +4,22 @@
 
 2022-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	Focus less on Info for Footnote Styles
+
+	* doc/texinfo.texi (Footnote Styles): always use lower case end
+	and separate styles names.  Focus less on Info, mix HTML information
+	with Info information.
+	(HTML Translation): remove the paragraph on Footnote styles, there
+	is no reason to emphasize that feature here.  Remove an obsolete
+	@ignore glock.
+	(@code{@@settitle}): no need to refer to the Texinfo processor
+	name.
+	(Generating HTML, Escaping to HTML, HTML Splitting): use texi2any
+	instead of makeinfo, if texi2any is already used or in a reference
+	node name.
+
+2022-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	Document LOCALE_ENCODING
 
 	* doc/texinfo.texi (Other Customization Variables): add an entry
