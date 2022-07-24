@@ -1,5 +1,14 @@
 2022-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	No @-commands in file names except for @@, @{ and @}
+
+	* doc/texinfo.texi (@code{@@setfilename}, Using Include Files)
+	(@code{@@verbatiminclude}): document that @value and @@, @{, @}
+	and associated @-commands such as @atchar are the only @-commands
+	allowed on @setfilename, @include and @verbatiminclude lines.
+
+2022-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS, tp/Texinfo/Convert/DocBook.pm (_convert),
 	doc/texinfo.texi (@code{@@definfoenclose}): in DocBook,
 	replace definfoenclose defined @-command by its argument

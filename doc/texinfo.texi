@@ -1750,6 +1750,10 @@ final extension with the output format-specific extension (@samp{html}
 when generating HTML, for example), or add a dot followed by the
 extension (@samp{.html} for HTML) if the given name has no extension.
 
+@@-commands are not allowed in @code{@@setfilename}, except for
+@code{@@@@}, @code{@@@{}, @code{@@@}} and associated @@-commands
+such as @code{@@atchar@{@}}.
+
 @code{@@setfilename} used to be required by the Texinfo processors
 and some other programs.  This should not be the case any more;
 @code{@@setfilename} can be omitted.  If the Texinfo input is
@@ -14273,9 +14277,10 @@ the same line by the name of a file to be included.  For example:
 @@include buffers.texi
 @end example
 
-@@-commands are expanded in file names.  The one most likely to be
-useful is @code{@@value} (@pxref{@code{@@set @@value}}), and even then
-only in complicated situations.
+@code{@@value@{@var{var}@}} references are expanded on the @code{@@include}
+line.  Other than that, the only @@-commands allowed are @code{@@@@},
+@code{@@@{}, @code{@@@}} and associated @@-commands such as
+@code{@@atchar@{@}}.
 
 An included file should simply be a segment of text that you expect to
 be included as is into the overall or @dfn{outer} Texinfo file; it
@@ -14377,9 +14382,9 @@ indentation is added; if you want indentation, enclose the
 @code{@@verbatiminclude} within @code{@@example}
 (@pxref{@code{@@example}}).
 
-The name of the file is taken literally, with a single exception:
-@code{@@value@{@var{var}@}} references are expanded.  This makes it
-possible to include files in other directories within a distribution,
+@code{@@value@{@var{var}@}} references are expanded on the
+@code{@@verbatiminclude} line.  This makes it possible to
+include files in other directories within a distribution,
 for instance:
 
 @example
@@ -14388,6 +14393,10 @@ for instance:
 
 @noindent (You still have to get @code{top_srcdir} defined in the
 first place.)
+
+Other than that, the only @@-commands allowed are @code{@@@@},
+@code{@@@{}, @code{@@@}} and associated @@-commands such as
+@code{@@atchar@{@}}.
 
 For a method on printing the file contents in a smaller font size, see
 the end of the section on @code{@@verbatim}.

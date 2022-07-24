@@ -2777,7 +2777,7 @@ sub _convert_to_text {
       $superfluous_arg = 1;
     }
   }
-  return ($text,  $superfluous_arg);
+  return ($text, $superfluous_arg);
 }
 
 # close constructs and do stuff at end of line (or end of the document)
@@ -3229,7 +3229,7 @@ sub _end_line($$$)
       $current->{'extra'}->{'misc_args'} = $args if (defined($args));
     } elsif ($self->{'line_commands'}->{$command} eq 'text') {
       my ($text, $superfluous_arg)
-        = _convert_to_text ($current->{'args'}->[0]);
+        = _convert_to_text($current->{'args'}->[0]);
 
       if ($text eq '') {
         if (not $superfluous_arg) {
@@ -3283,7 +3283,7 @@ sub _end_line($$$)
                               $command, $line);
           }
         } elsif ($superfluous_arg) {
-          # An error message is issued below.
+          # @-command effects are ignored, an error message is issued below.
         } elsif ($command eq 'include') {
           # We want Perl binary strings representing sequences of bytes,
           # not character strings of codepoints in the internal perl encoding.
