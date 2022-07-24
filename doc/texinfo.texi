@@ -16855,6 +16855,10 @@ in a certain character encoding on a filesystem.  An alternative is to
 set @code{DOC_ENCODING_FOR_INPUT_FILE_NAME} to @samp{0} to use the locale
 encoding.  See also @code{OUTPUT_FILE_NAME_ENCODING}.
 
+@item LOCALE_ENCODING
+Locale encoding obtained from the system.  You should not need to
+explicitly set this variable.
+
 @item MAX_MACRO_CALL_NESTING
 The maximal number of recursive calls of @@-commands defined through
 @code{@@rmacro}; default 100000.  The purpose of this variable is to

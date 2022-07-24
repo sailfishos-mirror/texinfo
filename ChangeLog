@@ -1,5 +1,12 @@
 2022-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	Document LOCALE_ENCODING
+
+	* doc/texinfo.texi (Other Customization Variables): add an entry
+	for LOCALE_ENCODING.
+
+2022-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi: fix the @detailmenu.
 
 2022-07-23  Patrice Dumas  <pertusus@free.fr>
