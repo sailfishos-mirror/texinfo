@@ -1,6 +1,6 @@
 2022-07-24  Patrice Dumas  <pertusus@free.fr>
 
-	* doc/texinfo.texi: fix the @ðetailmenu.
+	* doc/texinfo.texi: fix the @detailmenu.
 
 2022-07-23  Patrice Dumas  <pertusus@free.fr>
 
