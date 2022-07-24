@@ -1,4 +1,12 @@
-2022-07-23  Gavin Smith  <gavinsmith0123@gmail.com>
+2022-07-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	@def* in LaTex
+
+	* tp/Texinfo/Convert/LaTex.pm (_convert) <def_line>:
+	Float category to end of line and typeset in typewriter font, as
+	is done in texinfo.tex.
+
+2022-07-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* NEWS: Update for variable renaming.
 

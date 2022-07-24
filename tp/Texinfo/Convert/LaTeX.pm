@@ -1,6 +1,6 @@
 # LaTeX.pm: output tree as LaTeX
 #
-# Copyright 2010-2021 Free Software Foundation, Inc.
+# Copyright 2010-2022 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 #
 # TODO
 #
-# @def* not implemented (code from Plaintext was kept as-is), including
+# @def* not finished (code from Plaintext was kept as-is), including
 # effect of @deftypefnnewline
 #
 # @shortcontent is not implemented.  Tried shorttoc package but it
@@ -3303,6 +3303,9 @@ sub _convert($$)
         } else {
           $name = '';
         }
+        $result .= '\noindent\texttt\bgroup{}';
+
+        my $category = $element->{'extra'}->{'def_parsed_hash'}->{'category'};
         
         if ($command eq 'deffn'
             or $command eq 'defvr'
@@ -3311,143 +3314,140 @@ sub _convert($$)
                  or $command eq 'deftypevr')
                 and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
           if ($arguments) {
-            $tree = $self->gdt("\@tie{}-- {category}: {name} {arguments}", {
-                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+            $tree = $self->gdt("{name} {arguments}", {
                     'name' => $name,
                     'arguments' => $arguments});
           } else {
-            $tree = $self->gdt("\@tie{}-- {category}: {name}", {
-                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+            $tree = $self->gdt("{name}", {
                     'name' => $name});
           }
         } elsif ($command eq 'deftypefn'
                  or $command eq 'deftypevr') {
           if ($arguments) {
             my $strings = {
-                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'arguments' => $arguments};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree = $self->gdt("\@tie{}-- {category}:\@*{type}\@*{name} {arguments}",
+              $tree = $self->gdt("\@*{type}\@*{name} {arguments}",
                                  $strings);
             } else {
-              $tree = $self->gdt("\@tie{}-- {category}: {type} {name} {arguments}",
+              $tree = $self->gdt("{type} {name} {arguments}",
                                  $strings);
             }
           } else {
             my $strings = {
-                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree = $self->gdt("\@tie{}-- {category}:\@*{type}\@*{name}",
+              $tree = $self->gdt("\@*{type}\@*{name}",
                                  $strings);
             } else {
-              $tree = $self->gdt("\@tie{}-- {category}: {type} {name}",
+              $tree = $self->gdt("{type} {name}",
                                  $strings);
             }
           }
         } elsif ($command eq 'defcv'
                  or ($command eq 'deftypecv'
                      and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
+          $category =  $self->gdt("{category} of {class}",
+                          { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                            'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
           if ($arguments) {
-            $tree = $self->gdt("\@tie{}-- {category} of {class}: {name} {arguments}", {
-                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+            $tree = $self->gdt("{name} {arguments}", {
                     'name' => $name,
-                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'arguments' => $arguments});
           } else {
-            $tree = $self->gdt("\@tie{}-- {category} of {class}: {name}", {
-                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+            $tree = $self->gdt("{name}", {
                     'name' => $name});
           }
         } elsif ($command eq 'defop'
                  or ($command eq 'deftypeop'
                      and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
+          $category =  $self->gdt("{category} on {class}",
+                          { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                            'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
           if ($arguments) {
-            $tree = $self->gdt("\@tie{}-- {category} on {class}: {name} {arguments}", {
-                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+            $tree = $self->gdt("{name} {arguments}", {
                     'name' => $name,
-                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'arguments' => $arguments});
           } else {
-            $tree = $self->gdt("\@tie{}-- {category} on {class}: {name}", {
-                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+            $tree = $self->gdt("{name}", {
                     'name' => $name});
           }
         } elsif ($command eq 'deftypeop') {
+          $category =  $self->gdt("{category} on {class}",
+                          { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                            'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
           if ($arguments) {
             my $strings = {
-                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
-                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'arguments' => $arguments};
+
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree
-                = $self->gdt("\@tie{}-- {category} on {class}:\@*{type}\@*{name} {arguments}",
+                = $self->gdt("{type}\@*{name} {arguments}",
                              $strings);
             } else {
               $tree
-                = $self->gdt("\@tie{}-- {category} on {class}: {type} {name} {arguments}",
+                = $self->gdt("{type} {name} {arguments}",
                              $strings);
             }
           } else {
             my $strings = {
-                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree
-                = $self->gdt("\@tie{}-- {category} on {class}:\@*{type}\@*{name}",
+                = $self->gdt("{type}\@*{name}",
                              $strings);
             } else {
               $tree
-                = $self->gdt("\@tie{}-- {category} on {class}: {type} {name}",
+                = $self->gdt("{type} {name}",
                              $strings);
             }
           }
         } elsif ($command eq 'deftypecv') {
+          $category =  $self->gdt("{category} of {class}",
+                          { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                            'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
           if ($arguments) {
             my $strings = {
-                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
-                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'arguments' => $arguments};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree
-                = $self->gdt("\@tie{}-- {category} of {class}:\@*{type}\@*{name} {arguments}",
+                = $self->gdt("{type}\@*{name} {arguments}",
                              $strings);
             } else {
               $tree
-                = $self->gdt("\@tie{}-- {category} of {class}: {type} {name} {arguments}",
+                = $self->gdt("{type} {name} {arguments}",
                              $strings);
             }
           } else {
             my $strings = {
-                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree
-                = $self->gdt("\@tie{}-- {category} of {class}:\@*{type}\@*{name}",
+                = $self->gdt("{type}\@*{name}",
                              $strings);
             } else {
               $tree
-                = $self->gdt("\@tie{}-- {category} of {class}: {type} {name}",
+                = $self->gdt("{type} {name}",
                              $strings);
             }
           }
         }
 
-
         $result .= _convert($self, {'type' => '_code', 'contents' => [$tree]});
+        $result .= '\egroup{}'; # \texttt
+        if (defined($category)) {
+          my $converted = _convert($self, $category);
+          $result .= "\\hfill[$converted]\n";
+        }
         $result .= "\n\n";
       }
       $result .= "\n";
