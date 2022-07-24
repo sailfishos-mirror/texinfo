@@ -1,3 +1,7 @@
+2022-07-24  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi: fix the @ðetailmenu.
+
 2022-07-23  Patrice Dumas  <pertusus@free.fr>
 
 	Describe output file and encoding early. More semantic @title, etc.

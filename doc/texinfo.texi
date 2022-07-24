@@ -153,7 +153,6 @@ Overview of Texinfo
 
 Writing a Texinfo File
 
-* Command Syntax::              @@-commands are used for formatting.
 * Conventions::                 General rules for writing a Texinfo file.
 * Comments::                    Writing comments and ignored text in general.
 * Minimum::                     What a Texinfo file must have.
@@ -545,17 +544,16 @@ Customization Variables
 * MathJax Customization Variables::
 * Other Customization Variables::
 
+Invoking @command{pod2texi}: Convert Pod to Texinfo
+
+* pod2texi manual page::      @command{pod2texi} invokation in a manual page format.
+
 Creating and Installing Info Files
 
 * Installing an Info File::
 * Tag and Split Files::         How tagged and split files help Info
                                  to run better.
 * Info Format FAQ::
-
-* @code{makeinfo} in Emacs::           How to run @code{makeinfo} from Emacs.
-* @code{texinfo-format} commands::     Two Info formatting commands written
-                                 in Emacs Lisp are an alternative
-                                 to @code{makeinfo}.
 
 Installing an Info File
 
@@ -584,6 +582,13 @@ HTML Cross-references
 * Mismatch:          HTML Xref Mismatch.
 * Configuration:     HTML Xref Configuration. htmlxref.cnf.
 
+@@-Command Details
+
+* Command Syntax::         @@-commands are used for formatting.
+* Command List::           All the @@-commands short description.
+* Command Contexts::       Which @@-command can be used in which context.
+* Obsolete @@-Commands::
+
 Sample Texinfo Files
 
 * GNU Sample Texts::
@@ -605,6 +610,11 @@ Using Texinfo Mode
 * Catching Mistakes::           How to find mistakes in formatting.
 * Batch Formatting::            How to format for Info in Emacs batch mode.
 
+Showing the Sectioning Structure of a File
+
+* Using @code{texinfo-show-structure}:: How to use @code{texinfo-show-structure}.
+* Using @code{occur}::                 How to list all lines containing a pattern.
+
 Updating Nodes and Menus
 
 * Updating Commands::           Five major updating commands.
@@ -617,6 +627,13 @@ Updating Nodes and Menus
 * Other Updating Commands::     How to indent descriptions, insert
                                   missing nodes lines, and update
                                   nodes in sequence.
+
+Formatting for Info
+
+* @code{makeinfo} in Emacs::           How to run @code{makeinfo} from Emacs.
+* @code{texinfo-format} commands::     Two Info formatting commands written
+                                 in Emacs Lisp are an alternative
+                                 to @code{makeinfo}.
 
 Direct Formatting of Info files
 
@@ -17209,7 +17226,7 @@ included below.  The version included in the manual is also an example of
 @c source distribution.
 
 @menu
-* pod2texi manual page::      @command{pod2texi} invokation in a manual page format
+* pod2texi manual page::      @command{pod2texi} invokation in a manual page format.
 @end menu
 
 
