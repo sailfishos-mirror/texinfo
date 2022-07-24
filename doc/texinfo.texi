@@ -14015,7 +14015,7 @@ letters.
 @findex definfoenclose
 
 An @code{@@definfoenclose} command may be used to define a
-highlighting command for all the non-printed output formats.  A command
+highlighting command for online output formats.  A command
 defined using @code{@@definfoenclose} marks text by enclosing it in
 strings that precede and follow the text.
 
@@ -14048,9 +14048,9 @@ For example, you can write:
 
 @noindent
 near the beginning of a Texinfo file to define @code{@@phoo} as an Info
-formatting command that inserts `//' before and `\\' after the argument
-to @code{@@phoo}.  You can then write @code{@@phoo@{bar@}} wherever you
-want `//bar\\' highlighted in Info.
+and HTML formatting command that inserts `//' before and `\\' after the
+argument to @code{@@phoo}.  You can then write @code{@@phoo@{bar@}}
+wherever you want `//bar\\' highlighted in Info and HTML.
 
 For @TeX{} formatting, you could write
 
@@ -14065,12 +14065,15 @@ to define @code{@@phoo} as a command that causes @TeX{} to typeset the
 argument to @code{@@phoo} in italics.
 
 Each definition applies to its own formatter: one for @TeX{}, the
-other for everything else.  The @TeX{} definitions need to be in
+other for online formats.  The @TeX{} definitions need to be in
 @samp{@@iftex}.  @code{@@definfoenclose} command need not be within
 @samp{@@ifinfo} unless you want to use different definitions for
-different output formats.
+different online output formats.  @code{@@definfoenclose} defined
+commands have no effect in DocBook and @LaTeX{} output, their
+argument is output as-is.  An @code{@@alias} could also be used
+for these formats.
 
-@samp{@@definfoenclose} definitions must not be recursive, directly or
+@code{@@definfoenclose} definitions must not be recursive, directly or
 indirectly.
 
 

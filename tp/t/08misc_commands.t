@@ -569,6 +569,7 @@ my %latex_tests = (
   'noindent_indent' => 1,
   'kbdinputstyle' => 1,
   'kbdinputstyle_in_table' => 1,
+  'definfoenclose' => 1,
 );
 
 foreach my $test (@converted_test_cases) {

@@ -969,22 +969,8 @@ sub _convert($$;$)
 
     } elsif ($element->{'type'}
              and $element->{'type'} eq 'definfoenclose_command') {
-      my $in_monospace_not_normal;
-      if (defined($default_args_code_style{$element->{'cmdname'}})
-          and $default_args_code_style{$element->{'cmdname'}}->[0]) {
-         $in_monospace_not_normal = 1;
-      } elsif ($regular_font_style_commands{$element->{'cmdname'}}) {
-        $in_monospace_not_normal = 0;
-      }
-      push @{$self->{'document_context'}->[-1]->{'monospace'}},
-             $in_monospace_not_normal
-               if (defined($in_monospace_not_normal));
       my $arg = $self->_convert($element->{'args'}->[0]);
-      $result .= $self->xml_protect_text($element->{'extra'}->{'begin'}).$arg
-                .$self->xml_protect_text($element->{'extra'}->{'end'});
-      pop @{$self->{'document_context'}->[-1]->{'monospace'}}
-        if (defined($in_monospace_not_normal));
-
+      $result .= $arg;
 
     } elsif ($element->{'args'}
              and exists($Texinfo::Common::brace_commands{$element->{'cmdname'}})) {

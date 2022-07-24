@@ -1,5 +1,13 @@
 2022-07-24  Patrice Dumas  <pertusus@free.fr>
 
+	* NEWS, tp/Texinfo/Convert/DocBook.pm (_convert),
+	doc/texinfo.texi (@code{@@definfoenclose}): in DocBook,
+	replace definfoenclose defined @-command by its argument
+	as-is (as in LaTeX).  This is consistent with DocBook formatting
+	in general, which matches better with printed output.
+
+2022-07-24  Patrice Dumas  <pertusus@free.fr>
+
 	Avoid Texinfo processor name when not needed, prefere texi2any
 
 	* doc/texinfo.texi (Contents, Writing a Menu, Image Syntax)
