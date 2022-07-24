@@ -1177,6 +1177,22 @@
 <param name="Local" value="chapter.html#index-id-ule-1">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
+<param name="Name" value="invalid">
+<param name="Local" value="formatting.html#index-copying-invalid">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="invalid">
+<param name="Local" value="formatting.html#index-titlepage-invalid">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="invalid">
+<param name="Local" value="chapter.html#index-invalid">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="invalid">
+<param name="Local" value="chapter.html#index-invalid-1">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
 <param name="Name" value="log trap">
 <param name="Local" value="formatting.html#index-copying-log-trap">
 </OBJECT> </LI>

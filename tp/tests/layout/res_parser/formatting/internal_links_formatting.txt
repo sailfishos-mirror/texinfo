@@ -297,6 +297,10 @@ formatting.html#index-copying-id-ule	fn	id ule
 formatting.html#index-titlepage-id-ule	fn	id ule
 formatting.html#index-id-ule	fn	id ule
 formatting.html#index-id-ule-1	fn	id ule
+formatting.html#index-copying-invalid	fn	invalid
+formatting.html#index-titlepage-invalid	fn	invalid
+formatting.html#index-invalid	fn	invalid
+formatting.html#index-invalid-1	fn	invalid
 formatting.html#index-copying-log-trap	fn	log trap
 formatting.html#index-titlepage-log-trap	fn	log trap
 formatting.html#index-log-trap	fn	log trap

@@ -13,8 +13,8 @@ subtitle 2 &#8211;a</subtitle>
 <authorgroup>
 <collab><collabname>author1 &#8211;a with accents in name T&#233;&#231;a</collabname></collab>
 <collab><collabname>author2 &#8211;a</collabname></collab>
-<collab><collabname>author</collabname></collab>
 <collab><collabname>quotation author</collabname></collab>
+<collab><collabname>author</collabname></collab>
 </authorgroup>
 <legalnotice><para>In copying
 </para>
@@ -72,7 +72,6 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 &#160;
 @ followed by a new line
 &#160;<literal>@-</literal> 
-<literal>@|</literal> 
 <literal>@:</literal> 
 <literal>@!</literal> !
 <literal>@?</literal> ?
@@ -216,21 +215,6 @@ but , ,
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
 </para>
-<para><literal>@image{f--ile}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,l--i}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,,l--e}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,,,alt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,,,,.e-d-xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,aze,az,alt,.e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-<literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-</para>
 <para><literal>@sp 2</literal>
 
 </para><para><literal>@page</literal>
@@ -243,50 +227,66 @@ After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
 </para>
 <!-- test most commands that could happen in math mode -->
+
+<!-- TeX does not like @displamath in @example, the error is -->
+<!--  Missing $ inserted. -->
+<!-- Therefore, if inexample is set, condition on valid.  Not that -->
+<!-- This type of nesting may not be valid. -->
+<informalequation><mathphrase>disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
+</mathphrase></informalequation>
 <informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </mathphrase></informalequation>
-<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;&#768;
-&#322; &#262;&#807; &#262;&#807; &#231; a&#779; &#551; &#229; a&#865;
-&#259; a&#818; &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+<informalequation><mathphrase>i j
+&#322; &#231;
+a&#818; &#7841; &#261; a<superscript>h</superscript><subscript>l</subscript>
 
- &#160;&#160; &#160;   ! ? . @ } { 
+ &#160;&#160; &#160;  ! @ } { 
 a sunny day
 </mathphrase></informalequation>
 <informalequation><mathphrase>&#8594;
 &#x0075;
-&tex; &latex; &#8226; &#169; &#8230; ... &#8801;
-error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
-&#229; &#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
+&#8226; &#169; &#8230; ... &#8801;
+error&#8594; &#8614; &#8722; &#8867; &#8658;
+&#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
 &#222; &#240; &#254; &#161; &#191; &#163;
-&#174; &#170; &#186; &#44; 
+&#170; &#186; &#44; 
 </mathphrase></informalequation>
 <informalequation><mathphrase>&#8220; &#8221; 
 &#8216; &#8217; &#8222; &#8218; &#171;
 &#187; &#171; &#187; &#8249;
-&#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+&#8250; &#8364; &#8594; &#8804; &#8805;
 </mathphrase></informalequation>
-<informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
+<informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC sansserif slanted
 </mathphrase></informalequation>
+<!-- as documented, TeX does not like @vtable in @example -->
+<!--  This command won't work in this context; perhaps the  -->
+<!--  problem is that we are in environment @example. -->
 <para><userinput>default kbdinputstyle</userinput>
+<!-- when called in @example -->
 </para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem default kbdinputstyle</primary></indexterm><userinput>vtable i--tem default kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen><userinput>in example default kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example default kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example default kbdinputstyle</userinput>
 </term></varlistentry></variablelist>
 <para><userinput>code kbdinputstyle</userinput>
 </para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem code kbdinputstyle</primary></indexterm><userinput>vtable i--tem code kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen><userinput>in example code kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example code kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example code kbdinputstyle</userinput>
 </term></varlistentry></variablelist>
 <para><userinput>example kbdinputstyle</userinput>
 </para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem example kbdinputstyle</primary></indexterm><userinput>vtable i--tem example kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen><userinput>in example example kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example example kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example example kbdinputstyle</userinput>
 </term></varlistentry></variablelist>
 <para><userinput>distinct kbdinputstyle</userinput>
 </para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem distinct kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen><userinput>in example distinct kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example distinct kbdinputstyle</userinput>
 </term></varlistentry></variablelist>
 <blockquote><para>A quot&#8212;ation
@@ -355,9 +355,6 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <itemizedlist><listitem><indexterm role="cp"><primary>index entry within itemize</primary></indexterm>
 <para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
-</para></listitem></itemizedlist>
-<itemizedlist><listitem><para><!-- /@w --> without brace w a&#8211;b
-</para></listitem><listitem><para><!-- /@w --> without brace w c&#8211;d
 </para></listitem></itemizedlist>
 <itemizedlist><listitem><para><!-- /@w --> with w a&#8211;b
 </para></listitem><listitem><para><!-- /@w --> with w c&#8211;d
@@ -438,9 +435,6 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </literallayout>
 <literallayout>s&#8211;mallformat
 </literallayout>
-<informalequation><mathphrase>disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
-</mathphrase></informalequation>
 <synopsis><indexterm role="fn"><primary>d--effn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>d--effn_name</function> <emphasis role="arg">a--rguments...</emphasis></synopsis>
 <blockquote><para>d&#8211;effn
 </para></blockquote>
@@ -456,18 +450,13 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>log trap2</primary></indexterm><phrase role="category"><emphasis role="bold">Command</emphasis>:</phrase> <function>log trap2</function> <emphasis role="arg"></emphasis></synopsis>
 <synopsis><indexterm role="fn"><primary><emphasis role="bold">id ule</emphasis></primary></indexterm><phrase role="category"><emphasis role="bold">cmde</emphasis>:</phrase> <function><emphasis role="bold">id ule</emphasis></function> <emphasis role="arg">truc</emphasis></synopsis>
 <synopsis><indexterm role="fn"><primary><emphasis role="bold">id &#8216;<literal>i</literal>&#8217; ule</emphasis></primary></indexterm><phrase role="category"><emphasis role="bold">cmde2</emphasis>:</phrase> <function><emphasis role="bold">id &#8216;i&#8217; ule</emphasis></function> <emphasis role="arg">truc</emphasis></synopsis>
-<synopsis><phrase role="category"><emphasis role="bold"><emphasis role="bold">id &#8216;i&#8217; ule</emphasis></emphasis>:</phrase></synopsis>
-<synopsis></synopsis>
-<synopsis><phrase role="category"><emphasis role="bold">aaa</emphasis>:</phrase></synopsis>
 <synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function></function></synopsis>
-<synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase></synopsis>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function>machin</function></synopsis>
 <synopsis><indexterm role="fn"><primary>bidule machin</primary></indexterm><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function>bidule machin</function></synopsis>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>machin</function></synopsis>
 <synopsis><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function></function></synopsis>
 <synopsis><indexterm role="fn"><primary>followed</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>followed</function> <emphasis role="arg">by</emphasis> <emphasis role="arg">a</emphasis> <emphasis role="arg">comment</emphasis></synopsis>
 <!-- comment -->
-<synopsis><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase></synopsis>
 <synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function></function></synopsis>
 <synopsis><indexterm role="fn"><primary>a</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>a</function> <emphasis role="arg">b</emphasis> <emphasis role="arg">c</emphasis> <emphasis role="arg">d</emphasis> <emphasis role="arg">e</emphasis> <emphasis role="arg"><emphasis role="bold">f g</emphasis></emphasis> <emphasis role="arg">h i</emphasis></synopsis>
 <synopsis><indexterm role="fn"><primary>deffnx</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>deffnx</function> <emphasis role="arg">before</emphasis> <emphasis role="arg">end</emphasis> <emphasis role="arg">deffn</emphasis></synopsis>
@@ -656,6 +645,10 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <para>section &#8220;title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink>&#8221; in <citetitle>printed manual with uref4 <ulink url="href://http/myhost.com/index4.html">uref4</ulink></citetitle>
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 </para>
+<!-- TeX does not like @table in @example -->
+<!-- as documented The @table command is not supported inside @display -->
+<!--  This command won't work in this context; perhaps the  -->
+<!--  problem is that we are in environment @example. -->
 <variablelist><!-- comment in table -->
 <varlistentry><term><emphasis role="bold">a&#8211;strong</emphasis>
 </term><listitem><para>l&#8211;ine
@@ -680,8 +673,6 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 </term><listitem><para>Value&#8211;table samp
 </para></listitem></varlistentry></variablelist>
 <para>c&#8211;artouche
-</para>
-<para>g&#8211;roupe
 </para>
 <para>f&#8211;lushleft
 more text
@@ -731,11 +722,6 @@ docbook ''
 </para>
 <para><literal>@math{--a@minus{} {\frac{1}{2}}}</literal> <inlineequation><mathphrase>--a&#8722; {\frac{1}{2}}</mathphrase></inlineequation>
 </para>
-<para><literal>@image{f-ile,,,alt@verb{:jk _&quot; %}}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-<literal>@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</literal> <inlinemediaobject><imageobject><imagedata fileref="filejk _&quot; %@.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-</para>
 
 
 <!-- invalid texinfo -->
@@ -753,6 +739,9 @@ aaa</literallayout></textobject></inlinemediaobject>
 
 
 @&#8217;@&quot;u &#769;&#252;
+</para>
+<!-- should only appear in @*heading -->
+<para><literal>@|</literal> 
 </para>
 <!-- only i or j as arg -->
 <para>@dotless{truc} truc
@@ -779,7 +768,61 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{,,2--xt}</literal> 
 <literal>@image{,,,3--xt}</literal> 
 </para>
+<!-- The file does not exist.  There would be other errors too -->
+<!--  Could not find image file f-ile for pdf. -->
+<para><literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+<literal>@image{f-ile,,,alt@verb{:jk _&quot; %}}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+</para>
+<!-- TeX gives an error, probably because the file is not a real png file -->
+<!--  reading image file failed -->
+<para><literal>@image{f--ile}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,,,alt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,,,,.e-d-xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<!-- TeX gives a legitimate error, rescaling argument should be numbers -->
+<!--  Missing number, treated as zero. -->
+<literal>@image{f--ile,l--i}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,,l--e}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,aze,az,alt,.e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+</para>
+<!-- It is not reliable to use @verb inside other Texinfo constructs -->
+<!--  Use of @doverb doesn't match its definition. -->
+<para><literal>@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</literal> <inlinemediaobject><imageobject><imagedata fileref="filejk _&quot; %@.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+</para>
 
+<!--  This command can appear only in environment @titlepage, -->
+<!--  not outside of any environment. -->
+
+<!-- TeX does not like some accents in @displaymath: -->
+<!--  Please use @mathaccent for accents in math mode -->
+<!-- TeX does not like @: and @? in @displaymath: -->
+<!--  You can't use `@spacefactor' in display math mode. -->
+<!-- With @. the error is strangely about @mathaccent -->
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; &#274;&#768;
+&#262;&#807; &#262;&#807; a&#779; &#551; &#229; a&#865;
+&#259; &#462;
+ ? .
+</mathphrase></informalequation>
+<!-- TeX does not like @TeX{} in @displaymath: -->
+<!--  You can't use `@spacefactor' in display math mode. -->
+<!-- TeX uses math for @point @registeredsymbol @textdegree which errors -->
+<!--  @point ->$@star  -->
+<!--  @registeredsymbol ->$^ -->
+<!--  Display math should end with $$. -->
+<informalequation><mathphrase>&tex; &latex; &#9733; &#229; &#174; &#176; 
+</mathphrase></informalequation>
+<!-- TeX is confused by @t{t} -->
+<!--  Please use @mathaccent for accents in math mode. -->
+<informalequation><mathphrase><literal>t</literal> 
+</mathphrase></informalequation>
 <!-- style command in itemize -->
 <itemizedlist><listitem><para> e&#8211;mph item
 </para></listitem></itemizedlist>
@@ -789,6 +832,11 @@ aaa</literallayout></textobject></inlinemediaobject>
 <!-- braces missing -->
 <itemizedlist><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
+</para></listitem></itemizedlist>
+<!-- braces missing -->
+<!--  Argument of @w has an extra } -->
+<itemizedlist><listitem><para><!-- /@w --> without brace w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> without brace w c&#8211;d
 </para></listitem></itemizedlist>
 <!-- not style formatting -->
 <variablelist><!-- comment in table -->
@@ -817,6 +865,19 @@ aaa</literallayout></textobject></inlinemediaobject>
 <para>Various deff lines
 </para><synopsis><indexterm role="fn"><primary>after</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>after</function> <emphasis role="arg">a</emphasis> <emphasis role="arg">deff</emphasis> <emphasis role="arg">item</emphasis></synopsis>
 
+<!-- TeX requires 2 arguments minimum for @deffn -->
+<!--  Paragraph ended before @deffngeneral was complete. -->
+<synopsis><indexterm role="fn"><primary><replaceable>invalid</replaceable></primary></indexterm><phrase role="category"><emphasis role="bold">fsetinv</emphasis>:</phrase> <function><replaceable>invalid</replaceable></function> <emphasis role="arg">a</emphasis> <emphasis role="arg">g</emphasis></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold"><emphasis role="bold">id &#8216;i&#8217; ule</emphasis></emphasis>:</phrase></synopsis>
+<synopsis></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold">aaa</emphasis>:</phrase></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase></synopsis>
+
+<!-- TeX require @group in a contexte where each line of input produces a line of output -->
+<!--  @group invalid in context where filling is enabled. -->
+<para>g&#8211;roupe
+</para>
 <!-- node is non existent, or missing first arg -->
 <para><literal>@ref{node}</literal> <link linkend="node">node</link>
 </para>
@@ -926,7 +987,6 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 &#160;
 @ followed by a new line
 &#160;<literal>@-</literal> 
-<literal>@|</literal> 
 <literal>@:</literal> 
 <literal>@!</literal> !
 <literal>@?</literal> ?
@@ -1070,21 +1130,6 @@ but , ,
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
 </para>
-<para><literal>@image{f--ile}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,l--i}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,,l--e}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,,,alt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,,,,.e-d-xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,aze,az,alt,.e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-<literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-</para>
 <para><literal>@sp 2</literal>
 
 </para><para><literal>@page</literal>
@@ -1097,50 +1142,66 @@ After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
 </para>
 <!-- test most commands that could happen in math mode -->
+
+<!-- TeX does not like @displamath in @example, the error is -->
+<!--  Missing $ inserted. -->
+<!-- Therefore, if inexample is set, condition on valid.  Not that -->
+<!-- This type of nesting may not be valid. -->
+<informalequation><mathphrase>disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
+</mathphrase></informalequation>
 <informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </mathphrase></informalequation>
-<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;&#768;
-&#322; &#262;&#807; &#262;&#807; &#231; a&#779; &#551; &#229; a&#865;
-&#259; a&#818; &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+<informalequation><mathphrase>i j
+&#322; &#231;
+a&#818; &#7841; &#261; a<superscript>h</superscript><subscript>l</subscript>
 
- &#160;&#160; &#160;   ! ? . @ } { 
+ &#160;&#160; &#160;  ! @ } { 
 a sunny day
 </mathphrase></informalequation>
 <informalequation><mathphrase>&#8594;
 &#x0075;
-&tex; &latex; &#8226; &#169; &#8230; ... &#8801;
-error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
-&#229; &#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
+&#8226; &#169; &#8230; ... &#8801;
+error&#8594; &#8614; &#8722; &#8867; &#8658;
+&#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
 &#222; &#240; &#254; &#161; &#191; &#163;
-&#174; &#170; &#186; &#44; 
+&#170; &#186; &#44; 
 </mathphrase></informalequation>
 <informalequation><mathphrase>&#8220; &#8221; 
 &#8216; &#8217; &#8222; &#8218; &#171;
 &#187; &#171; &#187; &#8249;
-&#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+&#8250; &#8364; &#8594; &#8804; &#8805;
 </mathphrase></informalequation>
-<informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
+<informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC sansserif slanted
 </mathphrase></informalequation>
+<!-- as documented, TeX does not like @vtable in @example -->
+<!--  This command won't work in this context; perhaps the  -->
+<!--  problem is that we are in environment @example. -->
 <para><userinput>default kbdinputstyle</userinput>
+<!-- when called in @example -->
 </para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem default kbdinputstyle</primary></indexterm><userinput>vtable i--tem default kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen><userinput>in example default kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example default kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example default kbdinputstyle</userinput>
 </term></varlistentry></variablelist>
 <para><userinput>code kbdinputstyle</userinput>
 </para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem code kbdinputstyle</primary></indexterm><userinput>vtable i--tem code kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen><userinput>in example code kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example code kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example code kbdinputstyle</userinput>
 </term></varlistentry></variablelist>
 <para><userinput>example kbdinputstyle</userinput>
 </para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem example kbdinputstyle</primary></indexterm><userinput>vtable i--tem example kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen><userinput>in example example kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example example kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example example kbdinputstyle</userinput>
 </term></varlistentry></variablelist>
 <para><userinput>distinct kbdinputstyle</userinput>
 </para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem distinct kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen><userinput>in example distinct kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example distinct kbdinputstyle</userinput>
 </term></varlistentry></variablelist>
 <blockquote><para>A quot&#8212;ation
@@ -1209,9 +1270,6 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <itemizedlist><listitem><indexterm role="cp"><primary>index entry within itemize</primary></indexterm>
 <para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
-</para></listitem></itemizedlist>
-<itemizedlist><listitem><para><!-- /@w --> without brace w a&#8211;b
-</para></listitem><listitem><para><!-- /@w --> without brace w c&#8211;d
 </para></listitem></itemizedlist>
 <itemizedlist><listitem><para><!-- /@w --> with w a&#8211;b
 </para></listitem><listitem><para><!-- /@w --> with w c&#8211;d
@@ -1292,9 +1350,6 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </literallayout>
 <literallayout>s&#8211;mallformat
 </literallayout>
-<informalequation><mathphrase>disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
-</mathphrase></informalequation>
 <synopsis><indexterm role="fn"><primary>d--effn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>d--effn_name</function> <emphasis role="arg">a--rguments...</emphasis></synopsis>
 <blockquote><para>d&#8211;effn
 </para></blockquote>
@@ -1310,18 +1365,13 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>log trap2</primary></indexterm><phrase role="category"><emphasis role="bold">Command</emphasis>:</phrase> <function>log trap2</function> <emphasis role="arg"></emphasis></synopsis>
 <synopsis><indexterm role="fn"><primary><emphasis role="bold">id ule</emphasis></primary></indexterm><phrase role="category"><emphasis role="bold">cmde</emphasis>:</phrase> <function><emphasis role="bold">id ule</emphasis></function> <emphasis role="arg">truc</emphasis></synopsis>
 <synopsis><indexterm role="fn"><primary><emphasis role="bold">id &#8216;<literal>i</literal>&#8217; ule</emphasis></primary></indexterm><phrase role="category"><emphasis role="bold">cmde2</emphasis>:</phrase> <function><emphasis role="bold">id &#8216;i&#8217; ule</emphasis></function> <emphasis role="arg">truc</emphasis></synopsis>
-<synopsis><phrase role="category"><emphasis role="bold"><emphasis role="bold">id &#8216;i&#8217; ule</emphasis></emphasis>:</phrase></synopsis>
-<synopsis></synopsis>
-<synopsis><phrase role="category"><emphasis role="bold">aaa</emphasis>:</phrase></synopsis>
 <synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function></function></synopsis>
-<synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase></synopsis>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function>machin</function></synopsis>
 <synopsis><indexterm role="fn"><primary>bidule machin</primary></indexterm><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function>bidule machin</function></synopsis>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>machin</function></synopsis>
 <synopsis><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function></function></synopsis>
 <synopsis><indexterm role="fn"><primary>followed</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>followed</function> <emphasis role="arg">by</emphasis> <emphasis role="arg">a</emphasis> <emphasis role="arg">comment</emphasis></synopsis>
 <!-- comment -->
-<synopsis><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase></synopsis>
 <synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function></function></synopsis>
 <synopsis><indexterm role="fn"><primary>a</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>a</function> <emphasis role="arg">b</emphasis> <emphasis role="arg">c</emphasis> <emphasis role="arg">d</emphasis> <emphasis role="arg">e</emphasis> <emphasis role="arg"><emphasis role="bold">f g</emphasis></emphasis> <emphasis role="arg">h i</emphasis></synopsis>
 <synopsis><indexterm role="fn"><primary>deffnx</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>deffnx</function> <emphasis role="arg">before</emphasis> <emphasis role="arg">end</emphasis> <emphasis role="arg">deffn</emphasis></synopsis>
@@ -1510,6 +1560,10 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <para>section &#8220;title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink>&#8221; in <citetitle>printed manual with uref4 <ulink url="href://http/myhost.com/index4.html">uref4</ulink></citetitle>
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 </para>
+<!-- TeX does not like @table in @example -->
+<!-- as documented The @table command is not supported inside @display -->
+<!--  This command won't work in this context; perhaps the  -->
+<!--  problem is that we are in environment @example. -->
 <variablelist><!-- comment in table -->
 <varlistentry><term><emphasis role="bold">a&#8211;strong</emphasis>
 </term><listitem><para>l&#8211;ine
@@ -1534,8 +1588,6 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 </term><listitem><para>Value&#8211;table samp
 </para></listitem></varlistentry></variablelist>
 <para>c&#8211;artouche
-</para>
-<para>g&#8211;roupe
 </para>
 <para>f&#8211;lushleft
 more text
@@ -1585,11 +1637,6 @@ docbook ''
 </para>
 <para><literal>@math{--a@minus{} {\frac{1}{2}}}</literal> <inlineequation><mathphrase>--a&#8722; {\frac{1}{2}}</mathphrase></inlineequation>
 </para>
-<para><literal>@image{f-ile,,,alt@verb{:jk _&quot; %}}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-<literal>@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</literal> <inlinemediaobject><imageobject><imagedata fileref="filejk _&quot; %@.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-</para>
 
 
 <!-- invalid texinfo -->
@@ -1607,6 +1654,9 @@ aaa</literallayout></textobject></inlinemediaobject>
 
 
 @&#8217;@&quot;u &#769;&#252;
+</para>
+<!-- should only appear in @*heading -->
+<para><literal>@|</literal> 
 </para>
 <!-- only i or j as arg -->
 <para>@dotless{truc} truc
@@ -1633,7 +1683,61 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{,,2--xt}</literal> 
 <literal>@image{,,,3--xt}</literal> 
 </para>
+<!-- The file does not exist.  There would be other errors too -->
+<!--  Could not find image file f-ile for pdf. -->
+<para><literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+<literal>@image{f-ile,,,alt@verb{:jk _&quot; %}}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+</para>
+<!-- TeX gives an error, probably because the file is not a real png file -->
+<!--  reading image file failed -->
+<para><literal>@image{f--ile}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,,,alt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,,,,.e-d-xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<!-- TeX gives a legitimate error, rescaling argument should be numbers -->
+<!--  Missing number, treated as zero. -->
+<literal>@image{f--ile,l--i}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,,l--e}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,aze,az,alt,.e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+</para>
+<!-- It is not reliable to use @verb inside other Texinfo constructs -->
+<!--  Use of @doverb doesn't match its definition. -->
+<para><literal>@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</literal> <inlinemediaobject><imageobject><imagedata fileref="filejk _&quot; %@.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+</para>
 
+<!--  This command can appear only in environment @titlepage, -->
+<!--  not outside of any environment. -->
+
+<!-- TeX does not like some accents in @displaymath: -->
+<!--  Please use @mathaccent for accents in math mode -->
+<!-- TeX does not like @: and @? in @displaymath: -->
+<!--  You can't use `@spacefactor' in display math mode. -->
+<!-- With @. the error is strangely about @mathaccent -->
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; &#274;&#768;
+&#262;&#807; &#262;&#807; a&#779; &#551; &#229; a&#865;
+&#259; &#462;
+ ? .
+</mathphrase></informalequation>
+<!-- TeX does not like @TeX{} in @displaymath: -->
+<!--  You can't use `@spacefactor' in display math mode. -->
+<!-- TeX uses math for @point @registeredsymbol @textdegree which errors -->
+<!--  @point ->$@star  -->
+<!--  @registeredsymbol ->$^ -->
+<!--  Display math should end with $$. -->
+<informalequation><mathphrase>&tex; &latex; &#9733; &#229; &#174; &#176; 
+</mathphrase></informalequation>
+<!-- TeX is confused by @t{t} -->
+<!--  Please use @mathaccent for accents in math mode. -->
+<informalequation><mathphrase><literal>t</literal> 
+</mathphrase></informalequation>
 <!-- style command in itemize -->
 <itemizedlist><listitem><para> e&#8211;mph item
 </para></listitem></itemizedlist>
@@ -1643,6 +1747,11 @@ aaa</literallayout></textobject></inlinemediaobject>
 <!-- braces missing -->
 <itemizedlist><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
+</para></listitem></itemizedlist>
+<!-- braces missing -->
+<!--  Argument of @w has an extra } -->
+<itemizedlist><listitem><para><!-- /@w --> without brace w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> without brace w c&#8211;d
 </para></listitem></itemizedlist>
 <!-- not style formatting -->
 <variablelist><!-- comment in table -->
@@ -1671,6 +1780,19 @@ aaa</literallayout></textobject></inlinemediaobject>
 <para>Various deff lines
 </para><synopsis><indexterm role="fn"><primary>after</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>after</function> <emphasis role="arg">a</emphasis> <emphasis role="arg">deff</emphasis> <emphasis role="arg">item</emphasis></synopsis>
 
+<!-- TeX requires 2 arguments minimum for @deffn -->
+<!--  Paragraph ended before @deffngeneral was complete. -->
+<synopsis><indexterm role="fn"><primary><replaceable>invalid</replaceable></primary></indexterm><phrase role="category"><emphasis role="bold">fsetinv</emphasis>:</phrase> <function><replaceable>invalid</replaceable></function> <emphasis role="arg">a</emphasis> <emphasis role="arg">g</emphasis></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold"><emphasis role="bold">id &#8216;i&#8217; ule</emphasis></emphasis>:</phrase></synopsis>
+<synopsis></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold">aaa</emphasis>:</phrase></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase></synopsis>
+
+<!-- TeX require @group in a contexte where each line of input produces a line of output -->
+<!--  @group invalid in context where filling is enabled. -->
+<para>g&#8211;roupe
+</para>
 <!-- node is non existent, or missing first arg -->
 <para><literal>@ref{node}</literal> <link linkend="node">node</link>
 </para>
@@ -1767,7 +1889,6 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 &#160;
 @ followed by a new line
 &#160;<literal>@-</literal> 
-<literal>@|</literal> 
 <literal>@:</literal> 
 <literal>@!</literal> !
 <literal>@?</literal> ?
@@ -1911,21 +2032,6 @@ but , ,
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
 </para>
-<para><literal>@image{f--ile}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,l--i}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,,l--e}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,,,alt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,,,,.e-d-xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,aze,az,alt,.e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-<literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-</para>
 <para><literal>@sp 2</literal>
 
 </para><para><literal>@page</literal>
@@ -1938,50 +2044,66 @@ After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
 </para>
 <!-- test most commands that could happen in math mode -->
+
+<!-- TeX does not like @displamath in @example, the error is -->
+<!--  Missing $ inserted. -->
+<!-- Therefore, if inexample is set, condition on valid.  Not that -->
+<!-- This type of nesting may not be valid. -->
+<informalequation><mathphrase>disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
+</mathphrase></informalequation>
 <informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </mathphrase></informalequation>
-<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;&#768;
-&#322; &#262;&#807; &#262;&#807; &#231; a&#779; &#551; &#229; a&#865;
-&#259; a&#818; &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+<informalequation><mathphrase>i j
+&#322; &#231;
+a&#818; &#7841; &#261; a<superscript>h</superscript><subscript>l</subscript>
 
- &#160;&#160; &#160;   ! ? . @ } { 
+ &#160;&#160; &#160;  ! @ } { 
 a sunny day
 </mathphrase></informalequation>
 <informalequation><mathphrase>&#8594;
 &#x0075;
-&tex; &latex; &#8226; &#169; &#8230; ... &#8801;
-error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
-&#229; &#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
+&#8226; &#169; &#8230; ... &#8801;
+error&#8594; &#8614; &#8722; &#8867; &#8658;
+&#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
 &#222; &#240; &#254; &#161; &#191; &#163;
-&#174; &#170; &#186; &#44; 
+&#170; &#186; &#44; 
 </mathphrase></informalequation>
 <informalequation><mathphrase>&#8220; &#8221; 
 &#8216; &#8217; &#8222; &#8218; &#171;
 &#187; &#171; &#187; &#8249;
-&#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+&#8250; &#8364; &#8594; &#8804; &#8805;
 </mathphrase></informalequation>
-<informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
+<informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC sansserif slanted
 </mathphrase></informalequation>
+<!-- as documented, TeX does not like @vtable in @example -->
+<!--  This command won't work in this context; perhaps the  -->
+<!--  problem is that we are in environment @example. -->
 <para><userinput>default kbdinputstyle</userinput>
+<!-- when called in @example -->
 </para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem default kbdinputstyle</primary></indexterm><userinput>vtable i--tem default kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen><userinput>in example default kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example default kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example default kbdinputstyle</userinput>
 </term></varlistentry></variablelist>
 <para><userinput>code kbdinputstyle</userinput>
 </para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem code kbdinputstyle</primary></indexterm><userinput>vtable i--tem code kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen><userinput>in example code kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example code kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example code kbdinputstyle</userinput>
 </term></varlistentry></variablelist>
 <para><userinput>example kbdinputstyle</userinput>
 </para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem example kbdinputstyle</primary></indexterm><userinput>vtable i--tem example kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen><userinput>in example example kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example example kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example example kbdinputstyle</userinput>
 </term></varlistentry></variablelist>
 <para><userinput>distinct kbdinputstyle</userinput>
 </para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem distinct kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen><userinput>in example distinct kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example distinct kbdinputstyle</userinput>
 </term></varlistentry></variablelist>
 <blockquote><para>A quot&#8212;ation
@@ -2050,9 +2172,6 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <itemizedlist><listitem><indexterm role="cp"><primary>index entry within itemize</primary></indexterm>
 <para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
-</para></listitem></itemizedlist>
-<itemizedlist><listitem><para><!-- /@w --> without brace w a&#8211;b
-</para></listitem><listitem><para><!-- /@w --> without brace w c&#8211;d
 </para></listitem></itemizedlist>
 <itemizedlist><listitem><para><!-- /@w --> with w a&#8211;b
 </para></listitem><listitem><para><!-- /@w --> with w c&#8211;d
@@ -2133,9 +2252,6 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </literallayout>
 <literallayout>s&#8211;mallformat
 </literallayout>
-<informalequation><mathphrase>disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
-</mathphrase></informalequation>
 <synopsis><indexterm role="fn"><primary>d--effn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>d--effn_name</function> <emphasis role="arg">a--rguments...</emphasis></synopsis>
 <blockquote><para>d&#8211;effn
 </para></blockquote>
@@ -2151,18 +2267,13 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>log trap2</primary></indexterm><phrase role="category"><emphasis role="bold">Command</emphasis>:</phrase> <function>log trap2</function> <emphasis role="arg"></emphasis></synopsis>
 <synopsis><indexterm role="fn"><primary><emphasis role="bold">id ule</emphasis></primary></indexterm><phrase role="category"><emphasis role="bold">cmde</emphasis>:</phrase> <function><emphasis role="bold">id ule</emphasis></function> <emphasis role="arg">truc</emphasis></synopsis>
 <synopsis><indexterm role="fn"><primary><emphasis role="bold">id &#8216;<literal>i</literal>&#8217; ule</emphasis></primary></indexterm><phrase role="category"><emphasis role="bold">cmde2</emphasis>:</phrase> <function><emphasis role="bold">id &#8216;i&#8217; ule</emphasis></function> <emphasis role="arg">truc</emphasis></synopsis>
-<synopsis><phrase role="category"><emphasis role="bold"><emphasis role="bold">id &#8216;i&#8217; ule</emphasis></emphasis>:</phrase></synopsis>
-<synopsis></synopsis>
-<synopsis><phrase role="category"><emphasis role="bold">aaa</emphasis>:</phrase></synopsis>
 <synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function></function></synopsis>
-<synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase></synopsis>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function>machin</function></synopsis>
 <synopsis><indexterm role="fn"><primary>bidule machin</primary></indexterm><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function>bidule machin</function></synopsis>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>machin</function></synopsis>
 <synopsis><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function></function></synopsis>
 <synopsis><indexterm role="fn"><primary>followed</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>followed</function> <emphasis role="arg">by</emphasis> <emphasis role="arg">a</emphasis> <emphasis role="arg">comment</emphasis></synopsis>
 <!-- comment -->
-<synopsis><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase></synopsis>
 <synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function></function></synopsis>
 <synopsis><indexterm role="fn"><primary>a</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>a</function> <emphasis role="arg">b</emphasis> <emphasis role="arg">c</emphasis> <emphasis role="arg">d</emphasis> <emphasis role="arg">e</emphasis> <emphasis role="arg"><emphasis role="bold">f g</emphasis></emphasis> <emphasis role="arg">h i</emphasis></synopsis>
 <synopsis><indexterm role="fn"><primary>deffnx</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>deffnx</function> <emphasis role="arg">before</emphasis> <emphasis role="arg">end</emphasis> <emphasis role="arg">deffn</emphasis></synopsis>
@@ -2351,6 +2462,10 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <para>section &#8220;title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink>&#8221; in <citetitle>printed manual with uref4 <ulink url="href://http/myhost.com/index4.html">uref4</ulink></citetitle>
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 </para>
+<!-- TeX does not like @table in @example -->
+<!-- as documented The @table command is not supported inside @display -->
+<!--  This command won't work in this context; perhaps the  -->
+<!--  problem is that we are in environment @example. -->
 <variablelist><!-- comment in table -->
 <varlistentry><term><emphasis role="bold">a&#8211;strong</emphasis>
 </term><listitem><para>l&#8211;ine
@@ -2375,8 +2490,6 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 </term><listitem><para>Value&#8211;table samp
 </para></listitem></varlistentry></variablelist>
 <para>c&#8211;artouche
-</para>
-<para>g&#8211;roupe
 </para>
 <para>f&#8211;lushleft
 more text
@@ -2426,11 +2539,6 @@ docbook ''
 </para>
 <para><literal>@math{--a@minus{} {\frac{1}{2}}}</literal> <inlineequation><mathphrase>--a&#8722; {\frac{1}{2}}</mathphrase></inlineequation>
 </para>
-<para><literal>@image{f-ile,,,alt@verb{:jk _&quot; %}}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-<literal>@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</literal> <inlinemediaobject><imageobject><imagedata fileref="filejk _&quot; %@.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-</para>
 
 
 <!-- invalid texinfo -->
@@ -2448,6 +2556,9 @@ aaa</literallayout></textobject></inlinemediaobject>
 
 
 @&#8217;@&quot;u &#769;&#252;
+</para>
+<!-- should only appear in @*heading -->
+<para><literal>@|</literal> 
 </para>
 <!-- only i or j as arg -->
 <para>@dotless{truc} truc
@@ -2474,7 +2585,61 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{,,2--xt}</literal> 
 <literal>@image{,,,3--xt}</literal> 
 </para>
+<!-- The file does not exist.  There would be other errors too -->
+<!--  Could not find image file f-ile for pdf. -->
+<para><literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+<literal>@image{f-ile,,,alt@verb{:jk _&quot; %}}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+</para>
+<!-- TeX gives an error, probably because the file is not a real png file -->
+<!--  reading image file failed -->
+<para><literal>@image{f--ile}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,,,alt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,,,,.e-d-xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<!-- TeX gives a legitimate error, rescaling argument should be numbers -->
+<!--  Missing number, treated as zero. -->
+<literal>@image{f--ile,l--i}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,,l--e}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,aze,az,alt,.e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+</para>
+<!-- It is not reliable to use @verb inside other Texinfo constructs -->
+<!--  Use of @doverb doesn't match its definition. -->
+<para><literal>@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</literal> <inlinemediaobject><imageobject><imagedata fileref="filejk _&quot; %@.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+</para>
 
+<!--  This command can appear only in environment @titlepage, -->
+<!--  not outside of any environment. -->
+
+<!-- TeX does not like some accents in @displaymath: -->
+<!--  Please use @mathaccent for accents in math mode -->
+<!-- TeX does not like @: and @? in @displaymath: -->
+<!--  You can't use `@spacefactor' in display math mode. -->
+<!-- With @. the error is strangely about @mathaccent -->
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; &#274;&#768;
+&#262;&#807; &#262;&#807; a&#779; &#551; &#229; a&#865;
+&#259; &#462;
+ ? .
+</mathphrase></informalequation>
+<!-- TeX does not like @TeX{} in @displaymath: -->
+<!--  You can't use `@spacefactor' in display math mode. -->
+<!-- TeX uses math for @point @registeredsymbol @textdegree which errors -->
+<!--  @point ->$@star  -->
+<!--  @registeredsymbol ->$^ -->
+<!--  Display math should end with $$. -->
+<informalequation><mathphrase>&tex; &latex; &#9733; &#229; &#174; &#176; 
+</mathphrase></informalequation>
+<!-- TeX is confused by @t{t} -->
+<!--  Please use @mathaccent for accents in math mode. -->
+<informalequation><mathphrase><literal>t</literal> 
+</mathphrase></informalequation>
 <!-- style command in itemize -->
 <itemizedlist><listitem><para> e&#8211;mph item
 </para></listitem></itemizedlist>
@@ -2484,6 +2649,11 @@ aaa</literallayout></textobject></inlinemediaobject>
 <!-- braces missing -->
 <itemizedlist><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
+</para></listitem></itemizedlist>
+<!-- braces missing -->
+<!--  Argument of @w has an extra } -->
+<itemizedlist><listitem><para><!-- /@w --> without brace w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> without brace w c&#8211;d
 </para></listitem></itemizedlist>
 <!-- not style formatting -->
 <variablelist><!-- comment in table -->
@@ -2512,6 +2682,19 @@ aaa</literallayout></textobject></inlinemediaobject>
 <para>Various deff lines
 </para><synopsis><indexterm role="fn"><primary>after</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>after</function> <emphasis role="arg">a</emphasis> <emphasis role="arg">deff</emphasis> <emphasis role="arg">item</emphasis></synopsis>
 
+<!-- TeX requires 2 arguments minimum for @deffn -->
+<!--  Paragraph ended before @deffngeneral was complete. -->
+<synopsis><indexterm role="fn"><primary><replaceable>invalid</replaceable></primary></indexterm><phrase role="category"><emphasis role="bold">fsetinv</emphasis>:</phrase> <function><replaceable>invalid</replaceable></function> <emphasis role="arg">a</emphasis> <emphasis role="arg">g</emphasis></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold"><emphasis role="bold">id &#8216;i&#8217; ule</emphasis></emphasis>:</phrase></synopsis>
+<synopsis></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold">aaa</emphasis>:</phrase></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase></synopsis>
+
+<!-- TeX require @group in a contexte where each line of input produces a line of output -->
+<!--  @group invalid in context where filling is enabled. -->
+<para>g&#8211;roupe
+</para>
 <!-- node is non existent, or missing first arg -->
 <para><literal>@ref{node}</literal> <link linkend="node">node</link>
 </para>
@@ -2604,7 +2787,6 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 &#160;
 @ followed by a new line
 &#160;<literal>@-</literal> 
-<literal>@|</literal> 
 <literal>@:</literal> 
 <literal>@!</literal> !
 <literal>@?</literal> ?
@@ -2748,21 +2930,6 @@ but , ,
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
 
-<literal>@image{f--ile}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,l--i}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,,l--e}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,,,alt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,,,,.e-d-xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f--ile,aze,az,alt,.e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-<literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-
 <literal>@sp 2</literal>
 
 <literal>@page</literal>
@@ -2775,50 +2942,66 @@ After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
 
 <!-- test most commands that could happen in math mode -->
+
+<!-- TeX does not like @displamath in @example, the error is -->
+<!--  Missing $ inserted. -->
+<!-- Therefore, if inexample is set, condition on valid.  Not that -->
+<!-- This type of nesting may not be valid. -->
+</screen><informalequation><mathphrase>disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
+</mathphrase></informalequation><screen>
 </screen><informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </mathphrase></informalequation><screen>
-</screen><informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;&#768;
-&#322; &#262;&#807; &#262;&#807; &#231; a&#779; &#551; &#229; a&#865;
-&#259; a&#818; &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+</screen><informalequation><mathphrase>i j
+&#322; &#231;
+a&#818; &#7841; &#261; a<superscript>h</superscript><subscript>l</subscript>
 
- &#160;&#160; &#160;   ! ? . @ } { 
+ &#160;&#160; &#160;  ! @ } { 
 a sunny day
 </mathphrase></informalequation><screen>
 </screen><informalequation><mathphrase>&#8594;
 &#x0075;
-&tex; &latex; &#8226; &#169; &#8230; ... &#8801;
-error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
-&#229; &#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
+&#8226; &#169; &#8230; ... &#8801;
+error&#8594; &#8614; &#8722; &#8867; &#8658;
+&#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
 &#222; &#240; &#254; &#161; &#191; &#163;
-&#174; &#170; &#186; &#44; 
+&#170; &#186; &#44; 
 </mathphrase></informalequation><screen>
 </screen><informalequation><mathphrase>&#8220; &#8221; 
 &#8216; &#8217; &#8222; &#8218; &#171;
 &#187; &#171; &#187; &#8249;
-&#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+&#8250; &#8364; &#8594; &#8804; &#8805;
 </mathphrase></informalequation><screen>
-</screen><informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
+</screen><informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC sansserif slanted
 </mathphrase></informalequation><screen>
+<!-- as documented, TeX does not like @vtable in @example -->
+<!--  This command won't work in this context; perhaps the  -->
+<!--  problem is that we are in environment @example. -->
 <userinput>default kbdinputstyle</userinput>
+<!-- when called in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem default kbdinputstyle</primary></indexterm><userinput>vtable i--tem default kbdinputstyle</userinput>
-</term></varlistentry></variablelist><screen><userinput>in example default kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen></screen><screen><userinput>in example default kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example default kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example default kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen>
 <userinput>code kbdinputstyle</userinput>
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem code kbdinputstyle</primary></indexterm><userinput>vtable i--tem code kbdinputstyle</userinput>
-</term></varlistentry></variablelist><screen><userinput>in example code kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen></screen><screen><userinput>in example code kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example code kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example code kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen>
 <userinput>example kbdinputstyle</userinput>
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem example kbdinputstyle</primary></indexterm><userinput>vtable i--tem example kbdinputstyle</userinput>
-</term></varlistentry></variablelist><screen><userinput>in example example kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen></screen><screen><userinput>in example example kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example example kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example example kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen>
 <userinput>distinct kbdinputstyle</userinput>
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem distinct kbdinputstyle</userinput>
-</term></varlistentry></variablelist><screen><userinput>in example distinct kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen></screen><screen><userinput>in example distinct kbdinputstyle</userinput>
+<!-- no @vtable in @example -->
 </screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example distinct kbdinputstyle</userinput>
 </term></varlistentry></variablelist><screen>
 </screen><blockquote><screen>A quot---ation
@@ -2886,9 +3069,6 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen></listitem></itemizedlist><screen>
 </screen><itemizedlist><screen></screen><listitem><screen>&#8226; a--n itemize line <indexterm role="cp"><primary>index entry within itemize</primary></indexterm>i--tem 1
 </screen></listitem><listitem><screen>&#8226; a--n itemize line i--tem 2
-</screen></listitem></itemizedlist><screen>
-</screen><itemizedlist><listitem><screen><!-- /@w --> without brace w a--b
-</screen></listitem><listitem><screen><!-- /@w --> without brace w c--d
 </screen></listitem></itemizedlist><screen>
 </screen><itemizedlist><listitem><screen><!-- /@w --> with w a--b
 </screen></listitem><listitem><screen><!-- /@w --> with w c--d
@@ -2968,9 +3148,6 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </literallayout><screen>
 </screen><literallayout>s--mallformat
 </literallayout><screen>
-</screen><informalequation><mathphrase>disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</superscript>
-</mathphrase></informalequation><screen>
 </screen><synopsis><indexterm role="fn"><primary>d--effn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>d--effn_name</function> <emphasis role="arg">a--rguments...</emphasis></synopsis>
 <blockquote><screen>d--effn
 </screen></blockquote><screen>
@@ -2985,19 +3162,14 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>log trap2</primary></indexterm><phrase role="category"><emphasis role="bold">Command</emphasis>:</phrase> <function>log trap2</function> <emphasis role="arg"></emphasis></synopsis>
 <synopsis><indexterm role="fn"><primary><emphasis role="bold">id ule</emphasis></primary></indexterm><phrase role="category"><emphasis role="bold">cmde</emphasis>:</phrase> <function><emphasis role="bold">id ule</emphasis></function> <emphasis role="arg">truc</emphasis></synopsis>
 <synopsis><indexterm role="fn"><primary><emphasis role="bold">id &#8216;<literal>i</literal>&#8217; ule</emphasis></primary></indexterm><phrase role="category"><emphasis role="bold">cmde2</emphasis>:</phrase> <function><emphasis role="bold">id &#8216;i&#8217; ule</emphasis></function> <emphasis role="arg">truc</emphasis></synopsis>
-<synopsis><phrase role="category"><emphasis role="bold"><emphasis role="bold">id &#8216;i&#8217; ule</emphasis></emphasis>:</phrase></synopsis>
-<synopsis></synopsis>
-<synopsis><phrase role="category"><emphasis role="bold">aaa</emphasis>:</phrase></synopsis>
 <synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function></function></synopsis>
-<synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase></synopsis>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function>machin</function></synopsis>
 <synopsis><indexterm role="fn"><primary>bidule machin</primary></indexterm><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function>bidule machin</function></synopsis>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>machin</function></synopsis>
 <synopsis><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function></function></synopsis>
 <synopsis><indexterm role="fn"><primary>followed</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>followed</function> <emphasis role="arg">by</emphasis> <emphasis role="arg">a</emphasis> <emphasis role="arg">comment</emphasis></synopsis>
 <screen><!-- comment -->
-</screen><synopsis><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase></synopsis>
-<synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function></function></synopsis>
+</screen><synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase> <function></function></synopsis>
 <synopsis><indexterm role="fn"><primary>a</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>a</function> <emphasis role="arg">b</emphasis> <emphasis role="arg">c</emphasis> <emphasis role="arg">d</emphasis> <emphasis role="arg">e</emphasis> <emphasis role="arg"><emphasis role="bold">f g</emphasis></emphasis> <emphasis role="arg">h i</emphasis></synopsis>
 <synopsis><indexterm role="fn"><primary>deffnx</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>deffnx</function> <emphasis role="arg">before</emphasis> <emphasis role="arg">end</emphasis> <emphasis role="arg">deffn</emphasis></synopsis>
 <screen>
@@ -3185,6 +3357,10 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 section ``title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink>'' in <citetitle>printed manual with uref4 <ulink url="href://http/myhost.com/index4.html">uref4</ulink></citetitle>
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 
+<!-- TeX does not like @table in @example -->
+<!-- as documented The @table command is not supported inside @display -->
+<!--  This command won't work in this context; perhaps the  -->
+<!--  problem is that we are in environment @example. -->
 </screen><variablelist><screen><!-- comment in table -->
 </screen><varlistentry><term><emphasis role="bold">a--strong</emphasis>
 </term><listitem><screen>l--ine
@@ -3208,8 +3384,6 @@ section ``title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2
 </term><listitem><screen>Value--table samp
 </screen></listitem></varlistentry></variablelist><screen>
 </screen><screen>c--artouche
-</screen><screen>
-</screen><screen>g--roupe
 </screen><screen>
 </screen><screen>f--lushleft
 more text
@@ -3259,11 +3433,6 @@ docbook ''
 
 <literal>@math{--a@minus{} {\frac{1}{2}}}</literal> <inlineequation><mathphrase>--a&#8722; {\frac{1}{2}}</mathphrase></inlineequation>
 
-<literal>@image{f-ile,,,alt@verb{:jk _&quot; %}}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-<literal>@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
-aaa</literallayout></textobject></inlinemediaobject>
-<literal>@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</literal> <inlinemediaobject><imageobject><imagedata fileref="filejk _&quot; %@.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
-
 
 
 <!-- invalid texinfo -->
@@ -3281,6 +3450,9 @@ Invalid use of @':
 
 
 @'@&quot;u &#769;&#252;
+
+<!-- should only appear in @*heading -->
+<literal>@|</literal> 
 
 <!-- only i or j as arg -->
 @dotless{truc} truc
@@ -3307,7 +3479,61 @@ Invalid use of @':
 <literal>@image{,,2--xt}</literal> 
 <literal>@image{,,,3--xt}</literal> 
 
+<!-- The file does not exist.  There would be other errors too -->
+<!--  Could not find image file f-ile for pdf. -->
+<literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+<literal>@image{f-ile,,,alt@verb{:jk _&quot; %}}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 
+<!-- TeX gives an error, probably because the file is not a real png file -->
+<!--  reading image file failed -->
+<literal>@image{f--ile}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,,,alt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,,,,.e-d-xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<!-- TeX gives a legitimate error, rescaling argument should be numbers -->
+<!--  Missing number, treated as zero. -->
+<literal>@image{f--ile,l--i}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,,l--e}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{f--ile,aze,az,alt,.e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+
+<!-- It is not reliable to use @verb inside other Texinfo constructs -->
+<!--  Use of @doverb doesn't match its definition. -->
+<literal>@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile.jpg" format="JPG"></imagedata></imageobject><imageobject><imagedata fileref="f--ile.png" format="PNG"></imagedata></imageobject><textobject><literallayout>ggg
+aaa</literallayout></textobject></inlinemediaobject>
+<literal>@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</literal> <inlinemediaobject><imageobject><imagedata fileref="filejk _&quot; %@.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
+
+
+<!--  This command can appear only in environment @titlepage, -->
+<!--  not outside of any environment. -->
+
+<!-- TeX does not like some accents in @displaymath: -->
+<!--  Please use @mathaccent for accents in math mode -->
+<!-- TeX does not like @: and @? in @displaymath: -->
+<!--  You can't use `@spacefactor' in display math mode. -->
+<!-- With @. the error is strangely about @mathaccent -->
+</screen><informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; &#274;&#768;
+&#262;&#807; &#262;&#807; a&#779; &#551; &#229; a&#865;
+&#259; &#462;
+ ? .
+</mathphrase></informalequation><screen>
+<!-- TeX does not like @TeX{} in @displaymath: -->
+<!--  You can't use `@spacefactor' in display math mode. -->
+<!-- TeX uses math for @point @registeredsymbol @textdegree which errors -->
+<!--  @point ->$@star  -->
+<!--  @registeredsymbol ->$^ -->
+<!--  Display math should end with $$. -->
+</screen><informalequation><mathphrase>&tex; &latex; &#9733; &#229; &#174; &#176; 
+</mathphrase></informalequation><screen>
+<!-- TeX is confused by @t{t} -->
+<!--  Please use @mathaccent for accents in math mode. -->
+</screen><informalequation><mathphrase><literal>t</literal> 
+</mathphrase></informalequation><screen>
 <!-- style command in itemize -->
 </screen><itemizedlist><listitem><screen> e--mph item
 </screen></listitem></itemizedlist><screen>
@@ -3317,6 +3543,11 @@ Invalid use of @':
 <!-- braces missing -->
 </screen><itemizedlist><listitem><screen>&#8226; a--n itemize line i--tem 1
 </screen></listitem><listitem><screen>&#8226; a--n itemize line i--tem 2
+</screen></listitem></itemizedlist><screen>
+<!-- braces missing -->
+<!--  Argument of @w has an extra } -->
+</screen><itemizedlist><listitem><screen><!-- /@w --> without brace w a--b
+</screen></listitem><listitem><screen><!-- /@w --> without brace w c--d
 </screen></listitem></itemizedlist><screen>
 <!-- not style formatting -->
 </screen><variablelist><screen><!-- comment in table -->
@@ -3344,6 +3575,19 @@ Invalid use of @':
 Various deff lines
 </screen><synopsis><indexterm role="fn"><primary>after</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>after</function> <emphasis role="arg">a</emphasis> <emphasis role="arg">deff</emphasis> <emphasis role="arg">item</emphasis></synopsis>
 <screen>
+<!-- TeX requires 2 arguments minimum for @deffn -->
+<!--  Paragraph ended before @deffngeneral was complete. -->
+</screen><synopsis><indexterm role="fn"><primary><replaceable>invalid</replaceable></primary></indexterm><phrase role="category"><emphasis role="bold">fsetinv</emphasis>:</phrase> <function><replaceable>invalid</replaceable></function> <emphasis role="arg">a</emphasis> <emphasis role="arg">g</emphasis></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold"><emphasis role="bold">id &#8216;i&#8217; ule</emphasis></emphasis>:</phrase></synopsis>
+<synopsis></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold">aaa</emphasis>:</phrase></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold"></emphasis>:</phrase></synopsis>
+<synopsis><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase></synopsis>
+<screen>
+<!-- TeX require @group in a contexte where each line of input produces a line of output -->
+<!--  @group invalid in context where filling is enabled. -->
+</screen><screen>g--roupe
+</screen><screen>
 <!-- node is non existent, or missing first arg -->
 <literal>@ref{node}</literal> <link linkend="node">node</link>
 
@@ -3396,9 +3640,9 @@ Various deff lines
 <indexterm role="fn"><primary>a</primary></indexterm>
 
 <indexterm role="cp"><primary>a&#8212;a</primary></indexterm>
-<indexterm role="cp"><primary>b&#8212;b</primary><secondary>c&#8212;c</secondary></indexterm><indexterm role="cp"><primary>d&#8212;dd</primary><secondary>e&#8212;ee</secondary><tertiary>f&#8212;ff</tertiary></indexterm><indexterm role="cp"><primary>g&#8212;gg</primary><secondary>h&#8212;hh jjj</secondary><tertiary>k&#8212;kk</tertiary><tertiary>l&#8212;ll</tertiary></indexterm>
+<indexterm role="cp"><primary>b&#8212;b</primary><secondary>c&#8212;c</secondary></indexterm><indexterm role="cp"><primary>d&#8212;dd</primary><secondary>e&#8212;ee</secondary><tertiary>f&#8212;ff</tertiary></indexterm>
 <indexterm role="fn"><primary>f---aa</primary></indexterm>
-<indexterm role="fn"><primary>f---bb</primary><secondary>f---cc</secondary></indexterm><indexterm role="fn"><primary>f---ddd</primary><secondary>f---eee</secondary><tertiary>ffff</tertiary></indexterm><indexterm role="fn"><primary>f---ggg</primary><secondary>f---hhh fjjj</secondary><tertiary>f---kkk</tertiary><tertiary>f---lll</tertiary></indexterm>
+<indexterm role="fn"><primary>f---bb</primary><secondary>f---cc</secondary></indexterm><indexterm role="fn"><primary>f---ddd</primary><secondary>f---eee</secondary><tertiary>ffff</tertiary></indexterm>
 <indexterm role="cp"><primary>aaa</primary><see>bbb</see></indexterm>
 <indexterm role="cp"><primary>ddd</primary><seealso>ccc</seealso></indexterm>
 
@@ -3412,6 +3656,15 @@ Various deff lines
 <indexterm role="codeidx"><primary>a <replaceable>index---entry</replaceable> t&#7869; --- &#238;</primary></indexterm>
 
 <indexterm role="truc"><primary>truc</primary></indexterm>
+
+<!-- error with texindex: Bad entry; expected 3 to 5 fields, not 6 -->
+<indexterm role="cp"><primary>g&#8212;gg</primary><secondary>h&#8212;hh jjj</secondary><tertiary>k&#8212;kk</tertiary><tertiary>l&#8212;ll</tertiary></indexterm>
+<indexterm role="fn"><primary>f---ggg</primary><secondary>f---hhh fjjj</secondary><tertiary>f---kkk</tertiary><tertiary>f---lll</tertiary></indexterm>
+<!-- incorrect order.  Cryptic error in TeX -->
+<!--  File ended while scanning use of @initialx. -->
+<indexterm role="cp"><primary>ddd</primary><seealso>ccc</seealso></indexterm>
+
+<indexterm role="fn"><primary>f&#8212;ddd</primary><seealso>f&#8212;ccc</seealso></indexterm>
 
 
 <para>Text<footnote><para>in footnote

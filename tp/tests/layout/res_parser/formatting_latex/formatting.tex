@@ -88,6 +88,7 @@ roundcorner=10pt}
 \pagestyle{empty}%
 
 
+
 \begin{document}
 
 \GNUTexinfofrontmatter
@@ -153,7 +154,6 @@ kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \le
 \ {}
 @ followed by a new line
 \ {}\texttt{@-} \-{}
-\texttt{@|} 
 \texttt{@:} \@
 \texttt{@!} \@!
 \texttt{@?} \@?
@@ -297,15 +297,6 @@ but , ,\@
 \texttt{@footnote\{in footnote\}} \footnote{in footnote}
 \texttt{@footnote\{in footnote2\}} \footnote{in footnote2}
 
-\texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
-\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
-\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
-
 \texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip %
 \texttt{@page}\leavevmode{}\\
@@ -314,7 +305,6 @@ but , ,\@
 \endgroup
 \newpage{}%
 \phantom{blabla}%
-{\bfseries author}%
 
 \texttt{need 1002}
 \needspace{1.002pt}%
@@ -323,38 +313,44 @@ but , ,\@
 After clickstyle $\Rightarrow{}$
 \texttt{@clicksequence\{click @click\{\} A\}} click $\Rightarrow{}$ A
 
+
+$$
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+$$
+
 $$
 \mathbf{``simple-double--three---four----''} \hbox{aa}
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'
 $$
 
 $$
-\ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \imath{} \jmath{} \grave{\bar{E}}
-\mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
-\breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
- \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
+\imath{} \jmath{}
+\mathord{\text{\l{}}} \textsl{\c{c}}
+\textsl{\b{a}} \textsl{\d{a}} \textsl{\k{a}} a^{h}_{l}
+ \ {}\ {} \ {}\-{}  ! @ \} \{ 
 \today{}
 $$
 
 $$
 \rightarrow{}
 u
-TeX LaTeX \bullet{} \copyright{} \dots{} \dots{} \equiv{}
-\fbox{error} \mapsto{} - \star{} \dashv{} \Rightarrow{}
-\mathord{\text{\aa{}}} \mathord{\text{\AA{}}} \mathord{\text{\ae{}}} \mathord{\text{\oe{}}} \mathord{\text{\AE{}}} \mathord{\text{\OE{}}} \mathord{\text{\o{}}} \mathord{\text{\O{}}} \mathord{\text{\ss{}}} \mathord{\text{\l{}}} \mathord{\text{\L{}}} \mathord{\text{\DH{}}}
+\bullet{} \copyright{} \dots{} \dots{} \equiv{}
+\fbox{error} \mapsto{} - \dashv{} \Rightarrow{}
+\mathord{\text{\AA{}}} \mathord{\text{\ae{}}} \mathord{\text{\oe{}}} \mathord{\text{\AE{}}} \mathord{\text{\OE{}}} \mathord{\text{\o{}}} \mathord{\text{\O{}}} \mathord{\text{\ss{}}} \mathord{\text{\l{}}} \mathord{\text{\L{}}} \mathord{\text{\DH{}}}
 \mathord{\text{\TH{}}} \mathord{\text{\dh{}}} \mathord{\text{\th{}}} \mathord{\text{\textexclamdown{}}} \mathord{\text{\textquestiondown{}}} \mathsterling{}
-\circledR{} \mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
+\mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
 $$
 
 $$
 \mathord{\text{\textquotedblleft{}}} \mathord{\text{\textquotedblright{}}} 
 \mathord{\text{\textquoteleft{}}} \mathord{\text{\textquoteright{}}} \mathord{\text{\quotedblbase{}}} \mathord{\text{\quotesinglbase{}}} \mathord{\text{\guillemotleft{}}}
 \mathord{\text{\guillemotright{}}} \mathord{\text{\guillemotleft{}}} \mathord{\text{\guillemotright{}}} \mathord{\text{\guilsinglleft{}}}
-\mathord{\text{\guilsinglright{}}} ^{\circ{}} \euro{} \rightarrow{} \leq{} \geq{}
+\mathord{\text{\guilsinglright{}}} \euro{} \rightarrow{} \leq{} \geq{}
 $$
 
 $$
-\mathbf{b} \mathit{i} \mathrm{r} sc \mathtt{t} \mathsf{sansserif} slanted
+\mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
 
 {\ttfamily\textsl{default kbdinputstyle}}
@@ -559,11 +555,6 @@ i--tem 1
 \end{itemize}
 
 \begin{itemize}[label={}]
-\item without brace w a--b
-\item without brace w c--d
-\end{itemize}
-
-\begin{itemize}[label={}]
 \item with w a--b
 \item with w c--d
 \end{itemize}
@@ -706,11 +697,6 @@ f--ormat
 s--mallformat
 \endgroup{}%
 
-$$
-disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
-$$
-
 \noindent\texttt\bgroup{}d--effn\_name a--rguments...\egroup{}\hfill[c--ategory]
 
 
@@ -761,19 +747,6 @@ def--fn
 
 
 \index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}' ule}}}%
-\noindent\texttt\bgroup{}\egroup{}\hfill[\textbf{id `\texttt{i}' ule}]
-
-
-
-
-\noindent\texttt\bgroup{}\egroup{}\hfill[aaa]
-
-
-
-\noindent\texttt\bgroup{}\egroup{}\hfill[]
-
-
-
 \noindent\texttt\bgroup{}\egroup{}\hfill[]
 
 
@@ -802,10 +775,6 @@ def--fn
 
 
 \index[fn]{followed@\texttt{followed}}%
-\noindent\texttt\bgroup{}\egroup{}\hfill[truc]
-
-
-
 \noindent\texttt\bgroup{}\egroup{}\hfill[]
 
 
@@ -1203,8 +1172,6 @@ Value--table samp
 c--artouche
 \end{mdframed}
 
-g--roupe
-
 f--lushleft
 more text
 
@@ -1261,10 +1228,6 @@ $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
 \texttt{@math\{{-}{-}a@minus\{\} \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
 
-\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
-
 
 
 
@@ -1277,6 +1240,8 @@ Invalid use of @':\leavevmode{}\\
 @' \'{}
 \leavevmode{}\\
 @'@"u \'{}\"{u}
+
+\texttt{@|} 
 
 @dotless\{truc\} truc
 @dotless\{ij\} ij
@@ -1296,6 +1261,37 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{,,2{-}{-}xt\}} 
 \texttt{@image\{,,,3{-}{-}xt\}} 
 
+\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
+\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+
+\texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
+\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
+
+
+{\bfseries author}%
+
+$$
+\ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \grave{\bar{E}}
+\textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
+\breve{a} \check{a}
+ ? .
+$$
+
+$$
+TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}} 
+$$
+
+$$
+\mathtt{t} 
+$$
 
 \begin{itemize}[label=\emph{}]
 \item e--mph item
@@ -1308,6 +1304,11 @@ Invalid use of @':\leavevmode{}\\
 \begin{itemize}[label=\textbullet{} a--n itemize line]
 \item i--tem 1
 \item i--tem 2
+\end{itemize}
+
+\begin{itemize}[label={}]
+\item without brace w a--b
+\item without brace w c--d
 \end{itemize}
 
 \begin{description}
@@ -1368,6 +1369,31 @@ Various deff lines
 
 
 \index[fn]{after@\texttt{after}}%
+
+\noindent\texttt\bgroup{}\emph{invalid} a g\egroup{}\hfill[fsetinv]
+
+
+
+\index[fn]{invalid@\texttt{\emph{invalid}}}%
+\noindent\texttt\bgroup{}\egroup{}\hfill[\textbf{id `\texttt{i}' ule}]
+
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[aaa]
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[]
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[truc]
+
+
+
+
+g--roupe
 
 \texttt{@ref\{node\}} node
 
@@ -1457,7 +1483,6 @@ kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \le
 \ {}
 @ followed by a new line
 \ {}\texttt{@-} \-{}
-\texttt{@|} 
 \texttt{@:} \@
 \texttt{@!} \@!
 \texttt{@?} \@?
@@ -1601,21 +1626,11 @@ but , ,\@
 \texttt{@footnote\{in footnote\}} \footnote{in footnote}
 \texttt{@footnote\{in footnote2\}} \footnote{in footnote2}
 
-\texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
-\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
-\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
-
 \texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip %
 \texttt{@page}\leavevmode{}\\
 \newpage{}%
 \phantom{blabla}%
-{\bfseries author}%
 
 \texttt{need 1002}
 \needspace{1.002pt}%
@@ -1624,38 +1639,44 @@ but , ,\@
 After clickstyle $\Rightarrow{}$
 \texttt{@clicksequence\{click @click\{\} A\}} click $\Rightarrow{}$ A
 
+
+$$
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+$$
+
 $$
 \mathbf{``simple-double--three---four----''} \hbox{aa}
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'
 $$
 
 $$
-\ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \imath{} \jmath{} \grave{\bar{E}}
-\mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
-\breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
- \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
+\imath{} \jmath{}
+\mathord{\text{\l{}}} \textsl{\c{c}}
+\textsl{\b{a}} \textsl{\d{a}} \textsl{\k{a}} a^{h}_{l}
+ \ {}\ {} \ {}\-{}  ! @ \} \{ 
 \today{}
 $$
 
 $$
 \rightarrow{}
 u
-TeX LaTeX \bullet{} \copyright{} \dots{} \dots{} \equiv{}
-\fbox{error} \mapsto{} - \star{} \dashv{} \Rightarrow{}
-\mathord{\text{\aa{}}} \mathord{\text{\AA{}}} \mathord{\text{\ae{}}} \mathord{\text{\oe{}}} \mathord{\text{\AE{}}} \mathord{\text{\OE{}}} \mathord{\text{\o{}}} \mathord{\text{\O{}}} \mathord{\text{\ss{}}} \mathord{\text{\l{}}} \mathord{\text{\L{}}} \mathord{\text{\DH{}}}
+\bullet{} \copyright{} \dots{} \dots{} \equiv{}
+\fbox{error} \mapsto{} - \dashv{} \Rightarrow{}
+\mathord{\text{\AA{}}} \mathord{\text{\ae{}}} \mathord{\text{\oe{}}} \mathord{\text{\AE{}}} \mathord{\text{\OE{}}} \mathord{\text{\o{}}} \mathord{\text{\O{}}} \mathord{\text{\ss{}}} \mathord{\text{\l{}}} \mathord{\text{\L{}}} \mathord{\text{\DH{}}}
 \mathord{\text{\TH{}}} \mathord{\text{\dh{}}} \mathord{\text{\th{}}} \mathord{\text{\textexclamdown{}}} \mathord{\text{\textquestiondown{}}} \mathsterling{}
-\circledR{} \mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
+\mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
 $$
 
 $$
 \mathord{\text{\textquotedblleft{}}} \mathord{\text{\textquotedblright{}}} 
 \mathord{\text{\textquoteleft{}}} \mathord{\text{\textquoteright{}}} \mathord{\text{\quotedblbase{}}} \mathord{\text{\quotesinglbase{}}} \mathord{\text{\guillemotleft{}}}
 \mathord{\text{\guillemotright{}}} \mathord{\text{\guillemotleft{}}} \mathord{\text{\guillemotright{}}} \mathord{\text{\guilsinglleft{}}}
-\mathord{\text{\guilsinglright{}}} ^{\circ{}} \euro{} \rightarrow{} \leq{} \geq{}
+\mathord{\text{\guilsinglright{}}} \euro{} \rightarrow{} \leq{} \geq{}
 $$
 
 $$
-\mathbf{b} \mathit{i} \mathrm{r} sc \mathtt{t} \mathsf{sansserif} slanted
+\mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
 
 {\ttfamily\textsl{default kbdinputstyle}}
@@ -1860,11 +1881,6 @@ i--tem 1
 \end{itemize}
 
 \begin{itemize}[label={}]
-\item without brace w a--b
-\item without brace w c--d
-\end{itemize}
-
-\begin{itemize}[label={}]
 \item with w a--b
 \item with w c--d
 \end{itemize}
@@ -2007,11 +2023,6 @@ f--ormat
 s--mallformat
 \endgroup{}%
 
-$$
-disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
-$$
-
 \noindent\texttt\bgroup{}d--effn\_name a--rguments...\egroup{}\hfill[c--ategory]
 
 
@@ -2062,19 +2073,6 @@ def--fn
 
 
 \index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}' ule}}}%
-\noindent\texttt\bgroup{}\egroup{}\hfill[\textbf{id `\texttt{i}' ule}]
-
-
-
-
-\noindent\texttt\bgroup{}\egroup{}\hfill[aaa]
-
-
-
-\noindent\texttt\bgroup{}\egroup{}\hfill[]
-
-
-
 \noindent\texttt\bgroup{}\egroup{}\hfill[]
 
 
@@ -2103,10 +2101,6 @@ def--fn
 
 
 \index[fn]{followed@\texttt{followed}}%
-\noindent\texttt\bgroup{}\egroup{}\hfill[truc]
-
-
-
 \noindent\texttt\bgroup{}\egroup{}\hfill[]
 
 
@@ -2504,8 +2498,6 @@ Value--table samp
 c--artouche
 \end{mdframed}
 
-g--roupe
-
 f--lushleft
 more text
 
@@ -2562,10 +2554,6 @@ $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
 \texttt{@math\{{-}{-}a@minus\{\} \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
 
-\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
-
 
 
 
@@ -2578,6 +2566,8 @@ Invalid use of @':\leavevmode{}\\
 @' \'{}
 \leavevmode{}\\
 @'@"u \'{}\"{u}
+
+\texttt{@|} 
 
 @dotless\{truc\} truc
 @dotless\{ij\} ij
@@ -2597,6 +2587,37 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{,,2{-}{-}xt\}} 
 \texttt{@image\{,,,3{-}{-}xt\}} 
 
+\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
+\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+
+\texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
+\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
+
+
+{\bfseries author}%
+
+$$
+\ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \grave{\bar{E}}
+\textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
+\breve{a} \check{a}
+ ? .
+$$
+
+$$
+TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}} 
+$$
+
+$$
+\mathtt{t} 
+$$
 
 \begin{itemize}[label=\emph{}]
 \item e--mph item
@@ -2609,6 +2630,11 @@ Invalid use of @':\leavevmode{}\\
 \begin{itemize}[label=\textbullet{} a--n itemize line]
 \item i--tem 1
 \item i--tem 2
+\end{itemize}
+
+\begin{itemize}[label={}]
+\item without brace w a--b
+\item without brace w c--d
 \end{itemize}
 
 \begin{description}
@@ -2670,6 +2696,31 @@ Various deff lines
 
 \index[fn]{after@\texttt{after}}%
 
+\noindent\texttt\bgroup{}\emph{invalid} a g\egroup{}\hfill[fsetinv]
+
+
+
+\index[fn]{invalid@\texttt{\emph{invalid}}}%
+\noindent\texttt\bgroup{}\egroup{}\hfill[\textbf{id `\texttt{i}' ule}]
+
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[aaa]
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[]
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[truc]
+
+
+
+
+g--roupe
+
 \texttt{@ref\{node\}} node
 
 \texttt{@ref\{,cross ref name\}} 
@@ -2712,6 +2763,7 @@ Various deff lines
 \GNUTexinfosetsingleheader{}%
 \GNUTexinfomainmatter
 \tableofcontents\newpage
+
 
 
 
@@ -2778,7 +2830,6 @@ kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \le
 \ {}
 @ followed by a new line
 \ {}\texttt{@-} \-{}
-\texttt{@|} 
 \texttt{@:} \@
 \texttt{@!} \@!
 \texttt{@?} \@?
@@ -2922,21 +2973,11 @@ but , ,\@
 \texttt{@footnote\{in footnote\}} \footnote{in footnote}
 \texttt{@footnote\{in footnote2\}} \footnote{in footnote2}
 
-\texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
-\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
-\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
-
 \texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip %
 \texttt{@page}\leavevmode{}\\
 \newpage{}%
 \phantom{blabla}%
-{\bfseries author}%
 
 \texttt{need 1002}
 \needspace{1.002pt}%
@@ -2945,38 +2986,44 @@ but , ,\@
 After clickstyle $\Rightarrow{}$
 \texttt{@clicksequence\{click @click\{\} A\}} click $\Rightarrow{}$ A
 
+
+$$
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+$$
+
 $$
 \mathbf{``simple-double--three---four----''} \hbox{aa}
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'
 $$
 
 $$
-\ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \imath{} \jmath{} \grave{\bar{E}}
-\mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
-\breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
- \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
+\imath{} \jmath{}
+\mathord{\text{\l{}}} \textsl{\c{c}}
+\textsl{\b{a}} \textsl{\d{a}} \textsl{\k{a}} a^{h}_{l}
+ \ {}\ {} \ {}\-{}  ! @ \} \{ 
 \today{}
 $$
 
 $$
 \rightarrow{}
 u
-TeX LaTeX \bullet{} \copyright{} \dots{} \dots{} \equiv{}
-\fbox{error} \mapsto{} - \star{} \dashv{} \Rightarrow{}
-\mathord{\text{\aa{}}} \mathord{\text{\AA{}}} \mathord{\text{\ae{}}} \mathord{\text{\oe{}}} \mathord{\text{\AE{}}} \mathord{\text{\OE{}}} \mathord{\text{\o{}}} \mathord{\text{\O{}}} \mathord{\text{\ss{}}} \mathord{\text{\l{}}} \mathord{\text{\L{}}} \mathord{\text{\DH{}}}
+\bullet{} \copyright{} \dots{} \dots{} \equiv{}
+\fbox{error} \mapsto{} - \dashv{} \Rightarrow{}
+\mathord{\text{\AA{}}} \mathord{\text{\ae{}}} \mathord{\text{\oe{}}} \mathord{\text{\AE{}}} \mathord{\text{\OE{}}} \mathord{\text{\o{}}} \mathord{\text{\O{}}} \mathord{\text{\ss{}}} \mathord{\text{\l{}}} \mathord{\text{\L{}}} \mathord{\text{\DH{}}}
 \mathord{\text{\TH{}}} \mathord{\text{\dh{}}} \mathord{\text{\th{}}} \mathord{\text{\textexclamdown{}}} \mathord{\text{\textquestiondown{}}} \mathsterling{}
-\circledR{} \mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
+\mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
 $$
 
 $$
 \mathord{\text{\textquotedblleft{}}} \mathord{\text{\textquotedblright{}}} 
 \mathord{\text{\textquoteleft{}}} \mathord{\text{\textquoteright{}}} \mathord{\text{\quotedblbase{}}} \mathord{\text{\quotesinglbase{}}} \mathord{\text{\guillemotleft{}}}
 \mathord{\text{\guillemotright{}}} \mathord{\text{\guillemotleft{}}} \mathord{\text{\guillemotright{}}} \mathord{\text{\guilsinglleft{}}}
-\mathord{\text{\guilsinglright{}}} ^{\circ{}} \euro{} \rightarrow{} \leq{} \geq{}
+\mathord{\text{\guilsinglright{}}} \euro{} \rightarrow{} \leq{} \geq{}
 $$
 
 $$
-\mathbf{b} \mathit{i} \mathrm{r} sc \mathtt{t} \mathsf{sansserif} slanted
+\mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
 
 {\ttfamily\textsl{default kbdinputstyle}}
@@ -3181,11 +3228,6 @@ i--tem 1
 \end{itemize}
 
 \begin{itemize}[label={}]
-\item without brace w a--b
-\item without brace w c--d
-\end{itemize}
-
-\begin{itemize}[label={}]
 \item with w a--b
 \item with w c--d
 \end{itemize}
@@ -3328,11 +3370,6 @@ f--ormat
 s--mallformat
 \endgroup{}%
 
-$$
-disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
-$$
-
 \noindent\texttt\bgroup{}d--effn\_name a--rguments...\egroup{}\hfill[c--ategory]
 
 
@@ -3383,19 +3420,6 @@ def--fn
 
 
 \index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}' ule}}}%
-\noindent\texttt\bgroup{}\egroup{}\hfill[\textbf{id `\texttt{i}' ule}]
-
-
-
-
-\noindent\texttt\bgroup{}\egroup{}\hfill[aaa]
-
-
-
-\noindent\texttt\bgroup{}\egroup{}\hfill[]
-
-
-
 \noindent\texttt\bgroup{}\egroup{}\hfill[]
 
 
@@ -3424,10 +3448,6 @@ def--fn
 
 
 \index[fn]{followed@\texttt{followed}}%
-\noindent\texttt\bgroup{}\egroup{}\hfill[truc]
-
-
-
 \noindent\texttt\bgroup{}\egroup{}\hfill[]
 
 
@@ -3825,8 +3845,6 @@ Value--table samp
 c--artouche
 \end{mdframed}
 
-g--roupe
-
 f--lushleft
 more text
 
@@ -3883,10 +3901,6 @@ $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
 \texttt{@math\{{-}{-}a@minus\{\} \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
 
-\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
-
 
 
 
@@ -3899,6 +3913,8 @@ Invalid use of @':\leavevmode{}\\
 @' \'{}
 \leavevmode{}\\
 @'@"u \'{}\"{u}
+
+\texttt{@|} 
 
 @dotless\{truc\} truc
 @dotless\{ij\} ij
@@ -3918,6 +3934,37 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{,,2{-}{-}xt\}} 
 \texttt{@image\{,,,3{-}{-}xt\}} 
 
+\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
+\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+
+\texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
+\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
+
+
+{\bfseries author}%
+
+$$
+\ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \grave{\bar{E}}
+\textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
+\breve{a} \check{a}
+ ? .
+$$
+
+$$
+TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}} 
+$$
+
+$$
+\mathtt{t} 
+$$
 
 \begin{itemize}[label=\emph{}]
 \item e--mph item
@@ -3930,6 +3977,11 @@ Invalid use of @':\leavevmode{}\\
 \begin{itemize}[label=\textbullet{} a--n itemize line]
 \item i--tem 1
 \item i--tem 2
+\end{itemize}
+
+\begin{itemize}[label={}]
+\item without brace w a--b
+\item without brace w c--d
 \end{itemize}
 
 \begin{description}
@@ -3990,6 +4042,31 @@ Various deff lines
 
 
 \index[fn]{after@\texttt{after}}%
+
+\noindent\texttt\bgroup{}\emph{invalid} a g\egroup{}\hfill[fsetinv]
+
+
+
+\index[fn]{invalid@\texttt{\emph{invalid}}}%
+\noindent\texttt\bgroup{}\egroup{}\hfill[\textbf{id `\texttt{i}' ule}]
+
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[aaa]
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[]
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[truc]
+
+
+
+
+g--roupe
 
 \texttt{@ref\{node\}} node
 
@@ -4078,7 +4155,6 @@ kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \le
 \ {}
 @ followed by a new line
 \ {}\texttt{@-} \-{}
-\texttt{@|} 
 \texttt{@:} \@
 \texttt{@!} \@!
 \texttt{@?} \@?
@@ -4222,21 +4298,11 @@ but , ,\@
 \texttt{@footnote\{in footnote\}} \footnote{in footnote}
 \texttt{@footnote\{in footnote2\}} \footnote{in footnote2}
 
-\texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
-\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
-\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
-
 \texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip %
 \texttt{@page}\leavevmode{}\\
 \newpage{}%
 \phantom{blabla}%
-{\bfseries author}%
 
 \texttt{need 1002}
 \needspace{1.002pt}%
@@ -4245,38 +4311,44 @@ but , ,\@
 After clickstyle $\Rightarrow{}$
 \texttt{@clicksequence\{click @click\{\} A\}} click $\Rightarrow{}$ A
 
+
+$$
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+$$
+
 $$
 \mathbf{``simple-double--three---four----''} \hbox{aa}
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'
 $$
 
 $$
-\ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \imath{} \jmath{} \grave{\bar{E}}
-\mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
-\breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
- \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
+\imath{} \jmath{}
+\mathord{\text{\l{}}} \textsl{\c{c}}
+\textsl{\b{a}} \textsl{\d{a}} \textsl{\k{a}} a^{h}_{l}
+ \ {}\ {} \ {}\-{}  ! @ \} \{ 
 \today{}
 $$
 
 $$
 \rightarrow{}
 u
-TeX LaTeX \bullet{} \copyright{} \dots{} \dots{} \equiv{}
-\fbox{error} \mapsto{} - \star{} \dashv{} \Rightarrow{}
-\mathord{\text{\aa{}}} \mathord{\text{\AA{}}} \mathord{\text{\ae{}}} \mathord{\text{\oe{}}} \mathord{\text{\AE{}}} \mathord{\text{\OE{}}} \mathord{\text{\o{}}} \mathord{\text{\O{}}} \mathord{\text{\ss{}}} \mathord{\text{\l{}}} \mathord{\text{\L{}}} \mathord{\text{\DH{}}}
+\bullet{} \copyright{} \dots{} \dots{} \equiv{}
+\fbox{error} \mapsto{} - \dashv{} \Rightarrow{}
+\mathord{\text{\AA{}}} \mathord{\text{\ae{}}} \mathord{\text{\oe{}}} \mathord{\text{\AE{}}} \mathord{\text{\OE{}}} \mathord{\text{\o{}}} \mathord{\text{\O{}}} \mathord{\text{\ss{}}} \mathord{\text{\l{}}} \mathord{\text{\L{}}} \mathord{\text{\DH{}}}
 \mathord{\text{\TH{}}} \mathord{\text{\dh{}}} \mathord{\text{\th{}}} \mathord{\text{\textexclamdown{}}} \mathord{\text{\textquestiondown{}}} \mathsterling{}
-\circledR{} \mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
+\mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
 $$
 
 $$
 \mathord{\text{\textquotedblleft{}}} \mathord{\text{\textquotedblright{}}} 
 \mathord{\text{\textquoteleft{}}} \mathord{\text{\textquoteright{}}} \mathord{\text{\quotedblbase{}}} \mathord{\text{\quotesinglbase{}}} \mathord{\text{\guillemotleft{}}}
 \mathord{\text{\guillemotright{}}} \mathord{\text{\guillemotleft{}}} \mathord{\text{\guillemotright{}}} \mathord{\text{\guilsinglleft{}}}
-\mathord{\text{\guilsinglright{}}} ^{\circ{}} \euro{} \rightarrow{} \leq{} \geq{}
+\mathord{\text{\guilsinglright{}}} \euro{} \rightarrow{} \leq{} \geq{}
 $$
 
 $$
-\mathbf{b} \mathit{i} \mathrm{r} sc \mathtt{t} \mathsf{sansserif} slanted
+\mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
 
 {\ttfamily\textsl{default kbdinputstyle}}
@@ -4481,11 +4553,6 @@ i--tem 1
 \end{itemize}
 
 \begin{itemize}[label={}]
-\item without brace w a--b
-\item without brace w c--d
-\end{itemize}
-
-\begin{itemize}[label={}]
 \item with w a--b
 \item with w c--d
 \end{itemize}
@@ -4628,11 +4695,6 @@ f--ormat
 s--mallformat
 \endgroup{}%
 
-$$
-disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
-$$
-
 \noindent\texttt\bgroup{}d--effn\_name a--rguments...\egroup{}\hfill[c--ategory]
 
 
@@ -4683,19 +4745,6 @@ def--fn
 
 
 \index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}' ule}}}%
-\noindent\texttt\bgroup{}\egroup{}\hfill[\textbf{id `\texttt{i}' ule}]
-
-
-
-
-\noindent\texttt\bgroup{}\egroup{}\hfill[aaa]
-
-
-
-\noindent\texttt\bgroup{}\egroup{}\hfill[]
-
-
-
 \noindent\texttt\bgroup{}\egroup{}\hfill[]
 
 
@@ -4724,10 +4773,6 @@ def--fn
 
 
 \index[fn]{followed@\texttt{followed}}%
-\noindent\texttt\bgroup{}\egroup{}\hfill[truc]
-
-
-
 \noindent\texttt\bgroup{}\egroup{}\hfill[]
 
 
@@ -5125,8 +5170,6 @@ Value--table samp
 c--artouche
 \end{mdframed}
 
-g--roupe
-
 f--lushleft
 more text
 
@@ -5183,10 +5226,6 @@ $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
 \texttt{@math\{{-}{-}a@minus\{\} \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
 
-\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
-
 
 
 
@@ -5199,6 +5238,8 @@ Invalid use of @':\leavevmode{}\\
 @' \'{}
 \leavevmode{}\\
 @'@"u \'{}\"{u}
+
+\texttt{@|} 
 
 @dotless\{truc\} truc
 @dotless\{ij\} ij
@@ -5218,6 +5259,37 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{,,2{-}{-}xt\}} 
 \texttt{@image\{,,,3{-}{-}xt\}} 
 
+\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
+\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+
+\texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
+\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
+
+
+{\bfseries author}%
+
+$$
+\ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \grave{\bar{E}}
+\textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
+\breve{a} \check{a}
+ ? .
+$$
+
+$$
+TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}} 
+$$
+
+$$
+\mathtt{t} 
+$$
 
 \begin{itemize}[label=\emph{}]
 \item e--mph item
@@ -5230,6 +5302,11 @@ Invalid use of @':\leavevmode{}\\
 \begin{itemize}[label=\textbullet{} a--n itemize line]
 \item i--tem 1
 \item i--tem 2
+\end{itemize}
+
+\begin{itemize}[label={}]
+\item without brace w a--b
+\item without brace w c--d
 \end{itemize}
 
 \begin{description}
@@ -5290,6 +5367,31 @@ Various deff lines
 
 
 \index[fn]{after@\texttt{after}}%
+
+\noindent\texttt\bgroup{}\emph{invalid} a g\egroup{}\hfill[fsetinv]
+
+
+
+\index[fn]{invalid@\texttt{\emph{invalid}}}%
+\noindent\texttt\bgroup{}\egroup{}\hfill[\textbf{id `\texttt{i}' ule}]
+
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[aaa]
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[]
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[truc]
+
+
+
+
+g--roupe
 
 \texttt{@ref\{node\}} node
 
@@ -5379,7 +5481,6 @@ kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \le
 \ {}
 @ followed by a new line
 \ {}\texttt{@-} \-{}
-\texttt{@|} 
 \texttt{@:} \@
 \texttt{@!} \@!
 \texttt{@?} \@?
@@ -5525,15 +5626,6 @@ but , ,\@
 \texttt{@footnote\{in footnote\}} \footnote{in footnote}
 \texttt{@footnote\{in footnote2\}} \footnote{in footnote2}
 
-\texttt{@image\{f{-}{-}ile\}} \includegraphics{f{-}{-}ile}
-\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f{-}{-}ile}
-\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f{-}{-}ile}
-\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f{-}{-}ile}
-\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f{-}{-}ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f{-}{-}ile}
-\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f{-}{-}ile@.}
-
 \texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip %
 \texttt{@page}\leavevmode{}\\
@@ -5541,7 +5633,6 @@ but , ,\@
 \newpage{}%
 \phantom{blabla}%
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
-{\bfseries author}%
 
 \texttt{need 1002}
 \endgroup{}%
@@ -5552,6 +5643,14 @@ but , ,\@
 After clickstyle $\Rightarrow{}$
 \texttt{@clicksequence\{click @click\{\} A\}} click $\Rightarrow{}$ A
 
+
+\endgroup{}%
+$$
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+$$
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+
 \endgroup{}%
 $$
 \mathbf{``simple-double--three---four----''} \hbox{aa}
@@ -5561,10 +5660,10 @@ $$
 
 \endgroup{}%
 $$
-\ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \imath{} \jmath{} \grave{\bar{E}}
-\mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
-\breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
- \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
+\imath{} \jmath{}
+\mathord{\text{\l{}}} \textsl{\c{c}}
+\textsl{\b{a}} \textsl{\d{a}} \textsl{\k{a}} a^{h}_{l}
+ \ {}\ {} \ {}\-{}  ! @ \} \{ 
 \today{}
 $$
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
@@ -5573,11 +5672,11 @@ $$
 $$
 \rightarrow{}
 u
-TeX LaTeX \bullet{} \copyright{} \dots{} \dots{} \equiv{}
-\fbox{error} \mapsto{} - \star{} \dashv{} \Rightarrow{}
-\mathord{\text{\aa{}}} \mathord{\text{\AA{}}} \mathord{\text{\ae{}}} \mathord{\text{\oe{}}} \mathord{\text{\AE{}}} \mathord{\text{\OE{}}} \mathord{\text{\o{}}} \mathord{\text{\O{}}} \mathord{\text{\ss{}}} \mathord{\text{\l{}}} \mathord{\text{\L{}}} \mathord{\text{\DH{}}}
+\bullet{} \copyright{} \dots{} \dots{} \equiv{}
+\fbox{error} \mapsto{} - \dashv{} \Rightarrow{}
+\mathord{\text{\AA{}}} \mathord{\text{\ae{}}} \mathord{\text{\oe{}}} \mathord{\text{\AE{}}} \mathord{\text{\OE{}}} \mathord{\text{\o{}}} \mathord{\text{\O{}}} \mathord{\text{\ss{}}} \mathord{\text{\l{}}} \mathord{\text{\L{}}} \mathord{\text{\DH{}}}
 \mathord{\text{\TH{}}} \mathord{\text{\dh{}}} \mathord{\text{\th{}}} \mathord{\text{\textexclamdown{}}} \mathord{\text{\textquestiondown{}}} \mathsterling{}
-\circledR{} \mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
+\mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
 $$
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
@@ -5586,13 +5685,13 @@ $$
 \mathord{\text{\textquotedblleft{}}} \mathord{\text{\textquotedblright{}}} 
 \mathord{\text{\textquoteleft{}}} \mathord{\text{\textquoteright{}}} \mathord{\text{\quotedblbase{}}} \mathord{\text{\quotesinglbase{}}} \mathord{\text{\guillemotleft{}}}
 \mathord{\text{\guillemotright{}}} \mathord{\text{\guillemotleft{}}} \mathord{\text{\guillemotright{}}} \mathord{\text{\guilsinglleft{}}}
-\mathord{\text{\guilsinglright{}}} ^{\circ{}} \euro{} \rightarrow{} \leq{} \geq{}
+\mathord{\text{\guilsinglright{}}} \euro{} \rightarrow{} \leq{} \geq{}
 $$
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
 $$
-\mathbf{b} \mathit{i} \mathrm{r} sc \mathtt{t} \mathsf{sansserif} slanted
+\mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
@@ -5604,6 +5703,8 @@ $$
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\endgroup{}%
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 {\ttfamily\textsl{in example default kbdinputstyle}}
 \endgroup{}%
@@ -5624,6 +5725,8 @@ $$
 }}]
 \end{description}
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\endgroup{}%
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 \texttt{in example code kbdinputstyle}
 \endgroup{}%
 \begin{description}
@@ -5643,6 +5746,8 @@ $$
 }}]
 \end{description}
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\endgroup{}%
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 \texttt{in example example kbdinputstyle}
 \endgroup{}%
 \begin{description}
@@ -5661,6 +5766,8 @@ $$
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\endgroup{}%
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
 \endgroup{}%
@@ -5928,17 +6035,6 @@ i{-}{-}tem 2
 \endgroup{}%
 \begin{itemize}[label={}]
 \item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
-without brace w a{-}{-}b
-\endgroup{}%
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
-without brace w c{-}{-}d
-\endgroup{}%
-\end{itemize}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
-
-\endgroup{}%
-\begin{itemize}[label={}]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 with w a{-}{-}b
 \endgroup{}%
 \item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
@@ -6179,13 +6275,6 @@ s--mallformat
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-$$
-disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
-$$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
-
-\endgroup{}%
 \noindent\texttt\bgroup{}d--effn\_name a--rguments...\egroup{}\hfill[c--ategory]
 
 
@@ -6246,19 +6335,6 @@ def{-}{-}fn
 
 
 \index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}' ule}}}%
-\noindent\texttt\bgroup{}\egroup{}\hfill[\textbf{id `\texttt{i}' ule}]
-
-
-
-
-\noindent\texttt\bgroup{}\egroup{}\hfill[aaa]
-
-
-
-\noindent\texttt\bgroup{}\egroup{}\hfill[]
-
-
-
 \noindent\texttt\bgroup{}\egroup{}\hfill[]
 
 
@@ -6289,10 +6365,6 @@ def{-}{-}fn
 \index[fn]{followed@\texttt{followed}}%
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 \endgroup{}%
-\noindent\texttt\bgroup{}\egroup{}\hfill[truc]
-
-
-
 \noindent\texttt\bgroup{}\egroup{}\hfill[]
 
 
@@ -6869,12 +6941,6 @@ c{-}{-}artouche
 
 \endgroup{}%
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
-g{-}{-}roupe
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
-
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 f{-}{-}lushleft
 more text
 \endgroup{}%
@@ -6957,10 +7023,6 @@ $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
 \texttt{@math\{{-}{-}a@minus\{\} \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
 
-\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f{-}{-}ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
-
 
 
 
@@ -6973,6 +7035,8 @@ Invalid use of @':\leavevmode{}\\
 @' \'{}
 \leavevmode{}\\
 @'@"u \'{}\"{u}
+
+\texttt{@|} 
 
 @dotless\{truc\} truc
 @dotless\{ij\} ij
@@ -6992,6 +7056,43 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{,,2{-}{-}xt\}} 
 \texttt{@image\{,,,3{-}{-}xt\}} 
 
+\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
+\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+
+\texttt{@image\{f{-}{-}ile\}} \includegraphics{f{-}{-}ile}
+\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f{-}{-}ile}
+\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f{-}{-}ile}
+\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f{-}{-}ile}
+\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f{-}{-}ile}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f{-}{-}ile}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f{-}{-}ile@.}
+
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f{-}{-}ile}
+\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
+
+
+{\bfseries author}%
+
+\endgroup{}%
+$$
+\ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \grave{\bar{E}}
+\textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
+\breve{a} \check{a}
+ ? .
+$$
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+
+\endgroup{}%
+$$
+TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}} 
+$$
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+
+\endgroup{}%
+$$
+\mathtt{t} 
+$$
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
 \begin{itemize}[label=\emph{}]
@@ -7016,6 +7117,17 @@ i{-}{-}tem 1
 \endgroup{}%
 \item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 i{-}{-}tem 2
+\endgroup{}%
+\end{itemize}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+
+\endgroup{}%
+\begin{itemize}[label={}]
+\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+without brace w a{-}{-}b
+\endgroup{}%
+\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+without brace w c{-}{-}d
 \endgroup{}%
 \end{itemize}
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
@@ -7099,6 +7211,37 @@ Various deff lines
 \index[fn]{after@\texttt{after}}%
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
+\endgroup{}%
+\noindent\texttt\bgroup{}\emph{invalid} a g\egroup{}\hfill[fsetinv]
+
+
+
+\index[fn]{invalid@\texttt{\emph{invalid}}}%
+\noindent\texttt\bgroup{}\egroup{}\hfill[\textbf{id `\texttt{i}' ule}]
+
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[aaa]
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[]
+
+
+
+\noindent\texttt\bgroup{}\egroup{}\hfill[truc]
+
+
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+
+\endgroup{}%
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+g{-}{-}roupe
+\endgroup{}%
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+
 \texttt{@ref\{node\}} node
 
 \texttt{@ref\{,cross ref name\}} 
@@ -7153,12 +7296,10 @@ Various deff lines
 \index[cp]{a---a}%
 \index[cp]{b---b!c---c}%
 \index[cp]{d---dd!e---ee!f---ff}%
-\index[cp]{g---gg!h---hh jjj!k---kk!l---ll}%
 
 \index[fn]{f---aa@\texttt{f{-}{-}{-}aa}}%
 \index[fn]{f---bb@\texttt{f{-}{-}{-}bb}!f---cc@\texttt{f{-}{-}{-}cc}}%
 \index[fn]{f---ddd@\texttt{f{-}{-}{-}ddd}!f---eee@\texttt{f{-}{-}{-}eee}!ffff@\texttt{ffff}}%
-\index[fn]{f---ggg@\texttt{f{-}{-}{-}ggg}!f---hhh fjjj@\texttt{f{-}{-}{-}hhh fjjj}!f---kkk@\texttt{f{-}{-}{-}kkk}!f---lll@\texttt{f{-}{-}{-}lll}}%
 
 \index[cp]{aaa|see{bbb}}%
 \index[cp]{ddd|seealso{ccc}}%
@@ -7175,6 +7316,14 @@ Various deff lines
 \index[codeidx]{a index---entry te\~{} --- i\^{}@\texttt{a \emph{index{-}{-}{-}entry} t\~{e} {-}{-}{-} \^{\i{}}}}%
 
 \index[truc]{truc}%
+
+\index[cp]{g---gg!h---hh jjj!k---kk!l---ll}%
+
+\index[fn]{f---ggg@\texttt{f{-}{-}{-}ggg}!f---hhh fjjj@\texttt{f{-}{-}{-}hhh fjjj}!f---kkk@\texttt{f{-}{-}{-}kkk}!f---lll@\texttt{f{-}{-}{-}lll}}%
+
+\index[cp]{ddd|seealso{ccc}}%
+
+\index[fn]{f--ddd@\texttt{f{-}{-}{-}ddd}|seealso{f---ccc}}%
 
 
 Text\footnote{in footnote

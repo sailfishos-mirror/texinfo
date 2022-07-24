@@ -1,6 +1,10 @@
 \input texinfo @c -*-texinfo-*-
 @setfilename formatting.info
 
+@c valid Texinfo variable can be set to test only valid constructs.
+@c in practice ie can be used to output with TeX
+@c  texi2pdf -I layout/ -t '@set valid' layout/formatting.texi
+
 @dircategory Formatting @'e @code{@@ @TeX{}} test
 @direntry
 * Truc: (formatting).           The GNU documentation truc.
@@ -60,7 +64,6 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@ followed by a new line
 @
 @code{@@-} @-
-@code{@@|} @|
 @code{@@:} @:
 @code{@@!} @!
 @code{@@?} @?
@@ -204,20 +207,10 @@ but , ,@:
 @code{@@footnote@{in footnote@}} @footnote{in footnote}
 @code{@@footnote@{in footnote2@}} @footnote{in footnote2}
 
-@code{@@image@{f--ile@}} @image{f--ile}
-@code{@@image@{f--ile,l--i@}} @image{f--ile,l--i}
-@code{@@image@{f--ile,,l--e@}} @image{f--ile,,l--e}
-@code{@@image@{f--ile,,,alt@}} @image{f--ile,,,alt}
-@code{@@image@{f--ile,,,,.e-d-xt@}} @image{f--ile,,,,.e--xt}
-@code{@@image@{f--ile,aze,az,alt,.e--xt@}} @image{f--ile,aze,az,alt,.e--xt}
-@code{@@image@{f-ile,aze,,a--lt@}} @image{f-ile,aze,,a--lt}
-@code{@@image@{@@file@{f--ile@}@@@@@@.,aze,az,alt,@@file@{.file ext@} e--xt@@@}} @image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}}
-
 @code{@@sp 2}@*
 @sp 2
 @code{@@page}@*
 @page
-@author author
 
 @code{need 1002}
 @need 1002
@@ -229,86 +222,146 @@ After clickstyle @result{}
 @clickstyle @arrow
 
 @c test most commands that could happen in math mode
+
+@c TeX does not like @displamath in @example, the error is
+@c  Missing $ inserted.
+@c Therefore, if inexample is set, condition on valid.  Not that
+@c This type of nesting may not be valid.
+@ifset inexample
+@ifclear valid
+@end ifset
+@ignore
+in the displaymath below, as in math, backslash are doubled because 
+we are in a macro.
+@end ignore
+@displaymath
+disp--laymath
+f(x) = {1 \\over \\sigma \\sqrt{2\\pi}}e@sup{-{1 \\over 2}\\left({x-\\mu \\over \\sigma}\\right)^2}
+@end displaymath
+
 @displaymath
 @strong{``simple-double--three---four----''} @w{aa}
 `@w{}`simple-double-@w{}-three---four----'@w{}'@*
 @end displaymath
 
 @displaymath
-@"u @"{U} @~n @^a @'e @=o @`i @'{e} @dotless{i} @dotless{j} @`{@=E}
-@l{} @,{@'C} @,{@'C} @,c @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
-@u{a} @ubaraccent{a} @udotaccent{a} @v{a} @ogonek{a} a@sup{h}@sub{l}
+@dotless{i} @dotless{j}
+@l{} @,c
+@ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
 @* @ @  @
-@- @| @: @! @? @. @@ @} @{ @/
+@- @| @! @@ @} @{ @/
 @today{}
 @end displaymath
 
 @displaymath
 @click{}
 @U{0075}
-@TeX{} @LaTeX{} @bullet{} @copyright{} @dots{} @enddots{} @equiv{}
-@error{} @expansion{} @minus{} @point{} @print{} @result{}
-@aa{} @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
+@bullet{} @copyright{} @dots{} @enddots{} @equiv{}
+@error{} @expansion{} @minus{} @print{} @result{}
+@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
 @TH{} @dh{} @th{} @exclamdown{} @questiondown{} @pounds{}
-@registeredsymbol{} @ordf{} @ordm{} @comma{} 
+@ordf{} @ordm{} @comma{} 
 @end displaymath
 
 @displaymath
 @quotedblleft{} @quotedblright{} 
 @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{} @guillemetleft{}
 @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{}
-@guilsinglright{} @textdegree{} @euro{} @arrow{} @leq{} @geq{}
+@guilsinglright{} @euro{} @arrow{} @leq{} @geq{}
 @end displaymath
 
 @displaymath
-@b{b} @i{i} @r{r} @sc{sc} @t{t} @sansserif{sansserif} @slanted{slanted}
+@b{b} @i{i} @r{r} @sc{sc} @sansserif{sansserif} @slanted{slanted}
 @end displaymath
+@ifset inexample
+@end ifclear
+@end ifset
 
+@c as documented, TeX does not like @vtable in @example
+@c  This command won't work in this context; perhaps the 
+@c  problem is that we are in environment @example.
 @kbd{default kbdinputstyle}
+@c when called in @example
+@ifset inexample
+@ifclear valid
+@end ifset
 @vtable @kbd
 @item vtable i--tem default kbdinputstyle
 @end vtable
+@ifset inexample
+@end ifclear
+@end ifset
 @example
 @kbd{in example default kbdinputstyle}
+@c no @vtable in @example
+@ifclear valid
 @vtable @kbd
 @item vtable i--tem in example default kbdinputstyle
 @end vtable
+@end ifclear
 @end example
 
 @kbdinputstyle code
 @kbd{code kbdinputstyle}
+@ifset inexample
+@ifclear valid
+@end ifset
 @vtable @kbd
 @item vtable i--tem code kbdinputstyle
 @end vtable
+@ifset inexample
+@end ifclear
+@end ifset
 @example
 @kbd{in example code kbdinputstyle}
+@c no @vtable in @example
+@ifclear valid
 @vtable @kbd
 @item vtable i--tem in example code kbdinputstyle
 @end vtable
+@end ifclear
 @end example
 
 @kbdinputstyle example
 @kbd{example kbdinputstyle}
+@ifset inexample
+@ifclear valid
+@end ifset
 @vtable @kbd
 @item vtable i--tem example kbdinputstyle
 @end vtable
+@ifset inexample
+@end ifclear
+@end ifset
 @example
 @kbd{in example example kbdinputstyle}
+@c no @vtable in @example
+@ifclear valid
 @vtable @kbd
 @item vtable i--tem in example example kbdinputstyle
 @end vtable
+@end ifclear
 @end example
 
 @kbdinputstyle distinct
 @kbd{distinct kbdinputstyle}
+@ifset inexample
+@ifclear valid
+@end ifset
 @vtable @kbd
 @item vtable i--tem distinct kbdinputstyle
 @end vtable
+@ifset inexample
+@end ifclear
+@end ifset
 @example
 @kbd{in example distinct kbdinputstyle}
+@c no @vtable in @example
+@ifclear valid
 @vtable @kbd
 @item vtable i--tem in example distinct kbdinputstyle
 @end vtable
+@end ifclear
 @end example
 
 @quotation 
@@ -436,11 +489,6 @@ something, other thing
 @cindex index entry within itemize
 @item i--tem 1
 @item i--tem 2
-@end itemize
-
-@itemize @w
-@item without brace w a--b
-@item without brace w c--d
 @end itemize
 
 @itemize @w{}
@@ -583,15 +631,6 @@ f--ormat
 s--mallformat
 @end smallformat
 
-@ignore
-in the displaymath below, as in math, backslash are doubled because 
-we are in a macro.
-@end ignore
-@displaymath
-disp--laymath
-f(x) = {1 \\over \\sigma \\sqrt{2\\pi}}e@sup{-{1 \\over 2}\\left({x-\\mu \\over \\sigma}\\right)^2}
-@end displaymath
-
 @deffn c--ategory d--effn_name a--rguments...
 d--effn
 @end deffn
@@ -609,18 +648,13 @@ def--fn
 @deffnx Command {log trap2 } {}
 @deffnx cmde @b{id ule} truc
 @deffnx cmde2 @b{id @samp{i} ule} truc
-@deffnx @b{id @samp{i} ule}    
-@deffnx 
-@deffnx aaa
 @deffnx {} {}
-@deffnx{}
 @deffnx{} machin
 @deffnx{} {bidule machin}
 @deffnx{truc} machin
 @deffnx{truc} { }
 @deffnx{truc} followed by a comment
 @c comment
-@deffnx{truc}
 @deffnx{} {}
 @deffnx {truc} a b c d e @b{f g} {h i}
 @deffnx {truc} deffnx before end deffn
@@ -852,6 +886,13 @@ ref, a comma@comma{} in file}
 @ref{ext, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}, info file with uref3 @uref{href://http/myhost.com/index3.html,uref3}, printed manual with uref4 @uref{href://http/myhost.com/index4.html,uref4}}
 @ref{chapter, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}}
 
+@c TeX does not like @table in @example
+@c as documented The @table command is not supported inside @display
+@c  This command won't work in this context; perhaps the 
+@c  problem is that we are in environment @example.
+@ifset inexample
+@ifclear valid
+@end ifset
 @table @strong
 @c comment in table
 @item a--strong
@@ -884,14 +925,13 @@ Title
 @itemx a2--samp
 Value--table samp
 @end table
+@ifset inexample
+@end ifclear
+@end ifset
 
 @cartouche
 c--artouche
 @end cartouche
-
-@group
-g--roupe
-@end group
 
 @flushleft
 f--lushleft
@@ -953,10 +993,6 @@ $\\frac{a < b @code{tex \\hbox{ code }}}{b}$ ``
 
 @code{@@math@{--a@@minus@{@} @{\\frac@{1@}@{2@}@}@}} @math{--a@minus{} {\\frac{1}{2}}}
 
-@code{@@image@{f-ile,,,alt@@verb@{:jk _" %@:@}@}} @image{f-ile,,,alt@verb{:jk _" %@:}}
-@code{@@image@{f--ile,aze,az,@@verb@{:jk _" %@@:@} @@b@{in b "@},e--xt@}} @image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt}
-@code{@@image@{file@@verb@{:jk _" %@@:@},,,alt@@verb@{:jk _" %@@:@}@}} @image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}}
-
 
 
 @ifclear valid
@@ -971,6 +1007,9 @@ Invalid use of @@':@*
 @@' @'
 @*
 @@'@@"u @'@"u
+
+@c should only appear in @*heading
+@code{@@|} @|
 
 @c only i or j as arg
 @@dotless@{truc@} @dotless{truc}
@@ -1002,7 +1041,61 @@ Invalid use of @@':@*
 @code{@@image@{,,2--xt@}} @image{,,2--xt}
 @code{@@image@{,,,3--xt@}} @image{,,,3--xt}
 
+@c The file does not exist.  There would be other errors too
+@c  Could not find image file f-ile for pdf.
+@code{@@image@{f-ile,aze,,a--lt@}} @image{f-ile,aze,,a--lt}
+@code{@@image@{f-ile,,,alt@@verb@{:jk _" %@:@}@}} @image{f-ile,,,alt@verb{:jk _" %@:}}
+
+@c TeX gives an error, probably because the file is not a real png file
+@c  reading image file failed
+@code{@@image@{f--ile@}} @image{f--ile}
+@code{@@image@{f--ile,,,alt@}} @image{f--ile,,,alt}
+@code{@@image@{f--ile,,,,.e-d-xt@}} @image{f--ile,,,,.e--xt}
+@c TeX gives a legitimate error, rescaling argument should be numbers
+@c  Missing number, treated as zero.
+@code{@@image@{f--ile,l--i@}} @image{f--ile,l--i}
+@code{@@image@{f--ile,,l--e@}} @image{f--ile,,l--e}
+@code{@@image@{f--ile,aze,az,alt,.e--xt@}} @image{f--ile,aze,az,alt,.e--xt}
+@code{@@image@{@@file@{f--ile@}@@@@@@.,aze,az,alt,@@file@{.file ext@} e--xt@@@}} @image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}}
+
+@c It is not reliable to use @verb inside other Texinfo constructs
+@c  Use of @doverb doesn't match its definition.
+@code{@@image@{f--ile,aze,az,@@verb@{:jk _" %@@:@} @@b@{in b "@},e--xt@}} @image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt}
+@code{@@image@{file@@verb@{:jk _" %@@:@},,,alt@@verb@{:jk _" %@@:@}@}} @image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}}
+
 @sp
+
+@c  This command can appear only in environment @titlepage,
+@c  not outside of any environment.
+@author author
+
+@c TeX does not like some accents in @displaymath:
+@c  Please use @mathaccent for accents in math mode
+@c TeX does not like @: and @? in @displaymath:
+@c  You can't use `@spacefactor' in display math mode.
+@c With @. the error is strangely about @mathaccent
+@displaymath
+@"u @"{U} @~n @^a @'e @=o @`i @'{e} @`{@=E}
+@,{@'C} @,{@'C} @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
+@u{a} @v{a}
+@: @? @.
+@end displaymath
+
+@c TeX does not like @TeX{} in @displaymath:
+@c  You can't use `@spacefactor' in display math mode.
+@c TeX uses math for @point @registeredsymbol @textdegree which errors
+@c  @point ->$@star 
+@c  @registeredsymbol ->$^
+@c  Display math should end with $$.
+@displaymath
+@TeX{} @LaTeX{} @point{} @aa{} @registeredsymbol{} @textdegree{} 
+@end displaymath
+
+@c TeX is confused by @t{t}
+@c  Please use @mathaccent for accents in math mode.
+@displaymath
+@t{t} 
+@end displaymath
 
 @c style command in itemize
 @itemize @emph
@@ -1018,6 +1111,13 @@ Invalid use of @@':@*
 @itemize @bullet a--n itemize line
 @item i--tem 1
 @item i--tem 2
+@end itemize
+
+@c braces missing
+@c  Argument of @w has an extra }
+@itemize @w
+@item without brace w a--b
+@item without brace w c--d
 @end itemize
 
 @c not style formatting
@@ -1053,6 +1153,22 @@ l--ine
 Various deff lines
 @deffnx {truc} after a deff item
 @end deffn
+
+@c TeX requires 2 arguments minimum for @deffn
+@c  Paragraph ended before @deffngeneral was complete.
+@deffn fsetinv @var{invalid} a g
+@deffnx @b{id @samp{i} ule}    
+@deffnx 
+@deffnx aaa
+@deffnx{}
+@deffnx{truc}
+@end deffn
+
+@c TeX require @group in a contexte where each line of input produces a line of output
+@c  @group invalid in context where filling is enabled.
+@group
+g--roupe
+@end group
 
 @c node is non existent, or missing first arg
 @code{@@ref@{node@}} @ref{node}
@@ -1146,7 +1262,6 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@ followed by a new line
 @
 @code{@@-} @-
-@code{@@|} @|
 @code{@@:} @:
 @code{@@!} @!
 @code{@@?} @?
@@ -1290,20 +1405,10 @@ but , ,@:
 @code{@@footnote@{in footnote@}} @footnote{in footnote}
 @code{@@footnote@{in footnote2@}} @footnote{in footnote2}
 
-@code{@@image@{f--ile@}} @image{f--ile}
-@code{@@image@{f--ile,l--i@}} @image{f--ile,l--i}
-@code{@@image@{f--ile,,l--e@}} @image{f--ile,,l--e}
-@code{@@image@{f--ile,,,alt@}} @image{f--ile,,,alt}
-@code{@@image@{f--ile,,,,.e-d-xt@}} @image{f--ile,,,,.e--xt}
-@code{@@image@{f--ile,aze,az,alt,.e--xt@}} @image{f--ile,aze,az,alt,.e--xt}
-@code{@@image@{f-ile,aze,,a--lt@}} @image{f-ile,aze,,a--lt}
-@code{@@image@{@@file@{f--ile@}@@@@@@.,aze,az,alt,@@file@{.file ext@} e--xt@@@}} @image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}}
-
 @code{@@sp 2}@*
 @sp 2
 @code{@@page}@*
 @page
-@author author
 
 @code{need 1002}
 @need 1002
@@ -1315,47 +1420,66 @@ After clickstyle @result{}
 @clickstyle @arrow
 
 @c test most commands that could happen in math mode
+
+@c TeX does not like @displamath in @example, the error is
+@c  Missing $ inserted.
+@c Therefore, if inexample is set, condition on valid.  Not that
+@c This type of nesting may not be valid.
+@ignore
+in the displaymath below, as in math, backslash are doubled because 
+we are in a macro.
+@end ignore
+@displaymath
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+@end displaymath
+
 @displaymath
 @strong{``simple-double--three---four----''} @w{aa}
 `@w{}`simple-double-@w{}-three---four----'@w{}'@*
 @end displaymath
 
 @displaymath
-@"u @"{U} @~n @^a @'e @=o @`i @'{e} @dotless{i} @dotless{j} @`{@=E}
-@l{} @,{@'C} @,{@'C} @,c @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
-@u{a} @ubaraccent{a} @udotaccent{a} @v{a} @ogonek{a} a@sup{h}@sub{l}
+@dotless{i} @dotless{j}
+@l{} @,c
+@ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
 @* @ @  @
-@- @| @: @! @? @. @@ @} @{ @/
+@- @| @! @@ @} @{ @/
 @today{}
 @end displaymath
 
 @displaymath
 @click{}
 @U{0075}
-@TeX{} @LaTeX{} @bullet{} @copyright{} @dots{} @enddots{} @equiv{}
-@error{} @expansion{} @minus{} @point{} @print{} @result{}
-@aa{} @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
+@bullet{} @copyright{} @dots{} @enddots{} @equiv{}
+@error{} @expansion{} @minus{} @print{} @result{}
+@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
 @TH{} @dh{} @th{} @exclamdown{} @questiondown{} @pounds{}
-@registeredsymbol{} @ordf{} @ordm{} @comma{} 
+@ordf{} @ordm{} @comma{} 
 @end displaymath
 
 @displaymath
 @quotedblleft{} @quotedblright{} 
 @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{} @guillemetleft{}
 @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{}
-@guilsinglright{} @textdegree{} @euro{} @arrow{} @leq{} @geq{}
+@guilsinglright{} @euro{} @arrow{} @leq{} @geq{}
 @end displaymath
 
 @displaymath
-@b{b} @i{i} @r{r} @sc{sc} @t{t} @sansserif{sansserif} @slanted{slanted}
+@b{b} @i{i} @r{r} @sc{sc} @sansserif{sansserif} @slanted{slanted}
 @end displaymath
 
+@c as documented, TeX does not like @vtable in @example
+@c  This command won't work in this context; perhaps the 
+@c  problem is that we are in environment @example.
 @kbd{default kbdinputstyle}
+@c when called in @example
 @vtable @kbd
 @item vtable i--tem default kbdinputstyle
 @end vtable
 @example
 @kbd{in example default kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example default kbdinputstyle
 @end vtable
@@ -1368,6 +1492,7 @@ After clickstyle @result{}
 @end vtable
 @example
 @kbd{in example code kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example code kbdinputstyle
 @end vtable
@@ -1380,6 +1505,7 @@ After clickstyle @result{}
 @end vtable
 @example
 @kbd{in example example kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example example kbdinputstyle
 @end vtable
@@ -1392,6 +1518,7 @@ After clickstyle @result{}
 @end vtable
 @example
 @kbd{in example distinct kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example distinct kbdinputstyle
 @end vtable
@@ -1522,11 +1649,6 @@ something, other thing
 @cindex index entry within itemize
 @item i--tem 1
 @item i--tem 2
-@end itemize
-
-@itemize @w
-@item without brace w a--b
-@item without brace w c--d
 @end itemize
 
 @itemize @w{}
@@ -1669,15 +1791,6 @@ f--ormat
 s--mallformat
 @end smallformat
 
-@ignore
-in the displaymath below, as in math, backslash are doubled because 
-we are in a macro.
-@end ignore
-@displaymath
-disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
-@end displaymath
-
 @deffn c--ategory d--effn_name a--rguments...
 d--effn
 @end deffn
@@ -1694,18 +1807,13 @@ def--fn
 @deffnx Command {log trap2 } {}
 @deffnx cmde @b{id ule} truc
 @deffnx cmde2 @b{id @samp{i} ule} truc
-@deffnx @b{id @samp{i} ule}    
-@deffnx 
-@deffnx aaa
 @deffnx {} {}
-@deffnx{}
 @deffnx{} machin
 @deffnx{} {bidule machin}
 @deffnx{truc} machin
 @deffnx{truc} { }
 @deffnx{truc} followed by a comment
 @c comment
-@deffnx{truc}
 @deffnx{} {}
 @deffnx {truc} a b c d e @b{f g} {h i}
 @deffnx {truc} deffnx before end deffn
@@ -1937,6 +2045,10 @@ ref, a comma@comma{} in file}
 @ref{ext, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}, info file with uref3 @uref{href://http/myhost.com/index3.html,uref3}, printed manual with uref4 @uref{href://http/myhost.com/index4.html,uref4}}
 @ref{chapter, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}}
 
+@c TeX does not like @table in @example
+@c as documented The @table command is not supported inside @display
+@c  This command won't work in this context; perhaps the 
+@c  problem is that we are in environment @example.
 @table @strong
 @c comment in table
 @item a--strong
@@ -1973,10 +2085,6 @@ Value--table samp
 @cartouche
 c--artouche
 @end cartouche
-
-@group
-g--roupe
-@end group
 
 @flushleft
 f--lushleft
@@ -2033,10 +2141,6 @@ in verbatim ''
 
 @code{@@math@{--a@@minus@{@} @{\frac@{1@}@{2@}@}@}} @math{--a@minus{} {\frac{1}{2}}}
 
-@code{@@image@{f-ile,,,alt@@verb@{:jk _" %@:@}@}} @image{f-ile,,,alt@verb{:jk _" %@:}}
-@code{@@image@{f--ile,aze,az,@@verb@{:jk _" %@@:@} @@b@{in b "@},e--xt@}} @image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt}
-@code{@@image@{file@@verb@{:jk _" %@@:@},,,alt@@verb@{:jk _" %@@:@}@}} @image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}}
-
 
 
 @c invalid texinfo
@@ -2050,6 +2154,9 @@ Invalid use of @@':@*
 @@' @'
 @*
 @@'@@"u @'@"u
+
+@c should only appear in @*heading
+@code{@@|} @|
 
 @c only i or j as arg
 @@dotless@{truc@} @dotless{truc}
@@ -2076,7 +2183,61 @@ Invalid use of @@':@*
 @code{@@image@{,,2--xt@}} @image{,,2--xt}
 @code{@@image@{,,,3--xt@}} @image{,,,3--xt}
 
+@c The file does not exist.  There would be other errors too
+@c  Could not find image file f-ile for pdf.
+@code{@@image@{f-ile,aze,,a--lt@}} @image{f-ile,aze,,a--lt}
+@code{@@image@{f-ile,,,alt@@verb@{:jk _" %@:@}@}} @image{f-ile,,,alt@verb{:jk _" %@:}}
+
+@c TeX gives an error, probably because the file is not a real png file
+@c  reading image file failed
+@code{@@image@{f--ile@}} @image{f--ile}
+@code{@@image@{f--ile,,,alt@}} @image{f--ile,,,alt}
+@code{@@image@{f--ile,,,,.e-d-xt@}} @image{f--ile,,,,.e--xt}
+@c TeX gives a legitimate error, rescaling argument should be numbers
+@c  Missing number, treated as zero.
+@code{@@image@{f--ile,l--i@}} @image{f--ile,l--i}
+@code{@@image@{f--ile,,l--e@}} @image{f--ile,,l--e}
+@code{@@image@{f--ile,aze,az,alt,.e--xt@}} @image{f--ile,aze,az,alt,.e--xt}
+@code{@@image@{@@file@{f--ile@}@@@@@@.,aze,az,alt,@@file@{.file ext@} e--xt@@@}} @image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}}
+
+@c It is not reliable to use @verb inside other Texinfo constructs
+@c  Use of @doverb doesn't match its definition.
+@code{@@image@{f--ile,aze,az,@@verb@{:jk _" %@@:@} @@b@{in b "@},e--xt@}} @image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt}
+@code{@@image@{file@@verb@{:jk _" %@@:@},,,alt@@verb@{:jk _" %@@:@}@}} @image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}}
+
 @sp
+
+@c  This command can appear only in environment @titlepage,
+@c  not outside of any environment.
+@author author
+
+@c TeX does not like some accents in @displaymath:
+@c  Please use @mathaccent for accents in math mode
+@c TeX does not like @: and @? in @displaymath:
+@c  You can't use `@spacefactor' in display math mode.
+@c With @. the error is strangely about @mathaccent
+@displaymath
+@"u @"{U} @~n @^a @'e @=o @`i @'{e} @`{@=E}
+@,{@'C} @,{@'C} @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
+@u{a} @v{a}
+@: @? @.
+@end displaymath
+
+@c TeX does not like @TeX{} in @displaymath:
+@c  You can't use `@spacefactor' in display math mode.
+@c TeX uses math for @point @registeredsymbol @textdegree which errors
+@c  @point ->$@star 
+@c  @registeredsymbol ->$^
+@c  Display math should end with $$.
+@displaymath
+@TeX{} @LaTeX{} @point{} @aa{} @registeredsymbol{} @textdegree{} 
+@end displaymath
+
+@c TeX is confused by @t{t}
+@c  Please use @mathaccent for accents in math mode.
+@displaymath
+@t{t} 
+@end displaymath
 
 @c style command in itemize
 @itemize @emph
@@ -2092,6 +2253,13 @@ Invalid use of @@':@*
 @itemize @bullet a--n itemize line
 @item i--tem 1
 @item i--tem 2
+@end itemize
+
+@c braces missing
+@c  Argument of @w has an extra }
+@itemize @w
+@item without brace w a--b
+@item without brace w c--d
 @end itemize
 
 @c not style formatting
@@ -2127,6 +2295,22 @@ l--ine
 Various deff lines
 @deffnx {truc} after a deff item
 @end deffn
+
+@c TeX requires 2 arguments minimum for @deffn
+@c  Paragraph ended before @deffngeneral was complete.
+@deffn fsetinv @var{invalid} a g
+@deffnx @b{id @samp{i} ule}    
+@deffnx 
+@deffnx aaa
+@deffnx{}
+@deffnx{truc}
+@end deffn
+
+@c TeX require @group in a contexte where each line of input produces a line of output
+@c  @group invalid in context where filling is enabled.
+@group
+g--roupe
+@end group
 
 @c node is non existent, or missing first arg
 @code{@@ref@{node@}} @ref{node}
@@ -2168,6 +2352,7 @@ Various deff lines
 
 
 @end copying
+
 
 @titlepage
 @title title --a
@@ -2224,7 +2409,6 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@ followed by a new line
 @
 @code{@@-} @-
-@code{@@|} @|
 @code{@@:} @:
 @code{@@!} @!
 @code{@@?} @?
@@ -2368,20 +2552,10 @@ but , ,@:
 @code{@@footnote@{in footnote@}} @footnote{in footnote}
 @code{@@footnote@{in footnote2@}} @footnote{in footnote2}
 
-@code{@@image@{f--ile@}} @image{f--ile}
-@code{@@image@{f--ile,l--i@}} @image{f--ile,l--i}
-@code{@@image@{f--ile,,l--e@}} @image{f--ile,,l--e}
-@code{@@image@{f--ile,,,alt@}} @image{f--ile,,,alt}
-@code{@@image@{f--ile,,,,.e-d-xt@}} @image{f--ile,,,,.e--xt}
-@code{@@image@{f--ile,aze,az,alt,.e--xt@}} @image{f--ile,aze,az,alt,.e--xt}
-@code{@@image@{f-ile,aze,,a--lt@}} @image{f-ile,aze,,a--lt}
-@code{@@image@{@@file@{f--ile@}@@@@@@.,aze,az,alt,@@file@{.file ext@} e--xt@@@}} @image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}}
-
 @code{@@sp 2}@*
 @sp 2
 @code{@@page}@*
 @page
-@author author
 
 @code{need 1002}
 @need 1002
@@ -2393,47 +2567,66 @@ After clickstyle @result{}
 @clickstyle @arrow
 
 @c test most commands that could happen in math mode
+
+@c TeX does not like @displamath in @example, the error is
+@c  Missing $ inserted.
+@c Therefore, if inexample is set, condition on valid.  Not that
+@c This type of nesting may not be valid.
+@ignore
+in the displaymath below, as in math, backslash are doubled because 
+we are in a macro.
+@end ignore
+@displaymath
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+@end displaymath
+
 @displaymath
 @strong{``simple-double--three---four----''} @w{aa}
 `@w{}`simple-double-@w{}-three---four----'@w{}'@*
 @end displaymath
 
 @displaymath
-@"u @"{U} @~n @^a @'e @=o @`i @'{e} @dotless{i} @dotless{j} @`{@=E}
-@l{} @,{@'C} @,{@'C} @,c @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
-@u{a} @ubaraccent{a} @udotaccent{a} @v{a} @ogonek{a} a@sup{h}@sub{l}
+@dotless{i} @dotless{j}
+@l{} @,c
+@ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
 @* @ @  @
-@- @| @: @! @? @. @@ @} @{ @/
+@- @| @! @@ @} @{ @/
 @today{}
 @end displaymath
 
 @displaymath
 @click{}
 @U{0075}
-@TeX{} @LaTeX{} @bullet{} @copyright{} @dots{} @enddots{} @equiv{}
-@error{} @expansion{} @minus{} @point{} @print{} @result{}
-@aa{} @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
+@bullet{} @copyright{} @dots{} @enddots{} @equiv{}
+@error{} @expansion{} @minus{} @print{} @result{}
+@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
 @TH{} @dh{} @th{} @exclamdown{} @questiondown{} @pounds{}
-@registeredsymbol{} @ordf{} @ordm{} @comma{} 
+@ordf{} @ordm{} @comma{} 
 @end displaymath
 
 @displaymath
 @quotedblleft{} @quotedblright{} 
 @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{} @guillemetleft{}
 @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{}
-@guilsinglright{} @textdegree{} @euro{} @arrow{} @leq{} @geq{}
+@guilsinglright{} @euro{} @arrow{} @leq{} @geq{}
 @end displaymath
 
 @displaymath
-@b{b} @i{i} @r{r} @sc{sc} @t{t} @sansserif{sansserif} @slanted{slanted}
+@b{b} @i{i} @r{r} @sc{sc} @sansserif{sansserif} @slanted{slanted}
 @end displaymath
 
+@c as documented, TeX does not like @vtable in @example
+@c  This command won't work in this context; perhaps the 
+@c  problem is that we are in environment @example.
 @kbd{default kbdinputstyle}
+@c when called in @example
 @vtable @kbd
 @item vtable i--tem default kbdinputstyle
 @end vtable
 @example
 @kbd{in example default kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example default kbdinputstyle
 @end vtable
@@ -2446,6 +2639,7 @@ After clickstyle @result{}
 @end vtable
 @example
 @kbd{in example code kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example code kbdinputstyle
 @end vtable
@@ -2458,6 +2652,7 @@ After clickstyle @result{}
 @end vtable
 @example
 @kbd{in example example kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example example kbdinputstyle
 @end vtable
@@ -2470,6 +2665,7 @@ After clickstyle @result{}
 @end vtable
 @example
 @kbd{in example distinct kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example distinct kbdinputstyle
 @end vtable
@@ -2600,11 +2796,6 @@ something, other thing
 @cindex index entry within itemize
 @item i--tem 1
 @item i--tem 2
-@end itemize
-
-@itemize @w
-@item without brace w a--b
-@item without brace w c--d
 @end itemize
 
 @itemize @w{}
@@ -2747,15 +2938,6 @@ f--ormat
 s--mallformat
 @end smallformat
 
-@ignore
-in the displaymath below, as in math, backslash are doubled because 
-we are in a macro.
-@end ignore
-@displaymath
-disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
-@end displaymath
-
 @deffn c--ategory d--effn_name a--rguments...
 d--effn
 @end deffn
@@ -2772,18 +2954,13 @@ def--fn
 @deffnx Command {log trap2 } {}
 @deffnx cmde @b{id ule} truc
 @deffnx cmde2 @b{id @samp{i} ule} truc
-@deffnx @b{id @samp{i} ule}    
-@deffnx 
-@deffnx aaa
 @deffnx {} {}
-@deffnx{}
 @deffnx{} machin
 @deffnx{} {bidule machin}
 @deffnx{truc} machin
 @deffnx{truc} { }
 @deffnx{truc} followed by a comment
 @c comment
-@deffnx{truc}
 @deffnx{} {}
 @deffnx {truc} a b c d e @b{f g} {h i}
 @deffnx {truc} deffnx before end deffn
@@ -3015,6 +3192,10 @@ ref, a comma@comma{} in file}
 @ref{ext, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}, info file with uref3 @uref{href://http/myhost.com/index3.html,uref3}, printed manual with uref4 @uref{href://http/myhost.com/index4.html,uref4}}
 @ref{chapter, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}}
 
+@c TeX does not like @table in @example
+@c as documented The @table command is not supported inside @display
+@c  This command won't work in this context; perhaps the 
+@c  problem is that we are in environment @example.
 @table @strong
 @c comment in table
 @item a--strong
@@ -3051,10 +3232,6 @@ Value--table samp
 @cartouche
 c--artouche
 @end cartouche
-
-@group
-g--roupe
-@end group
 
 @flushleft
 f--lushleft
@@ -3111,10 +3288,6 @@ in verbatim ''
 
 @code{@@math@{--a@@minus@{@} @{\frac@{1@}@{2@}@}@}} @math{--a@minus{} {\frac{1}{2}}}
 
-@code{@@image@{f-ile,,,alt@@verb@{:jk _" %@:@}@}} @image{f-ile,,,alt@verb{:jk _" %@:}}
-@code{@@image@{f--ile,aze,az,@@verb@{:jk _" %@@:@} @@b@{in b "@},e--xt@}} @image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt}
-@code{@@image@{file@@verb@{:jk _" %@@:@},,,alt@@verb@{:jk _" %@@:@}@}} @image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}}
-
 
 
 @c invalid texinfo
@@ -3128,6 +3301,9 @@ Invalid use of @@':@*
 @@' @'
 @*
 @@'@@"u @'@"u
+
+@c should only appear in @*heading
+@code{@@|} @|
 
 @c only i or j as arg
 @@dotless@{truc@} @dotless{truc}
@@ -3154,7 +3330,61 @@ Invalid use of @@':@*
 @code{@@image@{,,2--xt@}} @image{,,2--xt}
 @code{@@image@{,,,3--xt@}} @image{,,,3--xt}
 
+@c The file does not exist.  There would be other errors too
+@c  Could not find image file f-ile for pdf.
+@code{@@image@{f-ile,aze,,a--lt@}} @image{f-ile,aze,,a--lt}
+@code{@@image@{f-ile,,,alt@@verb@{:jk _" %@:@}@}} @image{f-ile,,,alt@verb{:jk _" %@:}}
+
+@c TeX gives an error, probably because the file is not a real png file
+@c  reading image file failed
+@code{@@image@{f--ile@}} @image{f--ile}
+@code{@@image@{f--ile,,,alt@}} @image{f--ile,,,alt}
+@code{@@image@{f--ile,,,,.e-d-xt@}} @image{f--ile,,,,.e--xt}
+@c TeX gives a legitimate error, rescaling argument should be numbers
+@c  Missing number, treated as zero.
+@code{@@image@{f--ile,l--i@}} @image{f--ile,l--i}
+@code{@@image@{f--ile,,l--e@}} @image{f--ile,,l--e}
+@code{@@image@{f--ile,aze,az,alt,.e--xt@}} @image{f--ile,aze,az,alt,.e--xt}
+@code{@@image@{@@file@{f--ile@}@@@@@@.,aze,az,alt,@@file@{.file ext@} e--xt@@@}} @image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}}
+
+@c It is not reliable to use @verb inside other Texinfo constructs
+@c  Use of @doverb doesn't match its definition.
+@code{@@image@{f--ile,aze,az,@@verb@{:jk _" %@@:@} @@b@{in b "@},e--xt@}} @image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt}
+@code{@@image@{file@@verb@{:jk _" %@@:@},,,alt@@verb@{:jk _" %@@:@}@}} @image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}}
+
 @sp
+
+@c  This command can appear only in environment @titlepage,
+@c  not outside of any environment.
+@author author
+
+@c TeX does not like some accents in @displaymath:
+@c  Please use @mathaccent for accents in math mode
+@c TeX does not like @: and @? in @displaymath:
+@c  You can't use `@spacefactor' in display math mode.
+@c With @. the error is strangely about @mathaccent
+@displaymath
+@"u @"{U} @~n @^a @'e @=o @`i @'{e} @`{@=E}
+@,{@'C} @,{@'C} @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
+@u{a} @v{a}
+@: @? @.
+@end displaymath
+
+@c TeX does not like @TeX{} in @displaymath:
+@c  You can't use `@spacefactor' in display math mode.
+@c TeX uses math for @point @registeredsymbol @textdegree which errors
+@c  @point ->$@star 
+@c  @registeredsymbol ->$^
+@c  Display math should end with $$.
+@displaymath
+@TeX{} @LaTeX{} @point{} @aa{} @registeredsymbol{} @textdegree{} 
+@end displaymath
+
+@c TeX is confused by @t{t}
+@c  Please use @mathaccent for accents in math mode.
+@displaymath
+@t{t} 
+@end displaymath
 
 @c style command in itemize
 @itemize @emph
@@ -3170,6 +3400,13 @@ Invalid use of @@':@*
 @itemize @bullet a--n itemize line
 @item i--tem 1
 @item i--tem 2
+@end itemize
+
+@c braces missing
+@c  Argument of @w has an extra }
+@itemize @w
+@item without brace w a--b
+@item without brace w c--d
 @end itemize
 
 @c not style formatting
@@ -3205,6 +3442,22 @@ l--ine
 Various deff lines
 @deffnx {truc} after a deff item
 @end deffn
+
+@c TeX requires 2 arguments minimum for @deffn
+@c  Paragraph ended before @deffngeneral was complete.
+@deffn fsetinv @var{invalid} a g
+@deffnx @b{id @samp{i} ule}    
+@deffnx 
+@deffnx aaa
+@deffnx{}
+@deffnx{truc}
+@end deffn
+
+@c TeX require @group in a contexte where each line of input produces a line of output
+@c  @group invalid in context where filling is enabled.
+@group
+g--roupe
+@end group
 
 @c node is non existent, or missing first arg
 @code{@@ref@{node@}} @ref{node}
@@ -3328,7 +3581,6 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@ followed by a new line
 @
 @code{@@-} @-
-@code{@@|} @|
 @code{@@:} @:
 @code{@@!} @!
 @code{@@?} @?
@@ -3472,20 +3724,10 @@ but , ,@:
 @code{@@footnote@{in footnote@}} @footnote{in footnote}
 @code{@@footnote@{in footnote2@}} @footnote{in footnote2}
 
-@code{@@image@{f--ile@}} @image{f--ile}
-@code{@@image@{f--ile,l--i@}} @image{f--ile,l--i}
-@code{@@image@{f--ile,,l--e@}} @image{f--ile,,l--e}
-@code{@@image@{f--ile,,,alt@}} @image{f--ile,,,alt}
-@code{@@image@{f--ile,,,,.e-d-xt@}} @image{f--ile,,,,.e--xt}
-@code{@@image@{f--ile,aze,az,alt,.e--xt@}} @image{f--ile,aze,az,alt,.e--xt}
-@code{@@image@{f-ile,aze,,a--lt@}} @image{f-ile,aze,,a--lt}
-@code{@@image@{@@file@{f--ile@}@@@@@@.,aze,az,alt,@@file@{.file ext@} e--xt@@@}} @image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}}
-
 @code{@@sp 2}@*
 @sp 2
 @code{@@page}@*
 @page
-@author author
 
 @code{need 1002}
 @need 1002
@@ -3497,47 +3739,66 @@ After clickstyle @result{}
 @clickstyle @arrow
 
 @c test most commands that could happen in math mode
+
+@c TeX does not like @displamath in @example, the error is
+@c  Missing $ inserted.
+@c Therefore, if inexample is set, condition on valid.  Not that
+@c This type of nesting may not be valid.
+@ignore
+in the displaymath below, as in math, backslash are doubled because 
+we are in a macro.
+@end ignore
+@displaymath
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+@end displaymath
+
 @displaymath
 @strong{``simple-double--three---four----''} @w{aa}
 `@w{}`simple-double-@w{}-three---four----'@w{}'@*
 @end displaymath
 
 @displaymath
-@"u @"{U} @~n @^a @'e @=o @`i @'{e} @dotless{i} @dotless{j} @`{@=E}
-@l{} @,{@'C} @,{@'C} @,c @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
-@u{a} @ubaraccent{a} @udotaccent{a} @v{a} @ogonek{a} a@sup{h}@sub{l}
+@dotless{i} @dotless{j}
+@l{} @,c
+@ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
 @* @ @  @
-@- @| @: @! @? @. @@ @} @{ @/
+@- @| @! @@ @} @{ @/
 @today{}
 @end displaymath
 
 @displaymath
 @click{}
 @U{0075}
-@TeX{} @LaTeX{} @bullet{} @copyright{} @dots{} @enddots{} @equiv{}
-@error{} @expansion{} @minus{} @point{} @print{} @result{}
-@aa{} @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
+@bullet{} @copyright{} @dots{} @enddots{} @equiv{}
+@error{} @expansion{} @minus{} @print{} @result{}
+@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
 @TH{} @dh{} @th{} @exclamdown{} @questiondown{} @pounds{}
-@registeredsymbol{} @ordf{} @ordm{} @comma{} 
+@ordf{} @ordm{} @comma{} 
 @end displaymath
 
 @displaymath
 @quotedblleft{} @quotedblright{} 
 @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{} @guillemetleft{}
 @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{}
-@guilsinglright{} @textdegree{} @euro{} @arrow{} @leq{} @geq{}
+@guilsinglright{} @euro{} @arrow{} @leq{} @geq{}
 @end displaymath
 
 @displaymath
-@b{b} @i{i} @r{r} @sc{sc} @t{t} @sansserif{sansserif} @slanted{slanted}
+@b{b} @i{i} @r{r} @sc{sc} @sansserif{sansserif} @slanted{slanted}
 @end displaymath
 
+@c as documented, TeX does not like @vtable in @example
+@c  This command won't work in this context; perhaps the 
+@c  problem is that we are in environment @example.
 @kbd{default kbdinputstyle}
+@c when called in @example
 @vtable @kbd
 @item vtable i--tem default kbdinputstyle
 @end vtable
 @example
 @kbd{in example default kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example default kbdinputstyle
 @end vtable
@@ -3550,6 +3811,7 @@ After clickstyle @result{}
 @end vtable
 @example
 @kbd{in example code kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example code kbdinputstyle
 @end vtable
@@ -3562,6 +3824,7 @@ After clickstyle @result{}
 @end vtable
 @example
 @kbd{in example example kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example example kbdinputstyle
 @end vtable
@@ -3574,6 +3837,7 @@ After clickstyle @result{}
 @end vtable
 @example
 @kbd{in example distinct kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example distinct kbdinputstyle
 @end vtable
@@ -3704,11 +3968,6 @@ something, other thing
 @cindex index entry within itemize
 @item i--tem 1
 @item i--tem 2
-@end itemize
-
-@itemize @w
-@item without brace w a--b
-@item without brace w c--d
 @end itemize
 
 @itemize @w{}
@@ -3851,15 +4110,6 @@ f--ormat
 s--mallformat
 @end smallformat
 
-@ignore
-in the displaymath below, as in math, backslash are doubled because 
-we are in a macro.
-@end ignore
-@displaymath
-disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
-@end displaymath
-
 @deffn c--ategory d--effn_name a--rguments...
 d--effn
 @end deffn
@@ -3876,18 +4126,13 @@ def--fn
 @deffnx Command {log trap2 } {}
 @deffnx cmde @b{id ule} truc
 @deffnx cmde2 @b{id @samp{i} ule} truc
-@deffnx @b{id @samp{i} ule}    
-@deffnx 
-@deffnx aaa
 @deffnx {} {}
-@deffnx{}
 @deffnx{} machin
 @deffnx{} {bidule machin}
 @deffnx{truc} machin
 @deffnx{truc} { }
 @deffnx{truc} followed by a comment
 @c comment
-@deffnx{truc}
 @deffnx{} {}
 @deffnx {truc} a b c d e @b{f g} {h i}
 @deffnx {truc} deffnx before end deffn
@@ -4119,6 +4364,10 @@ ref, a comma@comma{} in file}
 @ref{ext, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}, info file with uref3 @uref{href://http/myhost.com/index3.html,uref3}, printed manual with uref4 @uref{href://http/myhost.com/index4.html,uref4}}
 @ref{chapter, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}}
 
+@c TeX does not like @table in @example
+@c as documented The @table command is not supported inside @display
+@c  This command won't work in this context; perhaps the 
+@c  problem is that we are in environment @example.
 @table @strong
 @c comment in table
 @item a--strong
@@ -4155,10 +4404,6 @@ Value--table samp
 @cartouche
 c--artouche
 @end cartouche
-
-@group
-g--roupe
-@end group
 
 @flushleft
 f--lushleft
@@ -4215,10 +4460,6 @@ in verbatim ''
 
 @code{@@math@{--a@@minus@{@} @{\frac@{1@}@{2@}@}@}} @math{--a@minus{} {\frac{1}{2}}}
 
-@code{@@image@{f-ile,,,alt@@verb@{:jk _" %@:@}@}} @image{f-ile,,,alt@verb{:jk _" %@:}}
-@code{@@image@{f--ile,aze,az,@@verb@{:jk _" %@@:@} @@b@{in b "@},e--xt@}} @image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt}
-@code{@@image@{file@@verb@{:jk _" %@@:@},,,alt@@verb@{:jk _" %@@:@}@}} @image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}}
-
 
 
 @c invalid texinfo
@@ -4232,6 +4473,9 @@ Invalid use of @@':@*
 @@' @'
 @*
 @@'@@"u @'@"u
+
+@c should only appear in @*heading
+@code{@@|} @|
 
 @c only i or j as arg
 @@dotless@{truc@} @dotless{truc}
@@ -4258,7 +4502,61 @@ Invalid use of @@':@*
 @code{@@image@{,,2--xt@}} @image{,,2--xt}
 @code{@@image@{,,,3--xt@}} @image{,,,3--xt}
 
+@c The file does not exist.  There would be other errors too
+@c  Could not find image file f-ile for pdf.
+@code{@@image@{f-ile,aze,,a--lt@}} @image{f-ile,aze,,a--lt}
+@code{@@image@{f-ile,,,alt@@verb@{:jk _" %@:@}@}} @image{f-ile,,,alt@verb{:jk _" %@:}}
+
+@c TeX gives an error, probably because the file is not a real png file
+@c  reading image file failed
+@code{@@image@{f--ile@}} @image{f--ile}
+@code{@@image@{f--ile,,,alt@}} @image{f--ile,,,alt}
+@code{@@image@{f--ile,,,,.e-d-xt@}} @image{f--ile,,,,.e--xt}
+@c TeX gives a legitimate error, rescaling argument should be numbers
+@c  Missing number, treated as zero.
+@code{@@image@{f--ile,l--i@}} @image{f--ile,l--i}
+@code{@@image@{f--ile,,l--e@}} @image{f--ile,,l--e}
+@code{@@image@{f--ile,aze,az,alt,.e--xt@}} @image{f--ile,aze,az,alt,.e--xt}
+@code{@@image@{@@file@{f--ile@}@@@@@@.,aze,az,alt,@@file@{.file ext@} e--xt@@@}} @image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}}
+
+@c It is not reliable to use @verb inside other Texinfo constructs
+@c  Use of @doverb doesn't match its definition.
+@code{@@image@{f--ile,aze,az,@@verb@{:jk _" %@@:@} @@b@{in b "@},e--xt@}} @image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt}
+@code{@@image@{file@@verb@{:jk _" %@@:@},,,alt@@verb@{:jk _" %@@:@}@}} @image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}}
+
 @sp
+
+@c  This command can appear only in environment @titlepage,
+@c  not outside of any environment.
+@author author
+
+@c TeX does not like some accents in @displaymath:
+@c  Please use @mathaccent for accents in math mode
+@c TeX does not like @: and @? in @displaymath:
+@c  You can't use `@spacefactor' in display math mode.
+@c With @. the error is strangely about @mathaccent
+@displaymath
+@"u @"{U} @~n @^a @'e @=o @`i @'{e} @`{@=E}
+@,{@'C} @,{@'C} @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
+@u{a} @v{a}
+@: @? @.
+@end displaymath
+
+@c TeX does not like @TeX{} in @displaymath:
+@c  You can't use `@spacefactor' in display math mode.
+@c TeX uses math for @point @registeredsymbol @textdegree which errors
+@c  @point ->$@star 
+@c  @registeredsymbol ->$^
+@c  Display math should end with $$.
+@displaymath
+@TeX{} @LaTeX{} @point{} @aa{} @registeredsymbol{} @textdegree{} 
+@end displaymath
+
+@c TeX is confused by @t{t}
+@c  Please use @mathaccent for accents in math mode.
+@displaymath
+@t{t} 
+@end displaymath
 
 @c style command in itemize
 @itemize @emph
@@ -4274,6 +4572,13 @@ Invalid use of @@':@*
 @itemize @bullet a--n itemize line
 @item i--tem 1
 @item i--tem 2
+@end itemize
+
+@c braces missing
+@c  Argument of @w has an extra }
+@itemize @w
+@item without brace w a--b
+@item without brace w c--d
 @end itemize
 
 @c not style formatting
@@ -4309,6 +4614,22 @@ l--ine
 Various deff lines
 @deffnx {truc} after a deff item
 @end deffn
+
+@c TeX requires 2 arguments minimum for @deffn
+@c  Paragraph ended before @deffngeneral was complete.
+@deffn fsetinv @var{invalid} a g
+@deffnx @b{id @samp{i} ule}    
+@deffnx 
+@deffnx aaa
+@deffnx{}
+@deffnx{truc}
+@end deffn
+
+@c TeX require @group in a contexte where each line of input produces a line of output
+@c  @group invalid in context where filling is enabled.
+@group
+g--roupe
+@end group
 
 @c node is non existent, or missing first arg
 @code{@@ref@{node@}} @ref{node}
@@ -4352,6 +4673,7 @@ Various deff lines
 
 In example.
 @example
+@set inexample 1
 
 <
 >
@@ -4400,7 +4722,6 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@ followed by a new line
 @
 @code{@@-} @-
-@code{@@|} @|
 @code{@@:} @:
 @code{@@!} @!
 @code{@@?} @?
@@ -4544,20 +4865,10 @@ but , ,@:
 @code{@@footnote@{in footnote@}} @footnote{in footnote}
 @code{@@footnote@{in footnote2@}} @footnote{in footnote2}
 
-@code{@@image@{f--ile@}} @image{f--ile}
-@code{@@image@{f--ile,l--i@}} @image{f--ile,l--i}
-@code{@@image@{f--ile,,l--e@}} @image{f--ile,,l--e}
-@code{@@image@{f--ile,,,alt@}} @image{f--ile,,,alt}
-@code{@@image@{f--ile,,,,.e-d-xt@}} @image{f--ile,,,,.e--xt}
-@code{@@image@{f--ile,aze,az,alt,.e--xt@}} @image{f--ile,aze,az,alt,.e--xt}
-@code{@@image@{f-ile,aze,,a--lt@}} @image{f-ile,aze,,a--lt}
-@code{@@image@{@@file@{f--ile@}@@@@@@.,aze,az,alt,@@file@{.file ext@} e--xt@@@}} @image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}}
-
 @code{@@sp 2}@*
 @sp 2
 @code{@@page}@*
 @page
-@author author
 
 @code{need 1002}
 @need 1002
@@ -4569,47 +4880,70 @@ After clickstyle @result{}
 @clickstyle @arrow
 
 @c test most commands that could happen in math mode
+
+@c TeX does not like @displamath in @example, the error is
+@c  Missing $ inserted.
+@c Therefore, if inexample is set, condition on valid.  Not that
+@c This type of nesting may not be valid.
+@end ifset
+@ignore
+in the displaymath below, as in math, backslash are doubled because 
+we are in a macro.
+@end ignore
+@displaymath
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+@end displaymath
+
 @displaymath
 @strong{``simple-double--three---four----''} @w{aa}
 `@w{}`simple-double-@w{}-three---four----'@w{}'@*
 @end displaymath
 
 @displaymath
-@"u @"{U} @~n @^a @'e @=o @`i @'{e} @dotless{i} @dotless{j} @`{@=E}
-@l{} @,{@'C} @,{@'C} @,c @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
-@u{a} @ubaraccent{a} @udotaccent{a} @v{a} @ogonek{a} a@sup{h}@sub{l}
+@dotless{i} @dotless{j}
+@l{} @,c
+@ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
 @* @ @  @
-@- @| @: @! @? @. @@ @} @{ @/
+@- @| @! @@ @} @{ @/
 @today{}
 @end displaymath
 
 @displaymath
 @click{}
 @U{0075}
-@TeX{} @LaTeX{} @bullet{} @copyright{} @dots{} @enddots{} @equiv{}
-@error{} @expansion{} @minus{} @point{} @print{} @result{}
-@aa{} @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
+@bullet{} @copyright{} @dots{} @enddots{} @equiv{}
+@error{} @expansion{} @minus{} @print{} @result{}
+@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
 @TH{} @dh{} @th{} @exclamdown{} @questiondown{} @pounds{}
-@registeredsymbol{} @ordf{} @ordm{} @comma{} 
+@ordf{} @ordm{} @comma{} 
 @end displaymath
 
 @displaymath
 @quotedblleft{} @quotedblright{} 
 @quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{} @guillemetleft{}
 @guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{}
-@guilsinglright{} @textdegree{} @euro{} @arrow{} @leq{} @geq{}
+@guilsinglright{} @euro{} @arrow{} @leq{} @geq{}
 @end displaymath
 
 @displaymath
-@b{b} @i{i} @r{r} @sc{sc} @t{t} @sansserif{sansserif} @slanted{slanted}
+@b{b} @i{i} @r{r} @sc{sc} @sansserif{sansserif} @slanted{slanted}
 @end displaymath
+@end ifclear
 
+@c as documented, TeX does not like @vtable in @example
+@c  This command won't work in this context; perhaps the 
+@c  problem is that we are in environment @example.
 @kbd{default kbdinputstyle}
+@c when called in @example
+@end ifset
 @vtable @kbd
 @item vtable i--tem default kbdinputstyle
 @end vtable
+@end ifclear
 @example
 @kbd{in example default kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example default kbdinputstyle
 @end vtable
@@ -4617,11 +4951,14 @@ After clickstyle @result{}
 
 @kbdinputstyle code
 @kbd{code kbdinputstyle}
+@end ifset
 @vtable @kbd
 @item vtable i--tem code kbdinputstyle
 @end vtable
+@end ifclear
 @example
 @kbd{in example code kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example code kbdinputstyle
 @end vtable
@@ -4629,11 +4966,14 @@ After clickstyle @result{}
 
 @kbdinputstyle example
 @kbd{example kbdinputstyle}
+@end ifset
 @vtable @kbd
 @item vtable i--tem example kbdinputstyle
 @end vtable
+@end ifclear
 @example
 @kbd{in example example kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example example kbdinputstyle
 @end vtable
@@ -4641,11 +4981,14 @@ After clickstyle @result{}
 
 @kbdinputstyle distinct
 @kbd{distinct kbdinputstyle}
+@end ifset
 @vtable @kbd
 @item vtable i--tem distinct kbdinputstyle
 @end vtable
+@end ifclear
 @example
 @kbd{in example distinct kbdinputstyle}
+@c no @vtable in @example
 @vtable @kbd
 @item vtable i--tem in example distinct kbdinputstyle
 @end vtable
@@ -4776,11 +5119,6 @@ something, other thing
 @cindex index entry within itemize
 @item i--tem 1
 @item i--tem 2
-@end itemize
-
-@itemize @w
-@item without brace w a--b
-@item without brace w c--d
 @end itemize
 
 @itemize @w{}
@@ -4923,15 +5261,6 @@ f--ormat
 s--mallformat
 @end smallformat
 
-@ignore
-in the displaymath below, as in math, backslash are doubled because 
-we are in a macro.
-@end ignore
-@displaymath
-disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
-@end displaymath
-
 @deffn c--ategory d--effn_name a--rguments...
 d--effn
 @end deffn
@@ -4948,18 +5277,13 @@ def--fn
 @deffnx Command {log trap2 } {}
 @deffnx cmde @b{id ule} truc
 @deffnx cmde2 @b{id @samp{i} ule} truc
-@deffnx @b{id @samp{i} ule}    
-@deffnx 
-@deffnx aaa
 @deffnx {} {}
-@deffnx{}
 @deffnx{} machin
 @deffnx{} {bidule machin}
 @deffnx{truc} machin
 @deffnx{truc} { }
 @deffnx{truc} followed by a comment
 @c comment
-@deffnx{truc}
 @deffnx{} {}
 @deffnx {truc} a b c d e @b{f g} {h i}
 @deffnx {truc} deffnx before end deffn
@@ -5191,6 +5515,11 @@ ref, a comma@comma{} in file}
 @ref{ext, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}, info file with uref3 @uref{href://http/myhost.com/index3.html,uref3}, printed manual with uref4 @uref{href://http/myhost.com/index4.html,uref4}}
 @ref{chapter, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}}
 
+@c TeX does not like @table in @example
+@c as documented The @table command is not supported inside @display
+@c  This command won't work in this context; perhaps the 
+@c  problem is that we are in environment @example.
+@end ifset
 @table @strong
 @c comment in table
 @item a--strong
@@ -5223,14 +5552,11 @@ Title
 @itemx a2--samp
 Value--table samp
 @end table
+@end ifclear
 
 @cartouche
 c--artouche
 @end cartouche
-
-@group
-g--roupe
-@end group
 
 @flushleft
 f--lushleft
@@ -5287,10 +5613,6 @@ in verbatim ''
 
 @code{@@math@{--a@@minus@{@} @{\frac@{1@}@{2@}@}@}} @math{--a@minus{} {\frac{1}{2}}}
 
-@code{@@image@{f-ile,,,alt@@verb@{:jk _" %@:@}@}} @image{f-ile,,,alt@verb{:jk _" %@:}}
-@code{@@image@{f--ile,aze,az,@@verb@{:jk _" %@@:@} @@b@{in b "@},e--xt@}} @image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt}
-@code{@@image@{file@@verb@{:jk _" %@@:@},,,alt@@verb@{:jk _" %@@:@}@}} @image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}}
-
 
 
 @c invalid texinfo
@@ -5304,6 +5626,9 @@ Invalid use of @@':@*
 @@' @'
 @*
 @@'@@"u @'@"u
+
+@c should only appear in @*heading
+@code{@@|} @|
 
 @c only i or j as arg
 @@dotless@{truc@} @dotless{truc}
@@ -5330,7 +5655,61 @@ Invalid use of @@':@*
 @code{@@image@{,,2--xt@}} @image{,,2--xt}
 @code{@@image@{,,,3--xt@}} @image{,,,3--xt}
 
+@c The file does not exist.  There would be other errors too
+@c  Could not find image file f-ile for pdf.
+@code{@@image@{f-ile,aze,,a--lt@}} @image{f-ile,aze,,a--lt}
+@code{@@image@{f-ile,,,alt@@verb@{:jk _" %@:@}@}} @image{f-ile,,,alt@verb{:jk _" %@:}}
+
+@c TeX gives an error, probably because the file is not a real png file
+@c  reading image file failed
+@code{@@image@{f--ile@}} @image{f--ile}
+@code{@@image@{f--ile,,,alt@}} @image{f--ile,,,alt}
+@code{@@image@{f--ile,,,,.e-d-xt@}} @image{f--ile,,,,.e--xt}
+@c TeX gives a legitimate error, rescaling argument should be numbers
+@c  Missing number, treated as zero.
+@code{@@image@{f--ile,l--i@}} @image{f--ile,l--i}
+@code{@@image@{f--ile,,l--e@}} @image{f--ile,,l--e}
+@code{@@image@{f--ile,aze,az,alt,.e--xt@}} @image{f--ile,aze,az,alt,.e--xt}
+@code{@@image@{@@file@{f--ile@}@@@@@@.,aze,az,alt,@@file@{.file ext@} e--xt@@@}} @image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}}
+
+@c It is not reliable to use @verb inside other Texinfo constructs
+@c  Use of @doverb doesn't match its definition.
+@code{@@image@{f--ile,aze,az,@@verb@{:jk _" %@@:@} @@b@{in b "@},e--xt@}} @image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt}
+@code{@@image@{file@@verb@{:jk _" %@@:@},,,alt@@verb@{:jk _" %@@:@}@}} @image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}}
+
 @sp
+
+@c  This command can appear only in environment @titlepage,
+@c  not outside of any environment.
+@author author
+
+@c TeX does not like some accents in @displaymath:
+@c  Please use @mathaccent for accents in math mode
+@c TeX does not like @: and @? in @displaymath:
+@c  You can't use `@spacefactor' in display math mode.
+@c With @. the error is strangely about @mathaccent
+@displaymath
+@"u @"{U} @~n @^a @'e @=o @`i @'{e} @`{@=E}
+@,{@'C} @,{@'C} @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
+@u{a} @v{a}
+@: @? @.
+@end displaymath
+
+@c TeX does not like @TeX{} in @displaymath:
+@c  You can't use `@spacefactor' in display math mode.
+@c TeX uses math for @point @registeredsymbol @textdegree which errors
+@c  @point ->$@star 
+@c  @registeredsymbol ->$^
+@c  Display math should end with $$.
+@displaymath
+@TeX{} @LaTeX{} @point{} @aa{} @registeredsymbol{} @textdegree{} 
+@end displaymath
+
+@c TeX is confused by @t{t}
+@c  Please use @mathaccent for accents in math mode.
+@displaymath
+@t{t} 
+@end displaymath
 
 @c style command in itemize
 @itemize @emph
@@ -5346,6 +5725,13 @@ Invalid use of @@':@*
 @itemize @bullet a--n itemize line
 @item i--tem 1
 @item i--tem 2
+@end itemize
+
+@c braces missing
+@c  Argument of @w has an extra }
+@itemize @w
+@item without brace w a--b
+@item without brace w c--d
 @end itemize
 
 @c not style formatting
@@ -5381,6 +5767,22 @@ l--ine
 Various deff lines
 @deffnx {truc} after a deff item
 @end deffn
+
+@c TeX requires 2 arguments minimum for @deffn
+@c  Paragraph ended before @deffngeneral was complete.
+@deffn fsetinv @var{invalid} a g
+@deffnx @b{id @samp{i} ule}    
+@deffnx 
+@deffnx aaa
+@deffnx{}
+@deffnx{truc}
+@end deffn
+
+@c TeX require @group in a contexte where each line of input produces a line of output
+@c  @group invalid in context where filling is enabled.
+@group
+g--roupe
+@end group
 
 @c node is non existent, or missing first arg
 @code{@@ref@{node@}} @ref{node}
@@ -5421,6 +5823,7 @@ Various deff lines
 @code{@@inforef@{@}} @inforef{}
 
 
+@clear inexample
 @end example
 
 @cindex t--ruc
@@ -5437,18 +5840,16 @@ Various deff lines
 @cindex a---a
 @cindex b---b @subentry c---c
 @cindex d---dd @subentry e---ee @subentry f---ff
-@cindex g---gg @subentry h---hh jjj @subentry k---kk @subentry l---ll
 
 @findex f---aa
 @findex f---bb @subentry f---cc
 @findex f---ddd @subentry f---eee @subentry ffff
-@findex f---ggg @subentry f---hhh fjjj @subentry f---kkk @subentry f---lll
 
 @cindex aaa @seeentry{bbb}
-@cindex @seealso{ccc} ddd
+@cindex ddd @seealso{ccc}
 
 @findex f---aaa @seeentry{f---bbb}
-@findex @seealso{f---ccc} f---ddd
+@findex f---ddd @seealso{f---ccc}
 
 @cindex aaa @sortas{A---S} @subentry @sortas{B---S1} bbb
 
@@ -5460,6 +5861,17 @@ Various deff lines
 @codeidxindex a @var{index---entry} t@~e --- @^{@dotless{i}}
 
 @trucindex truc
+
+@c error with texindex: Bad entry; expected 3 to 5 fields, not 6
+@cindex g---gg @subentry h---hh jjj @subentry k---kk @subentry l---ll
+
+@findex f---ggg @subentry f---hhh fjjj @subentry f---kkk @subentry f---lll
+
+@c incorrect order.  Cryptic error in TeX
+@c  File ended while scanning use of @initialx.
+@cindex @seealso{ccc} ddd
+
+@findex @seealso{f---ccc} f---ddd
 
 @syncodeindex vr cp
 

@@ -56,7 +56,6 @@ kbd: ``simple-double-three-four-''
  
 @ followed by a new line
  @- 
-@| 
 @: 
 @! !
 @? ?
@@ -200,15 +199,6 @@ a@sup{h}@sub{l} ahl
 @footnote{in footnote} 
 @footnote{in footnote2} 
 
-@image{f-ile} f-ile
-@image{f-ile,l-i} f-ile
-@image{f-ile,,l-e} f-ile
-@image{f-ile,,,alt} f-ile
-@image{f-ile,,,,.e-d-xt} f-ile
-@image{f-ile,aze,az,alt,.e-xt} f-ile
-@image{f-ile,aze,,a-lt} f-ile
-@image{@file{f-ile}@@@.,aze,az,alt,@file{.file ext} e-xt@} f-ile@.
-
 @sp 2
 
 
@@ -216,7 +206,6 @@ a@sup{h}@sub{l} ahl
 @page
 
 
-author
 
 need 1002
 
@@ -224,31 +213,35 @@ need 1002
 After clickstyle =>
 @clicksequence{click @click{} A} click => A
 
+
+disp-laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right)^2
+
 ``simple-double-three-four-'' aa
 ``simple-double-three-four-''
 
 
-u" U" n~ a^ e' o= i` e' i j E=`
-/l C', C', c, a'' a. a* a[
-a( a_ .a a< a; ahl
+i j
+/l c,
+a_ .a a; ahl
 
-        ! ? . @ } { 
+       ! @ } { 
 a sunny day
 
 ->
 0075
-TeX LaTeX * (C) ... ... ==
-error-> ==> - -!- -| =>
-aa AA ae oe AE OE /o /O ss /l /L D
+* (C) ... ... ==
+error-> ==> - -| =>
+AA ae oe AE OE /o /O ss /l /L D
 TH d th ! ? #
-(R) a o , 
+a o , 
 
 " " 
 ` ' ,, , <<
 >> << >> <
-> o Euro -> <= >=
+> Euro -> <= >=
 
-b i r SC t sansserif slanted
+b i r SC sansserif slanted
 
 default kbdinputstyle
 vtable i-tem default kbdinputstyle
@@ -348,9 +341,6 @@ e-mph item
 i-tem 1
 i-tem 2
 
-without brace w a-b
-without brace w c-d
-
 with w a-b
 with w c-d
 
@@ -428,9 +418,6 @@ f-ormat
 
 s-mallformat
 
-disp-laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right)^2
-
 c-ategory: d-effn_name a-rguments...
 d-effn
 
@@ -445,16 +432,12 @@ Command: log trap1
 Command: log trap2 
 cmde: id ule truc
 cmde2: id i ule truc
-id i ule: 
-aaa: 
-: 
 : 
 : machin
 : bidule machin
 truc: machin
 truc: 
 truc: followed by a comment
-truc: 
 : 
 truc: a b c d e f g h i
 truc: deffnx before end deffn
@@ -661,8 +644,6 @@ Value-table samp
 
 c-artouche
 
-g-roupe
-
 f-lushleft
 more text
 
@@ -716,10 +697,6 @@ subsubheading
 
 @math{-a@minus{} {\frac{1}{2}}} -a- {\frac{1}{2}}
 
-@image{f-ile,,,alt@verb{:jk _" %}} f-ile
-@image{f-ile,aze,az,@verb{:jk _" %@:} @b{in b "},e-xt} f-ile
-@image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}} filejk _" %@
-
 
 
 
@@ -736,6 +713,8 @@ Invalid use of @':
 
 
 @'@"u 'u"
+
+@| 
 
 @dotless{truc} truc
 @dotless{ij} ij
@@ -756,6 +735,31 @@ Invalid use of @':
 @image{,,2-xt} 
 @image{,,,3-xt} 
 
+@image{f-ile,aze,,a-lt} f-ile
+@image{f-ile,,,alt@verb{:jk _" %}} f-ile
+
+@image{f-ile} f-ile
+@image{f-ile,,,alt} f-ile
+@image{f-ile,,,,.e-d-xt} f-ile
+@image{f-ile,l-i} f-ile
+@image{f-ile,,l-e} f-ile
+@image{f-ile,aze,az,alt,.e-xt} f-ile
+@image{@file{f-ile}@@@.,aze,az,alt,@file{.file ext} e-xt@} f-ile@.
+
+@image{f-ile,aze,az,@verb{:jk _" %@:} @b{in b "},e-xt} f-ile
+@image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}} filejk _" %@
+
+
+author
+
+u" U" n~ a^ e' o= i` e' E=`
+C', C', a'' a. a* a[
+a( a<
+ ? .
+
+TeX LaTeX -!- aa (R) o 
+
+t 
 
 e-mph item
 
@@ -763,6 +767,9 @@ e-mph item
 
 i-tem 1
 i-tem 2
+
+without brace w a-b
+without brace w c-d
 
 a
 l-ine
@@ -782,6 +789,14 @@ truc: machin bidule chose and and after
 truc: followed by a comment
 Various deff lines
 truc: after a deff item
+
+fsetinv: invalid a g
+id i ule: 
+aaa: 
+: 
+truc: 
+
+g-roupe
 
 @ref{node} node
 
@@ -911,7 +926,6 @@ kbd: <kbd class="kbd">``simple-double--three---four----''</kbd> <br/>
 &#160;
 @ followed by a new line
 &#160;<code class="code">@-</code> 
-<code class="code">@|</code> 
 <code class="code">@:</code> 
 <code class="code">@!</code> !
 <code class="code">@?</code> ?
@@ -1055,52 +1069,46 @@ but , ,
 <code class="code">@footnote{in footnote}</code> <a class="footnote" id="DOCF3" href="formatting_fot.xhtml#FOOT3"><sup>1</sup></a>
 <code class="code">@footnote{in footnote2}</code> <a class="footnote" id="DOCF4" href="formatting_fot.xhtml#FOOT4"><sup>2</sup></a>
 </p>
-<p><code class="code">@image{f--ile}</code> <img class="image" src="../images/f--ile.png" alt="f--ile"/>
-<code class="code">@image{f--ile,l--i}</code> <img class="image" src="../images/f--ile.png" alt="f--ile"/>
-<code class="code">@image{f--ile,,l--e}</code> <img class="image" src="../images/f--ile.png" alt="f--ile"/>
-<code class="code">@image{f--ile,,,alt}</code> <img class="image" src="../images/f--ile.png" alt="alt"/>
-<code class="code">@image{f--ile,,,,.e-d-xt}</code> <img class="image" src="../images/f--ile.e--xt" alt="f--ile"/>
-<code class="code">@image{f--ile,aze,az,alt,.e--xt}</code> <img class="image" src="../images/f--ile.e--xt" alt="alt"/>
-<code class="code">@image{f-ile,aze,,a--lt}</code> <img class="image" src="../images/f-ile.jpg" alt="a&#8211;lt"/>
-<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img class="image" src="../images/f--ile@..file ext e--xt}" alt="alt"/>
-</p>
 <p><code class="code">@sp 2</code><br/>
 </p><br/>
 <br/>
 <p><code class="code">@page</code><br/>
-</p><strong class="author">author</strong><br/>
-
+</p>
 <p><code class="code">need 1002</code>
 </p>
 <p><code class="code">@clicksequence{click @click{} A}</code> click &#8594; A
 After clickstyle &#8658;
 <code class="code">@clicksequence{click @click{} A}</code> click &#8658; A
 </p>
+
+<div class="displaymath"><em>disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup class="sup">-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</sup>
+</em></div>
 <div class="displaymath"><em><strong class="strong">``simple-double--three---four----''</strong> aa<!-- /@w -->
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </em></div>
-<div class="displaymath"><em>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;&#768;
-&#322; &#262;&#807; &#262;&#807; &#231; a&#779; &#551; &#229; a&#865;
-&#259; a&#818; &#7841; &#462; &#261; a<sup class="sup">h</sup><sub class="sub">l</sub>
+<div class="displaymath"><em>i j
+&#322; &#231;
+a&#818; &#7841; &#261; a<sup class="sup">h</sup><sub class="sub">l</sub>
 
- &#160;&#160; &#160;   ! ? . @ } { 
+ &#160;&#160; &#160;  ! @ } { 
 a sunny day
 </em></div>
 <div class="displaymath"><em>&#8594;
 &#x0075;
-TeX LaTeX &#8226; &#169; &#8230; ... &#8801;
-error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
-&#229; &#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
+&#8226; &#169; &#8230; ... &#8801;
+error&#8594; &#8614; &#8722; &#8867; &#8658;
+&#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
 &#222; &#240; &#254; &#161; &#191; &#163;
-&#174; &#170; &#186; &#44; 
+&#170; &#186; &#44; 
 </em></div>
 <div class="displaymath"><em>&#8220; &#8221; 
 &#8216; &#8217; &#8222; &#8218; &#171;
 &#187; &#171; &#187; &#8249;
-&#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+&#8250; &#8364; &#8594; &#8804; &#8805;
 </em></div>
-<div class="displaymath"><em><b class="b">b</b> <i class="i">i</i> <span class="r">r</span> <small class="sc">SC</small> <code class="t">t</code> <span class="sansserif">sansserif</span> <i class="slanted">slanted</i>
+<div class="displaymath"><em><b class="b">b</b> <i class="i">i</i> <span class="r">r</span> <small class="sc">SC</small> <span class="sansserif">sansserif</span> <i class="slanted">slanted</i>
 </em></div>
 <p><kbd class="kbd">default kbdinputstyle</kbd>
 </p><dl class="vtable">
@@ -1272,11 +1280,6 @@ i&#8211;tem 1
 </li></ul>
 
 <ul class="itemize mark-none">
-<li>without brace w a&#8211;b
-</li><li>without brace w c&#8211;d
-</li></ul>
-
-<ul class="itemize mark-none">
 <li>with w a&#8211;b
 </li><li>with w c&#8211;d
 </li></ul>
@@ -1416,9 +1419,6 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <pre class="format-preformatted">s&#8211;mallformat
 </pre></div>
 
-<div class="displaymath"><em>disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup class="sup">-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</sup>
-</em></div>
 <dl class="first-deffn">
 <dt class="deffn" id="index-titlepage-d_002d_002deffn_005fname"><span class="category-def">c--ategory: </span><strong class="strong">d--effn_name</strong> <em class="emph">a--rguments...</em></dt>
 <dd><p>d&#8211;effn
@@ -1438,17 +1438,12 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup class="sup">-{1 \over 2}\left({x-\mu \o
 <dt class="deffnx def-cmd-deffn" id="index-titlepage-log-trap2"><span class="category-def">Command: </span><strong class="strong">log trap2</strong> <em class="emph"></em></dt>
 <dt class="deffnx def-cmd-deffn" id="index-titlepage-id-ule"><span class="category-def">cmde: </span><strong class="strong"><b class="b">id ule</b></strong> <em class="emph">truc</em></dt>
 <dt class="deffnx def-cmd-deffn" id="index-titlepage-id-i-ule"><span class="category-def">cmde2: </span><strong class="strong"><b class="b">id &#8216;<samp class="samp">i</samp>&#8217; ule</b></strong> <em class="emph">truc</em></dt>
-<dt class="deffnx def-cmd-deffn"><span class="category-def"><b class="b">id &#8216;<samp class="samp">i</samp>&#8217; ule</b>: </span><strong class="strong"></strong></dt>
-<dt class="deffnx def-cmd-deffn"><strong class="strong"></strong></dt>
-<dt class="deffnx def-cmd-deffn"><span class="category-def">aaa: </span><strong class="strong"></strong></dt>
-<dt class="deffnx def-cmd-deffn"><span class="category-def">: </span><strong class="strong"></strong></dt>
 <dt class="deffnx def-cmd-deffn"><span class="category-def">: </span><strong class="strong"></strong></dt>
 <dt class="deffnx def-cmd-deffn" id="index-titlepage-machin"><span class="category-def">: </span><strong class="strong">machin</strong></dt>
 <dt class="deffnx def-cmd-deffn" id="index-titlepage-bidule-machin"><span class="category-def">: </span><strong class="strong">bidule machin</strong></dt>
 <dt class="deffnx def-cmd-deffn" id="index-titlepage-machin-1"><span class="category-def">truc: </span><strong class="strong">machin</strong></dt>
 <dt class="deffnx def-cmd-deffn"><span class="category-def">truc: </span><strong class="strong"></strong></dt>
 <dt class="deffnx def-cmd-deffn" id="index-titlepage-followed"><span class="category-def">truc: </span><strong class="strong">followed</strong> <em class="emph">by a comment</em></dt>
-<dt class="deffnx def-cmd-deffn"><span class="category-def">truc: </span><strong class="strong"></strong></dt>
 <dt class="deffnx def-cmd-deffn"><span class="category-def">: </span><strong class="strong"></strong></dt>
 <dt class="deffnx def-cmd-deffn" id="index-titlepage-a"><span class="category-def">truc: </span><strong class="strong">a</strong> <em class="emph">b c d e <b class="b">f g</b> h i</em></dt>
 <dt class="deffnx def-cmd-deffn" id="index-titlepage-deffnx"><span class="category-def">truc: </span><strong class="strong">deffnx</strong> <em class="emph">before end deffn</em></dt>
@@ -1752,8 +1747,6 @@ ref</a>
 <p>c&#8211;artouche
 </p></td></tr></table>
 
-<div class="group"><p>g&#8211;roupe
-</p></div>
 <div class="flushleft"><p class="flushleft-paragraph">f&#8211;lushleft
 more text
 </p></div>
@@ -1802,10 +1795,6 @@ html ''
 </p>
 <p><code class="code">@math{--a@minus{} {\frac{1}{2}}}</code> <em class="math">--a&#8722; {\frac{1}{2}}</em>
 </p>
-<p><code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img class="image" src="../images/f-ile.jpg" alt="altjk _&quot; %@"/>
-<code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img class="image" src="../images/f--ile.e--xt" alt="jk _&quot; %@ in b &quot;"/>
-<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img class="image" src="../images/filejk _&quot; %@.jpg" alt="altjk _&quot; %@"/>
-</p>
 
 
 
@@ -1818,6 +1807,8 @@ html ''
 @&#8217; &#769;
 <br/>
 @&#8217;@&quot;u &#769;&#252;
+</p>
+<p><code class="code">@|</code> 
 </p>
 <p>@dotless{truc} truc
 @dotless{ij} ij
@@ -1838,7 +1829,32 @@ html ''
 <code class="code">@image{,,2--xt}</code> 
 <code class="code">@image{,,,3--xt}</code> 
 </p>
+<p><code class="code">@image{f-ile,aze,,a--lt}</code> <img class="image" src="../images/f-ile.jpg" alt="a&#8211;lt"/>
+<code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img class="image" src="../images/f-ile.jpg" alt="altjk _&quot; %@"/>
+</p>
+<p><code class="code">@image{f--ile}</code> <img class="image" src="../images/f--ile.png" alt="f--ile"/>
+<code class="code">@image{f--ile,,,alt}</code> <img class="image" src="../images/f--ile.png" alt="alt"/>
+<code class="code">@image{f--ile,,,,.e-d-xt}</code> <img class="image" src="../images/f--ile.e--xt" alt="f--ile"/>
+<code class="code">@image{f--ile,l--i}</code> <img class="image" src="../images/f--ile.png" alt="f--ile"/>
+<code class="code">@image{f--ile,,l--e}</code> <img class="image" src="../images/f--ile.png" alt="f--ile"/>
+<code class="code">@image{f--ile,aze,az,alt,.e--xt}</code> <img class="image" src="../images/f--ile.e--xt" alt="alt"/>
+<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img class="image" src="../images/f--ile@..file ext e--xt}" alt="alt"/>
+</p>
+<p><code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img class="image" src="../images/f--ile.e--xt" alt="jk _&quot; %@ in b &quot;"/>
+<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img class="image" src="../images/filejk _&quot; %@.jpg" alt="altjk _&quot; %@"/>
+</p>
 
+<strong class="author">author</strong><br/>
+
+<div class="displaymath"><em>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; &#274;&#768;
+&#262;&#807; &#262;&#807; a&#779; &#551; &#229; a&#865;
+&#259; &#462;
+ ? .
+</em></div>
+<div class="displaymath"><em>TeX LaTeX &#9733; &#229; &#174; &#176; 
+</em></div>
+<div class="displaymath"><em><code class="t">t</code> 
+</em></div>
 <ul class="itemize">
 <li>e&#8211;mph item
 </li></ul>
@@ -1850,6 +1866,11 @@ html ''
 <ul class="itemize" style="list-style-type: '\2022  a\2013 n itemize line'">
 <li>i&#8211;tem 1
 </li><li>i&#8211;tem 2
+</li></ul>
+
+<ul class="itemize mark-none">
+<li>without brace w a&#8211;b
+</li><li>without brace w c&#8211;d
 </li></ul>
 
 <dl class="table">
@@ -1884,6 +1905,17 @@ html ''
 </p></dd><dt class="deffnx def-cmd-deffn" id="index-titlepage-after"><span class="category-def">truc: </span><strong class="strong">after</strong> <em class="emph">a deff item</em></dt>
 </dl>
 
+<dl class="first-deffn">
+<dt class="deffn" id="index-titlepage-invalid"><span class="category-def">fsetinv: </span><strong class="strong"><var class="var">invalid</var></strong> <em class="emph">a g</em></dt>
+<dt class="deffnx def-cmd-deffn"><span class="category-def"><b class="b">id &#8216;<samp class="samp">i</samp>&#8217; ule</b>: </span><strong class="strong"></strong></dt>
+<dt class="deffnx def-cmd-deffn"><strong class="strong"></strong></dt>
+<dt class="deffnx def-cmd-deffn"><span class="category-def">aaa: </span><strong class="strong"></strong></dt>
+<dt class="deffnx def-cmd-deffn"><span class="category-def">: </span><strong class="strong"></strong></dt>
+<dt class="deffnx def-cmd-deffn"><span class="category-def">truc: </span><strong class="strong"></strong></dt>
+</dl>
+
+<div class="group"><p>g&#8211;roupe
+</p></div>
 <p><code class="code">@ref{node}</code> &#8216;node&#8217;
 </p>
 <p><code class="code">@ref{,cross ref name}</code> &#8216;cross ref name&#8217;
@@ -1972,7 +2004,6 @@ kbd: <kbd class="kbd">``simple-double--three---four----''</kbd> <br/>
 &#160;
 @ followed by a new line
 &#160;<code class="code">@-</code> 
-<code class="code">@|</code> 
 <code class="code">@:</code> 
 <code class="code">@!</code> !
 <code class="code">@?</code> ?
@@ -2116,15 +2147,6 @@ but , ,
 <code class="code">@footnote{in footnote}</code> <a class="footnote" id="DOCF1" href="formatting_fot.xhtml#FOOT1"><sup>3</sup></a>
 <code class="code">@footnote{in footnote2}</code> <a class="footnote" id="DOCF2" href="formatting_fot.xhtml#FOOT2"><sup>4</sup></a>
 </p>
-<p><code class="code">@image{f--ile}</code> <img class="image" src="../images/f--ile.png" alt="f--ile"/>
-<code class="code">@image{f--ile,l--i}</code> <img class="image" src="../images/f--ile.png" alt="f--ile"/>
-<code class="code">@image{f--ile,,l--e}</code> <img class="image" src="../images/f--ile.png" alt="f--ile"/>
-<code class="code">@image{f--ile,,,alt}</code> <img class="image" src="../images/f--ile.png" alt="alt"/>
-<code class="code">@image{f--ile,,,,.e-d-xt}</code> <img class="image" src="../images/f--ile.e--xt" alt="f--ile"/>
-<code class="code">@image{f--ile,aze,az,alt,.e--xt}</code> <img class="image" src="../images/f--ile.e--xt" alt="alt"/>
-<code class="code">@image{f-ile,aze,,a--lt}</code> <img class="image" src="../images/f-ile.jpg" alt="a&#8211;lt"/>
-<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img class="image" src="../images/f--ile@..file ext e--xt}" alt="alt"/>
-</p>
 <p><code class="code">@sp 2</code><br/>
 </p><br/>
 <br/>
@@ -2136,31 +2158,35 @@ but , ,
 After clickstyle &#8658;
 <code class="code">@clicksequence{click @click{} A}</code> click &#8658; A
 </p>
+
+<div class="displaymath"><em>disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup class="sup">-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</sup>
+</em></div>
 <div class="displaymath"><em><strong class="strong">``simple-double--three---four----''</strong> aa<!-- /@w -->
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </em></div>
-<div class="displaymath"><em>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;&#768;
-&#322; &#262;&#807; &#262;&#807; &#231; a&#779; &#551; &#229; a&#865;
-&#259; a&#818; &#7841; &#462; &#261; a<sup class="sup">h</sup><sub class="sub">l</sub>
+<div class="displaymath"><em>i j
+&#322; &#231;
+a&#818; &#7841; &#261; a<sup class="sup">h</sup><sub class="sub">l</sub>
 
- &#160;&#160; &#160;   ! ? . @ } { 
+ &#160;&#160; &#160;  ! @ } { 
 a sunny day
 </em></div>
 <div class="displaymath"><em>&#8594;
 &#x0075;
-TeX LaTeX &#8226; &#169; &#8230; ... &#8801;
-error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
-&#229; &#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
+&#8226; &#169; &#8230; ... &#8801;
+error&#8594; &#8614; &#8722; &#8867; &#8658;
+&#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
 &#222; &#240; &#254; &#161; &#191; &#163;
-&#174; &#170; &#186; &#44; 
+&#170; &#186; &#44; 
 </em></div>
 <div class="displaymath"><em>&#8220; &#8221; 
 &#8216; &#8217; &#8222; &#8218; &#171;
 &#187; &#171; &#187; &#8249;
-&#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+&#8250; &#8364; &#8594; &#8804; &#8805;
 </em></div>
-<div class="displaymath"><em><b class="b">b</b> <i class="i">i</i> <span class="r">r</span> <small class="sc">SC</small> <code class="t">t</code> <span class="sansserif">sansserif</span> <i class="slanted">slanted</i>
+<div class="displaymath"><em><b class="b">b</b> <i class="i">i</i> <span class="r">r</span> <small class="sc">SC</small> <span class="sansserif">sansserif</span> <i class="slanted">slanted</i>
 </em></div>
 <p><kbd class="kbd">default kbdinputstyle</kbd>
 </p><dl class="vtable">
@@ -2332,11 +2358,6 @@ i&#8211;tem 1
 </li></ul>
 
 <ul class="itemize mark-none">
-<li>without brace w a&#8211;b
-</li><li>without brace w c&#8211;d
-</li></ul>
-
-<ul class="itemize mark-none">
 <li>with w a&#8211;b
 </li><li>with w c&#8211;d
 </li></ul>
@@ -2476,9 +2497,6 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <pre class="format-preformatted">s&#8211;mallformat
 </pre></div>
 
-<div class="displaymath"><em>disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup class="sup">-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</sup>
-</em></div>
 <dl class="first-deffn">
 <dt class="deffn" id="index-copying-d_002d_002deffn_005fname"><span class="category-def">c--ategory: </span><strong class="strong">d--effn_name</strong> <em class="emph">a--rguments...</em></dt>
 <dd><p>d&#8211;effn
@@ -2498,17 +2516,12 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup class="sup">-{1 \over 2}\left({x-\mu \o
 <dt class="deffnx def-cmd-deffn" id="index-copying-log-trap2"><span class="category-def">Command: </span><strong class="strong">log trap2</strong> <em class="emph"></em></dt>
 <dt class="deffnx def-cmd-deffn" id="index-copying-id-ule"><span class="category-def">cmde: </span><strong class="strong"><b class="b">id ule</b></strong> <em class="emph">truc</em></dt>
 <dt class="deffnx def-cmd-deffn" id="index-copying-id-i-ule"><span class="category-def">cmde2: </span><strong class="strong"><b class="b">id &#8216;<samp class="samp">i</samp>&#8217; ule</b></strong> <em class="emph">truc</em></dt>
-<dt class="deffnx def-cmd-deffn"><span class="category-def"><b class="b">id &#8216;<samp class="samp">i</samp>&#8217; ule</b>: </span><strong class="strong"></strong></dt>
-<dt class="deffnx def-cmd-deffn"><strong class="strong"></strong></dt>
-<dt class="deffnx def-cmd-deffn"><span class="category-def">aaa: </span><strong class="strong"></strong></dt>
-<dt class="deffnx def-cmd-deffn"><span class="category-def">: </span><strong class="strong"></strong></dt>
 <dt class="deffnx def-cmd-deffn"><span class="category-def">: </span><strong class="strong"></strong></dt>
 <dt class="deffnx def-cmd-deffn" id="index-copying-machin"><span class="category-def">: </span><strong class="strong">machin</strong></dt>
 <dt class="deffnx def-cmd-deffn" id="index-copying-bidule-machin"><span class="category-def">: </span><strong class="strong">bidule machin</strong></dt>
 <dt class="deffnx def-cmd-deffn" id="index-copying-machin-1"><span class="category-def">truc: </span><strong class="strong">machin</strong></dt>
 <dt class="deffnx def-cmd-deffn"><span class="category-def">truc: </span><strong class="strong"></strong></dt>
 <dt class="deffnx def-cmd-deffn" id="index-copying-followed"><span class="category-def">truc: </span><strong class="strong">followed</strong> <em class="emph">by a comment</em></dt>
-<dt class="deffnx def-cmd-deffn"><span class="category-def">truc: </span><strong class="strong"></strong></dt>
 <dt class="deffnx def-cmd-deffn"><span class="category-def">: </span><strong class="strong"></strong></dt>
 <dt class="deffnx def-cmd-deffn" id="index-copying-a"><span class="category-def">truc: </span><strong class="strong">a</strong> <em class="emph">b c d e <b class="b">f g</b> h i</em></dt>
 <dt class="deffnx def-cmd-deffn" id="index-copying-deffnx"><span class="category-def">truc: </span><strong class="strong">deffnx</strong> <em class="emph">before end deffn</em></dt>
@@ -2812,8 +2825,6 @@ ref</a>
 <p>c&#8211;artouche
 </p></td></tr></table>
 
-<div class="group"><p>g&#8211;roupe
-</p></div>
 <div class="flushleft"><p class="flushleft-paragraph">f&#8211;lushleft
 more text
 </p></div>
@@ -2862,10 +2873,6 @@ html ''
 </p>
 <p><code class="code">@math{--a@minus{} {\frac{1}{2}}}</code> <em class="math">--a&#8722; {\frac{1}{2}}</em>
 </p>
-<p><code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img class="image" src="../images/f-ile.jpg" alt="altjk _&quot; %@"/>
-<code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img class="image" src="../images/f--ile.e--xt" alt="jk _&quot; %@ in b &quot;"/>
-<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img class="image" src="../images/filejk _&quot; %@.jpg" alt="altjk _&quot; %@"/>
-</p>
 
 
 
@@ -2878,6 +2885,8 @@ html ''
 @&#8217; &#769;
 <br/>
 @&#8217;@&quot;u &#769;&#252;
+</p>
+<p><code class="code">@|</code> 
 </p>
 <p>@dotless{truc} truc
 @dotless{ij} ij
@@ -2898,7 +2907,31 @@ html ''
 <code class="code">@image{,,2--xt}</code> 
 <code class="code">@image{,,,3--xt}</code> 
 </p>
+<p><code class="code">@image{f-ile,aze,,a--lt}</code> <img class="image" src="../images/f-ile.jpg" alt="a&#8211;lt"/>
+<code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img class="image" src="../images/f-ile.jpg" alt="altjk _&quot; %@"/>
+</p>
+<p><code class="code">@image{f--ile}</code> <img class="image" src="../images/f--ile.png" alt="f--ile"/>
+<code class="code">@image{f--ile,,,alt}</code> <img class="image" src="../images/f--ile.png" alt="alt"/>
+<code class="code">@image{f--ile,,,,.e-d-xt}</code> <img class="image" src="../images/f--ile.e--xt" alt="f--ile"/>
+<code class="code">@image{f--ile,l--i}</code> <img class="image" src="../images/f--ile.png" alt="f--ile"/>
+<code class="code">@image{f--ile,,l--e}</code> <img class="image" src="../images/f--ile.png" alt="f--ile"/>
+<code class="code">@image{f--ile,aze,az,alt,.e--xt}</code> <img class="image" src="../images/f--ile.e--xt" alt="alt"/>
+<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img class="image" src="../images/f--ile@..file ext e--xt}" alt="alt"/>
+</p>
+<p><code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img class="image" src="../images/f--ile.e--xt" alt="jk _&quot; %@ in b &quot;"/>
+<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img class="image" src="../images/filejk _&quot; %@.jpg" alt="altjk _&quot; %@"/>
+</p>
 
+
+<div class="displaymath"><em>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; &#274;&#768;
+&#262;&#807; &#262;&#807; a&#779; &#551; &#229; a&#865;
+&#259; &#462;
+ ? .
+</em></div>
+<div class="displaymath"><em>TeX LaTeX &#9733; &#229; &#174; &#176; 
+</em></div>
+<div class="displaymath"><em><code class="t">t</code> 
+</em></div>
 <ul class="itemize">
 <li>e&#8211;mph item
 </li></ul>
@@ -2910,6 +2943,11 @@ html ''
 <ul class="itemize" style="list-style-type: '\2022  a\2013 n itemize line'">
 <li>i&#8211;tem 1
 </li><li>i&#8211;tem 2
+</li></ul>
+
+<ul class="itemize mark-none">
+<li>without brace w a&#8211;b
+</li><li>without brace w c&#8211;d
 </li></ul>
 
 <dl class="table">
@@ -2944,6 +2982,17 @@ html ''
 </p></dd><dt class="deffnx def-cmd-deffn" id="index-copying-after"><span class="category-def">truc: </span><strong class="strong">after</strong> <em class="emph">a deff item</em></dt>
 </dl>
 
+<dl class="first-deffn">
+<dt class="deffn" id="index-copying-invalid"><span class="category-def">fsetinv: </span><strong class="strong"><var class="var">invalid</var></strong> <em class="emph">a g</em></dt>
+<dt class="deffnx def-cmd-deffn"><span class="category-def"><b class="b">id &#8216;<samp class="samp">i</samp>&#8217; ule</b>: </span><strong class="strong"></strong></dt>
+<dt class="deffnx def-cmd-deffn"><strong class="strong"></strong></dt>
+<dt class="deffnx def-cmd-deffn"><span class="category-def">aaa: </span><strong class="strong"></strong></dt>
+<dt class="deffnx def-cmd-deffn"><span class="category-def">: </span><strong class="strong"></strong></dt>
+<dt class="deffnx def-cmd-deffn"><span class="category-def">truc: </span><strong class="strong"></strong></dt>
+</dl>
+
+<div class="group"><p>g&#8211;roupe
+</p></div>
 <p><code class="code">@ref{node}</code> &#8216;node&#8217;
 </p>
 <p><code class="code">@ref{,cross ref name}</code> &#8216;cross ref name&#8217;
@@ -2981,6 +3030,8 @@ html ''
 <code class="code">@inforef{,cross ref name, file name}</code> See <a href="../file name_html/index.html">(file name)cross ref name</a>
 <code class="code">@inforef{}</code> 
 </p>
+
+
 
 
 

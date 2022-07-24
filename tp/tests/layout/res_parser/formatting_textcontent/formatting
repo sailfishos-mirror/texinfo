@@ -1,4 +1,5 @@
 
+
 * Truc: (formatting).           The GNU documentation truc.
 * @ e' ==: (formatting).  ``--- something'' 
                            cmd a`
@@ -57,7 +58,6 @@ kbd: ``simple-double--three---four----''
  
 @ followed by a new line
  @- 
-@| 
 @: 
 @! !
 @? ?
@@ -201,21 +201,11 @@ a@sup{h}@sub{l} ahl
 @footnote{in footnote} in footnote
 @footnote{in footnote2} in footnote2
 
-@image{f--ile} f--ile
-@image{f--ile,l--i} f--ilel--i
-@image{f--ile,,l--e} f--ilel--e
-@image{f--ile,,,alt} f--ilealt
-@image{f--ile,,,,.e-d-xt} f--ile.e--xt
-@image{f--ile,aze,az,alt,.e--xt} f--ileazeazalt.e--xt
-@image{f-ile,aze,,a--lt} f-ileazea--lt
-@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@} f--ile@.azeazalt.file ext e--xt}
-
 @sp 2
 
 @page
 
 
-author
 
 need 1002
 
@@ -223,31 +213,35 @@ need 1002
 After clickstyle =>
 @clicksequence{click @click{} A} click => A
 
+
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right)^2
+
 ``simple-double--three---four----'' aa
 ``simple-double--three---four----''
 
 
-u" U" n~ a^ e' o= i` e' i j E=`
-/l C', C', c, a'' a. a* a[
-a( a_ .a a< a; ahl
+i j
+/l c,
+a_ .a a; ahl
 
-        ! ? . @ } { 
+       ! @ } { 
 a sunny day
 
 ->
 0075
-TeX LaTeX * (C) ... ... ==
-error--> ==> - -!- -| =>
-aa AA ae oe AE OE /o /O ss /l /L D
+* (C) ... ... ==
+error--> ==> - -| =>
+AA ae oe AE OE /o /O ss /l /L D
 TH d th ! ? #
-(R) a o , 
+a o , 
 
 " " 
 ` ' ,, , <<
 >> << >> <
-> o Euro -> <= >=
+> Euro -> <= >=
 
-b i r sc t sansserif slanted
+b i r sc sansserif slanted
 
 default kbdinputstyle
 vtable i--tem default kbdinputstyle
@@ -335,9 +329,6 @@ e--mph item
 i--tem 1
 i--tem 2
 
-without brace w a--b
-without brace w c--d
-
 with w a--b
 with w c--d
 
@@ -417,9 +408,6 @@ f--ormat
 
 s--mallformat
 
-disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right)^2
-
 c--ategory d--effn_name a--rguments...
 d--effn
 
@@ -434,16 +422,12 @@ Command log trap1
 Command log trap2 
 cmde id ule truc
 cmde2 id i ule truc
-id i ule    
-aaa
  
-
  machin
  bidule machin
 truc machin
 truc 
 truc followed by a comment
-truc
  
 truc a b c d e f g h i
 truc deffnx before end deffn
@@ -652,8 +636,6 @@ Value--table samp
 
 c--artouche
 
-g--roupe
-
 f--lushleft
 more text
 
@@ -690,10 +672,6 @@ subsubheading
 
 @math{--a@minus{} {\frac{1}{2}}} --a- {\frac{1}{2}}
 
-@image{f-ile,,,alt@verb{:jk _" %}} f-ilealtjk _" %@
-@image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt} f--ileazeazjk _" %@ in b "e--xt
-@image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}} filejk _" %@altjk _" %@
-
 
 
 
@@ -710,6 +688,8 @@ Invalid use of @':
 
 
 @'@"u 'u"
+
+@| 
 
 @dotless{truc} truc
 @dotless{ij} ij
@@ -730,6 +710,31 @@ Invalid use of @':
 @image{,,2--xt} 2--xt
 @image{,,,3--xt} 3--xt
 
+@image{f-ile,aze,,a--lt} f-ileazea--lt
+@image{f-ile,,,alt@verb{:jk _" %}} f-ilealtjk _" %@
+
+@image{f--ile} f--ile
+@image{f--ile,,,alt} f--ilealt
+@image{f--ile,,,,.e-d-xt} f--ile.e--xt
+@image{f--ile,l--i} f--ilel--i
+@image{f--ile,,l--e} f--ilel--e
+@image{f--ile,aze,az,alt,.e--xt} f--ileazeazalt.e--xt
+@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@} f--ile@.azeazalt.file ext e--xt}
+
+@image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt} f--ileazeazjk _" %@ in b "e--xt
+@image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}} filejk _" %@altjk _" %@
+
+
+author
+
+u" U" n~ a^ e' o= i` e' E=`
+C', C', a'' a. a* a[
+a( a<
+ ? .
+
+TeX LaTeX -!- aa (R) o 
+
+t 
 
 e--mph item
 
@@ -737,6 +742,9 @@ e--mph item
 
 i--tem 1
 i--tem 2
+
+without brace w a--b
+without brace w c--d
 
 a
 l--ine
@@ -754,6 +762,14 @@ truc machin bidule chose and  after
 truc machin bidule chose and truc machin bidule chose and and aftertruc followed by a comment
 Various deff lines
 truc after a deff item
+
+fsetinv invalid a g
+id i ule    
+aaa
+
+truc
+
+g--roupe
 
 @ref{node} node
 
@@ -791,6 +807,7 @@ truc after a deff item
 @inforef{,,file name} file name
 @inforef{,cross ref name, file name} cross ref namefile name
 @inforef{} 
+
 
 
 
@@ -851,7 +868,6 @@ kbd: ``simple-double--three---four----''
  
 @ followed by a new line
  @- 
-@| 
 @: 
 @! !
 @? ?
@@ -995,21 +1011,11 @@ a@sup{h}@sub{l} ahl
 @footnote{in footnote} in footnote
 @footnote{in footnote2} in footnote2
 
-@image{f--ile} f--ile
-@image{f--ile,l--i} f--ilel--i
-@image{f--ile,,l--e} f--ilel--e
-@image{f--ile,,,alt} f--ilealt
-@image{f--ile,,,,.e-d-xt} f--ile.e--xt
-@image{f--ile,aze,az,alt,.e--xt} f--ileazeazalt.e--xt
-@image{f-ile,aze,,a--lt} f-ileazea--lt
-@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@} f--ile@.azeazalt.file ext e--xt}
-
 @sp 2
 
 @page
 
 
-author
 
 need 1002
 
@@ -1017,31 +1023,35 @@ need 1002
 After clickstyle =>
 @clicksequence{click @click{} A} click => A
 
+
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right)^2
+
 ``simple-double--three---four----'' aa
 ``simple-double--three---four----''
 
 
-u" U" n~ a^ e' o= i` e' i j E=`
-/l C', C', c, a'' a. a* a[
-a( a_ .a a< a; ahl
+i j
+/l c,
+a_ .a a; ahl
 
-        ! ? . @ } { 
+       ! @ } { 
 a sunny day
 
 ->
 0075
-TeX LaTeX * (C) ... ... ==
-error--> ==> - -!- -| =>
-aa AA ae oe AE OE /o /O ss /l /L D
+* (C) ... ... ==
+error--> ==> - -| =>
+AA ae oe AE OE /o /O ss /l /L D
 TH d th ! ? #
-(R) a o , 
+a o , 
 
 " " 
 ` ' ,, , <<
 >> << >> <
-> o Euro -> <= >=
+> Euro -> <= >=
 
-b i r sc t sansserif slanted
+b i r sc sansserif slanted
 
 default kbdinputstyle
 vtable i--tem default kbdinputstyle
@@ -1129,9 +1139,6 @@ e--mph item
 i--tem 1
 i--tem 2
 
-without brace w a--b
-without brace w c--d
-
 with w a--b
 with w c--d
 
@@ -1211,9 +1218,6 @@ f--ormat
 
 s--mallformat
 
-disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right)^2
-
 c--ategory d--effn_name a--rguments...
 d--effn
 
@@ -1228,16 +1232,12 @@ Command log trap1
 Command log trap2 
 cmde id ule truc
 cmde2 id i ule truc
-id i ule    
-aaa
  
-
  machin
  bidule machin
 truc machin
 truc 
 truc followed by a comment
-truc
  
 truc a b c d e f g h i
 truc deffnx before end deffn
@@ -1446,8 +1446,6 @@ Value--table samp
 
 c--artouche
 
-g--roupe
-
 f--lushleft
 more text
 
@@ -1484,10 +1482,6 @@ subsubheading
 
 @math{--a@minus{} {\frac{1}{2}}} --a- {\frac{1}{2}}
 
-@image{f-ile,,,alt@verb{:jk _" %}} f-ilealtjk _" %@
-@image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt} f--ileazeazjk _" %@ in b "e--xt
-@image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}} filejk _" %@altjk _" %@
-
 
 
 
@@ -1504,6 +1498,8 @@ Invalid use of @':
 
 
 @'@"u 'u"
+
+@| 
 
 @dotless{truc} truc
 @dotless{ij} ij
@@ -1524,6 +1520,31 @@ Invalid use of @':
 @image{,,2--xt} 2--xt
 @image{,,,3--xt} 3--xt
 
+@image{f-ile,aze,,a--lt} f-ileazea--lt
+@image{f-ile,,,alt@verb{:jk _" %}} f-ilealtjk _" %@
+
+@image{f--ile} f--ile
+@image{f--ile,,,alt} f--ilealt
+@image{f--ile,,,,.e-d-xt} f--ile.e--xt
+@image{f--ile,l--i} f--ilel--i
+@image{f--ile,,l--e} f--ilel--e
+@image{f--ile,aze,az,alt,.e--xt} f--ileazeazalt.e--xt
+@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@} f--ile@.azeazalt.file ext e--xt}
+
+@image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt} f--ileazeazjk _" %@ in b "e--xt
+@image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}} filejk _" %@altjk _" %@
+
+
+author
+
+u" U" n~ a^ e' o= i` e' E=`
+C', C', a'' a. a* a[
+a( a<
+ ? .
+
+TeX LaTeX -!- aa (R) o 
+
+t 
 
 e--mph item
 
@@ -1531,6 +1552,9 @@ e--mph item
 
 i--tem 1
 i--tem 2
+
+without brace w a--b
+without brace w c--d
 
 a
 l--ine
@@ -1548,6 +1572,14 @@ truc machin bidule chose and  after
 truc machin bidule chose and truc machin bidule chose and and aftertruc followed by a comment
 Various deff lines
 truc after a deff item
+
+fsetinv invalid a g
+id i ule    
+aaa
+
+truc
+
+g--roupe
 
 @ref{node} node
 
@@ -1666,7 +1698,6 @@ kbd: ``simple-double--three---four----''
  
 @ followed by a new line
  @- 
-@| 
 @: 
 @! !
 @? ?
@@ -1810,21 +1841,11 @@ a@sup{h}@sub{l} ahl
 @footnote{in footnote} in footnote
 @footnote{in footnote2} in footnote2
 
-@image{f--ile} f--ile
-@image{f--ile,l--i} f--ilel--i
-@image{f--ile,,l--e} f--ilel--e
-@image{f--ile,,,alt} f--ilealt
-@image{f--ile,,,,.e-d-xt} f--ile.e--xt
-@image{f--ile,aze,az,alt,.e--xt} f--ileazeazalt.e--xt
-@image{f-ile,aze,,a--lt} f-ileazea--lt
-@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@} f--ile@.azeazalt.file ext e--xt}
-
 @sp 2
 
 @page
 
 
-author
 
 need 1002
 
@@ -1832,31 +1853,35 @@ need 1002
 After clickstyle =>
 @clicksequence{click @click{} A} click => A
 
+
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right)^2
+
 ``simple-double--three---four----'' aa
 ``simple-double--three---four----''
 
 
-u" U" n~ a^ e' o= i` e' i j E=`
-/l C', C', c, a'' a. a* a[
-a( a_ .a a< a; ahl
+i j
+/l c,
+a_ .a a; ahl
 
-        ! ? . @ } { 
+       ! @ } { 
 a sunny day
 
 ->
 0075
-TeX LaTeX * (C) ... ... ==
-error--> ==> - -!- -| =>
-aa AA ae oe AE OE /o /O ss /l /L D
+* (C) ... ... ==
+error--> ==> - -| =>
+AA ae oe AE OE /o /O ss /l /L D
 TH d th ! ? #
-(R) a o , 
+a o , 
 
 " " 
 ` ' ,, , <<
 >> << >> <
-> o Euro -> <= >=
+> Euro -> <= >=
 
-b i r sc t sansserif slanted
+b i r sc sansserif slanted
 
 default kbdinputstyle
 vtable i--tem default kbdinputstyle
@@ -1944,9 +1969,6 @@ e--mph item
 i--tem 1
 i--tem 2
 
-without brace w a--b
-without brace w c--d
-
 with w a--b
 with w c--d
 
@@ -2026,9 +2048,6 @@ f--ormat
 
 s--mallformat
 
-disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right)^2
-
 c--ategory d--effn_name a--rguments...
 d--effn
 
@@ -2043,16 +2062,12 @@ Command log trap1
 Command log trap2 
 cmde id ule truc
 cmde2 id i ule truc
-id i ule    
-aaa
  
-
  machin
  bidule machin
 truc machin
 truc 
 truc followed by a comment
-truc
  
 truc a b c d e f g h i
 truc deffnx before end deffn
@@ -2261,8 +2276,6 @@ Value--table samp
 
 c--artouche
 
-g--roupe
-
 f--lushleft
 more text
 
@@ -2299,10 +2312,6 @@ subsubheading
 
 @math{--a@minus{} {\frac{1}{2}}} --a- {\frac{1}{2}}
 
-@image{f-ile,,,alt@verb{:jk _" %}} f-ilealtjk _" %@
-@image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt} f--ileazeazjk _" %@ in b "e--xt
-@image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}} filejk _" %@altjk _" %@
-
 
 
 
@@ -2319,6 +2328,8 @@ Invalid use of @':
 
 
 @'@"u 'u"
+
+@| 
 
 @dotless{truc} truc
 @dotless{ij} ij
@@ -2339,6 +2350,31 @@ Invalid use of @':
 @image{,,2--xt} 2--xt
 @image{,,,3--xt} 3--xt
 
+@image{f-ile,aze,,a--lt} f-ileazea--lt
+@image{f-ile,,,alt@verb{:jk _" %}} f-ilealtjk _" %@
+
+@image{f--ile} f--ile
+@image{f--ile,,,alt} f--ilealt
+@image{f--ile,,,,.e-d-xt} f--ile.e--xt
+@image{f--ile,l--i} f--ilel--i
+@image{f--ile,,l--e} f--ilel--e
+@image{f--ile,aze,az,alt,.e--xt} f--ileazeazalt.e--xt
+@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@} f--ile@.azeazalt.file ext e--xt}
+
+@image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt} f--ileazeazjk _" %@ in b "e--xt
+@image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}} filejk _" %@altjk _" %@
+
+
+author
+
+u" U" n~ a^ e' o= i` e' E=`
+C', C', a'' a. a* a[
+a( a<
+ ? .
+
+TeX LaTeX -!- aa (R) o 
+
+t 
 
 e--mph item
 
@@ -2346,6 +2382,9 @@ e--mph item
 
 i--tem 1
 i--tem 2
+
+without brace w a--b
+without brace w c--d
 
 a
 l--ine
@@ -2363,6 +2402,14 @@ truc machin bidule chose and  after
 truc machin bidule chose and truc machin bidule chose and and aftertruc followed by a comment
 Various deff lines
 truc after a deff item
+
+fsetinv invalid a g
+id i ule    
+aaa
+
+truc
+
+g--roupe
 
 @ref{node} node
 
@@ -2455,7 +2502,6 @@ kbd: ``simple-double--three---four----''
  
 @ followed by a new line
  @- 
-@| 
 @: 
 @! !
 @? ?
@@ -2599,21 +2645,11 @@ a@sup{h}@sub{l} ahl
 @footnote{in footnote} in footnote
 @footnote{in footnote2} in footnote2
 
-@image{f--ile} f--ile
-@image{f--ile,l--i} f--ilel--i
-@image{f--ile,,l--e} f--ilel--e
-@image{f--ile,,,alt} f--ilealt
-@image{f--ile,,,,.e-d-xt} f--ile.e--xt
-@image{f--ile,aze,az,alt,.e--xt} f--ileazeazalt.e--xt
-@image{f-ile,aze,,a--lt} f-ileazea--lt
-@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@} f--ile@.azeazalt.file ext e--xt}
-
 @sp 2
 
 @page
 
 
-author
 
 need 1002
 
@@ -2621,31 +2657,35 @@ need 1002
 After clickstyle =>
 @clicksequence{click @click{} A} click => A
 
+
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right)^2
+
 ``simple-double--three---four----'' aa
 ``simple-double--three---four----''
 
 
-u" U" n~ a^ e' o= i` e' i j E=`
-/l C', C', c, a'' a. a* a[
-a( a_ .a a< a; ahl
+i j
+/l c,
+a_ .a a; ahl
 
-        ! ? . @ } { 
+       ! @ } { 
 a sunny day
 
 ->
 0075
-TeX LaTeX * (C) ... ... ==
-error--> ==> - -!- -| =>
-aa AA ae oe AE OE /o /O ss /l /L D
+* (C) ... ... ==
+error--> ==> - -| =>
+AA ae oe AE OE /o /O ss /l /L D
 TH d th ! ? #
-(R) a o , 
+a o , 
 
 " " 
 ` ' ,, , <<
 >> << >> <
-> o Euro -> <= >=
+> Euro -> <= >=
 
-b i r sc t sansserif slanted
+b i r sc sansserif slanted
 
 default kbdinputstyle
 vtable i--tem default kbdinputstyle
@@ -2733,9 +2773,6 @@ e--mph item
 i--tem 1
 i--tem 2
 
-without brace w a--b
-without brace w c--d
-
 with w a--b
 with w c--d
 
@@ -2815,9 +2852,6 @@ f--ormat
 
 s--mallformat
 
-disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e-{1 \over 2}\left({x-\mu \over \sigma}\right)^2
-
 c--ategory d--effn_name a--rguments...
 d--effn
 
@@ -2832,16 +2866,12 @@ Command log trap1
 Command log trap2 
 cmde id ule truc
 cmde2 id i ule truc
-id i ule    
-aaa
  
-
  machin
  bidule machin
 truc machin
 truc 
 truc followed by a comment
-truc
  
 truc a b c d e f g h i
 truc deffnx before end deffn
@@ -3050,8 +3080,6 @@ Value--table samp
 
 c--artouche
 
-g--roupe
-
 f--lushleft
 more text
 
@@ -3088,10 +3116,6 @@ subsubheading
 
 @math{--a@minus{} {\frac{1}{2}}} --a- {\frac{1}{2}}
 
-@image{f-ile,,,alt@verb{:jk _" %}} f-ilealtjk _" %@
-@image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt} f--ileazeazjk _" %@ in b "e--xt
-@image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}} filejk _" %@altjk _" %@
-
 
 
 
@@ -3108,6 +3132,8 @@ Invalid use of @':
 
 
 @'@"u 'u"
+
+@| 
 
 @dotless{truc} truc
 @dotless{ij} ij
@@ -3128,6 +3154,31 @@ Invalid use of @':
 @image{,,2--xt} 2--xt
 @image{,,,3--xt} 3--xt
 
+@image{f-ile,aze,,a--lt} f-ileazea--lt
+@image{f-ile,,,alt@verb{:jk _" %}} f-ilealtjk _" %@
+
+@image{f--ile} f--ile
+@image{f--ile,,,alt} f--ilealt
+@image{f--ile,,,,.e-d-xt} f--ile.e--xt
+@image{f--ile,l--i} f--ilel--i
+@image{f--ile,,l--e} f--ilel--e
+@image{f--ile,aze,az,alt,.e--xt} f--ileazeazalt.e--xt
+@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@} f--ile@.azeazalt.file ext e--xt}
+
+@image{f--ile,aze,az,@verb{:jk _" %@:} @b{in b "},e--xt} f--ileazeazjk _" %@ in b "e--xt
+@image{file@verb{:jk _" %@:},,,alt@verb{:jk _" %@:}} filejk _" %@altjk _" %@
+
+
+author
+
+u" U" n~ a^ e' o= i` e' E=`
+C', C', a'' a. a* a[
+a( a<
+ ? .
+
+TeX LaTeX -!- aa (R) o 
+
+t 
 
 e--mph item
 
@@ -3135,6 +3186,9 @@ e--mph item
 
 i--tem 1
 i--tem 2
+
+without brace w a--b
+without brace w c--d
 
 a
 l--ine
@@ -3152,6 +3206,14 @@ truc machin bidule chose and  after
 truc machin bidule chose and truc machin bidule chose and and aftertruc followed by a comment
 Various deff lines
 truc after a deff item
+
+fsetinv invalid a g
+id i ule    
+aaa
+
+truc
+
+g--roupe
 
 @ref{node} node
 
@@ -3189,6 +3251,10 @@ truc after a deff item
 @inforef{,,file name} file name
 @inforef{,cross ref name, file name} cross ref namefile name
 @inforef{} 
+
+
+
+
 
 
 
