@@ -1,5 +1,9 @@
 2022-07-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* README-hacking: tab instead of spaces in git hook
+
+2022-07-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@def* in LaTex
 
 	* tp/Texinfo/Convert/LaTex.pm (_convert) <def_line>:

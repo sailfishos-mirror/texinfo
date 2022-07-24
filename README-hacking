@@ -87,7 +87,7 @@ case $2 in
     ;;
   *)
    # Use latest ChangeLog entry as commit message
-   sed -n -e '1,/^\w*$/d' -e '/^[^      ]/q' -e '{s/^   //;p}' ChangeLog  >"$outfile"
+   sed -n -e '1,/^\w*$/d' -e '/^[^	]/q' -e '{s/^	//;p}' ChangeLog  >"$outfile"
 ;;
 esac
 ------------------------------------
