@@ -1,5 +1,4 @@
 \documentclass{book}
-\usepackage{imakeidx}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage[gen]{eurosym}
@@ -7,7 +6,6 @@
 \usepackage{textcomp}
 \usepackage{graphicx}
 \usepackage{etoolbox}
-\usepackage{enumitem}
 \usepackage{titleps}
 \usepackage{float}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
@@ -16,7 +14,8 @@
 
 \newcommand{\GNUTexinfosettitle}{No Title}%
 
-\makeindex[name=cp]%
+% style command for cite in codetext
+\newcommand\GNUTexinfocommandstylecodetextcite[1]{{\normalfont{}\textsl{#1}}}%
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -26,9 +25,6 @@
 % add command aliases to use the same command in book and report
 \newcommand\GNUTexinfomainmatter{\mainmatter}
 \newcommand\GNUTexinfofrontmatter{\frontmatter}
-% set defaults for lists that match Texinfo TeX formatting
-\setlist[description]{style=nextline, font=\normalfont}
-
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
 
@@ -64,17 +60,24 @@
 
 
 \begin{document}
-\begin{description}
-\item[{\parbox[b]{\linewidth}{%
-\textsl{a--b}\\
-\index[cp]{index entry between item and itemx}%
-\textsl{b}\\
+\chapter{chapter}
+\label{anchor:chapter}%
 
-\textsl{c}}}]
+\texttt{code}, \textsl{dfn}, \textsl{var}, \textbf{strong}, {\ttfamily\textsl{kbd}}, `\texttt{samp}'.
+
+\texttt{\textsl{dfn in code}}
+\textsl{\texttt{code in var}}
+\textbf{{\ttfamily\textsl{kbd in strong}}}
+`\texttt{\textbf{strong in samp}}'
+\textbf{`\texttt{samp in strong}'}
+
+\textsl{cite}
+
+\texttt{\GNUTexinfocommandstylecodetextcite{cite in code}}
+\textsl{\texttt{code in cite}}
+
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
-l{-}{-}ine
+\textsl{var in example}
+\GNUTexinfocommandstylecodetextcite{cite in example}
 \endgroup{}%
-\item[{\parbox[b]{\linewidth}{%
-\textsl{d}}}]
-\end{description}
 \end{document}

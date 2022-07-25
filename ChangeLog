@@ -1,3 +1,16 @@
+2022-07-25  Patrice Dumas  <pertusus@free.fr>
+
+	Correct LaTeX output to be slanted when needed, and dcumentation
+
+	* tp/Texinfo/Convert/LaTeX.pm (register_style_format_command)
+	(%style_brace_format_command_new_commands)
+	(%LaTeX_style_brace_commands, _latex_header, _convert):
+	use slanted for @dfn, @var, as in texinfo.tex.  Also slanted
+	for @cite, and, for @cite, not typewriter even in code context.
+
+	* doc/texinfo.texi (@code{@@cite}, @code{@@dfn}): @dfn and
+	@cite are slanted, not italic.
+
 2022-07-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\unicodechardefs): Define the

@@ -553,6 +553,41 @@ foreach my $ignored_type(keys(%ignored_types)) {
   $ignorable_types{$ignored_type} = 1;
 }
 
+# The following code is not much used.  It was designed to
+# setup combined fonts similar to texinfo.tex fonts, corresponding to
+# cmmands like \ttsl, combining typewriter and slanted.  The idea was to use
+# constructs like \ttfamily\textsl to have a cumulative effect.  However,
+# it seems that a constructs like \texttt{\textsl{cumulate}} do combine the
+# styles, nothing more is needed.  It is used to define style commands
+# with more complex code more generally.
+#
+# As a side note it is not so easy to check the font type combinations
+# results as they depend on the fonts.  With \usepackage[T1]{fontenc},
+# used in the default case, there is no difference between typewriter
+# and bold + typewriter, and \textbf{{\ttfamily\textsl{kbd in strong}}}
+# seems to be in italic.  it is better to look at the results with
+# \usepackage{lmodern}.
+
+my $style_command_new_commands_prefix = 'GNUTexinfocommandstyle';
+# if new commands are setup for styles, they are in this hash
+my %style_brace_format_command_new_commands;
+
+# setup a new command
+sub register_style_format_command($$$$$)
+{
+  my $formatting_context = shift;
+  my $command = shift;
+  my $formatting = shift;
+  my $style_ref = shift;
+  my $new_commands_ref = shift;
+
+  my $specific_style_command
+    = "\\${style_command_new_commands_prefix}${formatting_context}$command";
+  $style_ref->{$formatting_context}->{$command} = $specific_style_command;
+  $new_commands_ref->{$formatting_context}->{$command}
+    = "$specific_style_command\[1]{{$formatting\{#1}}}";
+}
+
 # All those commands run with the text.
 # math, verb and kbd are special and implemented separately
 my %LaTeX_style_brace_commands = (
@@ -564,7 +599,8 @@ my %LaTeX_style_brace_commands = (
     'r' => '\\textrm',
     'sc' => '\\textsc',
     'sansserif' => '\\textsf',
-    'slanted' => '\\textsl',
+    # slanted in texinfo.tex
+    'cite' => '\\textsl',
   },
   'math' => {
     'hyphenation' => '',
@@ -575,9 +611,18 @@ my %LaTeX_style_brace_commands = (
     'sc' => '', # no obvious way to do it in math mode, not switching to
                 # text mode only for this command
     'sansserif' => '\\mathsf',
-    'slanted' => '',
+    'cite' => '',
   }
 );
+
+my $code_text_context = 'codetext';
+
+# in code, we want to keep @cite result in slanted but
+# not in typewriter, so use \normalfont{} to remove other
+# font effects
+register_style_format_command($code_text_context, 'cite',
+                        '\\normalfont{}\\textsl', \%LaTeX_style_brace_commands,
+                        \%style_brace_format_command_new_commands);
 
 # FIXME dmn, headitemfont
 my @asis_commands = ('asis', 'clicksequence',
@@ -588,20 +633,35 @@ foreach my $asis_command (@asis_commands) {
   $LaTeX_style_brace_commands{'math'}->{$asis_command} = '';
 }
 
-my @emphasized_commands = ('var', 'dfn', 'emph');
+# in texinfo.tex, @var and @dfn are slanted.
+my @slanted_commands = ('var', 'dfn', 'slanted');
+foreach my $slanted_command (@slanted_commands) {
+  $LaTeX_style_brace_commands{'text'}->{$slanted_command} = '\\textsl';
+  $LaTeX_style_brace_commands{'math'}->{$slanted_command} = '';
+  #register_style_format_command($code_text_context, $slanted_command,
+  #                          '\\ttfamily\\textsl', \%LaTeX_style_brace_commands,
+  #                          \%style_brace_format_command_new_commands);
+}
+
+my @emphasized_commands = ('emph');
 foreach my $emphasized_command (@emphasized_commands) {
   $LaTeX_style_brace_commands{'text'}->{$emphasized_command} = '\\emph';
   $LaTeX_style_brace_commands{'math'}->{$emphasized_command} = '';
+  #register_style_format_command($code_text_context, $emphasized_command,
+  #                          '\\ttfamily\\textsl', \%LaTeX_style_brace_commands,
+  #                          \%style_brace_format_command_new_commands);
 }
 
 my @bold_commands = ('strong', 'b');
 foreach my $bold_command (@bold_commands) {
   $LaTeX_style_brace_commands{'text'}->{$bold_command} = '\\textbf';
   $LaTeX_style_brace_commands{'math'}->{$bold_command} = '\\mathbf';
+  #register_style_format_command($code_text_context, $bold_command,
+  #                          '\\ttfamily\\textbf', \%LaTeX_style_brace_commands,
+  #                          \%style_brace_format_command_new_commands);
 }
 
-# 'cite' could be emphasized?
-my @italics_commands = ('cite', 'i');
+my @italics_commands = ('i');
 foreach my $italics_command (@italics_commands) {
   $LaTeX_style_brace_commands{'text'}->{$italics_command} = '\\textit';
   $LaTeX_style_brace_commands{'math'}->{$italics_command} = '\\mathit';
@@ -625,7 +685,9 @@ foreach my $quoted_command (@quoted_commands) {
 }
 
 # for the distinct kbd style.
-# use \ttfamily to have a cumulative effect with \textsl
+# use \ttfamily to have a cumulative effect with \textsl.
+# FIXME it seems that there is a cumulative effect with
+# \texttt{\textsl{...}}
 my $kbd_formatting_latex = '\ttfamily\textsl';
 
 # Format in description for @*table argument
@@ -692,8 +754,8 @@ foreach my $quoted_command (@quoted_commands) {
     #   \item some text
     # but works for
     #   \item[] some text
-    $description_command_new_commands{$quoted_command} =
-            "$specific_format_command\[1]{\\ifstrempty{#1}{}{{$prepended_normalfont`$description_format\{#1}'}}}";
+    $description_command_new_commands{$quoted_command}
+      = "$specific_format_command\[1]{\\ifstrempty{#1}{}{{$prepended_normalfont`$description_format\{#1}'}}}";
   }
   $description_command_format{$quoted_command} = $specific_format_command;
 }
@@ -724,6 +786,7 @@ sub converter_defaults($$)
 #  packages
 #  list_environments
 #  normalized_float_latex
+#  style_brace_format_commands
 
 sub converter_initialize($)
 {
@@ -1215,6 +1278,19 @@ sub _latex_header() {
       $header_code .= '% command used in \description format for '.$command."\n";
       $header_code .= "\\newcommand".$description_command_new_commands{$command}."%\n";
       $header_code .= "\n";
+    }
+  }
+  foreach my $command_context (sort(keys(%style_brace_format_command_new_commands))) {
+    if ($self->{'style_brace_format_commands'}->{$command_context}) {
+      foreach my $command
+         (sort(keys(%{$style_brace_format_command_new_commands{$command_context}}))) {
+        if ($self->{'style_brace_format_commands'}->{$command_context}->{$command}) {
+          $header_code .= '% style command for '.$command." in $command_context\n";
+          $header_code .= "\\newcommand"
+             .$style_brace_format_command_new_commands{$command_context}->{$command}."%\n";
+          $header_code .= "\n";
+        }
+      }
     }
   }
 
@@ -2262,16 +2338,25 @@ sub _convert($$)
       if ($self->{'quotes_map'}->{$cmdname}) {
         $result .= $self->{'quotes_map'}->{$cmdname}->[0];
       }
-      if ($LaTeX_style_brace_commands{$command_context}->{$cmdname}) {
-        $result .= "$LaTeX_style_brace_commands{$command_context}->{$cmdname}\{";
-      }
       if ($code_style_commands{$cmdname}) {
         $self->{'formatting_context'}->[-1]->{'code'} += 1;
+      }
+      # specific macro for typewriter + other style
+      my $formatting_context = $command_context;
+      if ($self->{'formatting_context'}->[-1]->{'code'}
+          and $command_context eq 'text'
+          and $LaTeX_style_brace_commands{$code_text_context}->{$cmdname}) {
+        $formatting_context = $code_text_context;
+        $self->{'style_brace_format_commands'}->{$formatting_context}
+                                                     ->{$cmdname} = 1;
+      }
+      if ($LaTeX_style_brace_commands{$formatting_context}->{$cmdname}) {
+        $result .= "$LaTeX_style_brace_commands{$formatting_context}->{$cmdname}\{";
       }
       if ($element->{'args'}) {
         $result .= _convert($self, $element->{'args'}->[0]);
       }
-      if ($LaTeX_style_brace_commands{$command_context}->{$cmdname}) {
+      if ($LaTeX_style_brace_commands{$formatting_context}->{$cmdname}) {
         $result .= '}';
       }
       if ($code_style_commands{$cmdname}) {

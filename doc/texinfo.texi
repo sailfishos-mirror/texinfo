@@ -5388,8 +5388,9 @@ specific reason to use colors, best to skip it.
 @findex cite
 
 Use the @code{@@cite} command for the name of a book that lacks a
-companion Info file.  The command produces italics in the printed
-manual, and quotation marks in the Info file.
+companion Info file.  For example, we could refer to @cite{A Book}.
+The command selects a slanted font in the printed
+manual, and generates quotation marks in the Info file.
 
 If a book is written in Texinfo, it is better to use a cross-reference
 command since a reader can easily follow such a reference in Info.
@@ -6071,9 +6072,9 @@ Use the @code{@@dfn} command to identify the introductory or defining
 use of a technical term.  Use the command only in passages whose
 purpose is to introduce a term which will be used again or which the
 reader ought to know.  Mere passing mention of a term for the first
-time does not deserve @code{@@dfn}.  The command generates italics in
-the printed manual, and double quotation marks in the Info file.  For
-example:
+time does not deserve @code{@@dfn}.  The command selects a slanted font
+in the printed manual, and generates double quotation marks in the Info
+file.  For example:
 
 @example
 Getting rid of a file is called @@dfn@{deleting@} it.

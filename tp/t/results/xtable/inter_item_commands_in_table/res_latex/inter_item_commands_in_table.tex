@@ -23,9 +23,6 @@
 % command used in \description format for samp
 \newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{{`\texttt{#1}'}}}%
 
-% command used in \description format for var
-\newcommand\GNUTexinfotablestylevar[1]{{\normalfont\emph{#1}}}%
-
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
 \makeatletter
@@ -95,19 +92,19 @@ l--ine
 
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylevar{avar--b}\\
+\textsl{avar--b}\\
 \index[fn]{avar--b@\texttt{avar{-}{-}b}}%
 \index[cp]{index entry between item and itemx}%
-\GNUTexinfotablestylevar{b}
+\textsl{b}
 \index[fn]{b@\texttt{b}}%
 }}]
 l--ine
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylevar{c}\\
+\textsl{c}\\
 \index[fn]{c@\texttt{c}}%
 
 
-\GNUTexinfotablestylevar{d}
+\textsl{d}
 \index[fn]{d@\texttt{d}}%
 }}]
 

@@ -629,7 +629,33 @@ New para
 
 Describe @error{}.
 '],
+['combined_fonts',
+'@setfilename combined_fonts.info
 
+@node Top
+@top top section
+
+@node chapter
+@chapter chapter
+
+@code{code}, @dfn{dfn}, @var{var}, @strong{strong}, @kbd{kbd}, @samp{samp}.
+
+@code{@dfn{dfn in code}}
+@var{@code{code in var}}
+@strong{@kbd{kbd in strong}}
+@samp{@strong{strong in samp}}
+@strong{@samp{samp in strong}}
+
+@cite{cite}
+
+@code{@cite{cite in code}}
+@cite{@code{code in cite}}
+
+@example
+@var{var in example}
+@cite{cite in example}
+@end example
+']
 );
 
 foreach my $test (@test_cases) {
