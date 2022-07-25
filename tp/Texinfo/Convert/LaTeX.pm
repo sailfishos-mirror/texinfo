@@ -17,9 +17,6 @@
 #
 # TODO
 #
-# @def* not finished (code from Plaintext was kept as-is), including
-# effect of @deftypefnnewline
-#
 # @shortcontent is not implemented.  Tried shorttoc package but it
 # has two limitations that are not in Texinfo, need a main \tableofcontents
 # and need to be before @contents.  A code snippet looked good for a
@@ -52,6 +49,12 @@
 # @indentedblock and @smallindentedblock
 #
 # @group should also be added together with the non filled environments.
+#
+# @def* body in Texinfo TeX is narrower than the @def* line.  The
+# difference is more marked for @def* within a @*table.
+# In Texinfo TeX in @def* arguments ()&[] are handled especially,
+# they are not slanted and & and following word is bold.
+# Not clear what we want to implement in LaTeX output.
 #
 # There is something about form feeds to do.  There is some processing of form
 # feeds right now, which simply amounts to keeping them in ignorable spaces
@@ -1999,8 +2002,8 @@ sub _tree_anchor_label {
   return "anchor:$label";
 }
 
-# construct a Texinfo tree, not in code, and slanted irrespective
-# of the font context
+# construct a Texinfo tree, not in code context, slanted irrespective
+# of the font context.
 sub _only_slanted_no_code_contents
 {
   my $contents = shift;
@@ -2341,7 +2344,8 @@ sub _convert($$)
           if ($element->{'args'}) {
             push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'text';
             $accent_arg = _convert($self, $element->{'args'}->[0]);
-            my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
+            my $old_context
+              = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           }
           $result .= $accent_arg;
           $result .= '}}';
@@ -2349,7 +2353,8 @@ sub _convert($$)
       }
       return $result;
     } elsif (exists($LaTeX_style_brace_commands{'text'}->{$cmdname})
-         or ($element->{'type'} and $element->{'type'} eq 'definfoenclose_command')) {
+         or ($element->{'type'}
+             and $element->{'type'} eq 'definfoenclose_command')) {
       if ($self->{'quotes_map'}->{$cmdname}) {
         $result .= $self->{'quotes_map'}->{$cmdname}->[0];
       }
@@ -2366,7 +2371,8 @@ sub _convert($$)
                                                      ->{$cmdname} = 1;
       }
       if ($LaTeX_style_brace_commands{$formatting_context}->{$cmdname}) {
-        $result .= "$LaTeX_style_brace_commands{$formatting_context}->{$cmdname}\{";
+        $result
+           .= "$LaTeX_style_brace_commands{$formatting_context}->{$cmdname}\{";
       }
       if ($element->{'args'}) {
         $result .= _convert($self, $element->{'args'}->[0]);
@@ -2385,7 +2391,8 @@ sub _convert($$)
       # 'kbd' is special, distinct font is typewriter + slanted
       # @kbdinputstyle
       # 'code' Always use the same font for @kbd as @code.
-      # 'example' Use the distinguishing font for @kbd only in @example and similar environments.
+      # 'example' Use the distinguishing font for @kbd only in @example
+      #           and similar environments.
       # 'distinct' (the default) Always use the distinguishing font for @kbd.
       my $code_font = _kbd_code_style($self);
       if ($code_font) {
@@ -3389,11 +3396,13 @@ sub _convert($$)
     if ($element->{'type'} eq 'def_line') {
       if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
              and %{$element->{'extra'}->{'def_parsed_hash'}}) {
-        my $arguments = Texinfo::Convert::Utils::definition_arguments_content($element);
+        my $arguments
+            = Texinfo::Convert::Utils::definition_arguments_content($element);
         my $tree;
         my $command;
         if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
-          $command = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
+          $command
+           = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
         } else {
           $command = $element->{'extra'}->{'def_command'};
         }
@@ -3415,8 +3424,8 @@ sub _convert($$)
                 and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
           if ($arguments) {
             $tree = $self->gdt('{name} {arguments}', {
-                    'name' => $name,
-                    'arguments' => _only_slanted_no_code_contents($arguments)});
+                'name' => $name,
+                'arguments' => _only_slanted_no_code_contents($arguments)});
           } else {
             $tree = $self->gdt("{name}", {
                     'name' => $name});
@@ -3425,9 +3434,9 @@ sub _convert($$)
                  or $command eq 'deftypevr') {
           if ($arguments) {
             my $strings = {
-                    'name' => $name,
-                    'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-                    'arguments' => _only_slanted_no_code_contents($arguments)};
+                  'name' => $name,
+                  'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
+                  'arguments' => _only_slanted_no_code_contents($arguments)};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree = $self->gdt("\@*{type}\@*{name} {arguments}",
                                  $strings);
@@ -3450,9 +3459,10 @@ sub _convert($$)
         } elsif ($command eq 'defcv'
                  or ($command eq 'deftypecv'
                      and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
-          $category =  $self->gdt('{category} of @code{{class}}',
-                          { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-                            'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
+          $category
+           = $self->gdt('{category} of @code{{class}}',
+            { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+              'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
           if ($arguments) {
             $tree = $self->gdt('{name} {arguments}', {
                     'name' => $name,
@@ -3465,8 +3475,8 @@ sub _convert($$)
                  or ($command eq 'deftypeop'
                      and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
           $category =  $self->gdt('{category} on @code{{class}}',
-                          { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-                            'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
+                { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                  'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
           if ($arguments) {
             $tree = $self->gdt('{name} {arguments}', {
                     'name' => $name,
@@ -3477,8 +3487,8 @@ sub _convert($$)
           }
         } elsif ($command eq 'deftypeop') {
           $category =  $self->gdt('{category} on @code{{class}}',
-                          { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-                            'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
+             { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+               'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
           if ($arguments) {
             my $strings = {
                     'name' => $name,
@@ -3510,8 +3520,8 @@ sub _convert($$)
           }
         } elsif ($command eq 'deftypecv') {
           $category =  $self->gdt('{category} of @code{{class}}',
-                          { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-                            'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
+            { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+              'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
           if ($arguments) {
             my $strings = {
                     'name' => $name,
@@ -3566,12 +3576,16 @@ sub _convert($$)
           $nr_item++;
         }
       }
-      push @{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}}, $nr_item;
+      push @{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}},
+             $nr_item;
     } elsif ($element->{'type'} eq 'preformatted') {
       $result .= _open_preformatted($self, $element);
     } elsif ($element->{'type'} eq '_normalfont') {
       $result .= '\bgroup{}\normalfont{}';
     } elsif ($element->{'type'} eq '_no_code') {
+      # opening a new context just to set a non-code context
+      # seems overboard.  However, it is only used to format the @def*
+      # commands argument, and does not need to be generic.
       _push_new_context($self, '_no_code');
     } elsif ($element->{'type'} eq '_dot_not_end_sentence') {
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} += 1;
