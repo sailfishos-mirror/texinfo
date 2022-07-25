@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-07-25.12}
+\def\texinfoversion{2022-07-25.13}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -10399,6 +10399,22 @@ directory should work if nowhere else does.}
 % least make most of the characters not bomb out.
 %
 \def\unicodechardefs{%
+  \DeclareUnicodeCharacter{0020}{ } % space
+  \DeclareUnicodeCharacter{0021}{\char"21}
+  \DeclareUnicodeCharacter{0022}{\char"22}
+  \DeclareUnicodeCharacter{0023}{\char"23}
+  \DeclareUnicodeCharacter{0024}{\char"24}
+  \DeclareUnicodeCharacter{0025}{\char"25}
+  \DeclareUnicodeCharacter{0026}{\char"26}
+  \DeclareUnicodeCharacter{0027}{\char"27}
+  \DeclareUnicodeCharacter{0028}{\char"28}
+  \DeclareUnicodeCharacter{0029}{\char"29}
+  \DeclareUnicodeCharacter{002A}{\char"2A}
+  \DeclareUnicodeCharacter{002B}{\char"2B}
+  \DeclareUnicodeCharacter{002C}{\char"2C}
+  \DeclareUnicodeCharacter{002D}{\char"2D}
+  \DeclareUnicodeCharacter{002E}{\char"2E}
+  \DeclareUnicodeCharacter{002F}{\char"2F}
   \DeclareUnicodeCharacter{0030}{0}%
   \DeclareUnicodeCharacter{0031}{1}%
   \DeclareUnicodeCharacter{0032}{2}%
@@ -10409,6 +10425,13 @@ directory should work if nowhere else does.}
   \DeclareUnicodeCharacter{0037}{7}%
   \DeclareUnicodeCharacter{0038}{8}%
   \DeclareUnicodeCharacter{0039}{9}%
+  \DeclareUnicodeCharacter{003A}{\char"3A}
+  \DeclareUnicodeCharacter{003B}{\char"3B}
+  \DeclareUnicodeCharacter{003C}{\char"3C}
+  \DeclareUnicodeCharacter{003D}{\char"3D}
+  \DeclareUnicodeCharacter{003E}{\char"3E}
+  \DeclareUnicodeCharacter{003F}{\char"3F}
+  \DeclareUnicodeCharacter{0040}{\char"40}
   \DeclareUnicodeCharacter{0041}{A}%
   \DeclareUnicodeCharacter{0042}{B}%
   \DeclareUnicodeCharacter{0043}{C}%
@@ -10435,6 +10458,12 @@ directory should work if nowhere else does.}
   \DeclareUnicodeCharacter{0058}{X}%
   \DeclareUnicodeCharacter{0059}{Y}%
   \DeclareUnicodeCharacter{005A}{Z}%
+  \DeclareUnicodeCharacter{005B}{\char"5B}
+  \DeclareUnicodeCharacter{005C}{\char"5C}
+  \DeclareUnicodeCharacter{005D}{\char"5D}
+  \DeclareUnicodeCharacter{005E}{\char"5E}
+  \DeclareUnicodeCharacter{005F}{\char"5F}
+  \DeclareUnicodeCharacter{0060}{\char"60}
   \DeclareUnicodeCharacter{0061}{a}%
   \DeclareUnicodeCharacter{0062}{b}%
   \DeclareUnicodeCharacter{0063}{c}%
@@ -10461,6 +10490,11 @@ directory should work if nowhere else does.}
   \DeclareUnicodeCharacter{0078}{x}%
   \DeclareUnicodeCharacter{0079}{y}%
   \DeclareUnicodeCharacter{007A}{z}%
+  \DeclareUnicodeCharacter{007B}{\char"7B}
+  \DeclareUnicodeCharacter{007C}{\char"7C}
+  \DeclareUnicodeCharacter{007D}{\char"7D}
+  \DeclareUnicodeCharacter{007E}{\char"7E}
+  % \DeclareUnicodeCharacter{007F}{} % DEL
   %
   \DeclareUnicodeCharacter{00A0}{\tie}%
   \DeclareUnicodeCharacter{00A1}{\exclamdown}%

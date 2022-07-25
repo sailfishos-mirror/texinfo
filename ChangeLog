@@ -1,3 +1,8 @@
+2022-07-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\unicodechardefs): Define the
+	non-alphanumeric ASCII characters using \char TeX primitive.
+
 2022-07-25  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.tex (\unicodechardefs): Provide definitions
