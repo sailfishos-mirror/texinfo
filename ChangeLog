@@ -1,5 +1,17 @@
 2022-07-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Allow @{, @} in @copying block
+
+	* doc/texinfo.tex (\macrobodyctxt): Move call to \usembodybackslash
+	to sole calling site.
+	(\copying): Call \macrobodyctxt instead of \scanctxt in order to
+	change catcodes of { and }.  Use "other" space to find
+	"@end copying" string.
+	* doc/texinfo-tex-test.texi (Copying and captions): Test @{ and
+	@} inside @copying.
+
+2022-07-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	texinfo.tex scanning contexts
 
 	* doc/texinfo.tex (\scanctxt):

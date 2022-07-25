@@ -1635,6 +1635,7 @@ See @ref{Target}.@*
 @copying
 This manual is for blah-de-blah.@*
 Backslash \@*
+Brace commands @{ @{ @}
 
 Copyrite @copyright{} 201X@*
 þ þ þ þ þ þ þ þ

@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-07-25.21}
+\def\texinfoversion{2022-07-25.22}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -7518,9 +7518,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % file; b) letting users define the frontmatter in as flexible order as
 % possible is desirable.
 %
-\def\copying{\checkenv{}\begingroup\scanctxt\docopying}
-\def\docopying#1@end copying{\endgroup\def\copyingtext{#1}}
-%
+\def\copying{\checkenv{}\begingroup\macrobodyctxt\docopying}
+{\catcode`\ =\other
+\gdef\docopying#1@end copying{\endgroup\def\copyingtext{#1}}
+}
+
 \def\insertcopying{%
   \begingroup
     \parindent = 0pt  % paragraph indentation looks wrong on title page
@@ -8069,12 +8071,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \passthroughcharstrue
 }
 
-\def\macrobodyctxt{% used for @macro definitions
+\def\macrobodyctxt{% used for @macro definitions and @copying
   \scanctxt
   \catcode`\ =\other
   \catcode`\{=\other
   \catcode`\}=\other
-  \usembodybackslash
 }
 
 % Used when scanning braced macro arguments.  Note, however, that catcode
@@ -8130,7 +8131,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
      \global\expandafter\let\csname ismacro.\the\macname\endcsname=1%
      \addtomacrolist{\the\macname}%
   \fi
-  \begingroup \macrobodyctxt
+  \begingroup \macrobodyctxt \usembodybackslash
   \ifrecursive \expandafter\parsermacbody
   \else \expandafter\parsemacbody
   \fi}
