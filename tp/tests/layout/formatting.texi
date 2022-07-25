@@ -22,10 +22,6 @@ In copying
 @mymacro{}
 @end copying
 
-@ifset valid
-@alias U = asis
-@end ifset
-
 @titlepage
 @title title --a
 @subtitle formatting subtitle --a
