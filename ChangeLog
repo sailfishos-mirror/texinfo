@@ -2,6 +2,17 @@
 
 	texinfo.tex scanning contexts
 
+	* doc/texinfo.tex (\scanctxt):
+	Set active backslash.  This means that active backslash is
+	used instead of the "other" catcode when scanning arguments to
+	@copying and @caption, but this appears not to make a difference
+	as the arguments are not being expanded or executed straight away.
+	(\scanargctxt): Remove this and replace calls with \scanctxt.
+
+2022-07-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	texinfo.tex scanning contexts
+
 	* doc/texinfo.tex (\scanctxt, \scanargctxt, \macrobodyctxt)
 	(\macroargctxt, \macrolineargctxt): Simplify slightly by
 	setting active newline in \scanctxt and "other" catcode for @,
