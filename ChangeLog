@@ -1,9 +1,9 @@
 2022-07-25  Patrice Dumas  <pertusus@free.fr>
 
-	LaTeX @def* argument and category formated mre like in TeX
+	LaTeX @def* argument and category formated more like in TeX
 
 	* tp/Texinfo/Convert/LaTeX.pm (_only_slanted_no_code_contents)
-	(_convert): convert @ðef* line in code context, @def* category
+	(_convert): convert @def* line in code context, @def* category
 	class to @code, and argument to slanted, not in code context,
 	not in typewriter.
 
