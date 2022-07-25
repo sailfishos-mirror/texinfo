@@ -279,6 +279,16 @@ other spaces:@*
 @Mactwo{h \\, i \\}@*
 @Mactwo{h a, i b}@*
 
+
+@section Special characters in macro argument
+
+Braceless single line macro invocation with special characters.  Compare:
+
+@Mac "+<>^+|~@@@{@}
+
+A"+<>^+|~@@@{@}A
+
+
 @section Spaces in macro bodies
 
 Distance between the two x's should be the same

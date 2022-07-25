@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-07-25.13}
+\def\texinfoversion{2022-07-25.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -8063,23 +8063,21 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \catcode`\_=\other
   \catcode`\|=\other
   \catcode`\~=\other
+  \catcode`\@=\other
+  \catcode`\^^M=\other
   \passthroughcharstrue
 }
 
 \def\scanargctxt{% used for copying and captions, not macros.
   \scanctxt
-  \catcode`\@=\other
   \catcode`\\=\other
-  \catcode`\^^M=\other
 }
 
 \def\macrobodyctxt{% used for @macro definitions
   \scanctxt
   \catcode`\ =\other
-  \catcode`\@=\other
   \catcode`\{=\other
   \catcode`\}=\other
-  \catcode`\^^M=\other
   \usembodybackslash
 }
 
@@ -8089,14 +8087,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \def\macroargctxt{%
   \scanctxt
   \catcode`\ =\active
-  \catcode`\@=\other
-  \catcode`\^^M=\other
   \catcode`\\=\active
 }
 
 \def\macrolineargctxt{% used for whole-line arguments without braces
   \scanctxt
-  \catcode`\@=\other
   \catcode`\{=\other
   \catcode`\}=\other
 }
