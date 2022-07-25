@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-05-30.20}
+\def\texinfoversion{2022-07-25.12}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -10327,9 +10327,9 @@ directory should work if nowhere else does.}
   % Given the value in \countUTFz as a Unicode code point, set \UTFviiiTmp
   % to the corresponding UTF-8 sequence.
   \gdef\parseXMLCharref{%
-    \ifnum\countUTFz < "A0\relax
+    \ifnum\countUTFz < "20\relax
       \errhelp = \EMsimple
-      \errmessage{Cannot define Unicode char value < 00A0}%
+      \errmessage{Cannot define Unicode char value < 0020}%
     \else\ifnum\countUTFz < "800\relax
       \parseUTFviiiA,%
       \parseUTFviiiB C\UTFviiiTwoOctetsName.,%
@@ -10399,6 +10399,69 @@ directory should work if nowhere else does.}
 % least make most of the characters not bomb out.
 %
 \def\unicodechardefs{%
+  \DeclareUnicodeCharacter{0030}{0}%
+  \DeclareUnicodeCharacter{0031}{1}%
+  \DeclareUnicodeCharacter{0032}{2}%
+  \DeclareUnicodeCharacter{0033}{3}%
+  \DeclareUnicodeCharacter{0034}{4}%
+  \DeclareUnicodeCharacter{0035}{5}%
+  \DeclareUnicodeCharacter{0036}{6}%
+  \DeclareUnicodeCharacter{0037}{7}%
+  \DeclareUnicodeCharacter{0038}{8}%
+  \DeclareUnicodeCharacter{0039}{9}%
+  \DeclareUnicodeCharacter{0041}{A}%
+  \DeclareUnicodeCharacter{0042}{B}%
+  \DeclareUnicodeCharacter{0043}{C}%
+  \DeclareUnicodeCharacter{0044}{D}%
+  \DeclareUnicodeCharacter{0045}{E}%
+  \DeclareUnicodeCharacter{0046}{F}%
+  \DeclareUnicodeCharacter{0047}{G}%
+  \DeclareUnicodeCharacter{0048}{H}%
+  \DeclareUnicodeCharacter{0049}{I}%
+  \DeclareUnicodeCharacter{004A}{J}%
+  \DeclareUnicodeCharacter{004B}{K}%
+  \DeclareUnicodeCharacter{004C}{L}%
+  \DeclareUnicodeCharacter{004D}{M}%
+  \DeclareUnicodeCharacter{004E}{N}%
+  \DeclareUnicodeCharacter{004F}{O}%
+  \DeclareUnicodeCharacter{0050}{P}%
+  \DeclareUnicodeCharacter{0051}{Q}%
+  \DeclareUnicodeCharacter{0052}{R}%
+  \DeclareUnicodeCharacter{0053}{S}%
+  \DeclareUnicodeCharacter{0054}{T}%
+  \DeclareUnicodeCharacter{0055}{U}%
+  \DeclareUnicodeCharacter{0056}{V}%
+  \DeclareUnicodeCharacter{0057}{W}%
+  \DeclareUnicodeCharacter{0058}{X}%
+  \DeclareUnicodeCharacter{0059}{Y}%
+  \DeclareUnicodeCharacter{005A}{Z}%
+  \DeclareUnicodeCharacter{0061}{a}%
+  \DeclareUnicodeCharacter{0062}{b}%
+  \DeclareUnicodeCharacter{0063}{c}%
+  \DeclareUnicodeCharacter{0064}{d}%
+  \DeclareUnicodeCharacter{0065}{e}%
+  \DeclareUnicodeCharacter{0066}{f}%
+  \DeclareUnicodeCharacter{0067}{g}%
+  \DeclareUnicodeCharacter{0068}{h}%
+  \DeclareUnicodeCharacter{0069}{i}%
+  \DeclareUnicodeCharacter{006A}{j}%
+  \DeclareUnicodeCharacter{006B}{k}%
+  \DeclareUnicodeCharacter{006C}{l}%
+  \DeclareUnicodeCharacter{006D}{m}%
+  \DeclareUnicodeCharacter{006E}{n}%
+  \DeclareUnicodeCharacter{006F}{o}%
+  \DeclareUnicodeCharacter{0070}{p}%
+  \DeclareUnicodeCharacter{0071}{q}%
+  \DeclareUnicodeCharacter{0072}{r}%
+  \DeclareUnicodeCharacter{0073}{s}%
+  \DeclareUnicodeCharacter{0074}{t}%
+  \DeclareUnicodeCharacter{0075}{u}%
+  \DeclareUnicodeCharacter{0076}{v}%
+  \DeclareUnicodeCharacter{0077}{w}%
+  \DeclareUnicodeCharacter{0078}{x}%
+  \DeclareUnicodeCharacter{0079}{y}%
+  \DeclareUnicodeCharacter{007A}{z}%
+  %
   \DeclareUnicodeCharacter{00A0}{\tie}%
   \DeclareUnicodeCharacter{00A1}{\exclamdown}%
   \DeclareUnicodeCharacter{00A2}{{\tcfont \char162}}% 0242=cent

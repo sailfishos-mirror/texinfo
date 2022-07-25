@@ -1,3 +1,10 @@
+2022-07-25  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.tex (\unicodechardefs): Provide definitions
+	for many of the ASCII characters.
+	(\DeclareUnicodeCharacter): Lower limit for definition
+	from U+00A0 to U+0020.
+
 2022-07-24  Patrice Dumas  <pertusus@free.fr>
 
 	No @-commands in file names except for @@, @{ and @}
