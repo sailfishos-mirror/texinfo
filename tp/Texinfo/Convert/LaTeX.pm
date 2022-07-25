@@ -1999,6 +1999,21 @@ sub _tree_anchor_label {
   return "anchor:$label";
 }
 
+# construct a Texinfo tree, not in code, and slanted irrespective
+# of the font context
+sub _only_slanted_no_code_contents
+{
+  my $contents = shift;
+  return {'type' => '_normalfont', 'contents' => [
+           {'type' => '_no_code', 'contents' => [
+             {'cmdname' => 'slanted', 'args' => [
+                {'type' => 'brace_command_arg', 'contents' => $contents}
+               ]
+             }]
+           }]
+         };
+}
+
 sub _get_form_feeds($)
 {
   my $form_feeds = shift;
@@ -3399,9 +3414,9 @@ sub _convert($$)
                  or $command eq 'deftypevr')
                 and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
           if ($arguments) {
-            $tree = $self->gdt("{name} {arguments}", {
+            $tree = $self->gdt('{name} {arguments}', {
                     'name' => $name,
-                    'arguments' => $arguments});
+                    'arguments' => _only_slanted_no_code_contents($arguments)});
           } else {
             $tree = $self->gdt("{name}", {
                     'name' => $name});
@@ -3412,12 +3427,12 @@ sub _convert($$)
             my $strings = {
                     'name' => $name,
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-                    'arguments' => $arguments};
+                    'arguments' => _only_slanted_no_code_contents($arguments)};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree = $self->gdt("\@*{type}\@*{name} {arguments}",
                                  $strings);
             } else {
-              $tree = $self->gdt("{type} {name} {arguments}",
+              $tree = $self->gdt('{type} {name} {arguments}',
                                  $strings);
             }
           } else {
@@ -3425,23 +3440,23 @@ sub _convert($$)
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree = $self->gdt("\@*{type}\@*{name}",
+              $tree = $self->gdt('@*{type}@*{name}',
                                  $strings);
             } else {
-              $tree = $self->gdt("{type} {name}",
+              $tree = $self->gdt('{type} {name}',
                                  $strings);
             }
           }
         } elsif ($command eq 'defcv'
                  or ($command eq 'deftypecv'
                      and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
-          $category =  $self->gdt("{category} of {class}",
+          $category =  $self->gdt('{category} of @code{{class}}',
                           { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                             'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
           if ($arguments) {
-            $tree = $self->gdt("{name} {arguments}", {
+            $tree = $self->gdt('{name} {arguments}', {
                     'name' => $name,
-                    'arguments' => $arguments});
+                    'arguments' => _only_slanted_no_code_contents($arguments)});
           } else {
             $tree = $self->gdt("{name}", {
                     'name' => $name});
@@ -3449,34 +3464,34 @@ sub _convert($$)
         } elsif ($command eq 'defop'
                  or ($command eq 'deftypeop'
                      and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
-          $category =  $self->gdt("{category} on {class}",
+          $category =  $self->gdt('{category} on @code{{class}}',
                           { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                             'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
           if ($arguments) {
-            $tree = $self->gdt("{name} {arguments}", {
+            $tree = $self->gdt('{name} {arguments}', {
                     'name' => $name,
-                    'arguments' => $arguments});
+                    'arguments' => _only_slanted_no_code_contents($arguments)});
           } else {
-            $tree = $self->gdt("{name}", {
+            $tree = $self->gdt('{name}', {
                     'name' => $name});
           }
         } elsif ($command eq 'deftypeop') {
-          $category =  $self->gdt("{category} on {class}",
+          $category =  $self->gdt('{category} on @code{{class}}',
                           { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                             'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
           if ($arguments) {
             my $strings = {
                     'name' => $name,
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-                    'arguments' => $arguments};
+                    'arguments' => _only_slanted_no_code_contents($arguments)};
 
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree
-                = $self->gdt("{type}\@*{name} {arguments}",
+                = $self->gdt('{type}@*{name} {arguments}',
                              $strings);
             } else {
               $tree
-                = $self->gdt("{type} {name} {arguments}",
+                = $self->gdt('{type} {name} {arguments}',
                              $strings);
             }
           } else {
@@ -3485,30 +3500,30 @@ sub _convert($$)
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree
-                = $self->gdt("{type}\@*{name}",
+                = $self->gdt('{type}@*{name}',
                              $strings);
             } else {
               $tree
-                = $self->gdt("{type} {name}",
+                = $self->gdt('{type} {name}',
                              $strings);
             }
           }
         } elsif ($command eq 'deftypecv') {
-          $category =  $self->gdt("{category} of {class}",
+          $category =  $self->gdt('{category} of @code{{class}}',
                           { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                             'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
           if ($arguments) {
             my $strings = {
                     'name' => $name,
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-                    'arguments' => $arguments};
+                    'arguments' => _only_slanted_no_code_contents($arguments)};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree
-                = $self->gdt("{type}\@*{name} {arguments}",
+                = $self->gdt('{type}@*{name} {arguments}',
                              $strings);
             } else {
               $tree
-                = $self->gdt("{type} {name} {arguments}",
+                = $self->gdt('{type} {name} {arguments}',
                              $strings);
             }
           } else {
@@ -3517,19 +3532,22 @@ sub _convert($$)
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree
-                = $self->gdt("{type}\@*{name}",
+                = $self->gdt('{type}@*{name}',
                              $strings);
             } else {
               $tree
-                = $self->gdt("{type} {name}",
+                = $self->gdt('{type} {name}',
                              $strings);
             }
           }
         }
-
-        $result .= _convert($self, {'type' => '_code', 'contents' => [$tree]});
+        # the def* line except for the category is converted in code context
+        $self->{'formatting_context'}->[-1]->{'code'} += 1;
+        $result .= _convert($self, {'contents' => [$tree]});
+        $self->{'formatting_context'}->[-1]->{'code'} -= 1;
         $result .= '\egroup{}'; # \texttt
         if (defined($category)) {
+          # category is converted in normal text context
           my $converted = _convert($self, $category);
           $result .= "\\hfill[$converted]\n";
         }
@@ -3551,8 +3569,10 @@ sub _convert($$)
       push @{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}}, $nr_item;
     } elsif ($element->{'type'} eq 'preformatted') {
       $result .= _open_preformatted($self, $element);
-    } elsif ($element->{'type'} eq '_code') {
-      # ...
+    } elsif ($element->{'type'} eq '_normalfont') {
+      $result .= '\bgroup{}\normalfont{}';
+    } elsif ($element->{'type'} eq '_no_code') {
+      _push_new_context($self, '_no_code');
     } elsif ($element->{'type'} eq '_dot_not_end_sentence') {
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} += 1;
     } elsif ($element->{'type'} eq 'bracketed') {
@@ -3581,9 +3601,12 @@ sub _convert($$)
 
   # now closing. First, close types.
   if ($type) {
-    if ($type eq '_code') {
-    } elsif ($type eq '_dot_not_end_sentence') {
+    if ($type eq '_dot_not_end_sentence') {
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} -= 1;
+    } elsif ($type eq '_normalfont') {
+      $result .= '\egroup{}';
+    } elsif ($type eq '_no_code') {
+      _pop_context($self);
     } elsif ($type eq 'table_term') {
       $result .= '}}]'."\n";
       pop @{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}};

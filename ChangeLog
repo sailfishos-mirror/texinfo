@@ -1,5 +1,14 @@
 2022-07-25  Patrice Dumas  <pertusus@free.fr>
 
+	LaTeX @def* argument and category formated mre like in TeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (_only_slanted_no_code_contents)
+	(_convert): convert @ðef* line in code context, @def* category
+	class to @code, and argument to slanted, not in code context,
+	not in typewriter.
+
+2022-07-25  Patrice Dumas  <pertusus@free.fr>
+
 	Correct LaTeX output to be slanted when needed, and documentation
 
 	* tp/Texinfo/Convert/LaTeX.pm (register_style_format_command)
