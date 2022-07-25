@@ -51,10 +51,20 @@
 # @group should also be added together with the non filled environments.
 #
 # @def* body in Texinfo TeX is narrower than the @def* line.  The
-# difference is more marked for @def* within a @*table.
+# difference is more marked for @def* within a @*table or @quotation.
+# Also Texinfo TeX leaves more space for the category on the right
+# if the def line is too long.
 # In Texinfo TeX in @def* arguments ()&[] are handled especially,
 # they are not slanted and & and following word is bold.
 # Not clear what we want to implement in LaTeX output.
+#
+# In Texinfo TeX, and this is documented in the manual, @var in @def
+# argument produces slanted typewriter (which is quite counter intuitive,
+# by the way).
+#
+# In Texinfo TeX, @code{@slanted{slanted in code}} and
+# @slanted{@code{code in slanted}} are different, @slanted{@code{code in slanted}}
+# is not slanted.  This has consequences in for @code formatting in @def*.
 #
 # There is something about form feeds to do.  There is some processing of form
 # feeds right now, which simply amounts to keeping them in ignorable spaces
@@ -2781,9 +2791,9 @@ sub _convert($$)
           if ($book ne '') {
             if (defined ($name_text)) {
               # TODO translation
-              $result .= "Section ``$name_text'' in \\textit{$book}";
+              $result .= "Section ``$name_text'' in \\textsl{$book}";
             } else {
-              $result .= "\\textit{$book}";
+              $result .= "\\textsl{$book}";
             }
           } elsif ($filename ne '') {
             if (defined ($name_text)) {

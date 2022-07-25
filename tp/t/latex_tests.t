@@ -651,11 +651,51 @@ Describe @error{}.
 @code{@cite{cite in code}}
 @cite{@code{code in cite}}
 
+@code{code} @slanted{slanted} @b{b}
+@code{@slanted{slanted in code}}
+@slanted{@code{code in slanted}}
+@b{@slanted{slanted in b}}
+@slanted{@b{b in slanted}}
+
 @example
 @var{var in example}
 @cite{cite in example}
 @end example
-']
+'],
+['definition_commands',
+'@setfilename combined_fonts.info
+
+@node Top
+@top top section
+
+@node chapter
+@chapter chapter
+
+@deftypefn {Library Function} int foobar  (int @var{foo}, float @var{bar})
+@dots{}
+@end deftypefn
+
+@noindent produces:
+@defcv {Class Option} Window border-pattern
+@dots{}
+@end defcv
+
+@quotation
+@deftypefn {Library Function} int foobar  (int @var{foo}, float @var{bar})
+@dots{}
+@end deftypefn
+@end quotation
+
+@defun apply function &rest arguments
+@code{apply} calls @var{function} with @var{arguments}
+@end defun
+
+@deffn Category name argument @code{int} @code{a--b} @var{var1}, word @code{--} (@code{type other}, @var{var2} @
+ [@code{float} [@var{var4})
+In deffn
+@end deffn
+
+'],
 );
 
 foreach my $test (@test_cases) {

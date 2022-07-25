@@ -745,6 +745,277 @@ $result_trees{'combined_fonts'} = {
           'type' => 'empty_line'
         },
         {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'code'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'code',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 22,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => ' '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'slanted'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'slanted',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 22,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => ' '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'b'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'b',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 22,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'slanted in code'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'slanted',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 23,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'code',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 23,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'code in slanted'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'code',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 24,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'slanted',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 24,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'slanted in b'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'slanted',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 25,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'b',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 25,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'b in slanted'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'b',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 26,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'slanted',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 26,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
           'cmdname' => 'example',
           'contents' => [
             {
@@ -776,7 +1047,7 @@ $result_trees{'combined_fonts'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 23,
+                    'line_nr' => 29,
                     'macro' => ''
                   }
                 },
@@ -803,7 +1074,7 @@ $result_trees{'combined_fonts'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 24,
+                    'line_nr' => 30,
                     'macro' => ''
                   }
                 },
@@ -842,7 +1113,7 @@ $result_trees{'combined_fonts'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 25,
+                'line_nr' => 31,
                 'macro' => ''
               }
             }
@@ -853,7 +1124,7 @@ $result_trees{'combined_fonts'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 22,
+            'line_nr' => 28,
             'macro' => ''
           }
         }
@@ -972,22 +1243,60 @@ $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'pa
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[7]{'contents'}[3]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[7];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[8]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4];
-$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'extra'}{'command'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[0];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
-$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0];
-$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1];
-$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1];
-$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[2];
-$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1];
-$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'args'}[0];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[2];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
-$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'extra'}{'end_command'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[2];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[3]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[4];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[4]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[5]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'args'}[0]{'contents'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[6];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[6]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[7]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'args'}[0]{'contents'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[8];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[8]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[9]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'args'}[0]{'contents'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[10];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[10]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[11]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'args'}[0]{'contents'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[12];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[12]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'contents'}[13]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[9]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[10]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'extra'}{'command'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[2];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[2];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'extra'}{'end_command'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'contents'}[2];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[11]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4];
 $result_trees{'combined_fonts'}{'contents'}[4]{'parent'} = $result_trees{'combined_fonts'};
 
 $result_texis{'combined_fonts'} = '@setfilename combined_fonts.info
@@ -1010,6 +1319,12 @@ $result_texis{'combined_fonts'} = '@setfilename combined_fonts.info
 
 @code{@cite{cite in code}}
 @cite{@code{code in cite}}
+
+@code{code} @slanted{slanted} @b{b}
+@code{@slanted{slanted in code}}
+@slanted{@code{code in slanted}}
+@b{@slanted{slanted in b}}
+@slanted{@b{b in slanted}}
 
 @example
 @var{var in example}
@@ -1037,6 +1352,12 @@ cite
 
 cite in code
 code in cite
+
+code slanted b
+slanted in code
+code in slanted
+slanted in b
+b in slanted
 
 var in example
 cite in example
@@ -1156,6 +1477,12 @@ $result_converted{'latex'}->{'combined_fonts'} = '
 
 \\texttt{\\GNUTexinfocommandstylecodetextcite{cite in code}}
 \\textsl{\\texttt{code in cite}}
+
+\\texttt{code} \\textsl{slanted} \\textbf{b}
+\\texttt{\\textsl{slanted in code}}
+\\textsl{\\texttt{code in slanted}}
+\\textbf{\\textsl{slanted in b}}
+\\textsl{\\textbf{b in slanted}}
 
 \\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}%
 \\textsl{var in example}
