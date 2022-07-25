@@ -1,6 +1,6 @@
 2022-07-25  Patrice Dumas  <pertusus@free.fr>
 
-	Correct LaTeX output to be slanted when needed, and dcumentation
+	Correct LaTeX output to be slanted when needed, and documentation
 
 	* tp/Texinfo/Convert/LaTeX.pm (register_style_format_command)
 	(%style_brace_format_command_new_commands)
