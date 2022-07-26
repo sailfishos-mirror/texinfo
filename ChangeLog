@@ -1,3 +1,15 @@
+2022-07-26  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (Conventions): use 'Texinfo processors' instead
+	of listing them.
+	(@code{@@code}): use @command{texi2any} instad of 'Texinfo processors'
+	as the customization variables are specific of texi2any.
+	(Inserting Math): mandate the use of \ for math commands.
+	(@samp{#line} and @TeX{}): use texi2any instead of makeinfo as there
+	is already a reference to a node with texi2any in the reference node name.
+
+	* doc/texinfo.texi: use @command instead of @code for commands.
+
 2022-07-25  Patrice Dumas  <pertusus@free.fr>
 
 	LaTeX cross-ref manual in slanted
