@@ -2,7 +2,7 @@
 
 	* doc/texinfo.texi (Conventions): use 'Texinfo processors' instead
 	of listing them.
-	(@code{@@code}): use @command{texi2any} instad of 'Texinfo processors'
+	(@code{@@code}): use @command{texi2any} instead of 'Texinfo processors'
 	as the customization variables are specific of texi2any.
 	(Inserting Math): mandate the use of \ for math commands.
 	(@samp{#line} and @TeX{}): use texi2any instead of makeinfo as there
