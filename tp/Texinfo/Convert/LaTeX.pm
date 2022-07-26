@@ -62,10 +62,6 @@
 # argument produces slanted typewriter (which is quite counter intuitive,
 # by the way).
 #
-# In Texinfo TeX, @code{@slanted{slanted in code}} and
-# @slanted{@code{code in slanted}} are different, @slanted{@code{code in slanted}}
-# is not slanted.  This has consequences in for @code formatting in @def*.
-#
 # There is something about form feeds to do.  There is some processing of form
 # feeds right now, which simply amounts to keeping them in ignorable spaces
 # (and with another condition that may not be relevant for LaTeX as the code
@@ -181,6 +177,14 @@
 #
 # index entry between @table and first @item causes an empty \item[] to be
 # output.
+#
+# In Texinfo TeX, @code{@slanted{slanted in code}} and
+# @slanted{@code{code in slanted}} are different,
+# @slanted{@code{code in slanted}} is not slanted.
+# According to Karl, we should not try to specify what nested style commands
+# should be formatted as.  So this should probably not be considered
+# as an issue, at least until we get user reports.
+# https://lists.gnu.org/archive/html/bug-texinfo/2006-06/msg00030.html
 
 package Texinfo::Convert::LaTeX;
 
