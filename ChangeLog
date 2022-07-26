@@ -1,3 +1,11 @@
+2022-07-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	@clear txidefnamespace
+
+	* doc/texinfo.tex: Implement txidefnamespace conditional to
+	allow omitting a space after a definition name.  This is important
+	for m4 where the space is incorrect.  Report from Eric Blake.
+
 2022-07-26  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (Conventions): use 'Texinfo processors' instead
