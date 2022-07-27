@@ -3426,7 +3426,7 @@ sub _convert($$)
         } else {
           $name = '';
         }
-        $result .= '\noindent\texttt\bgroup{}';
+        $result .= '\noindent\texttt{';
 
         my $category = $element->{'extra'}->{'def_parsed_hash'}->{'category'};
         
@@ -3441,8 +3441,7 @@ sub _convert($$)
                 'name' => $name,
                 'arguments' => _only_slanted_no_code_contents($arguments)});
           } else {
-            $tree = $self->gdt("{name}", {
-                    'name' => $name});
+            $tree = $self->gdt("{name}", { 'name' => $name});
           }
         } elsif ($command eq 'deftypefn'
                  or $command eq 'deftypevr') {
@@ -3452,22 +3451,18 @@ sub _convert($$)
                   'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                   'arguments' => _only_slanted_no_code_contents($arguments)};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree = $self->gdt("\@*{type}\@*{name} {arguments}",
-                                 $strings);
+              $tree = $self->gdt("{type}\@*{name} {arguments}", $strings);
             } else {
-              $tree = $self->gdt('{type} {name} {arguments}',
-                                 $strings);
+              $tree = $self->gdt('{type} {name} {arguments}', $strings);
             }
           } else {
             my $strings = {
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree = $self->gdt('@*{type}@*{name}',
-                                 $strings);
+              $tree = $self->gdt('{type}@*{name}', $strings);
             } else {
-              $tree = $self->gdt('{type} {name}',
-                                 $strings);
+              $tree = $self->gdt('{type} {name}', $strings);
             }
           }
         } elsif ($command eq 'defcv'
@@ -3482,8 +3477,7 @@ sub _convert($$)
                     'name' => $name,
                     'arguments' => _only_slanted_no_code_contents($arguments)});
           } else {
-            $tree = $self->gdt("{name}", {
-                    'name' => $name});
+            $tree = $self->gdt("{name}", { 'name' => $name});
           }
         } elsif ($command eq 'defop'
                  or ($command eq 'deftypeop'
@@ -3496,8 +3490,7 @@ sub _convert($$)
                     'name' => $name,
                     'arguments' => _only_slanted_no_code_contents($arguments)});
           } else {
-            $tree = $self->gdt('{name}', {
-                    'name' => $name});
+            $tree = $self->gdt('{name}', { 'name' => $name});
           }
         } elsif ($command eq 'deftypeop') {
           $category =  $self->gdt('{category} on @code{{class}}',
@@ -3510,26 +3503,18 @@ sub _convert($$)
                     'arguments' => _only_slanted_no_code_contents($arguments)};
 
             if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree
-                = $self->gdt('{type}@*{name} {arguments}',
-                             $strings);
+              $tree = $self->gdt('{type}@*{name} {arguments}', $strings);
             } else {
-              $tree
-                = $self->gdt('{type} {name} {arguments}',
-                             $strings);
+              $tree = $self->gdt('{type} {name} {arguments}', $strings);
             }
           } else {
             my $strings = {
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree
-                = $self->gdt('{type}@*{name}',
-                             $strings);
+              $tree = $self->gdt('{type}@*{name}', $strings);
             } else {
-              $tree
-                = $self->gdt('{type} {name}',
-                             $strings);
+              $tree = $self->gdt('{type} {name}', $strings);
             }
           }
         } elsif ($command eq 'deftypecv') {
@@ -3542,26 +3527,18 @@ sub _convert($$)
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'arguments' => _only_slanted_no_code_contents($arguments)};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree
-                = $self->gdt('{type}@*{name} {arguments}',
-                             $strings);
+              $tree = $self->gdt('{type}@*{name} {arguments}', $strings);
             } else {
-              $tree
-                = $self->gdt('{type} {name} {arguments}',
-                             $strings);
+              $tree = $self->gdt('{type} {name} {arguments}', $strings);
             }
           } else {
             my $strings = {
                     'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree
-                = $self->gdt('{type}@*{name}',
-                             $strings);
+              $tree = $self->gdt('{type}@*{name}', $strings);
             } else {
-              $tree
-                = $self->gdt('{type} {name}',
-                             $strings);
+              $tree = $self->gdt('{type} {name}', $strings);
             }
           }
         }
@@ -3569,7 +3546,7 @@ sub _convert($$)
         $self->{'formatting_context'}->[-1]->{'code'} += 1;
         $result .= _convert($self, {'contents' => [$tree]});
         $self->{'formatting_context'}->[-1]->{'code'} -= 1;
-        $result .= '\egroup{}'; # \texttt
+        $result .= '}'; # \texttt
         if (defined($category)) {
           # category is converted in normal text context
           my $converted = _convert($self, $category);

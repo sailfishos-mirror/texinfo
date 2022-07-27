@@ -1,3 +1,10 @@
+2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert) <deftypefnnewline>:
+	Remove extra @* command at beginning of line.
+	<@def*>: Use { and } for font change instead of \bgroup and \egroup.
+	Reformat some code.
+
 2022-07-26  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	@clear txidefnamespace

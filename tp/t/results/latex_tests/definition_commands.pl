@@ -2258,7 +2258,7 @@ $result_converted{'latex'}->{'definition_commands'} = '
 \\chapter{chapter}
 \\label{anchor:chapter}%
 
-\\noindent\\texttt\\bgroup{}int foobar \\bgroup{}\\normalfont{}\\textsl{(int \\textsl{foo}, float \\textsl{bar})}\\egroup{}\\egroup{}\\hfill[Library Function]
+\\noindent\\texttt{int foobar \\bgroup{}\\normalfont{}\\textsl{(int \\textsl{foo}, float \\textsl{bar})}\\egroup{}}\\hfill[Library Function]
 
 
 
@@ -2266,7 +2266,7 @@ $result_converted{'latex'}->{'definition_commands'} = '
 \\dots{}\\@
 
 \\noindent{}produces:
-\\noindent\\texttt\\bgroup{}border-pattern\\egroup{}\\hfill[Class Option of \\texttt{Window}]
+\\noindent\\texttt{border-pattern}\\hfill[Class Option of \\texttt{Window}]
 
 
 
@@ -2274,7 +2274,7 @@ $result_converted{'latex'}->{'definition_commands'} = '
 \\dots{}\\@
 
 \\begin{quote}
-\\noindent\\texttt\\bgroup{}int foobar \\bgroup{}\\normalfont{}\\textsl{(int \\textsl{foo}, float \\textsl{bar})}\\egroup{}\\egroup{}\\hfill[Library Function]
+\\noindent\\texttt{int foobar \\bgroup{}\\normalfont{}\\textsl{(int \\textsl{foo}, float \\textsl{bar})}\\egroup{}}\\hfill[Library Function]
 
 
 
@@ -2282,14 +2282,14 @@ $result_converted{'latex'}->{'definition_commands'} = '
 \\dots{}\\@
 \\end{quote}
 
-\\noindent\\texttt\\bgroup{}apply \\bgroup{}\\normalfont{}\\textsl{function \\&rest arguments}\\egroup{}\\egroup{}\\hfill[Function]
+\\noindent\\texttt{apply \\bgroup{}\\normalfont{}\\textsl{function \\&rest arguments}\\egroup{}}\\hfill[Function]
 
 
 
 \\index[fn]{apply@\\texttt{apply}}%
 \\texttt{apply} calls \\textsl{function} with \\textsl{arguments}
 
-\\noindent\\texttt\\bgroup{}name \\bgroup{}\\normalfont{}\\textsl{argument \\texttt{int} \\texttt{a{-}{-}b} \\textsl{var1}, word \\texttt{{-}{-}} (\\texttt{type other}, \\textsl{var2}  {[}\\texttt{float} {[}\\textsl{var4})}\\egroup{}\\egroup{}\\hfill[Category]
+\\noindent\\texttt{name \\bgroup{}\\normalfont{}\\textsl{argument \\texttt{int} \\texttt{a{-}{-}b} \\textsl{var1}, word \\texttt{{-}{-}} (\\texttt{type other}, \\textsl{var2}  {[}\\texttt{float} {[}\\textsl{var4})}\\egroup{}}\\hfill[Category]
 
 
 
