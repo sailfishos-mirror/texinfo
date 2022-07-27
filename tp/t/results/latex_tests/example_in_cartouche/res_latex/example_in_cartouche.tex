@@ -53,7 +53,7 @@
 innertopmargin=10pt, innerbottommargin=10pt,%
 roundcorner=10pt}
 
-\renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
+\renewcommand{\includegraphics}[1]{\fbox{FIG \detokenize{#1}}}
 
 % set default for @setchapternewpage
 \makeatletter

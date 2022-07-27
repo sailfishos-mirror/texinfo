@@ -353,4 +353,15 @@ $result_converted{'docbook'}->{'inlineifsetifclear'} = '<para>iclear first .
 <para>ifset second .
 </para>';
 
+
+$result_converted{'latex'}->{'inlineifsetifclear'} = 'iclear first .
+
+.
+
+
+.
+
+ifset second .
+';
+
 1;

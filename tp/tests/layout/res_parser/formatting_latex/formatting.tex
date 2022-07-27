@@ -80,7 +80,7 @@
 innertopmargin=10pt, innerbottommargin=10pt,%
 roundcorner=10pt}
 
-\renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
+\renewcommand{\includegraphics}[1]{\fbox{FIG \detokenize{#1}}}
 
 % set default for @setchapternewpage
 \makeatletter
@@ -1276,7 +1276,7 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
 \texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
+\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
 
 
 {\bfseries author}%
@@ -2602,7 +2602,7 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
 \texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
+\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
 
 
 {\bfseries author}%
@@ -3949,7 +3949,7 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
 \texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
+\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
 
 
 {\bfseries author}%
@@ -5274,7 +5274,7 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
 \texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
+\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
 
 
 {\bfseries author}%
@@ -7062,16 +7062,16 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
 \texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
 
-\texttt{@image\{f{-}{-}ile\}} \includegraphics{f{-}{-}ile}
-\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f{-}{-}ile}
-\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f{-}{-}ile}
-\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f{-}{-}ile}
-\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f{-}{-}ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f{-}{-}ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f{-}{-}ile@.}
+\texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
+\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f{-}{-}ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
 
 
 {\bfseries author}%

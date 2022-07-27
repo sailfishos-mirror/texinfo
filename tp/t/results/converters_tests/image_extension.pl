@@ -151,6 +151,10 @@ $result_converted_errors{'docbook'}->{'image_extension'} = [
 
 
 
+$result_converted{'latex'}->{'image_extension'} = '\\includegraphics{f---ile}
+';
+
+
 $result_converted{'info'}->{'image_extension'} = 'This is , produced from .
 
 [f---ile]

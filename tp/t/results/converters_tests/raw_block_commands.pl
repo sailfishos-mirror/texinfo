@@ -298,11 +298,7 @@ $result_trees{'raw_block_commands'} = {
                 },
                 {
                   'parent' => {},
-                  'text' => '}$ ``'
-                },
-                {
-                  'parent' => {},
-                  'text' => '}
+                  'text' => '}$ ``
 '
                 }
               ],
@@ -524,7 +520,6 @@ $result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7]{'contents'}[1]
 $result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2];
 $result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
 $result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
-$result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
 $result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7];
 $result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'args'}[0];
 $result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands'}{'contents'}[0]{'contents'}[7]{'contents'}[2];
@@ -566,7 +561,7 @@ $result_texis{'raw_block_commands'} = '
 @end docbook
 
 @tex
-$\\underline{a < b @code{tex \\hbox{ code }}}$ ``}
+$\\underline{a < b @code{tex \\hbox{ code }}}$ ``
 @end tex
 
 @latex
@@ -613,7 +608,7 @@ $result_converted{'xml'}->{'raw_block_commands'} = '
 </docbook>
 
 <tex endspaces=" ">
-$\\underline{a &lt; b <code>tex \\hbox{ code }</code>}$ &textldquo;}
+$\\underline{a &lt; b <code>tex \\hbox{ code }</code>}$ &textldquo;
 </tex>
 
 <latex endspaces=" ">
@@ -628,6 +623,15 @@ $result_converted{'docbook'}->{'raw_block_commands'} = '
 <emphasis>docbook</emphasis> ``}
 
 
+';
+
+
+$result_converted{'latex'}->{'raw_block_commands'} = '
+
+
+
+
+$\\frac{a < b \\texttt{tex \\hbox{ code }}}{b}$ ``
 ';
 
 1;

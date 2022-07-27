@@ -780,4 +780,22 @@ raw $\\underline{a < b <literal>tex \\hbox{ code }</literal>}$ ``
 
 </para>';
 
+
+$result_converted{'latex'}->{'inline_expand_tex'} = '
+, 
+, 
+,
+, 
+\\$\\textbackslash{}underlinea < b \\texttt{tex \\textbackslash{}hbox code }\\$ ``
+
+
+
+, 
+, 
+,
+, 
+raw $\\underline{a < b \\texttt{tex \\hbox{ code }}}$ ``
+
+';
+
 1;

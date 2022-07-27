@@ -36,7 +36,7 @@ my $raw_commands_text = '
 @end docbook
 
 @tex
-$\underline{a < b @code{tex \hbox{ code }}}$ ``}
+$\underline{a < b @code{tex \hbox{ code }}}$ ``
 @end tex
 
 @latex
@@ -433,6 +433,13 @@ $inline_text,
 $inline_text, {'EXPANDED_FORMATS' => ['tex']},
 {'EXPANDED_FORMATS' => ['tex']},
 ],
+# beware that with EXPANDED_FORMATS set to an empty array no
+# format is considered to be expanded in the parser.  Therefore the second
+# argument of @inlinefmtifelse{} contents array is empty (type is 'elided').
+# In the converters, the converter format would be expanded.
+# However, since the second argument of @inlinefmtifelse{} contents array is empty,
+# there is no expansion of the second argument of @inlinefmtifelse string
+# in the end (or expansion as an empty string which gives the same result).
 ['inlinefmtifelse',
 '@inlinefmtifelse{html,,else html no if}.
 @inlinefmtifelse{html,if html,else html}.
@@ -850,7 +857,15 @@ my %latex_tests = (
   'unknown_value' => 1,
   'line_breaks' => 1,
   'test_deftypefnnewline' => 1,
+  'raw_block_commands' => 1,
+  'raw_block_commands_expand_tex' => 1,
   'inline' => 1,
+  'inline_expand_tex' => 1,
+  'inlinefmtifelse' => 1,
+  'inlineifsetifclear' => 1,
+  'image_with_spaces' => 1,
+  'image_extension' => 1,
+  'image_formatting' => 1,
   'test_sp' => 1,
   'non_empty_part' => 1,
 );

@@ -778,4 +778,24 @@ else plaintext.
 <para>else latex.
 </para>';
 
+
+$result_converted{'latex'}->{'inlinefmtifelse'} = 'else html no if.
+else html.
+
+.
+else plaintext.
+
+.
+
+else docbook spaces .
+
+else tex spaces .
+
+else docbook.
+
+else tex.
+
+.
+';
+
 1;

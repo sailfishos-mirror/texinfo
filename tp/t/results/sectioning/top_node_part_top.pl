@@ -518,7 +518,7 @@ $result_converted{'file_latex'}->{'top_node_part_top'} = '\\documentclass{book}
 % avoid pagebreak and headings setting for a sectionning command
 \\newcommand{\\GNUTexinfonopagebreakheading}[2]{\\let\\clearpage\\relax \\let\\cleardoublepage\\relax \\let\\thispagestyle\\GNUTexinfoplaceholder #1{#2}}
 
-\\renewcommand{\\includegraphics}[1]{\\fbox{FIG #1}}
+\\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
 
 % set default for @setchapternewpage
 \\makeatletter

@@ -298,11 +298,7 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                 },
                 {
                   'parent' => {},
-                  'text' => '}$ ``'
-                },
-                {
-                  'parent' => {},
-                  'text' => '}
+                  'text' => '}$ ``
 '
                 }
               ],
@@ -524,7 +520,6 @@ $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'co
 $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2];
 $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
 $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
 $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7];
 $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'args'}[0];
 $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[2];
@@ -566,7 +561,7 @@ $result_texis{'raw_block_commands_expand_tex'} = '
 @end docbook
 
 @tex
-$\\underline{a < b @code{tex \\hbox{ code }}}$ ``}
+$\\underline{a < b @code{tex \\hbox{ code }}}$ ``
 @end tex
 
 @latex
@@ -589,7 +584,7 @@ $result_floats{'raw_block_commands_expand_tex'} = {};
 
 
 
-$result_converted{'plaintext'}->{'raw_block_commands_expand_tex'} = '$\\underline{a < b ‘tex \\hbox{ code }’}$ ``}
+$result_converted{'plaintext'}->{'raw_block_commands_expand_tex'} = '$\\underline{a < b ‘tex \\hbox{ code }’}$ ``
 
 ';
 
@@ -598,7 +593,7 @@ $result_converted{'html_text'}->{'raw_block_commands_expand_tex'} = '
 
 
 
-$\\underline{a &lt; b &lt;code class=&quot;code&quot;&gt;tex \\hbox{ code }&lt;/code&gt;}$ ``}
+$\\underline{a &lt; b &lt;code class=&quot;code&quot;&gt;tex \\hbox{ code }&lt;/code&gt;}$ ``
 
 ';
 
@@ -629,7 +624,7 @@ $result_converted{'xml'}->{'raw_block_commands_expand_tex'} = '
 &lt;emphasis&gt;docbook&lt;/emphasis&gt; &textldquo;}
 </docbook>
 
-$\\underline{a < b <code>tex \\hbox{ code }</code>}$ ``}
+$\\underline{a < b <code>tex \\hbox{ code }</code>}$ ``
 
 <latex endspaces=" ">
 $\\frac{a &lt; b <code>tex \\hbox{ code }</code>}{b}$ &textldquo;
@@ -641,7 +636,16 @@ $result_converted{'docbook'}->{'raw_block_commands_expand_tex'} = '
 
 
 
-$\\underline{a < b <literal>tex \\hbox{ code }</literal>}$ ``}
+$\\underline{a < b <literal>tex \\hbox{ code }</literal>}$ ``
+
+';
+
+
+$result_converted{'latex'}->{'raw_block_commands_expand_tex'} = '
+
+
+
+$\\underline{a < b \\texttt{tex \\hbox{ code }}}$ ``
 
 ';
 

@@ -1356,7 +1356,7 @@ roundcorner=10pt}
   # processed by LaTeX
   if ($self->get_conf('TEST')) {
     $header_code .=
-'\renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
+'\renewcommand{\includegraphics}[1]{\fbox{FIG \detokenize{#1}}}
 
 ';
   }
@@ -2448,7 +2448,9 @@ sub _convert($$)
          {'code' => 1, %{$self->{'convert_text_options'}}});
         # FIXME not clear at all what can be in filenames here,
         # what should be escaped and how
-        my $converted_basefile = _protect_text($self, $basefile);
+        my $converted_basefile = $basefile;
+        # for now minimal protection.  Not sure that % is active
+        $converted_basefile =~ s/([%{}\\])/\\$1/g;
 
         # FIXME why do that if $converted_basefile is used even if no file is found?
         my $image_file;
@@ -2871,7 +2873,7 @@ sub _convert($$)
       }
       if (scalar(@{$element->{'args'}}) > $arg_index
          and defined($element->{'args'}->[$arg_index])
-         and @{$element->{'args'}->[$arg_index]->{'contents'}}) {
+         and scalar(@{$element->{'args'}->[$arg_index]->{'contents'}})) {
         if ($cmdname eq 'inlineraw') {
           push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
         }
