@@ -790,7 +790,7 @@ the behavior is identical, and does not depend on the installed name.\n")
                                 `asis', preserve existing indentation.")."\n"
 .__(
 "      --split-size=NUM        split Info files at size NUM (default %d).")."\n"
-."\n".
+."\n",
     _get_converter_default('FILLCOLUMN'),
     _get_converter_default('paragraphindent'), 
     _get_converter_default('SPLIT_SIZE'))

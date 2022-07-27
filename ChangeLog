@@ -1,5 +1,12 @@
 2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	texi2any --help
+
+	* tp/texi2any.pl: Fix help message so that default settings
+	(including the fill column) are interpolated correctly.
+
+2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	texi2any --epub3
 
 	* NEWS, TODO: Update.
