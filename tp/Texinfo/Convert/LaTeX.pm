@@ -2686,6 +2686,9 @@ sub _convert($$)
                 $self->{'normalized_nodes_associated_section'}->{$normalized_name}
                   = $section_command;
               } else {
+                # FIXME this can happens for the Top node if not associated with
+                # a section command (possibly only when there is no sectioning
+                # command at all)
                 print STDERR "BUG/TODO assoc ".$reference->{'cmdname'}.": $normalized_name: ".join("|", sort(keys(%{$reference->{'extra'}})))."\n";
               }
             }
@@ -2702,14 +2705,22 @@ sub _convert($$)
               $float_type = '';
             }
           }
-
+          my $text_representation;
+          if ($self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'}) {
+            # hyperref leads, understandably to some errors in a heading for
+            # the table of content.  In that case, setup a text representation.
+            $text_representation = '';
+          }
           # TODO: should translate
+          my $reference_result = '';
           if ($cmdname eq 'xref') {
-            $result .= "See ";
+            $reference_result = "See ";
           } elsif ($cmdname eq 'pxref') {
-            $result .= "see ";
+            $reference_result = "see ";
           } elsif ($cmdname eq 'ref') {
           }
+          $text_representation .= $reference_result
+            if defined($text_representation);
           my $name;
           if (defined($args[2])) {
             $name = $args[2];
@@ -2727,18 +2738,23 @@ sub _convert($$)
           my $name_text;
           if (defined($name)) {
             $name_text = _convert($self, {'contents' => $name});
+            $text_representation .= $name_text if (defined($text_representation));
           }
 
           # FIXME translation
           if (defined($float_type)) {
             # no page for float reference in Texinfo TeX
             if (defined($name_text)) {
-              $result .= "\\hyperref[$reference_label]{$name_text}";
+              $reference_result .= "\\hyperref[$reference_label]{$name_text}";
             } else {
               if ($float_type ne '') {
-                $result .= "\\hyperref[$reference_label]{$float_type~\\ref*{$reference_label}}";
+                $reference_result
+                  .= "\\hyperref[$reference_label]{$float_type~\\ref*{$reference_label}}";
+                $text_representation .= $float_type
+                     if (defined($text_representation));
               } else {
-                $result .= "\\hyperref[$reference_label]{\\ref*{$reference_label}}";
+                $reference_result
+                  .= "\\hyperref[$reference_label]{\\ref*{$reference_label}}";
               }
             }
           } else {
@@ -2757,16 +2773,25 @@ sub _convert($$)
                 # not exist in the default case.  it is defined in the pagenote package together with
                 # \pagename which is page in the default case, but it is unclear if this
                 # can be used as a basis for translations
-                $result .= "\\hyperref[$reference_label]{Section~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
+                $reference_result
+                  .= "\\hyperref[$reference_label]{Section~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
               } else {
                 # TODO translation
-                $result .= "\\hyperref[$reference_label]{\\chaptername~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
+                $reference_result
+                  .= "\\hyperref[$reference_label]{\\chaptername~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
               }
             } else {
               # anchor
               # TODO translation
-              $result .= "\\hyperref[$reference_label]{[$name_text], page~\\pageref*{$reference_label}}";
+              $reference_result
+                .= "\\hyperref[$reference_label]{[$name_text], page~\\pageref*{$reference_label}}";
             }
+          }
+          if (not defined($text_representation)) {
+            $result .= $reference_result;
+          } else {
+            $result .= '\texorpdfstring{'.$reference_result.'}{'
+                             .$text_representation.'}';
           }
           return $result;
         } else {

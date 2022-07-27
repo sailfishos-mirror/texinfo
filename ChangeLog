@@ -1,3 +1,12 @@
+2022-07-27  Patrice Dumas  <pertusus@free.fr>
+
+	Text for contents for @*ref in section title in LaTeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): if in a section heading
+	formatting use \texorpdfstring to provide with a textual
+	representation of @*ref, instead of \hyperref, which, understandably
+	breaks the contents.
+
 2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Document EPUB
