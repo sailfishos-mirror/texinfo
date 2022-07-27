@@ -4587,4 +4587,44 @@ $result_converted{'docbook'}->{'top_in_ref'} = '<anchor id="refs-node"/>
 <literal>@inforef{Top,,file name}</literal> See Info file <filename>file name</filename>, node &#8216;<literal>Top</literal>&#8217;
 </para>';
 
+
+$result_converted{'latex'}->{'top_in_ref'} = '\\label{anchor:Top}%
+\\label{anchor:refs-node}%
+
+\\texttt{@ref\\{Top,cross ref name\\}} \\hyperref[anchor:Top]{[Top], page~\\pageref*{anchor:Top}}
+\\texttt{@ref\\{Top,,title\\}} \\hyperref[anchor:Top]{[title], page~\\pageref*{anchor:Top}}
+\\texttt{@ref\\{Top,,,file name\\}} Section ``Top\'\' in \\texttt{file name}
+\\texttt{@ref\\{Top,,,,manual\\}} Section ``Top\'\' in \\textsl{manual}
+\\texttt{@ref\\{Top,cross ref name,title,\\}} \\hyperref[anchor:Top]{[title], page~\\pageref*{anchor:Top}}
+\\texttt{@ref\\{Top,cross ref name,,file name\\}} Section ``Top\'\' in \\texttt{file name}
+\\texttt{@ref\\{Top,cross ref name,,,manual\\}} Section ``Top\'\' in \\textsl{manual}
+\\texttt{@ref\\{Top,cross ref name,title,file name\\}} Section ``title\'\' in \\texttt{file name}
+\\texttt{@ref\\{Top,cross ref name,title,,manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{Top,cross ref name,title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{Top,,title,file name\\}} Section ``title\'\' in \\texttt{file name}
+\\texttt{@ref\\{Top,,title,,manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{Top,,title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{Top,,,file name,manual\\}} Section ``Top\'\' in \\textsl{manual}
+
+\\texttt{@ref\\{(pman)Top,cross ref name\\}} (pman)Top
+\\texttt{@ref\\{(pman)Top,,title\\}} title
+\\texttt{@ref\\{(pman)Top,,,file name\\}} Section ``(pman)Top\'\' in \\texttt{file name}
+\\texttt{@ref\\{(pman)Top,,,,manual\\}} Section ``(pman)Top\'\' in \\textsl{manual}
+\\texttt{@ref\\{(pman)Top,cross ref name,title,\\}} title
+\\texttt{@ref\\{(pman)Top,cross ref name,,file name\\}} Section ``(pman)Top\'\' in \\texttt{file name}
+\\texttt{@ref\\{(pman)Top,cross ref name,,,manual\\}} Section ``(pman)Top\'\' in \\textsl{manual}
+\\texttt{@ref\\{(pman)Top,cross ref name,title,file name\\}} Section ``title\'\' in \\texttt{file name}
+\\texttt{@ref\\{(pman)Top,cross ref name,title,,manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{(pman)Top,cross ref name,title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{(pman)Top,,title,file name\\}} Section ``title\'\' in \\texttt{file name}
+\\texttt{@ref\\{(pman)Top,,title,,manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{(pman)Top,,title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{(pman)Top,,,file name,manual\\}} Section ``(pman)Top\'\' in \\textsl{manual}
+
+\\texttt{@inforef\\{Top, cross ref name, file name\\}} Section ``Top\'\' in \\texttt{file name}
+\\texttt{@inforef\\{Top\\}} Top
+\\texttt{@inforef\\{Top, cross ref name\\}} Top
+\\texttt{@inforef\\{Top,,file name\\}} Section ``Top\'\' in \\texttt{file name}
+';
+
 1;

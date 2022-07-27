@@ -54,13 +54,12 @@
 # difference is more marked for @def* within a @*table or @quotation.
 # Also Texinfo TeX leaves more space for the category on the right
 # if the def line is too long.
-# In Texinfo TeX in @def* arguments ()&[] are handled especially,
-# they are not slanted and & and following word is bold.
-# Not clear what we want to implement in LaTeX output.
 #
-# In Texinfo TeX, and this is documented in the manual, @var in @def
-# argument produces slanted typewriter (which is quite counter intuitive,
-# by the way).
+# Upright parentheses and brackets on @def* lines.
+# Could use https://mirror.mwt.me/ctan/macros/latex/contrib/embrac/embrac_en.pdf
+# with \EmbracOff and \EmbracOn.  Font is the surrounding text font.
+#
+# @deftype* in typewriter, not slanted.  Other @def* in typewriter and slanted.
 #
 # There is something about form feeds to do.  There is some processing of form
 # feeds right now, which simply amounts to keeping them in ignorable spaces
@@ -3059,44 +3058,45 @@ sub _convert($$)
           and $node_element->{'extra'}->{'normalized'}
           and $node_element->{'extra'}->{'normalized'} eq 'Top') {
         $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'} = 1;
+      }
+      if ($cmdname eq 'node') {
+        # add the label only if not associated with a section
+        if (not $element->{'extra'}->{'associated_section'}) {
+          my $node_label
+            = _tree_anchor_label($element->{'extra'}->{'node_content'});
+          $result .= "\\label{$node_label}%\n";
+        }
       } else {
-        if ($cmdname eq 'node') {
-          # add the label only if not associated with a section
-          if (not $element->{'extra'}->{'associated_section'}) {
-            my $node_label
-              = _tree_anchor_label($element->{'extra'}->{'node_content'});
-            $result .= "\\label{$node_label}%\n";
+        if ($cmdname eq 'appendix' and not $self->{'appendix_done'}) {
+          $result .= "\\appendix\n";
+          $self->{'appendix_done'} = 1;
+        }
+        if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
+          my $heading = '';
+          if ($element->{'args'}->[0]->{'contents'}) {
+            # It is useful to know that this is a heading formatting as
+            # the formatted heading is in the table of content, and some formatting
+            # may be different for that case, for instance with \texorpdfstring 
+            $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'} = 1;
+            $heading = $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}});
+            delete $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'};
           }
-        } else {
-          if ($cmdname eq 'appendix' and not $self->{'appendix_done'}) {
-            $result .= "\\appendix\n";
-            $self->{'appendix_done'} = 1;
+          my $section_cmd = $section_map{$cmdname};
+          die "BUG: no section_map for $cmdname"
+                     if (not defined($section_map{$cmdname}));
+          if ($cmdname ne 'centerchap') {
+            $result .= "\\".$section_cmd."{$heading}\n";
+          } else {
+            $result .= "\\".$section_cmd."{\\centering $heading}\n";
           }
-          if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
-            my $heading = '';
-            if ($element->{'args'}->[0]->{'contents'}) {
-              $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'} = 1;
-              $heading = $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}});
-              delete $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'};
-            }
-    
-            my $section_cmd = $section_map{$cmdname};
-            if (not defined($section_map{$cmdname})) {
-              die "BUG: no section_map for $cmdname";
-            }
-          
-            if ($cmdname ne 'centerchap') {
-              $result .= "\\".$section_cmd."{$heading}\n";
-            } else {
-              $result .= "\\".$section_cmd."{\\centering $heading}\n";
-            }
-            if ($element->{'extra'}->{'associated_node'}) {
-              my $associated_node = $element->{'extra'}->{'associated_node'};
-              my $node_label
-                = _tree_anchor_label($associated_node->{'extra'}->{'node_content'});
-              $result .= "\\label{$node_label}%\n";
-            }
-          }
+        }
+        # we add a label even if in_skipped_node_top (should only
+        # be for the Top node, as another node ends in_skipped_node_top).
+        if ($element->{'extra'}->{'associated_node'}) {
+          my $associated_node = $element->{'extra'}->{'associated_node'};
+          my $node_label
+            = _tree_anchor_label($associated_node->{'extra'}->{'node_content'});
+          $result .= "\\label{$node_label}%\n";
         }
       }
     } elsif (($cmdname eq 'item' or $cmdname eq 'itemx')

@@ -573,6 +573,7 @@ $result_directions_text{'lone_Top_node'} = 'element: @chapter chap
 
 $result_converted{'latex'}->{'lone_Top_node'} = '
 \\begin{document}
+\\label{anchor:Top}%
 \\chapter{chap}
 \\label{anchor:First}%
 ';

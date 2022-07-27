@@ -847,6 +847,7 @@ $result_converted{'latex'}->{'nodes_before_after_top_xref'} = '
 
 In node before
 
+\\label{anchor:Top}%
 \\label{anchor:after}%
 
 in node after

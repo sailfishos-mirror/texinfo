@@ -526,6 +526,7 @@ $result_converted{'latex'}->{'section_before_after_top_node_last_node'} = '
 \\begin{document}
 \\chapter*{before}
 
+\\label{anchor:Top}%
 \\label{anchor:node-after}%
 ';
 

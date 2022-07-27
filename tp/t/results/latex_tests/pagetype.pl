@@ -633,6 +633,7 @@ $result_converted{'latex'}->{'pagetype'} = '
 \\geometry{papername=a4paper}%
 
 \\begin{document}
+\\label{anchor:Top}%
 \\chapter{Chapter}
 \\label{anchor:chapter}%
 

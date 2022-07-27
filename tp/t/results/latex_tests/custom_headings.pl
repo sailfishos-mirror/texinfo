@@ -1103,6 +1103,7 @@ $result_converted{'latex'}->{'custom_headings'} = '
 \\pagestyle{custom}%
 
 \\begin{document}
+\\label{anchor:Top}%
 \\chapter{ch--ap}
 \\label{anchor:chapter}%
 

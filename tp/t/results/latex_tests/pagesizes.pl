@@ -601,6 +601,7 @@ $result_converted{'latex'}->{'pagesizes'} = '
 \\newgeometry{textheight=200mm,textwidth=150mm}
 
 \\begin{document}
+\\label{anchor:Top}%
 \\chapter{Chapter}
 \\label{anchor:chapter}%
 

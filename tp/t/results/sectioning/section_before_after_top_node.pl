@@ -439,6 +439,7 @@ $result_converted{'latex'}->{'section_before_after_top_node'} = '
 \\begin{document}
 \\chapter*{before}
 
+\\label{anchor:Top}%
 ';
 
 1;

@@ -2470,6 +2470,7 @@ $result_floats{'float_and_refs'}{'Thing'}[0]{'extra'}{'shortcaption'}{'extra'}{'
 
 $result_converted{'latex'}->{'float_and_refs'} = '
 \\begin{document}
+\\label{anchor:Top}%
 \\chapter{chapter}
 \\label{anchor:chapter}%
 

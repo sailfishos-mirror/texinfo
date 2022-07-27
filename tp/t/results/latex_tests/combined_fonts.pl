@@ -1515,6 +1515,7 @@ $result_floats{'combined_fonts'} = {};
 
 $result_converted{'latex'}->{'combined_fonts'} = '
 \\begin{document}
+\\label{anchor:Top}%
 \\chapter{chapter}
 \\label{anchor:chapter}%
 

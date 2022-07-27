@@ -156,6 +156,8 @@ my @test_cases = (
 @chapter  A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
 
 see @ref{a @strong{strong} ref with @sc{sc}@comma{} a i trema @"i@comma{} a dotless i trema @"{@dotless{i}} @`{@=E} and exclamdown @exclamdown{},,,manual}.
+
+@xref{A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}}.
 '],
 ['refs_formatting',
 '@node chapter
@@ -838,6 +840,11 @@ my %docbooc_doc_tests = (
 # this is temporary, all the files in @test_cases should go
 # through the LaTeX converter
 my %latex_tests = (
+  'accent_with_text' => 1,
+  'empty_accent' => 1,
+  'some_at_commands_in_ref_nodes' => 1,
+  'refs_formatting' => 1,
+  'top_in_ref' => 1,
   'inline' => 1,
   'test_sp' => 1,
   'non_empty_part' => 1,

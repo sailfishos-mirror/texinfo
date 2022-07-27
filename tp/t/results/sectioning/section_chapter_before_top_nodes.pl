@@ -965,6 +965,7 @@ $result_converted{'latex'}->{'section_chapter_before_top_nodes'} = '
 \\label{anchor:chapter-node}%
 
 
+\\label{anchor:Top}%
 ';
 
 1;

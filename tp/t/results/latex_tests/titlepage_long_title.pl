@@ -500,6 +500,7 @@ $result_converted{'latex'}->{'titlepage_long_title'} = '
 \\end{titlepage}
 \\GNUTexinfosetsingleheader{}%
 \\GNUTexinfomainmatter
+\\label{anchor:Top}%
 \\chapter{Chapter}
 \\label{anchor:chapter}%
 

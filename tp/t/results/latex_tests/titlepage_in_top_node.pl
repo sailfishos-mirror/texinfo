@@ -514,6 +514,7 @@ $result_converted{'latex'}->{'titlepage_in_top_node'} = '
 \\end{titlepage}
 \\GNUTexinfosetsingleheader{}%
 \\GNUTexinfomainmatter
+\\label{anchor:Top}%
 \\chapter{chap}
 \\label{anchor:chap}%
 

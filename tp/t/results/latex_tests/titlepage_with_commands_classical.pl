@@ -1059,6 +1059,7 @@ in Copying
 \\end{titlepage}
 \\GNUTexinfosetsingleheader{}%
 \\GNUTexinfomainmatter
+\\label{anchor:Top}%
 \\chapter{Chapter}
 \\label{anchor:chapter}%
 

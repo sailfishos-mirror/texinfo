@@ -969,6 +969,7 @@ $result_floats{'loop_nodes'} = {};
 
 $result_converted{'latex'}->{'loop_nodes'} = '
 \\begin{document}
+\\label{anchor:Top}%
 \\label{anchor:node-up}%
 
 

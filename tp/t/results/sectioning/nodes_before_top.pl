@@ -916,6 +916,7 @@ $result_converted{'latex'}->{'nodes_before_top'} = '
 
 \\label{anchor:node-in-menu-before-top}%
 
+\\label{anchor:Top}%
 \\chapter{a chapter}
 \\label{anchor:second-node}%
 ';

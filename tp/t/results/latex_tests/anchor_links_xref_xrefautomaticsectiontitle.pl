@@ -1194,6 +1194,7 @@ $result_converted{'latex'}->{'anchor_links_xref_xrefautomaticsectiontitle'} = '
 In node before
 \\label{anchor:anch_003a-in-node-before}%
 
+\\label{anchor:Top}%
 \\label{anchor:after}%
 
 in node after

@@ -579,6 +579,7 @@ $result_converted{'latex'}->{'nodes_before_after_top'} = '
 
 In node before
 
+\\label{anchor:Top}%
 \\label{anchor:after}%
 
 in node after

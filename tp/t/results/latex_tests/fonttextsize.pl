@@ -911,6 +911,7 @@ $result_converted{'latex'}->{'fonttextsize'} = '
 \\changefontsize{10}
 
 \\begin{document}
+\\label{anchor:Top}%
 \\chapter{Chapter}
 \\label{anchor:chapter}%
 

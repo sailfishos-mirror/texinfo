@@ -1360,6 +1360,7 @@ $result_indices_sort_strings{'indices'} = {
 $result_converted{'latex'}->{'indices'} = '
 
 \\begin{document}
+\\label{anchor:Top}%
 \\chapter{Index}
 \\label{anchor:chapter}%
 

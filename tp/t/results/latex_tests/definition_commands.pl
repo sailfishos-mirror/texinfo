@@ -2255,6 +2255,7 @@ $result_indices_sort_strings{'definition_commands'} = {
 
 $result_converted{'latex'}->{'definition_commands'} = '
 \\begin{document}
+\\label{anchor:Top}%
 \\chapter{chapter}
 \\label{anchor:chapter}%
 
