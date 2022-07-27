@@ -903,14 +903,14 @@ intentionally not using many newer or less widely-supported tags.
 Although the native output is thus rather plain, it can be customized
 at various levels, if desired.   @xref{Generating HTML}.
 
-@item EPUB3
-@cindex EPUB3 output, overview
+@item EPUB 3
+@cindex EPUB 3 output, overview
 (Generated via @command{makeinfo --epub3}.)
 EPUB is a format designed for reading electronic books on
 portable devices.  It is a derivative of HTML@.  The format was
 developed by the International Digital Publishing Forum (IDPF),
 which is now part of the World Wide Web Consortium (W3C)@.  The
-latest major revision, EPUB3, dates from 2011.
+latest major revision, EPUB 3, dates from 2011.
 
 
 @item DVI
@@ -15363,7 +15363,7 @@ supports these formats:
 
 @item HTML (with @option{--html}),
 
-@item EPUB3 (with @option{--epub3}),
+@item EPUB 3 (with @option{--epub3}),
 
 @item plain text (with @option{--plaintext}),
 
@@ -15535,7 +15535,7 @@ and @ref{Inserting Accents}.
 
 @item --epub3
 @opindex --epub3
-Generate EPUB3 output.
+Generate EPUB 3 output.
 
 @item --error-limit=@var{limit}
 @itemx -e @var{limit}
