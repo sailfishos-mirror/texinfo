@@ -17,7 +17,7 @@ $result_trees{'definition_commands'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'combined_fonts.info'
+                      'text' => 'definition_commands.info'
                     }
                   ],
                   'extra' => {
@@ -31,7 +31,7 @@ $result_trees{'definition_commands'} = {
               'cmdname' => 'setfilename',
               'extra' => {
                 'spaces_before_argument' => ' ',
-                'text_arg' => 'combined_fonts.info'
+                'text_arg' => 'definition_commands.info'
               },
               'parent' => {},
               'source_info' => {
@@ -2084,7 +2084,7 @@ $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[12]{'parent'} = 
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[13]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'parent'} = $result_trees{'definition_commands'};
 
-$result_texis{'definition_commands'} = '@setfilename combined_fonts.info
+$result_texis{'definition_commands'} = '@setfilename definition_commands.info
 
 @node Top
 @top top section

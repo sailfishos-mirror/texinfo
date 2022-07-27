@@ -468,14 +468,14 @@ $result_trees{'combined_fonts'} = {
                           'contents' => [
                             {
                               'parent' => {},
-                              'text' => 'kbd in strong'
+                              'text' => 'var in code'
                             }
                           ],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'kbd',
+                      'cmdname' => 'var',
                       'contents' => [],
                       'parent' => {},
                       'source_info' => {
@@ -489,12 +489,57 @@ $result_trees{'combined_fonts'} = {
                   'type' => 'brace_command_arg'
                 }
               ],
-              'cmdname' => 'strong',
+              'cmdname' => 'code',
               'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'kbd in strong'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'kbd',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 14,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'strong',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 14,
                 'macro' => ''
               }
             },
@@ -525,7 +570,7 @@ $result_trees{'combined_fonts'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 14,
+                        'line_nr' => 15,
                         'macro' => ''
                       }
                     }
@@ -539,7 +584,7 @@ $result_trees{'combined_fonts'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
+                'line_nr' => 15,
                 'macro' => ''
               }
             },
@@ -570,7 +615,7 @@ $result_trees{'combined_fonts'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 15,
+                        'line_nr' => 16,
                         'macro' => ''
                       }
                     }
@@ -584,7 +629,7 @@ $result_trees{'combined_fonts'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
+                'line_nr' => 16,
                 'macro' => ''
               }
             },
@@ -623,7 +668,7 @@ $result_trees{'combined_fonts'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
+                'line_nr' => 18,
                 'macro' => ''
               }
             },
@@ -666,7 +711,7 @@ $result_trees{'combined_fonts'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 19,
+                        'line_nr' => 20,
                         'macro' => ''
                       }
                     }
@@ -680,7 +725,7 @@ $result_trees{'combined_fonts'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
+                'line_nr' => 20,
                 'macro' => ''
               }
             },
@@ -711,7 +756,7 @@ $result_trees{'combined_fonts'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 20,
+                        'line_nr' => 21,
                         'macro' => ''
                       }
                     }
@@ -725,7 +770,7 @@ $result_trees{'combined_fonts'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
+                'line_nr' => 21,
                 'macro' => ''
               }
             },
@@ -764,7 +809,7 @@ $result_trees{'combined_fonts'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
+                'line_nr' => 23,
                 'macro' => ''
               }
             },
@@ -790,7 +835,7 @@ $result_trees{'combined_fonts'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
+                'line_nr' => 23,
                 'macro' => ''
               }
             },
@@ -816,7 +861,7 @@ $result_trees{'combined_fonts'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
+                'line_nr' => 23,
                 'macro' => ''
               }
             },
@@ -847,7 +892,7 @@ $result_trees{'combined_fonts'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 23,
+                        'line_nr' => 24,
                         'macro' => ''
                       }
                     }
@@ -861,7 +906,7 @@ $result_trees{'combined_fonts'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
+                'line_nr' => 24,
                 'macro' => ''
               }
             },
@@ -892,7 +937,7 @@ $result_trees{'combined_fonts'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 24,
+                        'line_nr' => 25,
                         'macro' => ''
                       }
                     }
@@ -906,7 +951,7 @@ $result_trees{'combined_fonts'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 24,
+                'line_nr' => 25,
                 'macro' => ''
               }
             },
@@ -937,7 +982,7 @@ $result_trees{'combined_fonts'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 25,
+                        'line_nr' => 26,
                         'macro' => ''
                       }
                     }
@@ -951,7 +996,7 @@ $result_trees{'combined_fonts'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 25,
+                'line_nr' => 26,
                 'macro' => ''
               }
             },
@@ -982,7 +1027,7 @@ $result_trees{'combined_fonts'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 26,
+                        'line_nr' => 27,
                         'macro' => ''
                       }
                     }
@@ -996,7 +1041,7 @@ $result_trees{'combined_fonts'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 26,
+                'line_nr' => 27,
                 'macro' => ''
               }
             },
@@ -1047,7 +1092,7 @@ $result_trees{'combined_fonts'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 29,
+                    'line_nr' => 30,
                     'macro' => ''
                   }
                 },
@@ -1074,7 +1119,7 @@ $result_trees{'combined_fonts'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 30,
+                    'line_nr' => 31,
                     'macro' => ''
                   }
                 },
@@ -1113,7 +1158,7 @@ $result_trees{'combined_fonts'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 31,
+                'line_nr' => 32,
                 'macro' => ''
               }
             }
@@ -1124,7 +1169,7 @@ $result_trees{'combined_fonts'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 28,
+            'line_nr' => 29,
             'macro' => ''
           }
         }
@@ -1221,6 +1266,12 @@ $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[8]{'ar
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[8];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[8]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[9]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[10]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[10]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[10]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[10]{'args'}[0]{'contents'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[10]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[10];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[10]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3];
+$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'contents'}[11]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0];
@@ -1311,6 +1362,7 @@ $result_texis{'combined_fonts'} = '@setfilename combined_fonts.info
 
 @code{@dfn{dfn in code}}
 @var{@code{code in var}}
+@code{@var{var in code}}
 @strong{@kbd{kbd in strong}}
 @samp{@strong{strong in samp}}
 @strong{@samp{samp in strong}}
@@ -1344,6 +1396,7 @@ code, dfn, var, strong, kbd, samp.
 
 dfn in code
 code in var
+var in code
 kbd in strong
 strong in samp
 samp in strong
@@ -1469,6 +1522,7 @@ $result_converted{'latex'}->{'combined_fonts'} = '
 
 \\texttt{\\textsl{dfn in code}}
 \\textsl{\\texttt{code in var}}
+\\texttt{\\textsl{var in code}}
 \\textbf{{\\ttfamily\\textsl{kbd in strong}}}
 `\\texttt{\\textbf{strong in samp}}\'
 \\textbf{`\\texttt{samp in strong}\'}

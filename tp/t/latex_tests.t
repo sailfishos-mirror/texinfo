@@ -642,6 +642,7 @@ Describe @error{}.
 
 @code{@dfn{dfn in code}}
 @var{@code{code in var}}
+@code{@var{var in code}}
 @strong{@kbd{kbd in strong}}
 @samp{@strong{strong in samp}}
 @strong{@samp{samp in strong}}
@@ -663,7 +664,7 @@ Describe @error{}.
 @end example
 '],
 ['definition_commands',
-'@setfilename combined_fonts.info
+'@setfilename definition_commands.info
 
 @node Top
 @top top section
