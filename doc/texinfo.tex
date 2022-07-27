@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-07-26.19}
+\def\texinfoversion{2022-07-27.14}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -7837,16 +7837,13 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \fi           % no return type
     #3% output function name
   }%
-  \expandafter\ifx\csname SETtxidefnamespace\endcsname\relax\else
+  \expandafter\ifx\csname SETtxidefnamenospace\endcsname\relax
     {\rm\enskip}% hskip 0.5 em of \rmfont
   \fi
   %
   \boldbrax
   % arguments will be output next, if any.
 }
-
-% Use "@clear txidefnamespace" to omit space after definition name
-\set txidefnamespace
 
 % Print arguments in slanted roman (not ttsl), inconsistently with using
 % tt for the name.  This is because literal text is sometimes needed in

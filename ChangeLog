@@ -1,5 +1,14 @@
 2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	@set txidefnamenospace
+
+	* doc/texinfo.tex (\defname):
+	Use '@set txidefnamenospace' instead of '@clear txidefnamespace'
+	to omit space.  This will ease implementation in the XS parser as
+	it means we don't need to have flags set by default.
+
+2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_convert) <@def*>:
 	Combine code setting strings argument to gdt, for concision.
 
