@@ -2,6 +2,14 @@
 
 	texi2any --epub3
 
+	* NEWS, TODO: Update.
+	* tp/texi2any.pl: Add --epub3 to usage message.  Edit
+	usage message for format selectors to remove "rather than Info".
+
+2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	texi2any --epub3
+
 	* tp/texi2any.pl: Add an option --epub3, which sets the output
 	format to HTML and loads the 'epub3.pm' init file.
 

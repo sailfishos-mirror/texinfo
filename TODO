@@ -25,9 +25,6 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
     Free Software Directory categories but these have changed.
 
 * texi2any:
-  - Support the epub output format, http://en.wikipedia.org/wiki/OEBPS.
-    Suggested by Sean Young, 30 Nov 2008 20:13:11 (Savannah bug tracker)
-      (IN PROGRESS - documentation required)
   - give a warning for "makeinfo FOO.info" when "makeinfo FOO.texi" was meant
   - Review and Improve the HTML customization API.  Missing from the API is
     a possibility to customize the translated strings and the translations.

@@ -733,11 +733,12 @@ the behavior is identical, and does not depend on the installed name.\n")
     get_conf('ERROR_LIMIT'))
 ."\n";
   $makeinfo_help .= __("Output format selection (default is to produce Info):")."\n"
-.__("      --docbook               output Docbook XML rather than Info.")."\n"
-.__("      --html                  output HTML rather than Info.")."\n"
-.__("      --latex                 output LaTeX rather than Info.")."\n"
+.__("      --docbook               output Docbook XML.")."\n"
+.__("      --html                  output HTML.")."\n"
+.__("      --epub3                 output EPUB3.")."\n"
+.__("      --latex                 output LaTeX.")."\n"
 .__("      --plaintext             output plain text rather than Info.")."\n"
-.__("      --xml                   output Texinfo XML rather than Info.")."\n"
+.__("      --xml                   output Texinfo XML.")."\n"
 .__("      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,
                                 after checking validity of TEXINFO-FILE.")."\n"
 ."\n";
