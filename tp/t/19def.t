@@ -563,7 +563,8 @@ Documentation of @code{foo}.
 @defun function (arg1, arg2)
 explain
 @end defun
-']
+',
+{'test_formats' => ['plaintext', 'html', 'latex']}],
 );
 
 my @test_printindex = ();

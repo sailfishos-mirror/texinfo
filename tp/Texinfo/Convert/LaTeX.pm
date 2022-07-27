@@ -3412,7 +3412,6 @@ sub _convert($$)
              and %{$element->{'extra'}->{'def_parsed_hash'}}) {
         my $arguments
             = Texinfo::Convert::Utils::definition_arguments_content($element);
-        my $tree;
         my $command;
         if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
           $command
@@ -3426,106 +3425,52 @@ sub _convert($$)
         } else {
           $name = '';
         }
-        $result .= '\noindent\texttt{';
-
-	my $strings = {
-          'name' => $name,
-          'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-	};
-	$strings->{'arguments'} = _only_slanted_no_code_contents($arguments)
-          if ($arguments);
-
-        my $category = $element->{'extra'}->{'def_parsed_hash'}->{'category'};
-        
-        if ($command eq 'deffn'
-            or $command eq 'defvr'
-            or $command eq 'deftp'
-            or (($command eq 'deftypefn'
-                 or $command eq 'deftypevr')
-                and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
-          if ($arguments) {
-            $tree = $self->gdt('{name} {arguments}', $strings);
-          } else {
-            $tree = $self->gdt("{name}", $strings);
-          }
-        } elsif ($command eq 'deftypefn'
-                 or $command eq 'deftypevr') {
-          if ($arguments) {
-            if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree = $self->gdt("{type}\@*{name} {arguments}", $strings);
-            } else {
-              $tree = $self->gdt('{type} {name} {arguments}', $strings);
-            }
-          } else {
-            if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree = $self->gdt('{type}@*{name}', $strings);
-            } else {
-              $tree = $self->gdt('{type} {name}', $strings);
-            }
-          }
-        } elsif ($command eq 'defcv'
-                 or ($command eq 'deftypecv'
-                     and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
-          $category
-           = $self->gdt('{category} of @code{{class}}',
-            { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-              'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
-          if ($arguments) {
-            $tree = $self->gdt('{name} {arguments}', $strings);
-          } else {
-            $tree = $self->gdt("{name}", $strings);
-          }
-        } elsif ($command eq 'defop'
-                 or ($command eq 'deftypeop'
-                     and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
-          $category =  $self->gdt('{category} on @code{{class}}',
-                { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-                  'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
-          if ($arguments) {
-            $tree = $self->gdt('{name} {arguments}', $strings);
-          } else {
-            $tree = $self->gdt('{name}', $strings);
-          }
-        } elsif ($command eq 'deftypeop') {
-          $category =  $self->gdt('{category} on @code{{class}}',
-             { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-               'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
-          if ($arguments) {
-            if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree = $self->gdt('{type}@*{name} {arguments}', $strings);
-            } else {
-              $tree = $self->gdt('{type} {name} {arguments}', $strings);
-            }
-          } else {
-            if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree = $self->gdt('{type}@*{name}', $strings);
-            } else {
-              $tree = $self->gdt('{type} {name}', $strings);
-            }
-          }
-        } elsif ($command eq 'deftypecv') {
-          $category =  $self->gdt('{category} of @code{{class}}',
-            { 'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-              'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'} } );
-          if ($arguments) {
-            if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree = $self->gdt('{type}@*{name} {arguments}', $strings);
-            } else {
-              $tree = $self->gdt('{type} {name} {arguments}', $strings);
-            }
-          } else {
-            if ($self->get_conf('deftypefnnewline') eq 'on') {
-              $tree = $self->gdt('{type}@*{name}', $strings);
-            } else {
-              $tree = $self->gdt('{type} {name}', $strings);
-            }
-          }
+        my $def_space = ' ';
+        if ($self->{'values'}->{'txidefnamenospace'}) {
+          $def_space = '';
         }
+
+        $result .= '\noindent\texttt{';
         # the def* line except for the category is converted in code context
         $self->{'formatting_context'}->[-1]->{'code'} += 1;
-        $result .= _convert($self, {'contents' => [$tree]});
+
+        if ($element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
+          $result .=  _convert($self,
+            $element->{'extra'}->{'def_parsed_hash'}->{'type'});
+          if ($self->get_conf('deftypefnnewline') eq 'on') {
+            $result .= '\\leavevmode{}\\\\'; # should be same as @*
+          } else {
+            $result .= ' ';
+          }
+        }
+        $result .= _convert($self, $name) if $name;
+        if ($arguments) {
+          $result .= $def_space;
+          $result .=  _convert($self,
+                               _only_slanted_no_code_contents($arguments));
+        }
+
         $self->{'formatting_context'}->[-1]->{'code'} -= 1;
         $result .= '}'; # \texttt
+
+        my $category;
+        if ($command eq 'defcv' or $command eq 'deftypecv') {
+          $category = $self->gdt('{category} of @code{{class}}',
+            { 'category'
+                 => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+              'class'
+                 => $element->{'extra'}->{'def_parsed_hash'}->{'class'}
+            });
+        } elsif ($command eq 'defop' or $command eq 'deftypeop') {
+          $category =  $self->gdt('{category} on @code{{class}}',
+            { 'category'
+                 => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+              'class'
+                 => $element->{'extra'}->{'def_parsed_hash'}->{'class'}
+            });
+        } else {
+          $category = $element->{'extra'}->{'def_parsed_hash'}->{'category'};
+        }
         if (defined($category)) {
           # category is converted in normal text context
           my $converted = _convert($self, $category);

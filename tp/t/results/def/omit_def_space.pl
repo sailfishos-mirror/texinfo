@@ -309,4 +309,66 @@ $result_indices_sort_strings{'omit_def_space'} = {
 };
 
 
+
+$result_converted{'plaintext'}->{'omit_def_space'} = ' -- Function: function (arg1, arg2)
+     explain
+';
+
+
+$result_converted{'html'}->{'omit_def_space'} = '<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+
+<meta name="description" content="Untitled Document">
+<meta name="keywords" content="Untitled Document">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+
+<dl class="first-deffn first-defun-alias-first-deffn">
+<dt class="deffn defun-alias-deffn" id="index-function"><span class="category-def">Function: </span><span><strong class="strong">function</strong> <em class="emph">(arg1, arg2)</em><a class="copiable-link" href=\'#index-function\'> &para;</a></span></dt>
+<dd><p>explain
+</p></dd></dl>
+
+
+
+</body>
+</html>
+';
+
+$result_converted_errors{'html'}->{'omit_def_space'} = [
+  {
+    'error_line' => 'warning: must specify a title with a title command or @top
+',
+    'text' => 'must specify a title with a title command or @top',
+    'type' => 'warning'
+  }
+];
+
+
+
+$result_converted{'latex'}->{'omit_def_space'} = '
+\\noindent\\texttt{function \\bgroup{}\\normalfont{}\\textsl{(arg1, arg2)}\\egroup{}}\\hfill[Function]
+
+
+
+\\index[fn]{function@\\texttt{function}}%
+explain
+';
+
 1;

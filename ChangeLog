@@ -1,5 +1,14 @@
 2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	@set txidefnamenospace in LaTeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert) <@def*>:
+	Implement txidefnamenospace flag to omit space between def
+	name and arguments.  This rearranges and condenses the code,
+	and uses gdt much less.
+
+2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Save txidefnamenospace
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi) <def command>,
