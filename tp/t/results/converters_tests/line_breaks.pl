@@ -700,4 +700,25 @@ $result_converted{'docbook_doc'}->{'line_breaks'} = '<?xml version="1.0"?>
 </para></blockquote></book>
 ';
 
+
+$result_converted{'latex'}->{'line_breaks'} = '
+{\\raggedright {\\huge \\bfseries AWK As A Major Systems Programming \\leavevmode{}\\\\ Language---Revisited}}
+\\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt
+
+\\begin{center}
+in center \\leavevmode{}\\\\ line break
+\\end{center}
+
+\\begin{description}
+\\item[{\\parbox[b]{\\linewidth}{%
+\\textbf{with break \\leavevmode{}\\\\ after}\\\\
+\\textbf{withx breakx \\leavevmode{}\\\\ afterx}}}]
+Text
+\\end{description}
+
+\\begin{quote}
+\\textbf{Q\\leavevmode{}\\\\ uotation:} T
+\\end{quote}
+';
+
 1;

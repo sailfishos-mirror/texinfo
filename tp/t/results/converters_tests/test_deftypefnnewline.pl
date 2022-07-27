@@ -3620,4 +3620,111 @@ $result_converted{'docbook'}->{'test_deftypefnnewline'} = '<chapter label="1" id
 </para></blockquote></chapter>
 ';
 
+
+$result_converted{'latex'}->{'test_deftypefnnewline'} = '
+
+\\label{anchor:Top}%
+\\chapter{chap}
+\\label{anchor:chapter}%
+
+\\noindent\\texttt{data-type\\leavevmode{}\\\\name \\bgroup{}\\normalfont{}\\textsl{arguments...}\\egroup{}}\\hfill[Function]
+
+
+
+\\index[fn]{name@\\texttt{name}}%
+aaa
+
+\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypefn\\_name}\\hfill[c--ategory]
+
+
+
+\\index[fn]{d--eftypefn\\_name@\\texttt{d{-}{-}eftypefn\\_name}}%
+d--eftypefn no arg
+
+\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypeop\\_name \\bgroup{}\\normalfont{}\\textsl{a--rguments...}\\egroup{}}\\hfill[c--ategory on \\texttt{c{-}{-}lass}]
+
+
+
+\\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name on c{-}{-}lass}}%
+d--eftypeop
+
+\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypeop\\_name}\\hfill[c--ategory on \\texttt{c{-}{-}lass}]
+
+
+
+\\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name on c{-}{-}lass}}%
+d--eftypeop no arg
+
+\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypecv\\_name}\\hfill[c--ategory of \\texttt{c{-}{-}lass}]
+
+
+
+\\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name of c{-}{-}lass}}%
+d--eftypecv
+
+\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypecv\\_name \\bgroup{}\\normalfont{}\\textsl{a--rguments...}\\egroup{}}\\hfill[c--ategory of \\texttt{c{-}{-}lass}]
+
+
+
+\\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name of c{-}{-}lass}}%
+d--eftypecv with arguments
+
+\\noindent\\texttt{arg}\\hfill[fun]
+
+
+
+\\index[fn]{arg@\\texttt{arg}}%
+fff
+
+
+\\noindent\\texttt{data-type2 name2 \\bgroup{}\\normalfont{}\\textsl{arguments2...}\\egroup{}}\\hfill[Function]
+
+
+
+\\index[fn]{name2@\\texttt{name2}}%
+aaa2
+
+\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypefn\\_name2}\\hfill[c--ategory2]
+
+
+
+\\index[fn]{d--eftypefn\\_name2@\\texttt{d{-}{-}eftypefn\\_name2}}%
+d--eftypefn no arg2
+
+\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypeop\\_name2 \\bgroup{}\\normalfont{}\\textsl{a--rguments2...}\\egroup{}}\\hfill[c--ategory2 on \\texttt{c{-}{-}lass2}]
+
+
+
+\\index[fn]{d--eftypeop\\_name2 on c--lass2@\\texttt{d{-}{-}eftypeop\\_name2 on c{-}{-}lass2}}%
+d--eftypeop2
+
+\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypeop\\_name2}\\hfill[c--ategory2 on \\texttt{c{-}{-}lass2}]
+
+
+
+\\index[fn]{d--eftypeop\\_name2 on c--lass2@\\texttt{d{-}{-}eftypeop\\_name2 on c{-}{-}lass2}}%
+d--eftypeop no arg2
+
+\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypecv\\_name2}\\hfill[c--ategory2 of \\texttt{c{-}{-}lass2}]
+
+
+
+\\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2 of c{-}{-}lass2}}%
+d--eftypecv2
+
+\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypecv\\_name2 \\bgroup{}\\normalfont{}\\textsl{a--rguments2...}\\egroup{}}\\hfill[c--ategory2 of \\texttt{c{-}{-}lass2}]
+
+
+
+\\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2 of c{-}{-}lass2}}%
+d--eftypecv with arguments2
+
+\\noindent\\texttt{arg2}\\hfill[fun2]
+
+
+
+\\index[fn]{arg2@\\texttt{arg2}}%
+fff2
+';
+
 1;
