@@ -1,5 +1,15 @@
 2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Save txidefnamenospace
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi) <def command>,
+	* tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_block_command) <def command>: If txidefnamenospace flag
+	is set, set 'omit_def_name_space' extra value.
+	* tp/t/19def.t (omit_def_space): New test.
+
+2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@set txidefnamenospace
 
 	* doc/texinfo.tex (\defname):

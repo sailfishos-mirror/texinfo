@@ -913,6 +913,12 @@ handle_block_command (ELEMENT *current, char **line_inout,
           block->source_info = current_source_info;
           add_to_element_contents (current, block);
           current = block;
+
+          /* Check txidefnamenospace flag */
+          char *val = fetch_value ("txidefnamenospace");
+          if (val)
+            add_extra_integer (current, "omit_def_name_space", 1);
+
           def_line = new_element (ET_def_line);
           def_line->source_info = current_source_info;
           add_to_element_contents (current, def_line);

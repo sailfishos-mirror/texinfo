@@ -557,6 +557,13 @@ Documentation of @code{foo}.
 @end deftypefn
 ',
 {'test_formats' => ['plaintext']}],
+['omit_def_space',
+'@set txidefnamenospace
+
+@defun function (arg1, arg2)
+explain
+@end defun
+']
 );
 
 my @test_printindex = ();
