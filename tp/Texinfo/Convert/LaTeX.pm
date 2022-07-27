@@ -3451,7 +3451,7 @@ sub _convert($$)
           $name = '';
         }
         my $def_space = ' ';
-        if ($self->{'values'}->{'txidefnamenospace'}) {
+        if ($element->{'parent'}->{'extra'}->{'omit_def_name_space'}) {
           $def_space = '';
         }
 
