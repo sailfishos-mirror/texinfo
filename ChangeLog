@@ -1,5 +1,12 @@
 2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	texi2any --epub3
+
+	* tp/texi2any.pl: Add an option --epub3, which sets the output
+	format to HTML and loads the 'epub3.pm' init file.
+
+2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@set txidefnamenospace in LaTeX
 
 	* tp/Texinfo/Convert/LaTeX.pm (_convert) <@def*>:

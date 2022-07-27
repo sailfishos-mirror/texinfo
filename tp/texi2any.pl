@@ -1024,6 +1024,11 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021");
  'silent|quiet' => sub { push @texi2dvi_args, '--'.$_[0];},
  'plaintext' => sub {$format = set_format($_[0].'');},
  'html' => sub {$format = set_format($_[0].'');},
+ 'epub3' => sub {
+   $format = set_format('html');
+   my $epub_file = 'epub3.pm';
+   locate_and_load_init_file($epub_file, [ @conf_dirs, @program_init_dirs ]);
+ },
  'latex' => sub {$format = set_format($_[0].'');},
  'info' => sub {$format = set_format($_[0].'');},
  'docbook' => sub {$format = set_format($_[0].'');},
