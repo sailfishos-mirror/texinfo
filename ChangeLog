@@ -1,5 +1,10 @@
 2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_convert) <@def*>:
+	Combine code setting strings argument to gdt, for concision.
+
+2022-07-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_convert) <deftypefnnewline>:
 	Remove extra @* command at beginning of line.
 	<@def*>: Use { and } for font change instead of \bgroup and \egroup.
