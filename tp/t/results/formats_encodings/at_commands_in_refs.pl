@@ -22833,7 +22833,7 @@ $result_converted{'html'}->{'at_commands_in_refs'} = '<!DOCTYPE html>
 <!--
 kbd.kbd {font-style: oblique}
 kbd.key {font-style: normal}
-span.r {font-family: initial; font-weight: normal}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
 -->
 </style>

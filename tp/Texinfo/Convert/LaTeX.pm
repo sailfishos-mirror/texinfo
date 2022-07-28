@@ -612,7 +612,7 @@ my %LaTeX_style_brace_commands = (
     'w' => '\\hbox',
     'sub' => '\\textsubscript',
     'sup' => '\\textsuperscript',
-    'r' => '\\textrm',
+    'r' => '\\textnormal',
     'sc' => '\\textsc',
     'sansserif' => '\\textsf',
     # slanted in texinfo.tex
