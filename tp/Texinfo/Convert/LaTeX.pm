@@ -3016,6 +3016,8 @@ sub _convert($$)
         push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
       }
       if ($item_line_commands{$cmdname}) {
+        # may be undef, in particular if the command is not a style command,
+        # for example @email
         my $description_command_format
           = _xtable_description_command_format($self, $element);
         push @{$self->{'formatting_context'}->[-1]->{'table_command_format'}},

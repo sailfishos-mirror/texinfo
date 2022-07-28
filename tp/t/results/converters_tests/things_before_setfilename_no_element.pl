@@ -1453,6 +1453,17 @@ $result_converted{'docbook'}->{'things_before_setfilename_no_element'} = '
 ';
 
 
+$result_converted{'latex'}->{'things_before_setfilename_no_element'} = '
+\\begin{document}
+Ref to anchor
+\\hyperref[anchor:An-anchor]{[An anchor], page~\\pageref*{anchor:An-anchor}}
+
+Ref to footnote anchor
+\\hyperref[anchor:Anchor-in-footnote]{[Anchor in footnote], page~\\pageref*{anchor:Anchor-in-footnote}}
+
+';
+
+
 $result_converted{'info'}->{'things_before_setfilename_no_element'} = 'This is things_before_setfilename_no_element.info, produced from
 things_before_setfilename_no_element.texi.
 

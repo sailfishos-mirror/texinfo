@@ -1012,6 +1012,21 @@ $result_converted{'docbook'}->{'spaces_in_empty_node_names'} = '
 </para>';
 
 
+$result_converted{'latex'}->{'spaces_in_empty_node_names'} = '\\label{anchor:Top}%
+\\label{anchor:}%
+
+\\label{anchor:}%
+
+\\label{anchor:}%
+
+\\ {}\\ {}
+
+\\verb:  :
+
+\\hbox{  }
+';
+
+
 $result_converted{'info'}->{'spaces_in_empty_node_names'} = 'This is , produced from .
 
 

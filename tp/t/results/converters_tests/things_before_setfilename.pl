@@ -1768,6 +1768,22 @@ $result_converted{'docbook'}->{'things_before_setfilename'} = '<chapter label="1
 ';
 
 
+$result_converted{'latex'}->{'things_before_setfilename'} = '
+\\begin{document}
+\\tableofcontents\\newpage
+\\label{anchor:Top}%
+\\chapter{Chapter}
+\\label{anchor:chap}%
+
+Ref to anchor
+\\hyperref[anchor:An-anchor]{[An anchor], page~\\pageref*{anchor:An-anchor}}
+
+Ref to footnote anchor
+\\hyperref[anchor:Anchor-in-footnote]{[Anchor in footnote], page~\\pageref*{anchor:Anchor-in-footnote}}
+
+';
+
+
 $result_converted{'info'}->{'things_before_setfilename'} = 'This is things_before_setfilename.info, produced from
 things_before_setfilename.texi.
 

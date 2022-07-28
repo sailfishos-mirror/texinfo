@@ -1574,4 +1574,42 @@ $result_converted{'docbook'}->{'at_commands_in_raw'} = '<chapter label="1" id="c
 </chapter>
 ';
 
+
+$result_converted{'latex'}->{'at_commands_in_raw'} = '\\label{anchor:Top}%
+\\chapter{Chapter}
+\\label{anchor:chap}%
+
+<b>in b\\footnote{in footnote}.</b>
+\\label{anchor:anchor-in-html}%
+{\\ttfamily\\textsl{in kbd before tex}}\\footnote{second footnote}.
+
+
+
+
+\\{No value for `flag\'\\}.
+
+{\\ttfamily\\textsl{in kbd after tex}}.
+
+See \\hyperref[anchor:anchor-in-html]{[anchor in html], page~\\pageref*{anchor:anchor-in-html}}.
+
+anchor in tex.
+\\index[fn]{fentry2@\\texttt{fentry2}}%
+
+ newidx entry
+
+\\printindex[fn]
+
+
+FF.
+
+tt.
+
+movie name
+
+Macro not unmacroed Other macro.
+
+Macros that should not be defined: . with arg.
+
+';
+
 1;

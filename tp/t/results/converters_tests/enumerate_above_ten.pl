@@ -151,4 +151,10 @@ $result_converted{'xml'}->{'enumerate_above_ten'} = '<enumerate first="14" space
 $result_converted{'docbook'}->{'enumerate_above_ten'} = '<orderedlist numeration="arabic"><listitem><para>a
 </para></listitem></orderedlist>';
 
+
+$result_converted{'latex'}->{'enumerate_above_ten'} = '\\begin{enumerate}[start=14]
+\\item a
+\\end{enumerate}
+';
+
 1;

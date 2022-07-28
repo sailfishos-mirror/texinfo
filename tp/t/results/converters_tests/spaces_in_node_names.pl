@@ -1123,6 +1123,21 @@ $result_converted{'docbook'}->{'spaces_in_node_names'} = '<anchor id="a--"/>
 </para>';
 
 
+$result_converted{'latex'}->{'spaces_in_node_names'} = '\\label{anchor:Top}%
+\\label{anchor:a--}%
+
+\\label{anchor:b-}%
+
+\\label{anchor:c-}%
+
+\\hyperref[anchor:a--]{[a\\ {}\\ {}], page~\\pageref*{anchor:a--}}
+
+\\hyperref[anchor:b-]{[b\\verb:  :], page~\\pageref*{anchor:b-}}
+
+\\hyperref[anchor:c-]{[c\\hbox{  }], page~\\pageref*{anchor:c-}}
+';
+
+
 $result_converted{'info'}->{'spaces_in_node_names'} = 'This is , produced from .
 
 

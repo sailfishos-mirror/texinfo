@@ -8,7 +8,13 @@ use utf8;
 $result_trees{'printindex_merged_indices_code_style'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
+        }
+      ],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -662,6 +668,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'printindex_merged_indices_code_style'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'printindex_merged_indices_code_style'}{'contents'}[0];
 $result_trees{'printindex_merged_indices_code_style'}{'contents'}[0]{'parent'} = $result_trees{'printindex_merged_indices_code_style'};
 $result_trees{'printindex_merged_indices_code_style'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'printindex_merged_indices_code_style'}{'contents'}[1]{'args'}[0];
 $result_trees{'printindex_merged_indices_code_style'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'printindex_merged_indices_code_style'}{'contents'}[1];

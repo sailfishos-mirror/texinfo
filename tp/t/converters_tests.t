@@ -598,6 +598,8 @@ undef, {'test_file' => 'things_before_setfilename.texi'}
 ['things_before_setfilename_no_element',
 undef, {'test_file' => 'things_before_setfilename_no_element.texi'}
 ],
+# the result cannot be processed by LaTeX, because \verb cannot be in other
+# commands (here, \hyperref).
 ['spaces_in_node_names',
 '@node Top
 
@@ -866,8 +868,23 @@ my %latex_tests = (
   'image_with_spaces' => 1,
   'image_extension' => 1,
   'image_formatting' => 1,
+  'enumerate_above_ten' => 1,
+  'footnote_no_number' => 1,
+  'footnote_no_number_separate' => 1,
+  'things_before_setfilename' => 1,
+  'things_before_setfilename_no_element' => 1,
+  'spaces_in_node_names' => 1,
+  'spaces_in_empty_node_names' => 1,
+# need final implementation of @example
+#  'normal_font_in_monospace' => 1,
+  'email_table_command_as_argument' => 1,
+  'at_commands_in_raw' => 1,
   'test_sp' => 1,
   'non_empty_part' => 1,
+);
+
+my %file_latex_tests = (
+  'printindex_merged_indices_code_style' => 1,
 );
 
 foreach my $test (@test_cases) {
@@ -885,6 +902,12 @@ foreach my $test (@test_cases) {
   }
   push @{$test->[2]->{'test_formats'}}, 'latex'
     if ($latex_tests{$test->[0]});
+  if ($file_latex_tests{$test->[0]}) {
+    $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
+    $test->[2]->{'full_document'} = 1
+        unless (exists($test->[2]->{'full_document'}));
+    push @{$test->[2]->{'test_formats'}}, 'file_latex';
+  }
   push @{$test->[2]->{'test_formats'}}, 'info'
     if ($info_tests{$test->[0]});
 }

@@ -494,6 +494,16 @@ $result_converted{'docbook'}->{'footnote_no_number_separate'} = '<chapter label=
 ';
 
 
+$result_converted{'latex'}->{'footnote_no_number_separate'} = '\\label{anchor:Top}%
+\\chapter{Chapter}
+\\label{anchor:chap}%
+
+Para\\footnote{Footnote 1.}.
+
+Para2\\footnote{Footnote 2.}.
+';
+
+
 $result_converted{'info'}->{'footnote_no_number_separate'} = 'This is , produced from .
 
 
