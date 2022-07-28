@@ -663,67 +663,6 @@ Describe @error{}.
 @cite{cite in example}
 @end example
 '],
-['definition_commands',
-'@setfilename definition_commands.info
-
-@node Top
-@top top section
-
-@node chapter
-@chapter chapter
-
-@deffn Func fname a---rg1 a--rg2
-deffn no var
-@end deffn
-
-@deffn Func fname @var{a---rg1} @var{a--rg2}
-deffn explict var
-@end deffn
-
-@deffn Func fname @r{@slanted{a---rg1}} @r{@slanted{a--rg2}}
-deffn r slanted
-@end deffn
-
-@defspec foobar (var [from to [inc]]) body@dots{}
-@end defspec
-
-@deftypefn {Library Function} int foobar  (int @var{f---oo}, float @var{b--ar})
-@dots{} with var
-@end deftypefn
-
-@deftypefn {Library Function} int foobar  (int @r{@slanted{f---oo}}, float @r{@slanted{b--ar}})
-@dots{} with r slanted
-@end deftypefn
-
-@noindent produces:
-@defcv {Class Option} Window border-pattern
-@dots{}
-@end defcv
-
-@deftypecv {Class Option} Window @code{int} border-pattern
-@dots{}
-@end deftypecv
-
-@quotation
-@deftypefn {Library Function} int foobar  (int @var{foo}, float @var{bar})
-@dots{}
-@end deftypefn
-@end quotation
-
-@defun apply function &rest arguments
-@code{apply} calls @var{function} with @var{arguments}
-@end defun
-
-@defun apply function @r{@b{&rest}} argument
-explicit keyword marking
-@end defun
-
-@deffn Category name argument @code{int} @code{a--b} @var{v--ar1}, word @code{--} (@code{type o--ther}, @var{v---ar2} @
- [@code{float} [@var{var4})
-In deffn
-@end deffn
-
-'],
 );
 
 foreach my $test (@test_cases) {

@@ -4222,98 +4222,241 @@ $result_indices_sort_strings{'definition_commands'} = {
 
 
 
-$result_converted{'latex'}->{'definition_commands'} = '
-\\begin{document}
-\\label{anchor:Top}%
-\\chapter{chapter}
-\\label{anchor:chapter}%
+$result_converted{'plaintext'}->{'definition_commands'} = 'top section
+***********
 
-\\noindent\\texttt{fname \\bgroup{}\\normalfont{}\\textsl{a---rg1 a--rg2}\\egroup{}}\\hfill[Func]
+1 chapter
+*********
 
+ -- Func: fname a---rg1 a--rg2
+     deffn no var
 
+ -- Func: fname A---RG1 A--RG2
+     deffn explict var
 
-\\index[fn]{fname@\\texttt{fname}}%
-deffn no var
+ -- Func: fname a—rg1 a–rg2
+     deffn r slanted
 
-\\noindent\\texttt{fname \\bgroup{}\\normalfont{}\\textsl{\\textsl{a---rg1} \\textsl{a--rg2}}\\egroup{}}\\hfill[Func]
+ -- Special Form: foobar (var [from to [inc]]) body...
 
+ -- Library Function: int foobar (int F---OO, float B--AR)
+     ... with var
 
+ -- Library Function: int foobar (int f—oo, float b–ar)
+     ... with r slanted
 
-\\index[fn]{fname@\\texttt{fname}}%
-deffn explict var
+produces:
+ -- Class Option of Window: border-pattern
+     ...
 
-\\noindent\\texttt{fname \\bgroup{}\\normalfont{}\\textsl{\\textrm{\\textsl{a---rg1}} \\textrm{\\textsl{a--rg2}}}\\egroup{}}\\hfill[Func]
+ -- Class Option of Window: int border-pattern
+     ...
 
+      -- Library Function: int foobar (int FOO, float BAR)
+          ...
 
+ -- Function: apply function &rest arguments
+     ‘apply’ calls FUNCTION with ARGUMENTS
 
-\\index[fn]{fname@\\texttt{fname}}%
-deffn r slanted
+ -- Function: apply function &rest argument
+     explicit keyword marking
 
-\\noindent\\texttt{foobar \\bgroup{}\\normalfont{}\\textsl{(var {[}from to {[}inc{]}{]}) body\\dots{}\\@}\\egroup{}}\\hfill[Special Form]
+ -- Category: name argument int a--b V--AR1, word -- (type o--ther,
+          V---AR2 [float [VAR4)
+     In deffn
 
-
-
-\\index[fn]{foobar@\\texttt{foobar}}%
-
-\\noindent\\texttt{int foobar \\bgroup{}\\normalfont{}\\textsl{(int \\textsl{f---oo}, float \\textsl{b--ar})}\\egroup{}}\\hfill[Library Function]
-
-
-
-\\index[fn]{foobar@\\texttt{foobar}}%
-\\dots{}\\@ with var
-
-\\noindent\\texttt{int foobar \\bgroup{}\\normalfont{}\\textsl{(int \\textrm{\\textsl{f---oo}}, float \\textrm{\\textsl{b--ar}})}\\egroup{}}\\hfill[Library Function]
-
-
-
-\\index[fn]{foobar@\\texttt{foobar}}%
-\\dots{}\\@ with r slanted
-
-\\noindent{}produces:
-\\noindent\\texttt{border-pattern}\\hfill[Class Option of \\texttt{Window}]
+';
 
 
+$result_converted{'html_text'}->{'definition_commands'} = '
+<div class="top-level-extent" id="Top">
+<div class="nav-panel">
+<p>
+ &nbsp; </p>
+</div>
+<h1 class="top" id="top-section">top section</h1>
 
-\\index[vr]{border-pattern@\\texttt{border-pattern}}%
-\\dots{}\\@
+<ul class="mini-toc">
+<li><a href="#chapter" accesskey="1">chapter</a></li>
+</ul>
+<hr>
+<div class="chapter-level-extent" id="chapter">
+<div class="nav-panel">
+<p>
+ &nbsp; </p>
+</div>
+<h2 class="chapter" id="chapter-1">1 chapter</h2>
 
-\\noindent\\texttt{\\texttt{int} border-pattern}\\hfill[Class Option of \\texttt{Window}]
+<dl class="first-deffn">
+<dt class="deffn" id="index-fname"><span class="category-def">Func: </span><span><strong class="strong">fname</strong> <em class="emph">a---rg1 a--rg2</em><a class="copiable-link" href=\'#index-fname\'> &para;</a></span></dt>
+<dd><p>deffn no var
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-fname-1"><span class="category-def">Func: </span><span><strong class="strong">fname</strong> <em class="emph"><var class="var">a---rg1</var> <var class="var">a--rg2</var></em><a class="copiable-link" href=\'#index-fname-1\'> &para;</a></span></dt>
+<dd><p>deffn explict var
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-fname-2"><span class="category-def">Func: </span><span><strong class="strong">fname</strong> <em class="emph"><span class="r"><i class="slanted">a&mdash;rg1</i></span> <span class="r"><i class="slanted">a&ndash;rg2</i></span></em><a class="copiable-link" href=\'#index-fname-2\'> &para;</a></span></dt>
+<dd><p>deffn r slanted
+</p></dd></dl>
+
+<dl class="first-deffn first-defspec-alias-first-deffn">
+<dt class="deffn defspec-alias-deffn" id="index-foobar"><span class="category-def">Special Form: </span><span><strong class="strong">foobar</strong> <em class="emph">(var [from to [inc]]) body&hellip;</em><a class="copiable-link" href=\'#index-foobar\'> &para;</a></span></dt>
+</dl>
+
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-foobar-1"><span class="category-def">Library Function: </span><span><em class="emph">int</em> <strong class="strong">foobar</strong> <em class="emph">(int <var class="var">f---oo</var>, float <var class="var">b--ar</var>)</em><a class="copiable-link" href=\'#index-foobar-1\'> &para;</a></span></dt>
+<dd><p>&hellip; with var
+</p></dd></dl>
+
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-foobar-2"><span class="category-def">Library Function: </span><span><em class="emph">int</em> <strong class="strong">foobar</strong> <em class="emph">(int <span class="r"><i class="slanted">f&mdash;oo</i></span>, float <span class="r"><i class="slanted">b&ndash;ar</i></span>)</em><a class="copiable-link" href=\'#index-foobar-2\'> &para;</a></span></dt>
+<dd><p>&hellip; with r slanted
+</p></dd></dl>
+
+<p>produces:
+</p><dl class="first-defcv">
+<dt class="defcv" id="index-border_002dpattern"><span>Class Option of Window: <strong class="strong">border-pattern</strong><a class="copiable-link" href=\'#index-border_002dpattern\'> &para;</a></span></dt>
+<dd><p>&hellip;
+</p></dd></dl>
+
+<dl class="first-deftypecv">
+<dt class="deftypecv" id="index-border_002dpattern-of-Window"><span>Class Option of Window: <em class="emph"><code class="code">int</code></em> <strong class="strong">border-pattern</strong><a class="copiable-link" href=\'#index-border_002dpattern-of-Window\'> &para;</a></span></dt>
+<dd><p>&hellip;
+</p></dd></dl>
+
+<blockquote class="quotation">
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-foobar-3"><span class="category-def">Library Function: </span><span><em class="emph">int</em> <strong class="strong">foobar</strong> <em class="emph">(int <var class="var">foo</var>, float <var class="var">bar</var>)</em><a class="copiable-link" href=\'#index-foobar-3\'> &para;</a></span></dt>
+<dd><p>&hellip;
+</p></dd></dl>
+</blockquote>
+
+<dl class="first-deffn first-defun-alias-first-deffn">
+<dt class="deffn defun-alias-deffn" id="index-apply"><span class="category-def">Function: </span><span><strong class="strong">apply</strong> <em class="emph">function &amp;rest arguments</em><a class="copiable-link" href=\'#index-apply\'> &para;</a></span></dt>
+<dd><p><code class="code">apply</code> calls <var class="var">function</var> with <var class="var">arguments</var>
+</p></dd></dl>
+
+<dl class="first-deffn first-defun-alias-first-deffn">
+<dt class="deffn defun-alias-deffn" id="index-apply-1"><span class="category-def">Function: </span><span><strong class="strong">apply</strong> <em class="emph">function <span class="r"><b class="b">&amp;rest</b></span> argument</em><a class="copiable-link" href=\'#index-apply-1\'> &para;</a></span></dt>
+<dd><p>explicit keyword marking
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-name"><span class="category-def">Category: </span><span><strong class="strong">name</strong> <em class="emph">argument <code class="code">int</code> <code class="code">a--b</code> <var class="var">v--ar1</var>, word <code class="code">--</code> (<code class="code">type o--ther</code>, <var class="var">v---ar2</var>  [<code class="code">float</code> [<var class="var">var4</var>)</em><a class="copiable-link" href=\'#index-name\'> &para;</a></span></dt>
+<dd><p>In deffn
+</p></dd></dl>
+
+</div>
+</div>
+';
 
 
+$result_converted{'xml'}->{'definition_commands'} = '<setfilename file="definition_commands.info" spaces=" ">definition_commands.info</setfilename>
 
-\\index[vr]{border-pattern of Window@\\texttt{border-pattern of Window}}%
-\\dots{}\\@
+<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+<top spaces=" "><sectiontitle>top section</sectiontitle>
 
-\\begin{quote}
-\\noindent\\texttt{int foobar \\bgroup{}\\normalfont{}\\textsl{(int \\textsl{foo}, float \\textsl{bar})}\\egroup{}}\\hfill[Library Function]
+</top>
+<node name="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>chapter</sectiontitle>
+
+<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">fname</indexterm><defcategory>Func</defcategory> <deffunction>fname</deffunction> <defparam>a---rg1</defparam> <defparam>a--rg2</defparam></definitionterm>
+<definitionitem><para>deffn no var
+</para></definitionitem></deffn>
+
+<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="2">fname</indexterm><defcategory>Func</defcategory> <deffunction>fname</deffunction> <defparam><var>a---rg1</var></defparam> <defparam><var>a--rg2</var></defparam></definitionterm>
+<definitionitem><para>deffn explict var
+</para></definitionitem></deffn>
+
+<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="3">fname</indexterm><defcategory>Func</defcategory> <deffunction>fname</deffunction> <defparam><r><slanted>a&textmdash;rg1</slanted></r></defparam> <defparam><r><slanted>a&textndash;rg2</slanted></r></defparam></definitionterm>
+<definitionitem><para>deffn r slanted
+</para></definitionitem></deffn>
+
+<defspec spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="4">foobar</indexterm><defcategory automatic="on" bracketed="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defdelimiter>[</defdelimiter><defparam>from</defparam> <defparam>to</defparam> <defdelimiter>[</defdelimiter><defparam>inc</defparam><defdelimiter>]</defdelimiter><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparam>body</defparam><defparam>&dots;</defparam></definitionterm>
+</defspec>
+
+<deftypefn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="5">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>)</defdelimiter></definitionterm>
+<definitionitem><para>&dots; with var
+</para></definitionitem></deftypefn>
+
+<deftypefn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="6">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><r><slanted>f&textmdash;oo</slanted></r></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><r><slanted>b&textndash;ar</slanted></r></defparam><defdelimiter>)</defdelimiter></definitionterm>
+<definitionitem><para>&dots; with r slanted
+</para></definitionitem></deftypefn>
+
+<noindent></noindent><para>produces:
+</para><defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1">border-pattern</indexterm><defcategory bracketed="on">Class Option</defcategory> <defclass>Window</defclass> <defclassvar>border-pattern</defclassvar></definitionterm>
+<definitionitem><para>&dots;
+</para></definitionitem></defcv>
+
+<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="2">border-pattern of Window</indexterm><defcategory bracketed="on">Class Option</defcategory> <defclass>Window</defclass> <deftype><code>int</code></deftype> <defclassvar>border-pattern</defclassvar></definitionterm>
+<definitionitem><para>&dots;
+</para></definitionitem></deftypecv>
+
+<quotation endspaces=" ">
+<deftypefn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="7">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>foo</var></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>bar</var></defparam><defdelimiter>)</defdelimiter></definitionterm>
+<definitionitem><para>&dots;
+</para></definitionitem></deftypefn>
+</quotation>
+
+<defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="8">apply</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deffunction>apply</deffunction> <defparam>function</defparam> <defparam>&amp;rest</defparam> <defparam>arguments</defparam></definitionterm>
+<definitionitem><para><code>apply</code> calls <var>function</var> with <var>arguments</var>
+</para></definitionitem></defun>
+
+<defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="9">apply</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deffunction>apply</deffunction> <defparam>function</defparam> <defparam><r><b>&amp;rest</b></r></defparam> <defparam>argument</defparam></definitionterm>
+<definitionitem><para>explicit keyword marking
+</para></definitionitem></defun>
+
+<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="10">name</indexterm><defcategory>Category</defcategory> <deffunction>name</deffunction> <defparam>argument</defparam> <defparam><code>int</code></defparam> <defparam><code>a--b</code></defparam> <defparam><var>v--ar1</var></defparam><defdelimiter>,</defdelimiter> <defparam>word</defparam> <defparam><code>--</code></defparam> <defdelimiter>(</defdelimiter><defparam><code>type o--ther</code></defparam><defdelimiter>,</defdelimiter> <defparam><var>v---ar2</var></defparam>  <defdelimiter>[</defdelimiter><defparam><code>float</code></defparam> <defdelimiter>[</defdelimiter><defparam><var>var4</var></defparam><defdelimiter>)</defdelimiter></definitionterm>
+<definitionitem><para>In deffn
+</para></definitionitem></deffn>
+
+</chapter>
+';
 
 
+$result_converted{'docbook'}->{'definition_commands'} = '<chapter label="1" id="chapter">
+<title>chapter</title>
 
-\\index[fn]{foobar@\\texttt{foobar}}%
-\\dots{}\\@
-\\end{quote}
+<synopsis><indexterm role="fn"><primary>fname</primary></indexterm><phrase role="category"><emphasis role="bold">Func</emphasis>:</phrase> <function>fname</function> <emphasis role="arg">a---rg1</emphasis> <emphasis role="arg">a--rg2</emphasis></synopsis>
+<blockquote><para>deffn no var
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>fname</primary></indexterm><phrase role="category"><emphasis role="bold">Func</emphasis>:</phrase> <function>fname</function> <emphasis role="arg"><replaceable>a---rg1</replaceable></emphasis> <emphasis role="arg"><replaceable>a--rg2</replaceable></emphasis></synopsis>
+<blockquote><para>deffn explict var
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>fname</primary></indexterm><phrase role="category"><emphasis role="bold">Func</emphasis>:</phrase> <function>fname</function> <emphasis role="arg">a&#8212;rg1</emphasis> <emphasis role="arg">a&#8211;rg2</emphasis></synopsis>
+<blockquote><para>deffn r slanted
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>foobar</primary></indexterm><phrase role="category"><emphasis role="bold">Special Form</emphasis>:</phrase> <function>foobar</function> (<emphasis role="arg">var</emphasis> [<emphasis role="arg">from</emphasis> <emphasis role="arg">to</emphasis> [<emphasis role="arg">inc</emphasis>]]) <emphasis role="arg">body</emphasis><emphasis role="arg">&#8230;</emphasis></synopsis>
 
-\\noindent\\texttt{apply \\bgroup{}\\normalfont{}\\textsl{function \\&rest arguments}\\egroup{}}\\hfill[Function]
-
-
-
-\\index[fn]{apply@\\texttt{apply}}%
-\\texttt{apply} calls \\textsl{function} with \\textsl{arguments}
-
-\\noindent\\texttt{apply \\bgroup{}\\normalfont{}\\textsl{function \\textrm{\\textbf{\\&rest}} argument}\\egroup{}}\\hfill[Function]
-
-
-
-\\index[fn]{apply@\\texttt{apply}}%
-explicit keyword marking
-
-\\noindent\\texttt{name \\bgroup{}\\normalfont{}\\textsl{argument \\texttt{int} \\texttt{a{-}{-}b} \\textsl{v--ar1}, word \\texttt{{-}{-}} (\\texttt{type o{-}{-}ther}, \\textsl{v---ar2}  {[}\\texttt{float} {[}\\textsl{var4})}\\egroup{}}\\hfill[Category]
-
-
-
-\\index[fn]{name@\\texttt{name}}%
-In deffn
-
+<synopsis><indexterm role="fn"><primary>foobar</primary></indexterm><phrase role="category"><emphasis role="bold">Library Function</emphasis>:</phrase> <returnvalue>int</returnvalue> <function>foobar</function>  (<type>int</type> <emphasis role="arg"><replaceable>f---oo</replaceable></emphasis>, <type>float</type> <emphasis role="arg"><replaceable>b--ar</replaceable></emphasis>)</synopsis>
+<blockquote><para>&#8230; with var
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>foobar</primary></indexterm><phrase role="category"><emphasis role="bold">Library Function</emphasis>:</phrase> <returnvalue>int</returnvalue> <function>foobar</function>  (<type>int</type> <emphasis role="arg">f&#8212;oo</emphasis>, <type>float</type> <emphasis role="arg">b&#8211;ar</emphasis>)</synopsis>
+<blockquote><para>&#8230; with r slanted
+</para></blockquote>
+<para>produces:
+</para><synopsis><indexterm role="vr"><primary>border-pattern</primary></indexterm><phrase role="category"><emphasis role="bold">Class Option</emphasis>:</phrase> <ooclass><classname>Window</classname></ooclass> <property>border-pattern</property></synopsis>
+<blockquote><para>&#8230;
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>border-pattern of Window</primary></indexterm><phrase role="category"><emphasis role="bold">Class Option</emphasis>:</phrase> <ooclass><classname>Window</classname></ooclass> <returnvalue>int</returnvalue> <property>border-pattern</property></synopsis>
+<blockquote><para>&#8230;
+</para></blockquote>
+<blockquote><synopsis><indexterm role="fn"><primary>foobar</primary></indexterm><phrase role="category"><emphasis role="bold">Library Function</emphasis>:</phrase> <returnvalue>int</returnvalue> <function>foobar</function>  (<type>int</type> <emphasis role="arg"><replaceable>foo</replaceable></emphasis>, <type>float</type> <emphasis role="arg"><replaceable>bar</replaceable></emphasis>)</synopsis>
+<blockquote><para>&#8230;
+</para></blockquote></blockquote>
+<synopsis><indexterm role="fn"><primary>apply</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <function>apply</function> <emphasis role="arg">function</emphasis> <emphasis role="arg">&amp;rest</emphasis> <emphasis role="arg">arguments</emphasis></synopsis>
+<blockquote><para><literal>apply</literal> calls <replaceable>function</replaceable> with <replaceable>arguments</replaceable>
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>apply</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <function>apply</function> <emphasis role="arg">function</emphasis> <emphasis role="arg"><emphasis role="bold">&amp;rest</emphasis></emphasis> <emphasis role="arg">argument</emphasis></synopsis>
+<blockquote><para>explicit keyword marking
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>name</primary></indexterm><phrase role="category"><emphasis role="bold">Category</emphasis>:</phrase> <function>name</function> <emphasis role="arg">argument</emphasis> <emphasis role="arg">int</emphasis> <emphasis role="arg">a--b</emphasis> <emphasis role="arg"><replaceable>v--ar1</replaceable></emphasis>, <emphasis role="arg">word</emphasis> <emphasis role="arg">--</emphasis> (<emphasis role="arg">type o--ther</emphasis>, <emphasis role="arg"><replaceable>v---ar2</replaceable></emphasis>  [<emphasis role="arg">float</emphasis> [<emphasis role="arg"><replaceable>var4</replaceable></emphasis>)</synopsis>
+<blockquote><para>In deffn
+</para></blockquote>
+</chapter>
 ';
 
 1;
