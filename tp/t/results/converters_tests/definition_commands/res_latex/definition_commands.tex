@@ -92,6 +92,47 @@ deffn r slanted for \textsl{a---rg1} and \textsl{a--rg2}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
+\noindent\texttt{\texttt{.ft} \bgroup{}\normalfont{}\textsl{{[}\textnormal{\textsl{font}}{]}}\egroup{}}\hfill[Request]
+
+
+
+\index[fn]{.ft@\texttt{\texttt{.ft}}}%
+\noindent\texttt{\texttt{\textbackslash{}f}\textnormal{\textsl{f}}\texttt{}}\hfill[Escape\hbox{}sequence]
+
+
+
+\index[fn]{\textbackslash{}ff@\texttt{\texttt{\textbackslash{}f}\textnormal{\textsl{f}}\texttt{}}}%
+\noindent\texttt{\texttt{\textbackslash{}f(}\textnormal{\textsl{fn}}\texttt{}}\hfill[Escape\hbox{}sequence]
+
+
+
+\index[fn]{\textbackslash{}f(fn@\texttt{\texttt{\textbackslash{}f(}\textnormal{\textsl{fn}}\texttt{}}}%
+\noindent\texttt{\texttt{\textbackslash{}f{[}}\textnormal{\textsl{font}}\texttt{{]}} \bgroup{}\normalfont{}\textsl{\texttt{\textbackslash{}f{[}}\textnormal{\textsl{font}}\texttt{{]}}}\egroup{}}\hfill[Escape\hbox{}sequence]
+
+
+
+\index[fn]{\textbackslash{}f{[}font{]}@\texttt{\texttt{\textbackslash{}f{[}}\textnormal{\textsl{font}}\texttt{{]}}}}%
+\noindent\texttt{\texttt{\textbackslash{}n{[}.sty{]}}}\hfill[Register]
+
+
+
+\index[fn]{\textbackslash{}n{[}.sty{]}@\texttt{\texttt{\textbackslash{}n{[}.sty{]}}}}%
+The \texttt{ft} request and the \texttt{\textbackslash{}f} escape change the current font
+to \textsl{font} (one-character name\hbox{}\textsl{f}, two-character name
+\textsl{fn}).
+
+\noindent\texttt{foobar \bgroup{}\normalfont{}\textsl{{[} \textnormal{{[}} \textsl{{[}} \texttt{{[}} \texttt{{[}} \textnormal{\textsl{{[}}} \textnormal{\texttt{{[}}} \textnormal{\texttt{\textsl{{[}}}} \textnormal{\texttt{{[}}} , \textnormal{,} \textsl{,} \texttt{,} \texttt{,} \textnormal{\textsl{,}} \textnormal{\texttt{,}} \textnormal{\texttt{\textsl{,}}} \textnormal{\texttt{,}} {]} \textnormal{{]}} \textsl{{]}} \texttt{{]}} \texttt{{]}} \textnormal{\textsl{{]}}} \textnormal{\texttt{{]}}} \textnormal{\texttt{\textsl{{]}}}} \textnormal{\texttt{{]}}}}\egroup{}}\hfill[Special Form]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+\noindent\texttt{foobar \bgroup{}\normalfont{}\textsl{{[}{]} \textnormal{{[}{]}} \textsl{{[}{]}} \texttt{{[}{]}} \texttt{{[}{]}} \textnormal{\textsl{{[}{]}}} \textnormal{\texttt{{[}{]}}} \textnormal{\texttt{\textsl{{[}{]}}}}}\egroup{}}\hfill[Special Form]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+test formatting of separators
+
 \noindent\texttt{int foobar \bgroup{}\normalfont{}\textsl{(int \textsl{f---oo}, float \textsl{b--ar})}\egroup{}}\hfill[Library Function]
 
 
@@ -137,14 +178,14 @@ deffn r slanted for \textsl{a---rg1} and \textsl{a--rg2}
 \index[fn]{apply@\texttt{apply}}%
 \texttt{apply} calls no var \textsl{function} with \textsl{arguments}
 
-\noindent\texttt{apply \bgroup{}\normalfont{}\textsl{function \textnormal{\textbf{\&rest}} argument}\egroup{}}\hfill[Function]
+\noindent\texttt{apply \bgroup{}\normalfont{}\textsl{function \textnormal{\textbf{\&rest }} argument}\egroup{}}\hfill[Function]
 
 
 
 \index[fn]{apply@\texttt{apply}}%
 explicit keyword marking, no var \textsl{function} with \textsl{arguments}
 
-\noindent\texttt{name \bgroup{}\normalfont{}\textsl{argument \texttt{int} \texttt{a{-}{-}b} \textsl{v--ar1}, word \texttt{{-}{-}} (\texttt{type o{-}{-}ther}, \textsl{v---ar2}  {[}\texttt{float} {[}\textsl{var4})}\egroup{}}\hfill[Category]
+\noindent\texttt{name \bgroup{}\normalfont{}\textsl{argument \texttt{int} \texttt{a{-}{-}b} \textsl{v--ar1}, word \texttt{{-}{-}} (\texttt{type o{-}{-}ther}, \textsl{v---ar2}  {[}\texttt{float} {[}\textsl{var4}{]}{]})}\egroup{}}\hfill[Category]
 
 
 

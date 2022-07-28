@@ -822,6 +822,21 @@ deffn r slanted for @var{a---rg1} and @var{a--rg2}
 @defspec foobar (var [from to [inc]]) body@dots{}
 @end defspec
 
+@deffn Request @t{.ft} [@r{@slanted{font}}]
+@deffnx Escape@tie{}sequence @t{\f}@r{@slanted{f}}@t{}
+@deffnx Escape@tie{}sequence @t{\f(}@r{@slanted{fn}}@t{}
+@deffnx Escape@tie{}sequence @t{\f[}@r{@slanted{font}}@t{]} @t{\f[}@r{@slanted{font}}@t{]}
+@deffnx Register @t{\n[.sty]}
+The @code{ft} request and the @code{\f} escape change the current font
+to @var{font} (one-character name@tie{}@var{f}, two-character name
+@var{fn}).
+@end deffn
+
+@defspec foobar [ @r{[} @slanted{[} @code{[} @t{[} @r{@slanted{[}} @r{@code{[}} @r{@code{@slanted{[}}} @r{@t{[}} , @r{,} @slanted{,} @code{,} @t{,} @r{@slanted{,}} @r{@code{,}} @r{@code{@slanted{,}}} @r{@t{,}} ] @r{]} @slanted{]} @code{]} @t{]} @r{@slanted{]}} @r{@code{]}} @r{@code{@slanted{]}}} @r{@t{]}}
+@defspecx foobar [] @r{[]} @slanted{[]} @code{[]} @t{[]} @r{@slanted{[]}} @r{@code{[]}} @r{@code{@slanted{[]}}}
+test formatting of separators
+@end defspec
+
 @deftypefn {Library Function} int foobar  (int @var{f---oo}, float @var{b--ar})
 @dots{} with var for @var{f---oo} and @var{b--ar}
 @end deftypefn
@@ -849,12 +864,12 @@ deffn r slanted for @var{a---rg1} and @var{a--rg2}
 @code{apply} calls no var @var{function} with @var{arguments}
 @end defun
 
-@defun apply function @r{@b{&rest}} argument
+@defun apply function @r{@b{&rest }} argument
 explicit keyword marking, no var @var{function} with @var{arguments}
 @end defun
 
 @deffn Category name argument @code{int} @code{a--b} @var{v--ar1}, word @code{--} (@code{type o--ther}, @var{v---ar2} @
- [@code{float} [@var{var4})
+ [@code{float} [@var{var4}]])
 In deffn with code and var used
 @end deffn
 
