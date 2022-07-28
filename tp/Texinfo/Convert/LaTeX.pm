@@ -1351,6 +1351,14 @@ roundcorner=10pt}
 
 ';
   }
+
+  if ($self->{'packages'}->{'embrac'}) {
+    $header_code .= '% braces are upright in italic and slanted only in @def*
+% so it is turned off here, and turned on @def* lines
+\EmbracOff{}%
+
+'
+  }
   # this is in order to be able to run pdflatex even
   # if files do not exist, or filenames cannot be
   # processed by LaTeX
@@ -1394,6 +1402,9 @@ roundcorner=10pt}
 ';
   if ($self->{'packages'}->{'array'}) {
     $header .= "\\usepackage{array}\n";
+  }
+  if ($self->{'packages'}->{'embrac'}) {
+    $header .= "\\usepackage{embrac}\n";
   }
   if ($self->{'packages'}->{'mdframed'}) {
     # framemethod=tikz needed for roundcorners for @cartouche
@@ -1605,9 +1616,6 @@ sub _protect_text($$)
     $text =~ s/([#%&{}_\$])/\\$1/g;
     $text =~ s/~/\\~{}/g;
     $text =~ s/\^/\\^{}/g;
-    # in general [ and ] are literal.  But in some cases they will
-    # be interpreted as delimiter for optional LaTeX macros arguments, so protect
-    $text =~ s/([\]\[])/{$1}/g;
 
     $text =~ s/\x08/\\textbackslash{}/g;
     if ($self->{'formatting_context'}->[-1]->{'index'}) {
@@ -2015,21 +2023,6 @@ sub _tree_anchor_label {
   return "anchor:$label";
 }
 
-# construct a Texinfo tree, not in code context, slanted irrespective
-# of the font context.
-sub _only_slanted_no_code_contents
-{
-  my $contents = shift;
-  return {'type' => '_normalfont', 'contents' => [
-           {'type' => '_no_code', 'contents' => [
-             {'cmdname' => 'slanted', 'args' => [
-                {'type' => 'brace_command_arg', 'contents' => $contents}
-               ]
-             }]
-           }]
-         };
-}
-
 sub _get_form_feeds($)
 {
   my $form_feeds = shift;
@@ -2135,6 +2128,34 @@ sub _index_entry($$)
   return '';
 }
 
+sub _stop_embrac
+{
+  my $self = shift;
+  my $result = shift;
+  my $did_stop_embrac = 0;
+
+  if ($self->{'formatting_context'}->[-1]->{'embrac'}
+      and $self->{'formatting_context'}->[-1]->{'embrac'} == 1) {
+    $result .= '\EmbracOff{}';
+    $self->{'formatting_context'}->[-1]->{'embrac'} = 0;
+    $did_stop_embrac = 1;
+  }
+  return ($result, $did_stop_embrac)
+}
+
+sub _restart_embrac_if_needed
+{
+  my $self = shift;
+  my $result = shift;
+  my $did_stop_embrac = shift;
+
+  if ($did_stop_embrac) {
+    $self->{'formatting_context'}->[-1]->{'embrac'} = 1;
+    $result .= '\EmbracOn{}';
+  }
+  return $result;
+}
+
 sub _convert($$);
 
 # Convert the Texinfo tree under $ELEMENT
@@ -2233,6 +2254,7 @@ sub _convert($$)
     if ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] eq 'math') {
       $command_context = 'math';
     }
+    my $did_stop_embrac;
     if (defined($no_brace_commands{$cmdname})) {
       if ($cmdname eq ':') {
         if ($command_context ne 'math') {
@@ -2368,6 +2390,7 @@ sub _convert($$)
     } elsif (exists($LaTeX_style_brace_commands{'text'}->{$cmdname})
          or ($element->{'type'}
              and $element->{'type'} eq 'definfoenclose_command')) {
+      ($result, $did_stop_embrac) = _stop_embrac($self, $result);
       if ($self->{'quotes_map'}->{$cmdname}) {
         $result .= $self->{'quotes_map'}->{$cmdname}->[0];
       }
@@ -2399,8 +2422,10 @@ sub _convert($$)
       if ($self->{'quotes_map'}->{$cmdname}) {
         $result .= $self->{'quotes_map'}->{$cmdname}->[1];
       }
+      $result = _restart_embrac_if_needed($self, $result, $did_stop_embrac);
       return $result;
     } elsif ($cmdname eq 'kbd') {
+      ($result, $did_stop_embrac) = _stop_embrac($self, $result);
       # 'kbd' is special, distinct font is typewriter + slanted
       # @kbdinputstyle
       # 'code' Always use the same font for @kbd as @code.
@@ -2427,8 +2452,10 @@ sub _convert($$)
       } else {
         $result .= '}}';
       }
+      $result = _restart_embrac_if_needed($self, $result, $did_stop_embrac);
       return $result;
     } elsif ($cmdname eq 'verb') {
+      # FIXME \verb is forbidden in other macros
       $result .= "\\verb" .$element->{'extra'}->{'delimiter'};
       push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
       if ($element->{'args'}) {
@@ -2449,7 +2476,7 @@ sub _convert($$)
         # FIXME not clear at all what can be in filenames here,
         # what should be escaped and how
         my $converted_basefile = $basefile;
-        # for now minimal protection.  Not sure that % is active
+        # for now minimal protection.  Not sure that % is problematic
         $converted_basefile =~ s/([%{}\\])/\\$1/g;
 
         # FIXME why do that if $converted_basefile is used even if no file is found?
@@ -3475,8 +3502,14 @@ sub _convert($$)
         $result .= _convert($self, $name) if $name;
         if ($arguments) {
           $result .= $def_space;
-          $result .=  _convert($self,
-                               _only_slanted_no_code_contents($arguments));
+          $self->{'packages'}->{'embrac'} = 1;
+          # no need to close that \EmbracOn{}, it is local to the texttt
+          $result .= '\EmbracOn{}\textsl{';
+          $self->{'formatting_context'}->[-1]->{'embrac'} = 1;
+
+          $result .=  _convert($self, {'contents' => $arguments});
+          $self->{'formatting_context'}->[-1]->{'embrac'} = undef;
+          $result .= '}'; # \textsl
         }
 
         $self->{'formatting_context'}->[-1]->{'code'} -= 1;
@@ -3524,13 +3557,6 @@ sub _convert($$)
              $nr_item;
     } elsif ($element->{'type'} eq 'preformatted') {
       $result .= _open_preformatted($self, $element);
-    } elsif ($element->{'type'} eq '_normalfont') {
-      $result .= '\bgroup{}\normalfont{}';
-    } elsif ($element->{'type'} eq '_no_code') {
-      # opening a new context just to set a non-code context
-      # seems overboard.  However, it is only used to format the @def*
-      # commands argument, and does not need to be generic.
-      _push_new_context($self, '_no_code');
     } elsif ($element->{'type'} eq '_dot_not_end_sentence') {
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} += 1;
     } elsif ($element->{'type'} eq 'bracketed') {
@@ -3561,10 +3587,6 @@ sub _convert($$)
   if ($type) {
     if ($type eq '_dot_not_end_sentence') {
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} -= 1;
-    } elsif ($type eq '_normalfont') {
-      $result .= '\egroup{}';
-    } elsif ($type eq '_no_code') {
-      _pop_context($self);
     } elsif ($type eq 'table_term') {
       $result .= '}}]'."\n";
       pop @{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}};

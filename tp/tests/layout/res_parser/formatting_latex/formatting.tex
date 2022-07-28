@@ -9,6 +9,7 @@
 \usepackage{needspace}
 \usepackage{etoolbox}
 \usepackage{array}
+\usepackage{embrac}
 \usepackage[framemethod=tikz]{mdframed}
 \usepackage{enumitem}
 \usepackage{titleps}
@@ -79,6 +80,10 @@
 \mdfdefinestyle{GNUTexinfocartouche}{
 innertopmargin=10pt, innerbottommargin=10pt,%
 roundcorner=10pt}
+
+% braces are upright in italic and slanted only in @def*
+% so it is turned off here, and turned on @def* lines
+\EmbracOff{}%
 
 \renewcommand{\includegraphics}[1]{\fbox{FIG \detokenize{#1}}}
 
@@ -700,52 +705,52 @@ f--ormat
 s--mallformat
 \endgroup{}%
 
-\noindent\texttt{d{-}{-}effn\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{d{-}{-}effn\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
 \index[fn]{d--effn\_name@\texttt{d{-}{-}effn\_name}}%
 d--effn
 
-\noindent\texttt{de{-}{-}ffn\_name \bgroup{}\normalfont{}\textsl{ar--guments    more args \leavevmode{}\\ even more so}\egroup{}}\hfill[cate--gory]
+\noindent\texttt{de{-}{-}ffn\_name \EmbracOn{}\textsl{ar{-}{-}guments    more args \leavevmode{}\\ even more so}}\hfill[cate--gory]
 
 
 
 \index[fn]{de--ffn\_name@\texttt{de{-}{-}ffn\_name}}%
 def--fn
 
-\noindent\texttt{\textsl{i} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fset]
+\noindent\texttt{\textsl{i} \EmbracOn{}\textsl{a g}}\hfill[fset]
 
 
 
 \index[fn]{i@\texttt{\textsl{i}}}%
 \index[cp]{index entry within deffn}%
-\noindent\texttt{truc \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[cmde]
+\noindent\texttt{truc \EmbracOn{}\textsl{}}\hfill[cmde]
 
 
 
 \index[fn]{truc@\texttt{truc}}%
-\noindent\texttt{log trap \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap@\texttt{log trap}}%
-\noindent\texttt{log trap1 \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap1 \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap1@\texttt{log trap1}}%
-\noindent\texttt{log trap2 \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap2 \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap2@\texttt{log trap2}}%
-\noindent\texttt{\textbf{id ule} \bgroup{}\normalfont{}\textsl{truc}\egroup{}}\hfill[cmde]
+\noindent\texttt{\textbf{id ule} \EmbracOn{}\textsl{truc}}\hfill[cmde]
 
 
 
 \index[fn]{id ule@\texttt{\textbf{id ule}}}%
-\noindent\texttt{\textbf{id `\texttt{i}' ule} \bgroup{}\normalfont{}\textsl{truc}\egroup{}}\hfill[cmde2]
+\noindent\texttt{\textbf{id `\texttt{i}' ule} \EmbracOn{}\textsl{truc}}\hfill[cmde2]
 
 
 
@@ -773,7 +778,7 @@ def--fn
 
 
 
-\noindent\texttt{followed \bgroup{}\normalfont{}\textsl{by a comment}\egroup{}}\hfill[truc]
+\noindent\texttt{followed \EmbracOn{}\textsl{by a comment}}\hfill[truc]
 
 
 
@@ -782,12 +787,12 @@ def--fn
 
 
 
-\noindent\texttt{a \bgroup{}\normalfont{}\textsl{b c d e \textbf{f g} h i}\egroup{}}\hfill[truc]
+\noindent\texttt{a \EmbracOn{}\textsl{b c d e \EmbracOff{}\textbf{f g}\EmbracOn{} h i}}\hfill[truc]
 
 
 
 \index[fn]{a@\texttt{a}}%
-\noindent\texttt{deffnx \bgroup{}\normalfont{}\textsl{before end deffn}\egroup{}}\hfill[truc]
+\noindent\texttt{deffnx \EmbracOn{}\textsl{before end deffn}}\hfill[truc]
 
 
 
@@ -800,7 +805,7 @@ def--fn
 
 \index[fn]{deffn@\texttt{deffn}}%
 
-\noindent\texttt{deffn \bgroup{}\normalfont{}\textsl{with deffnx}\egroup{}}\hfill[empty]
+\noindent\texttt{deffn \EmbracOn{}\textsl{with deffnx}}\hfill[empty]
 
 
 
@@ -811,12 +816,12 @@ def--fn
 
 \index[fn]{deffnx@\texttt{deffnx}}%
 
-\noindent\texttt{\textsl{i} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fset]
+\noindent\texttt{\textsl{i} \EmbracOn{}\textsl{a g}}\hfill[fset]
 
 
 
 \index[fn]{i@\texttt{\textsl{i}}}%
-\noindent\texttt{truc \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[cmde]
+\noindent\texttt{truc \EmbracOn{}\textsl{}}\hfill[cmde]
 
 
 
@@ -831,7 +836,7 @@ text in def item for second def item
 \index[cp]{d--efvr\_name@\texttt{d{-}{-}efvr\_name}}%
 d--efvr
 
-\noindent\texttt{n{-}{-}ame \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{n{-}{-}ame \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
@@ -845,7 +850,7 @@ d--effn
 \index[fn]{n--ame@\texttt{n{-}{-}ame}}%
 d--effn no arg
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypefn\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypefn\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
@@ -859,7 +864,7 @@ d--eftypefn
 \index[fn]{d--eftypefn\_name@\texttt{d{-}{-}eftypefn\_name}}%
 d--eftypefn no arg
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
 
 
@@ -887,7 +892,7 @@ d--eftypevr
 \index[cp]{d--efcv\_name@\texttt{d{-}{-}efcv\_name}}%
 d--efcv
 
-\noindent\texttt{d{-}{-}efcv\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efcv\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
 
 
@@ -901,14 +906,14 @@ d--efcv with arguments
 \index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
 d--eftypecv
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
 
 
 \index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
 d--eftypecv with arguments
 
-\noindent\texttt{d{-}{-}efop\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efop\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
 
 
@@ -922,28 +927,28 @@ d--efop
 \index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
 d--efop no arg
 
-\noindent\texttt{d{-}{-}eftp\_name \bgroup{}\normalfont{}\textsl{a--ttributes...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{d{-}{-}eftp\_name \EmbracOn{}\textsl{a{-}{-}ttributes...}}\hfill[c--ategory]
 
 
 
 \index[tp]{d--eftp\_name@\texttt{d{-}{-}eftp\_name}}%
 d--eftp
 
-\noindent\texttt{d{-}{-}efun\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Function]
+\noindent\texttt{d{-}{-}efun\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Function]
 
 
 
 \index[fn]{d--efun\_name@\texttt{d{-}{-}efun\_name}}%
 d--efun
 
-\noindent\texttt{d{-}{-}efmac\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Macro]
+\noindent\texttt{d{-}{-}efmac\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Macro]
 
 
 
 \index[fn]{d--efmac\_name@\texttt{d{-}{-}efmac\_name}}%
 d--efmac
 
-\noindent\texttt{d{-}{-}efspec\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Special Form]
+\noindent\texttt{d{-}{-}efspec\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Special Form]
 
 
 
@@ -957,7 +962,7 @@ d--efspec
 \index[cp]{d--efvar\_name@\texttt{d{-}{-}efvar\_name}}%
 d--efvar
 
-\noindent\texttt{d{-}{-}efvar\_name \bgroup{}\normalfont{}\textsl{arg--var arg--var1}\egroup{}}\hfill[Variable]
+\noindent\texttt{d{-}{-}efvar\_name \EmbracOn{}\textsl{arg{-}{-}var arg{-}{-}var1}}\hfill[Variable]
 
 
 
@@ -971,7 +976,7 @@ d--efvar with args
 \index[cp]{d--efopt\_name@\texttt{d{-}{-}efopt\_name}}%
 d--efopt
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypefun\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Function]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypefun\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Function]
 
 
 
@@ -999,14 +1004,14 @@ d--efivar
 \index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
 d--eftypeivar
 
-\noindent\texttt{d{-}{-}efmethod\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Method on \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efmethod\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Method on \texttt{c{-}{-}lass}]
 
 
 
 \index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
 d--efmethod
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Method on \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Method on \texttt{c{-}{-}lass}]
 
 
 
@@ -1014,7 +1019,7 @@ d--efmethod
 d--eftypemethod
 
 
-\noindent\texttt{data-type2\leavevmode{}\\name2 \bgroup{}\normalfont{}\textsl{arguments2...}\egroup{}}\hfill[Function]
+\noindent\texttt{data-type2\leavevmode{}\\name2 \EmbracOn{}\textsl{arguments2...}}\hfill[Function]
 
 
 
@@ -1028,7 +1033,7 @@ aaa2
 \index[fn]{d--eftypefn\_name2@\texttt{d{-}{-}eftypefn\_name2}}%
 d--eftypefn no arg2
 
-\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 \bgroup{}\normalfont{}\textsl{a--rguments2...}\egroup{}}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
+\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 \EmbracOn{}\textsl{a{-}{-}rguments2...}}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
 
 
@@ -1049,7 +1054,7 @@ d--eftypeop no arg2
 \index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
 d--eftypecv2
 
-\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypecv\_name2 \bgroup{}\normalfont{}\textsl{a--rguments2...}\egroup{}}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
+\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypecv\_name2 \EmbracOn{}\textsl{a{-}{-}rguments2...}}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
 
 
@@ -1341,39 +1346,39 @@ l--ine
 
 
 
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and  after}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and  after}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and }\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and }}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and and after}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and and after}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{followed \bgroup{}\normalfont{}\textsl{by a comment}\egroup{}}\hfill[truc]
+\noindent\texttt{followed \EmbracOn{}\textsl{by a comment}}\hfill[truc]
 
 
 
 \index[fn]{followed@\texttt{followed}}%
 Various deff lines
-\noindent\texttt{after \bgroup{}\normalfont{}\textsl{a deff item}\egroup{}}\hfill[truc]
+\noindent\texttt{after \EmbracOn{}\textsl{a deff item}}\hfill[truc]
 
 
 
 \index[fn]{after@\texttt{after}}%
 
-\noindent\texttt{\textsl{invalid} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fsetinv]
+\noindent\texttt{\textsl{invalid} \EmbracOn{}\textsl{a g}}\hfill[fsetinv]
 
 
 
@@ -2026,52 +2031,52 @@ f--ormat
 s--mallformat
 \endgroup{}%
 
-\noindent\texttt{d{-}{-}effn\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{d{-}{-}effn\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
 \index[fn]{d--effn\_name@\texttt{d{-}{-}effn\_name}}%
 d--effn
 
-\noindent\texttt{de{-}{-}ffn\_name \bgroup{}\normalfont{}\textsl{ar--guments    more args \leavevmode{}\\ even more so}\egroup{}}\hfill[cate--gory]
+\noindent\texttt{de{-}{-}ffn\_name \EmbracOn{}\textsl{ar{-}{-}guments    more args \leavevmode{}\\ even more so}}\hfill[cate--gory]
 
 
 
 \index[fn]{de--ffn\_name@\texttt{de{-}{-}ffn\_name}}%
 def--fn
 
-\noindent\texttt{\textsl{i} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fset]
+\noindent\texttt{\textsl{i} \EmbracOn{}\textsl{a g}}\hfill[fset]
 
 
 
 \index[fn]{i@\texttt{\textsl{i}}}%
 \index[cp]{index entry within deffn}%
-\noindent\texttt{truc \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[cmde]
+\noindent\texttt{truc \EmbracOn{}\textsl{}}\hfill[cmde]
 
 
 
 \index[fn]{truc@\texttt{truc}}%
-\noindent\texttt{log trap \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap@\texttt{log trap}}%
-\noindent\texttt{log trap1 \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap1 \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap1@\texttt{log trap1}}%
-\noindent\texttt{log trap2 \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap2 \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap2@\texttt{log trap2}}%
-\noindent\texttt{\textbf{id ule} \bgroup{}\normalfont{}\textsl{truc}\egroup{}}\hfill[cmde]
+\noindent\texttt{\textbf{id ule} \EmbracOn{}\textsl{truc}}\hfill[cmde]
 
 
 
 \index[fn]{id ule@\texttt{\textbf{id ule}}}%
-\noindent\texttt{\textbf{id `\texttt{i}' ule} \bgroup{}\normalfont{}\textsl{truc}\egroup{}}\hfill[cmde2]
+\noindent\texttt{\textbf{id `\texttt{i}' ule} \EmbracOn{}\textsl{truc}}\hfill[cmde2]
 
 
 
@@ -2099,7 +2104,7 @@ def--fn
 
 
 
-\noindent\texttt{followed \bgroup{}\normalfont{}\textsl{by a comment}\egroup{}}\hfill[truc]
+\noindent\texttt{followed \EmbracOn{}\textsl{by a comment}}\hfill[truc]
 
 
 
@@ -2108,12 +2113,12 @@ def--fn
 
 
 
-\noindent\texttt{a \bgroup{}\normalfont{}\textsl{b c d e \textbf{f g} h i}\egroup{}}\hfill[truc]
+\noindent\texttt{a \EmbracOn{}\textsl{b c d e \EmbracOff{}\textbf{f g}\EmbracOn{} h i}}\hfill[truc]
 
 
 
 \index[fn]{a@\texttt{a}}%
-\noindent\texttt{deffnx \bgroup{}\normalfont{}\textsl{before end deffn}\egroup{}}\hfill[truc]
+\noindent\texttt{deffnx \EmbracOn{}\textsl{before end deffn}}\hfill[truc]
 
 
 
@@ -2126,7 +2131,7 @@ def--fn
 
 \index[fn]{deffn@\texttt{deffn}}%
 
-\noindent\texttt{deffn \bgroup{}\normalfont{}\textsl{with deffnx}\egroup{}}\hfill[empty]
+\noindent\texttt{deffn \EmbracOn{}\textsl{with deffnx}}\hfill[empty]
 
 
 
@@ -2137,12 +2142,12 @@ def--fn
 
 \index[fn]{deffnx@\texttt{deffnx}}%
 
-\noindent\texttt{\textsl{i} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fset]
+\noindent\texttt{\textsl{i} \EmbracOn{}\textsl{a g}}\hfill[fset]
 
 
 
 \index[fn]{i@\texttt{\textsl{i}}}%
-\noindent\texttt{truc \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[cmde]
+\noindent\texttt{truc \EmbracOn{}\textsl{}}\hfill[cmde]
 
 
 
@@ -2157,7 +2162,7 @@ text in def item for second def item
 \index[cp]{d--efvr\_name@\texttt{d{-}{-}efvr\_name}}%
 d--efvr
 
-\noindent\texttt{n{-}{-}ame \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{n{-}{-}ame \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
@@ -2171,7 +2176,7 @@ d--effn
 \index[fn]{n--ame@\texttt{n{-}{-}ame}}%
 d--effn no arg
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypefn\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypefn\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
@@ -2185,7 +2190,7 @@ d--eftypefn
 \index[fn]{d--eftypefn\_name@\texttt{d{-}{-}eftypefn\_name}}%
 d--eftypefn no arg
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
 
 
@@ -2213,7 +2218,7 @@ d--eftypevr
 \index[cp]{d--efcv\_name@\texttt{d{-}{-}efcv\_name}}%
 d--efcv
 
-\noindent\texttt{d{-}{-}efcv\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efcv\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
 
 
@@ -2227,14 +2232,14 @@ d--efcv with arguments
 \index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
 d--eftypecv
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
 
 
 \index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
 d--eftypecv with arguments
 
-\noindent\texttt{d{-}{-}efop\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efop\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
 
 
@@ -2248,28 +2253,28 @@ d--efop
 \index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
 d--efop no arg
 
-\noindent\texttt{d{-}{-}eftp\_name \bgroup{}\normalfont{}\textsl{a--ttributes...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{d{-}{-}eftp\_name \EmbracOn{}\textsl{a{-}{-}ttributes...}}\hfill[c--ategory]
 
 
 
 \index[tp]{d--eftp\_name@\texttt{d{-}{-}eftp\_name}}%
 d--eftp
 
-\noindent\texttt{d{-}{-}efun\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Function]
+\noindent\texttt{d{-}{-}efun\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Function]
 
 
 
 \index[fn]{d--efun\_name@\texttt{d{-}{-}efun\_name}}%
 d--efun
 
-\noindent\texttt{d{-}{-}efmac\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Macro]
+\noindent\texttt{d{-}{-}efmac\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Macro]
 
 
 
 \index[fn]{d--efmac\_name@\texttt{d{-}{-}efmac\_name}}%
 d--efmac
 
-\noindent\texttt{d{-}{-}efspec\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Special Form]
+\noindent\texttt{d{-}{-}efspec\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Special Form]
 
 
 
@@ -2283,7 +2288,7 @@ d--efspec
 \index[cp]{d--efvar\_name@\texttt{d{-}{-}efvar\_name}}%
 d--efvar
 
-\noindent\texttt{d{-}{-}efvar\_name \bgroup{}\normalfont{}\textsl{arg--var arg--var1}\egroup{}}\hfill[Variable]
+\noindent\texttt{d{-}{-}efvar\_name \EmbracOn{}\textsl{arg{-}{-}var arg{-}{-}var1}}\hfill[Variable]
 
 
 
@@ -2297,7 +2302,7 @@ d--efvar with args
 \index[cp]{d--efopt\_name@\texttt{d{-}{-}efopt\_name}}%
 d--efopt
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypefun\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Function]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypefun\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Function]
 
 
 
@@ -2325,14 +2330,14 @@ d--efivar
 \index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
 d--eftypeivar
 
-\noindent\texttt{d{-}{-}efmethod\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Method on \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efmethod\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Method on \texttt{c{-}{-}lass}]
 
 
 
 \index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
 d--efmethod
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Method on \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Method on \texttt{c{-}{-}lass}]
 
 
 
@@ -2340,7 +2345,7 @@ d--efmethod
 d--eftypemethod
 
 
-\noindent\texttt{data-type2\leavevmode{}\\name2 \bgroup{}\normalfont{}\textsl{arguments2...}\egroup{}}\hfill[Function]
+\noindent\texttt{data-type2\leavevmode{}\\name2 \EmbracOn{}\textsl{arguments2...}}\hfill[Function]
 
 
 
@@ -2354,7 +2359,7 @@ aaa2
 \index[fn]{d--eftypefn\_name2@\texttt{d{-}{-}eftypefn\_name2}}%
 d--eftypefn no arg2
 
-\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 \bgroup{}\normalfont{}\textsl{a--rguments2...}\egroup{}}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
+\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 \EmbracOn{}\textsl{a{-}{-}rguments2...}}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
 
 
@@ -2375,7 +2380,7 @@ d--eftypeop no arg2
 \index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
 d--eftypecv2
 
-\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypecv\_name2 \bgroup{}\normalfont{}\textsl{a--rguments2...}\egroup{}}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
+\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypecv\_name2 \EmbracOn{}\textsl{a{-}{-}rguments2...}}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
 
 
@@ -2667,39 +2672,39 @@ l--ine
 
 
 
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and  after}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and  after}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and }\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and }}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and and after}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and and after}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{followed \bgroup{}\normalfont{}\textsl{by a comment}\egroup{}}\hfill[truc]
+\noindent\texttt{followed \EmbracOn{}\textsl{by a comment}}\hfill[truc]
 
 
 
 \index[fn]{followed@\texttt{followed}}%
 Various deff lines
-\noindent\texttt{after \bgroup{}\normalfont{}\textsl{a deff item}\egroup{}}\hfill[truc]
+\noindent\texttt{after \EmbracOn{}\textsl{a deff item}}\hfill[truc]
 
 
 
 \index[fn]{after@\texttt{after}}%
 
-\noindent\texttt{\textsl{invalid} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fsetinv]
+\noindent\texttt{\textsl{invalid} \EmbracOn{}\textsl{a g}}\hfill[fsetinv]
 
 
 
@@ -3373,52 +3378,52 @@ f--ormat
 s--mallformat
 \endgroup{}%
 
-\noindent\texttt{d{-}{-}effn\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{d{-}{-}effn\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
 \index[fn]{d--effn\_name@\texttt{d{-}{-}effn\_name}}%
 d--effn
 
-\noindent\texttt{de{-}{-}ffn\_name \bgroup{}\normalfont{}\textsl{ar--guments    more args \leavevmode{}\\ even more so}\egroup{}}\hfill[cate--gory]
+\noindent\texttt{de{-}{-}ffn\_name \EmbracOn{}\textsl{ar{-}{-}guments    more args \leavevmode{}\\ even more so}}\hfill[cate--gory]
 
 
 
 \index[fn]{de--ffn\_name@\texttt{de{-}{-}ffn\_name}}%
 def--fn
 
-\noindent\texttt{\textsl{i} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fset]
+\noindent\texttt{\textsl{i} \EmbracOn{}\textsl{a g}}\hfill[fset]
 
 
 
 \index[fn]{i@\texttt{\textsl{i}}}%
 \index[cp]{index entry within deffn}%
-\noindent\texttt{truc \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[cmde]
+\noindent\texttt{truc \EmbracOn{}\textsl{}}\hfill[cmde]
 
 
 
 \index[fn]{truc@\texttt{truc}}%
-\noindent\texttt{log trap \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap@\texttt{log trap}}%
-\noindent\texttt{log trap1 \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap1 \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap1@\texttt{log trap1}}%
-\noindent\texttt{log trap2 \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap2 \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap2@\texttt{log trap2}}%
-\noindent\texttt{\textbf{id ule} \bgroup{}\normalfont{}\textsl{truc}\egroup{}}\hfill[cmde]
+\noindent\texttt{\textbf{id ule} \EmbracOn{}\textsl{truc}}\hfill[cmde]
 
 
 
 \index[fn]{id ule@\texttt{\textbf{id ule}}}%
-\noindent\texttt{\textbf{id `\texttt{i}' ule} \bgroup{}\normalfont{}\textsl{truc}\egroup{}}\hfill[cmde2]
+\noindent\texttt{\textbf{id `\texttt{i}' ule} \EmbracOn{}\textsl{truc}}\hfill[cmde2]
 
 
 
@@ -3446,7 +3451,7 @@ def--fn
 
 
 
-\noindent\texttt{followed \bgroup{}\normalfont{}\textsl{by a comment}\egroup{}}\hfill[truc]
+\noindent\texttt{followed \EmbracOn{}\textsl{by a comment}}\hfill[truc]
 
 
 
@@ -3455,12 +3460,12 @@ def--fn
 
 
 
-\noindent\texttt{a \bgroup{}\normalfont{}\textsl{b c d e \textbf{f g} h i}\egroup{}}\hfill[truc]
+\noindent\texttt{a \EmbracOn{}\textsl{b c d e \EmbracOff{}\textbf{f g}\EmbracOn{} h i}}\hfill[truc]
 
 
 
 \index[fn]{a@\texttt{a}}%
-\noindent\texttt{deffnx \bgroup{}\normalfont{}\textsl{before end deffn}\egroup{}}\hfill[truc]
+\noindent\texttt{deffnx \EmbracOn{}\textsl{before end deffn}}\hfill[truc]
 
 
 
@@ -3473,7 +3478,7 @@ def--fn
 
 \index[fn]{deffn@\texttt{deffn}}%
 
-\noindent\texttt{deffn \bgroup{}\normalfont{}\textsl{with deffnx}\egroup{}}\hfill[empty]
+\noindent\texttt{deffn \EmbracOn{}\textsl{with deffnx}}\hfill[empty]
 
 
 
@@ -3484,12 +3489,12 @@ def--fn
 
 \index[fn]{deffnx@\texttt{deffnx}}%
 
-\noindent\texttt{\textsl{i} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fset]
+\noindent\texttt{\textsl{i} \EmbracOn{}\textsl{a g}}\hfill[fset]
 
 
 
 \index[fn]{i@\texttt{\textsl{i}}}%
-\noindent\texttt{truc \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[cmde]
+\noindent\texttt{truc \EmbracOn{}\textsl{}}\hfill[cmde]
 
 
 
@@ -3504,7 +3509,7 @@ text in def item for second def item
 \index[cp]{d--efvr\_name@\texttt{d{-}{-}efvr\_name}}%
 d--efvr
 
-\noindent\texttt{n{-}{-}ame \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{n{-}{-}ame \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
@@ -3518,7 +3523,7 @@ d--effn
 \index[fn]{n--ame@\texttt{n{-}{-}ame}}%
 d--effn no arg
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypefn\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypefn\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
@@ -3532,7 +3537,7 @@ d--eftypefn
 \index[fn]{d--eftypefn\_name@\texttt{d{-}{-}eftypefn\_name}}%
 d--eftypefn no arg
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
 
 
@@ -3560,7 +3565,7 @@ d--eftypevr
 \index[cp]{d--efcv\_name@\texttt{d{-}{-}efcv\_name}}%
 d--efcv
 
-\noindent\texttt{d{-}{-}efcv\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efcv\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
 
 
@@ -3574,14 +3579,14 @@ d--efcv with arguments
 \index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
 d--eftypecv
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
 
 
 \index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
 d--eftypecv with arguments
 
-\noindent\texttt{d{-}{-}efop\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efop\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
 
 
@@ -3595,28 +3600,28 @@ d--efop
 \index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
 d--efop no arg
 
-\noindent\texttt{d{-}{-}eftp\_name \bgroup{}\normalfont{}\textsl{a--ttributes...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{d{-}{-}eftp\_name \EmbracOn{}\textsl{a{-}{-}ttributes...}}\hfill[c--ategory]
 
 
 
 \index[tp]{d--eftp\_name@\texttt{d{-}{-}eftp\_name}}%
 d--eftp
 
-\noindent\texttt{d{-}{-}efun\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Function]
+\noindent\texttt{d{-}{-}efun\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Function]
 
 
 
 \index[fn]{d--efun\_name@\texttt{d{-}{-}efun\_name}}%
 d--efun
 
-\noindent\texttt{d{-}{-}efmac\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Macro]
+\noindent\texttt{d{-}{-}efmac\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Macro]
 
 
 
 \index[fn]{d--efmac\_name@\texttt{d{-}{-}efmac\_name}}%
 d--efmac
 
-\noindent\texttt{d{-}{-}efspec\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Special Form]
+\noindent\texttt{d{-}{-}efspec\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Special Form]
 
 
 
@@ -3630,7 +3635,7 @@ d--efspec
 \index[cp]{d--efvar\_name@\texttt{d{-}{-}efvar\_name}}%
 d--efvar
 
-\noindent\texttt{d{-}{-}efvar\_name \bgroup{}\normalfont{}\textsl{arg--var arg--var1}\egroup{}}\hfill[Variable]
+\noindent\texttt{d{-}{-}efvar\_name \EmbracOn{}\textsl{arg{-}{-}var arg{-}{-}var1}}\hfill[Variable]
 
 
 
@@ -3644,7 +3649,7 @@ d--efvar with args
 \index[cp]{d--efopt\_name@\texttt{d{-}{-}efopt\_name}}%
 d--efopt
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypefun\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Function]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypefun\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Function]
 
 
 
@@ -3672,14 +3677,14 @@ d--efivar
 \index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
 d--eftypeivar
 
-\noindent\texttt{d{-}{-}efmethod\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Method on \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efmethod\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Method on \texttt{c{-}{-}lass}]
 
 
 
 \index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
 d--efmethod
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Method on \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Method on \texttt{c{-}{-}lass}]
 
 
 
@@ -3687,7 +3692,7 @@ d--efmethod
 d--eftypemethod
 
 
-\noindent\texttt{data-type2\leavevmode{}\\name2 \bgroup{}\normalfont{}\textsl{arguments2...}\egroup{}}\hfill[Function]
+\noindent\texttt{data-type2\leavevmode{}\\name2 \EmbracOn{}\textsl{arguments2...}}\hfill[Function]
 
 
 
@@ -3701,7 +3706,7 @@ aaa2
 \index[fn]{d--eftypefn\_name2@\texttt{d{-}{-}eftypefn\_name2}}%
 d--eftypefn no arg2
 
-\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 \bgroup{}\normalfont{}\textsl{a--rguments2...}\egroup{}}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
+\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 \EmbracOn{}\textsl{a{-}{-}rguments2...}}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
 
 
@@ -3722,7 +3727,7 @@ d--eftypeop no arg2
 \index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
 d--eftypecv2
 
-\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypecv\_name2 \bgroup{}\normalfont{}\textsl{a--rguments2...}\egroup{}}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
+\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypecv\_name2 \EmbracOn{}\textsl{a{-}{-}rguments2...}}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
 
 
@@ -4014,39 +4019,39 @@ l--ine
 
 
 
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and  after}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and  after}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and }\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and }}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and and after}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and and after}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{followed \bgroup{}\normalfont{}\textsl{by a comment}\egroup{}}\hfill[truc]
+\noindent\texttt{followed \EmbracOn{}\textsl{by a comment}}\hfill[truc]
 
 
 
 \index[fn]{followed@\texttt{followed}}%
 Various deff lines
-\noindent\texttt{after \bgroup{}\normalfont{}\textsl{a deff item}\egroup{}}\hfill[truc]
+\noindent\texttt{after \EmbracOn{}\textsl{a deff item}}\hfill[truc]
 
 
 
 \index[fn]{after@\texttt{after}}%
 
-\noindent\texttt{\textsl{invalid} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fsetinv]
+\noindent\texttt{\textsl{invalid} \EmbracOn{}\textsl{a g}}\hfill[fsetinv]
 
 
 
@@ -4698,52 +4703,52 @@ f--ormat
 s--mallformat
 \endgroup{}%
 
-\noindent\texttt{d{-}{-}effn\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{d{-}{-}effn\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
 \index[fn]{d--effn\_name@\texttt{d{-}{-}effn\_name}}%
 d--effn
 
-\noindent\texttt{de{-}{-}ffn\_name \bgroup{}\normalfont{}\textsl{ar--guments    more args \leavevmode{}\\ even more so}\egroup{}}\hfill[cate--gory]
+\noindent\texttt{de{-}{-}ffn\_name \EmbracOn{}\textsl{ar{-}{-}guments    more args \leavevmode{}\\ even more so}}\hfill[cate--gory]
 
 
 
 \index[fn]{de--ffn\_name@\texttt{de{-}{-}ffn\_name}}%
 def--fn
 
-\noindent\texttt{\textsl{i} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fset]
+\noindent\texttt{\textsl{i} \EmbracOn{}\textsl{a g}}\hfill[fset]
 
 
 
 \index[fn]{i@\texttt{\textsl{i}}}%
 \index[cp]{index entry within deffn}%
-\noindent\texttt{truc \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[cmde]
+\noindent\texttt{truc \EmbracOn{}\textsl{}}\hfill[cmde]
 
 
 
 \index[fn]{truc@\texttt{truc}}%
-\noindent\texttt{log trap \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap@\texttt{log trap}}%
-\noindent\texttt{log trap1 \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap1 \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap1@\texttt{log trap1}}%
-\noindent\texttt{log trap2 \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap2 \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap2@\texttt{log trap2}}%
-\noindent\texttt{\textbf{id ule} \bgroup{}\normalfont{}\textsl{truc}\egroup{}}\hfill[cmde]
+\noindent\texttt{\textbf{id ule} \EmbracOn{}\textsl{truc}}\hfill[cmde]
 
 
 
 \index[fn]{id ule@\texttt{\textbf{id ule}}}%
-\noindent\texttt{\textbf{id `\texttt{i}' ule} \bgroup{}\normalfont{}\textsl{truc}\egroup{}}\hfill[cmde2]
+\noindent\texttt{\textbf{id `\texttt{i}' ule} \EmbracOn{}\textsl{truc}}\hfill[cmde2]
 
 
 
@@ -4771,7 +4776,7 @@ def--fn
 
 
 
-\noindent\texttt{followed \bgroup{}\normalfont{}\textsl{by a comment}\egroup{}}\hfill[truc]
+\noindent\texttt{followed \EmbracOn{}\textsl{by a comment}}\hfill[truc]
 
 
 
@@ -4780,12 +4785,12 @@ def--fn
 
 
 
-\noindent\texttt{a \bgroup{}\normalfont{}\textsl{b c d e \textbf{f g} h i}\egroup{}}\hfill[truc]
+\noindent\texttt{a \EmbracOn{}\textsl{b c d e \EmbracOff{}\textbf{f g}\EmbracOn{} h i}}\hfill[truc]
 
 
 
 \index[fn]{a@\texttt{a}}%
-\noindent\texttt{deffnx \bgroup{}\normalfont{}\textsl{before end deffn}\egroup{}}\hfill[truc]
+\noindent\texttt{deffnx \EmbracOn{}\textsl{before end deffn}}\hfill[truc]
 
 
 
@@ -4798,7 +4803,7 @@ def--fn
 
 \index[fn]{deffn@\texttt{deffn}}%
 
-\noindent\texttt{deffn \bgroup{}\normalfont{}\textsl{with deffnx}\egroup{}}\hfill[empty]
+\noindent\texttt{deffn \EmbracOn{}\textsl{with deffnx}}\hfill[empty]
 
 
 
@@ -4809,12 +4814,12 @@ def--fn
 
 \index[fn]{deffnx@\texttt{deffnx}}%
 
-\noindent\texttt{\textsl{i} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fset]
+\noindent\texttt{\textsl{i} \EmbracOn{}\textsl{a g}}\hfill[fset]
 
 
 
 \index[fn]{i@\texttt{\textsl{i}}}%
-\noindent\texttt{truc \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[cmde]
+\noindent\texttt{truc \EmbracOn{}\textsl{}}\hfill[cmde]
 
 
 
@@ -4829,7 +4834,7 @@ text in def item for second def item
 \index[cp]{d--efvr\_name@\texttt{d{-}{-}efvr\_name}}%
 d--efvr
 
-\noindent\texttt{n{-}{-}ame \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{n{-}{-}ame \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
@@ -4843,7 +4848,7 @@ d--effn
 \index[fn]{n--ame@\texttt{n{-}{-}ame}}%
 d--effn no arg
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypefn\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypefn\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
@@ -4857,7 +4862,7 @@ d--eftypefn
 \index[fn]{d--eftypefn\_name@\texttt{d{-}{-}eftypefn\_name}}%
 d--eftypefn no arg
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
 
 
@@ -4885,7 +4890,7 @@ d--eftypevr
 \index[cp]{d--efcv\_name@\texttt{d{-}{-}efcv\_name}}%
 d--efcv
 
-\noindent\texttt{d{-}{-}efcv\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efcv\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
 
 
@@ -4899,14 +4904,14 @@ d--efcv with arguments
 \index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
 d--eftypecv
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
 
 
 \index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
 d--eftypecv with arguments
 
-\noindent\texttt{d{-}{-}efop\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efop\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
 
 
@@ -4920,28 +4925,28 @@ d--efop
 \index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
 d--efop no arg
 
-\noindent\texttt{d{-}{-}eftp\_name \bgroup{}\normalfont{}\textsl{a--ttributes...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{d{-}{-}eftp\_name \EmbracOn{}\textsl{a{-}{-}ttributes...}}\hfill[c--ategory]
 
 
 
 \index[tp]{d--eftp\_name@\texttt{d{-}{-}eftp\_name}}%
 d--eftp
 
-\noindent\texttt{d{-}{-}efun\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Function]
+\noindent\texttt{d{-}{-}efun\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Function]
 
 
 
 \index[fn]{d--efun\_name@\texttt{d{-}{-}efun\_name}}%
 d--efun
 
-\noindent\texttt{d{-}{-}efmac\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Macro]
+\noindent\texttt{d{-}{-}efmac\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Macro]
 
 
 
 \index[fn]{d--efmac\_name@\texttt{d{-}{-}efmac\_name}}%
 d--efmac
 
-\noindent\texttt{d{-}{-}efspec\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Special Form]
+\noindent\texttt{d{-}{-}efspec\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Special Form]
 
 
 
@@ -4955,7 +4960,7 @@ d--efspec
 \index[cp]{d--efvar\_name@\texttt{d{-}{-}efvar\_name}}%
 d--efvar
 
-\noindent\texttt{d{-}{-}efvar\_name \bgroup{}\normalfont{}\textsl{arg--var arg--var1}\egroup{}}\hfill[Variable]
+\noindent\texttt{d{-}{-}efvar\_name \EmbracOn{}\textsl{arg{-}{-}var arg{-}{-}var1}}\hfill[Variable]
 
 
 
@@ -4969,7 +4974,7 @@ d--efvar with args
 \index[cp]{d--efopt\_name@\texttt{d{-}{-}efopt\_name}}%
 d--efopt
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypefun\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Function]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypefun\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Function]
 
 
 
@@ -4997,14 +5002,14 @@ d--efivar
 \index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
 d--eftypeivar
 
-\noindent\texttt{d{-}{-}efmethod\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Method on \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efmethod\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Method on \texttt{c{-}{-}lass}]
 
 
 
 \index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
 d--efmethod
 
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Method on \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Method on \texttt{c{-}{-}lass}]
 
 
 
@@ -5012,7 +5017,7 @@ d--efmethod
 d--eftypemethod
 
 
-\noindent\texttt{data-type2\leavevmode{}\\name2 \bgroup{}\normalfont{}\textsl{arguments2...}\egroup{}}\hfill[Function]
+\noindent\texttt{data-type2\leavevmode{}\\name2 \EmbracOn{}\textsl{arguments2...}}\hfill[Function]
 
 
 
@@ -5026,7 +5031,7 @@ aaa2
 \index[fn]{d--eftypefn\_name2@\texttt{d{-}{-}eftypefn\_name2}}%
 d--eftypefn no arg2
 
-\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 \bgroup{}\normalfont{}\textsl{a--rguments2...}\egroup{}}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
+\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 \EmbracOn{}\textsl{a{-}{-}rguments2...}}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
 
 
@@ -5047,7 +5052,7 @@ d--eftypeop no arg2
 \index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
 d--eftypecv2
 
-\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypecv\_name2 \bgroup{}\normalfont{}\textsl{a--rguments2...}\egroup{}}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
+\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypecv\_name2 \EmbracOn{}\textsl{a{-}{-}rguments2...}}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
 
 
@@ -5339,39 +5344,39 @@ l--ine
 
 
 
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and  after}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and  after}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and }\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and }}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and and after}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and and after}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{followed \bgroup{}\normalfont{}\textsl{by a comment}\egroup{}}\hfill[truc]
+\noindent\texttt{followed \EmbracOn{}\textsl{by a comment}}\hfill[truc]
 
 
 
 \index[fn]{followed@\texttt{followed}}%
 Various deff lines
-\noindent\texttt{after \bgroup{}\normalfont{}\textsl{a deff item}\egroup{}}\hfill[truc]
+\noindent\texttt{after \EmbracOn{}\textsl{a deff item}}\hfill[truc]
 
 
 
 \index[fn]{after@\texttt{after}}%
 
-\noindent\texttt{\textsl{invalid} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fsetinv]
+\noindent\texttt{\textsl{invalid} \EmbracOn{}\textsl{a g}}\hfill[fsetinv]
 
 
 
@@ -6278,7 +6283,7 @@ s--mallformat
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{d{-}{-}effn\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{d{-}{-}effn\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
@@ -6289,7 +6294,7 @@ d{-}{-}effn
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{de{-}{-}ffn\_name \bgroup{}\normalfont{}\textsl{ar--guments    more args \leavevmode{}\\ even more so}\egroup{}}\hfill[cate--gory]
+\noindent\texttt{de{-}{-}ffn\_name \EmbracOn{}\textsl{ar{-}{-}guments    more args \leavevmode{}\\ even more so}}\hfill[cate--gory]
 
 
 
@@ -6300,7 +6305,7 @@ def{-}{-}fn
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{\textsl{i} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fset]
+\noindent\texttt{\textsl{i} \EmbracOn{}\textsl{a g}}\hfill[fset]
 
 
 
@@ -6308,32 +6313,32 @@ def{-}{-}fn
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 \index[cp]{index entry within deffn}%
 \endgroup{}%
-\noindent\texttt{truc \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[cmde]
+\noindent\texttt{truc \EmbracOn{}\textsl{}}\hfill[cmde]
 
 
 
 \index[fn]{truc@\texttt{truc}}%
-\noindent\texttt{log trap \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap@\texttt{log trap}}%
-\noindent\texttt{log trap1 \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap1 \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap1@\texttt{log trap1}}%
-\noindent\texttt{log trap2 \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[Command]
+\noindent\texttt{log trap2 \EmbracOn{}\textsl{}}\hfill[Command]
 
 
 
 \index[fn]{log trap2@\texttt{log trap2}}%
-\noindent\texttt{\textbf{id ule} \bgroup{}\normalfont{}\textsl{truc}\egroup{}}\hfill[cmde]
+\noindent\texttt{\textbf{id ule} \EmbracOn{}\textsl{truc}}\hfill[cmde]
 
 
 
 \index[fn]{id ule@\texttt{\textbf{id ule}}}%
-\noindent\texttt{\textbf{id `\texttt{i}' ule} \bgroup{}\normalfont{}\textsl{truc}\egroup{}}\hfill[cmde2]
+\noindent\texttt{\textbf{id `\texttt{i}' ule} \EmbracOn{}\textsl{truc}}\hfill[cmde2]
 
 
 
@@ -6361,7 +6366,7 @@ def{-}{-}fn
 
 
 
-\noindent\texttt{followed \bgroup{}\normalfont{}\textsl{by a comment}\egroup{}}\hfill[truc]
+\noindent\texttt{followed \EmbracOn{}\textsl{by a comment}}\hfill[truc]
 
 
 
@@ -6372,12 +6377,12 @@ def{-}{-}fn
 
 
 
-\noindent\texttt{a \bgroup{}\normalfont{}\textsl{b c d e \textbf{f g} h i}\egroup{}}\hfill[truc]
+\noindent\texttt{a \EmbracOn{}\textsl{b c d e \EmbracOff{}\textbf{f g}\EmbracOn{} h i}}\hfill[truc]
 
 
 
 \index[fn]{a@\texttt{a}}%
-\noindent\texttt{deffnx \bgroup{}\normalfont{}\textsl{before end deffn}\egroup{}}\hfill[truc]
+\noindent\texttt{deffnx \EmbracOn{}\textsl{before end deffn}}\hfill[truc]
 
 
 
@@ -6394,7 +6399,7 @@ def{-}{-}fn
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{deffn \bgroup{}\normalfont{}\textsl{with deffnx}\egroup{}}\hfill[empty]
+\noindent\texttt{deffn \EmbracOn{}\textsl{with deffnx}}\hfill[empty]
 
 
 
@@ -6409,12 +6414,12 @@ def{-}{-}fn
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{\textsl{i} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fset]
+\noindent\texttt{\textsl{i} \EmbracOn{}\textsl{a g}}\hfill[fset]
 
 
 
 \index[fn]{i@\texttt{\textsl{i}}}%
-\noindent\texttt{truc \bgroup{}\normalfont{}\textsl{}\egroup{}}\hfill[cmde]
+\noindent\texttt{truc \EmbracOn{}\textsl{}}\hfill[cmde]
 
 
 
@@ -6437,7 +6442,7 @@ d{-}{-}efvr
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{n{-}{-}ame \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{n{-}{-}ame \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
@@ -6459,7 +6464,7 @@ d{-}{-}effn no arg
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypefn\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypefn\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory]
 
 
 
@@ -6481,7 +6486,7 @@ d{-}{-}eftypefn no arg
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
 
 
@@ -6525,7 +6530,7 @@ d{-}{-}efcv
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{d{-}{-}efcv\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efcv\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
 
 
@@ -6547,7 +6552,7 @@ d{-}{-}eftypecv
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
 
 
@@ -6558,7 +6563,7 @@ d{-}{-}eftypecv with arguments
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{d{-}{-}efop\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efop\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
 
 
@@ -6580,7 +6585,7 @@ d{-}{-}efop no arg
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{d{-}{-}eftp\_name \bgroup{}\normalfont{}\textsl{a--ttributes...}\egroup{}}\hfill[c--ategory]
+\noindent\texttt{d{-}{-}eftp\_name \EmbracOn{}\textsl{a{-}{-}ttributes...}}\hfill[c--ategory]
 
 
 
@@ -6591,7 +6596,7 @@ d{-}{-}eftp
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{d{-}{-}efun\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Function]
+\noindent\texttt{d{-}{-}efun\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Function]
 
 
 
@@ -6602,7 +6607,7 @@ d{-}{-}efun
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{d{-}{-}efmac\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Macro]
+\noindent\texttt{d{-}{-}efmac\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Macro]
 
 
 
@@ -6613,7 +6618,7 @@ d{-}{-}efmac
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{d{-}{-}efspec\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Special Form]
+\noindent\texttt{d{-}{-}efspec\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Special Form]
 
 
 
@@ -6635,7 +6640,7 @@ d{-}{-}efvar
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{d{-}{-}efvar\_name \bgroup{}\normalfont{}\textsl{arg--var arg--var1}\egroup{}}\hfill[Variable]
+\noindent\texttt{d{-}{-}efvar\_name \EmbracOn{}\textsl{arg{-}{-}var arg{-}{-}var1}}\hfill[Variable]
 
 
 
@@ -6657,7 +6662,7 @@ d{-}{-}efopt
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypefun\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Function]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypefun\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Function]
 
 
 
@@ -6701,7 +6706,7 @@ d{-}{-}eftypeivar
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{d{-}{-}efmethod\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Method on \texttt{c{-}{-}lass}]
+\noindent\texttt{d{-}{-}efmethod\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Method on \texttt{c{-}{-}lass}]
 
 
 
@@ -6712,7 +6717,7 @@ d{-}{-}efmethod
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name \bgroup{}\normalfont{}\textsl{a--rguments...}\egroup{}}\hfill[Method on \texttt{c{-}{-}lass}]
+\noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name \EmbracOn{}\textsl{a{-}{-}rguments...}}\hfill[Method on \texttt{c{-}{-}lass}]
 
 
 
@@ -6724,7 +6729,7 @@ d{-}{-}eftypemethod
 
 
 \endgroup{}%
-\noindent\texttt{data-type2\leavevmode{}\\name2 \bgroup{}\normalfont{}\textsl{arguments2...}\egroup{}}\hfill[Function]
+\noindent\texttt{data-type2\leavevmode{}\\name2 \EmbracOn{}\textsl{arguments2...}}\hfill[Function]
 
 
 
@@ -6746,7 +6751,7 @@ d{-}{-}eftypefn no arg2
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 \bgroup{}\normalfont{}\textsl{a--rguments2...}\egroup{}}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
+\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 \EmbracOn{}\textsl{a{-}{-}rguments2...}}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
 
 
@@ -6779,7 +6784,7 @@ d{-}{-}eftypecv2
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypecv\_name2 \bgroup{}\normalfont{}\textsl{a--rguments2...}\egroup{}}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
+\noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypecv\_name2 \EmbracOn{}\textsl{a{-}{-}rguments2...}}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
 
 
@@ -7179,27 +7184,27 @@ l{-}{-}ine
 
 
 
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and  after}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and  after}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and }\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and }}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{machin \bgroup{}\normalfont{}\textsl{bidule chose and and after}\egroup{}}\hfill[truc]
+\noindent\texttt{machin \EmbracOn{}\textsl{bidule chose and and after}}\hfill[truc]
 
 
 
 \index[fn]{machin@\texttt{machin}}%
-\noindent\texttt{followed \bgroup{}\normalfont{}\textsl{by a comment}\egroup{}}\hfill[truc]
+\noindent\texttt{followed \EmbracOn{}\textsl{by a comment}}\hfill[truc]
 
 
 
@@ -7207,7 +7212,7 @@ l{-}{-}ine
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 Various deff lines
 \endgroup{}%
-\noindent\texttt{after \bgroup{}\normalfont{}\textsl{a deff item}\egroup{}}\hfill[truc]
+\noindent\texttt{after \EmbracOn{}\textsl{a deff item}}\hfill[truc]
 
 
 
@@ -7215,7 +7220,7 @@ Various deff lines
 \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
 
 \endgroup{}%
-\noindent\texttt{\textsl{invalid} \bgroup{}\normalfont{}\textsl{a g}\egroup{}}\hfill[fsetinv]
+\noindent\texttt{\textsl{invalid} \EmbracOn{}\textsl{a g}}\hfill[fsetinv]
 
 
 

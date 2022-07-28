@@ -3627,7 +3627,7 @@ $result_converted{'latex'}->{'test_deftypefnnewline'} = '
 \\chapter{chap}
 \\label{anchor:chapter}%
 
-\\noindent\\texttt{data-type\\leavevmode{}\\\\name \\bgroup{}\\normalfont{}\\textsl{arguments...}\\egroup{}}\\hfill[Function]
+\\noindent\\texttt{data-type\\leavevmode{}\\\\name \\EmbracOn{}\\textsl{arguments...}}\\hfill[Function]
 
 
 
@@ -3641,7 +3641,7 @@ aaa
 \\index[fn]{d--eftypefn\\_name@\\texttt{d{-}{-}eftypefn\\_name}}%
 d--eftypefn no arg
 
-\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypeop\\_name \\bgroup{}\\normalfont{}\\textsl{a--rguments...}\\egroup{}}\\hfill[c--ategory on \\texttt{c{-}{-}lass}]
+\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypeop\\_name \\EmbracOn{}\\textsl{a{-}{-}rguments...}}\\hfill[c--ategory on \\texttt{c{-}{-}lass}]
 
 
 
@@ -3662,7 +3662,7 @@ d--eftypeop no arg
 \\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name of c{-}{-}lass}}%
 d--eftypecv
 
-\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypecv\\_name \\bgroup{}\\normalfont{}\\textsl{a--rguments...}\\egroup{}}\\hfill[c--ategory of \\texttt{c{-}{-}lass}]
+\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypecv\\_name \\EmbracOn{}\\textsl{a{-}{-}rguments...}}\\hfill[c--ategory of \\texttt{c{-}{-}lass}]
 
 
 
@@ -3677,7 +3677,7 @@ d--eftypecv with arguments
 fff
 
 
-\\noindent\\texttt{data-type2 name2 \\bgroup{}\\normalfont{}\\textsl{arguments2...}\\egroup{}}\\hfill[Function]
+\\noindent\\texttt{data-type2 name2 \\EmbracOn{}\\textsl{arguments2...}}\\hfill[Function]
 
 
 
@@ -3691,7 +3691,7 @@ aaa2
 \\index[fn]{d--eftypefn\\_name2@\\texttt{d{-}{-}eftypefn\\_name2}}%
 d--eftypefn no arg2
 
-\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypeop\\_name2 \\bgroup{}\\normalfont{}\\textsl{a--rguments2...}\\egroup{}}\\hfill[c--ategory2 on \\texttt{c{-}{-}lass2}]
+\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypeop\\_name2 \\EmbracOn{}\\textsl{a{-}{-}rguments2...}}\\hfill[c--ategory2 on \\texttt{c{-}{-}lass2}]
 
 
 
@@ -3712,7 +3712,7 @@ d--eftypeop no arg2
 \\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2 of c{-}{-}lass2}}%
 d--eftypecv2
 
-\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypecv\\_name2 \\bgroup{}\\normalfont{}\\textsl{a--rguments2...}\\egroup{}}\\hfill[c--ategory2 of \\texttt{c{-}{-}lass2}]
+\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypecv\\_name2 \\EmbracOn{}\\textsl{a{-}{-}rguments2...}}\\hfill[c--ategory2 of \\texttt{c{-}{-}lass2}]
 
 
 

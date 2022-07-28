@@ -7,6 +7,7 @@
 \usepackage{textcomp}
 \usepackage{graphicx}
 \usepackage{etoolbox}
+\usepackage{embrac}
 \usepackage{titleps}
 \usepackage{float}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
@@ -51,6 +52,10 @@
 % avoid pagebreak and headings setting for a sectionning command
 \newcommand{\GNUTexinfonopagebreakheading}[2]{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}
 
+% braces are upright in italic and slanted only in @def*
+% so it is turned off here, and turned on @def* lines
+\EmbracOff{}%
+
 \renewcommand{\includegraphics}[1]{\fbox{FIG \detokenize{#1}}}
 
 % set default for @setchapternewpage
@@ -65,34 +70,34 @@
 \chapter{chapter}
 \label{anchor:chapter}%
 
-\noindent\texttt{fname \bgroup{}\normalfont{}\textsl{a---rg1 a--rg2}\egroup{}}\hfill[Func]
+\noindent\texttt{fname \EmbracOn{}\textsl{a{-}{-}{-}rg1 a{-}{-}rg2}}\hfill[Func]
 
 
 
 \index[fn]{fname@\texttt{fname}}%
 deffn no var for \textsl{a---rg1} and \textsl{a--rg2}
 
-\noindent\texttt{fname \bgroup{}\normalfont{}\textsl{\textsl{a---rg1} \textsl{a--rg2}}\egroup{}}\hfill[Func]
+\noindent\texttt{fname \EmbracOn{}\textsl{\EmbracOff{}\textsl{a{-}{-}{-}rg1}\EmbracOn{} \EmbracOff{}\textsl{a{-}{-}rg2}\EmbracOn{}}}\hfill[Func]
 
 
 
 \index[fn]{fname@\texttt{fname}}%
 deffn explict var for \textsl{a---rg1} and \textsl{a--rg2}
 
-\noindent\texttt{fname \bgroup{}\normalfont{}\textsl{\textnormal{\textsl{a---rg1}} \textnormal{\textsl{a--rg2}}}\egroup{}}\hfill[Func]
+\noindent\texttt{fname \EmbracOn{}\textsl{\EmbracOff{}\textnormal{\textsl{a{-}{-}{-}rg1}}\EmbracOn{} \EmbracOff{}\textnormal{\textsl{a{-}{-}rg2}}\EmbracOn{}}}\hfill[Func]
 
 
 
 \index[fn]{fname@\texttt{fname}}%
 deffn r slanted for \textsl{a---rg1} and \textsl{a--rg2}
 
-\noindent\texttt{foobar \bgroup{}\normalfont{}\textsl{(var {[}from to {[}inc{]}{]}) body\dots{}\@}\egroup{}}\hfill[Special Form]
+\noindent\texttt{foobar \EmbracOn{}\textsl{(var [from to [inc]]) body\dots{}\@}}\hfill[Special Form]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
 
-\noindent\texttt{\texttt{.ft} \bgroup{}\normalfont{}\textsl{{[}\textnormal{\textsl{font}}{]}}\egroup{}}\hfill[Request]
+\noindent\texttt{\texttt{.ft} \EmbracOn{}\textsl{[\EmbracOff{}\textnormal{\textsl{font}}\EmbracOn{}]}}\hfill[Request]
 
 
 
@@ -107,40 +112,40 @@ deffn r slanted for \textsl{a---rg1} and \textsl{a--rg2}
 
 
 \index[fn]{\textbackslash{}f(fn@\texttt{\texttt{\textbackslash{}f(}\textnormal{\textsl{fn}}\texttt{}}}%
-\noindent\texttt{\texttt{\textbackslash{}f{[}}\textnormal{\textsl{font}}\texttt{{]}} \bgroup{}\normalfont{}\textsl{\texttt{\textbackslash{}f{[}}\textnormal{\textsl{font}}\texttt{{]}}}\egroup{}}\hfill[Escape\hbox{}sequence]
+\noindent\texttt{\texttt{\textbackslash{}f[}\textnormal{\textsl{font}}\texttt{]} \EmbracOn{}\textsl{\EmbracOff{}\texttt{\textbackslash{}f[}\EmbracOn{}\EmbracOff{}\textnormal{\textsl{font}}\EmbracOn{}\EmbracOff{}\texttt{]}\EmbracOn{}}}\hfill[Escape\hbox{}sequence]
 
 
 
-\index[fn]{\textbackslash{}f{[}font{]}@\texttt{\texttt{\textbackslash{}f{[}}\textnormal{\textsl{font}}\texttt{{]}}}}%
-\noindent\texttt{\texttt{\textbackslash{}n{[}.sty{]}}}\hfill[Register]
+\index[fn]{\textbackslash{}f[font]@\texttt{\texttt{\textbackslash{}f[}\textnormal{\textsl{font}}\texttt{]}}}%
+\noindent\texttt{\texttt{\textbackslash{}n[.sty]}}\hfill[Register]
 
 
 
-\index[fn]{\textbackslash{}n{[}.sty{]}@\texttt{\texttt{\textbackslash{}n{[}.sty{]}}}}%
+\index[fn]{\textbackslash{}n[.sty]@\texttt{\texttt{\textbackslash{}n[.sty]}}}%
 The \texttt{ft} request and the \texttt{\textbackslash{}f} escape change the current font
 to \textsl{font} (one-character name\hbox{}\textsl{f}, two-character name
 \textsl{fn}).
 
-\noindent\texttt{foobar \bgroup{}\normalfont{}\textsl{{[} \textnormal{{[}} \textsl{{[}} \texttt{{[}} \texttt{{[}} \textnormal{\textsl{{[}}} \textnormal{\texttt{{[}}} \textnormal{\texttt{\textsl{{[}}}} \textnormal{\texttt{{[}}} , \textnormal{,} \textsl{,} \texttt{,} \texttt{,} \textnormal{\textsl{,}} \textnormal{\texttt{,}} \textnormal{\texttt{\textsl{,}}} \textnormal{\texttt{,}} {]} \textnormal{{]}} \textsl{{]}} \texttt{{]}} \texttt{{]}} \textnormal{\textsl{{]}}} \textnormal{\texttt{{]}}} \textnormal{\texttt{\textsl{{]}}}} \textnormal{\texttt{{]}}}}\egroup{}}\hfill[Special Form]
+\noindent\texttt{foobar \EmbracOn{}\textsl{[ \EmbracOff{}\textnormal{[}\EmbracOn{} \EmbracOff{}\textsl{[}\EmbracOn{} \EmbracOff{}\texttt{[}\EmbracOn{} \EmbracOff{}\texttt{[}\EmbracOn{} \EmbracOff{}\textnormal{\textsl{[}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{[}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{\textsl{[}}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{[}}\EmbracOn{} , \EmbracOff{}\textnormal{,}\EmbracOn{} \EmbracOff{}\textsl{,}\EmbracOn{} \EmbracOff{}\texttt{,}\EmbracOn{} \EmbracOff{}\texttt{,}\EmbracOn{} \EmbracOff{}\textnormal{\textsl{,}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{,}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{\textsl{,}}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{,}}\EmbracOn{} ] \EmbracOff{}\textnormal{]}\EmbracOn{} \EmbracOff{}\textsl{]}\EmbracOn{} \EmbracOff{}\texttt{]}\EmbracOn{} \EmbracOff{}\texttt{]}\EmbracOn{} \EmbracOff{}\textnormal{\textsl{]}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{]}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{\textsl{]}}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{]}}\EmbracOn{}}}\hfill[Special Form]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
-\noindent\texttt{foobar \bgroup{}\normalfont{}\textsl{{[}{]} \textnormal{{[}{]}} \textsl{{[}{]}} \texttt{{[}{]}} \texttt{{[}{]}} \textnormal{\textsl{{[}{]}}} \textnormal{\texttt{{[}{]}}} \textnormal{\texttt{\textsl{{[}{]}}}}}\egroup{}}\hfill[Special Form]
+\noindent\texttt{foobar \EmbracOn{}\textsl{[] \EmbracOff{}\textnormal{[]}\EmbracOn{} \EmbracOff{}\textsl{[]}\EmbracOn{} \EmbracOff{}\texttt{[]}\EmbracOn{} \EmbracOff{}\texttt{[]}\EmbracOn{} \EmbracOff{}\textnormal{\textsl{[]}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{[]}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{\textsl{[]}}}\EmbracOn{}}}\hfill[Special Form]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
 test formatting of separators
 
-\noindent\texttt{int foobar \bgroup{}\normalfont{}\textsl{(int \textsl{f---oo}, float \textsl{b--ar})}\egroup{}}\hfill[Library Function]
+\noindent\texttt{int foobar \EmbracOn{}\textsl{(int \EmbracOff{}\textsl{f{-}{-}{-}oo}\EmbracOn{}, float \EmbracOff{}\textsl{b{-}{-}ar}\EmbracOn{})}}\hfill[Library Function]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
 \dots{}\@ with var for \textsl{f---oo} and \textsl{b--ar}
 
-\noindent\texttt{int foobar \bgroup{}\normalfont{}\textsl{(int \textnormal{\textsl{f---oo}}, float \textnormal{\textsl{b--ar}})}\egroup{}}\hfill[Library Function]
+\noindent\texttt{int foobar \EmbracOn{}\textsl{(int \EmbracOff{}\textnormal{\textsl{f{-}{-}{-}oo}}\EmbracOn{}, float \EmbracOff{}\textnormal{\textsl{b{-}{-}ar}}\EmbracOn{})}}\hfill[Library Function]
 
 
 
@@ -163,7 +168,7 @@ test formatting of separators
 \dots{}\@
 
 \begin{quote}
-\noindent\texttt{int foobar \bgroup{}\normalfont{}\textsl{(int \textsl{foo}, float \textsl{bar})}\egroup{}}\hfill[Library Function]
+\noindent\texttt{int foobar \EmbracOn{}\textsl{(int \EmbracOff{}\textsl{foo}\EmbracOn{}, float \EmbracOff{}\textsl{bar}\EmbracOn{})}}\hfill[Library Function]
 
 
 
@@ -171,21 +176,21 @@ test formatting of separators
 \dots{}\@ for \textsl{foo} and \textsl{bar}
 \end{quote}
 
-\noindent\texttt{apply \bgroup{}\normalfont{}\textsl{function \&rest arguments}\egroup{}}\hfill[Function]
+\noindent\texttt{apply \EmbracOn{}\textsl{function \&rest arguments}}\hfill[Function]
 
 
 
 \index[fn]{apply@\texttt{apply}}%
 \texttt{apply} calls no var \textsl{function} with \textsl{arguments}
 
-\noindent\texttt{apply \bgroup{}\normalfont{}\textsl{function \textnormal{\textbf{\&rest }} argument}\egroup{}}\hfill[Function]
+\noindent\texttt{apply \EmbracOn{}\textsl{function \EmbracOff{}\textnormal{\textbf{\&rest }}\EmbracOn{} argument}}\hfill[Function]
 
 
 
 \index[fn]{apply@\texttt{apply}}%
 explicit keyword marking, no var \textsl{function} with \textsl{arguments}
 
-\noindent\texttt{name \bgroup{}\normalfont{}\textsl{argument \texttt{int} \texttt{a{-}{-}b} \textsl{v--ar1}, word \texttt{{-}{-}} (\texttt{type o{-}{-}ther}, \textsl{v---ar2}  {[}\texttt{float} {[}\textsl{var4}{]}{]})}\egroup{}}\hfill[Category]
+\noindent\texttt{name \EmbracOn{}\textsl{argument \EmbracOff{}\texttt{int}\EmbracOn{} \EmbracOff{}\texttt{a{-}{-}b}\EmbracOn{} \EmbracOff{}\textsl{v{-}{-}ar1}\EmbracOn{}, word \EmbracOff{}\texttt{{-}{-}}\EmbracOn{} (\EmbracOff{}\texttt{type o{-}{-}ther}\EmbracOn{}, \EmbracOff{}\textsl{v{-}{-}{-}ar2}\EmbracOn{}  [\EmbracOff{}\texttt{float}\EmbracOn{} [\EmbracOff{}\textsl{var4}\EmbracOn{}]])}}\hfill[Category]
 
 
 

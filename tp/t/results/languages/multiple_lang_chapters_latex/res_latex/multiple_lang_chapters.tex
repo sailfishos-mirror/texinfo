@@ -7,6 +7,7 @@
 \usepackage{textcomp}
 \usepackage{graphicx}
 \usepackage{etoolbox}
+\usepackage{embrac}
 \usepackage{titleps}
 \usepackage{float}
 \usepackage{babel}
@@ -58,6 +59,10 @@
 % avoid pagebreak and headings setting for a sectionning command
 \newcommand{\GNUTexinfonopagebreakheading}[2]{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}
 
+% braces are upright in italic and slanted only in @def*
+% so it is turned off here, and turned on @def* lines
+\EmbracOff{}%
+
 \renewcommand{\includegraphics}[1]{\fbox{FIG \detokenize{#1}}}
 
 % set default for @setchapternewpage
@@ -76,7 +81,7 @@
 \label{anchor:chapter-ja}%
 
 In japanese. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
-\noindent\texttt{BBB \bgroup{}\normalfont{}\textsl{CCC}\egroup{}}\hfill[Instance Variable of \texttt{AAA}]
+\noindent\texttt{BBB \EmbracOn{}\textsl{CCC}}\hfill[Instance Variable of \texttt{AAA}]
 
 
 
@@ -87,7 +92,7 @@ In japanese. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-
 \label{anchor:chapter-en}%
 
 In english. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
-\noindent\texttt{BBB \bgroup{}\normalfont{}\textsl{CCC}\egroup{}}\hfill[Instance Variable of \texttt{AAA}]
+\noindent\texttt{BBB \EmbracOn{}\textsl{CCC}}\hfill[Instance Variable of \texttt{AAA}]
 
 
 
@@ -97,7 +102,7 @@ In english. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-j
 \chapter{fr\_FR}
 \label{anchor:chapter-fr_005fFR}%
 
-\noindent\texttt{BBB \bgroup{}\normalfont{}\textsl{CCC}\egroup{}}\hfill[Variable d'instance of \texttt{AAA}]
+\noindent\texttt{BBB \EmbracOn{}\textsl{CCC}}\hfill[Variable d'instance of \texttt{AAA}]
 
 
 
