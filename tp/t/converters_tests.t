@@ -819,27 +819,24 @@ deffn explict var for @var{a---rg1} and @var{a--rg2}
 deffn r slanted for @var{a---rg1} and @var{a--rg2}
 @end deffn
 
-@defspec foobar (var [from to [inc]]) body@dots{}
+@defspec foobar (var [from to [inc]]) default
+@defspecx foobar (var @r{[}from to @r{[}inc@r{]]}) r
+@defspecx foobar (var @slanted{[}from to @slanted{[}inc@slanted{]]}) slanted
+@defspecx foobar (var @code{[}from to @code{[}inc@code{]]}) code
+@defspecx foobar (var @r{@slanted{[}}from to @r{@slanted{[}}inc@r{@slanted{]]}}) r:slanted
+@defspecx foobar (var @r{@code{[}}from to @r{@code{[}}inc@r{@code{]]}}) r:code
+separators
 @end defspec
 
-@defspec foobar (var @r{[}from to @r{[}inc@r{]]}) body@dots{}
-Roman metasyntactic separators
-@end defspec
-
-@defspec foobar (var @slanted{[}from to @slanted{[}inc@slanted{]]}) body@dots{}
-Slanted metasyntactic separators
-@end defspec
-
-@defspec foobar (var @r{@slanted{[}}from to @r{@slanted{[}}inc@r{@slanted{]]}}) body@dots{}
-Roman slanted metasyntactic separators
-@end defspec
-
-@defspec foobar (var @code{[}from to @code{[}inc@code{]]}) body@dots{}
-Code metasyntactic separators
-@end defspec
-
-@defspec foobar (var @r{@code{[}}from to @r{@code{[}}inc@r{@code{]]}}) body@dots{}
-Roman code metasyntactic separators
+@defspec foobar va---riable default
+@defspec foobar @var{va---riable} var
+@defspecx foobar @r{va---riable} r
+@defspecx foobar @slanted{va---riable} slanted
+@defspecx foobar @code{va---riable} code
+@defspecx foobar @r{@var{va---riable}} r:var
+@defspecx foobar @r{@slanted{va---riable}} r:slanted
+@defspecx foobar @r{@code{va---riable}} r:code
+name
 @end defspec
 
 @deffn Request @t{.ft} [@r{@slanted{font}}]
@@ -893,14 +890,22 @@ explicit keyword marking, no var @var{function} with @var{arguments}
 In deffn with code and var used
 @end deffn
 
-@deftypefn {Library Function} int foobar  (int @var{f---oo}[, float @var{b--ar}])
-@deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{[}, float @var{b--ar}@r{]})
-@deftypefnx {Library Function} int foobar  (int @var{f---oo}@slanted{[}, float @var{b--ar}@slanted{]})
-@deftypefnx {Library Function} int foobar  (int @var{f---oo}@code{[}, float @var{b--ar}@code{]})
-@deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@slanted{[}}, float @var{b--ar}@r{@slanted{]}})
-@deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@code{[}}, float @var{b--ar}@r{@code{]}})
-Default, @code{@@r}, @code{@@slanted}, @code{@@code}, @code{@@r @@slanted},
-@code{@@r @@code}
+@deftypefn {Library Function} int foobar  (int @var{f---oo}[, float @var{b--ar}]) default
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{[}, float @var{b--ar}@r{]}) r
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@slanted{[}, float @var{b--ar}@slanted{]}) slanted
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@code{[}, float @var{b--ar}@code{]}) code
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@slanted{[}}, float @var{b--ar}@r{@slanted{]}}) r:slanted
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@code{[}}, float @var{b--ar}@r{@code{]}}) r:code
+separators
+@end deftypefn
+
+@deftypefn {Library Function} int foobar  (i--nt @var{f---oo}[, float @var{b--ar}]) default
+@deftypefnx {Library Function} int foobar  (@r{i--nt} @var{f---oo}[, float @var{b--ar}]) r
+@deftypefnx {Library Function} int foobar  (@slanted{i--nt} @var{f---oo}[, float @var{b--ar}]) slanted
+@deftypefnx {Library Function} int foobar  (@code{i--nt} @var{f---oo}[, float @var{b--ar}]) code
+@deftypefnx {Library Function} int foobar  (@r{@slanted{i--nt}} @var{f---oo}[, float @var{b--ar}]) r:slanted
+@deftypefnx {Library Function} int foobar  (@r{@code{i--nt}} @var{f---oo}[, float @var{b--ar}]) r:code
+name
 @end deftypefn
 
 '],

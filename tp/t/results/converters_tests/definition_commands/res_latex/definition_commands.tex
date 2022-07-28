@@ -91,46 +91,79 @@ deffn explict var for \textsl{a---rg1} and \textsl{a--rg2}
 \index[fn]{fname@\texttt{fname}}%
 deffn r slanted for \textsl{a---rg1} and \textsl{a--rg2}
 
-\noindent\texttt{foobar \EmbracOn{}\textsl{(var [from to [inc]]) body\dots{}\@}}\hfill[Special Form]
+\noindent\texttt{foobar \EmbracOn{}\textsl{(var [from to [inc]]) default}}\hfill[Special Form]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
-
-\noindent\texttt{foobar \EmbracOn{}\textsl{(var \EmbracOff{}\textnormal{[}\EmbracOn{}from to \EmbracOff{}\textnormal{[}\EmbracOn{}inc\EmbracOff{}\textnormal{]]}\EmbracOn{}) body\dots{}\@}}\hfill[Special Form]
-
-
-
-\index[fn]{foobar@\texttt{foobar}}%
-Roman metasyntactic separators
-
-\noindent\texttt{foobar \EmbracOn{}\textsl{(var \EmbracOff{}\textsl{[}\EmbracOn{}from to \EmbracOff{}\textsl{[}\EmbracOn{}inc\EmbracOff{}\textsl{]]}\EmbracOn{}) body\dots{}\@}}\hfill[Special Form]
+\noindent\texttt{foobar \EmbracOn{}\textsl{(var \EmbracOff{}\textnormal{[}\EmbracOn{}from to \EmbracOff{}\textnormal{[}\EmbracOn{}inc\EmbracOff{}\textnormal{]]}\EmbracOn{}) r}}\hfill[Special Form]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
-Slanted metasyntactic separators
-
-\noindent\texttt{foobar \EmbracOn{}\textsl{(var \EmbracOff{}\textnormal{\textsl{[}}\EmbracOn{}from to \EmbracOff{}\textnormal{\textsl{[}}\EmbracOn{}inc\EmbracOff{}\textnormal{\textsl{]]}}\EmbracOn{}) body\dots{}\@}}\hfill[Special Form]
+\noindent\texttt{foobar \EmbracOn{}\textsl{(var \EmbracOff{}\textsl{[}\EmbracOn{}from to \EmbracOff{}\textsl{[}\EmbracOn{}inc\EmbracOff{}\textsl{]]}\EmbracOn{}) slanted}}\hfill[Special Form]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
-Roman slanted metasyntactic separators
-
-\noindent\texttt{foobar \EmbracOn{}\textsl{(var \EmbracOff{}\texttt{[}\EmbracOn{}from to \EmbracOff{}\texttt{[}\EmbracOn{}inc\EmbracOff{}\texttt{]]}\EmbracOn{}) body\dots{}\@}}\hfill[Special Form]
+\noindent\texttt{foobar \EmbracOn{}\textsl{(var \EmbracOff{}\texttt{[}\EmbracOn{}from to \EmbracOff{}\texttt{[}\EmbracOn{}inc\EmbracOff{}\texttt{]]}\EmbracOn{}) code}}\hfill[Special Form]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
-Code metasyntactic separators
-
-\noindent\texttt{foobar \EmbracOn{}\textsl{(var \EmbracOff{}\textnormal{\texttt{[}}\EmbracOn{}from to \EmbracOff{}\textnormal{\texttt{[}}\EmbracOn{}inc\EmbracOff{}\textnormal{\texttt{]]}}\EmbracOn{}) body\dots{}\@}}\hfill[Special Form]
+\noindent\texttt{foobar \EmbracOn{}\textsl{(var \EmbracOff{}\textnormal{\textsl{[}}\EmbracOn{}from to \EmbracOff{}\textnormal{\textsl{[}}\EmbracOn{}inc\EmbracOff{}\textnormal{\textsl{]]}}\EmbracOn{}) r:slanted}}\hfill[Special Form]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
-Roman code metasyntactic separators
+\noindent\texttt{foobar \EmbracOn{}\textsl{(var \EmbracOff{}\textnormal{\texttt{[}}\EmbracOn{}from to \EmbracOff{}\textnormal{\texttt{[}}\EmbracOn{}inc\EmbracOff{}\textnormal{\texttt{]]}}\EmbracOn{}) r:code}}\hfill[Special Form]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+separators
+
+\noindent\texttt{foobar \EmbracOn{}\textsl{va{-}{-}{-}riable default}}\hfill[Special Form]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+\noindent\texttt{foobar \EmbracOn{}\textsl{\EmbracOff{}\textsl{va{-}{-}{-}riable}\EmbracOn{} var}}\hfill[Special Form]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+\noindent\texttt{foobar \EmbracOn{}\textsl{\EmbracOff{}\textnormal{va{-}{-}{-}riable}\EmbracOn{} r}}\hfill[Special Form]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+\noindent\texttt{foobar \EmbracOn{}\textsl{\EmbracOff{}\textsl{va{-}{-}{-}riable}\EmbracOn{} slanted}}\hfill[Special Form]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+\noindent\texttt{foobar \EmbracOn{}\textsl{\EmbracOff{}\texttt{va{-}{-}{-}riable}\EmbracOn{} code}}\hfill[Special Form]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+\noindent\texttt{foobar \EmbracOn{}\textsl{\EmbracOff{}\textnormal{\textsl{va{-}{-}{-}riable}}\EmbracOn{} r:var}}\hfill[Special Form]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+\noindent\texttt{foobar \EmbracOn{}\textsl{\EmbracOff{}\textnormal{\textsl{va{-}{-}{-}riable}}\EmbracOn{} r:slanted}}\hfill[Special Form]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+\noindent\texttt{foobar \EmbracOn{}\textsl{\EmbracOff{}\textnormal{\texttt{va{-}{-}{-}riable}}\EmbracOn{} r:code}}\hfill[Special Form]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+name
 
 \noindent\texttt{\texttt{.ft} \EmbracOn{}\textsl{[\EmbracOff{}\textnormal{\textsl{font}}\EmbracOn{}]}}\hfill[Request]
 
@@ -232,37 +265,68 @@ explicit keyword marking, no var \textsl{function} with \textsl{arguments}
 \index[fn]{name@\texttt{name}}%
 In deffn with code and var used
 
-\noindent\texttt{int foobar (int \textsl{f{-}{-}{-}oo}[, float \textsl{b{-}{-}ar}])}\hfill[Library Function]
+\noindent\texttt{int foobar (int \textsl{f{-}{-}{-}oo}[, float \textsl{b{-}{-}ar}]) default}\hfill[Library Function]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
-\noindent\texttt{int foobar (int \textsl{f{-}{-}{-}oo}\textnormal{[}, float \textsl{b{-}{-}ar}\textnormal{]})}\hfill[Library Function]
+\noindent\texttt{int foobar (int \textsl{f{-}{-}{-}oo}\textnormal{[}, float \textsl{b{-}{-}ar}\textnormal{]}) r}\hfill[Library Function]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
-\noindent\texttt{int foobar (int \textsl{f{-}{-}{-}oo}\textsl{[}, float \textsl{b{-}{-}ar}\textsl{]})}\hfill[Library Function]
+\noindent\texttt{int foobar (int \textsl{f{-}{-}{-}oo}\textsl{[}, float \textsl{b{-}{-}ar}\textsl{]}) slanted}\hfill[Library Function]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
-\noindent\texttt{int foobar (int \textsl{f{-}{-}{-}oo}\texttt{[}, float \textsl{b{-}{-}ar}\texttt{]})}\hfill[Library Function]
+\noindent\texttt{int foobar (int \textsl{f{-}{-}{-}oo}\texttt{[}, float \textsl{b{-}{-}ar}\texttt{]}) code}\hfill[Library Function]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
-\noindent\texttt{int foobar (int \textsl{f{-}{-}{-}oo}\textnormal{\textsl{[}}, float \textsl{b{-}{-}ar}\textnormal{\textsl{]}})}\hfill[Library Function]
+\noindent\texttt{int foobar (int \textsl{f{-}{-}{-}oo}\textnormal{\textsl{[}}, float \textsl{b{-}{-}ar}\textnormal{\textsl{]}}) r:slanted}\hfill[Library Function]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
-\noindent\texttt{int foobar (int \textsl{f{-}{-}{-}oo}\textnormal{\texttt{[}}, float \textsl{b{-}{-}ar}\textnormal{\texttt{]}})}\hfill[Library Function]
+\noindent\texttt{int foobar (int \textsl{f{-}{-}{-}oo}\textnormal{\texttt{[}}, float \textsl{b{-}{-}ar}\textnormal{\texttt{]}}) r:code}\hfill[Library Function]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
-Default, \texttt{@r}, \texttt{@slanted}, \texttt{@code}, \texttt{@r @slanted},
-\texttt{@r @code}
+separators
+
+\noindent\texttt{int foobar (i{-}{-}nt \textsl{f{-}{-}{-}oo}[, float \textsl{b{-}{-}ar}]) default}\hfill[Library Function]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+\noindent\texttt{int foobar (\textnormal{i{-}{-}nt} \textsl{f{-}{-}{-}oo}[, float \textsl{b{-}{-}ar}]) r}\hfill[Library Function]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+\noindent\texttt{int foobar (\textsl{i{-}{-}nt} \textsl{f{-}{-}{-}oo}[, float \textsl{b{-}{-}ar}]) slanted}\hfill[Library Function]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+\noindent\texttt{int foobar (\texttt{i{-}{-}nt} \textsl{f{-}{-}{-}oo}[, float \textsl{b{-}{-}ar}]) code}\hfill[Library Function]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+\noindent\texttt{int foobar (\textnormal{\textsl{i{-}{-}nt}} \textsl{f{-}{-}{-}oo}[, float \textsl{b{-}{-}ar}]) r:slanted}\hfill[Library Function]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+\noindent\texttt{int foobar (\textnormal{\texttt{i{-}{-}nt}} \textsl{f{-}{-}{-}oo}[, float \textsl{b{-}{-}ar}]) r:code}\hfill[Library Function]
+
+
+
+\index[fn]{foobar@\texttt{foobar}}%
+name
 
 \end{document}
