@@ -822,6 +822,26 @@ deffn r slanted for @var{a---rg1} and @var{a--rg2}
 @defspec foobar (var [from to [inc]]) body@dots{}
 @end defspec
 
+@defspec foobar (var @r{[}from to @r{[}inc@r{]]}) body@dots{}
+Roman metasyntactic separators
+@end defspec
+
+@defspec foobar (var @slanted{[}from to @slanted{[}inc@slanted{]]}) body@dots{}
+Slanted metasyntactic separators
+@end defspec
+
+@defspec foobar (var @r{@slanted{[}}from to @r{@slanted{[}}inc@r{@slanted{]]}}) body@dots{}
+Roman slanted metasyntactic separators
+@end defspec
+
+@defspec foobar (var @code{[}from to @code{[}inc@code{]]}) body@dots{}
+Code metasyntactic separators
+@end defspec
+
+@defspec foobar (var @r{@code{[}}from to @r{@code{[}}inc@r{@code{]]}}) body@dots{}
+Roman code metasyntactic separators
+@end defspec
+
 @deffn Request @t{.ft} [@r{@slanted{font}}]
 @deffnx Escape@tie{}sequence @t{\f}@r{@slanted{f}}@t{}
 @deffnx Escape@tie{}sequence @t{\f(}@r{@slanted{fn}}@t{}
@@ -872,6 +892,16 @@ explicit keyword marking, no var @var{function} with @var{arguments}
  [@code{float} [@var{var4}]])
 In deffn with code and var used
 @end deffn
+
+@deftypefn {Library Function} int foobar  (int @var{f---oo}[, float @var{b--ar}])
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{[}, float @var{b--ar}@r{]})
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@slanted{[}, float @var{b--ar}@slanted{]})
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@code{[}, float @var{b--ar}@code{]})
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@slanted{[}}, float @var{b--ar}@r{@slanted{]}})
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@code{[}}, float @var{b--ar}@r{@code{]}})
+Default, @code{@@r}, @code{@@slanted}, @code{@@code}, @code{@@r @@slanted},
+@code{@@r @@code}
+@end deftypefn
 
 '],
 );
