@@ -272,8 +272,12 @@ foreach my $kept_command (keys(%informative_commands),
   $formatted_misc_commands{$kept_command} = 1;
 }
 
+# def commands with types.  Argument not considered to consist in
+# metasyntactic variables.
+my %deftype_commands = ();
 foreach my $def_command (keys(%def_commands)) {
   $formatted_misc_commands{$def_command} = 1 if ($misc_commands{$def_command});
+  $deftype_commands{$def_command} = 1 if ($def_command =~ /^deftype/);
 }
 
 # There are stacks that define the context.
@@ -2128,6 +2132,7 @@ sub _index_entry($$)
   return '';
 }
 
+# turn off embrac for an opening @-command
 sub _stop_embrac
 {
   my $self = shift;
@@ -2143,6 +2148,8 @@ sub _stop_embrac
   return ($result, $did_stop_embrac)
 }
 
+# turn on embrac, should be after closing an @-command that lead
+# to turning off embrac
 sub _restart_embrac_if_needed
 {
   my $self = shift;
@@ -3502,14 +3509,17 @@ sub _convert($$)
         $result .= _convert($self, $name) if $name;
         if ($arguments) {
           $result .= $def_space;
-          $self->{'packages'}->{'embrac'} = 1;
-          # no need to close that \EmbracOn{}, it is local to the texttt
-          $result .= '\EmbracOn{}\textsl{';
-          $self->{'formatting_context'}->[-1]->{'embrac'} = 1;
-
-          $result .=  _convert($self, {'contents' => $arguments});
-          $self->{'formatting_context'}->[-1]->{'embrac'} = undef;
-          $result .= '}'; # \textsl
+          if ($deftype_commands{$command}) {
+            $result .= _convert($self, {'contents' => $arguments});
+          } else {
+            $self->{'packages'}->{'embrac'} = 1;
+            # no need to close that \EmbracOn{}, it is local to the texttt
+            $result .= '\EmbracOn{}\textsl{';
+            $self->{'formatting_context'}->[-1]->{'embrac'} = 1;
+            $result .= _convert($self, {'contents' => $arguments});
+            $self->{'formatting_context'}->[-1]->{'embrac'} = undef;
+            $result .= '}'; # \textsl
+          }
         }
 
         $self->{'formatting_context'}->[-1]->{'code'} -= 1;

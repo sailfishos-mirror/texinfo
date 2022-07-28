@@ -1,5 +1,14 @@
 2022-07-28  Patrice Dumas  <pertusus@free.fr>
 
+	LaTeX @deftype* not in slanted, only in code
+
+	* tp/Texinfo/Convert/LaTeX.pm (%deftype_commands, _convert):
+	put @deftype* command names in %deftype_commands.  Do not consider
+	@deftype* arguments to be metasyntactic variables in code, but only
+	code.
+
+2022-07-28  Patrice Dumas  <pertusus@free.fr>
+
 	LaTeX @def* in code, upright brackets and parentheses
 
 	* tp/Texinfo/Convert/LaTeX.pm (_protect_text): do not protect
