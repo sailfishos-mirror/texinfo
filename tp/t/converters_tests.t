@@ -857,6 +857,9 @@ my %latex_tests = (
   'ref_error_formatting' => 1,
   'ref_in_sectioning' => 1,
   'unknown_value' => 1,
+  'test_sp' => 1,
+# need @example final
+# 'sp_in_example' => 1,
   'line_breaks' => 1,
   'test_deftypefnnewline' => 1,
   'raw_block_commands' => 1,
@@ -865,6 +868,9 @@ my %latex_tests = (
   'inline_expand_tex' => 1,
   'inlinefmtifelse' => 1,
   'inlineifsetifclear' => 1,
+# table_in_display_in_example
+# table_in_example_in_display
+# complex_nestings
   'image_with_spaces' => 1,
   'image_extension' => 1,
   'image_formatting' => 1,
@@ -879,7 +885,6 @@ my %latex_tests = (
 #  'normal_font_in_monospace' => 1,
   'email_table_command_as_argument' => 1,
   'at_commands_in_raw' => 1,
-  'test_sp' => 1,
   'non_empty_part' => 1,
 );
 
