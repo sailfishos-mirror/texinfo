@@ -308,7 +308,59 @@ $result_trees{'definition_commands'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'deffn no var
+                      'text' => 'deffn no var for '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'a---rg1'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 10,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'parent' => {},
+                      'text' => ' and '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'a--rg2'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 10,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
 '
                     }
                   ],
@@ -514,7 +566,59 @@ $result_trees{'definition_commands'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'deffn explict var
+                      'text' => 'deffn explict var for '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'a---rg1'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 14,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'parent' => {},
+                      'text' => ' and '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'a--rg2'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 14,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
 '
                     }
                   ],
@@ -756,7 +860,59 @@ $result_trees{'definition_commands'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'deffn r slanted
+                      'text' => 'deffn r slanted for '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'a---rg1'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 18,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'parent' => {},
+                      'text' => ' and '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'a--rg2'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 18,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
 '
                     }
                   ],
@@ -1332,7 +1488,59 @@ $result_trees{'definition_commands'} = {
                     },
                     {
                       'parent' => {},
-                      'text' => ' with var
+                      'text' => ' with var for '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'f---oo'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 25,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'parent' => {},
+                      'text' => ' and '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'b--ar'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 25,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
 '
                     }
                   ],
@@ -1672,7 +1880,59 @@ $result_trees{'definition_commands'} = {
                     },
                     {
                       'parent' => {},
-                      'text' => ' with r slanted
+                      'text' => ' with r slanted for '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'f---oo'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 29,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'parent' => {},
+                      'text' => ' and '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'b--ar'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 29,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
 '
                     }
                   ],
@@ -2427,6 +2687,58 @@ $result_trees{'definition_commands'} = {
                         },
                         {
                           'parent' => {},
+                          'text' => ' for '
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'parent' => {},
+                                  'text' => 'foo'
+                                }
+                              ],
+                              'parent' => {},
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 'var',
+                          'contents' => [],
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 43,
+                            'macro' => ''
+                          }
+                        },
+                        {
+                          'parent' => {},
+                          'text' => ' and '
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'parent' => {},
+                                  'text' => 'bar'
+                                }
+                              ],
+                              'parent' => {},
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 'var',
+                          'contents' => [],
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 43,
+                            'macro' => ''
+                          }
+                        },
+                        {
+                          'parent' => {},
                           'text' => '
 '
                         }
@@ -2681,7 +2993,7 @@ $result_trees{'definition_commands'} = {
                     },
                     {
                       'parent' => {},
-                      'text' => ' calls '
+                      'text' => ' calls no var '
                     },
                     {
                       'args' => [
@@ -2960,7 +3272,59 @@ $result_trees{'definition_commands'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'explicit keyword marking
+                      'text' => 'explicit keyword marking, no var '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'function'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 52,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'parent' => {},
+                      'text' => ' with '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'arguments'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 52,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
 '
                     }
                   ],
@@ -3442,7 +3806,7 @@ $result_trees{'definition_commands'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'In deffn
+                      'text' => 'In deffn with code and var used
 '
                     }
                   ],
@@ -3555,6 +3919,14 @@ $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'node'} = $result_trees{'definition_commands'}{'contents'}[3];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'args'}[0];
@@ -3584,6 +3956,14 @@ $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'node'} = $result_trees{'definition_commands'}{'contents'}[3];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[1];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'args'}[0];
@@ -3617,6 +3997,14 @@ $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'index_entry'}{'node'} = $result_trees{'definition_commands'}{'contents'}[3];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[1];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[5]{'contents'}[2]{'args'}[0];
@@ -3696,6 +4084,14 @@ $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[0
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[2];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'args'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[4];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[9]{'contents'}[2]{'args'}[0];
@@ -3742,6 +4138,14 @@ $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[2];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'args'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[4];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[11]{'contents'}[2]{'args'}[0];
@@ -3850,6 +4254,14 @@ $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'args'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[4];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'contents'}[1]{'contents'}[2]{'args'}[0];
@@ -3926,6 +4338,14 @@ $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'extra'}{'index_entry'}{'node'} = $result_trees{'definition_commands'}{'contents'}[3];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[1];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[3];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[24]{'contents'}[2]{'args'}[0];
@@ -4008,26 +4428,26 @@ $result_texis{'definition_commands'} = '@setfilename definition_commands.info
 @chapter chapter
 
 @deffn Func fname a---rg1 a--rg2
-deffn no var
+deffn no var for @var{a---rg1} and @var{a--rg2}
 @end deffn
 
 @deffn Func fname @var{a---rg1} @var{a--rg2}
-deffn explict var
+deffn explict var for @var{a---rg1} and @var{a--rg2}
 @end deffn
 
 @deffn Func fname @r{@slanted{a---rg1}} @r{@slanted{a--rg2}}
-deffn r slanted
+deffn r slanted for @var{a---rg1} and @var{a--rg2}
 @end deffn
 
 @defspec foobar (var [from to [inc]]) body@dots{}
 @end defspec
 
 @deftypefn {Library Function} int foobar  (int @var{f---oo}, float @var{b--ar})
-@dots{} with var
+@dots{} with var for @var{f---oo} and @var{b--ar}
 @end deftypefn
 
 @deftypefn {Library Function} int foobar  (int @r{@slanted{f---oo}}, float @r{@slanted{b--ar}})
-@dots{} with r slanted
+@dots{} with r slanted for @var{f---oo} and @var{b--ar}
 @end deftypefn
 
 @noindent produces:
@@ -4041,20 +4461,20 @@ deffn r slanted
 
 @quotation
 @deftypefn {Library Function} int foobar  (int @var{foo}, float @var{bar})
-@dots{}
+@dots{} for @var{foo} and @var{bar}
 @end deftypefn
 @end quotation
 
 @defun apply function &rest arguments
-@code{apply} calls @var{function} with @var{arguments}
+@code{apply} calls no var @var{function} with @var{arguments}
 @end defun
 
 @defun apply function @r{@b{&rest}} argument
-explicit keyword marking
+explicit keyword marking, no var @var{function} with @var{arguments}
 @end defun
 
 @deffn Category name argument @code{int} @code{a--b} @var{v--ar1}, word @code{--} (@code{type o--ther}, @var{v---ar2}  [@code{float} [@var{var4})
-In deffn
+In deffn with code and var used
 @end deffn
 
 ';
@@ -4068,21 +4488,21 @@ top section
 *********
 
 Func: fname a---rg1 a--rg2
-deffn no var
+deffn no var for a--rg1 and a-rg2
 
 Func: fname a---rg1 a--rg2
-deffn explict var
+deffn explict var for a--rg1 and a-rg2
 
 Func: fname a---rg1 a--rg2
-deffn r slanted
+deffn r slanted for a--rg1 and a-rg2
 
 Special Form: foobar (var [from to [inc]]) body...
 
 Library Function: int foobar (int f---oo, float b--ar)
-... with var
+... with var for f--oo and b-ar
 
 Library Function: int foobar (int f---oo, float b--ar)
-... with r slanted
+... with r slanted for f--oo and b-ar
 
 produces:
 Class Option of Window: border-pattern
@@ -4092,16 +4512,16 @@ Class Option of Window: int border-pattern
 ...
 
 Library Function: int foobar (int foo, float bar)
-...
+... for foo and bar
 
 Function: apply function &rest arguments
-apply calls function with arguments
+apply calls no var function with arguments
 
 Function: apply function &rest argument
-explicit keyword marking
+explicit keyword marking, no var function with arguments
 
 Category: name argument int a--b v--ar1, word -- (type o--ther, v---ar2  [float [var4)
-In deffn
+In deffn with code and var used
 
 ';
 
@@ -4229,21 +4649,21 @@ $result_converted{'plaintext'}->{'definition_commands'} = 'top section
 *********
 
  -- Func: fname a---rg1 a--rg2
-     deffn no var
+     deffn no var for A—RG1 and A–RG2
 
  -- Func: fname A---RG1 A--RG2
-     deffn explict var
+     deffn explict var for A—RG1 and A–RG2
 
  -- Func: fname a—rg1 a–rg2
-     deffn r slanted
+     deffn r slanted for A—RG1 and A–RG2
 
  -- Special Form: foobar (var [from to [inc]]) body...
 
  -- Library Function: int foobar (int F---OO, float B--AR)
-     ... with var
+     ... with var for F—OO and B–AR
 
  -- Library Function: int foobar (int f—oo, float b–ar)
-     ... with r slanted
+     ... with r slanted for F—OO and B–AR
 
 produces:
  -- Class Option of Window: border-pattern
@@ -4253,17 +4673,17 @@ produces:
      ...
 
       -- Library Function: int foobar (int FOO, float BAR)
-          ...
+          ... for FOO and BAR
 
  -- Function: apply function &rest arguments
-     ‘apply’ calls FUNCTION with ARGUMENTS
+     ‘apply’ calls no var FUNCTION with ARGUMENTS
 
  -- Function: apply function &rest argument
-     explicit keyword marking
+     explicit keyword marking, no var FUNCTION with ARGUMENTS
 
  -- Category: name argument int a--b V--AR1, word -- (type o--ther,
           V---AR2 [float [VAR4)
-     In deffn
+     In deffn with code and var used
 
 ';
 
@@ -4289,17 +4709,17 @@ $result_converted{'html_text'}->{'definition_commands'} = '
 
 <dl class="first-deffn">
 <dt class="deffn" id="index-fname"><span class="category-def">Func: </span><span><strong class="strong">fname</strong> <em class="emph">a---rg1 a--rg2</em><a class="copiable-link" href=\'#index-fname\'> &para;</a></span></dt>
-<dd><p>deffn no var
+<dd><p>deffn no var for <var class="var">a&mdash;rg1</var> and <var class="var">a&ndash;rg2</var>
 </p></dd></dl>
 
 <dl class="first-deffn">
 <dt class="deffn" id="index-fname-1"><span class="category-def">Func: </span><span><strong class="strong">fname</strong> <em class="emph"><var class="var">a---rg1</var> <var class="var">a--rg2</var></em><a class="copiable-link" href=\'#index-fname-1\'> &para;</a></span></dt>
-<dd><p>deffn explict var
+<dd><p>deffn explict var for <var class="var">a&mdash;rg1</var> and <var class="var">a&ndash;rg2</var>
 </p></dd></dl>
 
 <dl class="first-deffn">
 <dt class="deffn" id="index-fname-2"><span class="category-def">Func: </span><span><strong class="strong">fname</strong> <em class="emph"><span class="r"><i class="slanted">a&mdash;rg1</i></span> <span class="r"><i class="slanted">a&ndash;rg2</i></span></em><a class="copiable-link" href=\'#index-fname-2\'> &para;</a></span></dt>
-<dd><p>deffn r slanted
+<dd><p>deffn r slanted for <var class="var">a&mdash;rg1</var> and <var class="var">a&ndash;rg2</var>
 </p></dd></dl>
 
 <dl class="first-deffn first-defspec-alias-first-deffn">
@@ -4308,12 +4728,12 @@ $result_converted{'html_text'}->{'definition_commands'} = '
 
 <dl class="first-deftypefn">
 <dt class="deftypefn" id="index-foobar-1"><span class="category-def">Library Function: </span><span><em class="emph">int</em> <strong class="strong">foobar</strong> <em class="emph">(int <var class="var">f---oo</var>, float <var class="var">b--ar</var>)</em><a class="copiable-link" href=\'#index-foobar-1\'> &para;</a></span></dt>
-<dd><p>&hellip; with var
+<dd><p>&hellip; with var for <var class="var">f&mdash;oo</var> and <var class="var">b&ndash;ar</var>
 </p></dd></dl>
 
 <dl class="first-deftypefn">
 <dt class="deftypefn" id="index-foobar-2"><span class="category-def">Library Function: </span><span><em class="emph">int</em> <strong class="strong">foobar</strong> <em class="emph">(int <span class="r"><i class="slanted">f&mdash;oo</i></span>, float <span class="r"><i class="slanted">b&ndash;ar</i></span>)</em><a class="copiable-link" href=\'#index-foobar-2\'> &para;</a></span></dt>
-<dd><p>&hellip; with r slanted
+<dd><p>&hellip; with r slanted for <var class="var">f&mdash;oo</var> and <var class="var">b&ndash;ar</var>
 </p></dd></dl>
 
 <p>produces:
@@ -4330,23 +4750,23 @@ $result_converted{'html_text'}->{'definition_commands'} = '
 <blockquote class="quotation">
 <dl class="first-deftypefn">
 <dt class="deftypefn" id="index-foobar-3"><span class="category-def">Library Function: </span><span><em class="emph">int</em> <strong class="strong">foobar</strong> <em class="emph">(int <var class="var">foo</var>, float <var class="var">bar</var>)</em><a class="copiable-link" href=\'#index-foobar-3\'> &para;</a></span></dt>
-<dd><p>&hellip;
+<dd><p>&hellip; for <var class="var">foo</var> and <var class="var">bar</var>
 </p></dd></dl>
 </blockquote>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
 <dt class="deffn defun-alias-deffn" id="index-apply"><span class="category-def">Function: </span><span><strong class="strong">apply</strong> <em class="emph">function &amp;rest arguments</em><a class="copiable-link" href=\'#index-apply\'> &para;</a></span></dt>
-<dd><p><code class="code">apply</code> calls <var class="var">function</var> with <var class="var">arguments</var>
+<dd><p><code class="code">apply</code> calls no var <var class="var">function</var> with <var class="var">arguments</var>
 </p></dd></dl>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
 <dt class="deffn defun-alias-deffn" id="index-apply-1"><span class="category-def">Function: </span><span><strong class="strong">apply</strong> <em class="emph">function <span class="r"><b class="b">&amp;rest</b></span> argument</em><a class="copiable-link" href=\'#index-apply-1\'> &para;</a></span></dt>
-<dd><p>explicit keyword marking
+<dd><p>explicit keyword marking, no var <var class="var">function</var> with <var class="var">arguments</var>
 </p></dd></dl>
 
 <dl class="first-deffn">
 <dt class="deffn" id="index-name"><span class="category-def">Category: </span><span><strong class="strong">name</strong> <em class="emph">argument <code class="code">int</code> <code class="code">a--b</code> <var class="var">v--ar1</var>, word <code class="code">--</code> (<code class="code">type o--ther</code>, <var class="var">v---ar2</var>  [<code class="code">float</code> [<var class="var">var4</var>)</em><a class="copiable-link" href=\'#index-name\'> &para;</a></span></dt>
-<dd><p>In deffn
+<dd><p>In deffn with code and var used
 </p></dd></dl>
 
 </div>
@@ -4364,26 +4784,26 @@ $result_converted{'xml'}->{'definition_commands'} = '<setfilename file="definiti
 <chapter spaces=" "><sectiontitle>chapter</sectiontitle>
 
 <deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">fname</indexterm><defcategory>Func</defcategory> <deffunction>fname</deffunction> <defparam>a---rg1</defparam> <defparam>a--rg2</defparam></definitionterm>
-<definitionitem><para>deffn no var
+<definitionitem><para>deffn no var for <var>a&textmdash;rg1</var> and <var>a&textndash;rg2</var>
 </para></definitionitem></deffn>
 
 <deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="2">fname</indexterm><defcategory>Func</defcategory> <deffunction>fname</deffunction> <defparam><var>a---rg1</var></defparam> <defparam><var>a--rg2</var></defparam></definitionterm>
-<definitionitem><para>deffn explict var
+<definitionitem><para>deffn explict var for <var>a&textmdash;rg1</var> and <var>a&textndash;rg2</var>
 </para></definitionitem></deffn>
 
 <deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="3">fname</indexterm><defcategory>Func</defcategory> <deffunction>fname</deffunction> <defparam><r><slanted>a&textmdash;rg1</slanted></r></defparam> <defparam><r><slanted>a&textndash;rg2</slanted></r></defparam></definitionterm>
-<definitionitem><para>deffn r slanted
+<definitionitem><para>deffn r slanted for <var>a&textmdash;rg1</var> and <var>a&textndash;rg2</var>
 </para></definitionitem></deffn>
 
 <defspec spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="4">foobar</indexterm><defcategory automatic="on" bracketed="on">Special Form</defcategory> <deffunction>foobar</deffunction> <defdelimiter>(</defdelimiter><defparam>var</defparam> <defdelimiter>[</defdelimiter><defparam>from</defparam> <defparam>to</defparam> <defdelimiter>[</defdelimiter><defparam>inc</defparam><defdelimiter>]</defdelimiter><defdelimiter>]</defdelimiter><defdelimiter>)</defdelimiter> <defparam>body</defparam><defparam>&dots;</defparam></definitionterm>
 </defspec>
 
 <deftypefn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="5">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>f---oo</var></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>b--ar</var></defparam><defdelimiter>)</defdelimiter></definitionterm>
-<definitionitem><para>&dots; with var
+<definitionitem><para>&dots; with var for <var>f&textmdash;oo</var> and <var>b&textndash;ar</var>
 </para></definitionitem></deftypefn>
 
 <deftypefn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="6">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><r><slanted>f&textmdash;oo</slanted></r></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><r><slanted>b&textndash;ar</slanted></r></defparam><defdelimiter>)</defdelimiter></definitionterm>
-<definitionitem><para>&dots; with r slanted
+<definitionitem><para>&dots; with r slanted for <var>f&textmdash;oo</var> and <var>b&textndash;ar</var>
 </para></definitionitem></deftypefn>
 
 <noindent></noindent><para>produces:
@@ -4397,20 +4817,20 @@ $result_converted{'xml'}->{'definition_commands'} = '<setfilename file="definiti
 
 <quotation endspaces=" ">
 <deftypefn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="7">foobar</indexterm><defcategory bracketed="on">Library Function</defcategory> <deftype>int</deftype> <deffunction>foobar</deffunction>  <defdelimiter>(</defdelimiter><defparamtype>int</defparamtype> <defparam><var>foo</var></defparam><defdelimiter>,</defdelimiter> <defparamtype>float</defparamtype> <defparam><var>bar</var></defparam><defdelimiter>)</defdelimiter></definitionterm>
-<definitionitem><para>&dots;
+<definitionitem><para>&dots; for <var>foo</var> and <var>bar</var>
 </para></definitionitem></deftypefn>
 </quotation>
 
 <defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="8">apply</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deffunction>apply</deffunction> <defparam>function</defparam> <defparam>&amp;rest</defparam> <defparam>arguments</defparam></definitionterm>
-<definitionitem><para><code>apply</code> calls <var>function</var> with <var>arguments</var>
+<definitionitem><para><code>apply</code> calls no var <var>function</var> with <var>arguments</var>
 </para></definitionitem></defun>
 
 <defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="9">apply</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deffunction>apply</deffunction> <defparam>function</defparam> <defparam><r><b>&amp;rest</b></r></defparam> <defparam>argument</defparam></definitionterm>
-<definitionitem><para>explicit keyword marking
+<definitionitem><para>explicit keyword marking, no var <var>function</var> with <var>arguments</var>
 </para></definitionitem></defun>
 
 <deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="10">name</indexterm><defcategory>Category</defcategory> <deffunction>name</deffunction> <defparam>argument</defparam> <defparam><code>int</code></defparam> <defparam><code>a--b</code></defparam> <defparam><var>v--ar1</var></defparam><defdelimiter>,</defdelimiter> <defparam>word</defparam> <defparam><code>--</code></defparam> <defdelimiter>(</defdelimiter><defparam><code>type o--ther</code></defparam><defdelimiter>,</defdelimiter> <defparam><var>v---ar2</var></defparam>  <defdelimiter>[</defdelimiter><defparam><code>float</code></defparam> <defdelimiter>[</defdelimiter><defparam><var>var4</var></defparam><defdelimiter>)</defdelimiter></definitionterm>
-<definitionitem><para>In deffn
+<definitionitem><para>In deffn with code and var used
 </para></definitionitem></deffn>
 
 </chapter>
@@ -4421,21 +4841,21 @@ $result_converted{'docbook'}->{'definition_commands'} = '<chapter label="1" id="
 <title>chapter</title>
 
 <synopsis><indexterm role="fn"><primary>fname</primary></indexterm><phrase role="category"><emphasis role="bold">Func</emphasis>:</phrase> <function>fname</function> <emphasis role="arg">a---rg1</emphasis> <emphasis role="arg">a--rg2</emphasis></synopsis>
-<blockquote><para>deffn no var
+<blockquote><para>deffn no var for <replaceable>a&#8212;rg1</replaceable> and <replaceable>a&#8211;rg2</replaceable>
 </para></blockquote>
 <synopsis><indexterm role="fn"><primary>fname</primary></indexterm><phrase role="category"><emphasis role="bold">Func</emphasis>:</phrase> <function>fname</function> <emphasis role="arg"><replaceable>a---rg1</replaceable></emphasis> <emphasis role="arg"><replaceable>a--rg2</replaceable></emphasis></synopsis>
-<blockquote><para>deffn explict var
+<blockquote><para>deffn explict var for <replaceable>a&#8212;rg1</replaceable> and <replaceable>a&#8211;rg2</replaceable>
 </para></blockquote>
 <synopsis><indexterm role="fn"><primary>fname</primary></indexterm><phrase role="category"><emphasis role="bold">Func</emphasis>:</phrase> <function>fname</function> <emphasis role="arg">a&#8212;rg1</emphasis> <emphasis role="arg">a&#8211;rg2</emphasis></synopsis>
-<blockquote><para>deffn r slanted
+<blockquote><para>deffn r slanted for <replaceable>a&#8212;rg1</replaceable> and <replaceable>a&#8211;rg2</replaceable>
 </para></blockquote>
 <synopsis><indexterm role="fn"><primary>foobar</primary></indexterm><phrase role="category"><emphasis role="bold">Special Form</emphasis>:</phrase> <function>foobar</function> (<emphasis role="arg">var</emphasis> [<emphasis role="arg">from</emphasis> <emphasis role="arg">to</emphasis> [<emphasis role="arg">inc</emphasis>]]) <emphasis role="arg">body</emphasis><emphasis role="arg">&#8230;</emphasis></synopsis>
 
 <synopsis><indexterm role="fn"><primary>foobar</primary></indexterm><phrase role="category"><emphasis role="bold">Library Function</emphasis>:</phrase> <returnvalue>int</returnvalue> <function>foobar</function>  (<type>int</type> <emphasis role="arg"><replaceable>f---oo</replaceable></emphasis>, <type>float</type> <emphasis role="arg"><replaceable>b--ar</replaceable></emphasis>)</synopsis>
-<blockquote><para>&#8230; with var
+<blockquote><para>&#8230; with var for <replaceable>f&#8212;oo</replaceable> and <replaceable>b&#8211;ar</replaceable>
 </para></blockquote>
 <synopsis><indexterm role="fn"><primary>foobar</primary></indexterm><phrase role="category"><emphasis role="bold">Library Function</emphasis>:</phrase> <returnvalue>int</returnvalue> <function>foobar</function>  (<type>int</type> <emphasis role="arg">f&#8212;oo</emphasis>, <type>float</type> <emphasis role="arg">b&#8211;ar</emphasis>)</synopsis>
-<blockquote><para>&#8230; with r slanted
+<blockquote><para>&#8230; with r slanted for <replaceable>f&#8212;oo</replaceable> and <replaceable>b&#8211;ar</replaceable>
 </para></blockquote>
 <para>produces:
 </para><synopsis><indexterm role="vr"><primary>border-pattern</primary></indexterm><phrase role="category"><emphasis role="bold">Class Option</emphasis>:</phrase> <ooclass><classname>Window</classname></ooclass> <property>border-pattern</property></synopsis>
@@ -4445,16 +4865,16 @@ $result_converted{'docbook'}->{'definition_commands'} = '<chapter label="1" id="
 <blockquote><para>&#8230;
 </para></blockquote>
 <blockquote><synopsis><indexterm role="fn"><primary>foobar</primary></indexterm><phrase role="category"><emphasis role="bold">Library Function</emphasis>:</phrase> <returnvalue>int</returnvalue> <function>foobar</function>  (<type>int</type> <emphasis role="arg"><replaceable>foo</replaceable></emphasis>, <type>float</type> <emphasis role="arg"><replaceable>bar</replaceable></emphasis>)</synopsis>
-<blockquote><para>&#8230;
+<blockquote><para>&#8230; for <replaceable>foo</replaceable> and <replaceable>bar</replaceable>
 </para></blockquote></blockquote>
 <synopsis><indexterm role="fn"><primary>apply</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <function>apply</function> <emphasis role="arg">function</emphasis> <emphasis role="arg">&amp;rest</emphasis> <emphasis role="arg">arguments</emphasis></synopsis>
-<blockquote><para><literal>apply</literal> calls <replaceable>function</replaceable> with <replaceable>arguments</replaceable>
+<blockquote><para><literal>apply</literal> calls no var <replaceable>function</replaceable> with <replaceable>arguments</replaceable>
 </para></blockquote>
 <synopsis><indexterm role="fn"><primary>apply</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <function>apply</function> <emphasis role="arg">function</emphasis> <emphasis role="arg"><emphasis role="bold">&amp;rest</emphasis></emphasis> <emphasis role="arg">argument</emphasis></synopsis>
-<blockquote><para>explicit keyword marking
+<blockquote><para>explicit keyword marking, no var <replaceable>function</replaceable> with <replaceable>arguments</replaceable>
 </para></blockquote>
 <synopsis><indexterm role="fn"><primary>name</primary></indexterm><phrase role="category"><emphasis role="bold">Category</emphasis>:</phrase> <function>name</function> <emphasis role="arg">argument</emphasis> <emphasis role="arg">int</emphasis> <emphasis role="arg">a--b</emphasis> <emphasis role="arg"><replaceable>v--ar1</replaceable></emphasis>, <emphasis role="arg">word</emphasis> <emphasis role="arg">--</emphasis> (<emphasis role="arg">type o--ther</emphasis>, <emphasis role="arg"><replaceable>v---ar2</replaceable></emphasis>  [<emphasis role="arg">float</emphasis> [<emphasis role="arg"><replaceable>var4</replaceable></emphasis>)</synopsis>
-<blockquote><para>In deffn
+<blockquote><para>In deffn with code and var used
 </para></blockquote>
 </chapter>
 ';

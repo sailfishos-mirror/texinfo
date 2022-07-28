@@ -808,26 +808,26 @@ $non_empty_part_text
 @chapter chapter
 
 @deffn Func fname a---rg1 a--rg2
-deffn no var
+deffn no var for @var{a---rg1} and @var{a--rg2}
 @end deffn
 
 @deffn Func fname @var{a---rg1} @var{a--rg2}
-deffn explict var
+deffn explict var for @var{a---rg1} and @var{a--rg2}
 @end deffn
 
 @deffn Func fname @r{@slanted{a---rg1}} @r{@slanted{a--rg2}}
-deffn r slanted
+deffn r slanted for @var{a---rg1} and @var{a--rg2}
 @end deffn
 
 @defspec foobar (var [from to [inc]]) body@dots{}
 @end defspec
 
 @deftypefn {Library Function} int foobar  (int @var{f---oo}, float @var{b--ar})
-@dots{} with var
+@dots{} with var for @var{f---oo} and @var{b--ar}
 @end deftypefn
 
 @deftypefn {Library Function} int foobar  (int @r{@slanted{f---oo}}, float @r{@slanted{b--ar}})
-@dots{} with r slanted
+@dots{} with r slanted for @var{f---oo} and @var{b--ar}
 @end deftypefn
 
 @noindent produces:
@@ -841,21 +841,21 @@ deffn r slanted
 
 @quotation
 @deftypefn {Library Function} int foobar  (int @var{foo}, float @var{bar})
-@dots{}
+@dots{} for @var{foo} and @var{bar}
 @end deftypefn
 @end quotation
 
 @defun apply function &rest arguments
-@code{apply} calls @var{function} with @var{arguments}
+@code{apply} calls no var @var{function} with @var{arguments}
 @end defun
 
 @defun apply function @r{@b{&rest}} argument
-explicit keyword marking
+explicit keyword marking, no var @var{function} with @var{arguments}
 @end defun
 
 @deffn Category name argument @code{int} @code{a--b} @var{v--ar1}, word @code{--} (@code{type o--ther}, @var{v---ar2} @
  [@code{float} [@var{var4})
-In deffn
+In deffn with code and var used
 @end deffn
 
 '],
@@ -901,6 +901,10 @@ my %html_tests = (
  'things_before_setfilename' => 1,
  'things_before_setfilename_no_element' => 1,
  'line_breaks' => 1,
+);
+
+my %file_html_tests = (
+  'definition_commands' => 1,
 );
 
 my %docbooc_doc_tests = (
@@ -960,6 +964,9 @@ foreach my $test (@test_cases) {
     push @{$test->[2]->{'test_formats'}}, 'html';
   } else {
     push @{$test->[2]->{'test_formats'}}, 'html_text';
+  }
+  if ($file_html_tests{$test->[0]}) {
+    push @{$test->[2]->{'test_formats'}}, 'file_html';
   }
   push @{$test->[2]->{'test_formats'}}, 'xml';
   if ($docbooc_doc_tests{$test->[0]}) {
