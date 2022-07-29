@@ -918,6 +918,57 @@ $top_in_ref_text,
 ['non_empty_part_no_top_node_output',
 $non_empty_part_text,
 {}, {'NO_TOP_NODE_OUTPUT' => 1}],
+['references_to_top_no_top_output',
+'
+@setfilename references_to_top_no_top_output.info
+
+@copying
+Copying
+@anchor{a in copying}
+@end copying
+
+@node Top
+@top top
+
+Begin Top
+
+@anchor{a in top}
+
+@footnote{in footnote @anchor{a in footnote}}
+
+@insertcopying
+
+@float list, My Flist
+In Flist
+@anchor{a in float}.
+@caption{Caption Flist. @anchor{a in caption}}
+@end float
+
+@cindex index in Top
+
+End of Top
+
+@node chapter
+@chapter Chap
+
+@pxref{a in copying}.
+@pxref{a in top}
+@pxref{a in footnote}
+@pxref{a in float}
+@pxref{a in caption}
+
+@cindex chap index
+
+@printindex cp
+
+@float list, Main Flist
+In Main
+@caption{Caption Main}
+@end float
+
+@listoffloats list
+', {'test_formats' => ['file_latex', 'file_html'], 'full_document' => 1},
+   {'NO_TOP_NODE_OUTPUT' => 1}],
 );
 
 my @file_tests = (
@@ -973,7 +1024,7 @@ my %latex_tests = (
   'ref_in_sectioning' => 1,
   'unknown_value' => 1,
   'test_sp' => 1,
-# need @example final
+# need final implementation of @example
 # 'sp_in_example' => 1,
   'line_breaks' => 1,
   'test_deftypefnnewline' => 1,
@@ -983,6 +1034,7 @@ my %latex_tests = (
   'inline_expand_tex' => 1,
   'inlinefmtifelse' => 1,
   'inlineifsetifclear' => 1,
+# need final implementation of @example
 # table_in_display_in_example
 # table_in_example_in_display
 # complex_nestings
