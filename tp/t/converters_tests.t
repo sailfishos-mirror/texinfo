@@ -881,7 +881,7 @@ test formatting of separators
 @code{apply} calls no var @var{function} with @var{arguments}
 @end defun
 
-@defun apply function @r{@b{&rest }} argument
+@defun apply function @r{@b{&rest}} argument
 explicit keyword marking, no var @var{function} with @var{arguments}
 @end defun
 

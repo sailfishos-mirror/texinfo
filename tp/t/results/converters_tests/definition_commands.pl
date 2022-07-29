@@ -8421,7 +8421,7 @@ $result_trees{'definition_commands'} = {
                                           'contents' => [
                                             {
                                               'parent' => {},
-                                              'text' => '&rest '
+                                              'text' => '&rest'
                                             }
                                           ],
                                           'parent' => {},
@@ -14502,7 +14502,7 @@ test formatting of separators
 @code{apply} calls no var @var{function} with @var{arguments}
 @end defun
 
-@defun apply function @r{@b{&rest }} argument
+@defun apply function @r{@b{&rest}} argument
 explicit keyword marking, no var @var{function} with @var{arguments}
 @end defun
 
@@ -14597,7 +14597,7 @@ Library Function: int foobar (int foo, float bar)
 Function: apply function &rest arguments
 apply calls no var function with arguments
 
-Function: apply function &rest  argument
+Function: apply function &rest argument
 explicit keyword marking, no var function with arguments
 
 Category: name argument int a--b v--ar1, word -- (type o--ther, v---ar2  [float [var4]])
@@ -14986,7 +14986,7 @@ to <var class="var">font</var> (one-character name&nbsp;<var class="var">f</var>
 </p></dd></dl>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-apply-1"><span class="category-def">Function: </span><span><strong class="strong">apply</strong> <em class="emph">function <span class="r"><b class="b">&amp;rest </b></span> argument</em><a class="copiable-link" href=\'#index-apply-1\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-apply-1"><span class="category-def">Function: </span><span><strong class="strong">apply</strong> <em class="emph">function <span class="r"><b class="b">&amp;rest</b></span> argument</em><a class="copiable-link" href=\'#index-apply-1\'> &para;</a></span></dt>
 <dd><p>explicit keyword marking, no var <var class="var">function</var> with <var class="var">arguments</var>
 </p></dd></dl>
 
@@ -15104,7 +15104,7 @@ to <var>font</var> (one-character name&nbsp;<var>f</var>, two-character name
 <definitionitem><para><code>apply</code> calls no var <var>function</var> with <var>arguments</var>
 </para></definitionitem></defun>
 
-<defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="29">apply</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deffunction>apply</deffunction> <defparam>function</defparam> <defparam><r><b>&amp;rest </b></r></defparam> <defparam>argument</defparam></definitionterm>
+<defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="29">apply</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deffunction>apply</deffunction> <defparam>function</defparam> <defparam><r><b>&amp;rest</b></r></defparam> <defparam>argument</defparam></definitionterm>
 <definitionitem><para>explicit keyword marking, no var <var>function</var> with <var>arguments</var>
 </para></definitionitem></defun>
 
@@ -15196,7 +15196,7 @@ to <replaceable>font</replaceable> (one-character name&#160;<replaceable>f</repl
 <synopsis><indexterm role="fn"><primary>apply</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <function>apply</function> <emphasis role="arg">function</emphasis> <emphasis role="arg">&amp;rest</emphasis> <emphasis role="arg">arguments</emphasis></synopsis>
 <blockquote><para><literal>apply</literal> calls no var <replaceable>function</replaceable> with <replaceable>arguments</replaceable>
 </para></blockquote>
-<synopsis><indexterm role="fn"><primary>apply</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <function>apply</function> <emphasis role="arg">function</emphasis> <emphasis role="arg"><emphasis role="bold">&amp;rest </emphasis></emphasis> <emphasis role="arg">argument</emphasis></synopsis>
+<synopsis><indexterm role="fn"><primary>apply</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <function>apply</function> <emphasis role="arg">function</emphasis> <emphasis role="arg"><emphasis role="bold">&amp;rest</emphasis></emphasis> <emphasis role="arg">argument</emphasis></synopsis>
 <blockquote><para>explicit keyword marking, no var <replaceable>function</replaceable> with <replaceable>arguments</replaceable>
 </para></blockquote>
 <synopsis><indexterm role="fn"><primary>name</primary></indexterm><phrase role="category"><emphasis role="bold">Category</emphasis>:</phrase> <function>name</function> <emphasis role="arg">argument</emphasis> <emphasis role="arg">int</emphasis> <emphasis role="arg">a--b</emphasis> <emphasis role="arg"><replaceable>v--ar1</replaceable></emphasis>, <emphasis role="arg">word</emphasis> <emphasis role="arg">--</emphasis> (<emphasis role="arg">type o--ther</emphasis>, <emphasis role="arg"><replaceable>v---ar2</replaceable></emphasis>  [<emphasis role="arg">float</emphasis> [<emphasis role="arg"><replaceable>var4</replaceable></emphasis>]])</synopsis>
