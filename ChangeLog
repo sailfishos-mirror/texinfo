@@ -1,5 +1,11 @@
 2022-07-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): when ignoring
+	Top node, generate @float and @anchor \label if directly
+	in main document.
+
+2022-07-29  Patrice Dumas  <pertusus@free.fr>
+
 	Fix NO_TOP_NODE_OUTPUT and title page formatting reference
 
 	* tp/Texinfo/Convert/HTML.pm (register_footnote)

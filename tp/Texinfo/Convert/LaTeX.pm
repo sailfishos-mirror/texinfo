@@ -53,13 +53,10 @@
 # @def* body in Texinfo TeX is narrower than the @def* line.  The
 # difference is more marked for @def* within a @*table or @quotation.
 # Also Texinfo TeX leaves more space for the category on the right
-# if the def line is too long.
-#
-# Upright parentheses and brackets on @def* lines.
-# Could use https://mirror.mwt.me/ctan/macros/latex/contrib/embrac/embrac_en.pdf
-# with \EmbracOff and \EmbracOn.  Font is the surrounding text font.
-#
-# @deftype* in typewriter, not slanted.  Other @def* in typewriter and slanted.
+# if the def line is too long.  If the category is formatted with
+# @tie{}, like Escape@tie{}sequence, with Texinfo TeX the space is
+# more or less a normal space, with LaTeX, the space has shrinked so
+# much it seems that the two words are glued together.
 #
 # There is something about form feeds to do.  There is some processing of form
 # feeds right now, which simply amounts to keeping them in ignorable spaces
@@ -2211,7 +2208,9 @@ sub _convert($$)
       delete $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'};
     } elsif (! defined($cmdname)
              or (not ($informative_commands{$cmdname}
-                      or $sectioning_heading_commands{$cmdname}))) {
+                      or $sectioning_heading_commands{$cmdname}
+                      or $cmdname eq 'float'
+                      or $cmdname eq 'anchor'))) {
       return '';
     }
   }
@@ -3097,17 +3096,19 @@ sub _convert($$)
         $result .= join(' ', map {'m{'.$_.'\textwidth}'} @fractions);
         $result .= "}%\n";
       } elsif ($cmdname eq 'float') {
-        my $normalized_float_type = '';
-        if ($element->{'extra'}->{'type'}) {
-          $normalized_float_type = $element->{'extra'}->{'type'}->{'normalized'};
+        if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
+          my $normalized_float_type = '';
+          if ($element->{'extra'}->{'type'}) {
+            $normalized_float_type = $element->{'extra'}->{'type'}->{'normalized'};
+          }
+          if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
+            cluck("\@float $normalized_float_type: not found\n");
+            return '';
+          }
+          my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
+          _push_new_context($self, 'float'.$latex_float_name);
+          $result .= "\\begin{$latex_float_name}\n";
         }
-        if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
-          cluck("\@float $normalized_float_type: not found\n");
-          return '';
-        }
-        my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
-        _push_new_context($self, 'float'.$latex_float_name);
-        $result .= "\\begin{$latex_float_name}\n";
       }
     } elsif ($cmdname eq 'node' or $sectioning_heading_commands{$cmdname}) {
       my $node_element;
@@ -3648,15 +3649,6 @@ sub _convert($$)
       _close_preformatted_command($self, $cmdname);
     }
     if ($cmdname eq 'float') {
-      my $normalized_float_type = '';
-      if ($element->{'extra'}->{'type'}) {
-        $normalized_float_type = $element->{'extra'}->{'type'}->{'normalized'};
-      }
-      # this should never happen as we returned at the command
-      # open.  If this happens it means that the tree has been modified...
-      if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
-        confess("\@float $normalized_float_type: not found\n");
-      }
       # do that at the end of the float to be sure that it is after
       # the caption
       if ($element->{'extra'} and $element->{'extra'}->{'node_content'}) {
@@ -3664,9 +3656,20 @@ sub _convert($$)
           = _tree_anchor_label($element->{'extra'}->{'node_content'});
         $result .= "\\label{$float_label}%\n";
       }
-      my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
-      $result .= "\\end{$latex_float_name}\n";
-      _pop_context($self);
+      if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
+        my $normalized_float_type = '';
+        if ($element->{'extra'}->{'type'}) {
+          $normalized_float_type = $element->{'extra'}->{'type'}->{'normalized'};
+        }
+        # this should never happen as we returned at the command
+        # open.  If this happens it means that the tree has been modified...
+        if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
+          confess("\@float $normalized_float_type: not found\n");
+        }
+        my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
+        $result .= "\\end{$latex_float_name}\n";
+        _pop_context($self);
+      }
     } elsif ($cmdname eq 'quotation'
                or $cmdname eq 'smallquotation') {
       if ($element->{'extra'} and $element->{'extra'}->{'authors'}) {

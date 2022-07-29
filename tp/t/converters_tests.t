@@ -918,6 +918,9 @@ $top_in_ref_text,
 ['non_empty_part_no_top_node_output',
 $non_empty_part_text,
 {}, {'NO_TOP_NODE_OUTPUT' => 1}],
+# the float defined in Top node is shown in the @listoffloats.
+# It would probably be better not to, but it is not simple to
+# do, so leave it.
 ['references_to_top_no_top_output',
 '
 @setfilename references_to_top_no_top_output.info
