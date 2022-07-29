@@ -1609,6 +1609,11 @@ which points to the top level sectioning command tree element, and
 @code{sections_list} which holds the list of the sectioning commands in the
 document.
 
+@item title_titlepage
+The formatted title, possibly based on @code{@@titlepage}, or on
+@code{simpletitle_tree} and similar information, depending on @code{SHOW_TITLE}
+and @code{USE_TITLEPAGE_FOR_TITLE} customization variables in the default case.
+
 @end table
 
 @xref{Simple Customization of CSS} for an explanation on getting
@@ -3427,7 +3432,7 @@ the @code{</body>} element.
 @node HTML Title Page Customization
 @section HTML Title Page Customization
 
-@cindex Title page, cusstomization
+@cindex Title page, customization
 
 If @code{SHOW_TITLE} is not set, no title is output.  @code{SHOW_TITLE} is @samp{undef}
 in the default case.  If @samp{undef}, @code{SHOW_TITLE} is set if @code{NO_TOP_NODE_OUTPUT}
@@ -3435,8 +3440,16 @@ is set.  The ``title page'' is used to format the HTML title if @code{USE_TITLEP
 is set, otherwise the @code{simpletitle} is used.  @code{USE_TITLEPAGE_FOR_TITLE}
 is set in the default case.  @xref{HTML Customization Variables,,, texinfo, Texinfo}.
 
-The following function reference provides full control on the ``title page''
-formatting:
+The following functions references provides full control on the title and
+``title page'' formatting:
+
+@deftypefn {Function Reference} $title_titlepage format_title_titlepage ($converter)
+Returns the formatted title or ``title page'' text.
+
+In the default case, return nothing if @code{SHOW_TITLE} is not set, return the
+output of @code{format_titlepage} if @code{USE_TITLEPAGE_FOR_TITLE} is set, and
+otherwise output a simple title based on @code{simpletitle}.
+@end deftypefn
 
 @deftypefn {Function Reference} $title_page format_titlepage ($converter)
 Returns the formatted ``title page'' text.
@@ -3444,10 +3457,6 @@ Returns the formatted ``title page'' text.
 In the default case, the @code{@@titlepage} is used if found in global information,
 otherwise @code{simpletitle} is used (@pxref{Conversion General Information}).
 @end deftypefn
-
-If @code{USE_TITLEPAGE_FOR_TITLE} is set but there is no output of
-@code{format_titlepage} the default formatting reference falls back to
-@code{simpletitle}.
 
 @node Customizing CSS
 @section Customizing the CSS lines

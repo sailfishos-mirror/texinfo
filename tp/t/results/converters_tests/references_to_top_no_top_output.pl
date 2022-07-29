@@ -1663,8 +1663,6 @@ see <a class="pxref" href="#a-in-caption">a in caption</a>
 <div class="printindex cp-printindex">
 <table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-C"><b>C</b></a>
  &nbsp; 
-<a class="summary-letter-printindex" href="#t_i_cp_letter-I"><b>I</b></a>
- &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
@@ -1672,13 +1670,8 @@ see <a class="pxref" href="#a-in-caption">a in caption</a>
 <tr><th id="t_i_cp_letter-C">C</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-chap-index">chap index</a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_i_cp_letter-I">I</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-index-in-Top">index in Top</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
 </table>
 <table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-C"><b>C</b></a>
- &nbsp; 
-<a class="summary-letter-printindex" href="#t_i_cp_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
 </div>
@@ -1691,13 +1684,6 @@ see <a class="pxref" href="#a-in-caption">a in caption</a>
 <dt><a href="#My-Flist">list 1</a></dt><dd class="caption-in-listoffloats"><p>Caption Flist. </p></dd>
 <dt><a href="#Main-Flist">list 1.1</a></dt><dd class="caption-in-listoffloats"><p>Caption Main</p></dd>
 </dl>
-</div>
-<div class="footnotes-segment">
-<hr>
-<h4 class="footnotes-heading">Footnotes</h4>
-
-<h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
-<p>in footnote <a class="anchor" id="a-in-footnote"></a></p>
 </div>
 ';
 

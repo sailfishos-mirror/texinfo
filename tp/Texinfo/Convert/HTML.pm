@@ -1413,8 +1413,12 @@ sub register_footnote($$$$$$$)
 {
   my ($self, $command, $footid, $docid, $number_in_doc,
       $footnote_location_filename, $multi_expanded_region) = @_;
-  push @{$self->{'pending_footnotes'}}, [$command, $footid, $docid,
-     $number_in_doc, $footnote_location_filename, $multi_expanded_region];
+  my $in_skipped_node_top
+    = $self->shared_conversion_state('in_skipped_node_top', 0);
+  if ($$in_skipped_node_top != 1) {
+    push @{$self->{'pending_footnotes'}}, [$command, $footid, $docid,
+      $number_in_doc, $footnote_location_filename, $multi_expanded_region];
+  }
 }
 
 sub get_pending_footnotes($)
@@ -1544,7 +1548,7 @@ foreach my $converter_info ('copying_comment', 'current_filename',
    'index_entries', 'index_entries_by_letter',
    'jslicenses', 'line_break_element', 'non_breaking_space', 'paragraph_symbol',
    'simpletitle_command_name', 'simpletitle_tree', 'structuring',
-   'title_string', 'title_tree') {
+   'title_string', 'title_tree', 'title_titlepage') {
   $available_converter_info{$converter_info} = 1;
 }
 
@@ -3499,7 +3503,8 @@ sub _default_format_element_header($$$$)
     my $first_in_page = (defined($tree_unit->{'structure'}->{'unit_filename'})
            and $self->count_elements_in_filename('current',
                            $tree_unit->{'structure'}->{'unit_filename'}) == 1);
-    my $previous_is_top = ($tree_unit->{'structure'}->{'unit_prev'}
+    my $previous_is_top = 0;
+    $previous_is_top = 1 if ($tree_unit->{'structure'}->{'unit_prev'}
                    and $self->element_is_tree_unit_top($tree_unit->{'structure'}->{'unit_prev'}));
 
     print STDERR "Header ($previous_is_top, $is_top, $first_in_page): "
@@ -4965,21 +4970,20 @@ sub _convert_printindex_command($$$$)
 
   $self->_new_document_context($cmdname);
 
-  # First do the summary letters linking to the letters done below
   my %letter_id;
-  my @non_alpha = ();
-  my @alpha = ();
-  # collect the links
+  my %letter_is_symbol;
+  # First collect the links that are used in entries and in letter summaries
   my $symbol_idx = 0;
   foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
     my $index_element_id = $self->from_element_direction('This', 'target');
     if (!defined($index_element_id)) {
       # to avoid duplicate names, use a prefix that cannot happen in anchors
-      my $target_prefix = "t_i";
+      my $target_prefix = 't_i';
       $index_element_id = $target_prefix;
     }
     my $is_symbol = $letter !~ /^\p{Alpha}/;
+    $letter_is_symbol{$letter} = $is_symbol;
     my $identifier;
     if ($is_symbol) {
       $symbol_idx++;
@@ -4988,13 +4992,107 @@ sub _convert_printindex_command($$$$)
       $identifier = $index_element_id . "_${index_name}_letter-${letter}";
     }
     $letter_id{$letter} = $identifier;
-    
+  }
+
+  # Next do the entries to determine the letters that are not empty
+  my @letter_entries;
+  my $result_index_entries = '';
+  my $formatted_index_entries
+    = $self->shared_conversion_state('formatted_index_entries', {});
+  foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
+    my $letter = $letter_entry->{'letter'};
+    my $entries_text = '';
+    my $entry_nr = -1;
+    foreach my $index_entry_ref (@{$letter_entry->{'entries'}}) {
+      $entry_nr++;
+      # to avoid double error messages set ignore_notice if an entry was
+      # already formatted once, for example if there are multiple printindex.
+      my $already_formatted;
+      if (!$formatted_index_entries->{$index_entry_ref}) {
+        $formatted_index_entries->{$index_entry_ref} = 1;
+      } else {
+        $formatted_index_entries->{$index_entry_ref}++;
+      }
+
+      my $subentries_tree = $self->comma_index_subentries_tree($index_entry_ref);
+      my @entry_contents = @{$index_entry_ref->{'content'}};
+      push @entry_contents, @{$subentries_tree->{'contents'}}
+        if (defined($subentries_tree));
+      my $entry_tree = {'contents' => \@entry_contents};
+      $entry_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
+
+      my $entry;
+      if ($formatted_index_entries->{$index_entry_ref} > 1) {
+        $entry = $self->convert_tree_new_formatting_context($entry_tree,
+                       "index $index_name l $letter index entry $entry_nr",
+                   "index formatted $formatted_index_entries->{$index_entry_ref}")
+      } else {
+        $entry = $self->convert_tree($entry_tree,
+                            "index $index_name l $letter index entry $entry_nr");
+      }
+
+      next if ($entry !~ /\S/);
+      next if ($self->get_conf('NO_TOP_NODE_OUTPUT')
+               and defined($index_entry_ref->{'node'})
+               and $index_entry_ref->{'node'}->{'extra'}
+               and $index_entry_ref->{'node'}->{'extra'}->{'normalized'}
+               and $index_entry_ref->{'node'}->{'extra'}->{'normalized'} eq 'Top');
+      $entry = '<code>' .$entry .'</code>' if ($index_entry_ref->{'in_code'});
+      my $entry_href = $self->command_href($index_entry_ref->{'command'});
+      my $associated_command;
+      if ($self->get_conf('NODE_NAME_IN_INDEX')) {
+        $associated_command = $index_entry_ref->{'node'};
+        if (!defined($associated_command)) {
+          $associated_command
+            = $self->command_node($index_entry_ref->{'command'});
+        }
+      }
+      if (!$associated_command) {
+        $associated_command
+          = $self->command_root_element_command($index_entry_ref->{'command'});
+        if (!$associated_command) {
+          # Use Top if not associated command found
+          $associated_command
+            = $self->tree_unit_element_command(
+                                   $self->global_direction_element('Top'));
+        }
+      }
+      my ($associated_command_href, $associated_command_text);
+      if ($associated_command) {
+        $associated_command_href = $self->command_href($associated_command);
+        $associated_command_text = $self->command_text($associated_command);
+      }
+      
+      $entries_text .= '<tr><td></td><td valign="top">'
+         . "<a href=\"$entry_href\">$entry</a>" .
+          $self->get_conf('INDEX_ENTRY_COLON') .
+        '</td><td>'.$self->get_info('non_breaking_space').'</td><td valign="top">';
+      $entries_text .= "<a href=\"$associated_command_href\">$associated_command_text</a>"
+         if ($associated_command_href);
+      $entries_text .= "</td></tr>\n";
+    }
+    # a letter and associated indice entries
+    if ($entries_text ne '') {
+      $result_index_entries .= '<tr>' .
+        "<th id=\"$letter_id{$letter}\">".
+        &{$self->formatting_function('format_protect_text')}($self, $letter)
+        . "</th><td></td><td></td></tr>\n" . $entries_text
+        . "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')."</td></tr>\n";
+      push @letter_entries, $letter_entry;
+    }
+  }
+
+  # Do the summary letters linking to the letters done above
+  my @non_alpha = ();
+  my @alpha = ();
+  foreach my $letter_entry (@letter_entries) {
+    my $letter = $letter_entry->{'letter'};
     my $summary_letter_link
       = $self->html_attribute_class('a',["summary-letter-$cmdname"])
-       ." href=\"#$identifier\"><b>".
+       ." href=\"#$letter_id{$letter}\"><b>".
           &{$self->formatting_function('format_protect_text')}($self, $letter)
            .'</b></a>';
-    if ($is_symbol) {
+    if ($letter_is_symbol{$letter}) {
       push @non_alpha, $summary_letter_link;
     } else {
       push @alpha, $summary_letter_link;
@@ -5033,83 +5131,7 @@ sub _convert_printindex_command($$$$)
     .  $self->convert_tree($self->gdt('Section'))
     ."</th></tr>\n" . "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')
     ."</td></tr>\n";
-  my $formatted_index_entries
-    = $self->shared_conversion_state('formatted_index_entries', {});
-  foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
-    my $letter = $letter_entry->{'letter'};
-    my $entries_text = '';
-    my $entry_nr = -1;
-    foreach my $index_entry_ref (@{$letter_entry->{'entries'}}) {
-      $entry_nr++;
-      # to avoid double error messages set ignore_notice if an entry was
-      # already formatted once, for example if there are multiple printindex.
-      my $already_formatted;
-      if (!$formatted_index_entries->{$index_entry_ref}) {
-        $formatted_index_entries->{$index_entry_ref} = 1;
-      } else {
-        $formatted_index_entries->{$index_entry_ref}++;
-      }
-
-      my $subentries_tree = $self->comma_index_subentries_tree($index_entry_ref);
-      my @entry_contents = @{$index_entry_ref->{'content'}};
-      push @entry_contents, @{$subentries_tree->{'contents'}}
-        if (defined($subentries_tree));
-      my $entry_tree = {'contents' => \@entry_contents};
-      $entry_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
-
-      my $entry;
-      if ($formatted_index_entries->{$index_entry_ref} > 1) {
-        $entry = $self->convert_tree_new_formatting_context($entry_tree,
-                       "index $index_name l $letter index entry $entry_nr",
-                   "index formatted $formatted_index_entries->{$index_entry_ref}")
-      } else {
-        $entry = $self->convert_tree($entry_tree,
-                            "index $index_name l $letter index entry $entry_nr");
-      }
-
-      next if ($entry !~ /\S/);
-      $entry = '<code>' .$entry .'</code>' if ($index_entry_ref->{'in_code'});
-      my $entry_href = $self->command_href($index_entry_ref->{'command'});
-      my $associated_command;
-      if ($self->get_conf('NODE_NAME_IN_INDEX')) {
-        $associated_command = $index_entry_ref->{'node'};
-        if (!defined($associated_command)) {
-          $associated_command
-            = $self->command_node($index_entry_ref->{'command'});
-        }
-      }
-      if (!$associated_command) {
-        $associated_command
-          = $self->command_root_element_command($index_entry_ref->{'command'});
-        if (!$associated_command) {
-          # Use Top if not associated command found
-          $associated_command
-            = $self->tree_unit_element_command(
-                                   $self->global_direction_element('Top'));
-        }
-      }
-      my ($associated_command_href, $associated_command_text);
-      if ($associated_command) {
-        $associated_command_href = $self->command_href($associated_command);
-        $associated_command_text = $self->command_text($associated_command);
-      }
-      
-      $entries_text .= '<tr><td></td><td valign="top">'
-         . "<a href=\"$entry_href\">$entry</a>" .
-          $self->get_conf('INDEX_ENTRY_COLON') .
-        '</td><td>'.$self->get_info('non_breaking_space').'</td><td valign="top">';
-      $entries_text .= "<a href=\"$associated_command_href\">$associated_command_text</a>"
-         if ($associated_command_href);
-       $entries_text .= "</td></tr>\n";
-    }
-    # a letter and associated indice entries
-    $result .= '<tr>' .
-      "<th id=\"$letter_id{$letter}\">".
-      &{$self->formatting_function('format_protect_text')}($self, $letter)
-      . "</th><td></td><td></td></tr>\n" . $entries_text
-      . "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')."</td></tr>\n";
-
-  }
+  $result .= $result_index_entries;
   $result .= "</table>\n";
   
   $self->_pop_document_context();
@@ -6235,7 +6257,7 @@ sub _default_format_titlepage($)
   return $result;
 }
 
-sub _print_title($)
+sub _default_format_title_titlepage($)
 {
   my $self = shift;
 
@@ -6340,7 +6362,7 @@ sub _convert_tree_unit_type($$$$)
   my $result = '';
   my $tree_unit = $element;
   if (!$tree_unit->{'structure'}->{'unit_prev'}) {
-    $result .= $self->_print_title();
+    $result .= $self->get_info('title_titlepage');
     if (!$tree_unit->{'structure'}->{'unit_next'}) {
       # only one unit, use simplified formatting
       $result .= $content;
@@ -6532,6 +6554,7 @@ foreach my $customized_reference ('label_target_name', 'node_file_name',
      'format_protect_text' => \&_default_format_protect_text,
      'format_separate_anchor' => \&_default_format_separate_anchor,
      'format_titlepage' => \&_default_format_titlepage,
+     'format_title_titlepage' => \&_default_format_title_titlepage,
 );
 
 # not up for customization
@@ -8590,7 +8613,7 @@ sub _file_header_information($$;$)
   if ($command) {
     my $command_string = $self->command_text($command, 'string');
     if (defined($command_string)
-        and $command_string ne $self->{'title_string'}) {
+        and $command_string ne $self->get_info('title_string')) {
       my $element_tree;
       if ($self->get_conf('SECTION_NAME_IN_TITLE')
           and $command->{'extra'}
@@ -9215,6 +9238,10 @@ sub convert($$)
   $self->_prepare_index_entries();
   $self->_prepare_footnotes();
 
+  # title
+  $self->{'title_titlepage'}
+    = &{$self->formatting_function('format_title_titlepage')}($self);
+
   # complete information should be available.
   $self->_reset_info();
 
@@ -9618,7 +9645,7 @@ sub output($$)
     chomp($self->{'documentdescription_string'});
   }
 
-  # set information, to have it ready for un_stage_handlers.
+  # set information, to have it ready for run_stage_handlers.
   # Some information is not available yet.
   $self->_reset_info();
 
@@ -9631,20 +9658,13 @@ sub output($$)
     return undef if (!$status);
   }
 
-
-  # complete information should be available.
-  $self->_reset_info();
-
-  my $fh;
-  my $output = '';
-
+  # determine first file name
   if (!$tree_units
       or !defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
     # no page
-    my $no_page_out_filepath;
-    my $encoded_no_page_out_filepath;
     if ($output_file ne '') {
       my $no_page_output_filename;
+      my $no_page_out_filepath;
       if ($self->get_conf('SPLIT')) {
         $no_page_output_filename = $self->top_node_filename($document_name);
         if (defined($destination_directory) and $destination_directory ne '') {
@@ -9657,7 +9677,35 @@ sub output($$)
         $no_page_out_filepath = $output_file;
         $no_page_output_filename = $output_filename;
       }
+      $self->{'out_filepaths'}->{$no_page_output_filename} = $no_page_out_filepath;
+
+      $self->{'current_filename'} = $no_page_output_filename;
+    } else {
+      $self->{'current_filename'} = $output_filename;
+    }
+  } else {
+    $self->{'current_filename'}
+      = $tree_units->[0]->{'structure'}->{'unit_filename'};
+  }
+  # title
+  $self->{'title_titlepage'}
+    = &{$self->formatting_function('format_title_titlepage')}($self);
+
+  # complete information should be available.
+  $self->_reset_info();
+
+  my $output = '';
+
+  if (!$tree_units
+      or !defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
+    my $fh;
+    my $encoded_no_page_out_filepath;
+    my $no_page_out_filepath;
+    if ($self->{'current_filename'} ne ''
+        and defined($self->{'out_filepaths'}->{$self->{'current_filename'}})) {
       my $path_encoding;
+      $no_page_out_filepath
+         = $self->{'out_filepaths'}->{$self->{'current_filename'}};
       ($encoded_no_page_out_filepath, $path_encoding)
         = $self->encoded_output_file_name($no_page_out_filepath);
       $fh = Texinfo::Common::output_files_open_out(
@@ -9669,11 +9717,6 @@ sub output($$)
                                       $no_page_out_filepath, $!));
         return undef;
       }
-      $self->{'out_filepaths'}->{$no_page_output_filename} = $no_page_out_filepath;
-
-      $self->{'current_filename'} = $no_page_output_filename;
-    } else {
-      $self->{'current_filename'} = $output_filename;
     }
     my $body = '';
     if ($tree_units and @$tree_units) {
@@ -9688,7 +9731,7 @@ sub output($$)
         $unit_nr++;
       }
     } else {
-      $body .= $self->_print_title();
+      $body .= $self->get_info('title_titlepage');
       print STDERR "\nNO UNIT NO PAGE\n" if ($self->get_conf('DEBUG'));
       $body .= $self->_convert($root, 'no-page output no unit');
       $body .= &{$self->formatting_function('format_footnotes_segment')}($self);

@@ -1,3 +1,22 @@
+2022-07-29  Patrice Dumas  <pertusus@free.fr>
+
+	Fix NO_TOP_NODE_OUTPUT and title page formatting reference
+
+	* tp/Texinfo/Convert/HTML.pm (register_footnote)
+	(_convert_printindex_command): really skip footnotes and
+	index entries in Top node when NO_TOP_NODE_OUTPUT is set.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command):
+	do not output letters that have no index entries associated.
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_title_titlepage):
+	(%available_converter_info, output, convert): replace
+	_print_title by format_title_titlepage formatting reference.
+	Call format_title_titlepage after setting the
+	current_filename, but before starting to format the document.  The
+	title based on @titlepage or simpletitle formatted by
+	format_title_titlepage is a new global info 'title_titlepage'.
+
 2022-07-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	More isolation for @r
