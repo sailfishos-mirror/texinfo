@@ -12260,6 +12260,13 @@ to the @code{forward-word} function.  Also, if the name of an argument
 contains the name of a type, such as @var{integer}, take care that the
 argument actually is of that type.
 
+In @TeX{}, @samp{&@var{keyword}} in definition @@-command arguments is
+rendered in bold typeface with the following word.  If such a formatting is
+desired, it is better to mark the keyword explicitly, with
+@code{@@r@{@@b@{&keyword@}@}} because this formatting is not done in
+any other output format, and also because in the future this feature
+should be removed.
+
 
 @node Sample Function Definition
 @section A Sample Function Definition
@@ -12277,7 +12284,7 @@ Here is a definition from @ref{Calling Functions,,, elisp, The GNU Emacs
 Lisp Reference Manual}.
 
 @quotation
-@defun apply function &rest arguments
+@defun apply function @r{@b{&rest}} arguments
 @code{apply} calls @var{function} with @var{arguments}, just
 like @code{funcall} but with one difference: the last of
 @var{arguments} is a list of arguments to give to
@@ -12308,11 +12315,11 @@ of @code{mapcar}.
 @end defun
 @end quotation
 
-In the Texinfo source file, this example looks like this:
+In the Texinfo source file, this example should look like this:
 
 @example
 @group
-@@defun apply function &rest arguments
+@@defun apply function @@r@{@@strong@{&rest@}@} arguments
 @@code@{apply@} calls @@var@{function@} with
 @@var@{arguments@}, just like @@code@{funcall@} but with one
 difference: the last of @@var@{arguments@} is a list of

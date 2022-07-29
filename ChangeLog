@@ -1,5 +1,14 @@
 2022-07-29  Patrice Dumas  <pertusus@free.fr>
 
+	Document that &word should be marked explicitly on @def* lines
+
+	* doc/texinfo.texi (Def Cmd Conventions, Sample Function Definition):
+	document that &word should be marked explicitly on the @def*
+	line if it is to be strongly emphasized.  It is only done
+	automatically in TeX and this feature will be removed in the future.
+
+2022-07-29  Patrice Dumas  <pertusus@free.fr>
+
 	Only @r stops upright. Propagate upright in non slanted
 
 	* tp/Texinfo/Convert/LaTeX.pm (%need_known_embrac, _convert):
