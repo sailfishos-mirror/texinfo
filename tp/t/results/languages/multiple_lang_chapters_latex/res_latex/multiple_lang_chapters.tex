@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{etoolbox}
 \usepackage{embrac}
+\usepackage{expl3}
 \usepackage{titleps}
 \usepackage{float}
 \usepackage{babel}
@@ -81,7 +82,7 @@
 \label{anchor:chapter-ja}%
 
 In japanese. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
-\noindent\texttt{BBB \EmbracOn{}\textsl{CCC}}\hfill[Instance Variable of \texttt{AAA}]
+\noindent\texttt{BBB \EmbracOn{}\textsl{CCC}\EmbracOff{}}\hfill[Instance Variable of \texttt{AAA}]
 
 
 
@@ -92,7 +93,7 @@ In japanese. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-
 \label{anchor:chapter-en}%
 
 In english. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
-\noindent\texttt{BBB \EmbracOn{}\textsl{CCC}}\hfill[Instance Variable of \texttt{AAA}]
+\noindent\texttt{BBB \EmbracOn{}\textsl{CCC}\EmbracOff{}}\hfill[Instance Variable of \texttt{AAA}]
 
 
 
@@ -102,7 +103,7 @@ In english. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-j
 \chapter{fr\_FR}
 \label{anchor:chapter-fr_005fFR}%
 
-\noindent\texttt{BBB \EmbracOn{}\textsl{CCC}}\hfill[Variable d'instance of \texttt{AAA}]
+\noindent\texttt{BBB \EmbracOn{}\textsl{CCC}\EmbracOff{}}\hfill[Variable d'instance of \texttt{AAA}]
 
 
 

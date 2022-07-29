@@ -823,8 +823,11 @@ deffn r slanted for @var{a---rg1} and @var{a--rg2}
 @defspecx foobar (var @r{[}from to @r{[}inc@r{]]}) r
 @defspecx foobar (var @slanted{[}from to @slanted{[}inc@slanted{]]}) slanted
 @defspecx foobar (var @code{[}from to @code{[}inc@code{]]}) code
+@defspecx foobar (var @t{[}from to @t{[}inc@t{]]}) t
+@defspecx foobar (var @t{@b{[}}from to @t{@b{[}}inc@t{@b{]]}}) t:b
 @defspecx foobar (var @r{@slanted{[}}from to @r{@slanted{[}}inc@r{@slanted{]]}}) r:slanted
 @defspecx foobar (var @r{@code{[}}from to @r{@code{[}}inc@r{@code{]]}}) r:code
+@defspecx foobar (var @r{@t{[}}from to @r{@t{[}}inc@r{@t{]]}}) r:t
 separators
 @end defspec
 
@@ -833,9 +836,12 @@ separators
 @defspecx foobar @r{va---riable} r
 @defspecx foobar @slanted{va---riable} slanted
 @defspecx foobar @code{va---riable} code
+@defspecx foobar @t{va---riable} t
+@defspecx foobar @t{@b{va---riable}} t:b
 @defspecx foobar @r{@var{va---riable}} r:var
 @defspecx foobar @r{@slanted{va---riable}} r:slanted
 @defspecx foobar @r{@code{va---riable}} r:code
+@defspecx foobar @r{@t{va---riable}} r:t
 name
 @end defspec
 
@@ -894,8 +900,11 @@ In deffn with code and var used
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{[}, float @var{b--ar}@r{]}) r
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@slanted{[}, float @var{b--ar}@slanted{]}) slanted
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@code{[}, float @var{b--ar}@code{]}) code
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@t{[}, float @var{b--ar}@t{]}) t
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@t{@b{[}}, float @var{b--ar}@t{@b{]}}) t:b
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@slanted{[}}, float @var{b--ar}@r{@slanted{]}}) r:slanted
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@code{[}}, float @var{b--ar}@r{@code{]}}) r:code
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@t{[}}, float @var{b--ar}@r{@t{]}}) r:t
 separators
 @end deftypefn
 
@@ -903,8 +912,11 @@ separators
 @deftypefnx {Library Function} int foobar  (@r{i--nt} @var{f---oo}[, float @var{b--ar}]) r
 @deftypefnx {Library Function} int foobar  (@slanted{i--nt} @var{f---oo}[, float @var{b--ar}]) slanted
 @deftypefnx {Library Function} int foobar  (@code{i--nt} @var{f---oo}[, float @var{b--ar}]) code
+@deftypefnx {Library Function} int foobar  (@t{i--nt} @var{f---oo}[, float @var{b--ar}]) t
+@deftypefnx {Library Function} int foobar  (@t{@b{i--nt}} @var{f---oo}[, float @var{b--ar}]) t:b
 @deftypefnx {Library Function} int foobar  (@r{@slanted{i--nt}} @var{f---oo}[, float @var{b--ar}]) r:slanted
 @deftypefnx {Library Function} int foobar  (@r{@code{i--nt}} @var{f---oo}[, float @var{b--ar}]) r:code
+@deftypefnx {Library Function} int foobar  (@r{@t{i--nt}} @var{f---oo}[, float @var{b--ar}]) r:t
 name
 @end deftypefn
 

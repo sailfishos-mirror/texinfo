@@ -363,7 +363,7 @@ $result_converted_errors{'html'}->{'omit_def_space'} = [
 
 
 $result_converted{'latex'}->{'omit_def_space'} = '
-\\noindent\\texttt{function\\EmbracOn{}\\textsl{(arg1, arg2)}}\\hfill[Function]
+\\noindent\\texttt{function\\EmbracOn{}\\textsl{(arg1, arg2)}\\EmbracOff{}}\\hfill[Function]
 
 
 

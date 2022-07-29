@@ -632,6 +632,15 @@ my %LaTeX_style_brace_commands = (
   }
 );
 
+# embrac does not propagate in these commands.  But we want
+# upside braces in these commands.  So we make them known to
+# embrac.  Only locally, otherwise other commands can be broken.
+my %need_known_embrac;
+# other commands needed?
+foreach my $LaTeX_style_command_name ('textsc', 'textbf', 'texttt') {
+  $need_known_embrac{'\\'.$LaTeX_style_command_name} = $LaTeX_style_command_name;
+}
+
 my $code_text_context = 'codetext';
 
 # in code, we want to keep @cite result in slanted but
@@ -1354,6 +1363,9 @@ roundcorner=10pt}
   }
 
   if ($self->{'packages'}->{'embrac'}) {
+    # in order to have brackets and parenthese upright in slanted typewriter
+    # \textsl{\texttt, \EmbracMakeKnown{texttt} is needed.  However, we only set it
+    # locally, otherwise \hyperref in \texttt can break.
     $header_code .= '% braces are upright in italic and slanted only in @def*
 % so it is turned off here, and turned on @def* lines
 \EmbracOff{}%
@@ -1406,6 +1418,7 @@ roundcorner=10pt}
   }
   if ($self->{'packages'}->{'embrac'}) {
     $header .= "\\usepackage{embrac}\n";
+    $header .= "\\usepackage{expl3}\n";
   }
   if ($self->{'packages'}->{'mdframed'}) {
     # framemethod=tikz needed for roundcorners for @cartouche
@@ -2137,9 +2150,10 @@ sub _stop_embrac
   my $did_stop_embrac = 0;
 
   if ($self->{'formatting_context'}->[-1]->{'embrac'}
-      and $self->{'formatting_context'}->[-1]->{'embrac'} == 1) {
+      and $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]
+      and $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]->{'status'} == 1) {
     $result .= '\EmbracOff{}';
-    $self->{'formatting_context'}->[-1]->{'embrac'} = 0;
+    $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]->{'status'} = 0;
     $did_stop_embrac = 1;
   }
   return ($result, $did_stop_embrac)
@@ -2154,7 +2168,7 @@ sub _restart_embrac_if_needed
   my $did_stop_embrac = shift;
 
   if ($did_stop_embrac) {
-    $self->{'formatting_context'}->[-1]->{'embrac'} = 1;
+    $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]->{'status'} = 1;
     $result .= '\EmbracOn{}';
   }
   return $result;
@@ -2397,7 +2411,9 @@ sub _convert($$)
     } elsif (exists($LaTeX_style_brace_commands{'text'}->{$cmdname})
          or ($element->{'type'}
              and $element->{'type'} eq 'definfoenclose_command')) {
-      ($result, $did_stop_embrac) = _stop_embrac($self, $result);
+      my $did_stop_embrac = 0;
+      ($result, $did_stop_embrac) = _stop_embrac($self, $result)
+         if ($cmdname eq 'r');
       if ($self->{'quotes_map'}->{$cmdname}) {
         $result .= $self->{'quotes_map'}->{$cmdname}->[0];
       }
@@ -2414,8 +2430,22 @@ sub _convert($$)
                                                      ->{$cmdname} = 1;
       }
       if ($LaTeX_style_brace_commands{$formatting_context}->{$cmdname}) {
-        $result
-           .= "$LaTeX_style_brace_commands{$formatting_context}->{$cmdname}\{";
+        my $LaTeX_style_command
+          = $LaTeX_style_brace_commands{$formatting_context}->{$cmdname};
+        if ($need_known_embrac{$LaTeX_style_command}
+            and $self->{'formatting_context'}->[-1]->{'embrac'}
+            and $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]
+            and $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]->{'status'} == 1) {
+          my $defined_style_embrac = $need_known_embrac{$LaTeX_style_command};
+          if (not $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]
+                ->{'made_known'}->{$defined_style_embrac}) {
+            $result .= '\EmbracMakeKnown{'
+                          .$defined_style_embrac.'}';
+            $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]
+                       ->{'made_known'}->{$defined_style_embrac} = 1;
+          }
+        }
+        $result .= "$LaTeX_style_command\{";
       }
       if ($element->{'args'}) {
         $result .= _convert($self, $element->{'args'}->[0]);
@@ -2432,7 +2462,6 @@ sub _convert($$)
       $result = _restart_embrac_if_needed($self, $result, $did_stop_embrac);
       return $result;
     } elsif ($cmdname eq 'kbd') {
-      ($result, $did_stop_embrac) = _stop_embrac($self, $result);
       # 'kbd' is special, distinct font is typewriter + slanted
       # @kbdinputstyle
       # 'code' Always use the same font for @kbd as @code.
@@ -2459,7 +2488,6 @@ sub _convert($$)
       } else {
         $result .= '}}';
       }
-      $result = _restart_embrac_if_needed($self, $result, $did_stop_embrac);
       return $result;
     } elsif ($cmdname eq 'verb') {
       # FIXME \verb is forbidden in other macros
@@ -3509,18 +3537,31 @@ sub _convert($$)
           }
         }
         $result .= _convert($self, $name) if $name;
+        # will contain the command names that have been made known to
+        # embrac, like texttt and need to have the symbol undefined
+        # such that they can be redefined later
+        my $known_embrac_commands;
         if ($arguments) {
           $result .= $def_space;
           if ($deftype_commands{$command}) {
             $result .= _convert($self, {'contents' => $arguments});
           } else {
             $self->{'packages'}->{'embrac'} = 1;
-            # no need to close that \EmbracOn{}, it is local to the texttt
             $result .= '\EmbracOn{}\textsl{';
-            $self->{'formatting_context'}->[-1]->{'embrac'} = 1;
+            push @{$self->{'formatting_context'}->[-1]->{'embrac'}},
+              {'status' => 1, 'made_known' => {}};
+
             $result .= _convert($self, {'contents' => $arguments});
-            $self->{'formatting_context'}->[-1]->{'embrac'} = undef;
-            $result .= '}'; # \textsl
+
+            # \EmbracOff{} is probably not really needed here as \EmbracOn{}
+            # should be local to the texttt
+            $result .= '}\EmbracOff{}'; # \textsl
+            my $closed_embrac
+              = pop @{$self->{'formatting_context'}->[-1]->{'embrac'}};
+            if (scalar(keys(%{$closed_embrac->{'made_known'}}))) {
+              $known_embrac_commands
+                = [sort(keys(%{$closed_embrac->{'made_known'}}))]
+            }
           }
         }
 
@@ -3551,6 +3592,18 @@ sub _convert($$)
           $result .= "\\hfill[$converted]\n";
         }
         $result .= "\n\n";
+        # undefine symbols associated with commands that have been made
+        # known to embrac, such that they can be redefined later
+        if (defined($known_embrac_commands)) {
+          $result .= "\\ExplSyntaxOn%\n";
+          foreach my $defined_style_embrac (@{$known_embrac_commands}) {
+            $result .= '\cs_undefine:N{\embrac_'.$defined_style_embrac.':nn}'.
+        '\cs_undefine:N{\embrac_orig_'.$defined_style_embrac.':n}'.
+        '\cs_undefine:N{\__embrac_'.$defined_style_embrac.':n}%
+';
+          }
+          $result .= "\\ExplSyntaxOff%";
+        }
       }
       $result .= "\n";
       $result .= _index_entry($self, $element);
