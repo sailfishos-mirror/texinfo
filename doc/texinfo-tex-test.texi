@@ -1756,6 +1756,13 @@ a. b@*
 a.@: b
 @end defun
 
+Check explicit bold with @code{@@r@{@@b@{...} on def line
+
+@defun foo @r{@b{&rest}} (b(sdf)az)
+hello 
+@end defun
+
+
 
 
 

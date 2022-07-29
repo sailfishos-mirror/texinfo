@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-07-27.14}
+\def\texinfoversion{2022-07-29.14}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -2818,7 +2818,7 @@ end
 \let\emph=\smartitalic
 
 % Explicit font changes: @r, @sc, undocumented @ii.
-\def\r#1{{\rm #1}}              % roman font
+\def\r#1{{\stopmagicamp\rm #1}} % roman font, used for code comment
 \def\sc#1{{\smallcaps#1}}       % smallcaps font
 \def\ii#1{{\it #1}}             % italic font
 
@@ -7887,6 +7887,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
   \gdef\boldbrax{\let(=\opnr\let)=\clnr\let[=\lbrb\let]=\rbrb}
   \gdef\magicamp{\let&=\amprm}
+  \gdef\stopmagicamp{\let&=\&}
 }
 \let\ampchar\&
 
