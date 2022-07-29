@@ -2206,11 +2206,12 @@ sub _convert($$)
          or (defined($type) and $type eq 'ignored_top_node_paragraph')
         or (defined($cmdname) and $cmdname eq 'part')) {
       delete $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'};
-    } elsif (! defined($cmdname)
-             or (not ($informative_commands{$cmdname}
-                      or $sectioning_heading_commands{$cmdname}
-                      or $cmdname eq 'float'
-                      or $cmdname eq 'anchor'))) {
+    } elsif (not ((defined($cmdname)
+                   and ($informative_commands{$cmdname}
+                        or $sectioning_heading_commands{$cmdname}
+                        or $cmdname eq 'float'
+                        or $cmdname eq 'anchor'))
+                   or ($type and $type eq 'paragraph'))) {
       return '';
     }
   }

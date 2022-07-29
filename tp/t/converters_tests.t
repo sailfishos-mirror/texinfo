@@ -918,9 +918,11 @@ $top_in_ref_text,
 ['non_empty_part_no_top_node_output',
 $non_empty_part_text,
 {}, {'NO_TOP_NODE_OUTPUT' => 1}],
-# the float defined in Top node is shown in the @listoffloats.
+# In HTML, the float defined in Top node is shown in the @listoffloats.
 # It would probably be better not to, but it is not simple to
 # do, so leave it.
+# In LaTeX, the anchors within @-commands in Top node are not output.
+# It is probably not an issue.  Texinfo TeX has similar issues.
 ['references_to_top_no_top_output',
 '
 @setfilename references_to_top_no_top_output.info
@@ -936,6 +938,8 @@ Copying
 Begin Top
 
 @anchor{a in top}
+
+Paragraph @anchor{a in paragraph in top}.
 
 @footnote{in footnote @anchor{a in footnote}}
 
@@ -959,6 +963,7 @@ End of Top
 @pxref{a in footnote}
 @pxref{a in float}
 @pxref{a in caption}
+@pxref{a in paragraph in top}
 
 @cindex chap index
 
