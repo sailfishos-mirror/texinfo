@@ -12319,7 +12319,7 @@ In the Texinfo source file, this example should look like this:
 
 @example
 @group
-@@defun apply function @@r@{@@strong@{&rest@}@} arguments
+@@defun apply function @@r@{@@b@{&rest@}@} arguments
 @@code@{apply@} calls @@var@{function@} with
 @@var@{arguments@}, just like @@code@{funcall@} but with one
 difference: the last of @@var@{arguments@} is a list of
