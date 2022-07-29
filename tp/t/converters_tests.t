@@ -829,7 +829,7 @@ separators
 @end defspec
 
 @defspec foobar va---riable default
-@defspec foobar @var{va---riable} var
+@defspecx foobar @var{va---riable} var
 @defspecx foobar @r{va---riable} r
 @defspecx foobar @slanted{va---riable} slanted
 @defspecx foobar @code{va---riable} code
