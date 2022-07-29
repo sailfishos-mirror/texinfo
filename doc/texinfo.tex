@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-07-29.14}
+\def\texinfoversion{2022-07-29.16}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -2818,7 +2818,7 @@ end
 \let\emph=\smartitalic
 
 % Explicit font changes: @r, @sc, undocumented @ii.
-\def\r#1{{\stopmagicamp\rm #1}} % roman font, used for code comment
+\def\r#1{{\defcharsdefault\rm #1}} % roman font, used for code comment
 \def\sc#1{{\smallcaps#1}}       % smallcaps font
 \def\ii#1{{\it #1}}             % italic font
 
@@ -2856,7 +2856,7 @@ end
 
 % @t, explicit typewriter.
 \def\t#1{%
-  {\tt \plainfrenchspacing #1}%
+  {\tt \defcharsdefault \plainfrenchspacing #1}%
   \null
 }
 
@@ -7881,13 +7881,15 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % so TeX would otherwise complain about undefined control sequence.
 {
   \activeparens
-  \global\let(=\lparen \global\let)=\rparen
-  \global\let[=\lbrack \global\let]=\rbrack
-  \global\let& = \&
+  \gdef\defcharsdefault{%
+    \let(=\lparen \let)=\rparen
+    \let[=\lbrack \let]=\rbrack
+    \let& = \&%
+  }
+  \globaldefs=1 \defcharsdefault
 
   \gdef\boldbrax{\let(=\opnr\let)=\clnr\let[=\lbrb\let]=\rbrb}
   \gdef\magicamp{\let&=\amprm}
-  \gdef\stopmagicamp{\let&=\&}
 }
 \let\ampchar\&
 

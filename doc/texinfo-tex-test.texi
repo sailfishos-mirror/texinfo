@@ -1762,6 +1762,12 @@ Check explicit bold with @code{@@r@{@@b@{...} on def line
 hello 
 @end defun
 
+Check typewriter [ and ] on def line with @code{@@t}:
+
+@defun foo @t{\f[}font@t{]}
+Do something depending on @var{font}.
+@end defun
+
 
 
 
