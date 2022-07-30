@@ -110,14 +110,18 @@ debugmodulesdir = $(pkgdatadir)/DebugTexinfo
 dist_debugmodules_DATA = \
  DebugTexinfo/DebugTree.pm
 
+# extensions used in main program
+extensionsdir = $(datadir)/texinfo/ext
+dist_extensions_DATA = \
+ ext/epub3.pm \
+ ext/tex4ht.pm \
+ ext/latex2html.pm
+
 initdir = $(datadir)/texinfo/init
 dist_init_DATA = \
  init/book.pm \
  init/chm.pm \
- init/epub3.pm \
  init/html32.pm \
- init/tex4ht.pm \
- init/latex2html.pm \
  init/highlight_syntax.pm
 
 test_files = \

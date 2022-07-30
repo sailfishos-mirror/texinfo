@@ -173,6 +173,15 @@ if ((defined($ENV{"LC_ALL"}) and $ENV{"LC_ALL"} =~ /^(C|POSIX)$/)
   delete $ENV{"LANGUAGE"} if defined($ENV{"LANGUAGE"});
 }
 
+my $extensions_dir;
+if ($Texinfo::ModulePath::texinfo_uninstalled) {
+  $extensions_dir = File::Spec->catdir($Texinfo::ModulePath::top_srcdir,
+                                       'tp', 'ext');
+} else {
+  $extensions_dir = File::Spec->catdir($Texinfo::ModulePath::pkgdatadir, 'ext');
+}
+
+my $internal_extension_dirs = [$extensions_dir];
 
 #my $messages_textdomain = 'texinfo';
 my $messages_textdomain = '@PACKAGE@';
@@ -357,6 +366,10 @@ foreach my $texinfo_config_dir (@language_config_dirs) {
   push @program_init_dirs, File::Spec->catdir($texinfo_config_dir, 'init');
 }
 
+# add texi2any extensions dir too, such as the init files there
+# can also be loaded as regular init files.
+push @program_init_dirs, $extensions_dir;
+
 sub _decode_i18n_string($$)
 {
   my $string = shift;
@@ -409,6 +422,24 @@ sub locate_and_load_init_file($$)
   } else {
     document_warn(sprintf(__("could not read init file %s"),
                           _decode_input($filename)));
+  }
+}
+
+# arguments are binary strings.
+# Init files that are used in texi2any, considered
+# as internal extensions code.
+sub locate_and_load_extension_file($$)
+{
+  my $filename = shift;
+  my $directories = shift;
+
+  my $file = Texinfo::Common::locate_init_file($filename, $directories, 0);
+  if (defined($file)) {
+    # evaluate the code in the Texinfo::Config namespace
+    Texinfo::Config::GNUT_load_init_file($file);
+  } else {
+    die _encode_message(sprintf(__("could not read extension file %s"),
+                                 _decode_input($filename)));
   }
 }
 
@@ -1036,7 +1067,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021");
  'epub3' => sub {
    $format = set_format('html');
    my $epub_file = 'epub3.pm';
-   locate_and_load_init_file($epub_file, [ @conf_dirs, @program_init_dirs ]);
+   locate_and_load_extension_file($epub_file, $internal_extension_dirs);
  },
  'latex' => sub {$format = set_format($_[0].'');},
  'info' => sub {$format = set_format($_[0].'');},
@@ -1049,7 +1080,6 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021");
  'debug=i' => sub {set_from_cmdline('DEBUG', $_[1]); 
                    push @texi2dvi_args, '--'.$_[0]; },
 );
-
 
 
 exit 1 if (!$result_options);
@@ -1073,23 +1103,16 @@ sub process_config {
 
 process_config($cmdline_options);
 
-# The configuration API is setup such that the loading of init
-# files can be done here and not in format specific code.  There is
-# only one format, HTML, with use of complex customization (besides setting
-# customization options), so maybe this would need to be revisited
-# if another format uses complex customization.
 my $latex2html_file = 'latex2html.pm';
 if (defined($cmdline_options->{'HTML_MATH'})
       and $cmdline_options->{'HTML_MATH'} eq 'l2h') {
-  locate_and_load_init_file($latex2html_file, 
-                        [ @conf_dirs, @program_init_dirs ]);
+  locate_and_load_extension_file($latex2html_file, $internal_extension_dirs);
 }
 
 my $tex4ht_file = 'tex4ht.pm';
 if (defined($cmdline_options->{'HTML_MATH'})
       and $cmdline_options->{'HTML_MATH'} eq 't4h') {
-  locate_and_load_init_file($tex4ht_file, 
-                        [ @conf_dirs, @program_init_dirs ]);
+  locate_and_load_extension_file($tex4ht_file, $internal_extension_dirs);
 }
 
 # For tests, set some strings to values not changing with releases
