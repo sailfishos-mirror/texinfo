@@ -1,3 +1,18 @@
+2022-07-30  Patrice Dumas  <pertusus@free.fr>
+
+	Explicit data dir for modules in ModulePath
+
+	* tp/texi2any.pl (BEGIN), tp/Texinfo/ModulePath.pm.in (init),
+	tp/Texinfo/Convert/HTML.pm (output): add a third argument to
+	ModulePath init() to be able to distinguish data dir from modules
+	library dir and XS object files directory.  Do not use our for
+	directory name variables that are not supposed to be reused in
+	other code, but only used to add to @INC.  If uninstalled, do
+	not add to @INC directories that are only needed when installed.
+	use pkgdatadir for js $jssrcdir.
+
+	* tp/texi2any.pl: changes in spacing.
+
 2022-07-29  Patrice Dumas  <pertusus@free.fr>
 
 	Document that &word should be marked explicitly on @def* lines

@@ -1158,7 +1158,7 @@ foreach my $formattable_or_formatted_misc_command (
 
 
 # functions for main program.  Should not be called in user-defined code.
-# locate_init_file() is called in HTML Converter for htmlxref files.
+# locate_init_file() is also called in HTML Converter for htmlxref files.
 
 # file:        file name to locate. It can be a file path. Binary string.
 # directories: a reference on a array containing a list of directories to

@@ -46,8 +46,8 @@ Getopt::Long::Configure("gnu_getopt");
 
 my ($real_command_name, $command_directory, $command_suffix);
 
-# This big BEGIN block deals with finding modules and 
-# some dependencies that we ship 
+# This big BEGIN block deals with finding modules and
+# some dependencies that we ship
 # * in source or
 # * installed or
 # * installed relative to the script
@@ -55,14 +55,14 @@ BEGIN
 {
   # emulate -w
   $^W = 1;
-  ($real_command_name, $command_directory, $command_suffix) 
+  ($real_command_name, $command_directory, $command_suffix)
      = fileparse($0, '.pl');
   my $updir = File::Spec->updir();
 
   # These are substituted by the Makefile to create "texi2any".
   my $datadir = '@datadir@';
   my $package = '@PACKAGE@';
-  my $packagedir = '@pkglibdir@';
+  my $xsdir = '@pkglibdir@';
 
   if ($datadir eq '@' .'datadir@'
       or defined($ENV{'TEXINFO_DEV_SOURCE'})
@@ -78,26 +78,33 @@ BEGIN
     }
 
     require Texinfo::ModulePath;
-    Texinfo::ModulePath::init(undef, undef, 'updirs' => 1);
+    Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 1);
   } else {
     # Look for modules in their installed locations.
     my $lib_dir = File::Spec->catdir($datadir, $package);
+    # look for package data in the installed location.
+    # actually the same as $pkgdatadir in main program below, but use
+    # another name to avoid confusion.
+    my $modules_pkgdatadir = $lib_dir;
 
     # try to make package relocatable, will only work if
     # standard relative paths are used
     if (! -f File::Spec->catfile($lib_dir, 'Texinfo', 'Parser.pm')
-        and -f File::Spec->catfile($command_directory, $updir, 'share', 
+        and -f File::Spec->catfile($command_directory, $updir, 'share',
                                    $package, 'Texinfo', 'Parser.pm')) {
-      $lib_dir = File::Spec->catdir($command_directory, $updir, 
+      $lib_dir = File::Spec->catdir($command_directory, $updir,
                                           'share', $package);
-      $packagedir = File::Spec->catdir($command_directory, $updir, 
+      $modules_pkgdatadir = File::Spec->catdir($command_directory, $updir,
+                                          'share', $package);
+      $xsdir = File::Spec->catdir($command_directory, $updir,
                                           'lib', $package);
     }
 
     unshift @INC, $lib_dir;
 
     require Texinfo::ModulePath;
-    Texinfo::ModulePath::init($lib_dir, $packagedir, 'installed' => 1);
+    Texinfo::ModulePath::init($lib_dir, $xsdir, $modules_pkgdatadir,
+                              'installed' => 1);
   }
 } # end BEGIN
 
@@ -183,23 +190,24 @@ if ($Texinfo::ModulePath::texinfo_uninstalled) {
   my $locales_dir = File::Spec->catdir($Texinfo::ModulePath::builddir,
                                        'LocaleData');
   if (-d $locales_dir) {
-    Locale::Messages::bindtextdomain ($strings_textdomain, $locales_dir);
+    Locale::Messages::bindtextdomain($strings_textdomain, $locales_dir);
   } else {
     warn "Locales dir for document strings not found\n";
   }
 } else {
-  Locale::Messages::bindtextdomain ($strings_textdomain, 
+  Locale::Messages::bindtextdomain($strings_textdomain,
                                     File::Spec->catdir($datadir, 'locale'));
 }
 
 # Note: this uses installed messages even when the program is uninstalled
-Locale::Messages::bindtextdomain ($messages_textdomain,
+Locale::Messages::bindtextdomain($messages_textdomain,
                                 File::Spec->catdir($datadir, 'locale'));
 
 
 # Version setting is complicated, because we cope with 
 # * script with configure values substituted or not
 # * script shipped as part of texinfo or as a standalone perl module
+#   (although standalone module infrastructure was removed in 2019)
 
 # When shipped as a perl modules, $hardcoded_version is set to undef here
 # by a sed one liner.  The consequence is that configure.ac is not used
@@ -253,7 +261,7 @@ $configured_package = 'Texinfo' if ($configured_package eq '@' . 'PACKAGE@');
 my $configured_name = '@PACKAGE_NAME@';
 $configured_name = $configured_package 
   if ($configured_name eq '@' .'PACKAGE_NAME@');
-my $configured_name_version = "$configured_name $configured_version"; 
+my $configured_name_version = "$configured_name $configured_version";
 my $configured_url = '@PACKAGE_URL@';
 $configured_url = 'http://www.gnu.org/software/texinfo/'
   if ($configured_url eq '@' .'PACKAGE_URL@');

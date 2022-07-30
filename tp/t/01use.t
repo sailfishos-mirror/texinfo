@@ -1,14 +1,9 @@
-# Before `make install' is performed this script should be runnable with
-# `make test'. After `make install' it should work as `perl 01use.t'
-
-#########################
-
 use strict;
 
 use Test::More;
 
 use lib '.';
-use Texinfo::ModulePath (undef, undef, 'updirs' => 2);
+use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 use Texinfo::Convert::Texinfo;
 
