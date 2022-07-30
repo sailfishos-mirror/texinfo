@@ -1857,7 +1857,7 @@ my %defaults = (
   },
   'COPIABLE_LINKS' => 1,
  
-  'output_format'        => 'html',
+  'converted_format'   => 'html',
 );
 
 foreach my $buttons ('CHAPTER_BUTTONS', 'MISC_BUTTONS', 'TOP_BUTTONS') {

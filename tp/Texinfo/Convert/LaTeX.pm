@@ -795,7 +795,7 @@ my %defaults = (
   'SUBDIR'               => undef,
   'documentlanguage'     => undef,
 
-  'output_format'        => 'latex',
+  'converted_format'     => 'latex',
 
   # FIXME any idea what could be used?
   'floats_extension'     => 'tfl',

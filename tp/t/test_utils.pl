@@ -525,6 +525,9 @@ sub set_converter_option_defaults($$$)
   if (!defined($converter_options->{'EXPANDED_FORMATS'})) {
     $converter_options->{'EXPANDED_FORMATS'} = [$format];
   }
+  if (!defined($converter_options->{'output_format'})) {
+    $converter_options->{'output_format'} = $format;
+  }
   return $converter_options;
 }
 
@@ -566,7 +569,7 @@ sub convert_to_plaintext($$$$$$;$)
   my $converter =
      Texinfo::Convert::Plaintext->converter({'DEBUG' => $self->{'DEBUG'},
                                              'parser' => $parser,
-                                             'output_format' => 'plaintext',
+                                             'converted_format' => 'plaintext',
                                              %$converter_options });
   my $result;
   if ($converter_options->{'OUTFILE'} eq '') {
@@ -597,7 +600,7 @@ sub convert_to_info($$$$$;$)
   my $converter =
      Texinfo::Convert::Info->converter ({'DEBUG' => $self->{'DEBUG'},
                                          'parser' => $parser,
-                                         'output_format' => 'info',
+                                         'converted_format' => 'info',
                                           %$converter_options });
   my $result = $converter->output($tree);
   close_files($converter);
@@ -625,7 +628,7 @@ sub convert_to_html($$$$$$;$)
   my $converter =
      Texinfo::Convert::HTML->converter ({'DEBUG' => $self->{'DEBUG'},
                                          'parser' => $parser,
-                                         'output_format' => 'html',
+                                         'converted_format' => 'html',
                                           %$converter_options });
   my $result;
   if ($format eq 'html_text') {
@@ -657,7 +660,7 @@ sub convert_to_xml($$$$$$;$)
   my $converter =
      Texinfo::Convert::TexinfoXML->converter ({'DEBUG' => $self->{'DEBUG'},
                                          'parser' => $parser,
-                                         'output_format' => 'texinfoxml',
+                                         'converted_format' => 'texinfoxml',
                                           %$converter_options });
 
   my $result;
@@ -689,7 +692,7 @@ sub convert_to_docbook($$$$$$;$)
   my $converter =
      Texinfo::Convert::DocBook->converter ({'DEBUG' => $self->{'DEBUG'},
                                          'parser' => $parser,
-                                         'output_format' => 'docbook',
+                                         'converted_format' => 'docbook',
                                           %$converter_options });
   my $result;
   my $tree_for_conversion;
@@ -737,7 +740,7 @@ sub convert_to_latex($$$$$$;$)
   my $converter =
      Texinfo::Convert::LaTeX->converter ({'DEBUG' => $self->{'DEBUG'},
                                          'parser' => $parser,
-                                         'output_format' => 'latex',
+                                         'converted_format' => 'latex',
                                           %$converter_options });
   my $result;
   if (defined($converter_options->{'OUTFILE'})

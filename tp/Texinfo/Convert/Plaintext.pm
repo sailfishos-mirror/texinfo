@@ -348,7 +348,7 @@ my %defaults = (
   'SUBDIR'               => undef,
   'documentlanguage'     => undef,
 
-  'output_format'        => '',
+  'converted_format'     => '',
   'USE_NODES'            => 1,
 );
 
@@ -1819,8 +1819,8 @@ sub _convert($$)
              and scalar (@{$element->{'args'}->[0]->{'contents'}})
              and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}
              and $element->{'args'}->[0]->{'contents'}->[0]->{'text'} =~ /^Note\s/i
-             and $self->{'output_format'}
-             and $self->{'output_format'} eq 'info') {
+             and $self->{'converted_format'}
+             and $self->{'converted_format'} eq 'info') {
           $self->line_warn($self, __(
     "\@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that"), 
                            $element->{'source_info'});

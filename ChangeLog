@@ -1,5 +1,26 @@
 2022-07-30  Patrice Dumas  <pertusus@free.fr>
 
+	Distinguish output and converted format, case of epub3/html
+
+	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/DocBook.pm,
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/IXINSXML.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm,
+	tp/Texinfo/Convert/TexinfoSXML.pm, tp/Texinfo/Convert/TexinfoXML.pm,
+	tp/texi2any.pl b/tp/texi2any.pl (set_format, %formats_table):
+	distinguish converted_format and output_format.  output_format
+	is the format being output.  converted_format corresponds to the
+	converter being used, it is the format of the conversion.  In the
+	case of epub3, epub3 is the output_format and html is the
+	converted_format.
+	Change loading of epub3 to go through set_format, such that it may
+	be loaded with TEXINFO_OUTPUT_FORMAT too.
+
+	* tp/Texinfo/Common.pm (@variable_string_settables, tp/ext/epub3.pm):
+	make EPUB_CREATE_CONTAINER a valid customization in any case, such
+	that it can be set on the command line before the init file is loaded.
+
+2022-07-30  Patrice Dumas  <pertusus@free.fr>
+
 	Separate directory and loading function for init files used internally
 
 	* tp/texi2any.pl (locate_and_load_extension_file), tp/Makefile.am

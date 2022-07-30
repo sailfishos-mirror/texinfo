@@ -594,6 +594,10 @@ my %formats_table = (
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::DocBook'
            },
+  'epub3' => {
+            'converted_format' => 'html',
+            'init_file' => 'epub3.pm',
+           },
   'pdf' => {
              'texi2dvi_format' => 1,
            },
@@ -658,6 +662,8 @@ sub set_format($;$$)
         $call_texi2dvi = 1;
         push @texi2dvi_args, '--'.$new_format; 
         $expanded_format = 'tex';
+      } elsif ($formats_table{$new_format}->{'converted_format'}) {
+        $expanded_format = $formats_table{$new_format}->{'converted_format'};
       }
       if ($Texinfo::Common::texinfo_output_formats{$expanded_format}) {
         if ($expanded_format eq 'plaintext') {
@@ -1064,11 +1070,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021");
  'silent|quiet' => sub { push @texi2dvi_args, '--'.$_[0];},
  'plaintext' => sub {$format = set_format($_[0].'');},
  'html' => sub {$format = set_format($_[0].'');},
- 'epub3' => sub {
-   $format = set_format('html');
-   my $epub_file = 'epub3.pm';
-   locate_and_load_extension_file($epub_file, $internal_extension_dirs);
- },
+ 'epub3' => sub {$format = set_format($_[0].'');},
  'latex' => sub {$format = set_format($_[0].'');},
  'info' => sub {$format = set_format($_[0].'');},
  'docbook' => sub {$format = set_format($_[0].'');},
@@ -1136,8 +1138,9 @@ my %format_names = (
  'info' => 'Info',
  'html' => 'HTML',
  'docbook' => 'DocBook',
- 'texinfoxml' => 'Texinfo XML',
+ 'epub3' => 'EPUB 3',
  'plaintext' => 'Plain Text',
+ 'texinfoxml' => 'Texinfo XML',
 );
 
 sub format_name($)
@@ -1159,6 +1162,12 @@ if (defined($ENV{'TEXINFO_OUTPUT_FORMAT'})
     and $ENV{'TEXINFO_OUTPUT_FORMAT'} ne '') {
   $format = set_format(_decode_input($ENV{'TEXINFO_OUTPUT_FORMAT'}),
                        $format, 1);
+}
+
+# for a format setup with an init file
+if (defined ($formats_table{$format}->{'init_file'})) {
+  locate_and_load_extension_file($formats_table{$format}->{'init_file'},
+                                 $internal_extension_dirs);
 }
 
 if ($call_texi2dvi) {
@@ -1189,9 +1198,19 @@ if (get_conf('TREE_TRANSFORMATIONS')) {
   }
 }
 
-if (get_conf('SPLIT') and !$formats_table{$format}->{'split'}) {
+# in general the format name is the format being converted.  If this is
+# not the case, the converted format is set here.  For example, for
+# the epub3 format, the converted format is html.
+my $converted_format = $format;
+if ($formats_table{$format}->{'converted_format'}) {
+  $converted_format = $formats_table{$format}->{'converted_format'};
+}
+
+# FIXME distinguish format and converted_format in message?
+if (get_conf('SPLIT') and !$formats_table{$converted_format}->{'split'}) {
+  #document_warn(sprintf(__('ignoring splitting for converted format %s'), 
   document_warn(sprintf(__('ignoring splitting for format %s'), 
-                        format_name($format)));
+                        format_name($converted_format)));
   set_from_cmdline('SPLIT', ''); 
 }
 
@@ -1200,14 +1219,14 @@ add_to_option_list('EXPANDED_FORMATS', $default_expanded_format);
 my $converter_class;
 my %converter_defaults;
 
-if (defined($formats_table{$format}->{'module'})) {
+if (defined($formats_table{$converted_format}->{'module'})) {
   # Speed up initialization by only loading the module we need.
-  my $module = $formats_table{$format}->{'module'};
+  my $module = $formats_table{$converted_format}->{'module'};
   eval "require $module" or die "$@";
   eval "$module->import;";
 
-  eval '$formats_table{$format}->{\'converter\'} = sub{'.
-                $formats_table{$format}->{'module'}
+  eval '$formats_table{$converted_format}->{\'converter\'} = sub{'.
+                $formats_table{$converted_format}->{'module'}
         .'->converter(@_)};';
 }
 
@@ -1221,8 +1240,8 @@ if (defined($formats_table{$format}->{'module'})) {
 # even if the command line higher precedence option is set in case
 # command line is set_format_menu_from_cmdline_header.
 my $conversion_format_menu_default;
-if (defined($formats_table{$format}->{'module'})) {
-  $converter_class = $formats_table{$format}->{'module'};
+if (defined($formats_table{$converted_format}->{'module'})) {
+  $converter_class = $formats_table{$converted_format}->{'module'};
   # $cmdline_options is passed to have command line settings, here
   # in practice TEXI2HTML set, for conversion to HTML to select
   # possibly different customization variable values.
@@ -1357,7 +1376,7 @@ while(@input_files) {
 
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   if ((get_conf('SIMPLE_MENU')
-       and $formats_table{$format}->{'simple_menu'})
+       and $formats_table{$converted_format}->{'simple_menu'})
       or $tree_transformations{'simple_menus'}) {
     Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
   }
@@ -1426,17 +1445,17 @@ while(@input_files) {
     next;
   }
 
-  if ($formats_table{$format}->{'move_index_entries_after_items'}
+  if ($formats_table{$converted_format}->{'move_index_entries_after_items'}
       or $tree_transformations{'move_index_entries_after_items'}) {
     Texinfo::Common::move_index_entries_after_items_in_tree($tree);
   }
 
-  if ($formats_table{$format}->{'relate_index_entries_to_table_entries'}
+  if ($formats_table{$converted_format}->{'relate_index_entries_to_table_entries'}
       or $tree_transformations{'relate_index_entries_to_table_entries'}) {
     Texinfo::Common::relate_index_entries_to_table_entries_in_tree($tree);
   }
 
-  if ($formats_table{$format}->{'joint_transformation'}) {
+  if ($formats_table{$converted_format}->{'joint_transformation'}) {
     Texinfo::Common::html_joint_transformation($tree);
   }
 
@@ -1469,7 +1488,7 @@ while(@input_files) {
   if ($sectioning_root) {
     $structure_information->{'sectioning_root'} = $sectioning_root;
     $structure_information->{'sections_list'} = $sections_list;
-    if (!$formats_table{$format}->{'no_warn_non_empty_parts'}) {
+    if (!$formats_table{$converted_format}->{'no_warn_non_empty_parts'}) {
       Texinfo::Structuring::warn_non_empty_parts($registrar, $main_configuration,
                                                  $global_commands);
     }
@@ -1490,7 +1509,7 @@ while(@input_files) {
   my $floats = $parser->floats_information();
 
   my $top_node;
-  if ($formats_table{$format}->{'nodes_tree'}) {
+  if ($formats_table{$converted_format}->{'nodes_tree'}) {
 
     # FIXME makes implicitely menu the default here.  'FORMAT_MENU'
     # not being set here happens rarely, when there is a format, but the
@@ -1518,7 +1537,7 @@ while(@input_files) {
       }
     }
   }
-  if ($formats_table{$format}->{'floats'}) {
+  if ($formats_table{$converted_format}->{'floats'}) {
     Texinfo::Structuring::number_floats($floats);
   }
 
@@ -1555,11 +1574,13 @@ while(@input_files) {
   $converter_options->{'parser'} = $parser;
   $converter_options->{'structuring'} = $structure_information;
   $converter_options->{'output_format'} = $format;
+  $converter_options->{'converted_format'} = $converted_format;
   $converter_options->{'language_config_dirs'} = \@language_config_dirs;
   unshift @{$converter_options->{'INCLUDE_DIRECTORIES'}},
           @prepended_include_directories;
 
-  my $converter = &{$formats_table{$format}->{'converter'}}($converter_options);
+  my $converter = &{$formats_table{$converted_format}
+        ->{'converter'}}($converter_options);
   $converter->output($tree);
   push @opened_files, Texinfo::Common::output_files_opened_files(
                               $converter->output_files_information());
@@ -1584,7 +1605,7 @@ while(@input_files) {
   }
   
   if (defined(get_conf('INTERNAL_LINKS')) and $file_number == 0
-      and $formats_table{$format}->{'internal_links'}) {
+      and $formats_table{$converted_format}->{'internal_links'}) {
     my $internal_links_text 
       = $converter->output_internal_links();
     # always create a file, even if empty.
@@ -1628,7 +1649,9 @@ while(@input_files) {
     require Texinfo::Convert::Converter;
     my $converter_element_count_file 
       = Texinfo::Convert::TextContent->converter($converter_options);
-    my $use_sections = (! $formats_table{$format}->{'nodes_tree'}
+    # here could be $format or $converted_format.  Since $converted_format
+    # is used above for ->{'nodes_tree'}, use it here again.
+    my $use_sections = (! $formats_table{$converted_format}->{'nodes_tree'}
                         or (defined($converter->get_conf('USE_NODES'))
                             and !$converter->get_conf('USE_NODES')));
     my ($sorted_name_counts_array, $sort_element_count_text)

@@ -70,6 +70,9 @@ my %defaults = (
 # items are not valid customization options?
 my %common_converters_defaults = (
   'language_config_dirs' => undef,
+  'converted_format'     => undef,
+  # can be different from the converted_format, for example, epub3
+  # output format converted format is html.
   'output_format'        => undef,
   'structuring'          => undef,
   'translated_commands'  => {'error' => 'error@arrow{}',},

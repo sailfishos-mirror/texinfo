@@ -46,7 +46,7 @@ my %defaults = (
   'TEXINFO_DTD_VERSION'  => '5.0',
   'OUTFILE'              => undef,
   'SUBDIR'               => undef,
-  'output_format'        => 'xml',
+  'converted_format'     => 'xml',
   'SPLIT'                => 0,
   'documentlanguage'     => 'en',
 );

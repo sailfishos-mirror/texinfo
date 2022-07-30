@@ -61,7 +61,6 @@ use Texinfo::Convert::Text;
 my $epub_format_version = '3.2';
 
 # used in tests to avoid creating the .epub file.
-texinfo_add_valid_customization_option('EPUB_CREATE_CONTAINER');
 texinfo_set_from_init_file('EPUB_CREATE_CONTAINER', 1);
 
 texinfo_set_format_from_init_file('html');
