@@ -1,5 +1,14 @@
 2022-07-30  Patrice Dumas  <pertusus@free.fr>
 
+	Document EPUB_CREATE_CONTAINER_FILE
+
+	* doc/texinfo.texi (Other Customization Variables): document
+	EPUB_CREATE_CONTAINER_FILE.
+	* doc/texinfo.texi (EPUB Output File and Directory, EPUB HTML):
+	edit.
+
+2022-07-30  Patrice Dumas  <pertusus@free.fr>
+
 	Document EPUB in more details
 
 	* doc/texinfo.texi (Generating EPUB, EPUB Output File and Directory)

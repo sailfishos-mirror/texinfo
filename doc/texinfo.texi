@@ -16846,6 +16846,12 @@ source is also expanded to the corresponding file.  Default false.
 For debugging.  If set, the tree constructed upon parsing a Texinfo
 document is output to standard error; default false.
 
+@item EPUB_CREATE_CONTAINER_FILE
+If set to 0, do not generate the EPUB output file.  Default is set
+to 1.  The directory containing the directories and files needed for
+EPUB is always output.  The EPUB output file is a ZIP archive of the
+container directory.  @xref{EPUB Output File and Directory}.
+
 @item EXTENSION
 The extension added to the output file name.  The default is different
 for each output format.
@@ -18360,7 +18366,7 @@ the container directory is created in that directory instead of
 the current directory.  At the beginning of a new run, the container
 directory and all its contents are removed.  The container directory
 is not removed even after the final EPUB file has been generated,
-such as to be able to look at what is archived in the EPUB output file.
+to be able to look at the EPUB output file content.
 
 The HTML files produced from the Texinfo manual are output in subdirectories
 of the container directory.  Image files referred to from the Texinfo manual,
@@ -18383,21 +18389,22 @@ output file is not generated if the customization variable
 @subsection HTML Generated for EPUB
 
 The HTML generated for EPUB is XHTML conformant, UTF-8 encoded,
-formatted without the usual HTML navigation headers.  Most of
-these features are set with customization variables, such as
+formatted without the usual HTML navigation headers and footers.
+Most of these features are set with customization variables, such as
 @code{USE_XML_SYNTAX} or @code{OUTPUT_FILE_NAME_ENCODING}.  Some
 features of printed output are used in EPUB.  In particular, the Top
 node does not appear in the EPUB output, while a title page is
 generated.  This is obtained by setting @code{NO_TOP_NODE_OUTPUT}.
 
-The @code{OUTFILE} and @code{SUBDIR} that correspond initially
-to the EPUB directory container and/or the EPUB output file
-(@pxref{EPUB Output File and Directory}) are unset or reset to the
+The @code{OUTFILE} and @code{SUBDIR} customization variables values
+correspond initially to the EPUB directory container and/or the
+EPUB output file (@pxref{EPUB Output File and Directory}).  These
+customization variables values are undefined or reset to the
 locations in the container directory where the XHTML files are output
 for the HTML generation.  Resetting customization variables
 is unusual, this is why it is reported, however, the variables
 reset are used internally for the conversion, and should not
-interact with user set customization.
+interact with customization set by the user.
 
 @xref{HTML Customization Variables}.
 
