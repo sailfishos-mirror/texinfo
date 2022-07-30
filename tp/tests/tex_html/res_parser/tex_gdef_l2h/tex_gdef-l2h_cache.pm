@@ -15,8 +15,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
 
 <IMG
  STYLE="height: 3.32ex; vertical-align: -0.31ex; " SRC="tex_gdef_2.svg"
- ALT="$\displaystyle \buildrel \rm def \over \equiv a \equiv b\sqrt{64}
-$">
+ ALT="$\displaystyle \buildrel \rm def \over \equiv a \equiv b\sqrt{64}$">
 </DIV>
 |;
 
