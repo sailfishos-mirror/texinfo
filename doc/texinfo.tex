@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-07-29.16}
+\def\texinfoversion{2022-07-30.12}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -7604,21 +7604,15 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 
 \def\Edefun{\endgraf\medbreak}
 
-% \makedefun{deffn} creates \deffn, \deffnx and \Edeffn;
-% the only thing remaining is to define \deffnheader.
+% \makedefun{deffoo}{ (definition of \deffooheader) }
 %
+% Define \deffoo, \deffoox  \Edeffoo and \deffooheader.
 \def\makedefun#1{%
   \expandafter\let\csname E#1\endcsname = \Edefun
   \edef\temp{\noexpand\domakedefun
     \makecsname{#1}\makecsname{#1x}\makecsname{#1header}}%
   \temp
 }
-
-% \domakedefun \deffn \deffnx \deffnheader { (defn. of \deffnheader) }
-%
-% Define \deffn and \deffnx, without parameters.
-% \deffnheader has to be defined explicitly.
-%
 \def\domakedefun#1#2#3{%
   \envdef#1{%
     \startdefun

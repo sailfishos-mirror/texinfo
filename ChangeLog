@@ -1,3 +1,7 @@
+2022-07-30  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\makedefun): Edit comment.  No functional change.
+
 2022-07-30  Patrice Dumas  <pertusus@free.fr>
 
 	Explicit data dir for modules in ModulePath
