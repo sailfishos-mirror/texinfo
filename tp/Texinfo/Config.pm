@@ -22,9 +22,10 @@
 # be called by user init files codes are prefixed by texinfo_.
 # Functions prefixed by _GNUT_ are private.
 #
-# This package is documented in the customization_api Texinfo manual.  The
-# public functions defined here cannot and should not be documented separately
-# from the texinfo main program and HTML modules documentation.
+# This package is documented in the customization_api Texinfo manual.  This
+# package is integrated with the Texinfo main program and the Texinfo
+# HTML converter, such that it does not make sense to document the
+# public interface separately.
 
 package Texinfo::Config;
 
@@ -251,9 +252,15 @@ sub texinfo_remove_from_option_list($$)
   return 1;
 }
 
-# This also could get and set some @-command results.
-# FIXME But it does not take into account what happens during conversion,
-# for that something like $converter->get_conf(...) has to be used.
+# This function can be used to get main program variables
+# customization values.
+# For conversion customization variables, converter methods
+# should be used instead, the implementation usually used being
+# from Texinfo::Convert::Converter.
+# It is possible to set up an interface similar to those used in
+# converters for the main program configuration with the
+# Texinfo::MainConfig below, but it should not be accessed/used
+# in user defined code (and is therefore undocumented).
 sub texinfo_get_conf($)
 {
   my $var = shift;
@@ -567,6 +574,7 @@ sub GNUT_get_types_formatting_info()
   # NOTE a deep copy could also be done if needed
   return { %$GNUT_types_formatting_info };
 }
+
 
 #####################################################################
 # the objective of this small package is to be in another
