@@ -44,12 +44,21 @@ check_latex2html_and_tex4ht ()
          fi
       fi
       l2h_flags="-c L2H_CLEAN=0 -c 'L2H_TMP $tmp_dir' -c L2H_FILE=$srcdir/../t/init/l2h.init"
-    elif echo "$remaining" | grep '[-]init tex4ht.pm' >/dev/null; then
-      if test "$no_tex4ht" = 'yes' ; then
-        echo "S: (no tex4ht) $current"
-        return 1
+    else
+      maybe_use_tex4ht=no
+      if echo "$remaining" | grep '[-]init tex4ht.pm' >/dev/null; then
+        maybe_use_tex4ht=yes
       fi
-      use_tex4ht=yes
+      if echo "$remaining" | grep 'HTML_MATH t4h' >/dev/null; then
+        maybe_use_tex4ht=yes
+      fi
+      if [ $maybe_use_tex4ht = 'yes' ]; then
+        if test "$no_tex4ht" = 'yes' ; then
+          echo "S: (no tex4ht) $current"
+          return 1
+        fi
+        use_tex4ht=yes
+      fi
     fi
     if test $use_tex4ht = 'yes' || test $use_latex2html = 'yes' ; then
       if echo "$remaining" | grep '[-]init mediawiki.pm' >/dev/null; then

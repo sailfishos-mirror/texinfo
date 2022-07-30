@@ -15,7 +15,7 @@ tex_gdef_mathjax tex_gdef.texi -c HTML_MATH=mathjax --iftex
 #tex_l2h_mediawiki tex.texi --html -c 'HTML_MATH l2h' --iftex --init mediawiki.pm
 tex_complex_httex tex_complex.texi --init tex4ht.pm --iftex
 tex_complex_l2h tex_complex.texi -c 'HTML_MATH l2h' --iftex
-tex_eqalign_httex tex_eqalign.texi --init tex4ht.pm --iftex
+tex_eqalign_httex tex_eqalign.texi -c 'HTML_MATH t4h' --iftex
 tex_eqalign_l2h tex_eqalign.texi -c 'HTML_MATH l2h' --iftex
 math_not_closed math_not_closed.texi -c 'HTML_MATH l2h' --iftex
 tex_not_closed tex_not_closed.texi -c 'HTML_MATH l2h' --iftex
