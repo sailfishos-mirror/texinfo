@@ -158,7 +158,17 @@ compile time, e.g., @file{/usr/local/share};
 @item @file{@var{sysconfdir}/texinfo/init/} with @var{sysconfdir} as above;
 
 @item @file{@var{datadir}/texinfo/init/} with @var{datadir} as above.
+
+@item @file{@var{datadir}/texinfo/ext/} with @var{datadir} as above.
 @end enumerate
+
+The @file{@var{datadir}/texinfo/ext/} directory contains the
+init files directly loaded from @command{texi2any} code.  When loaded from
+@command{texi2any} code directly, init files are only searched for
+in that directory, being considered as part of the program and not as user
+customization.  Since the directory is also in the list of directories searched
+for init files loaded by the @option{--init-file} option, those init
+files can also be loaded as regular user specified init files.
 
 Additional directories may be prepended to the list with the
 @option{--conf-dir} option (@pxref{Invoking @command{texi2any},,, texinfo, Texinfo}).
