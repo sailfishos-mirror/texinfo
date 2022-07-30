@@ -570,8 +570,14 @@ Generating HTML
 * HTML Translation::       Details of the HTML output.
 * HTML Splitting::         How HTML output is split.
 * HTML CSS::               Influencing HTML output with Cascading Style Sheets.
-* HTML Xref::              Cross-references in HTML output.
 * @code{@@documentdescription}::   Document summary for the HTML output.
+* Generating EPUB::        Details on the EPUB output.
+* HTML Xref::              Cross-references in HTML output.
+
+Generating EPUB
+
+* EPUB Output File and Directory::
+* EPUB HTML::
 
 HTML Cross-references
 
@@ -15832,6 +15838,12 @@ name for the directory into which all files are written.  For example,
 @samp{texi2any -o bar --html foo.texi} will write
 @file{bar/index.html}, among other files.
 
+When generating EPUB a container directory for the files and directories needed
+for the EPUB format is created, as well as the EPUB output file.  If @var{file}
+corresponds to a directory, the container directory is placed within @var{file}.
+The EPUB output file is never put in this directory.  If @var{file} corresponds
+to a file, it is used for the EPUB output file name.
+
 @item --output-indent=@var{val}
 @opindex --outputindent
 This option now does nothing, but remains for compatibility.  (It used
@@ -15992,7 +16004,7 @@ Generate Texinfo XML output (rather than Info).
 overridden by a command line option.  The value should be one of:
 
 @example
-docbook  dvi  dvipdf  html  info  latex  pdf  plaintext  ps  xml
+docbook  dvi  dvipdf  epub3  html  info  latex  pdf  plaintext  ps  xml
 @end example
 
 If not set or otherwise specified, Info output is the default.
@@ -16250,6 +16262,7 @@ forms:
 @item docbook
 @itemx dvi
 @itemx dvipdf
+@itemx epub3
 @itemx html
 @itemx info
 @itemx pdf
@@ -18078,8 +18091,9 @@ manual.  @xref{,,,customization_api,GNU Texinfo @command{texi2any} Output Custom
 * HTML Translation::       Details of the HTML output.
 * HTML Splitting::         How HTML output is split.
 * HTML CSS::               Influencing HTML output with Cascading Style Sheets.
-* HTML Xref::              Cross-references in HTML output.
 * @code{@@documentdescription}::   Document summary for the HTML output.
+* Generating EPUB::        Details on the EPUB output.
+* HTML Xref::              Cross-references in HTML output.
 @end menu
 
 
@@ -18288,6 +18302,104 @@ file may or may not be included in the output.
 In addition to the possibilities offered by CSS, @command{makeinfo}
 has many user-definable customization variables with which you can
 influence the HTML output.  @xref{Customization Variables}.
+
+
+@node @code{@@documentdescription}
+@section @code{@@documentdescription}: Summary Text
+@anchor{documentdescription}@c old name
+
+@cindex Document description
+@cindex Description of document
+@cindex Summary of document
+@cindex Abstract of document
+@cindex @code{<meta>} HTML tag, and document description
+@findex documentdescription
+
+When producing HTML output for a document, a @samp{<meta>} element
+is written in the @samp{<head>} to give some idea of the
+content of the document.  By default, this @dfn{description} is the
+title of the document, taken from the @code{@@settitle} command
+(@pxref{@code{@@settitle}}).  To change this, use the
+@code{@@documentdescription} environment, as in:
+
+@example
+@@documentdescription
+descriptive text.
+@@end documentdescription
+@end example
+
+@noindent
+This will produce the following output in the @samp{<head>} of the HTML:
+
+@example
+<meta name=description content="descriptive text.">
+@end example
+
+
+@node Generating EPUB
+@section Generating EPUB
+
+@cindex EPUB, generating
+@cindex Generating EPUB
+@cindex Outputting EPUB
+
+EPUB is a format designed for reading electronic books on portable
+devices.  @command{texi2any} generated EPUB 3.2 in 2022.  An EPUB
+file is a ZIP archive container, holding informative files as
+well as the manual rendered in HTML.
+
+@node EPUB Output File and Directory
+@subsection Container Directory and Output Files
+A directory containing the files and directories needed for the
+EPUB format is created when outputting EPUB.  The name of this
+container directory is derived from the base name (that is, any
+extension is removed), with @code{_epub_package} postpended.
+If an output directory is specified, with @option{--output},
+or with the @code{SUBDIR} customization function,
+the container directory is created in that directory instead of
+the current directory.  At the beginning of a new run, the container
+directory and all its contents are removed.  The container directory
+is not removed even after the final EPUB file has been generated,
+such as to be able to look at what is archived in the EPUB output file.
+
+The HTML files produced from the Texinfo manual are output in subdirectories
+of the container directory.  Image files referred to from the Texinfo manual,
+if found, are copied to subdirectories of the container directory.
+
+The EPUB output file is a ZIP archive of the container directory.
+The file name is derived from the base name, with the @code{.epub}
+extension postpended.  If an output file is specified, with
+@option{--output}, or with the @code{OUTFILE} customization function,
+this file name is used instead.  The output EPUB file is never placed
+in the directory specified by @option{--output} or @code{SUBDIR},
+the container directory only is placed there as explained just above.  The EPUB
+output file is not generated if the customization variable
+@code{EPUB_CREATE_CONTAINER_FILE} is set to 0.
+
+@xref{Invoking @command{texi2any}}.
+
+
+@node EPUB HTML
+@subsection HTML Generated for EPUB
+
+The HTML generated for EPUB is XHTML conformant, UTF-8 encoded,
+formatted without the usual HTML navigation headers.  Most of
+these features are set with customization variables, such as
+@code{USE_XML_SYNTAX} or @code{OUTPUT_FILE_NAME_ENCODING}.  Some
+features of printed output are used in EPUB.  In particular, the Top
+node does not appear in the EPUB output, while a title page is
+generated.  This is obtained by setting @code{NO_TOP_NODE_OUTPUT}.
+
+The @code{OUTFILE} and @code{SUBDIR} that correspond initially
+to the EPUB directory container and/or the EPUB output file
+(@pxref{EPUB Output File and Directory}) are unset or reset to the
+locations in the container directory where the XHTML files are output
+for the HTML generation.  Resetting customization variables
+is unusual, this is why it is reported, however, the variables
+reset are used internally for the conversion, and should not
+interact with user set customization.
+
+@xref{HTML Customization Variables}.
 
 
 @node HTML Xref
@@ -18800,38 +18912,6 @@ If you have additions or corrections to the @file{htmlxref.cnf}
 distributed with Texinfo, please email @email{bug-texinfo@@gnu.org} as
 usual.  You can get the latest version from
 @url{http://ftpmirror.gnu.org/@/texinfo/@/htmlxref.cnf}.
-
-
-@node @code{@@documentdescription}
-@section @code{@@documentdescription}: Summary Text
-@anchor{documentdescription}@c old name
-
-@cindex Document description
-@cindex Description of document
-@cindex Summary of document
-@cindex Abstract of document
-@cindex @code{<meta>} HTML tag, and document description
-@findex documentdescription
-
-When producing HTML output for a document, a @samp{<meta>} element
-is written in the @samp{<head>} to give some idea of the
-content of the document.  By default, this @dfn{description} is the
-title of the document, taken from the @code{@@settitle} command
-(@pxref{@code{@@settitle}}).  To change this, use the
-@code{@@documentdescription} environment, as in:
-
-@example
-@@documentdescription
-descriptive text.
-@@end documentdescription
-@end example
-
-@noindent
-This will produce the following output in the @samp{<head>} of the HTML:
-
-@example
-<meta name=description content="descriptive text.">
-@end example
 
 
 @node @@-Command Details

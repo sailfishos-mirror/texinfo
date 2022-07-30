@@ -50,7 +50,7 @@ use File::Basename;
 use Encode qw(decode);
 
 # the Archive::Zip module is required below only if needed, that is
-# if EPUB_CREATE_CONTAINER is set.
+# if EPUB_CREATE_CONTAINER_FILE is set.
 #use Archive::Zip;
 
 # also for __(
@@ -61,7 +61,7 @@ use Texinfo::Convert::Text;
 my $epub_format_version = '3.2';
 
 # used in tests to avoid creating the .epub file.
-texinfo_set_from_init_file('EPUB_CREATE_CONTAINER', 1);
+texinfo_set_from_init_file('EPUB_CREATE_CONTAINER_FILE', 1);
 
 texinfo_set_format_from_init_file('html');
 
@@ -710,7 +710,7 @@ EOT
     return 0;
   }
 
-  if ($self->get_conf('EPUB_CREATE_CONTAINER')) {
+  if ($self->get_conf('EPUB_CREATE_CONTAINER_FILE')) {
     require Archive::Zip;
 
     # this is needed if there are non ascii file names, otherwise, for instance
