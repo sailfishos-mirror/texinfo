@@ -1251,6 +1251,7 @@ greška-> -->
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
 span:hover a.copiable-link {visibility: visible}
 -->
 </style>
@@ -1281,13 +1282,13 @@ Prethodno: <a href="#Top" accesskey="p" rel="prev">top section</a>, Gore: <a hre
 <h2 class="chapter" id="chap">1 chap</h2>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span>Primjer varijable od hr: <strong class="strong">BBB</strong> <em class="emph">CCC</em><a class="copiable-link" href=\'#index-BBB-of-hr\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span>Primjer varijable of <code class="code">hr</code>: <code class="code">BBB</code> <span class="r"><i class="slanted">CCC</i></span><a class="copiable-link" href=\'#index-BBB-of-hr\'> &para;</a></span></dt>
 <dd><p>greška&rarr;
 </p></dd></dl>
 
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-FFF-of-de"><span>Instanzvariable von de: <strong class="strong">FFF</strong> <em class="emph">GGG</em><a class="copiable-link" href=\'#index-FFF-of-de\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-FFF-of-de"><span>Instanzvariable of <code class="code">de</code>: <code class="code">FFF</code> <span class="r"><i class="slanted">GGG</i></span><a class="copiable-link" href=\'#index-FFF-of-de\'> &para;</a></span></dt>
 </dl>
 </div>
 </div>

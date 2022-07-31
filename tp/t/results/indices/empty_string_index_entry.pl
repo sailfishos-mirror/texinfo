@@ -932,8 +932,8 @@ $result_converted{'html_text'}->{'empty_string_index_entry'} = '<h1 class="node"
 </dl>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index--2"><span class="category-def">Function: </span><span><strong class="strong"><!-- /@w --></strong> <em class="emph"> </em><a class="copiable-link" href=\'#index--2\'> &para;</a></span></dt>
-<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index--3"><span class="category-def">Function: </span><span><strong class="strong"><!-- /@w --></strong> <em class="emph"> </em><a class="copiable-link" href=\'#index--3\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index--2"><span class="category-def">Function: </span><span><code class="code"><!-- /@w --></code> <span class="r"><i class="slanted"> </i></span><a class="copiable-link" href=\'#index--2\'> &para;</a></span></dt>
+<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index--3"><span class="category-def">Function: </span><span><code class="code"><!-- /@w --></code> <span class="r"><i class="slanted"> </i></span><a class="copiable-link" href=\'#index--3\'> &para;</a></span></dt>
 </dl>
 
 ';

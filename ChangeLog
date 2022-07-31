@@ -1,5 +1,12 @@
 2022-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	@def* line conversion in HTML similar with printed output
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): convert @def*
+	using the same formatting as for printed output, when possible.
+
+2022-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_convert): @def* not @deftype* argument in @r{@slanted{
 
 2022-07-31  Patrice Dumas  <pertusus@free.fr>

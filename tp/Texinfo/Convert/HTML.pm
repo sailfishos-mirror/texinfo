@@ -5887,172 +5887,203 @@ sub _convert_def_line_type($$$$)
     if (defined($category) and $category ne '') {
       $category_tree
         = {'type' => '_code',
-           'contents'=>[$self->gdt("{category}: ", {'category' => $category})]
+           'contents'=>[$self->gdt('{category}: ', {'category' => $category})]
           };
       # NB perhaps the category shouldn't be in_code.
     } else {
       $category = '';
     }
-    # no type
+    # metasyntactic argument, no class
     if ($command_name eq 'deffn'
         or $command_name eq 'defvr'
         or $command_name eq 'deftp'
-        or (($command_name eq 'deftypefn'
-             or $command_name eq 'deftypevr')
-            and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})
         or (($command_name eq 'defop'
-             or ($command_name eq 'deftypeop'
-                 and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})
-             or $command_name eq 'defcv'
-             or ($command_name eq 'deftypecv'
-                 and !$element->{'extra'}->{'def_parsed_hash'}->{'type'}))
+             or $command_name eq 'defcv')
             and !$element->{'extra'}->{'def_parsed_hash'}->{'class'})) {
       $category_result = $self->convert_tree($category_tree)
         if (defined($category_tree));
       if ($arguments) {
-        $tree = $self->gdt("\@strong{{name}} \@emph{{arguments}}", {
+        $tree = $self->gdt("\@code{{name}} \@r{\@slanted{{arguments}}}", {
                 'name' => $name,
                 'arguments' => $arguments});
       } else {
-        $tree = $self->gdt("\@strong{{name}}", {'name' => $name});
+        $tree = $self->gdt("\@code{{name}}", {'name' => $name});
       }
-    # with a type
-    } elsif ($command_name eq 'deftypefn'
-             or $command_name eq 'deftypevr'
-             or (($command_name eq 'deftypeop'
-                  or $command_name eq 'deftypecv')
-                 and !$element->{'extra'}->{'def_parsed_hash'}->{'class'})) {
+    # metasyntactic argument with a class
+    } elsif ($command_name eq 'defcv') {
       if ($arguments) {
-        my $strings = {
+        $tree = $self->gdt("{category} of \@code{{class}}: \@code{{name}} \@r{\@slanted{{arguments}}}", {
+                'category' => $category,
+                'name' => $name,
+                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+                'arguments' => $arguments});
+      } else {
+        $tree = $self->gdt("{category} of \@code{{class}}: \@code{{name}}", {
+                'category' => $category,
+                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+                'name' => $name});
+      }
+    } elsif ($command_name eq 'defop') {
+      if ($arguments) {
+        $tree = $self->gdt("{category} on \@code{{class}}: \@code{{name}} \@r{\@slanted{{arguments}}}", {
+                'category' => $category,
+                'name' => $name,
+                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+                'arguments' => $arguments});
+      } else {
+        $tree = $self->gdt("{category} on \@code{{class}}: \@code{{name}}", {
+                'category' => $category,
+                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+                'name' => $name});
+      }
+    # starting here, arguments not metasyntactic:
+    #   deftypefn, deftypevr, deftypeop, deftypecv
+    # no class
+    } elsif ($command_name eq 'deftypefn' or $command_name eq 'deftypevr'
+             or !$element->{'extra'}->{'def_parsed_hash'}->{'class'}) {
+      if (!$element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
+        if ($arguments) {
+          $tree = $self->gdt("\@code{{name}} \@code{{arguments}}", {
+                  'name' => $name,
+                  'arguments' => $arguments});
+        } else {
+          $tree = $self->gdt("\@code{{name}}", {'name' => $name});
+        }
+      } else {
+        if ($arguments) {
+          my $strings = {
                 'name' => $name,
                 'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                 'arguments' => $arguments};
-        # FIXME if in @def* in @example and with @deftypefnnewline on
-        # there is no effect of @deftypefnnewline on, as @* in preformatted
-        # environment becomes an end of line, but the def* line is not in a preformatted
-        # environment.  There should be an explicit <br> in that case.  Probably
-        # requires changing the conversion of @* in a @def* line in preformatted,
-        # nothing really specific of @deftypefnnewline on.
-        if ($self->get_conf('deftypefnnewline') eq 'on'
-            and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')) {
-          $category_tree
-            = {'type' => '_code',
-               'contents'
-                  => [$self->gdt("{category}:\@* ", {'category' => $category})]
-              };
-          $tree
-             = $self->gdt("\@emph{{type}}\@* \@strong{{name}} \@emph{{arguments}}",
+          # FIXME if in @def* in @example and with @deftypefnnewline on
+          # there is no effect of @deftypefnnewline on, as @* in preformatted
+          # environment becomes an end of line, but the def* line is not in a preformatted
+          # environment.  There should be an explicit <br> in that case.  Probably
+          # requires changing the conversion of @* in a @def* line in preformatted,
+          # nothing really specific of @deftypefnnewline on.
+          if ($self->get_conf('deftypefnnewline') eq 'on'
+              and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')) {
+            $category_tree
+              = {'type' => '_code',
+                 'contents'
+                    => [$self->gdt("{category}:\@* ", {'category' => $category})]
+                };
+            $tree
+               = $self->gdt("\@code{{type}}\@* \@code{{name}} \@code{{arguments}}",
                           $strings);
-        } else {
-          $tree
-             = $self->gdt("\@emph{{type}} \@strong{{name}} \@emph{{arguments}}",
+          } else {
+            $tree
+               = $self->gdt("\@code{{type}} \@code{{name}} \@code{{arguments}}",
                           $strings);
-        }
-      } else {
-        my $strings = {
-                'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-                'name' => $name};
-        if ($self->get_conf('deftypefnnewline') eq 'on'
-            and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')) {
-          $category_tree
-            = {'type' => '_code',
-               'contents'
-                  => [$self->gdt("{category}:\@* ", {'category' => $category})]
-              };
-          $tree = $self->gdt("\@emph{{type}}\@* \@strong{{name}}",
-                  $strings);
+          }
         } else {
-          $tree = $self->gdt("\@emph{{type}} \@strong{{name}}",
-                  $strings);
+          my $strings = {
+                  'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
+                  'name' => $name};
+          if ($self->get_conf('deftypefnnewline') eq 'on'
+              and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')) {
+            $category_tree
+              = {'type' => '_code',
+                 'contents'
+                    => [$self->gdt("{category}:\@* ", {'category' => $category})]
+                };
+            $tree = $self->gdt("\@code{{type}}\@* \@code{{name}}",
+                    $strings);
+          } else {
+            $tree = $self->gdt("\@code{{type}} \@code{{name}}",
+                    $strings);
+          }
         }
       }
       $category_result = $self->convert_tree($category_tree)
         if (defined($category_tree));
-    # with a class, no type
-    } elsif ($command_name eq 'defcv'
-             or ($command_name eq 'deftypecv'
-                 and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
-      if ($arguments) {
-        $tree = $self->gdt("{category} of {class}: \@strong{{name}} \@emph{{arguments}}", {
-                'category' => $category,
-                'name' => $name,
-                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
-                'arguments' => $arguments});
-      } else {
-        $tree = $self->gdt("{category} of {class}: \@strong{{name}}", {
-                'category' => $category,
-                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
-                'name' => $name});
-      }
-    } elsif ($command_name eq 'defop'
-             or ($command_name eq 'deftypeop'
-                 and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
-      if ($arguments) {
-        $tree = $self->gdt("{category} on {class}: \@strong{{name}} \@emph{{arguments}}", {
-                'category' => $category,
-                'name' => $name,
-                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
-                'arguments' => $arguments});
-      } else {
-        $tree = $self->gdt("{category} on {class}: \@strong{{name}}", {
-                'category' => $category,
-                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
-                'name' => $name});
-      }
-    # with a class and a type
+    # with a class and possibly a type
     } elsif ($command_name eq 'deftypeop') {
-      if ($arguments) {
-        my $strings = {
+      # no type
+      if (!$element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
+        if ($arguments) {
+          $tree = $self->gdt("{category} on \@code{{class}}: \@code{{name}} \@code{{arguments}}", {
+                'category' => $category,
+                'name' => $name,
+                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+                'arguments' => $arguments});
+        } else {
+          $tree = $self->gdt("{category} on \@code{{class}}: \@code{{name}}", {
+                'category' => $category,
+                'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+                'name' => $name});
+        }
+      } else {
+        if ($arguments) {
+          my $strings = {
                 'category' => $category,
                 'name' => $name,
                 'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                 'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                 'arguments' => $arguments};
-        if ($self->get_conf('deftypefnnewline') eq 'on') {
-          $tree
-            = $self->gdt("{category} on {class}:\@* \@emph{{type}}\@* \@strong{{name}} \@emph{{arguments}}",
+          if ($self->get_conf('deftypefnnewline') eq 'on') {
+            $tree
+              = $self->gdt("{category} on \@code{{class}}:\@* \@code{{type}}\@* \@code{{name}} \@code{{arguments}}",
                          $strings);
+          } else {
+            $tree
+              = $self->gdt("{category} on \@code{{class}}: \@code{{type}} \@code{{name}} \@code{{arguments}}",
+                         $strings);
+          }
         } else {
-          $tree
-            = $self->gdt("{category} on {class}: \@emph{{type}} \@strong{{name}} \@emph{{arguments}}",
-                         $strings);
-        }
-      } else {
-        my $strings = {
+          my $strings = {
                 'category' => $category,
                 'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                 'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                 'name' => $name};
-        if ($self->get_conf('deftypefnnewline') eq 'on') {
-          $tree
-            = $self->gdt("{category} on {class}:\@* \@emph{{type}}\@* \@strong{{name}}",
+          if ($self->get_conf('deftypefnnewline') eq 'on') {
+            $tree
+              = $self->gdt("{category} on \@code{{class}}:\@* \@code{{type}}\@* \@code{{name}}",
                          $strings);
-        } else {
-          $tree
-            = $self->gdt("{category} on {class}: \@emph{{type}} \@strong{{name}}",
+          } else {
+            $tree
+              = $self->gdt("{category} on \@code{{class}}: \@code{{type}} \@code{{name}}",
                          $strings);
+          }
         }
       }
     } elsif ($command_name eq 'deftypecv') {
-      if ($arguments) {
-        my $strings = {
+      # no type
+      if (!$element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
+        if ($arguments) {
+          $tree = $self->gdt("{category} of \@code{{class}}: \@code{{name}} \@code{{arguments}}", {
                 'category' => $category,
                 'name' => $name,
                 'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
-                'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-                'arguments' => $arguments};
-        $tree
-          = $self->gdt("{category} of {class}: \@emph{{type}} \@strong{{name}} \@emph{{arguments}}",
-                       $strings);
-      } else {
-        my $strings = {
+                'arguments' => $arguments});
+        } else {
+          $tree = $self->gdt("{category} of \@code{{class}}: \@code{{name}}", {
                 'category' => $category,
-                'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                 'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
-                'name' => $name};
-        $tree
-          = $self->gdt("{category} of {class}: \@emph{{type}} \@strong{{name}}",
-                       $strings);
+                'name' => $name});
+        }
+      } else {
+        # type and class
+        if ($arguments) {
+          my $strings = {
+                  'category' => $category,
+                  'name' => $name,
+                  'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+                  'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
+                  'arguments' => $arguments};
+          $tree
+            = $self->gdt("{category} of \@code{{class}}: \@code{{type}} \@code{{name}} \@code{{arguments}}",
+                         $strings);
+        } else {
+          my $strings = {
+                  'category' => $category,
+                  'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
+                  'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+                  'name' => $name};
+          $tree
+            = $self->gdt("{category} of \@code{{class}}: \@code{{type}} \@code{{name}}",
+                         $strings);
+        }
       }
     }
 

@@ -379,6 +379,7 @@ $result_converted{'html'}->{'ampchar'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
 span:hover a.copiable-link {visibility: visible}
 -->
 </style>
@@ -388,7 +389,7 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="en">
 <dl class="first-defop">
-<dt class="defop" id="index-b-on-a"><span>Constructor on a: <strong class="strong">b</strong> <em class="emph">(<code class="code">const std::vector&lt;int&gt;&amp;</code>)</em><a class="copiable-link" href=\'#index-b-on-a\'> &para;</a></span></dt>
+<dt class="defop" id="index-b-on-a"><span>Constructor on <code class="code">a</code>: <code class="code">b</code> <span class="r"><i class="slanted">(<code class="code">const std::vector&lt;int&gt;&amp;</code>)</i></span><a class="copiable-link" href=\'#index-b-on-a\'> &para;</a></span></dt>
 </dl>
 <p>&amp; &amp; &amp; { } @
 </p>
