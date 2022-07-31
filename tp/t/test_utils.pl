@@ -311,7 +311,7 @@ sub remove_keys($$;$)
   return undef if (!defined($root));
   if (!defined($been_there)) {
     #print STDERR "First call: $root\n";
-    $root = dclone ($root);
+    $root = dclone($root);
     #print STDERR Data::Dumper->Dump([$root]);
     $been_there = {};
   }
@@ -781,14 +781,18 @@ sub output_preamble_postamble_latex($$)
 {
   my $converter = shift;
   my $postamble = shift;
+  my $parser_options = shift;
 
   if ($postamble) {
     return '\end{document}
 ';
   } else {
-    return $converter->_latex_header()
-       .'\begin{document}
+    my $begin_document = '\begin{document}
 ';
+    if ($parser_options and $parser_options->{'full_document'}) {
+      $begin_document = '';
+    }
+    return $converter->_latex_header() . $begin_document;
   }
 }
 
@@ -825,6 +829,11 @@ sub test($$)
     # in the tests.  Put
     #   {'EXPANDED_FORMATS' => ['tex']}
     # where you need @tex expanded in the t/*.t files.
+  }
+  my $initial_parser_options;
+  # keep parser options to be able to pass to preamble formatting
+  if ($arg_output) {
+    $initial_parser_options = dclone($parser_options);
   }
 
   # get all the infos put in parser_options that are not actual
@@ -1140,7 +1149,8 @@ sub test($$)
             }
             if ($outfile_preamble{$format}) {
               if (ref($outfile_preamble{$format}) eq 'CODE') {
-                print OUTFILE &{$outfile_preamble{$format}}($converter, 0);
+                print OUTFILE &{$outfile_preamble{$format}}($converter, 0,
+                                                     $initial_parser_options);
               } else {
                 print OUTFILE $outfile_preamble{$format}->[0];
               }
@@ -1148,7 +1158,8 @@ sub test($$)
             print OUTFILE $converted{$format};
             if ($outfile_preamble{$format}) {
               if (ref($outfile_preamble{$format}) eq 'CODE') {
-                print OUTFILE &{$outfile_preamble{$format}}($converter, 1);
+                print OUTFILE &{$outfile_preamble{$format}}($converter, 1,
+                                                     $initial_parser_options);
               } else {
                 print OUTFILE $outfile_preamble{$format}->[1];
               }
