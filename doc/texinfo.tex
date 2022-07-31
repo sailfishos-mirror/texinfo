@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-07-30.12}
+\def\texinfoversion{2022-07-31.14}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -2817,8 +2817,14 @@ end
 \let\dfn=\smartslanted
 \let\emph=\smartitalic
 
-% Explicit font changes: @r, @sc, undocumented @ii.
-\def\r#1{{\defcharsdefault\rm #1}} % roman font, used for code comment
+% @r for roman font, used for code comment
+\def\r#1{{%
+  \usenormaldash % get --, --- ligatures even if in @code
+  \defcharsdefault  % in case on def line
+  \rm #1}}
+{\catcode`-=\active \gdef\usenormaldash{\let-\normaldash}}
+
+% @sc, undocumented @ii.
 \def\sc#1{{\smallcaps#1}}       % smallcaps font
 \def\ii#1{{\it #1}}             % italic font
 

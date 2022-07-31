@@ -1,3 +1,7 @@
+2022-07-31  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\r): Output -- and --- as ligature even if in code.
+
 2022-07-31  Patrice Dumas  <pertusus@free.fr>
 
 	No @deftypefnnewline effect on typed variable definitions in Info
