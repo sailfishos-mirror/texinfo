@@ -24,7 +24,7 @@ use 5.006;
 BEGIN {
 
 require Texinfo::ModulePath;
-Texinfo::ModulePath::init(undef, undef, 'updirs' => 2);
+Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 2);
 
 # NOTE in general file names and directory names are not encoded,
 # there will be problems if there are non ascii characters in those
