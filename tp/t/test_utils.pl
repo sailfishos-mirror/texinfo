@@ -166,17 +166,7 @@ my %outfile_preamble = (
 ', "</texinfo>\n"],
  # done dynamically for CSS
  'html_text' => \&output_preamble_postamble_html,
-# FIXME do dynamically
- 'latex' => ['\documentclass{book}
-\usepackage{makeidx}\makeindex
-\usepackage{amsfonts}
-\usepackage[gen]{eurosym}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\begin{document}
-',
-'\end{document}
-']
+ 'latex' => \&output_preamble_postamble_latex,
 );
 
 my $arg_generate;
@@ -783,6 +773,21 @@ sub output_preamble_postamble_html($$)
                     $converter->{'current_filename'})
 .'</head>
 <body>
+';
+  }
+}
+
+sub output_preamble_postamble_latex($$)
+{
+  my $converter = shift;
+  my $postamble = shift;
+
+  if ($postamble) {
+    return '\end{document}
+';
+  } else {
+    return $converter->_latex_header()
+       .'\begin{document}
 ';
   }
 }
