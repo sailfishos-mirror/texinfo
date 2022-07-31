@@ -986,6 +986,10 @@ sub _associate_other_nodes_to_sections($$)
       }
     }
   }
+  # If there are no sectioning commands and there are nodes,
+  # $pending_nodes won't be empty and none of the nodes are
+  # associated.
+  #print STDERR "No sectioning commands but nodes\n" if (scalar(@$pending_nodes) > 0);
   $self->{'normalized_nodes_associated_section'}
     = $additional_node_section_associations;
 }
@@ -2733,8 +2737,12 @@ sub _convert($$)
                 and $self->{'normalized_nodes_associated_section'}->{$normalized_name}) {
               $section_command
                 = $self->{'normalized_nodes_associated_section'}->{$normalized_name}; 
+            } elsif ($reference->{'cmdname'} eq 'node') {
+              # can only happen if there is no sectioning commands at all,
+              # otherwise it would have been associated in
+              # _associate_other_nodes_to_sections.  Nothing to do in that case.
             } else {
-              # an anchor.  Find associated section using top level parent @-command
+              # an anchor.  Find associated section using top level parent @-command.
               my $current = $reference;
               while ($current->{'parent'}) {
                 $current = $current->{'parent'};
@@ -2746,11 +2754,18 @@ sub _convert($$)
                     if ($current->{'extra'}->{'associated_section'}) {
                       $section_command = $current->{'extra'}->{'associated_section'};
                     } elsif (exists($current->{'extra'}->{'normalized'})
-                             and $self->{'normalized_nodes_associated_section'}->{$current->{'extra'}->{'normalized'}}) {
+                             and $self->{'normalized_nodes_associated_section'}
+                                        ->{$current->{'extra'}->{'normalized'}}) {
                       $section_command
-                        = $self->{'normalized_nodes_associated_section'}->{$current->{'extra'}->{'normalized'}};
+                        = $self->{'normalized_nodes_associated_section'}
+                                           ->{$current->{'extra'}->{'normalized'}};
                     }
                   }
+                  last;
+                } elsif ($current->{'type'}
+                         and $current->{'type'} eq 'before_node_section') {
+                  # anchor before Top node, can be in copying, titlepage, or directly
+                  # in the main document.  Could also be before setfilename.
                   last;
                 }
               }
@@ -2758,11 +2773,10 @@ sub _convert($$)
                 # set the association with anchor
                 $self->{'normalized_nodes_associated_section'}->{$normalized_name}
                   = $section_command;
-              } else {
-                # FIXME this can happens for nodes if there are no sectioning commands
-                # at all.
-                # also for anchor before node Top, before @setfilename, outside of
-                # environments, in @copying or in @titlepage.
+              } elsif (not defined($current->{'parent'})) {
+                # that means that it is an anchor, but we did not find an root
+                # sectioning command nor 'before_node_section' type, which
+                # should not be possible.
                 print STDERR "BUG/TODO assoc ".$reference->{'cmdname'}.": $normalized_name: ".join("|", sort(keys(%{$reference->{'extra'}})))."\n";
               }
             }
@@ -3179,7 +3193,7 @@ sub _convert($$)
           if ($element->{'args'}->[0]->{'contents'}) {
             # It is useful to know that this is a heading formatting as
             # the formatted heading is in the table of content, and some formatting
-            # may be different for that case, for instance with \texorpdfstring 
+            # may be different for that case, for instance with \texorpdfstring
             $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'} = 1;
             $heading = $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}});
             delete $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'};
