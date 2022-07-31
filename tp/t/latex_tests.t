@@ -31,6 +31,113 @@ my @test_cases = (
 @kbd{in example distinct kbdinputstyle}
 @end example
 '],
+['anchor_in_copying',
+'@copying
+Cop. @anchor{a in copying}. Ying.
+@end copying
+
+@node Top
+@top top
+
+@node Chapter
+@chapter Chap
+
+@pxref{a in copying}
+'],
+['anchor_in_copying_insertcopying_chap',
+'@copying
+Cop. @anchor{a in copying}. Ying.
+@end copying
+
+@node Top
+@top top
+
+@node Chapter
+@chapter Chap
+
+@pxref{a in copying}
+
+@insertcopying
+
+@pxref{a in copying}
+'],
+['anchor_in_copying_insertcopying_titlepage',
+'@copying
+Cop. @anchor{a in copying}. Ying.
+@end copying
+
+@titlepage
+@title Manual
+
+@page
+@anchor{a in titlepage}
+@insertcopying
+@end titlepage
+
+@node Top
+@top top
+
+@node Chapter
+@chapter Chap
+
+@pxref{a in copying}.
+@pxref{a in titlepage}.
+'],
+['anchor_in_copying_insertcopying_titlepage_chap',
+'@copying
+Cop. @anchor{a in copying}. Ying.
+@end copying
+
+@titlepage
+@title Manual
+
+@page
+@insertcopying
+@end titlepage
+
+@node Top
+@top top
+
+@node Chapter
+@chapter Chap
+
+@pxref{a in copying}
+
+@insertcopying
+
+@pxref{a in copying}
+'],
+['anchor_before_top',
+'
+@anchor{a before Top}
+
+@node Top
+@top top
+
+@node Chapter
+@chapter Chap
+
+@pxref{a before Top}
+'],
+['node_before_top',
+'@node before Top
+
+@node Top
+@top top
+
+@node Chapter
+@chapter Chap
+
+@pxref{before Top}
+'],
+['top_no_sectioning_command',
+'@node Top
+
+@node Chapter
+@chapter Chap
+
+@pxref{Top}
+'],
 );
 
 my @file_tests = (

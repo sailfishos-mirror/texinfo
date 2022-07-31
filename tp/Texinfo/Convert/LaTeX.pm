@@ -2753,9 +2753,10 @@ sub _convert($$)
                 $self->{'normalized_nodes_associated_section'}->{$normalized_name}
                   = $section_command;
               } else {
-                # FIXME this can happens for the Top node if not associated with
-                # a section command (possibly only when there is no sectioning
-                # command at all)
+                # FIXME this can happens for nodes if there are no sectioning commands
+                # at all.
+                # also for anchor before node Top, before @setfilename, outside of
+                # environments, in @copying or in @titlepage.
                 print STDERR "BUG/TODO assoc ".$reference->{'cmdname'}.": $normalized_name: ".join("|", sort(keys(%{$reference->{'extra'}})))."\n";
               }
             }
