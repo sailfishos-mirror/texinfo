@@ -58,6 +58,9 @@
 # more or less a normal space, with LaTeX, the space has shrinked so
 # much it seems that the two words are glued together.
 #
+# with @deftypefnnewline on, the category is on the same line as the function
+# line, in Texinfo TeX it is on the same line as the type.
+#
 # There is something about form feeds to do.  There is some processing of form
 # feeds right now, which simply amounts to keeping them in ignorable spaces
 # (and with another condition that may not be relevant for LaTeX as the code
