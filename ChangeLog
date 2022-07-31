@@ -1,6 +1,13 @@
 2022-07-31  Patrice Dumas  <pertusus@free.fr>
 
-	No @deftypefnnewline effect on typed variable definitions
+	No @deftypefnnewline effect on typed variable definitions in LaTeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): effect of
+	@deftypefnnewline on for deftypefn and deftypeop only.
+
+2022-07-31  Patrice Dumas  <pertusus@free.fr>
+
+	No @deftypefnnewline effect on typed variable definitions in HTML
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): effect of
 	@deftypefnnewline on for deftypefn and deftypeop only.

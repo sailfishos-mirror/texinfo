@@ -3655,14 +3655,14 @@ d--eftypeop
 \\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name on c{-}{-}lass}}%
 d--eftypeop no arg
 
-\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypecv\\_name}\\hfill[c--ategory of \\texttt{c{-}{-}lass}]
+\\noindent\\texttt{t{-}{-}ype d{-}{-}eftypecv\\_name}\\hfill[c--ategory of \\texttt{c{-}{-}lass}]
 
 
 
 \\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name of c{-}{-}lass}}%
 d--eftypecv
 
-\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypecv\\_name a{-}{-}rguments...}\\hfill[c--ategory of \\texttt{c{-}{-}lass}]
+\\noindent\\texttt{t{-}{-}ype d{-}{-}eftypecv\\_name a{-}{-}rguments...}\\hfill[c--ategory of \\texttt{c{-}{-}lass}]
 
 
 

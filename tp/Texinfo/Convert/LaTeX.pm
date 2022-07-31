@@ -3530,7 +3530,8 @@ sub _convert($$)
         if ($element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
           $result .=  _convert($self,
             $element->{'extra'}->{'def_parsed_hash'}->{'type'});
-          if ($self->get_conf('deftypefnnewline') eq 'on') {
+          if ($self->get_conf('deftypefnnewline') eq 'on'
+              and ($command eq 'deftypefn' or $command eq 'deftypeop')) {
             $result .= '\\leavevmode{}\\\\'; # should be same as @*
           } else {
             $result .= ' ';
