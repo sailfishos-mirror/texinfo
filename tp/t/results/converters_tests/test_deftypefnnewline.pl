@@ -3369,14 +3369,10 @@ $result_converted{'plaintext'}->{'test_deftypefnnewline'} = 'top
           d--eftypeop_name
      d–eftypeop no arg
 
- -- c--ategory of c--lass:
-          t--ype
-          d--eftypecv_name
+ -- c--ategory of c--lass: t--ype d--eftypecv_name
      d–eftypecv
 
- -- c--ategory of c--lass:
-          t--ype
-          d--eftypecv_name a--rguments...
+ -- c--ategory of c--lass: t--ype d--eftypecv_name a--rguments...
      d–eftypecv with arguments
 
  -- fun: arg
