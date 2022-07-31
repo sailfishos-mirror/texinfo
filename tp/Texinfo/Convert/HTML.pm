@@ -5933,7 +5933,8 @@ sub _convert_def_line_type($$$$)
         # environment.  There should be an explicit <br> in that case.  Probably
         # requires changing the conversion of @* in a @def* line in preformatted,
         # nothing really specific of @deftypefnnewline on.
-        if ($self->get_conf('deftypefnnewline') eq 'on') {
+        if ($self->get_conf('deftypefnnewline') eq 'on'
+            and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')) {
           $category_tree
             = {'type' => '_code',
                'contents'
@@ -5951,7 +5952,8 @@ sub _convert_def_line_type($$$$)
         my $strings = {
                 'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                 'name' => $name};
-        if ($self->get_conf('deftypefnnewline') eq 'on') {
+        if ($self->get_conf('deftypefnnewline') eq 'on'
+            and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')) {
           $category_tree
             = {'type' => '_code',
                'contents'
@@ -6039,30 +6041,18 @@ sub _convert_def_line_type($$$$)
                 'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                 'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                 'arguments' => $arguments};
-        if ($self->get_conf('deftypefnnewline') eq 'on') {
-          $tree
-            = $self->gdt("{category} of {class}:\@* \@emph{{type}}\@* \@strong{{name}} \@emph{{arguments}}",
-                         $strings);
-        } else {
-          $tree
-            = $self->gdt("{category} of {class}: \@emph{{type}} \@strong{{name}} \@emph{{arguments}}",
-                         $strings);
-        }
+        $tree
+          = $self->gdt("{category} of {class}: \@emph{{type}} \@strong{{name}} \@emph{{arguments}}",
+                       $strings);
       } else {
         my $strings = {
                 'category' => $category,
                 'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                 'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                 'name' => $name};
-        if ($self->get_conf('deftypefnnewline') eq 'on') {
-          $tree
-            = $self->gdt("{category} of {class}:\@* \@emph{{type}}\@* \@strong{{name}}",
-                         $strings);
-        } else {
-          $tree
-            = $self->gdt("{category} of {class}: \@emph{{type}} \@strong{{name}}",
-                         $strings);
-        }
+        $tree
+          = $self->gdt("{category} of {class}: \@emph{{type}} \@strong{{name}}",
+                       $strings);
       }
     }
 
