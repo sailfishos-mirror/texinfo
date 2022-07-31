@@ -3558,7 +3558,11 @@ sub _convert($$)
             $result .= _convert($self, {'contents' => $arguments});
           } else {
             $self->{'packages'}->{'embrac'} = 1;
-            $result .= '\EmbracOn{}\textsl{';
+            # we want slanted roman and not slanted typewriter, including
+            # ligatures, as if @r{@slanted{ had been used, so output
+            # \textnormal{ and push 0 on 'code' context.
+            $result .= '\EmbracOn{}\textnormal{\textsl{';
+            push @{$self->{'formatting_context'}->[-1]->{'code'}}, 0;
             push @{$self->{'formatting_context'}->[-1]->{'embrac'}},
               {'status' => 1, 'made_known' => {}};
 
@@ -3566,7 +3570,8 @@ sub _convert($$)
 
             # \EmbracOff{} is probably not really needed here as \EmbracOn{}
             # should be local to the texttt
-            $result .= '}\EmbracOff{}'; # \textsl
+            $result .= '}}\EmbracOff{}'; # \textnormal \textsl
+            pop @{$self->{'formatting_context'}->[-1]->{'code'}};
             my $closed_embrac
               = pop @{$self->{'formatting_context'}->[-1]->{'embrac'}};
             if (scalar(keys(%{$closed_embrac->{'made_known'}}))) {
