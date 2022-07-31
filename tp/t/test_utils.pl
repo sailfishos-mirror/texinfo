@@ -765,6 +765,12 @@ sub output_preamble_postamble_html($$)
 </html>
 '
   } else {
+    my $encoding = '';
+    $encoding = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=".
+            $converter->get_conf('OUTPUT_ENCODING_NAME')."\">\n"
+       if (defined($converter->get_conf('OUTPUT_ENCODING_NAME'))
+          and ($converter->get_conf('OUTPUT_ENCODING_NAME') ne ''));
+
     return '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -772,7 +778,7 @@ sub output_preamble_postamble_html($$)
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="tp">
-'
+'.$encoding
 .&{$converter->formatting_function('format_css_lines')}($converter,
                     $converter->{'current_filename'})
 .'</head>
@@ -1110,9 +1116,22 @@ sub test($$)
           if (!open (OUTFILE, ">$outfile")) {
             warn "Open $outfile: $!\n";
           } else {
-            my $info = $parser->global_information();
-            if ($info and $info->{'perl_encoding'}) {
-              binmode(OUTFILE, ":encoding($info->{'perl_encoding'})");
+            my $output_file_encoding;
+            # FIXME do all the converters implement get_conf?  Otherwise
+            # the OUTPUT_PERL_ENCODING could ve determined from
+            # $format_converter_options->{'OUTPUT_ENCODING_NAME'} useing the
+            # same code as in Texinfo/Common.pm set_output_encodings
+            my $output_perl_encoding = $converter->get_conf('OUTPUT_PERL_ENCODING');
+            if (defined($output_perl_encoding)) {
+              $output_file_encoding = $output_perl_encoding;
+            } else {
+              my $info = $parser->global_information();
+              $output_file_encoding = $info->{'input_perl_encoding'}
+                if ($info and $info->{'input_perl_encoding'});
+            }
+            if (defined($output_file_encoding)
+                   and $output_file_encoding ne '') {
+              binmode(OUTFILE, ":encoding($output_file_encoding)");
             }
             if ($outfile_preamble{$format}) {
               if (ref($outfile_preamble{$format}) eq 'CODE') {
@@ -1139,7 +1158,15 @@ sub test($$)
             warn "Open $errors_file: $!\n";
           } else {
             foreach my $error_message (@{$converted_errors{$format}}) {
-              print ERRFILE $error_message->{'error_line'};
+              my $error_line = $error_message->{'error_line'};
+              if (defined($locale_encoding)) {
+                $error_line = Encode::encode($locale_encoding, $error_line);
+              }
+              if (defined($error_message->{'line_nr'})) {
+                $error_line = $error_message->{'line_nr'} . ':' . ' '
+                   . $error_line;
+              }
+              print ERRFILE $error_line;
             }
             close (ERRFILE) or warn "Close $errors_file: $!\n";
           }
