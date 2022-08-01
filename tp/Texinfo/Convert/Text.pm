@@ -574,7 +574,7 @@ sub _convert($;$)
     if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
              and %{$element->{'extra'}->{'def_parsed_hash'}}) {
       my $parsed_definition_category
-        = Texinfo::Convert::Utils::definition_category($options->{'converter'},
+        = Texinfo::Convert::Utils::definition_category_tree($options->{'converter'},
                                                        $element);
       my @contents = ($parsed_definition_category, {'text' => ': '});
       if ($element->{'extra'}->{'def_parsed_hash'}->{'type'}) {

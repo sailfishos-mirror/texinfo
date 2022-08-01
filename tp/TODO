@@ -20,10 +20,6 @@ Before next release
 Bugs
 ====
 
-add @code, change name, use more (LaTeX
-definition_category ->
-Texinfo::Convert::Utils::definition_category_code_class
-
 HTML API
 ========
 

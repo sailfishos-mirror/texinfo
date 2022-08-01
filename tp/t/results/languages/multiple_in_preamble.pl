@@ -1237,7 +1237,7 @@ $result_converted{'html'}->{'multiple_in_preamble'} = '<!DOCTYPE html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- Primjer varijable od copying: a b
+<!-- Primjer varijable of copying: a b
 greška-> -->
 <title>top section</title>
 

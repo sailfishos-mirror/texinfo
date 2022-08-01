@@ -5983,20 +5983,16 @@ sub _convert_def_line_type($$$$)
          . $def_call
          . "$anchor$anchor_span_close</dt>\n";
   } else {
-    my $category_prepared = '';
-    if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
-        and %{$element->{'extra'}->{'def_parsed_hash'}}) {
-      my $parsed_definition_category
-         = Texinfo::Convert::Utils::definition_category($self, $element);
-      if ($parsed_definition_category) {
-        $category_prepared = $self->convert_tree({'type' => '_code',
-                   'contents' => [$parsed_definition_category]});
-      }
-    }
+    my $category_result = '';
+    my $definition_category_tree
+      = Texinfo::Convert::Utils::definition_category_tree($self, $element);
+    $category_result
+      = $self->convert_tree({'contents' => [$definition_category_tree]})
+        if (defined($definition_category_tree));
   
     return $self->html_attribute_class('tr', \@classes)
        . "$index_label><td align=\"left\">" . $def_call .
-       "</td><td align=\"right\">" . $category_prepared . "</td></tr>\n";
+       "</td><td align=\"right\">" . $category_result . "</td></tr>\n";
   }
 }
 

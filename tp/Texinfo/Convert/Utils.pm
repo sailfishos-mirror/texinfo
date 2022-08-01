@@ -104,7 +104,7 @@ sub definition_arguments_content($)
 }
 
 # $SELF converter argument is optional
-sub definition_category($$)
+sub definition_category_tree($$)
 {
   my $self = shift;
   my $current = shift;
@@ -117,21 +117,27 @@ sub definition_category($$)
 
   return $arg_category
     if (!defined($arg_class));
+
+  my $arg_class_code;
+  if (! $self) {
+    $arg_class_code = {'cmdname' => 'code',
+       'args' => [{'type' => 'brace_command_arg', 'contents' => [$arg_class]}]};
+  }
   
   my $style = $Texinfo::Common::command_index{$current->{'extra'}->{'def_command'}};
   if ($style eq 'fn') {
     if ($self) {
-      return $self->gdt('{category} on {class}', { 'category' => $arg_category,
+      return $self->gdt('{category} on @code{{class}}', { 'category' => $arg_category,
                                           'class' => $arg_class });
     } else {
-      return {'contents' => [$arg_category, {'text' => ' on '}, $arg_class]};
+      return {'contents' => [$arg_category, {'text' => ' on '}, $arg_class_code]};
     }
   } elsif ($style eq 'vr') {
     if ($self) {
-      return $self->gdt('{category} of {class}', { 'category' => $arg_category,
+      return $self->gdt('{category} of @code{{class}}', { 'category' => $arg_category,
                                           'class' => $arg_class });
     } else {
-      return {'contents' => [$arg_category, {'text' => ' of '}, $arg_class]};
+      return {'contents' => [$arg_category, {'text' => ' of '}, $arg_class_code]};
     }
   }
 }
@@ -395,8 +401,8 @@ Arguments correspond to text following the category and the name
 on the @-command line.  If there is no argument, I<$arguments>
 will be C<undef>.
 
-=item $tree = definition_category($converter, $def_line)
-X<C<definition_category>>
+=item $tree = definition_category_tree($converter, $def_line)
+X<C<definition_category_tree>>
 
 The I<$converter> argument may be undef.  I<$def_line> is a
 C<def_line> texinfo tree container.  This function

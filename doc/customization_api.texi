@@ -3540,8 +3540,8 @@ Texinfo::Convert::Utils::expand_verbatiminclude, tp_api}.
 @item @code{@@def*} @@-commands
 @xref{Texinfo::Convert::Utils $arguments = definition_arguments_content($element),,
 Texinfo::Convert::Utils::definition_arguments_content, tp_api}.
-@xref{Texinfo::Convert::Utils $tree = definition_category($converter@comma{} $def_line),,
-Texinfo::Convert::Utils::definition_category, tp_api}.
+@xref{Texinfo::Convert::Utils $tree = definition_category_tree($converter@comma{} $def_line),,
+Texinfo::Convert::Utils::definition_category_tree, tp_api}.
 
 @item @code{@@float}
 @xref{Texinfo::Convert::Converter ($caption@comma{} $prepended) = $converter->float_name_caption ($float),,

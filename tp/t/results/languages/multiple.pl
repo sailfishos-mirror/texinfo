@@ -1412,7 +1412,7 @@ $result_converted{'html'}->{'multiple'} = '<!DOCTYPE html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- Variable d\'instance de copying: a b
+<!-- Variable d\'instance of copying: a b
 erreur-> -->
 <title>top</title>
 

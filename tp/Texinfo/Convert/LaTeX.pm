@@ -3594,24 +3594,8 @@ sub _convert($$)
         $self->{'formatting_context'}->[-1]->{'code'}->[-1] -= 1;
         $result .= '}'; # \texttt
 
-        my $category;
-        if ($command eq 'defcv' or $command eq 'deftypecv') {
-          $category = $self->gdt('{category} of @code{{class}}',
-            { 'category'
-                 => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-              'class'
-                 => $element->{'extra'}->{'def_parsed_hash'}->{'class'}
-            });
-        } elsif ($command eq 'defop' or $command eq 'deftypeop') {
-          $category =  $self->gdt('{category} on @code{{class}}',
-            { 'category'
-                 => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
-              'class'
-                 => $element->{'extra'}->{'def_parsed_hash'}->{'class'}
-            });
-        } else {
-          $category = $element->{'extra'}->{'def_parsed_hash'}->{'category'};
-        }
+        my $category
+          = Texinfo::Convert::Utils::definition_category_tree($self, $element);;
         if (defined($category)) {
           # category is converted in normal text context
           my $converted = _convert($self, $category);
