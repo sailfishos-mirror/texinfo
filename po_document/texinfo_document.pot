@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 6.8dev\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-07-30 14:05+0200\n"
+"POT-Creation-Date: 2022-08-01 17:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,31 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: tp/Texinfo/Common.pm:844 tp/Texinfo/Common.pm:849
+#: tp/Texinfo/Common.pm:845 tp/Texinfo/Common.pm:850
 msgid "Function"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:845
+#: tp/Texinfo/Common.pm:846
 msgid "Macro"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:846
+#: tp/Texinfo/Common.pm:847
 msgid "Special Form"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:847 tp/Texinfo/Common.pm:850
+#: tp/Texinfo/Common.pm:848 tp/Texinfo/Common.pm:851
 msgid "Variable"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:848
+#: tp/Texinfo/Common.pm:849
 msgid "User Option"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:851 tp/Texinfo/Common.pm:852
+#: tp/Texinfo/Common.pm:852 tp/Texinfo/Common.pm:853
 msgid "Instance Variable"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:853 tp/Texinfo/Common.pm:854
+#: tp/Texinfo/Common.pm:854 tp/Texinfo/Common.pm:855
 msgid "Method"
 msgstr ""
 
@@ -59,99 +59,99 @@ msgstr ""
 msgid "{name} of {class}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:94
+#: tp/Texinfo/Convert/Converter.pm:97
 msgid "error@arrow{}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:102
+#: tp/Texinfo/Convert/Converter.pm:105
 msgid "January"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:103
+#: tp/Texinfo/Convert/Converter.pm:106
 msgid "February"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:104
+#: tp/Texinfo/Convert/Converter.pm:107
 msgid "March"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:105
+#: tp/Texinfo/Convert/Converter.pm:108
 msgid "April"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:106
+#: tp/Texinfo/Convert/Converter.pm:109
 msgid "May"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:107
+#: tp/Texinfo/Convert/Converter.pm:110
 msgid "June"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:108
+#: tp/Texinfo/Convert/Converter.pm:111
 msgid "July"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:109
+#: tp/Texinfo/Convert/Converter.pm:112
 msgid "August"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:110
+#: tp/Texinfo/Convert/Converter.pm:113
 msgid "September"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:111
+#: tp/Texinfo/Convert/Converter.pm:114
 msgid "October"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:112
+#: tp/Texinfo/Convert/Converter.pm:115
 msgid "November"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:113
+#: tp/Texinfo/Convert/Converter.pm:116
 msgid "December"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1120
+#: tp/Texinfo/Convert/Converter.pm:1123
 #, perl-brace-format
 msgid "{float_type} {float_number}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1124
+#: tp/Texinfo/Convert/Converter.pm:1127
 #, perl-brace-format
 msgid "{float_type}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1128
+#: tp/Texinfo/Convert/Converter.pm:1131
 #, perl-brace-format
 msgid "{float_number}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1159
+#: tp/Texinfo/Convert/Converter.pm:1162
 #, perl-brace-format
 msgid "{float_type} {float_number}: "
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1163
+#: tp/Texinfo/Convert/Converter.pm:1166
 #, perl-brace-format
 msgid "{float_type}: "
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1168
+#: tp/Texinfo/Convert/Converter.pm:1171
 #, perl-brace-format
 msgid "{float_type} {float_number}\n"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1172
+#: tp/Texinfo/Convert/Converter.pm:1175
 #, perl-brace-format
 msgid "{float_type}\n"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1178
+#: tp/Texinfo/Convert/Converter.pm:1181
 #, perl-brace-format
 msgid "{float_number}: "
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1181
+#: tp/Texinfo/Convert/Converter.pm:1184
 #, perl-brace-format
 msgid "{float_number}\n"
 msgstr ""
@@ -186,17 +186,17 @@ msgstr ""
 msgid "see section ``{section_name}'' in @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/DocBook.pm:1130 tp/Texinfo/Convert/HTML.pm:4897
+#: tp/Texinfo/Convert/DocBook.pm:1130 tp/Texinfo/Convert/HTML.pm:4898
 #, perl-brace-format
 msgid "@cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/DocBook.pm:1134 tp/Texinfo/Convert/HTML.pm:4874
+#: tp/Texinfo/Convert/DocBook.pm:1134 tp/Texinfo/Convert/HTML.pm:4875
 #, perl-brace-format
 msgid "See @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/DocBook.pm:1138 tp/Texinfo/Convert/HTML.pm:4851
+#: tp/Texinfo/Convert/DocBook.pm:1138 tp/Texinfo/Convert/HTML.pm:4852
 #, perl-brace-format
 msgid "see @cite{{book}}"
 msgstr ""
@@ -216,53 +216,43 @@ msgstr ""
 msgid "see {title_ref}"
 msgstr ""
 
-#: tp/Texinfo/Convert/DocBook.pm:1304 tp/Texinfo/Convert/LaTeX.pm:2920
+#: tp/Texinfo/Convert/DocBook.pm:1304 tp/Texinfo/Convert/LaTeX.pm:2940
 #: tp/Texinfo/Convert/Plaintext.pm:2232
 #, perl-brace-format
 msgid "{abbr_or_acronym} ({explanation})"
 msgstr ""
 
-#: tp/Texinfo/Convert/DocBook.pm:1484 tp/Texinfo/Convert/LaTeX.pm:3095
-#: tp/Texinfo/Convert/Plaintext.pm:2401 tp/Texinfo/Convert/HTML.pm:5251
+#: tp/Texinfo/Convert/DocBook.pm:1484 tp/Texinfo/Convert/LaTeX.pm:3115
+#: tp/Texinfo/Convert/Plaintext.pm:2401 tp/Texinfo/Convert/HTML.pm:5252
 #, perl-brace-format
 msgid "@b{{quotation_arg}:} "
 msgstr ""
 
-#: tp/Texinfo/Convert/LaTeX.pm:2629 tp/Texinfo/Convert/Plaintext.pm:1926
+#: tp/Texinfo/Convert/LaTeX.pm:2638 tp/Texinfo/Convert/Plaintext.pm:1926
 #, perl-brace-format
 msgid "{text} ({url})"
 msgstr ""
 
-#: tp/Texinfo/Convert/LaTeX.pm:3048 tp/Texinfo/Convert/Plaintext.pm:2326
-#: tp/Texinfo/Convert/HTML.pm:2614
+#: tp/Texinfo/Convert/LaTeX.pm:3068 tp/Texinfo/Convert/Plaintext.pm:2326
+#: tp/Texinfo/Convert/HTML.pm:2615
 #, perl-brace-format
 msgid "@{No value for `{value}'@}"
 msgstr ""
 
-#: tp/Texinfo/Convert/LaTeX.pm:3573
-#, perl-brace-format
-msgid "{category} of @code{{class}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/LaTeX.pm:3580
-#, perl-brace-format
-msgid "{category} on @code{{class}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/LaTeX.pm:3734 tp/Texinfo/Convert/Plaintext.pm:3246
-#: tp/Texinfo/Convert/HTML.pm:4398
+#: tp/Texinfo/Convert/LaTeX.pm:3744 tp/Texinfo/Convert/Plaintext.pm:3238
+#: tp/Texinfo/Convert/HTML.pm:4399
 #, perl-brace-format
 msgid "@center --- @emph{{author}}\n"
 msgstr ""
 
 #: tp/Texinfo/Convert/Plaintext.pm:1101 tp/Texinfo/Convert/HTML.pm:1043
-#: tp/Texinfo/Convert/Utils.pm:290
+#: tp/Texinfo/Convert/Utils.pm:296
 #, perl-brace-format
 msgid "Appendix {number} {section_title}"
 msgstr ""
 
 #: tp/Texinfo/Convert/Plaintext.pm:1106 tp/Texinfo/Convert/HTML.pm:1050
-#: tp/Texinfo/Convert/Utils.pm:294
+#: tp/Texinfo/Convert/Utils.pm:300
 #, perl-brace-format
 msgid "{number} {section_title}"
 msgstr ""
@@ -296,82 +286,72 @@ msgstr ""
 msgid "@tie{}-- {category}: {name}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2825
+#: tp/Texinfo/Convert/Plaintext.pm:2826
 #, perl-brace-format
 msgid "@tie{}-- {category}:@*{type}@*{name} {arguments}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2828
+#: tp/Texinfo/Convert/Plaintext.pm:2829
 #, perl-brace-format
 msgid "@tie{}-- {category}: {type} {name} {arguments}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2837
+#: tp/Texinfo/Convert/Plaintext.pm:2839
 #, perl-brace-format
 msgid "@tie{}-- {category}:@*{type}@*{name}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2840
+#: tp/Texinfo/Convert/Plaintext.pm:2842
 #, perl-brace-format
 msgid "@tie{}-- {category}: {type} {name}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2848
+#: tp/Texinfo/Convert/Plaintext.pm:2850
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {name} {arguments}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2854
+#: tp/Texinfo/Convert/Plaintext.pm:2856
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {name}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2863
+#: tp/Texinfo/Convert/Plaintext.pm:2865
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {name} {arguments}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2869
+#: tp/Texinfo/Convert/Plaintext.pm:2871
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {name}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2884
+#: tp/Texinfo/Convert/Plaintext.pm:2886
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}:@*{type}@*{name} {arguments}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2888
+#: tp/Texinfo/Convert/Plaintext.pm:2890
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {type} {name} {arguments}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2899
+#: tp/Texinfo/Convert/Plaintext.pm:2901
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}:@*{type}@*{name}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2903
+#: tp/Texinfo/Convert/Plaintext.pm:2905
 #, perl-brace-format
 msgid "@tie{}-- {category} on {class}: {type} {name}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2917
-#, perl-brace-format
-msgid "@tie{}-- {category} of {class}:@*{type}@*{name} {arguments}"
-msgstr ""
-
-#: tp/Texinfo/Convert/Plaintext.pm:2921
+#: tp/Texinfo/Convert/Plaintext.pm:2918
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {type} {name} {arguments}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Plaintext.pm:2932
-#, perl-brace-format
-msgid "@tie{}-- {category} of {class}:@*{type}@*{name}"
-msgstr ""
-
-#: tp/Texinfo/Convert/Plaintext.pm:2936
+#: tp/Texinfo/Convert/Plaintext.pm:2927
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {type} {name}"
 msgstr ""
@@ -594,308 +574,231 @@ msgstr ""
 msgid "Footnotes"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:2724
+#: tp/Texinfo/Convert/HTML.pm:2725
 #, perl-brace-format
 msgid "{explained_string} ({explanation})"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4758
+#: tp/Texinfo/Convert/HTML.pm:4759
 #, perl-brace-format
 msgid "see {reference_name}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4761
+#: tp/Texinfo/Convert/HTML.pm:4762
 #, perl-brace-format
 msgid "See {reference_name}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4764
+#: tp/Texinfo/Convert/HTML.pm:4765
 #, perl-brace-format
 msgid "{reference_name}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4839
+#: tp/Texinfo/Convert/HTML.pm:4840
 #, perl-brace-format
 msgid "see {reference} in @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4843
+#: tp/Texinfo/Convert/HTML.pm:4844
 #, perl-brace-format
 msgid "see @cite{{book_reference}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4847
+#: tp/Texinfo/Convert/HTML.pm:4848
 #, perl-brace-format
 msgid "see `{section}' in @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4854
+#: tp/Texinfo/Convert/HTML.pm:4855
 #, perl-brace-format
 msgid "see {reference}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4857
+#: tp/Texinfo/Convert/HTML.pm:4858
 #, perl-brace-format
 msgid "see `{section}'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4862
+#: tp/Texinfo/Convert/HTML.pm:4863
 #, perl-brace-format
 msgid "See {reference} in @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4866
+#: tp/Texinfo/Convert/HTML.pm:4867
 #, perl-brace-format
 msgid "See @cite{{book_reference}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4870
+#: tp/Texinfo/Convert/HTML.pm:4871
 #, perl-brace-format
 msgid "See `{section}' in @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4877
+#: tp/Texinfo/Convert/HTML.pm:4878
 #, perl-brace-format
 msgid "See {reference}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4880
+#: tp/Texinfo/Convert/HTML.pm:4881
 #, perl-brace-format
 msgid "See `{section}'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4885
+#: tp/Texinfo/Convert/HTML.pm:4886
 #, perl-brace-format
 msgid "{reference} in @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4889
+#: tp/Texinfo/Convert/HTML.pm:4890
 #, perl-brace-format
 msgid "@cite{{book_reference}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4893
+#: tp/Texinfo/Convert/HTML.pm:4894
 #, perl-brace-format
 msgid "`{section}' in @cite{{book}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4900
+#: tp/Texinfo/Convert/HTML.pm:4901
 #, perl-brace-format
 msgid "{reference}"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4903
+#: tp/Texinfo/Convert/HTML.pm:4904
 #, perl-brace-format
 msgid "`{section}'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5120 tp/Texinfo/Convert/HTML.pm:5141
+#: tp/Texinfo/Convert/HTML.pm:5121 tp/Texinfo/Convert/HTML.pm:5142
 msgid "Jump to"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5129
+#: tp/Texinfo/Convert/HTML.pm:5130
 msgid "Index Entry"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5131
+#: tp/Texinfo/Convert/HTML.pm:5132
 msgid "Section"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5890
+#: tp/Texinfo/Convert/HTML.pm:5941
 #, perl-brace-format
-msgid "{category}: "
+msgid "{category} on @code{{class}}:@* "
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5913
+#: tp/Texinfo/Convert/HTML.pm:5945
 #, perl-brace-format
-msgid "@strong{{name}} @emph{{arguments}}"
+msgid "{category} on @code{{class}}: "
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5917
+#: tp/Texinfo/Convert/HTML.pm:5949
 #, perl-brace-format
-msgid "@strong{{name}}"
+msgid "{category} of @code{{class}}: "
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5940 tp/Texinfo/Convert/HTML.pm:5958
+#: tp/Texinfo/Convert/HTML.pm:5962
 #, perl-brace-format
 msgid "{category}:@* "
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5943
+#: tp/Texinfo/Convert/HTML.pm:5964
 #, perl-brace-format
-msgid "@emph{{type}}@* @strong{{name}} @emph{{arguments}}"
+msgid "{category}: "
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:5947
-#, perl-brace-format
-msgid "@emph{{type}} @strong{{name}} @emph{{arguments}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:5960
-#, perl-brace-format
-msgid "@emph{{type}}@* @strong{{name}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:5963
-#, perl-brace-format
-msgid "@emph{{type}} @strong{{name}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:5974
-#, perl-brace-format
-msgid "{category} of {class}: @strong{{name}} @emph{{arguments}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:5980
-#, perl-brace-format
-msgid "{category} of {class}: @strong{{name}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:5989
-#, perl-brace-format
-msgid "{category} on {class}: @strong{{name}} @emph{{arguments}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:5995
-#, perl-brace-format
-msgid "{category} on {class}: @strong{{name}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:6011
-#, perl-brace-format
-msgid ""
-"{category} on {class}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:6015
-#, perl-brace-format
-msgid "{category} on {class}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:6026
-#, perl-brace-format
-msgid "{category} on {class}:@* @emph{{type}}@* @strong{{name}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:6030
-#, perl-brace-format
-msgid "{category} on {class}: @emph{{type}} @strong{{name}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:6044
-#, perl-brace-format
-msgid ""
-"{category} of {class}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:6048
-#, perl-brace-format
-msgid "{category} of {class}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:6059
-#, perl-brace-format
-msgid "{category} of {class}:@* @emph{{type}}@* @strong{{name}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:6063
-#, perl-brace-format
-msgid "{category} of {class}: @emph{{type}} @strong{{name}}"
-msgstr ""
-
-#: tp/Texinfo/Convert/HTML.pm:8538
+#: tp/Texinfo/Convert/HTML.pm:8411
 #, perl-brace-format
 msgid ""
 "This document was generated on @emph{@today{}} using "
 "@uref{{program_homepage}, @emph{{program}}}."
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8543
+#: tp/Texinfo/Convert/HTML.pm:8416
 msgid "This document was generated on @emph{@today{}}."
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8580
+#: tp/Texinfo/Convert/HTML.pm:8453
 msgid "JavaScript license information"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8627
+#: tp/Texinfo/Convert/HTML.pm:8500
 #, perl-brace-format
 msgid "{element_text} ({title})"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8826
+#: tp/Texinfo/Convert/HTML.pm:8699
 #, perl-brace-format
 msgid "The node you are looking for is at {href}."
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8931
+#: tp/Texinfo/Convert/HTML.pm:8804
 msgid "  The buttons in the navigation panels have the following meaning:"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8937
+#: tp/Texinfo/Convert/HTML.pm:8810
 msgid "Button"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8938
+#: tp/Texinfo/Convert/HTML.pm:8811
 msgid "Name"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8939
+#: tp/Texinfo/Convert/HTML.pm:8812
 msgid "Go to"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8940
+#: tp/Texinfo/Convert/HTML.pm:8813
 msgid "From 1.2.3 go to"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8967
+#: tp/Texinfo/Convert/HTML.pm:8840
 msgid ""
 "  where the @strong{ Example } assumes that the current position is at "
 "@strong{ Subsubsection One-Two-Three } of a document of the following "
 "structure:"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8978
+#: tp/Texinfo/Convert/HTML.pm:8851
 msgid "Section One"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8980
+#: tp/Texinfo/Convert/HTML.pm:8853
 msgid "Subsection One-One"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8987
+#: tp/Texinfo/Convert/HTML.pm:8860
 msgid "Subsection One-Two"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8989
+#: tp/Texinfo/Convert/HTML.pm:8862
 msgid "Subsubsection One-Two-One"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8990
+#: tp/Texinfo/Convert/HTML.pm:8863
 msgid "Subsubsection One-Two-Two"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8991
+#: tp/Texinfo/Convert/HTML.pm:8864
 msgid "Subsubsection One-Two-Three"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8994
+#: tp/Texinfo/Convert/HTML.pm:8867
 msgid "Current Position"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8995
+#: tp/Texinfo/Convert/HTML.pm:8868
 msgid "Subsubsection One-Two-Four"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8998
+#: tp/Texinfo/Convert/HTML.pm:8871
 msgid "Subsection One-Three"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9005
+#: tp/Texinfo/Convert/HTML.pm:8878
 msgid "Subsection One-Four"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9606
+#: tp/Texinfo/Convert/HTML.pm:9479
 msgid "Untitled Document"
 msgstr ""
 
@@ -904,12 +807,12 @@ msgstr ""
 msgid "{month} {day}, {year}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Utils.pm:124
+#: tp/Texinfo/Convert/Utils.pm:130
 #, perl-brace-format
-msgid "{category} on {class}"
+msgid "{category} on @code{{class}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Utils.pm:131
+#: tp/Texinfo/Convert/Utils.pm:137
 #, perl-brace-format
-msgid "{category} of {class}"
+msgid "{category} of @code{{class}}"
 msgstr ""
