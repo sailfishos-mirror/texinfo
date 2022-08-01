@@ -612,6 +612,12 @@ handle_line_command (ELEMENT *current, char **line_inout,
               after_paragraph = check_no_text (current);
               push_context (ct_def, cmd);
               misc->type = ET_def_line;
+
+              /* Check txidefnamenospace flag */
+              char *val = fetch_value ("txidefnamenospace");
+              if (val)
+                add_extra_integer (misc, "omit_def_name_space", 1);
+
               if (current->cmd == base_command)
                 {
                   ELEMENT *e = pop_element_from_contents (current);
@@ -926,6 +932,8 @@ handle_block_command (ELEMENT *current, char **line_inout,
           add_extra_string_dup (current, "def_command", command_name(cmd));
           add_extra_string_dup (current, "original_def_cmdname", 
                                 command_name(cmd));
+          if (val)
+            add_extra_integer (current, "omit_def_name_space", 1);
         }
       else
         {

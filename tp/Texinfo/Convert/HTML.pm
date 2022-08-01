@@ -5893,7 +5893,7 @@ sub _convert_def_line_type($$$$)
   }
 
   my $def_space = ' ';
-  if ($element->{'parent'}->{'extra'}->{'omit_def_name_space'}) {
+  if ($element->{'extra'}->{'omit_def_name_space'}) {
     $def_space = '';
   }
 

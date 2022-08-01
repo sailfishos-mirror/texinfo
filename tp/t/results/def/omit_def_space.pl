@@ -240,6 +240,7 @@ $result_trees{'omit_def_space'} = {
                   'node' => {},
                   'number' => 1
                 },
+                'omit_def_name_space' => 1,
                 'original_def_cmdname' => 'defun'
               },
               'parent' => {},
@@ -350,6 +351,7 @@ $result_trees{'omit_def_space'} = {
                   'node' => {},
                   'number' => 2
                 },
+                'omit_def_name_space' => 1,
                 'original_def_cmdname' => 'defunx',
                 'spaces_before_argument' => ' '
               },

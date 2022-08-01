@@ -4829,6 +4829,10 @@ sub _parse_texi($$$)
                 $current->{'contents'}->[-1]->{'extra'}
                   = {'def_command' => $base_command,
                      'original_def_cmdname' => $command};
+                if (defined($self->{'values'}->{'txidefnamenospace'})) {
+                  $current->{'contents'}->[-1]{'extra'}
+                                      ->{'omit_def_name_space'} = 1;
+                }
                 if ($current->{'cmdname'}
                     and $current->{'cmdname'} eq $base_command) {
                   pop @{$current->{'contents'}};
@@ -5024,6 +5028,10 @@ sub _parse_texi($$$)
                                                  {'def_command' => $command,
                                                   'original_def_cmdname' => $command}
                                                 };
+              if (defined($self->{'values'}->{'txidefnamenospace'})) {
+                $current->{'contents'}->[-1]->{'extra'}
+                                            ->{'omit_def_name_space'} = 1;
+              }
             } else {
               $block = { 'cmdname' => $command,
                          'parent' => $current,

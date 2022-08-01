@@ -3541,7 +3541,7 @@ sub _convert($$)
           $name = '';
         }
         my $def_space = ' ';
-        if ($element->{'parent'}->{'extra'}->{'omit_def_name_space'}) {
+        if ($element->{'extra'}->{'omit_def_name_space'}) {
           $def_space = '';
         }
 

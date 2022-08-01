@@ -7,6 +7,19 @@
 
 2022-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	Add omit_def_name_space to extra def_line too
+
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command)
+	(handle_block_command), tp/Texinfo/ParserNonXS.pm (_parse_texi):
+	add omit_def_name_space to extra def_line based on txidefnamenospace
+	value.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type),
+	tp/Texinfo/Convert/LaTeX.pm (_convert): use def_line
+	omit_def_name_space.
+
+2022-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	Handle txidefnamenospace/omit_def_name_space in HTML
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): handle
