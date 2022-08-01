@@ -5868,6 +5868,62 @@ sub _convert_def_line_type($$$$)
   }
   unshift @classes, $original_command_name;
 
+  my $result_type = '';
+  if ($element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
+    my $type_text = $self->_convert({'type' => '_code',
+       'contents' => [$element->{'extra'}->{'def_parsed_hash'}->{'type'}]});
+    if ($type_text ne '') {
+      $result_type = $self->html_attribute_class('code', ['code']).">".
+         $type_text .'</code>';
+    }
+    if ($self->get_conf('deftypefnnewline') eq 'on'
+        and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')) {
+      $result_type .= '<br>';
+    }
+  }
+
+  my $result_name = '';
+  if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
+      and defined($element->{'extra'}->{'def_parsed_hash'}->{'name'})) {
+    my $name_content = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
+    $result_name = $self->html_attribute_class('code', ['code']).">".
+       $self->_convert({'type' => '_code', 'contents' => [$name_content]})
+       .'</code>';
+  }
+
+  my $result_arguments = '';
+  if ($arguments) {
+  # arguments not only metasyntactic variables
+  # (deftypefn, deftypevr, deftypeop, deftypecv)
+    if ($Texinfo::Common::def_no_var_arg_commands{$command_name}) {
+      my $arguments_formatted = $self->_convert({'type' => '_code',
+                                                 'contents' => $arguments});
+      $result_arguments = $self->html_attribute_class('code', ['code']).">".
+        $arguments_formatted.'</code>'
+          if ($arguments_formatted =~ /\S/);
+    } else {
+      # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
+      push @{$self->{'document_context'}->[-1]->{'monospace'}}, 0;
+      my $arguments_formatted = $self->_convert({'contents' => $arguments});
+      pop @{$self->{'document_context'}->[-1]->{'monospace'}};
+      if ($arguments_formatted =~ /\S/) {
+        my $open = $self->html_attribute_class('span', ['r']);
+        $result_arguments = $open;
+        $result_arguments .= '>' if ($open ne '');
+        $result_arguments .= $self->html_attribute_class('i', ['slanted']).">"
+          . $arguments_formatted .'</i>';
+        $result_arguments .= '</span>' if ($open ne '');
+      }
+    }
+  }
+
+  my $def_call = '';
+  $def_call .= $result_type . ' ' if ($result_type ne '');
+
+  $def_call .= $result_name;
+
+  $def_call .= ' ' . $result_arguments if ($result_arguments ne '');
+
   if (!$self->get_conf('DEF_TABLE')) {
     my $category;
     if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
@@ -5909,48 +5965,6 @@ sub _convert_def_line_type($$$$)
       $category_result = $self->convert_tree($category_tree);
     }
 
-    my $def_call = '';
-    if ($element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
-      $def_call .= $self->html_attribute_class('code', ['code']).">".
-          $self->_convert({'type' => '_code',
-            'contents' => [$element->{'extra'}->{'def_parsed_hash'}->{'type'}]})
-          .'</code>';
-      if ($self->get_conf('deftypefnnewline') eq 'on'
-          and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')) {
-        $def_call .= '<br> ';
-      } else {
-        $def_call .= ' ';
-      }
-    }
-
-    if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
-        and defined($element->{'extra'}->{'def_parsed_hash'}->{'name'})) {
-      my $name = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
-      $def_call .= $self->html_attribute_class('code', ['code']).">".
-         $self->_convert({'type' => '_code', 'contents' => [$name]})
-         .'</code>';
-    }
-
-    if ($arguments) {
-    # arguments not only metasyntactic variables
-    # (deftypefn, deftypevr, deftypeop, deftypecv)
-      if ($Texinfo::Common::def_no_var_arg_commands{$command_name}) {
-        $def_call .= ' '.$self->html_attribute_class('code', ['code']).">".
-          $self->_convert({'type' => '_code', 'contents' => $arguments})
-         .'</code>';
-      } else {
-        # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
-        push @{$self->{'document_context'}->[-1]->{'monospace'}}, 0;
-        my $open = $self->html_attribute_class('span', ['r']);
-        $def_call .= ' '.$open;
-        $def_call .= '>' if ($open ne '');
-        $def_call .= $self->html_attribute_class('i', ['slanted']).">"
-          . $self->_convert({'contents' => $arguments}). '</i>';
-        $def_call .= '</span>' if ($open ne '');
-        pop @{$self->{'document_context'}->[-1]->{'monospace'}};
-      }
-    }
-
     if ($category_result ne '') {
       my $open = $self->html_attribute_class('span', ['category-def']);
       if ($open ne '') {
@@ -5980,32 +5994,8 @@ sub _convert_def_line_type($$$$)
       }
     }
   
-    my $arguments_text = '';
-    if ($arguments) {
-      $arguments_text = $self->convert_tree({'type' => '_code',
-                                             'contents' => $arguments});
-      $arguments_text = '<em> ' . $arguments_text . '</em>'
-        if ($arguments_text =~ /\S/);
-    }
-
-  
-    my $def_type = '';
-    my $type_name = '';
-    if ($element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
-      $def_type = $self->convert_tree({'type' => '_code',
-          'contents' => [$element->{'extra'}->{'def_parsed_hash'}->{'type'}]});
-    }
-    $type_name = " <em>$def_type</em>" if ($def_type ne '');
-    my $name = '';
-    if ($element->{'extra'}->{'def_parsed_hash'}->{'name'}) {
-      $name = $self->convert_tree({'type' => '_code',
-          'contents' => [$element->{'extra'}->{'def_parsed_hash'}->{'name'}]});
-    }
-    $type_name .= ' <strong>' . $name . '</strong>' if ($name ne '');
-    $type_name .= $arguments_text;
-
     return $self->html_attribute_class('tr', \@classes)
-       . "$index_label><td align=\"left\">" . $type_name .
+       . "$index_label><td align=\"left\">" . $def_call .
        "</td><td align=\"right\">" . $category_prepared . "</td></tr>\n";
   }
 }

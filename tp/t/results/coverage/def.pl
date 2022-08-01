@@ -2481,10 +2481,10 @@ $result_converted{'html_text'}->{'def'} = '
 
 <dl class="first-deffn">
 <dt class="deffn" id="index-i"><span class="category-def">fset: </span><span><code class="code"><var class="var">i</var></code> <span class="r"><i class="slanted">a g</i></span><a class="copiable-link" href=\'#index-i\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-truc"><span class="category-def">cmde: </span><span><code class="code">truc</code> <span class="r"><i class="slanted"></i></span><a class="copiable-link" href=\'#index-truc\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-log-trap"><span class="category-def">Command: </span><span><code class="code">log trap</code> <span class="r"><i class="slanted"></i></span><a class="copiable-link" href=\'#index-log-trap\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-log-trap1"><span class="category-def">Command: </span><span><code class="code">log trap1</code> <span class="r"><i class="slanted"></i></span><a class="copiable-link" href=\'#index-log-trap1\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-log-trap2"><span class="category-def">Command: </span><span><code class="code">log trap2</code> <span class="r"><i class="slanted"></i></span><a class="copiable-link" href=\'#index-log-trap2\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-truc"><span class="category-def">cmde: </span><span><code class="code">truc</code><a class="copiable-link" href=\'#index-truc\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-log-trap"><span class="category-def">Command: </span><span><code class="code">log trap</code><a class="copiable-link" href=\'#index-log-trap\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-log-trap1"><span class="category-def">Command: </span><span><code class="code">log trap1</code><a class="copiable-link" href=\'#index-log-trap1\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-log-trap2"><span class="category-def">Command: </span><span><code class="code">log trap2</code><a class="copiable-link" href=\'#index-log-trap2\'> &para;</a></span></dt>
 <dt class="deffnx def-cmd-deffn" id="index-id-ule"><span class="category-def">cmde: </span><span><code class="code"><b class="b">id ule</b></code> <span class="r"><i class="slanted">truc</i></span><a class="copiable-link" href=\'#index-id-ule\'> &para;</a></span></dt>
 <dt class="deffnx def-cmd-deffn" id="index-id-i-ule"><span class="category-def">cmde2: </span><span><code class="code"><b class="b">id &lsquo;<samp class="samp">i</samp>&rsquo; ule</b></code> <span class="r"><i class="slanted">truc</i></span><a class="copiable-link" href=\'#index-id-i-ule\'> &para;</a></span></dt>
 <dt class="deffnx def-cmd-deffn" id="index-machin"><span class="category-def">: </span><span><code class="code">machin</code><a class="copiable-link" href=\'#index-machin\'> &para;</a></span></dt>
