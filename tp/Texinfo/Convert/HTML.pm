@@ -5869,14 +5869,6 @@ sub _convert_def_line_type($$$$)
   unshift @classes, $original_command_name;
 
   if (!$self->get_conf('DEF_TABLE')) {
-    my $tree;
-    my $name;
-    if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
-        and defined($element->{'extra'}->{'def_parsed_hash'}->{'name'})) {
-      $name = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
-    } else {
-      $name = '';
-    }
     my $category;
     if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
         and defined($element->{'extra'}->{'def_parsed_hash'}->{'category'})) {
@@ -5915,16 +5907,21 @@ sub _convert_def_line_type($$$$)
         $category_tree = $self->gdt('{category}: ', {'category' => $category});
       }
       $category_result = $self->convert_tree($category_tree);
-    } else {
-      $category = '';
     }
-    # metasyntactic argument, no class
+    my $tree;
+    my $name;
+    if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
+        and defined($element->{'extra'}->{'def_parsed_hash'}->{'name'})) {
+      $name = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
+    } else {
+      $name = '';
+    }
+    # metasyntactic argument
     if ($command_name eq 'deffn'
         or $command_name eq 'defvr'
         or $command_name eq 'deftp'
-        or (($command_name eq 'defop'
-             or $command_name eq 'defcv')
-            and !$element->{'extra'}->{'def_parsed_hash'}->{'class'})) {
+        or $command_name eq 'defop'
+        or $command_name eq 'defcv') {
       if ($arguments) {
         $tree = $self->gdt("\@code{{name}} \@r{\@slanted{{arguments}}}", {
                 'name' => $name,
@@ -5932,30 +5929,9 @@ sub _convert_def_line_type($$$$)
       } else {
         $tree = $self->gdt("\@code{{name}}", {'name' => $name});
       }
-    # metasyntactic argument with a class
-    } elsif ($command_name eq 'defcv') {
-      if ($arguments) {
-        $tree = $self->gdt("\@code{{name}} \@r{\@slanted{{arguments}}}", {
-                'name' => $name,
-                'arguments' => $arguments});
-      } else {
-        $tree = $self->gdt("\@code{{name}}", {
-                'name' => $name});
-      }
-    } elsif ($command_name eq 'defop') {
-      if ($arguments) {
-        $tree = $self->gdt("\@code{{name}} \@r{\@slanted{{arguments}}}", {
-                'name' => $name,
-                'arguments' => $arguments});
-      } else {
-        $tree = $self->gdt("\@code{{name}}", {
-                'name' => $name});
-      }
     # starting here, arguments not metasyntactic:
     #   deftypefn, deftypevr, deftypeop, deftypecv
-    # no class
-    } elsif ($command_name eq 'deftypefn' or $command_name eq 'deftypevr'
-             or !$element->{'extra'}->{'def_parsed_hash'}->{'class'}) {
+    } else {
       if (!$element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
         if ($arguments) {
           $tree = $self->gdt("\@code{{name}} \@code{{arguments}}", {
@@ -5998,78 +5974,6 @@ sub _convert_def_line_type($$$$)
             $tree = $self->gdt("\@code{{type}} \@code{{name}}",
                     $strings);
           }
-        }
-      }
-    # with a class and possibly a type
-    } elsif ($command_name eq 'deftypeop') {
-      # no type
-      if (!$element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
-        if ($arguments) {
-          $tree = $self->gdt("\@code{{name}} \@code{{arguments}}", {
-                'name' => $name,
-                'arguments' => $arguments});
-        } else {
-          $tree = $self->gdt("\@code{{name}}", {
-                'name' => $name});
-        }
-      } else {
-        if ($arguments) {
-          my $strings = {
-                'name' => $name,
-                'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-                'arguments' => $arguments};
-          if ($self->get_conf('deftypefnnewline') eq 'on') {
-            $tree
-              = $self->gdt("\@code{{type}}\@* \@code{{name}} \@code{{arguments}}",
-                         $strings);
-          } else {
-            $tree
-              = $self->gdt("\@code{{type}} \@code{{name}} \@code{{arguments}}",
-                         $strings);
-          }
-        } else {
-          my $strings = {
-                'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-                'name' => $name};
-          if ($self->get_conf('deftypefnnewline') eq 'on') {
-            $tree
-              = $self->gdt("\@code{{type}}\@* \@code{{name}}",
-                         $strings);
-          } else {
-            $tree
-              = $self->gdt("\@code{{type}} \@code{{name}}",
-                         $strings);
-          }
-        }
-      }
-    } elsif ($command_name eq 'deftypecv') {
-      # no type
-      if (!$element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
-        if ($arguments) {
-          $tree = $self->gdt("\@code{{name}} \@code{{arguments}}", {
-                'name' => $name,
-                'arguments' => $arguments});
-        } else {
-          $tree = $self->gdt("\@code{{name}}", {
-                'name' => $name});
-        }
-      } else {
-        # type and class
-        if ($arguments) {
-          my $strings = {
-                  'name' => $name,
-                  'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-                  'arguments' => $arguments};
-          $tree
-            = $self->gdt("\@code{{type}} \@code{{name}} \@code{{arguments}}",
-                         $strings);
-        } else {
-          my $strings = {
-                  'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-                  'name' => $name};
-          $tree
-            = $self->gdt("\@code{{type}} \@code{{name}}",
-                         $strings);
         }
       }
     }

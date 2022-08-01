@@ -1,10 +1,15 @@
 2022-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): remove
+	common code cases.
+
+2022-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	HTML consistent @def* category formatting more similar with printed
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): separate
 	category formatting from function line formatting for all the
-	cases.  Never format cactegory in code context.
+	cases.  Never format category in code context.
 
 2022-07-31  Patrice Dumas  <pertusus@free.fr>
 
