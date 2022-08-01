@@ -20,10 +20,9 @@ Before next release
 Bugs
 ====
 
-perl -w t/converters_tests.t top_in_ref
-BUG/TODO assoc
-Not a bug as Top is not associated with a section.  There is no
-section. Maybe check if that happens if there is a section.
+add @code, change name, use more (LaTeX
+definition_category ->
+Texinfo::Convert::Utils::definition_category_code_class
 
 HTML API
 ========

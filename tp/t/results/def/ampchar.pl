@@ -389,7 +389,7 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="en">
 <dl class="first-defop">
-<dt class="defop" id="index-b-on-a"><span>Constructor on <code class="code">a</code>: <code class="code">b</code> <span class="r"><i class="slanted">(<code class="code">const std::vector&lt;int&gt;&amp;</code>)</i></span><a class="copiable-link" href=\'#index-b-on-a\'> &para;</a></span></dt>
+<dt class="defop" id="index-b-on-a"><span class="category-def">Constructor on <code class="code">a</code>: </span><span><code class="code">b</code> <span class="r"><i class="slanted">(<code class="code">const std::vector&lt;int&gt;&amp;</code>)</i></span><a class="copiable-link" href=\'#index-b-on-a\'> &para;</a></span></dt>
 </dl>
 <p>&amp; &amp; &amp; { } @
 </p>

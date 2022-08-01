@@ -1,5 +1,13 @@
 2022-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	HTML consistent @def* category formatting more similar with printed
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): separate
+	category formatting from function line formatting for all the
+	cases.  Never format cactegory in code context.
+
+2022-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_convert): analyse @anchor without
 	section better and avoid debugging message if the @anchor is in
 	'before_node_section'.

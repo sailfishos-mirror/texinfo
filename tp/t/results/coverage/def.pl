@@ -2470,12 +2470,12 @@ $result_converted{'plaintext'}->{'def'} = ' -- c--ategory: d--effn_name a--rgume
 
 $result_converted{'html_text'}->{'def'} = '
 <dl class="first-deffn">
-<dt class="deffn" id="index-d_002d_002deffn_005fname"><span class="category-def">c--ategory: </span><span><code class="code">d--effn_name</code> <span class="r"><i class="slanted">a&ndash;rguments...</i></span><a class="copiable-link" href=\'#index-d_002d_002deffn_005fname\'> &para;</a></span></dt>
+<dt class="deffn" id="index-d_002d_002deffn_005fname"><span class="category-def">c&ndash;ategory: </span><span><code class="code">d--effn_name</code> <span class="r"><i class="slanted">a&ndash;rguments...</i></span><a class="copiable-link" href=\'#index-d_002d_002deffn_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;effn
 </p></dd></dl>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-de_002d_002dffn_005fname"><span class="category-def">cate--gory: </span><span><code class="code">de--ffn_name</code> <span class="r"><i class="slanted">ar&ndash;guments    more args <br> even more so</i></span><a class="copiable-link" href=\'#index-de_002d_002dffn_005fname\'> &para;</a></span></dt>
+<dt class="deffn" id="index-de_002d_002dffn_005fname"><span class="category-def">cate&ndash;gory: </span><span><code class="code">de--ffn_name</code> <span class="r"><i class="slanted">ar&ndash;guments    more args <br> even more so</i></span><a class="copiable-link" href=\'#index-de_002d_002dffn_005fname\'> &para;</a></span></dt>
 <dd><p>def&ndash;fn
 </p></dd></dl>
 

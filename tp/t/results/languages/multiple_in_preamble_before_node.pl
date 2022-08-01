@@ -1108,7 +1108,7 @@ Vorige: <a href="#Top" accesskey="p" rel="prev">top section</a>, Nach oben: <a h
 <h2 class="chapter" id="chap">1 chap</h2>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-c"><span>Instanzvariable of <code class="code">c</code>: <code class="code">BBB</code> <span class="r"><i class="slanted">CCC</i></span><a class="copiable-link" href=\'#index-BBB-of-c\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-c"><span class="category-def">Instanzvariable of <code class="code">c</code>: </span><span><code class="code">BBB</code> <span class="r"><i class="slanted">CCC</i></span><a class="copiable-link" href=\'#index-BBB-of-c\'> &para;</a></span></dt>
 <dd><p>error&rarr;
 </p></dd></dl>
 </div>

@@ -3427,27 +3427,27 @@ $result_converted{'html_text'}->{'test_deftypefnnewline'} = '
 </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-d_002d_002deftypefn_005fname"><span class="category-def">c--ategory:<br> </span><span><code class="code">t--ype</code><br> <code class="code">d--eftypefn_name</code><a class="copiable-link" href=\'#index-d_002d_002deftypefn_005fname\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-d_002d_002deftypefn_005fname"><span class="category-def">c&ndash;ategory:<br> </span><span><code class="code">t--ype</code><br> <code class="code">d--eftypefn_name</code><a class="copiable-link" href=\'#index-d_002d_002deftypefn_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypefn no arg
 </p></dd></dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><span>c--ategory on <code class="code">c--lass</code>:<br> <code class="code">t--ype</code><br> <code class="code">d--eftypeop_name</code> <code class="code">a--rguments...</code><a class="copiable-link" href=\'#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><span class="category-def">c&ndash;ategory on <code class="code">c--lass</code>:<br> </span><span><code class="code">t--ype</code><br> <code class="code">d--eftypeop_name</code> <code class="code">a--rguments...</code><a class="copiable-link" href=\'#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypeop
 </p></dd></dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><span>c--ategory on <code class="code">c--lass</code>:<br> <code class="code">t--ype</code><br> <code class="code">d--eftypeop_name</code><a class="copiable-link" href=\'#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><span class="category-def">c&ndash;ategory on <code class="code">c--lass</code>:<br> </span><span><code class="code">t--ype</code><br> <code class="code">d--eftypeop_name</code><a class="copiable-link" href=\'#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypeop no arg
 </p></dd></dl>
 
 <dl class="first-deftypecv">
-<dt class="deftypecv" id="index-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><span>c--ategory of <code class="code">c--lass</code>: <code class="code">t--ype</code> <code class="code">d--eftypecv_name</code><a class="copiable-link" href=\'#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass\'> &para;</a></span></dt>
+<dt class="deftypecv" id="index-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><span class="category-def">c&ndash;ategory of <code class="code">c--lass</code>: </span><span><code class="code">t--ype</code> <code class="code">d--eftypecv_name</code><a class="copiable-link" href=\'#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypecv
 </p></dd></dl>
 
 <dl class="first-deftypecv">
-<dt class="deftypecv" id="index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><span>c--ategory of <code class="code">c--lass</code>: <code class="code">t--ype</code> <code class="code">d--eftypecv_name</code> <code class="code">a--rguments...</code><a class="copiable-link" href=\'#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1\'> &para;</a></span></dt>
+<dt class="deftypecv" id="index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><span class="category-def">c&ndash;ategory of <code class="code">c--lass</code>: </span><span><code class="code">t--ype</code> <code class="code">d--eftypecv_name</code> <code class="code">a--rguments...</code><a class="copiable-link" href=\'#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypecv with arguments
 </p></dd></dl>
 
@@ -3463,27 +3463,27 @@ $result_converted{'html_text'}->{'test_deftypefnnewline'} = '
 </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-d_002d_002deftypefn_005fname2"><span class="category-def">c--ategory2: </span><span><code class="code">t--ype2</code> <code class="code">d--eftypefn_name2</code><a class="copiable-link" href=\'#index-d_002d_002deftypefn_005fname2\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-d_002d_002deftypefn_005fname2"><span class="category-def">c&ndash;ategory2: </span><span><code class="code">t--ype2</code> <code class="code">d--eftypefn_name2</code><a class="copiable-link" href=\'#index-d_002d_002deftypefn_005fname2\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypefn no arg2
 </p></dd></dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><span>c--ategory2 on <code class="code">c--lass2</code>: <code class="code">t--ype2</code> <code class="code">d--eftypeop_name2</code> <code class="code">a--rguments2...</code><a class="copiable-link" href=\'#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><span class="category-def">c&ndash;ategory2 on <code class="code">c--lass2</code>: </span><span><code class="code">t--ype2</code> <code class="code">d--eftypeop_name2</code> <code class="code">a--rguments2...</code><a class="copiable-link" href=\'#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypeop2
 </p></dd></dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><span>c--ategory2 on <code class="code">c--lass2</code>: <code class="code">t--ype2</code> <code class="code">d--eftypeop_name2</code><a class="copiable-link" href=\'#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><span class="category-def">c&ndash;ategory2 on <code class="code">c--lass2</code>: </span><span><code class="code">t--ype2</code> <code class="code">d--eftypeop_name2</code><a class="copiable-link" href=\'#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypeop no arg2
 </p></dd></dl>
 
 <dl class="first-deftypecv">
-<dt class="deftypecv" id="index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><span>c--ategory2 of <code class="code">c--lass2</code>: <code class="code">t--ype2</code> <code class="code">d--eftypecv_name2</code><a class="copiable-link" href=\'#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2\'> &para;</a></span></dt>
+<dt class="deftypecv" id="index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><span class="category-def">c&ndash;ategory2 of <code class="code">c--lass2</code>: </span><span><code class="code">t--ype2</code> <code class="code">d--eftypecv_name2</code><a class="copiable-link" href=\'#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypecv2
 </p></dd></dl>
 
 <dl class="first-deftypecv">
-<dt class="deftypecv" id="index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><span>c--ategory2 of <code class="code">c--lass2</code>: <code class="code">t--ype2</code> <code class="code">d--eftypecv_name2</code> <code class="code">a--rguments2...</code><a class="copiable-link" href=\'#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1\'> &para;</a></span></dt>
+<dt class="deftypecv" id="index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><span class="category-def">c&ndash;ategory2 of <code class="code">c--lass2</code>: </span><span><code class="code">t--ype2</code> <code class="code">d--eftypecv_name2</code> <code class="code">a--rguments2...</code><a class="copiable-link" href=\'#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypecv with arguments2
 </p></dd></dl>
 

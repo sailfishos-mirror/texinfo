@@ -412,7 +412,7 @@ span:hover a.copiable-link {visibility: visible}
 <h1 class="node" id="Top">Top</h1>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-AAA"><span>Variable d\'instance of <code class="code">AAA</code>: <code class="code">BBB</code> <span class="r"><i class="slanted">CCC</i></span><a class="copiable-link" href=\'#index-BBB-of-AAA\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-AAA"><span class="category-def">Variable d&rsquo;instance of <code class="code">AAA</code>: </span><span><code class="code">BBB</code> <span class="r"><i class="slanted">CCC</i></span><a class="copiable-link" href=\'#index-BBB-of-AAA\'> &para;</a></span></dt>
 </dl>
 
 
