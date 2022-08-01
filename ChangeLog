@@ -1,5 +1,15 @@
 2022-08-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	@firstparagraphindent in LaTeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): Use idea from
+	indentfirst LaTeX package to implement @firstparagraphindent.
+	* tp/Texinfo/Convert/LaTeX.pm: Remove @firstparagraphindent
+	from TODO list, as well as @indent, which was different in
+	texinfo.tex due to @firstparagraphindent definition.
+
+2022-08-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@dmn in LaTeX
 
 	* tp/Texinfo/Convert/LaTeX.pm (_convert): Implement @dmn with

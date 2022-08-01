@@ -28,15 +28,7 @@
 #\tableofcontents
 #}
 #
-# it seems that LaTeX \indent only works with \setlength{\parindent}{0pt}
-# which makes it quite different from Texinfo @indent which should require
-# a different conversion
-#
 # @exdent is not implemented
-#
-# There is no obvious way to change the first paragraph indentation
-# in a way that can be reverted as with @firstparagraphindent.
-# use of \usepackage{indentfirst} cannot be reverted.
 #
 # flushleft and flushright
 # the flushleft and flushright in Texinfo are not the same as in
@@ -3431,10 +3423,6 @@ sub _convert($$)
       }
       return $result;
     # @-commands that have an information for the formatting
-    # TODO
-    # There is no obvious way to change the first paragraph indentation
-    # in a way that can be reverted as with @firstparagraphindent.
-    # use of \usepackage{indentfirst} cannot be reverted.
     } elsif ($informative_commands{$cmdname}) {
 
       Texinfo::Common::set_informative_command_value($self, $element);
@@ -3473,6 +3461,22 @@ sub _convert($$)
           }
           $result .= "\\setlength{\\parindent}{$indentation_spec_arg}\n";
         }
+      } elsif ($cmdname eq 'firstparagraphindent'
+          and $element->{'extra'}->{'misc_args'}->[0]) {
+        my $indentation_spec = $element->{'extra'}->{'misc_args'}->[0];
+        $result .= "\\makeatletter\n";
+        if ($indentation_spec eq 'insert') {
+          # From LaTeX indentfirst package: "LaTeX uses the switch
+          # \if@afterindent to decide whether to indent after a section
+          # heading. We just need to make sure that this is always true."
+          $result .= "\\let\\\@afterindentfalse\\\@afterindenttrue\n";
+          $result .= "\\\@afterindenttrue\n";
+        } elsif ($indentation_spec eq 'none') {
+          # restore original definition
+          $result .= '\\def\\@afterindentfalse{'
+                     . "\\let\\if\@afterindent\\iffalse}\n";
+        }
+        $result .= "\\makeatother\n";
       } elsif ($cmdname eq 'frenchspacing'
                and $element->{'extra'}->{'misc_args'}->[0]) {
         my $frenchspacing_spec = $element->{'extra'}->{'misc_args'}->[0];
