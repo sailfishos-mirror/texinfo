@@ -5993,7 +5993,8 @@ sub _convert_def_line_type($$$$)
   
     return $self->html_attribute_class('tr', \@classes)
        . "$index_label><td align=\"left\">" . $def_call .
-       "</td><td align=\"right\">" . $category_result . "</td></tr>\n";
+       '</td>'.$self->html_attribute_class('td',  ['category-def'])
+       ." align=\"right\">" . '[' . $category_result . ']' . "</td></tr>\n";
   }
 }
 
