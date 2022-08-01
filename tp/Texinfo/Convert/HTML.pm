@@ -5916,12 +5916,8 @@ sub _convert_def_line_type($$$$)
     } else {
       $name = '';
     }
-    # metasyntactic argument
-    if ($command_name eq 'deffn'
-        or $command_name eq 'defvr'
-        or $command_name eq 'deftp'
-        or $command_name eq 'defop'
-        or $command_name eq 'defcv') {
+    # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
+    if (not $Texinfo::Common::def_no_var_arg_commands{$command_name}) {
       if ($arguments) {
         $tree = $self->gdt("\@code{{name}} \@r{\@slanted{{arguments}}}", {
                 'name' => $name,
@@ -5929,8 +5925,8 @@ sub _convert_def_line_type($$$$)
       } else {
         $tree = $self->gdt("\@code{{name}}", {'name' => $name});
       }
-    # starting here, arguments not metasyntactic:
-    #   deftypefn, deftypevr, deftypeop, deftypecv
+    # arguments not only metasyntactic variables
+    # (deftypefn, deftypevr, deftypeop, deftypecv)
     } else {
       if (!$element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
         if ($arguments) {

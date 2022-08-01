@@ -870,6 +870,8 @@ foreach my $index_type (keys %index_type_def) {
 
 our %def_commands;
 our %def_aliases;
+# Argument not metasyntactic variables only.
+our %def_no_var_arg_commands;
 foreach my $def_command(keys %def_map) {
   if (ref($def_map{$def_command}) eq 'HASH') {
     my ($real_command) = keys (%{$def_map{$def_command}});
@@ -882,6 +884,7 @@ foreach my $def_command(keys %def_map) {
   $def_commands{$def_command} = 1;
   $def_commands{$def_command.'x'} = 1;
   $command_index{$def_command.'x'} = $command_index{$def_command};
+  $def_no_var_arg_commands{$def_command} = 1 if ($def_command =~ /^deftype/);
 }
 
 $block_commands{'multitable'} = 'multitable';
@@ -2953,11 +2956,20 @@ whose argument is outside of the main text flow in one way or another.
 =item %def_commands
 
 =item %def_aliases
+
+=item %def_no_var_arg_commands
 X<C<%def_commands>>
 X<C<%def_aliases>>
+X<C<%def_no_var_arg_commands>>
 
 Definition commands.  C<%def_aliases> associates an aliased command
 to the original command, for example C<defun> is associated to C<deffn>.
+
+C<%def_no_var_arg_commands> associates a definition command name with
+a true value if the I<argument> on the definition command line can contain
+non-metasyntactic variables.  For instance, it is true for C<deftypevr>
+but false for C<defun>, since C<@defun> I<argument> is supposed to contain
+metasyntactic variables only.
 
 =item %default_index_commands
 X<C<%default_index_commands>>

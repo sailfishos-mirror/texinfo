@@ -1,5 +1,15 @@
 2022-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	Common structure for non metasyntactic only argument def commands
+
+	* tp/Texinfo/Common.pm (%def_no_var_arg_commands),
+	tp/Texinfo/Convert/HTML.pm (_convert_def_line_type),
+	tp/Texinfo/Convert/LaTeX.pm (_convert): setup %def_no_var_arg_commands
+	for @def* commands with non metasyntactic variables only
+	argument.
+
+2022-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): remove
 	common code cases.
 

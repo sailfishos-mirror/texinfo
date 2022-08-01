@@ -272,12 +272,8 @@ foreach my $kept_command (keys(%informative_commands),
   $formatted_misc_commands{$kept_command} = 1;
 }
 
-# def commands with types.  Argument not considered to consist in
-# metasyntactic variables.
-my %deftype_commands = ();
 foreach my $def_command (keys(%def_commands)) {
   $formatted_misc_commands{$def_command} = 1 if ($misc_commands{$def_command});
-  $deftype_commands{$def_command} = 1 if ($def_command =~ /^deftype/);
 }
 
 # There are stacks that define the context.
@@ -3568,7 +3564,7 @@ sub _convert($$)
         my $known_embrac_commands;
         if ($arguments) {
           $result .= $def_space;
-          if ($deftype_commands{$command}) {
+          if ($Texinfo::Common::def_no_var_arg_commands{$command}) {
             $result .= _convert($self, {'contents' => $arguments});
           } else {
             $self->{'packages'}->{'embrac'} = 1;
