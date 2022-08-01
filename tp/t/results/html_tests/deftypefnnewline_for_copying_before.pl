@@ -742,7 +742,7 @@ span:hover a.copiable-link {visibility: visible}
 <h1 class="top" id="top">top</h1>
 
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-something"><span class="category-def">Function:<br> </span><span><code class="code">void</code><br> <code class="code">something</code> <code class="code">input</code><a class="copiable-link" href=\'#index-something\'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-something"><span class="category-def">Function:<br> </span><span><code class="def-type">void</code><br> <code class="def-name">something</code> <code class="def-code-arguments">input</code><a class="copiable-link" href=\'#index-something\'> &para;</a></span></dt>
 <dd><p>do something with input
 </p></dd></dl>
 

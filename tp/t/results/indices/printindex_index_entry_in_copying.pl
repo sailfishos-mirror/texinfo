@@ -1430,8 +1430,8 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <a class="index-entry-id" id="index-copying-Copying-this-document"></a>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category-def">Function: </span><span><code class="code">fun</code> <span class="r"><i class="slanted">arg</i></span><a class="copiable-link" href=\'#index-copying-fun\'> &para;</a></span></dt>
-<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category-def">Function: </span><span><code class="code">xf</code> <span class="r"><i class="slanted">arg</i></span><a class="copiable-link" href=\'#index-copying-xf\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category-def">Function: </span><span><code class="def-name">fun</code> <span class="def-meta-var-arguments"><i class="slanted">arg</i></span><a class="copiable-link" href=\'#index-copying-fun\'> &para;</a></span></dt>
+<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category-def">Function: </span><span><code class="def-name">xf</code> <span class="def-meta-var-arguments"><i class="slanted">arg</i></span><a class="copiable-link" href=\'#index-copying-xf\'> &para;</a></span></dt>
 <dd><p>Defun
 </p></dd></dl>
 
@@ -1489,8 +1489,8 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <a class="index-entry-id" id="index-copying-Copying-this-document"></a>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category-def">Function: </span><span><code class="code">fun</code> <span class="r"><i class="slanted">arg</i></span><a class="copiable-link" href=\'#index-copying-fun\'> &para;</a></span></dt>
-<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category-def">Function: </span><span><code class="code">xf</code> <span class="r"><i class="slanted">arg</i></span><a class="copiable-link" href=\'#index-copying-xf\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-copying-fun"><span class="category-def">Function: </span><span><code class="def-name">fun</code> <span class="def-meta-var-arguments"><i class="slanted">arg</i></span><a class="copiable-link" href=\'#index-copying-fun\'> &para;</a></span></dt>
+<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-copying-xf"><span class="category-def">Function: </span><span><code class="def-name">xf</code> <span class="def-meta-var-arguments"><i class="slanted">arg</i></span><a class="copiable-link" href=\'#index-copying-xf\'> &para;</a></span></dt>
 <dd><p>Defun
 </p></dd></dl>
 

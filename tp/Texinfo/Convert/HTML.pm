@@ -2070,6 +2070,7 @@ my %css_element_class_styles = (
      'span.program-in-footer' => 'font-size: smaller', # used with PROGRAM_NAME_IN_FOOTER
      'span.sansserif'     => 'font-family: sans-serif; font-weight: normal',
      'span.r'             => 'font-family: initial; font-weight: normal; font-style: normal',
+     'span.def-meta-var-arguments' => 'font-family: initial; font-weight: normal; font-style: normal',
      'span.w-nolinebreak-text'   => 'white-space: nowrap',
      'kbd.key'            => 'font-style: normal',
      'kbd.kbd'            => 'font-style: oblique',
@@ -5873,7 +5874,7 @@ sub _convert_def_line_type($$$$)
     my $type_text = $self->_convert({'type' => '_code',
        'contents' => [$element->{'extra'}->{'def_parsed_hash'}->{'type'}]});
     if ($type_text ne '') {
-      $result_type = $self->html_attribute_class('code', ['code']).">".
+      $result_type = $self->html_attribute_class('code', ['def-type']).">".
          $type_text .'</code>';
     }
     if ($self->get_conf('deftypefnnewline') eq 'on'
@@ -5886,7 +5887,7 @@ sub _convert_def_line_type($$$$)
   if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
       and defined($element->{'extra'}->{'def_parsed_hash'}->{'name'})) {
     my $name_content = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
-    $result_name = $self->html_attribute_class('code', ['code']).">".
+    $result_name = $self->html_attribute_class('code', ['def-name']).">".
        $self->_convert({'type' => '_code', 'contents' => [$name_content]})
        .'</code>';
   }
@@ -5898,7 +5899,7 @@ sub _convert_def_line_type($$$$)
     if ($Texinfo::Common::def_no_var_arg_commands{$command_name}) {
       my $arguments_formatted = $self->_convert({'type' => '_code',
                                                  'contents' => $arguments});
-      $result_arguments = $self->html_attribute_class('code', ['code']).">".
+      $result_arguments = $self->html_attribute_class('code', ['def-code-arguments']).">".
         $arguments_formatted.'</code>'
           if ($arguments_formatted =~ /\S/);
     } else {
@@ -5907,7 +5908,7 @@ sub _convert_def_line_type($$$$)
       my $arguments_formatted = $self->_convert({'contents' => $arguments});
       pop @{$self->{'document_context'}->[-1]->{'monospace'}};
       if ($arguments_formatted =~ /\S/) {
-        my $open = $self->html_attribute_class('span', ['r']);
+        my $open = $self->html_attribute_class('span', ['def-meta-var-arguments']);
         $result_arguments = $open;
         $result_arguments .= '>' if ($open ne '');
         $result_arguments .= $self->html_attribute_class('i', ['slanted']).">"

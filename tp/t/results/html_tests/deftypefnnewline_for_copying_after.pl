@@ -786,13 +786,13 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="en">
 
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-copying-NAME"><span class="category-def">Function: </span><span><code class="code">TYPE</code> <code class="code">NAME</code> <code class="code">ARGUMENTS...</code><a class="copiable-link" href=\'#index-copying-NAME\'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-copying-NAME"><span class="category-def">Function: </span><span><code class="def-type">TYPE</code> <code class="def-name">NAME</code> <code class="def-code-arguments">ARGUMENTS...</code><a class="copiable-link" href=\'#index-copying-NAME\'> &para;</a></span></dt>
 <dd><p>BODY-OF-DESCRIPTION
 </p></dd></dl>
 
 
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-copying-NAME"><span class="category-def">Function:<br> </span><span><code class="code">TYPE</code><br> <code class="code">NAME</code> <code class="code">ARGUMENTS...</code><a class="copiable-link" href=\'#index-copying-NAME\'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-copying-NAME"><span class="category-def">Function:<br> </span><span><code class="def-type">TYPE</code><br> <code class="def-name">NAME</code> <code class="def-code-arguments">ARGUMENTS...</code><a class="copiable-link" href=\'#index-copying-NAME\'> &para;</a></span></dt>
 <dd><p>BODY-OF-DESCRIPTION
 </p></dd></dl>
 
@@ -800,7 +800,7 @@ span:hover a.copiable-link {visibility: visible}
 <h1 class="top" id="top">top</h1>
 
 <dl class="first-deftypefn first-deftypefun-alias-first-deftypefn">
-<dt class="deftypefn deftypefun-alias-deftypefn" id="index-something"><span class="category-def">Function:<br> </span><span><code class="code">void</code><br> <code class="code">something</code> <code class="code">input</code><a class="copiable-link" href=\'#index-something\'> &para;</a></span></dt>
+<dt class="deftypefn deftypefun-alias-deftypefn" id="index-something"><span class="category-def">Function:<br> </span><span><code class="def-type">void</code><br> <code class="def-name">something</code> <code class="def-code-arguments">input</code><a class="copiable-link" href=\'#index-something\'> &para;</a></span></dt>
 <dd><p>do something with input
 </p></dd></dl>
 

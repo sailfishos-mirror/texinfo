@@ -331,7 +331,7 @@ $result_converted{'html'}->{'omit_def_space'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
-span.r {font-family: initial; font-weight: normal; font-style: normal}
+span.def-meta-var-arguments {font-family: initial; font-weight: normal; font-style: normal}
 span:hover a.copiable-link {visibility: visible}
 -->
 </style>
@@ -342,7 +342,7 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="en">
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-function"><span class="category-def">Function: </span><span><code class="code">function</code> <span class="r"><i class="slanted">(arg1, arg2)</i></span><a class="copiable-link" href=\'#index-function\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-function"><span class="category-def">Function: </span><span><code class="def-name">function</code> <span class="def-meta-var-arguments"><i class="slanted">(arg1, arg2)</i></span><a class="copiable-link" href=\'#index-function\'> &para;</a></span></dt>
 <dd><p>explain
 </p></dd></dl>
 

@@ -1428,7 +1428,7 @@ erreur-> -->
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
-span.r {font-family: initial; font-weight: normal; font-style: normal}
+span.def-meta-var-arguments {font-family: initial; font-weight: normal; font-style: normal}
 span:hover a.copiable-link {visibility: visible}
 -->
 </style>
@@ -1458,24 +1458,24 @@ Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top</a>, Monter
 <h2 class="chapter" id="Chap">1 Chap</h2>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-fr"><span class="category-def">Variable d&rsquo;instance of <code class="code">fr</code>: </span><span><code class="code">BBB</code> <span class="r"><i class="slanted">CCC</i></span><a class="copiable-link" href=\'#index-BBB-of-fr\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-fr"><span class="category-def">Variable d&rsquo;instance of <code class="code">fr</code>: </span><span><code class="def-name">BBB</code> <span class="def-meta-var-arguments"><i class="slanted">CCC</i></span><a class="copiable-link" href=\'#index-BBB-of-fr\'> &para;</a></span></dt>
 <dd><p>erreur&rarr;
 </p></dd></dl>
 
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-copying-a-of-copying"><span class="category-def">Instanzvariable of <code class="code">copying</code>: </span><span><code class="code">a</code> <span class="r"><i class="slanted">b</i></span><a class="copiable-link" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-copying-a-of-copying"><span class="category-def">Instanzvariable of <code class="code">copying</code>: </span><span><code class="def-name">a</code> <span class="def-meta-var-arguments"><i class="slanted">b</i></span><a class="copiable-link" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
 <dd><p>error&rarr;
 </p></dd></dl>
 
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span class="category-def">Primjer varijable of <code class="code">hr</code>: </span><span><code class="code">BBB</code> <span class="r"><i class="slanted">CCC</i></span><a class="copiable-link" href=\'#index-BBB-of-hr\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span class="category-def">Primjer varijable of <code class="code">hr</code>: </span><span><code class="def-name">BBB</code> <span class="def-meta-var-arguments"><i class="slanted">CCC</i></span><a class="copiable-link" href=\'#index-BBB-of-hr\'> &para;</a></span></dt>
 <dd><p>greška&rarr;
 </p></dd></dl>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-copying-a-of-copying"><span class="category-def">Primjer varijable of <code class="code">copying</code>: </span><span><code class="code">a</code> <span class="r"><i class="slanted">b</i></span><a class="copiable-link" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-copying-a-of-copying"><span class="category-def">Primjer varijable of <code class="code">copying</code>: </span><span><code class="def-name">a</code> <span class="def-meta-var-arguments"><i class="slanted">b</i></span><a class="copiable-link" href=\'#index-copying-a-of-copying\'> &para;</a></span></dt>
 <dd><p>greška&rarr;
 </p></dd></dl>
 

@@ -16062,7 +16062,7 @@ $result_converted{'html'}->{'all_commands_delimiters_printindex'} = '<!DOCTYPE h
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
-span.r {font-family: initial; font-weight: normal; font-style: normal}
+span.def-meta-var-arguments {font-family: initial; font-weight: normal; font-style: normal}
 span:hover a.copiable-link {visibility: visible}
 -->
 </style>
@@ -16073,191 +16073,191 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="en">
 <h1 class="node" id="Top">Top</h1>
 <dl class="first-deffn">
-<dt class="deffn" id="index-forward_002d_002dchar"><span class="category-def">Command: </span><span><code class="code"><var class="var">forward--char</var></code> <span class="r"><i class="slanted"><var class="var">nchars</var> argument2 argument3         (arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-forward_002d_002dchar\'> &para;</a></span></dt>
+<dt class="deffn" id="index-forward_002d_002dchar"><span class="category-def">Command: </span><span><code class="def-name"><var class="var">forward--char</var></code> <span class="def-meta-var-arguments"><i class="slanted"><var class="var">nchars</var> argument2 argument3         (arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-forward_002d_002dchar\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defvr">
-<dt class="defvr" id="index-fill_002dcolumn"><span class="category-def">Variable: </span><span><code class="code">fill-column</code> <span class="r"><i class="slanted">argument1 argument2         (arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-fill_002dcolumn\'> &para;</a></span></dt>
+<dt class="defvr" id="index-fill_002dcolumn"><span class="category-def">Variable: </span><span><code class="def-name">fill-column</code> <span class="def-meta-var-arguments"><i class="slanted">argument1 argument2         (arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-fill_002dcolumn\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-foobar"><span class="category-def">Library Function: </span><span><code class="code">int</code> <code class="code">foobar</code> <code class="code">(int <var class="var">foo</var>, float <var class="var">bar</var>)</code><a class="copiable-link" href=\'#index-foobar\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-foobar"><span class="category-def">Library Function: </span><span><code class="def-type">int</code> <code class="def-name">foobar</code> <code class="def-code-arguments">(int <var class="var">foo</var>, float <var class="var">bar</var>)</code><a class="copiable-link" href=\'#index-foobar\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-foobar-1"><span class="category-def">Library Function: </span><span><code class="code">int</code> <code class="code">foobar</code> <code class="code">(int <var class="var">foo</var>, float <var class="var">bar</var>)         (arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) ct<br><br> last</code><a class="copiable-link" href=\'#index-foobar-1\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-foobar-1"><span class="category-def">Library Function: </span><span><code class="def-type">int</code> <code class="def-name">foobar</code> <code class="def-code-arguments">(int <var class="var">foo</var>, float <var class="var">bar</var>)         (arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) ct<br><br> last</code><a class="copiable-link" href=\'#index-foobar-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-foobug"><span class="category-def">Library Function: </span><span><code class="code">int</code> <code class="code">foobug</code> <code class="code">[something</code><a class="copiable-link" href=\'#index-foobug\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-foobug"><span class="category-def">Library Function: </span><span><code class="def-type">int</code> <code class="def-name">foobug</code> <code class="def-code-arguments">[something</code><a class="copiable-link" href=\'#index-foobug\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-push"><span class="category-def">stacks: </span><span><code class="code">private</code> <code class="code">push</code> <code class="code">(<var class="var">s</var>:in out stack;                  <var class="var">n</var>:in integer) ; ;barg aarg; ; end</code><a class="copiable-link" href=\'#index-push\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-push"><span class="category-def">stacks: </span><span><code class="def-type">private</code> <code class="def-name">push</code> <code class="def-code-arguments">(<var class="var">s</var>:in out stack;                  <var class="var">n</var>:in integer) ; ;barg aarg; ; end</code><a class="copiable-link" href=\'#index-push\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypevr">
-<dt class="deftypevr" id="index-enable"><span class="category-def">Global Flag: </span><span><code class="code">int</code> <code class="code">enable</code> <code class="code">(arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</code><a class="copiable-link" href=\'#index-enable\'> &para;</a></span></dt>
+<dt class="deftypevr" id="index-enable"><span class="category-def">Global Flag: </span><span><code class="def-type">int</code> <code class="def-name">enable</code> <code class="def-code-arguments">(arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</code><a class="copiable-link" href=\'#index-enable\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftp">
-<dt class="deftp" id="index-pair"><span class="category-def">Data type: </span><span><code class="code">pair</code> <span class="r"><i class="slanted">car cdr         (arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-pair\'> &para;</a></span></dt>
+<dt class="deftp" id="index-pair"><span class="category-def">Data type: </span><span><code class="def-name">pair</code> <span class="def-meta-var-arguments"><i class="slanted">car cdr         (arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-pair\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defcv">
-<dt class="defcv" id="index-border_002dpattern"><span class="category-def">Class Option of <code class="code">Window</code>: </span><span><code class="code">border-pattern</code> <span class="r"><i class="slanted">(arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-border_002dpattern\'> &para;</a></span></dt>
+<dt class="defcv" id="index-border_002dpattern"><span class="category-def">Class Option of <code class="code">Window</code>: </span><span><code class="def-name">border-pattern</code> <span class="def-meta-var-arguments"><i class="slanted">(arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-border_002dpattern\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypecv">
-<dt class="deftypecv" id="index-border_002dpattern-of-Window"><span class="category-def">Class Option2 of <code class="code">Window</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">border-pattern</code> <code class="code">(arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</code><a class="copiable-link" href=\'#index-border_002dpattern-of-Window\'> &para;</a></span></dt>
+<dt class="deftypecv" id="index-border_002dpattern-of-Window"><span class="category-def">Class Option2 of <code class="code">Window</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">border-pattern</code> <code class="def-code-arguments">(arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</code><a class="copiable-link" href=\'#index-border_002dpattern-of-Window\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defop">
-<dt class="defop" id="index-expose-on-windows"><span class="category-def">Operation on <code class="code">windows</code>: </span><span><code class="code">expose</code> <span class="r"><i class="slanted">(arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-expose-on-windows\'> &para;</a></span></dt>
+<dt class="defop" id="index-expose-on-windows"><span class="category-def">Operation on <code class="code">windows</code>: </span><span><code class="def-name">expose</code> <span class="def-meta-var-arguments"><i class="slanted">(arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-expose-on-windows\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-expose-on-W_002cindow"><span class="category-def">Operation2 on <code class="code">W,indow</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">expose</code> <code class="code">(arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</code><a class="copiable-link" href=\'#index-expose-on-W_002cindow\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-expose-on-W_002cindow"><span class="category-def">Operation2 on <code class="code">W,indow</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">expose</code> <code class="def-code-arguments">(arg in brace, [something <var class="var">in v--ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</code><a class="copiable-link" href=\'#index-expose-on-W_002cindow\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-expose-on-Window"><span class="category-def">Operation5 on <code class="code">Window</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">expose</code> <code class="code">type arg</code><a class="copiable-link" href=\'#index-expose-on-Window\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-expose-on-Window"><span class="category-def">Operation5 on <code class="code">Window</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">expose</code> <code class="def-code-arguments">type arg</code><a class="copiable-link" href=\'#index-expose-on-Window\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-e_002cxpose-on-W_002cindow"><span class="category-def">Operation3 on <code class="code">W,indow</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">e,xpose</code> <code class="code">type arg</code><a class="copiable-link" href=\'#index-e_002cxpose-on-W_002cindow\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-e_002cxpose-on-W_002cindow"><span class="category-def">Operation3 on <code class="code">W,indow</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">e,xpose</code> <code class="def-code-arguments">type arg</code><a class="copiable-link" href=\'#index-e_002cxpose-on-W_002cindow\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-_002cexpose-on-_002cWindow"><span class="category-def">Operation4 on <code class="code">,Window</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">,expose</code> <code class="code">type arg</code><a class="copiable-link" href=\'#index-_002cexpose-on-_002cWindow\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-_002cexpose-on-_002cWindow"><span class="category-def">Operation4 on <code class="code">,Window</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">,expose</code> <code class="def-code-arguments">type arg</code><a class="copiable-link" href=\'#index-_002cexpose-on-_002cWindow\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-e_002cxpose-on-W_002cindow-1"><span class="category-def">Operation6 on <code class="code">W,indow</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">e,xpose</code> <code class="code">type arg</code><a class="copiable-link" href=\'#index-e_002cxpose-on-W_002cindow-1\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-e_002cxpose-on-W_002cindow-1"><span class="category-def">Operation6 on <code class="code">W,indow</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">e,xpose</code> <code class="def-code-arguments">type arg</code><a class="copiable-link" href=\'#index-e_002cxpose-on-W_002cindow-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-_002cexpose-on-_002cWindow-1"><span class="category-def">Operation7 on <code class="code">,Window</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">,expose</code> <code class="code">type arg</code><a class="copiable-link" href=\'#index-_002cexpose-on-_002cWindow-1\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-_002cexpose-on-_002cWindow-1"><span class="category-def">Operation7 on <code class="code">,Window</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">,expose</code> <code class="def-code-arguments">type arg</code><a class="copiable-link" href=\'#index-_002cexpose-on-_002cWindow-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-e_0029xpose-on-W_0029indow"><span class="category-def">Operation13 on <code class="code">W)indow</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">e)xpose</code> <code class="code">type arg</code><a class="copiable-link" href=\'#index-e_0029xpose-on-W_0029indow\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-e_0029xpose-on-W_0029indow"><span class="category-def">Operation13 on <code class="code">W)indow</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">e)xpose</code> <code class="def-code-arguments">type arg</code><a class="copiable-link" href=\'#index-e_0029xpose-on-W_0029indow\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-_0029expose-on-_0029Window"><span class="category-def">Operation14 on <code class="code">)Window</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">)expose</code> <code class="code">type arg</code><a class="copiable-link" href=\'#index-_0029expose-on-_0029Window\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-_0029expose-on-_0029Window"><span class="category-def">Operation14 on <code class="code">)Window</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">)expose</code> <code class="def-code-arguments">type arg</code><a class="copiable-link" href=\'#index-_0029expose-on-_0029Window\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-e_0029xpose-on-W_0029indow-1"><span class="category-def">Operation16 on <code class="code">W)indow</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">e)xpose</code> <code class="code">type arg</code><a class="copiable-link" href=\'#index-e_0029xpose-on-W_0029indow-1\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-e_0029xpose-on-W_0029indow-1"><span class="category-def">Operation16 on <code class="code">W)indow</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">e)xpose</code> <code class="def-code-arguments">type arg</code><a class="copiable-link" href=\'#index-e_0029xpose-on-W_0029indow-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-_0029expose-on-_0029Window-1"><span class="category-def">Operation17 on <code class="code">)Window</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">)expose</code> <code class="code">type arg</code><a class="copiable-link" href=\'#index-_0029expose-on-_0029Window-1\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-_0029expose-on-_0029Window-1"><span class="category-def">Operation17 on <code class="code">)Window</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">)expose</code> <code class="def-code-arguments">type arg</code><a class="copiable-link" href=\'#index-_0029expose-on-_0029Window-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-e_003bxpose-on-W_003bindow"><span class="category-def">Operation18 on <code class="code">W;indow</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">e;xpose</code> <code class="code">type arg</code><a class="copiable-link" href=\'#index-e_003bxpose-on-W_003bindow\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-e_003bxpose-on-W_003bindow"><span class="category-def">Operation18 on <code class="code">W;indow</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">e;xpose</code> <code class="def-code-arguments">type arg</code><a class="copiable-link" href=\'#index-e_003bxpose-on-W_003bindow\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-_003bexpose-on-_003bWindow"><span class="category-def">Operation19 on <code class="code">;Window</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">;expose</code> <code class="code">type arg</code><a class="copiable-link" href=\'#index-_003bexpose-on-_003bWindow\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-_003bexpose-on-_003bWindow"><span class="category-def">Operation19 on <code class="code">;Window</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">;expose</code> <code class="def-code-arguments">type arg</code><a class="copiable-link" href=\'#index-_003bexpose-on-_003bWindow\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-e_003bxpose-on-W_003bindow-1"><span class="category-def">Operation20 on <code class="code">W;indow</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">e;xpose</code> <code class="code">type arg</code><a class="copiable-link" href=\'#index-e_003bxpose-on-W_003bindow-1\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-e_003bxpose-on-W_003bindow-1"><span class="category-def">Operation20 on <code class="code">W;indow</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">e;xpose</code> <code class="def-code-arguments">type arg</code><a class="copiable-link" href=\'#index-e_003bxpose-on-W_003bindow-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-_003bexpose-on-_003bWindow-1"><span class="category-def">Operation21 on <code class="code">;Window</code>: </span><span><code class="code"><code class="code">int</code></code> <code class="code">;expose</code> <code class="code">type arg</code><a class="copiable-link" href=\'#index-_003bexpose-on-_003bWindow-1\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-_003bexpose-on-_003bWindow-1"><span class="category-def">Operation21 on <code class="code">;Window</code>: </span><span><code class="def-type"><code class="code">int</code></code> <code class="def-name">;expose</code> <code class="def-code-arguments">type arg</code><a class="copiable-link" href=\'#index-_003bexpose-on-_003bWindow-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-name-on-Windowint"><span class="category-def">Command<code class="code">com</code> on <code class="code">Window<code class="code">int</code></code>: </span><span><code class="code">expose<var class="var">exp</var></code> <code class="code">name</code><a class="copiable-link" href=\'#index-name-on-Windowint\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-name-on-Windowint"><span class="category-def">Command<code class="code">com</code> on <code class="code">Window<code class="code">int</code></code>: </span><span><code class="def-type">expose<var class="var">exp</var></code> <code class="def-name">name</code><a class="copiable-link" href=\'#index-name-on-Windowint\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-apply"><span class="category-def">Function: </span><span><code class="code">apply</code> <span class="r"><i class="slanted">function &amp;rest arguments</i></span><a class="copiable-link" href=\'#index-apply\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-apply"><span class="category-def">Function: </span><span><code class="def-name">apply</code> <span class="def-meta-var-arguments"><i class="slanted">function &amp;rest arguments</i></span><a class="copiable-link" href=\'#index-apply\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-A2"><span class="category-def"><var class="var">A1</var>: </span><span><code class="code"><var class="var">A2</var></code> <span class="r"><i class="slanted"><var class="var">A3</var> <var class="var">A4</var></i></span><a class="copiable-link" href=\'#index-A2\'> &para;</a></span></dt>
+<dt class="deffn" id="index-A2"><span class="category-def"><var class="var">A1</var>: </span><span><code class="def-name"><var class="var">A2</var></code> <span class="def-meta-var-arguments"><i class="slanted"><var class="var">A3</var> <var class="var">A4</var></i></span><a class="copiable-link" href=\'#index-A2\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-A2-1"><span class="category-def"><code class="code">A1</code>: </span><span><code class="code"><code class="code">A2</code></code> <span class="r"><i class="slanted"><code class="code">A3</code> <code class="code">A4</code></i></span><a class="copiable-link" href=\'#index-A2-1\'> &para;</a></span></dt>
+<dt class="deffn" id="index-A2-1"><span class="category-def"><code class="code">A1</code>: </span><span><code class="def-name"><code class="code">A2</code></code> <span class="def-meta-var-arguments"><i class="slanted"><code class="code">A3</code> <code class="code">A4</code></i></span><a class="copiable-link" href=\'#index-A2-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defvr">
-<dt class="defvr" id="index-A2-5"><span class="category-def"><var class="var">A1</var>: </span><span><code class="code"><var class="var">A2</var></code> <span class="r"><i class="slanted"><var class="var">A3</var> <var class="var">A4</var></i></span><a class="copiable-link" href=\'#index-A2-5\'> &para;</a></span></dt>
+<dt class="defvr" id="index-A2-5"><span class="category-def"><var class="var">A1</var>: </span><span><code class="def-name"><var class="var">A2</var></code> <span class="def-meta-var-arguments"><i class="slanted"><var class="var">A3</var> <var class="var">A4</var></i></span><a class="copiable-link" href=\'#index-A2-5\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defvr">
-<dt class="defvr" id="index-A2-6"><span class="category-def"><code class="code">A1</code>: </span><span><code class="code"><code class="code">A2</code></code> <span class="r"><i class="slanted"><code class="code">A3</code> <code class="code">A4</code></i></span><a class="copiable-link" href=\'#index-A2-6\'> &para;</a></span></dt>
+<dt class="defvr" id="index-A2-6"><span class="category-def"><code class="code">A1</code>: </span><span><code class="def-name"><code class="code">A2</code></code> <span class="def-meta-var-arguments"><i class="slanted"><code class="code">A3</code> <code class="code">A4</code></i></span><a class="copiable-link" href=\'#index-A2-6\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-A3"><span class="category-def"><var class="var">A1</var>: </span><span><code class="code"><var class="var">A2</var></code> <code class="code"><var class="var">A3</var></code> <code class="code"><var class="var">A4</var> <var class="var">A5</var></code><a class="copiable-link" href=\'#index-A3\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-A3"><span class="category-def"><var class="var">A1</var>: </span><span><code class="def-type"><var class="var">A2</var></code> <code class="def-name"><var class="var">A3</var></code> <code class="def-code-arguments"><var class="var">A4</var> <var class="var">A5</var></code><a class="copiable-link" href=\'#index-A3\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-A3-1"><span class="category-def"><code class="code">A1</code>: </span><span><code class="code"><code class="code">A2</code></code> <code class="code"><code class="code">A3</code></code> <code class="code"><code class="code">A4</code> <code class="code">A5</code></code><a class="copiable-link" href=\'#index-A3-1\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-A3-1"><span class="category-def"><code class="code">A1</code>: </span><span><code class="def-type"><code class="code">A2</code></code> <code class="def-name"><code class="code">A3</code></code> <code class="def-code-arguments"><code class="code">A4</code> <code class="code">A5</code></code><a class="copiable-link" href=\'#index-A3-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypevr">
-<dt class="deftypevr" id="index-A3-2"><span class="category-def"><var class="var">A1</var>: </span><span><code class="code"><var class="var">A2</var></code> <code class="code"><var class="var">A3</var></code> <code class="code"><var class="var">A4</var> <var class="var">A5</var></code><a class="copiable-link" href=\'#index-A3-2\'> &para;</a></span></dt>
+<dt class="deftypevr" id="index-A3-2"><span class="category-def"><var class="var">A1</var>: </span><span><code class="def-type"><var class="var">A2</var></code> <code class="def-name"><var class="var">A3</var></code> <code class="def-code-arguments"><var class="var">A4</var> <var class="var">A5</var></code><a class="copiable-link" href=\'#index-A3-2\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypevr">
-<dt class="deftypevr" id="index-A3-3"><span class="category-def"><code class="code">A1</code>: </span><span><code class="code"><code class="t">A2</code></code> <code class="code"><code class="code">A3</code></code> <code class="code"><code class="code">A4</code> <code class="code">A5</code></code><a class="copiable-link" href=\'#index-A3-3\'> &para;</a></span></dt>
+<dt class="deftypevr" id="index-A3-3"><span class="category-def"><code class="code">A1</code>: </span><span><code class="def-type"><code class="t">A2</code></code> <code class="def-name"><code class="code">A3</code></code> <code class="def-code-arguments"><code class="code">A4</code> <code class="code">A5</code></code><a class="copiable-link" href=\'#index-A3-3\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftp">
-<dt class="deftp" id="index-A2-2"><span class="category-def"><var class="var">A1</var>: </span><span><code class="code"><var class="var">A2</var></code> <span class="r"><i class="slanted"><var class="var">A3</var> <var class="var">A4</var></i></span><a class="copiable-link" href=\'#index-A2-2\'> &para;</a></span></dt>
+<dt class="deftp" id="index-A2-2"><span class="category-def"><var class="var">A1</var>: </span><span><code class="def-name"><var class="var">A2</var></code> <span class="def-meta-var-arguments"><i class="slanted"><var class="var">A3</var> <var class="var">A4</var></i></span><a class="copiable-link" href=\'#index-A2-2\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftp">
-<dt class="deftp" id="index-A2-3"><span class="category-def"><code class="code">A1</code>: </span><span><code class="code"><code class="code">A2</code></code> <span class="r"><i class="slanted"><code class="code">A3</code> <code class="code">A4</code></i></span><a class="copiable-link" href=\'#index-A2-3\'> &para;</a></span></dt>
+<dt class="deftp" id="index-A2-3"><span class="category-def"><code class="code">A1</code>: </span><span><code class="def-name"><code class="code">A2</code></code> <span class="def-meta-var-arguments"><i class="slanted"><code class="code">A3</code> <code class="code">A4</code></i></span><a class="copiable-link" href=\'#index-A2-3\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defcv">
-<dt class="defcv" id="index-A3-4"><span class="category-def"><var class="var">A1</var> of <code class="code"><var class="var">A2</var></code>: </span><span><code class="code"><var class="var">A3</var></code> <span class="r"><i class="slanted"><var class="var">A4</var> <var class="var">A5</var></i></span><a class="copiable-link" href=\'#index-A3-4\'> &para;</a></span></dt>
+<dt class="defcv" id="index-A3-4"><span class="category-def"><var class="var">A1</var> of <code class="code"><var class="var">A2</var></code>: </span><span><code class="def-name"><var class="var">A3</var></code> <span class="def-meta-var-arguments"><i class="slanted"><var class="var">A4</var> <var class="var">A5</var></i></span><a class="copiable-link" href=\'#index-A3-4\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftp">
-<dt class="deftp" id="index-A2-4"><span class="category-def"><code class="code">A1</code>: </span><span><code class="code"><code class="code">A2</code></code> <span class="r"><i class="slanted"><code class="code">A3</code> <code class="code">A4</code> <code class="code">A5</code></i></span><a class="copiable-link" href=\'#index-A2-4\'> &para;</a></span></dt>
+<dt class="deftp" id="index-A2-4"><span class="category-def"><code class="code">A1</code>: </span><span><code class="def-name"><code class="code">A2</code></code> <span class="def-meta-var-arguments"><i class="slanted"><code class="code">A3</code> <code class="code">A4</code> <code class="code">A5</code></i></span><a class="copiable-link" href=\'#index-A2-4\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypecv">
-<dt class="deftypecv" id="index-A4-of-A2"><span class="category-def"><var class="var">A1</var> of <code class="code"><var class="var">A2</var></code>: </span><span><code class="code"><var class="var">A3</var></code> <code class="code"><var class="var">A4</var></code> <code class="code"><var class="var">A5</var> <var class="var">A6</var></code><a class="copiable-link" href=\'#index-A4-of-A2\'> &para;</a></span></dt>
+<dt class="deftypecv" id="index-A4-of-A2"><span class="category-def"><var class="var">A1</var> of <code class="code"><var class="var">A2</var></code>: </span><span><code class="def-type"><var class="var">A3</var></code> <code class="def-name"><var class="var">A4</var></code> <code class="def-code-arguments"><var class="var">A5</var> <var class="var">A6</var></code><a class="copiable-link" href=\'#index-A4-of-A2\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypecv">
-<dt class="deftypecv" id="index-A4-of-A2-1"><span class="category-def"><code class="code">A1</code> of <code class="code"><code class="code">A2</code></code>: </span><span><code class="code"><samp class="option">A3</samp></code> <code class="code"><code class="code">A4</code></code> <code class="code"><code class="code">A5</code> <code class="code">A6</code></code><a class="copiable-link" href=\'#index-A4-of-A2-1\'> &para;</a></span></dt>
+<dt class="deftypecv" id="index-A4-of-A2-1"><span class="category-def"><code class="code">A1</code> of <code class="code"><code class="code">A2</code></code>: </span><span><code class="def-type"><samp class="option">A3</samp></code> <code class="def-name"><code class="code">A4</code></code> <code class="def-code-arguments"><code class="code">A5</code> <code class="code">A6</code></code><a class="copiable-link" href=\'#index-A4-of-A2-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defop">
-<dt class="defop" id="index-A3-on-A2"><span class="category-def"><var class="var">A1</var> on <code class="code"><var class="var">A2</var></code>: </span><span><code class="code"><var class="var">A3</var></code> <span class="r"><i class="slanted"><var class="var">A4</var> <var class="var">A5</var></i></span><a class="copiable-link" href=\'#index-A3-on-A2\'> &para;</a></span></dt>
+<dt class="defop" id="index-A3-on-A2"><span class="category-def"><var class="var">A1</var> on <code class="code"><var class="var">A2</var></code>: </span><span><code class="def-name"><var class="var">A3</var></code> <span class="def-meta-var-arguments"><i class="slanted"><var class="var">A4</var> <var class="var">A5</var></i></span><a class="copiable-link" href=\'#index-A3-on-A2\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defop">
-<dt class="defop" id="index-A3-on-A2-1"><span class="category-def"><code class="code">A1</code> on <code class="code"><code class="code">A2</code></code>: </span><span><code class="code"><code class="code">A3</code></code> <span class="r"><i class="slanted"><code class="code">A4</code> <code class="code">A5</code></i></span><a class="copiable-link" href=\'#index-A3-on-A2-1\'> &para;</a></span></dt>
+<dt class="defop" id="index-A3-on-A2-1"><span class="category-def"><code class="code">A1</code> on <code class="code"><code class="code">A2</code></code>: </span><span><code class="def-name"><code class="code">A3</code></code> <span class="def-meta-var-arguments"><i class="slanted"><code class="code">A4</code> <code class="code">A5</code></i></span><a class="copiable-link" href=\'#index-A3-on-A2-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-A4-on-A2"><span class="category-def"><var class="var">A1</var> on <code class="code"><var class="var">A2</var></code>: </span><span><code class="code"><var class="var">A3</var></code> <code class="code"><var class="var">A4</var></code> <code class="code"><var class="var">A5</var> <var class="var">A6</var></code><a class="copiable-link" href=\'#index-A4-on-A2\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-A4-on-A2"><span class="category-def"><var class="var">A1</var> on <code class="code"><var class="var">A2</var></code>: </span><span><code class="def-type"><var class="var">A3</var></code> <code class="def-name"><var class="var">A4</var></code> <code class="def-code-arguments"><var class="var">A5</var> <var class="var">A6</var></code><a class="copiable-link" href=\'#index-A4-on-A2\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
-<dt class="deftypeop" id="index-A4-on-A2-1"><span class="category-def"><code class="code">A1</code> on <code class="code"><code class="code">A2</code></code>: </span><span><code class="code"><code class="code">A3</code></code> <code class="code"><code class="code">A4</code></code> <code class="code"><code class="code">A5</code> <code class="code">A6</code></code><a class="copiable-link" href=\'#index-A4-on-A2-1\'> &para;</a></span></dt>
+<dt class="deftypeop" id="index-A4-on-A2-1"><span class="category-def"><code class="code">A1</code> on <code class="code"><code class="code">A2</code></code>: </span><span><code class="def-type"><code class="code">A3</code></code> <code class="def-name"><code class="code">A4</code></code> <code class="def-code-arguments"><code class="code">A5</code> <code class="code">A6</code></code><a class="copiable-link" href=\'#index-A4-on-A2-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-fun_005fname"><span class="category-def">code then var: </span><span><code class="code">ret_type</code> <code class="code">fun_name</code> <code class="code"><code class="code">A1</code> <var class="var">A2</var> <code class="code">A3</code> <var class="var">A4</var></code><a class="copiable-link" href=\'#index-fun_005fname\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-fun_005fname"><span class="category-def">code then var: </span><span><code class="def-type">ret_type</code> <code class="def-name">fun_name</code> <code class="def-code-arguments"><code class="code">A1</code> <var class="var">A2</var> <code class="code">A3</code> <var class="var">A4</var></code><a class="copiable-link" href=\'#index-fun_005fname\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-fun_005fname1"><span class="category-def">var then code: </span><span><code class="code">ret_type1</code> <code class="code">fun_name1</code> <code class="code"><var class="var">A1</var> <code class="code">A2</code> <var class="var">A3</var> <code class="code">A4</code></code><a class="copiable-link" href=\'#index-fun_005fname1\'> &para;</a></span></dt>
+<dt class="deftypefn" id="index-fun_005fname1"><span class="category-def">var then code: </span><span><code class="def-type">ret_type1</code> <code class="def-name">fun_name1</code> <code class="def-code-arguments"><var class="var">A1</var> <code class="code">A2</code> <var class="var">A3</var> <code class="code">A4</code></code><a class="copiable-link" href=\'#index-fun_005fname1\'> &para;</a></span></dt>
 </dl>
 
 <h3 class="heading" id="Functions">Functions</h3>
