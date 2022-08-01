@@ -53,9 +53,9 @@ tp/Texinfo/Structuring.pm
 tp/Texinfo/Transformations.pm
 tp/Texinfo/Translations.pm
 tp/init/chm.pm
-tp/init/epub3.pm
-tp/init/latex2html.pm
-tp/init/tex4ht.pm
+tp/ext/epub3.pm
+tp/ext/latex2html.pm
+tp/ext/tex4ht.pm
 tp/init/highlight_syntax.pm
 tp/texi2any.pl
 tp/Texinfo/XS/parsetexi/Parsetexi.pm
