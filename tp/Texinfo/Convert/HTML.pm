@@ -5908,69 +5908,46 @@ sub _convert_def_line_type($$$$)
       }
       $category_result = $self->convert_tree($category_tree);
     }
-    my $tree;
-    my $name;
+
+    my $def_call = '';
+    if ($element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
+      $def_call .= $self->html_attribute_class('code', ['code']).">".
+          $self->_convert({'type' => '_code',
+            'contents' => [$element->{'extra'}->{'def_parsed_hash'}->{'type'}]})
+          .'</code>';
+      if ($self->get_conf('deftypefnnewline') eq 'on'
+          and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')) {
+        $def_call .= '<br> ';
+      } else {
+        $def_call .= ' ';
+      }
+    }
+
     if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
         and defined($element->{'extra'}->{'def_parsed_hash'}->{'name'})) {
-      $name = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
-    } else {
-      $name = '';
+      my $name = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
+      $def_call .= $self->html_attribute_class('code', ['code']).">".
+         $self->_convert({'type' => '_code', 'contents' => [$name]})
+         .'</code>';
     }
-    # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
-    if (not $Texinfo::Common::def_no_var_arg_commands{$command_name}) {
-      if ($arguments) {
-        $tree = $self->gdt("\@code{{name}} \@r{\@slanted{{arguments}}}", {
-                'name' => $name,
-                'arguments' => $arguments});
-      } else {
-        $tree = $self->gdt("\@code{{name}}", {'name' => $name});
-      }
+
+    if ($arguments) {
     # arguments not only metasyntactic variables
     # (deftypefn, deftypevr, deftypeop, deftypecv)
-    } else {
-      if (!$element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
-        if ($arguments) {
-          $tree = $self->gdt("\@code{{name}} \@code{{arguments}}", {
-                  'name' => $name,
-                  'arguments' => $arguments});
-        } else {
-          $tree = $self->gdt("\@code{{name}}", {'name' => $name});
-        }
+      if ($Texinfo::Common::def_no_var_arg_commands{$command_name}) {
+        $def_call .= ' '.$self->html_attribute_class('code', ['code']).">".
+          $self->_convert({'type' => '_code', 'contents' => $arguments})
+         .'</code>';
       } else {
-        if ($arguments) {
-          my $strings = {
-                'name' => $name,
-                'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-                'arguments' => $arguments};
-          # FIXME if in @def* in @example and with @deftypefnnewline on
-          # there is no effect of @deftypefnnewline on, as @* in preformatted
-          # environment becomes an end of line, but the def* line is not in a preformatted
-          # environment.  There should be an explicit <br> in that case.  Probably
-          # requires changing the conversion of @* in a @def* line in preformatted,
-          # nothing really specific of @deftypefnnewline on.
-          if ($self->get_conf('deftypefnnewline') eq 'on'
-              and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')) {
-            $tree
-               = $self->gdt("\@code{{type}}\@* \@code{{name}} \@code{{arguments}}",
-                          $strings);
-          } else {
-            $tree
-               = $self->gdt("\@code{{type}} \@code{{name}} \@code{{arguments}}",
-                          $strings);
-          }
-        } else {
-          my $strings = {
-                  'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
-                  'name' => $name};
-          if ($self->get_conf('deftypefnnewline') eq 'on'
-              and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')) {
-            $tree = $self->gdt("\@code{{type}}\@* \@code{{name}}",
-                    $strings);
-          } else {
-            $tree = $self->gdt("\@code{{type}} \@code{{name}}",
-                    $strings);
-          }
-        }
+        # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
+        push @{$self->{'document_context'}->[-1]->{'monospace'}}, 0;
+        my $open = $self->html_attribute_class('span', ['r']);
+        $def_call .= ' '.$open;
+        $def_call .= '>' if ($open ne '');
+        $def_call .= $self->html_attribute_class('i', ['slanted']).">"
+          . $self->_convert({'contents' => $arguments}). '</i>';
+        $def_call .= '</span>' if ($open ne '');
+        pop @{$self->{'document_context'}->[-1]->{'monospace'}};
       }
     }
 
@@ -5989,7 +5966,7 @@ sub _convert_def_line_type($$$$)
     }
     return $self->html_attribute_class('dt', \@classes)
          . "$index_label>" . $category_result . $anchor_span_open
-         . $self->convert_tree({'type' => '_code', 'contents' => [$tree]})
+         . $def_call
          . "$anchor$anchor_span_close</dt>\n";
   } else {
     my $category_prepared = '';

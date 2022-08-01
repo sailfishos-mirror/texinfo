@@ -1,5 +1,13 @@
 2022-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	Use directly HTML code to format @def* line except for category
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): direct
+	HTML format equivalent with previously used Texinfo commands
+	with gdt.
+
+2022-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	Common structure for non metasyntactic only argument def commands
 
 	* tp/Texinfo/Common.pm (%def_no_var_arg_commands),
