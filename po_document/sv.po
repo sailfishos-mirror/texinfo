@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-08-01 17:04+0200\n"
+"POT-Creation-Date: 2022-08-01 17:19+0200\n"
 "PO-Revision-Date: 2021-06-16 11:51+0200\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -242,10 +242,10 @@ msgstr "{text} ({url})"
 msgid "@{No value for `{value}'@}"
 msgstr "@{Inget värdet för `{value}'@}"
 
-#: tp/Texinfo/Convert/LaTeX.pm:3744 tp/Texinfo/Convert/Plaintext.pm:3238
-#: tp/Texinfo/Convert/HTML.pm:4399
-#, perl-brace-format
-msgid "@center --- @emph{{author}}\n"
+#: tp/Texinfo/Convert/LaTeX.pm:3744
+#, fuzzy, perl-brace-format
+#| msgid "@center --- @emph{{author}}\n"
+msgid "@center --- @emph{{author}}"
 msgstr "@center --- @emph{{author}}\n"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1101 tp/Texinfo/Convert/HTML.pm:1043
@@ -358,6 +358,11 @@ msgstr "@tie{}-- {category} av {class}: {type} {name} {arguments}"
 #, perl-brace-format
 msgid "@tie{}-- {category} of {class}: {type} {name}"
 msgstr "@tie{}-- {category} av {class}: {type} {name}"
+
+#: tp/Texinfo/Convert/Plaintext.pm:3238 tp/Texinfo/Convert/HTML.pm:4399
+#, perl-brace-format
+msgid "@center --- @emph{{author}}\n"
+msgstr "@center --- @emph{{author}}\n"
 
 #: tp/Texinfo/Convert/HTML.pm:1897 tp/Texinfo/Convert/HTML.pm:1959
 msgid "Top"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 5.9.93\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-08-01 17:04+0200\n"
+"POT-Creation-Date: 2022-08-01 17:19+0200\n"
 "PO-Revision-Date: 2015-06-08 17:08+0200\n"
 "Last-Translator: Walter Garcia-Fontes <walter.garcia@upf.edu>\n"
 "Language-Team: Catalan <ca@dodds.net>\n"
@@ -240,10 +240,10 @@ msgstr "{text} ({url})"
 msgid "@{No value for `{value}'@}"
 msgstr "@{No hi ha cap valor per a `{value}'@}"
 
-#: tp/Texinfo/Convert/LaTeX.pm:3744 tp/Texinfo/Convert/Plaintext.pm:3238
-#: tp/Texinfo/Convert/HTML.pm:4399
-#, perl-brace-format
-msgid "@center --- @emph{{author}}\n"
+#: tp/Texinfo/Convert/LaTeX.pm:3744
+#, fuzzy, perl-brace-format
+#| msgid "@center --- @emph{{author}}\n"
+msgid "@center --- @emph{{author}}"
 msgstr "@center --- @emph{{author}}\n"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1101 tp/Texinfo/Convert/HTML.pm:1043
@@ -372,6 +372,11 @@ msgstr "@tie{ }-- {category} de {class}: {type} {name} {arguments}"
 #| msgid "@tie{ }-- {category} of {class}: {type} {name}"
 msgid "@tie{}-- {category} of {class}: {type} {name}"
 msgstr "@tie{ }-- {category} de {class}: {type} {name}"
+
+#: tp/Texinfo/Convert/Plaintext.pm:3238 tp/Texinfo/Convert/HTML.pm:4399
+#, perl-brace-format
+msgid "@center --- @emph{{author}}\n"
+msgstr "@center --- @emph{{author}}\n"
 
 #: tp/Texinfo/Convert/HTML.pm:1897 tp/Texinfo/Convert/HTML.pm:1959
 msgid "Top"

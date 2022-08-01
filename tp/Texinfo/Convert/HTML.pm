@@ -5938,15 +5938,15 @@ sub _convert_def_line_type($$$$)
         if ($command_name eq 'deftypeop'
             and $element->{'extra'}->{'def_parsed_hash'}->{'type'}
             and $self->get_conf('deftypefnnewline') eq 'on') {
-          $category_tree = $self->gdt("{category} on \@code{{class}}:\@* ",
+          $category_tree = $self->gdt('{category} on @code{{class}}:@* ',
                 {'category' => $category,
                 'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'}});
         } elsif ($command_name eq 'defop' or $command_name eq 'deftypeop') {
-          $category_tree = $self->gdt("{category} on \@code{{class}}: ",
+          $category_tree = $self->gdt('{category} on @code{{class}}: ',
                 {'category' => $category,
                 'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'}});
         } elsif ($command_name eq 'defcv' or $command_name eq 'deftypecv') {
-          $category_tree = $self->gdt("{category} of \@code{{class}}: ",
+          $category_tree = $self->gdt('{category} of @code{{class}}: ',
                 {'category' => $category,
                 'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'}});
         }
@@ -5959,7 +5959,7 @@ sub _convert_def_line_type($$$$)
           # environment.  There should be an explicit <br> in that case.  Probably
           # requires changing the conversion of @* in a @def* line in preformatted,
           # nothing really specific of @deftypefnnewline on.
-          $category_tree = $self->gdt("{category}:\@* ", {'category' => $category});
+          $category_tree = $self->gdt('{category}:@* ', {'category' => $category});
       } else {
         $category_tree = $self->gdt('{category}: ', {'category' => $category});
       }

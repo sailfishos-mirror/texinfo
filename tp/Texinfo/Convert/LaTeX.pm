@@ -3741,7 +3741,7 @@ sub _convert($$)
         # of the context in particular the preformatted context?
         foreach my $author (@{$element->{'extra'}->{'authors'}}) {
           $result .= _convert($self,
-                 $self->gdt("\@center --- \@emph{{author}}\n",
+                 $self->gdt('@center --- @emph{{author}}',
                     {'author' => $author->{'args'}->[0]->{'contents'}}));
         }
       }
