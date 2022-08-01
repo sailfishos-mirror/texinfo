@@ -70,8 +70,6 @@
 #
 # Should @tie be expanded to ~?
 #
-# @dmn is not implemented
-#
 # LaTeX seems to always break at -, and never at _.  If @allowcodebreaks
 # is true \_ should be set to be a possible break point.  Seems that it
 # may be done with something like:
@@ -649,9 +647,8 @@ register_style_format_command($code_text_context, 'cite',
                         '\\normalfont{}\\textsl', \%LaTeX_style_brace_commands,
                         \%style_brace_format_command_new_commands);
 
-# FIXME dmn, headitemfont
-my @asis_commands = ('asis', 'clicksequence',
-  'headitemfont', 'dmn');
+# FIXME headitemfont
+my @asis_commands = ('asis', 'clicksequence', 'headitemfont');
 
 foreach my $asis_command (@asis_commands) {
   $LaTeX_style_brace_commands{'text'}->{$asis_command} = '';
@@ -2470,6 +2467,11 @@ sub _convert($$)
       }
       $result = _restart_embrac_if_needed($self, $result, $did_stop_embrac);
       return $result;
+    } elsif ($cmdname eq 'dmn') {
+      $result .= '\\thinspace ';
+      if ($element->{'args'}) {
+        $result .= _convert($self, $element->{'args'}->[0]);
+      }
     } elsif ($cmdname eq 'kbd') {
       # 'kbd' is special, distinct font is typewriter + slanted
       # @kbdinputstyle
