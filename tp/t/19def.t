@@ -558,9 +558,14 @@ Documentation of @code{foo}.
 ',
 {'test_formats' => ['plaintext']}],
 ['omit_def_space',
-'@set txidefnamenospace
+'@node Top
+
+@node first
+
+@set txidefnamenospace
 
 @defun function (arg1, arg2)
+@defunx another (aarg)
 explain
 @end defun
 ',

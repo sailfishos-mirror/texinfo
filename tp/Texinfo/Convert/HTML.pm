@@ -5892,6 +5892,11 @@ sub _convert_def_line_type($$$$)
        .'</code>';
   }
 
+  my $def_space = ' ';
+  if ($element->{'parent'}->{'extra'}->{'omit_def_name_space'}) {
+    $def_space = '';
+  }
+
   my $result_arguments = '';
   if ($arguments) {
   # arguments not only metasyntactic variables
@@ -5923,7 +5928,7 @@ sub _convert_def_line_type($$$$)
 
   $def_call .= $result_name;
 
-  $def_call .= ' ' . $result_arguments if ($result_arguments ne '');
+  $def_call .= $def_space . $result_arguments if ($result_arguments ne '');
 
   if (!$self->get_conf('DEF_TABLE')) {
     my $category;

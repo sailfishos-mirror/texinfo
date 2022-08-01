@@ -1,5 +1,12 @@
 2022-07-31  Patrice Dumas  <pertusus@free.fr>
 
+	Handle txidefnamenospace/omit_def_name_space in HTML
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): handle
+	omit_def_name_space as in LaTeX.
+
+2022-07-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): with DEF_TABLE,
 	use the same class as in the default case for the category.  Enclose
 	category in brackets, to be more like TeX.
