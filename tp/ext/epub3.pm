@@ -58,7 +58,10 @@ use Texinfo::Common;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 
-my $epub_format_version = '3.2';
+# the 3.2 spec was used for the implementation.  However, it seems to be
+# designed to be backward compatible with 3.0 and mandates to use 3.0 as
+# version.
+my $epub_format_version = '3.0';
 
 # used in tests to avoid creating the .epub file.
 texinfo_set_from_init_file('EPUB_CREATE_CONTAINER_FILE', 1);
@@ -432,7 +435,9 @@ EOT
                   $mimetype_file_path_name, $!));
     return 0;
   }
-  print $mimetype_fh 'application/epub+zip'."\n";
+  # There is no end of line.  It is not very clear in the standard, but
+  # example files demonstrate clearly that there should not be end of lines.
+  print $mimetype_fh 'application/epub+zip';
 
   Texinfo::Common::output_files_register_closed(
     $self->output_files_information(), $encoded_mimetype_file_path_name);
@@ -720,8 +725,11 @@ EOT
     # needed on other plaforms.
     local $Archive::Zip::UNICODE = 1;
     my $zip = Archive::Zip->new();
+    # the standard says that the mimetype file should not be compressed
+    # The mimetype file MUST NOT be compressed or encrypted
     my $mimetype_added
-      = $zip->addFile($encoded_mimetype_file_path_name, $mimetype_filename);
+      = $zip->addFile($encoded_mimetype_file_path_name, $mimetype_filename,
+                      Archive::Zip->COMPRESSION_LEVEL_NONE);
     if (not(defined($mimetype_added))) {
       $self->document_error($self,
         sprintf(__("epub3.pm: error adding %s to archive"),

@@ -1,5 +1,14 @@
 2022-08-01  Patrice Dumas  <pertusus@free.fr>
 
+	EPUB conformance: version and mimetype file
+
+	* tp/ext/epub3.pm: use 3.0 as version, as said in the
+	standard.  Report from Kurt Hornik.
+	No end line in mimetype file.  Report from Kurt Hornik.
+	mimetype file should not be compressed.
+
+2022-08-01  Patrice Dumas  <pertusus@free.fr>
+
 	HTML @def* argument in <var>, not like @r{@slanted{
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type):
