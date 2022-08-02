@@ -7355,6 +7355,10 @@ I<spaces> or I<delimiter>, depending on the definition.
 The I<def_parsed_hash> hash reference has these strings as keys,
 and the values are the corresponding elements.
 
+The I<omit_def_name_space> key value is set and true if the Texinfo variable
+@code{txidefnamenospace} was set for the def_line, signaling that the
+space between function definition name and arguments should be omitted.
+
 =item C<@multitable>
 
 The key I<max_columns> holds the maximal number of columns.  If there
