@@ -2070,7 +2070,6 @@ my %css_element_class_styles = (
      'span.program-in-footer' => 'font-size: smaller', # used with PROGRAM_NAME_IN_FOOTER
      'span.sansserif'     => 'font-family: sans-serif; font-weight: normal',
      'span.r'             => 'font-family: initial; font-weight: normal; font-style: normal',
-     'span.def-meta-var-arguments' => 'font-family: initial; font-weight: normal; font-style: normal',
      'span.w-nolinebreak-text'   => 'white-space: nowrap',
      'kbd.key'            => 'font-style: normal',
      'kbd.kbd'            => 'font-style: oblique',
@@ -5760,7 +5759,7 @@ sub _convert_menu_entry_type($$$)
       } else {
         $name = $self->convert_tree({'type' => '_code',
                           'contents' => $node_entry->{'node_content'}},
-                          "menu_arg name");
+                          'menu_arg name');
       }
     }
     $name =~ s/^\s*//;
@@ -5773,7 +5772,7 @@ sub _convert_menu_entry_type($$$)
   my $description = '';
   if ($element->{'extra'}->{'menu_entry_description'}) {
     $description = $self->convert_tree($element->{'extra'}->{'menu_entry_description'},
-                                        "menu_arg description");
+                                        'menu_arg description');
     if ($self->get_conf('AVOID_MENU_REDUNDANCY')) {
       $description = '' if (_simplify_text_for_comparison($name_no_number)
                            eq _simplify_text_for_comparison($description));
@@ -5874,7 +5873,7 @@ sub _convert_def_line_type($$$$)
     my $type_text = $self->_convert({'type' => '_code',
        'contents' => [$element->{'extra'}->{'def_parsed_hash'}->{'type'}]});
     if ($type_text ne '') {
-      $result_type = $self->html_attribute_class('code', ['def-type']).">".
+      $result_type = $self->html_attribute_class('code', ['def-type']).'>'.
          $type_text .'</code>';
     }
     if ($self->get_conf('deftypefnnewline') eq 'on'
@@ -5887,7 +5886,7 @@ sub _convert_def_line_type($$$$)
   if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
       and defined($element->{'extra'}->{'def_parsed_hash'}->{'name'})) {
     my $name_content = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
-    $result_name = $self->html_attribute_class('code', ['def-name']).">".
+    $result_name = $self->html_attribute_class('code', ['def-name']).'>'.
        $self->_convert({'type' => '_code', 'contents' => [$name_content]})
        .'</code>';
   }
@@ -5904,8 +5903,9 @@ sub _convert_def_line_type($$$$)
     if ($Texinfo::Common::def_no_var_arg_commands{$command_name}) {
       my $arguments_formatted = $self->_convert({'type' => '_code',
                                                  'contents' => $arguments});
-      $result_arguments = $self->html_attribute_class('code', ['def-code-arguments']).">".
-        $arguments_formatted.'</code>'
+      $result_arguments = $self->html_attribute_class('code',
+                                      ['def-code-arguments']).'>'
+                          . $arguments_formatted.'</code>'
           if ($arguments_formatted =~ /\S/);
     } else {
       # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
@@ -5913,12 +5913,9 @@ sub _convert_def_line_type($$$$)
       my $arguments_formatted = $self->_convert({'contents' => $arguments});
       pop @{$self->{'document_context'}->[-1]->{'monospace'}};
       if ($arguments_formatted =~ /\S/) {
-        my $open = $self->html_attribute_class('span', ['def-meta-var-arguments']);
-        $result_arguments = $open;
-        $result_arguments .= '>' if ($open ne '');
-        $result_arguments .= $self->html_attribute_class('i', ['slanted']).">"
-          . $arguments_formatted .'</i>';
-        $result_arguments .= '</span>' if ($open ne '');
+        $result_arguments = $self->html_attribute_class('var',
+                               ['def-meta-var-arguments']).'>'
+              . $arguments_formatted .'</var>';
       }
     }
   }

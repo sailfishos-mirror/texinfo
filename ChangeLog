@@ -1,5 +1,13 @@
 2022-08-01  Patrice Dumas  <pertusus@free.fr>
 
+	HTML @def* argument in <var>, not like @r{@slanted{
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type):
+	use <var> for @def* not @deftype argument.  Gavin idea.
+	Replace double quotes with single quotes, reindent.
+
+2022-08-01  Patrice Dumas  <pertusus@free.fr>
+
 	Handle txidefnamenospace/omit_def_name_space in info/plaintext
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert): add @def* line
