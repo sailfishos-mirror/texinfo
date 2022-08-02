@@ -1,5 +1,13 @@
 2022-08-01  Patrice Dumas  <pertusus@free.fr>
 
+	Handle txidefnamenospace/omit_def_name_space in info/plaintext
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): add @def* line
+	formatting cases without space between name and argument for
+	the case of omit_def_name_space set.
+
+2022-08-01  Patrice Dumas  <pertusus@free.fr>
+
 	No omit_def_name_space in main def element
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
