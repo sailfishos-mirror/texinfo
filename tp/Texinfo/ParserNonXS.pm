@@ -5017,9 +5017,6 @@ sub _parse_texi($$$)
                          'contents' => [] };
               push @{$current->{'contents'}}, $block;
               $current = $current->{'contents'}->[-1];
-              if (defined($self->{'values'}->{'txidefnamenospace'})) {
-                $current->{'extra'}->{'omit_def_name_space'} = 1;
-              }
               push @{$current->{'contents'}}, {
                                                 'type' => 'def_line',
                                                 'parent' => $current,

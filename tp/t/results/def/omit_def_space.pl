@@ -413,7 +413,6 @@ $result_trees{'omit_def_space'} = {
           ],
           'extra' => {
             'end_command' => {},
-            'omit_def_name_space' => 1,
             'spaces_before_argument' => ' '
           },
           'parent' => {},

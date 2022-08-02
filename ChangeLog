@@ -1,3 +1,11 @@
+2022-08-01  Patrice Dumas  <pertusus@free.fr>
+
+	No omit_def_name_space in main def element
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command):
+	do not add omit_def_name_space to @def* main command.
+
 2022-08-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	@firstparagraphindent in LaTeX
