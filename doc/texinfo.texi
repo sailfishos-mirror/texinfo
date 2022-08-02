@@ -18,6 +18,14 @@
 
 @c finalout
 
+@c flag to index command names without extra text in the entry
+@ifinfo
+@set commandlookup
+@end ifinfo
+@ifhtml
+@set commandlookup
+@end ifhtml
+
 @copying
 This manual is for GNU Texinfo (version @value{VERSION}, @value{UPDATED}),
 a documentation system that can produce both online information and a
@@ -6366,7 +6374,7 @@ there.
 @node Smallcaps
 @subsection @code{@@sc}@{@var{text}@}: The Small Caps Font
 @cindex Small caps font
-@findex sc @r{(small caps font)}
+@findex sc
 
 Use the @samp{@@sc} command to set text in @sc{a small caps font}
 (where possible).  Write the text you want to be in small caps between
@@ -6439,34 +6447,46 @@ argument surrounded by braces.
 @table @code
 @item @@b
 @findex b @r{(bold font)}
+@ifset commandlookup
+@findex b
+@end ifset
 @cindex Bold font
 selects @b{bold} face;
 
 @item @@i
 @findex i @r{(italic font)}
+@ifset commandlookup
+@findex i
+@end ifset
 @cindex Italic font
 selects an @i{italic} font;
 
 @item @@r
 @findex r @r{(roman font)}
+@ifset commandlookup
+@findex r
+@end ifset
 @cindex Roman font
 @cindex Default font
 selects a @r{roman} font, which is the usual font in which text is
 printed.  It may or may not be seriffed.
 
 @item @@sansserif
-@findex sansserif @r{(sans serif font)}
+@findex sansserif
 @cindex Sans serif font
 selects a @sansserif{sans serif} font;
 
 @item @@slanted
-@findex slanted @r{(slanted font)}
+@findex slanted
 @cindex Slanted font
 @cindex Oblique font
 selects a @slanted{slanted} font;
 
 @item @@t
 @findex t @r{(typewriter font)}
+@ifset commandlookup
+@findex t
+@end ifset
 @cindex Monospace font
 @cindex Fixed-width font
 @cindex Typewriter font
@@ -8322,7 +8342,7 @@ Use @code{@@center} to center an image
 
 @cindex Alt attribute for images
 @cindex Images @subentry alternate text for
-@findex @sortas{-} -@r{ (in image alt string)}
+@cindex @sortas{-} -@r{ (in image alt string)}
 For HTML output, the @dfn{alt attribute} for
 inline images is set to the optional @var{alttext} (fourth) argument to
 @code{@@image}, if supplied.  If not supplied, the full file name of
@@ -9270,7 +9290,10 @@ only in restricted contexts, as explained in the respective sections.
 @cindex At sign, inserting
 @cindex Inserting @@ @r{(literal @samp{@@})}
 @findex @sortas{@@} @@ @r{(literal @samp{@@})}
-@findex atchar@{@} @r{(literal @samp{@@})}
+@ifset commandlookup
+@findex @sortas{@@} @@
+@end ifset
+@findex atchar
 
 @code{@@@@} produces a single @samp{@@} character in the output.  Do
 not put braces after an @code{@@@@} command.
@@ -9287,8 +9310,12 @@ source (and may be clearer in other contexts).
 
 @findex @{ @r{(literal @samp{@{})}
 @findex @} @r{(literal @samp{@}})}
-@findex lbracechar@{@} @r{(literal @samp{@{})}
-@findex rbracechar@{@} @r{(literal @samp{@}})}
+@ifset commandlookup
+@findex @{
+@findex @}
+@end ifset
+@findex lbracechar
+@findex rbracechar
 @cindex Braces, inserting
 
 @code{@@@{} produces a single @samp{@{} in the output, and @code{@@@}}
@@ -9373,7 +9400,7 @@ is no need for it except in these unusual cases.
 @node Inserting a Hashsign
 @subsection Inserting `#' with @code{@@hashchar@{@}}
 
-@findex hashchar@{@} @r{(literal @samp{#})}
+@findex hashchar
 @cindex Inserting #
 @cindex Hash sign, inserting
 
@@ -9410,7 +9437,7 @@ is no need for it anywhere except this unusual case.
 @node Inserting an Ampersand
 @subsection Inserting `&' with @code{@@&} and @code{@@ampchar@{@}}
 
-@findex ampchar@{@} @r{(literal @samp{&})}
+@findex ampchar
 @cindex Inserting &
 @cindex Ampersand, inserting
 
@@ -9586,6 +9613,9 @@ at the end of a sentence, slightly more space is
 inserted after it in a typeset manual.
 
 @findex : @r{(suppress end-of-sentence space)}
+@ifset commandlookup
+@findex :
+@end ifset
 Usually, Texinfo can determine automatically when a period ends a 
 sentence.  However, special commands are needed in some circumstances.
 Use the @code{@@:} command after a period, question mark, exclamation
@@ -9645,6 +9675,11 @@ sentence, and no extra space is inserted.
 @findex . @r{(end of sentence)}
 @findex ! @r{(end of sentence)}
 @findex ? @r{(end of sentence)}
+@ifset commandlookup
+@findex .
+@findex !
+@findex ?
+@end ifset
 @cindex Spacing, at ends of sentences
 As mentioned above, Texinfo normally inserts additional space after
 the end of a sentence.  It uses the same heuristic for this as @TeX{}:
@@ -9850,6 +9885,18 @@ encoded characters are not output.
 @cindex Hacek accent
 @cindex Check accent
 @cindex Caron
+@ifset commandlookup
+@findex "
+@findex '
+@findex =
+@findex ^
+@findex `
+@findex ~
+@findex ,
+@findex H
+@findex u
+@findex v
+@end ifset
 @multitable {@t{@@questiondown@{@}}} {Output} {caron/hacek/check accent}
 @headitem Command           @tab Output         @tab What
 @item @t{@@"o}              @tab @"o            @tab umlaut accent
@@ -10945,6 +10992,11 @@ Start a new page if not enough space on this one.
 
 @findex * @r{(force line break)}
 @findex / @r{(allow line break)}
+@ifset commandlookup
+@findex *
+@findex /
+@end ifset
+
 @cindex Line breaks @subentry controlling
 @cindex Controlling line breaks
 @cindex Breaks in a line
@@ -10981,6 +11033,9 @@ effect on the other output formats.
 
 @anchor{- and hyphenation}@c old name
 @findex @sortas{-} - @r{(discretionary hyphen)}
+@ifset commandlookup
+@findex @sortas{-} -
+@end ifset
 @findex hyphenation
 @cindex Hyphenation, helping @TeX{} do
 @cindex Fine-tuning, and hyphenation
@@ -11106,7 +11161,7 @@ in Info or plain text output, though.
 @section @code{@@tie@{@}}: Inserting an Unbreakable Space
 
 @anchor{tie}@c old name
-@findex tie @r{(unbreakable interword space)}
+@findex tie
 @cindex Tied space
 @cindex Non-breakable space, variable
 @cindex Unbreakable space, variable
@@ -11147,7 +11202,7 @@ reasons, namely that it produces an @samp{\hbox}).
 @section @code{@@sp} @var{n}: Insert Blank Lines
 
 @anchor{sp}@c old name
-@findex sp @r{(line spacing)}
+@findex sp
 @cindex Space, inserting vertical
 @cindex Blank lines
 @cindex Line spacing

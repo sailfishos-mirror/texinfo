@@ -1,3 +1,17 @@
+2022-08-02  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Manual - make "info texinfo r" work
+
+	* doc/texinfo.texi:  Supply extra index entries for @-command
+	names without extra clarificatory text.  Output these for
+	Info and HTML output.  Remove other clarifications where the
+	command name is longer than a byte.
+
+	This makes it easier to look up documentation of these
+	commands in Info.  For example, "info texinfo r" would not
+	go to the documentation of @r, because the index entry didn't
+	match exactly: it was "r (roman font)", not "r".
+
 2022-08-01  Patrice Dumas  <pertusus@free.fr>
 
 	EPUB conformance: version and mimetype file
