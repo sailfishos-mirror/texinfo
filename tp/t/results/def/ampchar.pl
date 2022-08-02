@@ -379,7 +379,6 @@ $result_converted{'html'}->{'ampchar'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
-span.def-meta-var-arguments {font-family: initial; font-weight: normal; font-style: normal}
 span:hover a.copiable-link {visibility: visible}
 -->
 </style>
@@ -389,7 +388,7 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="en">
 <dl class="first-defop">
-<dt class="defop" id="index-b-on-a"><span class="category-def">Constructor on <code class="code">a</code>: </span><span><code class="def-name">b</code> <span class="def-meta-var-arguments"><i class="slanted">(<code class="code">const std::vector&lt;int&gt;&amp;</code>)</i></span><a class="copiable-link" href=\'#index-b-on-a\'> &para;</a></span></dt>
+<dt class="defop" id="index-b-on-a"><span class="category-def">Constructor on <code class="code">a</code>: </span><span><code class="def-name">b</code> <var class="def-meta-var-arguments">(<code class="code">const std::vector&lt;int&gt;&amp;</code>)</var><a class="copiable-link" href=\'#index-b-on-a\'> &para;</a></span></dt>
 </dl>
 <p>&amp; &amp; &amp; { } @
 </p>

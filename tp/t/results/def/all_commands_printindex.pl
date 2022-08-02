@@ -5895,7 +5895,6 @@ $result_converted{'html'}->{'all_commands_printindex'} = '<!DOCTYPE html>
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
-span.def-meta-var-arguments {font-family: initial; font-weight: normal; font-style: normal}
 span:hover a.copiable-link {visibility: visible}
 -->
 </style>
@@ -5911,7 +5910,7 @@ span:hover a.copiable-link {visibility: visible}
 </p></dd></dl>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-n_002d_002dame"><span class="category-def">c&ndash;ategory: </span><span><code class="def-name">n--ame</code> <span class="def-meta-var-arguments"><i class="slanted">a&ndash;rguments...</i></span><a class="copiable-link" href=\'#index-n_002d_002dame\'> &para;</a></span></dt>
+<dt class="deffn" id="index-n_002d_002dame"><span class="category-def">c&ndash;ategory: </span><span><code class="def-name">n--ame</code> <var class="def-meta-var-arguments">a&ndash;rguments...</var><a class="copiable-link" href=\'#index-n_002d_002dame\'> &para;</a></span></dt>
 <dd><p>d&ndash;effn
 </p></dd></dl>
 
@@ -5951,7 +5950,7 @@ span:hover a.copiable-link {visibility: visible}
 </p></dd></dl>
 
 <dl class="first-defcv">
-<dt class="defcv" id="index-d_002d_002defcv_005fname-1"><span class="category-def">c&ndash;ategory of <code class="code">c--lass</code>: </span><span><code class="def-name">d--efcv_name</code> <span class="def-meta-var-arguments"><i class="slanted">a&ndash;rguments...</i></span><a class="copiable-link" href=\'#index-d_002d_002defcv_005fname-1\'> &para;</a></span></dt>
+<dt class="defcv" id="index-d_002d_002defcv_005fname-1"><span class="category-def">c&ndash;ategory of <code class="code">c--lass</code>: </span><span><code class="def-name">d--efcv_name</code> <var class="def-meta-var-arguments">a&ndash;rguments...</var><a class="copiable-link" href=\'#index-d_002d_002defcv_005fname-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;efcv with arguments
 </p></dd></dl>
 
@@ -5966,7 +5965,7 @@ span:hover a.copiable-link {visibility: visible}
 </p></dd></dl>
 
 <dl class="first-defop">
-<dt class="defop" id="index-d_002d_002defop_005fname-on-c_002d_002dlass"><span class="category-def">c&ndash;ategory on <code class="code">c--lass</code>: </span><span><code class="def-name">d--efop_name</code> <span class="def-meta-var-arguments"><i class="slanted">a&ndash;rguments...</i></span><a class="copiable-link" href=\'#index-d_002d_002defop_005fname-on-c_002d_002dlass\'> &para;</a></span></dt>
+<dt class="defop" id="index-d_002d_002defop_005fname-on-c_002d_002dlass"><span class="category-def">c&ndash;ategory on <code class="code">c--lass</code>: </span><span><code class="def-name">d--efop_name</code> <var class="def-meta-var-arguments">a&ndash;rguments...</var><a class="copiable-link" href=\'#index-d_002d_002defop_005fname-on-c_002d_002dlass\'> &para;</a></span></dt>
 <dd><p>d&ndash;efop
 </p></dd></dl>
 
@@ -5976,22 +5975,22 @@ span:hover a.copiable-link {visibility: visible}
 </p></dd></dl>
 
 <dl class="first-deftp">
-<dt class="deftp" id="index-d_002d_002deftp_005fname"><span class="category-def">c&ndash;ategory: </span><span><code class="def-name">d--eftp_name</code> <span class="def-meta-var-arguments"><i class="slanted">a&ndash;ttributes...</i></span><a class="copiable-link" href=\'#index-d_002d_002deftp_005fname\'> &para;</a></span></dt>
+<dt class="deftp" id="index-d_002d_002deftp_005fname"><span class="category-def">c&ndash;ategory: </span><span><code class="def-name">d--eftp_name</code> <var class="def-meta-var-arguments">a&ndash;ttributes...</var><a class="copiable-link" href=\'#index-d_002d_002deftp_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;eftp
 </p></dd></dl>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-d_002d_002defun_005fname"><span class="category-def">Function: </span><span><code class="def-name">d--efun_name</code> <span class="def-meta-var-arguments"><i class="slanted">a&ndash;rguments...</i></span><a class="copiable-link" href=\'#index-d_002d_002defun_005fname\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-d_002d_002defun_005fname"><span class="category-def">Function: </span><span><code class="def-name">d--efun_name</code> <var class="def-meta-var-arguments">a&ndash;rguments...</var><a class="copiable-link" href=\'#index-d_002d_002defun_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efun
 </p></dd></dl>
 
 <dl class="first-deffn first-defmac-alias-first-deffn">
-<dt class="deffn defmac-alias-deffn" id="index-d_002d_002defmac_005fname"><span class="category-def">Macro: </span><span><code class="def-name">d--efmac_name</code> <span class="def-meta-var-arguments"><i class="slanted">a&ndash;rguments...</i></span><a class="copiable-link" href=\'#index-d_002d_002defmac_005fname\'> &para;</a></span></dt>
+<dt class="deffn defmac-alias-deffn" id="index-d_002d_002defmac_005fname"><span class="category-def">Macro: </span><span><code class="def-name">d--efmac_name</code> <var class="def-meta-var-arguments">a&ndash;rguments...</var><a class="copiable-link" href=\'#index-d_002d_002defmac_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efmac
 </p></dd></dl>
 
 <dl class="first-deffn first-defspec-alias-first-deffn">
-<dt class="deffn defspec-alias-deffn" id="index-d_002d_002defspec_005fname"><span class="category-def">Special Form: </span><span><code class="def-name">d--efspec_name</code> <span class="def-meta-var-arguments"><i class="slanted">a&ndash;rguments...</i></span><a class="copiable-link" href=\'#index-d_002d_002defspec_005fname\'> &para;</a></span></dt>
+<dt class="deffn defspec-alias-deffn" id="index-d_002d_002defspec_005fname"><span class="category-def">Special Form: </span><span><code class="def-name">d--efspec_name</code> <var class="def-meta-var-arguments">a&ndash;rguments...</var><a class="copiable-link" href=\'#index-d_002d_002defspec_005fname\'> &para;</a></span></dt>
 <dd><p>d&ndash;efspec
 </p></dd></dl>
 
@@ -6001,7 +6000,7 @@ span:hover a.copiable-link {visibility: visible}
 </p></dd></dl>
 
 <dl class="first-defvr first-defvar-alias-first-defvr">
-<dt class="defvr defvar-alias-defvr" id="index-d_002d_002defvar_005fname-1"><span class="category-def">Variable: </span><span><code class="def-name">d--efvar_name</code> <span class="def-meta-var-arguments"><i class="slanted">arg&ndash;var arg&ndash;var1</i></span><a class="copiable-link" href=\'#index-d_002d_002defvar_005fname-1\'> &para;</a></span></dt>
+<dt class="defvr defvar-alias-defvr" id="index-d_002d_002defvar_005fname-1"><span class="category-def">Variable: </span><span><code class="def-name">d--efvar_name</code> <var class="def-meta-var-arguments">arg&ndash;var arg&ndash;var1</var><a class="copiable-link" href=\'#index-d_002d_002defvar_005fname-1\'> &para;</a></span></dt>
 <dd><p>d&ndash;efvar with args
 </p></dd></dl>
 
@@ -6031,7 +6030,7 @@ span:hover a.copiable-link {visibility: visible}
 </p></dd></dl>
 
 <dl class="first-defop first-defmethod-alias-first-defop">
-<dt class="defop defmethod-alias-defop" id="index-d_002d_002defmethod_005fname-on-c_002d_002dlass"><span class="category-def">Method on <code class="code">c--lass</code>: </span><span><code class="def-name">d--efmethod_name</code> <span class="def-meta-var-arguments"><i class="slanted">a&ndash;rguments...</i></span><a class="copiable-link" href=\'#index-d_002d_002defmethod_005fname-on-c_002d_002dlass\'> &para;</a></span></dt>
+<dt class="defop defmethod-alias-defop" id="index-d_002d_002defmethod_005fname-on-c_002d_002dlass"><span class="category-def">Method on <code class="code">c--lass</code>: </span><span><code class="def-name">d--efmethod_name</code> <var class="def-meta-var-arguments">a&ndash;rguments...</var><a class="copiable-link" href=\'#index-d_002d_002defmethod_005fname-on-c_002d_002dlass\'> &para;</a></span></dt>
 <dd><p>d&ndash;efmethod
 </p></dd></dl>
 

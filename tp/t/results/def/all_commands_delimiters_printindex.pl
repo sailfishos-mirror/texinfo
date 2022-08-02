@@ -16062,7 +16062,6 @@ $result_converted{'html'}->{'all_commands_delimiters_printindex'} = '<!DOCTYPE h
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
-span.def-meta-var-arguments {font-family: initial; font-weight: normal; font-style: normal}
 span:hover a.copiable-link {visibility: visible}
 -->
 </style>
@@ -16073,11 +16072,11 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="en">
 <h1 class="node" id="Top">Top</h1>
 <dl class="first-deffn">
-<dt class="deffn" id="index-forward_002d_002dchar"><span class="category-def">Command: </span><span><code class="def-name"><var class="var">forward--char</var></code> <span class="def-meta-var-arguments"><i class="slanted"><var class="var">nchars</var> argument2 argument3         (arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-forward_002d_002dchar\'> &para;</a></span></dt>
+<dt class="deffn" id="index-forward_002d_002dchar"><span class="category-def">Command: </span><span><code class="def-name"><var class="var">forward--char</var></code> <var class="def-meta-var-arguments"><var class="var">nchars</var> argument2 argument3         (arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</var><a class="copiable-link" href=\'#index-forward_002d_002dchar\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defvr">
-<dt class="defvr" id="index-fill_002dcolumn"><span class="category-def">Variable: </span><span><code class="def-name">fill-column</code> <span class="def-meta-var-arguments"><i class="slanted">argument1 argument2         (arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-fill_002dcolumn\'> &para;</a></span></dt>
+<dt class="defvr" id="index-fill_002dcolumn"><span class="category-def">Variable: </span><span><code class="def-name">fill-column</code> <var class="def-meta-var-arguments">argument1 argument2         (arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</var><a class="copiable-link" href=\'#index-fill_002dcolumn\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
@@ -16101,11 +16100,11 @@ span:hover a.copiable-link {visibility: visible}
 </dl>
 
 <dl class="first-deftp">
-<dt class="deftp" id="index-pair"><span class="category-def">Data type: </span><span><code class="def-name">pair</code> <span class="def-meta-var-arguments"><i class="slanted">car cdr         (arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-pair\'> &para;</a></span></dt>
+<dt class="deftp" id="index-pair"><span class="category-def">Data type: </span><span><code class="def-name">pair</code> <var class="def-meta-var-arguments">car cdr         (arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</var><a class="copiable-link" href=\'#index-pair\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defcv">
-<dt class="defcv" id="index-border_002dpattern"><span class="category-def">Class Option of <code class="code">Window</code>: </span><span><code class="def-name">border-pattern</code> <span class="def-meta-var-arguments"><i class="slanted">(arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-border_002dpattern\'> &para;</a></span></dt>
+<dt class="defcv" id="index-border_002dpattern"><span class="category-def">Class Option of <code class="code">Window</code>: </span><span><code class="def-name">border-pattern</code> <var class="def-meta-var-arguments">(arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</var><a class="copiable-link" href=\'#index-border_002dpattern\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypecv">
@@ -16113,7 +16112,7 @@ span:hover a.copiable-link {visibility: visible}
 </dl>
 
 <dl class="first-defop">
-<dt class="defop" id="index-expose-on-windows"><span class="category-def">Operation on <code class="code">windows</code>: </span><span><code class="def-name">expose</code> <span class="def-meta-var-arguments"><i class="slanted">(arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</i></span><a class="copiable-link" href=\'#index-expose-on-windows\'> &para;</a></span></dt>
+<dt class="defop" id="index-expose-on-windows"><span class="category-def">Operation on <code class="code">windows</code>: </span><span><code class="def-name">expose</code> <var class="def-meta-var-arguments">(arg in brace, [something <var class="var">in v&ndash;ar</var>, <b class="b">in, b</b> , comma a<var class="var">pref</var> p]) last</var><a class="copiable-link" href=\'#index-expose-on-windows\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">
@@ -16177,23 +16176,23 @@ span:hover a.copiable-link {visibility: visible}
 </dl>
 
 <dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-apply"><span class="category-def">Function: </span><span><code class="def-name">apply</code> <span class="def-meta-var-arguments"><i class="slanted">function &amp;rest arguments</i></span><a class="copiable-link" href=\'#index-apply\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-apply"><span class="category-def">Function: </span><span><code class="def-name">apply</code> <var class="def-meta-var-arguments">function &amp;rest arguments</var><a class="copiable-link" href=\'#index-apply\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-A2"><span class="category-def"><var class="var">A1</var>: </span><span><code class="def-name"><var class="var">A2</var></code> <span class="def-meta-var-arguments"><i class="slanted"><var class="var">A3</var> <var class="var">A4</var></i></span><a class="copiable-link" href=\'#index-A2\'> &para;</a></span></dt>
+<dt class="deffn" id="index-A2"><span class="category-def"><var class="var">A1</var>: </span><span><code class="def-name"><var class="var">A2</var></code> <var class="def-meta-var-arguments"><var class="var">A3</var> <var class="var">A4</var></var><a class="copiable-link" href=\'#index-A2\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-A2-1"><span class="category-def"><code class="code">A1</code>: </span><span><code class="def-name"><code class="code">A2</code></code> <span class="def-meta-var-arguments"><i class="slanted"><code class="code">A3</code> <code class="code">A4</code></i></span><a class="copiable-link" href=\'#index-A2-1\'> &para;</a></span></dt>
+<dt class="deffn" id="index-A2-1"><span class="category-def"><code class="code">A1</code>: </span><span><code class="def-name"><code class="code">A2</code></code> <var class="def-meta-var-arguments"><code class="code">A3</code> <code class="code">A4</code></var><a class="copiable-link" href=\'#index-A2-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defvr">
-<dt class="defvr" id="index-A2-5"><span class="category-def"><var class="var">A1</var>: </span><span><code class="def-name"><var class="var">A2</var></code> <span class="def-meta-var-arguments"><i class="slanted"><var class="var">A3</var> <var class="var">A4</var></i></span><a class="copiable-link" href=\'#index-A2-5\'> &para;</a></span></dt>
+<dt class="defvr" id="index-A2-5"><span class="category-def"><var class="var">A1</var>: </span><span><code class="def-name"><var class="var">A2</var></code> <var class="def-meta-var-arguments"><var class="var">A3</var> <var class="var">A4</var></var><a class="copiable-link" href=\'#index-A2-5\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defvr">
-<dt class="defvr" id="index-A2-6"><span class="category-def"><code class="code">A1</code>: </span><span><code class="def-name"><code class="code">A2</code></code> <span class="def-meta-var-arguments"><i class="slanted"><code class="code">A3</code> <code class="code">A4</code></i></span><a class="copiable-link" href=\'#index-A2-6\'> &para;</a></span></dt>
+<dt class="defvr" id="index-A2-6"><span class="category-def"><code class="code">A1</code>: </span><span><code class="def-name"><code class="code">A2</code></code> <var class="def-meta-var-arguments"><code class="code">A3</code> <code class="code">A4</code></var><a class="copiable-link" href=\'#index-A2-6\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypefn">
@@ -16213,19 +16212,19 @@ span:hover a.copiable-link {visibility: visible}
 </dl>
 
 <dl class="first-deftp">
-<dt class="deftp" id="index-A2-2"><span class="category-def"><var class="var">A1</var>: </span><span><code class="def-name"><var class="var">A2</var></code> <span class="def-meta-var-arguments"><i class="slanted"><var class="var">A3</var> <var class="var">A4</var></i></span><a class="copiable-link" href=\'#index-A2-2\'> &para;</a></span></dt>
+<dt class="deftp" id="index-A2-2"><span class="category-def"><var class="var">A1</var>: </span><span><code class="def-name"><var class="var">A2</var></code> <var class="def-meta-var-arguments"><var class="var">A3</var> <var class="var">A4</var></var><a class="copiable-link" href=\'#index-A2-2\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftp">
-<dt class="deftp" id="index-A2-3"><span class="category-def"><code class="code">A1</code>: </span><span><code class="def-name"><code class="code">A2</code></code> <span class="def-meta-var-arguments"><i class="slanted"><code class="code">A3</code> <code class="code">A4</code></i></span><a class="copiable-link" href=\'#index-A2-3\'> &para;</a></span></dt>
+<dt class="deftp" id="index-A2-3"><span class="category-def"><code class="code">A1</code>: </span><span><code class="def-name"><code class="code">A2</code></code> <var class="def-meta-var-arguments"><code class="code">A3</code> <code class="code">A4</code></var><a class="copiable-link" href=\'#index-A2-3\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defcv">
-<dt class="defcv" id="index-A3-4"><span class="category-def"><var class="var">A1</var> of <code class="code"><var class="var">A2</var></code>: </span><span><code class="def-name"><var class="var">A3</var></code> <span class="def-meta-var-arguments"><i class="slanted"><var class="var">A4</var> <var class="var">A5</var></i></span><a class="copiable-link" href=\'#index-A3-4\'> &para;</a></span></dt>
+<dt class="defcv" id="index-A3-4"><span class="category-def"><var class="var">A1</var> of <code class="code"><var class="var">A2</var></code>: </span><span><code class="def-name"><var class="var">A3</var></code> <var class="def-meta-var-arguments"><var class="var">A4</var> <var class="var">A5</var></var><a class="copiable-link" href=\'#index-A3-4\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftp">
-<dt class="deftp" id="index-A2-4"><span class="category-def"><code class="code">A1</code>: </span><span><code class="def-name"><code class="code">A2</code></code> <span class="def-meta-var-arguments"><i class="slanted"><code class="code">A3</code> <code class="code">A4</code> <code class="code">A5</code></i></span><a class="copiable-link" href=\'#index-A2-4\'> &para;</a></span></dt>
+<dt class="deftp" id="index-A2-4"><span class="category-def"><code class="code">A1</code>: </span><span><code class="def-name"><code class="code">A2</code></code> <var class="def-meta-var-arguments"><code class="code">A3</code> <code class="code">A4</code> <code class="code">A5</code></var><a class="copiable-link" href=\'#index-A2-4\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypecv">
@@ -16237,11 +16236,11 @@ span:hover a.copiable-link {visibility: visible}
 </dl>
 
 <dl class="first-defop">
-<dt class="defop" id="index-A3-on-A2"><span class="category-def"><var class="var">A1</var> on <code class="code"><var class="var">A2</var></code>: </span><span><code class="def-name"><var class="var">A3</var></code> <span class="def-meta-var-arguments"><i class="slanted"><var class="var">A4</var> <var class="var">A5</var></i></span><a class="copiable-link" href=\'#index-A3-on-A2\'> &para;</a></span></dt>
+<dt class="defop" id="index-A3-on-A2"><span class="category-def"><var class="var">A1</var> on <code class="code"><var class="var">A2</var></code>: </span><span><code class="def-name"><var class="var">A3</var></code> <var class="def-meta-var-arguments"><var class="var">A4</var> <var class="var">A5</var></var><a class="copiable-link" href=\'#index-A3-on-A2\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-defop">
-<dt class="defop" id="index-A3-on-A2-1"><span class="category-def"><code class="code">A1</code> on <code class="code"><code class="code">A2</code></code>: </span><span><code class="def-name"><code class="code">A3</code></code> <span class="def-meta-var-arguments"><i class="slanted"><code class="code">A4</code> <code class="code">A5</code></i></span><a class="copiable-link" href=\'#index-A3-on-A2-1\'> &para;</a></span></dt>
+<dt class="defop" id="index-A3-on-A2-1"><span class="category-def"><code class="code">A1</code> on <code class="code"><code class="code">A2</code></code>: </span><span><code class="def-name"><code class="code">A3</code></code> <var class="def-meta-var-arguments"><code class="code">A4</code> <code class="code">A5</code></var><a class="copiable-link" href=\'#index-A3-on-A2-1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deftypeop">

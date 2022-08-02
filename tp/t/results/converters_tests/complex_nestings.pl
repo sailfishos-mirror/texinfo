@@ -1677,15 +1677,15 @@ $result_converted{'html_text'}->{'complex_nestings'} = '<div class="top-level-ex
 <div class="example">
 <pre class="example-preformatted">deffs
 </pre><dl class="first-deffn first-defun-alias-first-deffn">
-<dt class="deffn defun-alias-deffn" id="index-my-def"><span class="category-def">Function: </span><span><code class="def-name">my def</code> <span class="def-meta-var-arguments"><i class="slanted">args <var class="var">arg</var> &hellip;</i></span><a class="copiable-link" href=\'#index-my-def\'> &para;</a></span></dt>
-<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-other-def"><span class="category-def">Function: </span><span><code class="def-name">other def</code> <span class="def-meta-var-arguments"><i class="slanted">no args</i></span><a class="copiable-link" href=\'#index-other-def\'> &para;</a></span></dt>
+<dt class="deffn defun-alias-deffn" id="index-my-def"><span class="category-def">Function: </span><span><code class="def-name">my def</code> <var class="def-meta-var-arguments">args <var class="var">arg</var> &hellip;</var><a class="copiable-link" href=\'#index-my-def\'> &para;</a></span></dt>
+<dt class="deffnx defunx-alias-deffnx def-cmd-deffn" id="index-other-def"><span class="category-def">Function: </span><span><code class="def-name">other def</code> <var class="def-meta-var-arguments">no args</var><a class="copiable-link" href=\'#index-other-def\'> &para;</a></span></dt>
 <dd><dl class="first-deffn">
-<dt class="deffn" id="index-name"><span class="category-def">type: </span><span><code class="def-name">name</code> <span class="def-meta-var-arguments"><i class="slanted">and now the args</i></span><a class="copiable-link" href=\'#index-name\'> &para;</a></span></dt>
+<dt class="deffn" id="index-name"><span class="category-def">type: </span><span><code class="def-name">name</code> <var class="def-meta-var-arguments">and now the args</var><a class="copiable-link" href=\'#index-name\'> &para;</a></span></dt>
 <dd><dl class="first-defvr first-defvar-alias-first-defvr">
-<dt class="defvr defvar-alias-defvr" id="index-variables"><span class="category-def">Variable: </span><span><code class="def-name">variables</code> <span class="def-meta-var-arguments"><i class="slanted">variable-name</i></span><a class="copiable-link" href=\'#index-variables\'> &para;</a></span></dt>
+<dt class="defvr defvar-alias-defvr" id="index-variables"><span class="category-def">Variable: </span><span><code class="def-name">variables</code> <var class="def-meta-var-arguments">variable-name</var><a class="copiable-link" href=\'#index-variables\'> &para;</a></span></dt>
 <dd><pre class="example-preformatted">
 
-</pre></dd><dt class="defvrx defvarx-alias-defvrx def-cmd-defvr" id="index-variables-too"><span class="category-def">Variable: </span><span><code class="def-name">variables too</code> <span class="def-meta-var-arguments"><i class="slanted">other-variable</i></span><a class="copiable-link" href=\'#index-variables-too\'> &para;</a></span></dt>
+</pre></dd><dt class="defvrx defvarx-alias-defvrx def-cmd-defvr" id="index-variables-too"><span class="category-def">Variable: </span><span><code class="def-name">variables too</code> <var class="def-meta-var-arguments">other-variable</var><a class="copiable-link" href=\'#index-variables-too\'> &para;</a></span></dt>
 <dd><pre class="example-preformatted">THis is the defvar
 
 A table within the def
