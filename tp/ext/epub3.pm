@@ -162,10 +162,11 @@ my $epub_document_dir_name = 'EPUB';
 
 my %epub_images;
 
+# the image number, to make sure that there is no name clash when
+# putting all the images in the same directory.
+my $epub_file_nr;
+
 # collect and copy images
-# FIXME if the file is given by a path, the path will be included in the
-# destination too, but the directory path will not be created, so it
-# will fail.
 sub epub_convert_image_command($$$$)
 {
   my $self = shift;
@@ -173,51 +174,105 @@ sub epub_convert_image_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  my $result = &{$self->default_command_conversion($cmdname)}($self,
-                                                 $cmdname, $command, $args);
+  if (defined($args->[0]->{'monospacetext'})
+      and $args->[0]->{'monospacetext'} ne '') {
+    my $basefile = $args->[0]->{'monospacetext'};
+    return $basefile if ($self->in_string());
 
-  my ($image_file, $image_basefile, $image_extension, $image_path,
-      $image_path_encoding)
-        = $self->html_image_file_location_name($cmdname, $command, $args);
-  if (defined($image_file)) {
+    my ($image_file, $image_basefile, $image_extension, $image_path,
+        $image_path_encoding)
+      = $self->html_image_file_location_name($cmdname, $command, $args);
     if (not defined($image_path)) {
-      $self->document_error($self,
-            sprintf(__("\@image file `%s' can not be copied"),
-                   $image_basefile));
-    } else {
-      my $images_destination_dir
+      # FIXME using an internal function.  Also not clear if it is correct to
+      # use it, as it is not used for other messages
+      $self->_noticed_line_warn(sprintf(
+              __("\@image file `%s' (for HTML) not found, using `%s'"),
+                 $image_basefile, $image_file), $command->{'source_info'});
+    }
+
+    my ($volume, $directories, $image_basefile_name)
+      = File::Spec->splitpath($image_basefile);
+    my $protected_image_basefile_name
+      = Texinfo::Convert::NodeNameNormalization::transliterate_protect_file_name(
+                                                         $image_basefile_name);
+    my $protected_image_extension
+      = Texinfo::Convert::NodeNameNormalization::transliterate_protect_file_name(
+                                                         $image_extension);
+    # -5 for the extension and -10 for $epub_file_nr
+    my $cropped_image_basefile_name
+     = substr($protected_image_basefile_name, 0,
+              $self->get_conf('BASEFILENAME_LENGTH') - 15);
+    my $destination_basefile_name = $epub_file_nr.'-'.$cropped_image_basefile_name
+                                    . $protected_image_extension;
+    $epub_file_nr += 1;
+    if (defined($image_file)) {
+      if (not defined($image_path)) {
+        $self->document_error($self,
+              sprintf(__("\@image file `%s' can not be copied"),
+                     $image_basefile));
+      } else {
+        my $images_destination_dir
                = File::Spec->catdir($epub_destination_directory,
                                     $epub_document_dir_name, $epub_images_dir_name);
-      my ($encoded_images_destination_dir, $images_destination_dir_encoding)
-        = $self->encoded_output_file_name($images_destination_dir);
-      if (! -d $encoded_images_destination_dir) {
-        if (!mkdir($encoded_images_destination_dir, oct(755))) {
-          $self->document_error($self, sprintf(__(
+        my ($encoded_images_destination_dir, $images_destination_dir_encoding)
+          = $self->encoded_output_file_name($images_destination_dir);
+        my $error_creating_dir;
+        if (! -d $encoded_images_destination_dir) {
+          if (!mkdir($encoded_images_destination_dir, oct(755))) {
+            $self->document_error($self, sprintf(__(
                              "could not create images directory `%s': %s"),
                                          $images_destination_dir, $!));
-          return $result;
+            $error_creating_dir = 1;
+          }
         }
-      }
-      my $image_destination_path_name
-         = File::Spec->catfile($images_destination_dir, $image_file);
-      my ($encoded_image_dest_path_name, $image_dest_path_encoding)
-        = $self->encoded_output_file_name($image_destination_path_name);
-      my $copy_succeeded = copy($image_path, $encoded_image_dest_path_name);
-      if (not $copy_succeeded) {
-        my $image_path_text;
-        if (defined($image_path_encoding)) {
-          $image_path_text = decode($image_path_encoding, $image_path);
-        } else {
-          $image_path_text = $image_path;
-        }
-        $self->document_error($self, sprintf(__(
+        if (not $error_creating_dir) {
+          my $image_destination_path_name
+             = File::Spec->catfile($images_destination_dir,
+                                   $destination_basefile_name);
+          my ($encoded_image_dest_path_name, $image_dest_path_encoding)
+            = $self->encoded_output_file_name($image_destination_path_name);
+          my $copy_succeeded = copy($image_path, $encoded_image_dest_path_name);
+          if (not $copy_succeeded) {
+            my $image_path_text;
+            if (defined($image_path_encoding)) {
+              $image_path_text = decode($image_path_encoding, $image_path);
+            } else {
+              $image_path_text = $image_path;
+            }
+            $self->document_error($self, sprintf(__(
                      "could not copy `%s' to `%s': %s"),
                         $image_path_text, $image_destination_path_name, $!));
+          }
+          $epub_images{$destination_basefile_name} = $image_extension;
+        }
       }
-      $epub_images{$image_file} = $image_extension;
     }
+    # Now format.  Following code is similar to the default formatting
+    # code.
+    my $destination_file_name;
+    # should always be set
+    if (defined($self->get_conf('IMAGE_LINK_PREFIX'))) {
+      $destination_file_name = $self->get_conf('IMAGE_LINK_PREFIX')
+                                   . $destination_basefile_name;
+    } else {
+      $destination_file_name = $destination_basefile_name;
+    }
+    my $alt_string;
+    if (defined($args->[3]) and defined($args->[3]->{'string'})) {
+      $alt_string = $args->[3]->{'string'};
+    }
+    if (!defined($alt_string) or ($alt_string eq '')) {
+      $alt_string
+       = &{$self->formatting_function('format_protect_text')}($self, $basefile);
+    }
+    my $image_src
+     = &{$self->formatting_function('format_protect_text')}($self,
+                                                    $destination_file_name);
+    return $self->close_html_lone_element(
+      $self->html_attribute_class('img', [$cmdname])
+        . " src=\"$image_src\" alt=\"$alt_string\"");
   }
-  return $result;
+  return '';
 }
 
 my @epub_output_filenames;
@@ -251,6 +306,7 @@ sub epub_setup($)
   @epub_output_filenames = ();
   %epub_images = ();
   $nav_filename = $default_nav_filename;
+  $epub_file_nr = 1;
   
   $epub_info_js_dir_name = undef;
   if ($self->get_conf('INFO_JS_DIR')) {

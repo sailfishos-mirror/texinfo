@@ -99,10 +99,34 @@ sub transliterate_texinfo($;$)
   return $result;
 }
 
+sub transliterate_protect_file_name($;$)
+{
+  my $input_text = shift;
+  my $no_unidecode = shift;
+  my $result = Unicode::Normalize::NFC($input_text);
+  $result = _unicode_to_file_name(
+                _unicode_to_transliterate($result, $no_unidecode));
+  return $result;
+}
+
 sub convert($)
 {
   my $root = shift;
   my $result = _convert($root);
+}
+
+sub _protect_unicode_char($)
+{
+  my $char = shift;
+  if (exists($Texinfo::Convert::Unicode::unicode_simple_character_map{$char})) {
+    return '_' . lc($Texinfo::Convert::Unicode::unicode_simple_character_map{$char});
+  } else {
+    if (ord($char) <= hex(0xFFFF)) {
+      return '_' . lc(sprintf("%04x",ord($char)));
+    } else {
+      return '__' . lc(sprintf("%06x",ord($char)));
+    }
+  }
 }
 
 sub _unicode_to_protected($)
@@ -115,18 +139,29 @@ sub _unicode_to_protected($)
     } elsif ($text =~ s/^ //o) {
       $result .= '-';
     } elsif ($text =~ s/^(.)//o) {
-      my $char = $1;
-      if (exists($Texinfo::Convert::Unicode::unicode_simple_character_map{$char})) {
-        $result .= '_' . lc($Texinfo::Convert::Unicode::unicode_simple_character_map{$char});
-      } else {
-        if (ord($char) <= hex(0xFFFF)) {
-          $result .= '_' . lc(sprintf("%04x",ord($char)));
-        } else {
-          $result .= '__' . lc(sprintf("%06x",ord($char)));
-        }
-      }
+      $result .= _protect_unicode_char($1);
     } else {
       warn "Bug: unknown character _unicode_to_protected (likely in infinite loop)\n";
+      print STDERR "Text: !!$text!!\n";
+      sleep 1;
+    }
+  }
+  return $result;
+}
+
+sub _unicode_to_file_name($)
+{
+  my $text = shift;
+  my $result = '';
+  while ($text ne '') {
+    if ($text =~ s/^([A-Za-z0-9_\.\-]+)//o) {
+      $result .= $1;
+    } elsif ($text =~ s/^ //o) {
+      $result .= '-';
+    } elsif ($text =~ s/^(.)//o) {
+      $result .= _protect_unicode_char($1);
+    } else {
+      warn "Bug: unknown character _unicode_to_file_name (likely in infinite loop)\n";
       print STDERR "Text: !!$text!!\n";
       sleep 1;
     }
@@ -378,17 +413,20 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Texinfo::Convert::NodeNameNormalization allows to normalize node names,
+C<Texinfo::Convert::NodeNameNormalization> allows to normalize node names,
 with C<normalize_node> following the specification described in the 
 Texinfo manual for HTML Xref.  This is usefull each time one want a 
 unique identifier for Texinfo content that is only composed of letter,
-digits, C<-> and C<_>.  In C<Texinfo::Parser> C<normalize_node> is used 
+digits, C<-> and C<_>.  In L<Texinfo::Parser>, C<normalize_node> is used 
 for node, floats and anchor names normalization, but also float 
 types C<@acronym> and C<@abbr> first argument.
 
 It is also possible to transliterate non ascii letters, instead of mangling 
 them, with C<transliterate_texinfo>, losing the uniqueness feature of 
 normalized node names.
+
+Another method, C<transliterate_protect_file_name> transliterates non ascii
+letters and protect characters that should not appear on file names.
 
 =head1 METHODS
 
@@ -411,6 +449,15 @@ The Texinfo I<$tree> is returned as a string, with non ascii letters
 transliterated as ascii, but otherwise similar with C<normalize_node>
 output.  If the optional I<$no_unidecode> argument is set, C<Text::Unidecode>
 is not used for characters whose transliteration is not built-in.
+
+=item $file_name = transliterate_protect_file_name($string, $no_unidecode)
+X<C<transliterate_protect_file_name>>
+
+The string I<$string> is returned with non ascii letters transliterated as
+ascii, and ascii characters non safe in file names are protected as in
+node normalization.  If the optional I<$no_unidecode> argument is set,
+C<Text::Unidecode> is not used for characters whose transliteration is not
+built-in.
 
 =back
 

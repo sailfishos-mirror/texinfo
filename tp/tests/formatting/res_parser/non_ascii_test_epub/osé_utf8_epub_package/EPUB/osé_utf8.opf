@@ -8,7 +8,7 @@
       <item id="nav" properties="nav" media-type="application/xhtml+xml" href="xhtml/nav_toc.xhtml"/>
       <item id="unit1" media-type="application/xhtml+xml" href="xhtml/osé_utf8.xhtml"/>
       <item id="unit2" media-type="application/xhtml+xml" href="xhtml/osé_utf8.xhtml"/>
-      <item id="image1" media-type=" image/png" href="images/an_ïmage.png"/>
+      <item id="image1" media-type="image/png" href="images/1-an_image.png"/>
    </manifest>
    <spine>
       <itemref idref="unit1"/>

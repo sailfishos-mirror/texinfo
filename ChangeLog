@@ -1,5 +1,26 @@
 2022-08-03  Patrice Dumas  <pertusus@free.fr>
 
+	Copy image files in subdirectories directly in EPUB images
+
+	* tp/Texinfo/Convert/NodeNameNormalization.pm
+	(transliterate_protect_file_name, _unicode_to_file_name):
+	new function transliterate_protect_file_name() that can be
+	used to transliterates non ascii letters and protect characters that
+	should not appear on file names.  New function _unicode_to_file_name()
+	for common code of transliterate_protect_file_name and
+	_unicode_to_protected.
+
+	* tp/ext/epub3.pm (epub_convert_image_command): normalize image file
+	name using transliterate_protect_file_name(), prepend a counter to
+	be sure that the file names are unique and copy directly in
+	EPUB/images/ even if there is a subdirectory in @image.  Do the
+	formatting directly in epub_convert_image_command() to be able to
+	set the url to the copied image file name.
+	Report by Kurt Hornik and idea partly by Gavin.
+
+
+2022-08-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/ext/epub3.pm: remove spurious space. Indirect report
 	by Kurt Hornik.
 

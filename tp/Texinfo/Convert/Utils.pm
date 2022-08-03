@@ -378,7 +378,7 @@ Texinfo to other formats.  There is no promise of API stability.
 
 miscellaneous methods that may be useful for backends converting texinfo
 trees.  This module contains the methods that can be used in converters
-that do not inherit Texinfo::Convert::Converter.
+that do not inherit L<Texinfo::Convert::Converter>.
 
 =head1 METHODS
 

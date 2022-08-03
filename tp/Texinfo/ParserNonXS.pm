@@ -6186,7 +6186,7 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Texinfo::Parser will parse Texinfo text into a Perl tree.  In one pass
+C<Texinfo::Parser> will parse Texinfo text into a Perl tree.  In one pass
 it expands user-defined @-commands, conditionals (C<@ifset>, C<@ifinfo>...)
 and C<@value> and constructs the tree.  Some extra information is gathered
 while doing the tree: for example, the block command associated with C<@end>,
