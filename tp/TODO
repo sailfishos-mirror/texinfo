@@ -20,6 +20,48 @@ Before next release
 Bugs
 ====
 
+HTML5 validation to check
+-------------------------
+
+<acronym> element removed from HTML5
+<abbr class="acronym">
+<tt> element removed from HTML5
+<span style="font-family: monospace;">
+
+Spaces in href, and maybe other characters that are not % escaped
+are (also for <img>).  Only needed for url not conformaing to the
+inter manual XREF in HTML spec, ie in @url, @image.
+From the perl faq:
+https://perldoc.perl.org/perlfaq9#How-do-I-decode-or-create-those-%25-encodings-on-the-web?
+To encode a string yourself, use the URI::Escape module. The uri_escape function returns the escaped string
+It protects accented characters.
+The URL specification for HTML5 is at https://url.spec.whatwg.org/
+<a> escaping malformed URI reference
+<a> illegal characters found in URI
+
+The following corresponds to nested <a> which happens for @url in @xref
+which are valid, so ignoring this is best.
+missing </a> before <a>
+discarding unexpected </a>
+
+Obsolete attributes.
+The following attributes are obsolete (though the elements are still part of the language), and must not be used by authors:
+<td> attribute "align" not allowed for HTML5
+<th> attribute "align" not allowed for HTML5
+
+Additional errors not with all tidy version in 2022.  Note that width is not
+a true style but a formatting of a specific line.
+<td> attribute "valign" not allowed for HTML5
+<td> attribute "width" not allowed for HTML5
+<th> attribute "valign" not allowed for HTML5
+<th> attribute "width" not allowed for HTML5
+
+CSS replacement (Kurt Hornik):
+style="text-align: ...."
+style="vertical-align: ...."
+style="width: ...."
+
+
 HTML API
 ========
 
@@ -479,6 +521,9 @@ reserved for uses related to @-command <command>.  For example
 classes like summary-letter-printindex, cp-entries-printindex or
 cp-letters-header-printindex for the different parts of the @printindex
 formatting.
+
+ref- and -ref are used for classes related to @def*, in general without
+the specific command name used.
 
 For the classes not associated with @-commands, the names were selected to
 correspond to the role in the document rather than to the formatting style.
