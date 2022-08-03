@@ -124,7 +124,7 @@ texinfo_register_command_formatting('image', \&epub_convert_image_command);
 texinfo_register_type_formatting('unit', \&epub_convert_tree_unit_type);
 
 my %epub_images_extensions_mimetypes = (
-  '.png' =>  ' image/png',
+  '.png' =>  'image/png',
   '.jpg' => 'image/jpeg',
   '.jpeg' => 'image/jpeg',
   '.gif' => 'image/gif',
