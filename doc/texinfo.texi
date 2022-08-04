@@ -16589,11 +16589,6 @@ your manual.
 
 With @samp{omit}, neither generate nor link to a labels file.
 
-@item KEEP_TOP_EXTERNAL_REF
-If set, do not ignore @samp{Top} as the first
-argument for an external ref to a manual, as is done by default.
-@xref{Referring to a Manual as a Whole}.
-
 @item MAX_HEADER_LEVEL
 Maximum header formatting level used (higher header
 formatting level numbers correspond to lower sectioning levels);

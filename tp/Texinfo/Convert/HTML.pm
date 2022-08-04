@@ -4802,8 +4802,7 @@ sub _convert_xref_commands($$$$)
       my $node_no_file_tree = {'type' => '_code',
                                'contents' => [@{$node_entry->{'node_content'}}]};
       my $node_name = $self->convert_tree($node_no_file_tree, 'node in ref');
-      if (defined($node_name) and ($self->get_conf('KEEP_TOP_EXTERNAL_REF')
-                                   or $node_name ne 'Top')) {
+      if (defined($node_name) and $node_name ne 'Top') {
         $name = $node_name;
       }
     }
@@ -4812,8 +4811,7 @@ sub _convert_xref_commands($$$$)
     $name = $args->[0]->{'monospace'}
        if (!defined($name)
            # FIXME could it really be Top?
-           and ($self->get_conf('KEEP_TOP_EXTERNAL_REF')
-                or $args->[0]->{'monospace'} ne 'Top'));
+           and $args->[0]->{'monospace'} ne 'Top');
      
     $name = '' if (!defined($name));
     my $reference = $name;
@@ -10239,7 +10237,6 @@ sub _set_variables_texi2html()
   ['BIG_RULE', '<hr style="height: 6px;">'],
   ['FOOTNOTE_END_HEADER_LEVEL', 3],
   ['FOOTNOTE_SEPARATE_HEADER_LEVEL', 1],
-  ['KEEP_TOP_EXTERNAL_REF', 1],
   ['SECTION_BUTTONS', ['FastBack', 'Back', 'Up', 'Forward', 'FastForward',
                              ' ', ' ', ' ', ' ',
                              'Top', 'Contents', 'Index', 'About' ]],

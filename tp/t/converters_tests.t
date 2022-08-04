@@ -924,9 +924,6 @@ name
 );
 
 my @html_text_cases = (
-['top_in_ref_keep_top',
-$top_in_ref_text,
-{}, {'KEEP_TOP_EXTERNAL_REF' => 1}],
 ['non_empty_part_no_top_node_output',
 $non_empty_part_text,
 {}, {'NO_TOP_NODE_OUTPUT' => 1}],

@@ -1,5 +1,15 @@
 2022-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	Remove KEEP_TOP_EXTERNAL_REF.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands),
+	doc/texinfo.texi (HTML Customization Variables),
+	tp/Texinfo/Common.pm (KEEP_TOP_EXTERNAL_REF): remove
+	KEEP_TOP_EXTERNAL_REF there is no point in keeping backward
+	compatibility for such an old change.
+
+2022-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command): output
 	index summary header and footer only if there is more than one
 	symbol.
