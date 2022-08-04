@@ -1,5 +1,12 @@
 2022-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	Use HTMLXREF customization variable information only if TEST
+
+	* tp/Texinfo/Convert/HTML.pm (_load_htmlxref_files): use the
+	HTMLXREF value for file name only if TEST is set.
+
+2022-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	Remove KEEP_TOP_EXTERNAL_REF.
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands),

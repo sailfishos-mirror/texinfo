@@ -6649,12 +6649,16 @@ sub _load_htmlxref_files {
 
   my @texinfo_htmlxref_files;
   my $htmlxref_file_name = 'htmlxref.cnf';
-  my $htmlxref_file_name_from_conf = $self->get_conf('HTMLXREF');
-  $htmlxref_file_name = $htmlxref_file_name_from_conf
-    if (defined($htmlxref_file_name_from_conf));
-
   # no htmlxref for tests, unless explicitely specified with HTMLXREF
-  if (!$self->get_conf('TEST') or defined($htmlxref_file_name_from_conf)) {
+  if ($self->get_conf('TEST')) {
+    if (defined($self->get_conf('HTMLXREF'))) {
+      $htmlxref_file_name = $self->get_conf('HTMLXREF');
+    } else {
+      $htmlxref_file_name = undef;
+    }
+  }
+
+  if (defined($htmlxref_file_name)) {
     my ($encoded_htmlxref_file_name, $htmlxref_file_encoding)
       = $self->encoded_output_file_name($htmlxref_file_name);
     @texinfo_htmlxref_files
@@ -6664,7 +6668,7 @@ sub _load_htmlxref_files {
   $self->{'htmlxref_files'} = \@texinfo_htmlxref_files;
 
   $self->{'htmlxref'} = {};
-  if ($self->{'htmlxref_files'}) {
+  if (scalar(@{$self->{'htmlxref_files'}})) {
     $self->{'htmlxref'} = _parse_htmlxref_files($self,
                                                 $self->{'htmlxref_files'});
   }
