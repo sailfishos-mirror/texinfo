@@ -3,6 +3,7 @@
    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
       <dc:identifier id="texi-uid">texinfo:osé_utf8</dc:identifier>
       <dc:title>Tôp</dc:title>
+      <dc:language>en</dc:language>
    </metadata>
    <manifest>
       <item id="nav" properties="nav" media-type="application/xhtml+xml" href="xhtml/nav_toc.xhtml"/>

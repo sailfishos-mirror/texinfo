@@ -3,9 +3,10 @@
    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
       <dc:identifier id="texi-uid">texinfo:formatting</dc:identifier>
       <dc:title>title -a</dc:title>
-<dc:creator>author1 -a with accents in name Te'c,a</dc:creator>
-<dc:creator>author2 -a</dc:creator>
-<dc:creator>author</dc:creator>
+      <dc:language>en</dc:language>
+      <dc:creator>author1 -a with accents in name Te'c,a</dc:creator>
+      <dc:creator>author2 -a</dc:creator>
+      <dc:creator>author</dc:creator>
    </metadata>
    <manifest>
       <item id="nav" properties="nav" media-type="application/xhtml+xml" href="xhtml/nav_toc.xhtml"/>

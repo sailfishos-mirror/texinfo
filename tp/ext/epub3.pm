@@ -605,9 +605,16 @@ EOT
   my $unique_uid = 'texi-uid';
   # TODO to discuss on bug-texinfo
   my $identifier = 'texinfo:'.$document_name;
-  # also to discuss
+  # FIXME the dcterms:modified is mandatory, and it is also mandatory that it is a date:
+  #  each Rendition MUST include exactly one [DCTERMS] modified property containing its last modification date. The value of this property MUST be an [XMLSCHEMA-2] dateTime conformant date of the form:
+
+  # CCYY-MM-DDThh:mm:ssZ
+  #
+  # The last modification date MUST be expressed in Coordinated Universal Time (UTC) and MUST be terminated by the "Z" (Zulu) time zone indicator.
+  #
   # <meta property="dcterms:modified">2012-03-05T12:47:00Z</meta>
-  # also <dc:rights>
+  # to discuss
+  # <dc:rights>
   my $opf_file_path_name = File::Spec->catfile($epub_destination_directory,
                                         $epub_document_dir_name, $opf_filename);
   my ($encoded_opf_file_path_name, $opf_path_encoding)
@@ -654,11 +661,15 @@ EOT
       }
     }
   }
-  foreach my $author (@authors) {
-    print $opf_fh "<dc:creator>$author</dc:creator>\n";
+  # at least one language specifier is mandated by the standard
+  if (scalar(@languages) == 0) {
+    @languages = ('en');
   }
   foreach my $language (@languages) {
-    print $opf_fh "<dc:language>$language</dc:language>\n";
+    print $opf_fh "      <dc:language>$language</dc:language>\n";
+  }
+  foreach my $author (@authors) {
+    print $opf_fh "      <dc:creator>$author</dc:creator>\n";
   }
   print $opf_fh <<EOT;
    </metadata>
