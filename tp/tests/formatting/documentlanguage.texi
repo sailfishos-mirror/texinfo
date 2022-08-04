@@ -5,7 +5,7 @@
 @c can mostly happen in Parser, as any converter being initialized with
 @c Texinfo::Convert::Converter converter() and with values accessed by
 @c get_conf() will use the command line.
-@c This is tricky to demonstrate, as documentlanguge is not used much
+@c This is tricky to demonstrate, as documentlanguage is not used much
 @c in Parser.  It is used in two places to set the documentlanguage extra
 @c value, 
 @c 1) for the untranslated type, for the prefix of @def* and 

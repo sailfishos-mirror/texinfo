@@ -1685,9 +1685,6 @@ the author abandon his copyright.
 </dl>
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Copying-and-floats_cp_letter-I"><b>I</b></a>
- &nbsp; 
-</td></tr></table>
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -1696,9 +1693,6 @@ the author abandon his copyright.
 <tr><td></td><td valign="top"><a href="#index-copying-indexed-caption-copying-footnote">indexed caption copying footnote</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Copying-and-floats_cp_letter-I"><b>I</b></a>
- &nbsp; 
-</td></tr></table>
 </div>
 <div class="printindex fn-printindex">
 <table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Copying-and-floats_fn_letter-I"><b>I</b></a>

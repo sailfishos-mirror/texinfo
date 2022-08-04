@@ -966,9 +966,6 @@ $result_converted{'html_text'}->{'ftable_vtable'} = '<h1 class="node" id="Top">T
 <a class="index-entry-id" id="index-function1-1"></a>
 
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-F"><b>F</b></a>
- &nbsp; 
-</td></tr></table>
 <table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -979,15 +976,9 @@ $result_converted{'html_text'}->{'ftable_vtable'} = '<h1 class="node" id="Top">T
 <tr><td></td><td valign="top"><a href="#index-function2x"><code>function2x</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-F"><b>F</b></a>
- &nbsp; 
-</td></tr></table>
 </div>
 
 <div class="printindex vr-printindex">
-<table class="vr-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_vr_letter-V"><b>V</b></a>
- &nbsp; 
-</td></tr></table>
 <table class="vr-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -997,9 +988,6 @@ $result_converted{'html_text'}->{'ftable_vtable'} = '<h1 class="node" id="Top">T
 <tr><td></td><td valign="top"><a href="#index-varx2"><code>varx2</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="vr-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_vr_letter-V"><b>V</b></a>
- &nbsp; 
-</td></tr></table>
 </div>
 
 ';

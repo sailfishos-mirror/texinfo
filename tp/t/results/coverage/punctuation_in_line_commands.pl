@@ -1224,9 +1224,6 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 <div class="center">center! After punc
 </div>
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-I"><b>I</b></a>
- &nbsp; 
-</td></tr></table>
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -1234,9 +1231,6 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 <tr><td></td><td valign="top"><a href="#index-index_0021-After-punc">index! After punc</a>:</td><td>&nbsp;</td><td valign="top"><a href="#node_0021-After-punc">node! After punc</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-I"><b>I</b></a>
- &nbsp; 
-</td></tr></table>
 </div>
 
 

@@ -286,9 +286,6 @@ a.summary-letter-printindex {text-decoration: none}
 
 <a class="index-entry-id" id="index-node-1"></a>
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#index-node_cp_letter-N"><b>N</b></a>
- &nbsp; 
-</td></tr></table>
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -296,9 +293,6 @@ a.summary-letter-printindex {text-decoration: none}
 <tr><td></td><td valign="top"><a href="#index-node-1">node</a>:</td><td>&nbsp;</td><td valign="top"><a href="#index-node">index node</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#index-node_cp_letter-N"><b>N</b></a>
- &nbsp; 
-</td></tr></table>
 </div>
 
 </div>

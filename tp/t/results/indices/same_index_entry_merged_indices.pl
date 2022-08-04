@@ -770,9 +770,6 @@ $result_converted{'html_text'}->{'same_index_entry_merged_indices'} = '
 </p></dd></dl>
 
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-M"><b>M</b></a>
- &nbsp; 
-</td></tr></table>
 <table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -781,9 +778,6 @@ $result_converted{'html_text'}->{'same_index_entry_merged_indices'} = '
 <tr><td></td><td valign="top"><a href="#index-mmm_002dmode-1"><code>mmm-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-M"><b>M</b></a>
- &nbsp; 
-</td></tr></table>
 </div>
 </div>
 ';

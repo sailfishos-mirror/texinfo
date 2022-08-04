@@ -785,9 +785,6 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id
 <h4 class="node">second</h4>
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-L"><b>L</b></a>
- &nbsp; 
-</td></tr></table>
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -795,9 +792,6 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<a class="node-id
 <tr><td></td><td valign="top"><a href="#index-lone-entry">lone entry</a>:</td><td>&nbsp;</td><td valign="top"><a href="#first">first</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-L"><b>L</b></a>
- &nbsp; 
-</td></tr></table>
 </div>
 ';
 

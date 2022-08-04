@@ -1401,9 +1401,6 @@ $result_converted{'html_text'}->{'subentries'} = '
 </td></tr></table>
 </div>
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-F"><b>F</b></a>
- &nbsp; 
-</td></tr></table>
 <table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -1414,9 +1411,6 @@ $result_converted{'html_text'}->{'subentries'} = '
 <tr><td></td><td valign="top"><a href="#index-f_002d_002d_002dggg"><code>f---ggg, f---hhh fjjj, f---kkk, f---lll</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-F"><b>F</b></a>
- &nbsp; 
-</td></tr></table>
 </div>
 </div>
 </div>

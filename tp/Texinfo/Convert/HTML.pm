@@ -5098,30 +5098,35 @@ sub _convert_printindex_command($$$$)
       push @alpha, $summary_letter_link;
     }
   }
+
+  my $non_breaking_space = $self->get_info('non_breaking_space');
+
   # Format the summary letters
   my $join = '';
   my $non_alpha_text = '';
   my $alpha_text = '';
-  my $non_breaking_space = $self->get_info('non_breaking_space');
-  $join = " $non_breaking_space \n".$self->get_info('line_break_element')."\n"
-     if (@non_alpha and @alpha);
-  if (@non_alpha) {
-    $non_alpha_text = join("\n $non_breaking_space \n", @non_alpha) . "\n";
-  }
-  if (@alpha) {
-    $alpha_text = join("\n $non_breaking_space \n", @alpha)
+  if (scalar(@non_alpha) + scalar(@alpha) > 1) {
+    $join = " $non_breaking_space \n".$self->get_info('line_break_element')."\n"
+      if (scalar(@non_alpha) and scalar(@alpha));
+    if (scalar(@non_alpha)) {
+      $non_alpha_text = join("\n $non_breaking_space \n", @non_alpha) . "\n";
+    }
+    if (scalar(@alpha)) {
+      $alpha_text = join("\n $non_breaking_space \n", @alpha)
                     . "\n $non_breaking_space \n";
+    }
   }
   my $result = $self->html_attribute_class('div',
                            [$cmdname, "$index_name-$cmdname"]).">\n";
   # format the summary
-  my $summary_header = $self->html_attribute_class('table',
+  if (scalar(@non_alpha) + scalar(@alpha) > 1) {
+    my $summary_header = $self->html_attribute_class('table',
             ["$index_name-letters-header-$cmdname"]).'><tr><th valign="top">'
-    . $self->convert_tree($self->gdt('Jump to')) .": $non_breaking_space </th><td>" .
-    $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
+      . $self->convert_tree($self->gdt('Jump to')) .": $non_breaking_space </th><td>" .
+      $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
 
-
-  $result .= $summary_header;
+    $result .= $summary_header;
+  }
 
   # now format the index entries
   $result .= $self->html_attribute_class('table', ["$index_name-entries-$cmdname"])
@@ -5136,11 +5141,14 @@ sub _convert_printindex_command($$$$)
   
   $self->_pop_document_context();
   
-  my $summary_footer = $self->html_attribute_class('table',
+  if (scalar(@non_alpha) + scalar(@alpha) > 1) {
+    my $summary_footer = $self->html_attribute_class('table',
                  ["$index_name-letters-footer-$cmdname"]).'><tr><th valign="top">'
-    . $self->convert_tree($self->gdt('Jump to')) .": $non_breaking_space </th><td>" .
-    $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
-  return $result .$summary_footer . "</div>\n";
+      . $self->convert_tree($self->gdt('Jump to')) .": $non_breaking_space </th><td>" .
+      $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
+    $result .= $summary_footer
+  }
+  return $result . "</div>\n";
 }
 $default_commands_conversion{'printindex'} = \&_convert_printindex_command;
 

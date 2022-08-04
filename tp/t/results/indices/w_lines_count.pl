@@ -462,9 +462,6 @@ $result_converted{'html_text'}->{'w_lines_count'} = '<div class="top-level-exten
 <p>Compilation mode also defines the keys <kbd class="key">SPC</kbd> and <kbd class="key">DEL</kbd> to
 </p>
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-C"><b>C</b></a>
- &nbsp; 
-</td></tr></table>
 <table class="fn-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -472,9 +469,6 @@ $result_converted{'html_text'}->{'w_lines_count'} = '<div class="top-level-exten
 <tr><td></td><td valign="top"><a href="#index-compilation_002dnext_002derror"><code>compilation-next-error</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-C"><b>C</b></a>
- &nbsp; 
-</td></tr></table>
 </div>
 </div>
 ';

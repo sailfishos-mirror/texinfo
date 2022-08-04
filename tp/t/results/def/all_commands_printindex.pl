@@ -6077,9 +6077,6 @@ span:hover a.copiable-link {visibility: visible}
 
 <h3 class="heading" id="Types">Types</h3>
 <div class="printindex tp-printindex">
-<table class="tp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_tp_letter-D"><b>D</b></a>
- &nbsp; 
-</td></tr></table>
 <table class="tp-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -6087,16 +6084,10 @@ span:hover a.copiable-link {visibility: visible}
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftp_005fname"><code>d--eftp_name</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="tp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_tp_letter-D"><b>D</b></a>
- &nbsp; 
-</td></tr></table>
 </div>
 
 <h3 class="heading" id="Variables">Variables</h3>
 <div class="printindex vr-printindex">
-<table class="vr-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_vr_letter-D"><b>D</b></a>
- &nbsp; 
-</td></tr></table>
 <table class="vr-entries-printindex" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -6115,9 +6106,6 @@ span:hover a.copiable-link {visibility: visible}
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defvr_005fname"><code>d--efvr_name</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="vr-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_vr_letter-D"><b>D</b></a>
- &nbsp; 
-</td></tr></table>
 </div>
 
 
