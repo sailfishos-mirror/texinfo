@@ -1,5 +1,10 @@
 2022-08-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/ext/epub3.pm: split at chapter, no mini_toc
+	(epub_convert_tree_unit_type): add an output file only once.
+
+2022-08-04  Patrice Dumas  <pertusus@free.fr>
+
 	Always add a language information in EPUB
 
 	* tp/ext/epub3.pm: add en language if there is no @documentlanguage,

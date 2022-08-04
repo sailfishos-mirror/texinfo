@@ -23,14 +23,16 @@
 # the conversion to XHTML.
 #
 # TODO:
-# split or not split?
-# set up a cover with @titlepage?
-# is the mini_toc relevant?
-# what about node directions?
-# use the navigation information as a page instead of texi2any generated TOC?
-# separate TOC after titlepage?
-# indices?
-# cross manual references?
+# Currently the titlepage is used if available, while the Top node
+# is not shown.  There is a possibility to use an image as cover in
+# EPUB, with cover-image property in a manifest item.  Add the possibility
+# to specify such cover image?  In that case, set SHOW_TITLE to 0?
+# Do not output Texinfo TOC in the default case as the readers can always use
+# the navigation information?
+# Use the navigation information as a page?  Tests show that it is not very good.
+# something special for indices?
+# cross manual references?  The HTML XREF specification does not make sense
+# for EPUB.
 # list of tables/list of floats
 # add landmarks?  Examples: epub:type="toc", epub:type="loi" (list of illustrations)
 #                           epub:type="bodymatter" (Start of Content)
@@ -93,6 +95,18 @@ texinfo_set_from_init_file('OUTPUT_FILE_NAME_ENCODING', 'utf-8');
 # if not specified.
 texinfo_set_from_init_file('NO_TOP_NODE_OUTPUT', 1);
 
+# no mini_toc nor menus in the default case, to be more like a book.
+texinfo_set_from_init_file('FORMAT_MENU', 'nomenu');
+
+# a footer gets in the way of navigation.  It is not set in the default
+# case, but with texi2html style.
+texinfo_set_from_init_file('PROGRAM_NAME_IN_FOOTER', 0);
+
+# split at chapter such that ebook readers start a new page for
+# a new chapter.  Splitting at nodes output is not so good as node content
+# can be very small.
+texinfo_set_from_init_file('SPLIT', 'chapter');
+
 # the copiable anchor paragraph sign is always present and no link is
 # shown in the calibre epub reader.  Since it looks strange, unset.
 texinfo_set_from_init_file('COPIABLE_LINKS', 0);
@@ -104,6 +118,7 @@ texinfo_set_from_init_file('EXTENSION', 'xhtml');
 texinfo_set_from_init_file('JS_WEBLABELS_FILE', 'js_licenses.xhtml');
 
 texinfo_set_from_init_file('TOP_FILE', undef);
+
 # no redirections files
 texinfo_set_from_init_file('NODE_FILES', 0);
 
@@ -284,7 +299,9 @@ sub epub_convert_tree_unit_type($$$$)
   my $element = shift;
   my $content = shift;
 
-  push @epub_output_filenames, $element->{'structure'}->{'unit_filename'};
+  push @epub_output_filenames, $element->{'structure'}->{'unit_filename'}
+    unless grep {$_ eq $element->{'structure'}->{'unit_filename'}}
+            @epub_output_filenames;
   return &{$self->default_type_conversion($type)}($self,
                                       $type, $element, $content);
 }
@@ -661,7 +678,7 @@ EOT
       }
     }
   }
-  # at least one language specifier is mandated by the standard
+  # the standard mandates at least one language specifier
   if (scalar(@languages) == 0) {
     @languages = ('en');
   }
