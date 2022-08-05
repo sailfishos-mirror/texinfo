@@ -6627,45 +6627,64 @@ sub _parse_htmlxref_files($$)
 sub _load_htmlxref_files {
   my ($self) = @_;
 
-  my @htmlxref_dirs = ();
-  if ($self->get_conf('TEST')) {
-    my $curdir = File::Spec->curdir();
-    # to have reproducible tests, do not use system or user
-    # directories if TEST is set.
-    @htmlxref_dirs = File::Spec->catdir($curdir, '.texinfo');
-
-    if (defined($self->{'parser_info'})
-        and defined($self->{'parser_info'}->{'input_directory'})) {
-      my $input_directory = $self->{'parser_info'}->{'input_directory'};
-      if ($input_directory ne '.' and $input_directory ne '') {
-        unshift @htmlxref_dirs, $input_directory;
-      }
-    }
-  } elsif ($self->{'language_config_dirs'}
-            and @{$self->{'language_config_dirs'}}) {
-    @htmlxref_dirs = @{$self->{'language_config_dirs'}};
-  }
-  unshift @htmlxref_dirs, '.';
-
-  my @texinfo_htmlxref_files;
+  my $htmlxref_mode = $self->get_conf('HTMLXREF_MODE');
+  return if (defined($htmlxref_mode) and $htmlxref_mode eq 'none');
   my $htmlxref_file_name = 'htmlxref.cnf';
-  # no htmlxref for tests, unless explicitely specified with HTMLXREF
-  if ($self->get_conf('TEST')) {
-    if (defined($self->get_conf('HTMLXREF'))) {
-      $htmlxref_file_name = $self->get_conf('HTMLXREF');
-    } else {
-      $htmlxref_file_name = undef;
+  if (defined($htmlxref_mode) and $htmlxref_mode eq 'file') {
+    if (defined($self->get_conf('HTMLXREF_FILE'))) {
+      $htmlxref_file_name = $self->get_conf('HTMLXREF_FILE');
     }
-  }
-
-  if (defined($htmlxref_file_name)) {
     my ($encoded_htmlxref_file_name, $htmlxref_file_encoding)
       = $self->encoded_output_file_name($htmlxref_file_name);
-    @texinfo_htmlxref_files
-      = Texinfo::Common::locate_init_file($encoded_htmlxref_file_name,
+    if (-e $encoded_htmlxref_file_name and -r $encoded_htmlxref_file_name) {
+      $self->{'htmlxref_files'} = [$encoded_htmlxref_file_name];
+    } else {
+      $self->document_warn($self,
+        sprintf(__("could not find html refs config file %s"),
+          $htmlxref_file_name));
+    }
+  } else {
+    my @htmlxref_dirs = ();
+    if ($self->get_conf('TEST')) {
+      my $curdir = File::Spec->curdir();
+      # to have reproducible tests, do not use system or user
+      # directories if TEST is set.
+      @htmlxref_dirs = File::Spec->catdir($curdir, '.texinfo');
+
+      if (defined($self->{'parser_info'})
+          and defined($self->{'parser_info'}->{'input_directory'})) {
+        my $input_directory = $self->{'parser_info'}->{'input_directory'};
+        if ($input_directory ne '.' and $input_directory ne '') {
+          unshift @htmlxref_dirs, $input_directory;
+        }
+      }
+    } elsif ($self->{'language_config_dirs'}
+             and @{$self->{'language_config_dirs'}}) {
+      @htmlxref_dirs = @{$self->{'language_config_dirs'}};
+    }
+    unshift @htmlxref_dirs, '.';
+
+    my @texinfo_htmlxref_files;
+    # no htmlxref for tests, unless explicitely specified
+    if ($self->get_conf('TEST')) {
+      if (defined($self->get_conf('HTMLXREF_FILE'))) {
+        $htmlxref_file_name = $self->get_conf('HTMLXREF_FILE');
+      } else {
+        $htmlxref_file_name = undef;
+      }
+    } elsif (defined($self->get_conf('HTMLXREF_FILE'))) {
+      $htmlxref_file_name = $self->get_conf('HTMLXREF_FILE');
+    }
+
+    if (defined($htmlxref_file_name)) {
+      my ($encoded_htmlxref_file_name, $htmlxref_file_encoding)
+        = $self->encoded_output_file_name($htmlxref_file_name);
+      @texinfo_htmlxref_files
+        = Texinfo::Common::locate_init_file($encoded_htmlxref_file_name,
                                           \@htmlxref_dirs, 1);
+    }
+    $self->{'htmlxref_files'} = \@texinfo_htmlxref_files;
   }
-  $self->{'htmlxref_files'} = \@texinfo_htmlxref_files;
 
   $self->{'htmlxref'} = {};
   if (scalar(@{$self->{'htmlxref_files'}})) {

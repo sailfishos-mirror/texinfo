@@ -6,14 +6,9 @@ Then configure and make.
 
 Set INFO_HTML_DIR to the directory containing the documentation files.
 Each manual is in its own directory, named with the name of the manual.
-For links to work, create an empty file with "touch dummy" and create
-the manuals with e.g.
+For links to work, the htmlxref.cnf file should not be used.
 
-texi2any -c HTMLXREF=dummy --html  --no-number-sections ../../../hello.texi
-
-The HTMLXREF option makes inter-manual links begin with "../".  (Texinfo 
-6.7 needed if indices are to be found.)
-
+texi2any --html --no-number-sections -c HTMLXREF_MODE=none ../../../hello.texi
 
 Notes on architecture -
 

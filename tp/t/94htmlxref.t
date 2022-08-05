@@ -11,31 +11,31 @@ require 't/test_utils.pl';
 my @test_cases = (
 ['htmlxref',
   undef, {'test_file' => 'test_refs.texi' },
-  {'HTMLXREF' => 'htmlxref.cnf'}
+  {'HTMLXREF_FILE' => 'htmlxref.cnf'}
 ],
 ['htmlxref_nodes',
   undef, {'test_file' => 'test_refs.texi' },
-  {'HTMLXREF' => 'htmlxref.cnf',
+  {'HTMLXREF_FILE' => 'htmlxref.cnf',
    'SPLIT' => 'node',
    'USE_NODES' => 1, 'NODE_FILES' => 1}
 ],
 ['htmlxref_only_mono',
   undef, {'test_file' => 'test_refs.texi' },
-  {'HTMLXREF' => 'htmlxref-mono.cnf'}
+  {'HTMLXREF_FILE' => 'htmlxref-mono.cnf'}
 ],
 ['htmlxref_only_mono_nodes',
   undef, {'test_file' => 'test_refs.texi' },
-  {'HTMLXREF' => 'htmlxref-mono.cnf',
+  {'HTMLXREF_FILE' => 'htmlxref-mono.cnf',
    'SPLIT' => 'node',
    'USE_NODES' => 1, 'NODE_FILES' => 1}
 ],
 ['htmlxref_only_split',
   undef, {'test_file' => 'test_refs.texi' },
-  {'HTMLXREF' => 'htmlxref-split.cnf'}
+  {'HTMLXREF_FILE' => 'htmlxref-split.cnf'}
 ],
 ['htmlxref_only_split_nodes',
   undef, {'test_file' => 'test_refs.texi' },
-  {'HTMLXREF' => 'htmlxref-split.cnf',
+  {'HTMLXREF_FILE' => 'htmlxref-split.cnf',
    'SPLIT' => 'node',
    'USE_NODES' => 1, 'NODE_FILES' => 1}
 ],

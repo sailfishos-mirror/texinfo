@@ -16538,12 +16538,25 @@ set to @samp{l2h}, which uses @command{latex2html}
 Use that string for the @code{<html>} HTML document root element.
 Default undefined.
 
-@c not documented, only relevant for tests
-@c @item HTMLXREF
-@c Does nothing unless @code{TEST} is set.  If @code{TEST} is set,
-@c set cross-references to other manuals information to be used and use
-@c the value instead of @file{htmlxref.cnf} for the file name
-@c (@pxref{HTML Xref Configuration}).
+@item HTMLXREF_FILE
+Set the file name used for cross-references to other manuals.  If
+not defined, @file{htmlxref.cnf} is used (@pxref{HTML Xref Configuration}).
+Not defined in the default case.  If @code{TEST} is set, @code{HTMLXREF_MODE}
+is set to the default and @code{HTMLXREF_FILE} is not defined, information on
+cross-references to other manuals is not used.
+
+If @code{HTMLXREF_MODE} is set to @samp{file} the file name is directly used
+as the source of information, otherwise the file name is searched for in
+directories, and all the files found are used (@pxref{HTML Xref
+Configuration}).
+
+@item HTMLXREF_MODE
+How cross-references to other manuals information is determined.
+If set to @samp{none}, no information is used.  If set to @samp{file},
+the information is determined from a file path, @file{htmlxref.cnf}
+in the default case, or the value of @code{HTMLXREF_FILE}.  If not defined
+(the default) or set to any other value, search in
+directories and use all the files (@pxref{HTML Xref Configuration}).
 
 @item ICONS
 Use icons for the navigation panel; default false.
@@ -18899,6 +18912,11 @@ All files found are used, with earlier entries overriding later ones.
 The Texinfo distribution includes a default file which handles many
 GNU manuals; it is installed in the last of the above directories,
 i.e., @file{@var{datadir}/texinfo/htmlxref.cnf}.
+
+The @code{HTMLXREF_MODE} customization variable can be set to modify how the
+files are found.  For instance, if set to @samp{none}, no external information
+is used.  @code{HTMLXREF_FILE} sets the file name to something else than
+@file{htmlxref.cnf}.  @pxref{HTML Customization Variables}.
 
 The file is line-oriented.  Lines consisting only of whitespace are
 ignored.  Comments are indicated with a @samp{#} at the beginning of a

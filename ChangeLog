@@ -1,3 +1,18 @@
+2022-08-05  Patrice Dumas  <pertusus@free.fr>
+
+	Replace HTMLXREF by HTMLXREF_FILE and add HTMLXREF_MODE
+
+	* tp/Texinfo/Common.pm (@variable_string_settables),
+	tp/Texinfo/Convert/HTML.pm (_parse_htmlxref_files), NEWS,
+	infog/README, doc/texinfo.texi (HTML Customization Variables)
+	(HTML Xref Configuration): add HTMLXREF_MODE.  Set to 'none'
+	do not use of external information (useful for a collection of
+	manuals), set to 'file' use the value of HTMLXREF_FILE, which
+	could be useful for in source runs/tests.  HTMLXREF_FILE
+	replaces HTMLXREF and is used even if TEST is not set.  If TEST
+	is set and HTMLXREF_MODE is the default mode, HTMLXREF_FILE
+	needs to be set to have some cross-reference information used.
+
 2022-08-04  Patrice Dumas  <pertusus@free.fr>
 
 	Use HTMLXREF customization variable information only if TEST

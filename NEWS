@@ -50,6 +50,7 @@ See the manual for detailed information.
      . remove PRE_ABOUT, AFTER_ABOUT, and add PROGRAM_NAME_IN_ABOUT
      . remove KEEP_TOP_EXTERNAL_REF
      . new variable CONVERT_TO_LATEX_IN_MATH
+     . add HTMLXREF_MODE and HTMLXREF_FILE
      . link to table of contents from short table of contents only if a
        table of contents is actually output
  . DocBook output:
