@@ -38,7 +38,7 @@
 # cross manual references
 # The links that point to the EPUB container (or maybe any
 # relative link, the standard is not easy to understand) need
-# to be in the container.  Other <a href= ...> links are foreign
+# to be in the container.  Other <a href= ...> links are not publication
 # resources, and are ok.  Therefore, it is better to specify
 # the external manuals as web HTML hyperlinks, and not as manuals
 # in a collection, as there is no possibility to have more than one
@@ -133,8 +133,9 @@ texinfo_set_from_init_file('COPIABLE_LINKS', 0);
 # also used hardcoded for the container.
 texinfo_set_from_init_file('EXTENSION', 'xhtml');
 
-# It is better for external manuals to be external resources with
-# an absolute URL, so we warn if a manual is not found through htmlxref.
+# It is better for external manuals not to be publication resources,
+# for that an absolute URL need to be used, so we warn if a manual is not
+# found through htmlxref.
 texinfo_set_from_init_file('CHECK_HTMLXREF', 1);
 
 # Better use html for external manuals than the xhtml EXTENSION
