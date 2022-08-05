@@ -84,11 +84,12 @@ my %common_converters_defaults = (
   'PROGRAM'              => '',
 );
 
-my %all_converters_defaults = (%Texinfo::Common::default_converter_command_line_options,
-  %Texinfo::Common::default_converter_customization,
-  %Texinfo::Common::document_settable_unique_at_commands,
-  %Texinfo::Common::document_settable_multiple_at_commands,
-  %common_converters_defaults
+my %all_converters_defaults
+ = (%Texinfo::Common::default_converter_command_line_options,
+    %Texinfo::Common::default_converter_customization,
+    %Texinfo::Common::document_settable_unique_at_commands,
+    %Texinfo::Common::document_settable_multiple_at_commands,
+    %common_converters_defaults
 );
 
 # For translation of in document string.
@@ -204,7 +205,8 @@ sub converter(;$)
 
       $converter->{'floats'} = $floats if ($floats);
       $converter->{'labels'} = $labels if ($labels);
-      $converter->{'indices_information'} = $conf->{'parser'}->indices_information();
+      $converter->{'indices_information'}
+             = $conf->{'parser'}->indices_information();
       $converter->{'values'} = $conf->{'parser'}->{'values'};
       delete $conf->{'parser'};
     }
@@ -573,8 +575,8 @@ sub determine_files_and_directory($;$)
            and $self->{'global_commands'}->{'setfilename'}
            and $self->{'global_commands'}->{'setfilename'}->{'extra'}
            and defined($self->{'global_commands'}->{'setfilename'}->{'extra'}->{'text_arg'})) {
-     $setfilename
-       = $self->{'global_commands'}->{'setfilename'}->{'extra'}->{'text_arg'};
+    $setfilename
+      = $self->{'global_commands'}->{'setfilename'}->{'extra'}->{'text_arg'};
   }
 
   my $input_basename_for_outfile = $input_basename;
@@ -591,7 +593,8 @@ sub determine_files_and_directory($;$)
   # determine output file and output file name
   my $output_file;
   if (!defined($self->get_conf('OUTFILE'))) {
-    if (defined($setfilename_for_outfile) and !$self->get_conf('NO_USE_SETFILENAME')) {
+    if (defined($setfilename_for_outfile)
+        and !$self->get_conf('NO_USE_SETFILENAME')) {
       $output_file = $setfilename_for_outfile;
       $document_path = $setfilename_for_outfile;
       $document_path =~ s/\.[^\.]*$//;
@@ -688,9 +691,10 @@ sub normalized_sectioning_command_filename($$)
   $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
                         and !$self->get_conf('USE_UNIDECODE'));
 
-  my $normalized_name = Texinfo::Convert::NodeNameNormalization::transliterate_texinfo(
-       {'contents' => $command->{'args'}->[0]->{'contents'}},
-                $no_unidecode);
+  my $normalized_name
+    = Texinfo::Convert::NodeNameNormalization::transliterate_texinfo(
+         {'contents' => $command->{'args'}->[0]->{'contents'}},
+                  $no_unidecode);
 
   my $filename = $self->_id_to_filename($normalized_name);
   $filename .= '.'.$self->get_conf('EXTENSION')
@@ -718,7 +722,7 @@ sub node_information_filename($$)
       $filename = $node_info->{'normalized'};
     }
   } elsif (defined($node_info->{'node_content'})) {
-    $filename = Texinfo::Convert::NodeNameNormalization::normalize_node (
+    $filename = Texinfo::Convert::NodeNameNormalization::normalize_node(
              { 'contents' => $node_info->{'node_content'} });
   } else {
     $filename = '';
@@ -899,7 +903,7 @@ sub _set_tree_units_files($$$$$$)
         }
       }
       $tree_unit->{'structure'}->{'unit_filename'}
-         = $tree_unit->{'extra'}->{'first_in_page'}->{'structure'}->{'unit_filename'};
+        = $tree_unit->{'extra'}->{'first_in_page'}->{'structure'}->{'unit_filename'};
     }
   }
 
@@ -1355,7 +1359,8 @@ sub sort_element_counts($$;$$)
   my $max_length = length($max_count);
   my $result = '';
   foreach my $sorted_count (@sorted_name_counts_array) {
-    $result .=  sprintf("%${max_length}d  $sorted_count->[1]\n", $sorted_count->[0]);
+    $result .=  sprintf("%${max_length}d  $sorted_count->[1]\n",
+                        $sorted_count->[0]);
   }
   return (\@sorted_name_counts_array, $result);
 }

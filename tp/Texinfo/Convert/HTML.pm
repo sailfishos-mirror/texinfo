@@ -8226,7 +8226,7 @@ sub _external_node_href($$$$)
       if (defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {
         return $file . $self->get_conf('TOP_NODE_FILE_TARGET');
       } else {
-        return $file;# . '#Top';
+        return $file;
       }
     } else {
       return $file . '#Top';
