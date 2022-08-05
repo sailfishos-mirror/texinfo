@@ -31,11 +31,29 @@
 # the navigation information?
 # Use the navigation information as a page?  Tests show that it is not very good.
 # something special for indices?
-# cross manual references?  The HTML XREF specification does not make sense
-# for EPUB.
 # list of tables/list of floats
 # add landmarks?  Examples: epub:type="toc", epub:type="loi" (list of illustrations)
 #                           epub:type="bodymatter" (Start of Content)
+#
+# cross manual references
+# The links that point to the EPUB container (or maybe any
+# relative link, the standard is not easy to understand) need
+# to be in the container.  Other <a href= ...> links are foreign
+# resources, and are ok.  Therefore, it is better to specify
+# the external manuals as web HTML hyperlinks, and not as manuals
+# in a collection, as there is no possibility to have more than one
+# manual in an EPUB container, both because it is unclear how
+# to do that in EPUB, and the EPUB generating code put each manual
+# in an epub container file.  Therefore we set a warning for external
+# manuals not resolved using htmlxref.
+# Should there be a possibility to group manuals in a collection?
+# It seems that putting more than one manual in an EPUB container
+# is incorrect.  Could it be possible to refer to an manual in
+# an epub container, and to a specific file in that container?
+# (In that case, NODE_FILES would probably need to be set).
+# For now, external manuals not found in htmlxref are resolved
+# to a path that makes no sense:
+# EPUB/Pod-Simple-Texinfo_epub3/index.html
 
 use strict;
 
@@ -114,6 +132,13 @@ texinfo_set_from_init_file('COPIABLE_LINKS', 0);
 # this is for the XHTML formatting, the .epub extension is
 # also used hardcoded for the container.
 texinfo_set_from_init_file('EXTENSION', 'xhtml');
+
+# It is better for external manuals to be external resources with
+# an absolute URL, so we warn if a manual is not found through htmlxref.
+texinfo_set_from_init_file('CHECK_HTMLXREF', 1);
+
+# Better use html for external manuals than the xhtml EXTENSION
+texinfo_set_from_init_file('EXTERNAL_CROSSREF_EXTENSION', 'html');
 
 texinfo_set_from_init_file('JS_WEBLABELS_FILE', 'js_licenses.xhtml');
 
