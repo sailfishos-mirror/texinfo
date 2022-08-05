@@ -117,7 +117,7 @@ texinfo_set_from_init_file('NO_TOP_NODE_OUTPUT', 1);
 texinfo_set_from_init_file('FORMAT_MENU', 'nomenu');
 
 # a footer gets in the way of navigation.  It is not set in the default
-# case, but with texi2html style.
+# case anyway, but it is set in texi2html style.
 texinfo_set_from_init_file('PROGRAM_NAME_IN_FOOTER', 0);
 
 # split at chapter such that ebook readers start a new page for
@@ -194,7 +194,8 @@ sub epub_noop($$)
   return '';
 }
 
-# file scope variables
+# file scope variables. Beware to reset all that are not constants
+# at the beginning of epub_setup for multi input Texinfo manual cases.
 my $epub_destination_directory;
 my $epub_document_destination_directory;
 
@@ -345,6 +346,9 @@ sub epub_setup($)
 {
   my $self = shift;
 
+  $epub_outfile = undef;
+  $epub_destination_directory = undef;
+  $epub_document_destination_directory = undef;
   @epub_output_filenames = ();
   %epub_images = ();
   $nav_filename = $default_nav_filename;
