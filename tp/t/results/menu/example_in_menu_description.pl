@@ -494,14 +494,14 @@ pre.menu-comment-preformatted {font-family: serif}
 <h1 class="top" id="top">top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td valign="top">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">
 <div class="example">
 <pre class="example-preformatted">in 
 
 example
 </pre></div>
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
+<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 
 </pre></th></tr></table>
 </div>

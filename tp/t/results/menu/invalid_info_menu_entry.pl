@@ -895,15 +895,15 @@ $result_converted{'html'}->{'invalid_info_menu_entry'} = '<!DOCTYPE html>
 <h1 class="node" id="Top">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="f.html#a_003a" accesskey="1">(f)a:</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td valign="top">&bull; <a href="f.html#a_003a" accesskey="1">(f)a:</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="f.html#node" accesskey="2">name:</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td valign="top">&bull; <a href="f.html#node" accesskey="2">name:</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="f.html#node_002e-" accesskey="3">name</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">d
+<tr><td valign="top">&bull; <a href="f.html#node_002e-" accesskey="3">name</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">d
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="f.html#node_002cn" accesskey="4">name</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">d2
+<tr><td valign="top">&bull; <a href="f.html#node_002cn" accesskey="4">name</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">d2
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="f.html#node-n" accesskey="5">name</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">d3
+<tr><td valign="top">&bull; <a href="f.html#node-n" accesskey="5">name</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">d3
 </td></tr>
 </table>
 

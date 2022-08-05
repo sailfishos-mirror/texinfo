@@ -502,7 +502,7 @@ $result_converted{'html_text'}->{'transparent_sort_chars'} = '
 <a class="index-entry-id" id="index-Semantic-markup"></a>
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-S"><b>S</b></a>
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-S"><b>S</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_cp_letter-V"><b>V</b></a>
  &nbsp; 
@@ -518,7 +518,7 @@ $result_converted{'html_text'}->{'transparent_sort_chars'} = '
 <tr><td></td><td valign="top"><a href="#index-_002d_002dversion_002c-for-install_002dinfo"><code class="code">--version</code>, for <code class="command">install-info</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-S"><b>S</b></a>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-S"><b>S</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_cp_letter-V"><b>V</b></a>
  &nbsp; 

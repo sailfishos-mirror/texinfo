@@ -5672,40 +5672,40 @@ span.program-in-footer {font-size: smaller}
 
 <div class="top-level-extent" id="Top">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[ &lt; ]</td>
-<td valign="middle" align="left">[<a href="#Introduction" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[Contents]</td>
-<td valign="middle" align="left">[Index]</td>
-<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+<tr><td>[ &lt; ]</td>
+<td>[<a href="#Introduction" title="Next section in reading order"> &gt; </a>]</td>
+<td> &nbsp; </td>
+<td>[Contents]</td>
+<td>[Index]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="top" id="Top-1">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top"><a href="#Introduction">1 Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td valign="top"><a href="#Introduction">1 Introduction</a></td><td>&nbsp;&nbsp;</td><td valign="top">
 </td></tr>
-<tr><td align="left" valign="top"><a href="#References">2 References</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td valign="top"><a href="#References">2 References</a></td><td>&nbsp;&nbsp;</td><td valign="top">
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
+<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 
 </pre></th></tr></table>
 
 <hr style="height: 6px;">
 <div class="chapter-level-extent" id="Introduction">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Top" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Top" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[<a href="#References" title="Next section in reading order"> &gt; </a>]</td>
-<td valign="middle" align="left">[<a href="#References" title="Next chapter"> &gt;&gt; </a>]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[Contents]</td>
-<td valign="middle" align="left">[Index]</td>
-<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+<tr><td>[<a href="#Top" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td>[<a href="#Top" title="Previous section in reading order"> &lt; </a>]</td>
+<td>[<a href="#Top" title="Up section"> Up </a>]</td>
+<td>[<a href="#References" title="Next section in reading order"> &gt; </a>]</td>
+<td>[<a href="#References" title="Next chapter"> &gt;&gt; </a>]</td>
+<td> &nbsp; </td>
+<td> &nbsp; </td>
+<td> &nbsp; </td>
+<td> &nbsp; </td>
+<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[Contents]</td>
+<td>[Index]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter" id="Introduction-1">1 Introduction</h1>
 
@@ -5718,19 +5718,19 @@ currently supported in Texinfo.
 </div>
 <div class="chapter-level-extent" id="References">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Introduction" title="Previous section in reading order"> &lt; </a>]</td>
-<td valign="middle" align="left">[<a href="#Top" title="Up section"> Up </a>]</td>
-<td valign="middle" align="left">[ &gt; ]</td>
-<td valign="middle" align="left">[ &gt;&gt; ]</td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left"> &nbsp; </td>
-<td valign="middle" align="left">[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[Contents]</td>
-<td valign="middle" align="left">[Index]</td>
-<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+<tr><td>[<a href="#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td>[<a href="#Introduction" title="Previous section in reading order"> &lt; </a>]</td>
+<td>[<a href="#Top" title="Up section"> Up </a>]</td>
+<td>[ &gt; ]</td>
+<td>[ &gt;&gt; ]</td>
+<td> &nbsp; </td>
+<td> &nbsp; </td>
+<td> &nbsp; </td>
+<td> &nbsp; </td>
+<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[Contents]</td>
+<td>[Index]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter" id="References-1">2 References</h1>
 
@@ -5747,10 +5747,10 @@ Massachusetts, 1994.
 <hr>
 <div class="element-about" id="SEC_About">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td valign="middle" align="left">[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
-<td valign="middle" align="left">[Contents]</td>
-<td valign="middle" align="left">[Index]</td>
-<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+<tr><td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[Contents]</td>
+<td>[Index]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="about-heading">About This Document</h1>
 

@@ -715,7 +715,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<a class
 <h4 class="node">First</h4>
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-C"><b>C</b></a>
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-C"><b>C</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_cp_letter-I"><b>I</b></a>
  &nbsp; 
@@ -730,7 +730,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<a class
 <tr><td></td><td valign="top"><a href="#index-index-entry-in-footnote">index entry in footnote</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-C"><b>C</b></a>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-C"><b>C</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_cp_letter-I"><b>I</b></a>
  &nbsp; 

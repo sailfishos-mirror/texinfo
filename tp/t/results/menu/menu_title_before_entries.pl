@@ -385,8 +385,8 @@ Next: <a href="#subnode" accesskey="n" rel="next">subnode</a> &nbsp; </p>
 <h1 class="node">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">Horizontal space
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#subnode" accesskey="1">subnode</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">Horizontal space
+</pre></th></tr><tr><td valign="top">&bull; <a href="#subnode" accesskey="1">subnode</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">
 </td></tr>
 </table>
 

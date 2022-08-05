@@ -441,7 +441,7 @@ $result_converted{'html'}->{'menu_pointing_to_anchor'} = '<!DOCTYPE html>
 </p>
 <a class="anchor" id="An-anchor"></a>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#An-anchor" accesskey="1">An anchor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">menu entry pointing to the anchor.
+<tr><td valign="top">&bull; <a href="#An-anchor" accesskey="1">An anchor</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">menu entry pointing to the anchor.
 </td></tr>
 </table>
 </div>

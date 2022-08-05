@@ -337,7 +337,7 @@ $result_converted{'html'}->{'detailmenu_unknown_node'} = '<!DOCTYPE html>
 <h1 class="node" id="Top">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; unknown:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td valign="top">&bull; unknown:</td><td>&nbsp;&nbsp;</td><td valign="top">
 </td></tr>
 </table>
 

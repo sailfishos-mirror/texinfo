@@ -357,11 +357,11 @@ pre.menu-comment-preformatted {font-family: serif}
 <body lang="en">
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; Copying Conditions:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Your rights.
+<tr><td valign="top">&bull; Copying Conditions:</td><td>&nbsp;&nbsp;</td><td valign="top">Your rights.
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
+<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; detailmenu:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td valign="top">&bull; detailmenu:</td><td>&nbsp;&nbsp;</td><td valign="top">
 </td></tr>
 </table>
 

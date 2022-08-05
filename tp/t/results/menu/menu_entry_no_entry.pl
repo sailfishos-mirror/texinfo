@@ -301,7 +301,7 @@ pre.menu-comment-preformatted {font-family: serif}
 
 <body lang="en">
 <table class="menu" border="0" cellspacing="0">
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">* a1:
+<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">* a1:
 * a2:  
 * a1c:* a2c:  * a4<b class="b">a</b>: 
 * a5<b class="b">b</b>: </pre></th></tr></table>

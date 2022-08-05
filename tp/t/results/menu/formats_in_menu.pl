@@ -1030,28 +1030,28 @@ pre.menu-preformatted {font-family: serif}
 <h1 class="node" id="Top">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="gcc.html#Top" accesskey="1">(gcc)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">text
+<tr><td valign="top">&bull; <a href="gcc.html#Top" accesskey="1">(gcc)</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">text
 <dl class="table">
 <dt>item</dt>
 <dd><pre class="menu-preformatted">* table line::
 </pre></dd>
 </dl>
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
+<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="info.html#Top" accesskey="2">(info)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td valign="top">&bull; <a href="info.html#Top" accesskey="2">(info)</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">
 <pre class="verbatim">some @ verb{x atim
 * texinfo:: in @ verbatim
 </pre></td></tr>
-<tr><td align="left" valign="top">&bull; <a href="manual2.html#Top" accesskey="3">(manual2)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">%
+<tr><td valign="top">&bull; <a href="manual2.html#Top" accesskey="3">(manual2)</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">%
 
 <i></i>
 Log$
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="truc.html#Top" accesskey="4">(truc)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><acronym class="acronym">description
+<tr><td valign="top">&bull; <a href="truc.html#Top" accesskey="4">(truc)</a>:</td><td>&nbsp;&nbsp;</td><td valign="top"><acronym class="acronym">description
 * acronym::</acronym>
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
+<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 
 </pre><div class="example">
 <pre class="example-preformatted">* subsubsection::

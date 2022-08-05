@@ -6041,7 +6041,7 @@ span:hover a.copiable-link {visibility: visible}
 
 <h3 class="heading" id="Functions">Functions</h3>
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_letter-D"><b>D</b></a>
+<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_letter-D"><b>D</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Top_fn_letter-N"><b>N</b></a>
  &nbsp; 
@@ -6068,7 +6068,7 @@ span:hover a.copiable-link {visibility: visible}
 <tr><td></td><td valign="top"><a href="#index-n_002d_002dame-1"><code>n--ame</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_letter-D"><b>D</b></a>
+<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_letter-D"><b>D</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Top_fn_letter-N"><b>N</b></a>
  &nbsp; 

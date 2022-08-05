@@ -1479,7 +1479,7 @@ Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top</a>, Monter
 </p></dd></dl>
 
 <div class="printindex vr-printindex">
-<table class="vr-letters-header-printindex"><tr><th valign="top">Preskoči na: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_vr_letter-A"><b>A</b></a>
+<table class="vr-letters-header-printindex"><tr><th>Preskoči na: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_vr_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chap_vr_letter-B"><b>B</b></a>
  &nbsp; 
@@ -1495,7 +1495,7 @@ Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top</a>, Monter
 <tr><td></td><td valign="top"><a href="#index-BBB-of-hr"><code>BBB od hr</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="vr-letters-footer-printindex"><tr><th valign="top">Preskoči na: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_vr_letter-A"><b>A</b></a>
+<table class="vr-letters-footer-printindex"><tr><th>Preskoči na: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_vr_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chap_vr_letter-B"><b>B</b></a>
  &nbsp; 

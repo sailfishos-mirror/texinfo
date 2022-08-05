@@ -2089,7 +2089,7 @@ after
 
 <p>pg
 </p><div class="printindex pg-printindex">
-<table class="pg-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_pg_letter-A"><b>A</b></a>
+<table class="pg-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_pg_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_pg_letter-D"><b>D</b></a>
  &nbsp; 
@@ -2114,7 +2114,7 @@ after
 <tr><td></td><td valign="top"><a href="#index-truc-kindex"><code>truc kindex</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Chapter-index">Chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="pg-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_pg_letter-A"><b>A</b></a>
+<table class="pg-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_pg_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_pg_letter-D"><b>D</b></a>
  &nbsp; 
@@ -2141,7 +2141,7 @@ after
 </p>
 <p>fn
 </p><div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-C"><b>C</b></a>
+<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-C"><b>C</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_fn_letter-I"><b>I</b></a>
  &nbsp; 
@@ -2156,7 +2156,7 @@ after
 <tr><td></td><td valign="top"><a href="#index-index-truc">index truc</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Chapter-index">Chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-C"><b>C</b></a>
+<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-C"><b>C</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_fn_letter-I"><b>I</b></a>
  &nbsp; 

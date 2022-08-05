@@ -848,7 +848,7 @@ ul.mark-bullet {list-style-type: disc}
 <h1 class="top" id="top">top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td valign="top">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">
 <ul class="itemize mark-bullet">
 <li><pre class="menu-preformatted">
 

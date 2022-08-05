@@ -448,7 +448,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </div>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#first" accesskey="1">first</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td valign="top">&bull; <a href="#first" accesskey="1">first</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">
 </td></tr>
 </table>
 

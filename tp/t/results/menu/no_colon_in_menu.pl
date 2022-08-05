@@ -223,7 +223,7 @@ pre.menu-comment-preformatted {font-family: serif}
 <h1 class="node" id="Top">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">* a
+<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">* a
 </pre></th></tr></table>
 
 

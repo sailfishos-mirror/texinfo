@@ -657,21 +657,21 @@ pre.menu-comment-preformatted {font-family: serif}
 <p>Before menu.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">comment
-</pre></th></tr><tr><td align="left" valign="top">&bull; menu entry name :</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">description
+<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">comment
+</pre></th></tr><tr><td valign="top">&bull; menu entry name :</td><td>&nbsp;&nbsp;</td><td valign="top">description
 </td></tr>
-<tr><td align="left" valign="top">&bull; node name:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">description new
+<tr><td valign="top">&bull; node name:</td><td>&nbsp;&nbsp;</td><td valign="top">description new
 </td></tr>
-<tr><td align="left" valign="top">&bull; other entry:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td valign="top">&bull; other entry:</td><td>&nbsp;&nbsp;</td><td valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; last:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td valign="top">&bull; last:</td><td>&nbsp;&nbsp;</td><td valign="top">
                  description next line
                  still description
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
+<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 
 new comment
-</pre></th></tr><tr><td align="left" valign="top">&bull; last node entry :</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td valign="top">&bull; last node entry :</td><td>&nbsp;&nbsp;</td><td valign="top">
 </td></tr>
 </table>
 

@@ -16261,7 +16261,7 @@ span:hover a.copiable-link {visibility: visible}
 
 <h3 class="heading" id="Functions">Functions</h3>
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>)</b></a>
+<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>)</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Top_fn_symbol-2"><b>,</b></a>
  &nbsp; 
@@ -16331,7 +16331,7 @@ span:hover a.copiable-link {visibility: visible}
 <tr><td></td><td valign="top"><a href="#index-push"><code>push</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>)</b></a>
+<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>)</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Top_fn_symbol-2"><b>,</b></a>
  &nbsp; 
@@ -16353,7 +16353,7 @@ span:hover a.copiable-link {visibility: visible}
 
 <h3 class="heading" id="Types">Types</h3>
 <div class="printindex tp-printindex">
-<table class="tp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_tp_letter-A"><b>A</b></a>
+<table class="tp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_tp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Top_tp_letter-P"><b>P</b></a>
  &nbsp; 
@@ -16370,7 +16370,7 @@ span:hover a.copiable-link {visibility: visible}
 <tr><td></td><td valign="top"><a href="#index-pair"><code>pair</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="tp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_tp_letter-A"><b>A</b></a>
+<table class="tp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_tp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Top_tp_letter-P"><b>P</b></a>
  &nbsp; 
@@ -16379,7 +16379,7 @@ span:hover a.copiable-link {visibility: visible}
 
 <h3 class="heading" id="Variables">Variables</h3>
 <div class="printindex vr-printindex">
-<table class="vr-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_vr_letter-A"><b>A</b></a>
+<table class="vr-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_vr_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Top_vr_letter-B"><b>B</b></a>
  &nbsp; 
@@ -16411,7 +16411,7 @@ span:hover a.copiable-link {visibility: visible}
 <tr><td></td><td valign="top"><a href="#index-fill_002dcolumn"><code>fill-column</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="vr-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_vr_letter-A"><b>A</b></a>
+<table class="vr-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_vr_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Top_vr_letter-B"><b>B</b></a>
  &nbsp; 

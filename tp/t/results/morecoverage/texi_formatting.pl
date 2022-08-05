@@ -4950,7 +4950,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 
 <p>cp
 </p><div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_cp_symbol-1"><b>.</b></a>
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_cp_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Top_cp_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -4977,7 +4977,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc">T&ndash;ruc</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_cp_symbol-1"><b>.</b></a>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_cp_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Top_cp_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -4991,7 +4991,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 
 <p>fn
 </p><div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>.</b></a>
+<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Top_fn_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -5018,7 +5018,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>.</b></a>
+<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Top_fn_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -5141,7 +5141,7 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
 <h2 class="centerchap" id="chapter-2">chapter 2</h2>
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter2_cp_symbol-1"><b>.</b></a>
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter2_cp_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chapter2_cp_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -5168,7 +5168,7 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc">T&ndash;ruc</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter2_cp_symbol-1"><b>.</b></a>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter2_cp_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chapter2_cp_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -5180,7 +5180,7 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
 </td></tr></table>
 </div>
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter2_fn_symbol-1"><b>.</b></a>
+<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter2_fn_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chapter2_fn_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -5207,7 +5207,7 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter2_fn_symbol-1"><b>.</b></a>
+<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter2_fn_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#chapter2_fn_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -5275,7 +5275,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 
 <p>cp
 </p><div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_symbol-1"><b>.</b></a>
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_cp_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -5302,7 +5302,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc">T&ndash;ruc</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_symbol-1"><b>.</b></a>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_cp_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -5316,7 +5316,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 
 <p>fn
 </p><div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_symbol-1"><b>.</b></a>
+<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_fn_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -5343,7 +5343,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_symbol-1"><b>.</b></a>
+<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_fn_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -5466,7 +5466,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 <h2 class="centerchap" id="chapter-2">chapter 2</h2>
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_symbol-1"><b>.</b></a>
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_cp_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -5493,7 +5493,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc">T&ndash;ruc</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_symbol-1"><b>.</b></a>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_cp_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -5505,7 +5505,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 </td></tr></table>
 </div>
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_symbol-1"><b>.</b></a>
+<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_fn_symbol-2"><b>?</b></a>
  &nbsp; 
@@ -5532,7 +5532,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_symbol-1"><b>.</b></a>
+<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_symbol-1"><b>.</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_fn_symbol-2"><b>?</b></a>
  &nbsp; 

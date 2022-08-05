@@ -1027,7 +1027,7 @@ $result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<div
 <a class="index-entry-id" id="index-ddi_0060_0060g"></a>
 
 <div class="printindex fn-printindex">
-<table class="fn-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-C"><b>C</b></a>
+<table class="fn-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-C"><b>C</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_fn_letter-D"><b>D</b></a>
  &nbsp; 
@@ -1053,7 +1053,7 @@ $result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<div
 <tr><td></td><td valign="top"><a href="#index-v_0060_0060j">v&ldquo;j</a>:</td><td>&nbsp;</td><td valign="top"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="fn-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-C"><b>C</b></a>
+<table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-C"><b>C</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_fn_letter-D"><b>D</b></a>
  &nbsp; 

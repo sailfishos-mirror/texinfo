@@ -1365,7 +1365,7 @@ $result_converted{'html_text'}->{'subentries'} = '
 <a class="index-entry-id" id="index-f_002d_002d_002dggg"></a>
 
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_cp_letter-B"><b>B</b></a>
  &nbsp; 
@@ -1390,7 +1390,7 @@ $result_converted{'html_text'}->{'subentries'} = '
 <tr><td></td><td valign="top"><a href="#index-g_002d_002d_002dgg">g&mdash;gg, h&mdash;hh jjj, k&mdash;kk, l&mdash;ll</a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#t_i_cp_letter-B"><b>B</b></a>
  &nbsp; 

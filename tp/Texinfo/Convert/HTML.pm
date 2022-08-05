@@ -3410,8 +3410,8 @@ sub _default_format_navigation_panel($$$$;$)
   my $first_button = 1;
   foreach my $button (@$buttons) {
     if ($self->get_conf('HEADER_IN_TABLE')) {
-      $result .= qq{<tr valign="top" align="left">\n} if $vertical;
-      $result .=  qq{<td valign="middle" align="left">};
+      $result .= '<tr>'."\n" if $vertical;
+      $result .=  '<td>';
     }
     my $direction;
     if (ref($button) eq 'ARRAY'
@@ -3462,8 +3462,8 @@ sub _default_format_navigation_header($$$$)
   my $result = '';
   if ($self->get_conf('VERTICAL_HEAD_NAVIGATION')) {
     $result .= '<table border="0" cellpadding="0" cellspacing="0">
-<tr valign="top">
-<td align="left">
+<tr>
+<td>
 ';
   }
   $result .= &{$self->formatting_function('format_navigation_panel')}($self,
@@ -3471,7 +3471,7 @@ sub _default_format_navigation_header($$$$)
                                    $self->get_conf('VERTICAL_HEAD_NAVIGATION'));
   if ($self->get_conf('VERTICAL_HEAD_NAVIGATION')) {
     $result .= '</td>
-<td align="left">
+<td>
 ';
   } elsif ($self->get_conf('SPLIT') eq 'node') {
     $result .= $self->get_conf('DEFAULT_RULE')."\n";
@@ -5119,7 +5119,7 @@ sub _convert_printindex_command($$$$)
   # format the summary
   if (scalar(@non_alpha) + scalar(@alpha) > 1) {
     my $summary_header = $self->html_attribute_class('table',
-            ["$index_name-letters-header-$cmdname"]).'><tr><th valign="top">'
+            ["$index_name-letters-header-$cmdname"]).'><tr><th>'
       . $self->convert_tree($self->gdt('Jump to')) .": $non_breaking_space </th><td>" .
       $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
 
@@ -5141,7 +5141,7 @@ sub _convert_printindex_command($$$$)
   
   if (scalar(@non_alpha) + scalar(@alpha) > 1) {
     my $summary_footer = $self->html_attribute_class('table',
-                 ["$index_name-letters-footer-$cmdname"]).'><tr><th valign="top">'
+                 ["$index_name-letters-footer-$cmdname"]).'><tr><th>'
       . $self->convert_tree($self->gdt('Jump to')) .": $non_breaking_space </th><td>" .
       $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
     $result .= $summary_footer
@@ -5785,8 +5785,8 @@ sub _convert_menu_entry_type($$$)
     }
   }
   my $non_breaking_space = $self->get_info('non_breaking_space');
-  return "<tr><td align=\"left\" valign=\"top\">$name$MENU_ENTRY_COLON</td>"
-    ."<td>${non_breaking_space}${non_breaking_space}</td><td align=\"left\" valign=\"top\">$description</td></tr>\n";
+  return "<tr><td valign=\"top\">$name$MENU_ENTRY_COLON</td>"
+    ."<td>${non_breaking_space}${non_breaking_space}</td><td valign=\"top\">$description</td></tr>\n";
 }
 
 $default_types_conversion{'menu_entry'} = \&_convert_menu_entry_type;
@@ -5801,7 +5801,7 @@ sub _convert_menu_comment_type($$$$)
   if ($self->_in_preformatted_in_menu() or $self->in_string()) {
     return $content;
   } else {
-    return "<tr><th colspan=\"3\" align=\"left\" valign=\"top\">".$content
+    return "<tr><th colspan=\"3\" align=\"left\">".$content
        ."</th></tr>";
   }
 }

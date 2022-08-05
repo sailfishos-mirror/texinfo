@@ -1149,9 +1149,9 @@ Next: <a href="#NODE" accesskey="n" rel="next"><small class="sc">NODE</small></a
 <h1 class="node">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#NODE" accesskey="1"><small class="sc">VALUE</small></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><small class="sc">DESCRIP TION</small>
+<tr><td valign="top">&bull; <a href="#NODE" accesskey="1"><small class="sc">VALUE</small></a>:</td><td>&nbsp;&nbsp;</td><td valign="top"><small class="sc">DESCRIP TION</small>
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment-preformatted">
+<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 
 <span class="sc">MENU COMMENT</span>
 
