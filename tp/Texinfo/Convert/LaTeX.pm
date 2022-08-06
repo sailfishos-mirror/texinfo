@@ -1821,6 +1821,9 @@ foreach my $small_font_preformatted_command (
   $small_font_preformatted_commands{$small_font_preformatted_command} = 1;
 }
 
+# TODO should this be set anywhere?
+my $example_indent = '2em';
+
 sub _open_preformatted($$)
 {
   my $self = shift;
@@ -1839,8 +1842,14 @@ sub _open_preformatted($$)
    if (scalar(@{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}}));
   my $result = '';
   $result .= '\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing';
-  # TODO indent block correct amount
-  $result .= '\\leftskip=2em\\relax\\parskip=0pt\\relax';
+
+  my $indent;
+  if ($command eq 'format') {
+    $indent = '0em';
+  } else {
+    $indent = $example_indent;
+  }
+  $result .= "\\leftskip=$indent \\parskip=0pt \\parindent=0pt ";
 
   if ($preformatted_code_commands{$command}) {
     $result .= '\\ttfamily';

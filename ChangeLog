@@ -1,5 +1,13 @@
 2022-08-06  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Better environments in LaTeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (_open_preformatted):
+	Set \parindent to 0pt to avoid excessive margin.  Set
+	\leftskip to 0pt for @format.
+
+2022-08-06  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\raggedleft, \raggedcenter):
 	Remove, as these are not implemented in texi2any and not
 	documented.
