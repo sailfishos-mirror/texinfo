@@ -1445,7 +1445,7 @@ the Texinfo tree element @var{$element} to plain text:
 
 @example
 my $plaintext = Texinfo::Convert::Text::convert_to_text($element,
-      Texinfo::Convert::Text::copy_options_for_convert_text($converter));
+  Texinfo::Convert::Text::copy_options_for_convert_text($converter, 1));
 @end example
 
 @node Conversion Customization Variables

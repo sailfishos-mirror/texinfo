@@ -1413,7 +1413,7 @@ $result_converted{'html'}->{'multiple'} = '<!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!-- Variable d\'instance of copying: a b
-erreur-> -->
+erreur→ -->
 <title>top</title>
 
 <meta name="description" content="top">

@@ -1,5 +1,18 @@
 2022-08-06  Patrice Dumas  <pertusus@free.fr>
 
+	Use encoded characters in plain text from HTML if not ascii
+
+	* tp/Texinfo/Convert/Text.pm (copy_options_for_convert_text),
+	tp/Texinfo/Convert/HTML.pm: add a second argument to
+	Texinfo::Convert::Text::copy_options_for_convert_text
+	to ignore ENABLE_ENCODING and set enabled_encoding if
+	OUTPUT_ENCODING_NAME is not us-ascii.  Set from HTML,
+	where ENABLE_ENCODING unset  does not mean that encoding
+	is not supported, but that entities are preferred to encoded
+	characters.
+
+2022-08-06  Patrice Dumas  <pertusus@free.fr>
+
 	Percent encode more characters in @image file name
 
 	* tp/Texinfo/Convert/HTML.pm (url_protect_file_text)

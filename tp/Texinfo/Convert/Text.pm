@@ -321,15 +321,25 @@ sub heading($$$;$$)
   return $result;
 }
 
+# TODO not documented
 # $SELF is typically a converter object.
 # Setup options as used by Texinfo::Convert::Text::convert_to_text
 # based on the converter information.
-sub copy_options_for_convert_text($)
+# if $ENABLE_ENCODING_IF_NOT_ASCII is set, enabled_encoding is set
+# unless the encoding is ascii, even if ENABLE_ENCODING is not set.
+# This is relevant for HTML, where ENABLE_ENCODING unset does not
+# mean that encoding is not supported, but that entities are preferred
+# to encoded characters
+sub copy_options_for_convert_text($;$)
 {
   my $self = shift;
+  my $enable_encoding_if_not_ascii = shift;
   my %options;
-  if ($self->get_conf('ENABLE_ENCODING')
-      and $self->get_conf('OUTPUT_ENCODING_NAME')) {
+  if (($self->get_conf('ENABLE_ENCODING')
+       and $self->get_conf('OUTPUT_ENCODING_NAME'))
+      or ($enable_encoding_if_not_ascii
+          and $self->get_conf('OUTPUT_ENCODING_NAME')
+          and $self->get_conf('OUTPUT_ENCODING_NAME') ne 'us-ascii')) {
     $options{'enabled_encoding'} = $self->get_conf('OUTPUT_ENCODING_NAME');
   }
   $options{'TEST'} = 1 if ($self->get_conf('TEST'));

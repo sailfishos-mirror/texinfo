@@ -1061,7 +1061,7 @@ $result_converted{'html'}->{'multiple_in_preamble_before_node'} = '<!DOCTYPE htm
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!-- Primjer varijable of copying: a b
-greška-> -->
+greška→ -->
 <title>top section</title>
 
 <meta name="description" content="top section">
