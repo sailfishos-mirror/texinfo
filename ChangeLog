@@ -1,3 +1,13 @@
+2022-08-06  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Protect ] in LaTeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (_protect_text): Output ] as {]} to
+	avoid interaction with use of [, ] for optional LaTeX arguments.
+
+	\subsection{\texttt{@float} [\textsl{type}][,\textsl{label}]}
+	led to mangled output, even though the [ and ] were inside { and }.
+
 2022-08-06  Patrice Dumas  <pertusus@free.fr>
 
 	@url/@uref url independent of output encoding in HTML

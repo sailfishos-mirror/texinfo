@@ -1624,6 +1624,9 @@ sub _protect_text($$)
     $text =~ s/\^/\\^{}/g;
 
     $text =~ s/\x08/\\textbackslash{}/g;
+
+    $text =~ s/]/{]}/g;
+
     if ($self->{'formatting_context'}->[-1]->{'index'}) {
       $text = _protect_index_text($text);
     }
