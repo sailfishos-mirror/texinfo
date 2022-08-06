@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-07-31.14}
+\def\texinfoversion{2022-08-06.16}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -7285,22 +7285,6 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \rightskip0pt plus2.4em \spaceskip.3333em \xspaceskip.5em\relax
 }
 \let\Eraggedright\par
-
-\envdef\raggedleft{%
-  \parindent=0pt \leftskip0pt plus2em
-  \spaceskip.3333em \xspaceskip.5em \parfillskip=0pt
-  \hbadness=10000 % Last line will usually be underfull, so turn off
-                  % badness reporting.
-}
-\let\Eraggedleft\par
-
-\envdef\raggedcenter{%
-  \parindent=0pt \rightskip0pt plus1em \leftskip0pt plus1em
-  \spaceskip.3333em \xspaceskip.5em \parfillskip=0pt
-  \hbadness=10000 % Last line will usually be underfull, so turn off
-                  % badness reporting.
-}
-\let\Eraggedcenter\par
 
 
 % @quotation does normal linebreaking (hence we can't use \nonfillstart)
