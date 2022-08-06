@@ -2846,17 +2846,32 @@ sub _convert_uref_command($$$$)
   my $text_arg = shift @args;
   my $replacement_arg = shift @args;
 
-  my ($url, $text, $replacement);
-  #$url = $url_arg->{'monospacestring'} if defined($url_arg);
-  $url = $url_arg->{'monospacetext'} if defined($url_arg);
+  my ($url, $url_string, $text, $replacement);
+  if (defined($url_arg)) {
+    $url = $url_arg->{'monospacetext'};
+    $url_string
+      = &{$self->formatting_function('format_protect_text')}($self, $url);
+  }
   $text = $text_arg->{'normal'} if defined($text_arg);
   $replacement = $replacement_arg->{'normal'} if defined($replacement_arg);
 
   $text = $replacement if (defined($replacement) and $replacement ne '');
-  $text = &{$self->formatting_function('format_protect_text')}($self, $url)
-            if (!defined($text) or $text eq '');
+  $text = $url_string if (!defined($text) or $text eq '');
   return $text if (!defined($url) or $url eq '');
-  return "$text ($url)" if ($self->in_string());
+  return "$text ($url_string)" if ($self->in_string());
+
+  # Convert again, but this time with encoding set to UTF-8
+  # to have a normalized percent encoded file name not dependent
+  # on the encoding, and representing better the underlying characters
+  my $output_encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
+  if (not defined($output_encoding) or $output_encoding ne 'utf-8') {
+    my $text_conversion_options = {'code' => 1,
+      Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)};
+    $text_conversion_options->{'enabled_encoding'} = 'utf-8';
+    $url
+      = Texinfo::Convert::Text::convert_to_text($url_arg->{'tree'},
+                                               $text_conversion_options);
+  }
   return $self->html_attribute_class('a', [$cmdname])
            .' href="'.$self->url_protect_url_text($url)."\">$text</a>";
 }

@@ -1,3 +1,12 @@
+2022-08-06  Patrice Dumas  <pertusus@free.fr>
+
+	@url/@uref url independent of output encoding in HTML
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_uref_command):
+	convert the url @uref/@url argument to raw text using UTF-8 encoding
+	to get an url to be percent protected independent of the encoding
+	and more in line with the underlying characters.
+
 2022-08-06  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Indent def_item in LaTeX

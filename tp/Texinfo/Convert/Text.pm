@@ -923,9 +923,10 @@ The following options may be set:
 =item enabled_encoding
 
 If set, the value is considered to be the encoding name texinfo accented
-letters should be converted to.  This option corresponds to the
+letters should be converted to.  This option being set corresponds to the
 C<--enable-encoding> option, or the C<ENABLE_ENCODING> customization
-variable.
+variable for Info and Plaintext.  For HTML, DocBook or Texinfo XML, this
+variable should in general be set unless the output encoding is US-ASCII.
 
 =item sc
 

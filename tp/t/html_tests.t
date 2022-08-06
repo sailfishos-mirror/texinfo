@@ -578,15 +578,18 @@ example with @@-commands and other special characters
 @end example
 '],
 ['uref_accented_letter',
-'@uref{http://example.com/acc_@"a}
+'@uref{http://example.com/acc_@"a@ogonek{a}}
 '],
 ['uref_accented_letter_ascii',
 '@documentencoding US-ASCII
 
-@uref{http://example.com/acc_@"a}
+@uref{http://example.com/acc_@"a@ogonek{a}}
 '],
+['uref_accented_letter_latin1',
+'@documentencoding ISO-8859-1
 
-
+@uref{http://example.com/acc_@"a@ogonek{a}}
+'],
 );
 
 my $test_accents_sc_no_brace_commands_quotes = '@u{--a}
