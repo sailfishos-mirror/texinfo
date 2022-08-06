@@ -40,9 +40,7 @@
 #
 # @group should also be added together with the non filled environments.
 #
-# @def* body in Texinfo TeX is narrower than the @def* line.  The
-# difference is more marked for @def* within a @*table or @quotation.
-# Also Texinfo TeX leaves more space for the category on the right
+# Texinfo TeX leaves more space for the category on the right
 # if the def line is too long.  If the category is formatted with
 # @tie{}, like Escape@tie{}sequence, with Texinfo TeX the space is
 # more or less a normal space, with LaTeX, the space has shrinked so
@@ -1844,7 +1842,7 @@ sub _open_preformatted($$)
   $result .= '\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing';
 
   my $indent;
-  if ($command eq 'format') {
+  if ($command eq 'format' or $command eq 'smallformat') {
     $indent = '0em';
   } else {
     $indent = $example_indent;
@@ -1857,7 +1855,7 @@ sub _open_preformatted($$)
   if ($small_font_preformatted_commands{$command}) {
     $result .= "\\$small_font_size";
   }
-  $result .= '{}'."%\n";
+  $result .= "%\n";
   return $result;
 }
 
@@ -3636,6 +3634,8 @@ sub _convert($$)
       }
       $result .= "\n";
       $result .= _index_entry($self, $element);
+    } elsif ($element->{'type'} eq 'def_item') {
+      $result .= "\\begin{quote}\n";
     } elsif ($element->{'type'} eq 'table_term') {
       $result .= '\item[{\parbox[b]{\linewidth}{%'."\n";
       # count @item/@itemx to add //\n to each except for the last
@@ -3681,6 +3681,8 @@ sub _convert($$)
   if ($type) {
     if ($type eq '_dot_not_end_sentence') {
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} -= 1;
+    } elsif ($type eq 'def_item') {
+      $result .= "\\end{quote}\n";
     } elsif ($type eq 'table_term') {
       $result .= '}}]'."\n";
       pop @{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}};

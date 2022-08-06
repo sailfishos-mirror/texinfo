@@ -76,21 +76,27 @@
 
 
 \index[fn]{fname@\texttt{fname}}%
+\begin{quote}
 deffn no var for \textsl{a---rg1} and \textsl{a--rg2}
+\end{quote}
 
 \noindent\texttt{fname \EmbracOn{}\textnormal{\textsl{\textsl{a---rg1} \textsl{a--rg2}}}\EmbracOff{}}\hfill[Func]
 
 
 
 \index[fn]{fname@\texttt{fname}}%
+\begin{quote}
 deffn explict var for \textsl{a---rg1} and \textsl{a--rg2}
+\end{quote}
 
 \noindent\texttt{fname \EmbracOn{}\textnormal{\textsl{\EmbracOff{}\textnormal{\textsl{a---rg1}}\EmbracOn{} \EmbracOff{}\textnormal{\textsl{a--rg2}}\EmbracOn{}}}\EmbracOff{}}\hfill[Func]
 
 
 
 \index[fn]{fname@\texttt{fname}}%
+\begin{quote}
 deffn r slanted for \textsl{a---rg1} and \textsl{a--rg2}
+\end{quote}
 
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var [from to [inc]]) default}}\EmbracOff{}}\hfill[Special Form]
 
@@ -144,7 +150,9 @@ deffn r slanted for \textsl{a---rg1} and \textsl{a--rg2}
 
 
 \index[fn]{foobar@\texttt{foobar}}%
+\begin{quote}
 separators
+\end{quote}
 
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{va---riable default}}\EmbracOff{}}\hfill[Special Form]
 
@@ -208,7 +216,9 @@ separators
 
 
 \index[fn]{foobar@\texttt{foobar}}%
+\begin{quote}
 name
+\end{quote}
 
 \noindent\texttt{\texttt{.ft} \EmbracOn{}\textnormal{\textsl{[\EmbracOff{}\textnormal{\textsl{font}}\EmbracOn{}]}}\EmbracOff{}}\hfill[Request]
 
@@ -237,9 +247,11 @@ name
 
 
 \index[fn]{\textbackslash{}n[.sty]@\texttt{\texttt{\textbackslash{}n[.sty]}}}%
+\begin{quote}
 The \texttt{ft} request and the \texttt{\textbackslash{}f} escape change the current font
 to \textsl{font} (one-character name\hbox{}\textsl{f}, two-character name
 \textsl{fn}).
+\end{quote}
 
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{[ \EmbracOff{}\textnormal{[}\EmbracOn{} \textsl{[} \EmbracMakeKnown{texttt}\texttt{[} \texttt{[} \EmbracOff{}\textnormal{\textsl{[}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{[}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{\textsl{[}}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{[}}\EmbracOn{} , \EmbracOff{}\textnormal{,}\EmbracOn{} \textsl{,} \texttt{,} \texttt{,} \EmbracOff{}\textnormal{\textsl{,}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{,}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{\textsl{,}}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{,}}\EmbracOn{} ] \EmbracOff{}\textnormal{]}\EmbracOn{} \textsl{]} \texttt{]} \texttt{]} \EmbracOff{}\textnormal{\textsl{]}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{]}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{\textsl{]}}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{]}}\EmbracOn{}}}\EmbracOff{}}\hfill[Special Form]
 
@@ -255,21 +267,27 @@ to \textsl{font} (one-character name\hbox{}\textsl{f}, two-character name
 \cs_undefine:N{\embrac_texttt:nn}\cs_undefine:N{\embrac_orig_texttt:n}\cs_undefine:N{\__embrac_texttt:n}%
 \ExplSyntaxOff%
 \index[fn]{foobar@\texttt{foobar}}%
+\begin{quote}
 test formatting of separators
+\end{quote}
 
 \noindent\texttt{int foobar (int \textsl{f{-}{-}{-}oo}, float \textsl{b{-}{-}ar})}\hfill[Library Function]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
+\begin{quote}
 \dots{}\@ with var for \textsl{f---oo} and \textsl{b--ar}
+\end{quote}
 
 \noindent\texttt{int foobar (int \textnormal{\textsl{f---oo}}, float \textnormal{\textsl{b--ar}})}\hfill[Library Function]
 
 
 
 \index[fn]{foobar@\texttt{foobar}}%
+\begin{quote}
 \dots{}\@ with r slanted for \textsl{f---oo} and \textsl{b--ar}
+\end{quote}
 
 \noindent{}produces:
 \noindent\texttt{border-pattern}\hfill[Class Option of \texttt{Window}]
@@ -277,14 +295,18 @@ test formatting of separators
 
 
 \index[vr]{border-pattern@\texttt{border-pattern}}%
+\begin{quote}
 \dots{}\@
+\end{quote}
 
 \noindent\texttt{\texttt{int} border-pattern}\hfill[Class Option of \texttt{Window}]
 
 
 
 \index[vr]{border-pattern of Window@\texttt{border-pattern of Window}}%
+\begin{quote}
 \dots{}\@
+\end{quote}
 
 \begin{quote}
 \noindent\texttt{int foobar (int \textsl{foo}, float \textsl{bar})}\hfill[Library Function]
@@ -292,7 +314,9 @@ test formatting of separators
 
 
 \index[fn]{foobar@\texttt{foobar}}%
+\begin{quote}
 \dots{}\@ for \textsl{foo} and \textsl{bar}
+\end{quote}
 \end{quote}
 
 \noindent\texttt{apply \EmbracOn{}\textnormal{\textsl{function \&rest arguments}}\EmbracOff{}}\hfill[Function]
@@ -300,14 +324,18 @@ test formatting of separators
 
 
 \index[fn]{apply@\texttt{apply}}%
+\begin{quote}
 \texttt{apply} calls no var \textsl{function} with \textsl{arguments}
+\end{quote}
 
 \noindent\texttt{apply \EmbracOn{}\textnormal{\textsl{function \EmbracOff{}\textnormal{\textbf{\&rest}}\EmbracOn{} argument}}\EmbracOff{}}\hfill[Function]
 
 
 
 \index[fn]{apply@\texttt{apply}}%
+\begin{quote}
 explicit keyword marking, no var \textsl{function} with \textsl{arguments}
+\end{quote}
 
 \noindent\texttt{name \EmbracOn{}\textnormal{\textsl{argument \EmbracMakeKnown{texttt}\texttt{int} \texttt{a{-}{-}b} \textsl{v--ar1}, word \texttt{{-}{-}} (\texttt{type o{-}{-}ther}, \textsl{v---ar2}  [\texttt{float} [\textsl{var4}]])}}\EmbracOff{}}\hfill[Category]
 
@@ -316,7 +344,9 @@ explicit keyword marking, no var \textsl{function} with \textsl{arguments}
 \cs_undefine:N{\embrac_texttt:nn}\cs_undefine:N{\embrac_orig_texttt:n}\cs_undefine:N{\__embrac_texttt:n}%
 \ExplSyntaxOff%
 \index[fn]{name@\texttt{name}}%
+\begin{quote}
 In deffn with code and var used
+\end{quote}
 
 \noindent\texttt{int foobar (int \textsl{f{-}{-}{-}oo}[, float \textsl{b{-}{-}ar}]) default}\hfill[Library Function]
 
@@ -363,7 +393,9 @@ In deffn with code and var used
 
 
 \index[fn]{foobar@\texttt{foobar}}%
+\begin{quote}
 separators
+\end{quote}
 
 \noindent\texttt{int foobar (i{-}{-}nt \textsl{f{-}{-}{-}oo}[, float \textsl{b{-}{-}ar}]) default}\hfill[Library Function]
 
@@ -410,6 +442,8 @@ separators
 
 
 \index[fn]{foobar@\texttt{foobar}}%
+\begin{quote}
 name
+\end{quote}
 
 \end{document}

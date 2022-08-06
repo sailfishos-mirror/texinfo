@@ -656,7 +656,9 @@ $result_converted{'latex'}->{'omit_def_space'} = '\\label{anchor:Top}%
 
 
 \\index[fn]{another@\\texttt{another}}%
+\\begin{quote}
 explain
+\\end{quote}
 ';
 
 1;

@@ -1,5 +1,15 @@
 2022-08-06  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Indent def_item in LaTeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert) <def_item>:
+	Wrap body of definition with \begin{quote} and \end{quote}.
+
+	(_open_preformatted): Also do not indent @smallformat environment.
+	Remove extraneous {} from output.
+
+2022-08-06  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@exdent in LaTeX
 
 	* tp/Texinfo/Convert/LaTeX.pm (_convert) <@exdent>:
