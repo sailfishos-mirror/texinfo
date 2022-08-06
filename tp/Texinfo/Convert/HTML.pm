@@ -2643,7 +2643,7 @@ sub _convert_email_command($$$$)
     return "$mail_string ($text)";
   } else {
     return $self->html_attribute_class('a', [$cmdname])
-    .' href="'.$self->protect_url_text("mailto:$mail_string")."\">$text</a>";
+    .' href="'.$self->url_protect_url_text("mailto:$mail_string")."\">$text</a>";
   }
 }
 
@@ -2858,7 +2858,7 @@ sub _convert_uref_command($$$$)
   return $text if (!defined($url) or $url eq '');
   return "$text ($url)" if ($self->in_string());
   return $self->html_attribute_class('a', [$cmdname])
-           .' href="'.$self->protect_url_text($url)."\">$text</a>";
+           .' href="'.$self->url_protect_url_text($url)."\">$text</a>";
 }
 
 $default_commands_conversion{'uref'} = \&_convert_uref_command;
@@ -2895,7 +2895,7 @@ sub _convert_image_command($$$$)
     }
     return $self->close_html_lone_element(
       $self->html_attribute_class('img', [$cmdname])
-        . ' src="'.$self->protect_url_text($image_file)."\" alt=\"$alt_string\"");
+        . ' src="'.$self->url_protect_file_text($image_file)."\" alt=\"$alt_string\"");
   }
   return '';
 }
@@ -3217,7 +3217,7 @@ sub _default_format_button_icon_img($$$;$)
     $alt = $button;
   }
   return $self->close_html_lone_element(
-    '<img src="'.$self->protect_url_text($icon)
+    '<img src="'.$self->url_protect_url_text($icon)
        ."\" border=\"0\" alt=\"$alt\" align=\"middle\"");
 }
 
@@ -7090,27 +7090,38 @@ sub convert_tree($$;$)
   return $self->_convert($tree, $explanation);
 }
 
-# percent encode character string.  It is better use UTF-8 irrespective
-# of the actual charset of the HTML output file, according to the tests done.
-sub _protect_url($)
-{
-  my $input_string = shift;
-  my $result_string = encode("UTF-8", $input_string);
-  # found on the internet, original author unknown
-  # protect everything except unreserved characters
-  #$result_string =~ s/([^^A-Za-z0-9\-_.!~*'()])/ sprintf "%%%02x", ord $1 /eg;
-  # protect everything except unreserved and reserved characters + the % itself
-  $result_string =~ s/([^^A-Za-z0-9\-_.!~*'()\$&+,\/:;=\?@\[\]\#%])/ sprintf "%%%02x", ord $1 /eg;
-  return $result_string;
-}
-
-# FIXME documentas part of the API.  Make it a mandatory called function?
+# FIXME document as part of the API.  Make it a mandatory called function?
 # a format_* function?
-sub protect_url_text($$)
+# protect an url, in which characters with specific meaning in url are considered
+# to have their specific meaning
+sub url_protect_url_text($$)
 {
   my $self = shift;
   my $input_string = shift;
-  my $href = _protect_url($input_string);
+  # percent encode character string.  It is better use UTF-8 irrespective
+  # of the actual charset of the HTML output file, according to the tests done.
+  my $href = encode("UTF-8", $input_string);
+  # protect 'ligntly', do not protect unreserved and reserved characters + the % itself
+  $href =~ s/([^^A-Za-z0-9\-_.!~*'()\$&+,\/:;=\?@\[\]\#%])/ sprintf "%%%02x", ord $1 /eg;
+  return &{$self->formatting_function('format_protect_text')}($self, $href);
+}
+
+# FIXME document as part of the API.  Make it a mandatory called function?
+# a format_* function?
+# # protect a file path used in an url, in which characters with specific
+# meaning in url do not have their special meaning, except for characters
+# also appearing in file paths.
+sub url_protect_file_text($$)
+{
+  my $self = shift;
+  my $input_string = shift;
+  # percent encode character string.  It is better use UTF-8 irrespective
+  # of the actual charset of the HTML output file, according to the tests done.
+  my $href = encode("UTF-8", $input_string);
+  # protect everything that can be special in url except ~, / and : that could
+  # appear in file names and does not have much risk in being incorrectly
+  # interpreted (for :, the interpretation as a scheme delimiter may be possible).
+  $href =~ s/([^^A-Za-z0-9\-_.~\/:])/ sprintf "%%%02x", ord $1 /eg;
   return &{$self->formatting_function('format_protect_text')}($self, $href);
 }
 
@@ -7155,7 +7166,7 @@ sub _default_format_css_lines($;$)
   foreach my $ref (@$css_refs) {
     $css_text .= $self->close_html_lone_element(
          '<link rel="stylesheet" type="text/css" href="'.
-                $self->protect_url_text($ref).'"')."\n";
+                $self->url_protect_url_text($ref).'"')."\n";
   }
   return $css_text;
 }
@@ -8508,7 +8519,7 @@ sub _default_format_end_file($$)
     if (defined($js_setting) and defined($js_path)
         and ($js_setting eq 'generate' or $js_setting eq 'reference')) {
       $pre_body_close .=
-        '<a href="'.$self->protect_url_text($js_path).'" rel="jslicense"><small>'
+        '<a href="'.$self->url_protect_url_text($js_path).'" rel="jslicense"><small>'
         .$self->convert_tree($self->gdt('JavaScript license information'))
         .'</small></a>';
     }
@@ -8633,10 +8644,10 @@ sub _file_header_information($$;$)
 
       $extra_head .= $self->close_html_lone_element(
         '<link rel="stylesheet" type="text/css" href="'.
-                     $self->protect_url_text($jsdir).'info.css"')."\n".
-'<script src="'.$self->protect_url_text($jsdir)
+                     $self->url_protect_url_text($jsdir).'info.css"')."\n".
+'<script src="'.$self->url_protect_url_text($jsdir)
                       .'modernizr.js" type="text/javascript"></script>
-<script src="'.$self->protect_url_text($jsdir)
+<script src="'.$self->url_protect_url_text($jsdir)
                       .'info.js" type="text/javascript"></script>';
     }
   }
@@ -8658,7 +8669,7 @@ MathJax = {
 };
 </script>"
 .'<script type="text/javascript" id="MathJax-script" async
-  src="'.$self->protect_url_text($mathjax_script).'">
+  src="'.$self->url_protect_url_text($mathjax_script).'">
 </script>';
 
   }
@@ -9000,10 +9011,10 @@ sub _do_jslicenses_file {
     foreach my $file (sort(keys %{$jslicenses->{$category}})) {
       my $file_info = $jslicenses->{$category}->{$file};
       $a .= "<tr>\n";
-      $a .= '<td><a href="'.$self->protect_url_text($file)."\">$file</a></td>\n";
-      $a .= '<td><a href="'.$self->protect_url_text($file_info->[1])
+      $a .= '<td><a href="'.$self->url_protect_url_text($file)."\">$file</a></td>\n";
+      $a .= '<td><a href="'.$self->url_protect_url_text($file_info->[1])
                                          ."\">$file_info->[0]</a></td>\n";
-      $a .= '<td><a href="'.$self->protect_url_text($file_info->[2])
+      $a .= '<td><a href="'.$self->url_protect_url_text($file_info->[2])
                                          ."\">$file_info->[2]</a></td>\n";
       $a .= "</tr>\n";
     }

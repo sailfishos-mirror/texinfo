@@ -2805,7 +2805,7 @@ $result_converted{'html_text'}->{'image_formatting'} = '<div class="top-level-ex
 <code class="code">@image{f--ile,,,,e-d-xt}</code> <img class="image" src="f--ile.png" alt="f--ile">
 <code class="code">@image{f--ile,aze,az,alt,e--xt}</code> <img class="image" src="f--ile.png" alt="alt">
 <code class="code">@image{f-ile,aze,,a--lt}</code> <img class="image" src="f-ile.jpg" alt="a&ndash;lt">
-<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{file ext} e--xt@}</code> <img class="image" src="f--ile@.file%20ext%20e--xt%7d" alt="alt">
+<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{file ext} e--xt@}</code> <img class="image" src="f--ile%40.file%20ext%20e--xt%7d" alt="alt">
 <img class="image" src="image.jpg" alt="image"> <img class="image" src="image.jpg" alt="image">
 </p>
 <div class="example">
@@ -2816,7 +2816,7 @@ $result_converted{'html_text'}->{'image_formatting'} = '<div class="top-level-ex
 <code class="code">@image{f--ile,,,,e-d-xt}</code> <img class="image" src="f--ile.png" alt="f--ile">
 <code class="code">@image{f--ile,aze,az,alt,e--xt}</code> <img class="image" src="f--ile.png" alt="alt">
 <code class="code">@image{f-ile,aze,,a--lt}</code> <img class="image" src="f-ile.jpg" alt="a&ndash;lt">
-<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{file ext} e--xt@}</code> <img class="image" src="f--ile@.file%20ext%20e--xt%7d" alt="alt">
+<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{file ext} e--xt@}</code> <img class="image" src="f--ile%40.file%20ext%20e--xt%7d" alt="alt">
 <img class="image" src="image.jpg" alt="image"> <img class="image" src="image.jpg" alt="image">
 </pre></div>
 

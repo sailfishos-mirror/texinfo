@@ -310,7 +310,7 @@ sub epub_convert_image_command($$$$)
 
     return $self->close_html_lone_element(
       $self->html_attribute_class('img', [$cmdname])
-        . ' src="'.$self->protect_url_text($destination_file_name)
+        . ' src="'.$self->url_protect_file_text($destination_file_name)
            ."\" alt=\"$alt_string\"");
   }
   return '';

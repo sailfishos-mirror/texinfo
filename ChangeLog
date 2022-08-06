@@ -1,5 +1,19 @@
 2022-08-06  Patrice Dumas  <pertusus@free.fr>
 
+	Percent encode more characters in @image file name
+
+	* tp/Texinfo/Convert/HTML.pm (url_protect_file_text)
+	(_convert_image_command), tp/ext/epub3.pm
+	(epub_convert_image_command): add url_protect_file_text()
+	to protect file name in url, protecting everything that
+	can be special in url except ~, / and : that could appear in
+	file names.
+
+	* tp/Texinfo/Convert/HTML.pm (url_protect_url_text):
+	rename protect_url_text as url_protect_url_text.
+
+2022-08-06  Patrice Dumas  <pertusus@free.fr>
+
 	Percent encode href or src attributes that may need it
 
 	* tp/Texinfo/Convert/HTML.pm (protect_url_text)
