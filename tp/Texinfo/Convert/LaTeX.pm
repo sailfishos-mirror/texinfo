@@ -28,8 +28,6 @@
 #\tableofcontents
 #}
 #
-# @exdent is not implemented
-#
 # flushleft and flushright
 # the flushleft and flushright in Texinfo are not the same as in
 # LaTeX, as, in addition to come from a possibly different margin,
@@ -117,6 +115,8 @@
 # The environment used for @quotation is quote as it seems to match in term of
 # output, but the description of quote does not really match with what is
 # supposed to be the @quotation output.
+#
+# Proper indenting of nested environments, @exdent from nested environment
 #
 #
 # CAN WAIT
@@ -3273,9 +3273,13 @@ sub _convert($$)
       return $result;
     } elsif ($cmdname eq 'exdent') {
       if (scalar(@{$self->{'formatting_context'}->[-1]->{'preformatted_context'}})) {
+        $result .= '\\noindent ';
         $result .= $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}})."\n";
       } else {
+        $result .= "\\\\\n";
+        $result .= "\\hbox{\\kern -\\leftmargin}%\n";
         $result .= $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}})."\n";
+        $result .= "\\\\\n";
       }
       return $result;
     } elsif ($cmdname eq 'verbatiminclude') {

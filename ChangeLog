@@ -1,3 +1,10 @@
+2022-08-06  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	@exdent in LaTeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert) <@exdent>:
+	Output \noindent command or a negative kern depending on the context.
+
 2022-08-06  Patrice Dumas  <pertusus@free.fr>
 
 	Use encoded characters in plain text from HTML if not ascii
