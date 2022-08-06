@@ -31,9 +31,6 @@ HTML5 validation to check
 Spaces in href, and maybe other characters that are not % escaped
 are (also for <img>).  Only needed for url not conformaing to the
 inter manual XREF in HTML spec, ie in @url, @image.
-From the perl faq:
-https://perldoc.perl.org/perlfaq9#How-do-I-decode-or-create-those-%25-encodings-on-the-web?
-To encode a string yourself, use the URI::Escape module. The uri_escape function returns the escaped string
 It protects accented characters.
 The URL specification for HTML5 is at https://url.spec.whatwg.org/
 <a> escaping malformed URI reference

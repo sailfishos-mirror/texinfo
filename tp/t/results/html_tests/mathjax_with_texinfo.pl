@@ -397,7 +397,7 @@ MathJax = {
 <p>Some <em class="math tex2jax_process">\\(a - b \\geq{} \\mathord{\\text{\\AA{}}} \\hat{e}\\)</em>.
 </p>
 
-<a href=\'js_licenses.html\' rel=\'jslicense\'><small>JavaScript license information</small></a>
+<a href="js_licenses.html" rel="jslicense"><small>JavaScript license information</small></a>
 </body>
 </html>
 ';

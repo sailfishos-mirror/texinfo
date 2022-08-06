@@ -1,3 +1,17 @@
+2022-08-06  Patrice Dumas  <pertusus@free.fr>
+
+	Percent encode href or src attributes that may need it
+
+	* tp/Texinfo/Convert/HTML.pm (protect_url_text)
+	(_protect_url), tp/ext/epub3.pm (epub_convert_image_command):
+	function protect_url_text() used to protect urls, both percent
+	protect and protect HTML special characters with entities.
+	* tp/Texinfo/Convert/HTML.pm (%default_commands_args)
+	(_convert_email_command, _convert_uref_command):
+	convert @uref/@url and @email first argument as simple
+	text instead of string or monospace normal output, to
+	use protect_url_text().
+
 2022-08-06  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Better environments in LaTeX

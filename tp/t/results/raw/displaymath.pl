@@ -332,7 +332,7 @@ MathJax = {
 \\]</em></div><p>after
 </p>
 
-<a href=\'js_licenses.html\' rel=\'jslicense\'><small>JavaScript license information</small></a>
+<a href="js_licenses.html" rel="jslicense"><small>JavaScript license information</small></a>
 </body>
 </html>
 ';

@@ -184,7 +184,7 @@ sub html32_convert_explained_command($$$$)
 
   my $result;
   if ($with_explanation) {
-    $result = $self->convert_tree ($self->gdt('{explained_string} ({explanation})',
+    $result = $self->convert_tree($self->gdt('{explained_string} ({explanation})',
           {'explained_string' => $args->[0]->{'tree'},
            'explanation' => $args->[1]->{'tree'} }));
   } else {

@@ -307,12 +307,11 @@ sub epub_convert_image_command($$$$)
       $alt_string
        = &{$self->formatting_function('format_protect_text')}($self, $basefile);
     }
-    my $image_src
-     = &{$self->formatting_function('format_protect_text')}($self,
-                                                    $destination_file_name);
+
     return $self->close_html_lone_element(
       $self->html_attribute_class('img', [$cmdname])
-        . " src=\"$image_src\" alt=\"$alt_string\"");
+        . ' src="'.$self->protect_url_text($destination_file_name)
+           ."\" alt=\"$alt_string\"");
   }
   return '';
 }
