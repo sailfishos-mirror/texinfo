@@ -1022,7 +1022,11 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021");
     push @texi2dvi_args, "--command=\@clear $_[1]";
  },
  'init-file=s' => sub {
-    locate_and_load_init_file($_[1], [ @conf_dirs, @program_init_dirs ]);
+    if (get_conf('TEST')) {
+      locate_and_load_init_file($_[1], [ @conf_dirs ]);
+    } else {
+      locate_and_load_init_file($_[1], [ @conf_dirs, @program_init_dirs ]);
+    }
  },
  'set-customization-variable|c=s' => sub {
    my $var_val;

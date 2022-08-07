@@ -35,8 +35,8 @@ raw_outdir=$raw_output_dir/$basename
 [ -d $raw_outdir ] && rm -rf $raw_outdir
 mkdir $basename
 : > $basename/$stdout_file
-echo "$PERL -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init --init-file tex4ht.pm --iftex --out $basename/ $srcdir/../tex_html/tex_complex.texi $srcdir/../tex_html/tex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2" >> $logfile
-$PERL -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../init --init-file tex4ht.pm --iftex --out $basename/  $srcdir/../tex_html/tex_complex.texi $srcdir/../tex_html/tex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2
+echo "$PERL -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../ext --init-file tex4ht.pm --iftex --out $basename/ $srcdir/../tex_html/tex_complex.texi $srcdir/../tex_html/tex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2" >> $logfile
+$PERL -w $srcdir/../../texi2any.pl --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --conf-dir $srcdir/../../ext --init-file tex4ht.pm --iftex --out $basename/  $srcdir/../tex_html/tex_complex.texi $srcdir/../tex_html/tex.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2
 
 return_code=0
 ret=$?

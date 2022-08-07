@@ -20,8 +20,6 @@ Before next release
 Bugs
 ====
 
-If TEST is set, do not use out of source init files directories.
-
 HTML5 validation to check
 -------------------------
 
