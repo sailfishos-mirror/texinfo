@@ -2145,7 +2145,7 @@ my %default_commands_args = (
   'xref' => [['monospace'],['normal'],['normal'],['monospacetext'],['normal']],
   'pxref' => [['monospace'],['normal'],['normal'],['monospacetext'],['normal']],
   'ref' => [['monospace'],['normal'],['normal'],['monospacetext'],['normal']],
-  'image' => [['monospacetext'],['monospacetext'],['monospacetext'],['string', 'normal'],['monospacetext']],
+  'image' => [['monospacetext', 'monospacestring'],['monospacetext'],['monospacetext'],['string', 'normal'],['monospacetext']],
   # FIXME shouldn't it better not to convert if later ignored?
   'inlinefmt' => [['monospacetext'],['normal']],
   'inlinefmtifelse' => [['monospacetext'],['normal'],['normal']],
@@ -2886,8 +2886,11 @@ sub _convert_image_command($$$$)
 
   if (defined($args->[0]->{'monospacetext'})
       and $args->[0]->{'monospacetext'} ne '') {
+    my $basefile_string = '';
+    $basefile_string = $args->[0]->{'monospacestring'}
+        if (defined($args->[0]->{'monospacestring'}));
+    return $basefile_string if ($self->in_string());
     my $basefile = $args->[0]->{'monospacetext'};
-    return $basefile if ($self->in_string());
     my ($image_file, $image_basefile, $image_extension, $image_path)
       = $self->html_image_file_location_name($cmdname, $command, $args);
     if (not defined($image_path)) {
@@ -2903,8 +2906,7 @@ sub _convert_image_command($$$$)
       $alt_string = $args->[3]->{'string'};
     }
     if (!defined($alt_string) or ($alt_string eq '')) {
-      $alt_string
-       = &{$self->formatting_function('format_protect_text')}($self, $basefile);
+      $alt_string = $basefile_string;
     }
     return $self->close_html_lone_element(
       $self->html_attribute_class('img', [$cmdname])
