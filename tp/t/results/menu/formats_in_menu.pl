@@ -1048,8 +1048,8 @@ pre.menu-preformatted {font-family: serif}
 <i></i>
 Log$
 </td></tr>
-<tr><td valign="top">&bull; <a href="truc.html#Top" accesskey="4">(truc)</a>:</td><td>&nbsp;&nbsp;</td><td valign="top"><acronym class="acronym">description
-* acronym::</acronym>
+<tr><td valign="top">&bull; <a href="truc.html#Top" accesskey="4">(truc)</a>:</td><td>&nbsp;&nbsp;</td><td valign="top"><abbr class="acronym">description
+* acronym::</abbr>
 </td></tr>
 <tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 

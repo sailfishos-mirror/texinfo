@@ -169,7 +169,7 @@ $result_converted{'plaintext'}->{'recursive_acronym_definition'} = 'GNU (GNU (GN
 ';
 
 
-$result_converted{'html_text'}->{'recursive_acronym_definition'} = '<p><acronym class="acronym" title="GNU (GNU (is something)&rsquo;s Not Unix)&rsquo;s Not Unix">GNU</acronym> (<acronym class="acronym" title="GNU (is something)&rsquo;s Not Unix">GNU</acronym> (<acronym class="acronym" title="is something">GNU</acronym> (is something)&rsquo;s Not Unix)&rsquo;s Not Unix)
+$result_converted{'html_text'}->{'recursive_acronym_definition'} = '<p><abbr class="acronym" title="GNU (GNU (is something)&rsquo;s Not Unix)&rsquo;s Not Unix">GNU</abbr> (<abbr class="acronym" title="GNU (is something)&rsquo;s Not Unix">GNU</abbr> (<abbr class="acronym" title="is something">GNU</abbr> (is something)&rsquo;s Not Unix)&rsquo;s Not Unix)
 </p>';
 
 1;

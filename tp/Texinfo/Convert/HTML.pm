@@ -2724,7 +2724,7 @@ sub _convert_explained_command($$$$)
     my $explanation = '';
     $explanation = " title=\"$explanation_string\""
       if (defined($explanation_string));
-    my $html_element = $cmdname;
+    my $html_element = 'abbr';
     $result = $self->html_attribute_class($html_element, [$cmdname])
          ."${explanation}>".$result."</$html_element>";
   }

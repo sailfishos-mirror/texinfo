@@ -729,17 +729,17 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 
 <ul class="mini-toc">
 <li><a href="#sec-define" accesskey="1">define</a></li>
-<li><a href="#sec-here-is-GHJ" accesskey="2">here is <acronym class="acronym">GHJ</acronym></a></li>
+<li><a href="#sec-here-is-GHJ" accesskey="2">here is <abbr class="acronym">GHJ</abbr></a></li>
 </ul>
 <hr>
 <div class="section-level-extent" id="sec-define">
 <div class="nav-panel">
 <p>
-Next: <a href="#sec-here-is-GHJ" accesskey="n" rel="next">here is <acronym class="acronym">GHJ</acronym></a>, Up: <a href="#chap" accesskey="u" rel="up">chap</a> &nbsp; </p>
+Next: <a href="#sec-here-is-GHJ" accesskey="n" rel="next">here is <abbr class="acronym">GHJ</abbr></a>, Up: <a href="#chap" accesskey="u" rel="up">chap</a> &nbsp; </p>
 </div>
 <h3 class="section" id="define">1.1 define</h3>
 
-<p><acronym class="acronym" title="Good Hypo Jolly">GHJ</acronym> (Good Hypo Jolly)
+<p><abbr class="acronym" title="Good Hypo Jolly">GHJ</abbr> (Good Hypo Jolly)
 </p>
 <hr>
 </div>
@@ -748,9 +748,9 @@ Next: <a href="#sec-here-is-GHJ" accesskey="n" rel="next">here is <acronym class
 <p>
 Previous: <a href="#sec-define" accesskey="p" rel="prev">define</a>, Up: <a href="#chap" accesskey="u" rel="up">chap</a> &nbsp; </p>
 </div>
-<h3 class="section" id="here-is-GHJ">1.2 here is <acronym class="acronym">GHJ</acronym></h3>
+<h3 class="section" id="here-is-GHJ">1.2 here is <abbr class="acronym">GHJ</abbr></h3>
 
-<p>In text <acronym class="acronym" title="Good Hypo Jolly">GHJ</acronym>.
+<p>In text <abbr class="acronym" title="Good Hypo Jolly">GHJ</abbr>.
 </p></div>
 </div>
 </div>

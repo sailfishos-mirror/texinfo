@@ -6140,11 +6140,10 @@ correct spacing.  However, you do not have to use @code{@@.} within
 the abbreviation itself; Texinfo automatically assumes periods within
 the abbreviation do not end a sentence.
 
-@cindex @code{<abbr>} and @code{<abbrev>} tags
 In printed output and in the Info output, the first argument is printed
 as-is; if the second argument is present, it is printed in parentheses
-after the abbreviation.  In HTML the @code{<abbr>} tag is used; in DocBook,
-the @code{<abbrev>} tag is used.  For instance:
+after the abbreviation.  In HTML and DocBook the appropriate tag is used.
+For instance:
 
 @example
 @@abbr@{Comput. J., Computer Journal@}
@@ -6183,11 +6182,10 @@ If the acronym is at the end of a sentence, and if there is no second
 argument, remember to use the @code{@@.} or similar command
 (@pxref{Ending a Sentence}) to get the correct spacing.
 
-@cindex @code{<acronym>} tag
 In @TeX{}, the acronym is printed in slightly smaller font.  In the
 Info output, the argument is printed as-is.  In either format, and
 in @LaTeX{} output, if the second argument is present, it is printed in
-parentheses after the acronym.  In HTML and DocBook the @code{<acronym>}
+parentheses after the acronym.  In HTML and DocBook the appropriate
 tag is used.
 
 For instance (since GNU is a recursive acronym, we use
@@ -10187,7 +10185,7 @@ for plain @TeX{} math control sequences for symbols, functions,
 and so on.
 
 @cindex Math output for HTML
-By default, the HTML output is only enclosed by @code{<em>}.
+By default, the HTML output is only emphasized.
 @command{texi2any} provides three options for displaying properly
 formatted mathematics for HTML.  You can select these with the
 @code{HTML_MATH} variable (@pxref{HTML Customization Variables}).

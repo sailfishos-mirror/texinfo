@@ -1,5 +1,17 @@
 2022-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	Use <abbr> for acronym in HTML
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_explained_command):
+	use <abbr> for @acronym, it should lead to the same formatting
+	and <acronym> has been removed from HTML5.
+
+	* doc/texinfo.texi (@code{@@abbr}, @code{@@acronym})
+	(Inserting Math): do not tell explicitly which tag is used when
+	it does not add useful information.
+
+2022-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	Use <code> for table term in preformatted code context
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_item_command): use <code>

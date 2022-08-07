@@ -1458,7 +1458,7 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<div class="top-level-
 </div>
 
 
-<p><acronym class="acronym">FF</acronym>.
+<p><abbr class="acronym">FF</abbr>.
 </p>
 <p>tt.
 </p>
