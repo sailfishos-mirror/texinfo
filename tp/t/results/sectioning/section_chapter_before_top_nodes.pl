@@ -958,10 +958,10 @@ $result_converted{'docbook'}->{'section_chapter_before_top_nodes'} = '<sect1 lab
 
 $result_converted{'latex'}->{'section_chapter_before_top_nodes'} = '
 \\begin{document}
-\\section{section}
+\\section{{section}}
 \\label{anchor:section-node}%
 
-\\chapter{chapter}
+\\chapter{{chapter}}
 \\label{anchor:chapter-node}%
 
 

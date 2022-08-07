@@ -1201,7 +1201,7 @@ In node before
 in node after
 \\label{anchor:anch_003a-in-node-after}%
 
-\\chapter{chap}
+\\chapter{{chap}}
 \\label{anchor:chap}%
 
 in chap

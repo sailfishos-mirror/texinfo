@@ -1076,15 +1076,15 @@ Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 
 
 $result_converted{'latex'}->{'unnumbered_top_without_node_sections'} = '\\begin{document}
-\\chapter*{unnumbered}
+\\chapter*{{unnumbered}}
 \\label{anchor:a-node}%
 
 in unnumbered
 
-\\part*{top section}
+\\part*{{top section}}
 Top section
 
-\\chapter{Chapter}
+\\chapter{{Chapter}}
 \\label{anchor:second}%
 
 Text of chapter

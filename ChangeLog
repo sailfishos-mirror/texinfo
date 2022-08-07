@@ -1,3 +1,14 @@
+2022-08-06  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Do not protect ] in LaTeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (_protect_text): Do nothing for ].
+	Protecting it interfered with the operation of the embrac package.
+	Report from Patrice.
+	(_convert) <heading commands>: Wrap argument in extra layer of
+	braces to avoid buggy treatment of square brackets in a section
+	title.  The problems occur when the titleps package in is use.
+
 2022-08-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (%default_commands_args)

@@ -849,7 +849,7 @@ $result_converted{'docbook'}->{'chapter_between_nodes'} = '<sect1 label="1.1" id
 $result_converted{'latex'}->{'chapter_between_nodes'} = '
 \\begin{document}
 \\label{anchor:Top}%
-\\section{section}
+\\section{{section}}
 \\label{anchor:section-node}%
 
 section.

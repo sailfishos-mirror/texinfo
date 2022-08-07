@@ -584,7 +584,7 @@ In node before
 
 in node after
 
-\\chapter{chap}
+\\chapter{{chap}}
 \\label{anchor:chap}%
 
 in chap

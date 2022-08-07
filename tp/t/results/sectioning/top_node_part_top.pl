@@ -462,9 +462,9 @@ $result_converted{'docbook'}->{'top_node_part_top'} = '<part label="">
 
 
 $result_converted{'latex'}->{'top_node_part_top'} = '\\begin{document}
-\\part{part}
+\\part{{part}}
 
-\\part*{top}
+\\part*{{top}}
 \\label{anchor:Top}%
 ';
 
@@ -527,9 +527,9 @@ $result_converted{'file_latex'}->{'top_node_part_top'} = '\\documentclass{book}
 \\GNUTexinfosetsingleheader{}%
 
 \\begin{document}
-\\part{part}
+\\part{{part}}
 
-\\part*{top}
+\\part*{{top}}
 \\label{anchor:Top}%
 \\end{document}
 ';

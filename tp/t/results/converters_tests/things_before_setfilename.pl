@@ -1772,7 +1772,7 @@ $result_converted{'latex'}->{'things_before_setfilename'} = '
 \\begin{document}
 \\tableofcontents\\newpage
 \\label{anchor:Top}%
-\\chapter{Chapter}
+\\chapter{{Chapter}}
 \\label{anchor:chap}%
 
 Ref to anchor

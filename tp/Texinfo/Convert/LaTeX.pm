@@ -1628,8 +1628,6 @@ sub _protect_text($$)
 
     $text =~ s/\x08/\\textbackslash{}/g;
 
-    $text =~ s/]/{]}/g;
-
     if ($self->{'formatting_context'}->[-1]->{'index'}) {
       $text = _protect_index_text($text);
     }
@@ -3203,10 +3201,12 @@ sub _convert($$)
           die "BUG: no section_map for $cmdname"
                      if (not defined($section_map{$cmdname}));
           if ($cmdname ne 'centerchap') {
-            $result .= "\\".$section_cmd."{$heading}\n";
+            $result .= "\\".$section_cmd."{{$heading}}\n";
           } else {
-            $result .= "\\".$section_cmd."{\\centering $heading}\n";
+            $result .= "\\".$section_cmd."{{\\centering $heading}}\n";
           }
+          # NOTE we used an extra layer of { } to avoid buggy interactions with
+          # square brackets when the titleps package is being used.
         }
         # we add a label even if in_skipped_node_top (should only
         # be for the Top node, as another node ends in_skipped_node_top).

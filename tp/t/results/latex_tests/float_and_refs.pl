@@ -2471,7 +2471,7 @@ $result_floats{'float_and_refs'}{'Thing'}[0]{'extra'}{'shortcaption'}{'extra'}{'
 $result_converted{'latex'}->{'float_and_refs'} = '
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{chapter}
+\\chapter{{chapter}}
 \\label{anchor:chapter}%
 
 \\begin{TexinfoFloat}
@@ -2498,7 +2498,7 @@ In figure
 \\label{anchor:my-figure}%
 \\end{figure}
 
-\\chapter{refs}
+\\chapter{{refs}}
 
 See \\hyperref[anchor:no-type]{\\ref*{anchor:no-type}}.
 See \\hyperref[anchor:no-type]{\\ref*{anchor:no-type}}.
@@ -2518,7 +2518,7 @@ See \\hyperref[anchor:my-figure]{three}.
 See Section ``three\'\' in \\texttt{four}.
 See Section ``three\'\' in \\textsl{five}.
 
-\\chapter{lists}
+\\chapter{{lists}}
 
 \\listof{TexinfoFloat}{}
 \\listoffigures

@@ -749,7 +749,7 @@ Cop. \\label{anchor:a-in-copying}%
 \\GNUTexinfosetsingleheader{}%
 \\GNUTexinfomainmatter
 \\label{anchor:Top}%
-\\chapter{Chap}
+\\chapter{{Chap}}
 \\label{anchor:Chapter}%
 
 see \\hyperref[anchor:a-in-copying]{[a in copying], page~\\pageref*{anchor:a-in-copying}}.

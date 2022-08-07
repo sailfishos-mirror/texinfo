@@ -571,13 +571,13 @@ $result_converted{'docbook'}->{'node_sectop_before_lone_node_Top'} = '<chapter l
 
 $result_converted{'latex'}->{'node_sectop_before_lone_node_Top'} = '
 \\begin{document}
-\\part*{top sectionning}
+\\part*{{top sectionning}}
 \\label{anchor:node-before}%
 
 in node before
 
 \\label{anchor:Top}%
-\\chapter{chap}
+\\chapter{{chap}}
 \\label{anchor:chap}%
 
 in chap

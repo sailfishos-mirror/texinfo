@@ -3022,7 +3022,7 @@ $result_converted_errors{'docbook'}->{'image_formatting'} = [
 
 
 $result_converted{'latex'}->{'image_formatting'} = '\\label{anchor:Top}%
-\\chapter{Chapter}
+\\chapter{{Chapter}}
 \\label{anchor:chap}%
 
 \\texttt{@image\\{f{-}{-}ile\\}} \\includegraphics{f--ile}

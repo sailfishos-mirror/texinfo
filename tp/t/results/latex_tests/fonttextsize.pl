@@ -912,24 +912,24 @@ $result_converted{'latex'}->{'fonttextsize'} = '
 
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{Chapter}
+\\chapter{{Chapter}}
 \\label{anchor:chapter}%
 
-\\section{section}
+\\section{{section}}
 
-\\subsection{Subsection 10pts}
+\\subsection{{Subsection 10pts}}
 In 10pts
 
 \\changefontsize{11}
-\\subsection{Subsection 11pts}
+\\subsection{{Subsection 11pts}}
 
 In 11pts
 
-\\subsection{Subsection 8pts}
+\\subsection{{Subsection 8pts}}
 
 In 8pts
 
-\\subsection{Subsection 15pts}
+\\subsection{{Subsection 15pts}}
 
 In 15pts
 ';

@@ -1104,7 +1104,7 @@ $result_converted{'latex'}->{'custom_headings'} = '
 
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{ch--ap}
+\\chapter{{ch--ap}}
 \\label{anchor:chapter}%
 
 \\newpage{}%
@@ -1117,9 +1117,9 @@ after ch--ap first page
 
 after ch--ap second page
 
-\\section{sec1}
+\\section{{sec1}}
 
-\\chapter{chap 2}
+\\chapter{{chap 2}}
 
 \\renewpagestyle{custom}{%
 \\sethead[toto][titi][]%
@@ -1139,7 +1139,7 @@ after everyheading before chap 3 first page
 
 after everyheading before chap 3 second page
 
-\\chapter{chap 3}
+\\chapter{{chap 3}}
 
 \\newpage{}%
 \\phantom{blabla}%

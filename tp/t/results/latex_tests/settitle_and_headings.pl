@@ -321,7 +321,7 @@ $result_converted{'latex'}->{'settitle_and_headings'} = '
 \\GNUTexinfosetdoubleheader{}%
 
 \\begin{document}
-\\chapter{chap}
+\\chapter{{chap}}
 
 \\newpage{}%
 \\phantom{blabla}%

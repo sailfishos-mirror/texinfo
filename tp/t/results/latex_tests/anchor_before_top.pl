@@ -429,7 +429,7 @@ $result_converted{'latex'}->{'anchor_before_top'} = '\\begin{document}
 \\label{anchor:a-before-Top}%
 
 \\label{anchor:Top}%
-\\chapter{Chap}
+\\chapter{{Chap}}
 \\label{anchor:Chapter}%
 
 see \\hyperref[anchor:a-before-Top]{[a before Top], page~\\pageref*{anchor:a-before-Top}}

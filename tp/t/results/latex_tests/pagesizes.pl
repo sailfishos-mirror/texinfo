@@ -602,12 +602,12 @@ $result_converted{'latex'}->{'pagesizes'} = '
 
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{Chapter}
+\\chapter{{Chapter}}
 \\label{anchor:chapter}%
 
 \\newgeometry{textheight=11.5in}
 
-\\chapter{other pagesizes}
+\\chapter{{other pagesizes}}
 
 \\newgeometry{textwidth=130mm}
 

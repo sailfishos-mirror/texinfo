@@ -1361,7 +1361,7 @@ $result_converted{'latex'}->{'indices'} = '
 
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{Index}
+\\chapter{{Index}}
 \\label{anchor:chapter}%
 
 \\index[cp]{a"!"""@b """!"@ a"" o""@$a"!"""@b$ """!"@ \\"{a} \\"{o}!a"!"""@b@sub$a"!"""@b$ sub """!"@ \\"{a} \\"{o}|seealso{$a"!"""@b$ """!"@ \\"{a} \\"{o}}}%

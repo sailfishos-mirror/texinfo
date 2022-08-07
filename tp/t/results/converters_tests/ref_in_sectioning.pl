@@ -2982,37 +2982,37 @@ $result_converted{'docbook'}->{'ref_in_sectioning'} = '<chapter label="1" id="no
 
 $result_converted{'latex'}->{'ref_in_sectioning'} = '
 \\label{anchor:Top}%
-\\chapter{See Section ``title\'\' in \\textsl{Manual}.}
+\\chapter{{See Section ``title\'\' in \\textsl{Manual}.}}
 \\label{anchor:node}%
 
-\\chapter{\\texorpdfstring{\\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{node} just node}
+\\chapter{{\\texorpdfstring{\\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{node} just node}}
 \\label{anchor:chap}%
 
-\\section{for example \\texorpdfstring{\\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{node} (\\texorpdfstring{see \\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{see node}) (see Section ``Top\'\' in \\textsl{Manual})}
+\\section{{for example \\texorpdfstring{\\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{node} (\\texorpdfstring{see \\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{see node}) (see Section ``Top\'\' in \\textsl{Manual})}}
 
-\\section{\\texorpdfstring{\\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{node}  node, crossref arg2}
+\\section{{\\texorpdfstring{\\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{node}  node, crossref arg2}}
 
-\\section{\\texorpdfstring{\\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [`\\texttt{title}\'], page~\\pageref*{anchor:node}}}{`\\texttt{title}\'}  code node, samptitle arg3}
+\\section{{\\texorpdfstring{\\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [`\\texttt{title}\'], page~\\pageref*{anchor:node}}}{`\\texttt{title}\'}  code node, samptitle arg3}}
 
-\\section{Section ``\\texttt{node}\'\' in \\texttt{file name} code node, file name}
+\\section{{Section ``\\texttt{node}\'\' in \\texttt{file name} code node, file name}}
 
-\\section{Section ``node\'\' in \\textsl{Manual} node and manual}
+\\section{{Section ``node\'\' in \\textsl{Manual} node and manual}}
 
-\\section{Section ``Top\'\' in \\textsl{Manual} Top and manual}
+\\section{{Section ``Top\'\' in \\textsl{Manual} Top and manual}}
 
-\\section{\\textsl{Manual} no node just manual}
+\\section{{\\textsl{Manual} no node just manual}}
 
-\\section{\\texttt{file name} no node just file name}
+\\section{{\\texttt{file name} no node just file name}}
 
-\\section{Section ``a\'\' in \\texttt{c} inforef a b c}
+\\section{{Section ``a\'\' in \\texttt{c} inforef a b c}}
 
-\\section{(see Section ``Top\'\' in \\texttt{file name}) pxref Top file name, spaces}
+\\section{{(see Section ``Top\'\' in \\texttt{file name}) pxref Top file name, spaces}}
 
-\\section{(see \\texttt{file name}) pxref file name only, spaces}
+\\section{{(see \\texttt{file name}) pxref file name only, spaces}}
 
-\\section{See Section ``Top\'\' in \\texttt{filename}, xref Top filename only, no spaces}
+\\section{{See Section ``Top\'\' in \\texttt{filename}, xref Top filename only, no spaces}}
 
-\\section{See \\texttt{filename}. xref filename only, no spaces}
+\\section{{See \\texttt{filename}. xref filename only, no spaces}}
 
 ';
 

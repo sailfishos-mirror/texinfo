@@ -1060,7 +1060,7 @@ in Copying
 \\GNUTexinfosetsingleheader{}%
 \\GNUTexinfomainmatter
 \\label{anchor:Top}%
-\\chapter{Chapter}
+\\chapter{{Chapter}}
 \\label{anchor:chapter}%
 
 In chapter

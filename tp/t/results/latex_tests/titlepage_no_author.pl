@@ -482,7 +482,7 @@ $result_converted{'latex'}->{'titlepage_no_author'} = '
 \\GNUTexinfosetsingleheader{}%
 \\GNUTexinfomainmatter
 \\label{anchor:Top}%
-\\chapter{Chapter}
+\\chapter{{Chapter}}
 \\label{anchor:chapter}%
 
 In chapter

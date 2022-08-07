@@ -1778,39 +1778,39 @@ $result_converted{'docbook'}->{'non_empty_part'} = '<part label="">
 
 
 $result_converted{'latex'}->{'non_empty_part'} = '\\label{anchor:Top}%
-\\part{part I}
+\\part{{part I}}
 
 Content I
 
-\\chapter{chap in Top node}
+\\chapter{{chap in Top node}}
 
-\\part{Part II}
+\\part{{Part II}}
 
 Content II
 
-\\part{part III}
+\\part{{part III}}
 
 Content III
 
-\\chapter{chapter with part node}
+\\chapter{{chapter with part node}}
 \\label{anchor:part-chapter-node}%
 
-\\part{Part IV}
+\\part{{Part IV}}
 
 Content IV
 
-\\part{Part V}
+\\part{{Part V}}
 
 Content V
 
-\\chapter{with part no node}
+\\chapter{{with part no node}}
 
-\\part{Part VI}
+\\part{{Part VI}}
 
 Content VI
 
 
-\\chapter{chapter after part node}
+\\chapter{{chapter after part node}}
 \\label{anchor:node-between-part-and-chapter}%
 
 ';

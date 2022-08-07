@@ -3548,7 +3548,7 @@ $result_converted{'docbook'}->{'accentenc'} = '<chapter label="" id="Top-node">
 
 $result_converted{'latex'}->{'accentenc'} = '
 \\begin{document}
-\\part*{top}
+\\part*{{top}}
 \\label{anchor:Top-node}%
 
 should be e`: \\`{e} \\`{e}

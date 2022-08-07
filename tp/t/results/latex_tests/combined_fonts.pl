@@ -1516,7 +1516,7 @@ $result_floats{'combined_fonts'} = {};
 $result_converted{'latex'}->{'combined_fonts'} = '
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{chapter}
+\\chapter{{chapter}}
 \\label{anchor:chapter}%
 
 \\texttt{code}, \\textsl{dfn}, \\textsl{var}, \\textbf{strong}, {\\ttfamily\\textsl{kbd}}, `\\texttt{samp}\'.

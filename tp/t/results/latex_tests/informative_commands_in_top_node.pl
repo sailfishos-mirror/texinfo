@@ -568,7 +568,7 @@ $result_converted{'latex'}->{'informative_commands_in_top_node'} = '
 }%
 \\pagestyle{custom}%
 \\setlength{\\parindent}{2em}
-\\chapter{chap}
+\\chapter{{chap}}
 \\label{anchor:next-node}%
 
 In chapter

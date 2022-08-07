@@ -432,7 +432,7 @@ $result_converted{'latex'}->{'shorttitlepage'} = '
 \\GNUTexinfosetsingleheader{}%
 \\GNUTexinfomainmatter
 \\label{anchor:Top}%
-\\chapter{Chapter}
+\\chapter{{Chapter}}
 \\label{anchor:chapter}%
 
 In chapter

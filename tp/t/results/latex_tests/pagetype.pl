@@ -634,7 +634,7 @@ $result_converted{'latex'}->{'pagetype'} = '
 
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{Chapter}
+\\chapter{{Chapter}}
 \\label{anchor:chapter}%
 
 \\geometry{paperheight=9.25in,paperwidth=7in}%
@@ -646,7 +646,7 @@ In smallbook
 
 After afourpaper
 
-\\chapter{afourpaper reset}
+\\chapter{{afourpaper reset}}
 
 In afourpaper reset
 ';

@@ -3620,7 +3620,7 @@ $result_converted{'docbook'}->{'test_deftypefnnewline'} = '<chapter label="1" id
 $result_converted{'latex'}->{'test_deftypefnnewline'} = '
 
 \\label{anchor:Top}%
-\\chapter{chap}
+\\chapter{{chap}}
 \\label{anchor:chapter}%
 
 \\noindent\\texttt{data-type\\leavevmode{}\\\\name arguments...}\\hfill[Function]

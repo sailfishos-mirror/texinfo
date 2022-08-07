@@ -580,7 +580,7 @@ $result_floats{'anchor_in_copying_insertcopying_chap'} = {};
 $result_converted{'latex'}->{'anchor_in_copying_insertcopying_chap'} = '
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{Chap}
+\\chapter{{Chap}}
 \\label{anchor:Chapter}%
 
 see \\hyperref[anchor:a-in-copying]{[a in copying], page~\\pageref*{anchor:a-in-copying}}
