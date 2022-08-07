@@ -116,14 +116,15 @@ sub _GNUT_document_warn($) {
   chomp ($text);
   warn(_GNUT_encode_message(
         sprintf(__p("program name: warning: warning_message",
-                   "%s: warning: %s\n"), $real_command_name, $text)));
+                   "%s: warning: %s"), $real_command_name, $text)."\n"));
 }
 
-my @init_file_loading_errors;
+my @init_file_loading_messages;
 # called from texi2any.pl main program.
 # eval $FILE in the Texinfo::Config namespace. $FILE should be a binary string.
 sub GNUT_load_init_file($) {
   my $file = shift;
+  push @init_file_loading_messages, [];
   eval { require($file) ;};
   my $e = $@;
   if ($e ne '') {
@@ -134,19 +135,46 @@ sub GNUT_load_init_file($) {
     _GNUT_document_warn(sprintf(__("error loading %s: %s"),
                 _GNUT_decode_input($file), $e));
   }
-  for my $error (@init_file_loading_errors) {
-    warn sprintf(__("error loading %s: %s"),
-                _GNUT_decode_input($file), $error)."\n";
+  my $file_loading_messages = pop @init_file_loading_messages;
+  my $error_nr = 0;
+  for my $error (@{$file_loading_messages}) {
+    my $type = $error->{'type'};
+    my $message = $error->{'text'};
+    chomp($message);
+    if ($type eq 'error') {
+      $error_nr += 1;
+      warn(_GNUT_encode_message(
+              sprintf(__p("init file: error_message",
+                     "%s: %s"),
+                 _GNUT_decode_input($file), $message)."\n"));
+    } else {
+      if (not texinfo_get_conf('NO_WARN')) {
+        warn(_GNUT_encode_message(
+              sprintf(__p("init file: warning: warning_message",
+                          "%s: warning: %s"),
+                         _GNUT_decode_input($file), $message)."\n"));
+      }
+    }
   }
-  if (scalar(@init_file_loading_errors)) {
+  if ($error_nr > 0 and !texinfo_get_conf('FORCE')) {
     exit 1;
   }
 }
 
-# called from init files in case of errors.
-sub texinfo_register_init_loading_failure($) {
-  my $error = shift;
-  push @init_file_loading_errors, $error;
+# called from init files in case of errors at loading.
+# TODO document
+sub texinfo_register_init_loading_error($) {
+  my $message = shift;
+  push @{$init_file_loading_messages[-1]}, {'type' => 'error',
+                                            'text' => $message};
+}
+
+# called from init files in case for warnings during loading.
+# TODO document
+sub texinfo_register_init_loading_warning($) {
+  my $message = shift;
+  push @{$init_file_loading_messages[-1]}, {'type' => 'warning',
+                                            'text' => $message};
 }
 
 # L2H removed in 2021

@@ -70,16 +70,15 @@ my $highlight_out_dir;
 
 my %highlighted_languages_list;
 
-sub _get_highlighted_languages($)
-{
-  my $self = shift;
-
-  my $cmd = 'source-highlight --lang-list';
-  if (not(open(HIGHLIGHT_LANG_LIST, '-|', $cmd))) {
-    $self->document_warn($self, sprintf(__(
-                         'highlight_syntax.pm: command failed: %s'), $cmd));
-    return 0;
-  }
+# FIXME open shows an error message if the file is not found
+# which is a duplicate with the texinfo_register_init_loading_error
+# registered message, which is better
+# Can't exec "source-highlight": No such file or directory at ./init/highlight_syntax.pm line 74
+my $cmd = 'source-highlight --lang-list';
+if (not(open(HIGHLIGHT_LANG_LIST, '-|', $cmd))) {
+  texinfo_register_init_loading_error(
+        sprintf(__('%s: %s'), $cmd, $!));
+} else {
   my $line;
   while (defined($line = <HIGHLIGHT_LANG_LIST>)) {
     chomp($line);
@@ -87,13 +86,11 @@ sub _get_highlighted_languages($)
        my $language = $1;
        $highlighted_languages_list{$language} = 1;
     } else {
-      $self->document_warn($self, sprintf(__(
-                         'highlight_syntax.pm: %s: %s: cannot parse language line'), 
-                          $cmd, $line));
+      texinfo_register_init_loading_warning(sprintf(__(
+                        '%s: %s: cannot parse language line'), $cmd, $line))
     }
   }
   close(HIGHLIGHT_LANG_LIST);
-  return 1;
 }
 
 sub _get_language($$$)
@@ -141,8 +138,6 @@ sub highlight_process($$)
 
   return 1 if (defined($self->get_conf('OUTFILE'))
         and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
-
-  return 0 if (not _get_highlighted_languages($self));
 
   my $document_name = $self->get_info('document_name');
   my $highlight_basename = "${document_name}_highlight";

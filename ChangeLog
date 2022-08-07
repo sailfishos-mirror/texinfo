@@ -1,5 +1,23 @@
 2022-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	Init file loading errors and warning interface setup and use
+
+	* tp/Texinfo/Config.pm (@init_file_loading_messages)
+	(GNUT_load_init_file, texinfo_register_init_loading_error)
+	(texinfo_register_init_loading_warning): replace
+	texinfo_register_init_loading_failure by two functions,
+	texinfo_register_init_loading_error and
+	texinfo_register_init_loading_warning to be able to register
+	errors and warnings.
+	Use a stack, @init_file_loading_messages to be sure to separate
+	each init file loading messages even if an init file loads another.
+
+	* tp/init/highlight_syntax.pm: get the available languages upon
+	loading and use texinfo_register_init_loading_error and
+	texinfo_register_init_loading_warning for errors and warnings.
+
+2022-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	Do not keep EPUB container directory in the default case
 
 	* doc/texinfo.texi (Other Customization Variables)
