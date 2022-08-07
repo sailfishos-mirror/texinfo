@@ -4610,8 +4610,9 @@ sub _convert_item_command($$$$$)
         my @pre_classes = $self->preformatted_classes_stack();
         foreach my $pre_class (@pre_classes) {
           if ($preformatted_code_commands{$pre_class}) {
-            # FIXME use <code>?  Add a class?
-            $result = '<tt>' .$result. '</tt>';
+            $result = $self->html_attribute_class('code',
+                                    ['table-term-preformatted-code']).'>'
+                        . $result . '</code>';
             last;
           }
         }

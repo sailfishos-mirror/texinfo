@@ -2711,29 +2711,29 @@ $result_converted{'html_text'}->{'table_nested'} = '
 <p>Example
 </p><div class="example">
 <dl class="vtable">
-<dt id=\'index-first-item-1\'><span><tt>first item</tt><a class="copiable-link" href=\'#index-first-item-1\'> &para;</a></span></dt>
-<dt id=\'index-second-itemx-1\'><span><tt>second itemx</tt><a class="copiable-link" href=\'#index-second-itemx-1\'> &para;</a></span></dt>
+<dt id=\'index-first-item-1\'><span><code class="table-term-preformatted-code">first item</code><a class="copiable-link" href=\'#index-first-item-1\'> &para;</a></span></dt>
+<dt id=\'index-second-itemx-1\'><span><code class="table-term-preformatted-code">second itemx</code><a class="copiable-link" href=\'#index-second-itemx-1\'> &para;</a></span></dt>
 <dd><pre class="example-preformatted">
 
 Text.
 
 </pre></dd>
-<dt id=\'index-second-item-1\'><span><tt>second item</tt><a class="copiable-link" href=\'#index-second-item-1\'> &para;</a></span></dt>
+<dt id=\'index-second-item-1\'><span><code class="table-term-preformatted-code">second item</code><a class="copiable-link" href=\'#index-second-item-1\'> &para;</a></span></dt>
 <dd><pre class="example-preformatted">
 
 Text 2
 
 </pre></dd>
-<dt id=\'index-last-1\'><span><tt>last</tt><a class="copiable-link" href=\'#index-last-1\'> &para;</a></span></dt>
+<dt id=\'index-last-1\'><span><code class="table-term-preformatted-code">last</code><a class="copiable-link" href=\'#index-last-1\'> &para;</a></span></dt>
 </dl>
 <pre class="example-preformatted">
 
 Something.
 </pre><dl class="table">
-<dt><tt><em class="emph">in item</em></tt></dt>
+<dt><code class="table-term-preformatted-code"><em class="emph">in item</em></code></dt>
 <dd><pre class="example-preformatted">Text without blank line
 </pre></dd>
-<dt><tt><em class="emph">second item</em></tt></dt>
+<dt><code class="table-term-preformatted-code"><em class="emph">second item</em></code></dt>
 <dd><pre class="example-preformatted">Text without blank line 2
 </pre></dd>
 </dl>

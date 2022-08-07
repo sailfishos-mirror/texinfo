@@ -1690,12 +1690,12 @@ $result_converted{'html_text'}->{'complex_nestings'} = '<div class="top-level-ex
 
 A table within the def
 </pre><dl class="table">
-<dt><tt>item</tt></dt>
+<dt><code class="table-term-preformatted-code">item</code></dt>
 <dd><pre class="example-preformatted">text
 
 more text
 </pre></dd>
-<dt><tt>second item</tt></dt>
+<dt><code class="table-term-preformatted-code">second item</code></dt>
 </dl>
 <pre class="example-preformatted">
 

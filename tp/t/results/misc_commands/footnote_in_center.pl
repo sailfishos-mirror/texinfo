@@ -348,7 +348,7 @@ shows an important feature of the centered text.
 </p>
 <div class="example">
 <dl class="table">
-<dt><tt>item</tt></dt>
+<dt><code class="table-term-preformatted-code">item</code></dt>
 <dd><pre class="example-preformatted">line
 </pre></dd>
 </dl>

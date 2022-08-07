@@ -310,7 +310,7 @@ $result_converted{'plaintext'}->{'table_in_display_in_example'} = '          ite
 $result_converted{'html_text'}->{'table_in_display_in_example'} = '<div class="example">
 <div class="display">
 <dl class="table">
-<dt><tt>item</tt></dt>
+<dt><code class="table-term-preformatted-code">item</code></dt>
 <dd><pre class="example-preformatted">Line
 </pre></dd>
 </dl>

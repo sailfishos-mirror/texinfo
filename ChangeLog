@@ -1,5 +1,13 @@
 2022-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	Use <code> for table term in preformatted code context
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_item_command): use <code>
+	with a class instead of <tt> for a table term in preformatted code
+	such as @example.
+
+2022-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	HTML argument formatting context for url, with conversion to UTF-8
 
 	* tp/Texinfo/Convert/HTML.pm (%default_commands_args)
