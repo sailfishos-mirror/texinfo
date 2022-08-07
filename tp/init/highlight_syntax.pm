@@ -27,10 +27,12 @@ use Texinfo::Convert::NodeNameNormalization;
 
 my %languages_name_mapping = (
   'C++' => 'C',
+  'Perl' => 'perl',
 );
 
 my %languages_extensions = (
   'texinfo' => 'texi',
+  'perl' => 'pl',
 );
 
 texinfo_add_valid_customization_option('HIGHLIGHT_SYNTAX_DEFAULT');
@@ -195,6 +197,11 @@ sub highlight_process($$)
                                       $input_language_path_name, $!));
       return 0;
     }
+    my $output_encoding;
+    if (defined($self->get_conf('OUTPUT_PERL_ENCODING'))) {
+      $output_encoding = $self->get_conf('OUTPUT_PERL_ENCODING');
+      binmode(HIGHLIGHT_LANG_IN, ":encoding($output_encoding)");
+    }
 
     print HIGHLIGHT_LANG_IN "Automatically generated\n\n";
     my $highlight_lang_in_line_nr = 2;
@@ -214,7 +221,7 @@ sub highlight_process($$)
         pop @{$tree->{'contents'}};
       }
       my $text = Texinfo::Convert::Text::convert_to_text($tree, {'code' => 1,
-                  Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+                  Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
       # make sure that the text ends with a newline
       chomp ($text);
       $text .= "\n";
@@ -264,6 +271,8 @@ sub highlight_process($$)
                                   $html_result_path_name, $!));
       return 0;
     }
+    binmode(HIGHLIGHT_LANG_OUT, ":encoding($output_encoding)")
+      if (defined($output_encoding));
     my $got_count = 0;
     my $line;
     my $text;
