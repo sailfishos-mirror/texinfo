@@ -6,7 +6,7 @@ _______________________ 0
 #include <iostream>
 
 int main() {
-    std::cout << "Hello Wörld!";
+    std::cout << "Hello WÃ¶rld!";
     return 0;
 }
 _______________________ 0
