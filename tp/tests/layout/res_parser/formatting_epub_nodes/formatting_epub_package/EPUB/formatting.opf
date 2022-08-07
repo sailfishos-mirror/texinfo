@@ -4,7 +4,7 @@
       <dc:identifier id="texi-uid">texinfo:formatting</dc:identifier>
       <dc:title>title -a</dc:title>
       <dc:language>en</dc:language>
-      <dc:creator>author1 -a with accents in name Te'c,a</dc:creator>
+      <dc:creator>author1 -a with accents in name Téça</dc:creator>
       <dc:creator>author2 -a</dc:creator>
       <dc:creator>author</dc:creator>
    </metadata>

@@ -11,6 +11,7 @@ value vùr .
 In included téxt.
 
 an_ïmage
+an_i"mage
 
 dîrectory/imàge
 

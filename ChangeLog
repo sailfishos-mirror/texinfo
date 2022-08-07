@@ -1,3 +1,17 @@
+2022-08-07  Patrice Dumas  <pertusus@free.fr>
+
+	Ignore ENABLE_ENCODING for plain text in more output formats
+
+	* tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/IXIN.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/TexinfoXML.pm,
+	tp/ext/epub3.pm: set second optional argument of
+	Texinfo::Convert::Text::copy_options_for_convert_text to ignore
+	the ENABLE_ENCODING setting to determine how to convert accented
+	letter @-commands in plain text. 
+
+	* tp/Texinfo/Convert/LaTeX.pm: use more systematically
+	$self->{'convert_text_options'}.
+
 2022-08-06  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Protect ] in LaTeX

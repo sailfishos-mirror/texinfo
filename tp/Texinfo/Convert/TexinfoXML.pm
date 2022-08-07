@@ -1263,14 +1263,14 @@ sub _convert($$;$)
             $manual = Texinfo::Convert::Text::convert_to_text({'contents'
                      => $element->{'args'}->[$manual_arg_index]->{'contents'}},
                  {'code' => 1,
-                  Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+                  Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
           }
           if (!defined($manual) and $element->{'extra'}->{'node_argument'}
               and $element->{'extra'}->{'node_argument'}->{'manual_content'}) {
             $manual = Texinfo::Convert::Text::convert_to_text({'contents'
                    => $element->{'extra'}->{'node_argument'}->{'manual_content'}},
                  {'code' => 1,
-                  Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+                  Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
           }
           if (defined($manual)) {
             my $manual_base = $manual;

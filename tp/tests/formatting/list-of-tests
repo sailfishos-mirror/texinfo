@@ -30,6 +30,8 @@ non_ascii_test_rawtext osé_utf8.texi -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_
 # check that the output is right when based on input file name
 non_ascii_no_setfilename_test_rawtext osé_utf8_no_setfilename.texi -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 -c TEXINFO_OUTPUT_FORMAT=rawtext
 
+non_ascii_test_latex osé_utf8.texi -c COMMAND_LINE_ENCODING=UTF-8 -c MESSAGE_ENCODING=UTF-8 -c OUTPUT_FILE_NAME_ENCODING=UTF-8 -c INPUT_FILE_NAME_ENCODING=UTF-8 --latex
+
 # test of non utf8 encoded file name in non utf8 document
 # "Need recoded file names" string is used in test driving script
 # to determine that the recoding of file names need to have

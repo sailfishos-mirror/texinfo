@@ -116,6 +116,8 @@
 #
 # Proper indenting of nested environments, @exdent from nested environment
 #
+# should we percent encode @email and @uref/@url urls?
+#
 #
 # CAN WAIT
 #
@@ -815,7 +817,7 @@ sub converter_initialize($)
 
   %{$self->{'quotes_map'}} = %quotes_map;
   $self->{'convert_text_options'}
-      = {Texinfo::Convert::Text::copy_options_for_convert_text($self)};
+      = {Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)};
 
   # this condition means that there is no way to turn off
   # @U expansion to utf-8 characters even though this
@@ -1587,6 +1589,7 @@ sub _pop_context($)
   pop @{$self->{'formatting_context'}};
 }
 
+# FIXME should $ ~ be protected?
 sub _protect_url($$)
 {
   my ($self, $text) = @_;
@@ -2608,8 +2611,7 @@ sub _convert($$)
           $email_text
             = $self->_protect_url(Texinfo::Convert::Text::convert_to_text(
                 {'contents' => $email},
-                {'code' => 1,
-                 Texinfo::Convert::Text::copy_options_for_convert_text($self)}));
+                {'code' => 1, %{$self->{'convert_text_options'}}}));
         }
         if ($name and $email) {
           $result .= "\\href{mailto:$email_text}{$converted_name}";
@@ -2632,8 +2634,7 @@ sub _convert($$)
           my $url_text = $self->_protect_url(
             Texinfo::Convert::Text::convert_to_text(
                {'contents' => $url_content},
-               {'code' => 1,
-                Texinfo::Convert::Text::copy_options_for_convert_text($self)}));
+               {'code' => 1, %{$self->{'convert_text_options'}}}));
           if (scalar(@{$element->{'args'}}) == 2
              and defined($element->{'args'}->[1])
              and @{$element->{'args'}->[1]->{'contents'}}) {
@@ -3135,7 +3136,7 @@ sub _convert($$)
             # not clear what to do here.  For now use the text width
             my $prototype_text
               = Texinfo::Convert::Text::convert_to_text($prototype,
-                 {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+                 $self->{'convert_text_options'});
             my $length = Texinfo::Convert::Unicode::string_width($prototype_text);
             $total_length += $length;
             push @prototypes_length, $length;

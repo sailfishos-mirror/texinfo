@@ -1038,7 +1038,7 @@ sub _convert($$;$)
                 $self->xml_protect_text(Texinfo::Convert::Text::convert_to_text(
                   {'contents' => $element->{'args'}->[-1]->{'contents'}},
                   {'code' => 1,
-                   Texinfo::Convert::Text::copy_options_for_convert_text($self)}));
+                   Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)}));
             }
             my $node;
             if (defined($element->{'args'}->[0])
@@ -1174,7 +1174,7 @@ sub _convert($$;$)
           my $basefile = Texinfo::Convert::Text::convert_to_text(
            {'contents' => $element->{'args'}->[0]->{'contents'}},
            {'code' => 1,
-            Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+            Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
           my $is_inline = Texinfo::Common::element_is_inline($element);
           if ($is_inline) {
             $result .= "<inlinemediaobject>";
@@ -1232,7 +1232,7 @@ sub _convert($$;$)
               = $self->_protect_text(Texinfo::Convert::Text::convert_to_text(
                  {'contents' => $email},
                  {'code' => 1,
-                  Texinfo::Convert::Text::copy_options_for_convert_text($self)}));
+                  Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)}));
           }
           if ($name and $email) {
             return "<ulink url=\"mailto:$email_text\">"
@@ -1256,7 +1256,7 @@ sub _convert($$;$)
               Texinfo::Convert::Text::convert_to_text(
                 {'contents' => $url_content},
                 {'code' => 1,
-                 Texinfo::Convert::Text::copy_options_for_convert_text($self)}));
+                 Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)}));
           } else {
             $url_text = '';
           }
@@ -1432,7 +1432,7 @@ sub _convert($$;$)
             foreach my $prototype (@{$element->{'extra'}->{'prototypes'}}) {
               my $prototype_text
                = Texinfo::Convert::Text::convert_to_text($prototype,
-                  {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+                  {Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
               push @fractions,
                 Texinfo::Convert::Unicode::string_width($prototype_text);
             }

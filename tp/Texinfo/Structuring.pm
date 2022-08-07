@@ -1582,9 +1582,12 @@ sub setup_index_entry_keys_formatting($)
 {
   my $configuration_information = shift;
 
+  # FIXME should the encoding be used by setting the
+  # copy_options_for_convert_text optional argument?  The result does
+  # not seem so good.
   my $options = {'sort_string' => 1, 'ascii_punctuation' => 1,
    Texinfo::Convert::Text::copy_options_for_convert_text(
-                                    $configuration_information)};
+                                  $configuration_information)};
 
   return $options;
 }

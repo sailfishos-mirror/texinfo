@@ -186,7 +186,7 @@ sub _epub_convert_tree_to_text($$;$)
 
   return &{$converter->formatting_function('format_protect_text')}($converter,
     Texinfo::Convert::Text::convert_to_text($tree,
-   {Texinfo::Convert::Text::copy_options_for_convert_text($converter),
+   {Texinfo::Convert::Text::copy_options_for_convert_text($converter, 1),
      %$options}));
 }
 

@@ -15,6 +15,7 @@ value vùr ké.
 In included téxt.
 
 @image{an_ïmage,,,öld}
+@image{an_@"{@dotless{i}}mage,,,@"old}
 
 @image{dîrectory/imàge,,,âlt,.êxt}
 
