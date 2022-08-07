@@ -69,10 +69,6 @@ use File::Basename;
 
 use Encode qw(decode);
 
-# the Archive::Zip module is required below only if needed, that is
-# if EPUB_CREATE_CONTAINER_FILE is set.
-#use Archive::Zip;
-
 # also for __(
 use Texinfo::Common;
 use Texinfo::Convert::Utils;
