@@ -8215,7 +8215,7 @@ sub _external_node_href($$$$)
       foreach my $split_ordered (@{$htmlxref_entries{$document_split}}) {
         if (defined($htmlxref_info->{$split_ordered})) {
           $split_found = $split_ordered;
-          $href = $htmlxref_info->{$split_ordered};
+          $href = $self->url_protect_url_text($htmlxref_info->{$split_ordered});
           last;
         }
       }
@@ -8251,6 +8251,7 @@ sub _external_node_href($$$$)
         } elsif ($self->get_conf('SPLIT')) {
           $file = "../$manual_dir";
         }
+        $file = $self->url_protect_file_text($file);
       }
       $file .= "/";
     } else {# target not split
@@ -8265,6 +8266,7 @@ sub _external_node_href($$$$)
         } else {
           $file = $manual_file_name;
         }
+        $file = $self->url_protect_file_text($file);
       }
     }
   } else {

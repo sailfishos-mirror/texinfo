@@ -1,5 +1,13 @@
 2022-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	Percent protect manual name in external manual URLs
+
+	* tp/Texinfo/Convert/HTML.pm (_external_node_href):
+	protect urf from htmlxref and file names when relative paths to
+	external manuals are used.
+
+2022-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	Use <abbr> for acronym in HTML
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_explained_command):

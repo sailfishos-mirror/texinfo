@@ -397,7 +397,7 @@ $result_converted{'html'}->{'menu_entry_no_entry_location'} = '<!DOCTYPE html>
 * and here ?
 with text.
 </td></tr>
-<tr><td valign="top">&bull; <a href="last manual.html#Top" accesskey="3">(last manual)</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td valign="top">&bull; <a href="last%20manual.html#Top" accesskey="3">(last manual)</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">
 </td></tr>
 </table>
 
