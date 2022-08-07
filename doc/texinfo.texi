@@ -16916,9 +16916,13 @@ document is output to standard error; default false.
 
 @item EPUB_CREATE_CONTAINER_FILE
 If set to 0, do not generate the EPUB output file.  Default is set
-to 1.  The directory containing the directories and files needed for
-EPUB is always output.  The EPUB output file is a ZIP archive of the
-container directory.  @xref{EPUB Output File and Directory}.
+to 1.
+
+@item EPUB_KEEP_CONTAINER_FOLDER
+If set, keep the directory containing the directories and files
+needed for EPUB.   The EPUB output file is a ZIP archive of this
+directory.  Default is not defined.  Set if not defined and @code{TEST} or
+@code{DEBUG} is set. @xref{EPUB Output File and Directory}.
 
 @item EXTENSION
 The extension added to the output file name.  The default is different
@@ -18422,6 +18426,20 @@ devices.  @command{texi2any} generated EPUB 3.2 in 2022.  An EPUB
 file is a ZIP archive container, holding informative files as
 well as the manual rendered in HTML.
 
+@cindex @code{Archive::Zip}, for EPUB file output
+The generation of the EPUB file depends on the @code{Archive::Zip}
+Perl module being installed.  This dependency is checked at runtime.
+In the default case, trying to output EPUB without that dependency raises an
+error.  However, if the EPUB output file is not generated, with the
+customization variable @code{EPUB_CREATE_CONTAINER_FILE} set to 0, it is
+not an error if @code{Archive::Zip} is not installed.
+
+The @command{texi2any} tests related to EPUB generation do not require the
+installation of @code{Archive::Zip}, as they set
+@code{EPUB_CREATE_CONTAINER_FILE} set to 0 and keep the directory containing
+the files and directories needed for the EPUB file by setting the
+@code{EPUB_KEEP_CONTAINER_FOLDER} customization variable to 1.
+
 @node EPUB Output File and Directory
 @subsection Container Directory and Output Files
 A directory containing the files and directories needed for the
@@ -18433,8 +18451,8 @@ or with the @code{SUBDIR} customization function,
 the container directory is created in that directory instead of
 the current directory.  At the beginning of a new run, the container
 directory and all its contents are removed.  The container directory
-is not removed even after the final EPUB file has been generated,
-to be able to look at the EPUB output file content.
+is also removed after the final EPUB file has been generated in the
+default case.
 
 The HTML files produced from the Texinfo manual are output in subdirectories
 of the container directory.  Image files referred to from the Texinfo manual,
@@ -18446,9 +18464,12 @@ extension postpended.  If an output file is specified, with
 @option{--output}, or with the @code{OUTFILE} customization function,
 this file name is used instead.  The output EPUB file is never placed
 in the directory specified by @option{--output} or @code{SUBDIR},
-the container directory only is placed there as explained just above.  The EPUB
-output file is not generated if the customization variable
-@code{EPUB_CREATE_CONTAINER_FILE} is set to 0.
+the container directory only is placed there as explained just above.
+
+The EPUB output file is not generated if the customization variable
+@code{EPUB_CREATE_CONTAINER_FILE} is set to 0.  The container directory
+is left after the final EPUB file has been generated if
+@code{EPUB_KEEP_CONTAINER_FOLDER} is set.
 
 @xref{Invoking @command{texi2any}}.
 

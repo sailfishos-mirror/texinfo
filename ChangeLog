@@ -1,3 +1,20 @@
+2022-08-07  Patrice Dumas  <pertusus@free.fr>
+
+	Do not keep EPUB container directory in the default case
+
+	* doc/texinfo.texi (Other Customization Variables)
+	(Generating EPUB, Output File and Directory),
+	tp/Texinfo/Common.pm (@variable_string_settables),
+	tp/ext/epub3.pm (_epub_remove_container_folder)
+	(epub_setup, epub_finish): remove the EPUB directory
+	container unless EPUB_KEEP_CONTAINER_FOLDER is set.
+	Set EPUB_KEEP_CONTAINER_FOLDER if undef and TEST or DEBUG.
+
+	* tp/ext/epub3.pm (epub_setup): do not error out at loading
+	if Archive::Zip could not be loaded, do it at the beginning
+	of epub_setup() to be able to determine EPUB_CREATE_CONTAINER_FILE
+	based on other customization variable.
+
 2022-08-06  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Add a interface to register errors from init files

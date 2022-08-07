@@ -74,11 +74,11 @@ use Texinfo::Common;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 
+# try to load here, but only complain and return an error later
+# when the customization variables are known.
 eval { require Archive::Zip; };
 
-if ($@) {
-  texinfo_register_init_loading_failure("Archive::Zip is required for EPUB output");
-}
+my $archive_zip_loading_error = $@;
 
 # the 3.2 spec was used for the implementation.  However, it seems to be
 # designed to be backward compatible with 3.0 and mandates to use 3.0 as
@@ -201,6 +201,7 @@ sub epub_noop($$)
 # at the beginning of epub_setup for multi input Texinfo manual cases.
 my $epub_destination_directory;
 my $epub_document_destination_directory;
+my $encoded_epub_destination_directory;
 
 my $epub_document_dir_name = 'EPUB';
 
@@ -334,6 +335,32 @@ sub epub_convert_tree_unit_type($$$$)
                                       $type, $element, $content);
 }
 
+sub _epub_remove_container_folder($$)
+{
+  my $self = shift;
+  my $encoded_epub_destination_directory = shift;
+  my $err_remove_tree;
+  File::Path::remove_tree($encoded_epub_destination_directory,
+                          {'error' => $err_remove_tree});
+  if ($err_remove_tree and scalar(@$err_remove_tree)) {
+    for my $diag (@$err_remove_tree) {
+      my ($file, $message) = %$diag;
+      if ($file eq '') {
+        $self->document_error($self,
+           sprintf(__("error removing directory: %s: %s"),
+                   $epub_destination_directory, $message));
+      }
+      else {
+        $self->document_error($self,
+          sprintf(__("error removing directory: %s: unlinking %s: %s"),
+                  $epub_destination_directory, $file, $message));
+      }
+    }
+    return 0;
+  }
+  return 1;
+}
+
 my $epub_xhtml_dir = 'xhtml';
 # should not clash with generated files.  Could clash with
 # OUTFILE but it is explicitly handled.
@@ -351,10 +378,30 @@ sub epub_setup($)
   $epub_outfile = undef;
   $epub_destination_directory = undef;
   $epub_document_destination_directory = undef;
+  $encoded_epub_destination_directory = undef;
   @epub_output_filenames = ();
   %epub_images = ();
   $nav_filename = $default_nav_filename;
   $epub_file_nr = 1;
+
+  if (not defined($self->get_conf('EPUB_CREATE_CONTAINER_FILE'))) {
+    if (not $self->get_conf('TEST')) {
+      $self->set_conf('EPUB_CREATE_CONTAINER_FILE', 1);
+    }
+  }
+
+  if ($self->get_conf('EPUB_CREATE_CONTAINER_FILE')
+      and $archive_zip_loading_error) {
+    $self->document_error($self,
+       __("Archive::Zip is required for EPUB file output"));
+    return 0;
+  }
+
+  if (not defined($self->get_conf('EPUB_KEEP_CONTAINER_FOLDER'))) {
+    if ($self->get_conf('TEST') or $self->get_conf('DEBUG')) {
+      $self->set_conf('EPUB_KEEP_CONTAINER_FOLDER', 1);
+    }
+  }
   
   $epub_info_js_dir_name = undef;
   if ($self->get_conf('INFO_JS_DIR')) {
@@ -418,27 +465,14 @@ sub epub_setup($)
      File::Spec->catfile($epub_document_destination_directory, $xhtml_output_file));
   }
 
-  my $err_remove_tree;
-  my ($encoded_epub_destination_directory, $epub_destination_dir_encoding)
+  my $epub_destination_dir_encoding;
+  ($encoded_epub_destination_directory, $epub_destination_dir_encoding)
     = $self->encoded_output_file_name($epub_destination_directory);
-  File::Path::remove_tree($encoded_epub_destination_directory,
-                          {'error' => $err_remove_tree});
-  if ($err_remove_tree and scalar(@$err_remove_tree)) {
-    for my $diag (@$err_remove_tree) {
-      my ($file, $message) = %$diag;
-      if ($file eq '') {
-        $self->document_error($self,
-           sprintf(__("error removing directory: %s: %s"),
-                   $epub_destination_directory, $message));
-      }
-      else {
-        $self->document_error($self,
-          sprintf(__("error removing directory: %s: unlinking %s: %s"),
-                  $epub_destination_directory, $file, $message));
-      }
-    }
-    return 0;
-  }
+
+  my $status = _epub_remove_container_folder($self,
+                                       $encoded_epub_destination_directory);
+  return $status if (!$status);
+
   my $err_make_path;
   my ($encoded_epub_document_destination_directory, $epub_doc_dest_dir_encoding)
     = $self->encoded_output_file_name($epub_document_destination_directory);
@@ -880,6 +914,12 @@ EOT
                    $epub_outfile));
       return 0;
     }
+  }
+
+  if (not $self->get_conf('EPUB_KEEP_CONTAINER_FOLDER')) {
+    my $status = _epub_remove_container_folder($self,
+                                       $encoded_epub_destination_directory);
+    return $status if (!$status);
   }
   return 1;
 }
