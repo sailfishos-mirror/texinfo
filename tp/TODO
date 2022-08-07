@@ -22,45 +22,6 @@ LaTeX @example and similar, combine margins?
 Bugs
 ====
 
-HTML5 validation to check
--------------------------
-
-<acronym> element removed from HTML5
-<abbr class="acronym">
-<tt> element removed from HTML5
-<span style="font-family: monospace;">
-
-Spaces in href, and maybe other characters that are not % escaped
-are (also for <img>).  Only needed for url not conformaing to the
-inter manual XREF in HTML spec, ie in @url, @image.
-It protects accented characters.
-The URL specification for HTML5 is at https://url.spec.whatwg.org/
-<a> escaping malformed URI reference
-<a> illegal characters found in URI
-
-The following corresponds to nested <a> which happens for @url in @xref
-which are valid, so ignoring this is best.
-missing </a> before <a>
-discarding unexpected </a>
-
-Obsolete attributes.
-The following attributes are obsolete (though the elements are still part of the language), and must not be used by authors:
-<td> attribute "align" not allowed for HTML5
-<th> attribute "align" not allowed for HTML5
-
-Additional errors not with all tidy version in 2022.  Note that width is not
-a true style but a formatting of a specific line.
-<td> attribute "valign" not allowed for HTML5
-<td> attribute "width" not allowed for HTML5
-<th> attribute "valign" not allowed for HTML5
-<th> attribute "width" not allowed for HTML5
-
-CSS replacement (Kurt Hornik):
-style="text-align: ...."
-style="vertical-align: ...."
-style="width: ...."
-
-
 HTML API
 ========
 
@@ -208,7 +169,36 @@ Some @-commands do not have an element with a class associated, or the
 association is not perfect.  There is @author in @quotation, @-command
 affected by @definfoenclose.  @pxref and similar @-commands have no class
 for references to external nodes, and don't have the 'See ' in the
-element for references to internal nodes.
+element for references to internal nodes.  In general, it is because
+gdt() is used instead of direct HTML.
+
+
+HTML5 validation tidy errors that do not need fixing
+----------------------------------------------------
+
+# to get only errors:
+tidy -qe *.html
+
+Some can also be validation errors in other HTML versions.
+
+missing </a> before <a>
+discarding unexpected </a>
+nested <a> which happens for @url in @xref, which is valid Texinfo.
+
+Warning: <a> anchor "..." already defined
+Should only happen with multiple insertcopying.
+
+Warning: trimming empty <code>
+Normally happens only for invalid Texinfo, missing @def* name, empty
+@def* line...
+
+<td> attribute "width" not allowed for HTML5
+<th> attribute "width" not allowed for HTML5
+These attributes are obsolete (though the elements are 
+still part of the language), and must not be used by authors.
+The CSS replacement would be style="width: 40%".
+However, width is kept as an attribute in texi2nay output and not
+as CSS because it is not style, but table or even line specific formatting.
 
 
 Missing tests
