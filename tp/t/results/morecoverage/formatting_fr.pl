@@ -4905,10 +4905,15 @@ pre.menu-comment-preformatted {font-family: serif}
 pre.menu-entry-description-preformatted {font-family: serif; display: inline}
 pre.menu-preformatted {font-family: serif}
 span.program-in-footer {font-size: smaller}
+td.button-direction-about {text-align:center}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
+td.name-direction-about {text-align:center}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top}
+th.entries-header-printindex {text-align:left}
+th.menu-comment {text-align:left}
+th.sections-header-printindex {text-align:left}
 ul.toc-numbered-mark {list-style: none}
 -->
 </style>
@@ -4943,7 +4948,7 @@ ul.toc-numbered-mark {list-style: none}
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination"><a href="#chapter">1 chapter</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"></td></tr>
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
 Menu comment
 
@@ -4992,7 +4997,7 @@ Menu comment
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top-section_cp_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e">.</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
@@ -5033,7 +5038,7 @@ Menu comment
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top-section_fn_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e-1"><code>.</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
@@ -5126,9 +5131,9 @@ Menu comment
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination"><a href="#subsection">1.1.1 subsection</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
-</pre></th></tr><tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">In detailmenu
+</pre></th></tr><tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">In detailmenu
 
 </pre></th></tr><tr><td class="menu-entry-destination"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
@@ -5237,7 +5242,7 @@ Menu comment
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-2_cp_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e">.</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
@@ -5276,7 +5281,7 @@ Menu comment
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-2_fn_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e-1"><code>.</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
@@ -5385,56 +5390,56 @@ Menu comment
     <th> Depuis 1.2.3 aller &agrave;</th>
   </tr>
   <tr>
-    <td align="center"> [ &lt;&lt; ] </td>
-    <td align="center">RetourRapide</td>
+    <td class="button-direction-about"> [ &lt;&lt; ] </td>
+    <td class="name-direction-about">RetourRapide</td>
     <td>D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent</td>
     <td>1</td>
   </tr>
   <tr>
-    <td align="center"> [ &lt; ] </td>
-    <td align="center">Arri&egrave;re</td>
+    <td class="button-direction-about"> [ &lt; ] </td>
+    <td class="name-direction-about">Arri&egrave;re</td>
     <td>Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture</td>
     <td>1.2.2</td>
   </tr>
   <tr>
-    <td align="center"> [Plus haut] </td>
-    <td align="center">Monter</td>
+    <td class="button-direction-about"> [Plus haut] </td>
+    <td class="name-direction-about">Monter</td>
     <td>Section sup&eacute;rieure</td>
     <td>1.2</td>
   </tr>
   <tr>
-    <td align="center"> [ &gt; ] </td>
-    <td align="center">Avant</td>
+    <td class="button-direction-about"> [ &gt; ] </td>
+    <td class="name-direction-about">Avant</td>
     <td>Section suivante dans l&rsquo;ordre de lecture</td>
     <td>1.2.4</td>
   </tr>
   <tr>
-    <td align="center"> [ &gt;&gt; ] </td>
-    <td align="center">AvanceRapide</td>
+    <td class="button-direction-about"> [ &gt;&gt; ] </td>
+    <td class="name-direction-about">AvanceRapide</td>
     <td>Chapitre suivant</td>
     <td>2</td>
   </tr>
   <tr>
-    <td align="center"> [Racine] </td>
-    <td align="center">Racine</td>
+    <td class="button-direction-about"> [Racine] </td>
+    <td class="name-direction-about">Racine</td>
     <td>Couverture (top) du document</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
-    <td align="center"> [Table des mati&egrave;res] </td>
-    <td align="center">Table des mati&egrave;res</td>
+    <td class="button-direction-about"> [Table des mati&egrave;res] </td>
+    <td class="name-direction-about">Table des mati&egrave;res</td>
     <td>Table des mati&egrave;res</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
-    <td align="center"> [Index] </td>
-    <td align="center">Index</td>
+    <td class="button-direction-about"> [Index] </td>
+    <td class="name-direction-about">Index</td>
     <td>Index</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
-    <td align="center"> [ ? ] </td>
-    <td align="center">A propos</td>
+    <td class="button-direction-about"> [ ? ] </td>
+    <td class="name-direction-about">A propos</td>
     <td>A propos (page d&rsquo;aide)</td>
     <td> &nbsp; </td>
   </tr>
@@ -5507,7 +5512,7 @@ $result_converted{'html_text'}->{'formatting_fr'} = '<h1 class="title">title &nd
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination"><a href="#chapter">1 chapter</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"></td></tr>
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
 Menu comment
 
@@ -5556,7 +5561,7 @@ Menu comment
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e">.</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
@@ -5597,7 +5602,7 @@ Menu comment
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e-1"><code>.</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
@@ -5690,9 +5695,9 @@ Menu comment
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination"><a href="#subsection">1.1.1 subsection</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
-</pre></th></tr><tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">In detailmenu
+</pre></th></tr><tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">In detailmenu
 
 </pre></th></tr><tr><td class="menu-entry-destination"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
@@ -5801,7 +5806,7 @@ Menu comment
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e">.</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
@@ -5840,7 +5845,7 @@ Menu comment
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e-1"><code>.</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
@@ -5949,56 +5954,56 @@ Menu comment
     <th> Depuis 1.2.3 aller &agrave;</th>
   </tr>
   <tr>
-    <td align="center"> [ &lt;&lt; ] </td>
-    <td align="center">RetourRapide</td>
+    <td class="button-direction-about"> [ &lt;&lt; ] </td>
+    <td class="name-direction-about">RetourRapide</td>
     <td>D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent</td>
     <td>1</td>
   </tr>
   <tr>
-    <td align="center"> [ &lt; ] </td>
-    <td align="center">Arri&egrave;re</td>
+    <td class="button-direction-about"> [ &lt; ] </td>
+    <td class="name-direction-about">Arri&egrave;re</td>
     <td>Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture</td>
     <td>1.2.2</td>
   </tr>
   <tr>
-    <td align="center"> [Plus haut] </td>
-    <td align="center">Monter</td>
+    <td class="button-direction-about"> [Plus haut] </td>
+    <td class="name-direction-about">Monter</td>
     <td>Section sup&eacute;rieure</td>
     <td>1.2</td>
   </tr>
   <tr>
-    <td align="center"> [ &gt; ] </td>
-    <td align="center">Avant</td>
+    <td class="button-direction-about"> [ &gt; ] </td>
+    <td class="name-direction-about">Avant</td>
     <td>Section suivante dans l&rsquo;ordre de lecture</td>
     <td>1.2.4</td>
   </tr>
   <tr>
-    <td align="center"> [ &gt;&gt; ] </td>
-    <td align="center">AvanceRapide</td>
+    <td class="button-direction-about"> [ &gt;&gt; ] </td>
+    <td class="name-direction-about">AvanceRapide</td>
     <td>Chapitre suivant</td>
     <td>2</td>
   </tr>
   <tr>
-    <td align="center"> [Racine] </td>
-    <td align="center">Racine</td>
+    <td class="button-direction-about"> [Racine] </td>
+    <td class="name-direction-about">Racine</td>
     <td>Couverture (top) du document</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
-    <td align="center"> [Table des mati&egrave;res] </td>
-    <td align="center">Table des mati&egrave;res</td>
+    <td class="button-direction-about"> [Table des mati&egrave;res] </td>
+    <td class="name-direction-about">Table des mati&egrave;res</td>
     <td>Table des mati&egrave;res</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
-    <td align="center"> [Index] </td>
-    <td align="center">Index</td>
+    <td class="button-direction-about"> [Index] </td>
+    <td class="name-direction-about">Index</td>
     <td>Index</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
-    <td align="center"> [ ? ] </td>
-    <td align="center">A propos</td>
+    <td class="button-direction-about"> [ ? ] </td>
+    <td class="name-direction-about">A propos</td>
     <td>A propos (page d&rsquo;aide)</td>
     <td> &nbsp; </td>
   </tr>

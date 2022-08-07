@@ -825,6 +825,7 @@ $result_converted{'html'}->{'entry_after_detailmenu'} = '<!DOCTYPE html>
 pre.menu-comment-preformatted {font-family: serif}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
+th.menu-comment {text-align:left}
 -->
 </style>
 
@@ -841,13 +842,13 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#second" accesskey="1">second</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
 Menu comment
 
 </pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#first" accesskey="2">first</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
 </pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#second" accesskey="3">second</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>

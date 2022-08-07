@@ -18,8 +18,12 @@ a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
 span.program-in-footer {font-size: smaller}
 span:hover a.copiable-link {visibility: visible}
+td.button-direction-about {text-align:center}
+td.name-direction-about {text-align:center}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top}
+th.entries-header-printindex {text-align:left}
+th.sections-header-printindex {text-align:left}
 ul.mark-bullet {list-style-type: disc}
 ul.mark-minus {list-style-type: "\2212"}
 -->
@@ -232,7 +236,7 @@ enum
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="printindex-1_cp_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-also-a-cindex-in-itemize">also a cindex in itemize</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter">1 chap</a></td></tr>
@@ -291,7 +295,7 @@ enum
  &nbsp; 
 </td></tr></table>
 <table class="vr-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="printindex-1_vr_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-aasis_002d_002db"><code>aasis--b</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter">1 chap</a></td></tr>
@@ -319,7 +323,7 @@ enum
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="printindex-1_fn_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-avar_002d_002db"><code>avar--b</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter">1 chap</a></td></tr>
@@ -371,56 +375,56 @@ enum
     <th> From 1.2.3 go to</th>
   </tr>
   <tr>
-    <td align="center"> [ &lt;&lt; ] </td>
-    <td align="center">FastBack</td>
+    <td class="button-direction-about"> [ &lt;&lt; ] </td>
+    <td class="name-direction-about">FastBack</td>
     <td>Beginning of this chapter or previous chapter</td>
     <td>1</td>
   </tr>
   <tr>
-    <td align="center"> [ &lt; ] </td>
-    <td align="center">Back</td>
+    <td class="button-direction-about"> [ &lt; ] </td>
+    <td class="name-direction-about">Back</td>
     <td>Previous section in reading order</td>
     <td>1.2.2</td>
   </tr>
   <tr>
-    <td align="center"> [ Up ] </td>
-    <td align="center">Up</td>
+    <td class="button-direction-about"> [ Up ] </td>
+    <td class="name-direction-about">Up</td>
     <td>Up section</td>
     <td>1.2</td>
   </tr>
   <tr>
-    <td align="center"> [ &gt; ] </td>
-    <td align="center">Forward</td>
+    <td class="button-direction-about"> [ &gt; ] </td>
+    <td class="name-direction-about">Forward</td>
     <td>Next section in reading order</td>
     <td>1.2.4</td>
   </tr>
   <tr>
-    <td align="center"> [ &gt;&gt; ] </td>
-    <td align="center">FastForward</td>
+    <td class="button-direction-about"> [ &gt;&gt; ] </td>
+    <td class="name-direction-about">FastForward</td>
     <td>Next chapter</td>
     <td>2</td>
   </tr>
   <tr>
-    <td align="center"> [Top] </td>
-    <td align="center">Top</td>
+    <td class="button-direction-about"> [Top] </td>
+    <td class="name-direction-about">Top</td>
     <td>Cover (top) of document</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
-    <td align="center"> [Contents] </td>
-    <td align="center">Contents</td>
+    <td class="button-direction-about"> [Contents] </td>
+    <td class="name-direction-about">Contents</td>
     <td>Table of contents</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
-    <td align="center"> [Index] </td>
-    <td align="center">Index</td>
+    <td class="button-direction-about"> [Index] </td>
+    <td class="name-direction-about">Index</td>
     <td>Index</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
-    <td align="center"> [ ? ] </td>
-    <td align="center">About</td>
+    <td class="button-direction-about"> [ ? ] </td>
+    <td class="name-direction-about">About</td>
     <td>About (help)</td>
     <td> &nbsp; </td>
   </tr>

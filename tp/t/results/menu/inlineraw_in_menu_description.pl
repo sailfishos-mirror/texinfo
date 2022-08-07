@@ -455,6 +455,7 @@ $result_converted{'html'}->{'inlineraw_in_menu_description'} = '<!DOCTYPE html>
 pre.menu-comment-preformatted {font-family: serif}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
+th.menu-comment {text-align:left}
 -->
 </style>
 
@@ -471,7 +472,7 @@ in inline raw
 
 end inlineraw
 </td></tr>
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
 </pre></th></tr></table>
 </div>

@@ -1136,6 +1136,7 @@ pre.menu-entry-description-preformatted {font-family: serif; display: inline}
 pre.menu-preformatted {font-family: serif}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
+th.menu-comment {text-align:left}
 -->
 </style>
 
@@ -1153,7 +1154,7 @@ Next: <a href="#NODE" accesskey="n" rel="next"><small class="sc">NODE</small></a
 <table class="menu" border="0" cellspacing="0">
 <tr><td class="menu-entry-destination">&bull; <a href="#NODE" accesskey="1"><small class="sc">VALUE</small></a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"><small class="sc">DESCRIP TION</small>
 </td></tr>
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
 <span class="sc">MENU COMMENT</span>
 

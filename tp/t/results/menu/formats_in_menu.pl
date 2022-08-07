@@ -1022,6 +1022,7 @@ pre.menu-comment-preformatted {font-family: serif}
 pre.menu-preformatted {font-family: serif}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
+th.menu-comment {text-align:left}
 -->
 </style>
 
@@ -1039,7 +1040,7 @@ td.menu-entry-destination {vertical-align: top}
 </pre></dd>
 </dl>
 </td></tr>
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
 </pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="info.html#Top" accesskey="2">(info)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 <pre class="verbatim">some @ verb{x atim
@@ -1053,7 +1054,7 @@ Log$
 <tr><td class="menu-entry-destination">&bull; <a href="truc.html#Top" accesskey="4">(truc)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"><abbr class="acronym">description
 * acronym::</abbr>
 </td></tr>
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
 </pre><div class="example">
 <pre class="example-preformatted">* subsubsection::

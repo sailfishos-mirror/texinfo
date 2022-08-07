@@ -2092,10 +2092,17 @@ my %css_element_class_styles = (
      'h4.centerchap'      => 'text-align:center',
      'div.center'         => 'text-align:center',
      'blockquote.indentedblock' => 'margin-right: 0em',
-     'td.printindex-index-entry'   => 'vertical-align: top',
-     'td.printindex-index-section' => 'vertical-align: top',
-     'td.menu-entry-destination'   => 'vertical-align: top',
-     'td.menu-entry-description'   => 'vertical-align: top',
+     'td.printindex-index-entry'     => 'vertical-align: top',
+     'td.printindex-index-section'   => 'vertical-align: top',
+     'td.menu-entry-destination'     => 'vertical-align: top',
+     'td.menu-entry-description'     => 'vertical-align: top',
+     'th.entries-header-printindex'  => 'text-align:left',
+     'th.sections-header-printindex' => 'text-align:left',
+     'th.menu-comment'               => 'text-align:left',
+     'td.category-def'               => 'text-align:right',
+     'td.call-def'                   => 'text-align:left',
+     'td.button-direction-about'     => 'text-align:center',
+     'td.name-direction-about'       => 'text-align:center',
 
      # The anchor element is wrapped in a <span> rather than a block level
      # element to avoid it appearing unless the mouse pointer is directly
@@ -5147,12 +5154,15 @@ sub _convert_printindex_command($$$$)
   }
 
   # now format the index entries
-  $result .= $self->html_attribute_class('table', ["$index_name-entries-$cmdname"])
-    ." border=\"0\">\n" . "<tr><td></td><th align=\"left\">"
+  $result
+   .= $self->html_attribute_class('table', ["$index_name-entries-$cmdname"])
+    ." border=\"0\">\n" . '<tr><td></td>'
+    . $self->html_attribute_class('th', ["entries-header-$cmdname"]).'>'
     . $self->convert_tree($self->gdt('Index Entry'))
-    . "</th><td>$non_breaking_space</td><th align=\"left\"> "
-    .  $self->convert_tree($self->gdt('Section'))
-    ."</th></tr>\n" . "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')
+    . "</th><td>$non_breaking_space</td>"
+    . $self->html_attribute_class('th', ["sections-header-$cmdname"]).'> '
+    . $self->convert_tree($self->gdt('Section')) . "</th></tr>\n"
+    . "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')
     ."</td></tr>\n";
   $result .= $result_index_entries;
   $result .= "</table>\n";
@@ -5825,8 +5835,8 @@ sub _convert_menu_comment_type($$$$)
   if ($self->_in_preformatted_in_menu() or $self->in_string()) {
     return $content;
   } else {
-    return "<tr><th colspan=\"3\" align=\"left\">".$content
-       ."</th></tr>";
+    return '<tr>'.$self->html_attribute_class('th', ['menu-comment'])
+      . ' colspan="3">'.$content .'</th></tr>';
   }
 }
 
@@ -6025,9 +6035,9 @@ sub _convert_def_line_type($$$$)
         if (defined($definition_category_tree));
   
     return $self->html_attribute_class('tr', \@classes)
-       . "$index_label><td align=\"left\">" . $def_call .
-       '</td>'.$self->html_attribute_class('td',  ['category-def'])
-       ." align=\"right\">" . '[' . $category_result . ']' . "</td></tr>\n";
+      . "$index_label>".$self->html_attribute_class('td', ['call-def']).'>'
+      . $def_call . '</td>'.$self->html_attribute_class('td', ['category-def'])
+      . '>' . '[' . $category_result . ']' . "</td></tr>\n";
   }
 }
 
@@ -8913,7 +8923,8 @@ EOT
     next if ($button eq ' ' or ref($button) eq 'CODE' or ref($button) eq 'SCALAR'
               or ref($button) eq 'ARRAY');
     my $button_name = $self->get_conf('BUTTONS_NAME')->{$button};
-    $about .= "  <tr>\n    <td align=\"center\">";
+    $about .= "  <tr>\n    ".$self->html_attribute_class('td',
+                                             ['button-direction-about']) .'>';
     $about .=
       ($self->get_conf('ICONS') && $self->get_conf('ACTIVE_ICONS')->{$button} ?
        &{$self->formatting_function('format_button_icon_img')}($self,
@@ -8921,7 +8932,8 @@ EOT
            ' [' . $self->get_conf('BUTTONS_TEXT')->{$button} . '] ');
     $about .= "</td>\n";
     $about .=
-"    <td align=\"center\">".$button_name."</td>
+'    '.$self->html_attribute_class('td', ['name-direction-about']).'>'
+    .$button_name."</td>
     <td>".$self->get_conf('BUTTONS_GOTO')->{$button}."</td>
     <td>".$self->substitute_html_non_breaking_space(
                $self->get_conf('BUTTONS_EXAMPLE')->{$button})."</td>

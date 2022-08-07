@@ -373,6 +373,7 @@ $result_converted{'html'}->{'menu_title_before_entries'} = '<!DOCTYPE html>
 pre.menu-comment-preformatted {font-family: serif}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
+th.menu-comment {text-align:left}
 -->
 </style>
 
@@ -387,7 +388,7 @@ Next: <a href="#subnode" accesskey="n" rel="next">subnode</a> &nbsp; </p>
 <h1 class="node">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">Horizontal space
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">Horizontal space
 </pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#subnode" accesskey="1">subnode</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>

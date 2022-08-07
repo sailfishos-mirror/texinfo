@@ -1931,6 +1931,7 @@ $result_converted{'html'}->{'detailmenu_on_subnodes'} = '<!DOCTYPE html>
 pre.menu-comment-preformatted {font-family: serif}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
+th.menu-comment {text-align:left}
 -->
 </style>
 
@@ -1950,13 +1951,13 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </td></tr>
 <tr><td class="menu-entry-destination">&bull; <a href="#chapter-2" accesskey="2">chapter 2</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
 </pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#section" accesskey="3">section</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
-</pre></th></tr><tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">Chap 2
+</pre></th></tr><tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">Chap 2
 
 </pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#section-chap-2" accesskey="4">section chap 2</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>

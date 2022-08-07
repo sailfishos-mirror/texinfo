@@ -1037,7 +1037,7 @@ $result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<div
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_letter-C">C</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-c_0060_0060b">c&ldquo;b</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>

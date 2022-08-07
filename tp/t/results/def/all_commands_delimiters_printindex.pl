@@ -16065,6 +16065,8 @@ a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-link {visibility: visible}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top}
+th.entries-header-printindex {text-align:left}
+th.sections-header-printindex {text-align:left}
 -->
 </style>
 
@@ -16282,7 +16284,7 @@ td.printindex-index-section {vertical-align: top}
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_fn_symbol-1">)</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_0029expose-on-_0029Window"><code>)expose on )Window</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
@@ -16361,7 +16363,7 @@ td.printindex-index-section {vertical-align: top}
  &nbsp; 
 </td></tr></table>
 <table class="tp-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_tp_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-A2-2"><code><var class="var">A2</var></code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
@@ -16391,7 +16393,7 @@ td.printindex-index-section {vertical-align: top}
  &nbsp; 
 </td></tr></table>
 <table class="vr-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_vr_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-A2-5"><code><var class="var">A2</var></code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>

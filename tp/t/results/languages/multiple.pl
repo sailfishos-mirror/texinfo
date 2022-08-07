@@ -1431,6 +1431,8 @@ a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-link {visibility: visible}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top}
+th.entries-header-printindex {text-align:left}
+th.sections-header-printindex {text-align:left}
 -->
 </style>
 
@@ -1487,7 +1489,7 @@ Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top</a>, Monter
  &nbsp; 
 </td></tr></table>
 <table class="vr-entries-printindex" border="0">
-<tr><td></td><th align="left">Stavka indeksa</th><td>&nbsp;</td><th align="left"> Odlomak</th></tr>
+<tr><td></td><th class="entries-header-printindex">Stavka indeksa</th><td>&nbsp;</td><th class="sections-header-printindex"> Odlomak</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chap_vr_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-copying-a-of-copying"><code>a de copying</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>

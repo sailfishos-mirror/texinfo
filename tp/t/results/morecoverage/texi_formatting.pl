@@ -4905,6 +4905,8 @@ div.example {margin-left: 3.2em}
 h2.centerchap {text-align:center}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top}
+th.entries-header-printindex {text-align:left}
+th.sections-header-printindex {text-align:left}
 ul.toc-numbered-mark {list-style: none}
 -->
 </style>
@@ -4963,7 +4965,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_cp_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e">.</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
@@ -5004,7 +5006,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top_fn_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e-1"><code>.</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
@@ -5154,7 +5156,7 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter2_cp_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e">.</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
@@ -5193,7 +5195,7 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter2_fn_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e-1"><code>.</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
@@ -5288,7 +5290,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e">.</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
@@ -5329,7 +5331,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e-1"><code>.</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
@@ -5479,7 +5481,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e">.</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
@@ -5518,7 +5520,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_symbol-1">.</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002e-1"><code>.</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>

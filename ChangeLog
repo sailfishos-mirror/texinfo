@@ -1,5 +1,16 @@
 2022-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	Use CSS for horizontal alignement in table cells
+
+	* tp/Texinfo/Convert/HTML.pm (%css_element_class_styles)
+	(_convert_printindex_command, _convert_menu_comment_type)
+	(_convert_def_line_type, _default_format_special_body_about):
+	use CSS with classes for horizontal alignement for menu
+	commnet, printindex index entries header, @def* line in table
+	About table.
+
+2022-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	Use CSS for vertical alignement in table cells
 
 	* tp/Texinfo/Convert/HTML.pm (%css_element_class_styles)

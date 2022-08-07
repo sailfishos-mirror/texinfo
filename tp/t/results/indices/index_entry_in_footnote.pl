@@ -314,7 +314,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote'} = '<h1 class="node" 
 </p>
 <div class="printindex cp-printindex">
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-I">I</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-index-entry-in-footnote">index entry in footnote</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>

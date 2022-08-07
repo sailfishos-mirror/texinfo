@@ -5615,8 +5615,11 @@ $result_converted{'html'}->{'texi_bib_example'} = '<!DOCTYPE html>
 h1.settitle {text-align:center}
 pre.menu-comment-preformatted {font-family: serif}
 span.program-in-footer {font-size: smaller}
+td.button-direction-about {text-align:center}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
+td.name-direction-about {text-align:center}
+th.menu-comment {text-align:left}
 -->
 </style>
 
@@ -5688,7 +5691,7 @@ td.menu-entry-destination {vertical-align: top}
 </td></tr>
 <tr><td class="menu-entry-destination"><a href="#References">2 References</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
 </pre></th></tr></table>
 
@@ -5770,56 +5773,56 @@ Massachusetts, 1994.
     <th> From 1.2.3 go to</th>
   </tr>
   <tr>
-    <td align="center"> [ &lt;&lt; ] </td>
-    <td align="center">FastBack</td>
+    <td class="button-direction-about"> [ &lt;&lt; ] </td>
+    <td class="name-direction-about">FastBack</td>
     <td>Beginning of this chapter or previous chapter</td>
     <td>1</td>
   </tr>
   <tr>
-    <td align="center"> [ &lt; ] </td>
-    <td align="center">Back</td>
+    <td class="button-direction-about"> [ &lt; ] </td>
+    <td class="name-direction-about">Back</td>
     <td>Previous section in reading order</td>
     <td>1.2.2</td>
   </tr>
   <tr>
-    <td align="center"> [ Up ] </td>
-    <td align="center">Up</td>
+    <td class="button-direction-about"> [ Up ] </td>
+    <td class="name-direction-about">Up</td>
     <td>Up section</td>
     <td>1.2</td>
   </tr>
   <tr>
-    <td align="center"> [ &gt; ] </td>
-    <td align="center">Forward</td>
+    <td class="button-direction-about"> [ &gt; ] </td>
+    <td class="name-direction-about">Forward</td>
     <td>Next section in reading order</td>
     <td>1.2.4</td>
   </tr>
   <tr>
-    <td align="center"> [ &gt;&gt; ] </td>
-    <td align="center">FastForward</td>
+    <td class="button-direction-about"> [ &gt;&gt; ] </td>
+    <td class="name-direction-about">FastForward</td>
     <td>Next chapter</td>
     <td>2</td>
   </tr>
   <tr>
-    <td align="center"> [Top] </td>
-    <td align="center">Top</td>
+    <td class="button-direction-about"> [Top] </td>
+    <td class="name-direction-about">Top</td>
     <td>Cover (top) of document</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
-    <td align="center"> [Contents] </td>
-    <td align="center">Contents</td>
+    <td class="button-direction-about"> [Contents] </td>
+    <td class="name-direction-about">Contents</td>
     <td>Table of contents</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
-    <td align="center"> [Index] </td>
-    <td align="center">Index</td>
+    <td class="button-direction-about"> [Index] </td>
+    <td class="name-direction-about">Index</td>
     <td>Index</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
-    <td align="center"> [ ? ] </td>
-    <td align="center">About</td>
+    <td class="button-direction-about"> [ ? ] </td>
+    <td class="name-direction-about">About</td>
     <td>About (help)</td>
     <td> &nbsp; </td>
   </tr>

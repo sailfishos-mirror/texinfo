@@ -648,6 +648,7 @@ $result_converted{'html'}->{'simple'} = '<!DOCTYPE html>
 pre.menu-comment-preformatted {font-family: serif}
 td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
+th.menu-comment {text-align:left}
 -->
 </style>
 
@@ -659,7 +660,7 @@ td.menu-entry-destination {vertical-align: top}
 <p>Before menu.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">comment
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">comment
 </pre></th></tr><tr><td class="menu-entry-destination">&bull; menu entry name :</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">description
 </td></tr>
 <tr><td class="menu-entry-destination">&bull; node name:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">description new
@@ -670,7 +671,7 @@ td.menu-entry-destination {vertical-align: top}
                  description next line
                  still description
 </td></tr>
-<tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
+<tr><th class="menu-comment" colspan="3"><pre class="menu-comment-preformatted">
 
 new comment
 </pre></th></tr><tr><td class="menu-entry-destination">&bull; last node entry :</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">

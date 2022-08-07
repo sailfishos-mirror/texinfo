@@ -275,6 +275,8 @@ $result_converted{'html'}->{'index_and_node_same_name'} = '<!DOCTYPE html>
 a.summary-letter-printindex {text-decoration: none}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top}
+th.entries-header-printindex {text-align:left}
+th.sections-header-printindex {text-align:left}
 -->
 </style>
 
@@ -289,7 +291,7 @@ td.printindex-index-section {vertical-align: top}
 <a class="index-entry-id" id="index-node-1"></a>
 <div class="printindex cp-printindex">
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="index-node_cp_letter-N">N</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-node-1">node</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#index-node">index node</a></td></tr>

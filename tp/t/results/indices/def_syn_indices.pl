@@ -2099,7 +2099,7 @@ after
  &nbsp; 
 </td></tr></table>
 <table class="pg-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_pg_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-abc-index-entry">abc index entry</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
@@ -2147,7 +2147,7 @@ after
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_letter-C">C</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-cindex-entry"><code>cindex entry</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
