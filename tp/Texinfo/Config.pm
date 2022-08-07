@@ -119,6 +119,7 @@ sub _GNUT_document_warn($) {
                    "%s: warning: %s\n"), $real_command_name, $text)));
 }
 
+my @init_file_loading_errors;
 # called from texi2any.pl main program.
 # eval $FILE in the Texinfo::Config namespace. $FILE should be a binary string.
 sub GNUT_load_init_file($) {
@@ -133,6 +134,19 @@ sub GNUT_load_init_file($) {
     _GNUT_document_warn(sprintf(__("error loading %s: %s"),
                 _GNUT_decode_input($file), $e));
   }
+  for my $error (@init_file_loading_errors) {
+    warn sprintf(__("error loading %s: %s"),
+                _GNUT_decode_input($file), $error)."\n";
+  }
+  if (scalar(@init_file_loading_errors)) {
+    exit 1;
+  }
+}
+
+# called from init files in case of errors.
+sub texinfo_register_init_loading_failure($) {
+  my $error = shift;
+  push @init_file_loading_errors, $error;
 }
 
 # L2H removed in 2021

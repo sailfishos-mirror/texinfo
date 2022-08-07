@@ -1,3 +1,15 @@
+2022-08-06  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Add a interface to register errors from init files
+
+	* tp/Texinfo/Config.pm (GNUT_load_init_file)
+	(texinfo_register_init_loading_failure): add
+	texinfo_register_init_loading_failure() to register errors
+	from init files.
+
+	* tp/ext/epub3.pm: register an error if require Archive::Zip;
+	fails.
+
 2022-08-07  Patrice Dumas  <pertusus@free.fr>
 
 	Use CSS for horizontal alignement in table cells

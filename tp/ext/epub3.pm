@@ -78,6 +78,12 @@ use Texinfo::Common;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 
+eval { require Archive::Zip; };
+
+if ($@) {
+  texinfo_register_init_loading_failure("Archive::Zip is required for EPUB output");
+}
+
 # the 3.2 spec was used for the implementation.  However, it seems to be
 # designed to be backward compatible with 3.0 and mandates to use 3.0 as
 # version.
@@ -829,8 +835,6 @@ EOT
   }
 
   if ($self->get_conf('EPUB_CREATE_CONTAINER_FILE')) {
-    require Archive::Zip;
-
     # this is needed if there are non ascii file names, otherwise, for instance
     # with calibre the files cannot be read, one get
     # "There is no item named 'EPUB/osé.opf' in the archive"
