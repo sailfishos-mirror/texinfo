@@ -1,6 +1,6 @@
 2022-08-07  Patrice Dumas  <pertusus@free.fr>
 
-	It TEST is set, do not use system init file directories
+	If TEST is set, do not use system init file directories
 
 	* tp/texi2any.pl: if TEST is set, do not use system (program) init
 	directories to find init files, such that the init files are only
@@ -4860,7 +4860,7 @@
 2022-01-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/TextContent.pm (_convert): add end of line
-	for all the 'line_arg', excpet when on a def_line as they already
+	for all the 'line_arg', except when on a def_line as they already
 	have an end of line in that case.
 
 2022-01-01  Patrice Dumas  <pertusus@free.fr>
