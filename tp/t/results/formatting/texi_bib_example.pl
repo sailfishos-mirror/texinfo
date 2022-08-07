@@ -5615,6 +5615,7 @@ $result_converted{'html'}->{'texi_bib_example'} = '<!DOCTYPE html>
 h1.settitle {text-align:center}
 pre.menu-comment-preformatted {font-family: serif}
 span.program-in-footer {font-size: smaller}
+td.menu-entry-destination {vertical-align: top}
 -->
 </style>
 
@@ -5682,9 +5683,9 @@ span.program-in-footer {font-size: smaller}
 <h1 class="top" id="Top-1">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top"><a href="#Introduction">1 Introduction</a></td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination"><a href="#Introduction">1 Introduction</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><td valign="top"><a href="#References">2 References</a></td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination"><a href="#References">2 References</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 <tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 

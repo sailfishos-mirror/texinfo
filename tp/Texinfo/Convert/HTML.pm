@@ -2092,6 +2092,10 @@ my %css_element_class_styles = (
      'h4.centerchap'      => 'text-align:center',
      'div.center'         => 'text-align:center',
      'blockquote.indentedblock' => 'margin-right: 0em',
+     'td.printindex-index-entry'   => 'vertical-align: top',
+     'td.printindex-index-section' => 'vertical-align: top',
+     'td.menu-entry-destination'   => 'vertical-align: top',
+     'td.menu-entry-description  ' => 'vertical-align: top',
 
      # The anchor element is wrapped in a <span> rather than a block level
      # element to avoid it appearing unless the mouse pointer is directly
@@ -5075,10 +5079,12 @@ sub _convert_printindex_command($$$$)
         $associated_command_text = $self->command_text($associated_command);
       }
       
-      $entries_text .= '<tr><td></td><td valign="top">'
+      $entries_text .= '<tr><td></td>'
+        .$self->html_attribute_class('td', ['printindex-index-entry']).'>'
          . "<a href=\"$entry_href\">$entry</a>" .
           $self->get_conf('INDEX_ENTRY_COLON') .
-        '</td><td>'.$self->get_info('non_breaking_space').'</td><td valign="top">';
+        '</td><td>'.$self->get_info('non_breaking_space').'</td>'
+        .$self->html_attribute_class('td', ['printindex-index-section']).'>';
       $entries_text .= "<a href=\"$associated_command_href\">$associated_command_text</a>"
          if ($associated_command_href);
       $entries_text .= "</td></tr>\n";
@@ -5799,8 +5805,12 @@ sub _convert_menu_entry_type($$$)
     }
   }
   my $non_breaking_space = $self->get_info('non_breaking_space');
-  return "<tr><td valign=\"top\">$name$MENU_ENTRY_COLON</td>"
-    ."<td>${non_breaking_space}${non_breaking_space}</td><td valign=\"top\">$description</td></tr>\n";
+  return '<tr>'
+     .$self->html_attribute_class('td', ['menu-entry-destination']).'>'
+                                           ."$name$MENU_ENTRY_COLON</td>"
+    ."<td>${non_breaking_space}${non_breaking_space}</td>"
+    .$self->html_attribute_class('td', ['menu-entry-description']).'>'
+                                ."$description</td></tr>\n";
 }
 
 $default_types_conversion{'menu_entry'} = \&_convert_menu_entry_type;

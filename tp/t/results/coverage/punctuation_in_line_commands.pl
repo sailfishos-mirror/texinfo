@@ -1228,7 +1228,7 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-I">I</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-index_0021-After-punc">index! After punc</a>:</td><td>&nbsp;</td><td valign="top"><a href="#node_0021-After-punc">node! After punc</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-index_0021-After-punc">index! After punc</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#node_0021-After-punc">node! After punc</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 </div>

@@ -264,6 +264,7 @@ $result_converted{'html'}->{'dash_in_menu'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 pre.menu-comment-preformatted {font-family: serif}
+td.menu-entry-destination {vertical-align: top}
 -->
 </style>
 
@@ -273,7 +274,7 @@ pre.menu-comment-preformatted {font-family: serif}
 <body lang="en">
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top">&bull; <a href="manual.html#n_002d_002d_002dode" accesskey="1">entry&mdash;in</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">description &mdash; in.
+<tr><td class="menu-entry-destination">&bull; <a href="manual.html#n_002d_002d_002dode" accesskey="1">entry&mdash;in</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">description &mdash; in.
 </td></tr>
 <tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 

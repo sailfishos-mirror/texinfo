@@ -1587,6 +1587,7 @@ $result_converted{'html'}->{'texi_glossary'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 span.program-in-footer {font-size: smaller}
+td.menu-entry-destination {vertical-align: top}
 -->
 </style>
 
@@ -1610,7 +1611,7 @@ span.program-in-footer {font-size: smaller}
 <h1 class="top" id="Top-1">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top"><a href="#glossary">1 glossary</a></td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination"><a href="#glossary">1 glossary</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>
 

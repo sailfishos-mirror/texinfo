@@ -1134,6 +1134,7 @@ div.example {margin-left: 3.2em}
 pre.menu-comment-preformatted {font-family: serif}
 pre.menu-entry-description-preformatted {font-family: serif; display: inline}
 pre.menu-preformatted {font-family: serif}
+td.menu-entry-destination {vertical-align: top}
 -->
 </style>
 
@@ -1149,7 +1150,7 @@ Next: <a href="#NODE" accesskey="n" rel="next"><small class="sc">NODE</small></a
 <h1 class="node">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top">&bull; <a href="#NODE" accesskey="1"><small class="sc">VALUE</small></a>:</td><td>&nbsp;&nbsp;</td><td valign="top"><small class="sc">DESCRIP TION</small>
+<tr><td class="menu-entry-destination">&bull; <a href="#NODE" accesskey="1"><small class="sc">VALUE</small></a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"><small class="sc">DESCRIP TION</small>
 </td></tr>
 <tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 

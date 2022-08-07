@@ -436,6 +436,11 @@ $result_converted{'html'}->{'comment_on_menu_line'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<style type="text/css">
+<!--
+td.menu-entry-destination {vertical-align: top}
+-->
+</style>
 
 
 </head>
@@ -448,7 +453,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </div>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top">&bull; <a href="#first" accesskey="1">first</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination">&bull; <a href="#first" accesskey="1">first</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>
 

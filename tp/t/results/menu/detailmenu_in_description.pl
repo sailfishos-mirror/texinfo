@@ -321,6 +321,11 @@ $result_converted{'html'}->{'detailmenu_in_description'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
+<style type="text/css">
+<!--
+td.menu-entry-destination {vertical-align: top}
+-->
+</style>
 
 
 </head>
@@ -328,9 +333,9 @@ $result_converted{'html'}->{'detailmenu_in_description'} = '<!DOCTYPE html>
 <body lang="en">
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top">&bull; Copying Conditions:</td><td>&nbsp;&nbsp;</td><td valign="top">Your rights.
+<tr><td class="menu-entry-destination">&bull; Copying Conditions:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">Your rights.
 </td></tr>
-<tr><td valign="top">&bull; detailmenu:</td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination">&bull; detailmenu:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>
 

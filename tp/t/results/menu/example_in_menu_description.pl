@@ -483,6 +483,7 @@ $result_converted{'html'}->{'example_in_menu_description'} = '<!DOCTYPE html>
 <!--
 div.example {margin-left: 3.2em}
 pre.menu-comment-preformatted {font-family: serif}
+td.menu-entry-destination {vertical-align: top}
 -->
 </style>
 
@@ -494,7 +495,7 @@ pre.menu-comment-preformatted {font-family: serif}
 <h1 class="top" id="top">top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 <div class="example">
 <pre class="example-preformatted">in 
 

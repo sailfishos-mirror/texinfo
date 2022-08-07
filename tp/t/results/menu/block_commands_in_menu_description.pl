@@ -836,6 +836,7 @@ $result_converted{'html'}->{'block_commands_in_menu_description'} = '<!DOCTYPE h
 <style type="text/css">
 <!--
 pre.menu-preformatted {font-family: serif}
+td.menu-entry-destination {vertical-align: top}
 ul.mark-bullet {list-style-type: disc}
 -->
 </style>
@@ -848,7 +849,7 @@ ul.mark-bullet {list-style-type: disc}
 <h1 class="top" id="top">top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 <ul class="itemize mark-bullet">
 <li><pre class="menu-preformatted">
 

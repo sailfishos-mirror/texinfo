@@ -1378,16 +1378,16 @@ $result_converted{'html_text'}->{'subentries'} = '
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-a_002d_002d_002da">a&mdash;a</a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-a_002d_002d_002da">a&mdash;a</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-B">B</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-b_002d_002d_002db">b&mdash;b, c&mdash;c</a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-b_002d_002d_002db">b&mdash;b, c&mdash;c</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-D">D</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-d_002d_002d_002ddd">d&mdash;dd, e&mdash;ee, f&mdash;ff</a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-d_002d_002d_002ddd">d&mdash;dd, e&mdash;ee, f&mdash;ff</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-G">G</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-g_002d_002d_002dgg">g&mdash;gg, h&mdash;hh jjj, k&mdash;kk, l&mdash;ll</a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-g_002d_002d_002dgg">g&mdash;gg, h&mdash;hh jjj, k&mdash;kk, l&mdash;ll</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
@@ -1405,10 +1405,10 @@ $result_converted{'html_text'}->{'subentries'} = '
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_letter-F">F</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-f_002d_002d_002daa"><code>f---aa</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-f_002d_002d_002dbb"><code>f---bb, f---cc</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-f_002d_002d_002dddd"><code>f---ddd, f---eee, ffff</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-f_002d_002d_002dggg"><code>f---ggg, f---hhh fjjj, f---kkk, f---lll</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-f_002d_002d_002daa"><code>f---aa</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-f_002d_002d_002dbb"><code>f---bb, f---cc</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-f_002d_002d_002dddd"><code>f---ddd, f---eee, ffff</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-f_002d_002d_002dggg"><code>f---ggg, f---hhh fjjj, f---kkk, f---lll</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 </div>

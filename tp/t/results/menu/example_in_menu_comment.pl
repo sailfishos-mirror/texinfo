@@ -341,6 +341,7 @@ $result_converted{'html'}->{'example_in_menu_comment'} = '<!DOCTYPE html>
 <!--
 div.example {margin-left: 3.2em}
 pre.menu-comment-preformatted {font-family: serif}
+td.menu-entry-destination {vertical-align: top}
 -->
 </style>
 
@@ -349,7 +350,7 @@ pre.menu-comment-preformatted {font-family: serif}
 
 <body lang="en">
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top">&bull; entry:</td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination">&bull; entry:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 <tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 

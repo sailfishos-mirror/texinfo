@@ -1771,7 +1771,7 @@ see <a class="pxref" href="#a-in-paragraph-in-top">a in paragraph in top</a>
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-C">C</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-chap-index">chap index</a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-chap-index">chap index</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter">chapter</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 </div>

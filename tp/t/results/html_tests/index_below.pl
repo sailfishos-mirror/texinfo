@@ -515,6 +515,8 @@ $result_converted{'html'}->{'index_below'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 a.summary-letter-printindex {text-decoration: none}
+td.printindex-index-entry {vertical-align: top}
+td.printindex-index-section {vertical-align: top}
 -->
 </style>
 
@@ -557,7 +559,7 @@ a.summary-letter-printindex {text-decoration: none}
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="sec_cp_letter-E">E</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-entry">entry</a>:</td><td>&nbsp;</td><td valign="top"><a href="#sec">1.1 sec</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-entry">entry</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#sec">1.1 sec</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 </div>

@@ -4905,6 +4905,9 @@ pre.menu-comment-preformatted {font-family: serif}
 pre.menu-entry-description-preformatted {font-family: serif; display: inline}
 pre.menu-preformatted {font-family: serif}
 span.program-in-footer {font-size: smaller}
+td.menu-entry-destination {vertical-align: top}
+td.printindex-index-entry {vertical-align: top}
+td.printindex-index-section {vertical-align: top}
 ul.toc-numbered-mark {list-style: none}
 -->
 </style>
@@ -4938,12 +4941,12 @@ ul.toc-numbered-mark {list-style: none}
 <h1 class="top" id="Top-section">Top section</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top"><a href="#chapter">1 chapter</a></td><td>&nbsp;&nbsp;</td><td valign="top"></td></tr>
+<tr><td class="menu-entry-destination"><a href="#chapter">1 chapter</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"></td></tr>
 <tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 
 Menu comment
 
-</pre></th></tr><tr><td valign="top"><a href="#chapter2" rel="index">chapter 2</a></td><td>&nbsp;&nbsp;</td><td valign="top">Chapter 2
+</pre></th></tr><tr><td class="menu-entry-destination"><a href="#chapter2" rel="index">chapter 2</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">Chapter 2
 </td></tr>
 </table>
 
@@ -4991,17 +4994,17 @@ Menu comment
 <tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top-section_cp_symbol-1">.</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_002e">.</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_002e">.</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top-section_cp_symbol-2">?</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_003f">?</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_003f">?</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top-section_cp_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-a">a</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-a">a</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top-section_cp_letter-T">T</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-t_002d_002druc">t&ndash;ruc</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-T_002d_002druc">T&ndash;ruc</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-t_002d_002druc">t&ndash;ruc</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-T_002d_002druc">T&ndash;ruc</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table class="cp-letters-footer-printindex"><tr><th>Aller &agrave;: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top-section_cp_symbol-1"><b>.</b></a>
@@ -5032,17 +5035,17 @@ Menu comment
 <tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top-section_fn_symbol-1">.</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_002e-1"><code>.</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_002e-1"><code>.</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top-section_fn_symbol-2">?</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_003f-1"><code>?</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_003f-1"><code>?</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top-section_fn_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-a-1"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-a-1"><code>a</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Top-section_fn_letter-T">T</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-t_002d_002druc-1"><code>t--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-t_002d_002druc-1"><code>t--ruc</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table class="fn-letters-footer-printindex"><tr><th>Aller &agrave;: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top-section_fn_symbol-1"><b>.</b></a>
@@ -5120,15 +5123,15 @@ Menu comment
 <h2 class="section" id="A-section">1.1 A section</h2>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top"><a href="#subsection">1.1.1 subsection</a></td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination"><a href="#subsection">1.1.1 subsection</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 <tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 
 </pre></th></tr><tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">In detailmenu
 
-</pre></th></tr><tr><td valign="top"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td valign="top">
+</pre></th></tr><tr><td class="menu-entry-destination"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><td valign="top"><a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</a></td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination"><a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>
 
@@ -5152,9 +5155,9 @@ Menu comment
 <h3 class="subsection" id="subsection-1">1.1.1 subsection</h3>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><td valign="top"><a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</a></td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination"><a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>
 
@@ -5236,17 +5239,17 @@ Menu comment
 <tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-2_cp_symbol-1">.</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_002e">.</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_002e">.</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-2_cp_symbol-2">?</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_003f">?</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_003f">?</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-2_cp_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-a">a</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-a">a</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-2_cp_letter-T">T</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-t_002d_002druc">t&ndash;ruc</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-T_002d_002druc">T&ndash;ruc</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-t_002d_002druc">t&ndash;ruc</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-T_002d_002druc">T&ndash;ruc</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table class="cp-letters-footer-printindex"><tr><th>Aller &agrave;: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-2_cp_symbol-1"><b>.</b></a>
@@ -5275,17 +5278,17 @@ Menu comment
 <tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-2_fn_symbol-1">.</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_002e-1"><code>.</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_002e-1"><code>.</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-2_fn_symbol-2">?</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_003f-1"><code>?</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_003f-1"><code>?</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-2_fn_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-a-1"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-a-1"><code>a</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-2_fn_letter-T">T</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-t_002d_002druc-1"><code>t--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-t_002d_002druc-1"><code>t--ruc</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table class="fn-letters-footer-printindex"><tr><th>Aller &agrave;: &nbsp; </th><td><a class="summary-letter-printindex" href="#chapter-2_fn_symbol-1"><b>.</b></a>
@@ -5502,12 +5505,12 @@ $result_converted{'html_text'}->{'formatting_fr'} = '<h1 class="title">title &nd
 <h1 class="top" id="Top-section">Top section</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top"><a href="#chapter">1 chapter</a></td><td>&nbsp;&nbsp;</td><td valign="top"></td></tr>
+<tr><td class="menu-entry-destination"><a href="#chapter">1 chapter</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description"></td></tr>
 <tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 
 Menu comment
 
-</pre></th></tr><tr><td valign="top"><a href="#chapter2" rel="index">chapter 2</a></td><td>&nbsp;&nbsp;</td><td valign="top">Chapter 2
+</pre></th></tr><tr><td class="menu-entry-destination"><a href="#chapter2" rel="index">chapter 2</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">Chapter 2
 </td></tr>
 </table>
 
@@ -5555,17 +5558,17 @@ Menu comment
 <tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_symbol-1">.</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_002e">.</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_002e">.</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_symbol-2">?</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_003f">?</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_003f">?</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-a">a</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-a">a</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-T">T</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-t_002d_002druc">t&ndash;ruc</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-T_002d_002druc">T&ndash;ruc</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-t_002d_002druc">t&ndash;ruc</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-T_002d_002druc">T&ndash;ruc</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table class="cp-letters-footer-printindex"><tr><th>Aller &agrave;: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_symbol-1"><b>.</b></a>
@@ -5596,17 +5599,17 @@ Menu comment
 <tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_symbol-1">.</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_002e-1"><code>.</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_002e-1"><code>.</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_symbol-2">?</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_003f-1"><code>?</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_003f-1"><code>?</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-a-1"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-a-1"><code>a</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_letter-T">T</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-t_002d_002druc-1"><code>t--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-t_002d_002druc-1"><code>t--ruc</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table class="fn-letters-footer-printindex"><tr><th>Aller &agrave;: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_symbol-1"><b>.</b></a>
@@ -5684,15 +5687,15 @@ Menu comment
 <h2 class="section" id="A-section">1.1 A section</h2>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top"><a href="#subsection">1.1.1 subsection</a></td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination"><a href="#subsection">1.1.1 subsection</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 <tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">
 
 </pre></th></tr><tr><th colspan="3" align="left"><pre class="menu-comment-preformatted">In detailmenu
 
-</pre></th></tr><tr><td valign="top"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td valign="top">
+</pre></th></tr><tr><td class="menu-entry-destination"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><td valign="top"><a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</a></td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination"><a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>
 
@@ -5716,9 +5719,9 @@ Menu comment
 <h3 class="subsection" id="subsection-1">1.1.1 subsection</h3>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td valign="top"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><td valign="top"><a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</a></td><td>&nbsp;&nbsp;</td><td valign="top">
+<tr><td class="menu-entry-destination"><a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</a></td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>
 
@@ -5800,17 +5803,17 @@ Menu comment
 <tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_symbol-1">.</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_002e">.</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_002e">.</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_symbol-2">?</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_003f">?</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_003f">?</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-a">a</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-a">a</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-T">T</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-t_002d_002druc">t&ndash;ruc</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-T_002d_002druc">T&ndash;ruc</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-t_002d_002druc">t&ndash;ruc</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-T_002d_002druc">T&ndash;ruc</a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table class="cp-letters-footer-printindex"><tr><th>Aller &agrave;: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_symbol-1"><b>.</b></a>
@@ -5839,17 +5842,17 @@ Menu comment
 <tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_symbol-1">.</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_002e-1"><code>.</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_002e-1"><code>.</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_symbol-2">?</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_003f-1"><code>?</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_003f-1"><code>?</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-a-1"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-a-1"><code>a</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_letter-T">T</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-t_002d_002druc-1"><code>t--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-t_002d_002druc-1"><code>t--ruc</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a></td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top section</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table class="fn-letters-footer-printindex"><tr><th>Aller &agrave;: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_symbol-1"><b>.</b></a>
