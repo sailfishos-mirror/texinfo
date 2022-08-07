@@ -92,7 +92,9 @@ foreach my $context ('preformatted', 'normal') {
   foreach my $command('sansserif', 'r') {
     texinfo_register_style_command_formatting($command, undef, undef, $context);
   }
+  texinfo_register_style_command_formatting('t', 'tt', undef, $context);
 }
+
 
 # reset BIG_RULE to HTML3.2 compatible rule if in TEXI2HTML mode
 texinfo_register_handler('setup', \&html32_setup);
