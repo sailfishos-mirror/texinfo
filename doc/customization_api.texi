@@ -1959,6 +1959,12 @@ In string context. @xref{Init File Expansion Contexts}.
 The Texinfo tree element corresponding to the argument.
 @xref{Texinfo Tree Elements in User Defined Functions}.
 
+@item url
+Similar with monospacetext.  The difference is that UTF-8 encoding is always
+used for the conversion of accented and special insertion @@-commands to plain
+text.  This is best for percent encoding of url, which should always be
+produced from UTF-8 encoded strings.
+
 @end table
 
 The formatted arguments contexts depend on the @@-command, there could be none,

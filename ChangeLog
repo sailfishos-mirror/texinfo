@@ -1,3 +1,13 @@
+2022-08-07  Patrice Dumas  <pertusus@free.fr>
+
+	HTML argument formatting context for url, with conversion to UTF-8
+
+	* tp/Texinfo/Convert/HTML.pm (%default_commands_args)
+	(_convert_email_command, _convert_uref_command, _convert):
+	add a new argument formatting, 'url' that always used UTF-8
+	as encoding for plain text, and is otherwise the same than
+	monospacetext.  It is better for percent encodded urls.
+
 2022-08-06  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Do not protect ] in LaTeX

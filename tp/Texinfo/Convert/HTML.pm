@@ -272,6 +272,14 @@ my @image_files_extensions = ('.png', '.jpg', '.jpeg', '.gif');
 # this allows init files to get the location of the image files
 # which cannot be determined from the result, as the file
 # location is not used in the element output.
+# FIXME use monospacetext or url?  url is always UTF-8 encoded
+# to fit with percent encoding, monospacetext uses the output
+# encoding.  As a file name, monospacetext could make sense,
+# although the underlying character obtained with utf-8 may also
+# make sense.  It is also used as the path part of a url.
+# In practice, the user should check that the output encoding
+# and the commands used in file names match, so url or
+# monospacetext should be the same.
 sub html_image_file_location_name($$$$)
 {
   my $self = shift;
@@ -2135,17 +2143,17 @@ my %default_code_types = (
 # specification of arguments formatting
 my %default_commands_args = (
   'anchor' => [['monospacestring']],
-  'email' => [['monospacetext', 'monospacestring'], ['normal']],
+  'email' => [['url', 'monospacestring'], ['normal']],
   'footnote' => [[]],
   'printindex' => [[]],
-  'uref' => [['monospacetext', 'monospacestring'], ['normal'], ['normal']],
-  'url' => [['monospacetext', 'monospacestring'], ['normal'], ['normal']],
+  'uref' => [['url', 'monospacestring'], ['normal'], ['normal']],
+  'url' => [['url', 'monospacestring'], ['normal'], ['normal']],
   'sp' => [[]],
   'inforef' => [['monospace'],['normal'],['monospacetext']],
   'xref' => [['monospace'],['normal'],['normal'],['monospacetext'],['normal']],
   'pxref' => [['monospace'],['normal'],['normal'],['monospacetext'],['normal']],
   'ref' => [['monospace'],['normal'],['normal'],['monospacetext'],['normal']],
-  'image' => [['monospacetext', 'monospacestring'],['monospacetext'],['monospacetext'],['string', 'normal'],['monospacetext']],
+  'image' => [['url', 'monospacetext', 'monospacestring'],['monospacetext'],['monospacetext'],['string', 'normal'],['monospacetext']],
   # FIXME shouldn't it better not to convert if later ignored?
   'inlinefmt' => [['monospacetext'],['normal']],
   'inlinefmtifelse' => [['monospacetext'],['normal'],['normal']],
@@ -2629,7 +2637,7 @@ sub _convert_email_command($$$$)
   my $mail = '';
   my $mail_string;
   if (defined($mail_arg)) {
-    $mail = $mail_arg->{'monospacetext'};
+    $mail = $mail_arg->{'url'};
     $mail_string = $mail_arg->{'monospacestring'};
   }
   my $text = '';
@@ -2642,7 +2650,7 @@ sub _convert_email_command($$$$)
     return "$mail_string ($text)";
   } else {
     return $self->html_attribute_class('a', [$cmdname])
-    .' href="'.$self->url_protect_url_text("mailto:$mail_string")."\">$text</a>";
+    .' href="'.$self->url_protect_url_text("mailto:$mail")."\">$text</a>";
   }
 }
 
@@ -2847,7 +2855,7 @@ sub _convert_uref_command($$$$)
 
   my ($url, $url_string, $text, $replacement);
   if (defined($url_arg)) {
-    $url = $url_arg->{'monospacetext'};
+    $url = $url_arg->{'url'};
     $url_string = $url_arg->{'monospacestring'};
   }
   $text = $text_arg->{'normal'} if defined($text_arg);
@@ -2858,18 +2866,6 @@ sub _convert_uref_command($$$$)
   return $text if (!defined($url) or $url eq '');
   return "$text ($url_string)" if ($self->in_string());
 
-  # Convert again, but this time with encoding set to UTF-8
-  # to have a normalized percent encoded file name not dependent
-  # on the encoding, and representing better the underlying characters
-  my $output_encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
-  if (not defined($output_encoding) or $output_encoding ne 'utf-8') {
-    my $text_conversion_options = {'code' => 1,
-      Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)};
-    $text_conversion_options->{'enabled_encoding'} = 'utf-8';
-    $url
-      = Texinfo::Convert::Text::convert_to_text($url_arg->{'tree'},
-                                               $text_conversion_options);
-  }
   return $self->html_attribute_class('a', [$cmdname])
            .' href="'.$self->url_protect_url_text($url)."\">$text</a>";
 }
@@ -2890,7 +2886,6 @@ sub _convert_image_command($$$$)
     $basefile_string = $args->[0]->{'monospacestring'}
         if (defined($args->[0]->{'monospacestring'}));
     return $basefile_string if ($self->in_string());
-    my $basefile = $args->[0]->{'monospacetext'};
     my ($image_file, $image_basefile, $image_extension, $image_path)
       = $self->html_image_file_location_name($cmdname, $command, $args);
     if (not defined($image_path)) {
@@ -10130,6 +10125,15 @@ sub _convert($$;$)
                 $arg_formatted->{$arg_type}
                   = Texinfo::Convert::Text::convert_to_text($arg, {'code' => 1,
                      Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+              } elsif ($arg_type eq 'url') {
+                # set the encoding to UTF-8 to always have a string that is suitable
+                # for percent encoding.
+                my $text_conversion_options = {'code' => 1,
+                  Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)};
+                $text_conversion_options->{'enabled_encoding'} = 'utf-8';
+                $arg_formatted->{$arg_type}
+                   = Texinfo::Convert::Text::convert_to_text($arg,
+                                                   $text_conversion_options);
               } elsif ($arg_type eq 'raw') {
                 $self->{'document_context'}->[-1]->{'raw'}++;
                 $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
