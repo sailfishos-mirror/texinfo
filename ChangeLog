@@ -1,5 +1,12 @@
 2022-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%default_commands_args)
+	(_convert_email_command, _convert_uref_command): use
+	monospacestring for the url formatted as a string instead of
+	protecting plain text conversion.
+
+2022-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	If TEST is set, do not use system init file directories
 
 	* tp/texi2any.pl: if TEST is set, do not use system (program) init

@@ -2135,11 +2135,11 @@ my %default_code_types = (
 # specification of arguments formatting
 my %default_commands_args = (
   'anchor' => [['monospacestring']],
-  'email' => [['monospacetext'], ['normal']],
+  'email' => [['monospacetext', 'monospacestring'], ['normal']],
   'footnote' => [[]],
   'printindex' => [[]],
-  'uref' => [['monospacetext'], ['normal'], ['normal']],
-  'url' => [['monospacetext'], ['normal'], ['normal']],
+  'uref' => [['monospacetext', 'monospacestring'], ['normal'], ['normal']],
+  'url' => [['monospacetext', 'monospacestring'], ['normal'], ['normal']],
   'sp' => [[]],
   'inforef' => [['monospace'],['normal'],['monospacetext']],
   'xref' => [['monospace'],['normal'],['normal'],['monospacetext'],['normal']],
@@ -2630,8 +2630,7 @@ sub _convert_email_command($$$$)
   my $mail_string;
   if (defined($mail_arg)) {
     $mail = $mail_arg->{'monospacetext'};
-    $mail_string
-      = &{$self->formatting_function('format_protect_text')}($self, $mail);
+    $mail_string = $mail_arg->{'monospacestring'};
   }
   my $text = '';
   if (defined($text_arg)) {
@@ -2849,8 +2848,7 @@ sub _convert_uref_command($$$$)
   my ($url, $url_string, $text, $replacement);
   if (defined($url_arg)) {
     $url = $url_arg->{'monospacetext'};
-    $url_string
-      = &{$self->formatting_function('format_protect_text')}($self, $url);
+    $url_string = $url_arg->{'monospacestring'};
   }
   $text = $text_arg->{'normal'} if defined($text_arg);
   $replacement = $replacement_arg->{'normal'} if defined($replacement_arg);
