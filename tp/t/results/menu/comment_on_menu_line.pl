@@ -438,6 +438,7 @@ $result_converted{'html'}->{'comment_on_menu_line'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
+td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 -->
 </style>

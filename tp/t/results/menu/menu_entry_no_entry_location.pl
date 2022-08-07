@@ -385,6 +385,7 @@ $result_converted{'html'}->{'menu_entry_no_entry_location'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
+td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 -->
 </style>

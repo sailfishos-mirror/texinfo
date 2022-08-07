@@ -5615,6 +5615,7 @@ $result_converted{'html'}->{'texi_bib_example'} = '<!DOCTYPE html>
 h1.settitle {text-align:center}
 pre.menu-comment-preformatted {font-family: serif}
 span.program-in-footer {font-size: smaller}
+td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 -->
 </style>

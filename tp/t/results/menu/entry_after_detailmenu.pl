@@ -823,6 +823,7 @@ $result_converted{'html'}->{'entry_after_detailmenu'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 pre.menu-comment-preformatted {font-family: serif}
+td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 -->
 </style>

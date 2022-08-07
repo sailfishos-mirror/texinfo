@@ -483,6 +483,7 @@ $result_converted{'html'}->{'example_in_menu_description'} = '<!DOCTYPE html>
 <!--
 div.example {margin-left: 3.2em}
 pre.menu-comment-preformatted {font-family: serif}
+td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 -->
 </style>

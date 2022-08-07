@@ -836,6 +836,7 @@ $result_converted{'html'}->{'block_commands_in_menu_description'} = '<!DOCTYPE h
 <style type="text/css">
 <!--
 pre.menu-preformatted {font-family: serif}
+td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 ul.mark-bullet {list-style-type: disc}
 -->

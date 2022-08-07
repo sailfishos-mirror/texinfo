@@ -323,6 +323,7 @@ $result_converted{'html'}->{'detailmenu_in_description'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
+td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 -->
 </style>

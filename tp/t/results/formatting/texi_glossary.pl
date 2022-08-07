@@ -1587,6 +1587,7 @@ $result_converted{'html'}->{'texi_glossary'} = '<!DOCTYPE html>
 <style type="text/css">
 <!--
 span.program-in-footer {font-size: smaller}
+td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 -->
 </style>

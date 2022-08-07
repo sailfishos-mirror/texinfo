@@ -2095,7 +2095,7 @@ my %css_element_class_styles = (
      'td.printindex-index-entry'   => 'vertical-align: top',
      'td.printindex-index-section' => 'vertical-align: top',
      'td.menu-entry-destination'   => 'vertical-align: top',
-     'td.menu-entry-description  ' => 'vertical-align: top',
+     'td.menu-entry-description'   => 'vertical-align: top',
 
      # The anchor element is wrapped in a <span> rather than a block level
      # element to avoid it appearing unless the mouse pointer is directly
@@ -5080,11 +5080,11 @@ sub _convert_printindex_command($$$$)
       }
       
       $entries_text .= '<tr><td></td>'
-        .$self->html_attribute_class('td', ['printindex-index-entry']).'>'
+        .$self->html_attribute_class('td', ["$cmdname-index-entry"]).'>'
          . "<a href=\"$entry_href\">$entry</a>" .
           $self->get_conf('INDEX_ENTRY_COLON') .
         '</td><td>'.$self->get_info('non_breaking_space').'</td>'
-        .$self->html_attribute_class('td', ['printindex-index-section']).'>';
+        .$self->html_attribute_class('td', ["$cmdname-index-section"]).'>';
       $entries_text .= "<a href=\"$associated_command_href\">$associated_command_text</a>"
          if ($associated_command_href);
       $entries_text .= "</td></tr>\n";

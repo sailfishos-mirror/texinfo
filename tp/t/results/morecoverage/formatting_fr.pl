@@ -4905,6 +4905,7 @@ pre.menu-comment-preformatted {font-family: serif}
 pre.menu-entry-description-preformatted {font-family: serif; display: inline}
 pre.menu-preformatted {font-family: serif}
 span.program-in-footer {font-size: smaller}
+td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top}

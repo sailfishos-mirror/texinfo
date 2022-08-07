@@ -728,6 +728,7 @@ $result_converted{'html'}->{'menu_entry_name_comment'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
+td.menu-entry-description {vertical-align: top}
 td.menu-entry-destination {vertical-align: top}
 -->
 </style>
