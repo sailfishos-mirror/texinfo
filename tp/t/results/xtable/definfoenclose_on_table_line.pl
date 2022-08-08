@@ -260,12 +260,12 @@ table content.
 
 $result_errors{'definfoenclose_on_table_line'} = [
   {
-    'error_line' => 'warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => '@definfoenclose is obsolete.',
+    'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
   },
   {

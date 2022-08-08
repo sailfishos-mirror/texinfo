@@ -134,12 +134,12 @@ My something.
 
 $result_errors{'definfoenclose_with_empty_arg'} = [
   {
-    'error_line' => 'warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => '@definfoenclose is obsolete.',
+    'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
   }
 ];

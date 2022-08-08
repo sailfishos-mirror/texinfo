@@ -4555,12 +4555,12 @@ $result_menus{'test_index'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} =
 
 $result_errors{'test_index'} = [
   {
-    'error_line' => 'warning: @centerchap is obsolete.
+    'error_line' => 'warning: @centerchap is obsolete
 ',
     'file_name' => '',
     'line_nr' => 227,
     'macro' => '',
-    'text' => '@centerchap is obsolete.',
+    'text' => '@centerchap is obsolete',
     'type' => 'warning'
   }
 ];

@@ -1,5 +1,11 @@
 2022-08-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	Remove trailing full stop from warning message.
+
+2022-08-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Image Syntax): Add missing comma.
 
 2022-08-08  Gavin Smith  <gavinsmith0123@gmail.com>

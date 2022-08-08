@@ -284,12 +284,12 @@ $result_texts{'ref_empty_node'} = '
 
 $result_errors{'ref_empty_node'} = [
   {
-    'error_line' => 'warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete
 ',
     'file_name' => '',
     'line_nr' => 2,
     'macro' => '',
-    'text' => '@inforef is obsolete.',
+    'text' => '@inforef is obsolete',
     'type' => 'warning'
   }
 ];

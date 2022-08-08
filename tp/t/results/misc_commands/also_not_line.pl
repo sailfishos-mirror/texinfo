@@ -546,12 +546,12 @@ $result_errors{'also_not_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @refill is obsolete.
+    'error_line' => 'warning: @refill is obsolete
 ',
     'file_name' => '',
     'line_nr' => 4,
     'macro' => '',
-    'text' => '@refill is obsolete.',
+    'text' => '@refill is obsolete',
     'type' => 'warning'
   },
   {
@@ -564,12 +564,12 @@ $result_errors{'also_not_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @refill is obsolete.
+    'error_line' => 'warning: @refill is obsolete
 ',
     'file_name' => '',
     'line_nr' => 15,
     'macro' => '',
-    'text' => '@refill is obsolete.',
+    'text' => '@refill is obsolete',
     'type' => 'warning'
   },
   {

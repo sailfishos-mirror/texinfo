@@ -2641,12 +2641,12 @@ $result_menus{'ref_in_sectioning'}{'structure'}{'menu_child'}{'structure'}{'menu
 
 $result_errors{'ref_in_sectioning'} = [
   {
-    'error_line' => 'warning: @inforef is obsolete.
+    'error_line' => 'warning: @inforef is obsolete
 ',
     'file_name' => '',
     'line_nr' => 33,
     'macro' => '',
-    'text' => '@inforef is obsolete.',
+    'text' => '@inforef is obsolete',
     'type' => 'warning'
   },
   {

@@ -4448,7 +4448,7 @@ sub _parse_texi($$$)
 
         if (defined($deprecated_commands{$command})) {
           if ($deprecated_commands{$command} eq '') {
-            $self->_line_warn(sprintf(__("%c%s is obsolete."),
+            $self->_line_warn(sprintf(__("%c%s is obsolete"),
                                 ord('@'), $command), $source_info);
           } else {
             $self->_line_warn(sprintf(__("%c%s is obsolete; %s"),

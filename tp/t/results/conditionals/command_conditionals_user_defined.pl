@@ -338,12 +338,12 @@ strongalias @alias is defined.
 
 $result_errors{'command_conditionals_user_defined'} = [
   {
-    'error_line' => 'warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete
 ',
     'file_name' => '',
     'line_nr' => 7,
     'macro' => '',
-    'text' => '@definfoenclose is obsolete.',
+    'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
   }
 ];

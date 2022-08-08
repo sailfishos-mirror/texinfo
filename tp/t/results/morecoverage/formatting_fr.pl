@@ -4667,12 +4667,12 @@ $result_errors{'formatting_fr'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @centerchap is obsolete.
+    'error_line' => 'warning: @centerchap is obsolete
 ',
     'file_name' => 'formatting.texi',
     'line_nr' => 130,
     'macro' => '',
-    'text' => '@centerchap is obsolete.',
+    'text' => '@centerchap is obsolete',
     'type' => 'warning'
   }
 ];

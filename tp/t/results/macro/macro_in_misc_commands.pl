@@ -4405,12 +4405,12 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete
 ',
     'file_name' => '',
     'line_nr' => 58,
     'macro' => '',
-    'text' => '@definfoenclose is obsolete.',
+    'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
   },
   {
@@ -4423,21 +4423,21 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete
 ',
     'file_name' => '',
     'line_nr' => 65,
     'macro' => '',
-    'text' => '@definfoenclose is obsolete.',
+    'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @definfoenclose is obsolete.
+    'error_line' => 'warning: @definfoenclose is obsolete
 ',
     'file_name' => '',
     'line_nr' => 78,
     'macro' => '',
-    'text' => '@definfoenclose is obsolete.',
+    'text' => '@definfoenclose is obsolete',
     'type' => 'warning'
   },
   {
@@ -4459,12 +4459,12 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @refill is obsolete. (possibly involving @refillmacro)
+    'error_line' => 'warning: @refill is obsolete (possibly involving @refillmacro)
 ',
     'file_name' => '',
     'line_nr' => 163,
     'macro' => 'refillmacro',
-    'text' => '@refill is obsolete.',
+    'text' => '@refill is obsolete',
     'type' => 'warning'
   },
   {
@@ -4477,12 +4477,12 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: @refill is obsolete. (possibly involving @refillmacro)
+    'error_line' => 'warning: @refill is obsolete (possibly involving @refillmacro)
 ',
     'file_name' => '',
     'line_nr' => 174,
     'macro' => 'refillmacro',
-    'text' => '@refill is obsolete.',
+    'text' => '@refill is obsolete',
     'type' => 'warning'
   }
 ];

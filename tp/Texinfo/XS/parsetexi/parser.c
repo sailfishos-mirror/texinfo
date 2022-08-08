@@ -1647,7 +1647,7 @@ value_invalid:
               break;
             }
           if (!msg)
-            line_warn ("@%s is obsolete.", command_name(cmd));
+            line_warn ("@%s is obsolete", command_name(cmd));
           else
             line_warn ("@%s is obsolete; %s", command_name(cmd), msg);
           /* note: will have to translate msg if string translation with
