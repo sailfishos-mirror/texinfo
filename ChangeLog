@@ -1,3 +1,13 @@
+2022-08-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	LaTeX header
+
+	* tp/Texinfo/Convert/LaTeX.pm (_latex_header):
+	Set \parindent and \parskip inside GNUTexinfopreformatted.
+	Remove unneeded \begingroup and \endgroup as environments
+	are automatically within a group.  Wrap more of the header
+	with \makeatletter and \makeatother.
+
 2022-08-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (run_stage_handlers):
