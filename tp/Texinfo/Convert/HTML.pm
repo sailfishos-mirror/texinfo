@@ -9330,7 +9330,7 @@ sub run_stage_handlers($$$)
         } else {
           # the handler is supposed to have output an error message
           # already if $status > 0
-          if ($self->get_conf('VERBOSE') or $self->get_conf('DEBUG')) {
+          if ($converter->get_conf('VERBOSE') or $converter->get_conf('DEBUG')) {
             print STDERR "Handler $handler of $stage($priority) failed\n";
           }
         }
