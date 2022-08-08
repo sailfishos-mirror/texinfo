@@ -1,5 +1,9 @@
 2022-08-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Image Syntax): Add missing comma.
+
+2022-08-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	LaTeX header
 
 	* tp/Texinfo/Convert/LaTeX.pm (_latex_header):

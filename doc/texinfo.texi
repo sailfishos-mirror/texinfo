@@ -8295,7 +8295,7 @@ reference to @file{@var{filename}.jpg} anyway.
 @item
 @cindex SVG images, used in DocBook
 In DocBook, references to
-@file{@var{filename}.eps}, @file{@var{filename}.gif}
+@file{@var{filename}.eps}, @file{@var{filename}.gif},
 @file{@var{filename}.jpeg}, @file{@var{filename}.jpg},
 @file{@var{filename}.pdf}, @file{@var{filename}.png} and
 @file{@var{filename}.svg} are output, for every file found.  Also,
