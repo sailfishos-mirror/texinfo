@@ -9313,7 +9313,7 @@ sub run_stage_handlers($$$)
   my $stage = shift;
 
   my $stage_handlers = Texinfo::Config::GNUT_get_stage_handlers();
-  return 1 if (!defined($stage_handlers->{$stage}));
+  return 0 if (!defined($stage_handlers->{$stage}));
 
   my @sorted_priorities = sort keys(%{$stage_handlers->{$stage}});
   foreach my $priority (@sorted_priorities) {
@@ -9322,7 +9322,7 @@ sub run_stage_handlers($$$)
         print STDERR "HANDLER($stage) , priority $priority: $handler\n";
       }
       my $status = &{$handler}($converter, $root, $stage);
-      if (!$status) {
+      if ($status != 0) {
         #if ($converter->get_conf('VERBOSE')) {
         #  print STDERR "Handler $handler of $stage($priority) failed\n";
         #}
@@ -9333,7 +9333,7 @@ sub run_stage_handlers($$$)
       }
     }
   }
-  return 1;
+  return 0;
 }
 
 sub _reset_info()
@@ -9430,7 +9430,7 @@ sub output($$)
   $self->_reset_info();
 
   my $setup_status = $self->run_stage_handlers($root, 'setup');
-  return undef unless($setup_status);
+  return undef unless ($setup_status == 0);
 
   if ($self->get_conf('HTML_MATH')
         and $self->get_conf('HTML_MATH') eq 'mathjax') {
@@ -9530,7 +9530,7 @@ sub output($$)
   # run_stage_handlers.  Some information is not available yet.
   $self->_reset_info();
   my $structure_status = $self->run_stage_handlers($root, 'structure');
-  return undef unless($structure_status);
+  return undef unless ($structure_status == 0);
 
   my $default_document_language = $self->get_conf('documentlanguage');
 
@@ -9634,7 +9634,7 @@ sub output($$)
   $self->_reset_info();
 
   my $init_status = $self->run_stage_handlers($root, 'init');
-  return undef unless($init_status);
+  return undef unless ($init_status == 0);
 
   if ($self->get_conf('FRAMES')) {
     my $status = &{$self->formatting_function('format_frame_files')}($self,
@@ -9862,7 +9862,7 @@ sub output($$)
   }
 
   my $finish_status = $self->run_stage_handlers($root, 'finish');
-  return undef unless($finish_status);
+  return undef unless ($finish_status == 0);
 
   my $extension = '';
   $extension = '.'.$self->get_conf('EXTENSION')

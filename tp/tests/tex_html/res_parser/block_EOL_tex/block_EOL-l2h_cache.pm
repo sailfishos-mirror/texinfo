@@ -1,5 +1,6 @@
 # Automatically generated
 use utf8;
+our %l2h_cache;
 
 $l2h_cache_key = q/Surrounded by empty lines./;
 $l2h_cache{$l2h_cache_key} = q|Surrounded by empty lines.|;

@@ -1,5 +1,6 @@
 # Automatically generated
 use utf8;
+our %l2h_cache;
 
 $l2h_cache_key = q/$$
 2 a = \dot{\phi}

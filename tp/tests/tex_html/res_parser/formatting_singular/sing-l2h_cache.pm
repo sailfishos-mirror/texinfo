@@ -1,5 +1,6 @@
 # Automatically generated
 use utf8;
+our %l2h_cache;
 
 $l2h_cache_key = q/$$@"u @"{U} @~n @^a @'e @=o @`i @'{e} @`{@=E}
 @,{@'C} @,{@'C} @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}

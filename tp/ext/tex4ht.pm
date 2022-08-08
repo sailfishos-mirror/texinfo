@@ -93,7 +93,7 @@ sub tex4ht_prepare($$)
   my $self = shift;
   my $document_root = shift;
 
-  return 1 if (defined($self->get_conf('OUTFILE'))
+  return -1 if (defined($self->get_conf('OUTFILE'))
         and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
 
   $tex4ht_initial_dir = Cwd::abs_path;
@@ -218,7 +218,7 @@ sub tex4ht_prepare($$)
           $before_comment_close = "\\HCode{\\Hnewline ";
           $after_comment_close = "\\Hnewline \\Hnewline}\n";
         }
-  
+
         my $begin_comment = "<!-- tex4ht_begin $formats{$format}->{'basename'} $command $counter -->";
         print $fh "$before_comment_open$begin_comment$after_comment_open";
         if ($command eq 'tex') {
@@ -250,7 +250,7 @@ sub tex4ht_prepare($$)
                     "\@import \"$formats{$format}->{'basename'}.css\";\n");
     }
   }
-  return 1;
+  return 0;
 }
 
 sub tex4ht_convert($)
@@ -262,7 +262,7 @@ sub tex4ht_convert($)
     $self->document_warn($self,
             sprintf(__("tex4ht.pm: chdir %s failed: %s"),
                          $tex4ht_out_dir, $!));
-    return 0;
+    return 1;
   }
   print STDERR "cwd($encoded_tex4ht_out_dir): " . Cwd::cwd() ."\n"
     if ($self->get_conf('VERBOSE'));
@@ -274,9 +274,9 @@ sub tex4ht_convert($)
   unless (chdir $tex4ht_initial_dir) {
     $self->document_warn($self, sprintf(__(
           "tex4ht.pm: unable to return to initial directory: %s"), $!));
-    return 0;
+    return 1;
   }
-  return 1;
+  return 0;
 }
 
 sub tex4ht_process_format($$) {
@@ -424,7 +424,7 @@ sub tex4ht_finish($)
       }
     }
   }
-  return 1;
+  return 0;
 }
 
 1;

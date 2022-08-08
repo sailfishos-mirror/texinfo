@@ -7,6 +7,24 @@
 
 2022-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	Inverse meaning of handlers status. Re-add l2h cache
+
+	* tp/Texinfo/Convert/HTML.pm (run_stage_handlers),
+	tp/ext/epub3.pm, tp/ext/latex2html.pm, tp/ext/tex4ht.pm)
+	(tp/init/book.pm, tp/init/chm.pm, tp/init/highlight_syntax.pm):
+	inerse the meaning of handlers status, 0 means no error.
+
+	* tp/ext/latex2html.pm (l2h_init_cache, l2h_store_cache):
+	fix call to do and make %l2h_cache our such as it is available
+	in the do.
+
+	* tp/ext/latex2html.pm (l2h_finish_to_latex): do not call
+	l2h_finish if $latex_count is 0, as it does nothing.
+
+	* tp/texi2any.pl: add a comment.
+
+2022-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	Init file loading errors and warning interface setup and use
 
 	* tp/Texinfo/Config.pm (@init_file_loading_messages)

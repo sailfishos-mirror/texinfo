@@ -1,5 +1,6 @@
 # Automatically generated
 use utf8;
+our %l2h_cache;
 
 $l2h_cache_key = q/  \gdef\Desig{\buildrel \rm def \over \equiv}/;
 $l2h_cache{$l2h_cache_key} = q|  |;

@@ -207,7 +207,7 @@ sub _chm_convert_tree_to_text($$;$)
 sub chm_init($)
 {
   my $self = shift;
-  return if (defined($self->get_conf('OUTFILE'))
+  return -1 if (defined($self->get_conf('OUTFILE'))
         and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
   my $document_name = $self->get_info('document_name');
   my $outdir = $self->get_info('destination_directory');
@@ -224,7 +224,7 @@ sub chm_init($)
     $self->document_error($self,
          sprintf(__("chm.pm: could not open %s for writing: %s\n"), 
                   $hhk_file_path_name, $!));
-    return 0;
+    return 1;
   }
   print STDERR "# writing HTML Help index in $hhk_file_path_name...\n" 
      if ($self->get_conf('VERBOSE'));
@@ -260,7 +260,7 @@ sub chm_init($)
     $self->document_error($self,
            sprintf(__("chm.pm: error on closing %s: %s"),
                           $hhk_file_path_name, $!));
-    return 0;
+    return 1;
   }
 
   my $hhc_filename = $document_name . ".hhc";
@@ -275,7 +275,7 @@ sub chm_init($)
     $self->document_error($self,
          sprintf(__("chm.pm: could not open %s for writing: %s\n"), 
                   $hhc_file_path_name, $!));
-    return 0;
+    return 1;
   }
 
   print STDERR "# writing HTML Help project in $hhc_file_path_name...\n" 
@@ -288,7 +288,6 @@ sub chm_init($)
   print $hhc_fh "<OBJECT type=\"text/site properties\">\n";
   foreach my $property (sort(keys(%hhc_global_property))) {
     print $hhc_fh "<param name=\"$property\" value=\"$hhc_global_property{$property}\">\n";
-      
   }
   print $hhc_fh "</OBJECT>\n";
 
@@ -338,7 +337,7 @@ sub chm_init($)
     $self->document_error($self,
            sprintf(__("chm.pm: error on closing %s: %s"),
                           $hhc_file_path_name, $!));
-    return 0;                  
+    return 1;
   }
 
   my $hhp_filename = $document_name . ".hhp";
@@ -353,7 +352,7 @@ sub chm_init($)
     $self->document_error(
            $self, sprintf(__("chm.pm: could not open %s for writing: %s\n"), 
                   $hhp_file_path_name, $!));
-    return 0;
+    return 1;
   }
   print STDERR "# writing HTML Help project in $hhp_file_path_name...\n" 
      if ($self->get_conf('VERBOSE'));
@@ -405,10 +404,10 @@ EOT
     $self->document_error($self,
          sprintf(__("chm.pm: error on closing %s: %s"),
                           $hhp_file_path_name, $!));
-    return 0;                  
+    return 1;
   }
 
-  return 1;
+  return 0;
 }
 texinfo_register_handler('init', \&chm_init);
 

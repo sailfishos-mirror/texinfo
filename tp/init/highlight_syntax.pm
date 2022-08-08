@@ -136,7 +136,7 @@ sub highlight_process($$)
   my $self = shift;
   my $document_root = shift;
 
-  return 1 if (defined($self->get_conf('OUTFILE'))
+  return -1 if (defined($self->get_conf('OUTFILE'))
         and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
 
   my $document_name = $self->get_info('document_name');
@@ -190,7 +190,7 @@ sub highlight_process($$)
       $self->document_warn($self,
              sprintf(__("highlight_syntax.pm: could not open %s: %s"),
                                       $input_language_path_name, $!));
-      return 0;
+      return 1;
     }
     my $output_encoding;
     if (defined($self->get_conf('OUTPUT_PERL_ENCODING'))) {
@@ -253,7 +253,7 @@ sub highlight_process($$)
       $self->document_error($self,
           sprintf(__("highlight_syntax.pm: command did not succeed: %s"),
                                   $cmd));
-      return 0;
+      return 1;
     }
 
     my $language_fragments_nr = $languages{$language}->{'counter'};
@@ -264,7 +264,7 @@ sub highlight_process($$)
       $self->document_warn($self,
          sprintf(__("highlight_syntax.pm: could not open %s: %s"),
                                   $html_result_path_name, $!));
-      return 0;
+      return 1;
     }
     binmode(HIGHLIGHT_LANG_OUT, ":encoding($output_encoding)")
       if (defined($output_encoding));
@@ -314,7 +314,7 @@ sub highlight_process($$)
     }
     close (HIGHLIGHT_LANG_OUT);
   }
-  return 1;
+  return 0;
 }
 
 sub highlight_preformatted_command($$$$$)

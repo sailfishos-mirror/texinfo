@@ -105,7 +105,7 @@ sub html32_setup($)
   if (defined($self->get_conf('TEXI2HTML'))) {
     $self->set_conf('BIG_RULE', '<hr size="6">');
   }
-  return 1;
+  return 0;
 }
 
 

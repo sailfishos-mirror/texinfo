@@ -1848,7 +1848,7 @@ The call of the user defined functions is:
 @var{$converter} is a converter object. @var{\%tree} is the Texinfo
 tree root element. @var{$stage} is the current stage.
 
-If @var{$status} is false it means that an error occured.
+If @var{$status} is not 0 it means that an error occured.
 @end deftypefn
 
 

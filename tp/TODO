@@ -17,13 +17,21 @@ xterm &
 Before next release
 ===================
 
-LaTeX @example and similar, combine margins?
+LaTeX nested @example and similar, combine indentation if possible.
 
 Bugs
 ====
 
 HTML API
 ========
+
+document Texinfo::Config
+texinfo_register_init_loading_error
+texinfo_register_init_loading_warning
+
+document Texinfo::Convert::HTML
+url_protect_file_text
+url_protect_url_text
 
 Issues
 ------

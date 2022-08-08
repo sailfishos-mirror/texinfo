@@ -356,9 +356,9 @@ sub _epub_remove_container_folder($$)
                   $epub_destination_directory, $file, $message));
       }
     }
-    return 0;
+    return 1;
   }
-  return 1;
+  return 0;
 }
 
 my $epub_xhtml_dir = 'xhtml';
@@ -394,7 +394,7 @@ sub epub_setup($)
       and $archive_zip_loading_error) {
     $self->document_error($self,
        __("Archive::Zip is required for EPUB file output"));
-    return 0;
+    return 1;
   }
 
   if (not defined($self->get_conf('EPUB_KEEP_CONTAINER_FOLDER'))) {
@@ -471,7 +471,7 @@ sub epub_setup($)
 
   my $status = _epub_remove_container_folder($self,
                                        $encoded_epub_destination_directory);
-  return $status if (!$status);
+  return $status if ($status);
 
   my $err_make_path;
   my ($encoded_epub_document_destination_directory, $epub_doc_dest_dir_encoding)
@@ -492,9 +492,9 @@ sub epub_setup($)
                  $epub_document_destination_directory, $file, $message));
       }
     }
-    return 0;
+    return 1;
   }
-  return 1;
+  return 0;
 }
 
 texinfo_register_handler('setup', \&epub_setup);
@@ -523,7 +523,7 @@ sub epub_finish($$)
     $self->document_error($self, sprintf(__(
                    "could not create meta informations directory `%s': %s"),
                                          $meta_inf_directory, $!));
-    return 0;
+    return 1;
   }
   my $container_file_path_name = File::Spec->catfile($meta_inf_directory,
                                            'container.xml');
@@ -536,7 +536,7 @@ sub epub_finish($$)
     $self->document_error($self,
          sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
                   $container_file_path_name, $!));
-    return 0;
+    return 1;
   }
   my $document_name = $self->get_info('document_name');
   my $opf_filename = $document_name . '.opf';
@@ -556,7 +556,7 @@ EOT
     $self->document_error($self,
          sprintf(__("epub3.pm: error on closing %s: %s"),
                           $container_file_path_name, $!));
-    return 0;
+    return 1;
   }
 
   my $mimetype_filename = 'mimetype';
@@ -571,7 +571,7 @@ EOT
     $self->document_error($self,
          sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
                   $mimetype_file_path_name, $!));
-    return 0;
+    return 1;
   }
   # There is no end of line.  It is not very clear in the standard, but
   # example files demonstrate clearly that there should not be end of lines.
@@ -583,7 +583,7 @@ EOT
     $self->document_error($self,
          sprintf(__("epub3.pm: error on closing %s: %s"),
                           $mimetype_file_path_name, $!));
-    return 0;
+    return 1;
   }
   my $nav_id = 'nav';
   my $nav_file_path_name;
@@ -600,7 +600,7 @@ EOT
       $self->document_error($self,
            sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
                     $nav_file_path_name, $!));
-      return 0;
+      return 1;
     }
     my $table_of_content_str = _epub_convert_tree_to_text($self,
                                              $self->gdt('Table of contents'));
@@ -679,7 +679,7 @@ EOT
       $self->document_error($self,
            sprintf(__("epub3.pm: error on closing %s: %s"),
                             $nav_file_path_name, $!));
-      return 0;
+      return 1;
     }
   }
 
@@ -708,7 +708,7 @@ EOT
     $self->document_error($self,
          sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
                   $opf_file_path_name, $!));
-    return 0;
+    return 1;
   }
   print $opf_fh <<EOT;
 <?xml version="1.0" encoding="UTF-8"?>
@@ -861,7 +861,7 @@ EOT
     $self->document_error($self,
          sprintf(__("epub3.pm: error on closing %s: %s"),
                           $opf_file_path_name, $!));
-    return 0;
+    return 1;
   }
 
   if ($self->get_conf('EPUB_CREATE_CONTAINER_FILE')) {
@@ -881,7 +881,7 @@ EOT
       $self->document_error($self,
         sprintf(__("epub3.pm: error adding %s to archive"),
                $mimetype_file_path_name));
-      return 0;
+      return 1;
     }
 
     my $meta_inf_directory_ret_code
@@ -890,7 +890,7 @@ EOT
       $self->document_error($self,
         sprintf(__("epub3.pm: error adding %s to archive"),
                $meta_inf_directory));
-      return 0;
+      return 1;
     }
 
     my $epub_document_dir_path = File::Spec->catdir($epub_destination_directory,
@@ -903,7 +903,7 @@ EOT
       $self->document_error($self,
         sprintf(__("epub3.pm: error adding %s to archive"),
                $epub_document_dir_path));
-      return 0;
+      return 1;
     }
 
     my ($encoded_epub_outfile, $epub_outfile_encoding)
@@ -912,16 +912,16 @@ EOT
       $self->document_error($self,
            sprintf(__("epub3.pm: error writing archive %s"),
                    $epub_outfile));
-      return 0;
+      return 1;
     }
   }
 
   if (not $self->get_conf('EPUB_KEEP_CONTAINER_FOLDER')) {
     my $status = _epub_remove_container_folder($self,
                                        $encoded_epub_destination_directory);
-    return $status if (!$status);
+    return $status if ($status);
   }
-  return 1;
+  return 0;
 }
 
 texinfo_register_handler('finish', \&epub_finish);

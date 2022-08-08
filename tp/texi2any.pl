@@ -564,6 +564,7 @@ my %formats_table = (
              'split' => 1,
              'internal_links' => 1,
              'simple_menu' => 1,
+  # move_index_entries_after_items + relate_index_entries_to_table_entries
              'joint_transformation' => 1,
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::HTML'
@@ -1459,6 +1460,7 @@ while(@input_files) {
     Texinfo::Common::relate_index_entries_to_table_entries_in_tree($tree);
   }
 
+  # move_index_entries_after_items + relate_index_entries_to_table_entries
   if ($formats_table{$converted_format}->{'joint_transformation'}) {
     Texinfo::Common::html_joint_transformation($tree);
   }
