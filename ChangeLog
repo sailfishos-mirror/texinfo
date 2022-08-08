@@ -1,5 +1,15 @@
 2022-08-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	\newenvironment for preformatted
+
+	* tp/Texinfo/Convert/LaTeX.pm (_latex_header): Define a new
+	environment 'GNUTexinfopreformatted', with some of the code
+	for preformatted environments.
+	(_open_preformatted, _close_preformatted): Use it.  This
+	makes the output a bit clearer for blocks like @example.
+
+2022-08-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@indentedblock for LaTeX
 
 	* tp/Texinfo/Convert/LaTeX.pm (%LaTeX_environment_commands):

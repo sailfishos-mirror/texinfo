@@ -1711,11 +1711,12 @@ $result_converted{'latex'}->{'kbdinputstyle'} = '
 \\texttt{kbd \\texttt{in code}}.
 
 in example
-\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
 \\texttt{in code in example \\texttt{in nested code}}.
 \\texttt{kbd in example}.
 \\texttt{kbd \\texttt{in code} in example}.
-\\endgroup{}%
+\\end{GNUTexinfopreformatted}
 
 @kbdinputstyle example
 
@@ -1725,11 +1726,12 @@ in example
 \\texttt{kbd {\\ttfamily\\textsl{in code}}}.
 
 in example
-\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
 \\texttt{in code in example \\texttt{in nested code}}.
 \\texttt{kbd in example}.
 \\texttt{kbd \\texttt{in code} in example}.
-\\endgroup{}%
+\\end{GNUTexinfopreformatted}
 
 @kbdinputstyle distinct
 
@@ -1739,11 +1741,12 @@ in example
 \\texttt{kbd {\\ttfamily\\textsl{in code}}}.
 
 in example
-\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
 \\texttt{in code in example \\texttt{in nested code}}.
 {\\ttfamily\\textsl{kbd in example}}.
 \\texttt{kbd {\\ttfamily\\textsl{in code}} in example}.
-\\endgroup{}%
+\\end{GNUTexinfopreformatted}
 ';
 
 1;

@@ -3035,7 +3035,8 @@ $result_converted{'latex'}->{'image_formatting'} = '\\label{anchor:Top}%
 \\texttt{@image\\{@file\\{f{-}{-}ile\\}@@@.,aze,az,alt,@file\\{file ext\\} e{-}{-}xt@\\}} \\includegraphics[width=aze,height=az]{f--ile@.}
 \\includegraphics{image} \\includegraphics{image}
 
-\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
 \\texttt{@image\\{f{-}{-}ile\\}} \\includegraphics{f--ile}
 \\texttt{@image\\{f{-}{-}ile,l{-}{-}i\\}} \\includegraphics[width=l--i]{f--ile}
 \\texttt{@image\\{f{-}{-}ile,,l{-}{-}e\\}} \\includegraphics[height=l--e]{f--ile}
@@ -3045,7 +3046,7 @@ $result_converted{'latex'}->{'image_formatting'} = '\\label{anchor:Top}%
 \\texttt{@image\\{f-ile,aze,,a{-}{-}lt\\}} \\includegraphics[width=aze]{f-ile}
 \\texttt{@image\\{@file\\{f{-}{-}ile\\}@@@.,aze,az,alt,@file\\{file ext\\} e{-}{-}xt@\\}} \\includegraphics[width=aze,height=az]{f--ile@.}
 \\includegraphics{image} \\includegraphics{image}
-\\endgroup{}%
+\\end{GNUTexinfopreformatted}
 
 \\includegraphics{f--ile}
 

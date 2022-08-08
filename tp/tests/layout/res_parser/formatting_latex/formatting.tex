@@ -47,6 +47,8 @@
 % add command aliases to use the same command in book and report
 \newcommand\GNUTexinfomainmatter{\mainmatter}
 \newcommand\GNUTexinfofrontmatter{\frontmatter}
+\newenvironment{GNUTexinfopreformatted}{%
+  \par\begingroup\obeylines\obeyspaces\frenchspacing}{\endgroup}
 % set defaults for lists that match Texinfo TeX formatting
 \setlist[description]{style=nextline, font=\normalfont}
 \setlist[itemize]{label=\textbullet}
@@ -369,9 +371,10 @@ $$
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 {\ttfamily\textsl{in example default kbdinputstyle}}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
@@ -386,9 +389,10 @@ $$
 \index[cp]{vtable i--tem code kbdinputstyle@\texttt{vtable i{-}{-}tem code kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 \texttt{in example code kbdinputstyle}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example code kbdinputstyle}
@@ -403,9 +407,10 @@ $$
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 \texttt{in example example kbdinputstyle}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example example kbdinputstyle}
@@ -420,9 +425,10 @@ $$
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
@@ -619,107 +625,131 @@ lone mu--ltitable item&\\
 truc &bidule\\
 \end{tabular}%
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 e{-}{-}xample  some
    text
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example one arg
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example two args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example three args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example four args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example five args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 The something \'{e} \TeX{} is here.
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 A @ at the end of the @example line.
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example with empty args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example with empty and non empty args mix
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Exam{-}{-}{-}ple
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent Other li---ne
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 not exdented
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
 \noindent exdented  and dash --- in example
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Not exdented one
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent exdented two
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Not exdented two
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Example   Hoho.
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Nested Other line
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent exdented nested other line
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 s{-}{-}mallexample
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
 \texttt{@noindent} after smallexample.
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent{}Less recent versions are also present.
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt %
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt %
 d--isplay
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
 s--malldisplay
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 l{-}{-}isp
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 s{-}{-}malllisp
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=0em \parskip=0pt \parindent=0pt %
+\begin{GNUTexinfopreformatted}
+\leftskip=0em \parskip=0pt \parindent=0pt %
 f--ormat
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
 s--mallformat
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
 \noindent\texttt{d{-}{-}effn\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory]
 
@@ -1823,9 +1853,10 @@ $$
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 {\ttfamily\textsl{in example default kbdinputstyle}}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
@@ -1840,9 +1871,10 @@ $$
 \index[cp]{vtable i--tem code kbdinputstyle@\texttt{vtable i{-}{-}tem code kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 \texttt{in example code kbdinputstyle}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example code kbdinputstyle}
@@ -1857,9 +1889,10 @@ $$
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 \texttt{in example example kbdinputstyle}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example example kbdinputstyle}
@@ -1874,9 +1907,10 @@ $$
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
@@ -2073,107 +2107,131 @@ lone mu--ltitable item&\\
 truc &bidule\\
 \end{tabular}%
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 e{-}{-}xample  some
    text
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example one arg
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example two args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example three args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example four args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example five args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 The something \'{e} \TeX{} is here.
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 A @ at the end of the @example line.
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example with empty args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example with empty and non empty args mix
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Exam{-}{-}{-}ple
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent Other li---ne
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 not exdented
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
 \noindent exdented  and dash --- in example
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Not exdented one
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent exdented two
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Not exdented two
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Example   Hoho.
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Nested Other line
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent exdented nested other line
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 s{-}{-}mallexample
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
 \texttt{@noindent} after smallexample.
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent{}Less recent versions are also present.
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt %
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt %
 d--isplay
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
 s--malldisplay
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 l{-}{-}isp
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 s{-}{-}malllisp
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=0em \parskip=0pt \parindent=0pt %
+\begin{GNUTexinfopreformatted}
+\leftskip=0em \parskip=0pt \parindent=0pt %
 f--ormat
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
 s--mallformat
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
 \noindent\texttt{d{-}{-}effn\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory]
 
@@ -3298,9 +3356,10 @@ $$
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 {\ttfamily\textsl{in example default kbdinputstyle}}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
@@ -3315,9 +3374,10 @@ $$
 \index[cp]{vtable i--tem code kbdinputstyle@\texttt{vtable i{-}{-}tem code kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 \texttt{in example code kbdinputstyle}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example code kbdinputstyle}
@@ -3332,9 +3392,10 @@ $$
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 \texttt{in example example kbdinputstyle}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example example kbdinputstyle}
@@ -3349,9 +3410,10 @@ $$
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
@@ -3548,107 +3610,131 @@ lone mu--ltitable item&\\
 truc &bidule\\
 \end{tabular}%
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 e{-}{-}xample  some
    text
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example one arg
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example two args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example three args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example four args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example five args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 The something \'{e} \TeX{} is here.
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 A @ at the end of the @example line.
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example with empty args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example with empty and non empty args mix
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Exam{-}{-}{-}ple
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent Other li---ne
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 not exdented
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
 \noindent exdented  and dash --- in example
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Not exdented one
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent exdented two
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Not exdented two
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Example   Hoho.
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Nested Other line
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent exdented nested other line
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 s{-}{-}mallexample
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
 \texttt{@noindent} after smallexample.
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent{}Less recent versions are also present.
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt %
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt %
 d--isplay
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
 s--malldisplay
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 l{-}{-}isp
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 s{-}{-}malllisp
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=0em \parskip=0pt \parindent=0pt %
+\begin{GNUTexinfopreformatted}
+\leftskip=0em \parskip=0pt \parindent=0pt %
 f--ormat
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
 s--mallformat
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
 \noindent\texttt{d{-}{-}effn\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory]
 
@@ -4751,9 +4837,10 @@ $$
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 {\ttfamily\textsl{in example default kbdinputstyle}}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
@@ -4768,9 +4855,10 @@ $$
 \index[cp]{vtable i--tem code kbdinputstyle@\texttt{vtable i{-}{-}tem code kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 \texttt{in example code kbdinputstyle}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example code kbdinputstyle}
@@ -4785,9 +4873,10 @@ $$
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 \texttt{in example example kbdinputstyle}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example example kbdinputstyle}
@@ -4802,9 +4891,10 @@ $$
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
@@ -5001,107 +5091,131 @@ lone mu--ltitable item&\\
 truc &bidule\\
 \end{tabular}%
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 e{-}{-}xample  some
    text
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example one arg
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example two args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example three args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example four args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example five args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 The something \'{e} \TeX{} is here.
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 A @ at the end of the @example line.
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example with empty args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example with empty and non empty args mix
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Exam{-}{-}{-}ple
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent Other li---ne
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 not exdented
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
 \noindent exdented  and dash --- in example
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Not exdented one
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent exdented two
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Not exdented two
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Example   Hoho.
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Nested Other line
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent exdented nested other line
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 s{-}{-}mallexample
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
 \texttt{@noindent} after smallexample.
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent{}Less recent versions are also present.
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt %
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt %
 d--isplay
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
 s--malldisplay
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 l{-}{-}isp
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 s{-}{-}malllisp
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=0em \parskip=0pt \parindent=0pt %
+\begin{GNUTexinfopreformatted}
+\leftskip=0em \parskip=0pt \parindent=0pt %
 f--ormat
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
+\begin{GNUTexinfopreformatted}
+\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
 s--mallformat
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
 \noindent\texttt{d{-}{-}effn\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory]
 
@@ -5954,7 +6068,8 @@ g--roupe
 
 
 In example.
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 <
 >
@@ -6105,8 +6220,9 @@ but , ,\@
 \texttt{@t\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@sansserif\{{-}{-}a\}} \textsf{{-}{-}a}
 \texttt{@slanted\{{-}{-}a\}} \textsl{{-}{-}a}
-\texttt{@titlefont\{{-}{-}a\}} \endgroup{}%
-{\huge \bfseries --a}\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\texttt{@titlefont\{{-}{-}a\}} \end{GNUTexinfopreformatted}
+{\huge \bfseries --a}\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 \texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
 \texttt{@uref\{{-}{-}a,{-}{-}b\}} \href{--a}{{-}{-}b (\nolinkurl{--a})}
@@ -6150,36 +6266,40 @@ but , ,\@
 \texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip %
 \texttt{@page}\leavevmode{}\\
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \newpage{}%
 \phantom{blabla}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 \texttt{need 1002}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \needspace{1.002pt}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
 \texttt{@clicksequence\{click @click\{\} A\}} click $\Rightarrow{}$ A
 
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 $$
 disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 $$
 \mathbf{``simple-double--three---four----''} \hbox{aa}
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 $$
 \imath{} \jmath{}
 \mathord{\text{\l{}}} \textsl{\c{c}}
@@ -6187,9 +6307,10 @@ $$
  \ {}\ {} \ {}\-{}  ! @ \} \{ 
 \today{}
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 $$
 \rightarrow{}
 u
@@ -6199,603 +6320,746 @@ u
 \mathord{\text{\TH{}}} \mathord{\text{\dh{}}} \mathord{\text{\th{}}} \mathord{\text{\textexclamdown{}}} \mathord{\text{\textquestiondown{}}} \mathsterling{}
 \mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 $$
 \mathord{\text{\textquotedblleft{}}} \mathord{\text{\textquotedblright{}}} 
 \mathord{\text{\textquoteleft{}}} \mathord{\text{\textquoteright{}}} \mathord{\text{\quotedblbase{}}} \mathord{\text{\quotesinglbase{}}} \mathord{\text{\guillemotleft{}}}
 \mathord{\text{\guillemotright{}}} \mathord{\text{\guillemotleft{}}} \mathord{\text{\guillemotright{}}} \mathord{\text{\guilsinglleft{}}}
 \mathord{\text{\guilsinglright{}}} \euro{} \rightarrow{} \leq{} \geq{}
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 $$
 \mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 {\ttfamily\textsl{default kbdinputstyle}}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestylekbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 {\ttfamily\textsl{in example default kbdinputstyle}}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 \texttt{code kbdinputstyle}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem code kbdinputstyle}
 \index[cp]{vtable i--tem code kbdinputstyle@\texttt{vtable i{-}{-}tem code kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 \texttt{in example code kbdinputstyle}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example code kbdinputstyle}
 \index[cp]{vtable i--tem in example code kbdinputstyle@\texttt{vtable i{-}{-}tem in example code kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 \texttt{example kbdinputstyle}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem example kbdinputstyle}
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 \texttt{in example example kbdinputstyle}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example example kbdinputstyle}
 \index[cp]{vtable i--tem in example example kbdinputstyle@\texttt{vtable i{-}{-}tem in example example kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 {\ttfamily\textsl{distinct kbdinputstyle}}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestylekbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 A quot{-}{-}{-}ation
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\textbf{Note:} \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\textbf{Note:} \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 A Note
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\textbf{note:} \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\textbf{note:} \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 A note
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\textbf{Caution:} \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\textbf{Caution:} \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Caution
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\textbf{Important:} \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\textbf{Important:} \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Important
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\textbf{Tip:} \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\textbf{Tip:} \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 a Tip
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\textbf{Warning:} \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\textbf{Warning:} \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 a Warning.
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\textbf{something \'{e} \TeX{}:} \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\textbf{something \'{e} \TeX{}:} \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 The something \'{e} \TeX{} is here.
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\textbf{@ at the end of line \ {}:} \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\textbf{@ at the end of line \ {}:} \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 A @ at the end of the @quotation line.
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\textbf{something, other thing:} \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\textbf{something, other thing:} \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 something, other thing
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\textbf{Note, the note:} \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\textbf{Note, the note:} \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Note, the note
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{Empty:} \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{:} \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{\leavevmode{}\\:} \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 aaa quotation
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
 \begin{center}
 --- \emph{quotation author}
 \end{center}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 indent in quotation
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
 \noindent exdented quotation line   and dash --- in quotation
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Not exdented followed by exdented
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent exdented quotation line
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
 \noindent exdented quotation line
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Followed by not exdented 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 quotation1
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent in exdented protected eol \ {}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 following
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent in exdented a @* \leavevmode{}\\ and following
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 after exdented
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
 \begin{footnotesize}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 A small quot{-}{-}{-}ation
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{footnotesize}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
 \begin{footnotesize}
-\textbf{Note:} \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\textbf{Note:} \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 A small Note
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{footnotesize}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{quote}
 \begin{footnotesize}
-\textbf{something, other thing:} \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\textbf{something, other thing:} \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 something, other thing
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{footnotesize}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{itemize}
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 i{-}{-}temize
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{itemize}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{itemize}[label=+]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 i{-}{-}tem +
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{itemize}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{itemize}[label=\textbullet{}]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 b{-}{-}ullet
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{itemize}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{itemize}[label=-]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 minu{-}{-}s
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{itemize}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{itemize}[label=\emph{after emph}]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-\endgroup{}%
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 e{-}{-}mph item
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{itemize}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{itemize}[label=\textbullet{} a--n itemize line]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-\endgroup{}%
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 \index[cp]{index entry within itemize}%
 i{-}{-}tem 1
-\endgroup{}%
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 i{-}{-}tem 2
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{itemize}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{itemize}[label={}]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 with w a{-}{-}b
-\endgroup{}%
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 with w c{-}{-}d
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{itemize}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{itemize}[label=\hbox{} on a line]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 line w a{-}{-}b
-\endgroup{}%
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 line with w c{-}{-}d
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{itemize}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{enumerate}[start=1]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 e{-}{-}numerate
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{enumerate}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{enumerate}[start=3]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 first third
-\endgroup{}%
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 second third
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{enumerate}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{enumerate}[label=\alph*.]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 e{-}{-}numerate
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{enumerate}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{enumerate}[label=\alph*.,start=3]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 first c
-\endgroup{}%
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 second c
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{enumerate}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-mu{-}{-}ltitable headitem \endgroup{}%&
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+mu{-}{-}ltitable headitem \end{GNUTexinfopreformatted}&
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 another tab
-\endgroup{}%
-\\
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-mu{-}{-}ltitable item \endgroup{}%&
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}\\
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+mu{-}{-}ltitable item \end{GNUTexinfopreformatted}&
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 multitable tab
-\endgroup{}%
-\\
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-mu{-}{-}ltitable item 2 \endgroup{}%&
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}\\
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+mu{-}{-}ltitable item 2 \end{GNUTexinfopreformatted}&
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 multitable tab 2
 \index[cp]{index entry within multitable}%
-\endgroup{}%
-\\
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}\\
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 lone mu{-}{-}ltitable item
-\endgroup{}%&\\
+\end{GNUTexinfopreformatted}&\\
 \end{tabular}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-truc \endgroup{}%&
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+truc \end{GNUTexinfopreformatted}&
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 bidule
-\endgroup{}%
-\\
+\end{GNUTexinfopreformatted}\\
 \end{tabular}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 e{-}{-}xample  some
    text
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example one arg
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example two args
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example three args
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example four args
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example five args
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 The something \'{e} \TeX{} is here.
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 A @ at the end of the @example line.
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example with empty args
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 example with empty and non empty args mix
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Exam{-}{-}{-}ple
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent Other li---ne
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 not exdented
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent exdented  and dash --- in example
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Not exdented one
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent exdented two
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Not exdented two
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Example   Hoho.
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Nested Other line
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent exdented nested other line
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 s{-}{-}mallexample
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 \texttt{@noindent} after smallexample.
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 \noindent{}Less recent versions are also present.
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt %
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt %
 d--isplay
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
 s--malldisplay
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 l{-}{-}isp
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
 s{-}{-}malllisp
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=0em \parskip=0pt \parindent=0pt %
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=0em \parskip=0pt \parindent=0pt %
 f--ormat
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
 s--mallformat
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}effn\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory]
 
 
@@ -6803,13 +7067,15 @@ s--mallformat
 \index[fn]{d--effn\_name@\texttt{d{-}{-}effn\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}effn
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{de{-}{-}ffn\_name \EmbracOn{}\textnormal{\textsl{ar--guments    more args \leavevmode{}\\ even more so}}\EmbracOff{}}\hfill[cate--gory]
 
 
@@ -6817,21 +7083,24 @@ d{-}{-}effn
 \index[fn]{de--ffn\_name@\texttt{de{-}{-}ffn\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 def{-}{-}fn
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{\textsl{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
 
 
 
 \index[fn]{i@\texttt{\textsl{i}}}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 \index[cp]{index entry within deffn}%
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{truc \EmbracOn{}\textnormal{\textsl{}}\EmbracOff{}}\hfill[cmde]
 
 
@@ -6890,8 +7159,9 @@ def{-}{-}fn
 
 
 \index[fn]{followed@\texttt{followed}}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-\endgroup{}%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{}\hfill[]
 
 
@@ -6908,33 +7178,37 @@ def{-}{-}fn
 
 
 \index[fn]{deffnx@\texttt{deffnx}}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{deffn}\hfill[empty]
 
 
 
 \index[fn]{deffn@\texttt{deffn}}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{deffn \EmbracOn{}\textnormal{\textsl{with deffnx}}\EmbracOff{}}\hfill[empty]
 
 
 
 \index[fn]{deffn@\texttt{deffn}}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-\endgroup{}%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{deffnx}\hfill[empty]
 
 
 
 \index[fn]{deffnx@\texttt{deffnx}}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{\textsl{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
 
 
@@ -6947,14 +7221,16 @@ def{-}{-}fn
 \index[fn]{truc@\texttt{truc}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 text in def item for second def item
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efvr\_name}\hfill[c--ategory]
 
 
@@ -6962,13 +7238,15 @@ text in def item for second def item
 \index[cp]{d--efvr\_name@\texttt{d{-}{-}efvr\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}efvr
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{n{-}{-}ame \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory]
 
 
@@ -6976,13 +7254,15 @@ d{-}{-}efvr
 \index[fn]{n--ame@\texttt{n{-}{-}ame}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}effn
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{n{-}{-}ame}\hfill[c--ategory]
 
 
@@ -6990,13 +7270,15 @@ d{-}{-}effn
 \index[fn]{n--ame@\texttt{n{-}{-}ame}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}effn no arg
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypefn\_name a{-}{-}rguments...}\hfill[c--ategory]
 
 
@@ -7004,13 +7286,15 @@ d{-}{-}effn no arg
 \index[fn]{d--eftypefn\_name@\texttt{d{-}{-}eftypefn\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypefn
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypefn\_name}\hfill[c--ategory]
 
 
@@ -7018,13 +7302,15 @@ d{-}{-}eftypefn
 \index[fn]{d--eftypefn\_name@\texttt{d{-}{-}eftypefn\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypefn no arg
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name a{-}{-}rguments...}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
 
@@ -7032,13 +7318,15 @@ d{-}{-}eftypefn no arg
 \index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypeop
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
 
@@ -7046,13 +7334,15 @@ d{-}{-}eftypeop
 \index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypeop no arg
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypevr\_name}\hfill[c--ategory]
 
 
@@ -7060,13 +7350,15 @@ d{-}{-}eftypeop no arg
 \index[cp]{d--eftypevr\_name@\texttt{d{-}{-}eftypevr\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypevr
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efcv\_name}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
 
@@ -7074,13 +7366,15 @@ d{-}{-}eftypevr
 \index[cp]{d--efcv\_name@\texttt{d{-}{-}efcv\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}efcv
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efcv\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
 
@@ -7088,13 +7382,15 @@ d{-}{-}efcv
 \index[cp]{d--efcv\_name@\texttt{d{-}{-}efcv\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}efcv with arguments
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
 
@@ -7102,13 +7398,15 @@ d{-}{-}efcv with arguments
 \index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypecv
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name a{-}{-}rguments...}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
 
@@ -7116,13 +7414,15 @@ d{-}{-}eftypecv
 \index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypecv with arguments
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efop\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
 
@@ -7130,13 +7430,15 @@ d{-}{-}eftypecv with arguments
 \index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}efop
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efop\_name}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
 
@@ -7144,13 +7446,15 @@ d{-}{-}efop
 \index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}efop no arg
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}eftp\_name \EmbracOn{}\textnormal{\textsl{a--ttributes...}}\EmbracOff{}}\hfill[c--ategory]
 
 
@@ -7158,13 +7462,15 @@ d{-}{-}efop no arg
 \index[tp]{d--eftp\_name@\texttt{d{-}{-}eftp\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftp
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efun\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[Function]
 
 
@@ -7172,13 +7478,15 @@ d{-}{-}eftp
 \index[fn]{d--efun\_name@\texttt{d{-}{-}efun\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}efun
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efmac\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[Macro]
 
 
@@ -7186,13 +7494,15 @@ d{-}{-}efun
 \index[fn]{d--efmac\_name@\texttt{d{-}{-}efmac\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}efmac
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efspec\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[Special Form]
 
 
@@ -7200,13 +7510,15 @@ d{-}{-}efmac
 \index[fn]{d--efspec\_name@\texttt{d{-}{-}efspec\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}efspec
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efvar\_name}\hfill[Variable]
 
 
@@ -7214,13 +7526,15 @@ d{-}{-}efspec
 \index[cp]{d--efvar\_name@\texttt{d{-}{-}efvar\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}efvar
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efvar\_name \EmbracOn{}\textnormal{\textsl{arg--var arg--var1}}\EmbracOff{}}\hfill[Variable]
 
 
@@ -7228,13 +7542,15 @@ d{-}{-}efvar
 \index[cp]{d--efvar\_name@\texttt{d{-}{-}efvar\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}efvar with args
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efopt\_name}\hfill[User Option]
 
 
@@ -7242,13 +7558,15 @@ d{-}{-}efvar with args
 \index[cp]{d--efopt\_name@\texttt{d{-}{-}efopt\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}efopt
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypefun\_name a{-}{-}rguments...}\hfill[Function]
 
 
@@ -7256,13 +7574,15 @@ d{-}{-}efopt
 \index[fn]{d--eftypefun\_name@\texttt{d{-}{-}eftypefun\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypefun
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypevar\_name}\hfill[Variable]
 
 
@@ -7270,13 +7590,15 @@ d{-}{-}eftypefun
 \index[cp]{d--eftypevar\_name@\texttt{d{-}{-}eftypevar\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypevar
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efivar\_name}\hfill[Instance Variable of \texttt{c{-}{-}lass}]
 
 
@@ -7284,13 +7606,15 @@ d{-}{-}eftypevar
 \index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}efivar
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeivar\_name}\hfill[Instance Variable of \texttt{c{-}{-}lass}]
 
 
@@ -7298,13 +7622,15 @@ d{-}{-}efivar
 \index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypeivar
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efmethod\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[Method on \texttt{c{-}{-}lass}]
 
 
@@ -7312,13 +7638,15 @@ d{-}{-}eftypeivar
 \index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}efmethod
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name a{-}{-}rguments...}\hfill[Method on \texttt{c{-}{-}lass}]
 
 
@@ -7326,14 +7654,16 @@ d{-}{-}efmethod
 \index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypemethod
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{data-type2\leavevmode{}\\name2 arguments2...}\hfill[Function]
 
 
@@ -7341,13 +7671,15 @@ d{-}{-}eftypemethod
 \index[fn]{name2@\texttt{name2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 aaa2
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypefn\_name2}\hfill[c--ategory2]
 
 
@@ -7355,13 +7687,15 @@ aaa2
 \index[fn]{d--eftypefn\_name2@\texttt{d{-}{-}eftypefn\_name2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypefn no arg2
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 a{-}{-}rguments2...}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
 
@@ -7369,13 +7703,15 @@ d{-}{-}eftypefn no arg2
 \index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2 on c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypeop2
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
 
@@ -7383,13 +7719,15 @@ d{-}{-}eftypeop2
 \index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2 on c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypeop no arg2
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype2 d{-}{-}eftypecv\_name2}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
 
@@ -7397,13 +7735,15 @@ d{-}{-}eftypeop no arg2
 \index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypecv2
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype2 d{-}{-}eftypecv\_name2 a{-}{-}rguments2...}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
 
@@ -7411,13 +7751,15 @@ d{-}{-}eftypecv2
 \index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 d{-}{-}eftypecv with arguments2
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{arg2}\hfill[fun2]
 
 
@@ -7425,11 +7767,13 @@ d{-}{-}eftypecv with arguments2
 \index[fn]{arg2@\texttt{arg2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 fff2
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{quote}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 
 \texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See Section ``t{-}{-}{-}itle@'' in \textsl{ma{-}{-}{-}nual@}.
@@ -7497,19 +7841,22 @@ Section ``s{-}{-}ect,ion'' in \texttt{a comma, in file}
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textsl{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
 \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
-\item[] \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-\endgroup{}%
+\item[] \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 \textbf{a--strong}}}]
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 l{-}{-}ine
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 a--asis\\
@@ -7517,13 +7864,15 @@ a--asis\\
 b
 \index[cp]{b@\texttt{b}}%
 }}]
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 l{-}{-}ine
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestyleemph{a}\\
@@ -7532,77 +7881,94 @@ l{-}{-}ine
 \GNUTexinfotablestyleemph{b}
 \index[fn]{b@\texttt{b}}%
 }}]
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 l{-}{-}ine
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
-\item[] \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item[] \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Title
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{a{-}{-}code}}}]
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Value{-}{-}table code
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
-\item[] \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item[] \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Title
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestylesamp{a{-}{-}samp}\\
 \GNUTexinfotablestylesamp{a2{-}{-}samp}}}]
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Value{-}{-}table samp
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{mdframed}[style=GNUTexinfocartouche]
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 c{-}{-}artouche
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{mdframed}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 f{-}{-}lushleft
 more text
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 f{-}{-}lushright
 more text
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{center}
 ce--ntered line
 \end{center}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{flushleft}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 r{-}{-}raggedright
 more text
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{flushleft}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{verbatim}
 \input texinfo @c -*-texinfo-*-
 
@@ -7616,13 +7982,15 @@ This is a very simple texi manual @  <>.
 
 @bye
 \end{verbatim}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{verbatim}
 in verbatim ''
 \end{verbatim}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 
 
@@ -7630,25 +7998,30 @@ in verbatim ''
 
 $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \GNUTexinfonopagebreakheading{\chapter*}{{majorheading}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \GNUTexinfonopagebreakheading{\chapter*}{{chapheading}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \GNUTexinfonopagebreakheading{\section*}{{heading}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \GNUTexinfonopagebreakheading{\subsection*}{{subheading}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \GNUTexinfonopagebreakheading{\subsubsection*}{{subsubheading}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 
 \texttt{@acronym\{{-}{-}a,an accronym @comma\{\} @enddots\{\}\}} {-}{-}a (an accronym , \dots{})
@@ -7707,90 +8080,109 @@ Invalid use of @':\leavevmode{}\\
 
 {\bfseries author}%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 $$
 \ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \grave{\bar{E}}
 \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
 \breve{a} \check{a}
  ? .
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 $$
 TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}} 
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 $$
 \mathtt{t} 
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{itemize}[label=\emph{}]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 e{-}{-}mph item
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{itemize}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{itemize}[label=\emph{} after emph]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 e{-}{-}mph item
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{itemize}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{itemize}[label=\textbullet{} a--n itemize line]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 i{-}{-}tem 1
-\endgroup{}%
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 i{-}{-}tem 2
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{itemize}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{itemize}[label={}]
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 without brace w a{-}{-}b
-\endgroup{}%
-\item \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\item \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 without brace w c{-}{-}d
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{itemize}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
-\item[] \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-\endgroup{}%
+\item[] \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 a}}]
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 l{-}{-}ine
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
-\item[] \par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
-\endgroup{}%
+\item[] \begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 a--missing style formatting}}]
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 l{-}{-}ine
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 a\\
@@ -7799,13 +8191,15 @@ a\\
 b
 \index[fn]{b@\texttt{b}}%
 }}]
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 l{-}{-}ine
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \end{description}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{}\hfill[fun]
 
 
@@ -7835,17 +8229,19 @@ l{-}{-}ine
 
 
 \index[fn]{followed@\texttt{followed}}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 Various deff lines
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{after \EmbracOn{}\textnormal{\textsl{a deff item}}\EmbracOff{}}\hfill[truc]
 
 
 
 \index[fn]{after@\texttt{after}}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 \noindent\texttt{\textsl{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fsetinv]
 
 
@@ -7868,13 +8264,16 @@ Various deff lines
 
 
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 g{-}{-}roupe
-\endgroup{}%
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\end{GNUTexinfopreformatted}
+\begin{GNUTexinfopreformatted}
+\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
 
 \texttt{@ref\{node\}} node
 
@@ -7914,7 +8313,7 @@ g{-}{-}roupe
 \texttt{@inforef\{\}} 
 
 
-\endgroup{}%
+\end{GNUTexinfopreformatted}
 
 \index[cp]{t--ruc}%
 \index[cp]{T--ruc}%

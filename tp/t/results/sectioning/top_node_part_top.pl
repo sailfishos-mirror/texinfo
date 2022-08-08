@@ -493,6 +493,8 @@ $result_converted{'file_latex'}->{'top_node_part_top'} = '\\documentclass{book}
 % add command aliases to use the same command in book and report
 \\newcommand\\GNUTexinfomainmatter{\\mainmatter}
 \\newcommand\\GNUTexinfofrontmatter{\\frontmatter}
+\\newenvironment{GNUTexinfopreformatted}{%
+  \\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing}{\\endgroup}
 % command that does nothing used to help with substitutions in commands
 \\newcommand{\\GNUTexinfoplaceholder}[1]{}
 

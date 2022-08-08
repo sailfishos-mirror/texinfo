@@ -1539,10 +1539,11 @@ $result_converted{'latex'}->{'combined_fonts'} = '
 \\textbf{\\textsl{slanted in b}}
 \\textsl{\\textbf{b in slanted}}
 
-\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
 \\textsl{var in example}
 \\GNUTexinfocommandstylecodetextcite{cite in example}
-\\endgroup{}%
+\\end{GNUTexinfopreformatted}
 ';
 
 1;

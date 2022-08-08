@@ -1317,6 +1317,11 @@ sub _latex_header() {
   }
 
   $header_code .= $front_main_matter_definitions{$documentclass};
+
+  $header_code .=
+'\newenvironment{GNUTexinfopreformatted}{%
+  \\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing}{\\endgroup}'."\n";
+
   if ($self->{'packages'}->{'babel'}) {
     $header_code .= '
 % this allows to select languages based on bcp47 codes.  bcp47 is a superset
@@ -1847,7 +1852,7 @@ sub _open_preformatted($$)
   return ''
    if (scalar(@{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}}));
   my $result = '';
-  $result .= '\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing';
+  $result .= '\\begin{GNUTexinfopreformatted}'."\n";
 
   my $indent;
   if ($command eq 'format' or $command eq 'smallformat') {
@@ -1878,7 +1883,7 @@ sub _close_preformatted($$)
   }
   return ''
    if (scalar(@{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}}));
-  return "\\endgroup{}%\n"; # \obeylines
+  return '\\end{GNUTexinfopreformatted}'."\n";
 }
 
 sub _open_preformatted_command($$)

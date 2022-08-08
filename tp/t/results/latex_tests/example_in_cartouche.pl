@@ -345,10 +345,11 @@ New para
 \\end{mdframed}
 
 \\begin{mdframed}[style=GNUTexinfocartouche]
-\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
 \\% pwd
 /usr/local/share/emacs
-\\endgroup{}%
+\\end{GNUTexinfopreformatted}
 \\end{mdframed}
 ';
 
