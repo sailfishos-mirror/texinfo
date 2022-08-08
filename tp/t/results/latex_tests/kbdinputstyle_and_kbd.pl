@@ -763,25 +763,25 @@ $result_floats{'kbdinputstyle_and_kbd'} = {};
 $result_converted{'latex'}->{'kbdinputstyle_and_kbd'} = '\\begin{document}
 {\\ttfamily\\textsl{default kbdinputstyle}}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
+\\leftskip=2em\\relax\\ttfamily%
 {\\ttfamily\\textsl{in example default kbdinputstyle}}
 \\end{GNUTexinfopreformatted}
 
 \\texttt{code kbdinputstyle}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
+\\leftskip=2em\\relax\\ttfamily%
 \\texttt{in example code kbdinputstyle}
 \\end{GNUTexinfopreformatted}
 
 {\\ttfamily\\textsl{example kbdinputstyle}}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
+\\leftskip=2em\\relax\\ttfamily%
 \\texttt{in example example kbdinputstyle}
 \\end{GNUTexinfopreformatted}
 
 {\\ttfamily\\textsl{distinct kbdinputstyle}}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
+\\leftskip=2em\\relax\\ttfamily%
 {\\ttfamily\\textsl{in example distinct kbdinputstyle}}
 \\end{GNUTexinfopreformatted}
 ';

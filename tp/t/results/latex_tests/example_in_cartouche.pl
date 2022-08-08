@@ -346,7 +346,7 @@ New para
 
 \\begin{mdframed}[style=GNUTexinfocartouche]
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
+\\leftskip=2em\\relax\\ttfamily%
 \\% pwd
 /usr/local/share/emacs
 \\end{GNUTexinfopreformatted}

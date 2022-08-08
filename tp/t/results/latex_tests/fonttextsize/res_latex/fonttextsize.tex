@@ -13,18 +13,18 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
 
+\makeatletter
 \newcommand{\GNUTexinfosettitle}{No Title}%
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
-\makeatletter
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
-\makeatother
 % add command aliases to use the same command in book and report
 \newcommand\GNUTexinfomainmatter{\mainmatter}
 \newcommand\GNUTexinfofrontmatter{\frontmatter}
 \newenvironment{GNUTexinfopreformatted}{%
-  \par\begingroup\obeylines\obeyspaces\frenchspacing}{\endgroup}
+  \par\obeylines\obeyspaces\frenchspacing
+  \parskip=\z@\parindent=\z@}{}
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
 
@@ -52,6 +52,7 @@
 
 \renewcommand{\includegraphics}[1]{\fbox{FIG \detokenize{#1}}}
 
+\makeatother
 % set default for @setchapternewpage
 \makeatletter
 \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}

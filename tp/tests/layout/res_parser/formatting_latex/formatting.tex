@@ -19,6 +19,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
 
+\makeatletter
 \newcommand{\GNUTexinfosettitle}{No Title}%
 
 \makeindex[name=codeidx]%
@@ -41,14 +42,13 @@
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
-\makeatletter
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
-\makeatother
 % add command aliases to use the same command in book and report
 \newcommand\GNUTexinfomainmatter{\mainmatter}
 \newcommand\GNUTexinfofrontmatter{\frontmatter}
 \newenvironment{GNUTexinfopreformatted}{%
-  \par\begingroup\obeylines\obeyspaces\frenchspacing}{\endgroup}
+  \par\obeylines\obeyspaces\frenchspacing
+  \parskip=\z@\parindent=\z@}{}
 % set defaults for lists that match Texinfo TeX formatting
 \setlist[description]{style=nextline, font=\normalfont}
 \setlist[itemize]{label=\textbullet}
@@ -90,6 +90,7 @@ roundcorner=10pt}
 
 \renewcommand{\includegraphics}[1]{\fbox{FIG \detokenize{#1}}}
 
+\makeatother
 % set default for @setchapternewpage
 \makeatletter
 \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
@@ -372,7 +373,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 {\ttfamily\textsl{in example default kbdinputstyle}}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -390,7 +391,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \texttt{in example code kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -408,7 +409,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \texttt{in example example kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -426,7 +427,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -626,128 +627,128 @@ truc &bidule\\
 \end{tabular}%
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 e{-}{-}xample  some
    text
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example one arg
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example two args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example three args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example four args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example five args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 The something \'{e} \TeX{} is here.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 A @ at the end of the @example line.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example with empty args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example with empty and non empty args mix
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Exam{-}{-}{-}ple
 
 \end{GNUTexinfopreformatted}
 \noindent Other li---ne
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 not exdented
 \end{GNUTexinfopreformatted}
 
 \noindent exdented  and dash --- in example
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Not exdented one
 \end{GNUTexinfopreformatted}
 \noindent exdented two
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Not exdented two
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Example   Hoho.
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Nested Other line
 \end{GNUTexinfopreformatted}
 \noindent exdented nested other line
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 s{-}{-}mallexample
 \end{GNUTexinfopreformatted}
 
 \texttt{@noindent} after smallexample.
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
 \end{GNUTexinfopreformatted}
 \noindent{}Less recent versions are also present.
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt %
+\leftskip=2em\relax%
 d--isplay
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
+\leftskip=2em\relax\footnotesize%
 s--malldisplay
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 l{-}{-}isp
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 s{-}{-}malllisp
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=0em \parskip=0pt \parindent=0pt %
+\leftskip=0em\relax%
 f--ormat
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
+\leftskip=0em\relax\footnotesize%
 s--mallformat
 \end{GNUTexinfopreformatted}
 
@@ -1854,7 +1855,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 {\ttfamily\textsl{in example default kbdinputstyle}}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -1872,7 +1873,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \texttt{in example code kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -1890,7 +1891,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \texttt{in example example kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -1908,7 +1909,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -2108,128 +2109,128 @@ truc &bidule\\
 \end{tabular}%
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 e{-}{-}xample  some
    text
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example one arg
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example two args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example three args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example four args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example five args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 The something \'{e} \TeX{} is here.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 A @ at the end of the @example line.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example with empty args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example with empty and non empty args mix
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Exam{-}{-}{-}ple
 
 \end{GNUTexinfopreformatted}
 \noindent Other li---ne
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 not exdented
 \end{GNUTexinfopreformatted}
 
 \noindent exdented  and dash --- in example
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Not exdented one
 \end{GNUTexinfopreformatted}
 \noindent exdented two
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Not exdented two
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Example   Hoho.
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Nested Other line
 \end{GNUTexinfopreformatted}
 \noindent exdented nested other line
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 s{-}{-}mallexample
 \end{GNUTexinfopreformatted}
 
 \texttt{@noindent} after smallexample.
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
 \end{GNUTexinfopreformatted}
 \noindent{}Less recent versions are also present.
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt %
+\leftskip=2em\relax%
 d--isplay
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
+\leftskip=2em\relax\footnotesize%
 s--malldisplay
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 l{-}{-}isp
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 s{-}{-}malllisp
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=0em \parskip=0pt \parindent=0pt %
+\leftskip=0em\relax%
 f--ormat
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
+\leftskip=0em\relax\footnotesize%
 s--mallformat
 \end{GNUTexinfopreformatted}
 
@@ -3357,7 +3358,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 {\ttfamily\textsl{in example default kbdinputstyle}}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -3375,7 +3376,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \texttt{in example code kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -3393,7 +3394,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \texttt{in example example kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -3411,7 +3412,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -3611,128 +3612,128 @@ truc &bidule\\
 \end{tabular}%
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 e{-}{-}xample  some
    text
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example one arg
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example two args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example three args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example four args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example five args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 The something \'{e} \TeX{} is here.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 A @ at the end of the @example line.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example with empty args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example with empty and non empty args mix
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Exam{-}{-}{-}ple
 
 \end{GNUTexinfopreformatted}
 \noindent Other li---ne
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 not exdented
 \end{GNUTexinfopreformatted}
 
 \noindent exdented  and dash --- in example
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Not exdented one
 \end{GNUTexinfopreformatted}
 \noindent exdented two
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Not exdented two
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Example   Hoho.
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Nested Other line
 \end{GNUTexinfopreformatted}
 \noindent exdented nested other line
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 s{-}{-}mallexample
 \end{GNUTexinfopreformatted}
 
 \texttt{@noindent} after smallexample.
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
 \end{GNUTexinfopreformatted}
 \noindent{}Less recent versions are also present.
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt %
+\leftskip=2em\relax%
 d--isplay
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
+\leftskip=2em\relax\footnotesize%
 s--malldisplay
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 l{-}{-}isp
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 s{-}{-}malllisp
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=0em \parskip=0pt \parindent=0pt %
+\leftskip=0em\relax%
 f--ormat
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
+\leftskip=0em\relax\footnotesize%
 s--mallformat
 \end{GNUTexinfopreformatted}
 
@@ -4838,7 +4839,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 {\ttfamily\textsl{in example default kbdinputstyle}}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -4856,7 +4857,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \texttt{in example code kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -4874,7 +4875,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \texttt{in example example kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -4892,7 +4893,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -5092,128 +5093,128 @@ truc &bidule\\
 \end{tabular}%
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 e{-}{-}xample  some
    text
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example one arg
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example two args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example three args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example four args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example five args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 The something \'{e} \TeX{} is here.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 A @ at the end of the @example line.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example with empty args
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example with empty and non empty args mix
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Exam{-}{-}{-}ple
 
 \end{GNUTexinfopreformatted}
 \noindent Other li---ne
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 not exdented
 \end{GNUTexinfopreformatted}
 
 \noindent exdented  and dash --- in example
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Not exdented one
 \end{GNUTexinfopreformatted}
 \noindent exdented two
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Not exdented two
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Example   Hoho.
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Nested Other line
 \end{GNUTexinfopreformatted}
 \noindent exdented nested other line
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 s{-}{-}mallexample
 \end{GNUTexinfopreformatted}
 
 \texttt{@noindent} after smallexample.
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
 \end{GNUTexinfopreformatted}
 \noindent{}Less recent versions are also present.
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt %
+\leftskip=2em\relax%
 d--isplay
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
+\leftskip=2em\relax\footnotesize%
 s--malldisplay
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 l{-}{-}isp
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 s{-}{-}malllisp
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=0em \parskip=0pt \parindent=0pt %
+\leftskip=0em\relax%
 f--ormat
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
-\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
+\leftskip=0em\relax\footnotesize%
 s--mallformat
 \end{GNUTexinfopreformatted}
 
@@ -6069,7 +6070,7 @@ g--roupe
 
 In example.
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 <
 >
@@ -6222,7 +6223,7 @@ but , ,\@
 \texttt{@slanted\{{-}{-}a\}} \textsl{{-}{-}a}
 \texttt{@titlefont\{{-}{-}a\}} \end{GNUTexinfopreformatted}
 {\huge \bfseries --a}\begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
 \texttt{@uref\{{-}{-}a,{-}{-}b\}} \href{--a}{{-}{-}b (\nolinkurl{--a})}
@@ -6270,13 +6271,13 @@ but , ,\@
 \newpage{}%
 \phantom{blabla}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \texttt{need 1002}
 \end{GNUTexinfopreformatted}
 \needspace{1.002pt}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
@@ -6289,7 +6290,7 @@ disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
 $$
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 $$
@@ -6297,7 +6298,7 @@ $$
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'
 $$
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 $$
@@ -6308,7 +6309,7 @@ $$
 \today{}
 $$
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 $$
@@ -6321,7 +6322,7 @@ u
 \mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
 $$
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 $$
@@ -6331,14 +6332,14 @@ $$
 \mathord{\text{\guilsinglright{}}} \euro{} \rightarrow{} \leq{} \geq{}
 $$
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 $$
 \mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 {\ttfamily\textsl{default kbdinputstyle}}
 \end{GNUTexinfopreformatted}
@@ -6349,10 +6350,10 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 {\ttfamily\textsl{in example default kbdinputstyle}}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -6362,7 +6363,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \texttt{code kbdinputstyle}
 \end{GNUTexinfopreformatted}
@@ -6373,10 +6374,10 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \texttt{in example code kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -6386,7 +6387,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \texttt{example kbdinputstyle}
 \end{GNUTexinfopreformatted}
@@ -6397,10 +6398,10 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \texttt{in example example kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -6410,7 +6411,7 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 {\ttfamily\textsl{distinct kbdinputstyle}}
 \end{GNUTexinfopreformatted}
@@ -6421,10 +6422,10 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -6434,146 +6435,146 @@ $$
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 A quot{-}{-}{-}ation
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{Note:} \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 A Note
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{note:} \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 A note
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{Caution:} \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Caution
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{Important:} \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Important
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{Tip:} \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 a Tip
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{Warning:} \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 a Warning.
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{something \'{e} \TeX{}:} \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 The something \'{e} \TeX{} is here.
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{@ at the end of line \ {}:} \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 A @ at the end of the @quotation line.
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{something, other thing:} \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 something, other thing
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{Note, the note:} \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Note, the note
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{Empty:} \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{:} \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \textbf{\leavevmode{}\\:} \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 aaa quotation
 \end{GNUTexinfopreformatted}
 \end{quote}
@@ -6581,483 +6582,483 @@ aaa quotation
 --- \emph{quotation author}
 \end{center}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 indent in quotation
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \noindent exdented quotation line   and dash --- in quotation
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Not exdented followed by exdented
 \end{GNUTexinfopreformatted}
 \noindent exdented quotation line
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \noindent exdented quotation line
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Followed by not exdented 
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 quotation1
 \end{GNUTexinfopreformatted}
 \noindent in exdented protected eol \ {}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 following
 \end{GNUTexinfopreformatted}
 \noindent in exdented a @* \leavevmode{}\\ and following
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 after exdented
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \begin{footnotesize}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 A small quot{-}{-}{-}ation
 \end{GNUTexinfopreformatted}
 \end{footnotesize}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \begin{footnotesize}
 \textbf{Note:} \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 A small Note
 \end{GNUTexinfopreformatted}
 \end{footnotesize}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{quote}
 \begin{footnotesize}
 \textbf{something, other thing:} \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 something, other thing
 \end{GNUTexinfopreformatted}
 \end{footnotesize}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{itemize}
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 i{-}{-}temize
 \end{GNUTexinfopreformatted}
 \end{itemize}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{itemize}[label=+]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 i{-}{-}tem +
 \end{GNUTexinfopreformatted}
 \end{itemize}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{itemize}[label=\textbullet{}]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 b{-}{-}ullet
 \end{GNUTexinfopreformatted}
 \end{itemize}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{itemize}[label=-]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 minu{-}{-}s
 \end{GNUTexinfopreformatted}
 \end{itemize}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{itemize}[label=\emph{after emph}]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \end{GNUTexinfopreformatted}
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 e{-}{-}mph item
 \end{GNUTexinfopreformatted}
 \end{itemize}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{itemize}[label=\textbullet{} a--n itemize line]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \end{GNUTexinfopreformatted}
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \index[cp]{index entry within itemize}%
 i{-}{-}tem 1
 \end{GNUTexinfopreformatted}
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 i{-}{-}tem 2
 \end{GNUTexinfopreformatted}
 \end{itemize}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{itemize}[label={}]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 with w a{-}{-}b
 \end{GNUTexinfopreformatted}
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 with w c{-}{-}d
 \end{GNUTexinfopreformatted}
 \end{itemize}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{itemize}[label=\hbox{} on a line]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 line w a{-}{-}b
 \end{GNUTexinfopreformatted}
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 line with w c{-}{-}d
 \end{GNUTexinfopreformatted}
 \end{itemize}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{enumerate}[start=1]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 e{-}{-}numerate
 \end{GNUTexinfopreformatted}
 \end{enumerate}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{enumerate}[start=3]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 first third
 \end{GNUTexinfopreformatted}
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 second third
 \end{GNUTexinfopreformatted}
 \end{enumerate}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{enumerate}[label=\alph*.]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 e{-}{-}numerate
 \end{GNUTexinfopreformatted}
 \end{enumerate}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{enumerate}[label=\alph*.,start=3]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 first c
 \end{GNUTexinfopreformatted}
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 second c
 \end{GNUTexinfopreformatted}
 \end{enumerate}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 mu{-}{-}ltitable headitem \end{GNUTexinfopreformatted}&
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 another tab
 \end{GNUTexinfopreformatted}\\
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 mu{-}{-}ltitable item \end{GNUTexinfopreformatted}&
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 multitable tab
 \end{GNUTexinfopreformatted}\\
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 mu{-}{-}ltitable item 2 \end{GNUTexinfopreformatted}&
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 multitable tab 2
 \index[cp]{index entry within multitable}%
 \end{GNUTexinfopreformatted}\\
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 lone mu{-}{-}ltitable item
 \end{GNUTexinfopreformatted}&\\
 \end{tabular}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 truc \end{GNUTexinfopreformatted}&
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 bidule
 \end{GNUTexinfopreformatted}\\
 \end{tabular}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 e{-}{-}xample  some
    text
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example one arg
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example two args
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example three args
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example four args
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example five args
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 The something \'{e} \TeX{} is here.
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 A @ at the end of the @example line.
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example with empty args
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 example with empty and non empty args mix
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Exam{-}{-}{-}ple
 
 \end{GNUTexinfopreformatted}
 \noindent Other li---ne
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 not exdented
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent exdented  and dash --- in example
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Not exdented one
 \end{GNUTexinfopreformatted}
 \noindent exdented two
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Not exdented two
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Example   Hoho.
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Nested Other line
 \end{GNUTexinfopreformatted}
 \noindent exdented nested other line
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 s{-}{-}mallexample
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \texttt{@noindent} after smallexample.
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \noindent{}Less recent versions are also present.
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt %
+\leftskip=2em\relax%
 d--isplay
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \footnotesize%
+\leftskip=2em\relax\footnotesize%
 s--malldisplay
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 l{-}{-}isp
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily\footnotesize%
+\leftskip=2em\relax\ttfamily\footnotesize%
 s{-}{-}malllisp
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=0em \parskip=0pt \parindent=0pt %
+\leftskip=0em\relax%
 f--ormat
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=0em \parskip=0pt \parindent=0pt \footnotesize%
+\leftskip=0em\relax\footnotesize%
 s--mallformat
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}effn\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory]
@@ -7068,12 +7069,12 @@ s--mallformat
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}effn
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{de{-}{-}ffn\_name \EmbracOn{}\textnormal{\textsl{ar--guments    more args \leavevmode{}\\ even more so}}\EmbracOff{}}\hfill[cate--gory]
@@ -7084,12 +7085,12 @@ d{-}{-}effn
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 def{-}{-}fn
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{\textsl{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
@@ -7098,7 +7099,7 @@ def{-}{-}fn
 
 \index[fn]{i@\texttt{\textsl{i}}}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \index[cp]{index entry within deffn}%
 \end{GNUTexinfopreformatted}
 \noindent\texttt{truc \EmbracOn{}\textnormal{\textsl{}}\EmbracOff{}}\hfill[cmde]
@@ -7160,7 +7161,7 @@ def{-}{-}fn
 
 \index[fn]{followed@\texttt{followed}}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \end{GNUTexinfopreformatted}
 \noindent\texttt{}\hfill[]
 
@@ -7179,7 +7180,7 @@ def{-}{-}fn
 
 \index[fn]{deffnx@\texttt{deffnx}}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 
 \end{GNUTexinfopreformatted}
@@ -7189,7 +7190,7 @@ def{-}{-}fn
 
 \index[fn]{deffn@\texttt{deffn}}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{deffn \EmbracOn{}\textnormal{\textsl{with deffnx}}\EmbracOff{}}\hfill[empty]
@@ -7198,7 +7199,7 @@ def{-}{-}fn
 
 \index[fn]{deffn@\texttt{deffn}}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \end{GNUTexinfopreformatted}
 \noindent\texttt{deffnx}\hfill[empty]
 
@@ -7206,7 +7207,7 @@ def{-}{-}fn
 
 \index[fn]{deffnx@\texttt{deffnx}}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{\textsl{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
@@ -7222,12 +7223,12 @@ def{-}{-}fn
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 text in def item for second def item
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 
 \end{GNUTexinfopreformatted}
@@ -7239,12 +7240,12 @@ text in def item for second def item
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}efvr
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{n{-}{-}ame \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory]
@@ -7255,12 +7256,12 @@ d{-}{-}efvr
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}effn
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{n{-}{-}ame}\hfill[c--ategory]
@@ -7271,12 +7272,12 @@ d{-}{-}effn
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}effn no arg
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypefn\_name a{-}{-}rguments...}\hfill[c--ategory]
@@ -7287,12 +7288,12 @@ d{-}{-}effn no arg
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypefn
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypefn\_name}\hfill[c--ategory]
@@ -7303,12 +7304,12 @@ d{-}{-}eftypefn
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypefn no arg
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name a{-}{-}rguments...}\hfill[c--ategory on \texttt{c{-}{-}lass}]
@@ -7319,12 +7320,12 @@ d{-}{-}eftypefn no arg
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypeop
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name}\hfill[c--ategory on \texttt{c{-}{-}lass}]
@@ -7335,12 +7336,12 @@ d{-}{-}eftypeop
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypeop no arg
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypevr\_name}\hfill[c--ategory]
@@ -7351,12 +7352,12 @@ d{-}{-}eftypeop no arg
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypevr
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efcv\_name}\hfill[c--ategory of \texttt{c{-}{-}lass}]
@@ -7367,12 +7368,12 @@ d{-}{-}eftypevr
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}efcv
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efcv\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory of \texttt{c{-}{-}lass}]
@@ -7383,12 +7384,12 @@ d{-}{-}efcv
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}efcv with arguments
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name}\hfill[c--ategory of \texttt{c{-}{-}lass}]
@@ -7399,12 +7400,12 @@ d{-}{-}efcv with arguments
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypecv
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name a{-}{-}rguments...}\hfill[c--ategory of \texttt{c{-}{-}lass}]
@@ -7415,12 +7416,12 @@ d{-}{-}eftypecv
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypecv with arguments
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efop\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
@@ -7431,12 +7432,12 @@ d{-}{-}eftypecv with arguments
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}efop
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efop\_name}\hfill[c--ategory on \texttt{c{-}{-}lass}]
@@ -7447,12 +7448,12 @@ d{-}{-}efop
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}efop no arg
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}eftp\_name \EmbracOn{}\textnormal{\textsl{a--ttributes...}}\EmbracOff{}}\hfill[c--ategory]
@@ -7463,12 +7464,12 @@ d{-}{-}efop no arg
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftp
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efun\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[Function]
@@ -7479,12 +7480,12 @@ d{-}{-}eftp
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}efun
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efmac\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[Macro]
@@ -7495,12 +7496,12 @@ d{-}{-}efun
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}efmac
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efspec\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[Special Form]
@@ -7511,12 +7512,12 @@ d{-}{-}efmac
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}efspec
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efvar\_name}\hfill[Variable]
@@ -7527,12 +7528,12 @@ d{-}{-}efspec
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}efvar
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efvar\_name \EmbracOn{}\textnormal{\textsl{arg--var arg--var1}}\EmbracOff{}}\hfill[Variable]
@@ -7543,12 +7544,12 @@ d{-}{-}efvar
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}efvar with args
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efopt\_name}\hfill[User Option]
@@ -7559,12 +7560,12 @@ d{-}{-}efvar with args
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}efopt
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypefun\_name a{-}{-}rguments...}\hfill[Function]
@@ -7575,12 +7576,12 @@ d{-}{-}efopt
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypefun
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypevar\_name}\hfill[Variable]
@@ -7591,12 +7592,12 @@ d{-}{-}eftypefun
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypevar
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efivar\_name}\hfill[Instance Variable of \texttt{c{-}{-}lass}]
@@ -7607,12 +7608,12 @@ d{-}{-}eftypevar
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}efivar
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeivar\_name}\hfill[Instance Variable of \texttt{c{-}{-}lass}]
@@ -7623,12 +7624,12 @@ d{-}{-}efivar
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypeivar
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efmethod\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[Method on \texttt{c{-}{-}lass}]
@@ -7639,12 +7640,12 @@ d{-}{-}eftypeivar
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}efmethod
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name a{-}{-}rguments...}\hfill[Method on \texttt{c{-}{-}lass}]
@@ -7655,12 +7656,12 @@ d{-}{-}efmethod
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypemethod
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 
 \end{GNUTexinfopreformatted}
@@ -7672,12 +7673,12 @@ d{-}{-}eftypemethod
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 aaa2
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypefn\_name2}\hfill[c--ategory2]
@@ -7688,12 +7689,12 @@ aaa2
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypefn no arg2
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 a{-}{-}rguments2...}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
@@ -7704,12 +7705,12 @@ d{-}{-}eftypefn no arg2
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypeop2
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
@@ -7720,12 +7721,12 @@ d{-}{-}eftypeop2
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypeop no arg2
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype2 d{-}{-}eftypecv\_name2}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
@@ -7736,12 +7737,12 @@ d{-}{-}eftypeop no arg2
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypecv2
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype2 d{-}{-}eftypecv\_name2 a{-}{-}rguments2...}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
@@ -7752,12 +7753,12 @@ d{-}{-}eftypecv2
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 d{-}{-}eftypecv with arguments2
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{arg2}\hfill[fun2]
@@ -7768,12 +7769,12 @@ d{-}{-}eftypecv with arguments2
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 fff2
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 
 \texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See Section ``t{-}{-}{-}itle@'' in \textsl{ma{-}{-}{-}nual@}.
@@ -7844,17 +7845,17 @@ Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nol
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[] \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \end{GNUTexinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 \textbf{a--strong}}}]
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 l{-}{-}ine
 \end{GNUTexinfopreformatted}
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -7865,12 +7866,12 @@ b
 \index[cp]{b@\texttt{b}}%
 }}]
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 l{-}{-}ine
 \end{GNUTexinfopreformatted}
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -7882,91 +7883,91 @@ l{-}{-}ine
 \index[fn]{b@\texttt{b}}%
 }}]
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 l{-}{-}ine
 \end{GNUTexinfopreformatted}
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[] \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Title
 \end{GNUTexinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{a{-}{-}code}}}]
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Value{-}{-}table code
 \end{GNUTexinfopreformatted}
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[] \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Title
 \end{GNUTexinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfotablestylesamp{a{-}{-}samp}\\
 \GNUTexinfotablestylesamp{a2{-}{-}samp}}}]
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Value{-}{-}table samp
 \end{GNUTexinfopreformatted}
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{mdframed}[style=GNUTexinfocartouche]
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 c{-}{-}artouche
 \end{GNUTexinfopreformatted}
 \end{mdframed}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 f{-}{-}lushleft
 more text
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 f{-}{-}lushright
 more text
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{center}
 ce--ntered line
 \end{center}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{flushleft}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 r{-}{-}raggedright
 more text
 \end{GNUTexinfopreformatted}
 \end{flushleft}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{verbatim}
@@ -7983,14 +7984,14 @@ This is a very simple texi manual @  <>.
 @bye
 \end{verbatim}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{verbatim}
 in verbatim ''
 \end{verbatim}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 
 
@@ -8001,27 +8002,27 @@ $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 \end{GNUTexinfopreformatted}
 \GNUTexinfonopagebreakheading{\chapter*}{{majorheading}}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \GNUTexinfonopagebreakheading{\chapter*}{{chapheading}}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \GNUTexinfonopagebreakheading{\section*}{{heading}}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \GNUTexinfonopagebreakheading{\subsection*}{{subheading}}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \GNUTexinfonopagebreakheading{\subsubsection*}{{subsubheading}}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 
 \texttt{@acronym\{{-}{-}a,an accronym @comma\{\} @enddots\{\}\}} {-}{-}a (an accronym , \dots{})
@@ -8088,99 +8089,99 @@ $$
  ? .
 $$
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 $$
 TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}} 
 $$
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 $$
 \mathtt{t} 
 $$
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{itemize}[label=\emph{}]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 e{-}{-}mph item
 \end{GNUTexinfopreformatted}
 \end{itemize}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{itemize}[label=\emph{} after emph]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 e{-}{-}mph item
 \end{GNUTexinfopreformatted}
 \end{itemize}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{itemize}[label=\textbullet{} a--n itemize line]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 i{-}{-}tem 1
 \end{GNUTexinfopreformatted}
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 i{-}{-}tem 2
 \end{GNUTexinfopreformatted}
 \end{itemize}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{itemize}[label={}]
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 without brace w a{-}{-}b
 \end{GNUTexinfopreformatted}
 \item \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 without brace w c{-}{-}d
 \end{GNUTexinfopreformatted}
 \end{itemize}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[] \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \end{GNUTexinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 a}}]
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 l{-}{-}ine
 \end{GNUTexinfopreformatted}
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[] \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 \end{GNUTexinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 a--missing style formatting}}]
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 l{-}{-}ine
 \end{GNUTexinfopreformatted}
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{description}
@@ -8192,12 +8193,12 @@ b
 \index[fn]{b@\texttt{b}}%
 }}]
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 l{-}{-}ine
 \end{GNUTexinfopreformatted}
 \end{description}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{}\hfill[fun]
@@ -8230,7 +8231,7 @@ l{-}{-}ine
 
 \index[fn]{followed@\texttt{followed}}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 Various deff lines
 \end{GNUTexinfopreformatted}
 \noindent\texttt{after \EmbracOn{}\textnormal{\textsl{a deff item}}\EmbracOff{}}\hfill[truc]
@@ -8239,7 +8240,7 @@ Various deff lines
 
 \index[fn]{after@\texttt{after}}%
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \noindent\texttt{\textsl{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fsetinv]
@@ -8265,15 +8266,15 @@ Various deff lines
 
 
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 g{-}{-}roupe
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em \parskip=0pt \parindent=0pt \ttfamily%
+\leftskip=2em\relax\ttfamily%
 
 \texttt{@ref\{node\}} node
 

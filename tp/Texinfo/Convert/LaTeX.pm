@@ -1189,9 +1189,7 @@ my $documentclass = 'book';
 my %front_main_matter_definitions = (
   'book' => '% redefine the \mainmatter command such that it does not clear page
 % as if in double page
-\makeatletter
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
-\makeatother
 % add command aliases to use the same command in book and report
 \newcommand\GNUTexinfomainmatter{\mainmatter}
 \newcommand\GNUTexinfofrontmatter{\frontmatter}
@@ -1262,6 +1260,7 @@ sub _latex_header() {
   } else {
     $settitle = $default_title;
   }
+  $header_code .= "\\makeatletter\n";
 
   # for @thistitle and headers
   $header_code .= "\\newcommand{\\GNUTexinfosettitle}{$settitle}%\n";
@@ -1320,7 +1319,8 @@ sub _latex_header() {
 
   $header_code .=
 '\newenvironment{GNUTexinfopreformatted}{%
-  \\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing}{\\endgroup}'."\n";
+  \\par\\obeylines\\obeyspaces\\frenchspacing
+  \\parskip=\\z@\\parindent=\\z@}{}'."\n";
 
   if ($self->{'packages'}->{'babel'}) {
     $header_code .= '
@@ -1458,6 +1458,7 @@ roundcorner=10pt}
   #  # in texlive-latex-extra in debian
   #  $header .= "\\usepackage{shorttoc}\n";
   #}
+  $header_code .= "\\makeatother\n";
   $header .= "\n";
 
   return $header . $header_code;
@@ -1860,7 +1861,7 @@ sub _open_preformatted($$)
   } else {
     $indent = $example_indent;
   }
-  $result .= "\\leftskip=$indent \\parskip=0pt \\parindent=0pt ";
+  $result .= "\\leftskip=$indent\\relax";
 
   if ($preformatted_code_commands{$command}) {
     $result .= '\\ttfamily';

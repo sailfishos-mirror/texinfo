@@ -1712,7 +1712,7 @@ $result_converted{'latex'}->{'kbdinputstyle'} = '
 
 in example
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
+\\leftskip=2em\\relax\\ttfamily%
 \\texttt{in code in example \\texttt{in nested code}}.
 \\texttt{kbd in example}.
 \\texttt{kbd \\texttt{in code} in example}.
@@ -1727,7 +1727,7 @@ in example
 
 in example
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
+\\leftskip=2em\\relax\\ttfamily%
 \\texttt{in code in example \\texttt{in nested code}}.
 \\texttt{kbd in example}.
 \\texttt{kbd \\texttt{in code} in example}.
@@ -1742,7 +1742,7 @@ in example
 
 in example
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em \\parskip=0pt \\parindent=0pt \\ttfamily%
+\\leftskip=2em\\relax\\ttfamily%
 \\texttt{in code in example \\texttt{in nested code}}.
 {\\ttfamily\\textsl{kbd in example}}.
 \\texttt{kbd {\\ttfamily\\textsl{in code}} in example}.
