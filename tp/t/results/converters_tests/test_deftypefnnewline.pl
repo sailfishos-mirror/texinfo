@@ -3629,6 +3629,7 @@ $result_converted{'latex'}->{'test_deftypefnnewline'} = '
 
 \\index[fn]{name@\\texttt{name}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 aaa
 \\end{quote}
 
@@ -3638,6 +3639,7 @@ aaa
 
 \\index[fn]{d--eftypefn\\_name@\\texttt{d{-}{-}eftypefn\\_name}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 d--eftypefn no arg
 \\end{quote}
 
@@ -3647,6 +3649,7 @@ d--eftypefn no arg
 
 \\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name on c{-}{-}lass}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 d--eftypeop
 \\end{quote}
 
@@ -3656,6 +3659,7 @@ d--eftypeop
 
 \\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name on c{-}{-}lass}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 d--eftypeop no arg
 \\end{quote}
 
@@ -3665,6 +3669,7 @@ d--eftypeop no arg
 
 \\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name of c{-}{-}lass}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 d--eftypecv
 \\end{quote}
 
@@ -3674,6 +3679,7 @@ d--eftypecv
 
 \\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name of c{-}{-}lass}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 d--eftypecv with arguments
 \\end{quote}
 
@@ -3683,6 +3689,7 @@ d--eftypecv with arguments
 
 \\index[fn]{arg@\\texttt{arg}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 fff
 \\end{quote}
 
@@ -3693,6 +3700,7 @@ fff
 
 \\index[fn]{name2@\\texttt{name2}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 aaa2
 \\end{quote}
 
@@ -3702,6 +3710,7 @@ aaa2
 
 \\index[fn]{d--eftypefn\\_name2@\\texttt{d{-}{-}eftypefn\\_name2}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 d--eftypefn no arg2
 \\end{quote}
 
@@ -3711,6 +3720,7 @@ d--eftypefn no arg2
 
 \\index[fn]{d--eftypeop\\_name2 on c--lass2@\\texttt{d{-}{-}eftypeop\\_name2 on c{-}{-}lass2}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 d--eftypeop2
 \\end{quote}
 
@@ -3720,6 +3730,7 @@ d--eftypeop2
 
 \\index[fn]{d--eftypeop\\_name2 on c--lass2@\\texttt{d{-}{-}eftypeop\\_name2 on c{-}{-}lass2}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 d--eftypeop no arg2
 \\end{quote}
 
@@ -3729,6 +3740,7 @@ d--eftypeop no arg2
 
 \\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2 of c{-}{-}lass2}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 d--eftypecv2
 \\end{quote}
 
@@ -3738,6 +3750,7 @@ d--eftypecv2
 
 \\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2 of c{-}{-}lass2}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 d--eftypecv with arguments2
 \\end{quote}
 
@@ -3747,6 +3760,7 @@ d--eftypecv with arguments2
 
 \\index[fn]{arg2@\\texttt{arg2}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 fff2
 \\end{quote}
 ';

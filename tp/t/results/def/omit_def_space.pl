@@ -657,6 +657,7 @@ $result_converted{'latex'}->{'omit_def_space'} = '\\label{anchor:Top}%
 
 \\index[fn]{another@\\texttt{another}}%
 \\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
 explain
 \\end{quote}
 ';

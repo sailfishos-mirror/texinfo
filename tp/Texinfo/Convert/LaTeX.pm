@@ -3640,6 +3640,9 @@ sub _convert($$)
       $result .= _index_entry($self, $element);
     } elsif ($element->{'type'} eq 'def_item') {
       $result .= "\\begin{quote}\n";
+      # Remove vertical space and start paragaph, avoiding adding
+      # more vertical space.
+      $result .= "\\unskip{\\parskip=0pt\\noindent}%\n";
     } elsif ($element->{'type'} eq 'table_term') {
       $result .= '\item[{\parbox[b]{\linewidth}{%'."\n";
       # count @item/@itemx to add //\n to each except for the last
