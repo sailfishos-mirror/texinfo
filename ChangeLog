@@ -1,5 +1,13 @@
 2022-08-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	@indentedblock for LaTeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (%LaTeX_environment_commands):
+	Use 'quote' environment for @indentedblock and  @smallindentedblock.
+	Add comment stating that right margin is incorrect.
+
+2022-08-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Remove vertical space after definition line
 
 	* tp/Texinfo/Convert/LaTeX.pm (_convert) <def_item>:

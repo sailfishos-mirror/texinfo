@@ -36,8 +36,6 @@
 #
 # indentation in @example, @display... still needs to be done
 #
-# @indentedblock and @smallindentedblock
-#
 # @group should also be added together with the non filled environments.
 #
 # Texinfo TeX leaves more space for the category on the right
@@ -174,6 +172,10 @@
 # should be formatted as.  So this should probably not be considered
 # as an issue, at least until we get user reports.
 # https://lists.gnu.org/archive/html/bug-texinfo/2006-06/msg00030.html
+#
+# @indentedblock and @smallindentedblock should not have a wider right
+# margin.
+#
 
 package Texinfo::Convert::LaTeX;
 
@@ -510,6 +512,8 @@ my %LaTeX_environment_commands = (
   'raggedright' => ['flushleft'],
   'quotation' => ['quote'],
   'smallquotation' => ['quote', $small_font_size],
+  'indentedblock' => ['quote'],
+  'smallindentedblock' => ['quote', $small_font_size],
   'cartouche' => ['mdframed'],
   'itemize' => ['itemize'],
   'enumerate' => ['enumerate'],
