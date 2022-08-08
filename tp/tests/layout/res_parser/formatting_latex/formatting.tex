@@ -128,16 +128,16 @@ In titlepage
 `
 
 ``simple-double--three---four----''\leavevmode{}\\
-code: \texttt{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''} \leavevmode{}\\
+code: \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 asis: ``simple-double--three---four----'' \leavevmode{}\\
 strong: \textbf{``simple-double--three---four----''} \leavevmode{}\\
-kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \leavevmode{}\\
+kbd: {\ttfamily\textsl{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}} \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
 \index[cp]{--option}%
 \index[cp]{``}%
-\index[fn]{``@\texttt{``}}%
+\index[fn]{``@\texttt{{`}{`}}}%
 \index[fn]{--foption@\texttt{{-}{-}foption}}%
 
 @"u \"{u} 
@@ -276,8 +276,8 @@ but , ,\@
 \texttt{@uref\{,{-}{-}b\}} --b
 \texttt{@uref\{{-}{-}a,{-}{-}b,{-}{-}c\}} --c
 \texttt{@uref\{,{-}{-}b,{-}{-}c\}} --c
-\texttt{@uref\{{-}{-}a,,{-}{-}c\}} --c
-\texttt{@uref\{,,{-}{-}c\}} --c
+\texttt{@uref\{{-}{-}a{,}{,}{-}{-}c\}} --c
+\texttt{@uref\{{,}{,}{-}{-}c\}} --c
 \texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
@@ -1244,45 +1244,45 @@ ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manu
 Section ``a comma, in title'' in \textsl{a , in manual name}
 
 \texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
-\texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter{,}{,},file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter{,}{,}{,}{,}manual\}} Section ``chapter'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
-\texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter,cross ref name{,}{,}file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name{,}{,},manual\}} Section ``chapter'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{chapter,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{chapter,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,,file name,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,},file name,manual\}} Section ``chapter'' in \textsl{manual}
 
 
 \texttt{@ref\{(pman)anode,cross ref name\}} (pman)anode
-\texttt{@ref\{(pman)anode,,title\}} title
-\texttt{@ref\{(pman)anode,,,file name\}} Section ``(pman)anode'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,,,,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title\}} title
+\texttt{@ref\{(pman)anode{,}{,},file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode{,}{,}{,}{,}manual\}} Section ``(pman)anode'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title,\}} title
-\texttt{@ref\{(pman)anode,cross ref name,,file name\}} Section ``(pman)anode'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode,cross ref name{,}{,}file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name{,}{,},manual\}} Section ``(pman)anode'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,,file name,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,},file name,manual\}} Section ``(pman)anode'' in \textsl{manual}
 
 
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@inforef\{chapter\}} chapter
 \texttt{@inforef\{chapter, cross ref name\}} chapter
-\texttt{@inforef\{chapter,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{chapter{,}{,}file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@inforef\{node, cross ref name, file name\}} Section ``node'' in \texttt{file name}
 \texttt{@inforef\{node\}} node
 \texttt{@inforef\{node, cross ref name\}} node
-\texttt{@inforef\{node,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{node{,}{,}file name\}} Section ``node'' in \texttt{file name}
 \texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} Section ``chapter'' in \texttt{file name, spurious arg}
 
 \texttt{@inforef\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
@@ -1426,22 +1426,22 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@w\{{-}{-}a\}} \hbox{--a}
 
 \texttt{@image\{,1{-}{-}xt\}} 
-\texttt{@image\{,,2{-}{-}xt\}} 
-\texttt{@image\{,,,3{-}{-}xt\}} 
+\texttt{@image\{{,}{,}2{-}{-}xt\}} 
+\texttt{@image\{{,}{,},3{-}{-}xt\}} 
 
-\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
+\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
 
 \texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,},alt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,}{,}{,}.e-d-xt\}} \includegraphics{f--ile}
 \texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
-\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
 \texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
 \texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
+\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
 
 
 {\bfseries author}%
@@ -1566,37 +1566,37 @@ g--roupe
 \texttt{@ref\{node\}} node
 
 \texttt{@ref\{,cross ref name\}} 
-\texttt{@ref\{,,title\}} title
-\texttt{@ref\{,,,file name\}} \texttt{file name}
-\texttt{@ref\{,,,,manual\}} \textsl{manual}
+\texttt{@ref\{{,}{,}title\}} title
+\texttt{@ref\{{,}{,},file name\}} \texttt{file name}
+\texttt{@ref\{{,}{,}{,}{,}manual\}} \textsl{manual}
 \texttt{@ref\{node,cross ref name\}} node
-\texttt{@ref\{node,,title\}} title
-\texttt{@ref\{node,,,file name\}} Section ``node'' in \texttt{file name}
-\texttt{@ref\{node,,,,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title\}} title
+\texttt{@ref\{node{,}{,},file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node{,}{,}{,}{,}manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title,\}} title
-\texttt{@ref\{node,cross ref name,,file name\}} Section ``node'' in \texttt{file name}
-\texttt{@ref\{node,cross ref name,,,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node,cross ref name{,}{,}file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name{,}{,},manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{node,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{node,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,,file name,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node{,}{,},file name,manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{,cross ref name,title,\}} title
-\texttt{@ref\{,cross ref name,,file name\}} \texttt{file name}
-\texttt{@ref\{,cross ref name,,,manual\}} \textsl{manual}
+\texttt{@ref\{,cross ref name{,}{,}file name\}} \texttt{file name}
+\texttt{@ref\{,cross ref name{,}{,},manual\}} \textsl{manual}
 \texttt{@ref\{,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,,file name,manual\}} \textsl{manual}
+\texttt{@ref\{{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{{,}{,},file name,manual\}} \textsl{manual}
 
 \texttt{@inforef\{,cross ref name \}} 
-\texttt{@inforef\{,,file name\}} \texttt{file name}
+\texttt{@inforef\{{,}{,}file name\}} \texttt{file name}
 \texttt{@inforef\{,cross ref name, file name\}} \texttt{file name}
 \texttt{@inforef\{\}} 
 
@@ -1613,16 +1613,16 @@ In copying
 `
 
 ``simple-double--three---four----''\leavevmode{}\\
-code: \texttt{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''} \leavevmode{}\\
+code: \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 asis: ``simple-double--three---four----'' \leavevmode{}\\
 strong: \textbf{``simple-double--three---four----''} \leavevmode{}\\
-kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \leavevmode{}\\
+kbd: {\ttfamily\textsl{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}} \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
 \index[cp]{--option}%
 \index[cp]{``}%
-\index[fn]{``@\texttt{``}}%
+\index[fn]{``@\texttt{{`}{`}}}%
 \index[fn]{--foption@\texttt{{-}{-}foption}}%
 
 @"u \"{u} 
@@ -1761,8 +1761,8 @@ but , ,\@
 \texttt{@uref\{,{-}{-}b\}} --b
 \texttt{@uref\{{-}{-}a,{-}{-}b,{-}{-}c\}} --c
 \texttt{@uref\{,{-}{-}b,{-}{-}c\}} --c
-\texttt{@uref\{{-}{-}a,,{-}{-}c\}} --c
-\texttt{@uref\{,,{-}{-}c\}} --c
+\texttt{@uref\{{-}{-}a{,}{,}{-}{-}c\}} --c
+\texttt{@uref\{{,}{,}{-}{-}c\}} --c
 \texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
@@ -2726,45 +2726,45 @@ ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manu
 Section ``a comma, in title'' in \textsl{a , in manual name}
 
 \texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
-\texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter{,}{,},file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter{,}{,}{,}{,}manual\}} Section ``chapter'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
-\texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter,cross ref name{,}{,}file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name{,}{,},manual\}} Section ``chapter'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{chapter,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{chapter,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,,file name,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,},file name,manual\}} Section ``chapter'' in \textsl{manual}
 
 
 \texttt{@ref\{(pman)anode,cross ref name\}} (pman)anode
-\texttt{@ref\{(pman)anode,,title\}} title
-\texttt{@ref\{(pman)anode,,,file name\}} Section ``(pman)anode'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,,,,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title\}} title
+\texttt{@ref\{(pman)anode{,}{,},file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode{,}{,}{,}{,}manual\}} Section ``(pman)anode'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title,\}} title
-\texttt{@ref\{(pman)anode,cross ref name,,file name\}} Section ``(pman)anode'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode,cross ref name{,}{,}file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name{,}{,},manual\}} Section ``(pman)anode'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,,file name,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,},file name,manual\}} Section ``(pman)anode'' in \textsl{manual}
 
 
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@inforef\{chapter\}} chapter
 \texttt{@inforef\{chapter, cross ref name\}} chapter
-\texttt{@inforef\{chapter,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{chapter{,}{,}file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@inforef\{node, cross ref name, file name\}} Section ``node'' in \texttt{file name}
 \texttt{@inforef\{node\}} node
 \texttt{@inforef\{node, cross ref name\}} node
-\texttt{@inforef\{node,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{node{,}{,}file name\}} Section ``node'' in \texttt{file name}
 \texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} Section ``chapter'' in \texttt{file name, spurious arg}
 
 \texttt{@inforef\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
@@ -2908,22 +2908,22 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@w\{{-}{-}a\}} \hbox{--a}
 
 \texttt{@image\{,1{-}{-}xt\}} 
-\texttt{@image\{,,2{-}{-}xt\}} 
-\texttt{@image\{,,,3{-}{-}xt\}} 
+\texttt{@image\{{,}{,}2{-}{-}xt\}} 
+\texttt{@image\{{,}{,},3{-}{-}xt\}} 
 
-\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
+\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
 
 \texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,},alt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,}{,}{,}.e-d-xt\}} \includegraphics{f--ile}
 \texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
-\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
 \texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
 \texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
+\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
 
 
 {\bfseries author}%
@@ -3048,37 +3048,37 @@ g--roupe
 \texttt{@ref\{node\}} node
 
 \texttt{@ref\{,cross ref name\}} 
-\texttt{@ref\{,,title\}} title
-\texttt{@ref\{,,,file name\}} \texttt{file name}
-\texttt{@ref\{,,,,manual\}} \textsl{manual}
+\texttt{@ref\{{,}{,}title\}} title
+\texttt{@ref\{{,}{,},file name\}} \texttt{file name}
+\texttt{@ref\{{,}{,}{,}{,}manual\}} \textsl{manual}
 \texttt{@ref\{node,cross ref name\}} node
-\texttt{@ref\{node,,title\}} title
-\texttt{@ref\{node,,,file name\}} Section ``node'' in \texttt{file name}
-\texttt{@ref\{node,,,,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title\}} title
+\texttt{@ref\{node{,}{,},file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node{,}{,}{,}{,}manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title,\}} title
-\texttt{@ref\{node,cross ref name,,file name\}} Section ``node'' in \texttt{file name}
-\texttt{@ref\{node,cross ref name,,,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node,cross ref name{,}{,}file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name{,}{,},manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{node,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{node,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,,file name,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node{,}{,},file name,manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{,cross ref name,title,\}} title
-\texttt{@ref\{,cross ref name,,file name\}} \texttt{file name}
-\texttt{@ref\{,cross ref name,,,manual\}} \textsl{manual}
+\texttt{@ref\{,cross ref name{,}{,}file name\}} \texttt{file name}
+\texttt{@ref\{,cross ref name{,}{,},manual\}} \textsl{manual}
 \texttt{@ref\{,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,,file name,manual\}} \textsl{manual}
+\texttt{@ref\{{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{{,}{,},file name,manual\}} \textsl{manual}
 
 \texttt{@inforef\{,cross ref name \}} 
-\texttt{@inforef\{,,file name\}} \texttt{file name}
+\texttt{@inforef\{{,}{,}file name\}} \texttt{file name}
 \texttt{@inforef\{,cross ref name, file name\}} \texttt{file name}
 \texttt{@inforef\{\}} 
 
@@ -3116,16 +3116,16 @@ In copying
 `
 
 ``simple-double--three---four----''\leavevmode{}\\
-code: \texttt{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''} \leavevmode{}\\
+code: \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 asis: ``simple-double--three---four----'' \leavevmode{}\\
 strong: \textbf{``simple-double--three---four----''} \leavevmode{}\\
-kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \leavevmode{}\\
+kbd: {\ttfamily\textsl{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}} \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
 \index[cp]{--option}%
 \index[cp]{``}%
-\index[fn]{``@\texttt{``}}%
+\index[fn]{``@\texttt{{`}{`}}}%
 \index[fn]{--foption@\texttt{{-}{-}foption}}%
 
 @"u \"{u} 
@@ -3264,8 +3264,8 @@ but , ,\@
 \texttt{@uref\{,{-}{-}b\}} --b
 \texttt{@uref\{{-}{-}a,{-}{-}b,{-}{-}c\}} --c
 \texttt{@uref\{,{-}{-}b,{-}{-}c\}} --c
-\texttt{@uref\{{-}{-}a,,{-}{-}c\}} --c
-\texttt{@uref\{,,{-}{-}c\}} --c
+\texttt{@uref\{{-}{-}a{,}{,}{-}{-}c\}} --c
+\texttt{@uref\{{,}{,}{-}{-}c\}} --c
 \texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
@@ -4229,45 +4229,45 @@ ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manu
 Section ``a comma, in title'' in \textsl{a , in manual name}
 
 \texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
-\texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter{,}{,},file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter{,}{,}{,}{,}manual\}} Section ``chapter'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
-\texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter,cross ref name{,}{,}file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name{,}{,},manual\}} Section ``chapter'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{chapter,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{chapter,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,,file name,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,},file name,manual\}} Section ``chapter'' in \textsl{manual}
 
 
 \texttt{@ref\{(pman)anode,cross ref name\}} (pman)anode
-\texttt{@ref\{(pman)anode,,title\}} title
-\texttt{@ref\{(pman)anode,,,file name\}} Section ``(pman)anode'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,,,,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title\}} title
+\texttt{@ref\{(pman)anode{,}{,},file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode{,}{,}{,}{,}manual\}} Section ``(pman)anode'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title,\}} title
-\texttt{@ref\{(pman)anode,cross ref name,,file name\}} Section ``(pman)anode'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode,cross ref name{,}{,}file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name{,}{,},manual\}} Section ``(pman)anode'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,,file name,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,},file name,manual\}} Section ``(pman)anode'' in \textsl{manual}
 
 
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@inforef\{chapter\}} chapter
 \texttt{@inforef\{chapter, cross ref name\}} chapter
-\texttt{@inforef\{chapter,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{chapter{,}{,}file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@inforef\{node, cross ref name, file name\}} Section ``node'' in \texttt{file name}
 \texttt{@inforef\{node\}} node
 \texttt{@inforef\{node, cross ref name\}} node
-\texttt{@inforef\{node,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{node{,}{,}file name\}} Section ``node'' in \texttt{file name}
 \texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} Section ``chapter'' in \texttt{file name, spurious arg}
 
 \texttt{@inforef\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
@@ -4411,22 +4411,22 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@w\{{-}{-}a\}} \hbox{--a}
 
 \texttt{@image\{,1{-}{-}xt\}} 
-\texttt{@image\{,,2{-}{-}xt\}} 
-\texttt{@image\{,,,3{-}{-}xt\}} 
+\texttt{@image\{{,}{,}2{-}{-}xt\}} 
+\texttt{@image\{{,}{,},3{-}{-}xt\}} 
 
-\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
+\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
 
 \texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,},alt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,}{,}{,}.e-d-xt\}} \includegraphics{f--ile}
 \texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
-\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
 \texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
 \texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
+\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
 
 
 {\bfseries author}%
@@ -4551,37 +4551,37 @@ g--roupe
 \texttt{@ref\{node\}} node
 
 \texttt{@ref\{,cross ref name\}} 
-\texttt{@ref\{,,title\}} title
-\texttt{@ref\{,,,file name\}} \texttt{file name}
-\texttt{@ref\{,,,,manual\}} \textsl{manual}
+\texttt{@ref\{{,}{,}title\}} title
+\texttt{@ref\{{,}{,},file name\}} \texttt{file name}
+\texttt{@ref\{{,}{,}{,}{,}manual\}} \textsl{manual}
 \texttt{@ref\{node,cross ref name\}} node
-\texttt{@ref\{node,,title\}} title
-\texttt{@ref\{node,,,file name\}} Section ``node'' in \texttt{file name}
-\texttt{@ref\{node,,,,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title\}} title
+\texttt{@ref\{node{,}{,},file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node{,}{,}{,}{,}manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title,\}} title
-\texttt{@ref\{node,cross ref name,,file name\}} Section ``node'' in \texttt{file name}
-\texttt{@ref\{node,cross ref name,,,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node,cross ref name{,}{,}file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name{,}{,},manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{node,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{node,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,,file name,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node{,}{,},file name,manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{,cross ref name,title,\}} title
-\texttt{@ref\{,cross ref name,,file name\}} \texttt{file name}
-\texttt{@ref\{,cross ref name,,,manual\}} \textsl{manual}
+\texttt{@ref\{,cross ref name{,}{,}file name\}} \texttt{file name}
+\texttt{@ref\{,cross ref name{,}{,},manual\}} \textsl{manual}
 \texttt{@ref\{,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,,file name,manual\}} \textsl{manual}
+\texttt{@ref\{{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{{,}{,},file name,manual\}} \textsl{manual}
 
 \texttt{@inforef\{,cross ref name \}} 
-\texttt{@inforef\{,,file name\}} \texttt{file name}
+\texttt{@inforef\{{,}{,}file name\}} \texttt{file name}
 \texttt{@inforef\{,cross ref name, file name\}} \texttt{file name}
 \texttt{@inforef\{\}} 
 
@@ -4597,16 +4597,16 @@ Normal text
 `
 
 ``simple-double--three---four----''\leavevmode{}\\
-code: \texttt{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''} \leavevmode{}\\
+code: \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 asis: ``simple-double--three---four----'' \leavevmode{}\\
 strong: \textbf{``simple-double--three---four----''} \leavevmode{}\\
-kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \leavevmode{}\\
+kbd: {\ttfamily\textsl{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}} \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
 \index[cp]{--option}%
 \index[cp]{``}%
-\index[fn]{``@\texttt{``}}%
+\index[fn]{``@\texttt{{`}{`}}}%
 \index[fn]{--foption@\texttt{{-}{-}foption}}%
 
 @"u \"{u} 
@@ -4745,8 +4745,8 @@ but , ,\@
 \texttt{@uref\{,{-}{-}b\}} --b
 \texttt{@uref\{{-}{-}a,{-}{-}b,{-}{-}c\}} --c
 \texttt{@uref\{,{-}{-}b,{-}{-}c\}} --c
-\texttt{@uref\{{-}{-}a,,{-}{-}c\}} --c
-\texttt{@uref\{,,{-}{-}c\}} --c
+\texttt{@uref\{{-}{-}a{,}{,}{-}{-}c\}} --c
+\texttt{@uref\{{,}{,}{-}{-}c\}} --c
 \texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
@@ -5710,45 +5710,45 @@ ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manu
 Section ``a comma, in title'' in \textsl{a , in manual name}
 
 \texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
-\texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter{,}{,},file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter{,}{,}{,}{,}manual\}} Section ``chapter'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
-\texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter,cross ref name{,}{,}file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name{,}{,},manual\}} Section ``chapter'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{chapter,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{chapter,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,,file name,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,},file name,manual\}} Section ``chapter'' in \textsl{manual}
 
 
 \texttt{@ref\{(pman)anode,cross ref name\}} (pman)anode
-\texttt{@ref\{(pman)anode,,title\}} title
-\texttt{@ref\{(pman)anode,,,file name\}} Section ``(pman)anode'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,,,,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title\}} title
+\texttt{@ref\{(pman)anode{,}{,},file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode{,}{,}{,}{,}manual\}} Section ``(pman)anode'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title,\}} title
-\texttt{@ref\{(pman)anode,cross ref name,,file name\}} Section ``(pman)anode'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode,cross ref name{,}{,}file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name{,}{,},manual\}} Section ``(pman)anode'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,,file name,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,},file name,manual\}} Section ``(pman)anode'' in \textsl{manual}
 
 
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@inforef\{chapter\}} chapter
 \texttt{@inforef\{chapter, cross ref name\}} chapter
-\texttt{@inforef\{chapter,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{chapter{,}{,}file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@inforef\{node, cross ref name, file name\}} Section ``node'' in \texttt{file name}
 \texttt{@inforef\{node\}} node
 \texttt{@inforef\{node, cross ref name\}} node
-\texttt{@inforef\{node,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{node{,}{,}file name\}} Section ``node'' in \texttt{file name}
 \texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} Section ``chapter'' in \texttt{file name, spurious arg}
 
 \texttt{@inforef\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
@@ -5892,22 +5892,22 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@w\{{-}{-}a\}} \hbox{--a}
 
 \texttt{@image\{,1{-}{-}xt\}} 
-\texttt{@image\{,,2{-}{-}xt\}} 
-\texttt{@image\{,,,3{-}{-}xt\}} 
+\texttt{@image\{{,}{,}2{-}{-}xt\}} 
+\texttt{@image\{{,}{,},3{-}{-}xt\}} 
 
-\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
+\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
 
 \texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,},alt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,}{,}{,}.e-d-xt\}} \includegraphics{f--ile}
 \texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
-\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
 \texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
 \texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
+\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
 
 
 {\bfseries author}%
@@ -6032,37 +6032,37 @@ g--roupe
 \texttt{@ref\{node\}} node
 
 \texttt{@ref\{,cross ref name\}} 
-\texttt{@ref\{,,title\}} title
-\texttt{@ref\{,,,file name\}} \texttt{file name}
-\texttt{@ref\{,,,,manual\}} \textsl{manual}
+\texttt{@ref\{{,}{,}title\}} title
+\texttt{@ref\{{,}{,},file name\}} \texttt{file name}
+\texttt{@ref\{{,}{,}{,}{,}manual\}} \textsl{manual}
 \texttt{@ref\{node,cross ref name\}} node
-\texttt{@ref\{node,,title\}} title
-\texttt{@ref\{node,,,file name\}} Section ``node'' in \texttt{file name}
-\texttt{@ref\{node,,,,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title\}} title
+\texttt{@ref\{node{,}{,},file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node{,}{,}{,}{,}manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title,\}} title
-\texttt{@ref\{node,cross ref name,,file name\}} Section ``node'' in \texttt{file name}
-\texttt{@ref\{node,cross ref name,,,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node,cross ref name{,}{,}file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name{,}{,},manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{node,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{node,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,,file name,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node{,}{,},file name,manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{,cross ref name,title,\}} title
-\texttt{@ref\{,cross ref name,,file name\}} \texttt{file name}
-\texttt{@ref\{,cross ref name,,,manual\}} \textsl{manual}
+\texttt{@ref\{,cross ref name{,}{,}file name\}} \texttt{file name}
+\texttt{@ref\{,cross ref name{,}{,},manual\}} \textsl{manual}
 \texttt{@ref\{,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,,file name,manual\}} \textsl{manual}
+\texttt{@ref\{{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{{,}{,},file name,manual\}} \textsl{manual}
 
 \texttt{@inforef\{,cross ref name \}} 
-\texttt{@inforef\{,,file name\}} \texttt{file name}
+\texttt{@inforef\{{,}{,}file name\}} \texttt{file name}
 \texttt{@inforef\{,cross ref name, file name\}} \texttt{file name}
 \texttt{@inforef\{\}} 
 
@@ -6079,17 +6079,17 @@ In example.
 '
 `
 
-``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''\leavevmode{}\\
-code: \texttt{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''} \leavevmode{}\\
-asis: ``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-'' \leavevmode{}\\
-strong: \textbf{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''} \leavevmode{}\\
-kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \leavevmode{}\\
+{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}\leavevmode{}\\
+code: \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
+asis: {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'} \leavevmode{}\\
+strong: \textbf{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
+kbd: {\ttfamily\textsl{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}} \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three{-}{-}{-}four{-}{-}{-}-'\hbox{}'\leavevmode{}\\
 
 \index[cp]{--option}%
 \index[cp]{``}%
-\index[fn]{``@\texttt{``}}%
+\index[fn]{``@\texttt{{`}{`}}}%
 \index[fn]{--foption@\texttt{{-}{-}foption}}%
 
 @"u \"{u} 
@@ -6231,8 +6231,8 @@ but , ,\@
 \texttt{@uref\{,{-}{-}b\}} {-}{-}b
 \texttt{@uref\{{-}{-}a,{-}{-}b,{-}{-}c\}} {-}{-}c
 \texttt{@uref\{,{-}{-}b,{-}{-}c\}} {-}{-}c
-\texttt{@uref\{{-}{-}a,,{-}{-}c\}} {-}{-}c
-\texttt{@uref\{,,{-}{-}c\}} {-}{-}c
+\texttt{@uref\{{-}{-}a{,}{,}{-}{-}c\}} {-}{-}c
+\texttt{@uref\{{,}{,}{-}{-}c\}} {-}{-}c
 \texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{{-}{-}b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} {-}{-}b
@@ -7792,45 +7792,45 @@ ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manu
 Section ``a comma, in title'' in \textsl{a , in manual name}
 
 \texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
-\texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter{,}{,},file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter{,}{,}{,}{,}manual\}} Section ``chapter'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
-\texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter,cross ref name{,}{,}file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name{,}{,},manual\}} Section ``chapter'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{chapter,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{chapter,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{chapter,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,,file name,manual\}} Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,},file name,manual\}} Section ``chapter'' in \textsl{manual}
 
 
 \texttt{@ref\{(pman)anode,cross ref name\}} (pman)anode
-\texttt{@ref\{(pman)anode,,title\}} title
-\texttt{@ref\{(pman)anode,,,file name\}} Section ``(pman)anode'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,,,,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title\}} title
+\texttt{@ref\{(pman)anode{,}{,},file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode{,}{,}{,}{,}manual\}} Section ``(pman)anode'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title,\}} title
-\texttt{@ref\{(pman)anode,cross ref name,,file name\}} Section ``(pman)anode'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode,cross ref name{,}{,}file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name{,}{,},manual\}} Section ``(pman)anode'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,,,file name,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,},file name,manual\}} Section ``(pman)anode'' in \textsl{manual}
 
 
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@inforef\{chapter\}} chapter
 \texttt{@inforef\{chapter, cross ref name\}} chapter
-\texttt{@inforef\{chapter,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{chapter{,}{,}file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@inforef\{node, cross ref name, file name\}} Section ``node'' in \texttt{file name}
 \texttt{@inforef\{node\}} node
 \texttt{@inforef\{node, cross ref name\}} node
-\texttt{@inforef\{node,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{node{,}{,}file name\}} Section ``node'' in \texttt{file name}
 \texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} Section ``chapter'' in \texttt{file name, spurious arg}
 
 \texttt{@inforef\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
@@ -8061,22 +8061,22 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@w\{{-}{-}a\}} \hbox{{-}{-}a}
 
 \texttt{@image\{,1{-}{-}xt\}} 
-\texttt{@image\{,,2{-}{-}xt\}} 
-\texttt{@image\{,,,3{-}{-}xt\}} 
+\texttt{@image\{{,}{,}2{-}{-}xt\}} 
+\texttt{@image\{{,}{,},3{-}{-}xt\}} 
 
-\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
+\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
 
 \texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,},alt\}} \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,}{,}{,}.e-d-xt\}} \includegraphics{f--ile}
 \texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
-\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
 \texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
 \texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
+\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
 
 
 {\bfseries author}%
@@ -8279,37 +8279,37 @@ g{-}{-}roupe
 \texttt{@ref\{node\}} node
 
 \texttt{@ref\{,cross ref name\}} 
-\texttt{@ref\{,,title\}} title
-\texttt{@ref\{,,,file name\}} \texttt{file name}
-\texttt{@ref\{,,,,manual\}} \textsl{manual}
+\texttt{@ref\{{,}{,}title\}} title
+\texttt{@ref\{{,}{,},file name\}} \texttt{file name}
+\texttt{@ref\{{,}{,}{,}{,}manual\}} \textsl{manual}
 \texttt{@ref\{node,cross ref name\}} node
-\texttt{@ref\{node,,title\}} title
-\texttt{@ref\{node,,,file name\}} Section ``node'' in \texttt{file name}
-\texttt{@ref\{node,,,,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title\}} title
+\texttt{@ref\{node{,}{,},file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node{,}{,}{,}{,}manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title,\}} title
-\texttt{@ref\{node,cross ref name,,file name\}} Section ``node'' in \texttt{file name}
-\texttt{@ref\{node,cross ref name,,,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node,cross ref name{,}{,}file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name{,}{,},manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{node,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{node,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{node,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,,,file name,manual\}} Section ``node'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{node{,}{,},file name,manual\}} Section ``node'' in \textsl{manual}
 \texttt{@ref\{,cross ref name,title,\}} title
-\texttt{@ref\{,cross ref name,,file name\}} \texttt{file name}
-\texttt{@ref\{,cross ref name,,,manual\}} \textsl{manual}
+\texttt{@ref\{,cross ref name{,}{,}file name\}} \texttt{file name}
+\texttt{@ref\{,cross ref name{,}{,},manual\}} \textsl{manual}
 \texttt{@ref\{,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{,cross ref name,title,,manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
 \texttt{@ref\{,cross ref name,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{,,title,,manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,title, file name, manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,,,file name,manual\}} \textsl{manual}
+\texttt{@ref\{{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{{,}{,}title, file name, manual\}} Section ``title'' in \textsl{manual}
+\texttt{@ref\{{,}{,},file name,manual\}} \textsl{manual}
 
 \texttt{@inforef\{,cross ref name \}} 
-\texttt{@inforef\{,,file name\}} \texttt{file name}
+\texttt{@inforef\{{,}{,}file name\}} \texttt{file name}
 \texttt{@inforef\{,cross ref name, file name\}} \texttt{file name}
 \texttt{@inforef\{\}} 
 

@@ -1627,7 +1627,8 @@ sub _protect_text($$)
     if ($self->{'formatting_context'}->[-1]->{'index'}) {
       $text = _protect_index_text($text);
     }
-  } elsif ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] ne 'raw') {
+  } elsif ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1]
+             ne 'raw') {
     # temporarily replace \ with a control character
     $text =~ s/\\/\x08/g;
 
@@ -1642,9 +1643,19 @@ sub _protect_text($$)
       $text = _protect_index_text($text);
     }
     if ($self->{'formatting_context'}->[-1]->{'code'}->[-1]) {
+      # Under T1 encoding there are several ligatures even in fixed width fonts
       $text =~ s/---/{-}{-}{-}/g;
       $text =~ s/--/{-}{-}/g;
+      $text =~ s/``/{`}{`}/g;
+      $text =~ s/''/{'}{'}/g;
     }
+    # Disable these ligatures everywhere
+    $text =~ s/,,/{,}{,}/g;
+    $text =~ s/<</{<}{<}/g;
+    $text =~ s/>>/{>}{>}/g;
+    $text =~ s/\?`/{?}{`}/g;
+    $text =~ s/!`/{!}{`}/g;
+
     if ($self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'}) {
       $text =~ s/\./\.\\@/g;
     }

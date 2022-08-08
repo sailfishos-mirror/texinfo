@@ -4601,43 +4601,43 @@ $result_converted{'latex'}->{'ref_error_formatting'} = '
 \\texttt{@ref\\{node\\}} node
 
 \\texttt{@ref\\{,cross ref name\\}} 
-\\texttt{@ref\\{,,title\\}} title
-\\texttt{@ref\\{,,,file name\\}} \\texttt{file name}
-\\texttt{@ref\\{,,,,manual\\}} \\textsl{manual}
+\\texttt{@ref\\{{,}{,}title\\}} title
+\\texttt{@ref\\{{,}{,},file name\\}} \\texttt{file name}
+\\texttt{@ref\\{{,}{,}{,}{,}manual\\}} \\textsl{manual}
 \\texttt{@ref\\{node,cross ref name\\}} node
-\\texttt{@ref\\{node,,title\\}} title
-\\texttt{@ref\\{node,,,file name\\}} Section ``node\'\' in \\texttt{file name}
-\\texttt{@ref\\{node,,,,manual\\}} Section ``node\'\' in \\textsl{manual}
+\\texttt{@ref\\{node{,}{,}title\\}} title
+\\texttt{@ref\\{node{,}{,},file name\\}} Section ``node\'\' in \\texttt{file name}
+\\texttt{@ref\\{node{,}{,}{,}{,}manual\\}} Section ``node\'\' in \\textsl{manual}
 \\texttt{@ref\\{node,cross ref name,title,\\}} title
-\\texttt{@ref\\{node,cross ref name,,file name\\}} Section ``node\'\' in \\texttt{file name}
-\\texttt{@ref\\{node,cross ref name,,,manual\\}} Section ``node\'\' in \\textsl{manual}
+\\texttt{@ref\\{node,cross ref name{,}{,}file name\\}} Section ``node\'\' in \\texttt{file name}
+\\texttt{@ref\\{node,cross ref name{,}{,},manual\\}} Section ``node\'\' in \\textsl{manual}
 \\texttt{@ref\\{node,cross ref name,title,file name\\}} Section ``title\'\' in \\texttt{file name}
-\\texttt{@ref\\{node,cross ref name,title,,manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{node,cross ref name,title{,}{,}manual\\}} Section ``title\'\' in \\textsl{manual}
 \\texttt{@ref\\{node,cross ref name,title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
-\\texttt{@ref\\{node,,title,file name\\}} Section ``title\'\' in \\texttt{file name}
-\\texttt{@ref\\{node,,title,,manual\\}} Section ``title\'\' in \\textsl{manual}
-\\texttt{@ref\\{node,,title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
-\\texttt{@ref\\{node,,,file name,manual\\}} Section ``node\'\' in \\textsl{manual}
+\\texttt{@ref\\{node{,}{,}title,file name\\}} Section ``title\'\' in \\texttt{file name}
+\\texttt{@ref\\{node{,}{,}title{,}{,}manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{node{,}{,}title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{node{,}{,},file name,manual\\}} Section ``node\'\' in \\textsl{manual}
 \\texttt{@ref\\{,cross ref name,title,\\}} title
-\\texttt{@ref\\{,cross ref name,,file name\\}} \\texttt{file name}
-\\texttt{@ref\\{,cross ref name,,,manual\\}} \\textsl{manual}
+\\texttt{@ref\\{,cross ref name{,}{,}file name\\}} \\texttt{file name}
+\\texttt{@ref\\{,cross ref name{,}{,},manual\\}} \\textsl{manual}
 \\texttt{@ref\\{,cross ref name,title,file name\\}} Section ``title\'\' in \\texttt{file name}
-\\texttt{@ref\\{,cross ref name,title,,manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{,cross ref name,title{,}{,}manual\\}} Section ``title\'\' in \\textsl{manual}
 \\texttt{@ref\\{,cross ref name,title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
-\\texttt{@ref\\{,,title,file name\\}} Section ``title\'\' in \\texttt{file name}
-\\texttt{@ref\\{,,title,,manual\\}} Section ``title\'\' in \\textsl{manual}
-\\texttt{@ref\\{,,title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
-\\texttt{@ref\\{,,,file name,manual\\}} \\textsl{manual}
+\\texttt{@ref\\{{,}{,}title,file name\\}} Section ``title\'\' in \\texttt{file name}
+\\texttt{@ref\\{{,}{,}title{,}{,}manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{{,}{,}title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{{,}{,},file name,manual\\}} \\textsl{manual}
 
 \\texttt{@inforef\\{,cross ref name \\}} 
-\\texttt{@inforef\\{,,file name\\}} \\texttt{file name}
+\\texttt{@inforef\\{{,}{,}file name\\}} \\texttt{file name}
 \\texttt{@inforef\\{,cross ref name, file name\\}} \\texttt{file name}
 \\texttt{@inforef\\{\\}} 
 
 \\texttt{@inforef\\{node, cross ref name, file name\\}} Section ``node\'\' in \\texttt{file name}
 \\texttt{@inforef\\{node\\}} node
 \\texttt{@inforef\\{node, cross ref name\\}} node
-\\texttt{@inforef\\{node,,file name\\}} Section ``node\'\' in \\texttt{file name}
+\\texttt{@inforef\\{node{,}{,}file name\\}} Section ``node\'\' in \\texttt{file name}
 ';
 
 1;

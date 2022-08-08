@@ -1,5 +1,12 @@
 2022-08-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Block more ligatures in LaTeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (_protect_text):
+	Block more ligatures in code and block several others everywhere.
+
+2022-08-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
 	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
 	Remove trailing full stop from warning message.

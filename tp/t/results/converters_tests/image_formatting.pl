@@ -3027,11 +3027,11 @@ $result_converted{'latex'}->{'image_formatting'} = '\\label{anchor:Top}%
 
 \\texttt{@image\\{f{-}{-}ile\\}} \\includegraphics{f--ile}
 \\texttt{@image\\{f{-}{-}ile,l{-}{-}i\\}} \\includegraphics[width=l--i]{f--ile}
-\\texttt{@image\\{f{-}{-}ile,,l{-}{-}e\\}} \\includegraphics[height=l--e]{f--ile}
-\\texttt{@image\\{f{-}{-}ile,,,alt\\}} \\includegraphics{f--ile}
-\\texttt{@image\\{f{-}{-}ile,,,,e-d-xt\\}} \\includegraphics{f--ile}
+\\texttt{@image\\{f{-}{-}ile{,}{,}l{-}{-}e\\}} \\includegraphics[height=l--e]{f--ile}
+\\texttt{@image\\{f{-}{-}ile{,}{,},alt\\}} \\includegraphics{f--ile}
+\\texttt{@image\\{f{-}{-}ile{,}{,}{,}{,}e-d-xt\\}} \\includegraphics{f--ile}
 \\texttt{@image\\{f{-}{-}ile,aze,az,alt,e{-}{-}xt\\}} \\includegraphics[width=aze,height=az]{f--ile}
-\\texttt{@image\\{f-ile,aze,,a{-}{-}lt\\}} \\includegraphics[width=aze]{f-ile}
+\\texttt{@image\\{f-ile,aze{,}{,}a{-}{-}lt\\}} \\includegraphics[width=aze]{f-ile}
 \\texttt{@image\\{@file\\{f{-}{-}ile\\}@@@.,aze,az,alt,@file\\{file ext\\} e{-}{-}xt@\\}} \\includegraphics[width=aze,height=az]{f--ile@.}
 \\includegraphics{image} \\includegraphics{image}
 
@@ -3039,11 +3039,11 @@ $result_converted{'latex'}->{'image_formatting'} = '\\label{anchor:Top}%
 \\leftskip=2em\\relax\\ttfamily%
 \\texttt{@image\\{f{-}{-}ile\\}} \\includegraphics{f--ile}
 \\texttt{@image\\{f{-}{-}ile,l{-}{-}i\\}} \\includegraphics[width=l--i]{f--ile}
-\\texttt{@image\\{f{-}{-}ile,,l{-}{-}e\\}} \\includegraphics[height=l--e]{f--ile}
-\\texttt{@image\\{f{-}{-}ile,,,alt\\}} \\includegraphics{f--ile}
-\\texttt{@image\\{f{-}{-}ile,,,,e-d-xt\\}} \\includegraphics{f--ile}
+\\texttt{@image\\{f{-}{-}ile{,}{,}l{-}{-}e\\}} \\includegraphics[height=l--e]{f--ile}
+\\texttt{@image\\{f{-}{-}ile{,}{,},alt\\}} \\includegraphics{f--ile}
+\\texttt{@image\\{f{-}{-}ile{,}{,}{,}{,}e-d-xt\\}} \\includegraphics{f--ile}
 \\texttt{@image\\{f{-}{-}ile,aze,az,alt,e{-}{-}xt\\}} \\includegraphics[width=aze,height=az]{f--ile}
-\\texttt{@image\\{f-ile,aze,,a{-}{-}lt\\}} \\includegraphics[width=aze]{f-ile}
+\\texttt{@image\\{f-ile,aze{,}{,}a{-}{-}lt\\}} \\includegraphics[width=aze]{f-ile}
 \\texttt{@image\\{@file\\{f{-}{-}ile\\}@@@.,aze,az,alt,@file\\{file ext\\} e{-}{-}xt@\\}} \\includegraphics[width=aze,height=az]{f--ile@.}
 \\includegraphics{image} \\includegraphics{image}
 \\end{GNUTexinfopreformatted}
