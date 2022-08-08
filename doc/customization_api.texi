@@ -1849,6 +1849,9 @@ The call of the user defined functions is:
 tree root element. @var{$stage} is the current stage.
 
 If @var{$status} is not 0 it means that an error occured.
+If @var{$status} is positive, the user defined functions should
+have registered an error message.  If @var{$status} is negative,
+the converter will emit a non specific error message.
 @end deftypefn
 
 

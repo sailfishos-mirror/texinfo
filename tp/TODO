@@ -25,6 +25,12 @@ Bugs
 HTML API
 ========
 
+document in the API $converter->document_error, $converter->document_warn
+and link from stage_handler in Init File Calling at Different Stages
+to $converter->document_error explaining that when status is > 0,
+then it is likely that $converter->document_error should have been
+called in the stage_handler.
+
 document Texinfo::Config
 texinfo_register_init_loading_error
 texinfo_register_init_loading_warning

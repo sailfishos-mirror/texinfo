@@ -9323,12 +9323,17 @@ sub run_stage_handlers($$$)
       }
       my $status = &{$handler}($converter, $root, $stage);
       if ($status != 0) {
-        #if ($converter->get_conf('VERBOSE')) {
-        #  print STDERR "Handler $handler of $stage($priority) failed\n";
-        #}
-        $converter->document_error($converter,
+        if ($status < 0) {
+          $converter->document_error($converter,
              sprintf(__("handler %s of stage %s priority %s failed"),
                         $handler, $stage, $priority));
+        } else {
+          # the handler is supposed to have output an error message
+          # already if $status > 0
+          if ($self->get_conf('VERBOSE') or $self->get_conf('DEBUG')) {
+            print STDERR "Handler $handler of $stage($priority) failed\n";
+          }
+        }
         return $status;
       }
     }
