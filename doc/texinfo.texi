@@ -9468,14 +9468,14 @@ it's necessary to use @code{@@&} or some other construct.
 Here's an example:
 
 @example
-@@deftypefn Function int foo (@@code@{const std::vector<int>@@&@} @@var@{bar@})
+@@deftypefn Function int foo (const std::vector<int>@@& @@var@{bar@})
 Documentation of @@code@{foo@}.
 @@end deftypefn
 @end example
 
 @noindent This gives the output 
 
-@deftypefn Function int foo (@code{const std::vector<int>@&} @var{bar})
+@deftypefn Function int foo (const std::vector<int>@& @var{bar})
 Documentation of @code{foo}.
 @end deftypefn
 
