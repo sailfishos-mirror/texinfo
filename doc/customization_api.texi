@@ -294,6 +294,7 @@ For the customization variables associated with @@-commands, see
 customization variables associated with command line options, see
 @ref{Customization Variables and Options,,, texinfo, Texinfo}.
 
+
 @node Modifying Main Program Array Variables
 @subsection Modifying Main Program Array Variables
 
@@ -372,6 +373,26 @@ variable, the function is @code{texinfo_add_valid_customization_option}:
 
 The variable value, if set, should also be available in the converters and therefore
 in the init file functions registered and called from the converters.
+
+
+@node Init File Loading Error Reporting
+@section Init File Loading Error Reporting
+
+@cindex Error reporting @subentry loading
+
+If an error or a warning should be emitted when loading an init file, before
+the conversion, use @code{texinfo_register_init_loading_error} for an error and
+@code{texinfo_register_init_loading_warning} for a warning.
+
+@defun texinfo_register_init_loading_error ($message)
+@defunx texinfo_register_init_loading_warning ($message)
+Cause an error message or a warning message based on @var{$message}
+to be output, taking into account options related to error reporting
+such as @option{--force} or @option{--no-warn}.
+@end defun
+
+Errors or warning emitted from user defined functions should use the
+converter (@pxref{Error Reporting in User Defined Functions}).
 
 
 @node Simple formatting customization
@@ -1134,6 +1155,7 @@ can also be used for error reporting as it is also a @code{Texinfo::Report}
 object (@pxref{Texinfo::Report,,,tp_api}), and for in-document strings
 translation as it is also a @code{Texinfo::Translations}
 object (@pxref{Texinfo::Translations,,,tp_api}).
+@xref{Error Reporting in User Defined Functions} on error reporting.
 
 
 @node Texinfo Tree Conversion Functions
@@ -1142,7 +1164,7 @@ object (@pxref{Texinfo::Translations,,,tp_api}).
 One important converter method that can be used in user defined functions
 is @code{convert_tree} that convert a Texinfo tree rooted at any element.
 There is no reason to use that function often, as the converter
-already go through the tree calling reference functions to convert
+already goes through the tree calling reference functions to convert
 the elements, but it can be interesting in some cases.
 
 @deftypefun $converted_text $converter->convert_tree (\%element, $explanation)
@@ -1243,6 +1265,49 @@ $converter->convert_tree($converter->gdt(
 @xref{Texinfo::Translations,,,tp_api} for more on @code{Texinfo::Translations}.
 @xref{Internationalization of Document Strings,,, texinfo, Texinfo} for an
 overview.
+
+
+@node Error Reporting in User Defined Functions
+@subsection Error Reporting in User Defined Functions
+
+@cindex Error reporting @subentry conversion
+@cindex @code{Texinfo::Report}
+
+To report an error or a warning in a user defined function, use the methods
+of @code{Texinfo::Report} through a converter object
+(@pxref{Converter Object and Conversion Functions}).
+
+To report a warning or an error not specific of an element conversion,
+use @code{document_warn} or @code{document_error}:
+
+@defun $converter->document_error ($text, $converter)
+@defunx $converter->document_warn ($text, $converter)
+Register a document-wide error or warning.  @var{$text} is the error
+or warning message.  The @var{$converter} object should be given
+as the second argument.
+@end defun
+
+To report a warning or an error in element conversion, use
+@code{line_warn} or @code{line_error}
+@defun $converter->line_error ($text, $converter, $location_info)
+@defunx $converter->line_warn ($text, $converter, $location_info)
+Register a warning or an error.  @var{$text} is the text of the
+error or warning.  The @var{$converter} object should be given
+as the second argument.  The optional
+@var{$error_location_info} holds the information on the error or
+warning location.  The @var{$error_location_info} reference on hash may be
+obtained from Texinfo elements @code{source_info} keys.
+@end defun
+
+In general, registering an error does not stop the processing, in
+particular it does not stop the main conversion of the Texinfo tree.
+Write initialization files as if the conversion always continued
+after registering the error.
+
+@xref{Texinfo::Report,,,tp_api} for more on @code{Texinfo::Report}.
+@c @xref{Init File Calling at Different Stages} for information on how
+@c to stop the processing from user defined functions called at different
+@c stages.
 
 
 @node Texinfo Tree Elements in User Defined Functions
@@ -1796,9 +1861,9 @@ and @var{$file}.
 @cindex Functions, calling at different stages
 
 Arbitrary user-defined functions may be called during conversion.
-This could be used, for example, to initialize variables before collecting
-the @@-commands and their text, expanding them between the collecting
-and expansion phase and doing clean-up after the expansion pass.
+This could be used, for example, to initialize variables and collect
+some @@-commands text, and doing clean-up after the Texinfo tree
+conversion.
 
 There are four places for user defined functions:
 @table @code
@@ -1850,9 +1915,11 @@ tree root element. @var{$stage} is the current stage.
 
 If @var{$status} is not 0 it means that an error occured.
 If @var{$status} is positive, the user defined functions should
-have registered an error or warning message.  If @var{$status} is
-negative, the converter will emit a non specific error message.  If the
-@var{$status} is lower than -@code{HANDLER_FATAL_ERROR_LEVEL} or
+have registered an error or warning message, for example with
+@code{document_error} (@pxref{Error Reporting in User Defined Functions}).
+If @var{$status} is negative, the converter will emit a non specific
+error message.  If the @var{$status} is lower than
+-@code{HANDLER_FATAL_ERROR_LEVEL} or
 higher than @code{HANDLER_FATAL_ERROR_LEVEL}, the processing stops
 immediately.  Default value for @code{HANDLER_FATAL_ERROR_LEVEL}
 is 100.

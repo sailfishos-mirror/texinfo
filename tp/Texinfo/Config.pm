@@ -162,7 +162,6 @@ sub GNUT_load_init_file($) {
 }
 
 # called from init files in case of errors at loading.
-# TODO document
 sub texinfo_register_init_loading_error($) {
   my $message = shift;
   push @{$init_file_loading_messages[-1]}, {'type' => 'error',
@@ -170,7 +169,6 @@ sub texinfo_register_init_loading_error($) {
 }
 
 # called from init files in case for warnings during loading.
-# TODO document
 sub texinfo_register_init_loading_warning($) {
   my $message = shift;
   push @{$init_file_loading_messages[-1]}, {'type' => 'warning',
