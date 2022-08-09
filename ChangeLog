@@ -1,5 +1,16 @@
 2022-08-09  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Bold typewriter for definition name in HTML
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type):
+	Use <strong> instead of <code> for def name.
+	(%css_element_class_styles) <strong.def-name>: Use monospace,
+	bold, larger font.
+	(_convert_def_line_type): Change 'def-meta-var-arguments' to
+	'def-var-arguments'.
+
+2022-08-09  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Inserting an Ampersand):
 	Remove unnecessary @code from example.
 

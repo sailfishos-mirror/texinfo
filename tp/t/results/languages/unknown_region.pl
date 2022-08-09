@@ -400,6 +400,7 @@ $result_converted{'html'}->{'unknown_region'} = '<!DOCTYPE html>
 <!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 -->
 </style>
 
@@ -411,7 +412,7 @@ span:hover a.copiable-link {visibility: visible}
 <h1 class="node" id="Top">Top</h1>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-AAA"><span class="category-def">Variable d&rsquo;instance of <code class="code">AAA</code>: </span><span><code class="def-name">BBB</code> <var class="def-meta-var-arguments">CCC</var><a class="copiable-link" href=\'#index-BBB-of-AAA\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-AAA"><span class="category-def">Variable d&rsquo;instance of <code class="code">AAA</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href=\'#index-BBB-of-AAA\'> &para;</a></span></dt>
 </dl>
 
 

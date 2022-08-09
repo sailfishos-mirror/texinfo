@@ -545,6 +545,7 @@ $result_converted{'html'}->{'space_in_def_for_index'} = '<!DOCTYPE html>
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top}
 th.entries-header-printindex {text-align:left}
@@ -559,8 +560,8 @@ th.sections-header-printindex {text-align:left}
 <h1 class="node" id="Top">Top</h1>
 
 <dl class="first-deffn">
-<dt class="deffn" id="index-name"><span class="category-def">Category: </span><span><code class="def-name">name</code> <var class="def-meta-var-arguments">argument argument2...</var><a class="copiable-link" href=\'#index-name\'> &para;</a></span></dt>
-<dt class="deffnx def-cmd-deffn" id="index-AAA2"><span class="category-def">AAA1: </span><span><code class="def-name">AAA2</code> <var class="def-meta-var-arguments">arg3</var><a class="copiable-link" href=\'#index-AAA2\'> &para;</a></span></dt>
+<dt class="deffn" id="index-name"><span class="category-def">Category: </span><span><strong class="def-name">name</strong> <var class="def-var-arguments">argument argument2...</var><a class="copiable-link" href=\'#index-name\'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-AAA2"><span class="category-def">AAA1: </span><span><strong class="def-name">AAA2</strong> <var class="def-var-arguments">arg3</var><a class="copiable-link" href=\'#index-AAA2\'> &para;</a></span></dt>
 </dl>
 
 <div class="printindex fn-printindex">

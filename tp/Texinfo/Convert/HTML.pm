@@ -2081,6 +2081,8 @@ my %css_element_class_styles = (
      'span.w-nolinebreak-text'   => 'white-space: nowrap',
      'kbd.key'            => 'font-style: normal',
      'kbd.kbd'            => 'font-style: oblique',
+     'strong.def-name'    => 'font-family: monospace; font-weight: bold; '
+                            .'font-size: larger',
      'p.flushleft-paragraph'   => 'text-align:left',
      'p.flushright-paragraph'  => 'text-align:right',
      'h1.centerchap'      => 'text-align:center',
@@ -5927,9 +5929,9 @@ sub _convert_def_line_type($$$$)
   if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
       and defined($element->{'extra'}->{'def_parsed_hash'}->{'name'})) {
     my $name_content = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
-    $result_name = $self->html_attribute_class('code', ['def-name']).'>'.
+    $result_name = $self->html_attribute_class('strong', ['def-name']).'>'.
        $self->_convert({'type' => '_code', 'contents' => [$name_content]})
-       .'</code>';
+       .'</strong>';
   }
 
   my $def_space = ' ';
@@ -5955,7 +5957,7 @@ sub _convert_def_line_type($$$$)
       pop @{$self->{'document_context'}->[-1]->{'monospace'}};
       if ($arguments_formatted =~ /\S/) {
         $result_arguments = $self->html_attribute_class('var',
-                               ['def-meta-var-arguments']).'>'
+                               ['def-var-arguments']).'>'
               . $arguments_formatted .'</var>';
       }
     }
