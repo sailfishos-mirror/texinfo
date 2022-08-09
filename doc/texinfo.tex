@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-08-09.16}
+\def\texinfoversion{2022-08-09.17}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -7668,20 +7668,18 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % Typed functions:
 
 % @deftypefn category type name args
-\makedefun{deftypefn}{\deftypefngeneral{}}
+\makedefun{deftypefn}#1 #2 #3 #4\endheader{%
+  \doind{fn}{\code{#3}}%
+  \doingtypefntrue
+  \defname{#1}{#2}{#3}\defunargs{#4\unskip}%
+}
 
 % @deftypeop category class type name args
-\makedefun{deftypeop}#1 {\deftypeopon{#1\ \putwordon}}
-
-% \deftypeopon {category on}class type name args
-\def\deftypeopon#1#2 {\deftypefngeneral{\putwordon\ \code{#2}}{#1\ \code{#2}} }
-
-% \deftypefngeneral {subind}category type name args
-%
-\def\deftypefngeneral#1#2 #3 #4 #5\endheader{%
-  \dosubind{fn}{\code{#4}}{#1}%
+\makedefun{deftypeop}#1 {\deftypeopheaderx{#1\ \putwordon}}
+\def\deftypeopheaderx#1#2 #3 #4 #5\endheader{%
+  \doind{fn}{\code{#4}\space\putwordon\ \code{#1\ \code{#2}}}%
   \doingtypefntrue
-  \defname{#2}{#3}{#4}\defunargs{#5\unskip}%
+  \defname{#1\ \code{#2}}{#3}{#4}\defunargs{#5\unskip}%
 }
 
 % Typed variables:
@@ -7730,7 +7728,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \makedefun{defopt}{\defvrheader{\putwordDefopt} }
 \makedefun{deftypevar}{\deftypevrheader{\putwordDefvar} }
 \makedefun{defmethod}{\defopheaderx\putwordMethodon}
-\makedefun{deftypemethod}{\deftypeopon\putwordMethodon}
+\makedefun{deftypemethod}{\deftypeopheaderx\putwordMethodon}
 \makedefun{defivar}{\defcvof\putwordInstanceVariableof}
 \makedefun{deftypeivar}{\deftypecvof\putwordInstanceVariableof}
 

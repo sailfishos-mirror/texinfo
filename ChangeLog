@@ -1,5 +1,11 @@
 2022-08-09  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\deftypefn, \deftypeop):
+	Simplify code by calling \doind directly rather than \dosubind,
+	and eliminating shared code between the two commands.
+
+2022-08-09  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Typewriter for @deftype* line
 
 	* doc/texinfo.tex (\defunargs): Use \tt font for @deftype*
