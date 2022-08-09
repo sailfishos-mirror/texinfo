@@ -9468,14 +9468,14 @@ it's necessary to use @code{@@&} or some other construct.
 Here's an example:
 
 @example
-@@deftypefn Function int foo (@@code@{const std::vector<int>@@&@} bar)
+@@deftypefn Function int foo (@@code@{const std::vector<int>@@&@} @@var@{bar@})
 Documentation of @@code@{foo@}.
 @@end deftypefn
 @end example
 
 @noindent This gives the output 
 
-@deftypefn Function int foo (@code{const std::vector<int>@&} bar)
+@deftypefn Function int foo (@code{const std::vector<int>@&} @var{bar})
 Documentation of @code{foo}.
 @end deftypefn
 
@@ -12118,14 +12118,11 @@ name.  For instance:
 The @code{@@deftypecv} command is the definition command for typed
 class variables in object-oriented programming.  It is analogous to
 @code{@@defcv} with the addition of the @var{data-type} parameter to
-specify the type of the instance variable.  Ordinarily, the data type
-is a programming language construct that should be marked with
-@code{@@code}. For instance:
-@c FIXME should @code be necessary here?
+specify the type of the instance variable.
 
 @example
 @group
-@@deftypecv @{Class Option@} Window @@code@{int@} border-pattern
+@@deftypecv @{Class Option@} Window int border-pattern
 @dots{}
 @@end deftypecv
 @end group
@@ -12133,7 +12130,7 @@ is a programming language construct that should be marked with
 
 @noindent produces:
 
-@deftypecv {Class Option} Window @code{int} border-pattern
+@deftypecv {Class Option} Window int border-pattern
 @dots{}
 @end deftypecv
 
@@ -12167,13 +12164,11 @@ instance:
 The @code{@@deftypeivar} command is the definition command for typed
 instance variables in object-oriented programming.  It is analogous to
 @code{@@defivar} with the addition of the @var{data-type} parameter to
-specify the type of the instance variable.  Ordinarily, the data type
-is a programming language construct that should be marked with
-@code{@@code}. For instance:
+specify the type of the instance variable.
 
 @example
 @group
-@@deftypeivar Window @@code@{int@} border-pattern
+@@deftypeivar Window int border-pattern
 @dots{}
 @@end deftypeivar
 @end group
