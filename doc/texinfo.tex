@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-08-06.16}
+\def\texinfoversion{2022-08-09.15}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -7653,19 +7653,16 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % Untyped functions:
 
 % @deffn category name args
-\makedefun{deffn}{\deffngeneral{}}
+\makedefun{deffn}#1 #2 #3\endheader{%
+  \doind{fn}{\code{#2}}%
+  \defname{#1}{}{#2}\magicamp\defunargs{#3\unskip}%
+}
 
-% @deffn category class name args
-\makedefun{defop}#1 {\defopon{#1\ \putwordon}}
-
-% \defopon {category on}class name args
-\def\defopon#1#2 {\deffngeneral{\putwordon\ \code{#2}}{#1\ \code{#2}} }
-
-% \deffngeneral {subind}category name args
-%
-\def\deffngeneral#1#2 #3 #4\endheader{%
-  \dosubind{fn}{\code{#3}}{#1}%
-  \defname{#2}{}{#3}\magicamp\defunargs{#4\unskip}%
+% @defop category class name args
+\makedefun{defop}#1 {\defopheaderx{#1\ \putwordon}}
+\def\defopheaderx#1#2 #3 #4\endheader{%
+  \doind{fn}{\code{#3}\space\putwordon\ \code{#2}}%
+  \defname{#1\ \code{#2}}{}{#3}\magicamp\defunargs{#4\unskip}%
 }
 
 % Typed functions:
@@ -7732,7 +7729,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \makedefun{defvar}{\defvrheader{\putwordDefvar} }
 \makedefun{defopt}{\defvrheader{\putwordDefopt} }
 \makedefun{deftypevar}{\deftypevrheader{\putwordDefvar} }
-\makedefun{defmethod}{\defopon\putwordMethodon}
+\makedefun{defmethod}{\defopheaderx\putwordMethodon}
 \makedefun{deftypemethod}{\deftypeopon\putwordMethodon}
 \makedefun{defivar}{\defcvof\putwordInstanceVariableof}
 \makedefun{deftypeivar}{\deftypecvof\putwordInstanceVariableof}
