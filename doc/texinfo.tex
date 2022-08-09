@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-08-09.15}
+\def\texinfoversion{2022-08-09.16}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -7826,24 +7826,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   % arguments will be output next, if any.
 }
 
-% Print arguments in slanted roman (not ttsl), inconsistently with using
-% tt for the name.  This is because literal text is sometimes needed in
-% the argument list (groff manual), and ttsl and tt are not very
-% distinguishable.  Prevent hyphenation at `-' chars.
-%
+% Print arguments.  Use slanted for @def*, typewriter for @deftype*.
 \def\defunargs#1{%
-  % use sl by default (not ttsl),
-  % tt for the names.
-  \df \sl \hyphenchar\font=0
-  %
-  % On the other hand, if an argument has two dashes (for instance), we
-  % want a way to get ttsl.  We used to recommend @var for that, so
-  % leave the code in, but it's strange for @var to lead to typewriter.
-  % Nowadays we recommend @code, since the difference between a ttsl hyphen
-  % and a tt hyphen is pretty tiny.  @code also disables ?` !`.
-  \def\var##1{{\setregularquotes\ttslanted{##1}}}%
+  \df \ifdoingtypefn \tt \else \sl \fi
+  \let\var\cite % \sl font for @var
   #1%
-  \sl\hyphenchar\font=45
 }
 
 % We want ()&[] to print specially on the defun line.
