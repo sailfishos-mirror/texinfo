@@ -111,8 +111,7 @@ sub l2h_to_latex($$$$$)
   my $latex_texts = shift;
 
   unless (open(L2H_LATEX, ">$l2h_latex_path_string")) {
-    #$self->document_error($self, sprintf(__(
-    $self->document_warn($self, sprintf(__(
+    $self->document_error($self, sprintf(__(
           "l2h: could not open latex file %s for writing: %s"),
                                   $l2h_latex_path_name, $!));
     return 0;
@@ -164,7 +163,8 @@ sub l2h_process($$)
   my $document_root = shift;
   @latex_texts = ();           # array used to associate the index with
                                # a latex text.
-  $latex_commands_count = 0;   # number of latex Texinfo commands collected
+  $latex_commands_count = undef;
+                               # number of latex Texinfo commands collected
   $latex_texts_count = 0;      # number of latex texts stored, two same text
                                # are only stored once
   $latex_to_convert_count = 0; # number of latex texts that should pass through
@@ -187,8 +187,6 @@ sub l2h_process($$)
   $image_count = 1;
 
   $html_output_count = 0;   # html text outputed in html result file
-  return -1 if (defined($self->get_conf('OUTFILE'))
-        and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
 
   $docu_name = $self->get_info('document_name');
   # destination dir -- generated images are put there, should be the same
@@ -221,13 +219,22 @@ sub l2h_process($$)
   $debug = $self->get_conf('DEBUG');
   $verbose = $self->get_conf('VERBOSE');
 
+  # no point in doing anything in that case.  Reusing cached information
+  # may have been relevant, but the cache file should not exist
+  # (cache file is /dev/null-l2h_cache.pm).
+  return 0 if (defined($self->get_conf('OUTFILE'))
+       and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
+
+  my $l2h_skip = $self->get_conf('L2H_SKIP');
+
   # open the database that holds cached text
-  l2h_init_cache($self) if (!defined($self->get_conf('L2H_SKIP'))
-                            or $self->get_conf('L2H_SKIP'));
+  l2h_init_cache($self) if (!defined($l2h_skip) or $l2h_skip);
+
 
   my @replaced_commands = ('tex', 'math', 'displaymath');
   my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
                                         $document_root, \@replaced_commands);
+
   my $texinfo_command_index = 0;     # index of latex elements/commands processed
   my @latex_text_indices_to_convert; # indices of latex texts that should be converted
   my %latex_text_indices;        # associate a latex text with the index in the
@@ -289,6 +296,7 @@ sub l2h_process($$)
   } else {
     # no handled command, nothing to do
     warn "# l2h: no handled commands\n" if ($verbose);
+    $latex_commands_count = 0;
     return 0;
   }
   $latex_to_convert_count = scalar(@latex_text_indices_to_convert);
@@ -300,15 +308,14 @@ sub l2h_process($$)
   # when there are tex constructs to convert (not everything
   # comes from the cache)
   if ($latex_to_convert_count > 0) {
-    unless ($self->get_conf('L2H_SKIP')) {
+    unless ($l2h_skip) {
       my $l2h_to_latex_status
         = l2h_to_latex($self, $l2h_latex_path_string, $l2h_latex_path_name,
                        \@latex_text_indices_to_convert, \@latex_texts);
       return 1 unless ($l2h_to_latex_status);
 
       # the non equality of $latex_converted_count and $latex_to_convert_count
-      # is the preferred indicator of skipping this stage (and possible failure
-      # but in case of failure, the converter normally aborts).
+      # is the preferred indicator of skipping this stage or failure.
       $latex_converted_count = $latex_to_convert_count;
     }
 
@@ -323,7 +330,7 @@ sub l2h_process($$)
       # Not the same number of converted elements and retrieved elements.
       if ($latex_converted_count != $html_converted_count) {
         # unless latex2html somewhat mangles the output this cannot
-        # actually happen, so it could also be presented as a bug.
+        # actually happen, so it could also be presented as an error or a bug.
         $self->document_warn($self, sprintf(__(
           "latex2html.pm: processing produced %d items in HTML; expected %d"),
                           $html_converted_count, $latex_converted_count));
@@ -531,9 +538,10 @@ sub l2h_retrieve_from_html($$)
                                                  $encoded_l2h_html_file_name);
 
   if (! open(L2H_HTML, "<$l2h_html_path_string")) {
-    $self->document_warn($self,
+    $self->document_error($self,
                 sprintf(__("l2h: could not open %s: %s"),
                                  $l2h_html_path_name, $!));
+    # return empty array
     return @html_retrieved_text_indices;
   }
   # the file content is UTF-8 encoded
@@ -586,8 +594,16 @@ sub l2h_convert_command($$$;$$)
   my $args = shift;
   my $content = shift;
 
+  # the initialization did not went to the point of commands
+  # collections, return the default formatting.
+  if (not defined($latex_commands_count)) {
+    return &{$self->default_command_conversion($cmdname)}($self,
+                               $cmdname, $command, $args, $content);
+  }
+
   my $command_count = $commands_counters{$command};
   my $latex_text_index = $commands_text_index{$command};
+
   ################################## begin debug section (incorrect counts)
   if (!defined($command_count)) {
     $self->present_bug_message("l2h: conversion of ${cmdname}, undef command_count");
@@ -620,15 +636,16 @@ sub l2h_convert_command($$$;$$)
     $result .= "\n" if ($cmdname eq 'tex');
   } else {
     # if the result is not in @l2h_from_html, it should in general mean that
-    # the conversion was skipped, as failures in general cause the converter
-    # to abort.  It could also happen if latex2html somehow mangled the output.
+    # the conversion was skipped or there was an error or maybe latex2html
+    # somehow mangled the output.
     $extract_error_count++;
     # Expected error if the conversion to html failed or was skipped,
     # additional warning only if the conversion seems to have proceeded normally.
     if ($latex_converted_count == $latex_to_convert_count
         and $latex_converted_count == $html_converted_count) {
-      # it could also probably be marked as a bug as there is no situation
-      # in which this could happen given the check on succeeding conversion.
+      # it could also probably be marked as a bug (or error) as there is no
+      # situation in which this could happen with the conditions on succeeding
+      # conversion.
       $self->document_warn($self, sprintf(__(
         "l2h: could not extract the fragment %d for \@%s, text %d, from HTML"),
                    $command_count, $cmdname, $latex_text_index));
@@ -649,6 +666,8 @@ sub l2h_finish($)
 {
   my $self = shift;
 
+  return 0 if (not defined($latex_commands_count));
+
   if ($verbose) {
     if ($extract_error_count + $invalid_text_index_count) {
       warn "# l2h: finish ($extract_error_count extract errors, $invalid_text_index_count invalid index errors)\n";
@@ -668,8 +687,7 @@ sub l2h_finish($)
     }
   }
 
-  # return in case of error or, more likely, skipped run, as the
-  # errors cause the converter to abort.
+  # return in case of error or skipped run
   return 0 if ($latex_converted_count != $latex_to_convert_count
                or $latex_converted_count != $html_converted_count);
 
@@ -739,11 +757,12 @@ sub l2h_init_cache($)
     if ($verbose and scalar(keys(%l2h_cache)));
 }
 
-# store all the text obtained through latex2html
+# store all the text obtained through latex2html or from previous runs cache
 sub l2h_store_cache($)
 {
   my $self = shift;
-  return unless $latex_texts_count;
+  # do not reset the cache if there was no new conversion
+  return unless ($html_converted_count);
   my ($key, $value);
   my ($encoded_l2h_cache_path_name, $l2h_cache_path_encoding)
     = $self->encoded_output_file_name($l2h_cache_path_name);

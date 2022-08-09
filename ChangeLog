@@ -1,3 +1,25 @@
+2022-08-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/ext/tex4ht.pm (tex4ht_prepare): outputing to a null
+	device is not an error.
+
+	* tp/ext/tex4ht.pm (tex4ht_process): chdir to the processing
+	directory only if there is some processing.  Add css import later,
+	in tex4ht_process_format, if there was some processing.
+
+	* tp/ext/tex4ht.pm (tex4ht_convert_command): output default
+	formatting if the commands were not collected, or there is no
+	result at all for a command, indicating a failure.
+
+	* tp/ext/tex4ht.pm (tex4ht_process, tex4ht_convert_command):
+	rename tex4ht_convert as tex4ht_process and tex4ht_do_tex
+	as tex4ht_convert_command.
+
+	* tp/ext/latex2html.pm (l2h_process, l2h_convert_command)
+	(l2h_finish): outputing to a null device is not an error.
+	Use $latex_commands_count undef to express that the commands
+	were not collected.
+
 2022-08-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Block more ligatures in LaTeX
