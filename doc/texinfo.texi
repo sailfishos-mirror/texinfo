@@ -11622,9 +11622,6 @@ and @code{@@defmac} enter function names in the index of functions;
 @code{@@defvr} and @code{@@defvar} enter variable names in the index
 of variables.
 
-Although the examples that follow mostly illustrate Lisp, the commands
-can be used for other programming languages.
-
 @menu
 * Functions Commands::          Commands for functions and similar entities.
 * Variables Commands::          Commands for variables and similar entities.
@@ -11669,10 +11666,11 @@ Move point forward @@var@{nchars@} characters.
 This shows a rather terse definition for a ``command'' named
 @code{forward-char} with one argument, @var{nchars}.
 
-@code{@@deffn} prints argument names such as @var{nchars} in slanted
-type in the printed output, because we think of these names as
-metasyntactic variables---they stand for the actual argument values.
-Within the text of the description, however, write an argument name
+Where the output format allows, @code{@@deffn} uses a typewriter font
+for @var{name}, and a slanted font for the rest of the @var{arguments},
+as would be produced by @code{@@var}.
+
+Within the text of the description, write an argument name
 explicitly with @code{@@var} to refer to the value of the argument.
 In the example above, we used @samp{@@var@{nchars@}} in this way.
 
@@ -11860,14 +11858,13 @@ This means that @code{foobar} is a ``library function'' that returns an
 @code{int}, and its arguments are @var{foo} (an @code{int}) and
 @var{bar} (a @code{float}).
 
-Since in typed languages, the actual names of the arguments are
-typically scattered among data type names and keywords, Texinfo cannot
-find them without help.  You can either (a)@tie{}write everything as
-straight text, and it will be printed in slanted type; (b)@tie{}use
-@code{@@var} for the variable names, which will uppercase the variable
-names in Info and use the slanted typewriter font in printed output;
-(c)@tie{}use @code{@@var} for the variable names and @code{@@code} for
-the type names and keywords, which will be dutifully obeyed.
+When using @code{@@deftypefn} command and variations,
+you should mark parameter names with
+@code{@@var} to distinguish these from data type names, keywords, and
+other parts of the literal syntax of the programming language.
+Where the output format allows,
+all output on the definition line is in a typewriter font by default.
+@code{@@var} uses an appropriate font where it occurs.
 
 The template for @code{@@deftypefn} is:
 
@@ -12124,6 +12121,7 @@ class variables in object-oriented programming.  It is analogous to
 specify the type of the instance variable.  Ordinarily, the data type
 is a programming language construct that should be marked with
 @code{@@code}. For instance:
+@c FIXME should @code be necessary here?
 
 @example
 @group
