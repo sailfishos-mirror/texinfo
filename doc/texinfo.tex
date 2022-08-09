@@ -7635,21 +7635,6 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \fi\fi
 }
 
-% \dosubind {index}{topic}{subtopic}
-%
-% If SUBTOPIC is present, precede it with a space, and call \doind.
-% (At some time during the 20th century, this made a two-level entry in an 
-% index such as the operation index.  Nobody seemed to notice the change in 
-% behaviour though.)
-\def\dosubind#1#2#3{%
-  \def\thirdarg{#3}%
-  \ifx\thirdarg\empty
-    \doind{#1}{#2}%
-  \else
-    \doind{#1}{#2\space#3}%
-  \fi
-}
-
 % Untyped functions:
 
 % @deffn category name args
@@ -7685,19 +7670,16 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 % Typed variables:
 
 % @deftypevr category type var args
-\makedefun{deftypevr}{\deftypecvgeneral{}}
+\makedefun{deftypevr}#1 #2 #3 #4\endheader{%
+  \doind{vr}{\code{#3}}%
+  \defname{#1}{#2}{#3}\defunargs{#4\unskip}%
+}
 
 % @deftypecv category class type var args
-\makedefun{deftypecv}#1 {\deftypecvof{#1\ \putwordof}}
-
-% \deftypecvof {category of}class type var args
-\def\deftypecvof#1#2 {\deftypecvgeneral{\putwordof\ \code{#2}}{#1\ \code{#2}} }
-
-% \deftypecvgeneral {subind}category type var args
-%
-\def\deftypecvgeneral#1#2 #3 #4 #5\endheader{%
-  \dosubind{vr}{\code{#4}}{#1}%
-  \defname{#2}{#3}{#4}\defunargs{#5\unskip}%
+\makedefun{deftypecv}#1 {\deftypecvheaderx{#1\ \putwordof}}
+\def\deftypecvheaderx#1#2 #3 #4 #5\endheader{%
+  \doind{vr}{\code{#4}\space\putwordof\ \code{#2}}%
+  \defname{#1\ \code{#2}}{#3}{#4}\defunargs{#5\unskip}%
 }
 
 % Untyped variables:
@@ -7706,10 +7688,8 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \makedefun{defvr}#1 {\deftypevrheader{#1} {} }
 
 % @defcv category class var args
-\makedefun{defcv}#1 {\defcvof{#1\ \putwordof}}
-
-% \defcvof {category of}class var args
-\def\defcvof#1#2 {\deftypecvof{#1}#2 {} }
+\makedefun{defcv}#1 {\defcvheaderx{#1\ \putwordof}}
+\def\defcvheaderx#1#2 {\deftypecvheaderx{#1}#2 {} }
 
 % Types:
 
@@ -7729,8 +7709,8 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \makedefun{deftypevar}{\deftypevrheader{\putwordDefvar} }
 \makedefun{defmethod}{\defopheaderx\putwordMethodon}
 \makedefun{deftypemethod}{\deftypeopheaderx\putwordMethodon}
-\makedefun{defivar}{\defcvof\putwordInstanceVariableof}
-\makedefun{deftypeivar}{\deftypecvof\putwordInstanceVariableof}
+\makedefun{defivar}{\defcvheaderx\putwordInstanceVariableof}
+\makedefun{deftypeivar}{\deftypecvheaderx\putwordInstanceVariableof}
 
 % \defname, which formats the name of the @def (not the args).
 % #1 is the category, such as "Function".

@@ -1,5 +1,12 @@
 2022-08-09  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\deftypevr, \defvr, \deftypecv, \defcv):
+	Call \doind directly.  This simplifies the code path in the usual
+	case when \dosubind was passed an empty subtopic.
+	(\dosubind): Remove.
+
+2022-08-09  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@def* documentation
 
 	* doc/texinfo.texi (Object-Oriented Variables): Remove needless
