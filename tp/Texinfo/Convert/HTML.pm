@@ -10232,7 +10232,7 @@ sub _convert($$;$)
       }
       return $result;
     } else {
-      print STDERR "Unknown command `$command_name'\n"
+      print STDERR "Command not converted: $command_name\n"
        if ($self->get_conf('VERBOSE') or $self->get_conf('DEBUG'));
       return '';
     }
