@@ -1850,8 +1850,12 @@ tree root element. @var{$stage} is the current stage.
 
 If @var{$status} is not 0 it means that an error occured.
 If @var{$status} is positive, the user defined functions should
-have registered an error message.  If @var{$status} is negative,
-the converter will emit a non specific error message.
+have registered an error or warning message.  If @var{$status} is
+negative, the converter will emit a non specific error message.  If the
+@var{$status} is lower than -@code{HANDLER_FATAL_ERROR_LEVEL} or
+higher than @code{HANDLER_FATAL_ERROR_LEVEL}, the processing stops
+immediately.  Default value for @code{HANDLER_FATAL_ERROR_LEVEL}
+is 100.
 @end deftypefn
 
 

@@ -9385,6 +9385,8 @@ sub output($$)
   }
   $self->set_conf('EXTERNAL_CROSSREF_SPLIT', $self->get_conf('SPLIT'));
 
+  my $handler_fatal_error_level = $self->get_conf('HANDLER_FATAL_ERROR_LEVEL');
+
   if ($self->get_conf('HTML_MATH')
         and $self->get_conf('HTML_MATH') eq 'mathjax') {
     # See https://www.gnu.org/licenses/javascript-labels.html
@@ -9435,7 +9437,8 @@ sub output($$)
   $self->_reset_info();
 
   my $setup_status = $self->run_stage_handlers($root, 'setup');
-  return undef unless ($setup_status == 0);
+  return undef unless ($setup_status < $handler_fatal_error_level
+                       and $setup_status > -$handler_fatal_error_level);
 
   if ($self->get_conf('HTML_MATH')
         and $self->get_conf('HTML_MATH') eq 'mathjax') {
@@ -9534,8 +9537,10 @@ sub output($$)
   # set information, to have it ready for
   # run_stage_handlers.  Some information is not available yet.
   $self->_reset_info();
+
   my $structure_status = $self->run_stage_handlers($root, 'structure');
-  return undef unless ($structure_status == 0);
+  return undef unless ($structure_status < $handler_fatal_error_level
+                       and $structure_status > -$handler_fatal_error_level);
 
   my $default_document_language = $self->get_conf('documentlanguage');
 
@@ -9639,7 +9644,8 @@ sub output($$)
   $self->_reset_info();
 
   my $init_status = $self->run_stage_handlers($root, 'init');
-  return undef unless ($init_status == 0);
+  return undef unless ($init_status < $handler_fatal_error_level
+                       and $init_status > -$handler_fatal_error_level);
 
   if ($self->get_conf('FRAMES')) {
     my $status = &{$self->formatting_function('format_frame_files')}($self,
@@ -9867,7 +9873,8 @@ sub output($$)
   }
 
   my $finish_status = $self->run_stage_handlers($root, 'finish');
-  return undef unless ($finish_status == 0);
+  return undef unless ($finish_status < $handler_fatal_error_level
+                       and $finish_status > -$handler_fatal_error_level);
 
   my $extension = '';
   $extension = '.'.$self->get_conf('EXTENSION')

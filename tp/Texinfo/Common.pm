@@ -252,14 +252,16 @@ our %default_main_program_customization_options = (
 our %default_converter_customization = (
   'TOP_NODE_UP'           => '(dir)',   # up node of Top node default value
   'BASEFILENAME_LENGTH'   => 255 - 10,
+  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,
+  'DOC_ENCODING_FOR_OUTPUT_FILE_NAME' => 0,
   # only used in HTML
   'IMAGE_LINK_PREFIX'     => undef,
   'CASE_INSENSITIVE_FILENAMES' => 0,
   'DEBUG'                 => 0,
+  # only used in HTML
+  'HANDLER_FATAL_ERROR_LEVEL' => 100,
   'TEST'                  => 0,
   'TEXTCONTENT_COMMENT',  => undef,  # in textcontent format
-  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,
-  'DOC_ENCODING_FOR_OUTPUT_FILE_NAME' => 0,
 );
 
 # Some are for all converters, EXTENSION for instance, some for

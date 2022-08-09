@@ -16938,6 +16938,15 @@ menus.
 This variable is set to @samp{nomenu} when generating DocBook, or when
 @option{--no-headers} is specified.
 
+@c document?
+@ignore
+@item HANDLER_FATAL_ERROR_LEVEL
+This variable sets the error level above which errors returned by
+user defined functions registered to be called at different stages
+are considered to be fatal errors.  You should not need to change this
+value.  Default 100.
+@end ignore
+
 @item IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME
 If set, spaces are ignored after an @@-command that takes braces.
 Default true, matching the @TeX{} behavior.

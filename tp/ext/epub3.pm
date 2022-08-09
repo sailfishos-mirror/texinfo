@@ -394,7 +394,7 @@ sub epub_setup($)
       and $archive_zip_loading_error) {
     $self->document_error($self,
        __("Archive::Zip is required for EPUB file output"));
-    return 1;
+    return 150;
   }
 
   if (not defined($self->get_conf('EPUB_KEEP_CONTAINER_FOLDER'))) {
@@ -492,7 +492,7 @@ sub epub_setup($)
                  $epub_document_destination_directory, $file, $message));
       }
     }
-    return 1;
+    return 150;
   }
   return 0;
 }
