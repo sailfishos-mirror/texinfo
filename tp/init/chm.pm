@@ -46,10 +46,12 @@ texinfo_set_format_from_init_file('html');
 
 texinfo_set_from_init_file('TOP_FILE', undef);
 
-#$SECTION_NAVIGATION = 0; # to avoid headers in normal elements
+texinfo_set_from_init_file('contents', 1);
+
+# remove navigation information, it is done by the viewer, and remove
+# anything that gets in the way of the navigation.
 texinfo_set_from_init_file('FORMAT_MENU', 'nomenu');
 texinfo_set_from_init_file('SPLIT', 'node');
-texinfo_set_from_init_file('contents', 1);
 
 texinfo_set_from_init_file('DEFAULT_RULE', '');
 texinfo_set_from_init_file('BIG_RULE', '');
@@ -58,9 +60,6 @@ texinfo_set_from_init_file('HEADERS', 0);
 texinfo_set_from_init_file('footnotestyle', 'end');
 
 texinfo_set_from_init_file('PROGRAM_NAME_IN_FOOTER', 0);
-
-#FIXME remove that later?
-texinfo_set_from_init_file('USE_NODES', 0);
 
 texinfo_register_formatting_function('format_navigation_header', \&chm_noop);
 texinfo_register_formatting_function('format_navigation_panel', \&chm_noop);
@@ -207,8 +206,12 @@ sub _chm_convert_tree_to_text($$;$)
 sub chm_init($)
 {
   my $self = shift;
-  return -1 if (defined($self->get_conf('OUTFILE'))
+
+  return 0 if (defined($self->get_conf('OUTFILE'))
         and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
+
+  my $verbose = $self->get_conf('VERBOSE');
+
   my $document_name = $self->get_info('document_name');
   my $outdir = $self->get_info('destination_directory');
   $outdir = File::Spec->curdir() if ($outdir eq '');
@@ -222,12 +225,12 @@ sub chm_init($)
                       $encoded_hhk_file_path_name);
   if (!defined($hhk_fh)) {
     $self->document_error($self,
-         sprintf(__("chm.pm: could not open %s for writing: %s\n"), 
+         sprintf(__("chm.pm: could not open %s for writing: %s\n"),
                   $hhk_file_path_name, $!));
     return 1;
   }
-  print STDERR "# writing HTML Help index in $hhk_file_path_name...\n" 
-     if ($self->get_conf('VERBOSE'));
+  print STDERR "# chm: writing HTML Help index in $hhk_file_path_name...\n"
+     if ($verbose);
   print $hhk_fh "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML//EN\">\n<HTML>\n";
   print $hhk_fh "<HEAD>\n<meta name=\"GENERATOR\" content=\""
    .$self->get_conf('PROGRAM') ."\">\n";
@@ -248,7 +251,7 @@ sub chm_init($)
         my $entry = _chm_convert_tree_to_text($self,
                                {'contents' => $index_entry_ref->{'content'}},
                                {'code' => $index_entry_ref->{'in_code'}});
-        print $hhk_fh "<LI> <OBJECT type=\"text/sitemap\">\n<param name=\"Name\" value=\"$entry\">\n<param name=\"Local\" value=\"$origin_href\">\n</OBJECT> </LI>\n" 
+        print $hhk_fh "<LI> <OBJECT type=\"text/sitemap\">\n<param name=\"Name\" value=\"$entry\">\n<param name=\"Local\" value=\"$origin_href\">\n</OBJECT> </LI>\n"
          if ($entry =~ /\S/);
       }
     }
@@ -270,17 +273,16 @@ sub chm_init($)
   my $hhc_fh = Texinfo::Common::output_files_open_out(
                       $self->output_files_information(), $self,
                       $encoded_hhc_file_path_name);
-  # Not sure $! is still valid
   if (!defined($hhc_fh)) {
     $self->document_error($self,
-         sprintf(__("chm.pm: could not open %s for writing: %s\n"), 
+         sprintf(__("chm.pm: could not open %s for writing: %s\n"),
                   $hhc_file_path_name, $!));
     return 1;
   }
 
-  print STDERR "# writing HTML Help project in $hhc_file_path_name...\n" 
-     if ($self->get_conf('VERBOSE'));
-  
+  print STDERR "# chm: writing HTML Help project in $hhc_file_path_name...\n"
+     if ($verbose);
+
   print $hhc_fh "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML//EN\">\n<HTML>\n";
   print $hhc_fh "<HEAD>\n<meta name=\"GENERATOR\" content=\""
    .$self->get_conf('PROGRAM') ."\">\n";
@@ -294,7 +296,7 @@ sub chm_init($)
   if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}) {
     my $section_root = $self->{'structuring'}->{'sectioning_root'};
     my $upper_level = $section_root->{'structure'}->{'section_childs'}->[0]
-                                                   ->{'structure'}->{'section_level'};
+                                               ->{'structure'}->{'section_level'};
     foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
       $upper_level = $top_section->{'structure'}->{'section_level'}
       if ($top_section->{'structure'}->{'section_level'} < $upper_level);
@@ -319,7 +321,7 @@ sub chm_init($)
       }
       my $text = _chm_convert_tree_to_text($self, $section->{'args'}->[0]);
       $text = Texinfo::Convert::Utils::numbered_heading($self, $section, $text,
-                          $self->get_conf('NUMBER_SECTIONS')); 
+                          $self->get_conf('NUMBER_SECTIONS'));
       # the empty string as second argument makes sure that the
       # source file is different from the target file.
       my $origin_href = $self->command_href($section, '');
@@ -347,15 +349,14 @@ sub chm_init($)
   my $hhp_fh = Texinfo::Common::output_files_open_out(
                       $self->output_files_information(), $self,
                       $encoded_hhp_file_path_name);
-  # Not sure $! is still valid
   if (!defined($hhp_fh)) {
     $self->document_error(
-           $self, sprintf(__("chm.pm: could not open %s for writing: %s\n"), 
+           $self, sprintf(__("chm.pm: could not open %s for writing: %s\n"),
                   $hhp_file_path_name, $!));
     return 1;
   }
-  print STDERR "# writing HTML Help project in $hhp_file_path_name...\n" 
-     if ($self->get_conf('VERBOSE'));
+  print STDERR "# chm: writing HTML Help project in $hhp_file_path_name...\n"
+     if ($verbose);
   my $language = $chm_languages{'en'};
   my $documentlanguage = $self->get_conf('documentlanguage');
   $documentlanguage =~ s/_.*//;
