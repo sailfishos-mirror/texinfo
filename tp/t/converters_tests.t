@@ -821,10 +821,12 @@ deffn r slanted for @var{a---rg1} and @var{a--rg2}
 
 @defspec foobar (var [from to [inc]]) default
 @defspecx foobar (var @r{[}from to @r{[}inc@r{]]}) r
+@defspecx foobar (var @var{[}from to @var{[}inc@var{]]}) var
 @defspecx foobar (var @slanted{[}from to @slanted{[}inc@slanted{]]}) slanted
 @defspecx foobar (var @code{[}from to @code{[}inc@code{]]}) code
 @defspecx foobar (var @t{[}from to @t{[}inc@t{]]}) t
 @defspecx foobar (var @t{@b{[}}from to @t{@b{[}}inc@t{@b{]]}}) t:b
+@defspecx foobar (var @r{@var{[}}from to @r{@var{[}}inc@r{@var{]]}}) r:var
 @defspecx foobar (var @r{@slanted{[}}from to @r{@slanted{[}}inc@r{@slanted{]]}}) r:slanted
 @defspecx foobar (var @r{@code{[}}from to @r{@code{[}}inc@r{@code{]]}}) r:code
 @defspecx foobar (var @r{@t{[}}from to @r{@t{[}}inc@r{@t{]]}}) r:t
@@ -898,10 +900,12 @@ In deffn with code and var used
 
 @deftypefn {Library Function} int foobar  (int @var{f---oo}[, float @var{b--ar}]) default
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{[}, float @var{b--ar}@r{]}) r
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@var{[}, float @var{b--ar}@var{]}) var
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@slanted{[}, float @var{b--ar}@slanted{]}) slanted
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@code{[}, float @var{b--ar}@code{]}) code
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@t{[}, float @var{b--ar}@t{]}) t
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@t{@b{[}}, float @var{b--ar}@t{@b{]}}) t:b
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@var{[}}, float @var{b--ar}@r{@var{]}}) r:var
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@slanted{[}}, float @var{b--ar}@r{@slanted{]}}) r:slanted
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@code{[}}, float @var{b--ar}@r{@code{]}}) r:code
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@t{[}}, float @var{b--ar}@r{@t{]}}) r:t
@@ -910,10 +914,12 @@ separators
 
 @deftypefn {Library Function} int foobar  (i--nt @var{f---oo}[, float @var{b--ar}]) default
 @deftypefnx {Library Function} int foobar  (@r{i--nt} @var{f---oo}[, float @var{b--ar}]) r
+@deftypefnx {Library Function} int foobar  (@var{i--nt} @var{f---oo}[, float @var{b--ar}]) var
 @deftypefnx {Library Function} int foobar  (@slanted{i--nt} @var{f---oo}[, float @var{b--ar}]) slanted
 @deftypefnx {Library Function} int foobar  (@code{i--nt} @var{f---oo}[, float @var{b--ar}]) code
 @deftypefnx {Library Function} int foobar  (@t{i--nt} @var{f---oo}[, float @var{b--ar}]) t
 @deftypefnx {Library Function} int foobar  (@t{@b{i--nt}} @var{f---oo}[, float @var{b--ar}]) t:b
+@deftypefnx {Library Function} int foobar  (@r{@var{i--nt}} @var{f---oo}[, float @var{b--ar}]) r:var
 @deftypefnx {Library Function} int foobar  (@r{@slanted{i--nt}} @var{f---oo}[, float @var{b--ar}]) r:slanted
 @deftypefnx {Library Function} int foobar  (@r{@code{i--nt}} @var{f---oo}[, float @var{b--ar}]) r:code
 @deftypefnx {Library Function} int foobar  (@r{@t{i--nt}} @var{f---oo}[, float @var{b--ar}]) r:t
