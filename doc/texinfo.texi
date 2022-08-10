@@ -11329,24 +11329,16 @@ lines at the bottoms of printed pages.
 
 The @code{@@deffn} command and the other @dfn{definition commands}
 enable you to describe functions, variables, macros, commands, user
-options, special forms and other such artifacts in a uniform
-format.
+options, special forms and other entities in a uniform format.
 
-In the Info file, a definition causes the entity
-category---`Function', `Variable', or whatever---to appear at the
-beginning of the first line of the definition, followed by the
-entity's name and arguments.  In the printed manual, the command
-causes @TeX{} to print the entity's name and its arguments on the left
-margin and print the category next to the right margin.  In both
-output formats, the body of the definition is indented.  Also, the
-name of the entity is entered into the appropriate index:
-@code{@@deffn} enters the name into the index of functions,
-@code{@@defvr} enters it into the index of variables, and so
-on (@pxref{Predefined Indices}).
+In the output, the name of the entity is shown with any arguments, along
+with the entity category ---`Function', `Variable', or whatever.
+Underneath, the body of the definition is indented.
+The name of the entity is also entered into the appropriate index.
 
-A manual need not and should not contain more than one definition for
-a given name.  An appendix containing a summary should use
-@code{@@table} rather than the definition commands.
+All the definition commands follow a similar format.  This chapter
+starts by describing @code{@@deffn} before detailing all the other
+definition commands.
 
 @menu
 * Def Cmd Template::            Writing descriptions using definition commands.
@@ -11364,22 +11356,6 @@ a given name.  An appendix containing a summary should use
 @cindex Definition template
 @cindex Template for a definition
 
-The @code{@@deffn} command is used for definitions of entities that
-resemble functions.  To write a definition using the @code{@@deffn}
-command, write the @code{@@deffn} command at the beginning of a line
-and follow it on the same line by the category of the entity, the name
-of the entity itself, and its arguments (if any).  Then write the body
-of the definition on succeeding lines.  (You may embed examples in the
-body.)  Finally, end the definition with an @code{@@end deffn} command
-written on a line of its own.
-
-The other definition commands follow the same format: a line with the
-@code{@@def@dots{}} command and whatever arguments are appropriate for
-that command; the body of the definition; and a corresponding
-@code{@@end} line.
-
-The template for a definition looks like this:
-
 @example
 @group
 @@deffn @var{category} @var{name} @var{arguments}@dots{}
@@ -11387,6 +11363,17 @@ The template for a definition looks like this:
 @@end deffn
 @end group
 @end example
+
+@noindent
+The @code{@@deffn} command is used for definitions of entities that
+resemble functions---entities that may take arguments.
+Write the @code{@@deffn} command at the beginning of a line
+and follow it on the same line by the category of the entity, the name
+of the entity itself, and its arguments (if any).  Then write the body
+of the definition on succeeding lines.
+Finally, end the definition with an @code{@@end deffn} command
+written on a line of its own.
+
 
 @need 700
 @noindent
@@ -11431,21 +11418,20 @@ enclose them in braces.  This may also be necessary if the text
 contains commands, for example, @samp{@{declaraci@@'on@}} if you are
 writing in Spanish.
 
-Some of the definition commands are more general than others.  The
-@code{@@deffn} command, for example, is the general definition command
-for functions and the like---for entities that may take arguments.
-When you use this command, you specify the category to which the
-entity belongs.  Three predefined, specialized variations
+The category is output in a different location for different output
+formats.  For example, in the Info file, the category appears at the
+beginning of the first line of the definition.  With @TeX{} output,
+the category is printed next to the right margin.
+
+@code{@@deffn} enters names into the index of functions.
+
+Three predefined, specialized variations of @code{@@defun}
 (@code{@@defun}, @code{@@defmac}, and @code{@@defspec}) specify the
 category for you: ``Function'', ``Macro'', and ``Special Form''
 respectively.  (In Lisp, a special form is an entity much like a
 function.)  Similarly, the general @code{@@defvr} command is
 accompanied by several specialized variations for describing
 particular kinds of variables.
-
-@xref{Sample Function Definition}, for a detailed example of a
-function definition, including the use of @code{@@example} inside the
-definition.
 
 
 @node Def Cmd Continuation Lines
@@ -11521,7 +11507,7 @@ and @var{repeated-args}@code{@dots{}} stands for zero or more
 arguments.  Parentheses are used when several arguments are grouped
 into additional levels of list structure in Lisp.
 
-Here is the @code{@@defspec} line of an example of an imaginary
+Here is the definition line of an example of an imaginary
 (complicated) special form:
 
 @quotation
@@ -11560,9 +11546,7 @@ The function is listed in the Command and Variable Index under
 
 To create two or more `first' or header lines for a definition, follow
 the first @code{@@deffn} line by a line beginning with
-@code{@@deffnx}.  The @code{@@deffnx} command works exactly like
-@code{@@deffn} except that it does not generate extra vertical white
-space between it and the preceding line.
+@code{@@deffnx}.
 
 @need 1000
 For example,
@@ -11613,14 +11597,7 @@ The `x' forms work similarly to @code{@@itemx}
 @node Def Cmds in Detail
 @section The Definition Commands
 
-Texinfo provides more than a dozen definition commands, all of which
-are described in this section.
-
-The definition commands automatically enter the name of the entity in
-the appropriate index: for example, @code{@@deffn}, @code{@@defun},
-and @code{@@defmac} enter function names in the index of functions;
-@code{@@defvr} and @code{@@defvar} enter variable names in the index
-of variables.
+This section describes all the definition commands of Texinfo.
 
 @menu
 * Functions Commands::          Commands for functions and similar entities.
@@ -12339,6 +12316,10 @@ option (@pxref{Typed Functions,, Functions in Typed Languages}).
 @section Conventions for Writing Definitions
 @cindex Definition conventions
 @cindex Conventions for writing definitions
+
+A manual need not and should not contain more than one definition for
+a given name.  An appendix containing a summary should use
+@code{@@table} rather than the definition commands.
 
 When you write a definition using @code{@@deffn}, @code{@@defun}, or
 one of the other definition commands, please take care to use
