@@ -11903,7 +11903,42 @@ single line.)
 In this instance, the procedure is classified as belonging to the
 package @code{stacks} rather than classified as a `procedure' and its
 data type is described as @code{private}.  (The name of the procedure
-is @code{push}, and its arguments are @var{s} and @var{n}.)
+is @code{push}, and its arguments are @var{s} and @var{n}.)  Output:
+
+@deftypefn stacks private push @
+       (@var{s}:in out stack; @
+       @var{n}:in integer)
+@dots{}
+@end deftypefn
+
+@code{@@deftypefn} and variants could be used when it is convenient to
+interpret the arguments list as literal computer code, marking
+argument names with @code{@@var}.
+It is not necessary for any type names to appear,
+and you can give an empty return type as @samp{@{@}}.  For
+example, for documenting the R language, you could use input like
+
+@example
+@@deftypefn stats @{@} t.test (@@var@{x@}, @@var@{y@} = NULL,@@
+  @@w@{@@var@{alternative@} = c("two.sided", "less", "greater")@},@@
+  @@w@{@@var@{mu@} = 0@}, @@w@{@@var@{paired@} = FALSE@},@@
+  @@w@{@@var@{var.equal@} = FALSE@},@@
+  @@w@{@@var@{conf.level@} = 0.95@}, @@dots@{@})
+@dots{}
+@@end deftypefn
+@end example
+
+@noindent to get output like
+
+@deftypefn stats {} t.test (@var{x}, @var{y} = NULL,@
+  @w{@var{alternative} = c("two.sided", "less", "greater")},@
+  @w{@var{mu} = 0}, @w{@var{paired} = FALSE},@
+  @w{@var{var.equal} = FALSE},@
+  @w{@var{conf.level} = 0.95}, @dots{})
+@dots{}
+@end deftypefn
+
+@noindent Here the @code{@@w} command is used to prevent some line breaks.
 
 @code{@@deftypefn} creates an entry in the index of functions for
 @var{name}.

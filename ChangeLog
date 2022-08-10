@@ -1,4 +1,10 @@
-2022-08-09  Gavin Smith  <gavinsmith0123@gmail.com>
+2022-08-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Typed Functions): Add output of Ada example and
+	state that @deftypefn does not need to be used with a type, and give
+	R example.
+
+2022-08-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Avoid extra space after punctuation in \texttt
 
@@ -6,7 +12,7 @@
 	Where punctuation appears before a space, change the
 	space to "\ ", control space.
 
-2022-08-09  Gavin Smith  <gavinsmith0123@gmail.com>
+2022-08-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	No special output for @t in def args
 
