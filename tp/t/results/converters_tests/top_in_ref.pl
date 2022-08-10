@@ -4600,10 +4600,10 @@ $result_converted{'latex'}->{'top_in_ref'} = '\\label{anchor:Top}%
 \\texttt{@ref\\{Top,cross ref name{,}{,},manual\\}} Section ``Top\'\' in \\textsl{manual}
 \\texttt{@ref\\{Top,cross ref name,title,file name\\}} Section ``title\'\' in \\texttt{file name}
 \\texttt{@ref\\{Top,cross ref name,title{,}{,}manual\\}} Section ``title\'\' in \\textsl{manual}
-\\texttt{@ref\\{Top,cross ref name,title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{Top,cross ref name,title,\\ file name,\\ manual\\}} Section ``title\'\' in \\textsl{manual}
 \\texttt{@ref\\{Top{,}{,}title,file name\\}} Section ``title\'\' in \\texttt{file name}
 \\texttt{@ref\\{Top{,}{,}title{,}{,}manual\\}} Section ``title\'\' in \\textsl{manual}
-\\texttt{@ref\\{Top{,}{,}title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{Top{,}{,}title,\\ file name,\\ manual\\}} Section ``title\'\' in \\textsl{manual}
 \\texttt{@ref\\{Top{,}{,},file name,manual\\}} Section ``Top\'\' in \\textsl{manual}
 
 \\texttt{@ref\\{(pman)Top,cross ref name\\}} (pman)Top
@@ -4615,15 +4615,15 @@ $result_converted{'latex'}->{'top_in_ref'} = '\\label{anchor:Top}%
 \\texttt{@ref\\{(pman)Top,cross ref name{,}{,},manual\\}} Section ``(pman)Top\'\' in \\textsl{manual}
 \\texttt{@ref\\{(pman)Top,cross ref name,title,file name\\}} Section ``title\'\' in \\texttt{file name}
 \\texttt{@ref\\{(pman)Top,cross ref name,title{,}{,}manual\\}} Section ``title\'\' in \\textsl{manual}
-\\texttt{@ref\\{(pman)Top,cross ref name,title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{(pman)Top,cross ref name,title,\\ file name,\\ manual\\}} Section ``title\'\' in \\textsl{manual}
 \\texttt{@ref\\{(pman)Top{,}{,}title,file name\\}} Section ``title\'\' in \\texttt{file name}
 \\texttt{@ref\\{(pman)Top{,}{,}title{,}{,}manual\\}} Section ``title\'\' in \\textsl{manual}
-\\texttt{@ref\\{(pman)Top{,}{,}title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{(pman)Top{,}{,}title,\\ file name,\\ manual\\}} Section ``title\'\' in \\textsl{manual}
 \\texttt{@ref\\{(pman)Top{,}{,},file name,manual\\}} Section ``(pman)Top\'\' in \\textsl{manual}
 
-\\texttt{@inforef\\{Top, cross ref name, file name\\}} Section ``Top\'\' in \\texttt{file name}
+\\texttt{@inforef\\{Top,\\ cross ref name,\\ file name\\}} Section ``Top\'\' in \\texttt{file name}
 \\texttt{@inforef\\{Top\\}} Top
-\\texttt{@inforef\\{Top, cross ref name\\}} Top
+\\texttt{@inforef\\{Top,\\ cross ref name\\}} Top
 \\texttt{@inforef\\{Top{,}{,}file name\\}} Section ``Top\'\' in \\texttt{file name}
 ';
 

@@ -1,5 +1,13 @@
 2022-08-09  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Avoid extra space after punctuation in \texttt
+
+	* tp/Texinfo/Convert/LaTeX.pm (_protect_text) <code>:
+	Where punctuation appears before a space, change the
+	space to "\ ", control space.
+
+2022-08-09  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	No special output for @t in def args
 
 	* tp/Texinfo/Convert/LaTeX.pm (%var_slant_commands):

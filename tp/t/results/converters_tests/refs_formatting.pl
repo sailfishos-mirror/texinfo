@@ -4596,10 +4596,10 @@ $result_converted{'latex'}->{'refs_formatting'} = '\\chapter{{chapter}}
 \\texttt{@ref\\{chapter,cross ref name{,}{,},manual\\}} Section ``chapter\'\' in \\textsl{manual}
 \\texttt{@ref\\{chapter,cross ref name,title,file name\\}} Section ``title\'\' in \\texttt{file name}
 \\texttt{@ref\\{chapter,cross ref name,title{,}{,}manual\\}} Section ``title\'\' in \\textsl{manual}
-\\texttt{@ref\\{chapter,cross ref name,title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{chapter,cross ref name,title,\\ file name,\\ manual\\}} Section ``title\'\' in \\textsl{manual}
 \\texttt{@ref\\{chapter{,}{,}title,file name\\}} Section ``title\'\' in \\texttt{file name}
 \\texttt{@ref\\{chapter{,}{,}title{,}{,}manual\\}} Section ``title\'\' in \\textsl{manual}
-\\texttt{@ref\\{chapter{,}{,}title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{chapter{,}{,}title,\\ file name,\\ manual\\}} Section ``title\'\' in \\textsl{manual}
 \\texttt{@ref\\{chapter{,}{,},file name,manual\\}} Section ``chapter\'\' in \\textsl{manual}
 
 \\texttt{@ref\\{(pman)anode,cross ref name\\}} (pman)anode
@@ -4611,15 +4611,15 @@ $result_converted{'latex'}->{'refs_formatting'} = '\\chapter{{chapter}}
 \\texttt{@ref\\{(pman)anode,cross ref name{,}{,},manual\\}} Section ``(pman)anode\'\' in \\textsl{manual}
 \\texttt{@ref\\{(pman)anode,cross ref name,title,file name\\}} Section ``title\'\' in \\texttt{file name}
 \\texttt{@ref\\{(pman)anode,cross ref name,title{,}{,}manual\\}} Section ``title\'\' in \\textsl{manual}
-\\texttt{@ref\\{(pman)anode,cross ref name,title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{(pman)anode,cross ref name,title,\\ file name,\\ manual\\}} Section ``title\'\' in \\textsl{manual}
 \\texttt{@ref\\{(pman)anode{,}{,}title,file name\\}} Section ``title\'\' in \\texttt{file name}
 \\texttt{@ref\\{(pman)anode{,}{,}title{,}{,}manual\\}} Section ``title\'\' in \\textsl{manual}
-\\texttt{@ref\\{(pman)anode{,}{,}title, file name, manual\\}} Section ``title\'\' in \\textsl{manual}
+\\texttt{@ref\\{(pman)anode{,}{,}title,\\ file name,\\ manual\\}} Section ``title\'\' in \\textsl{manual}
 \\texttt{@ref\\{(pman)anode{,}{,},file name,manual\\}} Section ``(pman)anode\'\' in \\textsl{manual}
 
-\\texttt{@inforef\\{chapter, cross ref name, file name\\}} Section ``chapter\'\' in \\texttt{file name}
+\\texttt{@inforef\\{chapter,\\ cross ref name,\\ file name\\}} Section ``chapter\'\' in \\texttt{file name}
 \\texttt{@inforef\\{chapter\\}} chapter
-\\texttt{@inforef\\{chapter, cross ref name\\}} chapter
+\\texttt{@inforef\\{chapter,\\ cross ref name\\}} chapter
 \\texttt{@inforef\\{chapter{,}{,}file name\\}} Section ``chapter\'\' in \\texttt{file name}
 ';
 

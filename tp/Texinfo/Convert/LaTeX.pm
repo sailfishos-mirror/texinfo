@@ -1649,6 +1649,10 @@ sub _protect_text($$)
       $text = _protect_index_text($text);
     }
     if ($self->{'formatting_context'}->[-1]->{'code'}->[-1]) {
+      # Prevent extra space after punctuation.  (We could use \frenchspacing
+      # in the output, but this can break in section titles with hyperref.)
+      $text =~ s/([.?!:;,]) /$1\\ /g;
+
       # Under T1 encoding there are several ligatures even in fixed width fonts
       $text =~ s/---/{-}{-}{-}/g;
       $text =~ s/--/{-}{-}/g;
