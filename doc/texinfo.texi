@@ -11425,7 +11425,7 @@ the category is printed next to the right margin.
 
 @code{@@deffn} enters names into the index of functions.
 
-Three predefined, specialized variations of @code{@@defun}
+Three predefined, specialized variations of @code{@@deffn}
 (@code{@@defun}, @code{@@defmac}, and @code{@@defspec}) specify the
 category for you: ``Function'', ``Macro'', and ``Special Form''
 respectively.  (In Lisp, a special form is an entity much like a
