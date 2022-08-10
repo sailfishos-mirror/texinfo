@@ -649,12 +649,8 @@ $result_converted{'latex'}->{'omit_def_space'} = '\\label{anchor:Top}%
 
 \\noindent\\texttt{function\\EmbracOn{}\\textnormal{\\textsl{(arg1, arg2)}}\\EmbracOff{}}\\hfill[Function]
 
-
-
 \\index[fn]{function@\\texttt{function}}%
 \\noindent\\texttt{another\\EmbracOn{}\\textnormal{\\textsl{(aarg)}}\\EmbracOff{}}\\hfill[Function]
-
-
 
 \\index[fn]{another@\\texttt{another}}%
 \\begin{quote}

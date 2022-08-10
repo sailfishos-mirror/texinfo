@@ -3615,8 +3615,8 @@ sub _convert($$)
           } else {
             $self->{'packages'}->{'embrac'} = 1;
             # we want slanted roman and not slanted typewriter, including
-            # ligatures, as if @r{@slanted{ had been used, so output
-            # \textnormal{ and push 0 on 'code' context.
+            # ligatures, as if @r{@slanted{...}} had been used, so output
+            # \textnormal and push 0 on 'code' context.
             $result .= '\EmbracOn{}\textnormal{\textsl{';
             push @{$self->{'formatting_context'}->[-1]->{'code'}}, 0;
             push @{$self->{'formatting_context'}->[-1]->{'embrac'}},
@@ -3647,7 +3647,6 @@ sub _convert($$)
           my $converted = _convert($self, $category);
           $result .= "\\hfill[$converted]\n";
         }
-        $result .= "\n\n";
         # undefine symbols associated with commands that have been made
         # known to embrac, such that they can be redefined later
         if (defined($known_embrac_commands)) {
@@ -3658,7 +3657,7 @@ sub _convert($$)
         '\cs_undefine:N{\__embrac_'.$defined_style_embrac.':n}%
 ';
           }
-          $result .= "\\ExplSyntaxOff%";
+          $result .= "\\ExplSyntaxOff%\n";
         }
       }
       $result .= "\n";

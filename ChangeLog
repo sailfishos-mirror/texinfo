@@ -1,5 +1,10 @@
 2022-08-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): only one empty line
+	after @def*, resetting of embrac macros grouped with def line.
+
+2022-08-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (%roman_style_commands, _convert):
 	use %roman_style_commands for @-commands that stop code context.
 

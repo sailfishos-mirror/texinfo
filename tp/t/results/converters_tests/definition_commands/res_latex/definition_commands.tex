@@ -79,8 +79,6 @@
 
 \noindent\texttt{fname \EmbracOn{}\textnormal{\textsl{a---rg1 a--rg2}}\EmbracOff{}}\hfill[Func]
 
-
-
 \index[fn]{fname@\texttt{fname}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
@@ -88,8 +86,6 @@ deffn no var for \GNUTexinfocommandstyletextvar{a---rg1} and \GNUTexinfocommands
 \end{quote}
 
 \noindent\texttt{fname \EmbracOn{}\textnormal{\textsl{\GNUTexinfocommandstyletextvar{a---rg1} \GNUTexinfocommandstyletextvar{a--rg2}}}\EmbracOff{}}\hfill[Func]
-
-
 
 \index[fn]{fname@\texttt{fname}}%
 \begin{quote}
@@ -99,8 +95,6 @@ deffn explict var for \GNUTexinfocommandstyletextvar{a---rg1} and \GNUTexinfocom
 
 \noindent\texttt{fname \EmbracOn{}\textnormal{\textsl{\EmbracOff{}\textnormal{\textsl{a---rg1}}\EmbracOn{} \EmbracOff{}\textnormal{\textsl{a--rg2}}\EmbracOn{}}}\EmbracOff{}}\hfill[Func]
 
-
-
 \index[fn]{fname@\texttt{fname}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
@@ -109,64 +103,45 @@ deffn r slanted for \GNUTexinfocommandstyletextvar{a---rg1} and \GNUTexinfocomma
 
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var [from to [inc]]) default}}\EmbracOff{}}\hfill[Special Form]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \EmbracOff{}\textnormal{[}\EmbracOn{}from to \EmbracOff{}\textnormal{[}\EmbracOn{}inc\EmbracOff{}\textnormal{]]}\EmbracOn{}) r}}\EmbracOff{}}\hfill[Special Form]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \GNUTexinfocommandstyletextvar{[}from to \GNUTexinfocommandstyletextvar{[}inc\GNUTexinfocommandstyletextvar{]]}) var}}\EmbracOff{}}\hfill[Special Form]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \textsl{[}from to \textsl{[}inc\textsl{]]}) slanted}}\EmbracOff{}}\hfill[Special Form]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \EmbracMakeKnown{texttt}\texttt{[}from to \texttt{[}inc\texttt{]]}) code}}\EmbracOff{}}\hfill[Special Form]
-
-
 \ExplSyntaxOn%
 \cs_undefine:N{\embrac_texttt:nn}\cs_undefine:N{\embrac_orig_texttt:n}\cs_undefine:N{\__embrac_texttt:n}%
 \ExplSyntaxOff%
+
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \EmbracMakeKnown{texttt}\texttt{[}from to \texttt{[}inc\texttt{]]}) t}}\EmbracOff{}}\hfill[Special Form]
-
-
 \ExplSyntaxOn%
 \cs_undefine:N{\embrac_texttt:nn}\cs_undefine:N{\embrac_orig_texttt:n}\cs_undefine:N{\__embrac_texttt:n}%
 \ExplSyntaxOff%
+
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \EmbracMakeKnown{texttt}\texttt{\EmbracMakeKnown{textbf}\textbf{[}}from to \texttt{\textbf{[}}inc\texttt{\textbf{]]}}) t:b}}\EmbracOff{}}\hfill[Special Form]
-
-
 \ExplSyntaxOn%
 \cs_undefine:N{\embrac_textbf:nn}\cs_undefine:N{\embrac_orig_textbf:n}\cs_undefine:N{\__embrac_textbf:n}%
 \cs_undefine:N{\embrac_texttt:nn}\cs_undefine:N{\embrac_orig_texttt:n}\cs_undefine:N{\__embrac_texttt:n}%
 \ExplSyntaxOff%
+
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \EmbracOff{}\textnormal{\GNUTexinfocommandstyletextvar{[}}\EmbracOn{}from to \EmbracOff{}\textnormal{\GNUTexinfocommandstyletextvar{[}}\EmbracOn{}inc\EmbracOff{}\textnormal{\GNUTexinfocommandstyletextvar{]]}}\EmbracOn{}) r:var}}\EmbracOff{}}\hfill[Special Form]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \EmbracOff{}\textnormal{\textsl{[}}\EmbracOn{}from to \EmbracOff{}\textnormal{\textsl{[}}\EmbracOn{}inc\EmbracOff{}\textnormal{\textsl{]]}}\EmbracOn{}) r:slanted}}\EmbracOff{}}\hfill[Special Form]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \EmbracOff{}\textnormal{\texttt{[}}\EmbracOn{}from to \EmbracOff{}\textnormal{\texttt{[}}\EmbracOn{}inc\EmbracOff{}\textnormal{\texttt{]]}}\EmbracOn{}) r:code}}\EmbracOff{}}\hfill[Special Form]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \EmbracOff{}\textnormal{\texttt{[}}\EmbracOn{}from to \EmbracOff{}\textnormal{\texttt{[}}\EmbracOn{}inc\EmbracOff{}\textnormal{\texttt{]]}}\EmbracOn{}) r:t}}\EmbracOff{}}\hfill[Special Form]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \begin{quote}
@@ -176,64 +151,45 @@ separators
 
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{va---riable default}}\EmbracOff{}}\hfill[Special Form]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{\GNUTexinfocommandstyletextvar{va---riable} var}}\EmbracOff{}}\hfill[Special Form]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{\EmbracOff{}\textnormal{va---riable}\EmbracOn{} r}}\EmbracOff{}}\hfill[Special Form]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{\textsl{va---riable} slanted}}\EmbracOff{}}\hfill[Special Form]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{\EmbracMakeKnown{texttt}\texttt{va{-}{-}{-}riable} code}}\EmbracOff{}}\hfill[Special Form]
-
-
 \ExplSyntaxOn%
 \cs_undefine:N{\embrac_texttt:nn}\cs_undefine:N{\embrac_orig_texttt:n}\cs_undefine:N{\__embrac_texttt:n}%
 \ExplSyntaxOff%
+
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{\EmbracMakeKnown{texttt}\texttt{va{-}{-}{-}riable} t}}\EmbracOff{}}\hfill[Special Form]
-
-
 \ExplSyntaxOn%
 \cs_undefine:N{\embrac_texttt:nn}\cs_undefine:N{\embrac_orig_texttt:n}\cs_undefine:N{\__embrac_texttt:n}%
 \ExplSyntaxOff%
+
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{\EmbracMakeKnown{texttt}\texttt{\EmbracMakeKnown{textbf}\textbf{va{-}{-}{-}riable}} t:b}}\EmbracOff{}}\hfill[Special Form]
-
-
 \ExplSyntaxOn%
 \cs_undefine:N{\embrac_textbf:nn}\cs_undefine:N{\embrac_orig_textbf:n}\cs_undefine:N{\__embrac_textbf:n}%
 \cs_undefine:N{\embrac_texttt:nn}\cs_undefine:N{\embrac_orig_texttt:n}\cs_undefine:N{\__embrac_texttt:n}%
 \ExplSyntaxOff%
+
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{\EmbracOff{}\textnormal{\GNUTexinfocommandstyletextvar{va---riable}}\EmbracOn{} r:var}}\EmbracOff{}}\hfill[Special Form]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{\EmbracOff{}\textnormal{\textsl{va---riable}}\EmbracOn{} r:slanted}}\EmbracOff{}}\hfill[Special Form]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{\EmbracOff{}\textnormal{\texttt{va{-}{-}{-}riable}}\EmbracOn{} r:code}}\EmbracOff{}}\hfill[Special Form]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{\EmbracOff{}\textnormal{\texttt{va{-}{-}{-}riable}}\EmbracOn{} r:t}}\EmbracOff{}}\hfill[Special Form]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \begin{quote}
@@ -243,29 +199,20 @@ name
 
 \noindent\texttt{\texttt{.ft} \EmbracOn{}\textnormal{\textsl{[\EmbracOff{}\textnormal{\textsl{font}}\EmbracOn{}]}}\EmbracOff{}}\hfill[Request]
 
-
-
 \index[fn]{.ft@\texttt{\texttt{.ft}}}%
 \noindent\texttt{\texttt{\textbackslash{}f}\textnormal{\textsl{f}}\texttt{}}\hfill[Escape\hbox{}sequence]
-
-
 
 \index[fn]{\textbackslash{}ff@\texttt{\texttt{\textbackslash{}f}\textnormal{\textsl{f}}\texttt{}}}%
 \noindent\texttt{\texttt{\textbackslash{}f(}\textnormal{\textsl{fn}}\texttt{}}\hfill[Escape\hbox{}sequence]
 
-
-
 \index[fn]{\textbackslash{}f(fn@\texttt{\texttt{\textbackslash{}f(}\textnormal{\textsl{fn}}\texttt{}}}%
 \noindent\texttt{\texttt{\textbackslash{}f[}\textnormal{\textsl{font}}\texttt{]} \EmbracOn{}\textnormal{\textsl{\EmbracMakeKnown{texttt}\texttt{\textbackslash{}f[}\EmbracOff{}\textnormal{\textsl{font}}\EmbracOn{}\texttt{]}}}\EmbracOff{}}\hfill[Escape\hbox{}sequence]
-
-
 \ExplSyntaxOn%
 \cs_undefine:N{\embrac_texttt:nn}\cs_undefine:N{\embrac_orig_texttt:n}\cs_undefine:N{\__embrac_texttt:n}%
 \ExplSyntaxOff%
+
 \index[fn]{\textbackslash{}f[font]@\texttt{\texttt{\textbackslash{}f[}\textnormal{\textsl{font}}\texttt{]}}}%
 \noindent\texttt{\texttt{\textbackslash{}n[.sty]}}\hfill[Register]
-
-
 
 \index[fn]{\textbackslash{}n[.sty]@\texttt{\texttt{\textbackslash{}n[.sty]}}}%
 \begin{quote}
@@ -276,18 +223,16 @@ to \GNUTexinfocommandstyletextvar{font} (one-character name\hbox{}\GNUTexinfocom
 \end{quote}
 
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{[ \EmbracOff{}\textnormal{[}\EmbracOn{} \textsl{[} \EmbracMakeKnown{texttt}\texttt{[} \texttt{[} \EmbracOff{}\textnormal{\textsl{[}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{[}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{\textsl{[}}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{[}}\EmbracOn{} , \EmbracOff{}\textnormal{,}\EmbracOn{} \textsl{,} \texttt{,} \texttt{,} \EmbracOff{}\textnormal{\textsl{,}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{,}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{\textsl{,}}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{,}}\EmbracOn{} ] \EmbracOff{}\textnormal{]}\EmbracOn{} \textsl{]} \texttt{]} \texttt{]} \EmbracOff{}\textnormal{\textsl{]}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{]}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{\textsl{]}}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{]}}\EmbracOn{}}}\EmbracOff{}}\hfill[Special Form]
-
-
 \ExplSyntaxOn%
 \cs_undefine:N{\embrac_texttt:nn}\cs_undefine:N{\embrac_orig_texttt:n}\cs_undefine:N{\__embrac_texttt:n}%
 \ExplSyntaxOff%
+
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{foobar \EmbracOn{}\textnormal{\textsl{[] \EmbracOff{}\textnormal{[]}\EmbracOn{} \textsl{[]} \EmbracMakeKnown{texttt}\texttt{[]} \texttt{[]} \EmbracOff{}\textnormal{\textsl{[]}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{[]}}\EmbracOn{} \EmbracOff{}\textnormal{\texttt{\textsl{[]}}}\EmbracOn{}}}\EmbracOff{}}\hfill[Special Form]
-
-
 \ExplSyntaxOn%
 \cs_undefine:N{\embrac_texttt:nn}\cs_undefine:N{\embrac_orig_texttt:n}\cs_undefine:N{\__embrac_texttt:n}%
 \ExplSyntaxOff%
+
 \index[fn]{foobar@\texttt{foobar}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
@@ -296,8 +241,6 @@ test formatting of separators
 
 \noindent\texttt{int foobar (int \GNUTexinfocommandstyletextvar{f---oo}, float \GNUTexinfocommandstyletextvar{b--ar})}\hfill[Library Function]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
@@ -305,8 +248,6 @@ test formatting of separators
 \end{quote}
 
 \noindent\texttt{int foobar (int \textnormal{\textsl{f---oo}}, float \textnormal{\textsl{b--ar}})}\hfill[Library Function]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \begin{quote}
@@ -317,8 +258,6 @@ test formatting of separators
 \noindent{}produces:
 \noindent\texttt{border-pattern}\hfill[Class Option of \texttt{Window}]
 
-
-
 \index[vr]{border-pattern@\texttt{border-pattern}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
@@ -326,8 +265,6 @@ test formatting of separators
 \end{quote}
 
 \noindent\texttt{\texttt{int} border-pattern}\hfill[Class Option of \texttt{Window}]
-
-
 
 \index[vr]{border-pattern of Window@\texttt{border-pattern of Window}}%
 \begin{quote}
@@ -338,8 +275,6 @@ test formatting of separators
 \begin{quote}
 \noindent\texttt{int foobar (int \GNUTexinfocommandstyletextvar{foo}, float \GNUTexinfocommandstyletextvar{bar})}\hfill[Library Function]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
@@ -349,8 +284,6 @@ test formatting of separators
 
 \noindent\texttt{apply \EmbracOn{}\textnormal{\textsl{function \&rest arguments}}\EmbracOff{}}\hfill[Function]
 
-
-
 \index[fn]{apply@\texttt{apply}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
@@ -359,8 +292,6 @@ test formatting of separators
 
 \noindent\texttt{apply \EmbracOn{}\textnormal{\textsl{function \EmbracOff{}\textnormal{\textbf{\&rest}}\EmbracOn{} argument}}\EmbracOff{}}\hfill[Function]
 
-
-
 \index[fn]{apply@\texttt{apply}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
@@ -368,11 +299,10 @@ explicit keyword marking, no var \GNUTexinfocommandstyletextvar{function} with \
 \end{quote}
 
 \noindent\texttt{name \EmbracOn{}\textnormal{\textsl{argument \EmbracMakeKnown{texttt}\texttt{int} \texttt{a{-}{-}b} \GNUTexinfocommandstyletextvar{v--ar1}, word \texttt{{-}{-}} (\texttt{type o{-}{-}ther}, \GNUTexinfocommandstyletextvar{v---ar2}  [\texttt{float} [\GNUTexinfocommandstyletextvar{var4}]])}}\EmbracOff{}}\hfill[Category]
-
-
 \ExplSyntaxOn%
 \cs_undefine:N{\embrac_texttt:nn}\cs_undefine:N{\embrac_orig_texttt:n}\cs_undefine:N{\__embrac_texttt:n}%
 \ExplSyntaxOff%
+
 \index[fn]{name@\texttt{name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
@@ -381,57 +311,35 @@ In deffn with code and var used
 
 \noindent\texttt{int foobar (int \GNUTexinfocommandstyletextvar{f---oo}[, float \GNUTexinfocommandstyletextvar{b--ar}]) default}\hfill[Library Function]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (int \GNUTexinfocommandstyletextvar{f---oo}\textnormal{[}, float \GNUTexinfocommandstyletextvar{b--ar}\textnormal{]}) r}\hfill[Library Function]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (int \GNUTexinfocommandstyletextvar{f---oo}\GNUTexinfocommandstyletextvar{[}, float \GNUTexinfocommandstyletextvar{b--ar}\GNUTexinfocommandstyletextvar{]}) var}\hfill[Library Function]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (int \GNUTexinfocommandstyletextvar{f---oo}\textsl{[}, float \GNUTexinfocommandstyletextvar{b--ar}\textsl{]}) slanted}\hfill[Library Function]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (int \GNUTexinfocommandstyletextvar{f---oo}\texttt{[}, float \GNUTexinfocommandstyletextvar{b--ar}\texttt{]}) code}\hfill[Library Function]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (int \GNUTexinfocommandstyletextvar{f---oo}\texttt{[}, float \GNUTexinfocommandstyletextvar{b--ar}\texttt{]}) t}\hfill[Library Function]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (int \GNUTexinfocommandstyletextvar{f---oo}\texttt{\textbf{[}}, float \GNUTexinfocommandstyletextvar{b--ar}\texttt{\textbf{]}}) t:b}\hfill[Library Function]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (int \GNUTexinfocommandstyletextvar{f---oo}\textnormal{\GNUTexinfocommandstyletextvar{[}}, float \GNUTexinfocommandstyletextvar{b--ar}\textnormal{\GNUTexinfocommandstyletextvar{]}}) r:var}\hfill[Library Function]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (int \GNUTexinfocommandstyletextvar{f---oo}\textnormal{\textsl{[}}, float \GNUTexinfocommandstyletextvar{b--ar}\textnormal{\textsl{]}}) r:slanted}\hfill[Library Function]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (int \GNUTexinfocommandstyletextvar{f---oo}\textnormal{\texttt{[}}, float \GNUTexinfocommandstyletextvar{b--ar}\textnormal{\texttt{]}}) r:code}\hfill[Library Function]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (int \GNUTexinfocommandstyletextvar{f---oo}\textnormal{\texttt{[}}, float \GNUTexinfocommandstyletextvar{b--ar}\textnormal{\texttt{]}}) r:t}\hfill[Library Function]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \begin{quote}
@@ -441,57 +349,35 @@ separators
 
 \noindent\texttt{int foobar (i{-}{-}nt \GNUTexinfocommandstyletextvar{f---oo}[, float \GNUTexinfocommandstyletextvar{b--ar}]) default}\hfill[Library Function]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (\textnormal{i--nt} \GNUTexinfocommandstyletextvar{f---oo}[, float \GNUTexinfocommandstyletextvar{b--ar}]) r}\hfill[Library Function]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (\GNUTexinfocommandstyletextvar{i--nt} \GNUTexinfocommandstyletextvar{f---oo}[, float \GNUTexinfocommandstyletextvar{b--ar}]) var}\hfill[Library Function]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (\textsl{i{-}{-}nt} \GNUTexinfocommandstyletextvar{f---oo}[, float \GNUTexinfocommandstyletextvar{b--ar}]) slanted}\hfill[Library Function]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (\texttt{i{-}{-}nt} \GNUTexinfocommandstyletextvar{f---oo}[, float \GNUTexinfocommandstyletextvar{b--ar}]) code}\hfill[Library Function]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (\texttt{i{-}{-}nt} \GNUTexinfocommandstyletextvar{f---oo}[, float \GNUTexinfocommandstyletextvar{b--ar}]) t}\hfill[Library Function]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (\texttt{\textbf{i{-}{-}nt}} \GNUTexinfocommandstyletextvar{f---oo}[, float \GNUTexinfocommandstyletextvar{b--ar}]) t:b}\hfill[Library Function]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (\textnormal{\GNUTexinfocommandstyletextvar{i--nt}} \GNUTexinfocommandstyletextvar{f---oo}[, float \GNUTexinfocommandstyletextvar{b--ar}]) r:var}\hfill[Library Function]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (\textnormal{\textsl{i--nt}} \GNUTexinfocommandstyletextvar{f---oo}[, float \GNUTexinfocommandstyletextvar{b--ar}]) r:slanted}\hfill[Library Function]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (\textnormal{\texttt{i{-}{-}nt}} \GNUTexinfocommandstyletextvar{f---oo}[, float \GNUTexinfocommandstyletextvar{b--ar}]) r:code}\hfill[Library Function]
 
-
-
 \index[fn]{foobar@\texttt{foobar}}%
 \noindent\texttt{int foobar (\textnormal{\texttt{i{-}{-}nt}} \GNUTexinfocommandstyletextvar{f---oo}[, float \GNUTexinfocommandstyletextvar{b--ar}]) r:t}\hfill[Library Function]
-
-
 
 \index[fn]{foobar@\texttt{foobar}}%
 \begin{quote}

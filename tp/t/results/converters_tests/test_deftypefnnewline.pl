@@ -3625,8 +3625,6 @@ $result_converted{'latex'}->{'test_deftypefnnewline'} = '
 
 \\noindent\\texttt{data-type\\leavevmode{}\\\\name arguments...}\\hfill[Function]
 
-
-
 \\index[fn]{name@\\texttt{name}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
@@ -3634,8 +3632,6 @@ aaa
 \\end{quote}
 
 \\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypefn\\_name}\\hfill[c--ategory]
-
-
 
 \\index[fn]{d--eftypefn\\_name@\\texttt{d{-}{-}eftypefn\\_name}}%
 \\begin{quote}
@@ -3645,8 +3641,6 @@ d--eftypefn no arg
 
 \\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypeop\\_name a{-}{-}rguments...}\\hfill[c--ategory on \\texttt{c{-}{-}lass}]
 
-
-
 \\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name on c{-}{-}lass}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
@@ -3654,8 +3648,6 @@ d--eftypeop
 \\end{quote}
 
 \\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypeop\\_name}\\hfill[c--ategory on \\texttt{c{-}{-}lass}]
-
-
 
 \\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name on c{-}{-}lass}}%
 \\begin{quote}
@@ -3665,8 +3657,6 @@ d--eftypeop no arg
 
 \\noindent\\texttt{t{-}{-}ype d{-}{-}eftypecv\\_name}\\hfill[c--ategory of \\texttt{c{-}{-}lass}]
 
-
-
 \\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name of c{-}{-}lass}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
@@ -3675,8 +3665,6 @@ d--eftypecv
 
 \\noindent\\texttt{t{-}{-}ype d{-}{-}eftypecv\\_name a{-}{-}rguments...}\\hfill[c--ategory of \\texttt{c{-}{-}lass}]
 
-
-
 \\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name of c{-}{-}lass}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
@@ -3684,8 +3672,6 @@ d--eftypecv with arguments
 \\end{quote}
 
 \\noindent\\texttt{arg}\\hfill[fun]
-
-
 
 \\index[fn]{arg@\\texttt{arg}}%
 \\begin{quote}
@@ -3696,8 +3682,6 @@ fff
 
 \\noindent\\texttt{data-type2 name2 arguments2...}\\hfill[Function]
 
-
-
 \\index[fn]{name2@\\texttt{name2}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
@@ -3705,8 +3689,6 @@ aaa2
 \\end{quote}
 
 \\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypefn\\_name2}\\hfill[c--ategory2]
-
-
 
 \\index[fn]{d--eftypefn\\_name2@\\texttt{d{-}{-}eftypefn\\_name2}}%
 \\begin{quote}
@@ -3716,8 +3698,6 @@ d--eftypefn no arg2
 
 \\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypeop\\_name2 a{-}{-}rguments2...}\\hfill[c--ategory2 on \\texttt{c{-}{-}lass2}]
 
-
-
 \\index[fn]{d--eftypeop\\_name2 on c--lass2@\\texttt{d{-}{-}eftypeop\\_name2 on c{-}{-}lass2}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
@@ -3725,8 +3705,6 @@ d--eftypeop2
 \\end{quote}
 
 \\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypeop\\_name2}\\hfill[c--ategory2 on \\texttt{c{-}{-}lass2}]
-
-
 
 \\index[fn]{d--eftypeop\\_name2 on c--lass2@\\texttt{d{-}{-}eftypeop\\_name2 on c{-}{-}lass2}}%
 \\begin{quote}
@@ -3736,8 +3714,6 @@ d--eftypeop no arg2
 
 \\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypecv\\_name2}\\hfill[c--ategory2 of \\texttt{c{-}{-}lass2}]
 
-
-
 \\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2 of c{-}{-}lass2}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
@@ -3746,8 +3722,6 @@ d--eftypecv2
 
 \\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypecv\\_name2 a{-}{-}rguments2...}\\hfill[c--ategory2 of \\texttt{c{-}{-}lass2}]
 
-
-
 \\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2 of c{-}{-}lass2}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
@@ -3755,8 +3729,6 @@ d--eftypecv with arguments2
 \\end{quote}
 
 \\noindent\\texttt{arg2}\\hfill[fun2]
-
-
 
 \\index[fn]{arg2@\\texttt{arg2}}%
 \\begin{quote}
