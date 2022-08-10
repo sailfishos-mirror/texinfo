@@ -1553,7 +1553,6 @@ sub _push_new_context($$)
        'text_context' => ['text'],
        'preformatted_context' => [],
        'math_style' => [],
-       # an array such that @r can reset the state by pushing on the array
        'code' => [0],
        'dot_not_end_sentence' => 0,
        'in_quotation' => 0,
@@ -1854,7 +1853,7 @@ sub _open_preformatted($$)
   my $command = $self->{'formatting_context'}->[-1]->{'preformatted_context'}->[-1];
 
   if ($preformatted_code_commands{$command}) {
-    $self->{'formatting_context'}->[-1]->{'code'}->[-1] += 1;
+    push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
   }
 
   # no preformatted formatting if in a @table item, it leads
@@ -1890,7 +1889,7 @@ sub _close_preformatted($$)
 
   my $command = $self->{'formatting_context'}->[-1]->{'preformatted_context'}->[-1];
   if ($preformatted_code_commands{$command}) {
-    $self->{'formatting_context'}->[-1]->{'code'}->[-1] -= 1;
+    pop @{$self->{'formatting_context'}->[-1]->{'code'}};
   }
   return ''
    if (scalar(@{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}}));
@@ -2121,11 +2120,11 @@ sub _index_entry($$)
       my $sortas;
       my ($subentry, $subentry_sortas) = @$subentry_entry_and_sortas;
       if ($in_code) {
-        $self->{'formatting_context'}->[-1]->{'code'}->[-1] += 1;
+        push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
       }
       my $index_entry = _convert($self, $subentry);
       if ($in_code) {
-        $self->{'formatting_context'}->[-1]->{'code'}->[-1] -= 1;
+        pop @{$self->{'formatting_context'}->[-1]->{'code'}};
         # always setup a string to sort with code as we use a command
         $sortas = Texinfo::Structuring::index_entry_sort_string($entry,
                                  $subentry, $subentry_sortas, $options);
@@ -2447,7 +2446,7 @@ sub _convert($$)
       }
       my $remove_code_context;
       if ($code_style_commands{$cmdname}) {
-        $self->{'formatting_context'}->[-1]->{'code'}->[-1] += 1;
+        push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
       } elsif ($cmdname eq 'r' or $cmdname eq 'var') {
         $remove_code_context = 1;
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 0;
@@ -2482,7 +2481,7 @@ sub _convert($$)
         $result .= '}';
       }
       if ($code_style_commands{$cmdname}) {
-        $self->{'formatting_context'}->[-1]->{'code'}->[-1] -= 1;
+        pop @{$self->{'formatting_context'}->[-1]->{'code'}};
       } elsif ($remove_code_context) {
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
       }
@@ -2512,9 +2511,9 @@ sub _convert($$)
         $result .= "{$kbd_formatting_latex\{";
       }
       if ($element->{'args'}) {
-        $self->{'formatting_context'}->[-1]->{'code'}->[-1] += 1;
+        push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
         $result .= _convert($self, $element->{'args'}->[0]);
-        $self->{'formatting_context'}->[-1]->{'code'}->[-1] -= 1;
+        pop @{$self->{'formatting_context'}->[-1]->{'code'}};
       }
       if ($code_font) {
         if ($LaTeX_style_brace_commands{$command_context}->{'code'}) {
@@ -2720,9 +2719,9 @@ sub _convert($$)
         }
         my $filename = '';
         if ($file_contents) {
-          $self->{'formatting_context'}->[-1]->{'code'}->[-1] += 1;
+          push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
           $filename = _convert($self, {'contents' => $file_contents});
-          $self->{'formatting_context'}->[-1]->{'code'}->[-1] -= 1;
+          pop @{$self->{'formatting_context'}->[-1]->{'code'}};
         }
         
         if ($cmdname ne 'inforef' and $book eq '' and $filename eq ''
@@ -3256,11 +3255,11 @@ sub _convert($$)
           }
         }
         if ($code_style) {
-          $self->{'formatting_context'}->[-1]->{'code'}->[-1] += 1;
+          push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
         }
         my $converted_arg = _convert($self, $element->{'args'}->[0]);
         if ($code_style) {
-          $self->{'formatting_context'}->[-1]->{'code'}->[-1] -= 1;
+          pop @{$self->{'formatting_context'}->[-1]->{'code'}};
         }
         $self->{'formatting_context'}->[-1]->{'nr_table_items_context'}->[-1] -= 1;
         my $description_format_command
@@ -3587,7 +3586,7 @@ sub _convert($$)
 
         $result .= '\noindent\texttt{';
         # the def* line except for the category is converted in code context
-        $self->{'formatting_context'}->[-1]->{'code'}->[-1] += 1;
+        push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
 
         if ($element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
           $result .=  _convert($self,
@@ -3633,7 +3632,7 @@ sub _convert($$)
           }
         }
 
-        $self->{'formatting_context'}->[-1]->{'code'}->[-1] -= 1;
+        pop @{$self->{'formatting_context'}->[-1]->{'code'}};
         $result .= '}'; # \texttt
 
         my $category
