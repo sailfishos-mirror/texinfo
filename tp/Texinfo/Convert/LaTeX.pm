@@ -603,6 +603,11 @@ sub register_style_format_command($$$$$)
     = "$specific_style_command\[1]{{$formatting\{#1}}}";
 }
 
+# @-commands that stop code context
+my %roman_style_commands = (
+  'r' => 1,
+);
+
 # All those commands run with the text.
 # math, verb and kbd are special and implemented separately
 my %LaTeX_style_brace_commands = (
@@ -643,6 +648,7 @@ foreach my $always_slanted_roman_commands ('cite', 'var') {
                         '\\normalfont{}\\textsl', \%LaTeX_style_brace_commands,
                         \%style_brace_format_command_new_commands);
   $LaTeX_style_brace_commands{'math'}->{$always_slanted_roman_commands} = '';
+  $roman_style_commands{$always_slanted_roman_commands} = 1;
 }
 
 # FIXME headitemfont
@@ -2447,8 +2453,7 @@ sub _convert($$)
       my $remove_code_context;
       if ($code_style_commands{$cmdname}) {
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
-      } elsif ($cmdname eq 'r' or $cmdname eq 'var') {
-        $remove_code_context = 1;
+      } elsif ($roman_style_commands{$cmdname}) {
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 0;
       }
       my $formatting_context = $command_context;
@@ -2482,7 +2487,7 @@ sub _convert($$)
       }
       if ($code_style_commands{$cmdname}) {
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
-      } elsif ($remove_code_context) {
+      } elsif ($roman_style_commands{$cmdname}) {
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
       }
       if ($self->{'quotes_map'}->{$cmdname}) {
