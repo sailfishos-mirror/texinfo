@@ -19,6 +19,9 @@
 
 \makeindex[name=cp]%
 
+% style command for var in text
+\newcommand\GNUTexinfocommandstyletextvar[1]{{\normalfont{}\textsl{#1}}}%
+
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
@@ -69,16 +72,16 @@
 \begin{document}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\textsl{a--b}\\
+\GNUTexinfocommandstyletextvar{a--b}\\
 \index[cp]{index entry between item and itemx}%
-\textsl{b}\\
+\GNUTexinfocommandstyletextvar{b}\\
 
-\textsl{c}}}]
+\GNUTexinfocommandstyletextvar{c}}}]
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
 l{-}{-}ine
 \end{GNUTexinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
-\textsl{d}}}]
+\GNUTexinfocommandstyletextvar{d}}}]
 \end{description}
 \end{document}

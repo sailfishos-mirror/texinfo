@@ -37,8 +37,11 @@
 % command used in \description format for samp
 \newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{{`\texttt{#1}'}}}%
 
-% style command for cite in codetext
-\newcommand\GNUTexinfocommandstylecodetextcite[1]{{\normalfont{}\textsl{#1}}}%
+% style command for cite in text
+\newcommand\GNUTexinfocommandstyletextcite[1]{{\normalfont{}\textsl{#1}}}%
+
+% style command for var in text
+\newcommand\GNUTexinfocommandstyletextvar[1]{{\normalfont{}\textsl{#1}}}%
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -246,7 +249,7 @@ but , ,\@
 \texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}--.\@ ,A.\@
 \texttt{@asis\{{-}{-}a\}} --a
 \texttt{@b\{{-}{-}a\}} \textbf{--a}
-\texttt{@cite\{{-}{-}a\}} \textsl{--a}
+\texttt{@cite\{{-}{-}a\}} \GNUTexinfocommandstyletextcite{--a}
 \texttt{@code\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}} \textsl{--a}
@@ -281,7 +284,7 @@ but , ,\@
 \texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
-\texttt{@var\{{-}{-}a\}} \textsl{--a}
+\texttt{@var\{{-}{-}a\}} \GNUTexinfocommandstyletextvar{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
 \texttt{@verb\{:a  < \& @ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
 \texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
@@ -772,11 +775,11 @@ d--effn
 def--fn
 \end{quote}
 
-\noindent\texttt{\textsl{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
 
 
 
-\index[fn]{i@\texttt{\textsl{i}}}%
+\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
 \index[cp]{index entry within deffn}%
 \noindent\texttt{truc \EmbracOn{}\textnormal{\textsl{}}\EmbracOff{}}\hfill[cmde]
 
@@ -871,11 +874,11 @@ def--fn
 
 \index[fn]{deffnx@\texttt{deffnx}}%
 
-\noindent\texttt{\textsl{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
 
 
 
-\index[fn]{i@\texttt{\textsl{i}}}%
+\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
 \noindent\texttt{truc \EmbracOn{}\textnormal{\textsl{}}\EmbracOff{}}\hfill[cmde]
 
 
@@ -1538,11 +1541,11 @@ Various deff lines
 
 \index[fn]{after@\texttt{after}}%
 
-\noindent\texttt{\textsl{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fsetinv]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fsetinv]
 
 
 
-\index[fn]{invalid@\texttt{\textsl{invalid}}}%
+\index[fn]{invalid@\texttt{\GNUTexinfocommandstyletextvar{invalid}}}%
 \noindent\texttt{}\hfill[\textbf{id `\texttt{i}' ule}]
 
 
@@ -1731,7 +1734,7 @@ but , ,\@
 \texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}--.\@ ,A.\@
 \texttt{@asis\{{-}{-}a\}} --a
 \texttt{@b\{{-}{-}a\}} \textbf{--a}
-\texttt{@cite\{{-}{-}a\}} \textsl{--a}
+\texttt{@cite\{{-}{-}a\}} \GNUTexinfocommandstyletextcite{--a}
 \texttt{@code\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}} \textsl{--a}
@@ -1766,7 +1769,7 @@ but , ,\@
 \texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
-\texttt{@var\{{-}{-}a\}} \textsl{--a}
+\texttt{@var\{{-}{-}a\}} \GNUTexinfocommandstyletextvar{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
 \texttt{@verb\{:a  < \& @ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
 \texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
@@ -2254,11 +2257,11 @@ d--effn
 def--fn
 \end{quote}
 
-\noindent\texttt{\textsl{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
 
 
 
-\index[fn]{i@\texttt{\textsl{i}}}%
+\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
 \index[cp]{index entry within deffn}%
 \noindent\texttt{truc \EmbracOn{}\textnormal{\textsl{}}\EmbracOff{}}\hfill[cmde]
 
@@ -2353,11 +2356,11 @@ def--fn
 
 \index[fn]{deffnx@\texttt{deffnx}}%
 
-\noindent\texttt{\textsl{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
 
 
 
-\index[fn]{i@\texttt{\textsl{i}}}%
+\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
 \noindent\texttt{truc \EmbracOn{}\textnormal{\textsl{}}\EmbracOff{}}\hfill[cmde]
 
 
@@ -3020,11 +3023,11 @@ Various deff lines
 
 \index[fn]{after@\texttt{after}}%
 
-\noindent\texttt{\textsl{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fsetinv]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fsetinv]
 
 
 
-\index[fn]{invalid@\texttt{\textsl{invalid}}}%
+\index[fn]{invalid@\texttt{\GNUTexinfocommandstyletextvar{invalid}}}%
 \noindent\texttt{}\hfill[\textbf{id `\texttt{i}' ule}]
 
 
@@ -3234,7 +3237,7 @@ but , ,\@
 \texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}--.\@ ,A.\@
 \texttt{@asis\{{-}{-}a\}} --a
 \texttt{@b\{{-}{-}a\}} \textbf{--a}
-\texttt{@cite\{{-}{-}a\}} \textsl{--a}
+\texttt{@cite\{{-}{-}a\}} \GNUTexinfocommandstyletextcite{--a}
 \texttt{@code\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}} \textsl{--a}
@@ -3269,7 +3272,7 @@ but , ,\@
 \texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
-\texttt{@var\{{-}{-}a\}} \textsl{--a}
+\texttt{@var\{{-}{-}a\}} \GNUTexinfocommandstyletextvar{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
 \texttt{@verb\{:a  < \& @ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
 \texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
@@ -3757,11 +3760,11 @@ d--effn
 def--fn
 \end{quote}
 
-\noindent\texttt{\textsl{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
 
 
 
-\index[fn]{i@\texttt{\textsl{i}}}%
+\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
 \index[cp]{index entry within deffn}%
 \noindent\texttt{truc \EmbracOn{}\textnormal{\textsl{}}\EmbracOff{}}\hfill[cmde]
 
@@ -3856,11 +3859,11 @@ def--fn
 
 \index[fn]{deffnx@\texttt{deffnx}}%
 
-\noindent\texttt{\textsl{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
 
 
 
-\index[fn]{i@\texttt{\textsl{i}}}%
+\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
 \noindent\texttt{truc \EmbracOn{}\textnormal{\textsl{}}\EmbracOff{}}\hfill[cmde]
 
 
@@ -4523,11 +4526,11 @@ Various deff lines
 
 \index[fn]{after@\texttt{after}}%
 
-\noindent\texttt{\textsl{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fsetinv]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fsetinv]
 
 
 
-\index[fn]{invalid@\texttt{\textsl{invalid}}}%
+\index[fn]{invalid@\texttt{\GNUTexinfocommandstyletextvar{invalid}}}%
 \noindent\texttt{}\hfill[\textbf{id `\texttt{i}' ule}]
 
 
@@ -4715,7 +4718,7 @@ but , ,\@
 \texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}--.\@ ,A.\@
 \texttt{@asis\{{-}{-}a\}} --a
 \texttt{@b\{{-}{-}a\}} \textbf{--a}
-\texttt{@cite\{{-}{-}a\}} \textsl{--a}
+\texttt{@cite\{{-}{-}a\}} \GNUTexinfocommandstyletextcite{--a}
 \texttt{@code\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}} \textsl{--a}
@@ -4750,7 +4753,7 @@ but , ,\@
 \texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
-\texttt{@var\{{-}{-}a\}} \textsl{--a}
+\texttt{@var\{{-}{-}a\}} \GNUTexinfocommandstyletextvar{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
 \texttt{@verb\{:a  < \& @ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
 \texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
@@ -5238,11 +5241,11 @@ d--effn
 def--fn
 \end{quote}
 
-\noindent\texttt{\textsl{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
 
 
 
-\index[fn]{i@\texttt{\textsl{i}}}%
+\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
 \index[cp]{index entry within deffn}%
 \noindent\texttt{truc \EmbracOn{}\textnormal{\textsl{}}\EmbracOff{}}\hfill[cmde]
 
@@ -5337,11 +5340,11 @@ def--fn
 
 \index[fn]{deffnx@\texttt{deffnx}}%
 
-\noindent\texttt{\textsl{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
 
 
 
-\index[fn]{i@\texttt{\textsl{i}}}%
+\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
 \noindent\texttt{truc \EmbracOn{}\textnormal{\textsl{}}\EmbracOff{}}\hfill[cmde]
 
 
@@ -6004,11 +6007,11 @@ Various deff lines
 
 \index[fn]{after@\texttt{after}}%
 
-\noindent\texttt{\textsl{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fsetinv]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fsetinv]
 
 
 
-\index[fn]{invalid@\texttt{\textsl{invalid}}}%
+\index[fn]{invalid@\texttt{\GNUTexinfocommandstyletextvar{invalid}}}%
 \noindent\texttt{}\hfill[\textbf{id `\texttt{i}' ule}]
 
 
@@ -6198,7 +6201,7 @@ but ,\ ,\@
 \texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}{-}{-}.\@\ ,A.\@
 \texttt{@asis\{{-}{-}a\}} {-}{-}a
 \texttt{@b\{{-}{-}a\}} \textbf{{-}{-}a}
-\texttt{@cite\{{-}{-}a\}} \GNUTexinfocommandstylecodetextcite{{-}{-}a}
+\texttt{@cite\{{-}{-}a\}} \GNUTexinfocommandstyletextcite{{-}{-}a}
 \texttt{@code\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}} \textsl{{-}{-}a}
@@ -6236,7 +6239,7 @@ but ,\ ,\@
 \texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{{-}{-}b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} {-}{-}b
-\texttt{@var\{{-}{-}a\}} \textsl{{-}{-}a}
+\texttt{@var\{{-}{-}a\}} \GNUTexinfocommandstyletextvar{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
 \texttt{@verb\{:a  < \& @ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
 \texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
@@ -7093,11 +7096,11 @@ def{-}{-}fn
 \leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
-\noindent\texttt{\textsl{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
 
 
 
-\index[fn]{i@\texttt{\textsl{i}}}%
+\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
 \index[cp]{index entry within deffn}%
@@ -7210,11 +7213,11 @@ def{-}{-}fn
 \leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
-\noindent\texttt{\textsl{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fset]
 
 
 
-\index[fn]{i@\texttt{\textsl{i}}}%
+\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
 \noindent\texttt{truc \EmbracOn{}\textnormal{\textsl{}}\EmbracOff{}}\hfill[cmde]
 
 
@@ -8243,11 +8246,11 @@ Various deff lines
 \leftskip=2em\relax\ttfamily%
 
 \end{GNUTexinfopreformatted}
-\noindent\texttt{\textsl{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fsetinv]
+\noindent\texttt{\GNUTexinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}\hfill[fsetinv]
 
 
 
-\index[fn]{invalid@\texttt{\textsl{invalid}}}%
+\index[fn]{invalid@\texttt{\GNUTexinfocommandstyletextvar{invalid}}}%
 \noindent\texttt{}\hfill[\textbf{id `\texttt{i}' ule}]
 
 
@@ -8347,7 +8350,7 @@ g{-}{-}roupe
 
 \index[fn]{@\texttt{\hbox{}}}%
 
-\index[codeidx]{a index---entry te\~{} --- i\^{}@\texttt{a \textsl{index{-}{-}{-}entry} t\~{e} {-}{-}{-} \^{\i{}}}}%
+\index[codeidx]{a index---entry te\~{} --- i\^{}@\texttt{a \GNUTexinfocommandstyletextvar{index---entry} t\~{e} {-}{-}{-} \^{\i{}}}}%
 
 \index[truc]{truc}%
 

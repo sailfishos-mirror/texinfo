@@ -1,3 +1,12 @@
+2022-08-10  Patrice Dumas  <pertusus@free.fr>
+
+	@var roman slanted everywhere @code no explicit upright in def
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): use a macro to define
+	@var similarly to @cite, with \normalfont.  Use it in text
+	context.  Set the @cite formatting with \normalfont for text
+	context too.  Remove codetext context, remove 'var_slant' context.
+
 2022-08-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Typed Functions): Add output of Ada example and

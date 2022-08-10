@@ -1519,19 +1519,19 @@ $result_converted{'latex'}->{'combined_fonts'} = '
 \\chapter{{chapter}}
 \\label{anchor:chapter}%
 
-\\texttt{code}, \\textsl{dfn}, \\textsl{var}, \\textbf{strong}, {\\ttfamily\\textsl{kbd}}, `\\texttt{samp}\'.
+\\texttt{code}, \\textsl{dfn}, \\GNUTexinfocommandstyletextvar{var}, \\textbf{strong}, {\\ttfamily\\textsl{kbd}}, `\\texttt{samp}\'.
 
 \\texttt{\\textsl{dfn in code}}
-\\textsl{\\texttt{code in var}}
-\\texttt{\\textsl{var in code}}
+\\GNUTexinfocommandstyletextvar{\\texttt{code in var}}
+\\texttt{\\GNUTexinfocommandstyletextvar{var in code}}
 \\textbf{{\\ttfamily\\textsl{kbd in strong}}}
 `\\texttt{\\textbf{strong in samp}}\'
 \\textbf{`\\texttt{samp in strong}\'}
 
-\\textsl{cite}
+\\GNUTexinfocommandstyletextcite{cite}
 
-\\texttt{\\GNUTexinfocommandstylecodetextcite{cite in code}}
-\\textsl{\\texttt{code in cite}}
+\\texttt{\\GNUTexinfocommandstyletextcite{cite in code}}
+\\GNUTexinfocommandstyletextcite{\\texttt{code in cite}}
 
 \\texttt{code} \\textsl{slanted} \\textbf{b}
 \\texttt{\\textsl{slanted in code}}
@@ -1541,8 +1541,8 @@ $result_converted{'latex'}->{'combined_fonts'} = '
 
 \\begin{GNUTexinfopreformatted}
 \\leftskip=2em\\relax\\ttfamily%
-\\textsl{var in example}
-\\GNUTexinfocommandstylecodetextcite{cite in example}
+\\GNUTexinfocommandstyletextvar{var in example}
+\\GNUTexinfocommandstyletextcite{cite in example}
 \\end{GNUTexinfopreformatted}
 ';
 

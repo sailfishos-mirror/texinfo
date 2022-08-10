@@ -74,6 +74,11 @@
 # or two hyphen, no break between __ or hyphen.  See near \global\def\code
 # in texinfo.tex.
 #
+# add a test @frencspacing on in @code (code context) with punctuation.
+#
+# empty line in xtable inter_item_commands_in_table_in_example test leads
+# to ! Paragraph ended before \@item was complete.
+#
 #
 # RELEVANT BUT NOT DECISIVE
 #
@@ -609,8 +614,6 @@ my %LaTeX_style_brace_commands = (
     'r' => '\\textnormal',
     'sc' => '\\textsc',
     'sansserif' => '\\textsf',
-    # slanted in texinfo.tex
-    'cite' => '\\textsl',
   },
   'math' => {
     'hyphenation' => '',
@@ -621,7 +624,6 @@ my %LaTeX_style_brace_commands = (
     'sc' => '', # no obvious way to do it in math mode, not switching to
                 # text mode only for this command
     'sansserif' => '\\mathsf',
-    'cite' => '',
   }
 );
 
@@ -634,14 +636,14 @@ foreach my $LaTeX_style_command_name ('textsc', 'textbf', 'texttt') {
   $need_known_embrac{'\\'.$LaTeX_style_command_name} = $LaTeX_style_command_name;
 }
 
-my $code_text_context = 'codetext';
-
-# in code, we want to keep @cite result in slanted but
-# not in typewriter, so use \normalfont{} to remove other
-# font effects
-register_style_format_command($code_text_context, 'cite',
+# we want to keep those @-commands in roman slanted everywhere in text
+# so use \normalfont{} to remove other font effects
+foreach my $always_slanted_roman_commands ('cite', 'var') {
+  register_style_format_command('text', $always_slanted_roman_commands,
                         '\\normalfont{}\\textsl', \%LaTeX_style_brace_commands,
                         \%style_brace_format_command_new_commands);
+  $LaTeX_style_brace_commands{'math'}->{$always_slanted_roman_commands} = '';
+}
 
 # FIXME headitemfont
 my @asis_commands = ('asis', 'clicksequence', 'headitemfont');
@@ -651,32 +653,23 @@ foreach my $asis_command (@asis_commands) {
   $LaTeX_style_brace_commands{'math'}->{$asis_command} = '';
 }
 
-# in texinfo.tex, @var and @dfn are slanted.
-my @slanted_commands = ('var', 'dfn', 'slanted');
+# in texinfo.tex, @dfn is slanted.
+my @slanted_commands = ('dfn', 'slanted');
 foreach my $slanted_command (@slanted_commands) {
   $LaTeX_style_brace_commands{'text'}->{$slanted_command} = '\\textsl';
   $LaTeX_style_brace_commands{'math'}->{$slanted_command} = '';
-  #register_style_format_command($code_text_context, $slanted_command,
-  #                          '\\ttfamily\\textsl', \%LaTeX_style_brace_commands,
-  #                          \%style_brace_format_command_new_commands);
 }
 
 my @emphasized_commands = ('emph');
 foreach my $emphasized_command (@emphasized_commands) {
   $LaTeX_style_brace_commands{'text'}->{$emphasized_command} = '\\emph';
   $LaTeX_style_brace_commands{'math'}->{$emphasized_command} = '';
-  #register_style_format_command($code_text_context, $emphasized_command,
-  #                          '\\ttfamily\\textsl', \%LaTeX_style_brace_commands,
-  #                          \%style_brace_format_command_new_commands);
 }
 
 my @bold_commands = ('strong', 'b');
 foreach my $bold_command (@bold_commands) {
   $LaTeX_style_brace_commands{'text'}->{$bold_command} = '\\textbf';
   $LaTeX_style_brace_commands{'math'}->{$bold_command} = '\\mathbf';
-  #register_style_format_command($code_text_context, $bold_command,
-  #                          '\\ttfamily\\textbf', \%LaTeX_style_brace_commands,
-  #                          \%style_brace_format_command_new_commands);
 }
 
 my @italics_commands = ('i');
@@ -692,12 +685,6 @@ foreach my $typewriter_command (@typewriter_commands) {
   $LaTeX_style_brace_commands{'text'}->{$typewriter_command} = '\\texttt';
   $LaTeX_style_brace_commands{'math'}->{$typewriter_command} = '\\mathtt';
 }
-
-# Only used in @def* args to avoid accumulating font styles
-my %var_slant_commands = (
-  'var' => '\\rmfamily \\slshape',
-  'code' => '\\upshape \\ttfamily',
-);
 
 my @quoted_commands = ('samp', 'indicateurl');
 
@@ -734,7 +721,9 @@ foreach my $command (keys(%{$LaTeX_style_brace_commands{'text'}}), 'kbd') {
   next if ($unformatted_brace_command{$command});
   my $description_format = $LaTeX_style_brace_commands{'text'}->{$command};
   if ($command eq 'kbd' or
-      ($description_format ne '' and $description_format !~ /\\text[a-z]{2}$/)) {
+      ($description_format ne ''
+       and $description_format !~ /\\text[a-z]{2}$/
+       and not $style_brace_format_command_new_commands{'text'}->{$command})) {
     my $specific_format_command
       = "\\${description_command_new_commands_prefix}$command";
     my $command_definition;
@@ -2029,6 +2018,9 @@ sub _xtable_description_command_format($$)
       # only gather if associated to a new command
       if (exists($description_command_new_commands{$command_as_argument})) {
         $self->{'description_format_commands'}->{$command_as_argument} = 1;
+      } elsif ($style_brace_format_command_new_commands{'text'}->{$command_as_argument}) {
+        $self->{'style_brace_format_commands'}->{'text'}
+                                                     ->{$command_as_argument} = 1;
       }
       return $description_command_format{$command_as_argument}
     }
@@ -2456,19 +2448,12 @@ sub _convert($$)
       my $remove_code_context;
       if ($code_style_commands{$cmdname}) {
         $self->{'formatting_context'}->[-1]->{'code'}->[-1] += 1;
-      } elsif ($cmdname eq 'r'
-               or ($cmdname eq 'var'
-                   and $self->{'formatting_context'}->[-1]->{'var_slant'}
-                   and $self->{'formatting_context'}->[-1]->{'var_slant'}->[-1])) {
+      } elsif ($cmdname eq 'r' or $cmdname eq 'var') {
         $remove_code_context = 1;
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 0;
       }
-      # specific macro for typewriter + other style
       my $formatting_context = $command_context;
-      if ($self->{'formatting_context'}->[-1]->{'code'}->[-1]
-          and $command_context eq 'text'
-          and $LaTeX_style_brace_commands{$code_text_context}->{$cmdname}) {
-        $formatting_context = $code_text_context;
+      if ($style_brace_format_command_new_commands{$formatting_context}->{$cmdname}) {
         $self->{'style_brace_format_commands'}->{$formatting_context}
                                                      ->{$cmdname} = 1;
       }
@@ -2488,14 +2473,7 @@ sub _convert($$)
                        ->{'made_known'}->{$defined_style_embrac} = 1;
           }
         }
-        if ($var_slant_commands{$cmdname}
-            and $self->{'formatting_context'}->[-1]->{'var_slant'}
-            and $self->{'formatting_context'}->[-1]->{'var_slant'}->[-1]) {
-          $result .= '{' . $var_slant_commands{$cmdname} . ' ';
-          # FIXME \EmbracMakeKnown for these commands too?
-        } else {
-          $result .= "$LaTeX_style_command\{";
-        }
+        $result .= "$LaTeX_style_command\{";
       }
       if ($element->{'args'}) {
         $result .= _convert($self, $element->{'args'}->[0]);
@@ -3628,7 +3606,6 @@ sub _convert($$)
         my $known_embrac_commands;
         if ($arguments) {
           $result .= $def_space;
-          push @{$self->{'formatting_context'}->[-1]->{'var_slant'}}, 1;
           if ($Texinfo::Common::def_no_var_arg_commands{$command}) {
             $result .= _convert($self, {'contents' => $arguments});
           } else {
@@ -3654,7 +3631,6 @@ sub _convert($$)
                 = [sort(keys(%{$closed_embrac->{'made_known'}}))]
             }
           }
-          pop @{$self->{'formatting_context'}->[-1]->{'var_slant'}};
         }
 
         $self->{'formatting_context'}->[-1]->{'code'}->[-1] -= 1;

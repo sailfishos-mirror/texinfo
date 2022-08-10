@@ -15,8 +15,11 @@
 \makeatletter
 \newcommand{\GNUTexinfosettitle}{No Title}%
 
-% style command for cite in codetext
-\newcommand\GNUTexinfocommandstylecodetextcite[1]{{\normalfont{}\textsl{#1}}}%
+% style command for cite in text
+\newcommand\GNUTexinfocommandstyletextcite[1]{{\normalfont{}\textsl{#1}}}%
+
+% style command for var in text
+\newcommand\GNUTexinfocommandstyletextvar[1]{{\normalfont{}\textsl{#1}}}%
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -67,19 +70,19 @@
 \chapter{{chapter}}
 \label{anchor:chapter}%
 
-\texttt{code}, \textsl{dfn}, \textsl{var}, \textbf{strong}, {\ttfamily\textsl{kbd}}, `\texttt{samp}'.
+\texttt{code}, \textsl{dfn}, \GNUTexinfocommandstyletextvar{var}, \textbf{strong}, {\ttfamily\textsl{kbd}}, `\texttt{samp}'.
 
 \texttt{\textsl{dfn in code}}
-\textsl{\texttt{code in var}}
-\texttt{\textsl{var in code}}
+\GNUTexinfocommandstyletextvar{\texttt{code in var}}
+\texttt{\GNUTexinfocommandstyletextvar{var in code}}
 \textbf{{\ttfamily\textsl{kbd in strong}}}
 `\texttt{\textbf{strong in samp}}'
 \textbf{`\texttt{samp in strong}'}
 
-\textsl{cite}
+\GNUTexinfocommandstyletextcite{cite}
 
-\texttt{\GNUTexinfocommandstylecodetextcite{cite in code}}
-\textsl{\texttt{code in cite}}
+\texttt{\GNUTexinfocommandstyletextcite{cite in code}}
+\GNUTexinfocommandstyletextcite{\texttt{code in cite}}
 
 \texttt{code} \textsl{slanted} \textbf{b}
 \texttt{\textsl{slanted in code}}
@@ -89,7 +92,7 @@
 
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-\textsl{var in example}
-\GNUTexinfocommandstylecodetextcite{cite in example}
+\GNUTexinfocommandstyletextvar{var in example}
+\GNUTexinfocommandstyletextcite{cite in example}
 \end{GNUTexinfopreformatted}
 \end{document}

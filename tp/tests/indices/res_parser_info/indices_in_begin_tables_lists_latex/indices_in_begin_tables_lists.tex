@@ -24,6 +24,9 @@
 % command used in \description format for samp
 \newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{{`\texttt{#1}'}}}%
 
+% style command for var in text
+\newcommand\GNUTexinfocommandstyletextvar[1]{{\normalfont{}\textsl{#1}}}%
+
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
@@ -153,19 +156,19 @@ l--ine
 
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\textsl{avar--b}\\
+\GNUTexinfocommandstyletextvar{avar--b}\\
 \index[fn]{avar--b@\texttt{avar{-}{-}b}}%
 \index[cp]{index entry between item and itemx}%
-\textsl{b}
+\GNUTexinfocommandstyletextvar{b}
 \index[fn]{b@\texttt{b}}%
 }}]
 l--ine
 \item[{\parbox[b]{\linewidth}{%
-\textsl{c}\\
+\GNUTexinfocommandstyletextvar{c}\\
 \index[fn]{c@\texttt{c}}%
 
 
-\textsl{d}
+\GNUTexinfocommandstyletextvar{d}
 \index[fn]{d@\texttt{d}}%
 }}]
 
