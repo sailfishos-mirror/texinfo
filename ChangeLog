@@ -1,3 +1,10 @@
+2022-08-09  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	No special output for @t in def args
+
+	* tp/Texinfo/Convert/LaTeX.pm (%var_slant_commands):
+	Remove @t.  From Patrice.
+
 2022-08-10  Patrice Dumas  <pertusus@free.fr>
 
 	No code environment for @var on @def lines

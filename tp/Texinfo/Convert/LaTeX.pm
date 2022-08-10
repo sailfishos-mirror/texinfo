@@ -697,7 +697,6 @@ foreach my $typewriter_command (@typewriter_commands) {
 my %var_slant_commands = (
   'var' => '\\rmfamily \\slshape',
   'code' => '\\upshape \\ttfamily',
-  't' => '\\upshape \\ttfamily',
 );
 
 my @quoted_commands = ('samp', 'indicateurl');
