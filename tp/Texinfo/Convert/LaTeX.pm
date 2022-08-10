@@ -2450,9 +2450,14 @@ sub _convert($$)
       if ($self->{'quotes_map'}->{$cmdname}) {
         $result .= $self->{'quotes_map'}->{$cmdname}->[0];
       }
+      my $remove_code_context;
       if ($code_style_commands{$cmdname}) {
         $self->{'formatting_context'}->[-1]->{'code'}->[-1] += 1;
-      } elsif ($cmdname eq 'r') {
+      } elsif ($cmdname eq 'r'
+               or ($cmdname eq 'var'
+                   and $self->{'formatting_context'}->[-1]->{'var_slant'}
+                   and $self->{'formatting_context'}->[-1]->{'var_slant'}->[-1])) {
+        $remove_code_context = 1;
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 0;
       }
       # specific macro for typewriter + other style
@@ -2497,7 +2502,7 @@ sub _convert($$)
       }
       if ($code_style_commands{$cmdname}) {
         $self->{'formatting_context'}->[-1]->{'code'}->[-1] -= 1;
-      } elsif ($cmdname eq 'r') {
+      } elsif ($remove_code_context) {
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
       }
       if ($self->{'quotes_map'}->{$cmdname}) {
