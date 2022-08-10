@@ -693,6 +693,13 @@ foreach my $typewriter_command (@typewriter_commands) {
   $LaTeX_style_brace_commands{'math'}->{$typewriter_command} = '\\mathtt';
 }
 
+# Only used in @def* args to avoid accumulating font styles
+my %var_slant_commands = (
+  'var' => '\\rmfamily \\slshape',
+  'code' => '\\upshape \\ttfamily',
+  't' => '\\upshape \\ttfamily',
+);
+
 my @quoted_commands = ('samp', 'indicateurl');
 
 my %quotes_map;
@@ -2473,7 +2480,14 @@ sub _convert($$)
                        ->{'made_known'}->{$defined_style_embrac} = 1;
           }
         }
-        $result .= "$LaTeX_style_command\{";
+        if ($var_slant_commands{$cmdname}
+            and $self->{'formatting_context'}->[-1]->{'var_slant'}
+            and $self->{'formatting_context'}->[-1]->{'var_slant'}->[-1]) {
+          $result .= '{' . $var_slant_commands{$cmdname} . ' ';
+          # FIXME \EmbracMakeKnown for these commands too?
+        } else {
+          $result .= "$LaTeX_style_command\{";
+        }
       }
       if ($element->{'args'}) {
         $result .= _convert($self, $element->{'args'}->[0]);
@@ -3606,6 +3620,7 @@ sub _convert($$)
         my $known_embrac_commands;
         if ($arguments) {
           $result .= $def_space;
+          push @{$self->{'formatting_context'}->[-1]->{'var_slant'}}, 1;
           if ($Texinfo::Common::def_no_var_arg_commands{$command}) {
             $result .= _convert($self, {'contents' => $arguments});
           } else {
@@ -3631,6 +3646,7 @@ sub _convert($$)
                 = [sort(keys(%{$closed_embrac->{'made_known'}}))]
             }
           }
+          pop @{$self->{'formatting_context'}->[-1]->{'var_slant'}};
         }
 
         $self->{'formatting_context'}->[-1]->{'code'}->[-1] -= 1;
