@@ -1,5 +1,11 @@
 2022-08-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Definition Commands):
+	Remove several redundant "templates" for the definition
+	commands and statements of which index is used.
+
+2022-08-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	~ for @tie
 
 	* tp/Texinfo/Convert/LaTeX.pm (LaTeX_no_arg_brace_commands):

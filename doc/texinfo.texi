@@ -11658,30 +11658,11 @@ characters.  This avoids the conversion to typographic en-dashes and
 em-dashes.
 @c @var also works; that's what we used to recommend.
 
-The template for @code{@@deffn} is:
-
-@example
-@group
-@@deffn @var{category} @var{name} @var{arguments}@dots{}
-@var{body-of-definition}
-@@end deffn
-@end group
-@end example
-
 @findex defun
 @item @@defun @var{name} @var{arguments}@dots{}
 The @code{@@defun} command is the definition command for functions.
 @code{@@defun} is equivalent to @samp{@@deffn Function @dots{}}.
 Terminate the definition with @code{@@end defun} on a line of its own.
-Thus, the template is:
-
-@example
-@group
-@@defun @var{function-name} @var{arguments}@dots{}
-@var{body-of-definition}
-@@end defun
-@end group
-@end example
 
 @findex defmac
 @item @@defmac @var{name} @var{arguments}@dots{}
@@ -11736,16 +11717,6 @@ the maximum width of filled lines.
 Terminate the definition with @code{@@end defvr} on a line of its
 own.
 
-The template is:
-
-@example
-@group
-@@defvr @var{category} @var{name}
-@var{body-of-definition}
-@@end defvr
-@end group
-@end example
-
 @code{@@defvr} creates an entry in the index of variables for @var{name}.
 
 @findex defvar
@@ -11765,16 +11736,6 @@ For example:
 @end group
 @end example
 
-The template is:
-
-@example
-@group
-@@defvar @var{name}
-@var{body-of-definition}
-@@end defvar
-@end group
-@end example
-
 @code{@@defvar} creates an entry in the index of variables for
 @var{name}.
 
@@ -11785,8 +11746,7 @@ The @code{@@defopt} command is the definition command for @dfn{user
 options}, i.e., variables intended for users to change according to
 taste; Emacs has many such (@pxref{Variables,,, emacs, The GNU Emacs
 Manual}).  @code{@@defopt} is equivalent to @samp{@@defvr @{User
-Option@} @dots{}} and works like @code{@@defvar}.  It creates an entry
-in the index of variables.
+Option@} @dots{}}.
 @end table
 
 
@@ -11833,7 +11793,8 @@ produces:
 
 This means that @code{foobar} is a ``library function'' that returns an
 @code{int}, and its arguments are @var{foo} (an @code{int}) and
-@var{bar} (a @code{float}).
+@var{bar} (a @code{float}).  @samp{Library Function} has to be
+enclosed in braces to make it a single argument.
 
 When using @code{@@deftypefn} command and variations,
 you should mark parameter names with
@@ -11842,20 +11803,6 @@ other parts of the literal syntax of the programming language.
 Where the output format allows,
 all output on the definition line is in a typewriter font by default.
 @code{@@var} uses an appropriate font where it occurs.
-
-The template for @code{@@deftypefn} is:
-
-@example
-@group
-@@deftypefn @var{category} @var{data-type} @var{name} @var{arguments} @dots{}
-@var{body-of-description}
-@@end deftypefn
-@end group
-@end example
-
-@noindent
-Note that if the @var{category} or @var{data type} is more than one
-word then it must be enclosed in braces to make it a single argument.
 
 If you are describing a procedure in a language that has packages,
 such as Ada, you might consider using @code{@@deftypefn} in a manner
@@ -11924,15 +11871,7 @@ example, for documenting the R language, you could use input like
 @findex deftypefun
 The @code{@@deftypefun} command is the specialized definition command
 for functions in typed languages.  The command is equivalent to
-@samp{@@deftypefn Function @dots{}}.  The template is:
-
-@example
-@group
-@@deftypefun @var{type} @var{name} @var{arguments}@dots{}
-@var{body-of-description}
-@@end deftypefun
-@end group
-@end example
+@samp{@@deftypefn Function @dots{}}.
 
 @code{@@deftypefun} creates an entry in the index of functions for
 @var{name}.
@@ -12002,29 +11941,11 @@ produces the following:
 @end deftypevr
 @end quotation
 
-@need 800
-The template is:
-
-@example
-@@deftypevr @var{category} @var{data-type} @var{name}
-@var{body-of-description}
-@@end deftypevr
-@end example
-
 @findex deftypevar
 @item @@deftypevar @var{data-type} @var{name}
 The @code{@@deftypevar} command is the specialized definition command
 for variables in typed languages.  @code{@@deftypevar} is equivalent
-to @samp{@@deftypevr Variable @dots{}}.  The template is:
-
-@example
-@group
-@@deftypevar @var{data-type} @var{name}
-@var{body-of-description}
-@@end deftypevar
-@end group
-@end example
-@end table
+to @samp{@@deftypevr Variable @dots{}}.
 
 These commands create entries in the index of variables.
 
@@ -12056,17 +11977,6 @@ of a definition of @code{pair}.
 @group
 @@deftp @{Data type@} pair car cdr
 @dots{}
-@@end deftp
-@end group
-@end example
-
-@need 950
-The template is:
-
-@example
-@group
-@@deftp @var{category} @var{name-of-type} @var{attributes}@dots{}
-@var{body-of-definition}
 @@end deftp
 @end group
 @end example
@@ -12244,15 +12154,6 @@ is followed on the same line by the overall name of the category of
 operation, the name of the class of the operation, the name of the
 operation, and its arguments, if any.
 
-The template is:
-@example
-@group
-@@defop @var{category} @var{class} @var{name} @var{arguments}@dots{}
-@var{body-of-definition}
-@@end defop
-@end group
-@end example
-
 @code{@@defop} creates an entry, such as `@code{expose} on
 @code{windows}', in the index of functions.
 
@@ -12261,8 +12162,7 @@ The template is:
 The @code{@@deftypeop} command is the definition command for typed
 operations in object-oriented programming.  It is similar to
 @code{@@defop} with the addition of the @var{data-type} parameter to
-specify the return type of the method.  @code{@@deftypeop} creates an
-entry in the index of functions.
+specify the return type of the method.
 
 @item @@defmethod @var{class} @var{name} @var{arguments}@dots{}
 @findex defmethod
@@ -12304,7 +12204,6 @@ The @code{@@deftypemethod} command is the definition command for methods
 in object-oriented typed languages, such as C++ and Java.  It is similar
 to the @code{@@defmethod} command with the addition of the
 @var{data-type} parameter to specify the return type of the method.
-@code{@@deftypemethod} creates an entry in the index of functions.
 
 @end table
 
