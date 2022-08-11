@@ -678,7 +678,7 @@ $result_trees{'formatting_fr'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     },
                     {
                       'parent' => {},
@@ -2342,7 +2342,7 @@ $result_trees{'formatting_fr'} = {
                           'parent' => {},
                           'text' => '
 ',
-                          'type' => 'after_description_line'
+                          'type' => 'after_menu_description_line'
                         },
                         {
                           'parent' => {},
@@ -2643,7 +2643,7 @@ $result_trees{'formatting_fr'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     }
                   ],
                   'parent' => {},

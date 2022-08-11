@@ -2820,7 +2820,7 @@ sub _end_line($$$)
                                         'parent' => $current,
                                         'contents' => [] };
       $current = $current->{'contents'}->[-1];
-      push @{$current->{'contents'}}, { 'type' => 'after_description_line',
+      push @{$current->{'contents'}}, { 'type' => 'after_menu_description_line',
                                         'text' => $empty_line->{'text'},
                                         'parent' => $current };
       print STDERR "MENU: END DESCRIPTION, OPEN COMMENT\n" if ($self->{'DEBUG'});
@@ -6905,7 +6905,7 @@ at all):
 
 =over
 
-=item after_description_line
+=item after_menu_description_line
 
 =item space_at_end_menu_node
 

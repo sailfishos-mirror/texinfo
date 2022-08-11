@@ -123,7 +123,7 @@ $result_trees{'dash_in_menu'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     },
                     {
                       'parent' => {},

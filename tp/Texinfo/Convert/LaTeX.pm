@@ -2284,10 +2284,6 @@ sub _convert($$)
       return "\n";
     }
   }
-  # FIXME same as ignoring.  Handle with @def*
-  if ($type and ($type eq 'after_description_line')) {
-    return '';
-  }
 
   # process text
   if (defined($element->{'text'})) {

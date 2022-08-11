@@ -195,7 +195,7 @@ $result_trees{'sc_in_menu'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     },
                     {
                       'args' => [
@@ -704,7 +704,7 @@ $result_trees{'sc_in_menu'} = {
                           'parent' => {},
                           'text' => '
 ',
-                          'type' => 'after_description_line'
+                          'type' => 'after_menu_description_line'
                         },
                         {
                           'args' => [

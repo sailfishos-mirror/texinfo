@@ -37,7 +37,7 @@ empty_spaces_after_close_brace
 empty_spaces_before_paragraph
 text_before_beginning
 space_at_end_menu_node
-after_description_line
+after_menu_description_line
 spaces
 spaces_inserted
 

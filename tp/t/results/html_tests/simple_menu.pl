@@ -302,7 +302,7 @@ $result_trees{'simple_menu'} = {
                               'parent' => {},
                               'text' => '
 ',
-                              'type' => 'after_description_line'
+                              'type' => 'after_menu_description_line'
                             },
                             {
                               'parent' => {},
@@ -683,7 +683,7 @@ $result_trees{'simple_menu'} = {
                   'parent' => {},
                   'text' => '
 ',
-                  'type' => 'after_description_line'
+                  'type' => 'after_menu_description_line'
                 },
                 {
                   'parent' => {},
@@ -834,7 +834,7 @@ $result_trees{'simple_menu'} = {
                   'parent' => {},
                   'text' => '
 ',
-                  'type' => 'after_description_line'
+                  'type' => 'after_menu_description_line'
                 }
               ],
               'parent' => {},
@@ -1062,7 +1062,7 @@ $result_trees{'simple_menu'} = {
                                   'parent' => {},
                                   'text' => '
 ',
-                                  'type' => 'after_description_line'
+                                  'type' => 'after_menu_description_line'
                                 },
                                 {
                                   'parent' => {},
@@ -1443,7 +1443,7 @@ $result_trees{'simple_menu'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     },
                     {
                       'parent' => {},
@@ -1594,7 +1594,7 @@ $result_trees{'simple_menu'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     }
                   ],
                   'parent' => {},

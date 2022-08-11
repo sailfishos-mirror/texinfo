@@ -297,7 +297,7 @@ $result_trees{'sectioning_frames'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     },
                     {
                       'parent' => {},
@@ -382,7 +382,7 @@ $result_trees{'sectioning_frames'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     },
                     {
                       'parent' => {},
@@ -467,7 +467,7 @@ $result_trees{'sectioning_frames'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     },
                     {
                       'parent' => {},
@@ -610,7 +610,7 @@ $result_trees{'sectioning_frames'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     },
                     {
                       'parent' => {},
@@ -993,7 +993,7 @@ $result_trees{'sectioning_frames'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     }
                   ],
                   'parent' => {},

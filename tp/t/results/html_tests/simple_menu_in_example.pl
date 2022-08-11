@@ -197,7 +197,7 @@ $result_trees{'simple_menu_in_example'} = {
                           'parent' => {},
                           'text' => '
 ',
-                          'type' => 'after_description_line'
+                          'type' => 'after_menu_description_line'
                         }
                       ],
                       'parent' => {},

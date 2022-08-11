@@ -1,5 +1,17 @@
 2022-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	Rename after_description_line type as after_menu_description_line
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line),
+	tp/Texinfo/XS/parsetexi/element_types.txt,
+	tp/Texinfo/XS/parsetexi/end_line.c(end_line): rename
+	after_description_line as after_menu_description_line.
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): do not check
+	after_menu_description_line, menus are already ignored.
+
+2022-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	Avoid empty line in @*table inter item formatting
 
 	* tp/Texinfo/Convert/LaTeX.pm (_convert): ignore empty

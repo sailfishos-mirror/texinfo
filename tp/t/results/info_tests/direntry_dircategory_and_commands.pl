@@ -344,7 +344,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     },
                     {
                       'parent' => {},

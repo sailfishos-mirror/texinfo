@@ -823,7 +823,7 @@ $result_trees{'complex'} = [
                               'parent' => {},
                               'text' => '
 ',
-                              'type' => 'after_description_line'
+                              'type' => 'after_menu_description_line'
                             }
                           ],
                           'parent' => {},

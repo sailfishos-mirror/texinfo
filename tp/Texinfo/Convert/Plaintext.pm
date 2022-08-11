@@ -1541,7 +1541,7 @@ sub _convert($$)
   # of text below to be sure that an empty line is always processed
   # especially
   if ($type and ($type eq 'empty_line' 
-                           or $type eq 'after_description_line')) {
+                           or $type eq 'after_menu_description_line')) {
     delete $self->{'text_element_context'}->[-1]->{'counter'};
     $self->{'empty_lines_count'}++;
     if ($self->{'empty_lines_count'} <= 1

@@ -19,7 +19,7 @@ char *element_type_names[] = {
 "empty_spaces_before_paragraph",
 "text_before_beginning",
 "space_at_end_menu_node",
-"after_description_line",
+"after_menu_description_line",
 "spaces",
 "spaces_inserted",
 "document_root",

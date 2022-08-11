@@ -86,7 +86,7 @@ $result_trees{'example_in_menu_comment'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     }
                   ],
                   'parent' => {},

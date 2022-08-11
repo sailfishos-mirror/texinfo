@@ -217,7 +217,7 @@ $result_trees{'inlineraw_in_menu_description'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     }
                   ],
                   'parent' => {},

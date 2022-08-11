@@ -409,7 +409,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     },
                     {
                       'parent' => {},

@@ -1972,7 +1972,7 @@ end_line (ELEMENT *current)
           add_to_element_contents (current, e);
 
           current = e;
-          e = new_element (ET_after_description_line);
+          e = new_element (ET_after_menu_description_line);
           text_append (&e->text, empty_line->text.text);
           destroy_element (empty_line);
           add_to_element_contents (current, e);

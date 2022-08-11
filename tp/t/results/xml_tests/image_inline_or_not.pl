@@ -1016,7 +1016,7 @@ $result_trees{'image_inline_or_not'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     },
                     {
                       'args' => [

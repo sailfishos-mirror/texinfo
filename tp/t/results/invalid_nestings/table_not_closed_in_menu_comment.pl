@@ -93,7 +93,7 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'after_description_line'
+                      'type' => 'after_menu_description_line'
                     }
                   ],
                   'parent' => {},

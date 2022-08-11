@@ -677,7 +677,7 @@ sub regenerate_master_menu($$)
     $index++;
     my $preformatted = {'type' => 'preformatted', 'parent' => $menu_comment};
     push @{$menu_comment->{'contents'}}, $preformatted;
-    my $empty_line = {'type' => 'after_description_line', 'text' => "\n",
+    my $empty_line = {'type' => 'after_menu_description_line', 'text' => "\n",
                       'parent' => $preformatted};
     push @{$preformatted->{'contents'}}, $empty_line;
   }
