@@ -34,8 +34,6 @@
 # the text is not filled at all in Texinfo, each line is left as is.
 # LaTeX flushleft and flushright are filled but not aligned.
 #
-# indentation in @example, @display... still needs to be done
-#
 # @group should also be added together with the non filled environments.
 #
 # Texinfo TeX leaves more space for the category on the right
@@ -75,9 +73,6 @@
 # in texinfo.tex.
 #
 # in @deftype* arguments, spaces after a punctuation mark is stretched
-#
-# empty line in xtable inter_item_commands_in_table_in_example test leads
-# to ! Paragraph ended before \@item was complete.
 #
 #
 # RELEVANT BUT NOT DECISIVE
@@ -2278,7 +2273,16 @@ sub _convert($$)
   }
 
   if ($type and ($type eq 'empty_line')) {
-    return "\n";
+    # if nr_table_items_context the whole @item/@itemx formatting
+    # is put in a parbox, in which there should not be paragraphs,
+    # so we remove empty lines.
+    # FIXME this conditions is probably checked a lot in a document
+    # formatting may be better to avoid.
+    if (scalar(@{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}})) {
+      return '';
+    } else {
+      return "\n";
+    }
   }
   # FIXME same as ignoring.  Handle with @def*
   if ($type and ($type eq 'after_description_line')) {
