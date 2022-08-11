@@ -820,9 +820,9 @@ sub converter_initialize($)
   # @U expansion to utf-8 characters even though this
   # could output characters that are not known in the
   # fontenc and will lead to an error.
-  # FIXME add a customization variable?  Or allow/explain
-  # how to add \DeclareUnicodeCharacter{XXXX}{aa}
-  # in preamble?  Use a fontenc with more points?
+  # This is described in the Texinfo manual, but not in
+  # in a precise way.
+  # FIXME add a customization variable?  Use a fontenc with more points?
   if ($self->get_conf('OUTPUT_ENCODING_NAME')
       and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
     # cache this to avoid redoing calls to get_conf
@@ -1165,12 +1165,6 @@ sub convert_to_latex_math($$;$$)
 
   return $result;
 }
-
-# ellipsis leaves less spacing after \dots in case it is followed
-# by punctuation. It does not seem to fix the @dots verusus @enddots issue
-# to be loaded after Babel if you are using the French option
-# FIXME use it anyway?
-# \usepackage{ellipsis}
 
 my %LaTeX_encoding_names_map = (
   'utf-8' => 'utf8',
@@ -2491,7 +2485,11 @@ sub _convert($$)
         $result .= _convert($self, $element->{'args'}->[0]);
       }
     } elsif ($cmdname eq 'verb') {
-      # FIXME \verb is forbidden in other macros
+      # NOTE \verb is forbidden in other macros in LaTeX.  We do
+      # not enforce this constraint here, nor warn.  Checking
+      # whether we are in another LaTeX macro would probably be a pain.
+      # It should be ok, though, as it is described as an error in the manual:
+      #   It is not reliable to use @verb inside other Texinfo constructs
       $result .= "\\verb" .$element->{'extra'}->{'delimiter'};
       push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
       if ($element->{'args'}) {
