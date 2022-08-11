@@ -1,3 +1,11 @@
+2022-08-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Protect space at start of code
+
+	* tp/Texinfo/Convert/LaTeX.pm (_protect_text) <code>:
+	Escape an initial space in case it was preceded by punctuation
+	from another element.  From Patrice.
+
 2022-08-11  Patrice Dumas  <pertusus@free.fr>
 
 	Handle kbd in LaTeX more like other similar commands

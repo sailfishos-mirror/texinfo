@@ -263,7 +263,7 @@ but , ,\@
 \texttt{@i\{{-}{-}a\}} \textit{--a}
 \texttt{@kbd\{{-}{-}a\}} \GNUTexinfocommandstyletextkbd{{-}{-}a}
 \texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
-\texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\} @minus\{\}\}} $--a {\frac{1}{2}} -$
+\texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\}\ @minus\{\}\}} $--a {\frac{1}{2}} -$
 \texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@r\{{-}{-}a\}} \textnormal{--a}
 \texttt{@samp\{{-}{-}a\}} `\texttt{{-}{-}a}'
@@ -286,7 +286,7 @@ but , ,\@
 \texttt{@url\{,{-}{-}b\}} --b
 \texttt{@var\{{-}{-}a\}} \GNUTexinfocommandstyletextvar{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
-\texttt{@verb\{:a  < \& @ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
+\texttt{@verb\{:a  < \& @\ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
 \texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
 \texttt{@H\{a\}} \H{a}
 \texttt{@H\{{-}{-}a\}} \H{--a}
@@ -324,9 +324,9 @@ but , ,\@
 \texttt{need 1002}
 \needspace{1.002pt}%
 
-\texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
+\texttt{@clicksequence\{click @click\{\}\ A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
-\texttt{@clicksequence\{click @click\{\} A\}} click $\Rightarrow{}$ A
+\texttt{@clicksequence\{click @click\{\}\ A\}} click $\Rightarrow{}$ A
 
 
 $$
@@ -632,7 +632,7 @@ truc &bidule\\
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
 e{-}{-}xample  some
-   text
+\   text
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
@@ -662,12 +662,12 @@ example five args
 
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-The something \'{e} \TeX{} is here.
+The something \'{e}\ \TeX{}\ is here.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-A @ at the end of the @example line.
+A @\ at the end of the @example line.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
@@ -790,9 +790,9 @@ def--fn
 \noindent\texttt{\textbf{id ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde]
 
 \index[fn]{id ule@\texttt{\textbf{id ule}}}%
-\noindent\texttt{\textbf{id `\texttt{i}' ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde2]
+\noindent\texttt{\textbf{id `\texttt{i}'\ ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde2]
 
-\index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}' ule}}}%
+\index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}'\ ule}}}%
 \noindent\texttt{}\hfill[]
 
 \noindent\texttt{machin}\hfill[]
@@ -887,7 +887,7 @@ d--eftypefn no arg
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name a{-}{-}rguments...}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop
@@ -895,7 +895,7 @@ d--eftypeop
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop no arg
@@ -927,7 +927,7 @@ d--efcv with arguments
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv
@@ -935,7 +935,7 @@ d--eftypecv
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name a{-}{-}rguments...}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv with arguments
@@ -943,7 +943,7 @@ d--eftypecv with arguments
 
 \noindent\texttt{d{-}{-}efop\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efop
@@ -951,7 +951,7 @@ d--efop
 
 \noindent\texttt{d{-}{-}efop\_name}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efop no arg
@@ -1031,7 +1031,7 @@ d--eftypevar
 
 \noindent\texttt{d{-}{-}efivar\_name}\hfill[Instance Variable of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name of c{-}{-}lass}}%
+\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efivar
@@ -1039,7 +1039,7 @@ d--efivar
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeivar\_name}\hfill[Instance Variable of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeivar
@@ -1047,7 +1047,7 @@ d--eftypeivar
 
 \noindent\texttt{d{-}{-}efmethod\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[Method on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
+\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efmethod
@@ -1055,7 +1055,7 @@ d--efmethod
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name a{-}{-}rguments...}\hfill[Method on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypemethod
@@ -1080,7 +1080,7 @@ d--eftypefn no arg2
 
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 a{-}{-}rguments2...}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
-\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2 on c{-}{-}lass2}}%
+\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2\ on c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop2
@@ -1088,7 +1088,7 @@ d--eftypeop2
 
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
-\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2 on c{-}{-}lass2}}%
+\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2\ on c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop no arg2
@@ -1096,7 +1096,7 @@ d--eftypeop no arg2
 
 \noindent\texttt{t{-}{-}ype2 d{-}{-}eftypecv\_name2}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
-\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
+\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2\ of c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv2
@@ -1104,7 +1104,7 @@ d--eftypecv2
 
 \noindent\texttt{t{-}{-}ype2 d{-}{-}eftypecv\_name2 a{-}{-}rguments2...}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
-\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
+\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2\ of c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv with arguments2
@@ -1129,8 +1129,8 @@ fff2
 \texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\} in cross
-ref,\ a comma@comma\{\} in title,\ a comma@comma\{\} in file,\ a @comma\{\} in manual name \}}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\}\ in cross
+ref,\ a comma@comma\{\}\ in title,\ a comma@comma\{\}\ in file,\ a @comma\{\}\ in manual name \}}
 Section ``a comma, in title'' in \textsl{a , in manual name}
 
 \texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
@@ -1175,9 +1175,9 @@ Section ``a comma, in title'' in \textsl{a , in manual name}
 \texttt{@inforef\{node{,}{,}file name\}} Section ``node'' in \texttt{file name}
 \texttt{@inforef\{chapter,\ cross ref name,\ file name,\ spurious arg\}} Section ``chapter'' in \texttt{file name,\ spurious arg}
 
-\texttt{@inforef\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\} in cross
-ref,\ a comma@comma\{\} in file\}}
-Section ``s--ect,ion'' in \texttt{a comma, in file}
+\texttt{@inforef\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\}\ in cross
+ref,\ a comma@comma\{\}\ in file\}}
+Section ``s--ect,ion'' in \texttt{a comma,\ in file}
 
 `\texttt{\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
 
@@ -1280,11 +1280,11 @@ $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 \GNUTexinfonopagebreakheading{\subsubsection*}{{subsubheading}}
 
 
-\texttt{@acronym\{{-}{-}a,an accronym @comma\{\} @enddots\{\}\}} --a (an accronym , \dots{})
-\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.,\ @'Etude{-}{-}@comma\{\} @b\{Autonome\} \}} \'{E}--.\@ ,A.\@ (\'{E}tude--, \textbf{Autonome})
+\texttt{@acronym\{{-}{-}a,an accronym @comma\{\}\ @enddots\{\}\}} --a (an accronym , \dots{})
+\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.,\ @'Etude{-}{-}@comma\{\}\ @b\{Autonome\}\ \}} \'{E}--.\@ ,A.\@ (\'{E}tude--, \textbf{Autonome})
 \texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}--.\@ ,A.\@
 
-\texttt{@math\{{-}{-}a@minus\{\} \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
+\texttt{@math\{{-}{-}a@minus\{\}\ \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
 
 
 
@@ -1328,9 +1328,9 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
 \texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
 \texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
 \texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
 
 
@@ -1611,7 +1611,7 @@ but , ,\@
 \texttt{@i\{{-}{-}a\}} \textit{--a}
 \texttt{@kbd\{{-}{-}a\}} \GNUTexinfocommandstyletextkbd{{-}{-}a}
 \texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
-\texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\} @minus\{\}\}} $--a {\frac{1}{2}} -$
+\texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\}\ @minus\{\}\}} $--a {\frac{1}{2}} -$
 \texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@r\{{-}{-}a\}} \textnormal{--a}
 \texttt{@samp\{{-}{-}a\}} `\texttt{{-}{-}a}'
@@ -1634,7 +1634,7 @@ but , ,\@
 \texttt{@url\{,{-}{-}b\}} --b
 \texttt{@var\{{-}{-}a\}} \GNUTexinfocommandstyletextvar{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
-\texttt{@verb\{:a  < \& @ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
+\texttt{@verb\{:a  < \& @\ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
 \texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
 \texttt{@H\{a\}} \H{a}
 \texttt{@H\{{-}{-}a\}} \H{--a}
@@ -1669,9 +1669,9 @@ but , ,\@
 \texttt{need 1002}
 \needspace{1.002pt}%
 
-\texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
+\texttt{@clicksequence\{click @click\{\}\ A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
-\texttt{@clicksequence\{click @click\{\} A\}} click $\Rightarrow{}$ A
+\texttt{@clicksequence\{click @click\{\}\ A\}} click $\Rightarrow{}$ A
 
 
 $$
@@ -1977,7 +1977,7 @@ truc &bidule\\
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
 e{-}{-}xample  some
-   text
+\   text
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
@@ -2007,12 +2007,12 @@ example five args
 
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-The something \'{e} \TeX{} is here.
+The something \'{e}\ \TeX{}\ is here.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-A @ at the end of the @example line.
+A @\ at the end of the @example line.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
@@ -2135,9 +2135,9 @@ def--fn
 \noindent\texttt{\textbf{id ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde]
 
 \index[fn]{id ule@\texttt{\textbf{id ule}}}%
-\noindent\texttt{\textbf{id `\texttt{i}' ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde2]
+\noindent\texttt{\textbf{id `\texttt{i}'\ ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde2]
 
-\index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}' ule}}}%
+\index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}'\ ule}}}%
 \noindent\texttt{}\hfill[]
 
 \noindent\texttt{machin}\hfill[]
@@ -2232,7 +2232,7 @@ d--eftypefn no arg
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name a{-}{-}rguments...}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop
@@ -2240,7 +2240,7 @@ d--eftypeop
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop no arg
@@ -2272,7 +2272,7 @@ d--efcv with arguments
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv
@@ -2280,7 +2280,7 @@ d--eftypecv
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name a{-}{-}rguments...}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv with arguments
@@ -2288,7 +2288,7 @@ d--eftypecv with arguments
 
 \noindent\texttt{d{-}{-}efop\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efop
@@ -2296,7 +2296,7 @@ d--efop
 
 \noindent\texttt{d{-}{-}efop\_name}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efop no arg
@@ -2376,7 +2376,7 @@ d--eftypevar
 
 \noindent\texttt{d{-}{-}efivar\_name}\hfill[Instance Variable of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name of c{-}{-}lass}}%
+\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efivar
@@ -2384,7 +2384,7 @@ d--efivar
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeivar\_name}\hfill[Instance Variable of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeivar
@@ -2392,7 +2392,7 @@ d--eftypeivar
 
 \noindent\texttt{d{-}{-}efmethod\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[Method on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
+\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efmethod
@@ -2400,7 +2400,7 @@ d--efmethod
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name a{-}{-}rguments...}\hfill[Method on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypemethod
@@ -2425,7 +2425,7 @@ d--eftypefn no arg2
 
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 a{-}{-}rguments2...}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
-\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2 on c{-}{-}lass2}}%
+\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2\ on c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop2
@@ -2433,7 +2433,7 @@ d--eftypeop2
 
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
-\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2 on c{-}{-}lass2}}%
+\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2\ on c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop no arg2
@@ -2441,7 +2441,7 @@ d--eftypeop no arg2
 
 \noindent\texttt{t{-}{-}ype2 d{-}{-}eftypecv\_name2}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
-\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
+\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2\ of c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv2
@@ -2449,7 +2449,7 @@ d--eftypecv2
 
 \noindent\texttt{t{-}{-}ype2 d{-}{-}eftypecv\_name2 a{-}{-}rguments2...}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
-\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
+\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2\ of c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv with arguments2
@@ -2474,8 +2474,8 @@ fff2
 \texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\} in cross
-ref,\ a comma@comma\{\} in title,\ a comma@comma\{\} in file,\ a @comma\{\} in manual name \}}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\}\ in cross
+ref,\ a comma@comma\{\}\ in title,\ a comma@comma\{\}\ in file,\ a @comma\{\}\ in manual name \}}
 Section ``a comma, in title'' in \textsl{a , in manual name}
 
 \texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
@@ -2520,9 +2520,9 @@ Section ``a comma, in title'' in \textsl{a , in manual name}
 \texttt{@inforef\{node{,}{,}file name\}} Section ``node'' in \texttt{file name}
 \texttt{@inforef\{chapter,\ cross ref name,\ file name,\ spurious arg\}} Section ``chapter'' in \texttt{file name,\ spurious arg}
 
-\texttt{@inforef\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\} in cross
-ref,\ a comma@comma\{\} in file\}}
-Section ``s--ect,ion'' in \texttt{a comma, in file}
+\texttt{@inforef\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\}\ in cross
+ref,\ a comma@comma\{\}\ in file\}}
+Section ``s--ect,ion'' in \texttt{a comma,\ in file}
 
 `\texttt{\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
 
@@ -2625,11 +2625,11 @@ $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 \GNUTexinfonopagebreakheading{\subsubsection*}{{subsubheading}}
 
 
-\texttt{@acronym\{{-}{-}a,an accronym @comma\{\} @enddots\{\}\}} --a (an accronym , \dots{})
-\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.,\ @'Etude{-}{-}@comma\{\} @b\{Autonome\} \}} \'{E}--.\@ ,A.\@ (\'{E}tude--, \textbf{Autonome})
+\texttt{@acronym\{{-}{-}a,an accronym @comma\{\}\ @enddots\{\}\}} --a (an accronym , \dots{})
+\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.,\ @'Etude{-}{-}@comma\{\}\ @b\{Autonome\}\ \}} \'{E}--.\@ ,A.\@ (\'{E}tude--, \textbf{Autonome})
 \texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}--.\@ ,A.\@
 
-\texttt{@math\{{-}{-}a@minus\{\} \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
+\texttt{@math\{{-}{-}a@minus\{\}\ \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
 
 
 
@@ -2673,9 +2673,9 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
 \texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
 \texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
 \texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
 
 
@@ -2977,7 +2977,7 @@ but , ,\@
 \texttt{@i\{{-}{-}a\}} \textit{--a}
 \texttt{@kbd\{{-}{-}a\}} \GNUTexinfocommandstyletextkbd{{-}{-}a}
 \texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
-\texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\} @minus\{\}\}} $--a {\frac{1}{2}} -$
+\texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\}\ @minus\{\}\}} $--a {\frac{1}{2}} -$
 \texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@r\{{-}{-}a\}} \textnormal{--a}
 \texttt{@samp\{{-}{-}a\}} `\texttt{{-}{-}a}'
@@ -3000,7 +3000,7 @@ but , ,\@
 \texttt{@url\{,{-}{-}b\}} --b
 \texttt{@var\{{-}{-}a\}} \GNUTexinfocommandstyletextvar{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
-\texttt{@verb\{:a  < \& @ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
+\texttt{@verb\{:a  < \& @\ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
 \texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
 \texttt{@H\{a\}} \H{a}
 \texttt{@H\{{-}{-}a\}} \H{--a}
@@ -3035,9 +3035,9 @@ but , ,\@
 \texttt{need 1002}
 \needspace{1.002pt}%
 
-\texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
+\texttt{@clicksequence\{click @click\{\}\ A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
-\texttt{@clicksequence\{click @click\{\} A\}} click $\Rightarrow{}$ A
+\texttt{@clicksequence\{click @click\{\}\ A\}} click $\Rightarrow{}$ A
 
 
 $$
@@ -3343,7 +3343,7 @@ truc &bidule\\
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
 e{-}{-}xample  some
-   text
+\   text
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
@@ -3373,12 +3373,12 @@ example five args
 
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-The something \'{e} \TeX{} is here.
+The something \'{e}\ \TeX{}\ is here.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-A @ at the end of the @example line.
+A @\ at the end of the @example line.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
@@ -3501,9 +3501,9 @@ def--fn
 \noindent\texttt{\textbf{id ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde]
 
 \index[fn]{id ule@\texttt{\textbf{id ule}}}%
-\noindent\texttt{\textbf{id `\texttt{i}' ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde2]
+\noindent\texttt{\textbf{id `\texttt{i}'\ ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde2]
 
-\index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}' ule}}}%
+\index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}'\ ule}}}%
 \noindent\texttt{}\hfill[]
 
 \noindent\texttt{machin}\hfill[]
@@ -3598,7 +3598,7 @@ d--eftypefn no arg
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name a{-}{-}rguments...}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop
@@ -3606,7 +3606,7 @@ d--eftypeop
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop no arg
@@ -3638,7 +3638,7 @@ d--efcv with arguments
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv
@@ -3646,7 +3646,7 @@ d--eftypecv
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name a{-}{-}rguments...}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv with arguments
@@ -3654,7 +3654,7 @@ d--eftypecv with arguments
 
 \noindent\texttt{d{-}{-}efop\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efop
@@ -3662,7 +3662,7 @@ d--efop
 
 \noindent\texttt{d{-}{-}efop\_name}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efop no arg
@@ -3742,7 +3742,7 @@ d--eftypevar
 
 \noindent\texttt{d{-}{-}efivar\_name}\hfill[Instance Variable of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name of c{-}{-}lass}}%
+\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efivar
@@ -3750,7 +3750,7 @@ d--efivar
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeivar\_name}\hfill[Instance Variable of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeivar
@@ -3758,7 +3758,7 @@ d--eftypeivar
 
 \noindent\texttt{d{-}{-}efmethod\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[Method on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
+\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efmethod
@@ -3766,7 +3766,7 @@ d--efmethod
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name a{-}{-}rguments...}\hfill[Method on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypemethod
@@ -3791,7 +3791,7 @@ d--eftypefn no arg2
 
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 a{-}{-}rguments2...}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
-\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2 on c{-}{-}lass2}}%
+\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2\ on c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop2
@@ -3799,7 +3799,7 @@ d--eftypeop2
 
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
-\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2 on c{-}{-}lass2}}%
+\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2\ on c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop no arg2
@@ -3807,7 +3807,7 @@ d--eftypeop no arg2
 
 \noindent\texttt{t{-}{-}ype2 d{-}{-}eftypecv\_name2}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
-\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
+\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2\ of c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv2
@@ -3815,7 +3815,7 @@ d--eftypecv2
 
 \noindent\texttt{t{-}{-}ype2 d{-}{-}eftypecv\_name2 a{-}{-}rguments2...}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
-\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
+\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2\ of c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv with arguments2
@@ -3840,8 +3840,8 @@ fff2
 \texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\} in cross
-ref,\ a comma@comma\{\} in title,\ a comma@comma\{\} in file,\ a @comma\{\} in manual name \}}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\}\ in cross
+ref,\ a comma@comma\{\}\ in title,\ a comma@comma\{\}\ in file,\ a @comma\{\}\ in manual name \}}
 Section ``a comma, in title'' in \textsl{a , in manual name}
 
 \texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
@@ -3886,9 +3886,9 @@ Section ``a comma, in title'' in \textsl{a , in manual name}
 \texttt{@inforef\{node{,}{,}file name\}} Section ``node'' in \texttt{file name}
 \texttt{@inforef\{chapter,\ cross ref name,\ file name,\ spurious arg\}} Section ``chapter'' in \texttt{file name,\ spurious arg}
 
-\texttt{@inforef\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\} in cross
-ref,\ a comma@comma\{\} in file\}}
-Section ``s--ect,ion'' in \texttt{a comma, in file}
+\texttt{@inforef\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\}\ in cross
+ref,\ a comma@comma\{\}\ in file\}}
+Section ``s--ect,ion'' in \texttt{a comma,\ in file}
 
 `\texttt{\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
 
@@ -3991,11 +3991,11 @@ $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 \GNUTexinfonopagebreakheading{\subsubsection*}{{subsubheading}}
 
 
-\texttt{@acronym\{{-}{-}a,an accronym @comma\{\} @enddots\{\}\}} --a (an accronym , \dots{})
-\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.,\ @'Etude{-}{-}@comma\{\} @b\{Autonome\} \}} \'{E}--.\@ ,A.\@ (\'{E}tude--, \textbf{Autonome})
+\texttt{@acronym\{{-}{-}a,an accronym @comma\{\}\ @enddots\{\}\}} --a (an accronym , \dots{})
+\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.,\ @'Etude{-}{-}@comma\{\}\ @b\{Autonome\}\ \}} \'{E}--.\@ ,A.\@ (\'{E}tude--, \textbf{Autonome})
 \texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}--.\@ ,A.\@
 
-\texttt{@math\{{-}{-}a@minus\{\} \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
+\texttt{@math\{{-}{-}a@minus\{\}\ \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
 
 
 
@@ -4039,9 +4039,9 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
 \texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
 \texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
 \texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
 
 
@@ -4321,7 +4321,7 @@ but , ,\@
 \texttt{@i\{{-}{-}a\}} \textit{--a}
 \texttt{@kbd\{{-}{-}a\}} \GNUTexinfocommandstyletextkbd{{-}{-}a}
 \texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
-\texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\} @minus\{\}\}} $--a {\frac{1}{2}} -$
+\texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\}\ @minus\{\}\}} $--a {\frac{1}{2}} -$
 \texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@r\{{-}{-}a\}} \textnormal{--a}
 \texttt{@samp\{{-}{-}a\}} `\texttt{{-}{-}a}'
@@ -4344,7 +4344,7 @@ but , ,\@
 \texttt{@url\{,{-}{-}b\}} --b
 \texttt{@var\{{-}{-}a\}} \GNUTexinfocommandstyletextvar{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
-\texttt{@verb\{:a  < \& @ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
+\texttt{@verb\{:a  < \& @\ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
 \texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
 \texttt{@H\{a\}} \H{a}
 \texttt{@H\{{-}{-}a\}} \H{--a}
@@ -4379,9 +4379,9 @@ but , ,\@
 \texttt{need 1002}
 \needspace{1.002pt}%
 
-\texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
+\texttt{@clicksequence\{click @click\{\}\ A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
-\texttt{@clicksequence\{click @click\{\} A\}} click $\Rightarrow{}$ A
+\texttt{@clicksequence\{click @click\{\}\ A\}} click $\Rightarrow{}$ A
 
 
 $$
@@ -4687,7 +4687,7 @@ truc &bidule\\
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
 e{-}{-}xample  some
-   text
+\   text
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
@@ -4717,12 +4717,12 @@ example five args
 
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-The something \'{e} \TeX{} is here.
+The something \'{e}\ \TeX{}\ is here.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-A @ at the end of the @example line.
+A @\ at the end of the @example line.
 \end{GNUTexinfopreformatted}
 
 \begin{GNUTexinfopreformatted}
@@ -4845,9 +4845,9 @@ def--fn
 \noindent\texttt{\textbf{id ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde]
 
 \index[fn]{id ule@\texttt{\textbf{id ule}}}%
-\noindent\texttt{\textbf{id `\texttt{i}' ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde2]
+\noindent\texttt{\textbf{id `\texttt{i}'\ ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde2]
 
-\index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}' ule}}}%
+\index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}'\ ule}}}%
 \noindent\texttt{}\hfill[]
 
 \noindent\texttt{machin}\hfill[]
@@ -4942,7 +4942,7 @@ d--eftypefn no arg
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name a{-}{-}rguments...}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop
@@ -4950,7 +4950,7 @@ d--eftypeop
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop no arg
@@ -4982,7 +4982,7 @@ d--efcv with arguments
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv
@@ -4990,7 +4990,7 @@ d--eftypecv
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name a{-}{-}rguments...}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv with arguments
@@ -4998,7 +4998,7 @@ d--eftypecv with arguments
 
 \noindent\texttt{d{-}{-}efop\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efop
@@ -5006,7 +5006,7 @@ d--efop
 
 \noindent\texttt{d{-}{-}efop\_name}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efop no arg
@@ -5086,7 +5086,7 @@ d--eftypevar
 
 \noindent\texttt{d{-}{-}efivar\_name}\hfill[Instance Variable of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name of c{-}{-}lass}}%
+\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efivar
@@ -5094,7 +5094,7 @@ d--efivar
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeivar\_name}\hfill[Instance Variable of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeivar
@@ -5102,7 +5102,7 @@ d--eftypeivar
 
 \noindent\texttt{d{-}{-}efmethod\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[Method on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
+\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--efmethod
@@ -5110,7 +5110,7 @@ d--efmethod
 
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name a{-}{-}rguments...}\hfill[Method on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypemethod
@@ -5135,7 +5135,7 @@ d--eftypefn no arg2
 
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 a{-}{-}rguments2...}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
-\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2 on c{-}{-}lass2}}%
+\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2\ on c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop2
@@ -5143,7 +5143,7 @@ d--eftypeop2
 
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
-\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2 on c{-}{-}lass2}}%
+\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2\ on c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypeop no arg2
@@ -5151,7 +5151,7 @@ d--eftypeop no arg2
 
 \noindent\texttt{t{-}{-}ype2 d{-}{-}eftypecv\_name2}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
-\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
+\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2\ of c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv2
@@ -5159,7 +5159,7 @@ d--eftypecv2
 
 \noindent\texttt{t{-}{-}ype2 d{-}{-}eftypecv\_name2 a{-}{-}rguments2...}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
-\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
+\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2\ of c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 d--eftypecv with arguments2
@@ -5184,8 +5184,8 @@ fff2
 \texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\} in cross
-ref,\ a comma@comma\{\} in title,\ a comma@comma\{\} in file,\ a @comma\{\} in manual name \}}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\}\ in cross
+ref,\ a comma@comma\{\}\ in title,\ a comma@comma\{\}\ in file,\ a @comma\{\}\ in manual name \}}
 Section ``a comma, in title'' in \textsl{a , in manual name}
 
 \texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
@@ -5230,9 +5230,9 @@ Section ``a comma, in title'' in \textsl{a , in manual name}
 \texttt{@inforef\{node{,}{,}file name\}} Section ``node'' in \texttt{file name}
 \texttt{@inforef\{chapter,\ cross ref name,\ file name,\ spurious arg\}} Section ``chapter'' in \texttt{file name,\ spurious arg}
 
-\texttt{@inforef\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\} in cross
-ref,\ a comma@comma\{\} in file\}}
-Section ``s--ect,ion'' in \texttt{a comma, in file}
+\texttt{@inforef\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\}\ in cross
+ref,\ a comma@comma\{\}\ in file\}}
+Section ``s--ect,ion'' in \texttt{a comma,\ in file}
 
 `\texttt{\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
 
@@ -5335,11 +5335,11 @@ $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 \GNUTexinfonopagebreakheading{\subsubsection*}{{subsubheading}}
 
 
-\texttt{@acronym\{{-}{-}a,an accronym @comma\{\} @enddots\{\}\}} --a (an accronym , \dots{})
-\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.,\ @'Etude{-}{-}@comma\{\} @b\{Autonome\} \}} \'{E}--.\@ ,A.\@ (\'{E}tude--, \textbf{Autonome})
+\texttt{@acronym\{{-}{-}a,an accronym @comma\{\}\ @enddots\{\}\}} --a (an accronym , \dots{})
+\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.,\ @'Etude{-}{-}@comma\{\}\ @b\{Autonome\}\ \}} \'{E}--.\@ ,A.\@ (\'{E}tude--, \textbf{Autonome})
 \texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}--.\@ ,A.\@
 
-\texttt{@math\{{-}{-}a@minus\{\} \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
+\texttt{@math\{{-}{-}a@minus\{\}\ \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
 
 
 
@@ -5383,9 +5383,9 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
 \texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
 \texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
 \texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
 
 
@@ -5535,10 +5535,10 @@ In example.
 `
 
 {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}\leavevmode{}\\
-code:\ \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
-asis:\ {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'} \leavevmode{}\\
-strong:\ \textbf{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
-kbd:\ \GNUTexinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
+code:\ \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}\ \leavevmode{}\\
+asis:\ {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}\ \leavevmode{}\\
+strong:\ \textbf{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}\ \leavevmode{}\\
+kbd:\ \GNUTexinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}\ \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three{-}{-}{-}four{-}{-}{-}-'\hbox{}'\leavevmode{}\\
 
@@ -5547,42 +5547,42 @@ kbd:\ \GNUTexinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four
 \index[fn]{``@\texttt{{`}{`}}}%
 \index[fn]{--foption@\texttt{{-}{-}foption}}%
 
-@"u \"{u} 
-@"\{U\} \"{U} 
+@"u \"{u}\ 
+@"\{U\}\ \"{U}\ 
 @\~{}n \~{n}
 @\^{}a \^{a}
 @'e \'{e}
 @=o \={o}
 @`i \`{i}
-@'\{e\} \'{e}
-@'\{@dotless\{i\}\} \'{\i{}} 
-@dotless\{i\} \i{}
-@dotless\{j\} \j{}
-@`\{@=E\} \`{\={E}} 
-@l\{\} \l{}
-@,\{@'C\} \c{\'{C}}
+@'\{e\}\ \'{e}
+@'\{@dotless\{i\}\}\ \'{\i{}}\ 
+@dotless\{i\}\ \i{}
+@dotless\{j\}\ \j{}
+@`\{@=E\}\ \`{\={E}}\ 
+@l\{\}\ \l{}
+@,\{@'C\}\ \c{\'{C}}
 @,c \c{c}
-@,c@"u \c{c}\"{u} \leavevmode{}\\
+@,c@"u \c{c}\"{u}\ \leavevmode{}\\
 
-@U\{0075\} u
+@U\{0075\}\ u
 
 @* \leavevmode{}\\
-@ followed by a space
+@\ followed by a space
 \ {}
-@ followed by a tab
+@\ followed by a tab
 \ {}
-@ followed by a new line
-\ {}\texttt{@-} \-{}
-\texttt{@:} \@
-\texttt{@!} \@!
-\texttt{@?} \@?
-\texttt{@.} \@.
-\texttt{@@} @
-\texttt{@\}} \}
-\texttt{@\{} \{
-\texttt{@/} 
+@\ followed by a new line
+\ {}\texttt{@-}\ \-{}
+\texttt{@:}\ \@
+\texttt{@!}\ \@!
+\texttt{@?}\ \@?
+\texttt{@.}\ \@.
+\texttt{@@}\ @
+\texttt{@\}}\ \}
+\texttt{@\{}\ \{
+\texttt{@/}\ 
 
-foo vs.\@ bar.\ 
+foo vs.\@\ bar.\ 
 colon :\@And something else.
 semi colon ;\@.
 And ?\ ?\@.
@@ -5647,77 +5647,77 @@ but ,\ ,\@
 @geq $\geq{}$
 @tie a\hbox{}b
 
-\texttt{@acronym\{{-}{-}a,an accronym\}} {-}{-}a (an accronym)
-\texttt{@acronym\{{-}{-}a\}} {-}{-}a
-\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.,\ @'Etude Autonome \}} \'{E}{-}{-}.\@\ ,A.\@ (\'{E}tude Autonome)
-\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}{-}{-}.\@\ ,A.\@
-\texttt{@asis\{{-}{-}a\}} {-}{-}a
-\texttt{@b\{{-}{-}a\}} \textbf{{-}{-}a}
-\texttt{@cite\{{-}{-}a\}} \GNUTexinfocommandstyletextcite{--a}
-\texttt{@code\{{-}{-}a\}} \texttt{{-}{-}a}
-\texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
-\texttt{@dfn\{{-}{-}a\}} \textsl{{-}{-}a}
-\texttt{@dmn\{{-}{-}a\}} \thinspace {-}{-}a
-\texttt{@email\{{-}{-}a,{-}{-}b\}} \href{mailto:--a}{{-}{-}b}
-\texttt{@email\{,{-}{-}b\}} {-}{-}b
-\texttt{@email\{{-}{-}a\}} \href{mailto:--a}{\nolinkurl{--a}}
-\texttt{@emph\{{-}{-}a\}} \emph{{-}{-}a}
-\texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
-\texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
-\texttt{@i\{{-}{-}a\}} \textit{{-}{-}a}
-\texttt{@kbd\{{-}{-}a\}} \GNUTexinfocommandstyletextkbd{{-}{-}a}
-\texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
-\texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\} @minus\{\}\}} $--a {\frac{1}{2}} -$
-\texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
-\texttt{@r\{{-}{-}a\}} \textnormal{--a}
-\texttt{@samp\{{-}{-}a\}} `\texttt{{-}{-}a}'
-\texttt{@sc\{{-}{-}a\}} \textsc{{-}{-}a}
-\texttt{@strong\{{-}{-}a\}} \textbf{{-}{-}a}
-\texttt{@t\{{-}{-}a\}} \texttt{{-}{-}a}
-\texttt{@sansserif\{{-}{-}a\}} \textsf{{-}{-}a}
-\texttt{@slanted\{{-}{-}a\}} \textsl{{-}{-}a}
-\texttt{@titlefont\{{-}{-}a\}} \end{GNUTexinfopreformatted}
+\texttt{@acronym\{{-}{-}a,an accronym\}}\ {-}{-}a\ (an accronym)
+\texttt{@acronym\{{-}{-}a\}}\ {-}{-}a
+\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.,\ @'Etude Autonome \}}\ \'{E}{-}{-}.\@\ ,A.\@\ (\'{E}tude Autonome)
+\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}}\ \'{E}{-}{-}.\@\ ,A.\@
+\texttt{@asis\{{-}{-}a\}}\ {-}{-}a
+\texttt{@b\{{-}{-}a\}}\ \textbf{{-}{-}a}
+\texttt{@cite\{{-}{-}a\}}\ \GNUTexinfocommandstyletextcite{--a}
+\texttt{@code\{{-}{-}a\}}\ \texttt{{-}{-}a}
+\texttt{@command\{{-}{-}a\}}\ \texttt{{-}{-}a}
+\texttt{@dfn\{{-}{-}a\}}\ \textsl{{-}{-}a}
+\texttt{@dmn\{{-}{-}a\}}\ \thinspace {-}{-}a
+\texttt{@email\{{-}{-}a,{-}{-}b\}}\ \href{mailto:--a}{{-}{-}b}
+\texttt{@email\{,{-}{-}b\}}\ {-}{-}b
+\texttt{@email\{{-}{-}a\}}\ \href{mailto:--a}{\nolinkurl{--a}}
+\texttt{@emph\{{-}{-}a\}}\ \emph{{-}{-}a}
+\texttt{@env\{{-}{-}a\}}\ \texttt{{-}{-}a}
+\texttt{@file\{{-}{-}a\}}\ \texttt{{-}{-}a}
+\texttt{@i\{{-}{-}a\}}\ \textit{{-}{-}a}
+\texttt{@kbd\{{-}{-}a\}}\ \GNUTexinfocommandstyletextkbd{{-}{-}a}
+\texttt{@key\{{-}{-}a\}}\ \texttt{{-}{-}a}
+\texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\}\ @minus\{\}\}}\ $--a {\frac{1}{2}} -$
+\texttt{@option\{{-}{-}a\}}\ \texttt{{-}{-}a}
+\texttt{@r\{{-}{-}a\}}\ \textnormal{--a}
+\texttt{@samp\{{-}{-}a\}}\ `\texttt{{-}{-}a}'
+\texttt{@sc\{{-}{-}a\}}\ \textsc{{-}{-}a}
+\texttt{@strong\{{-}{-}a\}}\ \textbf{{-}{-}a}
+\texttt{@t\{{-}{-}a\}}\ \texttt{{-}{-}a}
+\texttt{@sansserif\{{-}{-}a\}}\ \textsf{{-}{-}a}
+\texttt{@slanted\{{-}{-}a\}}\ \textsl{{-}{-}a}
+\texttt{@titlefont\{{-}{-}a\}}\ \end{GNUTexinfopreformatted}
 {\huge \bfseries --a}\begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
 
-\texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
-\texttt{@uref\{{-}{-}a,{-}{-}b\}} \href{--a}{{-}{-}b (\nolinkurl{--a})}
-\texttt{@uref\{{-}{-}a\}} \url{--a}
-\texttt{@uref\{,{-}{-}b\}} {-}{-}b
-\texttt{@uref\{{-}{-}a,{-}{-}b,{-}{-}c\}} {-}{-}c
-\texttt{@uref\{,{-}{-}b,{-}{-}c\}} {-}{-}c
-\texttt{@uref\{{-}{-}a{,}{,}{-}{-}c\}} {-}{-}c
-\texttt{@uref\{{,}{,}{-}{-}c\}} {-}{-}c
-\texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{{-}{-}b (\nolinkurl{--a})}
-\texttt{@url\{{-}{-}a,\}} \url{--a}
-\texttt{@url\{,{-}{-}b\}} {-}{-}b
-\texttt{@var\{{-}{-}a\}} \GNUTexinfocommandstyletextvar{--a}
-\texttt{@verb\{:{-}{-}a:\}} \verb:--a:
-\texttt{@verb\{:a  < \& @ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
-\texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
-\texttt{@H\{a\}} \H{a}
-\texttt{@H\{{-}{-}a\}} \H{{-}{-}a}
-\texttt{@dotaccent\{a\}} \.{a}
-\texttt{@dotaccent\{{-}{-}a\}} \.{{-}{-}a}
-\texttt{@ringaccent\{a\}} \r{a}
-\texttt{@ringaccent\{{-}{-}a\}} \r{{-}{-}a}
-\texttt{@tieaccent\{a\}} \t{a}
-\texttt{@tieaccent\{{-}{-}a\}} \t{{-}{-}a}
-\texttt{@u\{a\}} \u{a}
-\texttt{@u\{{-}{-}a\}} \u{{-}{-}a}
-\texttt{@ubaraccent\{a\}} \b{a}
-\texttt{@ubaraccent\{{-}{-}a\}} \b{{-}{-}a}
-\texttt{@udotaccent\{a\}} \d{a}
-\texttt{@udotaccent\{{-}{-}a\}} \d{{-}{-}a}
-\texttt{@v\{a\}} \v{a}
-\texttt{@v\{{-}{-}a\}} \v{{-}{-}a}
-\texttt{@,\{c\}} \c{c}
-\texttt{@,\{{-}{-}c\}} \c{{-}{-}c}
-\texttt{@ogonek\{a\}} \k{a}
-\texttt{@ogonek\{{-}{-}a\}} \k{{-}{-}a}
-\texttt{a@sup\{h\}@sub\{l\}} a\textsuperscript{h}\textsubscript{l}
-\texttt{@footnote\{in footnote\}} \footnote{in footnote}
-\texttt{@footnote\{in footnote2\}} \footnote{in footnote2}
+\texttt{@indicateurl\{{-}{-}a\}}\ `\texttt{{-}{-}a}'
+\texttt{@uref\{{-}{-}a,{-}{-}b\}}\ \href{--a}{{-}{-}b (\nolinkurl{--a})}
+\texttt{@uref\{{-}{-}a\}}\ \url{--a}
+\texttt{@uref\{,{-}{-}b\}}\ {-}{-}b
+\texttt{@uref\{{-}{-}a,{-}{-}b,{-}{-}c\}}\ {-}{-}c
+\texttt{@uref\{,{-}{-}b,{-}{-}c\}}\ {-}{-}c
+\texttt{@uref\{{-}{-}a{,}{,}{-}{-}c\}}\ {-}{-}c
+\texttt{@uref\{{,}{,}{-}{-}c\}}\ {-}{-}c
+\texttt{@url\{{-}{-}a,{-}{-}b\}}\ \href{--a}{{-}{-}b (\nolinkurl{--a})}
+\texttt{@url\{{-}{-}a,\}}\ \url{--a}
+\texttt{@url\{,{-}{-}b\}}\ {-}{-}b
+\texttt{@var\{{-}{-}a\}}\ \GNUTexinfocommandstyletextvar{--a}
+\texttt{@verb\{:{-}{-}a:\}}\ \verb:--a:
+\texttt{@verb\{:a  < \& @\ \% " {-}{-}    b:\}}\ \verb:a  < & @ % " --    b:
+\texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}}\ \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
+\texttt{@H\{a\}}\ \H{a}
+\texttt{@H\{{-}{-}a\}}\ \H{{-}{-}a}
+\texttt{@dotaccent\{a\}}\ \.{a}
+\texttt{@dotaccent\{{-}{-}a\}}\ \.{{-}{-}a}
+\texttt{@ringaccent\{a\}}\ \r{a}
+\texttt{@ringaccent\{{-}{-}a\}}\ \r{{-}{-}a}
+\texttt{@tieaccent\{a\}}\ \t{a}
+\texttt{@tieaccent\{{-}{-}a\}}\ \t{{-}{-}a}
+\texttt{@u\{a\}}\ \u{a}
+\texttt{@u\{{-}{-}a\}}\ \u{{-}{-}a}
+\texttt{@ubaraccent\{a\}}\ \b{a}
+\texttt{@ubaraccent\{{-}{-}a\}}\ \b{{-}{-}a}
+\texttt{@udotaccent\{a\}}\ \d{a}
+\texttt{@udotaccent\{{-}{-}a\}}\ \d{{-}{-}a}
+\texttt{@v\{a\}}\ \v{a}
+\texttt{@v\{{-}{-}a\}}\ \v{{-}{-}a}
+\texttt{@,\{c\}}\ \c{c}
+\texttt{@,\{{-}{-}c\}}\ \c{{-}{-}c}
+\texttt{@ogonek\{a\}}\ \k{a}
+\texttt{@ogonek\{{-}{-}a\}}\ \k{{-}{-}a}
+\texttt{a@sup\{h\}@sub\{l\}}\ a\textsuperscript{h}\textsubscript{l}
+\texttt{@footnote\{in footnote\}}\ \footnote{in footnote}
+\texttt{@footnote\{in footnote2\}}\ \footnote{in footnote2}
 
 \texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip %
@@ -5734,9 +5734,9 @@ but ,\ ,\@
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
 
-\texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
+\texttt{@clicksequence\{click @click\{\}\ A\}}\ click $\rightarrow{}$\ A
 After clickstyle $\Rightarrow{}$
-\texttt{@clicksequence\{click @click\{\} A\}} click $\Rightarrow{}$ A
+\texttt{@clicksequence\{click @click\{\}\ A\}}\ click $\Rightarrow{}$\ A
 
 
 \end{GNUTexinfopreformatted}
@@ -5966,7 +5966,7 @@ a Warning.
 \begin{quote}
 \textbf{something \'{e} \TeX{}:} \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-The something \'{e} \TeX{} is here.
+The something \'{e}\ \TeX{}\ is here.
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
@@ -5976,7 +5976,7 @@ The something \'{e} \TeX{} is here.
 \begin{quote}
 \textbf{@ at the end of line \ {}:} \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-A @ at the end of the @quotation line.
+A @\ at the end of the @quotation line.
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{GNUTexinfopreformatted}
@@ -6330,7 +6330,7 @@ bidule
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
 e{-}{-}xample  some
-   text
+\   text
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
@@ -6378,7 +6378,7 @@ example five args
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-The something \'{e} \TeX{} is here.
+The something \'{e}\ \TeX{}\ is here.
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
@@ -6386,7 +6386,7 @@ The something \'{e} \TeX{} is here.
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-A @ at the end of the @example line.
+A @\ at the end of the @example line.
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
@@ -6456,7 +6456,7 @@ s{-}{-}mallexample
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
 
-\texttt{@noindent} after smallexample.
+\texttt{@noindent}\ after smallexample.
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily\footnotesize%
@@ -6566,9 +6566,9 @@ def{-}{-}fn
 \noindent\texttt{\textbf{id ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde]
 
 \index[fn]{id ule@\texttt{\textbf{id ule}}}%
-\noindent\texttt{\textbf{id `\texttt{i}' ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde2]
+\noindent\texttt{\textbf{id `\texttt{i}'\ ule} \EmbracOn{}\textnormal{\textsl{truc}}\EmbracOff{}}\hfill[cmde2]
 
-\index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}' ule}}}%
+\index[fn]{id i ule@\texttt{\textbf{id `\texttt{i}'\ ule}}}%
 \noindent\texttt{}\hfill[]
 
 \noindent\texttt{machin}\hfill[]
@@ -6714,7 +6714,7 @@ d{-}{-}eftypefn no arg
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name a{-}{-}rguments...}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
@@ -6728,7 +6728,7 @@ d{-}{-}eftypeop
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeop\_name}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
@@ -6784,7 +6784,7 @@ d{-}{-}efcv with arguments
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
@@ -6798,7 +6798,7 @@ d{-}{-}eftypecv
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypecv\_name a{-}{-}rguments...}\hfill[c--ategory of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
@@ -6812,7 +6812,7 @@ d{-}{-}eftypecv with arguments
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efop\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
@@ -6826,7 +6826,7 @@ d{-}{-}efop
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efop\_name}\hfill[c--ategory on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
@@ -6966,7 +6966,7 @@ d{-}{-}eftypevar
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efivar\_name}\hfill[Instance Variable of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name of c{-}{-}lass}}%
+\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
@@ -6980,7 +6980,7 @@ d{-}{-}efivar
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypeivar\_name}\hfill[Instance Variable of \texttt{c{-}{-}lass}]
 
-\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
+\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
@@ -6994,7 +6994,7 @@ d{-}{-}eftypeivar
 \end{GNUTexinfopreformatted}
 \noindent\texttt{d{-}{-}efmethod\_name \EmbracOn{}\textnormal{\textsl{a--rguments...}}\EmbracOff{}}\hfill[Method on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
+\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
@@ -7008,7 +7008,7 @@ d{-}{-}efmethod
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype d{-}{-}eftypemethod\_name a{-}{-}rguments...}\hfill[Method on \texttt{c{-}{-}lass}]
 
-\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name on c{-}{-}lass}}%
+\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
@@ -7051,7 +7051,7 @@ d{-}{-}eftypefn no arg2
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2 a{-}{-}rguments2...}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
-\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2 on c{-}{-}lass2}}%
+\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2\ on c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
@@ -7065,7 +7065,7 @@ d{-}{-}eftypeop2
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype2\leavevmode{}\\d{-}{-}eftypeop\_name2}\hfill[c--ategory2 on \texttt{c{-}{-}lass2}]
 
-\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2 on c{-}{-}lass2}}%
+\index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2\ on c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
@@ -7079,7 +7079,7 @@ d{-}{-}eftypeop no arg2
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype2 d{-}{-}eftypecv\_name2}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
-\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
+\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2\ of c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
@@ -7093,7 +7093,7 @@ d{-}{-}eftypecv2
 \end{GNUTexinfopreformatted}
 \noindent\texttt{t{-}{-}ype2 d{-}{-}eftypecv\_name2 a{-}{-}rguments2...}\hfill[c--ategory2 of \texttt{c{-}{-}lass2}]
 
-\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2 of c{-}{-}lass2}}%
+\index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2\ of c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 \begin{GNUTexinfopreformatted}
@@ -7119,65 +7119,65 @@ fff2
 \leftskip=2em\relax\ttfamily%
 
 
-\texttt{@xref\{c{-}{-}{-}hapter@@,\ cross r{-}{-}{-}ef name@@,\ t{-}{-}{-}itle@@,\ file n{-}{-}{-}ame@@,\ ma{-}{-}{-}nual@@\}} See Section ``t{-}{-}{-}itle@'' in \textsl{ma{-}{-}{-}nual@}.
-\texttt{@ref\{chapter,\ cross ref name,\ title,\ file name,\ manual\}} Section ``title'' in \textsl{manual}
-\texttt{@pxref\{chapter,\ cross ref name,\ title,\ file name,\ manual\}} see Section ``title'' in \textsl{manual}
-\texttt{@inforef\{chapter,\ cross ref name,\ file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@xref\{c{-}{-}{-}hapter@@,\ cross r{-}{-}{-}ef name@@,\ t{-}{-}{-}itle@@,\ file n{-}{-}{-}ame@@,\ ma{-}{-}{-}nual@@\}}\ See Section ``t{-}{-}{-}itle@'' in \textsl{ma{-}{-}{-}nual@}.
+\texttt{@ref\{chapter,\ cross ref name,\ title,\ file name,\ manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@pxref\{chapter,\ cross ref name,\ title,\ file name,\ manual\}}\ see Section ``title'' in \textsl{manual}
+\texttt{@inforef\{chapter,\ cross ref name,\ file name\}}\ Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
-\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s{-}{-}ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
+\texttt{@ref\{chapter\}}\ \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@xref\{chapter\}}\ See \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
+\texttt{@pxref\{chapter\}}\ see \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}}\ \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s{-}{-}ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\} in cross
-ref,\ a comma@comma\{\} in title,\ a comma@comma\{\} in file,\ a @comma\{\} in manual name \}}
-Section ``a comma, in title'' in \textsl{a , in manual name}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\}\ in cross
+ref,\ a comma@comma\{\}\ in title,\ a comma@comma\{\}\ in file,\ a @comma\{\}\ in manual name \}}
+Section ``a comma,\ in title'' in \textsl{a ,\ in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter{,}{,}title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter{,}{,},file name\}} Section ``chapter'' in \texttt{file name}
-\texttt{@ref\{chapter{,}{,}{,}{,}manual\}} Section ``chapter'' in \textsl{manual}
-\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,cross ref name{,}{,}file name\}} Section ``chapter'' in \texttt{file name}
-\texttt{@ref\{chapter,cross ref name{,}{,},manual\}} Section ``chapter'' in \textsl{manual}
-\texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{chapter,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter,cross ref name,title,\ file name,\ manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{chapter{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter{,}{,}title,\ file name,\ manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter{,}{,},file name,manual\}} Section ``chapter'' in \textsl{manual}
-
-
-\texttt{@ref\{(pman)anode,cross ref name\}} (pman)anode
-\texttt{@ref\{(pman)anode{,}{,}title\}} title
-\texttt{@ref\{(pman)anode{,}{,},file name\}} Section ``(pman)anode'' in \texttt{file name}
-\texttt{@ref\{(pman)anode{,}{,}{,}{,}manual\}} Section ``(pman)anode'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,cross ref name,title,\}} title
-\texttt{@ref\{(pman)anode,cross ref name{,}{,}file name\}} Section ``(pman)anode'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,cross ref name{,}{,},manual\}} Section ``(pman)anode'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{(pman)anode,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode,cross ref name,title,\ file name,\ manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{(pman)anode{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode{,}{,}title,\ file name,\ manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{(pman)anode{,}{,},file name,manual\}} Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{chapter,cross ref name\}}\ \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter{,}{,}title\}}\ \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter{,}{,},file name\}}\ Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter{,}{,}{,}{,}manual\}}\ Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter,cross ref name,title,\}}\ \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,cross ref name{,}{,}file name\}}\ Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name{,}{,},manual\}}\ Section ``chapter'' in \textsl{manual}
+\texttt{@ref\{chapter,cross ref name,title,file name\}}\ Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name,title{,}{,}manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter,cross ref name,title,\ file name,\ manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title,file name\}}\ Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter{,}{,}title{,}{,}manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title,\ file name,\ manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,},file name,manual\}}\ Section ``chapter'' in \textsl{manual}
 
 
-\texttt{@inforef\{chapter,\ cross ref name,\ file name\}} Section ``chapter'' in \texttt{file name}
-\texttt{@inforef\{chapter\}} chapter
-\texttt{@inforef\{chapter,\ cross ref name\}} chapter
-\texttt{@inforef\{chapter{,}{,}file name\}} Section ``chapter'' in \texttt{file name}
-\texttt{@inforef\{node,\ cross ref name,\ file name\}} Section ``node'' in \texttt{file name}
-\texttt{@inforef\{node\}} node
-\texttt{@inforef\{node,\ cross ref name\}} node
-\texttt{@inforef\{node{,}{,}file name\}} Section ``node'' in \texttt{file name}
-\texttt{@inforef\{chapter,\ cross ref name,\ file name,\ spurious arg\}} Section ``chapter'' in \texttt{file name,\ spurious arg}
+\texttt{@ref\{(pman)anode,cross ref name\}}\ (pman)anode
+\texttt{@ref\{(pman)anode{,}{,}title\}}\ title
+\texttt{@ref\{(pman)anode{,}{,},file name\}}\ Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode{,}{,}{,}{,}manual\}}\ Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title,\}}\ title
+\texttt{@ref\{(pman)anode,cross ref name{,}{,}file name\}}\ Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name{,}{,},manual\}}\ Section ``(pman)anode'' in \textsl{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title,file name\}}\ Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name,title{,}{,}manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title,\ file name,\ manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title,file name\}}\ Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode{,}{,}title{,}{,}manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,}title,\ file name,\ manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{(pman)anode{,}{,},file name,manual\}}\ Section ``(pman)anode'' in \textsl{manual}
 
-\texttt{@inforef\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\} in cross
-ref,\ a comma@comma\{\} in file\}}
-Section ``s{-}{-}ect,ion'' in \texttt{a comma, in file}
+
+\texttt{@inforef\{chapter,\ cross ref name,\ file name\}}\ Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{chapter\}}\ chapter
+\texttt{@inforef\{chapter,\ cross ref name\}}\ chapter
+\texttt{@inforef\{chapter{,}{,}file name\}}\ Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{node,\ cross ref name,\ file name\}}\ Section ``node'' in \texttt{file name}
+\texttt{@inforef\{node\}}\ node
+\texttt{@inforef\{node,\ cross ref name\}}\ node
+\texttt{@inforef\{node{,}{,}file name\}}\ Section ``node'' in \texttt{file name}
+\texttt{@inforef\{chapter,\ cross ref name,\ file name,\ spurious arg\}}\ Section ``chapter'' in \texttt{file name,\ spurious arg}
+
+\texttt{@inforef\{s{-}{-}ect@comma\{\}ion,\ a @comma\{\}\ in cross
+ref,\ a comma@comma\{\}\ in file\}}
+Section ``s{-}{-}ect,ion'' in \texttt{a comma,\ in file}
 
 `\texttt{\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
 
@@ -7367,11 +7367,11 @@ $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 \leftskip=2em\relax\ttfamily%
 
 
-\texttt{@acronym\{{-}{-}a,an accronym @comma\{\} @enddots\{\}\}} {-}{-}a (an accronym , \dots{})
-\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.,\ @'Etude{-}{-}@comma\{\} @b\{Autonome\} \}} \'{E}{-}{-}.\@\ ,A.\@ (\'{E}tude{-}{-}, \textbf{Autonome})
-\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}{-}{-}.\@\ ,A.\@
+\texttt{@acronym\{{-}{-}a,an accronym @comma\{\}\ @enddots\{\}\}}\ {-}{-}a\ (an accronym ,\ \dots{})
+\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.,\ @'Etude{-}{-}@comma\{\}\ @b\{Autonome\}\ \}}\ \'{E}{-}{-}.\@\ ,A.\@\ (\'{E}tude{-}{-},\ \textbf{Autonome})
+\texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}}\ \'{E}{-}{-}.\@\ ,A.\@
 
-\texttt{@math\{{-}{-}a@minus\{\} \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
+\texttt{@math\{{-}{-}a@minus\{\}\ \{\textbackslash{}frac\{1\}\{2\}\}\}}\ $--a- {\frac{1}{2}}$
 
 
 
@@ -7386,39 +7386,39 @@ Invalid use of @':\leavevmode{}\\
 \leavevmode{}\\
 @'@"u \'{}\"{u}
 
-\texttt{@|} 
+\texttt{@|}\ 
 
-@dotless\{truc\} truc
-@dotless\{ij\} ij
-\texttt{@dotless\{{-}{-}a\}} \{-\}\{-\}a
-\texttt{@dotless\{a\}} a
+@dotless\{truc\}\ truc
+@dotless\{ij\}\ ij
+\texttt{@dotless\{{-}{-}a\}}\ \{-\}\{-\}a
+\texttt{@dotless\{a\}}\ a
 
 @U,\ without braces @U\{\},\ with empty arg 
 @U\{z\},\ with non-hex arg U+z
 @U\{FFFFFFFFFFFFFF\},\ value much too large U+FFFFFFFFFFFFFF
 @U\{110000\},\ value just beyond Unicode U+110000
 
-@TeX,\ but without brace \TeX{}\texttt{@\#} \#
+@TeX,\ but without brace \TeX{}\texttt{@\#}\ \#
 
-\texttt{@w\{{-}{-}a\}} \hbox{{-}{-}a}
+\texttt{@w\{{-}{-}a\}}\ \hbox{{-}{-}a}
 
-\texttt{@image\{,1{-}{-}xt\}} 
-\texttt{@image\{{,}{,}2{-}{-}xt\}} 
-\texttt{@image\{{,}{,},3{-}{-}xt\}} 
+\texttt{@image\{,1{-}{-}xt\}}\ 
+\texttt{@image\{{,}{,}2{-}{-}xt\}}\ 
+\texttt{@image\{{,}{,},3{-}{-}xt\}}\ 
 
-\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
-\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+\texttt{@image\{f-ile,aze{,}{,}a{-}{-}lt\}}\ \includegraphics[width=aze]{f-ile}
+\texttt{@image\{f-ile{,}{,},alt@verb\{:jk \_" \%\@\}\}}\ \includegraphics{f-ile}
 
-\texttt{@image\{f{-}{-}ile\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile{,}{,},alt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile{,}{,}{,}{,}.e-d-xt\}} \includegraphics{f--ile}
-\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{f--ile}
-\texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}} \includegraphics[height=l--e]{f--ile}
-\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+\texttt{@image\{f{-}{-}ile\}}\ \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,},alt\}}\ \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,}{,}{,}.e-d-xt\}}\ \includegraphics{f--ile}
+\texttt{@image\{f{-}{-}ile,l{-}{-}i\}}\ \includegraphics[width=l--i]{f--ile}
+\texttt{@image\{f{-}{-}ile{,}{,}l{-}{-}e\}}\ \includegraphics[height=l--e]{f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}}\ \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\}\ e{-}{-}xt@\}}\ \includegraphics[width=aze,height=az]{f--ile@.}
 
-\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{f--ile}
-\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk _" \%@}
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\}\ @b\{in b "\},e{-}{-}xt\}}\ \includegraphics[width=aze,height=az]{f--ile}
+\texttt{@image\{file@verb\{:jk \_" \%@:\}{,}{,},alt@verb\{:jk \_" \%@:\}\}}\ \includegraphics{filejk _" \%@}
 
 
 {\bfseries author}%
@@ -7594,42 +7594,42 @@ g{-}{-}roupe
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
 
-\texttt{@ref\{node\}} node
+\texttt{@ref\{node\}}\ node
 
-\texttt{@ref\{,cross ref name\}} 
-\texttt{@ref\{{,}{,}title\}} title
-\texttt{@ref\{{,}{,},file name\}} \texttt{file name}
-\texttt{@ref\{{,}{,}{,}{,}manual\}} \textsl{manual}
-\texttt{@ref\{node,cross ref name\}} node
-\texttt{@ref\{node{,}{,}title\}} title
-\texttt{@ref\{node{,}{,},file name\}} Section ``node'' in \texttt{file name}
-\texttt{@ref\{node{,}{,}{,}{,}manual\}} Section ``node'' in \textsl{manual}
-\texttt{@ref\{node,cross ref name,title,\}} title
-\texttt{@ref\{node,cross ref name{,}{,}file name\}} Section ``node'' in \texttt{file name}
-\texttt{@ref\{node,cross ref name{,}{,},manual\}} Section ``node'' in \textsl{manual}
-\texttt{@ref\{node,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{node,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node,cross ref name,title,\ file name,\ manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{node{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{chapter{,}{,}title,\ file name,\ manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node{,}{,}title,\ file name,\ manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{node{,}{,},file name,manual\}} Section ``node'' in \textsl{manual}
-\texttt{@ref\{,cross ref name,title,\}} title
-\texttt{@ref\{,cross ref name{,}{,}file name\}} \texttt{file name}
-\texttt{@ref\{,cross ref name{,}{,},manual\}} \textsl{manual}
-\texttt{@ref\{,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{,cross ref name,title{,}{,}manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{,cross ref name,title,\ file name,\ manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{{,}{,}title,file name\}} Section ``title'' in \texttt{file name}
-\texttt{@ref\{{,}{,}title{,}{,}manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{{,}{,}title,\ file name,\ manual\}} Section ``title'' in \textsl{manual}
-\texttt{@ref\{{,}{,},file name,manual\}} \textsl{manual}
+\texttt{@ref\{,cross ref name\}}\ 
+\texttt{@ref\{{,}{,}title\}}\ title
+\texttt{@ref\{{,}{,},file name\}}\ \texttt{file name}
+\texttt{@ref\{{,}{,}{,}{,}manual\}}\ \textsl{manual}
+\texttt{@ref\{node,cross ref name\}}\ node
+\texttt{@ref\{node{,}{,}title\}}\ title
+\texttt{@ref\{node{,}{,},file name\}}\ Section ``node'' in \texttt{file name}
+\texttt{@ref\{node{,}{,}{,}{,}manual\}}\ Section ``node'' in \textsl{manual}
+\texttt{@ref\{node,cross ref name,title,\}}\ title
+\texttt{@ref\{node,cross ref name{,}{,}file name\}}\ Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name{,}{,},manual\}}\ Section ``node'' in \textsl{manual}
+\texttt{@ref\{node,cross ref name,title,file name\}}\ Section ``title'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name,title{,}{,}manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{node,cross ref name,title,\ file name,\ manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title,file name\}}\ Section ``title'' in \texttt{file name}
+\texttt{@ref\{node{,}{,}title{,}{,}manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{chapter{,}{,}title,\ file name,\ manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{node{,}{,}title,\ file name,\ manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{node{,}{,},file name,manual\}}\ Section ``node'' in \textsl{manual}
+\texttt{@ref\{,cross ref name,title,\}}\ title
+\texttt{@ref\{,cross ref name{,}{,}file name\}}\ \texttt{file name}
+\texttt{@ref\{,cross ref name{,}{,},manual\}}\ \textsl{manual}
+\texttt{@ref\{,cross ref name,title,file name\}}\ Section ``title'' in \texttt{file name}
+\texttt{@ref\{,cross ref name,title{,}{,}manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{,cross ref name,title,\ file name,\ manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{{,}{,}title,file name\}}\ Section ``title'' in \texttt{file name}
+\texttt{@ref\{{,}{,}title{,}{,}manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{{,}{,}title,\ file name,\ manual\}}\ Section ``title'' in \textsl{manual}
+\texttt{@ref\{{,}{,},file name,manual\}}\ \textsl{manual}
 
-\texttt{@inforef\{,cross ref name \}} 
-\texttt{@inforef\{{,}{,}file name\}} \texttt{file name}
-\texttt{@inforef\{,cross ref name,\ file name\}} \texttt{file name}
-\texttt{@inforef\{\}} 
+\texttt{@inforef\{,cross ref name \}}\ 
+\texttt{@inforef\{{,}{,}file name\}}\ \texttt{file name}
+\texttt{@inforef\{,cross ref name,\ file name\}}\ \texttt{file name}
+\texttt{@inforef\{\}}\ 
 
 
 \end{GNUTexinfopreformatted}
@@ -7665,7 +7665,7 @@ g{-}{-}roupe
 
 \index[fn]{@\texttt{\hbox{}}}%
 
-\index[codeidx]{a index---entry te\~{} --- i\^{}@\texttt{a \GNUTexinfocommandstyletextvar{index---entry} t\~{e} {-}{-}{-} \^{\i{}}}}%
+\index[codeidx]{a index---entry te\~{} --- i\^{}@\texttt{a \GNUTexinfocommandstyletextvar{index---entry}\ t\~{e}\ {-}{-}{-} \^{\i{}}}}%
 
 \index[truc]{truc}%
 

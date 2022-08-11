@@ -2533,9 +2533,9 @@ In text w: z? n; p. f
 c:\\ d?\\ j
 \\end{GNUTexinfopreformatted}
 
-\\noindent\\texttt{type:\\ t.\\ c name?\\ n.\\ d arg? e: f.  \\GNUTexinfocommandstyletextvar{v: g. h} \\texttt{code?\\ is:\\ k}}\\hfill[cat: r. a on \\texttt{class:\\ MyC.\\ b}]
+\\noindent\\texttt{type:\\ t.\\ c name?\\ n.\\ d arg?\\ e:\\ f.\\  \\GNUTexinfocommandstyletextvar{v: g. h}\\ \\texttt{code?\\ is:\\ k}}\\hfill[cat: r. a on \\texttt{class:\\ MyC.\\ b}]
 
-\\index[fn]{name? n. d on class: MyC. b@\\texttt{name?\\ n.\\ d on class:\\ MyC.\\ b}}%
+\\index[fn]{name? n. d on class: MyC. b@\\texttt{name?\\ n.\\ d\\ on class:\\ MyC.\\ b}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 deftypeop
@@ -2546,7 +2546,7 @@ deftypeop
 \\cs_undefine:N{\\embrac_texttt:nn}\\cs_undefine:N{\\embrac_orig_texttt:n}\\cs_undefine:N{\\__embrac_texttt:n}%
 \\ExplSyntaxOff%
 
-\\index[fn]{vname? n; d on vclass: MyC. u@\\texttt{vname?\\ n;\\ d on vclass:\\ MyC.\\ u}}%
+\\index[fn]{vname? n; d on vclass: MyC. u@\\texttt{vname?\\ n;\\ d\\ on vclass:\\ MyC.\\ u}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 defop
@@ -2565,9 +2565,9 @@ In text w: z? n; p. fn
 c:\\ d?\\ jn
 \\end{GNUTexinfopreformatted}
 
-\\noindent\\texttt{type:\\ t.\\ c name?\\ n.\\ d narg? e: f.  \\GNUTexinfocommandstyletextvar{v: g. h} \\texttt{code?\\ is:\\ k}}\\hfill[cat: r. a on \\texttt{class:\\ MyC.\\ b}]
+\\noindent\\texttt{type:\\ t.\\ c name?\\ n.\\ d narg?\\ e:\\ f.\\  \\GNUTexinfocommandstyletextvar{v: g. h}\\ \\texttt{code?\\ is:\\ k}}\\hfill[cat: r. a on \\texttt{class:\\ MyC.\\ b}]
 
-\\index[fn]{name? n. d on class: MyC. b@\\texttt{name?\\ n.\\ d on class:\\ MyC.\\ b}}%
+\\index[fn]{name? n. d on class: MyC. b@\\texttt{name?\\ n.\\ d\\ on class:\\ MyC.\\ b}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 deftypeop n
@@ -2578,7 +2578,7 @@ deftypeop n
 \\cs_undefine:N{\\embrac_texttt:nn}\\cs_undefine:N{\\embrac_orig_texttt:n}\\cs_undefine:N{\\__embrac_texttt:n}%
 \\ExplSyntaxOff%
 
-\\index[fn]{vname? n; d on nvclass: MyC. u@\\texttt{vname?\\ n;\\ d on nvclass:\\ MyC.\\ u}}%
+\\index[fn]{vname? n; d on nvclass: MyC. u@\\texttt{vname?\\ n;\\ d\\ on nvclass:\\ MyC.\\ u}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 defop n

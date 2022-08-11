@@ -3641,7 +3641,7 @@ d--eftypefn no arg
 
 \\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypeop\\_name a{-}{-}rguments...}\\hfill[c--ategory on \\texttt{c{-}{-}lass}]
 
-\\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name on c{-}{-}lass}}%
+\\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name\\ on c{-}{-}lass}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypeop
@@ -3649,7 +3649,7 @@ d--eftypeop
 
 \\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypeop\\_name}\\hfill[c--ategory on \\texttt{c{-}{-}lass}]
 
-\\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name on c{-}{-}lass}}%
+\\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name\\ on c{-}{-}lass}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypeop no arg
@@ -3657,7 +3657,7 @@ d--eftypeop no arg
 
 \\noindent\\texttt{t{-}{-}ype d{-}{-}eftypecv\\_name}\\hfill[c--ategory of \\texttt{c{-}{-}lass}]
 
-\\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name of c{-}{-}lass}}%
+\\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name\\ of c{-}{-}lass}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypecv
@@ -3665,7 +3665,7 @@ d--eftypecv
 
 \\noindent\\texttt{t{-}{-}ype d{-}{-}eftypecv\\_name a{-}{-}rguments...}\\hfill[c--ategory of \\texttt{c{-}{-}lass}]
 
-\\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name of c{-}{-}lass}}%
+\\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name\\ of c{-}{-}lass}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypecv with arguments
@@ -3698,7 +3698,7 @@ d--eftypefn no arg2
 
 \\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypeop\\_name2 a{-}{-}rguments2...}\\hfill[c--ategory2 on \\texttt{c{-}{-}lass2}]
 
-\\index[fn]{d--eftypeop\\_name2 on c--lass2@\\texttt{d{-}{-}eftypeop\\_name2 on c{-}{-}lass2}}%
+\\index[fn]{d--eftypeop\\_name2 on c--lass2@\\texttt{d{-}{-}eftypeop\\_name2\\ on c{-}{-}lass2}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypeop2
@@ -3706,7 +3706,7 @@ d--eftypeop2
 
 \\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypeop\\_name2}\\hfill[c--ategory2 on \\texttt{c{-}{-}lass2}]
 
-\\index[fn]{d--eftypeop\\_name2 on c--lass2@\\texttt{d{-}{-}eftypeop\\_name2 on c{-}{-}lass2}}%
+\\index[fn]{d--eftypeop\\_name2 on c--lass2@\\texttt{d{-}{-}eftypeop\\_name2\\ on c{-}{-}lass2}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypeop no arg2
@@ -3714,7 +3714,7 @@ d--eftypeop no arg2
 
 \\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypecv\\_name2}\\hfill[c--ategory2 of \\texttt{c{-}{-}lass2}]
 
-\\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2 of c{-}{-}lass2}}%
+\\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2\\ of c{-}{-}lass2}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypecv2
@@ -3722,7 +3722,7 @@ d--eftypecv2
 
 \\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypecv\\_name2 a{-}{-}rguments2...}\\hfill[c--ategory2 of \\texttt{c{-}{-}lass2}]
 
-\\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2 of c{-}{-}lass2}}%
+\\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2\\ of c{-}{-}lass2}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 d--eftypecv with arguments2

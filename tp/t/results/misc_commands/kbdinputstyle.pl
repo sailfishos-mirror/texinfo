@@ -1715,7 +1715,7 @@ in example
 \\leftskip=2em\\relax\\ttfamily%
 \\texttt{in code in example \\texttt{in nested code}}.
 \\texttt{kbd in example}.
-\\texttt{kbd \\texttt{in code} in example}.
+\\texttt{kbd \\texttt{in code}\\ in example}.
 \\end{GNUTexinfopreformatted}
 
 @kbdinputstyle example
@@ -1730,7 +1730,7 @@ in example
 \\leftskip=2em\\relax\\ttfamily%
 \\texttt{in code in example \\texttt{in nested code}}.
 \\texttt{kbd in example}.
-\\texttt{kbd \\texttt{in code} in example}.
+\\texttt{kbd \\texttt{in code}\\ in example}.
 \\end{GNUTexinfopreformatted}
 
 @kbdinputstyle distinct
@@ -1745,7 +1745,7 @@ in example
 \\leftskip=2em\\relax\\ttfamily%
 \\texttt{in code in example \\texttt{in nested code}}.
 \\GNUTexinfocommandstyletextkbd{kbd in example}.
-\\texttt{kbd \\GNUTexinfocommandstyletextkbd{in code} in example}.
+\\texttt{kbd \\GNUTexinfocommandstyletextkbd{in code}\\ in example}.
 \\end{GNUTexinfopreformatted}
 ';
 

@@ -1632,10 +1632,11 @@ sub _protect_text($$)
     if ($self->{'formatting_context'}->[-1]->{'code'}->[-1]) {
       # Prevent extra space after punctuation.  (We could use \frenchspacing
       # in the output, but this can break in section titles with hyperref.)
-      # FIXME this misses the case of punctuation at the end of the
-      # element text, but followed by a space, for instance if spaces
-      # are in separate text elements, as is the case in @def* arguments.
       $text =~ s/([.?!:;,]) /$1\\ /g;
+
+      # In case initial space follows punctuation from a separate element,
+      # like @code{@var{?} a}.
+      $text =~ s/^ /\\ /g;
 
       # Under T1 encoding there are several ligatures even in fixed width fonts
       $text =~ s/---/{-}{-}{-}/g;

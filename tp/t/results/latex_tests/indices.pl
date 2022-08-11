@@ -1371,7 +1371,7 @@ $result_converted{'latex'}->{'indices'} = '
 
 \\index[cp]{\\textbackslash{}some\\textbackslash{}command for \\texttt{file}}%
 
-\\index[fn]{the person index aa@\\texttt{the \\textnormal{person} index \\texttt{aa}}}%
+\\index[fn]{the person index aa@\\texttt{the \\textnormal{person}\\ index \\texttt{aa}}}%
 
 \\printindex[cp]
 
