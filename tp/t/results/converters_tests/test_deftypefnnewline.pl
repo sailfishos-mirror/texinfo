@@ -3623,7 +3623,12 @@ $result_converted{'latex'}->{'test_deftypefnnewline'} = '
 \\chapter{{chap}}
 \\label{anchor:chapter}%
 
-\\noindent\\texttt{data-type\\leavevmode{}\\\\name arguments...}\\hfill[Function]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{data-type\\leavevmode{}\\\\name arguments...}& [Function]
+\\end{tabularx}
 
 \\index[fn]{name@\\texttt{name}}%
 \\begin{quote}
@@ -3631,7 +3636,12 @@ $result_converted{'latex'}->{'test_deftypefnnewline'} = '
 aaa
 \\end{quote}
 
-\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypefn\\_name}\\hfill[c--ategory]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypefn\\_name}& [c--ategory]
+\\end{tabularx}
 
 \\index[fn]{d--eftypefn\\_name@\\texttt{d{-}{-}eftypefn\\_name}}%
 \\begin{quote}
@@ -3639,7 +3649,12 @@ aaa
 d--eftypefn no arg
 \\end{quote}
 
-\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypeop\\_name a{-}{-}rguments...}\\hfill[c--ategory on \\texttt{c{-}{-}lass}]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypeop\\_name a{-}{-}rguments...}& [c--ategory on \\texttt{c{-}{-}lass}]
+\\end{tabularx}
 
 \\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name\\ on c{-}{-}lass}}%
 \\begin{quote}
@@ -3647,7 +3662,12 @@ d--eftypefn no arg
 d--eftypeop
 \\end{quote}
 
-\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypeop\\_name}\\hfill[c--ategory on \\texttt{c{-}{-}lass}]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypeop\\_name}& [c--ategory on \\texttt{c{-}{-}lass}]
+\\end{tabularx}
 
 \\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name\\ on c{-}{-}lass}}%
 \\begin{quote}
@@ -3655,7 +3675,12 @@ d--eftypeop
 d--eftypeop no arg
 \\end{quote}
 
-\\noindent\\texttt{t{-}{-}ype d{-}{-}eftypecv\\_name}\\hfill[c--ategory of \\texttt{c{-}{-}lass}]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{t{-}{-}ype d{-}{-}eftypecv\\_name}& [c--ategory of \\texttt{c{-}{-}lass}]
+\\end{tabularx}
 
 \\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name\\ of c{-}{-}lass}}%
 \\begin{quote}
@@ -3663,7 +3688,12 @@ d--eftypeop no arg
 d--eftypecv
 \\end{quote}
 
-\\noindent\\texttt{t{-}{-}ype d{-}{-}eftypecv\\_name a{-}{-}rguments...}\\hfill[c--ategory of \\texttt{c{-}{-}lass}]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{t{-}{-}ype d{-}{-}eftypecv\\_name a{-}{-}rguments...}& [c--ategory of \\texttt{c{-}{-}lass}]
+\\end{tabularx}
 
 \\index[vr]{d--eftypecv\\_name of c--lass@\\texttt{d{-}{-}eftypecv\\_name\\ of c{-}{-}lass}}%
 \\begin{quote}
@@ -3671,7 +3701,12 @@ d--eftypecv
 d--eftypecv with arguments
 \\end{quote}
 
-\\noindent\\texttt{arg}\\hfill[fun]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{arg}& [fun]
+\\end{tabularx}
 
 \\index[fn]{arg@\\texttt{arg}}%
 \\begin{quote}
@@ -3680,7 +3715,12 @@ fff
 \\end{quote}
 
 
-\\noindent\\texttt{data-type2 name2 arguments2...}\\hfill[Function]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{data-type2 name2 arguments2...}& [Function]
+\\end{tabularx}
 
 \\index[fn]{name2@\\texttt{name2}}%
 \\begin{quote}
@@ -3688,7 +3728,12 @@ fff
 aaa2
 \\end{quote}
 
-\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypefn\\_name2}\\hfill[c--ategory2]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypefn\\_name2}& [c--ategory2]
+\\end{tabularx}
 
 \\index[fn]{d--eftypefn\\_name2@\\texttt{d{-}{-}eftypefn\\_name2}}%
 \\begin{quote}
@@ -3696,7 +3741,12 @@ aaa2
 d--eftypefn no arg2
 \\end{quote}
 
-\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypeop\\_name2 a{-}{-}rguments2...}\\hfill[c--ategory2 on \\texttt{c{-}{-}lass2}]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypeop\\_name2 a{-}{-}rguments2...}& [c--ategory2 on \\texttt{c{-}{-}lass2}]
+\\end{tabularx}
 
 \\index[fn]{d--eftypeop\\_name2 on c--lass2@\\texttt{d{-}{-}eftypeop\\_name2\\ on c{-}{-}lass2}}%
 \\begin{quote}
@@ -3704,7 +3754,12 @@ d--eftypefn no arg2
 d--eftypeop2
 \\end{quote}
 
-\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypeop\\_name2}\\hfill[c--ategory2 on \\texttt{c{-}{-}lass2}]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypeop\\_name2}& [c--ategory2 on \\texttt{c{-}{-}lass2}]
+\\end{tabularx}
 
 \\index[fn]{d--eftypeop\\_name2 on c--lass2@\\texttt{d{-}{-}eftypeop\\_name2\\ on c{-}{-}lass2}}%
 \\begin{quote}
@@ -3712,7 +3767,12 @@ d--eftypeop2
 d--eftypeop no arg2
 \\end{quote}
 
-\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypecv\\_name2}\\hfill[c--ategory2 of \\texttt{c{-}{-}lass2}]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypecv\\_name2}& [c--ategory2 of \\texttt{c{-}{-}lass2}]
+\\end{tabularx}
 
 \\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2\\ of c{-}{-}lass2}}%
 \\begin{quote}
@@ -3720,7 +3780,12 @@ d--eftypeop no arg2
 d--eftypecv2
 \\end{quote}
 
-\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypecv\\_name2 a{-}{-}rguments2...}\\hfill[c--ategory2 of \\texttt{c{-}{-}lass2}]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{t{-}{-}ype2 d{-}{-}eftypecv\\_name2 a{-}{-}rguments2...}& [c--ategory2 of \\texttt{c{-}{-}lass2}]
+\\end{tabularx}
 
 \\index[vr]{d--eftypecv\\_name2 of c--lass2@\\texttt{d{-}{-}eftypecv\\_name2\\ of c{-}{-}lass2}}%
 \\begin{quote}
@@ -3728,7 +3793,12 @@ d--eftypecv2
 d--eftypecv with arguments2
 \\end{quote}
 
-\\noindent\\texttt{arg2}\\hfill[fun2]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{arg2}& [fun2]
+\\end{tabularx}
 
 \\index[fn]{arg2@\\texttt{arg2}}%
 \\begin{quote}

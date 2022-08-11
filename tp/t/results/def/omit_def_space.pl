@@ -647,10 +647,20 @@ $result_converted{'latex'}->{'omit_def_space'} = '\\label{anchor:Top}%
 \\label{anchor:first}%
 
 
-\\noindent\\texttt{function\\EmbracOn{}\\textnormal{\\textsl{(arg1, arg2)}}\\EmbracOff{}}\\hfill[Function]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{function\\EmbracOn{}\\textnormal{\\textsl{(arg1, arg2)}}\\EmbracOff{}}& [Function]
+\\end{tabularx}
 
 \\index[fn]{function@\\texttt{function}}%
-\\noindent\\texttt{another\\EmbracOn{}\\textnormal{\\textsl{(aarg)}}\\EmbracOff{}}\\hfill[Function]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{another\\EmbracOn{}\\textnormal{\\textsl{(aarg)}}\\EmbracOff{}}& [Function]
+\\end{tabularx}
 
 \\index[fn]{another@\\texttt{another}}%
 \\begin{quote}

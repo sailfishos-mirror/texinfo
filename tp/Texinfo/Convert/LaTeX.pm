@@ -42,9 +42,6 @@
 # more or less a normal space, with LaTeX, the space has shrinked so
 # much it seems that the two words are glued together.
 #
-# with @deftypefnnewline on, the category is on the same line as the function
-# line, in Texinfo TeX it is on the same line as the type.
-#
 # There is something about form feeds to do.  There is some processing of form
 # feeds right now, which simply amounts to keeping them in ignorable spaces
 # (and with another condition that may not be relevant for LaTeX as the code
@@ -1415,6 +1412,9 @@ roundcorner=10pt}
   if ($self->{'packages'}->{'embrac'}) {
     $header .= "\\usepackage{embrac}\n";
     $header .= "\\usepackage{expl3}\n";
+  }
+  if ($self->{'packages'}->{'tabularx'}) {
+    $header .= "\\usepackage{tabularx}\n";
   }
   if ($self->{'packages'}->{'mdframed'}) {
     # framemethod=tikz needed for roundcorners for @cartouche
@@ -3557,6 +3557,18 @@ sub _convert($$)
           $def_space = '';
         }
 
+        $self->{'packages'}->{'tabularx'} = 1;
+        # First column (X) is as wide as possible, second column (r) is for
+        # category.  @{} removes space at left side of table.
+        $result .= "\n\\noindent\\begin{tabularx}{\\linewidth}{\@{}Xr}\n";
+
+        # This stops the definition line overlapping the category in
+        # case it is hard to break the first line.
+        $result .= "\\rightskip=5em plus 1 fill\n";
+
+        # In case definition "line" doesn't fit on one line.
+        $result .= "\\hangindent=2em\n";
+
         $result .= '\noindent\texttt{';
         # the def* line except for the category is converted in code context
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
@@ -3613,8 +3625,9 @@ sub _convert($$)
         if (defined($category)) {
           # category is converted in normal text context
           my $converted = _convert($self, $category);
-          $result .= "\\hfill[$converted]\n";
+          $result .= "& [$converted]\n";
         }
+        $result .= "\\end{tabularx}\n";
         # undefine symbols associated with commands that have been made
         # known to embrac, such that they can be redefined later
         if (defined($known_embrac_commands)) {

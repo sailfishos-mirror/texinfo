@@ -1,5 +1,14 @@
 2022-08-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	tabularx for @def
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert) <def line>:
+	Use tabularx package for definition line.
+	(_latex_header): Load 'tabularx' if needed.
+	* tp/Texinfo/Convert/LaTeX.pm: Remove todo item.
+
+2022-08-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Protect space at start of code
 
 	* tp/Texinfo/Convert/LaTeX.pm (_protect_text) <code>:

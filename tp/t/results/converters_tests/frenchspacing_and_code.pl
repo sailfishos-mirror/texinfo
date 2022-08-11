@@ -2533,7 +2533,12 @@ In text w: z? n; p. f
 c:\\ d?\\ j
 \\end{GNUTexinfopreformatted}
 
-\\noindent\\texttt{type:\\ t.\\ c name?\\ n.\\ d arg?\\ e:\\ f.\\  \\GNUTexinfocommandstyletextvar{v: g. h}\\ \\texttt{code?\\ is:\\ k}}\\hfill[cat: r. a on \\texttt{class:\\ MyC.\\ b}]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{type:\\ t.\\ c name?\\ n.\\ d arg?\\ e:\\ f.\\  \\GNUTexinfocommandstyletextvar{v: g. h}\\ \\texttt{code?\\ is:\\ k}}& [cat: r. a on \\texttt{class:\\ MyC.\\ b}]
+\\end{tabularx}
 
 \\index[fn]{name? n. d on class: MyC. b@\\texttt{name?\\ n.\\ d\\ on class:\\ MyC.\\ b}}%
 \\begin{quote}
@@ -2541,7 +2546,12 @@ c:\\ d?\\ j
 deftypeop
 \\end{quote}
 
-\\noindent\\texttt{vname?\\ n;\\ d \\EmbracOn{}\\textnormal{\\textsl{varg? ve: f. \\GNUTexinfocommandstyletextvar{vv: g? b} \\EmbracMakeKnown{texttt}\\texttt{vcode?\\ is:\\ a}}}\\EmbracOff{}}\\hfill[vcat: r. z on \\texttt{vclass:\\ MyC.\\ u}]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{vname?\\ n;\\ d \\EmbracOn{}\\textnormal{\\textsl{varg? ve: f. \\GNUTexinfocommandstyletextvar{vv: g? b} \\EmbracMakeKnown{texttt}\\texttt{vcode?\\ is:\\ a}}}\\EmbracOff{}}& [vcat: r. z on \\texttt{vclass:\\ MyC.\\ u}]
+\\end{tabularx}
 \\ExplSyntaxOn%
 \\cs_undefine:N{\\embrac_texttt:nn}\\cs_undefine:N{\\embrac_orig_texttt:n}\\cs_undefine:N{\\__embrac_texttt:n}%
 \\ExplSyntaxOff%
@@ -2565,7 +2575,12 @@ In text w: z? n; p. fn
 c:\\ d?\\ jn
 \\end{GNUTexinfopreformatted}
 
-\\noindent\\texttt{type:\\ t.\\ c name?\\ n.\\ d narg?\\ e:\\ f.\\  \\GNUTexinfocommandstyletextvar{v: g. h}\\ \\texttt{code?\\ is:\\ k}}\\hfill[cat: r. a on \\texttt{class:\\ MyC.\\ b}]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{type:\\ t.\\ c name?\\ n.\\ d narg?\\ e:\\ f.\\  \\GNUTexinfocommandstyletextvar{v: g. h}\\ \\texttt{code?\\ is:\\ k}}& [cat: r. a on \\texttt{class:\\ MyC.\\ b}]
+\\end{tabularx}
 
 \\index[fn]{name? n. d on class: MyC. b@\\texttt{name?\\ n.\\ d\\ on class:\\ MyC.\\ b}}%
 \\begin{quote}
@@ -2573,7 +2588,12 @@ c:\\ d?\\ jn
 deftypeop n
 \\end{quote}
 
-\\noindent\\texttt{vname?\\ n;\\ d \\EmbracOn{}\\textnormal{\\textsl{varg? ve: f. \\GNUTexinfocommandstyletextvar{vv: g? b} \\EmbracMakeKnown{texttt}\\texttt{vcode?\\ is:\\ a}}}\\EmbracOff{}}\\hfill[vcat: r. z on \\texttt{nvclass:\\ MyC.\\ u}]
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{vname?\\ n;\\ d \\EmbracOn{}\\textnormal{\\textsl{varg? ve: f. \\GNUTexinfocommandstyletextvar{vv: g? b} \\EmbracMakeKnown{texttt}\\texttt{vcode?\\ is:\\ a}}}\\EmbracOff{}}& [vcat: r. z on \\texttt{nvclass:\\ MyC.\\ u}]
+\\end{tabularx}
 \\ExplSyntaxOn%
 \\cs_undefine:N{\\embrac_texttt:nn}\\cs_undefine:N{\\embrac_orig_texttt:n}\\cs_undefine:N{\\__embrac_texttt:n}%
 \\ExplSyntaxOff%

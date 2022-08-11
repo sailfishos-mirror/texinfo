@@ -9,6 +9,7 @@
 \usepackage{etoolbox}
 \usepackage{embrac}
 \usepackage{expl3}
+\usepackage{tabularx}
 \usepackage{titleps}
 \usepackage{float}
 \usepackage{babel}
@@ -85,7 +86,12 @@
 \label{anchor:chapter-ja}%
 
 In japanese. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
-\noindent\texttt{BBB \EmbracOn{}\textnormal{\textsl{CCC}}\EmbracOff{}}\hfill[Instance Variable of \texttt{AAA}]
+
+\noindent\begin{tabularx}{\linewidth}{@{}Xr}
+\rightskip=5em plus 1 fill
+\hangindent=2em
+\noindent\texttt{BBB \EmbracOn{}\textnormal{\textsl{CCC}}\EmbracOff{}}& [Instance Variable of \texttt{AAA}]
+\end{tabularx}
 
 \index[vr]{BBB of AAA@\texttt{BBB\ of AAA}}%
 
@@ -94,7 +100,12 @@ In japanese. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-
 \label{anchor:chapter-en}%
 
 In english. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
-\noindent\texttt{BBB \EmbracOn{}\textnormal{\textsl{CCC}}\EmbracOff{}}\hfill[Instance Variable of \texttt{AAA}]
+
+\noindent\begin{tabularx}{\linewidth}{@{}Xr}
+\rightskip=5em plus 1 fill
+\hangindent=2em
+\noindent\texttt{BBB \EmbracOn{}\textnormal{\textsl{CCC}}\EmbracOff{}}& [Instance Variable of \texttt{AAA}]
+\end{tabularx}
 
 \index[vr]{BBB of AAA@\texttt{BBB\ of AAA}}%
 
@@ -102,7 +113,12 @@ In english. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-j
 \chapter{{fr\_FR}}
 \label{anchor:chapter-fr_005fFR}%
 
-\noindent\texttt{BBB \EmbracOn{}\textnormal{\textsl{CCC}}\EmbracOff{}}\hfill[Variable d'instance of \texttt{AAA}]
+
+\noindent\begin{tabularx}{\linewidth}{@{}Xr}
+\rightskip=5em plus 1 fill
+\hangindent=2em
+\noindent\texttt{BBB \EmbracOn{}\textnormal{\textsl{CCC}}\EmbracOff{}}& [Variable d'instance of \texttt{AAA}]
+\end{tabularx}
 
 \index[vr]{BBB of AAA@\texttt{BBB\ of AAA}}%
 
