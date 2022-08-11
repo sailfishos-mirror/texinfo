@@ -1861,11 +1861,6 @@ sub _open_preformatted($$)
     push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
   }
 
-  # no preformatted formatting if in a @table item, it leads
-  # to an error, and also it is only for some inter item
-  # content.
-  return ''
-   if (scalar(@{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}}));
   my $result = '';
   $result .= '\\begin{GNUTexinfopreformatted}'."\n";
 
@@ -1896,8 +1891,6 @@ sub _close_preformatted($$)
   if ($preformatted_code_commands{$command}) {
     pop @{$self->{'formatting_context'}->[-1]->{'code'}};
   }
-  return ''
-   if (scalar(@{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}}));
   return '\\end{GNUTexinfopreformatted}'."\n";
 }
 
@@ -2273,16 +2266,7 @@ sub _convert($$)
   }
 
   if ($type and ($type eq 'empty_line')) {
-    # if nr_table_items_context the whole @item/@itemx formatting
-    # is put in a parbox, in which there should not be paragraphs,
-    # so we remove empty lines.
-    # FIXME this conditions is probably checked a lot in a document
-    # formatting may be better to avoid.
-    if (scalar(@{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}})) {
-      return '';
-    } else {
-      return "\n";
-    }
+    return "\n";
   }
 
   # process text
@@ -3684,6 +3668,36 @@ sub _convert($$)
       }
       push @{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}},
              $nr_item;
+    } elsif ($element->{'type'} eq 'inter_item') {
+      # the whole @item/@itemx formatting is put in a parbox, in which
+      # there should not be paragraphs, so we remove empty lines from
+      # inter_item.  We format directly here while ignoring the empty lines
+      # for performance reasons, and not below like all the contents, to
+      # avoid needing to check if in table items using a context information,
+      # we know that only comments and index entries or a lone preformatted
+      # should be in inter_item.
+      if ($element->{'contents'}) {
+        my $contents;
+        # if in an preformatted context, ie in @example, the inter_item
+        # content is within a preformatted.  In that case we use content
+        # from within the preformatted.  We do not do anything that is done
+        # in _open_preformatted/_close_preformatted as the only things
+        # that should be in inter_item, besides empty lines we want to
+        # remove, are comments and index entries, which formatting should
+        # not be affected.
+        if ($element->{'contents'}->[0]->{'type'}
+            and $element->{'contents'}->[0]->{'type'} eq 'preformatted') {
+          $contents = $element->{'contents'}->[0]->{'contents'}
+            if $element->{'contents'}->[0]->{'contents'};
+        } else {
+          $contents = $element->{'contents'};
+        }
+        foreach my $content (@$contents) {
+          $result .= _convert($self, $content)
+            unless ($content->{'type'} and $content->{'type'} eq 'empty_line');
+        }
+      }
+      return $result;
     } elsif ($element->{'type'} eq 'preformatted') {
       $result .= _open_preformatted($self, $element);
     } elsif ($element->{'type'} eq '_dot_not_end_sentence') {
