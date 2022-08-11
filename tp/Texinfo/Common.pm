@@ -1209,6 +1209,8 @@ sub locate_init_file($$$)
 # $FILE_PATH is the file path, it should be a binary string.
 # If $USE_BINMODE is set, call binmode() to set binary mode.
 # $OUTPUT_ENCODING argument overrides the output encoding.
+# returns the opened filehandle, or undef if opening failed,
+# and the $! error message or undef if opening succeeded.
 sub output_files_open_out($$$;$$)
 {
   my $self = shift;
@@ -1230,11 +1232,12 @@ sub output_files_open_out($$$;$$)
     if ($self) {
       $self->{'unclosed_files'}->{$file_path} = \*STDOUT;
     }
-    return \*STDOUT;
+    return \*STDOUT, undef;
   }
   my $filehandle = do { local *FH };
   if (!open ($filehandle, '>', $file_path)) {
-    return undef;
+    my $error_message = $!;
+    return undef, $error_message;
   }
   # We run binmode to turn off outputting LF as CR LF under MS-Windows,
   # so that Info tag tables will have correct offsets.  This must be done
@@ -1254,7 +1257,7 @@ sub output_files_open_out($$$;$$)
     push @{$self->{'opened_files'}}, $file_path;
     $self->{'unclosed_files'}->{$file_path} = $filehandle;
   }
-  return $filehandle;
+  return $filehandle, undef;
 }
 
 # see the description of $SELF in output_files_open_out

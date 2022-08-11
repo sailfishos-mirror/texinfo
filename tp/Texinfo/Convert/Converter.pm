@@ -370,13 +370,14 @@ sub output($$)
       my $path_encoding;
       ($encoded_outfile_name, $path_encoding)
         = $self->encoded_output_file_name($outfile_name);
-      $fh = Texinfo::Common::output_files_open_out(
+      my $error_message;
+      ($fh, $error_message) = Texinfo::Common::output_files_open_out(
                     $self->output_files_information(), $self,
                     $encoded_outfile_name);
       if (!$fh) {
         $self->document_error($self,
                  sprintf(__("could not open %s for writing: %s"),
-                                      $outfile_name, $!));
+                                      $outfile_name, $error_message));
         return undef;
       }
     } else {
@@ -424,13 +425,14 @@ sub output($$)
       my $file_fh;
       # open the file and output the elements
       if (!$files{$tree_unit_filename}->{'fh'}) {
-        $file_fh = Texinfo::Common::output_files_open_out(
+        my $error_message;
+        ($file_fh, $error_message) = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
                              $out_filepath);
         if (!$file_fh) {
           $self->document_error($self,
                 sprintf(__("could not open %s for writing: %s"),
-                       $out_filepath, $!));
+                       $out_filepath, $error_message));
           return undef;
         }
         $files{$tree_unit_filename}->{'fh'} = $file_fh;

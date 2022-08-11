@@ -220,13 +220,13 @@ sub chm_init($)
   my $hhk_file_path_name = File::Spec->catfile($outdir, $hhk_filename);
   my ($encoded_hhk_file_path_name, $hhk_path_encoding)
     = $self->encoded_output_file_name($hhk_file_path_name);
-  my $hhk_fh = Texinfo::Common::output_files_open_out(
+  my ($hhk_fh, $hhk_error_message) = Texinfo::Common::output_files_open_out(
                       $self->output_files_information(), $self,
                       $encoded_hhk_file_path_name);
   if (!defined($hhk_fh)) {
     $self->document_error($self,
          sprintf(__("chm.pm: could not open %s for writing: %s\n"),
-                  $hhk_file_path_name, $!));
+                  $hhk_file_path_name, $hhk_error_message));
     return 1;
   }
   print STDERR "# chm: writing HTML Help index in $hhk_file_path_name...\n"
@@ -270,13 +270,13 @@ sub chm_init($)
   my $hhc_file_path_name = File::Spec->catfile($outdir, $hhc_filename);
   my ($encoded_hhc_file_path_name, $hhc_path_encoding)
     = $self->encoded_output_file_name($hhc_file_path_name);
-  my $hhc_fh = Texinfo::Common::output_files_open_out(
+  my ($hhc_fh, $hhc_error_message) = Texinfo::Common::output_files_open_out(
                       $self->output_files_information(), $self,
                       $encoded_hhc_file_path_name);
   if (!defined($hhc_fh)) {
     $self->document_error($self,
          sprintf(__("chm.pm: could not open %s for writing: %s\n"),
-                  $hhc_file_path_name, $!));
+                  $hhc_file_path_name, $hhc_error_message));
     return 1;
   }
 
@@ -346,13 +346,13 @@ sub chm_init($)
   my $hhp_file_path_name = File::Spec->catfile($outdir, $hhp_filename);
   my ($encoded_hhp_file_path_name, $hhp_path_encoding)
     = $self->encoded_output_file_name($hhp_file_path_name);
-  my $hhp_fh = Texinfo::Common::output_files_open_out(
+  my ($hhp_fh, $hhp_error_message) = Texinfo::Common::output_files_open_out(
                       $self->output_files_information(), $self,
                       $encoded_hhp_file_path_name);
   if (!defined($hhp_fh)) {
     $self->document_error(
            $self, sprintf(__("chm.pm: could not open %s for writing: %s\n"),
-                  $hhp_file_path_name, $!));
+                  $hhp_file_path_name, $hhp_error_message));
     return 1;
   }
   print STDERR "# chm: writing HTML Help project in $hhp_file_path_name...\n"

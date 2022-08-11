@@ -327,19 +327,20 @@ sub output($$)
     my $path_encoding;
     ($encoded_output_file, $path_encoding)
       = $self->encoded_output_file_name($output_file);
-    $fh = Texinfo::Common::output_files_open_out(
-                             $self->output_files_information(), $self,
-                             $encoded_output_file);
+    my $error_message;
+    ($fh, $error_message) = Texinfo::Common::output_files_open_out(
+                              $self->output_files_information(), $self,
+                              $encoded_output_file);
     if (!$fh) {
       $self->document_error($self,
            sprintf(__("could not open %s for writing: %s"),
-                                    $output_file, $!));
+                                    $output_file, $error_message));
       return undef;
     }
   }
 
   my $encoding = '';
-  if ($self->get_conf('OUTPUT_ENCODING_NAME') 
+  if ($self->get_conf('OUTPUT_ENCODING_NAME')
       and $self->get_conf('OUTPUT_ENCODING_NAME') ne 'utf-8') {
     $encoding = " encoding=\"".$self->get_conf('OUTPUT_ENCODING_NAME')."\" ";
   }
@@ -526,7 +527,7 @@ my %docbook_sections = (
 );
 
 my %docbook_special_unnumbered;
-foreach my $special_unnumbered ('acknowledgements', 'colophon', 
+foreach my $special_unnumbered ('acknowledgements', 'colophon',
                                 'dedication', 'preface') {
   $docbook_special_unnumbered{$special_unnumbered} = 1;
 }

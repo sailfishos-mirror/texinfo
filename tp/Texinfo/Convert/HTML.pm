@@ -9070,9 +9070,10 @@ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating w
   # sequence of bytes
   my ($licence_file_path, $path_encoding)
      = $self->encoded_output_file_name($license_file);
-  my $fh = Texinfo::Common::output_files_open_out(
-                 $self->output_files_information(), $self,
-                 $licence_file_path);
+  my ($fh, $error_message_licence_file)
+         = Texinfo::Common::output_files_open_out(
+                         $self->output_files_information(), $self,
+                         $licence_file_path);
   if (defined($fh)) {
     print $fh $a;
     Texinfo::Common::output_files_register_closed(
@@ -9085,7 +9086,7 @@ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating w
   } else {
     $self->document_error($self,
            sprintf(__("could not open %s for writing: %s"),
-                                  $license_file, $!));
+                   $license_file, $error_message_licence_file));
   }
 }
 
@@ -9118,7 +9119,7 @@ sub _default_format_frame_files($$)
   # sequence of bytes
   my ($frame_file_path, $frame_path_encoding)
      = $self->encoded_output_file_name($frame_outfile);
-  my $frame_fh = Texinfo::Common::output_files_open_out(
+  my ($frame_fh, $error_message_frame) = Texinfo::Common::output_files_open_out(
                      $self->output_files_information(), $self, $frame_file_path);
   if (defined($frame_fh)) {
     my $doctype = $self->get_conf('FRAMESET_DOCTYPE');
@@ -9151,15 +9152,16 @@ EOT
   } else {
     $self->document_error($self,
            sprintf(__("could not open %s for writing: %s"),
-                                  $frame_outfile, $!));
+                                  $frame_outfile, $error_message_frame));
     return 0;
   }
   # sequence of bytes
   my ($toc_frame_path, $toc_frame_path_encoding)
        = $self->encoded_output_file_name($toc_frame_outfile);
-  my $toc_frame_fh = Texinfo::Common::output_files_open_out(
-                      $self->output_files_information(), $self,
-                      $toc_frame_path);
+  my ($toc_frame_fh, $toc_frame_error_message)
+           = Texinfo::Common::output_files_open_out(
+                               $self->output_files_information(), $self,
+                               $toc_frame_path);
   if (defined($toc_frame_fh)) {
 
     # this is needed to collect CSS rules.
@@ -9187,7 +9189,7 @@ EOT
   } else {
     $self->document_error($self,
            sprintf(__("could not open %s for writing: %s"),
-                                  $toc_frame_outfile, $!));
+                   $toc_frame_outfile, $toc_frame_error_message));
     return 0;
   }
   return 1;
@@ -9705,13 +9707,14 @@ sub output($$)
          = $self->{'out_filepaths'}->{$self->{'current_filename'}};
       ($encoded_no_page_out_filepath, $path_encoding)
         = $self->encoded_output_file_name($no_page_out_filepath);
-      $fh = Texinfo::Common::output_files_open_out(
-              $self->output_files_information(), $self,
-              $encoded_no_page_out_filepath);
+      my $error_message;
+      ($fh, $error_message) = Texinfo::Common::output_files_open_out(
+                                 $self->output_files_information(), $self,
+                                 $encoded_no_page_out_filepath);
       if (!$fh) {
         $self->document_error($self,
               sprintf(__("could not open %s for writing: %s"),
-                                      $no_page_out_filepath, $!));
+                                      $no_page_out_filepath, $error_message));
         return undef;
       }
     }
@@ -9805,13 +9808,14 @@ sub output($$)
         my $file_element = $files{$element_filename}->{'first_element'};
         my ($encoded_out_filepath, $path_encoding)
           = $self->encoded_output_file_name($out_filepath);
-        my $file_fh = Texinfo::Common::output_files_open_out(
+        my ($file_fh, $error_message)
+                = Texinfo::Common::output_files_open_out(
                          $self->output_files_information(), $self,
                          $encoded_out_filepath);
         if (!$file_fh) {
           $self->document_error($self,
                sprintf(__("could not open %s for writing: %s"),
-                                    $out_filepath, $!));
+                                    $out_filepath, $error_message));
           return undef;
         }
         # do end file first in case it requires some CSS
@@ -9917,13 +9921,14 @@ sub output($$)
         }
         my ($encoded_out_filename, $path_encoding)
           = $self->encoded_output_file_name($out_filename);
-        my $file_fh = Texinfo::Common::output_files_open_out(
+        my ($file_fh, $error_message)
+               = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
                              $encoded_out_filename);
         if (!$file_fh) {
          $self->document_error($self, sprintf(__(
                                     "could not open %s for writing: %s"),
-                                    $out_filename, $!));
+                                    $out_filename, $error_message));
         } else {
           print $file_fh $redirection_page;
           Texinfo::Common::output_files_register_closed(

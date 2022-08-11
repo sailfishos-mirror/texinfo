@@ -302,14 +302,14 @@ sub _open_info_file($$)
 
   my ($encoded_filename, $path_encoding)
       = $self->encoded_output_file_name($filename);
-  my $fh = Texinfo::Common::output_files_open_out(
-                             $self->output_files_information(), $self,
-                             $encoded_filename, 'use_binmode');
+  my ($fh, $error_message) = Texinfo::Common::output_files_open_out(
+                               $self->output_files_information(), $self,
+                               $encoded_filename, 'use_binmode');
 
   if (!$fh) {
     $self->document_error($self, sprintf(
         __("could not open %s for writing: %s"),
-        $filename, $!));
+        $filename, $error_message));
     return undef;
   }
   return $fh;

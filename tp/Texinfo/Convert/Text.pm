@@ -803,12 +803,13 @@ sub output($$)
   if (defined($outfile)) {
     ($encoded_outfile, $outfile_encoding)
       = Texinfo::Convert::Utils::encoded_output_file_name($self, $outfile);
-    $fh = Texinfo::Common::output_files_open_out(
+    my $error_message;
+    ($fh, $error_message) = Texinfo::Common::output_files_open_out(
                              $self->{'output_files'}, $self,
                              $encoded_outfile);
     if (!$fh) {
       warn sprintf(__("could not open %s for writing: %s"),
-                  $outfile, $!)."\n";
+                   $outfile, $error_message)."\n";
       return undef;
     }
   }

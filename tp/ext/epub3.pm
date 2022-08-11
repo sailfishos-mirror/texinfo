@@ -529,13 +529,14 @@ sub epub_finish($$)
                                            'container.xml');
   my ($encoded_container_file_path_name, $container_path_encoding)
     = $self->encoded_output_file_name($container_file_path_name);
-  my $container_fh = Texinfo::Common::output_files_open_out(
+  my ($container_fh, $error_message_container)
+            = Texinfo::Common::output_files_open_out(
                           $self->output_files_information(), $self,
                           $encoded_container_file_path_name, undef, 'utf-8');
   if (!defined($container_fh)) {
     $self->document_error($self,
          sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
-                  $container_file_path_name, $!));
+                  $container_file_path_name, $error_message_container));
     return 1;
   }
   my $document_name = $self->get_info('document_name');
@@ -564,13 +565,14 @@ EOT
                                                     $mimetype_filename);
   my ($encoded_mimetype_file_path_name, $mimetype_path_encoding)
     = $self->encoded_output_file_name($mimetype_file_path_name);
-  my $mimetype_fh = Texinfo::Common::output_files_open_out(
+  my ($mimetype_fh, $error_message_mimetype)
+               = Texinfo::Common::output_files_open_out(
                         $self->output_files_information(), $self,
                         $encoded_mimetype_file_path_name, undef, 'utf-8');
   if (!defined($mimetype_fh)) {
     $self->document_error($self,
          sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
-                  $mimetype_file_path_name, $!));
+                  $mimetype_file_path_name, $error_message_mimetype));
     return 1;
   }
   # There is no end of line.  It is not very clear in the standard, but
@@ -593,13 +595,14 @@ EOT
      = File::Spec->catfile($epub_document_destination_directory, $nav_filename);
     my ($encoded_nav_file_path_name, $nav_path_encoding)
       = $self->encoded_output_file_name($nav_file_path_name);
-    my $nav_fh = Texinfo::Common::output_files_open_out(
+    my ($nav_fh, $error_message_nav)
+           = Texinfo::Common::output_files_open_out(
                        $self->output_files_information(), $self,
                        $encoded_nav_file_path_name, undef, 'utf-8');
     if (!defined($nav_fh)) {
       $self->document_error($self,
            sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
-                    $nav_file_path_name, $!));
+                    $nav_file_path_name, $error_message_nav));
       return 1;
     }
     my $table_of_content_str = _epub_convert_tree_to_text($self,
@@ -701,13 +704,14 @@ EOT
                                         $epub_document_dir_name, $opf_filename);
   my ($encoded_opf_file_path_name, $opf_path_encoding)
     = $self->encoded_output_file_name($opf_file_path_name);
-  my $opf_fh = Texinfo::Common::output_files_open_out(
+  my ($opf_fh, $error_message_opf)
+            = Texinfo::Common::output_files_open_out(
                    $self->output_files_information(), $self,
                    $encoded_opf_file_path_name, undef, 'utf-8');
   if (!defined($opf_fh)) {
     $self->document_error($self,
          sprintf(__("epub3.pm: could not open %s for writing: %s\n"),
-                  $opf_file_path_name, $!));
+                  $opf_file_path_name, $error_message_opf));
     return 1;
   }
   print $opf_fh <<EOT;

@@ -1416,9 +1416,9 @@ while(@input_files) {
     my $encoded_macro_expand_file_name = get_conf('MACRO_EXPAND');
     my $macro_expand_file_name = _decode_input($encoded_macro_expand_file_name);
     my $macro_expand_files_information = {};
-    my $macro_expand_fh = Texinfo::Common::output_files_open_out(
-          $macro_expand_files_information, $main_configuration,
-          $encoded_macro_expand_file_name);
+    my ($macro_expand_fh, $error_message) = Texinfo::Common::output_files_open_out(
+                                $macro_expand_files_information, $main_configuration,
+                                $encoded_macro_expand_file_name);
     my $error_macro_expand_file;
     if (defined($macro_expand_fh)) {
       print $macro_expand_fh $texinfo_text;
@@ -1431,7 +1431,7 @@ while(@input_files) {
       }
     } else {
       document_warn(sprintf(__("could not open %s for writing: %s\n"), 
-                            $macro_expand_file_name, $!));
+                            $macro_expand_file_name, $error_message));
       $error_macro_expand_file = 1;
     }
     push @opened_files, Texinfo::Common::output_files_opened_files(
@@ -1620,9 +1620,10 @@ while(@input_files) {
     my $internal_links_file_name
         = _decode_input($encoded_internal_links_file_name);
     my $internal_links_files_information = {};
-    my $internal_links_fh = Texinfo::Common::output_files_open_out(
+    my ($internal_links_fh, $error_message)
+            = Texinfo::Common::output_files_open_out(
                               $internal_links_files_information, $converter,
-                                        $encoded_internal_links_file_name);
+                              $encoded_internal_links_file_name);
     my $error_internal_links_file;
     if (defined ($internal_links_fh)) {
       print $internal_links_fh $internal_links_text;
@@ -1636,7 +1637,7 @@ while(@input_files) {
            $internal_links_files_information, $encoded_internal_links_file_name);
     } else {
       warn(sprintf(__("%s: could not open %s for writing: %s\n"), 
-                      $real_command_name, $internal_links_file_name, $!));
+                      $real_command_name, $internal_links_file_name, $error_message));
       $error_internal_links_file = 1;
     }
 
@@ -1675,7 +1676,8 @@ while(@input_files) {
     # not right, should be changed by something not associated
     # with the converter but to the main program or file. parser
     # is not much better
-    my $sort_element_count_fh = Texinfo::Common::output_files_open_out(
+    my ($sort_element_count_fh, $error_message)
+                = Texinfo::Common::output_files_open_out(
                                $sort_elem_files_information, $converter,
                                     $encoded_sort_element_count_file_name);
     my $error_sort_element_count_file;

@@ -17,8 +17,6 @@ xterm &
 Before next release
 ===================
 
-Texinfo::Common::output_files_open_out( should return $!
-
 Bugs
 ====
 
