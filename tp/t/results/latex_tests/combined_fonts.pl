@@ -1519,12 +1519,12 @@ $result_converted{'latex'}->{'combined_fonts'} = '
 \\chapter{{chapter}}
 \\label{anchor:chapter}%
 
-\\texttt{code}, \\textsl{dfn}, \\GNUTexinfocommandstyletextvar{var}, \\textbf{strong}, {\\ttfamily\\textsl{kbd}}, `\\texttt{samp}\'.
+\\texttt{code}, \\textsl{dfn}, \\GNUTexinfocommandstyletextvar{var}, \\textbf{strong}, \\GNUTexinfocommandstyletextkbd{kbd}, `\\texttt{samp}\'.
 
 \\texttt{\\textsl{dfn in code}}
 \\GNUTexinfocommandstyletextvar{\\texttt{code in var}}
 \\texttt{\\GNUTexinfocommandstyletextvar{var in code}}
-\\textbf{{\\ttfamily\\textsl{kbd in strong}}}
+\\textbf{\\GNUTexinfocommandstyletextkbd{kbd in strong}}
 `\\texttt{\\textbf{strong in samp}}\'
 \\textbf{`\\texttt{samp in strong}\'}
 

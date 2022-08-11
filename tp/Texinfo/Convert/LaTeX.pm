@@ -591,11 +591,13 @@ sub register_style_format_command($$$$$)
   my $style_ref = shift;
   my $new_commands_ref = shift;
 
-  my $specific_style_command
-    = "\\${style_command_new_commands_prefix}${formatting_context}$command";
+  my $specific_style_command_name
+   = "${style_command_new_commands_prefix}${formatting_context}$command";
+  my $specific_style_command = '\\'.$specific_style_command_name;
   $style_ref->{$formatting_context}->{$command} = $specific_style_command;
   $new_commands_ref->{$formatting_context}->{$command}
     = "$specific_style_command\[1]{{$formatting\{#1}}}";
+  return $specific_style_command_name;
 }
 
 # @-commands that stop code context
@@ -604,7 +606,9 @@ my %roman_style_commands = (
 );
 
 # All those commands run with the text.
-# math, verb and kbd are special and implemented separately
+# math and verb are special and implemented separately.
+# There is specific code for some commands, such as kbd, r
+# in addition to using this hash.
 my %LaTeX_style_brace_commands = (
   'text' => {
     'hyphenation' => '\\hyphenation',
@@ -645,6 +649,12 @@ foreach my $always_slanted_roman_commands ('cite', 'var') {
   $LaTeX_style_brace_commands{'math'}->{$always_slanted_roman_commands} = '';
   $roman_style_commands{$always_slanted_roman_commands} = 1;
 }
+
+# specific style for kbd: slanted and typewriter.  code @-command
+# formatting is used instead if needed, see _kbd_code_style.
+register_style_format_command('text', 'kbd',
+                        '\\ttfamily\\textsl', \%LaTeX_style_brace_commands,
+                        \%style_brace_format_command_new_commands);
 
 # FIXME headitemfont
 my @asis_commands = ('asis', 'clicksequence', 'headitemfont');
@@ -696,12 +706,6 @@ foreach my $quoted_command (@quoted_commands) {
   $quotes_map{$quoted_command} = ["`", "'"];
 }
 
-# for the distinct kbd style.
-# use \ttfamily to have a cumulative effect with \textsl.
-# FIXME it seems that there is a cumulative effect with
-# \texttt{\textsl{...}}
-my $kbd_formatting_latex = '\ttfamily\textsl';
-
 # Format in description for @*table argument
 
 # note that if each command was formatted with format= option of
@@ -717,27 +721,20 @@ my $description_command_new_commands_prefix = 'GNUTexinfotablestyle';
 # if new commands are setup for descriptions, they are in this hash
 my %description_command_new_commands = ();
 
-foreach my $command (keys(%{$LaTeX_style_brace_commands{'text'}}), 'kbd') {
+foreach my $command (keys(%{$LaTeX_style_brace_commands{'text'}})) {
   # avoids hyphenation @-command
   next if ($unformatted_brace_command{$command});
   my $description_format = $LaTeX_style_brace_commands{'text'}->{$command};
-  if ($command eq 'kbd' or
-      ($description_format ne ''
+  if ($description_format ne ''
        and $description_format !~ /\\text[a-z]{2}$/
-       and not $style_brace_format_command_new_commands{'text'}->{$command})) {
+       and not $style_brace_format_command_new_commands{'text'}->{$command}) {
     my $specific_format_command
       = "\\${description_command_new_commands_prefix}$command";
     my $command_definition;
-    if ($command eq 'kbd') {
-      # used for the distinct style
-      $command_definition
-       = "$specific_format_command\[1]{{$kbd_formatting_latex\{#1}}}";
-    } else {
-      # use \normalfont to avoid default bold if not already a font switching
-      # command (useful for emph in practice).
-      $command_definition =
-        "$specific_format_command\[1]{{\\normalfont$description_format\{#1}}}";
-    }
+    # use \normalfont to avoid default bold if not already a font switching
+    # command (useful for emph in practice).
+    $command_definition =
+      "$specific_format_command\[1]{{\\normalfont$description_format\{#1}}}";
     $description_command_new_commands{$command} = $command_definition;
     $description_command_format{$command} = $specific_format_command;
   } else {
@@ -2005,14 +2002,11 @@ sub _xtable_description_command_format($$)
       and $element->{'extra'}->{'command_as_argument'}) {
     my $command_as_argument
       = $element->{'extra'}->{'command_as_argument'}->{'cmdname'};
-    if ($command_as_argument eq 'kbd') {
-      if (_kbd_code_style($self)) {
-        $command_as_argument = 'code';
-      }
-    }
+    $command_as_argument = 'code' if ($command_as_argument eq 'kbd'
+                                      and _kbd_code_style($self));
     if (exists($description_command_format{$command_as_argument})
         and $description_command_format{$command_as_argument} ne '') {
-      # only gather if associated to a new command
+      # gather for outputting in the preamble if associated to a new command
       if (exists($description_command_new_commands{$command_as_argument})) {
         $self->{'description_format_commands'}->{$command_as_argument} = 1;
       } elsif ($style_brace_format_command_new_commands{'text'}->{$command_as_argument}) {
@@ -2435,23 +2429,31 @@ sub _convert($$)
       my $did_stop_embrac = 0;
       ($result, $did_stop_embrac) = _stop_embrac($self, $result)
          if ($cmdname eq 'r');
-      if ($self->{'quotes_map'}->{$cmdname}) {
-        $result .= $self->{'quotes_map'}->{$cmdname}->[0];
+      my $formatted_cmdname;
+      if ($cmdname eq 'kbd' and _kbd_code_style($self)) {
+        # use code for kbd formatting if needed
+        $formatted_cmdname = 'code';
+      } else {
+        $formatted_cmdname = $cmdname;
       }
-      my $remove_code_context;
       if ($code_style_commands{$cmdname}) {
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
       } elsif ($roman_style_commands{$cmdname}) {
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 0;
       }
-      my $formatting_context = $command_context;
-      if ($style_brace_format_command_new_commands{$formatting_context}->{$cmdname}) {
-        $self->{'style_brace_format_commands'}->{$formatting_context}
-                                                     ->{$cmdname} = 1;
+      if ($self->{'quotes_map'}->{$formatted_cmdname}) {
+        $result .= $self->{'quotes_map'}->{$formatted_cmdname}->[0];
       }
-      if ($LaTeX_style_brace_commands{$formatting_context}->{$cmdname}) {
+      my $formatting_context = $command_context;
+      # gather for outputting in the preamble if associated to a new command
+      if ($style_brace_format_command_new_commands{$formatting_context}
+                                                     ->{$formatted_cmdname}) {
+        $self->{'style_brace_format_commands'}->{$formatting_context}
+                                                     ->{$formatted_cmdname} = 1;
+      }
+      if ($LaTeX_style_brace_commands{$formatting_context}->{$formatted_cmdname}) {
         my $LaTeX_style_command
-          = $LaTeX_style_brace_commands{$formatting_context}->{$cmdname};
+          = $LaTeX_style_brace_commands{$formatting_context}->{$formatted_cmdname};
         if ($need_known_embrac{$LaTeX_style_command}
             and $self->{'formatting_context'}->[-1]->{'embrac'}
             and $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]
@@ -2470,16 +2472,16 @@ sub _convert($$)
       if ($element->{'args'}) {
         $result .= _convert($self, $element->{'args'}->[0]);
       }
-      if ($LaTeX_style_brace_commands{$formatting_context}->{$cmdname}) {
+      if ($LaTeX_style_brace_commands{$formatting_context}->{$formatted_cmdname}) {
         $result .= '}';
+      }
+      if ($self->{'quotes_map'}->{$formatted_cmdname}) {
+        $result .= $self->{'quotes_map'}->{$formatted_cmdname}->[1];
       }
       if ($code_style_commands{$cmdname}) {
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
       } elsif ($roman_style_commands{$cmdname}) {
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
-      }
-      if ($self->{'quotes_map'}->{$cmdname}) {
-        $result .= $self->{'quotes_map'}->{$cmdname}->[1];
       }
       $result = _restart_embrac_if_needed($self, $result, $did_stop_embrac);
       return $result;
@@ -2488,34 +2490,6 @@ sub _convert($$)
       if ($element->{'args'}) {
         $result .= _convert($self, $element->{'args'}->[0]);
       }
-    } elsif ($cmdname eq 'kbd') {
-      # 'kbd' is special, distinct font is typewriter + slanted
-      # @kbdinputstyle
-      # 'code' Always use the same font for @kbd as @code.
-      # 'example' Use the distinguishing font for @kbd only in @example
-      #           and similar environments.
-      # 'distinct' (the default) Always use the distinguishing font for @kbd.
-      my $code_font = _kbd_code_style($self);
-      if ($code_font) {
-        if ($LaTeX_style_brace_commands{$command_context}->{'code'}) {
-          $result .= "$LaTeX_style_brace_commands{$command_context}->{'code'}\{";
-        }
-      } else {
-        $result .= "{$kbd_formatting_latex\{";
-      }
-      if ($element->{'args'}) {
-        push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
-        $result .= _convert($self, $element->{'args'}->[0]);
-        pop @{$self->{'formatting_context'}->[-1]->{'code'}};
-      }
-      if ($code_font) {
-        if ($LaTeX_style_brace_commands{$command_context}->{'code'}) {
-          $result .= '}';
-        }
-      } else {
-        $result .= '}}';
-      }
-      return $result;
     } elsif ($cmdname eq 'verb') {
       # FIXME \verb is forbidden in other macros
       $result .= "\\verb" .$element->{'extra'}->{'delimiter'};
@@ -3743,10 +3717,10 @@ sub _convert($$)
       # LaTeX environments do not accept text before the first item, add an item
       if ($result =~ /\S/) {
         # FIXME if there is only an index element it is content and
-        # triggers an empty \item.  It is mitigates by
-        # move_index_entries_after_items but not for @*table
-        # for which there is relate_index_entries_to_table_entries
-        # but it has no obvious role
+        # triggers an empty \item.  It is mitigated by
+        # move_index_entries_after_items for enumerate and itemize, but not
+        # for @*table.  For @*table there is relate_index_entries_to_table_entries
+        # but it has no obvious use here
         if ($item_line_commands{$element->{'parent'}->{'cmdname'}}) {
           # it is important to have an empty optional argument otherwise
           # a quoted command will output the quotes, even with a detection

@@ -2447,12 +2447,12 @@ in example
 
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfotablestylekbd{i{-}{-}tem out of example}}}]
+\\GNUTexinfocommandstyletextkbd{i{-}{-}tem out of example}}}]
 \\end{description}
 
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfotablestylekbd{braced i{-}{-}tem out of example}}}]
+\\GNUTexinfocommandstyletextkbd{braced i{-}{-}tem out of example}}}]
 \\end{description}
 
 in example
@@ -2470,22 +2470,22 @@ in example
 
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfotablestylekbd{i{-}{-}tem out of example}}}]
+\\GNUTexinfocommandstyletextkbd{i{-}{-}tem out of example}}}]
 \\end{description}
 
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfotablestylekbd{braced i{-}{-}tem out of example}}}]
+\\GNUTexinfocommandstyletextkbd{braced i{-}{-}tem out of example}}}]
 \\end{description}
 
 in example
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfotablestylekbd{i{-}{-}tem in example}}}]
+\\GNUTexinfocommandstyletextkbd{i{-}{-}tem in example}}}]
 \\end{description}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfotablestylekbd{braced i{-}{-}tem in example}}}]
+\\GNUTexinfocommandstyletextkbd{braced i{-}{-}tem in example}}}]
 \\end{description}
 ';
 

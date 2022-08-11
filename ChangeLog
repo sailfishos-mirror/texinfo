@@ -1,5 +1,15 @@
 2022-08-11  Patrice Dumas  <pertusus@free.fr>
 
+	Handle kbd in LaTeX more like other similar commands
+
+	* tp/Texinfo/Convert/LaTeX.pm (_xtable_description_command_format)
+	(%LaTeX_style_brace_commands, _convert): register distinct style
+	kbd formatting LaTeX macro in %LaTeX_style_brace_commands.  Use
+	code @-command style to format kbd just before the formatting instead
+	of using a specific processing for kbd.
+
+2022-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	Remove empty lines in inter item when processing the inter_item
 
 	* tp/Texinfo/Convert/LaTeX.pm (_convert): process directly the

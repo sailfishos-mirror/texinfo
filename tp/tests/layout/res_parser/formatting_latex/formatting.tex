@@ -31,14 +31,14 @@
 % command used in \description format for emph
 \newcommand\GNUTexinfotablestyleemph[1]{{\normalfont\emph{#1}}}%
 
-% command used in \description format for kbd
-\newcommand\GNUTexinfotablestylekbd[1]{{\ttfamily\textsl{#1}}}%
-
 % command used in \description format for samp
 \newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{{`\texttt{#1}'}}}%
 
 % style command for cite in text
 \newcommand\GNUTexinfocommandstyletextcite[1]{{\normalfont{}\textsl{#1}}}%
+
+% style command for kbd in text
+\newcommand\GNUTexinfocommandstyletextkbd[1]{{\ttfamily\textsl{#1}}}%
 
 % style command for var in text
 \newcommand\GNUTexinfocommandstyletextvar[1]{{\normalfont{}\textsl{#1}}}%
@@ -134,7 +134,7 @@ In titlepage
 code: \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 asis: ``simple-double--three---four----'' \leavevmode{}\\
 strong: \textbf{``simple-double--three---four----''} \leavevmode{}\\
-kbd: {\ttfamily\textsl{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}} \leavevmode{}\\
+kbd: \GNUTexinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
@@ -261,7 +261,7 @@ but , ,\@
 \texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@i\{{-}{-}a\}} \textit{--a}
-\texttt{@kbd\{{-}{-}a\}} {\ttfamily\textsl{{-}{-}a}}
+\texttt{@kbd\{{-}{-}a\}} \GNUTexinfocommandstyletextkbd{{-}{-}a}
 \texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\} @minus\{\}\}} $--a {\frac{1}{2}} -$
 \texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
@@ -368,20 +368,20 @@ $$
 \mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
 
-{\ttfamily\textsl{default kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{default kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem default kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-{\ttfamily\textsl{in example default kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{in example default kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
@@ -404,10 +404,10 @@ $$
 }}]
 \end{description}
 
-{\ttfamily\textsl{example kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{example kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem example kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem example kbdinputstyle}
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
@@ -422,20 +422,20 @@ $$
 }}]
 \end{description}
 
-{\ttfamily\textsl{distinct kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{distinct kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem distinct kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{in example distinct kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}
@@ -1482,7 +1482,7 @@ In copying
 code: \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 asis: ``simple-double--three---four----'' \leavevmode{}\\
 strong: \textbf{``simple-double--three---four----''} \leavevmode{}\\
-kbd: {\ttfamily\textsl{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}} \leavevmode{}\\
+kbd: \GNUTexinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
@@ -1609,7 +1609,7 @@ but , ,\@
 \texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@i\{{-}{-}a\}} \textit{--a}
-\texttt{@kbd\{{-}{-}a\}} {\ttfamily\textsl{{-}{-}a}}
+\texttt{@kbd\{{-}{-}a\}} \GNUTexinfocommandstyletextkbd{{-}{-}a}
 \texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\} @minus\{\}\}} $--a {\frac{1}{2}} -$
 \texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
@@ -1713,20 +1713,20 @@ $$
 \mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
 
-{\ttfamily\textsl{default kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{default kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem default kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-{\ttfamily\textsl{in example default kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{in example default kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
@@ -1749,10 +1749,10 @@ $$
 }}]
 \end{description}
 
-{\ttfamily\textsl{example kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{example kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem example kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem example kbdinputstyle}
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
@@ -1767,20 +1767,20 @@ $$
 }}]
 \end{description}
 
-{\ttfamily\textsl{distinct kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{distinct kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem distinct kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{in example distinct kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}
@@ -2848,7 +2848,7 @@ In copying
 code: \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 asis: ``simple-double--three---four----'' \leavevmode{}\\
 strong: \textbf{``simple-double--three---four----''} \leavevmode{}\\
-kbd: {\ttfamily\textsl{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}} \leavevmode{}\\
+kbd: \GNUTexinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
@@ -2975,7 +2975,7 @@ but , ,\@
 \texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@i\{{-}{-}a\}} \textit{--a}
-\texttt{@kbd\{{-}{-}a\}} {\ttfamily\textsl{{-}{-}a}}
+\texttt{@kbd\{{-}{-}a\}} \GNUTexinfocommandstyletextkbd{{-}{-}a}
 \texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\} @minus\{\}\}} $--a {\frac{1}{2}} -$
 \texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
@@ -3079,20 +3079,20 @@ $$
 \mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
 
-{\ttfamily\textsl{default kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{default kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem default kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-{\ttfamily\textsl{in example default kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{in example default kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
@@ -3115,10 +3115,10 @@ $$
 }}]
 \end{description}
 
-{\ttfamily\textsl{example kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{example kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem example kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem example kbdinputstyle}
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
@@ -3133,20 +3133,20 @@ $$
 }}]
 \end{description}
 
-{\ttfamily\textsl{distinct kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{distinct kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem distinct kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{in example distinct kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}
@@ -4192,7 +4192,7 @@ Normal text
 code: \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 asis: ``simple-double--three---four----'' \leavevmode{}\\
 strong: \textbf{``simple-double--three---four----''} \leavevmode{}\\
-kbd: {\ttfamily\textsl{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}} \leavevmode{}\\
+kbd: \GNUTexinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
@@ -4319,7 +4319,7 @@ but , ,\@
 \texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@i\{{-}{-}a\}} \textit{--a}
-\texttt{@kbd\{{-}{-}a\}} {\ttfamily\textsl{{-}{-}a}}
+\texttt{@kbd\{{-}{-}a\}} \GNUTexinfocommandstyletextkbd{{-}{-}a}
 \texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\} @minus\{\}\}} $--a {\frac{1}{2}} -$
 \texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
@@ -4423,20 +4423,20 @@ $$
 \mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
 
-{\ttfamily\textsl{default kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{default kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem default kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-{\ttfamily\textsl{in example default kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{in example default kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
@@ -4459,10 +4459,10 @@ $$
 }}]
 \end{description}
 
-{\ttfamily\textsl{example kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{example kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem example kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem example kbdinputstyle}
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
@@ -4477,20 +4477,20 @@ $$
 }}]
 \end{description}
 
-{\ttfamily\textsl{distinct kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{distinct kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem distinct kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{in example distinct kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}
@@ -5538,7 +5538,7 @@ In example.
 code:\ \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 asis:\ {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'} \leavevmode{}\\
 strong:\ \textbf{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
-kbd:\ {\ttfamily\textsl{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}} \leavevmode{}\\
+kbd:\ \GNUTexinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three{-}{-}{-}four{-}{-}{-}-'\hbox{}'\leavevmode{}\\
 
@@ -5665,7 +5665,7 @@ but ,\ ,\@
 \texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@i\{{-}{-}a\}} \textit{{-}{-}a}
-\texttt{@kbd\{{-}{-}a\}} {\ttfamily\textsl{{-}{-}a}}
+\texttt{@kbd\{{-}{-}a\}} \GNUTexinfocommandstyletextkbd{{-}{-}a}
 \texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\} @minus\{\}\}} $--a {\frac{1}{2}} -$
 \texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
@@ -5796,11 +5796,11 @@ $$
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
 
-{\ttfamily\textsl{default kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{default kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem default kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
@@ -5809,11 +5809,11 @@ $$
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-{\ttfamily\textsl{in example default kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{in example default kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
@@ -5868,11 +5868,11 @@ $$
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
 
-{\ttfamily\textsl{distinct kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{distinct kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem distinct kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
@@ -5881,11 +5881,11 @@ $$
 \end{GNUTexinfopreformatted}
 \begin{GNUTexinfopreformatted}
 \leftskip=2em\relax\ttfamily%
-{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\GNUTexinfocommandstyletextkbd{in example distinct kbdinputstyle}
 \end{GNUTexinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
+\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}

@@ -1722,8 +1722,8 @@ in example
 
 
 \\texttt{in code out of example \\texttt{in nested code}}.
-{\\ttfamily\\textsl{kbd out of example}}.
-\\texttt{kbd {\\ttfamily\\textsl{in code}}}.
+\\GNUTexinfocommandstyletextkbd{kbd out of example}.
+\\texttt{kbd \\GNUTexinfocommandstyletextkbd{in code}}.
 
 in example
 \\begin{GNUTexinfopreformatted}
@@ -1737,15 +1737,15 @@ in example
 
 
 \\texttt{in code out of example \\texttt{in nested code}}.
-{\\ttfamily\\textsl{kbd out of example}}.
-\\texttt{kbd {\\ttfamily\\textsl{in code}}}.
+\\GNUTexinfocommandstyletextkbd{kbd out of example}.
+\\texttt{kbd \\GNUTexinfocommandstyletextkbd{in code}}.
 
 in example
 \\begin{GNUTexinfopreformatted}
 \\leftskip=2em\\relax\\ttfamily%
 \\texttt{in code in example \\texttt{in nested code}}.
-{\\ttfamily\\textsl{kbd in example}}.
-\\texttt{kbd {\\ttfamily\\textsl{in code}} in example}.
+\\GNUTexinfocommandstyletextkbd{kbd in example}.
+\\texttt{kbd \\GNUTexinfocommandstyletextkbd{in code} in example}.
 \\end{GNUTexinfopreformatted}
 ';
 
