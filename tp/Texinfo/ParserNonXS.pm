@@ -7008,7 +7008,7 @@ This container holds everything that appears before C<@setfilename>.
 =item preamble_before_content
 
 This container holds everything appearing before the first formatted content,
-corresponding to the I<Texinfo preamble> in the Texinfo manual.
+corresponding to the I<preamble> in the Texinfo manual.
 
 =back
 
@@ -7142,7 +7142,7 @@ holds the content that is to go into the second column of the table.
 If there is any content before an C<@itemx> (normally only comments,
 empty lines or maybe index entries are allowed), it will be in
 a container with type I<inter_item> at the same level of C<@item>
-and C<@item>, in a I<table_term>.
+and C<@itemx>, in a I<table_term>.
 
 =item def_line
 
