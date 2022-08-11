@@ -36,20 +36,12 @@
 #
 # @group should also be added together with the non filled environments.
 #
-# Texinfo TeX leaves more space for the category on the right
-# if the def line is too long.  If the category is formatted with
-# @tie{}, like Escape@tie{}sequence, with Texinfo TeX the space is
-# more or less a normal space, with LaTeX, the space has shrinked so
-# much it seems that the two words are glued together.
-#
 # There is something about form feeds to do.  There is some processing of form
 # feeds right now, which simply amounts to keeping them in ignorable spaces
 # (and with another condition that may not be relevant for LaTeX as the code
 # comes from Plaintext). In the manual it is said form feed (CTRL-l) characters
 # in the input are handled as follows: in PDF/DVI In normal text, treated as
 # ending any open paragraph; essentially ignored between paragraphs.
-#
-# Should @tie be expanded to ~?
 #
 # LaTeX seems to always break at -, and never at _.  If @allowcodebreaks
 # is true \_ should be set to be a possible break point.  Seems that it
@@ -68,8 +60,6 @@
 # at _ and - with several special cases, such as no break right after one
 # or two hyphen, no break between __ or hyphen.  See near \global\def\code
 # in texinfo.tex.
-#
-# in @deftype* arguments, spaces after a punctuation mark is stretched
 #
 #
 # RELEVANT BUT NOT DECISIVE
@@ -357,9 +347,7 @@ my %LaTeX_no_arg_brace_commands = (
     'leq' => '$\leq{}$',
     'textdegree' => '\textdegree{}',
     'today' => '\today{}',
-    # FIXME according to the manual, it is not \hbox, \hbox is for @w.
-    # maybe use ~?
-    'tie' => '\hbox{}',
+    'tie' => '~'
   },
   'math' => {
     # error in math with \TeX \LaTeX, spacing command used not allowed

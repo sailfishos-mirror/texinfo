@@ -1,5 +1,12 @@
 2022-08-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	~ for @tie
+
+	* tp/Texinfo/Convert/LaTeX.pm (LaTeX_no_arg_brace_commands):
+	Use ~ for @tie.
+
+2022-08-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	tabularx for @def
 
 	* tp/Texinfo/Convert/LaTeX.pm (_convert) <def line>:
