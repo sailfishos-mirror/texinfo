@@ -456,8 +456,8 @@ Definition Commands
 The Definition Commands
 
 * Functions Commands::          Commands for functions and similar entities.
-* Variables Commands::          Commands for variables and similar entities.
 * Typed Functions::             Commands for functions in typed languages.
+* Variables Commands::          Commands for variables and similar entities.
 * Typed Variables::             Commands for variables in typed languages.
 * Data Types::                  The definition command for data types.
 * Abstract Objects::            Commands for object-oriented programming.
@@ -11601,8 +11601,8 @@ This section describes all the definition commands of Texinfo.
 
 @menu
 * Functions Commands::          Commands for functions and similar entities.
-* Variables Commands::          Commands for variables and similar entities.
 * Typed Functions::             Commands for functions in typed languages.
+* Variables Commands::          Commands for variables and similar entities.
 * Typed Variables::             Commands for variables in typed languages.
 * Data Types::                  The definition command for data types.
 * Abstract Objects::            Commands for object-oriented programming.
@@ -11680,74 +11680,6 @@ forms.  (In Lisp, a special form is an entity much like a function;
 @end table
 
 All these commands create entries in the index of functions.
-
-
-@node Variables Commands
-@subsection Variables and Similar Entities
-
-Here are the commands for defining variables and similar
-entities:
-
-@table @code
-@findex defvr
-@item @@defvr @var{category} @var{name}
-The @code{@@defvr} command is a general definition command for
-something like a variable---an entity that records a value.  You must
-choose a term to describe the category of entity being defined; for
-example, ``Variable'' could be used if the entity is a variable.
-Write the @code{@@defvr} command at the beginning of a line and
-follow it on the same line by the category of the entity and the
-name of the entity.
-
-We recommend capitalizing the category name like a title.  If the name
-of the category contains spaces, as in the name ``User Option'',
-enclose it in braces.  Otherwise, the second word will be mistaken for
-the name of the entity.  For example,
-
-@example
-@group
-@@defvr @{User Option@} fill-column
-This buffer-local variable specifies
-the maximum width of filled lines.
-@dots{}
-@@end defvr
-@end group
-@end example
-
-Terminate the definition with @code{@@end defvr} on a line of its
-own.
-
-@code{@@defvr} creates an entry in the index of variables for @var{name}.
-
-@findex defvar
-@item @@defvar @var{name}
-The @code{@@defvar} command is the definition command for variables.
-@code{@@defvar} is equivalent to @samp{@@defvr Variable
-@dots{}}.
-
-@need 750
-For example:
-
-@example
-@group
-@@defvar kill-ring
-@dots{}
-@@end defvar
-@end group
-@end example
-
-@code{@@defvar} creates an entry in the index of variables for
-@var{name}.
-
-@findex defopt
-@item @@defopt @var{name}
-@cindex User options, marking
-The @code{@@defopt} command is the definition command for @dfn{user
-options}, i.e., variables intended for users to change according to
-taste; Emacs has many such (@pxref{Variables,,, emacs, The GNU Emacs
-Manual}).  @code{@@defopt} is equivalent to @samp{@@defvr @{User
-Option@} @dots{}}.
-@end table
 
 
 @node Typed Functions
@@ -11894,6 +11826,74 @@ namely @code{@@deftypeop} and @code{@@deftypemethod}
 Specifying @code{@@deftypefnnewline off} reverts to the default.
 
 
+@node Variables Commands
+@subsection Variables and Similar Entities
+
+Here are the commands for defining variables and similar
+entities:
+
+@table @code
+@findex defvr
+@item @@defvr @var{category} @var{name}
+The @code{@@defvr} command is a general definition command for
+something like a variable---an entity that records a value.  You must
+choose a term to describe the category of entity being defined; for
+example, ``Variable'' could be used if the entity is a variable.
+Write the @code{@@defvr} command at the beginning of a line and
+follow it on the same line by the category of the entity and the
+name of the entity.
+
+We recommend capitalizing the category name like a title.  If the name
+of the category contains spaces, as in the name ``User Option'',
+enclose it in braces.  Otherwise, the second word will be mistaken for
+the name of the entity.  For example,
+
+@example
+@group
+@@defvr @{User Option@} fill-column
+This buffer-local variable specifies
+the maximum width of filled lines.
+@dots{}
+@@end defvr
+@end group
+@end example
+
+Terminate the definition with @code{@@end defvr} on a line of its
+own.
+
+@code{@@defvr} creates an entry in the index of variables for @var{name}.
+
+@findex defvar
+@item @@defvar @var{name}
+The @code{@@defvar} command is the definition command for variables.
+@code{@@defvar} is equivalent to @samp{@@defvr Variable
+@dots{}}.
+
+@need 750
+For example:
+
+@example
+@group
+@@defvar kill-ring
+@dots{}
+@@end defvar
+@end group
+@end example
+
+@code{@@defvar} creates an entry in the index of variables for
+@var{name}.
+
+@findex defopt
+@item @@defopt @var{name}
+@cindex User options, marking
+The @code{@@defopt} command is the definition command for @dfn{user
+options}, i.e., variables intended for users to change according to
+taste; Emacs has many such (@pxref{Variables,,, emacs, The GNU Emacs
+Manual}).  @code{@@defopt} is equivalent to @samp{@@defvr @{User
+Option@} @dots{}}.
+@end table
+
+
 @node Typed Variables
 @subsection Variables in Typed Languages
 
@@ -11946,6 +11946,7 @@ produces the following:
 The @code{@@deftypevar} command is the specialized definition command
 for variables in typed languages.  @code{@@deftypevar} is equivalent
 to @samp{@@deftypevr Variable @dots{}}.
+@end table
 
 These commands create entries in the index of variables.
 

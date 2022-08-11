@@ -1,6 +1,13 @@
 2022-08-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Definition Commands):
+	Move "Typed Functions" node right after "Functions Commands"
+	as these naturally go together.  Re-add "@end table", deleted
+	by mistake.
+
+2022-08-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Definition Commands):
 	Remove several redundant "templates" for the definition
 	commands and statements of which index is used.
 
