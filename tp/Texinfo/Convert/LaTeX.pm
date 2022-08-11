@@ -165,6 +165,13 @@
 # index entry between @table and first @item causes an empty \item[] to be
 # output.
 #
+# @headitem row is not formatted differently from an item row.  It is
+# possible to use the multitable_head to get the same information.
+#
+# if there is a prototype for a multitable, it is converted to plain
+# text to determine the fraction.  If it was done differently, @headitemfont
+# may need to be processed, too.
+#
 # In Texinfo TeX, @code{@slanted{slanted in code}} and
 # @slanted{@code{code in slanted}} are different,
 # @slanted{@code{code in slanted}} is not slanted.
@@ -3249,10 +3256,10 @@ sub _convert($$)
              and $item_container_commands{$element->{'parent'}->{'cmdname'}}) {
       # item in @enumerate and @itemize
       $result .= '\item ';
-    # open a multitable cell
     } elsif ($cmdname eq 'headitem' or $cmdname eq 'item'
              or $cmdname eq 'tab') {
-      # ...
+      # nothing to do here.  The condition ensures that the commands are not
+      # considered as unknown commands in the else below.
     } elsif ($cmdname eq 'center') {
       $result .= "\\begin{center}\n";
       $result .= $self->_convert (
