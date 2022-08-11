@@ -2987,6 +2987,8 @@ sub _convert($$)
          });
         push @{$self->{'formatters'}}, $def_paragraph;
 
+        # FIXME the whole line is formatted in code here.  In other formats,
+        # the category is normal text
         $result .= _convert($self, {'type' => '_code', 'contents' => [$tree]});
         $result .= _count_added($self, $def_paragraph->{'container'},
               Texinfo::Convert::Paragraph::end($def_paragraph->{'container'}));

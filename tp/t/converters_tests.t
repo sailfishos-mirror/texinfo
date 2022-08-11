@@ -927,6 +927,52 @@ name
 @end deftypefn
 
 '],
+['frenchspacing_and_code',
+'
+@frenchspacing on
+
+@node Top
+@top top
+
+@node chapter frenchspacing
+@chapter Chap frenchspacing
+
+In text w: z? n; p. f
+
+@code{a: b! gg; h}
+
+@example
+c: d? j
+@end example
+
+@deftypeop {cat: r. a} {class: MyC. b} {type: t. c} {name? n. d} arg? e: f.  @var{v: g. h} @code{code? is: k}
+deftypeop
+@end deftypeop
+
+@defop {vcat: r. z} {vclass: MyC. u} {vname? n; d} varg? ve: f. @var{vv: g? b} @code{vcode? is: a}
+defop
+@end defop
+
+@frenchspacing off
+@node chap no
+@chapter Chap no
+
+In text w: z? n; p. fn 
+
+@code{a: b! gg; hn}
+
+@example
+c: d? jn
+@end example
+
+@deftypeop {cat: r. a} {class: MyC. b} {type: t. c} {name? n. d} narg? e: f.  @var{v: g. h} @code{code? is: k}
+deftypeop n
+@end deftypeop
+
+@defop {vcat: r. z} {nvclass: MyC. u} {vname? n; d} varg? ve: f. @var{vv: g? b} @code{vcode? is: a}
+defop n
+@end defop
+'],
 );
 
 my @html_text_cases = (
@@ -1066,6 +1112,7 @@ my %latex_tests = (
   'image_formatting' => 1,
   'enumerate_above_ten' => 1,
   'footnote_no_number' => 1,
+  'frenchspacing_and_code'  => 1,
   'footnote_no_number_separate' => 1,
   'things_before_setfilename' => 1,
   'things_before_setfilename_no_element' => 1,
