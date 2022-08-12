@@ -3532,6 +3532,10 @@ sub _convert($$)
         } else {
           $command = $element->{'extra'}->{'def_command'};
         }
+
+        my $deftypefnnewline = ($self->get_conf('deftypefnnewline') eq 'on'
+               and ($command eq 'deftypefn' or $command eq 'deftypeop'));
+
         my $name;
         if ($element->{'extra'}->{'def_parsed_hash'}->{'name'}) {
           $name = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
@@ -3541,6 +3545,15 @@ sub _convert($$)
         my $def_space = ' ';
         if ($element->{'extra'}->{'omit_def_name_space'}) {
           $def_space = '';
+        }
+
+        my $converted_category;
+        my $category
+          = Texinfo::Convert::Utils::definition_category_tree($self, $element);;
+        if (defined($category)) {
+          # category is converted in normal text context
+          my $converted = _convert($self, $category);
+          $converted_category = "[$converted]";
         }
 
         $self->{'packages'}->{'tabularx'} = 1;
@@ -3563,9 +3576,12 @@ sub _convert($$)
         if ($element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
           $def_line_result .=  _convert($self,
             $element->{'extra'}->{'def_parsed_hash'}->{'type'});
-          if ($self->get_conf('deftypefnnewline') eq 'on'
-              and ($command eq 'deftypefn' or $command eq 'deftypeop')) {
-            $def_line_result .= '\\leavevmode{}\\\\'; # should be same as @*
+          if ($deftypefnnewline) {
+            if (defined($converted_category)) {
+              $def_line_result .= "}& $converted_category\\\\\n\\texttt{"
+            } else {
+              $def_line_result .= "}\\\\\n\\texttt{";
+            }
           } else {
             $def_line_result .= ' ';
           }
@@ -3607,13 +3623,9 @@ sub _convert($$)
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
         $def_line_result .= '}'; # \texttt
 
-        my $category
-          = Texinfo::Convert::Utils::definition_category_tree($self, $element);;
-        if (defined($category)) {
-          # category is converted in normal text context
-          my $converted = _convert($self, $category);
-          $def_line_result .= "& [$converted]\n";
-        }
+        $def_line_result .= "& $converted_category\n"
+          if (defined($converted_category) and not $deftypefnnewline);
+
         $def_line_result .= "\\end{tabularx}\n";
         # Add commands associated to embrac, prepended to be before tabularx.
         # If done in tabularx there are redefinition errors, cells are

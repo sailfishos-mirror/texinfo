@@ -3627,8 +3627,8 @@ $result_converted{'latex'}->{'test_deftypefnnewline'} = '
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill
 \\hangindent=2em
-\\noindent\\texttt{data-type\\leavevmode{}\\\\name arguments...}& [Function]
-\\end{tabularx}
+\\noindent\\texttt{data-type}& [Function]\\\\
+\\texttt{name arguments...}\\end{tabularx}
 
 \\index[fn]{name@\\texttt{name}}%
 \\begin{quote}
@@ -3640,8 +3640,8 @@ aaa
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill
 \\hangindent=2em
-\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypefn\\_name}& [c--ategory]
-\\end{tabularx}
+\\noindent\\texttt{t{-}{-}ype}& [c--ategory]\\\\
+\\texttt{d{-}{-}eftypefn\\_name}\\end{tabularx}
 
 \\index[fn]{d--eftypefn\\_name@\\texttt{d{-}{-}eftypefn\\_name}}%
 \\begin{quote}
@@ -3653,8 +3653,8 @@ d--eftypefn no arg
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill
 \\hangindent=2em
-\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypeop\\_name a{-}{-}rguments...}& [c--ategory on \\texttt{c{-}{-}lass}]
-\\end{tabularx}
+\\noindent\\texttt{t{-}{-}ype}& [c--ategory on \\texttt{c{-}{-}lass}]\\\\
+\\texttt{d{-}{-}eftypeop\\_name a{-}{-}rguments...}\\end{tabularx}
 
 \\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name\\ on c{-}{-}lass}}%
 \\begin{quote}
@@ -3666,8 +3666,8 @@ d--eftypeop
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill
 \\hangindent=2em
-\\noindent\\texttt{t{-}{-}ype\\leavevmode{}\\\\d{-}{-}eftypeop\\_name}& [c--ategory on \\texttt{c{-}{-}lass}]
-\\end{tabularx}
+\\noindent\\texttt{t{-}{-}ype}& [c--ategory on \\texttt{c{-}{-}lass}]\\\\
+\\texttt{d{-}{-}eftypeop\\_name}\\end{tabularx}
 
 \\index[fn]{d--eftypeop\\_name on c--lass@\\texttt{d{-}{-}eftypeop\\_name\\ on c{-}{-}lass}}%
 \\begin{quote}
