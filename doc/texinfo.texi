@@ -11613,14 +11613,14 @@ This section describes all the definition commands of Texinfo.
 @subsection Functions and Similar Entities
 
 This section describes the commands for describing functions and similar
-entities:
+entities with simple arguments:
 
 @table @code
 @findex deffn
 @item @@deffn @var{category} @var{name} @var{arguments}@dots{}
 The @code{@@deffn} command is the general definition command for
 functions, interactive commands, and similar entities that may take
-arguments.  You must choose a term to describe the category of entity
+simple arguments.  You must choose a term to describe the category of entity
 being defined; for example, ``Function'' could be used if the entity is
 a function.  The @code{@@deffn} command is written at the beginning of a
 line and is followed on the same line by the category of entity being
@@ -11660,9 +11660,10 @@ em-dashes.
 
 @findex defun
 @item @@defun @var{name} @var{arguments}@dots{}
-The @code{@@defun} command is the definition command for functions.
-@code{@@defun} is equivalent to @samp{@@deffn Function @dots{}}.
-Terminate the definition with @code{@@end defun} on a line of its own.
+The @code{@@defun} command is the definition command for functions
+with simple arguments.  @code{@@defun} is equivalent to
+@samp{@@deffn Function @dots{}}.  Terminate the definition with
+@code{@@end defun} on a line of its own.
 
 @findex defmac
 @item @@defmac @var{name} @var{arguments}@dots{}
@@ -11688,18 +11689,18 @@ All these commands create entries in the index of functions.
 @cindex Typed functions
 @cindex Functions, in typed languages
 
-The @code{@@deftypefn} command and its variations are for describing
-functions in languages in which you must declare types of variables
-and functions, such as C and C++.
+The @code{@@deftypefn} command and its variants are generic commands
+for describing functions.  They are particularly suitable for languages in
+which you must declare types of variables and functions, such as C and C++.
 
 @table @code
 @findex deftypefn
 @item @@deftypefn @var{category} @var{data-type} @var{name} @var{arguments}@dots{}
 The @code{@@deftypefn} command is the general definition command for
-functions and similar entities that may take arguments and that are
-typed.  The @code{@@deftypefn} command is written at the beginning of
+functions and similar entities that may take arguments and that could
+be typed.  The @code{@@deftypefn} command is written at the beginning of
 a line and is followed on the same line by the category of entity
-being described, the type of the returned value, the name of this
+being described, information on the returned value, the name of this
 particular entity, and its arguments, if any.
 
 @need 800
@@ -11737,9 +11738,8 @@ all output on the definition line is in a typewriter font by default.
 @code{@@var} uses an appropriate font where it occurs.
 
 If you are describing a procedure in a language that has packages,
-such as Ada, you might consider using @code{@@deftypefn} in a manner
-somewhat contrary to the convention described in the preceding
-paragraphs.  For example:
+such as Ada, you might consider using @code{@@deftypefn} in the
+following manner:
 
 @example
 @group
@@ -11796,14 +11796,31 @@ example, for documenting the R language, you could use input like
 
 @noindent Here the @code{@@w} command is used to prevent some line breaks.
 
+The information on return values may be used to name the return
+variables. For example, in Perl, returned scalars may be given the
+@var{$result} and @var{$status} name in the following manner:
+
+@example
+@@deftypefn @{Sub@} @{(@@var@{$result@}, @@var@{$status@})@} @@
+                     process (@@var@{$input@})
+@dots{}
+@@end deftypefn
+@end example
+
+to get output like
+
+@deftypefn {Sub} {(@var{$result}, @var{$status})} process (@var{$input})
+@dots{}
+@end deftypefn
+
 @code{@@deftypefn} creates an entry in the index of functions for
 @var{name}.
 
 @item @@deftypefun @var{data-type} @var{name} @var{arguments}@dots{}
 @findex deftypefun
 The @code{@@deftypefun} command is the specialized definition command
-for functions in typed languages.  The command is equivalent to
-@samp{@@deftypefn Function @dots{}}.
+for functions.  The command is equivalent to @samp{@@deftypefn Function
+@dots{}}.
 
 @code{@@deftypefun} creates an entry in the index of functions for
 @var{name}.
@@ -11814,10 +11831,11 @@ for functions in typed languages.  The command is equivalent to
 @findex deftypefnnewline
 Ordinarily, the return type is printed on the same line as the
 function name and arguments, as shown above.  In source code, GNU
-style is to put the return type on a line by itself.  So Texinfo
-provides an option to do that: @code{@@deftypefnnewline on}.
+style for typed functions is to put the return type on a line by itself.
+So Texinfo provides an option to do that: @code{@@deftypefnnewline on}.
 
-This affects typed functions only---not untyped functions, not typed
+This affects the generic functions only---not untyped functions with
+simple arguments such as @code{@@deffn}, not typed
 variables, etc.  Specifically, it affects the commands in this
 section, and the analogous commands for object-oriented languages,
 namely @code{@@deftypeop} and @code{@@deftypemethod}
@@ -12122,8 +12140,8 @@ particular classes of objects.
 
 @findex defop
 @item @@defop @var{category} @var{class} @var{name} @var{arguments}@dots{}
-The @code{@@defop} command is the general definition command for these
-method-like entities.
+The @code{@@defop} command is the definition command for these
+method-like entities with simple arguments.
 
 For example, some systems have constructs called @dfn{wrappers} that
 are associated with classes as methods are, but that act more like
@@ -12160,10 +12178,12 @@ operation, and its arguments, if any.
 
 @findex deftypeop
 @item @@deftypeop @var{category} @var{class} @var{data-type} @var{name} @var{arguments}@dots{}
-The @code{@@deftypeop} command is the definition command for typed
-operations in object-oriented programming.  It is similar to
+The @code{@@deftypeop} command is the generic definition command for
+operations in object-oriented programming.  It is particularly suitable
+for typed object-oriented languages. It is similar to
 @code{@@defop} with the addition of the @var{data-type} parameter to
-specify the return type of the method.
+specify information on the return value of the method, for example the
+return type.
 
 @item @@defmethod @var{class} @var{name} @var{arguments}@dots{}
 @findex defmethod
@@ -12202,14 +12222,16 @@ the class @code{bar-class}.  The method takes an argument.
 @item @@deftypemethod @var{class} @var{data-type} @var{name} @var{arguments}@dots{}
 @findex deftypemethod
 The @code{@@deftypemethod} command is the definition command for methods
-in object-oriented typed languages, such as C++ and Java.  It is similar
-to the @code{@@defmethod} command with the addition of the
-@var{data-type} parameter to specify the return type of the method.
+in object-oriented languages, in particular for typed languages
+such as C++ and Java.  It is similar to the @code{@@defmethod} command
+with the addition of the @var{data-type} parameter to specify information
+on the return value of the method, for example the return type.
 
 @end table
 
-The typed commands are affected by the @code{@@deftypefnnewline}
-option (@pxref{Typed Functions,, Functions in Typed Languages}).
+The commands with information on return values are affected by the
+@code{@@deftypefnnewline} option (@pxref{Typed Functions,, Functions
+in Typed Languages}).
 
 
 @node Def Cmd Conventions
@@ -12229,7 +12251,7 @@ contains the name of a type, such as @var{integer}, take care that the
 argument actually is of that type.
 
 In @TeX{}, @samp{&@var{keyword}} in definition @@-command arguments is
-rendered in bold typeface with the following word.  If such a formatting is
+rendered in bold typeface.  If such a formatting is
 desired, it is better to mark the keyword explicitly, with
 @code{@@r@{@@b@{&keyword@}@}} because this formatting is not done in
 any other output format, and also because in the future this feature
