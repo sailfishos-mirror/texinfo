@@ -2451,8 +2451,6 @@ sub _convert($$)
           my $defined_style_embrac = $need_known_embrac{$LaTeX_style_command};
           if (not $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]
                 ->{'made_known'}->{$defined_style_embrac}) {
-            $result .= '\EmbracMakeKnown{'
-                          .$defined_style_embrac.'}';
             $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]
                        ->{'made_known'}->{$defined_style_embrac} = 1;
           }
@@ -2716,7 +2714,7 @@ sub _convert($$)
             if ($self->{'normalized_nodes_associated_section'}
                 and $self->{'normalized_nodes_associated_section'}->{$normalized_name}) {
               $section_command
-                = $self->{'normalized_nodes_associated_section'}->{$normalized_name}; 
+                = $self->{'normalized_nodes_associated_section'}->{$normalized_name};
             } elsif ($reference->{'cmdname'} eq 'node') {
               # can only happen if there is no sectioning commands at all,
               # otherwise it would have been associated in
@@ -3546,55 +3544,56 @@ sub _convert($$)
         }
 
         $self->{'packages'}->{'tabularx'} = 1;
+        my $def_line_result = '';
         # First column (X) is as wide as possible, second column (r) is for
         # category.  @{} removes space at left side of table.
-        $result .= "\n\\noindent\\begin{tabularx}{\\linewidth}{\@{}Xr}\n";
+        $def_line_result .= "\\noindent\\begin{tabularx}{\\linewidth}{\@{}Xr}\n";
 
         # This stops the definition line overlapping the category in
         # case it is hard to break the first line.
-        $result .= "\\rightskip=5em plus 1 fill\n";
+        $def_line_result .= "\\rightskip=5em plus 1 fill\n";
 
         # In case definition "line" doesn't fit on one line.
-        $result .= "\\hangindent=2em\n";
+        $def_line_result .= "\\hangindent=2em\n";
 
-        $result .= '\noindent\texttt{';
+        $def_line_result .= '\noindent\texttt{';
         # the def* line except for the category is converted in code context
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
 
         if ($element->{'extra'}->{'def_parsed_hash'}->{'type'}) {
-          $result .=  _convert($self,
+          $def_line_result .=  _convert($self,
             $element->{'extra'}->{'def_parsed_hash'}->{'type'});
           if ($self->get_conf('deftypefnnewline') eq 'on'
               and ($command eq 'deftypefn' or $command eq 'deftypeop')) {
-            $result .= '\\leavevmode{}\\\\'; # should be same as @*
+            $def_line_result .= '\\leavevmode{}\\\\'; # should be same as @*
           } else {
-            $result .= ' ';
+            $def_line_result .= ' ';
           }
         }
-        $result .= _convert($self, $name) if $name;
+        $def_line_result .= _convert($self, $name) if $name;
         # will contain the command names that have been made known to
         # embrac, like texttt and need to have the symbol undefined
         # such that they can be redefined later
         my $known_embrac_commands;
         if ($arguments) {
-          $result .= $def_space;
+          $def_line_result .= $def_space;
           if ($Texinfo::Common::def_no_var_arg_commands{$command}) {
-            $result .= _convert($self, {'contents' => $arguments});
+            $def_line_result .= _convert($self, {'contents' => $arguments});
           } else {
             $self->{'packages'}->{'embrac'} = 1;
             # we want slanted roman and not slanted typewriter, including
             # ligatures, as if @r{@slanted{...}} had been used, so output
             # \textnormal and push 0 on 'code' context.
-            $result .= '\EmbracOn{}\textnormal{\textsl{';
+            $def_line_result .= '\EmbracOn{}\textnormal{\textsl{';
             push @{$self->{'formatting_context'}->[-1]->{'code'}}, 0;
             push @{$self->{'formatting_context'}->[-1]->{'embrac'}},
               {'status' => 1, 'made_known' => {}};
 
-            $result .= _convert($self, {'contents' => $arguments});
+            $def_line_result .= _convert($self, {'contents' => $arguments});
 
             # \EmbracOff{} is probably not really needed here as \EmbracOn{}
             # should be local to the texttt
-            $result .= '}}\EmbracOff{}'; # \textnormal \textsl
+            $def_line_result .= '}}\EmbracOff{}'; # \textnormal \textsl
             pop @{$self->{'formatting_context'}->[-1]->{'code'}};
             my $closed_embrac
               = pop @{$self->{'formatting_context'}->[-1]->{'embrac'}};
@@ -3606,28 +3605,36 @@ sub _convert($$)
         }
 
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
-        $result .= '}'; # \texttt
+        $def_line_result .= '}'; # \texttt
 
         my $category
           = Texinfo::Convert::Utils::definition_category_tree($self, $element);;
         if (defined($category)) {
           # category is converted in normal text context
           my $converted = _convert($self, $category);
-          $result .= "& [$converted]\n";
+          $def_line_result .= "& [$converted]\n";
         }
-        $result .= "\\end{tabularx}\n";
-        # undefine symbols associated with commands that have been made
-        # known to embrac, such that they can be redefined later
+        $def_line_result .= "\\end{tabularx}\n";
+        # Add commands associated to embrac, prepended to be before tabularx.
+        # If done in tabularx there are redefinition errors, cells are
+        # probably expanded more than once.
+        #
+        # also postpend undefine symbols associated with commands that have
+        # been made known to embrac, such that they can be redefined later
         if (defined($known_embrac_commands)) {
-          $result .= "\\ExplSyntaxOn%\n";
+          $def_line_result .= "\\ExplSyntaxOn%\n";
           foreach my $defined_style_embrac (@{$known_embrac_commands}) {
-            $result .= '\cs_undefine:N{\embrac_'.$defined_style_embrac.':nn}'.
+            # before the tabularx
+            $def_line_result = '\EmbracMakeKnown{'.$defined_style_embrac.'}'
+                               ."%\n" .$def_line_result;
+            $def_line_result .= '\cs_undefine:N{\embrac_'.$defined_style_embrac.':nn}'.
         '\cs_undefine:N{\embrac_orig_'.$defined_style_embrac.':n}'.
         '\cs_undefine:N{\__embrac_'.$defined_style_embrac.':n}%
 ';
           }
-          $result .= "\\ExplSyntaxOff%\n";
+          $def_line_result .= "\\ExplSyntaxOff%\n";
         }
+        $result .= "\n".$def_line_result;
       }
       $result .= "\n";
       $result .= _index_entry($self, $element);
@@ -3800,7 +3807,7 @@ sub _convert($$)
     } elsif ($cmdname eq 'multitable') {
       $result .= '\end{tabular}%'."\n";
     }
- 
+
     # close the contexts and register the cells
     if ($block_raw_commands{$cmdname}) {
       my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};

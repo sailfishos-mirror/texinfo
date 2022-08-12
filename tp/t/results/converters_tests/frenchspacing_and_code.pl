@@ -2547,10 +2547,11 @@ deftypeop
 \\end{quote}
 
 
+\\EmbracMakeKnown{texttt}%
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill
 \\hangindent=2em
-\\noindent\\texttt{vname?\\ n;\\ d \\EmbracOn{}\\textnormal{\\textsl{varg? ve: f. \\GNUTexinfocommandstyletextvar{vv: g? b} \\EmbracMakeKnown{texttt}\\texttt{vcode?\\ is:\\ a}}}\\EmbracOff{}}& [vcat: r. z on \\texttt{vclass:\\ MyC.\\ u}]
+\\noindent\\texttt{vname?\\ n;\\ d \\EmbracOn{}\\textnormal{\\textsl{varg? ve: f. \\GNUTexinfocommandstyletextvar{vv: g? b} \\texttt{vcode?\\ is:\\ a}}}\\EmbracOff{}}& [vcat: r. z on \\texttt{vclass:\\ MyC.\\ u}]
 \\end{tabularx}
 \\ExplSyntaxOn%
 \\cs_undefine:N{\\embrac_texttt:nn}\\cs_undefine:N{\\embrac_orig_texttt:n}\\cs_undefine:N{\\__embrac_texttt:n}%
@@ -2589,10 +2590,11 @@ deftypeop n
 \\end{quote}
 
 
+\\EmbracMakeKnown{texttt}%
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill
 \\hangindent=2em
-\\noindent\\texttt{vname?\\ n;\\ d \\EmbracOn{}\\textnormal{\\textsl{varg? ve: f. \\GNUTexinfocommandstyletextvar{vv: g? b} \\EmbracMakeKnown{texttt}\\texttt{vcode?\\ is:\\ a}}}\\EmbracOff{}}& [vcat: r. z on \\texttt{nvclass:\\ MyC.\\ u}]
+\\noindent\\texttt{vname?\\ n;\\ d \\EmbracOn{}\\textnormal{\\textsl{varg? ve: f. \\GNUTexinfocommandstyletextvar{vv: g? b} \\texttt{vcode?\\ is:\\ a}}}\\EmbracOff{}}& [vcat: r. z on \\texttt{nvclass:\\ MyC.\\ u}]
 \\end{tabularx}
 \\ExplSyntaxOn%
 \\cs_undefine:N{\\embrac_texttt:nn}\\cs_undefine:N{\\embrac_orig_texttt:n}\\cs_undefine:N{\\__embrac_texttt:n}%
