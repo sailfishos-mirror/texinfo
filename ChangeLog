@@ -1,5 +1,13 @@
 2022-08-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Unicode.pm (encoded_accents)
+	(unicode_point_decoded_in_encoding): lower case the encoding argument,
+	in case if was directly specified with -c OUTPUT_ENCODING_NAME
+	in upper case to match with the encodings in Texinfo input, as the
+	encoding names used here are lower cased.
+
+2022-08-13  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Sample Function Definition): move before
 	or remove generic infomation from this node to focus on the example.
 

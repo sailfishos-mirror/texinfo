@@ -1459,6 +1459,11 @@ sub encoded_accents($$$$$;$)
   my $set_case = shift;
 
   if ($encoding) {
+    # in case an encoding is directly specified with -c OUTPUT_ENCODING_NAME
+    # in upper case to match with the encodings in Texinfo input, we convert
+    # to lower case to match the encoding names used here.  In the code
+    # encoding names are lower cased early.
+    $encoding = lc($encoding);
     if ($encoding eq 'utf-8') {
       return _format_unicode_accents_stack($converter, $text, $stack,
                                             $format_accent, $set_case);
@@ -1475,6 +1480,12 @@ sub encoded_accents($$$$$;$)
 sub unicode_point_decoded_in_encoding($$) {
   my $encoding = shift;
   my $unicode_point = shift;
+
+  # in case an encoding is directly specified with -c OUTPUT_ENCODING_NAME
+  # in upper case to match with the encodings in Texinfo input, we convert
+  # to lower case to match the encoding names used here.  In the code
+  # encoding names are lower cased early.
+  $encoding = lc($encoding);
 
   return 1 if ($encoding
                and ($encoding eq 'utf-8'
