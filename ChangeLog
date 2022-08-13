@@ -10,6 +10,11 @@
 
 2022-08-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Unicode.pm (unicode_point_decoded_in_encoding):
+	check first if encoding is defined before calling lc().
+
+2022-08-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Unicode.pm (encoded_accents)
 	(unicode_point_decoded_in_encoding): lower case the encoding argument,
 	in case if was directly specified with -c OUTPUT_ENCODING_NAME
