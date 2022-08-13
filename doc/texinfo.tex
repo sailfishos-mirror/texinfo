@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-08-13.11}
+\def\texinfoversion{2022-08-13.12}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -2798,18 +2798,18 @@ end
   \aftersmartic
 }
 
-% Unconditional use \ttsl, and no ic.  @var is set to this for defuns.
-\def\ttslanted#1{{\ttsl #1}}
-
-% @cite is like \smartslanted except unconditionally use \sl.  We never want
-% ttsl for book titles, do we?
+% @cite unconditionally uses \sl with \smartitaliccorrection.
 \def\cite#1{{\sl #1}\futurelet\next\smartitaliccorrection}
 
+% @var unconditionally uses \sl.  This gives consistency for
+% parameter names whether they are in @def, @table @code or a
+% regular paragraph.
+% The \null is to reset \spacefactor.
 \def\aftersmartic{}
 \def\var#1{%
   \let\saveaftersmartic = \aftersmartic
   \def\aftersmartic{\null\let\aftersmartic=\saveaftersmartic}%
-  \smartslanted{#1}%
+  {\sl #1}\futurelet\next\smartitaliccorrection
 }
 
 \let\i=\smartitalic
