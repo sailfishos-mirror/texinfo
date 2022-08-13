@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-08-13.14}
+\def\texinfoversion{2022-08-13.17}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -2691,6 +2691,14 @@ end
 %
 \def\ifmonospace{\ifdim\fontdimen3\font=0pt }
 
+% Check if internal flag is clear, i.e. has not been @set.
+\def\ifflagclear#1#2#3{%
+  \expandafter\ifx\csname SET#1\endcsname\relax
+  #2\else#3\fi
+}
+
+
+
 {
 \catcode`\'=\active
 \catcode`\`=\active
@@ -2707,14 +2715,14 @@ end
 %
 \def\codequoteright{%
   \ifmonospace
-    \expandafter\ifx\csname SETtxicodequoteundirected\endcsname\relax
-      \expandafter\ifx\csname SETcodequoteundirected\endcsname\relax
+    \ifflagclear{txicodequoteundirected}{%
+      \ifflagclear{codequoteundirected}{%
         '%
-      \else \char'15 \fi
-    \else \char'15 \fi
-   \else
-     '%
-   \fi
+      }{\char'15 }%
+    }{\char'15 }%
+  \else
+    '%
+  \fi
 }
 %
 % and a similar option for the left quote char vs. a grave accent.
@@ -2723,16 +2731,16 @@ end
 %
 \def\codequoteleft{%
   \ifmonospace
-    \expandafter\ifx\csname SETtxicodequotebacktick\endcsname\relax
-      \expandafter\ifx\csname SETcodequotebacktick\endcsname\relax
+    \ifflagclear{txicodequotebacktick}{%
+      \ifflagclear{codequotebacktick}{%
         % [Knuth] pp. 380,381,391
         % \relax disables Spanish ligatures ?` and !` of \tt font.
         \relax`%
-      \else \char'22 \fi
-    \else \char'22 \fi
-   \else
-     \relax`%
-   \fi
+      }{\char'22 }%
+    }{\char'22 }%
+  \else
+    \relax`%
+  \fi
 }
 
 % Commands to set the quote options.
@@ -4995,25 +5003,24 @@ $$%
 \catcode`\-=13
 \catcode`\`=13
   \gdef\indexnonalnumdisappear{%
-    \expandafter\ifx\csname SETtxiindexlquoteignore\endcsname\relax\else
+    \ifflagclear{txiindexlquoteignore}{}{%
       % @set txiindexlquoteignore makes us ignore left quotes in the sort term.
       % (Introduced for FSFS 2nd ed.)
       \let`=\empty
-    \fi
+    }%
     %
-    \expandafter\ifx\csname SETtxiindexbackslashignore\endcsname\relax\else
+    \ifflagclear{txiindexbackslashignore}{}{%
       \backslashdisappear
-    \fi
-    %
-    \expandafter\ifx\csname SETtxiindexhyphenignore\endcsname\relax\else
+    }%
+    \ifflagclear{txiindexhyphenignore}{}{%
       \def-{}%
-    \fi
-    \expandafter\ifx\csname SETtxiindexlessthanignore\endcsname\relax\else
+    }%
+    \ifflagclear{txiindexlessthanignore}{}{%
       \def<{}%
-    \fi
-    \expandafter\ifx\csname SETtxiindexatsignignore\endcsname\relax\else
+    }%
+    \ifflagclear{txiindexatsignignore}{}{%
       \def\@{}%
-    \fi
+    }%
   }
 
   \gdef\indexnonalnumreappear{%
@@ -5305,9 +5312,7 @@ $$%
   %
   \atdummies
   %
-  \expandafter\ifx\csname SETtxiindexescapeisbackslash\endcsname\relax\else
-    \escapeisbackslash
-  \fi
+  \ifflagclear{txiindexescapeisbackslash}{}{\escapeisbackslash}%
   %
   % For texindex which always views { and } as separators.
   \def\{{\lbracechar{}}%
@@ -5491,9 +5496,9 @@ $$%
 % old index files using \ as the escape character.  Reading this would
 % at best lead to typesetting garbage, at worst a TeX syntax error.
 \def\printindexzz#1#2\finish{%
-  \expandafter\ifx\csname SETtxiindexescapeisbackslash\endcsname\relax
+  \ifflagclear{txiindexescapeisbackslash}{%
     \uccode`\~=`\\ \uppercase{\if\noexpand~}\noexpand#1
-      \expandafter\ifx\csname SETtxiskipindexfileswithbackslash\endcsname\relax
+      \ifflagclear{txiskipindexfileswithbackslash}{%
 \errmessage{%
 ERROR: A sorted index file in an obsolete format was skipped.  
 To fix this problem, please upgrade your version of 'texi2dvi'
@@ -5509,15 +5514,15 @@ this, Texinfo will try to use index files in the old format.
 If you continue to have problems, deleting the index files and starting again 
 might help (with 'rm \jobname.?? \jobname.??s')%
 }%
-      \else
+      }{%
         (Skipped sorted index file in obsolete format)
-      \fi
+      }%
     \else
       \begindoublecolumns
       \input \jobname.\indexname s
       \enddoublecolumns
     \fi
-  \else
+  }{%
     \begindoublecolumns
     \catcode`\\=0\relax
     %
@@ -5527,7 +5532,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \catcode`\@=0\relax
     \input \jobname.\indexname s
     \enddoublecolumns
-  \fi
+  }%
 }
 
 % These macros are used by the sorted index file itself.
@@ -7730,9 +7735,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \rettypeownlinefalse
   \ifdoingtypefn  % doing a typed function specifically?
     % then check user option for putting return type on its own line:
-    \expandafter\ifx\csname SETtxideftypefnnl\endcsname\relax \else
-      \rettypeownlinetrue
-    \fi
+    \ifflagclear{txideftypefnnl}{}{\rettypeownlinetrue}%
   \fi
   %
   % How we'll format the category name.  Putting it in brackets helps
@@ -7797,9 +7800,9 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \fi           % no return type
     #3% output function name
   }%
-  \expandafter\ifx\csname SETtxidefnamenospace\endcsname\relax
+  \ifflagclear{txidefnamenospace}{%
     {\rm\enskip}% hskip 0.5 em of \rmfont
-  \fi
+  }{}%
   %
   \boldbrax
   % arguments will be output next, if any.
@@ -8886,7 +8889,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
       % output the `[mynode]' via the macro below so it can be overridden.
       \xrefprintnodename\printedrefname
       %
-      \expandafter\ifx\csname SETtxiomitxrefpg\endcsname\relax
+      \ifflagclear{txiomitxrefpg}{%
         % But we always want a comma and a space:
         ,\space
         %
@@ -8901,7 +8904,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
                   \tokenafterxref ,%    @NL
         \else\ifx\tie\tokenafterxref ,% @tie
         \fi\fi\fi\fi\fi\fi
-      \fi
+      }{}%
     \fi\fi
   \fi
   \endlink

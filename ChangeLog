@@ -1,3 +1,8 @@
+2022-08-13  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\ifflagcclear): New macro, to check if
+	a flag has been @set or not.  Use throughout.
+
 2022-08-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (new_node_menu_entry): do not
