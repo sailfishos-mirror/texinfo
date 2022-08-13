@@ -60,6 +60,10 @@
 # at _ and - with several special cases, such as no break right after one
 # or two hyphen, no break between __ or hyphen.  See near \global\def\code
 # in texinfo.tex.
+# 
+# Index with unmatched braces leads to e.g.
+#    \index[cp]{\{}%
+# which doesn't work. 
 #
 #
 # RELEVANT BUT NOT DECISIVE

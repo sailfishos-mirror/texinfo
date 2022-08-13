@@ -1,5 +1,10 @@
 2022-08-13  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/LaTeX.pm: Add unbalanced braces in
+	index entry to TODO
+
+2022-08-13  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo-tex-test.texi (Style commands, Definitions):
 	Some tests of conditions.
 
