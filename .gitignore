@@ -89,6 +89,11 @@ doc/*.pdf
 doc/*.t2p
 doc/test.*
 
+doc/customization_api.??
+doc/customization_api.??s
+doc/customization_api.aux
+doc/customization_api.log
+doc/customization_api.toc
 doc/info-stnd.??
 doc/info-stnd.??s
 doc/info-stnd.aux
@@ -134,15 +139,11 @@ doc/refcard/*.dvi
 doc/refcard/*.log
 doc/refcard/*.ps
 
+doc/tp_api/*.t2p
+doc/tp_api/*.info
 doc/tp_api/api_includes
+doc/tp_api/tp_api.pdf
 doc/tp_api/tp_api.texi
-doc/tp_api/tp_api_main.texi
-doc/tp_api/man/info.1
-doc/tp_api/man/infokey.1
-doc/tp_api/man/install-info.1
-doc/tp_api/man/makeinfo.1
-doc/tp_api/man/texi2dvi.1
-doc/tp_api/man/texindex.1
 
 man/info.1
 man/install-info.1
