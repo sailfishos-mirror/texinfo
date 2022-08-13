@@ -1,5 +1,10 @@
 2022-08-13  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi (Style commands):
+	Test end of sentence spacing after @var and @dfn.
+
+2022-08-13  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Optional Arguments):
 	Revert change stating that use of square brackets for optional	
 	arguments is convenient, as this is presupposing users' experiences.

@@ -1737,7 +1737,7 @@ in @t{@@raggedright} (check warnings re @samp{Underful \hbox} etc.):
 
 @section Definitions
 
-Check that spacing does not vary after the `?' punctuation on the
+Check that spacing does not vary after the `?'@: punctuation on the
 definition line, but spacing does vary inside the definition body and
 afterwards.
 
@@ -1769,14 +1769,21 @@ Do something depending on @var{font}.
 @end defun
 
 
+@section Style commands
 
+@code{@@var} should reset space factor, while
+@code{@@dfn} doesn't, so second line should have slightly larger space.
 
+@var{Stop.} Following text.
+
+@dfn{Stop.} Following text.
 
 
 
 
 
 @chapter Document encoding
+
 
 @documentencoding UTF-8
 
