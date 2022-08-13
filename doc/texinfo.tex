@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-08-13.13}
+\def\texinfoversion{2022-08-13.14}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -2779,15 +2779,16 @@ end
 \def\dosmartslant#1#2{%
   \ifusingtt 
     {{\ttsl #2}\let\next=\relax}%
-    {\def\next{{#1#2}\futurelet\next\smartitaliccorrection}}%
+    {\def\next{{#1#2}\smartitaliccorrection}}%
   \next
 }
 \def\smartslanted{\dosmartslant\sl}
 \def\smartitalic{\dosmartslant\it}
 
-% Output an italic correction unless \next (presumed to be the following
-% character) is such as not to need one.
-\def\smartitaliccorrection{%
+% Output an italic correction unless the following character is such as
+% not to need one.
+\def\smartitaliccorrection{\futurelet\next\smartitaliccorrectionx}
+\def\smartitaliccorrectionx{%
   \ifx\next,%
   \else\ifx\next-%
   \else\ifx\next.%
@@ -2799,7 +2800,7 @@ end
 }
 
 % @cite unconditionally uses \sl with \smartitaliccorrection.
-\def\cite#1{{\sl #1}\futurelet\next\smartitaliccorrection}
+\def\cite#1{{\sl #1}\smartitaliccorrection}
 
 % @var unconditionally uses \sl.  This gives consistency for
 % parameter names whether they are in @def, @table @code or a
@@ -2809,7 +2810,7 @@ end
 \def\var#1{%
   \let\saveaftersmartic = \aftersmartic
   \def\aftersmartic{\null\let\aftersmartic=\saveaftersmartic}%
-  {\sl #1}\futurelet\next\smartitaliccorrection
+  {\sl #1}\smartitaliccorrection
 }
 
 \let\i=\smartitalic
