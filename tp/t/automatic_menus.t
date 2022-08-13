@@ -5,7 +5,7 @@ use Test::More;
 use lib '.';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
-BEGIN { plan tests => 8; }
+BEGIN { plan tests => 10; }
 
 use Texinfo::Parser;
 use Texinfo::Transformations;
