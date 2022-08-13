@@ -341,7 +341,7 @@ my %defaults = (
   #'EXTENSION'            => 'info',
   'EXTENSION'            => 'txt',
   #'USE_SETFILENAME_EXTENSION' => 1,
-  'INFO_SPECIAL_CHARS_WARNING' => 1,
+  'INFO_SPECIAL_CHARS_WARNING' => undef,
 
   #'OUTFILE'              => undef,
   'OUTFILE'              => '-',
@@ -449,6 +449,26 @@ sub converter_initialize($)
     $self->{'fillcolumn'} = $self->get_conf('FILLCOLUMN');
     # else it's already set via the defaults
   }
+
+  if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
+    $self->{'info_special_chars_quote'}
+       = $self->get_conf('INFO_SPECIAL_CHARS_QUOTE');
+    if (!defined($self->get_conf('INFO_SPECIAL_CHARS_WARNING'))) {
+      $self->set_conf('INFO_SPECIAL_CHARS_WARNING', 0);
+    }
+  } else {
+    $self->{'info_special_chars_quote'} = '';
+    if (!defined($self->get_conf('INFO_SPECIAL_CHARS_WARNING'))) {
+      $self->set_conf('INFO_SPECIAL_CHARS_WARNING', 1);
+    }
+  }
+  if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
+    $self->{'info_special_chars_warning'}
+       = $self->get_conf('INFO_SPECIAL_CHARS_WARNING');
+  } else {
+    $self->{'info_special_chars_warning'} = '';
+  }
+
   # This needs to be here to take into account $self->{'fillcolumn'}.
   $self->push_top_formatter('_Root_context');
   # some caching to avoid calling get_conf
@@ -2066,14 +2086,14 @@ sub _convert($$)
              .get_pending($self->{'formatters'}->[-1]->{'container'});
           my $quoting_required = 0;
           if ($name_text_checked =~ /:/m) { 
-              if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
-                $self->line_warn($self, sprintf(__(
-                   "\@%s cross-reference name should not contain `:'"),
-                                         $command), $element->{'source_info'});
-              }
-              if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
-                $quoting_required = 1;
-              }
+            if ($self->{'info_special_chars_warning'}) {
+              $self->line_warn($self, sprintf(__(
+                 "\@%s cross-reference name should not contain `:'"),
+                                       $command), $element->{'source_info'});
+            }
+            if ($self->{'info_special_chars_quote'}) {
+              $quoting_required = 1;
+            }
           }
           my $pre_quote = $quoting_required ? "\x{7f}" : '';
           my $post_quote = $pre_quote;
@@ -2104,14 +2124,14 @@ sub _convert($$)
           $node_text_checked =~ s/^\s*$maybe_file//;
           $quoting_required = 0;
           if ($node_text_checked =~ /([,\t\.])/m ) {
-              if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
-                $self->line_warn($self, sprintf(__(
-                   "\@%s node name should not contain `%s'"), $command, $1),
-                                 $element->{'source_info'});
-              }
-              if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
-                $quoting_required = 1;
-              }
+            if ($self->{'info_special_chars_warning'}) {
+              $self->line_warn($self, sprintf(__(
+                 "\@%s node name should not contain `%s'"), $command, $1),
+                               $element->{'source_info'});
+            }
+            if ($self->{'info_special_chars_quote'}) {
+              $quoting_required = 1;
+            }
           }
           $pre_quote = $quoting_required ? "\x{7f}" : '';
           $post_quote = $pre_quote;
@@ -2137,12 +2157,12 @@ sub _convert($$)
              .get_pending($self->{'formatters'}->[-1]->{'container'});
           my $quoting_required = 0;
           if ($node_text_checked =~ /:/m) {
-            if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
+            if ($self->{'info_special_chars_warning'}) {
               $self->line_warn($self, sprintf(__(
                  "\@%s node name should not contain `:'"), $command),
                                $element->{'source_info'});
             }
-            if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
+            if ($self->{'info_special_chars_quote'}) {
               $quoting_required = 1;
             }
           }
@@ -3017,23 +3037,23 @@ sub _convert($$)
           $pre_quote = $post_quote = '';
           if ($entry_name_seen) {
             if ($node_text =~ /([,\t]|\.\s)/) {
-              if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
+              if ($self->{'info_special_chars_warning'}) {
                 $self->line_warn($self, sprintf(__(
                    "menu entry node name should not contain `%s'"), $1),
                                $element->{'source_info'});
               }
             }
-            if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
+            if ($self->{'info_special_chars_quote'}) {
               $pre_quote = $post_quote = "\x{7f}";
             }
           } else {
             if ($node_text =~ /:/) {
-              if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
+              if ($self->{'info_special_chars_warning'}) {
                 $self->line_warn($self, __(
                  "menu entry node name should not contain `:'"),
                                $element->{'source_info'});
               }
-              if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
+              if ($self->{'info_special_chars_quote'}) {
                 $pre_quote = $post_quote = "\x{7f}";
               }
             }
@@ -3048,12 +3068,12 @@ sub _convert($$)
           $entry_name_seen = 1;
           $pre_quote = $post_quote = '';
           if ($entry_name =~ /:/) {
-            if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
+            if ($self->{'info_special_chars_warning'}) {
               $self->line_warn($self, __(
                  "menu entry name should not contain `:'"),
                                $element->{'source_info'});
             }
-            if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
+            if ($self->{'info_special_chars_quote'}) {
               $pre_quote = $post_quote = "\x{7f}";
             }
           }

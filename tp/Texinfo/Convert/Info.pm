@@ -452,12 +452,12 @@ sub format_node($$)
   my $pre_quote = '';
   my $post_quote = '';
   if ($node_text =~ /,/) {
-    if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
+    if ($self->{'info_special_chars_warning'}) {
       $self->line_warn($self, sprintf(__(
                  "\@node name should not contain `,': %s"), $node_text),
                                $node->{'source_info'});
     }
-    if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
+    if ($self->{'info_special_chars_quote'}) {
       $pre_quote = "\x{7f}";
       $post_quote = $pre_quote;
       $self->{'count_context'}->[-1]->{'bytes'} += 2;

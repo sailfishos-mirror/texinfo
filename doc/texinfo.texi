@@ -16888,8 +16888,9 @@ construct where they appear with quoting characters, as described in
 
 @item INFO_SPECIAL_CHARS_WARNING
 If set, warn about problematic constructs for Info output (such as the
-string @samp{::}) in node names, menu items, and cross-references;
-default true.  Similar warnings in index entries are covered by
+string @samp{::}) in node names, menu items, and cross-references.
+If not defined, set unless @code{INFO_SPECIAL_CHARS_QUOTE} is set.
+Default is not defined. Similar warnings in index entries are covered by
 @code{INDEX_SPECIAL_CHARS_WARNING}.
 
 @item INPUT_FILE_NAME_ENCODING
