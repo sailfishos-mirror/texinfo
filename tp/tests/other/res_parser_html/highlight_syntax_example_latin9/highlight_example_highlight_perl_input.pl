@@ -1,7 +1,7 @@
 Automatically generated
 
 _______________________ 0
-my $list = ['Γ§a', 'bΓ΄ΓΉ', 'Γ©', 'Γ© Δ… β‚¬ β‰΅'];
+my $list = ['ηa', 'bτω', 'ι', 'ι a; ¤ =='];
 sub do ($) {
   my $arg = shift;
   return $arg + 4;
