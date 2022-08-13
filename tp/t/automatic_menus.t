@@ -15,12 +15,13 @@ use Data::Dumper;
 
 ok(1);
 
-sub test($$$;$)
+sub test($$$;$$)
 {
   my $in = shift;
   my $out = shift;
   my $name = shift;
   my $complete_missing_menus = shift;
+  my $use_sections = shift;
 
   my $parser = Texinfo::Parser::parser();
   my $tree = $parser->parse_texi_text($in);
@@ -34,10 +35,11 @@ sub test($$$;$)
                  = Texinfo::Structuring::sectioning_structure($registrar,
                                                               $parser, $tree);
   if ($complete_missing_menus) {
-    Texinfo::Transformations::complete_tree_nodes_missing_menu($tree);
+    Texinfo::Transformations::complete_tree_nodes_missing_menu($tree,
+                                                               $use_sections);
     #print STDERR "".Texinfo::Common::print_tree($tree)."\n";
   } else {
-    Texinfo::Transformations::complete_tree_nodes_menus($tree);
+    Texinfo::Transformations::complete_tree_nodes_menus($tree, $use_sections);
   }
   my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
@@ -120,6 +122,50 @@ test('@node Top
 @node chap2
 @chapter chap2
 ', 'menu completed before');
+
+my $colon_in_menu_entry_text = '@node Top
+@top top
+
+@node nc::ha. p1
+@chapter ch:ap::1
+
+@node nch@asis{:}ap2
+@chapter chap@asis{:}2
+';
+
+test($colon_in_menu_entry_text,
+'@node Top
+@top top
+
+@menu
+* nc::ha. p1::
+* nch@asis{:}ap2::
+@end menu
+
+@node nc::ha. p1
+@chapter ch:ap::1
+
+@node nch@asis{:}ap2
+@chapter chap@asis{:}2
+',
+, 'colon in menu entries');
+
+test($colon_in_menu_entry_text,
+'@node Top
+@top top
+
+@menu
+* ch@asis{:}ap@asis{::}1: nc::ha. p1.
+* chap@asis{@asis{:}}2: nch@asis{:}ap2.
+@end menu
+
+@node nc::ha. p1
+@chapter ch:ap::1
+
+@node nch@asis{:}ap2
+@chapter chap@asis{:}2
+',
+, 'colon in menu entries use sections', undef, 1);
 
 test('@node Top
 @top top

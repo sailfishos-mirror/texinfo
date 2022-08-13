@@ -1418,7 +1418,7 @@ sub get_node_node_childs_from_sectioning
 }
 
 # returns the texinfo tree corresponding to a single menu entry pointing to $NODE.
-# if $USE_SECTIONS is set, use the section name instead of node name.
+# if $USE_SECTIONS is set, use the section name as menu entry name.
 sub new_node_menu_entry
 {
   my ($node, $use_sections) = @_;
@@ -1431,7 +1431,8 @@ sub new_node_menu_entry
   my ($name_contents, $menu_entry_name);
   if ($use_sections) {
     if (defined $node->{'extra'}->{'associated_section'}) {
-      $name_contents = $node->{'extra'}->{'associated_section'}->{'args'}->[0]->{'contents'};
+      $name_contents
+        = $node->{'extra'}->{'associated_section'}->{'args'}->[0]->{'contents'};
     } else {
       $name_contents = $node_contents; # shouldn't happen
     }
@@ -1446,6 +1447,9 @@ sub new_node_menu_entry
     foreach my $content (@{$menu_entry_name->{'contents'}}) {
       $content->{'parent'} = $menu_entry_name;
     }
+    # colons could be doubly protected, but it is probably better
+    # than not protected at all.
+    Texinfo::Common::protect_colon_in_tree($menu_entry_name);
   }
 
   my $menu_entry_node = {'type' => 'menu_entry_node'};
@@ -1455,13 +1459,15 @@ sub new_node_menu_entry
   foreach my $content (@{$menu_entry_node->{'contents'}}) {
     $content->{'parent'} = $menu_entry_node;
   }
-  Texinfo::Common::protect_colon_in_tree($menu_entry_node);
+  # do not protect here, as it could already be protected, and
+  # the menu entry should be the same as the node
+  #Texinfo::Common::protect_colon_in_tree($menu_entry_node);
 
   my $description = {'type' => 'menu_entry_description'};
   $description->{'contents'}->[0] = {'type' => 'preformatted',
                                      'parent' => $description};
-  $description->{'contents'}->[0]->{'contents'}->[0] = {'text' =>"\n",
-         'parent' => $description->{'contents'}->[0]};
+  $description->{'contents'}->[0]->{'contents'}->[0] = {'text' => "\n",
+                           'parent' => $description->{'contents'}->[0]};
 
   if ($use_sections) {
     $entry->{'args'}
@@ -1492,7 +1498,7 @@ sub new_node_menu_entry
   if ($content) {
     $entry->{'extra'}->{'menu_entry_node'}->{'normalized'}
      = Texinfo::Convert::NodeNameNormalization::normalize_node(
-         {'contents' => $content } );
+                                        {'contents' => $content } );
   }
 
   $entry->{'extra'}->{'menu_entry_description'} = $description;

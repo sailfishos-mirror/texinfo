@@ -1,5 +1,11 @@
 2022-08-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (new_node_menu_entry): do not
+	protect colons in node name, but protect in section name used as
+	menu entry name.
+
+2022-08-13  Patrice Dumas  <pertusus@free.fr>
+
 	Do not output node menus with pod2texi in the default case
 
 	* Pod-Simple-Texinfo/pod2texi.pl (_fix_texinfo_tree)
