@@ -11608,6 +11608,10 @@ This section describes all the definition commands of Texinfo.
 @node Functions Commands
 @subsection Functions and Similar Entities
 
+@cindex Function definitions
+@cindex Command definitions
+@cindex Macro definitions, programming-language
+
 This section describes the commands for describing functions and similar
 entities with simple arguments:
 
@@ -12256,18 +12260,12 @@ should be removed.
 
 @node Sample Function Definition
 @section A Sample Function Definition
-@cindex Function definitions
-@cindex Command definitions
-@cindex Macro definitions, programming-language
 @cindex Sample function definition
 
-A function definition uses the @code{@@defun} and @code{@@end defun}
-commands.  The name of the function follows immediately after the
-@code{@@defun} command and it is followed, on the same line, by the
-parameter list.
-
 Here is a definition from @ref{Calling Functions,,, elisp, The GNU Emacs
-Lisp Reference Manual}.
+Lisp Reference Manual}, using the @code{@@defun} command.  The name of the
+function, @code{apply}, follows immediately after the @code{@@defun}
+command and it is followed, on the same line, by the parameter list.
 
 @quotation
 @defun apply function @r{@b{&rest}} arguments
@@ -12348,9 +12346,6 @@ in the description of @@code@{mapcar@}.
 @noindent
 In this manual, this function is listed in the Command and Variable
 Index under @code{apply}.
-
-Ordinary variables and user options are described using a format like
-that for functions except that variables do not take arguments.
 
 
 @node Internationalization
