@@ -11497,7 +11497,7 @@ character (space, tab, newline) produces a normal interword space
 @cindex Meta-syntactic chars for arguments
 
 @c This is consistent with the Emacs Lisp Reference Manual.
-Some entities take optional or repeated arguments, conventionally
+Entities optional or repeated arguments are conveniently
 specified by using square brackets and ellipses: an argument enclosed
 within square brackets is optional, and an argument followed by an
 ellipsis is optional and may be repeated more than once.
@@ -11529,10 +11529,6 @@ this:
 @example
 @@defspec foobar (var [from to [inc]]) body@@dots@{@}
 @end example
-
-@noindent
-The function is listed in the Command and Variable Index under
-@samp{foobar}.
 
 
 @node @code{@@deffnx}
@@ -11803,14 +11799,14 @@ variables. For example, in Perl, returned scalars may be given the
 @example
 @@deftypefn @{Sub@} @{(@@var@{$result@}, @@var@{$status@})@} @@
                      process (@@var@{$input@})
-@dots{}
+@dots{} Set @@var@{$status@} to 0 in case of failure @dots{}
 @@end deftypefn
 @end example
 
 to get output like
 
 @deftypefn {Sub} {(@var{$result}, @var{$status})} process (@var{$input})
-@dots{}
+@dots{} Set @var{$status} to 0 in case of failure @dots{}
 @end deftypefn
 
 @code{@@deftypefn} creates an entry in the index of functions for

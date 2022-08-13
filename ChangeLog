@@ -1,4 +1,15 @@
-2022-08-11  Patrice Dumas  <pertusus@free.fr>
+2022-08-13  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (Optional Arguments): do not present the use of
+	brackets, parentheses and ellipses presented here as the unique
+	convention, but a convenient style.  Remove information on index,
+	it is not the subject of this node.
+
+	* doc/texinfo.texi (Typed Functions): in the example with named return
+	variable, add an example of referring to a variable in the definition
+	body.
+
+2022-08-12  Patrice Dumas  <pertusus@free.fr>
 
 	@deftype* as generic commands, @deffn with simple arguments
 
