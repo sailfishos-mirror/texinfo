@@ -1,5 +1,10 @@
 2022-08-13  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi (Style commands, Definitions):
+	Some tests of conditions.
+
+2022-08-13  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\ifflagcclear): New macro, to check if
 	a flag has been @set or not.  Use throughout.
 

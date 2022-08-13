@@ -1768,8 +1768,27 @@ Check typewriter [ and ] on def line with @code{@@t}:
 Do something depending on @var{font}.
 @end defun
 
+With @code{@@deftypefnnewline}
 
-@section Style commands
+@deftypefnnewline on
+
+@deftypefn {Functionoid} {long int} foo (int @var{bar})
+@dots{} do something with @var{bar}
+@end deftypefn
+
+With @code{@@set txidefnamenospace}
+
+@deftypefnnewline off
+@set txidefnamenospace
+
+@deftypefn {Functionoid} {long int} foo2 (int @var{bar})
+@dots{} do something with @var{bar}
+@end deftypefn
+
+
+
+
+@chapter Style commands
 
 @code{@@var} should reset space factor, while
 @code{@@dfn} doesn't, so second line should have slightly larger space.
@@ -1777,6 +1796,20 @@ Do something depending on @var{font}.
 @var{Stop.} Following text.
 
 @dfn{Stop.} Following text.
+
+@section Code quote
+
+@code{`foo'}
+
+@codequoteundirected on
+@codequotebacktick on
+
+@code{`foo'}
+
+@codequoteundirected off
+@codequotebacktick off
+
+@code{`foo'}
 
 
 
