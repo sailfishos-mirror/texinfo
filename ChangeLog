@@ -1,3 +1,16 @@
+2022-08-13  Patrice Dumas  <pertusus@free.fr>
+
+	Do not output node menus with pod2texi in the default case
+
+	* Pod-Simple-Texinfo/pod2texi.pl (_fix_texinfo_tree)
+	(_fix_texinfo_manual): do not output menus in the default
+	case, except for the main file created to include the other files,
+	for the master menu.  Add a corresponding argument to _fix_texinfo_tree
+	and _fix_texinfo_manual.
+	(_parsed_manual_tree): excerpt from _fix_texinfo_tree to be able to
+	redo a tree with a different option for menus, to be able to create
+	menus if $do_master_menu is set but menus are not created.
+
 2022-08-13  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\smartitaliccorrection): Incorporate checking
@@ -25,7 +38,7 @@
 2022-08-13  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Optional Arguments):
-	Revert change stating that use of square brackets for optional	
+	Revert change stating that use of square brackets for optional
 	arguments is convenient, as this is presupposing users' experiences.
 
 2022-08-13  Gavin Smith  <gavinsmith0123@gmail.com>

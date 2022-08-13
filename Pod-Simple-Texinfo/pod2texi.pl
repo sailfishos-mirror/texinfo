@@ -119,6 +119,7 @@ and all the \@include is generated.");
   $pod2texi_help .= __("    --help                  display this help and exit")."\n";
   $pod2texi_help .= __("    --no-fill-section-gaps  do not fill sectioning gaps")."\n";
   $pod2texi_help .= __("    --no-section-nodes      use anchors for sections instead of nodes")."\n";
+  $pod2texi_help .= __("    --menus                 generate node menus")."\n";
   $pod2texi_help .= __("    --output=NAME           output to NAME for the first or main manual
                             instead of standard output")."\n";
   $pod2texi_help .= __("    --preamble=STR          insert STR as beginning boilerplate.
@@ -140,6 +141,7 @@ my $base_level = 0;
 my $unnumbered_sections = 0;
 my $appendix_sections = 0;
 my $headings_as_sections = 0;
+my $generate_node_menus = 0;
 my $output = '-';
 my $top = 'top';
 my $setfilename = undef;
@@ -167,16 +169,17 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
                    $real_command_name);
      }
    },
-  'unnumbered-sections!' => \$unnumbered_sections,
   'appendix-sections!' => \$appendix_sections,
+  'fill-section-gaps!' => \$fill_sectioning_gaps,
   'headings-as-sections!' => \$headings_as_sections,
+  'menus!' => \$generate_node_menus,
   'output|o=s' => \$output,
   'preamble=s' => \$preamble,
   'setfilename=s' => \$setfilename,
   'subdir=s' => \$subdir,
   'top=s' => \$top,
   'section-nodes!' => \$section_nodes,
-  'fill-section-gaps!' => \$fill_sectioning_gaps,
+  'unnumbered-sections!' => \$unnumbered_sections,
   'debug=i' => \$debug,
 );
 
@@ -233,13 +236,14 @@ if ($base_level > 0) {
   }
 }
 
-sub _fix_texinfo_tree($$$$;$)
+# return a parser and parsed tree
+sub _parsed_manual_tree($$$$$)
 {
   my $self = shift;
   my $manual_texi = shift;
   my $section_nodes = shift;
   my $fill_gaps_in_sectioning = shift;
-  my $do_master_menu = shift;
+  my $do_node_menus = shift;
 
   my $texi_parser = Texinfo::Parser::parser();
   my $tree = $texi_parser->parse_texi_text($manual_texi);
@@ -302,28 +306,73 @@ sub _fix_texinfo_tree($$$$;$)
   Texinfo::Structuring::associate_internal_references($registrar, $texi_parser,
                                   $parser_information, $updated_labels, $refs);
   Texinfo::Transformations::complete_tree_nodes_menus($tree)
-    if ($section_nodes);
-  Texinfo::Transformations::regenerate_master_menu($texi_parser, $updated_labels)
-     if ($do_master_menu);
-  return ($texi_parser, $tree);
+    if ($section_nodes and $do_node_menus);
+  return ($texi_parser, $tree, $updated_labels);
 }
 
-sub _fix_texinfo_manual($$$$;$)
+sub _fix_texinfo_tree($$$$;$$)
 {
   my $self = shift;
   my $manual_texi = shift;
   my $section_nodes = shift;
   my $fill_gaps_in_sectioning = shift;
+  my $do_node_menus = shift;
   my $do_master_menu = shift;
-  my ($texi_parser, $tree) = _fix_texinfo_tree($self, $manual_texi, $section_nodes,
-                                    $fill_gaps_in_sectioning, $do_master_menu);
+
+  my ($texi_parser, $tree, $updated_labels)
+    = _parsed_manual_tree($self, $manual_texi, $section_nodes,
+                          $fill_gaps_in_sectioning,
+                          $do_node_menus);
+  if ($do_master_menu) {
+    if ($do_node_menus) {
+      Texinfo::Transformations::regenerate_master_menu($texi_parser,
+                                                       $updated_labels);
+    } else {
+      # note that that situation cannot happen with the code as it
+      # is now.  When _fix_texinfo_tree is called from _do_top_node_menu
+      # both $do_master_menu and $do_node_menus are set.
+      # _fix_texinfo_manual is never called with a $do_master_menu argument,
+      # so when _fix_texinfo_tree is called from _fix_texinfo_manual,
+      # $do_master_menu cannot be set.
+
+      # setup another tree with menus to do the master menu as menus are
+      # not done for the main tree
+      my ($texi_parser_menus, $tree_menus, $updated_labels_menus)
+       = _parsed_manual_tree($self, $manual_texi, $section_nodes,
+                             $fill_gaps_in_sectioning, 1);
+      my $top_node_menus = $updated_labels_menus->{'Top'};
+      if ($top_node_menus and $top_node_menus->{'extra'}->{'menus'}
+          and scalar(@{$top_node_menus->{'extra'}->{'menus'}})) {
+        my $top_node_menus_menu = $top_node_menus->{'extra'}->{'menus'}->[0];
+        my $top_node = $updated_labels->{'Top'};
+        $top_node_menus_menu->{'parent'} = $top_node;
+        push @{$top_node->{'contents'}}, $top_node_menus_menu;
+        push @{$top_node->{'extra'}->{'menus'}}, $top_node_menus_menu;
+      }
+    }
+  }
+  return ($texi_parser, $tree);
+}
+
+sub _fix_texinfo_manual($$$$;$$)
+{
+  my $self = shift;
+  my $manual_texi = shift;
+  my $section_nodes = shift;
+  my $fill_gaps_in_sectioning = shift;
+  my $do_node_menus = shift;
+  my $do_master_menu = shift;
+  my ($texi_parser, $tree)
+      = _fix_texinfo_tree($self, $manual_texi, $section_nodes,
+                          $fill_gaps_in_sectioning, $do_node_menus,
+                          $do_master_menu);
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
 sub _do_top_node_menu($)
 {
   my $manual_texi = shift;
-  my ($texi_parser, $tree) = _fix_texinfo_tree(undef, $manual_texi, 1, 0, 1);
+  my ($texi_parser, $tree) = _fix_texinfo_tree(undef, $manual_texi, 1, 0, 1, 1);
   my ($labels, $targets_list, $nodes_list) = $texi_parser->labels_information();
   my $top_node_menu = $labels->{'Top'}->{'extra'}->{'menus'}->[0];
   if ($top_node_menu) {
@@ -417,7 +466,8 @@ foreach my $file (@input_files) {
       print DBGFILE $manual_texi;
     }
     $manual_texi = _fix_texinfo_manual($new, $manual_texi, $section_nodes,
-                                             $fill_sectioning_gaps);
+                                       $fill_sectioning_gaps,
+                                       $generate_node_menus);
     $full_manual .= $manual_texi if ($section_nodes);
   }
   print $fh $manual_texi;
@@ -578,8 +628,13 @@ above the C<--base-level> value.  Therefore, to make each Pod file a
 chapter in a large manual, you should use C<section> as the base level.
 
 For an example of making Texinfo out of the Perl documentation itself,
-see C<contrib/perldoc-all> in the Texinfo source distribution, with
-output available at L<http://www.gnu.org/software/perl/manual>.
+see C<contrib/perldoc-all> in the Texinfo source distribution.
+
+=begin comment
+
+with output available at L<http://www.gnu.org/software/perl/manual>.
+
+=end comment
 
 =item B<--debug>=I<NUM>
 
@@ -596,6 +651,12 @@ numbered command.
 =item B<--help>
 
 Display help and exit.
+
+=item B<--menus>
+
+Output node menus. If there is a main manual, its Top node menu
+is always output, since a master menu is generated. Other nodes
+menus are not output in the default case.
 
 =item B<--output>=I<NAME>
 
