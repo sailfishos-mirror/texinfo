@@ -385,7 +385,8 @@ sub complete_node_menu($;$)
   my $node = shift;
   my $use_sections = shift;
 
-  my @node_childs = Texinfo::Structuring::get_node_node_childs_from_sectioning($node);
+  my @node_childs
+      = Texinfo::Structuring::get_node_node_childs_from_sectioning($node);
 
   if (scalar(@node_childs)) {
     my %existing_entries;
@@ -487,9 +488,11 @@ sub complete_tree_nodes_missing_menu($;$)
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($root);
   foreach my $node (@{$non_automatic_nodes}) {
-    if (not $node->{'extra'}->{'menus'} or not scalar(@{$node->{'extra'}->{'menus'}})) {
+    if (not $node->{'extra'}->{'menus'}
+        or not scalar(@{$node->{'extra'}->{'menus'}})) {
       my $section = $node->{'extra'}->{'associated_section'};
-      my $current_menu = Texinfo::Structuring::new_complete_node_menu($node, $use_sections);
+      my $current_menu
+        = Texinfo::Structuring::new_complete_node_menu($node, $use_sections);
       if (defined($current_menu)) {
         _prepend_new_menu_in_node_section($node, $section, $current_menu);
       }
@@ -666,12 +669,15 @@ sub regenerate_master_menu($$)
       and $last_menu->{'contents'}->[$index-1]->{'contents'}->[-1]->{'type'}
       and $last_menu->{'contents'}->[$index-1]->{'contents'}->[-1]->{'type'}
              eq 'preformatted') {
+    # there is already a menu comment at the end of the menu, add an empty line
     my $empty_line = {'type' => 'empty_line', 'text' => "\n", 'parent' =>
                $last_menu->{'contents'}->[$index-1]->{'contents'}->[-1]};
     push @{$last_menu->{'contents'}->[$index-1]->{'contents'}}, $empty_line;
   } elsif ($index
            and $last_menu->{'contents'}->[$index-1]->{'type'}
            and $last_menu->{'contents'}->[$index-1]->{'type'} eq 'menu_entry') {
+    # there is a last menu entry, add a menu comment containing an empty line
+    # after it
     my $menu_comment = {'type' => 'menu_comment', 'parent' => $last_menu};
     splice (@{$last_menu->{'contents'}}, $index, 0, $menu_comment);
     $index++;
@@ -681,6 +687,7 @@ sub regenerate_master_menu($$)
                       'parent' => $preformatted};
     push @{$preformatted->{'contents'}}, $empty_line;
   }
+  # insert master menu
   splice (@{$last_menu->{'contents'}}, $index, 0, $new_master_menu);
 
   return 1;

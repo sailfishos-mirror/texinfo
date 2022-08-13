@@ -197,7 +197,9 @@ Chap 2
 @end detailmenu
 @end menu
 '],
-['missing_detailmenu_on_subnodes',
+['missing_detailmenu_on_subnodes', # same as above, but without detailmenu
+                                   # such that subnode menu entries appear
+                                   # in the Top node menu
 '@node Top
 @top top
 

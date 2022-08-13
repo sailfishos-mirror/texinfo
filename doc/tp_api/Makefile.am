@@ -43,13 +43,6 @@ EXTRA_DIST = api_includes
 
 if BUILD_PERL_API_TEXI
 
-# dist_info_TEXINFOS does not seems to be used in the resulting Makefile.in
-#dist_info_TEXINFOS = tp_api.texi
-# in 2022 an info_TEXINFOS variable is not allowed in a conditional, and
-# in addition we want the build targets to be available even when the
-# texinfo sources cannot be rebuilt.
-#info_TEXINFOS = tp_api.texi
-
 BUILT_SOURCES = tp_api.texi
 
 # all the modules with some interesting public interfaces.
