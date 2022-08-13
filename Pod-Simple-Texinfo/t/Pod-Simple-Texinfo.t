@@ -6,7 +6,7 @@
 # change 'tests => 1' to 'tests => last_test_to_print';
 
 use Test::More;
-BEGIN { plan tests => 18 };
+BEGIN { plan tests => 19 };
 use Pod::Simple::Texinfo;
 ok(1); # If we made it this far, we're ok.
 
@@ -57,16 +57,18 @@ X<aaa>
 
 TODO: {
 
+# fixed in 3.24 2013-02-14
 local $TODO = 'Pod::Simple not ignoring correctly X<>';
 
 run_test ('=head1 NAME
 X<aaa>
 ',
-'@node NAME aaa NAME
-@section NAME
+'@node NAME
+@chapter NAME
 @cindex aaa
 
-', 'index in head node', 1, 2);
+',
+, 'index in head node', 1);
 
 }
 
@@ -241,6 +243,29 @@ L</(man) t>', '@chapter (man) t
 @ref{@asis{(}man) t,, (man) t}
 
 ', 'node beginning with a parenthesis');
+
+run_test('=head1 A::b. c
+
+=over
+
+=item D::E. f
+
+=back
+
+L</A::b. c> L</D::E. f>
+','@chapter A::b. c
+@anchor{A@asis{::}b. c}
+
+@table @asis
+@item D::E. f
+@anchor{D@asis{::}E. f}
+
+@end table
+
+@ref{A@asis{::}b. c,, A::b. c} @ref{D@asis{::}E. f,, D::E. f}
+
+',
+'colon and dot in node name');
 
 run_test('=head1 head
 

@@ -32,7 +32,8 @@ use Texinfo::Convert::NodeNameNormalization qw(normalize_node);
 use Texinfo::Parser qw(parse_texi_line parse_texi_text);
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::TextContent;
-use Texinfo::Common qw(protect_comma_in_tree protect_first_parenthesis);
+use Texinfo::Common qw(protect_colon_in_tree protect_comma_in_tree
+                                         protect_first_parenthesis);
 use Texinfo::Transformations qw(protect_hashchar_at_line_beginning
                                           reference_to_arg_in_tree);
 
@@ -327,6 +328,14 @@ sub _protect_comma($)
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
+sub _protect_colon($)
+{
+  my $texinfo = shift;
+  my $tree = parse_texi_line(undef, $texinfo);
+  $tree = protect_colon_in_tree($tree);
+  return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
+}
+
 sub _protect_hashchar($)
 {
   my $texinfo = shift;
@@ -466,6 +475,7 @@ sub _prepare_anchor($$)
     $node_tree = parse_texi_line(undef, $texinfo_node_name);
   }
   $node_tree = protect_comma_in_tree($node_tree);
+  $node_tree = protect_colon_in_tree($node_tree);
   $self->{'texinfo_nodes'}->{$normalized} = $node_tree;
   my $final_node_name = Texinfo::Convert::Texinfo::convert_to_texinfo($node_tree, 1);
   return $final_node_name;
@@ -636,8 +646,9 @@ sub _convert_pod($)
               #print STDERR "L: internal: $texinfo_node/$texinfo_section\n";
             }
             $texinfo_node = _normalize_texinfo_name(
+                    _protect_colon(
                     # FIXME remove end of lines?
-                    _protect_comma(_protect_text($texinfo_node, 0, 1)), 'anchor');
+                    _protect_comma(_protect_text($texinfo_node, 0, 1))), 'anchor');
             #print STDERR "L: normalized node: $texinfo_node\n";
 
             # for pod, 'to' is the pod manual name.  Then 'section' is the

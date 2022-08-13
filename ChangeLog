@@ -15,6 +15,12 @@
 
 2022-08-13  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_protect_colon)
+	(_prepare_anchor, _convert_pod): protect colons in node names
+	and in references.
+
+2022-08-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (new_node_menu_entry): do not
 	protect colons in node name, but protect in section name used as
 	menu entry name.
