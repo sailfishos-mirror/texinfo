@@ -1,5 +1,9 @@
 2022-08-13  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\defunargs): Remove special definition for \var.
+
+2022-08-13  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	\sl for @var
 
 	* doc/texinfo.tex (@var): Use slanted unconditionally, not
