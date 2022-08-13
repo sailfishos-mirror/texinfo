@@ -154,6 +154,19 @@ $result_converted_errors{'docbook'}->{'image_extension'} = [
 $result_converted{'latex'}->{'image_extension'} = '\\includegraphics{f---ile}
 ';
 
+$result_converted_errors{'latex'}->{'image_extension'} = [
+  {
+    'error_line' => 'warning: @image file `f---ile\' (for LaTeX) not found
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@image file `f---ile\' (for LaTeX) not found',
+    'type' => 'warning'
+  }
+];
+
+
 
 $result_converted{'info'}->{'image_extension'} = 'This is , produced from .
 

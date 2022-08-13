@@ -3054,6 +3054,82 @@ in para
 \\includegraphics{f--ile}.
 ';
 
+$result_converted_errors{'latex'}->{'image_formatting'} = [
+  {
+    'error_line' => 'warning: @image file `f-ile\' (for LaTeX) not found
+',
+    'file_name' => '',
+    'line_nr' => 13,
+    'macro' => '',
+    'text' => '@image file `f-ile\' (for LaTeX) not found',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `f--ile@.\' (for LaTeX) not found
+',
+    'file_name' => '',
+    'line_nr' => 14,
+    'macro' => '',
+    'text' => '@image file `f--ile@.\' (for LaTeX) not found',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `image\' (for LaTeX) not found
+',
+    'file_name' => '',
+    'line_nr' => 15,
+    'macro' => '',
+    'text' => '@image file `image\' (for LaTeX) not found',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `image\' (for LaTeX) not found
+',
+    'file_name' => '',
+    'line_nr' => 15,
+    'macro' => '',
+    'text' => '@image file `image\' (for LaTeX) not found',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `f-ile\' (for LaTeX) not found
+',
+    'file_name' => '',
+    'line_nr' => 24,
+    'macro' => '',
+    'text' => '@image file `f-ile\' (for LaTeX) not found',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `f--ile@.\' (for LaTeX) not found
+',
+    'file_name' => '',
+    'line_nr' => 25,
+    'macro' => '',
+    'text' => '@image file `f--ile@.\' (for LaTeX) not found',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `image\' (for LaTeX) not found
+',
+    'file_name' => '',
+    'line_nr' => 26,
+    'macro' => '',
+    'text' => '@image file `image\' (for LaTeX) not found',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @image file `image\' (for LaTeX) not found
+',
+    'file_name' => '',
+    'line_nr' => 26,
+    'macro' => '',
+    'text' => '@image file `image\' (for LaTeX) not found',
+    'type' => 'warning'
+  }
+];
+
+
 
 $result_converted{'info'}->{'image_formatting'} = 'This is , produced from .
 

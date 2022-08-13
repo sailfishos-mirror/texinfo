@@ -2505,32 +2505,38 @@ sub _convert($$)
         my $basefile = Texinfo::Convert::Text::convert_to_text(
          {'contents' => $element->{'args'}->[0]->{'contents'}},
          {'code' => 1, %{$self->{'convert_text_options'}}});
-        # FIXME not clear at all what can be in filenames here,
-        # what should be escaped and how
-        my $converted_basefile = $basefile;
-        # for now minimal protection.  Not sure that % is problematic
-        $converted_basefile =~ s/([%{}\\])/\\$1/g;
 
-        # FIXME why do that if $converted_basefile is used even if no file is found?
-        my $image_file;
+        # warn if no file is found, even though the basefile is used
+        # in any case.
+        my $image_file_found;
         foreach my $extension (@LaTeX_image_extensions) {
           my ($file_name, $file_name_encoding)
              = $self->encoded_input_file_name("$basefile.$extension");
           my $located_file =
             $self->Texinfo::Common::locate_include_file($file_name);
           if (defined($located_file)) {
-            # use the basename and not the file found.  It is agreed that it is
-            # better, since in any case the files are moved.
-            # If the file path found was to be used it should be decoded to perl
-            # codepoints too.
-            # using basefile with escaped characters, no extension to let LaTeX choose the
-            # extension
-            $image_file = $converted_basefile;
+            $image_file_found = 1;
+            last;
           }
         }
-        if (not defined($image_file)) {
-          $image_file = $converted_basefile;
+        if (not $image_file_found) {
+          $self->line_warn($self,
+                         sprintf(__("\@image file `%s' (for LaTeX) not found"),
+                                 $basefile),
+                           $element->{'source_info'});
         }
+        # Use the basename and not the file found.  It is agreed that it is
+        # better, since in any case the files are moved.
+        # If the file path found was to be used it should be decoded to perl
+        # codepoints too.
+        # using basefile with escaped characters, no extension to let LaTeX
+        # choose the extension
+        # FIXME not clear at all what can be in filenames here,
+        # what should be escaped and how
+        my $converted_basefile = $basefile;
+        # for now minimal protection.  Not sure that % is problematic
+        $converted_basefile =~ s/([%{}\\])/\\$1/g;
+        my $image_file = $converted_basefile;
         my $width;
         if ((@{$element->{'args'}} >= 2)
               and defined($element->{'args'}->[1])
