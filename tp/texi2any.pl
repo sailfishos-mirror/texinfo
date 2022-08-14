@@ -781,7 +781,7 @@ the behavior is identical, and does not depend on the installed name.\n")
   $makeinfo_help .= __("Output format selection (default is to produce Info):")."\n"
 .__("      --docbook               output Docbook XML.")."\n"
 .__("      --html                  output HTML.")."\n"
-.__("      --epub3                 output EPUB3.")."\n"
+.__("      --epub3                 output EPUB 3.")."\n"
 .__("      --latex                 output LaTeX.")."\n"
 .__("      --plaintext             output plain text rather than Info.")."\n"
 .__("      --xml                   output Texinfo XML.")."\n"
