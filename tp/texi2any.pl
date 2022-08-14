@@ -855,23 +855,19 @@ the behavior is identical, and does not depend on the installed name.\n")
                                 anchors; default is set only if split.\n")
 ."\n";
   # TODO: avoid \n in translated strings.  Report from Benno Schulenberg
-  $makeinfo_help .= __("Options for XML and Docbook:
-      --output-indent=VAL     does nothing, retained for compatibility.\n")
-."\n";
   $makeinfo_help .= __("Options for DVI/PS/PDF:
       --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n")
 ."\n";
   # TODO: avoid \n in translated strings, split each option in a translatable
   # string.  Report from Benno Schulenberg
-  $makeinfo_help .= __("Input file options:
-      --commands-in-node-names  does nothing, retained for compatibility.
-  -D VAR                        define the variable VAR, as with \@set.
-  -D 'VAR VAL'                  define VAR to VAL (one shell argument).
-  -I DIR                        append DIR to the \@include search path.
-  -P DIR                        prepend DIR to the \@include search path.
-  -U VAR                        undefine the variable VAR, as with \@clear.\n")
-."\n";
-  $makeinfo_help .= __("Conditional processing in input:")."\n"
+  $makeinfo_help .= __("Input file options:")."\n"
+.__(" -D VAR                       define the variable VAR, as with \@set.")."\n"
+.__(" -D 'VAR VAL'                 define VAR to VAL (one shell argument).")."\n"
+.__(" -I DIR                       append DIR to the \@include search path.")."\n"
+.__(" -P DIR                       prepend DIR to the \@include search path.")."\n"
+.__(" -U VAR                       undefine the variable VAR, as with \@clear.")."\n"
+."\n"
+.__("Conditional processing in input:")."\n"
 .__("  --ifdocbook       process \@ifdocbook and \@docbook even if
                       not generating Docbook.")."\n"
 .__("  --ifhtml          process \@ifhtml and \@html even if not generating HTML.")."\n"
