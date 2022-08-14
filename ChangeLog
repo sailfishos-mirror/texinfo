@@ -2,6 +2,12 @@
 
 	@{, @} in index entry
 
+	* tp/t/latex_tests.t (brace_in_index): New test.
+
+2022-08-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	@{, @} in index entry
+
 	* tp/Texinfo/Convert/LaTeX.pm (_convert) <@{, @}>:
 	If in an index, use \lbrace or \rbrace in math, and
 	\textbraceleft or \textbraceright otherwise.

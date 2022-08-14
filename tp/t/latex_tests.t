@@ -770,6 +770,23 @@ Describe @error{}.
 @cite{cite in example}
 @end example
 '],
+['brace_in_index',
+'@{
+
+@math{@{}
+
+@displaymath
+@{
+@end displaymath
+
+@cindex @{
+
+@cindex @math{@{}
+
+@cindex @samp{@{}
+
+@printindex cp
+'],
 );
 
 foreach my $test (@test_cases) {
