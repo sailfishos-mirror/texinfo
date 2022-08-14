@@ -1347,7 +1347,8 @@ sub test($$)
       if (defined($locale_encoding)) {
         $texinfo_text = Encode::encode($locale_encoding, $texinfo_text);
       }
-      print STDERR "--> $test_name\n". $texinfo_text ."\n";
+      print STDERR "--> $test_name\n";
+      #print STDERR "--> $test_name\n". $texinfo_text ."\n";
     }
   }
   if (!$self->{'generate'}) {

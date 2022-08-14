@@ -1,5 +1,13 @@
 2022-08-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Better output for "maintain/all_tests.sh generate"
+
+	* tp/maintain/all_tests.sh: Print name of each test script.
+	* tp/t/test_utils.pl: Do not dump test to stderr; only print
+	the name.
+
+2022-08-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Optional Arguments): State that this is
 	"one convention" to leave open possibility that there may
 	be others.

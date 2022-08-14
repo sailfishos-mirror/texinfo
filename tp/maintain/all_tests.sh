@@ -54,6 +54,7 @@ else
   if [ "$command" = 'generate' ]; then
     for file in $srcdir/t/*.t; do
       set -e
+      echo "$file" >&2
       $PERL -w $file -g
     done
   elif [ "$command" = 'output' ]; then
