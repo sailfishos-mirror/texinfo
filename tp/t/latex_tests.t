@@ -785,7 +785,9 @@ Describe @error{}.
 
 @cindex @samp{@{}
 
-@printindex cp
+@defun A@{A (BBB)
+CCC
+@end defun
 '],
 );
 

@@ -2115,6 +2115,7 @@ sub _index_entry($$)
       my $result = '';
       if (defined($sortas)) {
         $result = _protect_text($self, $sortas).'@';
+        $result =~ s/\\[{}]//g; # cannot have unmatched braces in index entry
       }
       if ($in_code) {
         $result .= "\\texttt{$index_entry}";
