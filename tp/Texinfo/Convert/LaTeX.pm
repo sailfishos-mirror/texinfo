@@ -3633,7 +3633,11 @@ sub _convert($$)
         #
         # also postpend undefine symbols associated with commands that have
         # been made known to embrac, such that they can be redefined later
-        if (defined($known_embrac_commands)) {
+        #
+        # TODO currently setting EmbracMakeKnown twice leads to an error.
+        # this is triggered by the tests layout formatting_latex test.
+        # So do not use it for now.
+        if (0 and defined($known_embrac_commands)) {
           $def_line_result .= "\\ExplSyntaxOn%\n";
           foreach my $defined_style_embrac (@{$known_embrac_commands}) {
             # before the tabularx
