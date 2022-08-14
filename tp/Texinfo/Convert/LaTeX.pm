@@ -3253,7 +3253,10 @@ sub _convert($$)
         $result .= '\\noindent ';
         $result .= $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}})."\n";
       } else {
-        $result .= "\\\\\n";
+        # FIXME \leavevmode{} is added to avoid
+        # ! LaTeX Error: There's no line here to end.
+        # but it is not clearly correct
+        $result .= "\\leavevmode{}\\\\\n";
         $result .= "\\hbox{\\kern -\\leftmargin}%\n";
         $result .= $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}})."\n";
         $result .= "\\\\\n";
