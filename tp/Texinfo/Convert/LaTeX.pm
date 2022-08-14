@@ -61,10 +61,6 @@
 # or two hyphen, no break between __ or hyphen.  See near \global\def\code
 # in texinfo.tex.
 #
-# Index with unmatched braces leads to e.g.
-#    \index[cp]{\{}%
-# which doesn't work.
-#
 #
 # RELEVANT BUT NOT DECISIVE
 #
@@ -2313,9 +2309,29 @@ sub _convert($$)
         $result .= "\\ {}";
       } elsif ($cmdname eq '-') {
         $result .= "\\-{}";
-      } elsif ($cmdname eq '}' or $cmdname eq '{') {
-        # always protect, even in math mode
-        $result .= "\\$cmdname";
+
+      } elsif ($cmdname eq '{' or $cmdname eq '}') {
+        # Index entries need balanced braces so we can't use \{ and \}.
+        if ($self->{'formatting_context'}->[-1]->{'index'}) {
+          if ($cmdname eq '{') {
+            if ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1]
+                 eq 'ctx_math') {
+                $result .= '\\lbrace{}';
+            } else {
+                $result .= '\\textbraceleft{}';
+            }
+          } elsif ($cmdname eq '}') {
+            if ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1]
+                 eq 'ctx_math') {
+                $result .= '\\rbrace{}';
+            } else {
+                $result .= '\\textbraceright{}';
+            }
+          }
+        } else {
+          # always protect, even in math mode 
+          $result .= "\\$cmdname";
+        }
       } else {
         $result .= _protect_text($self, $no_brace_commands{$cmdname});
       }

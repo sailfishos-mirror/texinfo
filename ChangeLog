@@ -1,5 +1,13 @@
 2022-08-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	@{, @} in index entry
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert) <@{, @}>:
+	If in an index, use \lbrace or \rbrace in math, and
+	\textbraceleft or \textbraceright otherwise.
+
+2022-08-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Better output for "maintain/all_tests.sh generate"
 
 	* tp/maintain/all_tests.sh: Print name of each test script.
