@@ -1293,7 +1293,7 @@ sub print_element_directions($)
 # For each internal reference command, set the 'normalized' key in the
 # 'menu_entry_node' for menu entries, and 'node_argument' for @*ref.
 # Set the 'label' key in the 'extra' hash of the reference tree element
-# to the associated labeled tree element.
+# with 'node_argument' to the associated labeled tree element.
 sub associate_internal_references($$$$$)
 {
   my $registrar = shift;

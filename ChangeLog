@@ -1,3 +1,9 @@
+2022-08-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/LaTeX.pm: use specific strings with ctx_
+	or cmd_ prepended instead of math, text and raw for text_context
+	and command formatting context.
+
 2022-08-13  Patrice Dumas  <pertusus@free.fr>
 
 	Warn if no image file is found in LaTeX

@@ -321,7 +321,7 @@ my %section_map = (
 
 my %LaTeX_no_arg_brace_commands = (
    # textmode
-  'text' => {
+  'cmd_text' => {
     'TeX' => '\TeX{}',
     'LaTeX' => '\LaTeX{}',
     'bullet' => '\textbullet{}',
@@ -352,7 +352,7 @@ my %LaTeX_no_arg_brace_commands = (
     'today' => '\today{}',
     'tie' => '~'
   },
-  'math' => {
+  'cmd_math' => {
     # error in math with \TeX \LaTeX, spacing command used not allowed
     # so use plain text
     'TeX' => 'TeX',
@@ -418,16 +418,16 @@ foreach my $text_only_no_arg_brace_command
      (keys(%LaTeX_text_only_no_arg_brace_commands)) {
   my $LaTeX_command =
     "\\$LaTeX_text_only_no_arg_brace_commands{$text_only_no_arg_brace_command}\{\}";
-  $LaTeX_no_arg_brace_commands{'text'}->{$text_only_no_arg_brace_command}
+  $LaTeX_no_arg_brace_commands{'cmd_text'}->{$text_only_no_arg_brace_command}
     = $LaTeX_command;
-  $LaTeX_no_arg_brace_commands{'math'}->{$text_only_no_arg_brace_command}
+  $LaTeX_no_arg_brace_commands{'cmd_math'}->{$text_only_no_arg_brace_command}
     = '\mathord{\text{'.$LaTeX_command.'}}';
 }
 
 # dotless is special
 my %LaTeX_accent_commands = (
    # textmode
-  'text' => {
+  'cmd_text' => {
     ',' => 'c',
     'ringaccent' => 'r',
     'H' => 'H',
@@ -437,7 +437,7 @@ my %LaTeX_accent_commands = (
     'ogonek' => 'k',
     'tieaccent' => 't',
   },
-  'math' => {
+  'cmd_math' => {
     '"' => 'ddot',
     '~' => 'tilde',
     '^' => 'hat',
@@ -453,9 +453,9 @@ my %LaTeX_accent_commands = (
 
 # accent in math and not in text is the same in
 # Texinfo and LaTeX.
-foreach my $accent_command (keys %{$LaTeX_accent_commands{'math'}}) {
-  if (not exists($LaTeX_accent_commands{'text'}->{$accent_command})) {
-    $LaTeX_accent_commands{'text'}->{$accent_command} = $accent_command;
+foreach my $accent_command (keys %{$LaTeX_accent_commands{'cmd_math'}}) {
+  if (not exists($LaTeX_accent_commands{'cmd_text'}->{$accent_command})) {
+    $LaTeX_accent_commands{'cmd_text'}->{$accent_command} = $accent_command;
   }
 }
 
@@ -586,8 +586,12 @@ sub register_style_format_command($$$$$)
   my $style_ref = shift;
   my $new_commands_ref = shift;
 
+  # 'cmd_text' to 'text'
+  my $formatting_context_text = $formatting_context;
+  $formatting_context_text =~ s/^cmd_//;
+
   my $specific_style_command_name
-   = "${style_command_new_commands_prefix}${formatting_context}$command";
+   = "${style_command_new_commands_prefix}${formatting_context_text}$command";
   my $specific_style_command = '\\'.$specific_style_command_name;
   $style_ref->{$formatting_context}->{$command} = $specific_style_command;
   $new_commands_ref->{$formatting_context}->{$command}
@@ -605,7 +609,7 @@ my %roman_style_commands = (
 # There is specific code for some commands, such as kbd, r
 # in addition to using this hash.
 my %LaTeX_style_brace_commands = (
-  'text' => {
+  'cmd_text' => {
     'hyphenation' => '\\hyphenation',
     'w' => '\\hbox',
     'sub' => '\\textsubscript',
@@ -614,7 +618,7 @@ my %LaTeX_style_brace_commands = (
     'sc' => '\\textsc',
     'sansserif' => '\\textsf',
   },
-  'math' => {
+  'cmd_math' => {
     'hyphenation' => '',
     'w' => '\\hbox',
     'sub' => '_',
@@ -638,16 +642,16 @@ foreach my $LaTeX_style_command_name ('textsc', 'textbf', 'texttt') {
 # we want to keep those @-commands in roman slanted everywhere in text
 # so use \normalfont{} to remove other font effects
 foreach my $always_slanted_roman_commands ('cite', 'var') {
-  register_style_format_command('text', $always_slanted_roman_commands,
+  register_style_format_command('cmd_text', $always_slanted_roman_commands,
                         '\\normalfont{}\\textsl', \%LaTeX_style_brace_commands,
                         \%style_brace_format_command_new_commands);
-  $LaTeX_style_brace_commands{'math'}->{$always_slanted_roman_commands} = '';
+  $LaTeX_style_brace_commands{'cmd_math'}->{$always_slanted_roman_commands} = '';
   $roman_style_commands{$always_slanted_roman_commands} = 1;
 }
 
 # specific style for kbd: slanted and typewriter.  code @-command
 # formatting is used instead if needed, see _kbd_code_style.
-register_style_format_command('text', 'kbd',
+register_style_format_command('cmd_text', 'kbd',
                         '\\ttfamily\\textsl', \%LaTeX_style_brace_commands,
                         \%style_brace_format_command_new_commands);
 
@@ -655,41 +659,41 @@ register_style_format_command('text', 'kbd',
 my @asis_commands = ('asis', 'clicksequence', 'headitemfont');
 
 foreach my $asis_command (@asis_commands) {
-  $LaTeX_style_brace_commands{'text'}->{$asis_command} = '';
-  $LaTeX_style_brace_commands{'math'}->{$asis_command} = '';
+  $LaTeX_style_brace_commands{'cmd_text'}->{$asis_command} = '';
+  $LaTeX_style_brace_commands{'cmd_math'}->{$asis_command} = '';
 }
 
 # in texinfo.tex, @dfn is slanted.
 my @slanted_commands = ('dfn', 'slanted');
 foreach my $slanted_command (@slanted_commands) {
-  $LaTeX_style_brace_commands{'text'}->{$slanted_command} = '\\textsl';
-  $LaTeX_style_brace_commands{'math'}->{$slanted_command} = '';
+  $LaTeX_style_brace_commands{'cmd_text'}->{$slanted_command} = '\\textsl';
+  $LaTeX_style_brace_commands{'cmd_math'}->{$slanted_command} = '';
 }
 
 my @emphasized_commands = ('emph');
 foreach my $emphasized_command (@emphasized_commands) {
-  $LaTeX_style_brace_commands{'text'}->{$emphasized_command} = '\\emph';
-  $LaTeX_style_brace_commands{'math'}->{$emphasized_command} = '';
+  $LaTeX_style_brace_commands{'cmd_text'}->{$emphasized_command} = '\\emph';
+  $LaTeX_style_brace_commands{'cmd_math'}->{$emphasized_command} = '';
 }
 
 my @bold_commands = ('strong', 'b');
 foreach my $bold_command (@bold_commands) {
-  $LaTeX_style_brace_commands{'text'}->{$bold_command} = '\\textbf';
-  $LaTeX_style_brace_commands{'math'}->{$bold_command} = '\\mathbf';
+  $LaTeX_style_brace_commands{'cmd_text'}->{$bold_command} = '\\textbf';
+  $LaTeX_style_brace_commands{'cmd_math'}->{$bold_command} = '\\mathbf';
 }
 
 my @italics_commands = ('i');
 foreach my $italics_command (@italics_commands) {
-  $LaTeX_style_brace_commands{'text'}->{$italics_command} = '\\textit';
-  $LaTeX_style_brace_commands{'math'}->{$italics_command} = '\\mathit';
+  $LaTeX_style_brace_commands{'cmd_text'}->{$italics_command} = '\\textit';
+  $LaTeX_style_brace_commands{'cmd_math'}->{$italics_command} = '\\mathit';
 }
 
 my @typewriter_commands = ('t', 'code', 'samp', 'key', 'env', 'file',
  'command', 'option', 'indicateurl');
 
 foreach my $typewriter_command (@typewriter_commands) {
-  $LaTeX_style_brace_commands{'text'}->{$typewriter_command} = '\\texttt';
-  $LaTeX_style_brace_commands{'math'}->{$typewriter_command} = '\\mathtt';
+  $LaTeX_style_brace_commands{'cmd_text'}->{$typewriter_command} = '\\texttt';
+  $LaTeX_style_brace_commands{'cmd_math'}->{$typewriter_command} = '\\mathtt';
 }
 
 my @quoted_commands = ('samp', 'indicateurl');
@@ -716,13 +720,13 @@ my $description_command_new_commands_prefix = 'GNUTexinfotablestyle';
 # if new commands are setup for descriptions, they are in this hash
 my %description_command_new_commands = ();
 
-foreach my $command (keys(%{$LaTeX_style_brace_commands{'text'}})) {
+foreach my $command (keys(%{$LaTeX_style_brace_commands{'cmd_text'}})) {
   # avoids hyphenation @-command
   next if ($unformatted_brace_command{$command});
-  my $description_format = $LaTeX_style_brace_commands{'text'}->{$command};
+  my $description_format = $LaTeX_style_brace_commands{'cmd_text'}->{$command};
   if ($description_format ne ''
        and $description_format !~ /\\text[a-z]{2}$/
-       and not $style_brace_format_command_new_commands{'text'}->{$command}) {
+       and not $style_brace_format_command_new_commands{'cmd_text'}->{$command}) {
     my $specific_format_command
       = "\\${description_command_new_commands_prefix}$command";
     my $command_definition;
@@ -742,7 +746,7 @@ foreach my $quoted_command (@quoted_commands) {
   delete $description_command_format{$quoted_command};
   my $specific_format_command
     = "\\${description_command_new_commands_prefix}$quoted_command";
-  my $description_format = $LaTeX_style_brace_commands{'text'}->{$quoted_command};
+  my $description_format = $LaTeX_style_brace_commands{'cmd_text'}->{$quoted_command};
   # does not happen currently
   if ($description_format eq '') {
     $description_command_new_commands{$quoted_command} =
@@ -1154,7 +1158,7 @@ sub convert_to_latex_math($$;$$)
 
   _push_new_context($self, 'convert_to_math');
 
-  push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'math';
+  push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_math';
   push @{$self->{'formatting_context'}->[-1]->{'math_style'}}, $math_style;
 
   my $result = $self->_convert($root);
@@ -1292,7 +1296,7 @@ sub _latex_header() {
       foreach my $command
          (sort(keys(%{$style_brace_format_command_new_commands{$command_context}}))) {
         if ($self->{'style_brace_format_commands'}->{$command_context}->{$command}) {
-          $header_code .= '% style command for '.$command." in $command_context\n";
+          $header_code .= '% style command for '.$command." in '$command_context' formatting context\n";
           $header_code .= "\\newcommand"
              .$style_brace_format_command_new_commands{$command_context}->{$command}."%\n";
           $header_code .= "\n";
@@ -1544,7 +1548,7 @@ sub _push_new_context($$)
 
   push @{$self->{'formatting_context'}},
      {
-       'text_context' => ['text'],
+       'text_context' => ['ctx_text'],
        'preformatted_context' => [],
        'math_style' => [],
        'code' => [0],
@@ -1611,12 +1615,12 @@ sub _protect_text($$)
 
   # FIXME are there some special characters to protect in math mode,
   # for instance # and ~?
-  if ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] eq 'math') {
+  if ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] eq 'ctx_math') {
     if ($self->{'formatting_context'}->[-1]->{'index'}) {
       $text = _protect_index_text($text);
     }
   } elsif ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1]
-             ne 'raw') {
+             ne 'ctx_raw') {
     # temporarily replace \ with a control character
     $text =~ s/\\/\x08/g;
 
@@ -2007,8 +2011,8 @@ sub _xtable_description_command_format($$)
       # gather for outputting in the preamble if associated to a new command
       if (exists($description_command_new_commands{$command_as_argument})) {
         $self->{'description_format_commands'}->{$command_as_argument} = 1;
-      } elsif ($style_brace_format_command_new_commands{'text'}->{$command_as_argument}) {
-        $self->{'style_brace_format_commands'}->{'text'}
+      } elsif ($style_brace_format_command_new_commands{'cmd_text'}->{$command_as_argument}) {
+        $self->{'style_brace_format_commands'}->{'cmd_text'}
                                                      ->{$command_as_argument} = 1;
       }
       return $description_command_format{$command_as_argument}
@@ -2284,18 +2288,18 @@ sub _convert($$)
   my $preformatted_to_reopen;
   if ($cmdname) {
     my $unknown_command;
-    my $command_context = 'text';
-    if ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] eq 'math') {
-      $command_context = 'math';
+    my $command_context = 'cmd_text';
+    if ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] eq 'ctx_math') {
+      $command_context = 'cmd_math';
     }
     my $did_stop_embrac;
     if (defined($no_brace_commands{$cmdname})) {
       if ($cmdname eq ':') {
-        if ($command_context ne 'math') {
+        if ($command_context ne 'cmd_math') {
           $result .= "\\\@";
         }
       } elsif ($cmdname eq '*') {
-        if ($command_context ne 'math') {
+        if ($command_context ne 'cmd_math') {
           # FIXME \leavevmode{} is added to avoid
           # ! LaTeX Error: There's no line here to end.
           # but it is not clearly correct
@@ -2311,7 +2315,7 @@ sub _convert($$)
           }
         }
       } elsif ($cmdname eq '.' or $cmdname eq '?' or $cmdname eq '!') {
-        if ($command_context ne 'math') {
+        if ($command_context ne 'cmd_math') {
           $result .= "\\\@";
         }
         $result .= $cmdname;
@@ -2394,7 +2398,7 @@ sub _convert($$)
             $accent_arg = _convert($self, $element->{'args'}->[0]);
           }
           if ($accent_arg eq 'i' or $accent_arg eq 'j') {
-            if ($command_context eq 'math') {
+            if ($command_context eq 'cmd_math') {
               $result .= "\\${accent_arg}math{}";
             } else {
               $result .= "\\${accent_arg}{}";
@@ -2406,12 +2410,12 @@ sub _convert($$)
           }
           return $result;
         # accent without math mode command, use slanted text
-        } elsif ($command_context eq 'math'
-                 and $LaTeX_accent_commands{'text'}->{$cmdname}) {
-          $result .= "\\textsl{\\$LaTeX_accent_commands{'text'}->{$cmdname}\{";
+        } elsif ($command_context eq 'cmd_math'
+                 and $LaTeX_accent_commands{'cmd_text'}->{$cmdname}) {
+          $result .= "\\textsl{\\$LaTeX_accent_commands{'cmd_text'}->{$cmdname}\{";
           # we do not want accents within to be math accents
           if ($element->{'args'}) {
-            push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'text';
+            push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_text';
             $accent_arg = _convert($self, $element->{'args'}->[0]);
             my $old_context
               = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
@@ -2421,7 +2425,7 @@ sub _convert($$)
         }
       }
       return $result;
-    } elsif (exists($LaTeX_style_brace_commands{'text'}->{$cmdname})
+    } elsif (exists($LaTeX_style_brace_commands{'cmd_text'}->{$cmdname})
          or ($element->{'type'}
              and $element->{'type'} eq 'definfoenclose_command')) {
       my $did_stop_embrac = 0;
@@ -2493,12 +2497,12 @@ sub _convert($$)
       # It should be ok, though, as it is described as an error in the manual:
       #   It is not reliable to use @verb inside other Texinfo constructs
       $result .= "\\verb" .$element->{'extra'}->{'delimiter'};
-      push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
+      push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';
       if ($element->{'args'}) {
         $result .= _convert($self, $element->{'args'}->[0]);
       }
       my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
-      die if ($old_context ne 'raw');
+      die if ($old_context ne 'ctx_raw');
       $result .= $element->{'extra'}->{'delimiter'};
       return $result;
     } elsif ($cmdname eq 'image') {
@@ -2545,11 +2549,11 @@ sub _convert($$)
         if ((@{$element->{'args'}} >= 2)
               and defined($element->{'args'}->[1])
               and @{$element->{'args'}->[1]->{'contents'}}){
-          push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
+          push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';
           $width = _convert($self, {'contents'
                          => $element->{'args'}->[1]->{'contents'}});
           my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
-          die if ($old_context ne 'raw');
+          die if ($old_context ne 'ctx_raw');
           if ($width !~ /\S/) {
             $width = undef;
           }
@@ -2558,11 +2562,11 @@ sub _convert($$)
         if ((@{$element->{'args'}} >= 3)
               and defined($element->{'args'}->[2])
               and @{$element->{'args'}->[2]->{'contents'}}) {
-          push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
+          push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';
           $height = _convert($self, {'contents'
                          => $element->{'args'}->[2]->{'contents'}});
           my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
-          die if ($old_context ne 'raw');
+          die if ($old_context ne 'ctx_raw');
           if ($height !~ /\S/) {
             $height = undef;
           }
@@ -2941,18 +2945,18 @@ sub _convert($$)
          and defined($element->{'args'}->[$arg_index])
          and scalar(@{$element->{'args'}->[$arg_index]->{'contents'}})) {
         if ($cmdname eq 'inlineraw') {
-          push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
+          push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';
         }
         $result .= _convert($self, {'contents'
                          => $element->{'args'}->[$arg_index]->{'contents'}});
         if ($cmdname eq 'inlineraw') {
           my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
-          die if ($old_context ne 'raw');
+          die if ($old_context ne 'ctx_raw');
         }
       }
       return $result;
     } elsif ($math_commands{$cmdname}) {
-      push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'math';
+      push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_math';
       if (not exists($block_commands{$cmdname})) {
         push @{$self->{'formatting_context'}->[-1]->{'math_style'}}, 'one-line';
         if ($cmdname eq 'math') {
@@ -2963,7 +2967,7 @@ sub _convert($$)
           }
         }
         my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
-        die if ($old_context ne 'math');
+        die if ($old_context ne 'ctx_math');
         my $old_math_style = pop @{$self->{'formatting_context'}->[-1]->{'math_style'}};
         die if ($old_math_style ne 'one-line');
         return $result;
@@ -3079,7 +3083,7 @@ sub _convert($$)
       if ($preformatted_commands{$cmdname}) {
         _open_preformatted_command($self, $cmdname);
       } elsif ($block_raw_commands{$cmdname}) {
-        push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
+        push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';
       }
       if ($item_line_commands{$cmdname}) {
         # may be undef, in particular if the command is not a style command,
@@ -3826,10 +3830,10 @@ sub _convert($$)
     # close the contexts and register the cells
     if ($block_raw_commands{$cmdname}) {
       my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
-      die if ($old_context ne 'raw');
+      die if ($old_context ne 'ctx_raw');
     } elsif ($block_math_commands{$cmdname}) {
       my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
-      die if ($old_context ne 'math');
+      die if ($old_context ne 'ctx_math');
       if ($cmdname eq 'displaymath') {
         $result .= "\$\$\n";
         # reopen all preformatted commands
