@@ -60,10 +60,10 @@
 # at _ and - with several special cases, such as no break right after one
 # or two hyphen, no break between __ or hyphen.  See near \global\def\code
 # in texinfo.tex.
-# 
+#
 # Index with unmatched braces leads to e.g.
 #    \index[cp]{\{}%
-# which doesn't work. 
+# which doesn't work.
 #
 #
 # RELEVANT BUT NOT DECISIVE
@@ -709,10 +709,11 @@ foreach my $quoted_command (@quoted_commands) {
 
 # note that if each command was formatted with format= option of
 # enumitem \description, the command would need to be formatted
-# with a final command.  However, since a parbox with each items
-# on different lines is used to avoid having too much spacing, there
-# is no such constraint, but it is better to have commands to simplify
-# code result and avoid changing global conditions.
+# with a final command, and possibly in a default bold font
+# that would need to be isolated with \normalfont.  However, since
+# a parbox with each items on different lines is used to avoid having
+# too much spacing, there is no such constraint.  In any case, commands
+# are defined for every style command if needed.
 my %description_command_format;
 
 my $description_command_new_commands_prefix = 'GNUTexinfotablestyle';
@@ -724,19 +725,7 @@ foreach my $command (keys(%{$LaTeX_style_brace_commands{'cmd_text'}})) {
   # avoids hyphenation @-command
   next if ($unformatted_brace_command{$command});
   my $description_format = $LaTeX_style_brace_commands{'cmd_text'}->{$command};
-  if ($description_format ne ''
-       and $description_format !~ /\\text[a-z]{2}$/
-       and not $style_brace_format_command_new_commands{'cmd_text'}->{$command}) {
-    my $specific_format_command
-      = "\\${description_command_new_commands_prefix}$command";
-    my $command_definition;
-    # use \normalfont to avoid default bold if not already a font switching
-    # command (useful for emph in practice).
-    $command_definition =
-      "$specific_format_command\[1]{{\\normalfont$description_format\{#1}}}";
-    $description_command_new_commands{$command} = $command_definition;
-    $description_command_format{$command} = $specific_format_command;
-  } else {
+  if ($description_format ne '') {
     $description_command_format{$command} = $description_format;
   }
 }
@@ -752,11 +741,6 @@ foreach my $quoted_command (@quoted_commands) {
     $description_command_new_commands{$quoted_command} =
             "$specific_format_command\[1]{\\ifstrempty{#1}{}{{`#1'}}";
   } else {
-    my $prepended_normalfont = '';
-    if ($description_format !~ /\\text[a-z]{2}$/) {
-      # use \normalfont to avoid default bold
-      $prepended_normalfont = '\normalfont{}';
-    }
     # We use \ifstrempty to avoid outputting an empty
     # quotation if there is no item.  Note that it does
     # not work as intended if there is no optional parameter
@@ -765,7 +749,7 @@ foreach my $quoted_command (@quoted_commands) {
     # but works for
     #   \item[] some text
     $description_command_new_commands{$quoted_command}
-      = "$specific_format_command\[1]{\\ifstrempty{#1}{}{{$prepended_normalfont`$description_format\{#1}'}}}";
+      = "$specific_format_command\[1]{\\ifstrempty{#1}{}{`$description_format\{#1}'}}";
   }
   $description_command_format{$quoted_command} = $specific_format_command;
 }
@@ -2288,23 +2272,29 @@ sub _convert($$)
   my $preformatted_to_reopen;
   if ($cmdname) {
     my $unknown_command;
-    my $command_context = 'cmd_text';
+    my $command_format_context = 'cmd_text';
     if ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] eq 'ctx_math') {
-      $command_context = 'cmd_math';
+      $command_format_context = 'cmd_math';
     }
     my $did_stop_embrac;
     if (defined($no_brace_commands{$cmdname})) {
       if ($cmdname eq ':') {
-        if ($command_context ne 'cmd_math') {
+        if ($command_format_context ne 'cmd_math') {
           $result .= "\\\@";
         }
       } elsif ($cmdname eq '*') {
-        if ($command_context ne 'cmd_math') {
-          # FIXME \leavevmode{} is added to avoid
-          # ! LaTeX Error: There's no line here to end.
-          # but it is not clearly correct
-          $result = "\\leavevmode{}\\\\";
-          #$result = "\\linebreak[4]\n";
+        if ($command_format_context ne 'cmd_math') {
+          if ($self->{'formatting_context'}->[-1]->{'no_eol'}
+              and $self->{'formatting_context'}->[-1]->{'no_eol'}->[-1]) {
+            # in tabularx in @def* we ignore @*
+            $result = ' ';
+          } else {
+            # FIXME \leavevmode{} is added to avoid
+            # ! LaTeX Error: There's no line here to end.
+            # but it is not clearly correct
+            $result = "\\leavevmode{}\\\\";
+            #$result = "\\linebreak[4]\n";
+          }
         } else {
           if ($self->{'formatting_context'}->[-1]->{'math_style'}->[-1]
               eq 'one-line') {
@@ -2315,7 +2305,7 @@ sub _convert($$)
           }
         }
       } elsif ($cmdname eq '.' or $cmdname eq '?' or $cmdname eq '!') {
-        if ($command_context ne 'cmd_math') {
+        if ($command_format_context ne 'cmd_math') {
           $result .= "\\\@";
         }
         $result .= $cmdname;
@@ -2348,7 +2338,7 @@ sub _convert($$)
           }
         }
       }
-      if (exists($LaTeX_no_arg_brace_commands{$command_context}->{$converted_command})) {
+      if (exists($LaTeX_no_arg_brace_commands{$command_format_context}->{$converted_command})) {
         if ($converted_command eq 'error'
             and $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'}) {
           # in a sectioning command, the contents bookmark is also generated, and
@@ -2365,11 +2355,11 @@ sub _convert($$)
           # See also
           # https://github.com/latex3/hyperref/issues/207#issuecomment-920712424
           $result .= '\texorpdfstring{'.
-            $LaTeX_no_arg_brace_commands{$command_context}->{$converted_command}
+            $LaTeX_no_arg_brace_commands{$command_format_context}->{$converted_command}
             # FIXME translation
             .'}{error}'
         } else {
-          $result .= $LaTeX_no_arg_brace_commands{$command_context}->{$converted_command};
+          $result .= $LaTeX_no_arg_brace_commands{$command_format_context}->{$converted_command};
         }
       } else {
         die "BUG: unknown brace_no_arg_commands $cmdname $converted_command\n";
@@ -2386,8 +2376,8 @@ sub _convert($$)
       } else {
         my $accent_arg = '';
 
-        if ($LaTeX_accent_commands{$command_context}->{$cmdname}) {
-          $result .= "\\$LaTeX_accent_commands{$command_context}->{$cmdname}\{";
+        if ($LaTeX_accent_commands{$command_format_context}->{$cmdname}) {
+          $result .= "\\$LaTeX_accent_commands{$command_format_context}->{$cmdname}\{";
           if ($element->{'args'}) {
             $accent_arg = _convert($self, $element->{'args'}->[0]);
           }
@@ -2398,7 +2388,7 @@ sub _convert($$)
             $accent_arg = _convert($self, $element->{'args'}->[0]);
           }
           if ($accent_arg eq 'i' or $accent_arg eq 'j') {
-            if ($command_context eq 'cmd_math') {
+            if ($command_format_context eq 'cmd_math') {
               $result .= "\\${accent_arg}math{}";
             } else {
               $result .= "\\${accent_arg}{}";
@@ -2410,7 +2400,7 @@ sub _convert($$)
           }
           return $result;
         # accent without math mode command, use slanted text
-        } elsif ($command_context eq 'cmd_math'
+        } elsif ($command_format_context eq 'cmd_math'
                  and $LaTeX_accent_commands{'cmd_text'}->{$cmdname}) {
           $result .= "\\textsl{\\$LaTeX_accent_commands{'cmd_text'}->{$cmdname}\{";
           # we do not want accents within to be math accents
@@ -2446,16 +2436,16 @@ sub _convert($$)
       if ($self->{'quotes_map'}->{$formatted_cmdname}) {
         $result .= $self->{'quotes_map'}->{$formatted_cmdname}->[0];
       }
-      my $formatting_context = $command_context;
+      my $command_format_context = $command_format_context;
       # gather for outputting in the preamble if associated to a new command
-      if ($style_brace_format_command_new_commands{$formatting_context}
+      if ($style_brace_format_command_new_commands{$command_format_context}
                                                      ->{$formatted_cmdname}) {
-        $self->{'style_brace_format_commands'}->{$formatting_context}
+        $self->{'style_brace_format_commands'}->{$command_format_context}
                                                      ->{$formatted_cmdname} = 1;
       }
-      if ($LaTeX_style_brace_commands{$formatting_context}->{$formatted_cmdname}) {
+      if ($LaTeX_style_brace_commands{$command_format_context}->{$formatted_cmdname}) {
         my $LaTeX_style_command
-          = $LaTeX_style_brace_commands{$formatting_context}->{$formatted_cmdname};
+          = $LaTeX_style_brace_commands{$command_format_context}->{$formatted_cmdname};
         if ($need_known_embrac{$LaTeX_style_command}
             and $self->{'formatting_context'}->[-1]->{'embrac'}
             and $self->{'formatting_context'}->[-1]->{'embrac'}->[-1]
@@ -2472,7 +2462,7 @@ sub _convert($$)
       if ($element->{'args'}) {
         $result .= _convert($self, $element->{'args'}->[0]);
       }
-      if ($LaTeX_style_brace_commands{$formatting_context}->{$formatted_cmdname}) {
+      if ($LaTeX_style_brace_commands{$command_format_context}->{$formatted_cmdname}) {
         $result .= '}';
       }
       if ($self->{'quotes_map'}->{$formatted_cmdname}) {
@@ -3576,6 +3566,9 @@ sub _convert($$)
         $def_line_result .= "\\hangindent=2em\n";
 
         $def_line_result .= '\noindent\texttt{';
+
+        # no end of line in tabularx
+        push @{$self->{'formatting_context'}->[-1]->{'no_eol'}}, 1;
         # the def* line except for the category is converted in code context
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
 
@@ -3628,6 +3621,7 @@ sub _convert($$)
 
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
         $def_line_result .= '}'; # \texttt
+        pop @{$self->{'formatting_context'}->[-1]->{'no_eol'}};
 
         $def_line_result .= "& $converted_category\n"
           if (defined($converted_category) and not $deftypefnnewline);

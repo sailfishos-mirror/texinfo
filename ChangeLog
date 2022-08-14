@@ -1,5 +1,16 @@
 2022-08-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm: simplify setting commands for
+	use in table item.
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): convert @* as a space
+	if in @def* line to avoid outputting a \\ in a tabularx line.  For
+	this, set 'no_eol' on 'formatting_context'.
+	rename $command_context as $command_format_context.
+
+
+2022-08-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm: use specific strings with ctx_
 	or cmd_ prepended instead of math, text and raw for text_context
 	and command formatting context.
