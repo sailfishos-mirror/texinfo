@@ -11801,7 +11801,7 @@ variables. For example, in Perl, returned scalars may be given the
 @var{$result} and @var{$status} name in the following manner:
 
 @example
-@@deftypefn @{Sub@} @{(@@var@{$result@}, @@var@{$status@})@} @@
+@@deftypefn @{Sub@} @{(@@var@{$result@}, @@var@{$status@} =)@} @@
                      process (@@var@{$input@})
 @dots{} Set @@var@{$status@} to 0 in case of failure @dots{}
 @@end deftypefn
@@ -11809,7 +11809,7 @@ variables. For example, in Perl, returned scalars may be given the
 
 to get output like
 
-@deftypefn {Sub} {(@var{$result}, @var{$status})} process (@var{$input})
+@deftypefn {Sub} {(@var{$result}, @var{$status}) =} process (@var{$input})
 @dots{} Set @var{$status} to 0 in case of failure @dots{}
 @end deftypefn
 
