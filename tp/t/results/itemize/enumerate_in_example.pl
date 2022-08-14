@@ -261,4 +261,20 @@ still second
 </div>
 ';
 
+
+$result_converted{'latex'}->{'enumerate_in_example'} = '
+\\begin{enumerate}[start=1]
+\\item \\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+first item
+\\end{GNUTexinfopreformatted}
+\\item \\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+second  item
+
+still second
+\\end{GNUTexinfopreformatted}
+\\end{enumerate}
+';
+
 1;

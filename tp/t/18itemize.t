@@ -465,6 +465,10 @@ more.
 @item item +
 @end itemize
 
+@itemize m--n
+@item with m--n
+@end itemize
+
 @itemize @bullet{} a--n itemize line
 @item in an itemize line
 @end itemize
@@ -615,7 +619,8 @@ my @test_invalid = (
 my @file_latex_tests_cases_tests = ('inter_item_commands_in_itemize',
   'inter_item_commands_in_enumerate');
 
-my @latex_tests_cases_tests = ('w_argument');
+my @latex_tests_cases_tests = ('w_argument', 'enumerate_in_example',
+                               'itemize_long_item', 'itemize_in_example');
 
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';

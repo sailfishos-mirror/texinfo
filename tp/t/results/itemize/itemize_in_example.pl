@@ -350,25 +350,8 @@ $result_trees{'itemize_in_example'} = {
                 {
                   'contents' => [
                     {
-                      'args' => [
-                        {
-                          'contents' => [],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'bullet',
-                      'contents' => [],
                       'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 16,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'parent' => {},
-                      'text' => ' a--n itemize line'
+                      'text' => 'm--n'
                     }
                   ],
                   'extra' => {
@@ -388,7 +371,7 @@ $result_trees{'itemize_in_example'} = {
                       'contents' => [
                         {
                           'parent' => {},
-                          'text' => 'in an itemize line
+                          'text' => 'with m--n
 '
                         }
                       ],
@@ -450,6 +433,122 @@ $result_trees{'itemize_in_example'} = {
               }
             },
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'empty_line'
+                }
+              ],
+              'parent' => {},
+              'type' => 'preformatted'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'bullet',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 20,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'parent' => {},
+                      'text' => ' a--n itemize line'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'cmdname' => 'itemize',
+              'contents' => [
+                {
+                  'cmdname' => 'item',
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'in an itemize line
+'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'preformatted'
+                    }
+                  ],
+                  'extra' => {
+                    'item_number' => 1,
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 21,
+                    'macro' => ''
+                  }
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'itemize'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'command_argument' => 'itemize',
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'itemize'
+                  },
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 22,
+                    'macro' => ''
+                  }
+                }
+              ],
+              'extra' => {
+                'end_command' => {},
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 20,
+                'macro' => ''
+              }
+            },
+            {
               'args' => [
                 {
                   'contents' => [
@@ -475,7 +574,7 @@ $result_trees{'itemize_in_example'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
+                'line_nr' => 23,
                 'macro' => ''
               }
             }
@@ -539,9 +638,7 @@ $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[5]
 $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0];
 $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[6];
 $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0];
-$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0];
-$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0];
 $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7];
 $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'contents'}[0]{'contents'}[0];
 $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'contents'}[0];
@@ -551,10 +648,24 @@ $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]
 $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7];
 $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'contents'}[1];
 $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0];
-$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'args'}[0];
-$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[8];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[8];
 $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0];
-$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[8];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0]{'contents'}[0];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[0];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'contents'}[0];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'contents'}[1]{'args'}[0];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'contents'}[1];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'extra'}{'end_command'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'contents'}[1];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'args'}[0];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[10];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0];
+$result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[10];
 $result_trees{'itemize_in_example'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_in_example'}{'contents'}[0];
 $result_trees{'itemize_in_example'}{'contents'}[0]{'parent'} = $result_trees{'itemize_in_example'};
 
@@ -573,6 +684,10 @@ more.
 @item item +
 @end itemize
 
+@itemize m--n
+@item with m--n
+@end itemize
+
 @itemize @bullet{} a--n itemize line
 @item in an itemize line
 @end itemize
@@ -587,6 +702,8 @@ more.
 as is
 
 item +
+
+with m--n
 
 in an itemize line
 ';
@@ -605,6 +722,8 @@ $result_converted{'plaintext'}->{'itemize_in_example'} = '        • first
           as is
 
         + item +
+
+        m–n with m--n
 
         • a–n itemize line in an itemize line
 ';
@@ -628,10 +747,66 @@ more.
 </pre></li></ul>
 <pre class="example-preformatted">
 
+</pre><ul class="itemize" style="list-style-type: \'m\\2013 n\'">
+<li><pre class="example-preformatted">with m--n
+</pre></li></ul>
+<pre class="example-preformatted">
+
 </pre><ul class="itemize" style="list-style-type: \'\\2022  a\\2013 n itemize line\'">
 <li><pre class="example-preformatted">in an itemize line
 </pre></li></ul>
 </div>
+';
+
+
+$result_converted{'latex'}->{'itemize_in_example'} = '\\begin{itemize}[label=\\textbullet{}]
+\\item \\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+first
+
+more.
+\\end{GNUTexinfopreformatted}
+\\end{itemize}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+
+\\end{GNUTexinfopreformatted}
+\\begin{itemize}
+\\item \\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+as is
+\\end{GNUTexinfopreformatted}
+\\end{itemize}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+
+\\end{GNUTexinfopreformatted}
+\\begin{itemize}[label=+]
+\\item \\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+item +
+\\end{GNUTexinfopreformatted}
+\\end{itemize}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+
+\\end{GNUTexinfopreformatted}
+\\begin{itemize}[label=m--n]
+\\item \\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+with m{-}{-}n
+\\end{GNUTexinfopreformatted}
+\\end{itemize}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+
+\\end{GNUTexinfopreformatted}
+\\begin{itemize}[label=\\textbullet{} a--n itemize line]
+\\item \\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+in an itemize line
+\\end{GNUTexinfopreformatted}
+\\end{itemize}
 ';
 
 1;

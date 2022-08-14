@@ -683,4 +683,31 @@ empty line.
 </li></ul>
 ';
 
+
+$result_converted{'latex'}->{'itemize_long_item'} = '\\begin{itemize}[label=youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc]
+\\item first item
+\\item \\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+In example
+
+end example.
+\\end{GNUTexinfopreformatted}
+\\item 
+empty line.
+\\item 
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+In second example
+\\end{GNUTexinfopreformatted}
+\\item \\begin{quote}
+Quotation
+\\end{quote}
+
+\\item 
+\\begin{quote}
+quotation after a blank line
+\\end{quote}
+\\end{itemize}
+';
+
 1;
