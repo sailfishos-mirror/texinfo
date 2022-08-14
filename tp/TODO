@@ -6,13 +6,6 @@ This is the todo list for texi2any
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
 
-export XML_CATALOG_FILES=~/src/texinfo/tp/maintain/catalog.xml
-xmllint --nonet --noout --valid commands.xml
-
-Test with 8bit locale:
-export LANG=fr_FR; export LANGUAGE=fr_FR; export LC_ALL=fr_FR
-xterm &
-
 
 Before next release
 ===================
@@ -681,3 +674,20 @@ t/30sectioning.t
 
 t/info_tests.t
  space_in_setfilename
+
+
+Misc notes
+==========
+
+export XML_CATALOG_FILES=~/src/texinfo/tp/maintain/catalog.xml
+xmllint --nonet --noout --valid commands.xml
+
+Test with 8bit locale:
+export LANG=fr_FR; export LANGUAGE=fr_FR; export LC_ALL=fr_FR
+xterm &
+
+convert to pdf from docbook
+xsltproc -o intermediate-fo-file.fo /usr/share/xml/docbook/stylesheet/docbook-xsl/fo/docbook.xsl texinfo.xml
+fop -pdf texinfo-dbk.pdf -fo intermediate-fo-file.fo
+
+dblatex -o texinfo-dblatex.pdf texinfo.xml
