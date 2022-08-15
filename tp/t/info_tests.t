@@ -1010,7 +1010,9 @@ $colons_in_index_entries_and_node,
 undef, {'INFO_SPECIAL_CHARS_QUOTE' => 1,
  'INFO_SPECIAL_CHARS_WARNING' => 0,}],
 ['colons_in_index_entries_and_node_no_quoting',
-$colons_in_index_entries_and_node],
+$colons_in_index_entries_and_node,
+undef, {'INFO_SPECIAL_CHARS_QUOTE' => 0,
+ 'INFO_SPECIAL_CHARS_WARNING' => 1,}],
 ;
 
 foreach my $test (@test_cases) {
