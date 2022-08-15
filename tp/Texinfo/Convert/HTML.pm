@@ -7515,7 +7515,8 @@ sub _new_sectioning_command_target($$)
 # conversion to HTML is done on-demand, upon call to command_text
 # and similar functions.
 # Note that 'node_filename', which is set here for Top target information
-# too, is not used later for Top anchors or links, see the NOTE below.
+# too, is not used later for Top anchors or links, see the NOTE below
+# associated with setting TOP_NODE_FILE_TARGET.
 sub _set_root_commands_targets_node_files($$)
 {
   my $self = shift;
@@ -9371,6 +9372,10 @@ sub output($$)
   my $self = shift;
   my $root = shift;
 
+  $self->{'current_filename'} = undef;
+
+  $self->{'shared_conversion_state'} = {};
+
   # no splitting when writing to the null device or to stdout or returning
   # a string
   if (defined($self->get_conf('OUTFILE'))
@@ -9427,15 +9432,6 @@ sub output($$)
     $self->set_conf('SHOW_TITLE', 1);
   }
 
-  # the configuration has potentially been modified for
-  # this output file especially.  Set a corresponding initial
-  # configuration.
-  $self->{'output_init_conf'} = { %{$self->{'conf'}} };
-
-  $self->{'current_filename'} = undef;
-
-  $self->{'shared_conversion_state'} = {};
-
   # set information, to have some information for run_stage_handlers.
   # Some information is not available yet.
   $self->_reset_info();
@@ -9443,6 +9439,11 @@ sub output($$)
   my $setup_status = $self->run_stage_handlers($root, 'setup');
   return undef unless ($setup_status < $handler_fatal_error_level
                        and $setup_status > -$handler_fatal_error_level);
+
+  # the configuration has potentially been modified for
+  # this output file especially.  Set a corresponding initial
+  # configuration.
+  $self->{'output_init_conf'} = { %{$self->{'conf'}} };
 
   if ($self->get_conf('HTML_MATH')
         and $self->get_conf('HTML_MATH') eq 'mathjax') {
@@ -9494,7 +9495,8 @@ sub output($$)
   # Get the list of "elements" to be processed, i.e. nodes or sections.
   # This should return undef if called on a tree without node or sections.
   my ($tree_units, $special_elements)
-    = $self->_prepare_conversion_tree_units($root, $destination_directory, $document_name);
+    = $self->_prepare_conversion_tree_units($root, $destination_directory,
+                                            $document_name);
 
   Texinfo::Structuring::split_pages($tree_units, $self->get_conf('SPLIT'));
 
@@ -9897,9 +9899,10 @@ sub output($$)
       # @titlepage, and @titlepage is not used.
       my $filename = $self->command_filename($node);
       my $node_filename;
-      # NOTE 'node_filename' is not used for Top, so the other manual
-      # must use the same convention to get it right.  We avoid doing
-      # also 'node_filename' to avoid unneeded redirection files.
+      # NOTE 'node_filename' is not used for Top, TOP_NODE_FILE_TARGET
+      # is.  The other manual must use the same convention to get it
+      # right.  We do not do 'node_filename' as a redirection file
+      # either.
       if ($node->{'extra'} and $node->{'extra'}->{'normalized'}
           and $node->{'extra'}->{'normalized'} eq 'Top'
           and defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {

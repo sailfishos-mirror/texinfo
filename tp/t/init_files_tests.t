@@ -30,8 +30,38 @@ pt @error{}.
 }],
 );
 
+my @file_tests = (
+['documentation_examples',
+'
+@settitle @email{someone@@example.com, me} @sansserif{in--title} @error{}
+
+@node Top
+
+@sansserif{in--text} @- p--n. @error{}
+@xref{my node}@footnote{in footnote}.
+@titlefont{in titlefont}
+@email{a@@b.c, someone}
+
+@math{@sansserif{in--math} @- a=b @error{}}
+
+@example
+@sansserif{in--example} @- c. @error{}
+@end example
+
+
+@node my node
+
+',{'init_files' => ['documentation_examples.pm']},
+],
+);
+
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'html';
 }
 
-run_all('init_files_tests', [@test_cases]);
+foreach my $test (@file_tests) {
+  push @{$test->[2]->{'test_formats'}}, 'file_html';
+  $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
+}
+
+run_all('init_files_tests', [@test_cases, @file_tests]);

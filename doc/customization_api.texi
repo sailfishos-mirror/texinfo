@@ -498,15 +498,18 @@ texinfo_register_no_arg_command_formatting('-', undef, '&shy;');
 If you want @code{<small>...</small>} to be output for @code{@@enddots}
 in normal context and @code{...} to be output in other contexts, call
 @example
-texinfo_register_no_arg_command_formatting('enddots', 'normal', '...', 'small');
-texinfo_register_no_arg_command_formatting('enddots', 'preformatted', '...');
+texinfo_register_no_arg_command_formatting('enddots',
+                                           'normal', '...', 'small');
+texinfo_register_no_arg_command_formatting('enddots',
+                                           'preformatted', '...');
 @end example
 
 If you want @code{error--&gt;} to be used for @code{@@error} in every context,
 with a translation when the document language changes, call
 
 @example
-texinfo_register_no_arg_command_formatting('error', undef, undef, undef, 'error--&gt;');
+texinfo_register_no_arg_command_formatting('error', undef, undef, undef,
+                                           'error--&gt;');
 @end example
 
 @quotation Warning
@@ -548,20 +551,22 @@ If @var{$html_element} is undefined and @var{$in_quotes} is not set, the formatt
 argument is output as is.
 @end defun
 
-For example, to set @code{@@t@{argument@}} to be formatted as
+For example, to set @code{@@sansserif@{argument@}} to be formatted as
 @code{<code>@var{argument}</code>} in normal and preformatted context,
 and as a quoted string in string context, use:
 
 @example
-texinfo_register_style_command_formatting ('t', 'code', 0, 'normal');
-texinfo_register_style_command_formatting ('t', 'code', 0, 'preformatted');
-texinfo_register_style_command_formatting ('t', undef, 1, 'string');
+texinfo_register_style_command_formatting('sansserif', 'code', 0, 'normal');
+texinfo_register_style_command_formatting('sansserif', 'code', 0,
+                                          'preformatted');
+texinfo_register_style_command_formatting('sansserif', undef, 1, 'string');
 @end example
 
 To output the formatted argument of @code{@@t} as is:
 @example
 foreach my $context ('normal', 'example', string') @{
-  texinfo_register_style_command_formatting ('t', undef, undef, $context);
+  texinfo_register_style_command_formatting ('t', undef,
+                                             undef, $context);
 @}
 @end example
 
@@ -652,7 +657,8 @@ Some examples of use:
 @example
 my @@all_included_rules = $converter->css_get_info('rules');
 my $all_default_selector_styles = $converter->css_get_info('styles');
-my $titlefont_header_style = $converter->css_get_info('styles', 'h1.titlefont');
+my $titlefont_header_style = $converter->css_get_info('styles',
+                                                      'h1.titlefont');
 
 $converter->css_add_info('styles', 'h1.titlefont', 'text-align:center');
 $converter->css_add_info('imports', "\@@import \"special.css\";\n");
@@ -672,7 +678,8 @@ registered for the @samp{structure} stage:
 sub my_function_set_some_css @{
   my $converter = shift;
 
-  $converter->css_add_info('styles', 'h1.titlefont', 'text-align:center');
+  $converter->css_add_info('styles', 'h1.titlefont',
+                           'text-align:center');
   # ... more calls to  $converter->css_add_info();
 @}
 
@@ -1562,6 +1569,17 @@ For example:
 $converter->set_conf('footnotestyle', 'separate');
 @end example
 
+Some customization variables, in particular some customization variables
+associated with @@-commands, can be reset to the value they had before starting
+the conversion.  For example, they are reset in order to obtain their value
+before the conversion.  Also when their value at the end of the preambule or
+at the end of the document is needed, and 
+there are no @@-commands at those locations in the Texinfo manual.  If a value
+set by @code{set_conf} is intended to be found when the customization variable
+value is reset, @code{set_conf} should be called early.  For example, when called from
+a user-defined function called at different stage, it should be called in
+the @samp{setup} stage (@pxref{Init File Calling at Different Stages}).
+
 The values set in converter with @code{set_conf} will not override command-line
 set customization variables, nor variables set in init files.  This is the
 expected behaviour, in particular when the values are set from the document.
@@ -1723,7 +1741,8 @@ sub my_node_file_name($$$) @{
   return $node_file_name
 @}
 
-texinfo_register_file_id_setting_function('node_file_name', \&my_node_file_name);
+texinfo_register_file_id_setting_function('node_file_name',
+                                          \&my_node_file_name);
 @end example
 
 @menu
@@ -1787,6 +1806,11 @@ considered to be the Top element may be determined with
 $converter->element_is_tree_unit_top(\%unit_element);
 @end example
 
+The information on tree elements may be interesting for those functions
+(@pxref{Texinfo Tree Elements in User Defined Functions}).  The @code{extra}
+key @code{associated_section} of a node element and @code{associated_node}
+of a sectioning command element may also be useful.
+
 
 @node Customizing Output Target Names
 @section Customizing Output Target Names
@@ -1816,6 +1840,14 @@ array containing the Texinfo tree contents of the command label.
 @var{$default_target} is the target that has been already set.  The function
 should return the target (@var{$target}).
 @end deftypefn
+
+The element corresponding to the label can be found with @code{label_command}
+(@pxref{Target Commands Links@comma{} Texts and Associated Commands}):
+@example
+my $element;
+$element = $converter->label_command($label_info->@{'normalized'@})
+  if (defined($label_info->@{'normalized'@}));
+@end example
 
 For sectioning commands, in addition to the sectioning command target,
 targets for the sectioning command in table of contents and in short table
@@ -1870,7 +1902,8 @@ There are four places for user defined functions:
 @item setup
 Called right after completing main program customization information
 with converter specific customization information, but before anything else is
-done, including collecting the output files names.
+done, including collecting the output files names and registering the
+customization variables pre-conversion values.
 @c the information on input file names directories is probably available
 @c somewhere, but we do not want those to be used, in general, rather
 @c we mostly want document_name to be used
@@ -2786,7 +2819,8 @@ my $explained_commands_hash
     = $converter->shared_conversion_state('explained_commands', @{@});
 $explained_commands_hash->@{'key'@} = 'value';
 
-my $foot_num_reference = $converter->shared_conversion_state('footnote_number', 0);
+my $foot_num_reference
+     = $converter->shared_conversion_state('footnote_number', 0);
 $@{$foot_num_reference@}++;
 @end example
 
@@ -2972,7 +3006,7 @@ To get the Texinfo tree unit element associated with other global element
 directions, such as @samp{Top} or @samp{Index}, use
 @code{global_direction_element}:
 
-@deftypefun @var{\%element} @var{$converter}->global_target_elements_directions (@var{$direction})
+@deftypefun @var{\%element} @var{$converter}->global_direction_element (@var{$direction})
 Return the Texinfo tree unit element corresponding to direction
 @var{$direction}, or @code{undef} if the direction is not a global direction.
 @end deftypefun

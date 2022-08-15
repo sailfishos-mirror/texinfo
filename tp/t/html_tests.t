@@ -717,7 +717,7 @@ my @file_tests = (
 @node @^i
 ', {'test_split' => 'section'}, {'SPLIT' => 'chapter'}],
 # NOTE the result is incorrect, the first footnote text is at the
-# end of the file but the link is towards the sparate file.
+# end of the file but the link is towards the separate file.
 # The manual states that the footnotestyle should be in the preamble,
 # so it needs not to be fixed.
 ['footnotestyle_separate_late',

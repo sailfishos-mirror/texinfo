@@ -989,6 +989,13 @@ sub set_global_document_commands($$;$)
       # for commands not appearing in the document, this should set the
       # same value, the converter initialization value
       $self->set_conf($global_command, _command_init($global_command, $init_conf));
+      # NOTE if the variable is set from an handler, or in the converter after
+      # $init_conf was set, but before starting the conversion, it is ignored here
+      # and the $init_conf value is set.  The previously set value could be
+      # in $self->get_conf(), but what is available from $self->get_conf() could
+      # also be a value set by a previous call of set_global_document_commands.
+      # There is no easy way to deal with this issue, other than making sure that
+      # a configuration value that is expected to be set early is set in $init_conf.
     }
   } else {
     foreach my $global_command (@{$selected_commands}) {
@@ -1000,6 +1007,7 @@ sub set_global_document_commands($$;$)
       if (not defined($element)) {
         # commands not appearing in the document, this should set the
         # same value, the converter initialization value
+        # the NOTE above in 'before' holds here too.
         $self->set_conf($global_command,
                         _command_init($global_command, $init_conf));
       }

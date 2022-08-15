@@ -1,6 +1,7 @@
 # API documentation code examples implemented, to check syntax
 # and also expected effects.  Only for code that is not already elsewhere,
-# nor is too complex to set up.
+# nor is too complex to set up.  Some of those customization results
+# are silly, just for the sake of checking.
 
 use strict;
 

@@ -3191,7 +3191,7 @@ like this:
 @end example
 
 This is no longer necessary, as the @samp{Top} node is now never output 
-for printed output.  The @samp{Top} is not output for DocBook either.
+for printed output.  The @samp{Top} node is not output for DocBook either.
 
 
 @node Texinfo Document Structure
