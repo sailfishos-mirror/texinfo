@@ -1174,7 +1174,7 @@ There is no reason to use that function often, as the converter
 already goes through the tree calling reference functions to convert
 the elements, but it can be interesting in some cases.
 
-@deftypefun @var{$converted_text} @var{$converter}->convert_tree (@var{\%element}, @var{$explanation})
+@deftypefun {@var{$converted_text} =} @var{$converter}->convert_tree (@var{\%element}, @var{$explanation})
 @var{\%element} is a Texinfo tree element. @var{$explanation} is
 optional, it is a string explaining why the function was called, to help
 in case of debugging.  The function returns @var{\%element} converted.
@@ -1195,7 +1195,7 @@ For such cases, the function is
 @code{convert_tree_new_formatting_context} which sets the context appropriately.
 @code{convert_tree_new_formatting_context} ultimately calls @code{convert_tree}.
 
-@deftypefun @var{$converted_text} @var{$converter}->convert_tree_new_formatting_context @
+@deftypefun {@var{$converted_text} =} @var{$converter}->convert_tree_new_formatting_context @
       (@var{\%element}, @var{$context}, @var{$multiple_pass}, @var{$global_context})
 @var{\%element} is a Texinfo tree element.  @var{$context} is an optional
 string describing the new context to be setup to format out of the main
@@ -1227,7 +1227,7 @@ the default code can be used in practice.
 The subroutine @code{gdt}, from the @code{Texinfo::Translations} module
 is used for translated strings:
 
-@deftypefun @var{$translated_tree} @var{$converter}->gdt (@var{$string}, @var{\%variables_hash})
+@deftypefun {@var{$translated_tree} =} @var{$converter}->gdt (@var{$string}, @var{\%variables_hash})
 @var{$string} is the string to be translated, @var{\%variables_hash}
 is a hash reference holding the variable parts of the translated
 string.  The result returned is a perl Texinfo tree.
@@ -1402,7 +1402,7 @@ or the opening of a file require binary strings.
 To encode file names consistently with file name encoding used in the conversion to
 HTML, there is a function @code{encoded_output_file_name}:
 
-@deftypefun {(@var{$encoded_name}, @var{$encoding})} @var{$converter}->encoded_output_file_name (@var{$character_string_name})
+@deftypefun {(@var{$encoded_name}, @var{$encoding}) =} @var{$converter}->encoded_output_file_name (@var{$character_string_name})
 Encode @var{$character_string_name} in the same way as other file name are
 encoded in the converter, based on @code{DOC_ENCODING_FOR_OUTPUT_FILE_NAME},
 and @code{LOCALE_OUTPUT_FILE_NAME_ENCODING} or on input file encoding
@@ -1602,14 +1602,14 @@ To determine if an output format such as @samp{html} or @samp{tex}
 is expanded (@pxref{Conditional Commands,,, texinfo, Texinfo}), use
 @code{is_format_expanded}:
 
-@deftypefun @var{$is_format_expanded} @var{$converter}->is_format_expanded (@var{$format})
+@deftypefun {@var{$is_format_expanded} =} @var{$converter}->is_format_expanded (@var{$format})
 Return true if format @var{$format} is expanded, according to
 command-line and init file information.
 @end deftypefun
 
 The main method to get information from the converter is @code{get_info}:
 
-@deftypefun @var{$info} @var{$converter}->get_info (@var{$item})
+@deftypefun {@var{$info} =} @var{$converter}->get_info (@var{$item})
 Return information on @var{$item}.
 @end deftypefun
 
@@ -2010,7 +2010,7 @@ The @var{$text} returned is prepended to the formatting of the
 
 It is possible to have access to the default opening function reference.
 The function used is:
-@deftypefun @var{\&default_command_open} @var{$converter}->default_command_open (@var{$command_name})
+@deftypefun {@var{\&default_command_open} =} @var{$converter}->default_command_open (@var{$command_name})
 @var{$command_name} is the @@-command name without the @@. Returns the
 default opening function reference for @var{$command_name}, or undef if there is none.
 @end deftypefun
@@ -2095,7 +2095,7 @@ The @var{$text} returned is the result of the @@-command conversion.
 To call a conversion function from user defined code, the function reference
 should first be retrieved using @code{command_conversion}:
 
-@deftypefun @var{\&command_conversion} @var{$converter}->command_conversion (@var{$command_name})
+@deftypefun {@var{\&command_conversion} =} @var{$converter}->command_conversion (@var{$command_name})
 @var{$command_name} is the @@-command name without the @@. Returns the
 conversion function reference for @var{$command_name}, or undef if there is none,
 which should only be the case for @@-commands ignored in HTML not defined by the user.
@@ -2111,7 +2111,7 @@ passing arguments that may correspond to another @@-command:
 It is possible to have access to the default conversion function reference.
 The function used is:
 
-@deftypefun @var{\&default_command_conversion} @var{$converter}->default_command_conversion (@var{$command_name})
+@deftypefun {@var{\&default_command_conversion} =} @var{$converter}->default_command_conversion (@var{$command_name})
 @var{$command_name} is the @@-command name without the @@. Returns the
 default conversion function reference for @var{$command_name}, or undef if there is none,
 which should only be the case for @@-commands ignored in HTML.
@@ -2144,7 +2144,7 @@ type container.
 
 It is possible to have access to the default opening function reference.
 The function used is:
-@deftypefun @var{\&default_type_open} @var{$converter}->default_type_open (@var{$type})
+@deftypefun {@var{\&default_type_open} =} @var{$converter}->default_type_open (@var{$type})
 @var{$command_name} is the element type. Returns the
 default opening function reference for @var{$type}, or undef if there is none.
 @end deftypefun
@@ -2178,7 +2178,7 @@ The @var{$text} returned is the result of the @@-command conversion.
 To call a conversion function from user defined code, the function reference
 should first be retrieved using @code{type_conversion}:
 
-@deftypefun @var{\&type_conversion} @var{$converter}->type_conversion (@var{$type})
+@deftypefun {@var{\&type_conversion} =} @var{$converter}->type_conversion (@var{$type})
 @var{$type} is the element type.  Returns the
 conversion function reference for @var{$type}, or undef if there is none,
 which should only be the case for types ignored in HTML not defined by the user.
@@ -2187,7 +2187,7 @@ which should only be the case for types ignored in HTML not defined by the user.
 It is possible to have access to the default conversion function reference.
 The function used is:
 
-@deftypefun @var{\&default_type_conversion} @var{$converter}->default_type_conversion (@var{$type})
+@deftypefun {@var{\&default_type_conversion} =} @var{$converter}->default_type_conversion (@var{$type})
 @var{$type} is the element type.  Returns the
 default conversion function reference for @var{$type}, or undef if there is none,
 which should only be the case for types ignored in HTML.
@@ -2225,7 +2225,7 @@ function. @var{\&handler} is the user defined function reference.
 To call a formatting function from user defined code, the
 function reference should first be retrieved using @code{formatting_function}:
 
-@deftypefun @var{\&formatting_function} @var{$converter}->formatting_function (@var{$formatted})
+@deftypefun {@var{\&formatting_function} =} @var{$converter}->formatting_function (@var{$formatted})
 @var{$formatted} is a string describing the formatting
 function. Returns the associated formatting function reference.
 @end deftypefun
@@ -2233,7 +2233,7 @@ function. Returns the associated formatting function reference.
 It is possible to have access to the default formatting function reference.
 The function used is:
 
-@deftypefun @var{\&default_formatting_function} @var{$converter}->default_formatting_function (@var{$formatted})
+@deftypefun {@var{\&default_formatting_function} =} @var{$converter}->default_formatting_function (@var{$formatted})
 @var{$formatted} is a string describing the formatting
 function. Returns the default formatting function reference.
 @end deftypefun
@@ -2284,7 +2284,7 @@ To call a special element body formatting function from user defined code, the
 function reference should first be retrieved using
 @code{special_element_body_formatting}:
 
-@deftypefun @var{\&special_element_body_formatting} @var{$converter}->special_element_body_formatting @
+@deftypefun {@var{\&special_element_body_formatting} =} @var{$converter}->special_element_body_formatting @
                                               (@var{$special_element_variety})
 @var{$special_element_variety} is the special element variety.  Returns the
 conversion function reference for @var{$variety}, or undef if there is none,
@@ -2301,7 +2301,7 @@ my $footnotes_element_body
 It is possible to have access to the default conversion function reference.
 The function used is:
 
-@deftypefun @var{\&default_special_element_body_formatting} @
+@deftypefun {@var{\&default_special_element_body_formatting} =} @
                @var{$converter}->defaults_special_element_body_formatting @
                                                (@var{$special_element_variety})
 @var{$special_element_variety} is the special element variety.  Returns the
@@ -2331,7 +2331,7 @@ to have information correctly registered in the converter.
 Opening an HTML element with one or more classes should always be done through
 @code{html_attribute_class}:
 
-@deftypefun @var{$element_open} @var{$converter}->html_attribute_class @
+@deftypefun {@var{$element_open} =} @var{$converter}->html_attribute_class @
                               (@var{$html_element}, @var{\@@classes})
 Formats the beginning of an HTML element @var{$html_element}.  @var{\@@classes}
 is the list of classes for this element.  The element opening returned does not
@@ -2366,9 +2366,9 @@ HTML elements with an opening element, but no closing element,
 such as @code{<img>} or @code{<link>} should be closed by calling
 @code{close_html_lone_element}:
 
-@deftypefun @var{$html_element} @var{$converter}->close_html_lone_element @
-                                                     (@var{$html_element})
-Close the @var{$html_element}, which can contain attributes, by prepending
+@deftypefun {@var{$html_element} =} @var{$converter}->close_html_lone_element @
+                                                     (@var{$unclosed_element})
+Close the @var{$unclosed_element}, which can contain attributes, by prepending
 @samp{>} or @samp{/>} depending on the @code{USE_XML_SYNTAX} customization
 variable value.
 @end deftypefun
@@ -2388,7 +2388,7 @@ the corresponding text should be in a call to @code{substitute_html_non_breaking
 to take into account @code{ENABLE_ENCODING} and @code{USE_NUMERIC_ENTITY}
 customization variables:
 
-@deftypefun @var{$substituted_text} @var{$converter}->substitute_html_non_breaking_space @
+@deftypefun {@var{$substituted_text} =} @var{$converter}->substitute_html_non_breaking_space @
                                                     (@var{$formatted_text})
 Substitute @code{&nbsp;} according to customization variables values.
 @end deftypefun
@@ -2406,7 +2406,7 @@ context to avoid using HTML elements in formatting when in string context.
 
 To determine if in string context, the functions is @code{in_string}:
 
-@deftypefun @var{$in_string} @var{$converter}->in_string ()
+@deftypefun {@var{$in_string} =} @var{$converter}->in_string ()
 Return true if in string context.
 @end deftypefun
 
@@ -2430,14 +2430,14 @@ context to convert accordingly. @xref{Init File Expansion Contexts}.
 
 To determine if in preformatted context, the functions is @code{in_preformatted}:
 
-@deftypefun @var{$in_preformatted} @var{$converter}->in_preformatted ()
+@deftypefun {@var{$in_preformatted} =} @var{$converter}->in_preformatted ()
 Return true if in preformatted context.
 @end deftypefun
 
 If in preformatted context, it is possible to get preformatted @@-commands and
 preformatted types nesting with @code{preformatted_classes_stack}:
 
-@deftypefun @var{@@preformatted_nesting} @var{$converter}->preformatted_classes_stack ()
+@deftypefun {@var{@@preformatted_nesting} =} @var{$converter}->preformatted_classes_stack ()
 Returns an array containing the block preformatted @@-commands such as
 @code{@@example}, @code{@@display} or @code{@@menu} names without the leading
 @@ and the HTML attribute class preformatted container names, in order of appearance.
@@ -2472,19 +2472,19 @@ Each context is associated with a function:
 @table @emph
 @item code
 
-@deftypefun @var{$in_code} @var{$converter}->in_code ()
+@deftypefun {@var{$in_code} =} @var{$converter}->in_code ()
 Return true if in code context.  @xref{Init File Expansion Contexts}.
 @end deftypefun
 
 @item math
 
-@deftypefun @var{$in_math} @var{$converter}->in_math ()
+@deftypefun {@var{$in_math} =} @var{$converter}->in_math ()
 Return true if in math context. @xref{Init File Expansion Contexts}.
 @end deftypefun
 
 @item raw
 
-@deftypefun @var{$in_raw} @var{$converter}->in_raw ()
+@deftypefun {@var{$in_raw} =} @var{$converter}->in_raw ()
 Return true if in raw format, in @code{@@inlineraw} or in @code{@@html}.
 In such a context, text should be kept as is and special HTML characters should
 not be protected.
@@ -2492,20 +2492,20 @@ not be protected.
 
 @item verbatim
 
-@deftypefun @var{$in_verbatim} @var{$converter}->in_verbatim ()
+@deftypefun {@var{$in_verbatim} =} @var{$converter}->in_verbatim ()
 Return true if in verbatim context, corresponding to @code{@@verb} and @code{@@verbatim}.
 In general, HTML characters should be protected in this context.
 @end deftypefun
 
 @item upper-case
 
-@deftypefun @var{$in_upper_case} @var{$converter}->in_upper_case ()
+@deftypefun {@var{$in_upper_case} =} @var{$converter}->in_upper_case ()
 Return true if in upper-case context, corresponding to @code{@@sc}.
 @end deftypefun
 
 @item non-breakable space
 
-@deftypefun @var{$in_non_breakable_space} @var{$converter}->in_non_breakable_space ()
+@deftypefun {@var{$in_non_breakable_space} =} @var{$converter}->in_non_breakable_space ()
 Return true if in non-breakable space context, corresponding to @code{@@w}.
 @end deftypefun
 @end table
@@ -2546,7 +2546,7 @@ Return @var{$input_text} in a comment.
 @end deftypefn
 
 @xref{Texinfo::Convert::Converter $comment = $converter->xml_comment($text),,
-Texinfo::Convert::Converter::xml_comment,tp_api}
+Texinfo::Convert::Converter::xml_comment,tp_api}.
 
 @item format_heading_text
 
@@ -2624,14 +2624,14 @@ preformatted containers and @@-comands such as @code{@@abbr}, @code{@@footnote},
 To get the current paragraph and preformatted number, use @code{paragraph_number}
 or @code{preformatted_number}:
 
-@deftypefun @var{$number} @var{$converter}->paragraph_number ()
-@deftypefunx @var{$numbe}r @var{$converter}->preformatted_number ()
+@deftypefun {@var{$number} =} @var{$converter}->paragraph_number ()
+@deftypefunx {@var{$number} =} @var{$converter}->preformatted_number ()
 Return the current paragraph or preformatted container number in the
 current formatting context.
 @end deftypefun
 
 To get the topmost block @@-command being converted, use @code{top_block_command}:
-@deftypefun @var{$command_name} @var{$converter}->top_block_command ()
+@deftypefun {@var{$command_name} =} @var{$converter}->top_block_command ()
 Return the most recent block @@-command seen in the current formatting
 context.
 @end deftypefun
@@ -2639,21 +2639,21 @@ context.
 To get the text filling and alignement context, determined by @code{@@flushleft}
 or @code{@@center}, use @code{in_align}:
 
-@deftypefun @var{$align_context} @var{$converter}->in_align ()
+@deftypefun {@var{$align_context} =} @var{$converter}->in_align ()
 If the alignment context is the default alignement context, return @code{undef}.
 Otherwise, returns the command name of the alignment context.
 @end deftypefun
 
 To determine if the conversion is in a context converted multiple times,
 use @code{in_multi_expanded}:
-@deftypefun @var{$multi_expanded_context_information} @var{$converter}->in_multi_expanded ()
+@deftypefun {@var{$multi_expanded_context_information} =} @var{$converter}->in_multi_expanded ()
 Return a string representing the multiple expanded context, or @code{undef} if
 not in a multiple expanded context.
 @end deftypefun
 
 To get the location of an image file, use @code{html_image_file_location_name}:
 
-@deftypefun {(@var{$image_file}, @var{$image_basefile}, @var{$image_extension}, @var{$image_path}, @var{$image_path_encoding})} @
+@deftypefun {(@var{$image_file}, @var{$image_basefile}, @var{$image_extension}, @var{$image_path}, @var{$image_path_encoding}) =} @
  @var{$converter}->html_image_file_location_name (@var{$command_name}, @var{\%element}, @var{\@@args})
 @var{$command_name}, @var{\%element} and @var{\@@args} should be the arguments
 of an @code{@@image} @@-command formatting (@pxref{Command Tree Element
@@ -2702,7 +2702,7 @@ section level @var{$level} is closed.
 The function for closing registered section extents is
 @code{close_registered_sections_level}:
 
-@deftypefun @var{@@closing_texts} @var{$converter}->close_registered_sections_level (@var{$level})
+@deftypefun {@var{@@closing_texts} =} @var{$converter}->close_registered_sections_level (@var{$level})
 @var{$level} is the sectioning command level.  Opened section are closed
 down to section level @var{$level}.  The closing texts are returned in the
 @var{@@closing_texts} array in order.
@@ -2744,7 +2744,7 @@ Pending formatted content can (and should) be cancelled when it is known that
 there is no suitable inline container to be used to output the text.  The
 function is @code{cancel_pending_formatted_inline_content}:
 
-@deftypefun @var{$cancelled_content} @var{$converter}->cancel_pending_formatted_inline_content (@var{$category})
+@deftypefun {@var{$cancelled_content} =} @var{$converter}->cancel_pending_formatted_inline_content (@var{$category})
 Cancel the first @var{$category} pending formatted content text found.
 Returns @code{undef} if nothing was cancelled, and the cancelled
 content otherwise.
@@ -2754,7 +2754,7 @@ Pending formatted content is gathered by calling @code{get_pending_formatted_inl
 In the default case, this is done in inline containers opening
 code (@pxref{Type Tree Element Opening Functions}).
 
-@deftypefun @var{$content} @var{$converter}->get_pending_formatted_inline_content ()
+@deftypefun {@var{$content} =} @var{$converter}->get_pending_formatted_inline_content ()
 Returns the concatenated pending content.
 @end deftypefun
 
@@ -2773,7 +2773,7 @@ container conversion function (@pxref{Type Tree Element Conversion Functions}).
 Associate @var{$content} to the Texinfo tree element @var{\%element}.
 @end defun
 
-@deftypefun @var{$content} @var{$converter}->get_associated_formatted_inline_content (@var{\%element})
+@deftypefun {@var{$content} =} @var{$converter}->get_associated_formatted_inline_content (@var{\%element})
 Get @var{$content} associated to the Texinfo tree element @var{\%element}.
 @end deftypefun
 
@@ -2791,7 +2791,7 @@ Associate the current output file name file to the key @var{$key}, itself
 associated to the value @var{$value}.
 @end defun
 
-@deftypefun @var{$value} @var{$converter}->get_file_information (@var{$key}, @var{$file_name})
+@deftypefun {@var{$value} =} @var{$converter}->get_file_information (@var{$key}, @var{$file_name})
 Return the value associated to the key @var{$key} and file name @var{$file_name}.
 @end deftypefun
 
@@ -2803,7 +2803,7 @@ For information shared among formatting functions without involving the
 converter, the function @code{shared_conversion_state} can be used both for
 initialization of shared information and to share information:
 
-@deftypefun @var{$reference} @var{$converter}->shared_conversion_state (@var{$name}, @var{$initialization})
+@deftypefun {@var{$reference} =} @var{$converter}->shared_conversion_state (@var{$name}, @var{$initialization})
 Return the reference @var{$reference} associated with @var{$name}.
 @var{$initialization} is only read the first time @var{$name} is seen and sets
 up the reference that will be reused afterwards.  If @var{$initialization} is a
@@ -2846,22 +2846,22 @@ commands, index entries and footnotes are also associated to targets.
 To get the unique Texinfo tree element corresponding to a label, use
 @code{label_command}:
 
-@deftypefun @var{\%element} @var{$converter}->label_command (@var{$label})
+@deftypefun {@var{\%element} =} @var{$converter}->label_command (@var{$label})
 Return the element in the tree that @var{$label} refers to.
 @end deftypefun
 
 To get the identifier, file name and href of tree elements that may be used
 as link target, use @code{command_id}, @code{command_filename} and @code{command_href}:
 
-@deftypefun @var{$identifier} @var{$converter}->command_id (@var{\%target_element})
+@deftypefun {@var{$identifier} =} @var{$converter}->command_id (@var{\%target_element})
 Returns the id specific of the @var{\%target_element} tree element.
 @end deftypefun
 
-@deftypefun @var{$file_name} @var{$converter}->command_filename (@var{\%target_element})
+@deftypefun {@var{$file_name} =} @var{$converter}->command_filename (@var{\%target_element})
 Returns the file name of the @var{\%target_element} tree element.
 @end deftypefun
 
-@deftypefun @var{$href} @var{$converter}->command_href (@var{\%target_element}, @
+@deftypefun {@var{$href} =} @var{$converter}->command_href (@var{\%target_element}, @
        @var{$source_filename}, @var{$source_command}, @var{$specified_target})
 Return string for linking to @var{\%target_element} with @code{<a href>}.
 @var{$source_filename} is the file the link comes from. If not set, the current
@@ -2874,7 +2874,7 @@ identifier if set.
 To get the text of tree elements that may be used as link description, use
 @code{command_text}:
 
-@deftypefun @var{$result} @var{$converter}->command_text (@var{\%target_element}, @var{$type})
+@deftypefun {@var{$result} =} @var{$converter}->command_text (@var{\%target_element}, @var{$type})
 Return the information to be used for a hyperlink to @var{\%target_element}.
 The information returned depends on @var{$type}:
 
@@ -2898,7 +2898,7 @@ To obtain the top level command element associated with the target element,
 either a @code{@@node} or a sectioning element, use
 @code{command_root_element_command}:
 
-@deftypefun @var{\%top_level_element} @var{$converter}->command_root_element_command @
+@deftypefun {@var{\%top_level_element} =} @var{$converter}->command_root_element_command @
                                                     (@var{\%target_element})
 Return the top level element @var{\%target_element} is in.
 @end deftypefun
@@ -2906,7 +2906,7 @@ Return the top level element @var{\%target_element} is in.
 To get the node element associated with the target element, use
 @code{command_node}:
 
-@deftypefun @var{\%node_element} @var{$converter}->command_node (@var{\%target_element})
+@deftypefun {@var{\%node_element} =} @var{$converter}->command_node (@var{\%target_element})
 Return the node element associated with @var{\%target_element}.
 @end deftypefun
 
@@ -2917,7 +2917,7 @@ Return the node element associated with @var{\%target_element}.
 To get the id of a footnote in the main document, use
 @code{footnote_location_target}:
 
-@deftypefun @var{$target} @var{$converter}->footnote_location_target (@var{\%footnote_element})
+@deftypefun {@var{$target} =} @var{$converter}->footnote_location_target (@var{\%footnote_element})
 Return the id for the location of the footnote @var{\%footnote_element}
 in the main document (where the footnote number or symbol appears).
 @end deftypefun
@@ -2925,7 +2925,7 @@ in the main document (where the footnote number or symbol appears).
 To get an href to link to a footnote location in the main document, use
 @code{footnote_location_href}:
 
-@deftypefun @var{$href} @var{$converter}->footnote_location_href (@var{\%footnote_element}, @
+@deftypefun {@var{$href} =} @var{$converter}->footnote_location_href (@var{\%footnote_element}, @
      @var{$source_filename}, @var{$specified_target}, @var{$target_filename})
 Return string for linking to @var{\%footnote_element} location
 in the main document with @code{<a href>}.  @var{$source_filename} is the file
@@ -2942,7 +2942,7 @@ To get id and link href of sectioning commands in table of contents
 and short table of contents, use @code{command_contents_target} and
 @code{command_contents_href}:
 
-@deftypefun @var{$target} @var{$converter}->command_contents_target @
+@deftypefun {@var{$target} =} @var{$converter}->command_contents_target @
     (@var{\%sectioning_element}, @var{$contents_or_shortcontents})
 Returns the id for the location of @var{\%sectioning_element} sectioning
 element in the table of contents, if @var{$contents_or_shortcontents} is
@@ -2951,7 +2951,7 @@ element in the table of contents, if @var{$contents_or_shortcontents} is
 @samp{summarycontents}.
 @end deftypefun
 
-@deftypefun @var{$href} @var{$converter}->command_contents_href @
+@deftypefun {@var{$href} =} @var{$converter}->command_contents_href @
    (@var{\%sectioning_element}, @var{$contents_or_shortcontents}, @var{$source_filename})
 Return string for linking to the @var{\%sectioning_element} sectioning element
 location in the table of contents, if @var{$contents_or_shortcontents} is
@@ -2964,7 +2964,7 @@ from. If not set, the current file name is used.
 To determine if a tree unit element is the top element, use
 @code{element_is_tree_unit_top}:
 
-@deftypefun @var{$is_tree_unit_top} @var{$converter}->element_is_tree_unit_top (@var{\%element})
+@deftypefun {@var{$is_tree_unit_top} =} @var{$converter}->element_is_tree_unit_top (@var{\%element})
 Returns true if the @var{\%element} Texinfo tree element is the tree unit
 Top element (@pxref{Output Element Units}) and is either associated with the
 @code{@@top} sectioning command or with the @code{Top} @code{@@node}.
@@ -2973,7 +2973,7 @@ Top element (@pxref{Output Element Units}) and is either associated with the
 To get information on the special element variety associated with
 an @@-command command name, use @code{command_name_special_element_information}:
 
-@deftypefun {(@var{$special_element_variety}, @var{\%special_element}, @var{$class_base}, @var{$special_element_direction})} @
+@deftypefun {(@var{$special_element_variety}, @var{\%special_element}, @var{$class_base}, @var{$special_element_direction}) =} @
   @var{$converter}->command_name_special_element_information (@var{$command_name})
 @var{$command_name} is an @@-command name without the leading @@.
 If the @var{$command_name} is not associated with a special element, returns
@@ -2997,7 +2997,7 @@ To get the Texinfo tree unit special element associated with
 a special element direction, such as @samp{About} or @samp{Contents},
 use @code{special_direction_element}:
 
-@deftypefun @var{\%special_element} @var{$converter}->special_direction_element (@var{$direction})
+@deftypefun {@var{\%special_element} =} @var{$converter}->special_direction_element (@var{$direction})
 Return the special element associated with direction @var{$direction}, or
 @code{undef} if the direction is not a special element direction or the special
 element is not output.
@@ -3007,7 +3007,7 @@ To get the Texinfo tree unit element associated with other global element
 directions, such as @samp{Top} or @samp{Index}, use
 @code{global_direction_element}:
 
-@deftypefun @var{\%element} @var{$converter}->global_direction_element (@var{$direction})
+@deftypefun {@var{\%element} =} @var{$converter}->global_direction_element (@var{$direction})
 Return the Texinfo tree unit element corresponding to direction
 @var{$direction}, or @code{undef} if the direction is not a global direction.
 @end deftypefun
@@ -3015,7 +3015,7 @@ Return the Texinfo tree unit element corresponding to direction
 To get link information for relative and global
 directions, use @code{from_element_direction}:
 
-@deftypefun @var{$result} @var{$converter}->from_element_direction (@var{$direction}, @var{$type}, @
+@deftypefun {@var{$result} =} @var{$converter}->from_element_direction (@var{$direction}, @var{$type}, @
    @var{$source_element}, @var{$source_filename})
 Return a string for linking to @var{$direction}, or the information
 to be used for a hyperlink to @var{$direction}, depending on @var{$type}.
@@ -3039,7 +3039,7 @@ whether a rule should be output.
 To get information on tree elements unit counter in files, use
 @code{count_elements_in_filename}:
 
-@deftypefun @var{$count} @var{$converter}->count_elements_in_filename @
+@deftypefun {@var{$count} =} @var{$converter}->count_elements_in_filename @
                                      (@var{$specification}, @var{$file_name})
 Return tree unit element counter for @var{$file_name}, or @code{undef} if
 the counter does not exist.  The counter returned depends on @var{$specification}:
@@ -3097,7 +3097,7 @@ Information}).
 also call @code{command_href} to link to the location where the footnote
 text will be expanded (@pxref{Target Commands Links@comma{} Texts and Associated Commands}).
 
-@deftypefun @var{@@pending_footnotes_information} @var{$converter}->get_pending_footnotes ()
+@deftypefun {@var{@@pending_footnotes_information} =} @var{$converter}->get_pending_footnotes ()
 Returns in @var{@@pending_footnotes_information} the information gathered
 in @code{register_footnote}.  Each of the array element in @var{@@pending_footnotes_information}
 is an array reference containing the arguments of @code{register_footnote}
@@ -3601,7 +3601,7 @@ The CSS @var{element}.@var{class} that appeared in a file, gathered through
 Opening}) are available through the @code{html_get_css_elements_classes}
 function:
 
-@deftypefun @var{@@css_element_classes} @var{$converter}->html_get_css_elements_classes @
+@deftypefun {@var{@@css_element_classes} =} @var{$converter}->html_get_css_elements_classes @
     (@var{$file_name})
 Returns an array containing @code{element.class} pairs of elements and classes
 appearing in @var{$file_name}.
@@ -3711,7 +3711,7 @@ Texinfo::Structuring::section_level_adjusted_command_name, tp_api}.
 the argument is some Texinfo code, @code{html_convert_css_string_for_list_mark}
 can be used to convert that argument to text usable in CSS style specifications.
 
-@deftypefun @var{$text_for_css} @var{$converter}->html_convert_css_string_for_list_mark @
+@deftypefun {@var{$text_for_css} =} @var{$converter}->html_convert_css_string_for_list_mark @
              (@var{\%element}, @var{$explanation})
 @var{\%element} is the Texinfo element that is converted to CSS text.
 In general, it is @code{$itemize->@{'args'@}->[0]}, with @code{$itemize} an @code{@@itemize}
