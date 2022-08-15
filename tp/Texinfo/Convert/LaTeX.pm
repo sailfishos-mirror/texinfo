@@ -61,6 +61,10 @@
 # or two hyphen, no break between __ or hyphen.  See near \global\def\code
 # in texinfo.tex.
 #
+# In definition name, a @var{} argument may be hyphenated, it should be avoided
+# (example in customization_api.texi (Texinfo Tree Conversion Functions)
+# convert_tree_new_formatting_context)
+#
 #
 # RELEVANT BUT NOT DECISIVE
 #
