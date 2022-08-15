@@ -23928,7 +23928,7 @@ Node names containing periods, commas, colons or parentheses
 (including @@-commands which produce any of these) can confuse
 Info readers.
 If it is necessary to refer to a node whose name contains any of
-these, the @t{<nodename>} should be surrounded by a pair of @kbd{DEL}
+these, the @t{<nodename>} should be surrounded by a pair of @code{DEL}
 characters (@samp{CTRL-?}, character number 127).  There is support
 in @command{makeinfo} for adding these
 characters (@pxref{INFO_SPECIAL_CHARS_QUOTE}).  Note that not all Info
@@ -24044,7 +24044,7 @@ single line.  The @t{<entry text>} is the index term.
 Even though @t{<entry text>} is followed by a colon, it may itself
 contain colons, so Info readers should try to include as much of the
 line as possible in the @t{<entry text>}.  (However, @t{<entry text>}
-may not contain the @kbd{DEL} characters that may occur in @t{<node-spec>}.)
+may not contain the @code{DEL} characters that may occur in @t{<node-spec>}.)
 
 @t{<lineno>} is an unsigned integer, given relative to the start
 of the @t{<entry node>}.  An optional line break may occur before
