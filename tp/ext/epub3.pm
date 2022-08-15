@@ -19,38 +19,58 @@
 #
 # Originally written by Patrice Dumas.
 #
-# Note that OUTFILE is used for the epub file, but it is reset for
-# the conversion to XHTML.
 #
 # TODO:
+#
+# Discuss unique identifier on the mailing list
+#
+# Discuss last change date on the mailing list
+#
 # Currently the titlepage is used if available, while the Top node
 # is not shown.  There is a possibility to use an image as cover in
 # EPUB, with cover-image property in a manifest item.  Add the possibility
 # to specify such cover image?  In that case, set SHOW_TITLE to 0?
-# Do not output Texinfo TOC in the default case as the readers can always use
+#
+# Do not output a TOC in the default case as the readers can always use
 # the navigation information?
-# Use the navigation information as a page?  Tests show that it is not very good.
-# something special for indices?
-# list of tables/list of floats
+#
+# do something special for indices?
+#
+# do something special for list of tables/list of floats?
+#
 # add landmarks?  Examples: epub:type="toc", epub:type="loi" (list of illustrations)
 #                           epub:type="bodymatter" (Start of Content)
 #
-# cross manual references
-# The links that point to the EPUB container (or maybe any
-# relative link, the standard is not easy to understand) need
-# to be in the container.  Other <a href= ...> links are not publication
-# resources, and are ok.  Therefore, it is better to specify
-# the external manuals as web HTML hyperlinks, and not as manuals
-# in a collection, as there is no possibility to have more than one
-# manual in an EPUB container, both because it is unclear how
-# to do that in EPUB, and the EPUB generating code put each manual
-# in an epub container file.  Therefore we set a warning for external
-# manuals not resolved using htmlxref.
-# Should there be a possibility to group manuals in a collection?
+#
+# NOTES:
+#
+# Tests show that the navigation information as a page is not nicely
+# rendered, it is better to use the Texinfo TOC if a TOC is needed.
+#
+# OUTFILE is used for the epub file, but it is reset for the conversion
+# to XHTML.  This is described in the documentation.
+#
+# cross manual references:
+# The (X)HTML files that are target of links that point to the EPUB container
+# (or maybe any relative link, the standard is not easy to understand) need
+# to be in the container (they are non foreign Publication Resources).
+# Other <a href= ...> links are not Publication Resources, and are ok.
+# Therefore, it is better to specify the external manuals as web HTML
+# absolute urls in hyperlinks, and not as manuals in a collection.
+# Therefore we set a warning for external manuals not resolved using htmlxref
+# by setting  CHECK_HTMLXREF.
+#
+# Setting up collections of manuals for local browsing:
 # It seems that putting more than one manual in an EPUB container
-# is incorrect.  Could it be possible to refer to an manual in
-# an epub container, and to a specific file in that container?
-# (In that case, NODE_FILES would probably need to be set).
+# is incorrect.  Each manual on the command line is therefore put in a
+# separate epub container file.
+# There is no described way to group manuals in a collection, nor
+# to refer to a manual in an epub container, and to a specific file in
+# that container.
+# Collections of epub manunals for local browsing would be an interesting
+# feature, but for now cannot be achieved because of those limitations..
+# If references to other EPUB files were possible, NODE_FILES would
+# probably need to be set.
 # For now, external manuals not found in htmlxref are resolved
 # to a path that makes no sense:
 # EPUB/Pod-Simple-Texinfo_epub3/index.html
@@ -110,9 +130,9 @@ texinfo_set_from_init_file('DOC_ENCODING_FOR_OUTPUT_FILE_NAME', 0);
 # As a consequence, the epub file file name is also always utf-8 encoded.
 texinfo_set_from_init_file('OUTPUT_FILE_NAME_ENCODING', 'utf-8');
 
-# a "book like" output is most likely expected for epub.  So we set
-# NO_TOP_NODE_OUTPUT, which in turn sets titlepage to be used
-# if not specified.
+# an output as similar as possible to a book is expected for epub.
+# So we set NO_TOP_NODE_OUTPUT, which in turn sets titlepage to be used
+# if not otherwise specified.
 texinfo_set_from_init_file('NO_TOP_NODE_OUTPUT', 1);
 
 # no mini_toc nor menus in the default case, to be more like a book.
@@ -363,7 +383,7 @@ sub _epub_remove_container_folder($$)
 
 my $epub_xhtml_dir = 'xhtml';
 # should not clash with generated files.  Could clash with
-# OUTFILE but it is explicitly handled.
+# OUTFILE but this case is explicitly handled below.
 my $default_nav_filename = 'nav_toc.xhtml';
 my $nav_filename;
 
@@ -833,10 +853,6 @@ EOT
    <spine>
 EOT
 
-  # To put the nav file as part of the document
-  #if (defined($nav_file_path_name)) {
-  #  print $opf_fh "      <itemref idref=\"${nav_id}\"/>\n";
-  #}
   $id_count = 0;
   foreach my $output_filename (@epub_output_filenames) {
     $id_count++;
