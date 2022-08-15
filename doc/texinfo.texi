@@ -12250,6 +12250,69 @@ any other output format, and also because in the future this feature
 should be removed.
 
 
+@node Marking Definition Arguments
+@section Marking Definition Arguments
+
+Texinfo is a semantic language, @@-commands should be used for their
+meaning, not for their formatting.  In definitions arguments, however, it
+is acceptable to be interested in the formatting, for two reasons.  Firstly,
+all the existing programming languages should be correctly formatted
+on definition lines, which may require more markup than what is usually
+needed in normal text.  Secondly, the usual @@-commands formatting may
+add characters or modify text, in particular when outputting Info, which
+can be confusing in definition lines.
+
+To avoid the usual formatting, font commands such as @code{@@t}, @code{@@r},
+@code{@@slanted} and @code{@@b} may be used instead of the
+usual semantic commands (@pxref{Fonts}).
+
+Definition commands are already in some specific font, slanted as in
+@code{@@var}, or typewriter as in @code{@@code}.  How nested commands
+setting font combine depends on the output format.  To be sure to start
+from a roman upright font to apply font changing command and obtain
+a well defined result, you should enclose the formatting @@-commands
+in @code{@@r}, and avoid using nested @@-commands, except for
+@code{@@code@{@@slanted@{@dots{}@}@}} and @code{@@t@{@@slanted@{@dots{}@}@}}
+which argument should be slanted and typewriter.
+
+Lastly, we recommend using @code{@@macro} to define semantic @@-commands with
+name and formatting adapted to the style and programming language
+(@pxref{Defining New Texinfo Commands}), rather than using directly the
+formatting @@-commands.  For example, if a metasyntactical symbol is needed and
+is to be formatted as slanted code, and an strongly emphasized keyword is also
+important for the language, the following could be used:
+
+@example
+@group
+@@macro metasymbol @{argument@}
+@@r@{@@t@{@@slanted@{\argument\@}@}@}
+@@end macro
+
+@@macro strongkeyword @{argument@}
+@@r@{@@strong@{\argument\@}@}
+@@end macro
+
+@@defun fset arg @@metasymbol@{[ +@} @@strongkeyword@{*keyword@}
+@dots{}
+@@end defun
+@end group
+@end example
+
+@noindent produces:
+
+@macro metasymbol {argument}
+@r{@t{@slanted{\argument\}}}
+@end macro
+
+@macro strongkeyword {argument}
+@r{@strong{\argument\}}
+@end macro
+
+@defun fset arg @metasymbol{[ +} @strongkeyword{*keyword}
+@dots{}
+@end defun
+
+
 @node Sample Function Definition
 @section A Sample Function Definition
 @cindex Sample function definition

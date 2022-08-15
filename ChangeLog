@@ -1,3 +1,11 @@
+2022-08-15  Patrice Dumas  <pertusus@free.fr>
+
+	Give recommendations on markup on @def* lines
+
+	* doc/texinfo.texi (Marking Definition Arguments): explain why
+	and how to define markup for definition arguments that fit with
+	languages.
+
 2022-08-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi
