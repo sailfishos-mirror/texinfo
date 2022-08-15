@@ -44,6 +44,9 @@ $defaults{'FORMAT_MENU'} = 'menu';
 $defaults{'EXTENSION'} = 'info';
 $defaults{'USE_SETFILENAME_EXTENSION'} = 1;
 $defaults{'OUTFILE'} = undef;
+# set as default independently of INFO_SPECIAL_CHARS_QUOTE as long
+# as the Emacs Info reader does not support node names quoting.
+$defaults{'INFO_SPECIAL_CHARS_WARNING'} = 1;
 
 sub converter_defaults($$)
 {

@@ -15,7 +15,7 @@
 # INFO_SPECIAL_CHARS_QUOTE, therefore it is not really usefull to install the
 # info file in the default case.  nodist_ is not ok to achieve that, as the
 # other Texinfo related build targets are also removed with that prefix.
-AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_QUOTE=1
+AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_QUOTE=1 -c INFO_SPECIAL_CHARS_WARNING=0
 
 # no-installinfo requires foreign
 AUTOMAKE_OPTIONS = no-installinfo foreign

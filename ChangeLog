@@ -1,3 +1,16 @@
+2022-08-15  Patrice Dumas  <pertusus@free.fr>
+
+	Set INFO_SPECIAL_CHARS_WARNING in Info to 1
+
+	* doc/texinfo.texi (Other Customization Variables),
+	tp/Texinfo/Convert/Info.pm (%defaults): set
+	INFO_SPECIAL_CHARS_WARNING to 1 in Info, instead of undefined.
+	To be kept as 1 as long as the Emacs Info reader does not
+	support node quoting in Info files.
+	
+	doc/tp_api/Makefile.am (AM_MAKEINFOFLAGS): add
+	-c INFO_SPECIAL_CHARS_WARNING=0
+
 2022-08-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Info Format Specification): Comment out
