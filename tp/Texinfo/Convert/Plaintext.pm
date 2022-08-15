@@ -2129,100 +2129,94 @@ sub _convert($$)
           _count_added($self,$self->{'formatters'}[-1]{'container'},
                        $pre_quote)
             if $pre_quote;
-
-          if ($file) {
-            $result .= _convert($self, {'contents' => $file});
-          }
-          # node name
-          $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
-
-          my $maybe_file
-            = get_pending($self->{'formatters'}->[-1]->{'container'});
-          my $node_text = _convert($self, {'type' => '_code',
-                                           'contents' => $node_content});
-          delete $self->{'formatters'}->[-1]->{'suppress_styles'};
-
-          my $node_text_checked = $node_text 
-             .get_pending($self->{'formatters'}->[-1]->{'container'});
-          $maybe_file =~ s/^\s*//;
-          $maybe_file = quotemeta $maybe_file;
-          $node_text_checked =~ s/^\s*$maybe_file//;
-          $quoting_required = 0;
-          if ($node_text_checked =~ /([,\t\.])/m ) {
-            if ($self->{'info_special_chars_warning'}) {
-              $self->line_warn($self, sprintf(__(
-                 "\@%s node name should not contain `%s'"), $command, $1),
-                               $element->{'source_info'});
-            }
-            if ($self->{'info_special_chars_quote'}) {
-              $quoting_required = 1;
-            }
-          }
-          $pre_quote = $quoting_required ? "\x{7f}" : '';
-          $post_quote = $pre_quote;
-          if ($pre_quote) {
-            $node_text =~ s/^(\s*)/$1$pre_quote/;
-            _count_added($self,$self->{'formatters'}[-1]{'container'},
-                         $pre_quote);
-          }
-          $result .= $node_text;
-          _count_added($self, $self->{'formatters'}[-1]{'container'},
-            add_next($self->{'formatters'}->[-1]->{'container'}, $post_quote))
-                 if $post_quote;
-        } else { # Label same as node specification
-          if ($file) {
-            $result .= _convert($self, {'contents' => $file});
-          }
-          $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
-          my $node_text = _convert($self, {'type' => '_code',
-                                           'contents' => $node_content});
-          delete $self->{'formatters'}->[-1]->{'suppress_styles'};
-
-          my $node_text_checked = $node_text 
-             .get_pending($self->{'formatters'}->[-1]->{'container'});
-          my $quoting_required = 0;
-          if ($node_text_checked =~ /:/m) {
-            if ($self->{'info_special_chars_warning'}) {
-              $self->line_warn($self, sprintf(__(
-                 "\@%s node name should not contain `:'"), $command),
-                               $element->{'source_info'});
-            }
-            if ($self->{'info_special_chars_quote'}) {
-              $quoting_required = 1;
-            }
-          }
-          my $pre_quote = $quoting_required ? "\x{7f}" : '';
-          my $post_quote = $pre_quote;
-          $node_text .= _convert($self, {'contents' => [
-                {'text' => "${post_quote}::"}]});
-          _count_added($self,$self->{'formatters'}[-1]{'container'},
-                       $pre_quote)
-            if $pre_quote;
-          if ($pre_quote) {
-            # This is needed to get a pending word.  We could use
-            # add_pending_word, but that would not include following 
-            # punctuation in the word.
-            my $next = $self->{'current_contents'}->[-1]->[0];
-            if ($next) {
-              $node_text .= _convert($self, $next);
-              shift @{$self->{'current_contents'}->[-1]};
-            }
-
-            $node_text =~ s/^(\s*)/$1$pre_quote/;
-          }
-          $result .= $node_text;
         }
-        # we could use $formatter, but in case it was changed in _convert 
-        # we play it safe.
-        my $pending = $result 
-             .get_pending($self->{'formatters'}->[-1]->{'container'});
 
-        # If command is @xref, the punctuation must always follow the
-        # command, for other commands it may be in the argument, hence the
-        # use of $pending.
-        # FIXME: is @xref really special here?
-        if ($name and ($command eq 'xref'
-            or ($pending !~ /[\.,]$/ and $pending !~ /::$/))) {
+        if ($file) {
+          $result .= _convert($self, {'contents' => $file});
+        }
+
+        # node name
+        $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
+        my $maybe_file
+          = get_pending($self->{'formatters'}->[-1]->{'container'});
+        my $node_text = _convert($self, {'type' => '_code',
+                                         'contents' => $node_content});
+        delete $self->{'formatters'}->[-1]->{'suppress_styles'};
+
+        my $node_text_checked = $node_text
+           .get_pending($self->{'formatters'}->[-1]->{'container'});
+        $maybe_file =~ s/^\s*//;
+        $maybe_file = quotemeta $maybe_file;
+        $node_text_checked =~ s/^\s*$maybe_file//;
+        my $quoting_required = 0;
+
+        my $check_chars;
+        if ($name) {
+          $check_chars = quotemeta ",\t.";
+        } else {
+          $check_chars = quotemeta ":";
+        }
+
+        if ($node_text_checked =~ /([$check_chars])/m){
+          if ($self->{'info_special_chars_warning'}) {
+            $self->line_warn($self, sprintf(__(
+               "\@%s node name should not contain `%s'"), $command, $1),
+                             $element->{'source_info'});
+          }
+          if ($self->{'info_special_chars_quote'}) {
+            $quoting_required = 1;
+          }
+        }
+        my $pre_quote = $quoting_required ? "\x{7f}" : '';
+        my $post_quote = $pre_quote;
+
+        $node_text .= _count_added($self,
+          $self->{'formatters'}[-1]{'container'},
+          add_next($self->{'formatters'}->[-1]->{'container'}, $post_quote))
+               if $post_quote;
+
+        if (!$name) {
+          $node_text .= _count_added($self,
+            $self->{'formatters'}[-1]{'container'},
+            add_next($self->{'formatters'}->[-1]->{'container'}, '::'));
+        }
+
+        my $following = '';
+        my $maybe_leading
+          = get_pending($self->{'formatters'}->[-1]->{'container'});
+
+        if ($pre_quote) {
+          # Try to output enough that the node name is output so we can
+          # insert $pre_quote before it.
+          # We could use add_pending_word, but this could lead to
+          # the line being broken too late.
+          my $next = $self->{'current_contents'}->[-1]->[0];
+          if ($next) {
+            $following = _convert($self, $next);
+            $node_text .= $following;
+            shift @{$self->{'current_contents'}->[-1]};
+          }
+
+          $node_text =~ s/^(\s*)/$1$pre_quote/;
+          _count_added($self,$self->{'formatters'}[-1]{'container'},
+                       $pre_quote);
+        }
+        $result .= $node_text;
+
+        # Check if punctuation follows the ref command.  If we converted
+        # past the ref command, check if the excess starts with one of the
+        # characters.  Do this by stripping off the leading text that
+        # contains the output from the ref command.
+        #
+        # FIXME: is @xref really special here?  Original comment:
+        # "If command is @xref, the punctuation must always follow the
+        # command, for other commands it may be in the argument..."
+
+        $following .= get_pending($self->{'formatters'}->[-1]->{'container'});
+        $maybe_leading = quotemeta $maybe_leading;
+        $following =~ s/^$maybe_leading//;
+
+        if ($name and $following !~ /^[\.,]/) {
           my $next = $self->{'current_contents'}->[-1]->[0];
           if (!($next and $next->{'text'} and $next->{'text'} =~ /^[\.,]/)) {
             if ($command eq 'xref') {

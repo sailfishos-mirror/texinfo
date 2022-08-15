@@ -1,3 +1,14 @@
+2022-08-15  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Info output for reference commands
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <ref commands>:
+	Combine code handling an xref with a separate label with code
+	where the node name is the label.  Both blocks of code were
+	very similar apart from different requirements for DEL-quoting.
+	Check for following punctuation slightly differently
+	and integrate better with DEL-quoting mechanism.
+
 2022-08-15  Patrice Dumas  <pertusus@free.fr>
 
 	Give recommendations on markup on @def* lines
