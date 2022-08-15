@@ -6,6 +6,16 @@
 
 2022-08-15  Patrice Dumas  <pertusus@free.fr>
 
+	Protect node in index entry if INFO_SPECIAL_CHARS_QUOTE is set
+
+	* tp/Texinfo/Convert/Plaintext.pm (process_printindex): protect
+	node name in index if INFO_SPECIAL_CHARS_QUOTE is set.  Protect
+	characters that need to be protected in menu node entry after
+	menu entry name and also :, as the Info readers should consider
+	text up to : to be part of the index entry.
+
+2022-08-15  Patrice Dumas  <pertusus@free.fr>
+
 	Set INFO_SPECIAL_CHARS_WARNING in Info to 1
 
 	* doc/texinfo.texi (Other Customization Variables),

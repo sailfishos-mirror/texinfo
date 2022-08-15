@@ -401,6 +401,8 @@ sub converter_initialize($)
      = %default_preformatted_context_commands;
   $self->{'footnote_index'} = 0;
   $self->{'pending_footnotes'} = [];
+  $self->{'index_entry_node_colon'} = {};
+  $self->{'index_entries_no_node'} = {};
 
   foreach my $format (keys(%format_raw_commands)) {
     $self->{'ignored_commands'}->{$format} = 1 
@@ -1329,7 +1331,10 @@ sub process_printindex($$;$)
 
     next if ($entry_text !~ /\S/);
 
-    # FIXME protect instead
+    # No need for protection, the Info readers should find the last : on
+    # the line.  : in the node following the index entry node should be
+    # protected, however, as done below, such that : in the node are not
+    # mistaken as being part of the index entry.
     if ($entry_text =~ /:/ and $self->get_conf('INDEX_SPECIAL_CHARS_WARNING')) {
       $self->line_warn ($self,
         sprintf(__("Index entry in \@%s with : produces invalid Info: %s"),
@@ -1385,8 +1390,28 @@ sub process_printindex($$;$)
       }
     } else {
       my ($node_line, $byte_count) = $self->node_line($node);
-      $entry_line_addition .= $node_line;
       $self->{'count_context'}->[-1]->{'bytes'} += $byte_count;
+      # protect characters that need to be protected in menu node entry
+      # after menu entry name and also :, as the Info readers
+      # should consider text up to : to be part of the index entry.
+      if ($node_line =~ /([,\t:]|\.\s)/) {
+        if ($self->{'info_special_chars_warning'}) {
+          # Warn only once
+          if (! $self->{'index_entry_node_colon'}->{$node_line}) {
+            $self->line_warn($self, __(
+             "node name with index entries should not contain `$1'"),
+                           $node->{'source_info'});
+          }
+          $self->{'index_entry_node_colon'}->{$node_line} = 1;
+        }
+        if ($self->{'info_special_chars_quote'}) {
+          my $pre_quote = "\x{7f}";
+          my $post_quote = $pre_quote;
+          $self->{'count_context'}->[-1]->{'bytes'} += 2;
+          $node_line = $pre_quote . $node_line . $post_quote;
+        }
+      }
+      $entry_line_addition .= $node_line;
     }
     $entry_line_addition .= '.';
     add_text_count($self, '.');
