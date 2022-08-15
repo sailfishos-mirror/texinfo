@@ -23639,29 +23639,18 @@ for the language of the description itself.  Other characters are
 literal.  The formal constructs used are typical: @code{<...>}
 indicates a metavariable name, @samp{=} means definition, @samp{*}
 repetition, @samp{?} optional, @samp{()} grouping, @samp{|}
-alternation, @samp{#} comment.  Exception: @samp{*} at the beginning
-of a line is literal.
+alternation, and @samp{#} comment.
+@c Exception: @samp{*} at the beginning of a line is literal.
+@c (Is it really worth stating this?)
 
 In general, programs that read Info files should try to be
 case-insensitive to keywords that occur in the file (for example,
 @samp{Tag Table} and @samp{Tag table} should be equivalent) in order to
 support Info-generating programs that use different capitalization.
 
-The sections in an Info file (such as nodes or tag tables) are separated
-with a sequence:
-
-@example
-(^L)?^_(^L)?^J
-@end example
-
-@noindent
-That is, a @samp{CTRL-_} character followed by a newline, with optional
-formfeed characters.  We refer to such sequences as @t{<separator>}.
-
 We specify literal parentheses (those that are part of the Info
 format) with @t{<lparen>} and @t{<rparen>}, meaning the single
-characters @samp{(} and @samp{)} respectively.  We specify the
-@samp{CTRL-?} character (character number 127) @t{<del>}.  Finally,
+characters @samp{(} and @samp{)} respectively.  Finally,
 the two-character sequence @samp{^@var{x}} means the single
 character @samp{CTRL-@var{x}}, for any @var{x}.
 
@@ -23669,7 +23658,7 @@ This format definition was written some 25 years after the Info format
 was first devised.  So in the event of conflicts between this
 definition and actual practice, practice wins.  It also assumes some
 general knowledge of Texinfo; it is meant to be a guide for
-implementors rather than a rigid technical standard.  We often refer
+implementors rather than a rigid technical standard.  We may refer
 back to other parts of this manual for examples and definitions,
 rather than redundantly spelling out every detail.
 
@@ -23729,6 +23718,18 @@ The subfiles in a split manual have the following syntax:
 
 Note that the tag table is not optional for split files, as it is used
 with the indirect table to deduce which subfile a particular node is in.
+
+Several of the sections in an Info file (such as nodes or tag tables) begin
+with a sequence:
+
+@example
+    <separator> = (^L)?^_(^L)?^J
+@end example
+
+@noindent
+That is, a @samp{CTRL-_} character followed by a newline, with optional
+formfeed characters.
+
 
 
 @node Info Format Preamble
@@ -23903,6 +23904,7 @@ following format:
 @example
    <id> = (<lparen><infofile><rparen>)?<node-spec>?
    <node-spec> = <nodename> | <del><nodename><del>
+   <del> = ^?
 @end example
 
 This @t{<node>} defines @t{<id1>} in file @t{<fn>}, which is typically
@@ -23926,8 +23928,9 @@ Node names containing periods, commas, colons or parentheses
 (including @@-commands which produce any of these) can confuse
 Info readers.
 If it is necessary to refer to a node whose name contains any of
-these, the @t{<nodename>} should be surrounded by a pair of @t{<del>}
-characters.  There is support in @command{makeinfo} for adding these
+these, the @t{<nodename>} should be surrounded by a pair of @kbd{DEL}
+characters (@samp{CTRL-?}, character number 127).  There is support
+in @command{makeinfo} for adding these
 characters (@pxref{INFO_SPECIAL_CHARS_QUOTE}).  Note that not all Info
 readers recognize this syntax.  @xref{Node Line Requirements}.
 
@@ -24041,7 +24044,7 @@ single line.  The @t{<entry text>} is the index term.
 Even though @t{<entry text>} is followed by a colon, it may itself
 contain colons, so Info readers should try to include as much of the
 line as possible in the @t{<entry text>}.  (However, @t{<entry text>}
-may not contain the @t{<del>} characters that may occur in @t{<node-spec>}.)
+may not contain the @kbd{DEL} characters that may occur in @t{<node-spec>}.)
 
 @t{<lineno>} is an unsigned integer, given relative to the start
 of the @t{<entry node>}.  An optional line break may occur before

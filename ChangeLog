@@ -1,5 +1,11 @@
 2022-08-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Info Format Specification): Comment out
+	part about * at the beginning of a line.  Move definition
+	of <separator> and <del> out of appendix introduction.
+
+2022-08-15  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Info Format Regular Nodes): Define
 	<node-spec> including DEL-quoting so it can be used later
 	on in the appendix.
