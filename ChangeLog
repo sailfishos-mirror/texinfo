@@ -1,3 +1,8 @@
+2022-08-15  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* TODO: Remove part about allowing : in node names, as this
+	is already allowed with INFO_SPECIAL_CHARS_QUOTE.  From Patrice.
+
 2022-08-15  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (Generating EPUB, EPUB Cross-References): add
