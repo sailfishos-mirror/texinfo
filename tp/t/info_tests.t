@@ -972,7 +972,9 @@ In top node
 In chap1.
 
 ',{},{'SPLIT_SIZE' => 10}],
-['colons_in_index_entries_and_node',
+);
+
+my $colons_in_index_entries_and_node = 
 '@node Top
 
 @menu
@@ -1000,9 +1002,16 @@ node one
 
 @printindex cp
 
-', undef, {'INFO_SPECIAL_CHARS_QUOTE' => 1,
+';
+
+push @file_tests, 
+['colons_in_index_entries_and_node',
+$colons_in_index_entries_and_node,
+undef, {'INFO_SPECIAL_CHARS_QUOTE' => 1,
  'INFO_SPECIAL_CHARS_WARNING' => 0,}],
-);
+['colons_in_index_entries_and_node_no_quoting',
+$colons_in_index_entries_and_node],
+;
 
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'info';
