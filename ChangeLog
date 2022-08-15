@@ -1,5 +1,11 @@
 2022-08-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Info Format Specification):
+	Do not split into two sections "General Layout" and
+	"Text Constructs" as this makes it harder to navigate.
+
+2022-08-15  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Index format documentation
 
 	* doc/texinfo.texi (Other Customization Variables)

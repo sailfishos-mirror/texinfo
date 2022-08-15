@@ -690,20 +690,12 @@ Page Headings
 
 Info Format Specification
 
-* Info Format General Layout::
-* Info Format Text Constructs::
-
-Info Format General Layout
-
 * Info Format Whole Manual::. Split vs.@: nonsplit manuals.
 * Info Format Preamble::
 * Info Format Indirect Table::
 * Info Format Tag Table::
 * Info Format Local Variables::
 * Info Format Regular Nodes::
-
-Info Format Text Constructs
-
 * Info Format Menu::
 * Info Format Image::
 * Info Format Printindex::
@@ -23682,28 +23674,21 @@ back to other parts of this manual for examples and definitions,
 rather than redundantly spelling out every detail.
 
 @menu
-* General: Info Format General Layout.
-* Text:    Info Format Text Constructs.
-@end menu
-
-
-@node Info Format General Layout
-@section Info Format General Layout
-
-This section describes the overall layout of Info manuals.
-
-@menu
 * Whole:           Info Format Whole Manual. Split vs.@: nonsplit manuals.
 * Preamble:        Info Format Preamble.
 * Indirect:        Info Format Indirect Table.
 * Tag table:       Info Format Tag Table.
 * Local variables: Info Format Local Variables.
 * Regular nodes:   Info Format Regular Nodes.
+* Menu:            Info Format Menu.
+* Image:           Info Format Image.
+* Printindex:      Info Format Printindex.
+* Cross-Reference: Info Format Cross Reference.
 @end menu
 
 
 @node Info Format Whole Manual
-@subsection Info Format: A Whole Manual
+@section Info Format: A Whole Manual
 
 @cindex Nonsplit manuals, Info format of
 @cindex Split manuals, Info format of
@@ -23747,7 +23732,7 @@ with the indirect table to deduce which subfile a particular node is in.
 
 
 @node Info Format Preamble
-@subsection Info Format: Preamble
+@section Info Format: Preamble
 
 @cindex Preamble, in Info format
 
@@ -23782,7 +23767,7 @@ commands present in the manual (@pxref{Installing Dir Entries}).
 
 
 @node Info Format Indirect Table
-@subsection Info Format: Indirect Table
+@section Info Format: Indirect Table
 
 @cindex Indirect table, in Info format
 
@@ -23825,7 +23810,7 @@ giving up immediately if the position is not exactly at a node beginning.
 
 
 @node Info Format Tag Table
-@subsection Info Format: Tag Table
+@section Info Format: Tag Table
 
 @cindex Tag table, in Info format
 
@@ -23877,7 +23862,7 @@ table entry.
 
 
 @node Info Format Local Variables
-@subsection Info Format: Local Variables
+@section Info Format: Local Variables
 
 @cindex Local variable section, in Info format
 
@@ -23896,7 +23881,7 @@ End:
 
 
 @node Info Format Regular Nodes
-@subsection Info Format: Regular Nodes
+@section Info Format: Regular Nodes
 
 @cindex Info nodes, in Info format
 
@@ -23960,17 +23945,8 @@ The @t{<general text>} of the node can include the special constructs
 described next.
 
 
-@node Info Format Text Constructs
-@section Info Format Text Constructs
-
-@cindex Info format text constructs
-@cindex text constructs, Info format
-
-These special Info constructs can appear within the text of a node.
-
-
 @node Info Format Menu
-@subsection Info Format: Menu
+@section Info Format: Menu
 
 @cindex Menus, in Info format
 
@@ -23995,7 +23971,7 @@ be displayed as part of the menu, as-is (@pxref{Writing a Menu}).
 
 
 @node Info Format Image
-@subsection Info Format: Image
+@section Info Format: Image
 
 @cindex Images @subentry in Info format
 
@@ -24031,7 +24007,7 @@ The format does not prescribe the choice between displaying the
 
 
 @node Info Format Printindex
-@subsection Info Format: Printindex
+@section Info Format: Printindex
 
 @cindex Indices, in Info format
 
@@ -24088,7 +24064,7 @@ node `Weather Phenomena'.
 
 
 @node Info Format Cross Reference
-@subsection Info Format: Cross-reference
+@section Info Format: Cross-reference
 
 @cindex Cross-references, in Info format
 
