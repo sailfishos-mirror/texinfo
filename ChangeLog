@@ -1,5 +1,10 @@
 2022-08-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (output): set output_init_conf after
+	running the setup handler.
+
+2022-08-15  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl: add @shorttitlepage to main manual
 	preamble.
 
