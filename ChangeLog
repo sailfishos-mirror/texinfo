@@ -1,5 +1,18 @@
 2022-08-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Info Format Regular Nodes): Define
+	<node-spec> including DEL-quoting so it can be used later
+	on in the appendix.
+
+	(Info Format Cross Reference, Info Format Regular Nodes):
+	Do not say that support for quoting mechanism is "limited"
+	but do say that it isn't supported everywhere.  Do not recommend
+	against its use.
+	(Node Line Requirements): Be more hopeful that DEL-quoting will be
+	supported by removing word "ever".
+
+2022-08-15  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Info Format Specification):
 	Do not split into two sections "General Layout" and
 	"Text Constructs" as this makes it harder to navigate.
