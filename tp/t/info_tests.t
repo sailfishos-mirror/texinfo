@@ -972,6 +972,36 @@ In top node
 In chap1.
 
 ',{},{'SPLIT_SIZE' => 10}],
+['colons_in_index_entries_and_node',
+'@node Top
+
+@menu
+* One@asis{::}node@comma{} with entries.::
+* Concept Index::
+@end menu
+
+@node One@asis{::}node@comma{} with entries.
+
+@cindex :
+@cindex :a
+@cindex b:c
+
+@example
+some example just to have text
+@end example
+
+@cindex d::e
+@cindex f :d
+@cindex g: h
+
+node one
+
+@node Concept Index
+
+@printindex cp
+
+', undef, {'INFO_SPECIAL_CHARS_QUOTE' => 1,
+ 'INFO_SPECIAL_CHARS_WARNING' => 0,}],
 );
 
 foreach my $test (@test_cases) {
@@ -980,6 +1010,7 @@ foreach my $test (@test_cases) {
 
 foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_info';
+  $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
 }
 
 run_all('info_tests', [@test_cases, @file_tests]);
