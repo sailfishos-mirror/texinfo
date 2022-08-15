@@ -1569,19 +1569,20 @@ For example:
 $converter->set_conf('footnotestyle', 'separate');
 @end example
 
-Some customization variables, in particular some customization variables
-associated with @@-commands, can be reset to the value they had before starting
-the conversion.  For example, they are reset in order to obtain their value
-before the conversion.  Also when their value at the end of the preambule or
-at the end of the document is needed, and 
-there are no @@-commands at those locations in the Texinfo manual.  If a value
-set by @code{set_conf} is intended to be found when the customization variable
-value is reset, @code{set_conf} should be called early.  For example, when called from
-a user-defined function called at different stage, it should be called in
-the @samp{setup} stage (@pxref{Init File Calling at Different Stages}).
+Some customization variables, in particular those associated with @@-commands,
+can be reset to the value they had before starting the conversion.  For
+example, they are reset in order to obtain their value before the conversion.
+Thet are also reset to the value they had before starting the conversion when
+their value at the end of the preambule or at the end of the document is
+needed, but there are no @@-commands at those locations in the Texinfo manual.
+If a value set by @code{set_conf} is intended to be found when the
+customization variable value is reset, @code{set_conf} should be called early.
+For example, when called from a user-defined function called at different
+stage, it should be called in the @samp{setup} stage (@pxref{Init File Calling
+at Different Stages}).
 
 The values set in converter with @code{set_conf} will not override command-line
-set customization variables, nor variables set in init files.  This is the
+set customization variables, nor variables set early in init files.  This is the
 expected behaviour, in particular when the values are set from the document.
 In the rare cases when overriding the customization would be needed, the
 @code{force_conf} functions can be used:
@@ -1608,9 +1609,9 @@ command-line and init file information.
 
 The main method to get information from the converter is @code{get_info}:
 
-@defun @var{$converter}->get_info ($info)
-Return information on @var{$info}.
-@end defun
+@deftypefun @var{$info} @var{$converter}->get_info (@var{$item})
+Return information on @var{$item}.
+@end deftypefun
 
 The available information is about:
 @table @code
