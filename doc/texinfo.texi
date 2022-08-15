@@ -16874,8 +16874,8 @@ If set, spaces are ignored after an @@-command that takes braces.
 Default true, matching the @TeX{} behavior.
 
 @item INDEX_SPECIAL_CHARS_WARNING
-If set, warn about @samp{:} in index entry, as it leads to invalid entries in
-index menus in output Info files.  For Info and plaintext only.  Default false,
+If set, warn about @samp{:} in index entry, as not all Info readers may
+be able to process these.  For Info and plaintext only.  Default false,
 because parsing problems there don't prevent navigation; readers can still
 relatively easily find their way to the node in question.
 
@@ -24035,9 +24035,9 @@ The format does not prescribe the choice between displaying the
 
 @cindex Indices, in Info format
 
-Indices in Info format are generally written as a menu
-(@pxref{Indices}), but with an additional directive at the beginning
-marking this as an index node:
+Indices in Info format are a kind of menu.
+An additional directive at the beginning of a node marks it as an index node,
+followed by the menu:
 
 @example
     <printindex> =
@@ -24053,14 +24053,28 @@ the entries occurs in the text:
 
 @example
     <index entry> =
-* <entry text>: <entry node>. <lparen>line <lineno><rparen>
+* <entry text>: <entry node>. <line-spec>
+
+    <line-spec> =
+<lparen>line <lineno><rparen>
 @end example
 
 @noindent
-The @t{<entry text>} is the index term.  The @t{<lineno>} is an
-unsigned integer, given relative to the start of the @t{<entry node>}.
-There may be arbitrary whitespace after the colon and period, as usual
-in menus, and may be broken across lines.  Here is an example:
+
+The initial part, @samp{<entry text>: <entry node>.}, should be on a
+single line.  The @t{<entry text>} is the index term.
+
+Even though @t{<entry text>} is followed by a colon, it may itself
+contain colons, so Info readers should try to include as much of the
+line as possible in the @t{<entry text>}.  (However, @t{<entry text>}
+may not contain the @t{<del>} characters that may occur
+around @t{<entry-node>}.)
+
+@t{<lineno>} is an unsigned integer, given relative to the start
+of the @t{<entry node>}.  An optional line break may occur before
+@samp{<line-spec>}.
+
+Here is an example:
 
 @example
 ^@@^H[index^@@^H]

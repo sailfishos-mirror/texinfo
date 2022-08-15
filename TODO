@@ -78,7 +78,6 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - Display images when running under X, as Emacs 22+ can.
   - Handle M-n, C-u m, and C-u g like Emacs Info (opening new windows).
 
-
 * install-info:
   - replace dir file atomically in case install-info is interrupted
     (Pedrum Mohageri,

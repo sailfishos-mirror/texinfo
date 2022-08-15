@@ -1,5 +1,16 @@
 2022-08-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Index format documentation
+
+	* doc/texinfo.texi (Other Customization Variables)
+	<INDEX_SPECIAL_CHARS_WARNING>: Do not describe colons in
+	menu entries as "invalid".
+	(Info Format Printindex): State that most of the index entry
+	should occur on a single line.  Say that colons may occur in
+	the entry text, and explain how to read these.
+
+2022-08-15  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* TODO: Remove part about allowing : in node names, as this
 	is already allowed with INFO_SPECIAL_CHARS_QUOTE.  From Patrice.
 
