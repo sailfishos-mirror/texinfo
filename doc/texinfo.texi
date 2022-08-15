@@ -18359,6 +18359,7 @@ file is a ZIP archive container, holding informative files as
 well as the manual rendered in HTML.
 
 @cindex @code{Archive::Zip}, for EPUB file output
+@vindex EPUB_CREATE_CONTAINER_FILE @subentry @r{avoiding} @code{Archive::Zip} @r{dependency}
 The generation of the EPUB file depends on the @code{Archive::Zip}
 Perl module being installed.  This dependency is checked at runtime.
 In the default case, trying to output EPUB without that dependency raises an
@@ -18372,8 +18373,12 @@ installation of @code{Archive::Zip}, as they set
 the files and directories needed for the EPUB file by setting the
 @code{EPUB_KEEP_CONTAINER_FOLDER} customization variable to 1.
 
+
 @node EPUB Output File and Directory
 @subsection Container Directory and Output Files
+
+@cindex Container directory for EPUB
+@cindex EPUB Container directory
 A directory containing the files and directories needed for the
 EPUB format is created when outputting EPUB.  The name of this
 container directory is derived from the base name (that is, any
@@ -18390,6 +18395,7 @@ The HTML files produced from the Texinfo manual are output in subdirectories
 of the container directory.  Image files referred to from the Texinfo manual,
 if found, are copied to subdirectories of the container directory.
 
+@cindex EPUB output file
 The EPUB output file is a ZIP archive of the container directory.
 The file name is derived from the base name, with the @code{.epub}
 extension postpended.  If an output file is specified, with
@@ -18404,6 +18410,19 @@ is left after the final EPUB file has been generated if
 @code{EPUB_KEEP_CONTAINER_FOLDER} is set.
 
 @xref{Invoking @command{texi2any}}.
+
+
+@node EPUB Cross-References
+@subsection EPUB Cross-References
+
+There is no possibility to refer to another EPUB file.  Therefore the
+references to ``external'' Texinfo manuals should resolve to an external
+url.  This is achieved with HTML cross-references configuration
+(@pxref{HTML Xref Configuration}).  Since the links in the resulting EPUB
+are incorrect if no information is found for the cross-references, a warning
+is issued for missing cross-references information, by setting the
+@code{CHECK_HTMLXREF} customization variable in the default case.  If these
+warnings are unwanted, set @code{CHECK_HTMLXREF} to 0.
 
 
 @node EPUB HTML
