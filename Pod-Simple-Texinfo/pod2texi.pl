@@ -538,6 +538,8 @@ if ($base_level > 0) {
     $preamble_result = '\input texinfo
 @setfilename ' . Pod::Simple::Texinfo::_protect_text($setfilename) . "
 \@settitle $top
+\@shorttitlepage $top
+\@headings on
 
 \@contents
 
