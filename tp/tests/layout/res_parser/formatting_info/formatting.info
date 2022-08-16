@@ -426,7 +426,7 @@ s--ect,ion::
 
    '@ref{s--ect@comma{}ion, a @comma{} in cross ref, a comma@comma{} in
 title, a comma@comma{} in file, a @comma{} in manual name }' *note a ,
-in cross ref: (a comma, in file)s--ect,ion .
+in cross ref: (a comma, in file)s--ect,ion .
 
    '@ref{chapter,cross ref name}' *note cross ref name: chapter.
 '@ref{chapter,,title}' *note title: chapter. '@ref{chapter,,,file name}'
@@ -473,7 +473,7 @@ name}' *note cross ref name: node. '@inforef{node,,file name}' *note
 arg}' *note cross ref name: (file name, spurious arg)chapter.
 
    '@inforef{s--ect@comma{}ion, a @comma{} in cross ref, a comma@comma{}
-in file}' *note a , in cross ref: (a comma, in file)s--ect,ion .
+in file}' *note a , in cross ref: (a comma, in file)s--ect,ion .
 
    '*note chapter::'.
 
@@ -1136,7 +1136,7 @@ s--ect,ion::
 
    '@ref{s--ect@comma{}ion, a @comma{} in cross ref, a comma@comma{} in
 title, a comma@comma{} in file, a @comma{} in manual name }' *note a ,
-in cross ref: (a comma, in file)s--ect,ion .
+in cross ref: (a comma, in file)s--ect,ion .
 
    '@ref{chapter,cross ref name}' *note cross ref name: chapter.
 '@ref{chapter,,title}' *note title: chapter. '@ref{chapter,,,file name}'
@@ -1183,7 +1183,7 @@ name}' *note cross ref name: node. '@inforef{node,,file name}' *note
 arg}' *note cross ref name: (file name, spurious arg)chapter.
 
    '@inforef{s--ect@comma{}ion, a @comma{} in cross ref, a comma@comma{}
-in file}' *note a , in cross ref: (a comma, in file)s--ect,ion .
+in file}' *note a , in cross ref: (a comma, in file)s--ect,ion .
 
    '*note chapter::'.
 
@@ -1803,7 +1803,7 @@ s--ect,ion::
 
    '@ref{s--ect@comma{}ion, a @comma{} in cross ref, a comma@comma{} in
 title, a comma@comma{} in file, a @comma{} in manual name }' *note a ,
-in cross ref: (a comma, in file)s--ect,ion .
+in cross ref: (a comma, in file)s--ect,ion .
 
    '@ref{chapter,cross ref name}' *note cross ref name: chapter.
 '@ref{chapter,,title}' *note title: chapter. '@ref{chapter,,,file name}'
@@ -1850,7 +1850,7 @@ name}' *note cross ref name: node. '@inforef{node,,file name}' *note
 arg}' *note cross ref name: (file name, spurious arg)chapter.
 
    '@inforef{s--ect@comma{}ion, a @comma{} in cross ref, a comma@comma{}
-in file}' *note a , in cross ref: (a comma, in file)s--ect,ion .
+in file}' *note a , in cross ref: (a comma, in file)s--ect,ion .
 
    '*note chapter::'.
 
@@ -2610,7 +2610,7 @@ cross ref name: (file name). '@inforef{}' *note ::
      @ref{s--ect@comma{}ion, a @comma{} in cross
      ref, a comma@comma{} in title, a comma@comma{} in file, a @comma{} in manual name }
      *note a , in cross
-     ref: (a comma, in file)s--ect,ion
+     ref: (a comma, in file)s--ect,ion
      .
      @ref{chapter,cross ref name} *note cross ref name: chapter.
      @ref{chapter,,title} *note title: chapter.
@@ -2657,7 +2657,7 @@ cross ref name: (file name). '@inforef{}' *note ::
      @inforef{s--ect@comma{}ion, a @comma{} in cross
      ref, a comma@comma{} in file}
      *note a , in cross
-     ref: (a comma, in file)s--ect,ion
+     ref: (a comma, in file)s--ect,ion
      .
      '*note chapter::'.
 
@@ -3258,7 +3258,7 @@ In detailmenu
 * subsubsection three---four----''::
 
 
-File: formatting.info,  Node: subsection,  Up: s--ect,ion
+File: formatting.info,  Node: subsection,  Up: s--ect,ion
 
 1.1.1 subsection
 ----------------
@@ -3586,10 +3586,10 @@ Ref: chapter-Footnote-796880
 Ref: chapter-Footnote-896918
 Node: s--ect,ion96938
 Node: subsection97141
-Ref: anchor97320
-Node: subsubsection ``simple-double--97320
-Node: subsubsection three---four----''97520
-Node: chapter297692
+Ref: anchor97322
+Node: subsubsection ``simple-double--97322
+Node: subsubsection three---four----''97522
+Node: chapter297694
 
 End Tag Table
 
