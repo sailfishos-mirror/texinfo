@@ -3012,22 +3012,29 @@ expansion for HTML identifiers and file names, @pxref{HTML Xref
 Command Expansion}.
 
 @item
+@cindex Parentheses in node name
+A node name may not start with a left parenthesis preceding a right
+parenthesis, as in @code{(not)allowed}, since this syntax is used to
+specify an external manual.
+
+@item
 @cindex Colon in node name
 @cindex Comma in node name
-@cindex Parentheses in node name
 @cindex Period in node name
 @cindex Characters, invalid in node name
 @cindex Invalid characters in node names
 @cindex Node names, invalid characters in
 Unfortunately, you cannot reliably use periods, commas, or colons
-within a node name; these can confuse the Info reader.  Also, a node
-name may not start with a left parenthesis preceding a right
-parenthesis, as in @code{(not)allowed}, since this syntax is used to
-specify an external manual.  These limitations will be removed if
-Info-reading programs that recognize quoting of node names
-become common (@pxref{INFO_SPECIAL_CHARS_QUOTE}).
+within a node name; these can confuse some Info readers.
+@command{texi2any} quotes problematic node names by default,
+but some Info readers do not recognize this syntax. Node name quoting
+causes @code{DEL} characters (@samp{CTRL-?}, character number 127,
+often rendered as @samp{^?}) to appear around the node name.  To remove
+the quoting of node names, you can set the customization variable
+@code{INFO_SPECIAL_CHARS_QUOTE} to @samp{0} (@pxref{Other
+Customization Variables}).
 
-@command{makeinfo} warns about such problematic usage in node names,
+@command{texi2any} warns about such problematic usage in node names,
 menu items, and cross-references.  If you don't want to see the
 warnings, you can set the customization variable
 @code{INFO_SPECIAL_CHARS_WARNING} to @samp{0} (@pxref{Other
@@ -3075,7 +3082,7 @@ single space.  For example:
 @@node  foo  bar ,
 @end example
 
-@noindent all define the same node, namely @samp{foo bar}. 
+@noindent all define the same node, namely @samp{foo bar}.
 In menu entries, a single internal space should be used in node
 names or some versions of some Info readers will not find the node.
 @end itemize
@@ -16889,7 +16896,8 @@ relatively easily find their way to the node in question.
 If set, whenever there are problematic characters for Info output in
 places such as node names or menu items, surround the part of the
 construct where they appear with quoting characters, as described in
-@ref{Info Format Specification}.  @xref{Node Line Requirements}.
+@ref{Info Format Specification}.  Default is set for Info and unset
+for plaintext.  @xref{Node Line Requirements}.
 
 @item INFO_SPECIAL_CHARS_WARNING
 If set, warn about problematic constructs for Info output (such as the

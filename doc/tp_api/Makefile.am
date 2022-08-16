@@ -10,12 +10,11 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-# Without INFO_SPECIAL_CHARS_QUOTE, the info file is not useful because of all
-# the :: and , in the node names.  The Info readers are not already ready for
-# INFO_SPECIAL_CHARS_QUOTE, therefore it is not really usefull to install the
-# info file in the default case.  nodist_ is not ok to achieve that, as the
-# other Texinfo related build targets are also removed with that prefix.
-AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_QUOTE=1 -c INFO_SPECIAL_CHARS_WARNING=0
+# The Emacs Info reader is not ready for quoted node names, therefore it is not
+# really usefull to install the info file in the default case.  nodist_ is not
+# ok to achieve that, as the other Texinfo related build targets are also
+# removed with that prefix.
+AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0
 
 # no-installinfo requires foreign
 AUTOMAKE_OPTIONS = no-installinfo foreign

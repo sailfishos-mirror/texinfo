@@ -23651,7 +23651,7 @@ Top
 * sansserif slanted::
 * indicateurl::
 * _{g}H 3^{rd}::
-* <http://somewhere_aaa> text (url) ls::
+* <http://somewhere_aaa> text (url) ls::
 
 
 File: ,  Node: { },  Next:     !
@@ -23676,7 +23676,7 @@ File: ,  Node: @ { } \\ #,  Next: LaTeX TeX • , © ... ...,  Prev:     !
 ***********
 
 
-File: ,  Node: LaTeX TeX • , © ... ...,  Next: ≡ error→ € ¡ ↦ −,  Prev: @ { } \\ #,  Up: Top
+File: ,  Node: LaTeX TeX • , © ... ...,  Next: ≡ error→ € ¡ ↦ −,  Prev: @ { } \\ #,  Up: Top
 
 4 LaTeX TeX • , © ... ...
 *************************
@@ -23873,7 +23873,7 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 
    *note _{g}H 3^{rd}::
 
-   *note <http://somewhere_aaa> text (url) ls::
+   *note <http://somewhere_aaa> text (url) ls::
 
 
 
@@ -23884,29 +23884,29 @@ Node:     !
 . . ? @952
 Node: @ { } \\ #1057
 Node: LaTeX TeX • , © ... ...1177
-Node: ≡ error→ € ¡ ↦ −1342
-Node: ≥ ≤ →1503
-Node: ª º ★ £ ⊣ ¿ ®1633
-Node: ⇒ ° a b a sunny day å1780
-Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1968
-Node: ä ẽ î â à é ç ē e̊ e̋ ę2191
-Node: ė ĕ e̲ ẹ ě j e͡e2402
-Node: ı Ḕ Ḉ2563
-Node: “ ” ‘ ’ „ ‚2690
-Node: « » « » ‹ ›2832
-Node: `` \'\' --- -- ` \'2976
-Node: AAA (fff) AAA BBB3118
-Node: CCC (rrr) CCC DDD3258
-Node: the someone <someone@somewher> <no_explain@there>3431
-Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3731
-Node:  @ {} . 4081
-Node: cite asis in @w b in r SC *str* t VAR dfn i4284
-Node: env code option samp command file C-x <ESC>4536
-Node: 8.27in4826
-Node: sansserif slanted4960
-Node: indicateurl5084
-Node: _{g}H 3^{rd}5210
-Node: <http://somewhere_aaa> text (url) ls5349
+Node: ≡ error→ € ¡ ↦ −1344
+Node: ≥ ≤ →1505
+Node: ª º ★ £ ⊣ ¿ ®1635
+Node: ⇒ ° a b a sunny day å1782
+Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1970
+Node: ä ẽ î â à é ç ē e̊ e̋ ę2193
+Node: ė ĕ e̲ ẹ ě j e͡e2404
+Node: ı Ḕ Ḉ2565
+Node: “ ” ‘ ’ „ ‚2692
+Node: « » « » ‹ ›2834
+Node: `` \'\' --- -- ` \'2978
+Node: AAA (fff) AAA BBB3120
+Node: CCC (rrr) CCC DDD3260
+Node: the someone <someone@somewher> <no_explain@there>3433
+Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3733
+Node:  @ {} . 4083
+Node: cite asis in @w b in r SC *str* t VAR dfn i4286
+Node: env code option samp command file C-x <ESC>4538
+Node: 8.27in4828
+Node: sansserif slanted4962
+Node: indicateurl5086
+Node: _{g}H 3^{rd}5212
+Node: <http://somewhere_aaa> text (url) ls5351
 
 End Tag Table
 

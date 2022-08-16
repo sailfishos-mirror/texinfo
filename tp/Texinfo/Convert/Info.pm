@@ -44,6 +44,10 @@ $defaults{'FORMAT_MENU'} = 'menu';
 $defaults{'EXTENSION'} = 'info';
 $defaults{'USE_SETFILENAME_EXTENSION'} = 1;
 $defaults{'OUTFILE'} = undef;
+# in the Emacs Info reader and in old readers, DEL character will appear,
+# but the node names are problematic in those readers, so it is not
+# such an issue to have them marked that way.
+$defaults{'INFO_SPECIAL_CHARS_QUOTE'} = 1;
 # set as default independently of INFO_SPECIAL_CHARS_QUOTE as long
 # as the Emacs Info reader does not support node names quoting.
 $defaults{'INFO_SPECIAL_CHARS_WARNING'} = 1;

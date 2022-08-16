@@ -68,6 +68,7 @@ See the manual for detailed information.
      . ENABLE_ENCODING_USE_ENTITY variable removed.  former effect is now
        always off.
  . info output
+     . quote problematic node names (with :, comma...) in the default case
      . new customization variable ASCII_PUNCTUATION to use plain ASCII
        characters for quotation marks and a few other symbols
 

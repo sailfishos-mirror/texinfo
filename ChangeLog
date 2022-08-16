@@ -1,3 +1,15 @@
+2022-08-15  Patrice Dumas  <pertusus@free.fr>
+
+	Quote problematic node names in Info in the default case
+
+	* NEWS, doc/texinfo.texi (Node Line Requirements),
+	tp/Texinfo/Convert/Info.pm (%defaults),
+	doc/tp_api/Makefile.am (AM_MAKEINFOFLAGS): set INFO_SPECIAL_CHARS_QUOTE
+	in the default case in Info to quote problematic node names.  In the Emacs
+	Info reader and in old readers, DEL character will appear, but the node
+	names are problematic in those readers, so it is not such an issue to have
+	them marked that way.
+
 2022-08-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Cross Reference Parts): Remove examples

@@ -1107,27 +1107,29 @@ File: ,  Node: Top,  Next: nodename. a,  Up: (dir)
 
 * Menu:
 
-* truc:: nodename. a
-* machin: node,comma, def
-* bidule:::
+* truc:: nodename. a
+
+* machin: node,comma, def
+* bidule:::
 
 
 File: ,  Node: nodename. a,  Next: node,comma,  Prev: Top,  Up: Top
 
 
-File: ,  Node: node,comma,  Next: bidule:,  Prev: nodename. a,  Up: Top
+File: ,  Node: node,comma,  Next: bidule:,  Prev: nodename. a,  Up: Top
 
 
 File: ,  Node: bidule:,  Prev: node,comma,  Up: Top
 
-*note truc:: nodename. a.  *note machin: node,comma.  *note bidule:::.
+*note truc:: nodename. a.  *note machin: node,comma.  *note
+bidule:::.
 
 
 Tag Table:
 Node: Top27
-Node: nodename. a150
-Node: node,comma221
-Node: bidule:296
+Node: nodename. a151
+Node: node,comma222
+Node: bidule:299
 
 End Tag Table
 

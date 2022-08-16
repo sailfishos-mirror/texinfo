@@ -4784,7 +4784,7 @@ Menu comment
    (1) in footnote
 
 
-File: formatting.info,  Node: s--ect,ion,  Up: chapter
+File: formatting.info,  Node: s--ect,ion,  Up: chapter
 
 1.1 A section
 =============
@@ -4852,11 +4852,11 @@ Node: Top310
 Node: chapter1392
 Ref: chapter-Footnote-11626
 Node: s--ect,ion1646
-Node: subsection1847
-Ref: anchor2026
-Node: subsubsection ``simple-double--2026
-Node: subsubsection three---four----\'\'2230
-Node: chapter22404
+Node: subsection1849
+Ref: anchor2028
+Node: subsubsection ``simple-double--2028
+Node: subsubsection three---four----\'\'2232
+Node: chapter22406
 
 End Tag Table
 
