@@ -2283,7 +2283,7 @@ $result_converted{'xml'}->{'some_at_commands_in_ref_nodes'} = '
 $result_converted{'docbook'}->{'some_at_commands_in_ref_nodes'} = '<chapter label="1" id="A-SC-_00d1-_00c5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1">
 <title>A SC node &#239; &#239; &#274;&#768; &#322; &#262;&#807; &#161;</title>
 
-<para>see .
+<para>see section &#8220;a <emphasis role="bold">strong</emphasis> ref with SC&#44; a i trema &#239;&#44; a dotless i trema &#239; &#274;&#768; and exclamdown &#161;&#8221; in <filename>manual</filename>.
 </para>
 <para>See <link linkend="A-SC-_00d1-_00c5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1">A SC &#209; &#197; &tex; node &#239; &#239; &#274;&#768; &#322; &#262;&#807; &#161;</link>.
 </para></chapter>

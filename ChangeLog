@@ -1,5 +1,10 @@
 2022-08-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_convert): output something to refer
+	to a manual without book title.
+
+2022-08-16  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (@code{@@chapter}): use consistent chapter name
 	in example.
 

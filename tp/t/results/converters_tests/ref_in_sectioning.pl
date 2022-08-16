@@ -2937,7 +2937,7 @@ $result_converted{'docbook'}->{'ref_in_sectioning'} = '<chapter label="1" id="no
 
 </sect1>
 <sect1 label="2.4">
-<title> code node, file name</title>
+<title>section &#8220;<literal>node</literal>&#8221; in <filename>file name</filename> code node, file name</title>
 
 </sect1>
 <sect1 label="2.5">
@@ -2953,7 +2953,7 @@ $result_converted{'docbook'}->{'ref_in_sectioning'} = '<chapter label="1" id="no
 
 </sect1>
 <sect1 label="2.8">
-<title> no node just file name</title>
+<title><filename>file name</filename> no node just file name</title>
 
 </sect1>
 <sect1 label="2.9">
@@ -2961,19 +2961,19 @@ $result_converted{'docbook'}->{'ref_in_sectioning'} = '<chapter label="1" id="no
 
 </sect1>
 <sect1 label="2.10">
-<title>() pxref Top file name, spaces</title>
+<title>(see section &#8220;Top&#8221; in <filename>file name</filename>) pxref Top file name, spaces</title>
 
 </sect1>
 <sect1 label="2.11">
-<title>() pxref file name only, spaces</title>
+<title>(see <filename>file name</filename>) pxref file name only, spaces</title>
 
 </sect1>
 <sect1 label="2.12">
-<title>, xref Top filename only, no spaces</title>
+<title>See section &#8220;Top&#8221; in <filename>filename</filename>, xref Top filename only, no spaces</title>
 
 </sect1>
 <sect1 label="2.13">
-<title>. xref filename only, no spaces</title>
+<title>See <filename>filename</filename>. xref filename only, no spaces</title>
 
 </sect1>
 </chapter>

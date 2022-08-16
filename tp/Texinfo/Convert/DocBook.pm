@@ -1110,8 +1110,7 @@ sub _convert($$;$)
             }
 
             # external ref
-            if ($book_contents or $manual_file_contents) {
-              return '' if (!$book_contents);
+            if ($book_contents) {
               if ($section_name_contents) {
                 if ($element->{'cmdname'} eq 'ref') {
                   return $self->_convert(
@@ -1142,6 +1141,39 @@ sub _convert($$;$)
                   return $self->_convert(
                     $self->gdt('see @cite{{book}}',
                       {'book' => $book_contents }));
+                }
+              }
+            } elsif ($manual_file_contents) {
+              if ($section_name_contents) {
+                if ($element->{'cmdname'} eq 'ref') {
+                  return $self->_convert(
+                    $self->gdt('section ``{section_name}\'\' in @file{{manual}}',
+                      { 'section_name' => {'contents' => $section_name_contents},
+                        'manual' => $manual_file_contents }));
+                } elsif ($element->{'cmdname'} eq 'xref') {
+                  return $self->_convert(
+                    $self->gdt('See section ``{section_name}\'\' in @file{{manual}}',
+                      { 'section_name' => {'contents' => $section_name_contents},
+                        'manual' => $manual_file_contents }));
+                } elsif ($element->{'cmdname'} eq 'pxref') {
+                  return $self->_convert(
+                    $self->gdt('see section ``{section_name}\'\' in @file{{manual}}',
+                      { 'section_name' => {'contents' => $section_name_contents},
+                        'manual' => $manual_file_contents }));
+                }
+              } else {
+                if ($element->{'cmdname'} eq 'ref') {
+                  return $self->_convert(
+                    $self->gdt('@file{{manual}}',
+                      {'manual' => $manual_file_contents }));
+                } elsif ($element->{'cmdname'} eq 'xref') {
+                  return $self->_convert(
+                    $self->gdt('See @file{{manual}}',
+                      {'manual' => $manual_file_contents }));
+                } elsif ($element->{'cmdname'} eq 'pxref') {
+                  return $self->_convert(
+                    $self->gdt('see @file{{manual}}',
+                      {'manual' => $manual_file_contents }));
                 }
               }
             } else {
