@@ -2197,7 +2197,7 @@ sub _convert($$)
             shift @{$self->{'current_contents'}->[-1]};
           }
 
-          $node_text =~ s/^(\s*)/$1$pre_quote/;
+          $node_text =~ s/(^(\s*$maybe_file\s*))/$1$pre_quote/;
           _count_added($self,$self->{'formatters'}[-1]{'container'},
                        $pre_quote);
         }

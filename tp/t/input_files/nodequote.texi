@@ -16,6 +16,16 @@
 
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA @xref{blah:blah}.)
 
+@xref{x:y::z,,,man_ual,Book Title}
+
+@xref{x.y.z,,,man_ual,Book Title}
+
+@xref{pp:qq::rr,, label, man_ual,Book Title}
+
+@xref{pp:qq.rr,, label, man_ual,Book Title}
+
+
+
 @menu
 * blah@asis{:}blah::
 * the topic:blumpty@asis{.}fump.

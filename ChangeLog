@@ -1,3 +1,12 @@
+2022-08-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Correct quoting of nodename with manual part
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert) <DEL quote>:
+	When inserting pre-quote, use saved manual part as a prefix to
+	avoid quote character appearing before the manual part.
+	* tp/t/plaintext_tests.t (quote_node_names): Add examples.
+
 2022-08-15  Patrice Dumas  <pertusus@free.fr>
 
 	Quote problematic node names in Info in the default case
