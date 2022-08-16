@@ -1,3 +1,19 @@
+2022-08-16  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (Node Line Requirements, Menu Parts)
+	(Two Arguments, Three Arguments, @code{@@anchor})
+	(Info Format Regular Nodes): add an anchor for
+	'Info Node Names Constraints'.  Refer to labels in addition to
+	node names in the text in 'Node Line Requirements'.
+	Update texts referring to constraints in node names to refer to
+	that anchor for all the information on that subject.
+
+	(Info Format Regular Nodes): do not refer to @@-commands, it is
+	confusing in the context of the Info format.
+
+	(Info Format Printindex): refer to the menu and not to the node.
+
+
 2022-08-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Info Format Cross Reference):
@@ -20,7 +36,7 @@
 	Merge initial node "References" into chapter introduction.
 	Move advice on linear manual structure to "Tips".
 
-2022-08-15  Patrice Dumas  <pertusus@free.fr>
+2022-08-16  Patrice Dumas  <pertusus@free.fr>
 
 	Protect node names with comma in node pointers
 
@@ -44,7 +60,7 @@
 	avoid quote character appearing before the manual part.
 	* tp/t/plaintext_tests.t (quote_node_names): Add examples.
 
-2022-08-15  Patrice Dumas  <pertusus@free.fr>
+2022-08-16  Patrice Dumas  <pertusus@free.fr>
 
 	Quote problematic node names in Info in the default case
 
