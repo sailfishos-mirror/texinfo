@@ -972,6 +972,11 @@ In top node
 In chap1.
 
 ',{},{'SPLIT_SIZE' => 10}],
+['quote_node_names_info',
+undef, {'test_file' => 'nodequote.texi',},
+{'INFO_SPECIAL_CHARS_QUOTE' => 1,
+ 'INFO_SPECIAL_CHARS_WARNING' => 0,}
+],
 );
 
 my $colons_in_index_entries_and_node = 

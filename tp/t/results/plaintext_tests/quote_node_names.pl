@@ -147,7 +147,7 @@ $result_trees{'quote_node_names'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'nodequote.texi',
-                    'line_nr' => 45,
+                    'line_nr' => 50,
                     'macro' => ''
                   }
                 },
@@ -297,7 +297,7 @@ $result_trees{'quote_node_names'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'nodequote.texi',
-                    'line_nr' => 37,
+                    'line_nr' => 42,
                     'macro' => ''
                   }
                 },
@@ -447,7 +447,7 @@ $result_trees{'quote_node_names'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'nodequote.texi',
-                    'line_nr' => 42,
+                    'line_nr' => 47,
                     'macro' => ''
                   }
                 },
@@ -564,7 +564,7 @@ $result_trees{'quote_node_names'} = {
             },
             {
               'parent' => {},
-              'text' => '
+              'text' => '.
 '
             }
           ],
@@ -635,7 +635,7 @@ $result_trees{'quote_node_names'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => 'nodequote.texi',
-                            'line_nr' => 48,
+                            'line_nr' => 53,
                             'macro' => ''
                           }
                         }
@@ -668,7 +668,7 @@ $result_trees{'quote_node_names'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'nodequote.texi',
-                    'line_nr' => 48,
+                    'line_nr' => 53,
                     'macro' => ''
                   }
                 },
@@ -688,7 +688,7 @@ $result_trees{'quote_node_names'} = {
             },
             {
               'parent' => {},
-              'text' => '
+              'text' => '.
 '
             }
           ],
@@ -816,7 +816,7 @@ $result_trees{'quote_node_names'} = {
             },
             {
               'parent' => {},
-              'text' => '
+              'text' => '.
 '
             }
           ],
@@ -892,7 +892,7 @@ $result_trees{'quote_node_names'} = {
             },
             {
               'parent' => {},
-              'text' => '
+              'text' => '.
 '
             }
           ],
@@ -979,7 +979,7 @@ $result_trees{'quote_node_names'} = {
             },
             {
               'parent' => {},
-              'text' => '
+              'text' => '.
 '
             }
           ],
@@ -1066,7 +1066,7 @@ $result_trees{'quote_node_names'} = {
             },
             {
               'parent' => {},
-              'text' => '
+              'text' => '.
 '
             }
           ],
@@ -1080,10 +1080,268 @@ $result_trees{'quote_node_names'} = {
           'type' => 'empty_line'
         },
         {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'ext'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'label'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'man:u.al'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'Book Title'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'xref',
+              'contents' => [],
+              'extra' => {
+                'node_argument' => {
+                  'node_content' => [
+                    {}
+                  ]
+                }
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'nodequote.texi',
+                'line_nr' => 27,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
           'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'e:x.t'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'label'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'man:u.al'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'Book Title'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'xref',
+              'contents' => [],
+              'extra' => {
+                'node_argument' => {
+                  'node_content' => [
+                    {}
+                  ]
+                }
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'nodequote.texi',
+                'line_nr' => 29,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'ext'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'la:bel'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'man:u.al'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'Book Title'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'xref',
+              'contents' => [],
+              'extra' => {
+                'node_argument' => {
+                  'node_content' => [
+                    {}
+                  ]
+                }
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'nodequote.texi',
+                'line_nr' => 31,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
@@ -1134,7 +1392,7 @@ $result_trees{'quote_node_names'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'nodequote.texi',
-                        'line_nr' => 30,
+                        'line_nr' => 34,
                         'macro' => ''
                       }
                     },
@@ -1183,7 +1441,7 @@ $result_trees{'quote_node_names'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 30,
+                'line_nr' => 34,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -1234,7 +1492,7 @@ $result_trees{'quote_node_names'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'nodequote.texi',
-                        'line_nr' => 31,
+                        'line_nr' => 35,
                         'macro' => ''
                       }
                     },
@@ -1284,7 +1542,7 @@ $result_trees{'quote_node_names'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 31,
+                'line_nr' => 35,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -1341,7 +1599,7 @@ $result_trees{'quote_node_names'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 32,
+                'line_nr' => 36,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -1377,7 +1635,7 @@ $result_trees{'quote_node_names'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'nodequote.texi',
-                        'line_nr' => 33,
+                        'line_nr' => 37,
                         'macro' => ''
                       }
                     },
@@ -1414,7 +1672,7 @@ $result_trees{'quote_node_names'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'nodequote.texi',
-                        'line_nr' => 33,
+                        'line_nr' => 37,
                         'macro' => ''
                       }
                     }
@@ -1458,7 +1716,70 @@ $result_trees{'quote_node_names'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 33,
+                'line_nr' => 37,
+                'macro' => ''
+              },
+              'type' => 'menu_entry'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => '* ',
+                  'type' => 'menu_entry_leading_text'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => '(man'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'menu_entry_name'
+                },
+                {
+                  'parent' => {},
+                  'text' => ':',
+                  'type' => 'menu_entry_separator'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'u.al)ext::'
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'space_at_end_menu_node'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'menu_entry_node'
+                },
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'menu_entry_description'
+                }
+              ],
+              'extra' => {
+                'menu_entry_description' => {},
+                'menu_entry_name' => {},
+                'menu_entry_node' => {
+                  'node_content' => [
+                    {},
+                    {}
+                  ],
+                  'normalized' => 'u_002eal_0029ext_003a_003a'
+                }
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'nodequote.texi',
+                'line_nr' => 38,
                 'macro' => ''
               },
               'type' => 'menu_entry'
@@ -1507,7 +1828,7 @@ $result_trees{'quote_node_names'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 35,
+                'line_nr' => 40,
                 'macro' => ''
               }
             }
@@ -1518,7 +1839,7 @@ $result_trees{'quote_node_names'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => 'nodequote.texi',
-            'line_nr' => 29,
+            'line_nr' => 33,
             'macro' => ''
           }
         },
@@ -1587,7 +1908,7 @@ $result_trees{'quote_node_names'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 38,
+        'line_nr' => 43,
         'macro' => ''
       }
     },
@@ -1624,7 +1945,7 @@ $result_trees{'quote_node_names'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 43,
+        'line_nr' => 48,
         'macro' => ''
       }
     },
@@ -1661,7 +1982,7 @@ $result_trees{'quote_node_names'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 46,
+        'line_nr' => 51,
         'macro' => ''
       }
     },
@@ -1688,7 +2009,7 @@ $result_trees{'quote_node_names'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => 'nodequote.texi',
-                'line_nr' => 49,
+                'line_nr' => 54,
                 'macro' => ''
               }
             }
@@ -1716,7 +2037,7 @@ $result_trees{'quote_node_names'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 49,
+        'line_nr' => 54,
         'macro' => ''
       }
     },
@@ -1729,9 +2050,124 @@ $result_trees{'quote_node_names'} = {
               'text' => 'top secret node'
             }
           ],
+          'parent' => {},
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '('
+            },
+            {
+              'parent' => {},
+              'text' => 'man'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'comma',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'nodequote.texi',
+                'line_nr' => 56,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => 'u:a.l'
+            },
+            {
+              'parent' => {},
+              'text' => ')'
+            },
+            {
+              'parent' => {},
+              'text' => 'direction'
+            }
+          ],
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '('
+            },
+            {
+              'parent' => {},
+              'text' => 'man_ual'
+            },
+            {
+              'parent' => {},
+              'text' => ')'
+            },
+            {
+              'parent' => {},
+              'text' => 'direct'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'comma',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'nodequote.texi',
+                'line_nr' => 56,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => 'ion'
+            }
+          ],
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '('
+            },
+            {
+              'parent' => {},
+              'text' => 'man_ual'
+            },
+            {
+              'parent' => {},
+              'text' => ')'
+            },
+            {
+              'parent' => {},
+              'text' => 'direct::i.on'
+            }
+          ],
           'extra' => {
             'spaces_after_argument' => '
-'
+',
+            'spaces_before_argument' => ' '
           },
           'parent' => {},
           'type' => 'line_arg'
@@ -1767,6 +2203,37 @@ $result_trees{'quote_node_names'} = {
               {}
             ],
             'normalized' => 'top-secret-node'
+          },
+          {
+            'manual_content' => [
+              {},
+              {},
+              {}
+            ],
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'direction'
+          },
+          {
+            'manual_content' => [
+              {}
+            ],
+            'node_content' => [
+              {},
+              {},
+              {}
+            ],
+            'normalized' => 'direct_002cion'
+          },
+          {
+            'manual_content' => [
+              {}
+            ],
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'direct_003a_003ai_002eon'
           }
         ],
         'normalized' => 'top-secret-node',
@@ -1775,7 +2242,7 @@ $result_trees{'quote_node_names'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => 'nodequote.texi',
-        'line_nr' => 51,
+        'line_nr' => 56,
         'macro' => ''
       }
     }
@@ -1944,85 +2411,138 @@ $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[19]{'contents'}[0]{
 $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[19]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[19];
 $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[19]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2];
 $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[20]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'args'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'args'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'args'}[4];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'args'}[4]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21];
 $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[21]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2];
 $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[22]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'extra'}{'command'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'args'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'args'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'args'}[4];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'args'}[4]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[1]{'contents'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[1]{'contents'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[3]{'contents'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[3];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[3];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[1] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[1]{'contents'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[2] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'args'}[1]{'contents'}[2];
 $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[3];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[3]{'contents'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[3]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[3];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[3]{'contents'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[3];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[4]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[5]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[5]{'contents'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[5]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[5];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[5]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'extra'}{'menu_entry_description'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[5];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'extra'}{'menu_entry_name'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[3]{'contents'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'extra'}{'menu_entry_node'}{'node_content'}[1] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[3]{'contents'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'extra'}{'menu_entry_node'}{'node_content'}[2] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'args'}[3]{'contents'}[2];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'args'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'args'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'args'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'args'}[3]{'contents'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'args'}[3];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'args'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'extra'}{'menu_entry_description'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'args'}[3];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'args'}[1]{'contents'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[1]{'contents'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[1]{'contents'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[3]{'contents'}[0]{'args'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[3]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[3]{'contents'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[3];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[4]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[5]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[5]{'contents'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[5]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[5];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[5]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'extra'}{'menu_entry_description'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[5];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'extra'}{'menu_entry_name'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[1];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'args'}[3]{'contents'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[4]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[5]{'contents'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[5];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[5]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[6]{'args'}[0];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[6];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[6]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'extra'}{'end_command'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'contents'}[6];
 $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[23]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2];
 $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[24]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'args'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'args'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'args'}[4];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'args'}[4]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[25]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[26]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[0]{'extra'}{'command'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[1]{'contents'}[1]{'args'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[1]{'contents'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[1]{'contents'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[3]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[1] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[1]{'contents'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[2] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'args'}[1]{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[3]{'contents'}[1]{'args'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[3]{'contents'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[3]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[3]{'contents'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[4]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[5]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[5]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[5]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[5];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[5]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'extra'}{'menu_entry_description'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[5];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'extra'}{'menu_entry_name'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[3]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'extra'}{'menu_entry_node'}{'node_content'}[1] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[3]{'contents'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'extra'}{'menu_entry_node'}{'node_content'}[2] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[3]{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'args'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'args'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'args'}[3]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'args'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'extra'}{'menu_entry_description'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'args'}[1]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[1]{'contents'}[1]{'args'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[1]{'contents'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[1]{'contents'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[3]{'contents'}[0]{'args'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[3]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[3]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[4]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[5]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[5]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[5]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[5];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[5]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'extra'}{'menu_entry_description'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[5];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'extra'}{'menu_entry_name'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'args'}[3]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[4]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[3]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[4]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'extra'}{'menu_entry_description'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[4];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'extra'}{'menu_entry_name'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[3]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'extra'}{'menu_entry_node'}{'node_content'}[1] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'args'}[3]{'contents'}[1];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[6]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[6];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[6]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[7]{'args'}[0];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[7];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[7]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'extra'}{'end_command'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[7];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[28]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2];
 $result_trees{'quote_node_names'}{'contents'}[2]{'parent'} = $result_trees{'quote_node_names'};
 $result_trees{'quote_node_names'}{'contents'}[3] = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'label'};
 $result_trees{'quote_node_names'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[4]{'args'}[0];
@@ -2051,11 +2571,42 @@ $result_trees{'quote_node_names'}{'contents'}[10]{'contents'}[0]{'parent'} = $re
 $result_trees{'quote_node_names'}{'contents'}[10]{'parent'} = $result_trees{'quote_node_names'};
 $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[0];
 $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1]{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1]{'contents'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1]{'contents'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1]{'contents'}[4]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1]{'contents'}[5]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2]{'contents'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2]{'contents'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2]{'contents'}[4];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2]{'contents'}[4]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2]{'contents'}[5]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[3]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[3]{'contents'}[2]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[3]{'contents'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[3];
+$result_trees{'quote_node_names'}{'contents'}[11]{'args'}[3]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11];
 $result_trees{'quote_node_names'}{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11];
 $result_trees{'quote_node_names'}{'contents'}[11]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11]{'contents'}[1];
 $result_trees{'quote_node_names'}{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[11];
 $result_trees{'quote_node_names'}{'contents'}[11]{'extra'}{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[0]{'contents'}[0];
 $result_trees{'quote_node_names'}{'contents'}[11]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[0]{'contents'}[0];
+$result_trees{'quote_node_names'}{'contents'}[11]{'extra'}{'nodes_manuals'}[1]{'manual_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1]{'contents'}[1];
+$result_trees{'quote_node_names'}{'contents'}[11]{'extra'}{'nodes_manuals'}[1]{'manual_content'}[1] = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1]{'contents'}[2];
+$result_trees{'quote_node_names'}{'contents'}[11]{'extra'}{'nodes_manuals'}[1]{'manual_content'}[2] = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1]{'contents'}[3];
+$result_trees{'quote_node_names'}{'contents'}[11]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[1]{'contents'}[5];
+$result_trees{'quote_node_names'}{'contents'}[11]{'extra'}{'nodes_manuals'}[2]{'manual_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2]{'contents'}[1];
+$result_trees{'quote_node_names'}{'contents'}[11]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2]{'contents'}[3];
+$result_trees{'quote_node_names'}{'contents'}[11]{'extra'}{'nodes_manuals'}[2]{'node_content'}[1] = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2]{'contents'}[4];
+$result_trees{'quote_node_names'}{'contents'}[11]{'extra'}{'nodes_manuals'}[2]{'node_content'}[2] = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[2]{'contents'}[5];
+$result_trees{'quote_node_names'}{'contents'}[11]{'extra'}{'nodes_manuals'}[3]{'manual_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[3]{'contents'}[1];
+$result_trees{'quote_node_names'}{'contents'}[11]{'extra'}{'nodes_manuals'}[3]{'node_content'}[0] = $result_trees{'quote_node_names'}{'contents'}[11]{'args'}[3]{'contents'}[3];
 $result_trees{'quote_node_names'}{'contents'}[11]{'parent'} = $result_trees{'quote_node_names'};
 
 $result_texis{'quote_node_names'} = '@node Top
@@ -2070,27 +2621,32 @@ $result_texis{'quote_node_names'} = '@node Top
 @xref{blumpty.fump, the::caption and a word}
 @xref{blumpty.fump, the::caption}.mrmrmrmmrmrmr
 
-@xref{blah:blah}
+@xref{blah:blah}.
 
-@xref{@asis{secret,node}}
+@xref{@asis{secret,node}}.
 
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA @xref{blah:blah}.)
 
-@xref{x:y::z,,,man_ual,Book Title}
+@xref{x:y::z,,,man_ual,Book Title}.
 
-@xref{x.y.z,,,man_ual,Book Title}
+@xref{x.y.z,,,man_ual,Book Title}.
 
-@xref{pp:qq::rr,, label, man_ual,Book Title}
+@xref{pp:qq::rr,, label, man_ual,Book Title}.
 
-@xref{pp:qq.rr,, label, man_ual,Book Title}
+@xref{pp:qq.rr,, label, man_ual,Book Title}.
 
+@xref{ext,, label, man:u.al, Book Title}.
 
+@xref{e:x.t,, label, man:u.al, Book Title}.
+
+@xref{ext,, la:bel, man:u.al, Book Title}.
 
 @menu
 * blah@asis{:}blah::
 * the topic:blumpty@asis{.}fump.
 * normal node::
 * funny@asis{:}label:@asis{secret,node}.
+* (man:u.al)ext::
 
 @end menu
 
@@ -2108,7 +2664,7 @@ stuff here.
 @node @asis{secret,node}
 @chapter @asis{secret,node}
 
-@node top secret node
+@node top secret node, (man@comma{}u:a.l)direction, (man_ual)direct@comma{}ion, (man_ual)direct::i.on
 
 stuff here.
 ';
@@ -2124,26 +2680,31 @@ blah:blah
 blumpty.fump
 blumpty.fump.mrmrmrmmrmrmr
 
-blah:blah
+blah:blah.
 
-secret,node
+secret,node.
 
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA blah:blah.)
 
-x:y::z
+x:y::z.
 
-x.y.z
+x.y.z.
 
-pp:qq::rr
+pp:qq::rr.
 
-pp:qq.rr
+pp:qq.rr.
 
+ext.
 
+e:x.t.
+
+ext.
 
 * blah:blah::
 * the topic:blumpty.fump.
 * normal node::
 * funny:label:secret,node.
+* (man:u.al)ext::
 
 
 1 blah:blah
@@ -2455,7 +3016,7 @@ $result_errors{'quote_node_names'} = [
     'error_line' => 'warning: @menu entry node name `blah@asis{:}blah\' different from node name `blah:blah\'
 ',
     'file_name' => 'nodequote.texi',
-    'line_nr' => 30,
+    'line_nr' => 34,
     'macro' => '',
     'text' => '@menu entry node name `blah@asis{:}blah\' different from node name `blah:blah\'',
     'type' => 'warning'
@@ -2464,16 +3025,27 @@ $result_errors{'quote_node_names'} = [
     'error_line' => 'warning: @menu entry node name `blumpty@asis{.}fump\' different from node name `blumpty.fump\'
 ',
     'file_name' => 'nodequote.texi',
-    'line_nr' => 31,
+    'line_nr' => 35,
     'macro' => '',
     'text' => '@menu entry node name `blumpty@asis{.}fump\' different from node name `blumpty.fump\'',
     'type' => 'warning'
   },
   {
+    'error_line' => '@menu reference to nonexistent node `u.al)ext::
+\'
+',
+    'file_name' => 'nodequote.texi',
+    'line_nr' => 38,
+    'macro' => '',
+    'text' => '@menu reference to nonexistent node `u.al)ext::
+\'',
+    'type' => 'error'
+  },
+  {
     'error_line' => 'warning: node `top secret node\' unreferenced
 ',
     'file_name' => 'nodequote.texi',
-    'line_nr' => 51,
+    'line_nr' => 56,
     'macro' => '',
     'text' => 'node `top secret node\' unreferenced',
     'type' => 'warning'
@@ -2526,24 +3098,6 @@ $result_converted_errors{'file_plaintext'}->{'quote_node_names'} = [
 ',
     'file_name' => 'nodequote.texi',
     'line_nr' => 10,
-    'macro' => '',
-    'text' => '`.\' or `,\' must follow @xref',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref
-',
-    'file_name' => 'nodequote.texi',
-    'line_nr' => 23,
-    'macro' => '',
-    'text' => '`.\' or `,\' must follow @xref',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref
-',
-    'file_name' => 'nodequote.texi',
-    'line_nr' => 25,
     'macro' => '',
     'text' => '`.\' or `,\' must follow @xref',
     'type' => 'warning'
