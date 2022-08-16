@@ -1,5 +1,11 @@
 2022-08-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@xref): Raise level of subsections and
+	move remainder of section before the sections for the other
+	ref commands.
+
+2022-08-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Correct quoting of nodename with manual part
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert) <DEL quote>:
