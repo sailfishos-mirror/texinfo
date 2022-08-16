@@ -1,5 +1,15 @@
 2022-08-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Cross References Parts, Four and Five Arguments):
+	Refer to manual argument as "manual name" rather than
+	"Info file name".
+	(Cross References Parts): Remove unnecessary text about
+	required arguments for referring to another manual.
+	(@pxref): Remove unnecessary example of using @pxref with two
+	arguments.
+
+2022-08-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Cross References, References, Tips):
 	Merge initial node "References" into chapter introduction.
 	Move advice on linear manual structure to "Tips".

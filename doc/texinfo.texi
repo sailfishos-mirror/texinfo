@@ -4365,25 +4365,21 @@ this:
 @example
 @group
 @@xref@{@var{node-name}, @var{online-label}, @var{printed-label},
-@var{info-file-name}, @var{printed-manual-title}@}
+@var{manual-name}, @var{printed-manual-title}@}
 @end group
 @end example
-
-To refer to another manual as a whole, the manual file and/or the name
-of the printed manual are the only required arguments (@pxref{Referring
-to a Manual as a Whole}).
 
 The five possible arguments for a cross-reference are:
 
 @enumerate
 @item
-The node or anchor name (required, except for reference to whole
-manuals).  This is the location to which the cross-reference takes
-you.  In a printed document, the location of the node provides the
+The node or anchor name.  This is the location to which the cross-reference
+takes you.  In a printed document, the location of the node provides the
 page reference only for references within the same document.
 Use @code{@@node} to define the node (@pxref{Writing a Node}),
 @code{@@anchor} (@pxref{@code{@@anchor}}), or @code{@@float}
 (@pxref{@code{@@float}}) with a label.
+This argument is required (except for reference to whole manuals).
 
 Write a node name in a cross-reference in exactly the same way as in
 the @code{@@node} line, including the same capitalization; otherwise, the
@@ -4400,8 +4396,8 @@ section.  This is used as the name of the reference in the printed
 manual.  If omitted, the node name is used.
 
 @item
-The name of the manual file in which the reference is located, if it is
-different from the current file.  This name is used both for Info and
+The name of the manual to which the reference refers, if it is
+outside the current manual.  This name is used both for Info and
 HTML.
 
 @item
@@ -4413,7 +4409,7 @@ ignored.  To include a comma in one of the arguments, use
 @code{@@comma@{@}} (@pxref{Inserting a Comma}).
 
 Cross-references with one, two, three, four, and five arguments are
-described separately in this chapter.
+described separately in following sections.
 
 @cindex Comma after cross-reference
 When processing with TeX, a comma is automatically inserted after the
@@ -4647,7 +4643,7 @@ The full template is:
 @example
 @group
 @@xref@{@var{node-name}, @var{online-label}, @var{printed-label},
-@var{info-file-name}, @var{printed-manual-title}@}.
+@var{manual-name}, @var{printed-manual-title}@}.
 @end group
 @end example
 
@@ -4668,7 +4664,7 @@ produces this output in Info:
 @end example
 
 @noindent
-As you can see, the name of the Info file is enclosed in parentheses
+As you can see, the name of the manual is enclosed in parentheses
 and precedes the name of the node.
 
 @noindent
@@ -4942,32 +4938,6 @@ in Info and
 
 @noindent
 in a printed manual.
-
-With two arguments, a parenthetical cross-reference has this template:
-
-@example
-@dots{} (@@pxref@{@var{node-name}, @var{cross-reference-name}@}) @dots{}
-@end example
-
-@noindent
-which produces
-
-@example
-@dots{} (*note @var{cross-reference-name}: @var{node-name}.) @dots{}
-@end example
-
-@noindent
-in Info and
-
-@quotation
-@dots{} (see Section @var{nnn} [@var{node-name}], page @var{ppp}) @dots{}
-@end quotation
-
-@noindent
-in a printed manual.
-
-@code{@@pxref} can be used with up to five arguments, just like
-@code{@@xref} (@pxref{@code{@@xref}}).
 
 In past versions of Texinfo, it was not allowed to write punctuation
 after a @code{@@pxref}, so it could be used @emph{only} before a
