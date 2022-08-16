@@ -2130,7 +2130,8 @@ my @docbook_tests_info_tests = ('character_and_spaces_in_refs',
   'section_chapter_before_top_nodes', 'top_node_part_top',
   'top_without_node_sections', 'double_node_anchor_float');
 
-my @latex_tests_info_tests = ('chapter_between_nodes',
+my @latex_tests_info_tests = ('character_and_spaces_in_refs',
+  'chapter_between_nodes',
   'section_before_after_top_node_last_node',
   'section_before_after_top_node',
   'section_chapter_before_top_nodes', 'unnumbered_top_without_node_sections',

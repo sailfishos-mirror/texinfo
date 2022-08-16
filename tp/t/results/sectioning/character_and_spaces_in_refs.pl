@@ -8,7 +8,13 @@ use utf8;
 $result_trees{'character_and_spaces_in_refs'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
+        }
+      ],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -1491,6 +1497,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'character_and_spaces_in_refs'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'character_and_spaces_in_refs'}{'contents'}[0];
 $result_trees{'character_and_spaces_in_refs'}{'contents'}[0]{'parent'} = $result_trees{'character_and_spaces_in_refs'};
 $result_trees{'character_and_spaces_in_refs'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'character_and_spaces_in_refs'}{'contents'}[1]{'args'}[0];
 $result_trees{'character_and_spaces_in_refs'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'character_and_spaces_in_refs'}{'contents'}[1];
@@ -2214,6 +2221,37 @@ $result_converted{'docbook'}->{'character_and_spaces_in_refs'} = '<anchor id="no
 <anchor id="_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e"/>
 
 <anchor id="local-node"/>
+
+';
+
+
+$result_converted{'latex'}->{'character_and_spaces_in_refs'} = '\\begin{document}
+\\label{anchor:Top}%
+\\label{anchor:node-to-avoid-DocBook-or-LaTeX-Top-ignored}%
+\\GNUTexinfonopagebreakheading{\\subsection*}{{Testing distant nodes}}
+
+Section ``a  node\'\' in \\texttt{manual}
+Section ``:\'\' in \\texttt{manual}
+Section ``top\'\' in \\texttt{manual}
+(texinfo)Cross References
+Section ``node\'\' in \\texttt{../manual/doc}
+
+\\GNUTexinfonopagebreakheading{\\subsection*}{{Testing local nodes}}
+
+\\hyperref[anchor:_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e]{\\chaptername~\\ref*{anchor:_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e} [!\\_"\\#\\$\\%\\&\'()*+-.], page~\\pageref*{anchor:_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}}
+\\hyperref[anchor:_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e]{\\chaptername~\\ref*{anchor:_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e} [/;<=>?[\\textbackslash{}]\\^{}\\_`|\\~{}], page~\\pageref*{anchor:_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}}
+\\hyperref[anchor:Top]{\\chaptername~\\ref*{anchor:Top} [Top], page~\\pageref*{anchor:Top}}
+\\hyperref[anchor:local-node]{\\chaptername~\\ref*{anchor:local-node} [local   node], page~\\pageref*{anchor:local-node}}
+
+\\chapter{{Chapter with nodes}}
+\\label{anchor:other-nodes}%
+
+
+\\label{anchor:_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}%
+
+\\label{anchor:_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}%
+
+\\label{anchor:local-node}%
 
 ';
 
