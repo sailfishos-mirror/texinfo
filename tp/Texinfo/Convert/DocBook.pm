@@ -1077,55 +1077,50 @@ sub _convert($$;$)
                 and @{$element->{'args'}->[3]->{'contents'}}) {
               $manual_file_contents = $element->{'args'}->[3]->{'contents'};
             }
-            my ($section_name_contents, $section_name);
+            my $section_name;
             if (defined($element->{'args'}->[2])
                 and @{$element->{'args'}->[2]->{'contents'}}) {
-              $section_name_contents = $element->{'args'}->[2]->{'contents'};
+              my $section_name_contents = $element->{'args'}->[2]->{'contents'};
               $section_name = $self->_convert(
                      {'contents' => $section_name_contents});
             } elsif (defined($element->{'args'}->[1])
                      and @{$element->{'args'}->[1]->{'contents'}}) {
-              $section_name_contents
+              my $section_name_contents
                 = $element->{'args'}->[1]->{'contents'};
               $section_name = $self->_convert(
                      {'contents' => $section_name_contents});
             } elsif (defined($element->{'args'}->[0])
                      and @{$element->{'args'}->[0]->{'contents'}}) {
-              $section_name_contents
+              my $node_contents
                 = $element->{'args'}->[0]->{'contents'};
               $section_name = $self->_convert(
-                     {'contents' => $section_name_contents});
+                     {'contents' => $node_contents});
 
                if ($book_contents
                    and !$element->{'extra'}->{'node_argument'}->{'manual_content'}) {
                  if ($section_name eq 'Top') {
                    $section_name = undef;
-                   $section_name_contents = undef;
                  }
                }
-               # Note: it would be nice to re-use $section_name instead of
-               # having 'gdt' convert $section_name_contents again, but
-               # there isn't a good way to pass an already-converted string
-               # into 'gdt'.
             }
 
             # external ref
             if ($book_contents) {
-              if ($section_name_contents) {
+              if ($section_name) {
                 if ($element->{'cmdname'} eq 'ref') {
                   return $self->_convert(
                     $self->gdt('section ``{section_name}\'\' in @cite{{book}}',
-                      { 'section_name' => {'contents' => $section_name_contents},
+                      { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                         'book' => $book_contents }));
                 } elsif ($element->{'cmdname'} eq 'xref') {
                   return $self->_convert(
                     $self->gdt('See section ``{section_name}\'\' in @cite{{book}}',
-                      { 'section_name' => {'contents' => $section_name_contents},
+                      { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                         'book' => $book_contents }));
                 } elsif ($element->{'cmdname'} eq 'pxref') {
                   return $self->_convert(
                     $self->gdt('see section ``{section_name}\'\' in @cite{{book}}',
-                      { 'section_name' => {'contents' => $section_name_contents},
+                      { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                         'book' => $book_contents }));
                 }
               } else {
@@ -1144,21 +1139,21 @@ sub _convert($$;$)
                 }
               }
             } elsif ($manual_file_contents) {
-              if ($section_name_contents) {
+              if ($section_name) {
                 if ($element->{'cmdname'} eq 'ref') {
                   return $self->_convert(
                     $self->gdt('section ``{section_name}\'\' in @file{{manual}}',
-                      { 'section_name' => {'contents' => $section_name_contents},
+                      { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                         'manual' => $manual_file_contents }));
                 } elsif ($element->{'cmdname'} eq 'xref') {
                   return $self->_convert(
                     $self->gdt('See section ``{section_name}\'\' in @file{{manual}}',
-                      { 'section_name' => {'contents' => $section_name_contents},
+                      { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                         'manual' => $manual_file_contents }));
                 } elsif ($element->{'cmdname'} eq 'pxref') {
                   return $self->_convert(
                     $self->gdt('see section ``{section_name}\'\' in @file{{manual}}',
-                      { 'section_name' => {'contents' => $section_name_contents},
+                      { 'section_name' => {'type' => '_converted', 'text' => $section_name},
                         'manual' => $manual_file_contents }));
                 }
               } else {
