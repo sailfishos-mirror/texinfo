@@ -1395,11 +1395,13 @@ sub process_printindex($$;$)
       # after menu entry name and also :, as the Info readers
       # should consider text up to : to be part of the index entry.
       if ($node_line =~ /([,\t:]|\.\s)/) {
+        my $warned_char = $1;
         if ($self->{'info_special_chars_warning'}) {
           # Warn only once
           if (! $self->{'index_entry_node_colon'}->{$node_line}) {
-            $self->line_warn($self, __(
-             "node name with index entries should not contain `$1'"),
+            $self->line_warn($self, sprintf(__(
+             "node name with index entries should not contain `%s'"),
+                                            $warned_char),
                            $node->{'source_info'});
           }
           $self->{'index_entry_node_colon'}->{$node_line} = 1;
