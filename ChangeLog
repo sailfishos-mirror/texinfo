@@ -1,3 +1,8 @@
+2022-08-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/tests/README: Advise "make -k check", which runs
+	in subdirectories even if earlier tests fail.
+
 2022-08-16  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (Node Line Requirements, Menu Parts)

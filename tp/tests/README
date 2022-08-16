@@ -1,7 +1,6 @@
 texinfo/tp/tests/README
 
-  Copyright 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018
-  Free Software Foundation, Inc.
+  Copyright 2010-2022 Free Software Foundation, Inc.
 
   Copying and distribution of this README file, with or without
   modification, are permitted in any medium without royalty provided the
@@ -25,7 +24,7 @@ Running the testsuite
 =====================
 This testsuite can be run one of the following ways:
 
-* Using the makefile rules: "make check" (in this directory)
+* Using the makefile rules: "make -k check" (in this directory)
 These tests use the scripts under the test_scripts directory.
 
 * Using ./run_parser_all.sh with the directories one want to run the 
