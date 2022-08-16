@@ -1,5 +1,11 @@
 2022-08-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Info Format Cross Reference):
+	Avoid referring to entity that is no longer in node.  Do not
+	go over examples of problematic characters in node names again.
+
+2022-08-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Cross References Parts, Four and Five Arguments):
 	Refer to manual argument as "manual name" rather than
 	"Info file name".

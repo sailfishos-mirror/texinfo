@@ -24081,12 +24081,11 @@ should usually be terminated with a comma or period, to make it
 feasible to find the end of the @t{<id>}.
 
 If @t{<label>} contains a colon character (@t{:}), it should be
-surrounded with a pair of @t{<del>} characters.  Likewise, if
-@t{<nodename>} contains problematic characters (such as commas or
-periods), it should be surrounded by a pair of @t{<del>} characters;
+surrounded with a pair of @t{<del>} characters.
+Likewise, quoting characters may be used for the node
+name if it contains problematic characters;
 then a terminating comma or period is not needed.
-
-As with node names, this quoting mechanism is not supported in all
+As stated earlier, this quoting mechanism is not supported in all
 Info-reading programs.
 
 The format does not prescribe how to find other manuals to resolve
