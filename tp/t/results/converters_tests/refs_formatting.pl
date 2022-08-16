@@ -4576,10 +4576,10 @@ $result_converted{'docbook'}->{'refs_formatting'} = '<chapter label="1" id="chap
 <literal>@ref{(pman)anode,,title, file name, manual}</literal> section &#8220;title&#8221; in <citetitle>manual</citetitle>
 <literal>@ref{(pman)anode,,,file name,manual}</literal> &#8220;(pman)anode&#8221; in <citetitle>manual</citetitle>
 </para>
-<para><literal>@inforef{chapter, cross ref name, file name}</literal> See Info file <filename>file name</filename>, node &#8216;<literal>chapter</literal>&#8217;
-<literal>@inforef{chapter}</literal> See node &#8216;<literal>chapter</literal>&#8217;
-<literal>@inforef{chapter, cross ref name}</literal> See node &#8216;<literal>chapter</literal>&#8217;
-<literal>@inforef{chapter,,file name}</literal> See Info file <filename>file name</filename>, node &#8216;<literal>chapter</literal>&#8217;
+<para><literal>@inforef{chapter, cross ref name, file name}</literal> See section &#8220;cross ref name&#8221; in <filename>file name</filename>
+<literal>@inforef{chapter}</literal> 
+<literal>@inforef{chapter, cross ref name}</literal> 
+<literal>@inforef{chapter,,file name}</literal> See &#8220;chapter&#8221; in <filename>file name</filename>
 </para></chapter>
 ';
 

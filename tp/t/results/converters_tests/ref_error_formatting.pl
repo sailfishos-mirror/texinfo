@@ -4586,14 +4586,14 @@ $result_converted{'docbook'}->{'ref_error_formatting'} = '
 <literal>@ref{,,,file name,manual}</literal> <citetitle>manual</citetitle>
 </para>
 <para><literal>@inforef{,cross ref name }</literal> 
-<literal>@inforef{,,file name}</literal> See Info file <filename>file name</filename>
-<literal>@inforef{,cross ref name, file name}</literal> See Info file <filename>file name</filename>
+<literal>@inforef{,,file name}</literal> See <filename>file name</filename>
+<literal>@inforef{,cross ref name, file name}</literal> See section &#8220;cross ref name&#8221; in <filename>file name</filename>
 <literal>@inforef{}</literal> 
 </para>
-<para><literal>@inforef{node, cross ref name, file name}</literal> See Info file <filename>file name</filename>, node &#8216;<literal>node</literal>&#8217;
-<literal>@inforef{node}</literal> See node &#8216;<literal>node</literal>&#8217;
-<literal>@inforef{node, cross ref name}</literal> See node &#8216;<literal>node</literal>&#8217;
-<literal>@inforef{node,,file name}</literal> See Info file <filename>file name</filename>, node &#8216;<literal>node</literal>&#8217;
+<para><literal>@inforef{node, cross ref name, file name}</literal> See section &#8220;cross ref name&#8221; in <filename>file name</filename>
+<literal>@inforef{node}</literal> 
+<literal>@inforef{node, cross ref name}</literal> 
+<literal>@inforef{node,,file name}</literal> See &#8220;node&#8221; in <filename>file name</filename>
 </para>';
 
 

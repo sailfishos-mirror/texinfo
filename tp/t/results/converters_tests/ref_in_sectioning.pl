@@ -2957,7 +2957,7 @@ $result_converted{'docbook'}->{'ref_in_sectioning'} = '<chapter label="1" id="no
 
 </sect1>
 <sect1 label="2.9">
-<title>See Info file <filename>c</filename>, node &#8216;<literal>a</literal>&#8217; inforef a b c</title>
+<title>See section &#8220;b&#8221; in <filename>c</filename> inforef a b c</title>
 
 </sect1>
 <sect1 label="2.10">

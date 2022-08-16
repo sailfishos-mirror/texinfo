@@ -1,5 +1,10 @@
 2022-08-16  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_convert): do not format @inforef
+	especially, format similarly with @xref.
+
+2022-08-16  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Cross Reference Parts): update text referring to
 	constraints in node names to refer to 'Info Node Names Constraints'
 	with all the information on that subject being there.
