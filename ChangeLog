@@ -1,5 +1,13 @@
 2022-08-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	@flushleft and @flushright for LaTeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (%LaTeX_environment_commands):
+	Used nested flushleft/GNUTexinfoprefomatted environment for
+	@flushleft; likewise for @flushright.
+
+2022-08-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/tests/README: Advise "make -k check", which runs
 	in subdirectories even if earlier tests fail.
 

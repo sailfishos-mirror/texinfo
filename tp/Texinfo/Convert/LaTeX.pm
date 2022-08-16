@@ -28,12 +28,6 @@
 #\tableofcontents
 #}
 #
-# flushleft and flushright
-# the flushleft and flushright in Texinfo are not the same as in
-# LaTeX, as, in addition to come from a possibly different margin,
-# the text is not filled at all in Texinfo, each line is left as is.
-# LaTeX flushleft and flushright are filled but not aligned.
-#
 # @group should also be added together with the non filled environments.
 #
 # There is something about form feeds to do.  There is some processing of form
@@ -498,13 +492,10 @@ my @LaTeX_same_block_commands = (
 
 my $small_font_size = 'footnotesize';
 
-# TODO flushleft and flushright
-# the flushleft and flushright in Texinfo are not the same as in
-# LaTeX, as, in addition to come from a possibly different margin,
-# the test is not filled at all, each line is left as is.  LaTeX
-# flushleft and flushright are filled but not aligned.
 my %LaTeX_environment_commands = (
   'raggedright' => ['flushleft'],
+  'flushleft' => ['flushleft', 'GNUTexinfopreformatted'],
+  'flushright' => ['flushright', 'GNUTexinfopreformatted'],
   'quotation' => ['quote'],
   'smallquotation' => ['quote', $small_font_size],
   'indentedblock' => ['quote'],
