@@ -1,3 +1,9 @@
+2022-08-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Cross References, References, Tips):
+	Merge initial node "References" into chapter introduction.
+	Move advice on linear manual structure to "Tips".
+
 2022-08-15  Patrice Dumas  <pertusus@free.fr>
 
 	Protect node names with comma in node pointers

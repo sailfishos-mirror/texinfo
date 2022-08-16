@@ -240,7 +240,6 @@ Chapter Structuring
 
 Cross-references
 
-* References::                  What cross-references are for.
 * Cross Reference Commands::    A summary of the different commands.
 * Cross Reference Parts::       A cross-reference has several parts.
 * One Argument::                @code{@@xref} with one argument.
@@ -4274,41 +4273,13 @@ on a line of its own.
 @dfn{Cross-references} are used to refer the reader to other parts of the
 same or different Texinfo files.
 
-@menu
-* References::                  What cross-references are for.
-* Cross Reference Commands::    A summary of the different commands.
-* Cross Reference Parts::       A cross-reference has several parts.
-* One Argument::                @code{@@xref} with one argument.
-* Two Arguments::               @code{@@xref} with two arguments.
-* Three Arguments::             @code{@@xref} with three arguments.
-* Four and Five Arguments::     @code{@@xref} with four and five arguments.
-* Referring to a Manual as a Whole::   Refer to an entire manual.
-* @code{@@xref}::                       Begin a reference with `See' @dots{}
-* @code{@@ref}::                        A reference for the last part of a sentence.
-* @code{@@pxref}::                      How to write a parenthetical cross-reference.
-* @code{@@anchor}::                     Defining arbitrary cross-reference targets
-* @code{@@inforef}::                    How to refer to an Info-only file.
-* @code{@@url}::                        How to refer to a uniform resource locator.
-* @code{@@cite}::                       How to refer to books not in the Info system.
-@end menu
-
-
-@node References
-@section What References Are For
-
-Often, but not always, a printed document should be designed so that
-it can be read sequentially.  People tire of flipping back and forth
-to find information that should be presented to them as they need
-it.
-
-However, in any document, some information will be too detailed for
-the current context, or incidental to it; use cross-references to
-provide access to such information.  Also, an online help system or a
-reference manual is not like a novel; few read such documents in
-sequence from beginning to end.  Instead, people look up what they
-need.  For this reason, such creations should contain many
-cross-references to help readers find other information that they may not
-have read.
+Use cross-references to provide access to information that is too
+detailed for the current context, or incidental to it.  An online
+help system or a reference manual is not like a novel; few read such
+documents in sequence from beginning to end.  Instead, people look
+up what they need.  For this reason, such creations should contain
+many cross-references to help readers find other information that
+they may not have read.
 
 In a printed manual, a cross-reference results in a page reference,
 unless it is to another manual altogether, in which case the
@@ -4328,7 +4299,24 @@ and not used online, you must nonetheless write @code{@@node} lines (or
 @code{@@anchor} anchors) in order to name the places to which you make
 cross-references.
 
-@need 800
+@menu
+* Cross Reference Commands::    A summary of the different commands.
+* Cross Reference Parts::       A cross-reference has several parts.
+* One Argument::                @code{@@xref} with one argument.
+* Two Arguments::               @code{@@xref} with two arguments.
+* Three Arguments::             @code{@@xref} with three arguments.
+* Four and Five Arguments::     @code{@@xref} with four and five arguments.
+* Referring to a Manual as a Whole::   Refer to an entire manual.
+* @code{@@xref}::                       Begin a reference with `See' @dots{}
+* @code{@@ref}::                        A reference for the last part of a sentence.
+* @code{@@pxref}::                      How to write a parenthetical cross-reference.
+* @code{@@anchor}::                     Defining arbitrary cross-reference targets
+* @code{@@inforef}::                    How to refer to an Info-only file.
+* @code{@@url}::                        How to refer to a uniform resource locator.
+* @code{@@cite}::                       How to refer to books not in the Info system.
+@end menu
+
+
 
 
 @node Cross Reference Commands
@@ -20438,6 +20426,12 @@ Use 70 or 72 as your fill column.  Longer lines are hard to read.
 
 @item
 Include a copyright notice and copying permissions.
+
+@item
+Design your manual so that it can be read sequentially, as far as
+possible.  People tire of flipping back and forth to find information
+that should be presented to them as they need it.
+
 @end itemize
 
 
