@@ -705,9 +705,9 @@ This is a very simple texi manual @  &lt;&gt;.
 docbook ''
 
 
-<bridgehead renderas="other">majorheading</bridgehead>
+<bridgehead renderas="sect1">majorheading</bridgehead>
 
-<bridgehead renderas="other">chapheading</bridgehead>
+<bridgehead renderas="sect1">chapheading</bridgehead>
 
 <bridgehead renderas="sect1">heading</bridgehead>
 
@@ -1620,9 +1620,9 @@ This is a very simple texi manual @  &lt;&gt;.
 docbook ''
 
 
-<bridgehead renderas="other">majorheading</bridgehead>
+<bridgehead renderas="sect1">majorheading</bridgehead>
 
-<bridgehead renderas="other">chapheading</bridgehead>
+<bridgehead renderas="sect1">chapheading</bridgehead>
 
 <bridgehead renderas="sect1">heading</bridgehead>
 
@@ -2522,9 +2522,9 @@ This is a very simple texi manual @  &lt;&gt;.
 docbook ''
 
 
-<bridgehead renderas="other">majorheading</bridgehead>
+<bridgehead renderas="sect1">majorheading</bridgehead>
 
-<bridgehead renderas="other">chapheading</bridgehead>
+<bridgehead renderas="sect1">chapheading</bridgehead>
 
 <bridgehead renderas="sect1">heading</bridgehead>
 
@@ -3416,9 +3416,9 @@ This is a very simple texi manual @  &lt;&gt;.
 docbook ''
 
 
-</screen><bridgehead renderas="other">majorheading</bridgehead>
+</screen><bridgehead renderas="sect1">majorheading</bridgehead>
 <screen>
-</screen><bridgehead renderas="other">chapheading</bridgehead>
+</screen><bridgehead renderas="sect1">chapheading</bridgehead>
 <screen>
 </screen><bridgehead renderas="sect1">heading</bridgehead>
 <screen>

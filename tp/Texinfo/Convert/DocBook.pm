@@ -516,8 +516,12 @@ my %docbook_sections = (
   'unnumbered'  => 'chapter',
   'centerchap'  => 'chapter',
   'appendix' => 'appendix',
-  'majorheading' => 'other',
-  'chapheading' => 'other',
+  # chapter would have been the best choice here, but it is not a possibility
+  # for renderas in bridgehead (possibilities are sect1 to 5 and other).
+  # other is rendered small, smaller than sect1.  So use sect1, even though
+  # it matches better with the @heading level.
+  'majorheading' => 'sect1',
+  'chapheading' => 'sect1',
   'heading' => 'sect1',
   'subheading' => 'sect2',
   'subsubheading' => 'sect3',

@@ -623,7 +623,7 @@ $result_converted{'docbook'}->{'commands'} = '<para>@ &tex; &#160;&#235; &#238; 
 </para>
 <indexterm role="cp"><primary>index entry &#8220;in text&#8221; &latex;</primary></indexterm>
 
-<bridgehead renderas="other">majorheading <emphasis role="bold">in b</emphasis></bridgehead>
+<bridgehead renderas="sect1">majorheading <emphasis role="bold">in b</emphasis></bridgehead>
 ';
 
 1;
