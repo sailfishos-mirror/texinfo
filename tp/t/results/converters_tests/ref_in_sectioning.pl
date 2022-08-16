@@ -2937,11 +2937,11 @@ $result_converted{'docbook'}->{'ref_in_sectioning'} = '<chapter label="1" id="no
 
 </sect1>
 <sect1 label="2.4">
-<title>section &#8220;<literal>node</literal>&#8221; in <filename>file name</filename> code node, file name</title>
+<title>&#8220;<literal>node</literal>&#8221; in <filename>file name</filename> code node, file name</title>
 
 </sect1>
 <sect1 label="2.5">
-<title>section &#8220;node&#8221; in <citetitle>Manual</citetitle> node and manual</title>
+<title>&#8220;node&#8221; in <citetitle>Manual</citetitle> node and manual</title>
 
 </sect1>
 <sect1 label="2.6">
@@ -2961,7 +2961,7 @@ $result_converted{'docbook'}->{'ref_in_sectioning'} = '<chapter label="1" id="no
 
 </sect1>
 <sect1 label="2.10">
-<title>(see section &#8220;Top&#8221; in <filename>file name</filename>) pxref Top file name, spaces</title>
+<title>(see <filename>file name</filename>) pxref Top file name, spaces</title>
 
 </sect1>
 <sect1 label="2.11">
@@ -2969,7 +2969,7 @@ $result_converted{'docbook'}->{'ref_in_sectioning'} = '<chapter label="1" id="no
 
 </sect1>
 <sect1 label="2.12">
-<title>See section &#8220;Top&#8221; in <filename>filename</filename>, xref Top filename only, no spaces</title>
+<title>See <filename>filename</filename>, xref Top filename only, no spaces</title>
 
 </sect1>
 <sect1 label="2.13">

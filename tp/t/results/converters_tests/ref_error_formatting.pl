@@ -4562,8 +4562,8 @@ $result_converted{'docbook'}->{'ref_error_formatting'} = '
 <literal>@ref{,,,,manual}</literal> <citetitle>manual</citetitle>
 <literal>@ref{node,cross ref name}</literal> <link linkend="node">cross ref name</link>
 <literal>@ref{node,,title}</literal> <link linkend="node">title</link>
-<literal>@ref{node,,,file name}</literal> section &#8220;node&#8221; in <filename>file name</filename>
-<literal>@ref{node,,,,manual}</literal> section &#8220;node&#8221; in <citetitle>manual</citetitle>
+<literal>@ref{node,,,file name}</literal> &#8220;node&#8221; in <filename>file name</filename>
+<literal>@ref{node,,,,manual}</literal> &#8220;node&#8221; in <citetitle>manual</citetitle>
 <literal>@ref{node,cross ref name,title,}</literal> <link linkend="node">title</link>
 <literal>@ref{node,cross ref name,,file name}</literal> section &#8220;cross ref name&#8221; in <filename>file name</filename>
 <literal>@ref{node,cross ref name,,,manual}</literal> section &#8220;cross ref name&#8221; in <citetitle>manual</citetitle>
@@ -4573,7 +4573,7 @@ $result_converted{'docbook'}->{'ref_error_formatting'} = '
 <literal>@ref{node,,title,file name}</literal> section &#8220;title&#8221; in <filename>file name</filename>
 <literal>@ref{node,,title,,manual}</literal> section &#8220;title&#8221; in <citetitle>manual</citetitle>
 <literal>@ref{node,,title, file name, manual}</literal> section &#8220;title&#8221; in <citetitle>manual</citetitle>
-<literal>@ref{node,,,file name,manual}</literal> section &#8220;node&#8221; in <citetitle>manual</citetitle>
+<literal>@ref{node,,,file name,manual}</literal> &#8220;node&#8221; in <citetitle>manual</citetitle>
 <literal>@ref{,cross ref name,title,}</literal> <link>title</link>
 <literal>@ref{,cross ref name,,file name}</literal> section &#8220;cross ref name&#8221; in <filename>file name</filename>
 <literal>@ref{,cross ref name,,,manual}</literal> section &#8220;cross ref name&#8221; in <citetitle>manual</citetitle>

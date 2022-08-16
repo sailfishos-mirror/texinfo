@@ -4553,7 +4553,7 @@ $result_converted{'docbook'}->{'top_in_ref'} = '<anchor id="refs-node"/>
 
 <para><literal>@ref{Top,cross ref name}</literal> <link linkend="Top">cross ref name</link>
 <literal>@ref{Top,,title}</literal> <link linkend="Top">title</link>
-<literal>@ref{Top,,,file name}</literal> section &#8220;Top&#8221; in <filename>file name</filename>
+<literal>@ref{Top,,,file name}</literal> <filename>file name</filename>
 <literal>@ref{Top,,,,manual}</literal> <citetitle>manual</citetitle>
 <literal>@ref{Top,cross ref name,title,}</literal> <link linkend="Top">title</link>
 <literal>@ref{Top,cross ref name,,file name}</literal> section &#8220;cross ref name&#8221; in <filename>file name</filename>
@@ -4568,8 +4568,8 @@ $result_converted{'docbook'}->{'top_in_ref'} = '<anchor id="refs-node"/>
 </para>
 <para><literal>@ref{(pman)Top,cross ref name}</literal> <link>cross ref name</link>
 <literal>@ref{(pman)Top,,title}</literal> <link>title</link>
-<literal>@ref{(pman)Top,,,file name}</literal> section &#8220;(pman)Top&#8221; in <filename>file name</filename>
-<literal>@ref{(pman)Top,,,,manual}</literal> section &#8220;(pman)Top&#8221; in <citetitle>manual</citetitle>
+<literal>@ref{(pman)Top,,,file name}</literal> &#8220;(pman)Top&#8221; in <filename>file name</filename>
+<literal>@ref{(pman)Top,,,,manual}</literal> &#8220;(pman)Top&#8221; in <citetitle>manual</citetitle>
 <literal>@ref{(pman)Top,cross ref name,title,}</literal> <link>title</link>
 <literal>@ref{(pman)Top,cross ref name,,file name}</literal> section &#8220;cross ref name&#8221; in <filename>file name</filename>
 <literal>@ref{(pman)Top,cross ref name,,,manual}</literal> section &#8220;cross ref name&#8221; in <citetitle>manual</citetitle>
@@ -4579,7 +4579,7 @@ $result_converted{'docbook'}->{'top_in_ref'} = '<anchor id="refs-node"/>
 <literal>@ref{(pman)Top,,title,file name}</literal> section &#8220;title&#8221; in <filename>file name</filename>
 <literal>@ref{(pman)Top,,title,,manual}</literal> section &#8220;title&#8221; in <citetitle>manual</citetitle>
 <literal>@ref{(pman)Top,,title, file name, manual}</literal> section &#8220;title&#8221; in <citetitle>manual</citetitle>
-<literal>@ref{(pman)Top,,,file name,manual}</literal> section &#8220;(pman)Top&#8221; in <citetitle>manual</citetitle>
+<literal>@ref{(pman)Top,,,file name,manual}</literal> &#8220;(pman)Top&#8221; in <citetitle>manual</citetitle>
 </para>
 <para><literal>@inforef{Top, cross ref name, file name}</literal> See Info file <filename>file name</filename>, node &#8216;<literal>Top</literal>&#8217;
 <literal>@inforef{Top}</literal> See node &#8216;<literal>Top</literal>&#8217;
