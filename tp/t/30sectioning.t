@@ -543,8 +543,10 @@ my $character_and_spaces_in_refs_text = '@node Top
 
 @menu
 * other nodes::
+* node to avoid DocBook or LaTeX Top ignored::
 @end menu
 
+@node node to avoid DocBook or LaTeX Top ignored
 @subheading Testing distant nodes
 
 @ref{ a  node ,,, manual}
@@ -2118,7 +2120,7 @@ my @xml_tests_info_tests = ('part_chapter_after_top',
   'explicit_node_directions', 'nodes_after_top_before_chapter_nodes',
   'double_node_anchor_float');
 
-my @docbook_tests_info_tests = (
+my @docbook_tests_info_tests = ('character_and_spaces_in_refs',
   'chapter_between_nodes', 'section_before_after_top_node_last_node',
   'section_before_after_top_node', 'part_node_before_top part_node_after_top',
   'part_chapter_after_top node_part_chapter_after_top',
