@@ -47,12 +47,12 @@ stuff here.
 @node blumpty.fump
 @chapter blumpty.fump
 
-@node normal node
+@node normal node, (man@comma{}u:a.l)direction, (man_ual)direct@comma{}ion, (man_ual)direct::i.on
 @chapter normal node
 
 @node @asis{secret,node}
 @chapter @asis{secret,node}
 
-@node top secret node, (man@comma{}u:a.l)direction, (man_ual)direct@comma{}ion, (man_ual)direct::i.on
+@node top secret node
 
 stuff here.

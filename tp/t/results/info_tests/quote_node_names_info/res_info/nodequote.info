@@ -56,7 +56,7 @@ File: nodequote.info,  Node: blumpty.fump,  Next: normal node,  Prev: blah:blah,
 **************
 
 
-File: nodequote.info,  Node: normal node,  Next: secret,node,  Prev: blumpty.fump,  Up: Top
+File: nodequote.info,  Node: normal node,  Next: (man,u:a.l)direction,  Prev: (man_ual)direct,ion,  Up: (man_ual)direct::i.on
 
 3 normal node
 *************
@@ -68,7 +68,7 @@ File: nodequote.info,  Node: secret,node,  Prev: normal node,  Up: Top
 *************
 
 
-File: nodequote.info,  Node: top secret node,  Next: (man,u:a.l)direction,  Prev: (man_ual)direct,ion,  Up: (man_ual)direct::i.on
+File: nodequote.info,  Node: top secret node
 
 stuff here.
 
@@ -78,8 +78,8 @@ Node: Top55
 Node: blah:blah863
 Node: blumpty.fump986
 Node: normal node1110
-Node: secret,node1234
-Node: top secret node1339
+Node: secret,node1270
+Node: top secret node1375
 
 End Tag Table
 

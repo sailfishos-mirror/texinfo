@@ -485,9 +485,29 @@ sub format_node($$)
                                           {'text' => ')'}]});
       }
       if ($node_direction->{'extra'}->{'node_content'}) {
+        my $pre_quote = '';
+        my $post_quote = '';
         my ($node_text, $byte_count) = $self->node_line($node_direction);
         $self->{'count_context'}->[-1]->{'bytes'} += $byte_count;
-        $result .= $node_text;
+        # Up may not strictly need protection, as it is the last direction,
+        # but we protect consistently
+        if ($node_text =~ /,/) {
+          if ($self->{'info_special_chars_warning'}
+              # warn only for external nodes, internal nodes should already
+              # trigger a warning when defined
+              and $node_direction->{'extra'}->{'manual_content'}) {
+            $self->line_warn($self, sprintf(__(
+                 "\@node %s name should not contain `,': %s"),
+                                           $direction, $node_text),
+                             $node->{'source_info'});
+          }
+          if ($self->{'info_special_chars_quote'}) {
+            $pre_quote = "\x{7f}";
+            $post_quote = $pre_quote;
+            $self->{'count_context'}->[-1]->{'bytes'} += 2;
+          }
+        }
+        $result .= $pre_quote . $node_text . $post_quote;
       }
     } elsif ($direction eq 'Up' and $node->{'extra'}->{'normalized'} eq 'Top') {
       # add an up direction for Top node

@@ -1899,7 +1899,7 @@ Test refs
 Testing distant nodes
 ---------------------
 
-*note (manual)a node:: *note (manual)::: *note (manual)top:: *note
+*note (manual)a node:: *note (manual)::: *note (manual)top:: *note
 (texinfo)Cross References:: *note (../manual/doc)node::
 
 Testing local nodes

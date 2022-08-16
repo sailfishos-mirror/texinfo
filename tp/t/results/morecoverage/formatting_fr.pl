@@ -4799,7 +4799,7 @@ In detailmenu
 * subsubsection three---four----\'\'::
 
 
-File: formatting.info,  Node: subsection,  Up: s--ect,ion
+File: formatting.info,  Node: subsection,  Up: s--ect,ion
 
 1.1.1 subsection
 ----------------
@@ -4853,10 +4853,10 @@ Node: chapter1392
 Ref: chapter-Footnote-11626
 Node: s--ect,ion1646
 Node: subsection1849
-Ref: anchor2028
-Node: subsubsection ``simple-double--2028
-Node: subsubsection three---four----\'\'2232
-Node: chapter22406
+Ref: anchor2030
+Node: subsubsection ``simple-double--2030
+Node: subsubsection three---four----\'\'2234
+Node: chapter22408
 
 End Tag Table
 
