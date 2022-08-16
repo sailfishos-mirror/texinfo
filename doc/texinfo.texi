@@ -4321,20 +4321,20 @@ There are three different cross-reference commands:
 
 @table @code
 @item @@xref
-Used to start a sentence in the printed manual and in HTML with
-@w{`See @dots{}'} or an Info cross-reference saying @samp{*Note
-@var{name}: @var{node}.}.
+Used to start a sentence with an Info cross-reference saying
+@samp{*Note @var{name}: @var{node}.} or with @w{`See @dots{}'}
+in other output formats.
 
 @item @@ref
-Used within or, more often, at the end of a sentence; produces just
-the reference in the printed manual and in HTML without the preceding
-`See' (same as @code{@@xref} for Info).
+Used within or, more often, at the end of a sentence; produces the same output
+as @code{@@xref} in Info, but just the reference in other output formats,
+without the preceding `See'.
 
 @item @@pxref
 Used within parentheses, at the end of a sentence, or otherwise before
 punctuation, to make a reference.  Its output starts with a lowercase
-`see' in the printed manual and in HTML, and a lowercase @samp{*note}
-in Info.  (@samp{p} is for `parenthesis'.)
+@samp{*note} in Info, and with a lowercase `see' in the other output
+formats.  (@samp{p} is for `parenthesis'.)
 @end table
 
 Additionally, there are commands to produce references to documents
@@ -4391,11 +4391,11 @@ manual.  If omitted, the node name is used.
 
 @item
 The name of the manual to which the reference refers, if it is
-outside the current manual.  This name is used both for Info and
-HTML.
+outside the current manual, in a different Texinfo file.
 
 @item
-The name of a printed manual from a different Texinfo file.
+The title of the printed manual to which the reference refers,
+from a different Texinfo file.
 @end enumerate
 
 Whitespace before and after the commas separating these arguments is
@@ -4410,15 +4410,15 @@ When processing with TeX, a comma is automatically inserted after the
 page number for cross-references to within the same manual, unless the
 closing brace of the argument is followed by non-whitespace (such as a
 comma or period).  This gives you the choice of whether to have a comma
-there in Info or HTML output.  For example,
+there in other output formats.  For example,
 
 @example
 @@xref@{Another Section@} for more information
 @end example
 
 @noindent produces
-@w{`See Another Section, page @var{ppp}, for more information'} in the 
-printed output, and
+@w{`See Another Section, page @var{ppp}, for more information'} with
+TeX, and
 @w{@samp{*Note Another Section:: for more information}} in the Info 
 output.
 
@@ -4433,12 +4433,9 @@ See Hurricanes, page @var{ppp} --- for the details
 @noindent instead of
 @w{`See Hurricanes, page @var{ppp}, --- for the details'}.
 
-@command{makeinfo} warns when the text of a cross-reference (and node
-names and menu items) contains a problematic construct that will
-interfere with its parsing in Info.  If you don't want to see the
-warnings, you can set the customization variable
-@code{INFO_SPECIAL_CHARS_WARNING} to @samp{0} (@pxref{Other
-Customization Variables}).
+@command{makeinfo} warns and protect names when the text of a cross-reference
+(and node names and menu items) contains a problematic construct that could
+interfere with its parsing in Info.  @xref{Info Node Names Constraints}.
 
 
 @raisesections
@@ -4625,7 +4622,7 @@ in node headers instead of the node names when possible.
 @cindex Four- and five argument forms of cross-references
 
 In a cross-reference, a fourth argument specifies the name of another
-Info file, different from the file in which the reference appears, and
+manual, different from the file in which the reference appears, and
 a fifth argument specifies its title as a printed manual.
 
 @need 800
@@ -4657,7 +4654,9 @@ produces this output in Info:
 
 @noindent
 As you can see, the name of the manual is enclosed in parentheses
-and precedes the name of the node.
+and precedes the name of the node.  In HTML, the manual name and
+the node name are used to construct the hyperlink url
+(@pxref{HTML Xref}), while the link text is based on the label.
 
 @noindent
 In a printed manual, the reference looks like this:
@@ -4675,7 +4674,7 @@ that reference is to another manual cannot be known.
 Next case: often, you will leave out the second argument when you use
 the long version of @code{@@xref}.  In this case, the third argument,
 the topic description, will be used as the cross-reference name in
-Info.  For example,
+online formats.  For example,
 
 @example
 @@xref@{Electrical Effects, , Thunder and Lightning,
@@ -4731,11 +4730,20 @@ Meteorology}.
 @noindent
 in a printed manual.
 
-A very unusual case: you may want to refer to another manual file that
+In general, there is no reason to have a manual name argument without
+printed manual argument, unless no printed manual is generated.
+You may also want to refer to another manual file that
 is within a single printed manual---when multiple Texinfo files are
-incorporated into the same printed manual but can create separate Info or
-HTML output files.  In this case, you need to specify only the fourth
-argument, and not the fifth.
+incorporated into the same printed manual but can create separate output files
+in other output formats.  In this case, you need to specify only the fourth
+argument, and not the fifth.  If the printed manual title argument is missing, the
+manual name will be used instead in printed output.
+
+A printed manual title argument without an online manual argument is of
+little use unless only a printed manual is generated from the Texinfo source.
+The result in online formats depends on the format, and
+can be, for example, an empty manual name or a reference to the printed
+manual formatted in a similar way as the printed output.
 
 Finally, it's also allowed to leave out all the arguments
 @emph{except} the fourth and fifth, to refer to another manual as a
@@ -4839,7 +4847,7 @@ in previous sections.
 @cindex References using @code{@@ref}
 
 @code{@@ref} is nearly the same as @code{@@xref} except that it does
-not generate a `See' in the printed output, just the reference itself.
+not generate a `See' in the output, just the reference itself.
 This makes it useful as the last part of a sentence.
 
 @noindent For example,
@@ -4867,7 +4875,7 @@ and Section 1.2 [That], page 2.
 The @code{@@ref} command can tempt writers to express themselves in a
 manner that is suitable for a printed manual but looks awkward in the
 Info format.  Bear in mind that your audience could be using both the
-printed and the Info format.  For example:
+printed and other output formats such as Info.  For example:
 
 @cindex Sea surges
 @example
@@ -4899,9 +4907,9 @@ Sea surges are described in *note Hurricanes::.
 
 The parenthetical reference command, @code{@@pxref}, is nearly the
 same as @code{@@xref}, but it is best used within parentheses.
-The command differs from @code{@@xref} in that the reference for
-the printed manual is typeset with a lowercase `see' rather than an
-uppercase `See'.
+The command differs from @code{@@xref} in that the reference is
+typeset with a lowercase `see' rather than an uppercase `See'.  There
+is no `see' output in Info, but @samp{*note}.
 
 @noindent
 With one argument, a parenthetical cross-reference looks like this:
@@ -5008,7 +5016,10 @@ manuals or general web pages, keep working.
 @code{@@inforef} is used for making cross-references to Info
 documents---even from a printed manual.  This was originally
 used for Info files that were not generated from any Texinfo source.
-The command is now obsolete and should not be used.
+The command is now obsolete and should not be used.  In addition
+to having little use, similar formatting can be obtained with
+@code{@@xref}, @code{@@ref} or @code{@@pxref} with the Info
+file name as fourth argument and no fifth argument.
 
 The command takes either two or three arguments, in the following
 order:
@@ -5065,10 +5076,6 @@ See Info file @file{info}, node @samp{Advanced}, for more information.
 written in Texinfo, so all formats are available.  In fact, we don't
 know of any extant Info-only manuals.)
 
-The converse of @code{@@inforef} is @code{@@cite}, which is used to
-refer to printed works for which no Info form exists.
-@xref{@code{@@cite}}.
-
 
 @node @code{@@url}
 @section @code{@@url}, @code{@@uref@{@var{url}[, @var{text}][, @var{replacement}]@}}
@@ -5094,8 +5101,8 @@ in practice @code{@@url} was almost always misused.  So we've changed
 the meaning.)
 
 The second argument, if specified, is the text to display (the default
-is the url itself); in Info, DVI, and PDF output, but not in HTML
-output, the url is output in addition to this text.
+is the url itself); in output formats other than HTML, the url is
+output in addition to this text.
 
 @cindex Man page, reference to
 The third argument, if specified, is the text to display, but in this
@@ -5144,15 +5151,15 @@ The official @url{http://ftp.gnu.org/gnu, GNU ftp site}
 holds programs and texts.
 @end display
 
-@noindent that is, the Info (and @TeX{}, etc.)@: output is this:
+@noindent The HTML output is this:
 @example
-The official GNU ftp site (http://ftp.gnu.org/gnu)
+The official <a href="http://ftp.gnu.org/gnu">GNU ftp site</a>
 holds programs and texts.
 @end example
 
-@noindent while the HTML output is this:
+@noindent In other formats, the output is like this:
 @example
-The official <a href="http://ftp.gnu.org/gnu">GNU ftp site</a>
+The official GNU ftp site (http://ftp.gnu.org/gnu)
 holds programs and texts.
 @end example
 
@@ -18506,7 +18513,8 @@ Any directory part in the file name argument of the source cross
 reference command is ignored.  Thus, @code{@@xref@{,,,../foo@}} and
 @code{@@xref@{,,,foo@}} both use @samp{foo} as the manual name.  This
 is because any such attempted hardwiring of the directory is very
-unlikely to be useful for both Info and HTML output.
+unlikely to be useful for all the output formats that use the manual
+name.
 
 Finally, the @var{target} part is always the expanded node name.
 

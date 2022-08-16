@@ -1,5 +1,25 @@
 2022-08-16  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Cross Reference Parts): update text referring to
+	constraints in node names to refer to 'Info Node Names Constraints'
+	with all the information on that subject being there.
+
+	(Cross Reference Commands, Cross Reference Parts)
+	(Four and Five Arguments, @code{@@ref}, @code{@@pxref}): avoid naming
+	specific formats when not needed (or incorrect).  Use specific
+	format when needed.
+
+	(Four and Five Arguments): add a sentence on HTML.
+	Expand on the cases of only a fourth or only a fifth argument.
+
+	(@code{@@inforef}): add that similar formatting can be obtained with
+	@*ref with a fourth argument and no fifth argument.  Remove the
+	sentence stating that the converse of @inforef is @cite as it is
+	not exact, @cite would be the converse of @inforef with the third
+	argument only.
+
+2022-08-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (process_printindex): modify code
 	slightly for xgettext parsing.
 
