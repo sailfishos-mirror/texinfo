@@ -4361,61 +4361,21 @@ Wide Web.
 @anchor{Reference Syntax} @c merged node
 
 A cross-reference command requires only one argument, which is
-the name of the node to which it refers.  Here is a simple example:
-
-@example
-@@xref@{Node name@}.
-@end example
-
-@noindent
-In Info output, this produces
-
-@example
-*Note Node name::.
-@end example
-
-@noindent
-In a printed manual, the output is
-
-@quotation
-See Section @var{nnn} [Node name], page @var{ppp}.
-@end quotation
-
-A cross-reference command may contain up to four additional arguments.
-By using these arguments, you can provide a cross-reference name,
-a topic description or section title for the printed output, the name
-of a different manual file, and the name of a different printed manual.
-To refer to another manual as a whole, the manual file and/or the name
-of the printed manual are the only required arguments (@pxref{Referring
-to a Manual as a Whole}).
-
-@need 700
-Here is an example of a full five-part cross-reference:
+the name of the node to which it refers.  A cross-reference command
+may contain up to four additional arguments.
+The template for a full five argument cross-reference looks like
+this:
 
 @example
 @group
-@@xref@{Node name, Online Label, Printed Label,
-info-file-name, A Printed Manual@}, for details.
+@@xref@{@var{node-name}, @var{online-label}, @var{printed-label},
+@var{info-file-name}, @var{printed-manual-title}@}
 @end group
 @end example
 
-@noindent
-which produces
-
-@example
-*Note Online Label: (info-file-name)Node name,
-for details.
-@end example
-
-@noindent
-in Info and
-
-@quotation
-See section ``Printed Label'' in @i{A Printed Manual}, for details.
-@end quotation
-
-@noindent
-in a printed book.
+To refer to another manual as a whole, the manual file and/or the name
+of the printed manual are the only required arguments (@pxref{Referring
+to a Manual as a Whole}).
 
 The five possible arguments for a cross-reference are:
 
@@ -4451,16 +4411,6 @@ HTML.
 @item
 The name of a printed manual from a different Texinfo file.
 @end enumerate
-
-The template for a full five argument cross-reference looks like
-this:
-
-@example
-@group
-@@xref@{@var{node-name}, @var{online-label}, @var{printed-label},
-@var{info-file-name}, @var{printed-manual-title}@}
-@end group
-@end example
 
 Whitespace before and after the commas separating these arguments is
 ignored.  To include a comma in one of the arguments, use
