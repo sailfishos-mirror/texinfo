@@ -3061,9 +3061,9 @@ sub _convert($$)
                    "menu entry node name should not contain `%s'"), $1),
                                $element->{'source_info'});
               }
-            }
-            if ($self->{'info_special_chars_quote'}) {
-              $pre_quote = $post_quote = "\x{7f}";
+              if ($self->{'info_special_chars_quote'}) {
+                $pre_quote = $post_quote = "\x{7f}";
+              }
             }
           } else {
             if ($node_text =~ /:/) {
