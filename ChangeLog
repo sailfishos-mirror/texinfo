@@ -1,5 +1,17 @@
 2022-08-16  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (@code{@@chapter}): use consistent chapter name
+	in example.
+
+	(@code{@@unnumbered @@appendix}): do not refer to the <title> DocBook
+	element, it is not useful.
+
+	(@code{@@majorheading @@chapheading}): do not refer to specific
+	output format, but use a wording including all the remainaing
+	output formats.
+
+2022-08-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (%docbook_sections): use 'sect1'
 	for majorheading and chapheading to be rendered as, as 'other'
 	is rendered too small.

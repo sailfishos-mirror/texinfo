@@ -3841,11 +3841,11 @@ of the chapter.  The chapter is numbered automatically, starting
 from@tie{}1.
 
 For example, the present chapter in this manual is entitled
-``@code{@@chapter}: Chapter Structuring''; the @code{@@chapter} line
+``Chapter Structuring''; the @code{@@chapter} line
 looks like this:
 
 @example
-@@chapter @@code@{@@@@chapter@}: Chapter Structuring
+@@chapter Chapter Structuring
 @end example
 
 In printed output, the @code{@@chapter} command produces a chapter heading in
@@ -3910,11 +3910,10 @@ Acknowledgements  Colophon  Dedication  Preface
 @cindex @code{<dedication>} DocBook tag
 @cindex @code{<preface>} DocBook tag
 @cindex @code{<chapter>} DocBook tag
-@cindex @code{<title>} DocBook tag
 @noindent then the DocBook output uses corresponding special tags
 (@code{<preface>}, etc.)@: instead of the default @code{<chapter>}.
 The argument to @code{@@unnumbered} itself can be anything, and is
-output as the following @code{<title>} text as usual.
+output as the element title as usual.
 
 
 @node @code{@@majorheading @@chapheading}
@@ -3935,10 +3934,8 @@ In @TeX{}, a @code{@@majorheading} command generates a larger vertical
 whitespace before the heading than a @code{@@chapheading} command but
 is otherwise the same.
 
-In Info and plain text, the @code{@@majorheading} and
-@code{@@chapheading} commands produce the same output as
-@code{@@chapter}: the title is printed on a line by itself with a line
-of asterisks underneath.  Similarly for HTML@.  The only difference is
+In other output formats, the @code{@@majorheading} and @code{@@chapheading}
+commands produce a similar output as @code{@@chapter}.  The difference is
 the lack of numbering and the lack of any association with nodes.
 @xref{@code{@@chapter}}.
 
