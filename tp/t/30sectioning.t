@@ -542,11 +542,13 @@ my $character_and_spaces_in_refs_text = '@node Top
 @top Test refs
 
 @menu
+* node to avoid DocBook or LaTeX ignored::
 * other nodes::
-* node to avoid DocBook or LaTeX Top ignored::
 @end menu
 
-@node node to avoid DocBook or LaTeX Top ignored
+@node node to avoid DocBook or LaTeX ignored
+@chapter first chapter
+
 @subheading Testing distant nodes
 
 @ref{ a  node ,,, manual}
