@@ -23986,9 +23986,8 @@ The format does not prescribe the choice between displaying the
 
 @cindex Indices, in Info format
 
-Indices in Info format are a kind of menu.
-An additional directive at the beginning of the menu marks it as an index menu,
-followed by the menu:
+An index in Info format is a kind of menu, with an additional directive
+at the beginning to mark it as an index menu.
 
 @example
     <printindex> =
