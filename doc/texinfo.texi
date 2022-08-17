@@ -2732,6 +2732,11 @@ for the chapter.
 
 Here is what the contents of this chapter will look like:
 
+@c NOTE the following construct is not valid, @*heading commands
+@c should only appear in main text, not within a block @-command,
+@c here @quotation.  The Texinfo XML output is not valid, but other
+@c than that, the output is good, so it is not a real issue.
+
 @sp 1
 @need 700
 @quotation

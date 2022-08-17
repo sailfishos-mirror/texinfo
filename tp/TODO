@@ -688,6 +688,6 @@ xterm &
 
 convert to pdf from docbook
 xsltproc -o intermediate-fo-file.fo /usr/share/xml/docbook/stylesheet/docbook-xsl/fo/docbook.xsl texinfo.xml
-fop -pdf texinfo-dbk.pdf -fo intermediate-fo-file.fo
+fop -r -pdf texinfo-dbk.pdf -fo intermediate-fo-file.fo
 
 dblatex -o texinfo-dblatex.pdf texinfo.xml
