@@ -1,5 +1,10 @@
 2022-08-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): replace <br>
+	by $self->get_info('line_break_element').
+
+2022-08-17  Patrice Dumas  <pertusus@free.fr>
+
 	Improve handling of dotless i and dotless j
 
 	* tp/Texinfo/Convert/Converter.pm (%xml_accent_entities)

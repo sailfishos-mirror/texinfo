@@ -5921,7 +5921,7 @@ sub _convert_def_line_type($$$$)
     }
     if ($self->get_conf('deftypefnnewline') eq 'on'
         and ($command_name eq 'deftypefn' or $command_name eq 'deftypeop')) {
-      $result_type .= '<br>';
+      $result_type .= $self->get_info('line_break_element');
     }
   }
 
