@@ -977,6 +977,41 @@ undef, {'test_file' => 'nodequote.texi',},
 {'INFO_SPECIAL_CHARS_QUOTE' => 1,
  'INFO_SPECIAL_CHARS_WARNING' => 0,}
 ],
+['end_of_line_command_in_node_lines',
+# the reference to the node with two end of line is not found
+# by the Info reader, but it is a feature.  References are not
+# searched for too far to avoid risking to run into markup
+# significant for cross-reference for text that is not cross-reference.
+'@node Top
+@top top
+
+@node chap @* f     nl Something? @* After punct
+@chapter Chap
+
+@anchor{ankh @* p}
+
+text @* f     nl Something? @* After punct
+
+@cindex a @* b
+
+@printindex cp
+
+@node new n
+@chapter Ochap
+
+@xref{chap @* f     nl Something? @* After punct}.
+
+@xref{ankh @* p}.
+
+@xref{ankh @* p, addll@*gg}.
+
+@menu
+* chap @* f     nl Something? @* After punct::
+* ankh @* p::
+* what @* is: ankh @* p.
+* what @* is: ankh p.
+@end menu
+'],
 );
 
 my $colons_in_index_entries_and_node = 
