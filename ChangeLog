@@ -12,7 +12,7 @@
 2022-08-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* info/scan.c (scan_reference_target) <menu entry>:
-	Canonicalize whitespace in to avoid anomaly where texi2any
+	Canonicalize whitespace in node name to avoid anomaly where texi2any
 	would not warn about menu entry even though it didn't work.
 	From Patrice.
 
