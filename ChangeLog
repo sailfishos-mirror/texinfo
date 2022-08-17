@@ -1,3 +1,10 @@
+2022-08-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Cross Reference Commands): @ref is output
+	like @pxref in Info, not @xref.
+	(Four and Five Arguments, @majorheading @chapheading, @pxref)
+	(@inforef): Grammar fixes (inc. similar as -> similar to).
+
 2022-08-17  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): replace <br>

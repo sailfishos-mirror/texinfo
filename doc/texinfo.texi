@@ -3940,7 +3940,7 @@ whitespace before the heading than a @code{@@chapheading} command but
 is otherwise the same.
 
 In other output formats, the @code{@@majorheading} and @code{@@chapheading}
-commands produce a similar output as @code{@@chapter}.  The difference is
+commands produce a similar output to @code{@@chapter}.  The difference is
 the lack of numbering and the lack of any association with nodes.
 @xref{@code{@@chapter}}.
 
@@ -4331,8 +4331,9 @@ Used to start a sentence with an Info cross-reference saying
 in other output formats.
 
 @item @@ref
-Used within or, more often, at the end of a sentence; produces the same output
-as @code{@@xref} in Info, but just the reference in other output formats,
+Used within or, more often, at the end of a sentence; produces
+an Info cross-reference saying @samp{*note @var{name}: @var{node}.},
+and just the reference in other output formats,
 without the preceding `See'.
 
 @item @@pxref
@@ -4735,7 +4736,7 @@ Meteorology}.
 @noindent
 in a printed manual.
 
-In general, there is no reason to have a manual name argument without
+In general, there is no reason to have a manual name argument without a
 printed manual argument, unless no printed manual is generated.
 You may also want to refer to another manual file that
 is within a single printed manual---when multiple Texinfo files are
@@ -4748,7 +4749,7 @@ A printed manual title argument without an online manual argument is of
 little use unless only a printed manual is generated from the Texinfo source.
 The result in online formats depends on the format, and
 can be, for example, an empty manual name or a reference to the printed
-manual formatted in a similar way as the printed output.
+manual formatted in a similar way to the printed output.
 
 Finally, it's also allowed to leave out all the arguments
 @emph{except} the fourth and fifth, to refer to another manual as a
@@ -4913,8 +4914,8 @@ Sea surges are described in *note Hurricanes::.
 The parenthetical reference command, @code{@@pxref}, is nearly the
 same as @code{@@xref}, but it is best used within parentheses.
 The command differs from @code{@@xref} in that the reference is
-typeset with a lowercase `see' rather than an uppercase `See'.  There
-is no `see' output in Info, but @samp{*note}.
+typeset with a lowercase `see' rather than an uppercase `See'.
+In Info, @samp{*note} is output.
 
 @noindent
 With one argument, a parenthetical cross-reference looks like this:
@@ -5024,7 +5025,7 @@ used for Info files that were not generated from any Texinfo source.
 The command is now obsolete and should not be used.  In addition
 to having little use, similar output can be obtained with
 @code{@@xref}, @code{@@ref} or @code{@@pxref} with the Info
-file name as fourth argument and no fifth argument.
+file name as the fourth argument and no fifth argument.
 
 The command takes either two or three arguments, in the following
 order:
