@@ -5017,7 +5017,7 @@ manuals or general web pages, keep working.
 documents---even from a printed manual.  This was originally
 used for Info files that were not generated from any Texinfo source.
 The command is now obsolete and should not be used.  In addition
-to having little use, similar formatting can be obtained with
+to having little use, similar output can be obtained with
 @code{@@xref}, @code{@@ref} or @code{@@pxref} with the Info
 file name as fourth argument and no fifth argument.
 
@@ -5041,40 +5041,6 @@ The template is:
 @example
 @@inforef@{@var{node-name}, @var{cross-reference-name}, @var{info-file-name}@}
 @end example
-
-@need 800
-@noindent
-For example,
-
-@example
-@group
-@@inforef@{Advanced, Advanced Info commands, info@},
-for more information.
-@end group
-@end example
-
-@need 800
-@noindent
-produces (in Info):
-
-@example
-@group
-*Note Advanced Info commands: (info)Advanced,
-for more information.
-@end group
-@end example
-
-@need 800
-@noindent
-and (in the printed output):
-
-@quotation
-See Info file @file{info}, node @samp{Advanced}, for more information.
-@end quotation
-
-(This particular example is not realistic, since the Info manual is
-written in Texinfo, so all formats are available.  In fact, we don't
-know of any extant Info-only manuals.)
 
 
 @node @code{@@url}
