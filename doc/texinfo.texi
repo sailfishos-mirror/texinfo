@@ -260,7 +260,7 @@ Cross-references
 * @code{@@url} Examples::           Examples of using all the forms of @code{@@url}.
 * URL Line Breaking::       How lines are broken within @code{@@url} text.
 * @code{@@url} PDF Output Format::  A special option to hide links in PDF output.
-* PDF Colors::              Colorizing urls and other links in PDF output.
+* PDF Colors::              Colorizing URLs and other links in PDF output.
 
 Marking Text, Words and Phrases
 
@@ -283,7 +283,7 @@ Indicating Definitions, Commands, etc.
 * @code{@@dfn}::                        Specifying definitions.
 * @code{@@abbr}::                       Indicating abbreviations.
 * @code{@@acronym}::                    Indicating acronyms.
-* @code{@@indicateurl}::                Indicating an example url.
+* @code{@@indicateurl}::                Indicating an example URL.
 * @code{@@email}::                      Indicating an electronic mail address.
 
 Emphasizing Text
@@ -2944,7 +2944,7 @@ being consistent.
 In HTML output, any characters in the node name other than plain ASCII 
 letters, numbers or spaces will be changed in the file name.  
 (@xref{HTML Xref Node Name Expansion}.)
-This can make the URL's for the pages in your manual less user-friendly;
+This can make the URLs for the pages in your manual less user-friendly;
 for example, in this manual the @samp{@@dots} node is output as
 @file{__0040dots.html}.
 @end itemize
@@ -4661,7 +4661,7 @@ produces this output in Info:
 @noindent
 As you can see, the name of the manual is enclosed in parentheses
 and precedes the name of the node.  In HTML, the manual name and
-the node name are used to construct the hyperlink url
+the node name are used to construct the hyperlink URL
 (@pxref{HTML Xref}), while the link text is based on the label.
 
 @noindent
@@ -5059,10 +5059,10 @@ The template is:
 @findex url
 @cindex @code{href}, producing HTML
 @code{@@url} produces a reference to a uniform resource locator
-(url).  It takes one mandatory argument, the url, and two optional
+(URL@:).  It takes one mandatory argument, the URL@:, and two optional
 arguments which control the text that is displayed.  In HTML and PDF
 output, @code{@@url} produces a link you can follow.  (To merely
-indicate a url without creating a link people can follow, use
+indicate a URL without creating a link people can follow, use
 @code{@@indicateurl}, @pxref{@code{@@indicateurl}}.)
 
 @findex uref
@@ -5073,12 +5073,12 @@ in practice @code{@@url} was almost always misused.  So we've changed
 the meaning.)
 
 The second argument, if specified, is the text to display (the default
-is the url itself); in output formats other than HTML, the url is
+is the URL itself); in output formats other than HTML, the URL is
 output in addition to this text.
 
 @cindex Man page, reference to
 The third argument, if specified, is the text to display, but in this
-case the url is not output in any format.  This is useful when the
+case the URL is not output in any format.  This is useful when the
 text is already sufficiently referential, as in a man page.  Also, if
 the third argument is given, the second argument is ignored.
 
@@ -5086,7 +5086,7 @@ the third argument is given, the second argument is ignored.
 * @code{@@url} Examples::           Examples of using all the forms of @code{@@url}.
 * URL Line Breaking::       How lines are broken within @code{@@url} text.
 * @code{@@url} PDF Output Format::  A special option to hide links in PDF output.
-* PDF Colors::              Colorizing urls and other links in PDF output.
+* PDF Colors::              Colorizing URLs and other links in PDF output.
 @end menu
 
 
@@ -5097,7 +5097,7 @@ the third argument is given, the second argument is ignored.
 @cindex URL @subentry examples of displaying
 
 First, here is an example of the simplest form of @code{@@url}, with
-just one argument.  The given url is both the target and the visible
+just one argument.  The given URL is both the target and the visible
 text of the link:
 
 @example
@@ -5153,7 +5153,7 @@ The <a href="/man.cgi/1/ls">ls</a> program @dots{}
 @end example
 
 
-By the way, some people prefer to display urls in the unambiguous
+By the way, some people prefer to display URLs in the unambiguous
 format:
 
 @display
@@ -5164,23 +5164,23 @@ format:
 @cindex @code{<URL...>} convention, not used
 You can use this form in the input file if you wish.  We feel it's not
 necessary to include the @samp{<URL:} and @samp{>} in the output,
-since to be useful any software that tries to detect urls in text
+since to be useful any software that tries to detect URLs in text
 already has to detect them without the @samp{<URL:}.
 
 
 @node URL Line Breaking
 @subsection URL Line Breaking
 
-@cindex Line breaks @subentry URL's
-@cindex Breakpoints within urls
-@TeX{} allows line breaking within urls at only a few characters
-(which are special in urls): @samp{&}, @samp{.}, @samp{#}, @samp{?},
+@cindex Line breaks @subentry URLs
+@cindex Breakpoints within URLs
+@TeX{} allows line breaking within URLs at only a few characters
+(which are special in URLs): @samp{&}, @samp{.}, @samp{#}, @samp{?},
 and @samp{/} (but not between two @samp{/} characters).  A tiny amount
 of stretchable space is also inserted around these characters to help
 with line breaking.
 
 For HTML output, modern browsers will also do line breaking within
-displayed urls.  If you need to allow breaks at other characters you
+displayed URLs.  If you need to allow breaks at other characters you
 can insert @code{@@/} as needed (@pxref{Line Breaks}).
 
 @findex urefbreakstyle
@@ -5213,12 +5213,12 @@ breaks must be manually inserted.
 @node @code{@@url} PDF Output Format
 @subsection @code{@@url} PDF Output Format
 
-@cindex PDF output of urls
+@cindex PDF output of URLs
 @cindex URLs, PDF output of
 
 If the ultimate purpose of a PDF is only to be viewed online, perhaps
-similar to HTML in some inchoate way, you may not want the urls to be
-included in the visible text (just as urls are not visible to readers
+similar to HTML in some inchoate way, you may not want the URLs to be
+included in the visible text (just as URLs are not visible to readers
 of web pages).  Texinfo provides a PDF-specific option for this, which
 must be used inside @code{@@tex}:
 
@@ -5248,7 +5248,7 @@ ignored when DVI is being produced.
 @cindex Links, coloring in PDF output
 @cindex URLs, coloring in PDF output
 
-By default, urls and cross-reference links are printed in black in PDF
+By default, URLs and cross-reference links are printed in black in PDF
 output.  Very occasionally, however, you may want to highlight such
 ``live'' links with a different color, as is commonly done on web
 pages.  Texinfo provides a PDF-specific option for specifying these
@@ -5264,7 +5264,7 @@ colors, which must be used inside @code{@@tex}:
 @end example
 
 @code{\urlcolor} changes the color of @code{@@url} output (both the
-actual url and any textual label), while @code{\linkcolor} changes the
+actual URL and any textual label), while @code{\linkcolor} changes the
 color for cross-references to nodes, etc.  They are independent.
 
 @cindex RGB color specification.
@@ -5345,7 +5345,7 @@ marked as ``print in a typewriter font'', that would not be possible.
 * @code{@@dfn}::                        Specifying definitions.
 * @code{@@abbr}::                       Indicating abbreviations.
 * @code{@@acronym}::                    Indicating acronyms.
-* @code{@@indicateurl}::                Indicating an example url.
+* @code{@@indicateurl}::                Indicating an example URL.
 * @code{@@email}::                      Indicating an electronic mail address.
 @end menu
 
@@ -5408,7 +5408,7 @@ Indicate an acronym.  @xref{@code{@@acronym}}.
 @item @@indicateurl@{@var{uniform-resource-locator}@}
 Indicate an example (that is, nonfunctional) uniform resource locator.
 @xref{@code{@@indicateurl}}.  (Use @code{@@url} (@pxref{@code{@@url}}) for
-live urls.)
+live URLs.)
 
 @item @@email@{@var{email-address}[, @var{displayed-text}]@}
 Indicate an electronic mail address.  @xref{@code{@@email}}.
@@ -6134,17 +6134,17 @@ Use the @code{@@indicateurl} command to indicate a uniform resource
 locator on the World Wide Web.  This is purely for markup purposes and
 does not produce a link you can follow (use the @code{@@url} or
 @code{@@uref} command for that, @pxref{@code{@@url}}).
-@code{@@indicateurl} is useful for urls which do not actually exist.
+@code{@@indicateurl} is useful for URLs which do not actually exist.
 For example:
 
 @example
-For example, the url might be @@indicateurl@{http://example.org/path@}.
+For example, the URL might be @@indicateurl@{http://example.org/path@}.
 @end example
 
 @noindent which produces:
 
 @display
-For example, the url might be @indicateurl{http://example.org/path}.
+For example, the URL might be @indicateurl{http://example.org/path}.
 @end display
 
 The output from @code{@@indicateurl} is more or less like that of
@@ -10894,9 +10894,9 @@ into two lines.
 @end group
 @end example
 
-The @code{@@/} command can be useful within long urls or other
+The @code{@@/} command can be useful within long URLs or other
 identifiers where @TeX{} can't find a good place to break.  @TeX{}
-will automatically break urls at the natural places (@pxref{URL Line
+will automatically break URLs at the natural places (@pxref{URL Line
 Breaking}), so only use @code{@@/} if you need it.  @code{@@/} has no
 effect on the other output formats.
 
@@ -16547,7 +16547,7 @@ File name used for the Top node in cross-references;
 default is @code{index.html}.
 
 @item TOP_NODE_UP_URL
-A url used for Top node up references; the default is
+A URL used for Top node up references; the default is
 @code{undef}, in that case no Top node Up reference is generated.
 For more about the Top node pointers, @pxref{First Node}.  For 
 overriding the Up pointer name in case @code{TOP_NODE_UP_URL} is set
@@ -16926,7 +16926,7 @@ See also @code{INPUT_FILE_NAME_ENCODING}.
 @itemx PACKAGE_URL
 @itemx PACKAGE_NAME
 The implementation's short package name, package version, package name
-and version concatenated, package url, and full package name,
+and version concatenated, package URL@:, and full package name,
 respectively.  By default, these variables are all set through
 Autoconf, Automake, and @code{configure}.
 
@@ -16984,7 +16984,7 @@ also output comments.  Default false.
 Up node for the Top node; default @samp{(dir)}.  This node name is 
 supposed to be already formatted for the output format.  In HTML
 can be used in attribute, so should not contain any element.  Used for
-HTML output only if @code{TOP_NODE_UP_URL} is set to override the url, 
+HTML output only if @code{TOP_NODE_UP_URL} is set to override the URL@:,
 see @code{TOP_NODE_UP_URL} in @ref{HTML Customization Variables}.  
 
 @item TREE_TRANSFORMATIONS
@@ -18355,7 +18355,7 @@ is left after the final EPUB file has been generated if
 
 There is no possibility to refer to another EPUB file.  Therefore the
 references to ``external'' Texinfo manuals should resolve to an external
-url.  This is achieved with HTML cross-references configuration
+URL@:.  This is achieved with HTML cross-references configuration
 (@pxref{HTML Xref Configuration}).  Since the links in the resulting EPUB
 are incorrect if no information is found for the cross-references, a warning
 is issued for missing cross-references information, by setting the
@@ -18830,7 +18830,7 @@ is used.  @code{HTMLXREF_FILE} sets the file name to something else than
 The file is line-oriented.  Lines consisting only of whitespace are
 ignored.  Comments are indicated with a @samp{#} at the beginning of a
 line, optionally preceded by whitespace.  Since @samp{#} can occur in
-urls (like almost any character), it does not otherwise start a
+URLs (like almost any character), it does not otherwise start a
 comment.
 
 Each non-blank non-comment line must be either a @dfn{variable
@@ -18881,9 +18881,9 @@ into nodes, sections, or chapters, respectively.
 
 When available, @command{makeinfo} will use the ``corresponding''
 value for cross-references between manuals.  That is, when generating
-monolithic output (@option{--no-split}), the @code{mono} url will be
+monolithic output (@option{--no-split}), the @code{mono} URL will be
 used, when generating output that is split by node, the @code{node}
-url will be used, etc.  However, if a manual is not available in that
+URL will be used, etc.  However, if a manual is not available in that
 form, anything that is available can be used.  Here is the search
 order for each style:
 

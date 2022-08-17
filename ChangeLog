@@ -1,5 +1,9 @@
 2022-08-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi: url -> URL throughout.
+
+2022-08-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Cross Reference Commands): @ref is output
 	like @pxref in Info, not @xref.
 	(Four and Five Arguments, @majorheading @chapheading, @pxref)
