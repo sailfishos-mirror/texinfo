@@ -1,3 +1,12 @@
+2022-08-17  Patrice Dumas  <pertusus@free.fr>
+
+	Transform @* to spaces in node and menu lines in Info
+
+	* tp/Texinfo/Convert/Plaintext.pm (new_formatter)
+	(process_printindex, _convert): add 'no_added_eol' as
+	formatter status to have @* transformed to space instead
+	of new line in @node and menu lines.
+
 2022-08-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Recommendations on markup on @def* lines

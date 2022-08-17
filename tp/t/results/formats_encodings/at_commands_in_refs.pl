@@ -23625,8 +23625,7 @@ Top
 * Menu:
 
 *  { }::
-*     !
- .  . ? @::
+*     !   .  . ? @::
 * @ { } \\ #::
 * LaTeX TeX • , © ... ...::
 * ≡ error→ € ¡ ↦ −::
@@ -23654,23 +23653,20 @@ Top
 * <http://somewhere_aaa> text (url) ls::
 
 
-File: ,  Node: { },  Next:     !
-. . ? @,  Prev: Top,  Up: Top
+File: ,  Node: { },  Next:     ! . . ? @,  Prev: Top,  Up: Top
 
 1 { }
 *****
 
 
-File: ,  Node:     !
-. . ? @,  Next: @ { } \\ #,  Prev: { },  Up: Top
+File: ,  Node:     ! . . ? @,  Next: @ { } \\ #,  Prev: { },  Up: Top
 
 2     !
 . . ? @
 ***************
 
 
-File: ,  Node: @ { } \\ #,  Next: LaTeX TeX • , © ... ...,  Prev:     !
-. . ? @,  Up: Top
+File: ,  Node: @ { } \\ #,  Next: LaTeX TeX • , © ... ...,  Prev:     ! . . ? @,  Up: Top
 
 3 @ { } \\ #
 ***********
@@ -23879,34 +23875,33 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 
 Tag Table:
 Node: Top27
-Node: { }874
-Node:     !
-. . ? @953
-Node: @ { } \\ #1058
-Node: LaTeX TeX • , © ... ...1180
-Node: ≡ error→ € ¡ ↦ −1347
-Node: ≥ ≤ →1510
-Node: ª º ★ £ ⊣ ¿ ®1640
-Node: ⇒ ° a b a sunny day å1787
-Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1975
-Node: ä ẽ î â à é ç ē e̊ e̋ ę2198
-Node: ė ĕ e̲ ẹ ě ȷ e͡e2410
-Node: ı Ḕ Ḉ2573
-Node: “ ” ‘ ’ „ ‚2701
-Node: « » « » ‹ ›2843
-Node: `` \'\' --- -- ` \'2987
-Node: AAA (fff) AAA BBB3129
-Node: CCC (rrr) CCC DDD3269
-Node: the someone <someone@somewher> <no_explain@there>3442
-Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3742
-Node:  @ {} . 4092
-Node: cite asis in @w b in r SC *str* t VAR dfn i4295
-Node: env code option samp command file C-x <ESC>4547
-Node: 8.27in4837
-Node: sansserif slanted4971
-Node: indicateurl5095
-Node: _{g}H 3^{rd}5221
-Node: <http://somewhere_aaa> text (url) ls5360
+Node: { }875
+Node:     ! . . ? @954
+Node: @ { } \\ #1059
+Node: LaTeX TeX • , © ... ...1181
+Node: ≡ error→ € ¡ ↦ −1348
+Node: ≥ ≤ →1511
+Node: ª º ★ £ ⊣ ¿ ®1641
+Node: ⇒ ° a b a sunny day å1788
+Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1976
+Node: ä ẽ î â à é ç ē e̊ e̋ ę2199
+Node: ė ĕ e̲ ẹ ě ȷ e͡e2411
+Node: ı Ḕ Ḉ2574
+Node: “ ” ‘ ’ „ ‚2702
+Node: « » « » ‹ ›2844
+Node: `` \'\' --- -- ` \'2988
+Node: AAA (fff) AAA BBB3130
+Node: CCC (rrr) CCC DDD3270
+Node: the someone <someone@somewher> <no_explain@there>3443
+Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3743
+Node:  @ {} . 4093
+Node: cite asis in @w b in r SC *str* t VAR dfn i4296
+Node: env code option samp command file C-x <ESC>4548
+Node: 8.27in4838
+Node: sansserif slanted4972
+Node: indicateurl5096
+Node: _{g}H 3^{rd}5222
+Node: <http://somewhere_aaa> text (url) ls5361
 
 End Tag Table
 

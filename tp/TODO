@@ -13,8 +13,6 @@ Before next release
 Bugs
 ====
 
-In Info @* in node name should become a space
-
 HTML API
 ========
 
@@ -684,6 +682,8 @@ Misc notes
 export XML_CATALOG_FILES=~/src/texinfo/tp/maintain/catalog.xml
 xmllint --nonet --noout --valid commands.xml
 
+tidy -qe *.html
+
 Test with 8bit locale:
 export LANG=fr_FR; export LANGUAGE=fr_FR; export LC_ALL=fr_FR
 xterm &
@@ -693,3 +693,4 @@ xsltproc -o intermediate-fo-file.fo /usr/share/xml/docbook/stylesheet/docbook-xs
 fop -r -pdf texinfo-dbk.pdf -fo intermediate-fo-file.fo
 
 dblatex -o texinfo-dblatex.pdf texinfo.xml
+

@@ -684,7 +684,8 @@ sub new_formatter($$;$)
                    'font_type_stack' => [{}],
                    'w' => 0, 'type' => $type,
               'frenchspacing_stack' => [$self->get_conf('frenchspacing')],
-              'suppress_styles' => $conf->{'suppress_styles'}};
+              'suppress_styles' => $conf->{'suppress_styles'},
+              'no_added_eol' => $conf->{'no_added_eol'}};
 
   if ($type eq 'unfilled') {
     foreach my $context (reverse(@{$self->{'context'}})) {
@@ -1205,7 +1206,8 @@ sub node_line($$)
     push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
     $self->{'node_lines_text'}->{$node}->{'text'} 
        = _normalize_top_node($self->convert_line($node_text,
-                                                 {'suppress_styles' => 1}));
+                                                 {'suppress_styles' => 1,
+                                                  'no_added_eol' => 1,}));
     update_count_context($self);
     my $end_context = pop @{$self->{'count_context'}};
     $self->{'node_lines_text'}->{$node}->{'count'} 
@@ -1319,7 +1321,8 @@ sub process_printindex($$;$)
     my $entry_text = '';
 
     my $formatter = $self->new_formatter('line',
-                                   {'indent' => 0, 'suppress_styles' => 1});
+                                   {'indent' => 0, 'suppress_styles' => 1,
+                                    'no_added_eol' => 1});
     push @{$self->{'formatters'}}, $formatter;
     $entry_text = $self->_convert($entry_tree);
     $entry_text .= $self->_convert($subentries_tree)
@@ -1704,9 +1707,17 @@ sub _convert($$)
         return '';
       } elsif ($command eq '*') {
         $result = _count_added($self, $formatter->{'container'},
-                              add_pending_word($formatter->{'container'}));
-        $result .= _count_added($self, $formatter->{'container'},
-                              end_line($formatter->{'container'}));
+                               add_pending_word($formatter->{'container'}));
+        # added eol in some line oriented constructs, such as @node, menu
+        # entry and therefore index entry would lead to end of line on
+        # node pointers line, in tag table, or on menu, all being invalid.
+        if ($formatter->{'no_added_eol'}) {
+          $result .= _count_added($self, $formatter->{'container'},
+                                 add_text($formatter->{'container'}, ' '));
+        } else {
+          $result .= _count_added($self, $formatter->{'container'},
+                                 end_line($formatter->{'container'}));
+        }
       } elsif ($command eq '.' or $command eq '?' or $command eq '!') {
         $result .= _count_added($self, $formatter->{'container'},
             add_next($formatter->{'container'}, $command));
@@ -3044,6 +3055,7 @@ sub _convert($$)
         my ($pre_quote, $post_quote);
         if ($arg->{'type'} eq 'menu_entry_node') {
           $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
+          $self->{'formatters'}->[-1]->{'no_added_eol'} = 1;
 
           # Flush a leading space
           $result .= _count_added($self, $formatter->{'container'},
@@ -3055,6 +3067,7 @@ sub _convert($$)
           $node_text .= _count_added($self, $formatter->{'container'},
                            add_pending_word($formatter->{'container'}, 1));
           delete $self->{'formatters'}->[-1]->{'suppress_styles'};
+          delete $self->{'formatters'}->[-1]->{'no_added_eol'};
           $pre_quote = $post_quote = '';
           if ($entry_name_seen) {
             if ($node_text =~ /([,\t]|\.\s)/) {
@@ -3081,7 +3094,9 @@ sub _convert($$)
           }
           $result .= $pre_quote . $node_text . $post_quote;
         } elsif ($arg->{'type'} eq 'menu_entry_name') {
+          $self->{'formatters'}->[-1]->{'no_added_eol'} = 1;
           my $entry_name = _convert($self, $arg);
+          delete $self->{'formatters'}->[-1]->{'no_added_eol'};
           my $formatter = $self->{'formatters'}->[-1];
           $entry_name .= _count_added($self,
                            $formatter->{'container'},
