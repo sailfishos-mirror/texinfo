@@ -1,5 +1,16 @@
 2022-08-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Recommendations on markup on @def* lines
+
+	* doc/texinfo.texi (Marking Definition Arguments):
+	Do not make its own node, including in previous node
+	"Def Cmd Conventions".  Integrate with discussion of
+	&keywords.  Mention the possibility of using a @macro
+	but do not include any examples.  Do not promise what
+	@slanted nested in @code does.
+
+2022-08-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi: url -> URL throughout.
 
 2022-08-17  Gavin Smith  <gavinsmith0123@gmail.com>

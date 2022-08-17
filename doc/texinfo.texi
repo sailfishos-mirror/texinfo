@@ -12125,43 +12125,50 @@ to the @code{forward-word} function.  Also, if the name of an argument
 contains the name of a type, such as @var{integer}, take care that the
 argument actually is of that type.
 
-In @TeX{}, @samp{&@var{keyword}} in definition @@-command arguments is
-rendered in bold typeface.  If such a formatting is
-desired, it is better to mark the keyword explicitly, with
-@code{@@r@{@@b@{&keyword@}@}} because this formatting is not done in
-any other output format, and also because in the future this feature
-should be removed.
+@emph{Fonts.}  As Texinfo is a semantic language, you should nearly never need
+to specify font styles with explicit font commands in definitions
+(@pxref{Fonts}).
+However, you may be need to work around problems for particular
+output formats and/or constructs.
+Here are some possibilities:
 
+@itemize @bullet
+@item
+Explicitly marking a Lisp keyword like @samp{&@var{keyword}} with
+@code{@@r@{@@b@{&keyword@}@}}, producing @r{@b{&keyword}}.
 
-@node Marking Definition Arguments
-@section Marking Definition Arguments
+Note such keywords in definition arguments are (at present)
+rendered in bold in @TeX{}, but this formatting is not done in
+any other output format.
 
-Texinfo is a semantic language, @@-commands should be used for their
-meaning, not for their formatting.  In definitions arguments, however, it
-is acceptable to be interested in the formatting, for two reasons.  Firstly,
-all the existing programming languages should be correctly formatted
-on definition lines, which may require more markup than what is usually
-needed in normal text.  Secondly, the usual @@-commands formatting may
-add characters or modify text, in particular when outputting Info, which
-can be confusing in definition lines.
+@item
+@samp{@@r@{@@slanted@{argument@}@}},
+producing @r{@slanted{argument}}, similar to @code{@@var}
+but avoiding upper-casing its argument in Info output.
 
-To avoid the usual formatting, font commands such as @code{@@t}, @code{@@r},
-@code{@@slanted} and @code{@@b} may be used instead of the
-usual semantic commands (@pxref{Fonts}).
+In this and the previous point, @code{@@r} resets the font from that
+being used in the definition line context (slanted or typewriter) to
+a roman, upright style.
 
-Definition commands are already in some specific font, slanted as in
-@code{@@var}, or typewriter as in @code{@@code}.  How nested commands
-setting font combine depends on the output format.  To be sure to start
-from a roman upright font to apply font changing command and obtain
-a well defined result, you should enclose the formatting @@-commands
-in @code{@@r}, and avoid using nested @@-commands, except for
-@code{@@code@{@@slanted@{@dots{}@}@}} and @code{@@t@{@@slanted@{@dots{}@}@}}
-which argument should be slanted and typewriter.
+@item
+You could use @code{@@t} (or even @samp{@@r@{@@t@{@dots{}}, using @code{@@r}
+to reset font styles) to mark literal syntax
+on a definition line where
+text would otherwise be output in the slanted roman style.
+@code{@@code} would be inappropriate here as it adds quotation
+marks in Info output.
+@end itemize
 
-Lastly, we recommend using @code{@@macro} to define semantic @@-commands with
-name and formatting adapted to the style and programming language
-(@pxref{Defining New Texinfo Commands}), rather than using directly the
-formatting @@-commands.  For example, if a metasyntactical symbol is needed and
+Some degree of trial and error may be needed to get the result you
+want.  As ever, how nested font commands combine depends on
+the output format, so should be avoided where possible.
+
+Hopefully, such usages are kept to a minimum.  One possibility is to
+wrap these in @code{@@macro} (@pxref{Defining New Texinfo Commands}),
+allowing these usages to be easily changed in the future.
+
+@ignore
+For example, if a metasyntactical symbol is needed and
 is to be formatted as slanted code, and an strongly emphasized keyword is also
 important for the language, the following could be used:
 
@@ -12194,6 +12201,7 @@ important for the language, the following could be used:
 @defun fset arg @metasymbol{[ +} @strongkeyword{*keyword}
 @dots{}
 @end defun
+@end ignore
 
 
 @node Sample Function Definition
