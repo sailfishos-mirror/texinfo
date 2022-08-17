@@ -168,6 +168,14 @@ element for references to internal nodes.  In general, it is because
 gdt() is used instead of direct HTML.
 
 
+Nodes that differ only by space are not considered as the same by
+texi2any.  Also nodes with the same normalization but different
+Texinfo code are considered to be the same but still trigger an error.
+Info readers (in 2022) find all the nodes with different spacing.
+Should texi2any be more forgiving?  Example test in
+t/10menu.t space_and_commands_in_menu_node.
+
+
 HTML5 validation tidy errors that do not need fixing
 ----------------------------------------------------
 
@@ -693,4 +701,6 @@ xsltproc -o intermediate-fo-file.fo /usr/share/xml/docbook/stylesheet/docbook-xs
 fop -r -pdf texinfo-dbk.pdf -fo intermediate-fo-file.fo
 
 dblatex -o texinfo-dblatex.pdf texinfo.xml
+
+Open a specific info file in Emacs Info reader: C-u C-h i
 

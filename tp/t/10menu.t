@@ -476,7 +476,26 @@ Text
 @menu
 * An anchor::                menu entry pointing to the anchor.
 @end menu
-']
+'],
+['space_and_commands_in_menu_node',
+'@node Top
+@top top
+
+@menu
+* chap  b::
+* chap @: b::
+* chap b::
+* chap@ @ b::
+* chap@  b::
+* chap @ b::
+* label: chap @: b.
+* label: chap b.
+* label: chap @ @ b.
+@end menu
+
+@node chap @: b
+@chapter Chap
+'],
 );
 
 my @test_invalid = (
