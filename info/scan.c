@@ -1298,6 +1298,7 @@ scan_reference_target (REFERENCE *entry, NODE *node, int in_parentheses)
                                     &entry->nodename);
       if (inptr[length] == '.') /* A '.' terminating the entry. */
         length++;
+      canonicalize_whitespace (entry->nodename);
 
       if (node->flags & N_IsDir)
         {
