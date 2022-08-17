@@ -1316,7 +1316,7 @@ sub _latex_header() {
 '.$titleps_preamble.'
 
 % avoid pagebreak and headings setting for a sectionning command
-\newcommand{\GNUTexinfonopagebreakheading}[2]{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}
+\newcommand{\GNUTexinfonopagebreakheading}[2]{{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}}
 
 ';
   if ($self->{'packages'}->{'mdframed'}) {

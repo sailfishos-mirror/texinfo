@@ -78,7 +78,7 @@
 
 
 % avoid pagebreak and headings setting for a sectionning command
-\newcommand{\GNUTexinfonopagebreakheading}[2]{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}
+\newcommand{\GNUTexinfonopagebreakheading}[2]{{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}}
 
 % the mdframed style for @cartouche
 \mdfdefinestyle{GNUTexinfocartouche}{

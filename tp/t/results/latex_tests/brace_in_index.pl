@@ -757,7 +757,7 @@ $result_converted{'file_latex'}->{'brace_in_index'} = '\\documentclass{book}
 
 
 % avoid pagebreak and headings setting for a sectionning command
-\\newcommand{\\GNUTexinfonopagebreakheading}[2]{\\let\\clearpage\\relax \\let\\cleardoublepage\\relax \\let\\thispagestyle\\GNUTexinfoplaceholder #1{#2}}
+\\newcommand{\\GNUTexinfonopagebreakheading}[2]{{\\let\\clearpage\\relax \\let\\cleardoublepage\\relax \\let\\thispagestyle\\GNUTexinfoplaceholder #1{#2}}}
 
 % braces are upright in italic and slanted only in @def*
 % so it is turned off here, and turned on @def* lines
