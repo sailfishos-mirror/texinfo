@@ -4784,7 +4784,7 @@ sub _convert_xref_commands($$$$)
     if ($cmdname eq 'pxref') {
       $tree = $self->gdt('see {reference_name}',
         { 'reference_name' => {'type' => '_converted', 'text' => $reference} });
-    } elsif ($cmdname eq 'xref' or $cmdname eq 'inforef') {
+    } elsif ($cmdname eq 'xref') {
       $tree = $self->gdt('See {reference_name}',
         { 'reference_name' => {'type' => '_converted', 'text' => $reference} });
     } elsif ($cmdname eq 'ref') {
@@ -4905,7 +4905,7 @@ sub _convert_xref_commands($$$$)
         $tree = $self->gdt('See `{section}\'', {
               'section' => {'type' => '_converted', 'text' => $reference} });
       }
-    } else {
+    } else { # @ref
       if (($book ne '') and ($href ne '') and ($reference ne '')) {
         $tree = $self->gdt('{reference} in @cite{{book}}',
             { 'reference' => {'type' => '_converted', 'text' => $reference},
