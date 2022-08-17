@@ -2811,7 +2811,7 @@ $result_converted{'plaintext'}->{'commands_in_math'} = '*``simple-double--three-
 ``simple-double--three---four----\'\'
 
 
-ü Ü ñ â é ō ì é ı j Ḕ
+ü Ü ñ â é ō ì é ı ȷ Ḕ
 ł Ḉ Ḉ ç a̋ ȧ å a͡
 ă a̲ ạ ǎ ą a^{h}_{l}
 
@@ -2838,7 +2838,7 @@ $result_converted{'html_text'}->{'commands_in_math'} = '
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----\'<!-- /@w -->\'
 
 </em></div>
-<div class="displaymath"><em>&uuml; &Uuml; &ntilde; &acirc; &eacute; &#333; &igrave; &eacute; i j &#274;&#768;
+<div class="displaymath"><em>&uuml; &Uuml; &ntilde; &acirc; &eacute; &#333; &igrave; &eacute; &inodot; &#567; &#274;&#768;
 &#322; &#262;&#807; &#262;&#807; &ccedil; a&#779; &#551; &aring; a&#865;
 &#259; a&#818; &#7841; &#462; &#261; a<sup class="sup">h</sup><sub class="sub">l</sub>
 
@@ -2898,7 +2898,7 @@ $result_converted{'docbook'}->{'commands_in_math'} = '
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----\'<!-- /@w -->\'
 
 </mathphrase></informalequation>
-<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;&#768;
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; &#305; &#567; &#274;&#768;
 &#322; &#262;&#807; &#262;&#807; &#231; a&#779; &#551; &#229; a&#865;
 &#259; a&#818; &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
 

@@ -14,7 +14,7 @@ kbd: '``simple-double--three---four----'''
    ''simple-double--three--four---''
 
    @"u ü @"{U} Ü @~n ñ @^a â @'e é @=o ō @'i ì @'{e} é @'{@dotless{i}} í
-@dotless{i} ı @dotless{j} j @'{@=E} Ḕ @l{} ł @,{@'C} Ḉ @,c ç @,c@"u çü
+@dotless{i} ı @dotless{j} ȷ @'{@=E} Ḕ @l{} ł @,{@'C} Ḉ @,c ç @,c@"u çü
 
    @U{0075} u
 
@@ -84,7 +84,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\rig
 ``simple-double--three---four----''
 
 
-ı j
+ı ȷ
 ł ç
 a̲ ạ ą a^{h}_{l}
 
@@ -724,7 +724,7 @@ kbd: '``simple-double--three---four----'''
    ''simple-double--three--four---''
 
    @"u ü @"{U} Ü @~n ñ @^a â @'e é @=o ō @'i ì @'{e} é @'{@dotless{i}} í
-@dotless{i} ı @dotless{j} j @'{@=E} Ḕ @l{} ł @,{@'C} Ḉ @,c ç @,c@"u çü
+@dotless{i} ı @dotless{j} ȷ @'{@=E} Ḕ @l{} ł @,{@'C} Ḉ @,c ç @,c@"u çü
 
    @U{0075} u
 
@@ -794,7 +794,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\rig
 ``simple-double--three---four----''
 
 
-ı j
+ı ȷ
 ł ç
 a̲ ạ ą a^{h}_{l}
 
@@ -1391,7 +1391,7 @@ kbd: '``simple-double--three---four----'''
    ''simple-double--three--four---''
 
    @"u ü @"{U} Ü @~n ñ @^a â @'e é @=o ō @'i ì @'{e} é @'{@dotless{i}} í
-@dotless{i} ı @dotless{j} j @'{@=E} Ḕ @l{} ł @,{@'C} Ḉ @,c ç @,c@"u çü
+@dotless{i} ı @dotless{j} ȷ @'{@=E} Ḕ @l{} ł @,{@'C} Ḉ @,c ç @,c@"u çü
 
    @U{0075} u
 
@@ -1461,7 +1461,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\rig
 ``simple-double--three---four----''
 
 
-ı j
+ı ȷ
 ł ç
 a̲ ạ ą a^{h}_{l}
 
@@ -2079,7 +2079,7 @@ cross ref name: (file name). '@inforef{}' *note ::
      @'{e} é
      @'{@dotless{i}} í
      @dotless{i} ı
-     @dotless{j} j
+     @dotless{j} ȷ
      @`{@=E} Ḕ
      @l{} ł
      @,{@'C} Ḉ
@@ -2263,7 +2263,7 @@ cross ref name: (file name). '@inforef{}' *note ::
      ``simple-double--three---four----''
 
 
-     ı j
+     ı ȷ
      ł ç
      a̲ ạ ą a^{h}_{l}
 
@@ -3574,22 +3574,22 @@ chapter 2
 
 
 Tag Table:
-Node: Top18465
-Node: chapter18650
-Ref: chapter-Footnote-196757
-Ref: chapter-Footnote-296777
-Ref: chapter-Footnote-396798
-Ref: chapter-Footnote-496818
-Ref: chapter-Footnote-596839
-Ref: chapter-Footnote-696859
-Ref: chapter-Footnote-796880
-Ref: chapter-Footnote-896918
-Node: s--ect,ion96938
-Node: subsection97141
-Ref: anchor97322
-Node: subsubsection ``simple-double--97322
-Node: subsubsection three---four----''97522
-Node: chapter297694
+Node: Top18467
+Node: chapter18652
+Ref: chapter-Footnote-196765
+Ref: chapter-Footnote-296785
+Ref: chapter-Footnote-396806
+Ref: chapter-Footnote-496826
+Ref: chapter-Footnote-596847
+Ref: chapter-Footnote-696867
+Ref: chapter-Footnote-796888
+Ref: chapter-Footnote-896926
+Node: s--ect,ion96946
+Node: subsection97149
+Ref: anchor97330
+Node: subsubsection ``simple-double--97330
+Node: subsubsection three---four----''97530
+Node: chapter297702
 
 End Tag Table
 

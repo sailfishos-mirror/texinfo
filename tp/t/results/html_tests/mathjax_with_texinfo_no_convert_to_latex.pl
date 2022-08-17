@@ -392,7 +392,7 @@ MathJax = {
 </head>
 
 <body lang="en" class="tex2jax_ignore">
-<div class="displaymath"><em class="tex2jax_process">\\[a<sup class="sup">b - \\frac{\\xi}{phi &copy;}</sup> i
+<div class="displaymath"><em class="tex2jax_process">\\[a<sup class="sup">b - \\frac{\\xi}{phi &copy;}</sup> &inodot;
 \\]</em></div>
 <p>Some <em class="math tex2jax_process">\\(a - b &ge; &Aring; &ecirc;\\)</em>.
 </p>

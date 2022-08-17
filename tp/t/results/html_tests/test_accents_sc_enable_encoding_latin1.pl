@@ -1812,7 +1812,7 @@ $result_converted{'html_text'}->{'test_accents_sc_enable_encoding_latin1'} = '
 
 <p>&ndash;a&#774;
 &ndash;a&#770;
-å Å ê Ê &#297; i &#7771; &#341;&#780; ñ&#807;&#772;.
+å Å ê Ê &#297; &inodot; &#7771; &#341;&#780; ñ&#807;&#772;.
 &equiv;
 <small class="sc">Å Å Ê Ê &#296; I &#7770; &#340;&#780; Ñ&#807;&#772;</small>.
 </p>

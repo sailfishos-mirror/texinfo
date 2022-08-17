@@ -3226,7 +3226,7 @@ should be e‘: è è
 
    AE, OE ligatures: æ Æ œ Œ
 
-   dotless i, j: ı j
+   dotless i, j: ı ȷ
 
    Polish suppressed-L: ł Ł
 
@@ -3305,7 +3305,7 @@ $result_converted{'html_text'}->{'accent'} = '<div class="top-level-extent" id="
 </p>
 <p>AE, OE ligatures: &aelig; &AElig; &oelig; &OElig;
 </p>
-<p>dotless i, j: i j
+<p>dotless i, j: &inodot; &#567;
 </p>
 <p>Polish suppressed-L: &#322; &#321;
 </p>
@@ -3467,7 +3467,7 @@ $result_converted{'docbook'}->{'accent'} = '<chapter label="" id="Top-node">
 </para>
 <para>AE, OE ligatures: &#230; &#198; &#339; &#338;
 </para>
-<para>dotless i, j: i j
+<para>dotless i, j: &#305; &#567;
 </para>
 <para>Polish suppressed-L: &#322; &#321;
 </para>

@@ -424,6 +424,10 @@ our %unicode_accented_letters = (
         'O' => '01EA',
         'o' => '01EB',
     },
+    'dotless' => {
+        'i' => '0131',
+        'j' => '0237',
+    }
 );
 
 our %unicode_simple_character_map = (
@@ -608,6 +612,7 @@ our %transliterate_map = (
                '0446'  => 'c',
                '04D7'  => 'IO',
                '00DD'  => 'Y', # unidecode gets this wrong ?
+               '0237'  => 'j', # unknown dotless j for unidecode, returns [?]
                # following appears in tests, this is required to have
                # the same output with and without unidecode
                '4E2D'  => 'Zhong',
@@ -1012,6 +1017,7 @@ my %unicode_to_eight_bit = (
       '0427' => 'FE',
       '042A' => 'FF',
    },
+   # additional to koi8-r, replacing box drawing characters not used in Texinfo
    'koi8-u' => {
       '0454' => 'A4',
       '0404' => 'B4',
@@ -1233,13 +1239,16 @@ sub unicode_accent($$)
   # special handling of @dotless{i}.
   # \x{0131}\x{0308} for @dotless{i} @" doesn't lead to NFC 00ef.
   # so it is set to a real dotless i only if not in an accent command.
+  # Do the same for dotless j, even though we have no clear idea on
+  # what is going on for that character.
   if ($accent eq 'dotless') {
-    if ($text eq 'i' and
-        (!$command->{'parent'}
-         or !$command->{'parent'}->{'parent'}
-         or !$command->{'parent'}->{'parent'}->{'cmdname'}
-         or !$unicode_accented_letters{$command->{'parent'}->{'parent'}->{'cmdname'}})) {
-      return "\x{0131}";
+    if ($unicode_accented_letters{$accent}->{$text}
+        and (!$command->{'parent'}
+             or !$command->{'parent'}->{'parent'}
+             or !$command->{'parent'}->{'parent'}->{'cmdname'}
+             or !$unicode_accented_letters{$command->{'parent'}
+                                        ->{'parent'}->{'cmdname'}})) {
+      return chr(hex($unicode_accented_letters{$accent}->{$text}));
     } else {
       return $text;
     }

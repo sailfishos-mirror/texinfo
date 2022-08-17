@@ -287,13 +287,15 @@ my %accents = (
 # our because it is used in the xml to texi translator
 our %accent_types = (%Texinfo::Convert::Converter::xml_accent_entities, %accents);
 
+# do not treat @dotless as an accent command but
+# together with brace commands.
+delete $accent_types{'dotless'};
+
 # no entity
 my @other_accents = ('dotaccent', 'tieaccent', 'ubaraccent', 'udotaccent');
 foreach my $accent (@other_accents) {
   $accent_types{$accent} = $accent;
 }
-# note that @dotless is not treated as an accent command but
-# together with brace commands.
 
 my %misc_command_line_attributes = (
   'setfilename' => 'file',

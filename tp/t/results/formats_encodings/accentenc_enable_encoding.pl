@@ -3265,7 +3265,7 @@ $result_converted{'html_text'}->{'accentenc_enable_encoding'} = '
 </p>
 <p>AE, OE ligatures: æ Æ &oelig; &OElig;
 </p>
-<p>dotless i, j: i j
+<p>dotless i, j: &inodot; &#567;
 </p>
 <p>Polish suppressed-L: &#322; &#321;
 </p>

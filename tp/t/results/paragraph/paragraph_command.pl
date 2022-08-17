@@ -437,7 +437,7 @@ $result_converted{'html_text'}->{'paragraph_command'} = '<p>@
 </p>
 <p><b class="b">aaa</b>.
 </p>
-<p>i also dotless i.
+<p>&inodot; also dotless i.
 </p>
 <p>&#x0075; also U+0075.
 </p>

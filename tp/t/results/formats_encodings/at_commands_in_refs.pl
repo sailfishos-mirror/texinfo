@@ -2325,7 +2325,7 @@ $result_trees{'at_commands_in_refs'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
+                  'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e'
                 }
               },
               'parent' => {},
@@ -8622,10 +8622,10 @@ $result_trees{'at_commands_in_refs'} = {
               {},
               {}
             ],
-            'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
+            'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e'
           }
         ],
-        'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e',
+        'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e',
         'spaces_before_argument' => ' '
       },
       'parent' => {},
@@ -15114,7 +15114,7 @@ $result_trees{'at_commands_in_refs'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
+                  'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e'
                 }
               },
               'parent' => {},
@@ -21206,7 +21206,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
+                    'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e'
                   },
                   'structure' => {}
                 }
@@ -21815,7 +21815,7 @@ $result_nodes{'at_commands_in_refs'} = {
                                                     'section_number' => 11
                                                   }
                                                 },
-                                                'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
+                                                'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e'
                                               },
                                               'structure' => {
                                                 'node_next' => {
@@ -22262,7 +22262,7 @@ $result_menus{'at_commands_in_refs'} = {
                                             'menu_next' => {
                                               'cmdname' => 'node',
                                               'extra' => {
-                                                'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
+                                                'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e'
                                               },
                                               'structure' => {
                                                 'menu_next' => {
@@ -22674,7 +22674,7 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 10 ä ẽ î â à é ç ē e̊ e̋ ę
 ************************
 
-11 ė ĕ e̲ ẹ ě j e͡e
+11 ė ĕ e̲ ẹ ě ȷ e͡e
 *****************
 
 12 ı Ḕ Ḉ
@@ -22747,7 +22747,7 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 
    *note ä ẽ î â à é ç ē e̊ e̋ ę::
 
-   *note ė ĕ e̲ ẹ ě j e͡e::
+   *note ė ĕ e̲ ẹ ě ȷ e͡e::
 
    *note ı Ḕ Ḉ::
 
@@ -22861,8 +22861,8 @@ Next: <a href="#-_007b-_007d" accesskey="n" rel="next"> { }</a> &nbsp; </p>
 <li><a href="#g_t_21d2-_00b0-a-b--_00e5" accesskey="8">&rArr; &deg; a&nbsp;b a sunny day &aring;</a></li>
 <li><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="9">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a></li>
 <li><a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a></li>
-<li><a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">&#279; &#277; e&#818; &#7865; &#283; j e&#865;e</a></li>
-<li><a href="#g_t_0131-_1e14-_1e08">i &#274;&#768; &#262;&#807;</a></li>
+<li><a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e">&#279; &#277; e&#818; &#7865; &#283; &#567; e&#865;e</a></li>
+<li><a href="#g_t_0131-_1e14-_1e08">&inodot; &#274;&#768; &#262;&#807;</a></li>
 <li><a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a></li>
 <li><a href="#g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a">&laquo; &raquo; &laquo; &raquo; &lsaquo; &rsaquo;</a></li>
 <li><a href="#g_t_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027">&ldquo; &rdquo; &mdash; &ndash; &lsquo; &rsquo;</a></li>
@@ -22964,34 +22964,34 @@ Next: <a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b
 <div class="chapter-level-extent" id="g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">
 <div class="nav-panel">
 <p>
-Next: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e" accesskey="n" rel="next">&#279; &#277; e&#818; &#7865; &#283; j e&#865;e</a>, Previous: <a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="p" rel="prev">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e" accesskey="n" rel="next">&#279; &#277; e&#818; &#7865; &#283; &#567; e&#865;e</a>, Previous: <a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="p" rel="prev">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="a-e-i-a-a-e-c-e-e-e-e">10 &auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</h2>
 
 <hr>
 </div>
-<div class="chapter-level-extent" id="g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">
+<div class="chapter-level-extent" id="g_t_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e">
 <div class="nav-panel">
 <p>
-Next: <a href="#g_t_0131-_1e14-_1e08" accesskey="n" rel="next">i &#274;&#768; &#262;&#807;</a>, Previous: <a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119" accesskey="p" rel="prev">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#g_t_0131-_1e14-_1e08" accesskey="n" rel="next">&inodot; &#274;&#768; &#262;&#807;</a>, Previous: <a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119" accesskey="p" rel="prev">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="e-e-e-e-e-j-ee">11 &#279; &#277; e&#818; &#7865; &#283; j e&#865;e</h2>
+<h2 class="chapter" id="e-e-e-e-e-j-ee">11 &#279; &#277; e&#818; &#7865; &#283; &#567; e&#865;e</h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t_0131-_1e14-_1e08">
 <div class="nav-panel">
 <p>
-Next: <a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a" accesskey="n" rel="next">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a>, Previous: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e" accesskey="p" rel="prev">&#279; &#277; e&#818; &#7865; &#283; j e&#865;e</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a" accesskey="n" rel="next">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a>, Previous: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e" accesskey="p" rel="prev">&#279; &#277; e&#818; &#7865; &#283; &#567; e&#865;e</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="i-E-C">12 i &#274;&#768; &#262;&#807;</h2>
+<h2 class="chapter" id="i-E-C">12 &inodot; &#274;&#768; &#262;&#807;</h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t_201c-_201d-_2018-_2019-_201e-_201a">
 <div class="nav-panel">
 <p>
-Next: <a href="#g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a" accesskey="n" rel="next">&laquo; &raquo; &laquo; &raquo; &lsaquo; &rsaquo;</a>, Previous: <a href="#g_t_0131-_1e14-_1e08" accesskey="p" rel="prev">i &#274;&#768; &#262;&#807;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a" accesskey="n" rel="next">&laquo; &raquo; &laquo; &raquo; &lsaquo; &rsaquo;</a>, Previous: <a href="#g_t_0131-_1e14-_1e08" accesskey="p" rel="prev">&inodot; &#274;&#768; &#262;&#807;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="g_t_201c-_201d-_2018-_2019-_201e-_201a-1">13 &ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</h2>
 
@@ -23141,9 +23141,9 @@ Previous: <a href="#gH-3rd" accesskey="p" rel="prev"><sub class="sub">g</sub>H 3
 </p>
 <p><a class="ref" href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a>
 </p>
-<p><a class="ref" href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">&#279; &#277; e&#818; &#7865; &#283; j e&#865;e</a>
+<p><a class="ref" href="#g_t_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e">&#279; &#277; e&#818; &#7865; &#283; &#567; e&#865;e</a>
 </p>
-<p><a class="ref" href="#g_t_0131-_1e14-_1e08">i &#274;&#768; &#262;&#807;</a>
+<p><a class="ref" href="#g_t_0131-_1e14-_1e08">&inodot; &#274;&#768; &#262;&#807;</a>
 </p>
 <p><a class="ref" href="#g_t_201c-_201d-_2018-_2019-_201e-_201a">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a>
 </p>
@@ -23299,7 +23299,7 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node name="Top" spaces=" "
 <chapter spaces="  "><sectiontitle><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="doubleacute">e</accent> <accent type="ogon">e</accent></sectiontitle>
 
 </chapter>
-<node name="_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e" spaces=" "><nodename><accent type="dotaccent">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></nodename><nodenext automatic="on"><dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></nodenext><nodeprev automatic="on"><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="doubleacute">e</accent> <accent type="ogon">e</accent></nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node name="_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e" spaces=" "><nodename><accent type="dotaccent">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></nodename><nodenext automatic="on"><dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></nodenext><nodeprev automatic="on"><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="doubleacute">e</accent> <accent type="ogon">e</accent></nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle><accent type="dotaccent">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></sectiontitle>
 
 </chapter>
@@ -23386,7 +23386,7 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node name="Top" spaces=" "
 </para>
 <para><ref label="_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119"><xrefnodename><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="doubleacute">e</accent> <accent type="ogon">e</accent></xrefnodename></ref>
 </para>
-<para><ref label="_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e"><xrefnodename><accent type="dotaccent">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></xrefnodename></ref>
+<para><ref label="_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e"><xrefnodename><accent type="dotaccent">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></xrefnodename></ref>
 </para>
 <para><ref label="_0131-_1e14-_1e08"><xrefnodename><dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></xrefnodename></ref>
 </para>
@@ -23466,12 +23466,12 @@ $result_converted{'docbook'}->{'at_commands_in_refs'} = '<chapter label="1" id="
 <title>&#228; &#7869; &#238; &#226; &#224; &#233; &#231; &#275; e&#778; e&#779; &#281;</title>
 
 </chapter>
-<chapter label="11" id="_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">
-<title>&#279; &#277; e&#818; &#7865; &#283; j e&#865;e</title>
+<chapter label="11" id="_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e">
+<title>&#279; &#277; e&#818; &#7865; &#283; &#567; e&#865;e</title>
 
 </chapter>
 <chapter label="12" id="_0131-_1e14-_1e08">
-<title>i &#274;&#768; &#262;&#807;</title>
+<title>&#305; &#274;&#768; &#262;&#807;</title>
 
 </chapter>
 <chapter label="13" id="_201c-_201d-_2018-_2019-_201e-_201a">
@@ -23554,9 +23554,9 @@ $result_converted{'docbook'}->{'at_commands_in_refs'} = '<chapter label="1" id="
 </para>
 <para><link linkend="_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&#228; &#7869; &#238; &#226; &#224; &#233; &#231; &#275; e&#778; e&#779; &#281;</link>
 </para>
-<para><link linkend="_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">&#279; &#277; e&#818; &#7865; &#283; j e&#865;e</link>
+<para><link linkend="_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e">&#279; &#277; e&#818; &#7865; &#283; &#567; e&#865;e</link>
 </para>
-<para><link linkend="_0131-_1e14-_1e08">i &#274;&#768; &#262;&#807;</link>
+<para><link linkend="_0131-_1e14-_1e08">&#305; &#274;&#768; &#262;&#807;</link>
 </para>
 <para><link linkend="_201c-_201d-_2018-_2019-_201e-_201a">&#8220; &#8221; &#8216; &#8217; &#8222; &#8218;</link>
 </para>
@@ -23635,7 +23635,7 @@ Top
 * ⇒ ° a b a sunny day å::
 * Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ::
 * ä ẽ î â à é ç ē e̊ e̋ ę::
-* ė ĕ e̲ ẹ ě j e͡e::
+* ė ĕ e̲ ẹ ě ȷ e͡e::
 * ı Ḕ Ḉ::
 * “ ” ‘ ’ „ ‚::
 * « » « » ‹ ›::
@@ -23712,19 +23712,19 @@ File: ,  Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Next: ä ẽ î â à
 *****************************
 
 
-File: ,  Node: ä ẽ î â à é ç ē e̊ e̋ ę,  Next: ė ĕ e̲ ẹ ě j e͡e,  Prev: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Up: Top
+File: ,  Node: ä ẽ î â à é ç ē e̊ e̋ ę,  Next: ė ĕ e̲ ẹ ě ȷ e͡e,  Prev: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Up: Top
 
 10 ä ẽ î â à é ç ē e̊ e̋ ę
 ************************
 
 
-File: ,  Node: ė ĕ e̲ ẹ ě j e͡e,  Next: ı Ḕ Ḉ,  Prev: ä ẽ î â à é ç ē e̊ e̋ ę,  Up: Top
+File: ,  Node: ė ĕ e̲ ẹ ě ȷ e͡e,  Next: ı Ḕ Ḉ,  Prev: ä ẽ î â à é ç ē e̊ e̋ ę,  Up: Top
 
-11 ė ĕ e̲ ẹ ě j e͡e
+11 ė ĕ e̲ ẹ ě ȷ e͡e
 *****************
 
 
-File: ,  Node: ı Ḕ Ḉ,  Next: “ ” ‘ ’ „ ‚,  Prev: ė ĕ e̲ ẹ ě j e͡e,  Up: Top
+File: ,  Node: ı Ḕ Ḉ,  Next: “ ” ‘ ’ „ ‚,  Prev: ė ĕ e̲ ẹ ě ȷ e͡e,  Up: Top
 
 12 ı Ḕ Ḉ
 ********
@@ -23841,7 +23841,7 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 
    *note ä ẽ î â à é ç ē e̊ e̋ ę::
 
-   *note ė ĕ e̲ ẹ ě j e͡e::
+   *note ė ĕ e̲ ẹ ě ȷ e͡e::
 
    *note ı Ḕ Ḉ::
 
@@ -23879,34 +23879,34 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 
 Tag Table:
 Node: Top27
-Node: { }873
+Node: { }874
 Node:     !
-. . ? @952
-Node: @ { } \\ #1057
-Node: LaTeX TeX • , © ... ...1179
-Node: ≡ error→ € ¡ ↦ −1346
-Node: ≥ ≤ →1509
-Node: ª º ★ £ ⊣ ¿ ®1639
-Node: ⇒ ° a b a sunny day å1786
-Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1974
-Node: ä ẽ î â à é ç ē e̊ e̋ ę2197
-Node: ė ĕ e̲ ẹ ě j e͡e2408
-Node: ı Ḕ Ḉ2569
-Node: “ ” ‘ ’ „ ‚2696
-Node: « » « » ‹ ›2838
-Node: `` \'\' --- -- ` \'2982
-Node: AAA (fff) AAA BBB3124
-Node: CCC (rrr) CCC DDD3264
-Node: the someone <someone@somewher> <no_explain@there>3437
-Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3737
-Node:  @ {} . 4087
-Node: cite asis in @w b in r SC *str* t VAR dfn i4290
-Node: env code option samp command file C-x <ESC>4542
-Node: 8.27in4832
-Node: sansserif slanted4966
-Node: indicateurl5090
-Node: _{g}H 3^{rd}5216
-Node: <http://somewhere_aaa> text (url) ls5355
+. . ? @953
+Node: @ { } \\ #1058
+Node: LaTeX TeX • , © ... ...1180
+Node: ≡ error→ € ¡ ↦ −1347
+Node: ≥ ≤ →1510
+Node: ª º ★ £ ⊣ ¿ ®1640
+Node: ⇒ ° a b a sunny day å1787
+Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1975
+Node: ä ẽ î â à é ç ē e̊ e̋ ę2198
+Node: ė ĕ e̲ ẹ ě ȷ e͡e2410
+Node: ı Ḕ Ḉ2573
+Node: “ ” ‘ ’ „ ‚2701
+Node: « » « » ‹ ›2843
+Node: `` \'\' --- -- ` \'2987
+Node: AAA (fff) AAA BBB3129
+Node: CCC (rrr) CCC DDD3269
+Node: the someone <someone@somewher> <no_explain@there>3442
+Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3742
+Node:  @ {} . 4092
+Node: cite asis in @w b in r SC *str* t VAR dfn i4295
+Node: env code option samp command file C-x <ESC>4547
+Node: 8.27in4837
+Node: sansserif slanted4971
+Node: indicateurl5095
+Node: _{g}H 3^{rd}5221
+Node: <http://somewhere_aaa> text (url) ls5360
 
 End Tag Table
 

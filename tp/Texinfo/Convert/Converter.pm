@@ -1507,6 +1507,7 @@ our %xml_accent_entities = (
           ",", 'cedil',
           'ringaccent', 'ring',
           'ogonek', 'ogon',
+          'dotless', 'nodot',
          );
 
 my %xml_accent_text_with_entities = (
@@ -1517,6 +1518,7 @@ my %xml_accent_text_with_entities = (
       '`'          => 'aeiouAEIOU',
       '~'          => 'nNaoAO',
       '"'          => 'aeiouyAEIOU',
+      'dotless'    => 'i',
 # according to http://www2.lib.virginia.edu/small/vhp/download/ISO.txt
 # however this doesn't seems to work in firefox
 #      'ogonek'     => 'aeiuAEIU',
@@ -1563,6 +1565,20 @@ sub xml_accent($$$;$$$)
   
   if ($in_upper_case and $text =~ /^\w$/) {
     $text = uc ($text);
+  }
+
+  # do not return a dotless i or j as such if it is further composed
+  # with an accented letter, return the letter as is
+  if ($accent eq 'dotless') {
+    if ($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}
+        and exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text})
+        and ($command->{'parent'}
+             and $command->{'parent'}->{'parent'}
+             and $command->{'parent'}->{'parent'}->{'cmdname'}
+             and $Texinfo::Convert::Unicode::unicode_accented_letters{$command->{'parent'}
+                                        ->{'parent'}->{'cmdname'}})) {
+      return $text;
+    }
   }
  
   if ($use_numeric_entities) {

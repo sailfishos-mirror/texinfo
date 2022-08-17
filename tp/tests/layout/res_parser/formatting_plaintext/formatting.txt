@@ -27,7 +27,7 @@ kbd: '``simple-double--three---four----'''
    ''simple-double--three--four---''
 
    @"u ü @"{U} Ü @~n ñ @^a â @'e é @=o ō @'i ì @'{e} é @'{@dotless{i}} í
-@dotless{i} ı @dotless{j} j @'{@=E} Ḕ @l{} ł @,{@'C} Ḉ @,c ç @,c@"u çü
+@dotless{i} ı @dotless{j} ȷ @'{@=E} Ḕ @l{} ł @,{@'C} Ḉ @,c ç @,c@"u çü
 
    @U{0075} u
 
@@ -97,7 +97,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\rig
 ``simple-double--three---four----''
 
 
-ı j
+ı ȷ
 ł ç
 a̲ ạ ą a^{h}_{l}
 
@@ -694,7 +694,7 @@ kbd: '``simple-double--three---four----'''
    ''simple-double--three--four---''
 
    @"u ü @"{U} Ü @~n ñ @^a â @'e é @=o ō @'i ì @'{e} é @'{@dotless{i}} í
-@dotless{i} ı @dotless{j} j @'{@=E} Ḕ @l{} ł @,{@'C} Ḉ @,c ç @,c@"u çü
+@dotless{i} ı @dotless{j} ȷ @'{@=E} Ḕ @l{} ł @,{@'C} Ḉ @,c ç @,c@"u çü
 
    @U{0075} u
 
@@ -764,7 +764,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\rig
 ``simple-double--three---four----''
 
 
-ı j
+ı ȷ
 ł ç
 a̲ ạ ą a^{h}_{l}
 
@@ -1382,7 +1382,7 @@ cross ref name: (file name). '@inforef{}' *note ::
      @'{e} é
      @'{@dotless{i}} í
      @dotless{i} ı
-     @dotless{j} j
+     @dotless{j} ȷ
      @`{@=E} Ḕ
      @l{} ł
      @,{@'C} Ḉ
@@ -1566,7 +1566,7 @@ cross ref name: (file name). '@inforef{}' *note ::
      ``simple-double--three---four----''
 
 
-     ı j
+     ı ȷ
      ł ç
      a̲ ạ ą a^{h}_{l}
 

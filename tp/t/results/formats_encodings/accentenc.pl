@@ -3351,7 +3351,7 @@ $result_converted{'html_text'}->{'accentenc'} = '
 </p>
 <p>AE, OE ligatures: &aelig; &AElig; &oelig; &OElig;
 </p>
-<p>dotless i, j: i j
+<p>dotless i, j: &inodot; &#567;
 </p>
 <p>Polish suppressed-L: &#322; &#321;
 </p>
@@ -3515,7 +3515,7 @@ $result_converted{'docbook'}->{'accentenc'} = '<chapter label="" id="Top-node">
 </para>
 <para>AE, OE ligatures: &#230; &#198; &#339; &#338;
 </para>
-<para>dotless i, j: i j
+<para>dotless i, j: &#305; &#567;
 </para>
 <para>Polish suppressed-L: &#322; &#321;
 </para>

@@ -53,8 +53,8 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 @&#8216;i &#236;
 @&#8217;{e} &#233;
 @&#8217;{@dotless{i}} &#237; 
-@dotless{i} i
-@dotless{j} j
+@dotless{i} &#305;
+@dotless{j} &#567;
 @&#8216;{@=E} &#274;&#768; 
 @l{} &#322;
 @,{@&#8217;C} &#262;&#807;
@@ -239,7 +239,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </mathphrase></informalequation>
-<informalequation><mathphrase>i j
+<informalequation><mathphrase>&#305; &#567;
 &#322; &#231;
 a&#818; &#7841; &#261; a<superscript>h</superscript><subscript>l</subscript>
 
@@ -969,8 +969,8 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 @&#8216;i &#236;
 @&#8217;{e} &#233;
 @&#8217;{@dotless{i}} &#237; 
-@dotless{i} i
-@dotless{j} j
+@dotless{i} &#305;
+@dotless{j} &#567;
 @&#8216;{@=E} &#274;&#768; 
 @l{} &#322;
 @,{@&#8217;C} &#262;&#807;
@@ -1155,7 +1155,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </mathphrase></informalequation>
-<informalequation><mathphrase>i j
+<informalequation><mathphrase>&#305; &#567;
 &#322; &#231;
 a&#818; &#7841; &#261; a<superscript>h</superscript><subscript>l</subscript>
 
@@ -1872,8 +1872,8 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 @&#8216;i &#236;
 @&#8217;{e} &#233;
 @&#8217;{@dotless{i}} &#237; 
-@dotless{i} i
-@dotless{j} j
+@dotless{i} &#305;
+@dotless{j} &#567;
 @&#8216;{@=E} &#274;&#768; 
 @l{} &#322;
 @,{@&#8217;C} &#262;&#807;
@@ -2058,7 +2058,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </mathphrase></informalequation>
-<informalequation><mathphrase>i j
+<informalequation><mathphrase>&#305; &#567;
 &#322; &#231;
 a&#818; &#7841; &#261; a<superscript>h</superscript><subscript>l</subscript>
 
@@ -2771,8 +2771,8 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 @`i &#236;
 @'{e} &#233;
 @'{@dotless{i}} &#237; 
-@dotless{i} i
-@dotless{j} j
+@dotless{i} &#305;
+@dotless{j} &#567;
 @`{@=E} &#274;&#768; 
 @l{} &#322;
 @,{@'C} &#262;&#807;
@@ -2957,7 +2957,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </mathphrase></informalequation><screen>
-</screen><informalequation><mathphrase>i j
+</screen><informalequation><mathphrase>&#305; &#567;
 &#322; &#231;
 a&#818; &#7841; &#261; a<superscript>h</superscript><subscript>l</subscript>
 

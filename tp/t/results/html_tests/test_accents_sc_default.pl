@@ -1766,7 +1766,7 @@ $result_converted{'html_text'}->{'test_accents_sc_default'} = '<div class="top-l
 
 <p>&ndash;a&#774;
 &ndash;a&#770;
-&aring; &Aring; &ecirc; &Ecirc; &#297; i &#7771; &#341;&#780; &ntilde;&#807;&#772;.
+&aring; &Aring; &ecirc; &Ecirc; &#297; &inodot; &#7771; &#341;&#780; &ntilde;&#807;&#772;.
 &equiv;
 <small class="sc">&Aring; &Aring; &Ecirc; &Ecirc; &#296; I &#7770; &#340;&#780; &Ntilde;&#807;&#772;</small>.
 </p>

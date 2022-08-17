@@ -154,7 +154,7 @@ my $texi_line = 'A @sc{sc} accents @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @={
 my $line_tree = $parser->parse_texi_line($texi_line);
 my $normalized_line = normalize_node($line_tree);
 is ($normalized_line,
-'A-SC-accents-_00ef-_00ef-_1e14-_0142-_1e08-_0146_0303_0304-_0155_030c-_0129_0304-_00ff-_0131-j-_00c7-_0118-_1ea1-a_0361-_0227-characters-_0142-_00a1-_00e5-_0153-_002c-error_002d_002d_003e--_2026-_002e_002e_002e-no-brace-commands-_0040--_002e-----_007d-signs-_002d_002d-_002d_002d_002d-_0060_0060-_0027_0027-_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e-_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e',
+'A-SC-accents-_00ef-_00ef-_1e14-_0142-_1e08-_0146_0303_0304-_0155_030c-_0129_0304-_00ff-_0131-_0237-_00c7-_0118-_1ea1-a_0361-_0227-characters-_0142-_00a1-_00e5-_0153-_002c-error_002d_002d_003e--_2026-_002e_002e_002e-no-brace-commands-_0040--_002e-----_007d-signs-_002d_002d-_002d_002d_002d-_0060_0060-_0027_0027-_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e-_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e',
   'normalized complex line');
 my $transliterated_line = transliterate_texinfo($line_tree);
 is ($transliterated_line,
@@ -162,7 +162,7 @@ is ($transliterated_line,
  'transliterated complex line');
 my $transliterated_line_no_unidecode = transliterate_texinfo($line_tree, 1);
 is ($transliterated_line_no_unidecode,
-'A-SC-accents-i-i-_1e14-l-_1e08-n-r-i-y-_0131-j-C-E-a-a-a-characters-l-_00a1-aa-oe-_002c-error_002d_002d_003e--_2026-_002e_002e_002e-no-brace-commands-_0040--_002e-----_007d-signs-_002d_002d-_002d_002d_002d-_0060_0060-_0027_0027-_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e-_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e',
+'A-SC-accents-i-i-_1e14-l-_1e08-n-r-i-y-i-j-C-E-a-a-a-characters-l-_00a1-aa-oe-_002c-error_002d_002d_003e--_2026-_002e_002e_002e-no-brace-commands-_0040--_002e-----_007d-signs-_002d_002d-_002d_002d_002d-_0060_0060-_0027_0027-_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e-_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e',
   'transliterated complex line no unidecode');
 
 my $top_no_space = 'tOp';
