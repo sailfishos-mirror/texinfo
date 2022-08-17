@@ -79,6 +79,7 @@
 
 <!-- Block -->
 <!ENTITY % block "menu | para | pre | quotation | smallquotation
+                  | indentedblock | smallindentedblock
                   | example | smallexample | lisp | smalllisp
                   | cartouche | float | format | smallformat
                   | display | smalldisplay | copying | titlepage
@@ -621,6 +622,12 @@
           %spacesblockattr;>
 <!ELEMENT smalldisplay (%block; | exdent)*>
 <!ATTLIST smalldisplay
+          %spacesblockattr;>
+<!ELEMENT indentedblock    (%block; | exdent)*>
+<!ATTLIST indentedblock
+          %spacesblockattr;>
+<!ELEMENT smallindentedblock    (%block; | exdent)*>
+<!ATTLIST smallindentedblock
           %spacesblockattr;>
 <!ELEMENT group        (%block; | exdent)*>
 <!ATTLIST group
