@@ -1465,17 +1465,21 @@ sub parse_node_manual($)
   my ($end_paren, $spaces_after);
 
   if ($contents[0] and $contents[0]->{'text'} and $contents[0]->{'text'} =~ /^\(/) {
+    # remove the leading (, it is not in manual_content
     my $braces_count = 1;
     if ($contents[0]->{'text'} !~ /^\($/) {
       my $brace = shift @contents;
       my $brace_text = $brace->{'text'};
       $brace_text =~ s/^\(//;
-      unshift @contents, { 'text' => $brace_text, 'type' => $brace->{'type'},
-                           'parent' => $brace->{'parent'} } if $brace_text ne '';
+      if ($brace_text ne '') {
+        my $added_content = { 'text' => $brace_text, 'parent' => $brace->{'parent'} };
+        $added_content->{'type'} = $brace->{'type'} if defined($brace->{'type'});
+        unshift @contents, $added_content;
+      }
     } else {
       shift @contents;
     }
-    while(@contents) {
+    while (@contents) {
       my $content = shift @contents;
       if (!defined($content->{'text'}) or $content->{'text'} !~ /\)/) {
         push @$manual, $content;
@@ -1489,12 +1493,14 @@ sub parse_node_manual($)
         ($before, $after, $braces_count) = _find_end_brace($content->{'text'},
                                                               $braces_count);
         if ($braces_count == 0) {
+          # remove the closing ), it is not in manual_content
           $before =~ s/(\))$//;
           $end_paren = $1;
           push @$manual, { 'text' => $before, 'parent' => $content->{'parent'} }
             if ($before ne '');
           $after =~ s/^(\s*)//;
           $spaces_after = $1;
+          # put back everything appearing after the )
           unshift @contents,  { 'text' => $after, 'parent' => $content->{'parent'} }
             if ($after ne '');
           last;
