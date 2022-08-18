@@ -105,7 +105,7 @@ $result_trees{'spaces_in_node_names'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'a--'
+                  'normalized' => 'a-'
                 }
               },
               'parent' => {},
@@ -379,10 +379,10 @@ $result_trees{'spaces_in_node_names'} = {
               {},
               {}
             ],
-            'normalized' => 'a--'
+            'normalized' => 'a-'
           }
         ],
-        'normalized' => 'a--',
+        'normalized' => 'a-',
         'spaces_before_argument' => ' '
       },
       'parent' => {},
@@ -548,7 +548,7 @@ $result_trees{'spaces_in_node_names'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'a--'
+                  'normalized' => 'a-'
                 }
               },
               'parent' => {},
@@ -918,7 +918,7 @@ $result_nodes{'spaces_in_node_names'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'a--'
+        'normalized' => 'a-'
       },
       'structure' => {
         'node_next' => {
@@ -965,7 +965,7 @@ $result_menus{'spaces_in_node_names'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'a--'
+        'normalized' => 'a-'
       },
       'structure' => {
         'menu_next' => {
@@ -1059,7 +1059,7 @@ $result_converted{'html_text'}->{'spaces_in_node_names'} = '<a class="node-id" i
 
 
 <hr>
-<a class="node-id" id="a--"></a><div class="nav-panel">
+<a class="node-id" id="a-"></a><div class="nav-panel">
 <p>
  &nbsp; </p>
 </div>
@@ -1079,7 +1079,7 @@ $result_converted{'html_text'}->{'spaces_in_node_names'} = '<a class="node-id" i
 </div>
 <h4 class="node">c&nbsp;&nbsp;<!-- /@w --></h4>
 
-<p><a class="ref" href="#a--">a&nbsp;&nbsp;</a>
+<p><a class="ref" href="#a-">a&nbsp;&nbsp;</a>
 </p>
 <p><a class="ref" href="#b-">b<code class="verb">  </code></a>
 </p>
@@ -1095,13 +1095,13 @@ $result_converted{'xml'}->{'spaces_in_node_names'} = '<node name="Top" spaces=" 
 </pre></menudescription></menuentry><menuentry leadingtext="* "><menunode separator="::">c<spacecmd type="spc"/></menunode><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
-<node name="a--" spaces=" "><nodename>a<spacecmd type="spc"/><spacecmd type="spc"/></nodename><nodenext automatic="on">b<verb delimiter=":">  </verb></nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node name="a-" spaces=" "><nodename>a<spacecmd type="spc"/><spacecmd type="spc"/></nodename><nodenext automatic="on">b<verb delimiter=":">  </verb></nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 
 <node name="b-" spaces=" "><nodename>b<verb delimiter=":">  </verb></nodename><nodenext automatic="on">c<w>  </w></nodenext><nodeprev automatic="on">a<spacecmd type="spc"/><spacecmd type="spc"/></nodeprev><nodeup automatic="on">Top</nodeup></node>
 
 <node name="c-" spaces=" "><nodename>c<w>  </w></nodename><nodeprev automatic="on">b<verb delimiter=":">  </verb></nodeprev><nodeup automatic="on">Top</nodeup></node>
 
-<para><ref label="a--"><xrefnodename>a<spacecmd type="spc"/><spacecmd type="spc"/></xrefnodename></ref>
+<para><ref label="a-"><xrefnodename>a<spacecmd type="spc"/><spacecmd type="spc"/></xrefnodename></ref>
 </para>
 <para><ref label="b-"><xrefnodename>b<verb delimiter=":">  </verb></xrefnodename></ref>
 </para>
@@ -1109,13 +1109,13 @@ $result_converted{'xml'}->{'spaces_in_node_names'} = '<node name="Top" spaces=" 
 </para>';
 
 
-$result_converted{'docbook'}->{'spaces_in_node_names'} = '<anchor id="a--"/>
+$result_converted{'docbook'}->{'spaces_in_node_names'} = '<anchor id="a-"/>
 
 <anchor id="b-"/>
 
 <anchor id="c-"/>
 
-<para><link linkend="a--">a&#160;&#160;</link>
+<para><link linkend="a-">a&#160;&#160;</link>
 </para>
 <para><link linkend="b-">b<literal>  </literal></link>
 </para>
@@ -1124,13 +1124,13 @@ $result_converted{'docbook'}->{'spaces_in_node_names'} = '<anchor id="a--"/>
 
 
 $result_converted{'latex'}->{'spaces_in_node_names'} = '\\label{anchor:Top}%
-\\label{anchor:a--}%
+\\label{anchor:a-}%
 
 \\label{anchor:b-}%
 
 \\label{anchor:c-}%
 
-\\hyperref[anchor:a--]{[a\\ {}\\ {}], page~\\pageref*{anchor:a--}}
+\\hyperref[anchor:a-]{[a\\ {}\\ {}], page~\\pageref*{anchor:a-}}
 
 \\hyperref[anchor:b-]{[b\\verb:  :], page~\\pageref*{anchor:b-}}
 

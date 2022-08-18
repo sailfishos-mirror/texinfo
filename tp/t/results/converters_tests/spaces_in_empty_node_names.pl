@@ -100,7 +100,7 @@ $result_trees{'spaces_in_empty_node_names'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '--'
+                  'normalized' => '-'
                 }
               },
               'parent' => {},
@@ -354,7 +354,7 @@ $result_trees{'spaces_in_empty_node_names'} = {
               {},
               {}
             ],
-            'normalized' => '--'
+            'normalized' => '-'
           }
         ],
         'spaces_before_argument' => ' '
@@ -502,7 +502,7 @@ $result_trees{'spaces_in_empty_node_names'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '--'
+                  'normalized' => '-'
                 }
               },
               'parent' => {},
@@ -993,7 +993,7 @@ $result_converted{'xml'}->{'spaces_in_empty_node_names'} = '<node name="Top" spa
 
 <node name="" spaces=" "><nodename></nodename></node>
 
-<para><ref label="--"><xrefnodename><spacecmd type="spc"/><spacecmd type="spc"/></xrefnodename></ref>
+<para><ref label="-"><xrefnodename><spacecmd type="spc"/><spacecmd type="spc"/></xrefnodename></ref>
 </para>
 <para><ref label="-"><xrefnodename><verb delimiter=":">  </verb></xrefnodename></ref>
 </para>
@@ -1004,7 +1004,7 @@ $result_converted{'xml'}->{'spaces_in_empty_node_names'} = '<node name="Top" spa
 $result_converted{'docbook'}->{'spaces_in_empty_node_names'} = '
 
 
-<para><link linkend="--">&#160;&#160;</link>
+<para><link linkend="-">&#160;&#160;</link>
 </para>
 <para><link linkend="-"><literal>  </literal></link>
 </para>

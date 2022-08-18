@@ -366,7 +366,7 @@ $result_trees{'at_commands_in_refs_latin1'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '----_0021---_002e--_002e-_003f-_0040'
+                  'normalized' => '-_0021-_002e-_002e-_003f-_0040'
                 }
               },
               'parent' => {},
@@ -1407,7 +1407,7 @@ $result_trees{'at_commands_in_refs_latin1'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '_21d2-_00b0-a-b--_00e5'
+                  'normalized' => '_21d2-_00b0-a-b-_00e5'
                 }
               },
               'parent' => {},
@@ -5080,10 +5080,10 @@ $result_trees{'at_commands_in_refs_latin1'} = {
               {},
               {}
             ],
-            'normalized' => '----_0021---_002e--_002e-_003f-_0040'
+            'normalized' => '-_0021-_002e-_002e-_003f-_0040'
           }
         ],
-        'normalized' => '----_0021---_002e--_002e-_003f-_0040',
+        'normalized' => '-_0021-_002e-_002e-_003f-_0040',
         'spaces_before_argument' => ' '
       },
       'parent' => {},
@@ -6907,10 +6907,10 @@ $result_trees{'at_commands_in_refs_latin1'} = {
               {},
               {}
             ],
-            'normalized' => '_21d2-_00b0-a-b--_00e5'
+            'normalized' => '_21d2-_00b0-a-b-_00e5'
           }
         ],
-        'normalized' => '_21d2-_00b0-a-b--_00e5',
+        'normalized' => '_21d2-_00b0-a-b-_00e5',
         'spaces_before_argument' => ' '
       },
       'parent' => {},
@@ -13236,7 +13236,7 @@ $result_trees{'at_commands_in_refs_latin1'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '----_0021---_002e--_002e-_003f-_0040'
+                  'normalized' => '-_0021-_002e-_002e-_003f-_0040'
                 }
               },
               'parent' => {},
@@ -14223,7 +14223,7 @@ $result_trees{'at_commands_in_refs_latin1'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '_21d2-_00b0-a-b--_00e5'
+                  'normalized' => '_21d2-_00b0-a-b-_00e5'
                 }
               },
               'parent' => {},
@@ -21104,7 +21104,7 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '----_0021---_002e--_002e-_003f-_0040'
+                    'normalized' => '-_0021-_002e-_002e-_003f-_0040'
                   },
                   'structure' => {}
                 }
@@ -21224,7 +21224,7 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_21d2-_00b0-a-b--_00e5'
+                    'normalized' => '_21d2-_00b0-a-b-_00e5'
                   },
                   'structure' => {}
                 }
@@ -21776,7 +21776,7 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                 'section_number' => 2
               }
             },
-            'normalized' => '----_0021---_002e--_002e-_003f-_0040'
+            'normalized' => '-_0021-_002e-_002e-_003f-_0040'
           },
           'structure' => {
             'node_next' => {
@@ -21854,7 +21854,7 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                         'section_number' => 8
                                       }
                                     },
-                                    'normalized' => '_21d2-_00b0-a-b--_00e5'
+                                    'normalized' => '_21d2-_00b0-a-b-_00e5'
                                   },
                                   'structure' => {
                                     'node_next' => {
@@ -22286,7 +22286,7 @@ $result_menus{'at_commands_in_refs_latin1'} = {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => '----_0021---_002e--_002e-_003f-_0040'
+            'normalized' => '-_0021-_002e-_002e-_003f-_0040'
           },
           'structure' => {
             'menu_next' => {
@@ -22322,7 +22322,7 @@ $result_menus{'at_commands_in_refs_latin1'} = {
                                 'menu_next' => {
                                   'cmdname' => 'node',
                                   'extra' => {
-                                    'normalized' => '_21d2-_00b0-a-b--_00e5'
+                                    'normalized' => '_21d2-_00b0-a-b-_00e5'
                                   },
                                   'structure' => {
                                     'menu_next' => {

@@ -142,10 +142,10 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               {},
               {}
             ],
-            'normalized' => 'chap---f-nl-Something_003f---After-punct'
+            'normalized' => 'chap-f-nl-Something_003f-After-punct'
           }
         ],
-        'normalized' => 'chap---f-nl-Something_003f---After-punct',
+        'normalized' => 'chap-f-nl-Something_003f-After-punct',
         'spaces_before_argument' => ' '
       },
       'parent' => {},
@@ -209,7 +209,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               {},
               {}
             ],
-            'normalized' => 'ankh---p'
+            'normalized' => 'ankh-p'
           },
           'parent' => {},
           'source_info' => {
@@ -475,7 +475,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'chap---f-nl-Something_003f---After-punct'
+                  'normalized' => 'chap-f-nl-Something_003f-After-punct'
                 }
               },
               'parent' => {},
@@ -533,7 +533,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'ankh---p'
+                  'normalized' => 'ankh-p'
                 }
               },
               'parent' => {},
@@ -612,7 +612,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'ankh---p'
+                  'normalized' => 'ankh-p'
                 }
               },
               'parent' => {},
@@ -715,7 +715,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'chap---f-nl-Something_003f---After-punct'
+                  'normalized' => 'chap-f-nl-Something_003f-After-punct'
                 }
               },
               'parent' => {},
@@ -782,7 +782,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'ankh---p'
+                  'normalized' => 'ankh-p'
                 }
               },
               'parent' => {},
@@ -873,7 +873,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'ankh---p'
+                  'normalized' => 'ankh-p'
                 }
               },
               'parent' => {},
@@ -1304,7 +1304,7 @@ $result_sectioning{'end_of_line_command_in_node_lines'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'isindex' => 1,
-                    'normalized' => 'chap---f-nl-Something_003f---After-punct'
+                    'normalized' => 'chap-f-nl-Something_003f-After-punct'
                   },
                   'structure' => {}
                 }
@@ -1377,7 +1377,7 @@ $result_nodes{'end_of_line_command_in_node_lines'} = {
           }
         },
         'isindex' => 1,
-        'normalized' => 'chap---f-nl-Something_003f---After-punct'
+        'normalized' => 'chap-f-nl-Something_003f-After-punct'
       },
       'structure' => {
         'node_next' => {
@@ -1426,13 +1426,13 @@ $result_menus{'end_of_line_command_in_node_lines'} = {
 
 $result_errors{'end_of_line_command_in_node_lines'} = [
   {
-    'error_line' => '@menu reference to nonexistent node `ankh p\'
+    'error_line' => 'warning: @menu entry node name `ankh p\' different from anchor name `ankh @* p\'
 ',
     'file_name' => '',
     'line_nr' => 28,
     'macro' => '',
-    'text' => '@menu reference to nonexistent node `ankh p\'',
-    'type' => 'error'
+    'text' => '@menu entry node name `ankh p\' different from anchor name `ankh @* p\'',
+    'type' => 'warning'
   }
 ];
 

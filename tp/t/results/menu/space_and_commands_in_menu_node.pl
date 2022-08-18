@@ -203,7 +203,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'chap--b'
+                  'normalized' => 'chap-b'
                 }
               },
               'parent' => {},
@@ -332,7 +332,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'chap--b'
+                  'normalized' => 'chap-b'
                 }
               },
               'parent' => {},
@@ -399,7 +399,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'chap--b'
+                  'normalized' => 'chap-b'
                 }
               },
               'parent' => {},
@@ -466,7 +466,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'chap--b'
+                  'normalized' => 'chap-b'
                 }
               },
               'parent' => {},
@@ -549,7 +549,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'chap--b'
+                  'normalized' => 'chap-b'
                 }
               },
               'parent' => {},
@@ -710,7 +710,7 @@ $result_trees{'space_and_commands_in_menu_node'} = {
                     {},
                     {}
                   ],
-                  'normalized' => 'chap---b'
+                  'normalized' => 'chap-b'
                 }
               },
               'parent' => {},
@@ -819,10 +819,10 @@ $result_trees{'space_and_commands_in_menu_node'} = {
               {},
               {}
             ],
-            'normalized' => 'chap--b'
+            'normalized' => 'chap-b'
           }
         ],
-        'normalized' => 'chap--b',
+        'normalized' => 'chap-b',
         'spaces_before_argument' => ' '
       },
       'parent' => {},
@@ -1086,7 +1086,7 @@ $result_sectioning{'space_and_commands_in_menu_node'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'chap--b'
+                    'normalized' => 'chap-b'
                   },
                   'structure' => {}
                 }
@@ -1140,7 +1140,7 @@ $result_nodes{'space_and_commands_in_menu_node'} = {
             'section_number' => 1
           }
         },
-        'normalized' => 'chap--b'
+        'normalized' => 'chap-b'
       },
       'structure' => {
         'node_next' => {},
@@ -1165,7 +1165,7 @@ $result_menus{'space_and_commands_in_menu_node'} = {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'chap--b'
+        'normalized' => 'chap-b'
       },
       'structure' => {
         'menu_next' => {},
@@ -1184,22 +1184,22 @@ $result_menus{'space_and_commands_in_menu_node'}{'structure'}{'menu_child'}{'str
 
 $result_errors{'space_and_commands_in_menu_node'} = [
   {
-    'error_line' => '@menu reference to nonexistent node `chap  b\'
+    'error_line' => 'warning: @menu entry node name `chap  b\' different from node name `chap @: b\'
 ',
     'file_name' => '',
     'line_nr' => 5,
     'macro' => '',
-    'text' => '@menu reference to nonexistent node `chap  b\'',
-    'type' => 'error'
+    'text' => '@menu entry node name `chap  b\' different from node name `chap @: b\'',
+    'type' => 'warning'
   },
   {
-    'error_line' => '@menu reference to nonexistent node `chap b\'
+    'error_line' => 'warning: @menu entry node name `chap b\' different from node name `chap @: b\'
 ',
     'file_name' => '',
     'line_nr' => 7,
     'macro' => '',
-    'text' => '@menu reference to nonexistent node `chap b\'',
-    'type' => 'error'
+    'text' => '@menu entry node name `chap b\' different from node name `chap @: b\'',
+    'type' => 'warning'
   },
   {
     'error_line' => 'warning: @menu entry node name `chap@ @ b\' different from node name `chap @: b\'
@@ -1229,22 +1229,22 @@ $result_errors{'space_and_commands_in_menu_node'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => '@menu reference to nonexistent node `chap b\'
+    'error_line' => 'warning: @menu entry node name `chap b\' different from node name `chap @: b\'
 ',
     'file_name' => '',
     'line_nr' => 12,
     'macro' => '',
-    'text' => '@menu reference to nonexistent node `chap b\'',
-    'type' => 'error'
+    'text' => '@menu entry node name `chap b\' different from node name `chap @: b\'',
+    'type' => 'warning'
   },
   {
-    'error_line' => '@menu reference to nonexistent node `chap @ @ b\'
+    'error_line' => 'warning: @menu entry node name `chap @ @ b\' different from node name `chap @: b\'
 ',
     'file_name' => '',
     'line_nr' => 13,
     'macro' => '',
-    'text' => '@menu reference to nonexistent node `chap @ @ b\'',
-    'type' => 'error'
+    'text' => '@menu entry node name `chap @ @ b\' different from node name `chap @: b\'',
+    'type' => 'warning'
   }
 ];
 
@@ -1302,36 +1302,36 @@ td.menu-entry-destination {vertical-align: top}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#chap--b" accesskey="n" rel="next">Chap</a> &nbsp; </p>
+Next: <a href="#chap-b" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top">top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td class="menu-entry-destination">&bull; chap  b:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#chap-b" accesskey="1">chap  b</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#chap--b" accesskey="2">chap  b</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#chap-b" accesskey="2">chap  b</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; chap b:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#chap-b" accesskey="3">chap b</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#chap--b" accesskey="4">chap&nbsp;&nbsp;b</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#chap-b" accesskey="4">chap&nbsp;&nbsp;b</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#chap--b" accesskey="5">chap&nbsp; b</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#chap-b" accesskey="5">chap&nbsp; b</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#chap--b" accesskey="6">chap &nbsp;b</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#chap-b" accesskey="6">chap &nbsp;b</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; <a href="#chap--b" accesskey="7">label</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#chap-b" accesskey="7">label</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; label:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#chap-b" accesskey="8">label</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
-<tr><td class="menu-entry-destination">&bull; label:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
+<tr><td class="menu-entry-destination">&bull; <a href="#chap-b" accesskey="9">label</a>:</td><td>&nbsp;&nbsp;</td><td class="menu-entry-description">
 </td></tr>
 </table>
 
 <hr>
-<div class="chapter-level-extent" id="chap--b">
+<div class="chapter-level-extent" id="chap-b">
 <div class="nav-panel">
 <p>
-Next: <a href="#chap--b" accesskey="n" rel="next">Chap</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+Next: <a href="#chap-b" accesskey="n" rel="next">Chap</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="Chap">1 Chap</h2>
 </div>
@@ -1360,7 +1360,7 @@ $result_converted{'xml'}->{'space_and_commands_in_menu_node'} = '<node name="Top
 </pre></menudescription></menuentry></menu>
 
 </top>
-<node name="chap--b" spaces=" "><nodename>chap &noeos; b</nodename><nodenext automatic="on">chap &noeos; b</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node name="chap-b" spaces=" "><nodename>chap &noeos; b</nodename><nodenext automatic="on">chap &noeos; b</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chap</sectiontitle>
 </chapter>
 ';

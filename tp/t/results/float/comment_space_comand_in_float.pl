@@ -145,7 +145,7 @@ $result_trees{'comment_space_comand_in_float'} = {
               {},
               {}
             ],
-            'normalized' => 'label--',
+            'normalized' => 'label-',
             'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
@@ -324,7 +324,7 @@ $result_floats{'comment_space_comand_in_float'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'normalized' => 'label--',
+        'normalized' => 'label-',
         'type' => {
           'content' => [
             {
@@ -406,12 +406,12 @@ $result_converted{'html'}->{'comment_space_comand_in_float'} = '<!DOCTYPE html>
 <body lang="en">
 <h1 class="node" id="Top">Top</h1>
 
-<div class="float" id="label--">
+<div class="float" id="label-">
 <p>Float
 </p><div class="type-number-float"><p><strong class="strong">Text &nbsp; 1
 </strong></p></div></div>
 <dl class="listoffloats">
-<dt><a href="#label--">Text &nbsp; 1</a></dt><dd></dd>
+<dt><a href="#label-">Text &nbsp; 1</a></dt><dd></dd>
 </dl>
 
 

@@ -1,5 +1,12 @@
 2022-08-17  Patrice Dumas  <pertusus@free.fr>
 
+	Multiple consecutive space transformed to one in node normalization
+
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (_unicode_to_protected)
+	(_unicode_to_file_name): transform multiple spaces to one.
+
+2022-08-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/xspara.c (xspara__add_next),
 	tp/Texinfo/Convert/ParagraphNonXS.pm (_add_next): use
 	Texinfo::Convert::Unicode::string_width to get the word width in

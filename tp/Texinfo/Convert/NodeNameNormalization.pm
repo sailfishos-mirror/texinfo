@@ -136,7 +136,7 @@ sub _unicode_to_protected($)
   while ($text ne '') {
     if ($text =~ s/^([A-Za-z0-9]+)//o) {
       $result .= $1;
-    } elsif ($text =~ s/^ //o) {
+    } elsif ($text =~ s/^ +//o) {
       $result .= '-';
     } elsif ($text =~ s/^(.)//o) {
       $result .= _protect_unicode_char($1);
@@ -156,7 +156,7 @@ sub _unicode_to_file_name($)
   while ($text ne '') {
     if ($text =~ s/^([A-Za-z0-9_\.\-]+)//o) {
       $result .= $1;
-    } elsif ($text =~ s/^ //o) {
+    } elsif ($text =~ s/^ +//o) {
       $result .= '-';
     } elsif ($text =~ s/^(.)//o) {
       $result .= _protect_unicode_char($1);
