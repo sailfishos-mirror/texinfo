@@ -1,5 +1,9 @@
 2022-08-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* README-hacking: reminder to rename ChangeLog after next release
+
+2022-08-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/xspara.c (xspara__add_next):
 	If character has wcwidth 0 (e.g. combining accents), count this
 	as 1 to match Perl results.
