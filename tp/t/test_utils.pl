@@ -121,6 +121,14 @@ foreach my $dir ('t', 't/results', $output_files_dir) {
 my $locale_encoding = langinfo(CODESET);
 $locale_encoding = undef if ($locale_encoding eq '');
 
+# to encode is() diagnostic messages.  From Test::More documentation
+if (defined($locale_encoding)) {
+  my $builder = Test::More->builder;
+  binmode $builder->output,         ":encoding($locale_encoding)";
+  binmode $builder->failure_output, ":encoding($locale_encoding)";
+  binmode $builder->todo_output,    ":encoding($locale_encoding)";
+}
+
 ok(1);
 
 my %formats = (
@@ -1343,12 +1351,7 @@ sub test($$)
     close (OUT);
     
     if ($self->{'generate'}) {
-      my $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($result);
-      if (defined($locale_encoding)) {
-        $texinfo_text = Encode::encode($locale_encoding, $texinfo_text);
-      }
       print STDERR "--> $test_name\n";
-      #print STDERR "--> $test_name\n". $texinfo_text ."\n";
     }
   }
   if (!$self->{'generate'}) {
