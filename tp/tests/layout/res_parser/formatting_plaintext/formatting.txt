@@ -75,8 +75,8 @@ a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
 '@H{a}' a̋ '@H{--a}' -a̋ '@dotaccent{a}' ȧ '@dotaccent{--a}' -ȧ
 '@ringaccent{a}' å '@ringaccent{--a}' -å '@tieaccent{a}' a͡
 '@tieaccent{--a}' -a͡ '@u{a}' ă '@u{--a}' -ă '@ubaraccent{a}' a̲
-'@ubaraccent{--a}' -a̲ '@udotaccent{a}' ạ '@udotaccent{--a}' -ạ '@v{a}'
-ǎ '@v{--a}' -ǎ '@,{c}' ç '@,{--c}' -ç '@ogonek{a}' ą '@ogonek{--a}' -ą
+'@ubaraccent{--a}' -a̲ '@udotaccent{a}' ạ '@udotaccent{--a}' -ạ '@v{a}' ǎ
+'@v{--a}' -ǎ '@,{c}' ç '@,{--c}' -ç '@ogonek{a}' ą '@ogonek{--a}' -ą
 'a@sup{h}@sub{l}' a^{h}_{l} '@footnote{in footnote}' (1) '@footnote{in
 footnote2}' (2)
 
@@ -742,8 +742,8 @@ a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
 '@H{a}' a̋ '@H{--a}' -a̋ '@dotaccent{a}' ȧ '@dotaccent{--a}' -ȧ
 '@ringaccent{a}' å '@ringaccent{--a}' -å '@tieaccent{a}' a͡
 '@tieaccent{--a}' -a͡ '@u{a}' ă '@u{--a}' -ă '@ubaraccent{a}' a̲
-'@ubaraccent{--a}' -a̲ '@udotaccent{a}' ạ '@udotaccent{--a}' -ạ '@v{a}'
-ǎ '@v{--a}' -ǎ '@,{c}' ç '@,{--c}' -ç '@ogonek{a}' ą '@ogonek{--a}' -ą
+'@ubaraccent{--a}' -a̲ '@udotaccent{a}' ạ '@udotaccent{--a}' -ạ '@v{a}' ǎ
+'@v{--a}' -ǎ '@,{c}' ç '@,{--c}' -ç '@ogonek{a}' ą '@ogonek{--a}' -ą
 'a@sup{h}@sub{l}' a^{h}_{l} '@footnote{in footnote}' (3) '@footnote{in
 footnote2}' (4)
 

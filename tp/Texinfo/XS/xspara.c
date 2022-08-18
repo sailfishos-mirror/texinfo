@@ -721,12 +721,8 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
           left -= char_len;
 
           columns = wcwidth (w);
-          /* Not correct but this matches the results from
-             the Perl code. */
-          if (columns == 0)
-            columns = 1;
           if (columns > 0)
-            len++;
+            len += columns;
 
           p += char_len;
         }

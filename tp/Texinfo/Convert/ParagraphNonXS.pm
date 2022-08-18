@@ -29,6 +29,7 @@ use strict;
 use if $] >= 5.014, re => '/a';  # ASCII-only character classes in regexes
 
 use Unicode::EastAsianWidth;
+use Texinfo::Convert::Unicode;
 use Carp qw(cluck);
 
 # initialize a paragraph object.
@@ -222,13 +223,8 @@ sub _add_next($;$$$)
       $paragraph->{'word'} = undef;
       $paragraph->{'last_char'} = undef;
     } else {
-      my $word2;
-      $word2 = $word;
-      $word2 =~ s/[\177]//g;
-      $paragraph->{'word_counter'} += length($word2);
-      # We don't count DEL bytes here for INFO_SPECIAL_CHARS_QUOTE.  We 
-      # shouldn't count combining characters for accents either: see the
-      # t/converters_tests.t (at_commands_in_refs_utf8) test.
+      $paragraph->{'word_counter'}
+        += Texinfo::Convert::Unicode::string_width($word);
     }
     if ($paragraph->{'DEBUG'}) {
       my $para_word = 'UNDEF';;
