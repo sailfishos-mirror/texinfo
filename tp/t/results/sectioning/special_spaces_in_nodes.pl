@@ -56,10 +56,10 @@ $result_trees{'special_spaces_in_nodes'} = {
             "node_content" => [
               {}
             ],
-            "normalized" => "Top-"
+            "normalized" => "Top_2002"
           }
         ],
-        "normalized" => "Top-",
+        "normalized" => "Top_2002",
         "spaces_before_argument" => " "
       },
       "parent" => {},
@@ -130,10 +130,10 @@ $result_trees{'special_spaces_in_nodes'} = {
             "node_content" => [
               {}
             ],
-            "normalized" => "EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c"
+            "normalized" => "EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c"
           }
         ],
-        "normalized" => "EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c",
+        "normalized" => "EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c",
         "spaces_before_argument" => " "
       },
       "parent" => {},
@@ -339,7 +339,7 @@ $result_trees{'special_spaces_in_nodes'} = {
                   "node_content" => [
                     {}
                   ],
-                  "normalized" => "NEXT-LINE-_0028NEL_0029_007c-_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c"
+                  "normalized" => "NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"
                 }
               },
               "parent" => {},
@@ -395,7 +395,7 @@ $result_trees{'special_spaces_in_nodes'} = {
                   "node_content" => [
                     {}
                   ],
-                  "normalized" => "MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c-_007c"
+                  "normalized" => "MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c"
                 }
               },
               "parent" => {},
@@ -451,7 +451,7 @@ $result_trees{'special_spaces_in_nodes'} = {
                   "node_content" => [
                     {}
                   ],
-                  "normalized" => "THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c"
+                  "normalized" => "THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c"
                 }
               },
               "parent" => {},
@@ -507,7 +507,7 @@ $result_trees{'special_spaces_in_nodes'} = {
                   "node_content" => [
                     {}
                   ],
-                  "normalized" => "FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c"
+                  "normalized" => "FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c"
                 }
               },
               "parent" => {},
@@ -563,7 +563,7 @@ $result_trees{'special_spaces_in_nodes'} = {
                   "node_content" => [
                     {}
                   ],
-                  "normalized" => "HAIR-SPACE_007c-_007c-LINE-SEPARATOR_007c-_007c-PARAGRAPH-SEPARATOR_007c-_007c"
+                  "normalized" => "HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c"
                 }
               },
               "parent" => {},
@@ -619,7 +619,7 @@ $result_trees{'special_spaces_in_nodes'} = {
                   "node_content" => [
                     {}
                   ],
-                  "normalized" => "NARROW-NO_002dBREAK-SPACE_007c-_007c-MEDIUM-MATHEMATICAL-SPACE_007c-_007c-IDEOGRAPHIC-SPACE_007c-_007c"
+                  "normalized" => "NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c"
                 }
               },
               "parent" => {},
@@ -811,10 +811,10 @@ $result_trees{'special_spaces_in_nodes'} = {
             "node_content" => [
               {}
             ],
-            "normalized" => "NEXT-LINE-_0028NEL_0029_007c-_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c"
+            "normalized" => "NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"
           }
         ],
-        "normalized" => "NEXT-LINE-_0028NEL_0029_007c-_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c",
+        "normalized" => "NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c",
         "spaces_before_argument" => " "
       },
       "parent" => {},
@@ -857,10 +857,10 @@ $result_trees{'special_spaces_in_nodes'} = {
             "node_content" => [
               {}
             ],
-            "normalized" => "MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c-_007c"
+            "normalized" => "MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c"
           }
         ],
-        "normalized" => "MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c-_007c",
+        "normalized" => "MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c",
         "spaces_before_argument" => " "
       },
       "parent" => {},
@@ -903,10 +903,10 @@ $result_trees{'special_spaces_in_nodes'} = {
             "node_content" => [
               {}
             ],
-            "normalized" => "THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c"
+            "normalized" => "THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c"
           }
         ],
-        "normalized" => "THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c",
+        "normalized" => "THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c",
         "spaces_before_argument" => " "
       },
       "parent" => {},
@@ -949,10 +949,10 @@ $result_trees{'special_spaces_in_nodes'} = {
             "node_content" => [
               {}
             ],
-            "normalized" => "FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c"
+            "normalized" => "FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c"
           }
         ],
-        "normalized" => "FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c",
+        "normalized" => "FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c",
         "spaces_before_argument" => " "
       },
       "parent" => {},
@@ -995,10 +995,10 @@ $result_trees{'special_spaces_in_nodes'} = {
             "node_content" => [
               {}
             ],
-            "normalized" => "HAIR-SPACE_007c-_007c-LINE-SEPARATOR_007c-_007c-PARAGRAPH-SEPARATOR_007c-_007c"
+            "normalized" => "HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c"
           }
         ],
-        "normalized" => "HAIR-SPACE_007c-_007c-LINE-SEPARATOR_007c-_007c-PARAGRAPH-SEPARATOR_007c-_007c",
+        "normalized" => "HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c",
         "spaces_before_argument" => " "
       },
       "parent" => {},
@@ -1054,7 +1054,7 @@ $result_trees{'special_spaces_in_nodes'} = {
                   "node_content" => [
                     {}
                   ],
-                  "normalized" => "NEXT-LINE-_0028NEL_0029_007c-_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c"
+                  "normalized" => "NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"
                 }
               },
               "parent" => {},
@@ -1087,10 +1087,10 @@ $result_trees{'special_spaces_in_nodes'} = {
             "node_content" => [
               {}
             ],
-            "normalized" => "NARROW-NO_002dBREAK-SPACE_007c-_007c-MEDIUM-MATHEMATICAL-SPACE_007c-_007c-IDEOGRAPHIC-SPACE_007c-_007c"
+            "normalized" => "NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c"
           }
         ],
-        "normalized" => "NARROW-NO_002dBREAK-SPACE_007c-_007c-MEDIUM-MATHEMATICAL-SPACE_007c-_007c-IDEOGRAPHIC-SPACE_007c-_007c",
+        "normalized" => "NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c",
         "spaces_before_argument" => " "
       },
       "parent" => {},
@@ -1362,7 +1362,7 @@ $result_sectioning{'special_spaces_in_nodes'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top-'
+              'normalized' => 'Top_2002'
             },
             'structure' => {}
           }
@@ -1375,7 +1375,7 @@ $result_sectioning{'special_spaces_in_nodes'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c'
+                    'normalized' => 'EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c'
                   },
                   'structure' => {}
                 }
@@ -1410,7 +1410,7 @@ $result_nodes{'special_spaces_in_nodes'} = {
       'extra' => {},
       'structure' => {}
     },
-    'normalized' => 'Top-'
+    'normalized' => 'Top_2002'
   },
   'structure' => {
     'node_next' => {
@@ -1429,7 +1429,7 @@ $result_nodes{'special_spaces_in_nodes'} = {
             'extra' => {}
           }
         ],
-        'normalized' => 'EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c'
+        'normalized' => 'EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c'
       },
       'structure' => {
         'menu_child' => {
@@ -1447,37 +1447,37 @@ $result_nodes{'special_spaces_in_nodes'} = {
                 'node_next' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'NEXT-LINE-_0028NEL_0029_007c-_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c'
+                    'normalized' => 'NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c'
                   },
                   'structure' => {
                     'node_next' => {
                       'cmdname' => 'node',
                       'extra' => {
-                        'normalized' => 'MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c-_007c'
+                        'normalized' => 'MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c'
                       },
                       'structure' => {
                         'node_next' => {
                           'cmdname' => 'node',
                           'extra' => {
-                            'normalized' => 'THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c'
+                            'normalized' => 'THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c'
                           },
                           'structure' => {
                             'node_next' => {
                               'cmdname' => 'node',
                               'extra' => {
-                                'normalized' => 'FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c'
+                                'normalized' => 'FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c'
                               },
                               'structure' => {
                                 'node_next' => {
                                   'cmdname' => 'node',
                                   'extra' => {
-                                    'normalized' => 'HAIR-SPACE_007c-_007c-LINE-SEPARATOR_007c-_007c-PARAGRAPH-SEPARATOR_007c-_007c'
+                                    'normalized' => 'HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c'
                                   },
                                   'structure' => {
                                     'node_next' => {
                                       'cmdname' => 'node',
                                       'extra' => {
-                                        'normalized' => 'NARROW-NO_002dBREAK-SPACE_007c-_007c-MEDIUM-MATHEMATICAL-SPACE_007c-_007c-IDEOGRAPHIC-SPACE_007c-_007c'
+                                        'normalized' => 'NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c'
                                       },
                                       'structure' => {
                                         'node_prev' => {},
@@ -1536,7 +1536,7 @@ $result_nodes{'special_spaces_in_nodes'}{'structure'}{'node_next'}{'structure'}{
 $result_menus{'special_spaces_in_nodes'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top-'
+    'normalized' => 'Top_2002'
   },
   'structure' => {}
 };
@@ -1650,27 +1650,27 @@ $result_converted{'html'}->{'special_spaces_in_nodes'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link href="#Top-" rel="start" title="Top ">
+<link href="#Top_2002" rel="start" title="Top ">
 
 
 </head>
 
 <body lang="en">
-<div class="top-level-extent" id="Top-">
+<div class="top-level-extent" id="Top_2002">
 <div class="nav-panel">
 <p>
-Next: <a href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c" accesskey="n" rel="next">chap</a> &nbsp; </p>
+Next: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top">top</h1>
 
 <ul class="mini-toc">
-<li><a href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c" accesskey="1">chap</a></li>
+<li><a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="1">chap</a></li>
 </ul>
 <hr>
-<div class="chapter-level-extent" id="EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c">
+<div class="chapter-level-extent" id="EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c">
 <div class="nav-panel">
 <p>
-Up: <a href="#Top-" accesskey="u" rel="up">top</a> &nbsp; </p>
+Up: <a href="#Top_2002" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="chap">1 chap</h2>
 
@@ -1679,60 +1679,60 @@ Up: <a href="#Top-" accesskey="u" rel="up">top</a> &nbsp; </p>
 <hr>
 <a class="node-id" id="CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c"></a><div class="nav-panel">
 <p>
-Next: <a href="#CARRIAGE-RETURN_007c-_007c" accesskey="n" rel="next">CARRIAGE RETURN|'."\r".'|</a>, Up: <a href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
+Next: <a href="#CARRIAGE-RETURN_007c-_007c" accesskey="n" rel="next">CARRIAGE RETURN|'."\r".'|</a>, Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
 </div>
 <h4 class="node">CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||</h4>
 
 <hr>
 <a class="node-id" id="CARRIAGE-RETURN_007c-_007c"></a><div class="nav-panel">
 <p>
-Next: <a href="#NEXT-LINE-_0028NEL_0029_007c-_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c" accesskey="n" rel="next">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a>, Previous: <a href="#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c" accesskey="p" rel="prev">CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||</a>, Up: <a href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
+Next: <a href="#NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c" accesskey="n" rel="next">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a>, Previous: <a href="#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c" accesskey="p" rel="prev">CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||</a>, Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
 </div>
 <h4 class="node">CARRIAGE RETURN|'."\r".'|</h4>
 
 <hr>
-<a class="node-id" id="NEXT-LINE-_0028NEL_0029_007c-_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c"></a><div class="nav-panel">
+<a class="node-id" id="NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"></a><div class="nav-panel">
 <p>
-Next: <a href="#MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c-_007c" accesskey="n" rel="next">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a>, Previous: <a href="#CARRIAGE-RETURN_007c-_007c" accesskey="p" rel="prev">CARRIAGE RETURN|'."\r".'|</a>, Up: <a href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
+Next: <a href="#MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c" accesskey="n" rel="next">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a>, Previous: <a href="#CARRIAGE-RETURN_007c-_007c" accesskey="p" rel="prev">CARRIAGE RETURN|'."\r".'|</a>, Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
 </div>
 <h4 class="node">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</h4>
 
 <hr>
-<a class="node-id" id="MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c-_007c"></a><div class="nav-panel">
+<a class="node-id" id="MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c"></a><div class="nav-panel">
 <p>
-Next: <a href="#THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c" accesskey="n" rel="next">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |</a>, Previous: <a href="#NEXT-LINE-_0028NEL_0029_007c-_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c" accesskey="p" rel="prev">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a>, Up: <a href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
+Next: <a href="#THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c" accesskey="n" rel="next">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |</a>, Previous: <a href="#NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c" accesskey="p" rel="prev">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a>, Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
 </div>
 <h4 class="node">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</h4>
 
 <hr>
-<a class="node-id" id="THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c"></a><div class="nav-panel">
+<a class="node-id" id="THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c"></a><div class="nav-panel">
 <p>
-Next: <a href="#FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c" accesskey="n" rel="next">FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |</a>, Previous: <a href="#MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c-_007c" accesskey="p" rel="prev">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a>, Up: <a href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
+Next: <a href="#FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c" accesskey="n" rel="next">FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |</a>, Previous: <a href="#MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c" accesskey="p" rel="prev">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a>, Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
 </div>
 <h4 class="node">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |</h4>
 
 <hr>
-<a class="node-id" id="FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c"></a><div class="nav-panel">
+<a class="node-id" id="FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c"></a><div class="nav-panel">
 <p>
-Next: <a href="#HAIR-SPACE_007c-_007c-LINE-SEPARATOR_007c-_007c-PARAGRAPH-SEPARATOR_007c-_007c" accesskey="n" rel="next">HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |</a>, Previous: <a href="#THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c" accesskey="p" rel="prev">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |</a>, Up: <a href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
+Next: <a href="#HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c" accesskey="n" rel="next">HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |</a>, Previous: <a href="#THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c" accesskey="p" rel="prev">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |</a>, Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
 </div>
 <h4 class="node">FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |</h4>
 
 <hr>
-<a class="node-id" id="HAIR-SPACE_007c-_007c-LINE-SEPARATOR_007c-_007c-PARAGRAPH-SEPARATOR_007c-_007c"></a><div class="nav-panel">
+<a class="node-id" id="HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c"></a><div class="nav-panel">
 <p>
-Next: <a href="#NARROW-NO_002dBREAK-SPACE_007c-_007c-MEDIUM-MATHEMATICAL-SPACE_007c-_007c-IDEOGRAPHIC-SPACE_007c-_007c" accesskey="n" rel="next">NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</a>, Previous: <a href="#FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c" accesskey="p" rel="prev">FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |</a>, Up: <a href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
+Next: <a href="#NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c" accesskey="n" rel="next">NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</a>, Previous: <a href="#FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c" accesskey="p" rel="prev">FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |</a>, Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
 </div>
 <h4 class="node">HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |</h4>
 
 <hr>
-<a class="node-id" id="NARROW-NO_002dBREAK-SPACE_007c-_007c-MEDIUM-MATHEMATICAL-SPACE_007c-_007c-IDEOGRAPHIC-SPACE_007c-_007c"></a><div class="nav-panel">
+<a class="node-id" id="NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c"></a><div class="nav-panel">
 <p>
-Previous: <a href="#HAIR-SPACE_007c-_007c-LINE-SEPARATOR_007c-_007c-PARAGRAPH-SEPARATOR_007c-_007c" accesskey="p" rel="prev">HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |</a>, Up: <a href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
+Previous: <a href="#HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c" accesskey="p" rel="prev">HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |</a>, Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a> &nbsp; </p>
 </div>
 <h4 class="node">NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</h4>
 
-<p><a class="ref" href="#NEXT-LINE-_0028NEL_0029_007c-_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a>
+<p><a class="ref" href="#NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a>
 </p>
 </div>
 </div>

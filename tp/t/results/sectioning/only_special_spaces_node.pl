@@ -122,14 +122,18 @@ $result_trees{'only_special_spaces_node'} = {
       "cmdname" => "node",
       "contents" => [],
       "extra" => {
+        "node_content" => [
+          {}
+        ],
         "nodes_manuals" => [
           {
             "node_content" => [
               {}
             ],
-            "normalized" => "-"
+            "normalized" => "_2002_2003_2002"
           }
         ],
+        "normalized" => "_2002_2003_2002",
         "spaces_before_argument" => " "
       },
       "parent" => {},
@@ -310,14 +314,18 @@ $result_trees{'only_special_spaces_node'} = {
       "cmdname" => "node",
       "contents" => [],
       "extra" => {
+        "node_content" => [
+          {}
+        ],
         "nodes_manuals" => [
           {
             "node_content" => [
               {}
             ],
-            "normalized" => "-"
+            "normalized" => "_0085_00a0_1680"
           }
         ],
+        "normalized" => "_0085_00a0_1680",
         "spaces_before_argument" => " "
       },
       "parent" => {},
@@ -388,10 +396,10 @@ $result_trees{'only_special_spaces_node'} = {
             "node_content" => [
               {}
             ],
-            "normalized" => "_180e-"
+            "normalized" => "_180e_2003"
           }
         ],
-        "normalized" => "_180e-",
+        "normalized" => "_180e_2003",
         "spaces_before_argument" => " "
       },
       "parent" => {},
@@ -460,14 +468,18 @@ $result_trees{'only_special_spaces_node'} = {
         }
       ],
       "extra" => {
+        "node_content" => [
+          {}
+        ],
         "nodes_manuals" => [
           {
             "node_content" => [
               {}
             ],
-            "normalized" => "-"
+            "normalized" => "_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000"
           }
         ],
+        "normalized" => "_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000",
         "spaces_before_argument" => " "
       },
       "parent" => {},
@@ -540,6 +552,7 @@ $result_trees{'only_special_spaces_node'}{"contents"}[2]{"contents"}[0]{"parent"
 $result_trees{'only_special_spaces_node'}{"contents"}[2]{"parent"} = $result_trees{'only_special_spaces_node'};
 $result_trees{'only_special_spaces_node'}{"contents"}[3]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[3]{"args"}[0];
 $result_trees{'only_special_spaces_node'}{"contents"}[3]{"args"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[3];
+$result_trees{'only_special_spaces_node'}{"contents"}[3]{"extra"}{"node_content"}[0] = $result_trees{'only_special_spaces_node'}{"contents"}[3]{"args"}[0]{"contents"}[0];
 $result_trees{'only_special_spaces_node'}{"contents"}[3]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'only_special_spaces_node'}{"contents"}[3]{"args"}[0]{"contents"}[0];
 $result_trees{'only_special_spaces_node'}{"contents"}[3]{"parent"} = $result_trees{'only_special_spaces_node'};
 $result_trees{'only_special_spaces_node'}{"contents"}[4]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[4]{"args"}[0];
@@ -560,6 +573,7 @@ $result_trees{'only_special_spaces_node'}{"contents"}[8]{"contents"}[0]{"parent"
 $result_trees{'only_special_spaces_node'}{"contents"}[8]{"parent"} = $result_trees{'only_special_spaces_node'};
 $result_trees{'only_special_spaces_node'}{"contents"}[9]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[9]{"args"}[0];
 $result_trees{'only_special_spaces_node'}{"contents"}[9]{"args"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[9];
+$result_trees{'only_special_spaces_node'}{"contents"}[9]{"extra"}{"node_content"}[0] = $result_trees{'only_special_spaces_node'}{"contents"}[9]{"args"}[0]{"contents"}[0];
 $result_trees{'only_special_spaces_node'}{"contents"}[9]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'only_special_spaces_node'}{"contents"}[9]{"args"}[0]{"contents"}[0];
 $result_trees{'only_special_spaces_node'}{"contents"}[9]{"parent"} = $result_trees{'only_special_spaces_node'};
 $result_trees{'only_special_spaces_node'}{"contents"}[10]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[10]{"args"}[0];
@@ -578,6 +592,7 @@ $result_trees{'only_special_spaces_node'}{"contents"}[12]{"parent"} = $result_tr
 $result_trees{'only_special_spaces_node'}{"contents"}[13]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[13]{"args"}[0];
 $result_trees{'only_special_spaces_node'}{"contents"}[13]{"args"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[13];
 $result_trees{'only_special_spaces_node'}{"contents"}[13]{"contents"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[13];
+$result_trees{'only_special_spaces_node'}{"contents"}[13]{"extra"}{"node_content"}[0] = $result_trees{'only_special_spaces_node'}{"contents"}[13]{"args"}[0]{"contents"}[0];
 $result_trees{'only_special_spaces_node'}{"contents"}[13]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'only_special_spaces_node'}{"contents"}[13]{"args"}[0]{"contents"}[0];
 $result_trees{'only_special_spaces_node'}{"contents"}[13]{"parent"} = $result_trees{'only_special_spaces_node'};
 $result_trees{'only_special_spaces_node'}{"contents"}[14]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'only_special_spaces_node'}{"contents"}[14]{"args"}[0];
@@ -659,7 +674,9 @@ $result_sectioning{'only_special_spaces_node'} = {
               'extra' => {
                 'associated_node' => {
                   'cmdname' => 'node',
-                  'extra' => {},
+                  'extra' => {
+                    'normalized' => '_2002_2003_2002'
+                  },
                   'structure' => {}
                 }
               },
@@ -710,7 +727,10 @@ $result_sectioning{'only_special_spaces_node'} = {
               'extra' => {
                 'associated_node' => {
                   'cmdname' => 'node',
-                  'extra' => {}
+                  'extra' => {
+                    'normalized' => '_0085_00a0_1680'
+                  },
+                  'structure' => {}
                 }
               },
               'structure' => {
@@ -728,7 +748,7 @@ $result_sectioning{'only_special_spaces_node'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_180e-'
+                    'normalized' => '_180e_2003'
                   },
                   'structure' => {}
                 }
@@ -747,7 +767,10 @@ $result_sectioning{'only_special_spaces_node'} = {
               'extra' => {
                 'associated_node' => {
                   'cmdname' => 'node',
-                  'extra' => {}
+                  'extra' => {
+                    'normalized' => '_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000'
+                  },
+                  'structure' => {}
                 }
               },
               'structure' => {
@@ -813,15 +836,30 @@ $result_nodes{'only_special_spaces_node'} = {
           'structure' => {
             'section_number' => 1
           }
-        }
+        },
+        'normalized' => '_2002_2003_2002'
       },
       'structure' => {
-        'node_prev' => {}
+        'node_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {},
+              'structure' => {
+                'section_number' => 2
+              }
+            }
+          }
+        },
+        'node_prev' => {},
+        'node_up' => {}
       }
     }
   }
 };
 $result_nodes{'only_special_spaces_node'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'only_special_spaces_node'};
+$result_nodes{'only_special_spaces_node'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'only_special_spaces_node'};
 
 $result_menus{'only_special_spaces_node'} = {
   'cmdname' => 'node',
@@ -832,15 +870,6 @@ $result_menus{'only_special_spaces_node'} = {
 };
 
 $result_errors{'only_special_spaces_node'} = [
-  {
-    'error_line' => "empty node name after expansion `\x{2000}\x{2001}\x{2002}'
-",
-    'file_name' => 'only_special_spaces_node.texi',
-    'line_nr' => 5,
-    'macro' => '',
-    'text' => "empty node name after expansion `\x{2000}\x{2001}\x{2002}'",
-    'type' => 'error'
-  },
   {
     'error_line' => 'empty argument in @node
 ',
@@ -858,33 +887,6 @@ $result_errors{'only_special_spaces_node'} = [
     'macro' => '',
     'text' => 'empty argument in @node',
     'type' => 'error'
-  },
-  {
-    'error_line' => "empty node name after expansion `\x{85}\x{a0}\x{1680}'
-",
-    'file_name' => 'only_special_spaces_node.texi',
-    'line_nr' => 14,
-    'macro' => '',
-    'text' => "empty node name after expansion `\x{85}\x{a0}\x{1680}'",
-    'type' => 'error'
-  },
-  {
-    'error_line' => "empty node name after expansion `\x{2004}\x{2005}\x{2006}\x{2007}\x{2008}\x{2009}\x{200a}\x{2028}\x{2029}\x{202f}\x{205f}\x{3000}'
-",
-    'file_name' => 'only_special_spaces_node.texi',
-    'line_nr' => 20,
-    'macro' => '',
-    'text' => "empty node name after expansion `\x{2004}\x{2005}\x{2006}\x{2007}\x{2008}\x{2009}\x{200a}\x{2028}\x{2029}\x{202f}\x{205f}\x{3000}'",
-    'type' => 'error'
-  },
-  {
-    'error_line' => "warning: node `\x{180e}\x{2003}' unreferenced
-",
-    'file_name' => 'only_special_spaces_node.texi',
-    'line_nr' => 17,
-    'macro' => '',
-    'text' => "node `\x{180e}\x{2003}' unreferenced",
-    'type' => 'warning'
   }
 ];
 
@@ -896,14 +898,20 @@ $result_floats{'only_special_spaces_node'} = {};
 $result_converted{'info'}->{'only_special_spaces_node'} = 'This is , produced from only_special_spaces_node.texi.
 
 
-File: ,  Node: Top,  Next: ,  Up: (dir)
+File: ,  Node: Top,  Next:    ,  Up: (dir)
 
 top
 ***
 
 * Menu:
 
+*    ::
+*   ::
 * ᠎ ::
+*            　::
+
+
+File: ,  Node:    ,  Next: ,  Prev: Top,  Up: Top
 
 1 EN QUAD| | EM QUAD| | EN SPACE| |
 ***********************************
@@ -914,14 +922,20 @@ top
 3 CARRIAGE RETURN|'."\r".'|
 ********************
 
+
+File: ,  Node:   ,  Next: ᠎ ,  Prev: ,  Up: Top
+
 4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
 **********************************************************
 
 
-File: ,  Node: ᠎ ,  Next: ,  Prev: ,  Up: Top
+File: ,  Node: ᠎ ,  Next:            　,  Prev:   ,  Up: Top
 
 5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |
 ******************************************
+
+
+File: ,  Node:            　,  Prev: ᠎ ,  Up: Top
 
 6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|
 ******************************************************************************************************************************************************************************************************************************************************
@@ -930,7 +944,10 @@ File: ,  Node: ᠎ ,  Next: ,  Prev: ,  Up: Top
 
 Tag Table:
 Node: Top56
-Node: ᠎ 491
+Node:    205
+Node:   503
+Node: ᠎ 686
+Node:            　873
 
 End Tag Table
 
@@ -963,23 +980,23 @@ $result_converted{'html'}->{'only_special_spaces_node'} = '<!DOCTYPE html>
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="" accesskey="n" rel="next">EN QUAD| | EM QUAD| | EN SPACE| |</a> &nbsp; </p>
+Next: <a href="#g_t_2002_2003_2002" accesskey="n" rel="next">EN QUAD| | EM QUAD| | EN SPACE| |</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top">top</h1>
 
 <ul class="mini-toc">
-<li>EN QUAD| | EM QUAD| | EN SPACE| |</li>
+<li><a href="#g_t_2002_2003_2002" accesskey="1">EN QUAD| | EM QUAD| | EN SPACE| |</a></li>
 <li>CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||</li>
 <li>CARRIAGE RETURN|'."\r".'|</li>
-<li>NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</li>
-<li><a href="#g_t_180e-" accesskey="5">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a></li>
-<li>THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</li>
+<li><a href="#g_t_0085_00a0_1680" accesskey="4">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a></li>
+<li><a href="#g_t_180e_2003" accesskey="5">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a></li>
+<li><a href="#g_t_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000" accesskey="6">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</a></li>
 </ul>
 <hr>
-<div class="chapter-level-extent">
+<div class="chapter-level-extent" id="g_t_2002_2003_2002">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
+Next: <a href="" accesskey="n" rel="next">CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c">1 EN QUAD| | EM QUAD| | EN SPACE| |</h2>
 
@@ -1003,31 +1020,31 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
 
 <hr>
 </div>
-<div class="chapter-level-extent">
+<div class="chapter-level-extent" id="g_t_0085_00a0_1680">
 <div class="nav-panel">
 <p>
- &nbsp; </p>
+Next: <a href="#g_t_180e_2003" accesskey="n" rel="next">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a>, Previous: <a href="" accesskey="p" rel="prev">CARRIAGE RETURN|'."\r".'|</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="NEXT-LINE-_0028NEL_0029_007c-_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c">4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</h2>
+<h2 class="chapter" id="NEXT-LINE-_0028NEL_0029_007c_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c">4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</h2>
 
 <hr>
 </div>
-<div class="chapter-level-extent" id="g_t_180e-">
+<div class="chapter-level-extent" id="g_t_180e_2003">
 <div class="nav-panel">
 <p>
-Next: <a href="" accesskey="n" rel="next">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</a>, Previous: <a href="" accesskey="p" rel="prev">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+Next: <a href="#g_t_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000" accesskey="n" rel="next">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</a>, Previous: <a href="#g_t_0085_00a0_1680" accesskey="p" rel="prev">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="MONGOLIAN-VOWEL-SEPARATOR_007c_007c-EM-SPACE_007c-_007c">5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</h2>
 
 <hr>
 </div>
-<div class="chapter-level-extent">
+<div class="chapter-level-extent" id="g_t_2004_2005_2006_2007_2008_2009_200a_2028_2029_202f_205f_3000">
 <div class="nav-panel">
 <p>
- &nbsp; </p>
+Previous: <a href="#g_t_180e_2003" accesskey="p" rel="prev">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 
-<h2 class="chapter" id="THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c-FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c-HAIR-SPACE_007c-_007c-LINE-SEPARATOR_007c-_007c-PARAGRAPH-SEPARATOR_007c-_007c-NARROW-NO_002dBREAK-SPACE_007c-_007c-MEDIUM-MATHEMATICAL-SPACE_007c-_007c-IDEOGRAPHIC-SPACE_007c-_007c">6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</h2>
+<h2 class="chapter" id="THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c-FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c-HAIR-SPACE_007c-_007c-LINE-SEPARATOR_007c_000a_007c-PARAGRAPH-SEPARATOR_007c_000a_000a_007c-NARROW-NO_002dBREAK-SPACE_007c-_007c-MEDIUM-MATHEMATICAL-SPACE_007c_005b_003f_005d_007c-IDEOGRAPHIC-SPACE_007c-_007c">6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</h2>
 
 </div>
 </div>

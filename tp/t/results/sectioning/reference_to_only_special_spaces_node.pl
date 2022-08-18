@@ -127,14 +127,18 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
       'cmdname' => 'node',
       'contents' => [],
       'extra' => {
+        'node_content' => [
+          {}
+        ],
         'nodes_manuals' => [
           {
             'node_content' => [
               {}
             ],
-            'normalized' => '-'
+            'normalized' => '_2002_2003_2002'
           }
         ],
+        'normalized' => '_2002_2003_2002',
         'spaces_before_argument' => ' '
       },
       'parent' => {},
@@ -203,11 +207,12 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'cmdname' => 'ref',
               'contents' => [],
               'extra' => {
+                'label' => {},
                 'node_argument' => {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => '-'
+                  'normalized' => '_2002_2003_2002'
                 }
               },
               'parent' => {},
@@ -286,7 +291,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
             'node_content' => [
               {}
             ],
-            'normalized' => '-'
+            'normalized' => '_2002_2003_2002'
           }
         ],
         'spaces_before_argument' => ' '
@@ -408,11 +413,12 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'cmdname' => 'ref',
               'contents' => [],
               'extra' => {
+                'label' => {},
                 'node_argument' => {
                   'node_content' => [
                     {}
                   ],
-                  'normalized' => '-'
+                  'normalized' => '_2002_2003_2002'
                 }
               },
               'parent' => {},
@@ -484,6 +490,7 @@ $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[2]{'contents'
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[2]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'};
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3]{'args'}[0];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'};
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'args'}[0];
@@ -493,6 +500,7 @@ $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[1];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[4]{'contents'}[1];
@@ -518,6 +526,7 @@ $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[1];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0];
+$result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[3];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1];
 $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'reference_to_only_special_spaces_node'}{'contents'}[6]{'contents'}[1];
@@ -584,7 +593,9 @@ $result_sectioning{'reference_to_only_special_spaces_node'} = {
               'extra' => {
                 'associated_node' => {
                   'cmdname' => 'node',
-                  'extra' => {},
+                  'extra' => {
+                    'normalized' => '_2002_2003_2002'
+                  },
                   'structure' => {}
                 }
               },
@@ -651,15 +662,30 @@ $result_nodes{'reference_to_only_special_spaces_node'} = {
           'structure' => {
             'section_number' => 1
           }
-        }
+        },
+        'normalized' => '_2002_2003_2002'
       },
       'structure' => {
-        'node_prev' => {}
+        'node_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {},
+              'structure' => {
+                'section_number' => 2
+              }
+            }
+          }
+        },
+        'node_prev' => {},
+        'node_up' => {}
       }
     }
   }
 };
 $result_nodes{'reference_to_only_special_spaces_node'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'reference_to_only_special_spaces_node'};
+$result_nodes{'reference_to_only_special_spaces_node'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'reference_to_only_special_spaces_node'};
 
 $result_menus{'reference_to_only_special_spaces_node'} = {
   'cmdname' => 'node',
@@ -671,40 +697,31 @@ $result_menus{'reference_to_only_special_spaces_node'} = {
 
 $result_errors{'reference_to_only_special_spaces_node'} = [
   {
-    'error_line' => "empty node name after expansion `\x{2000}\x{2001}\x{2002}'
-",
-    'file_name' => 'reference_to_only_special_spaces_node.texi',
-    'line_nr' => 5,
-    'macro' => '',
-    'text' => "empty node name after expansion `\x{2000}\x{2001}\x{2002}'",
-    'type' => 'error'
-  },
-  {
-    'error_line' => "empty node name after expansion `\@code{\x{2000}\x{2001}\x{2002}}'
+    'error_line' => "\@node `\@code{\x{2000}\x{2001}\x{2002}}' previously defined
 ",
     'file_name' => 'reference_to_only_special_spaces_node.texi',
     'line_nr' => 10,
     'macro' => '',
-    'text' => "empty node name after expansion `\@code{\x{2000}\x{2001}\x{2002}}'",
+    'text' => "\@node `\@code{\x{2000}\x{2001}\x{2002}}' previously defined",
     'type' => 'error'
   },
   {
-    'error_line' => "\@ref reference to nonexistent node `\x{2000}\x{2001}\x{2002}'
-",
+    'error_line' => 'here is the previous definition as @node
+',
     'file_name' => 'reference_to_only_special_spaces_node.texi',
-    'line_nr' => 8,
+    'line_nr' => 5,
     'macro' => '',
-    'text' => "\@ref reference to nonexistent node `\x{2000}\x{2001}\x{2002}'",
+    'text' => 'here is the previous definition as @node',
     'type' => 'error'
   },
   {
-    'error_line' => "\@ref reference to nonexistent node `\@code{\x{2000}\x{2001}\x{2002}}'
+    'error_line' => "warning: \@ref to `\@code{\x{2000}\x{2001}\x{2002}}', different from node name `\x{2000}\x{2001}\x{2002}'
 ",
     'file_name' => 'reference_to_only_special_spaces_node.texi',
     'line_nr' => 13,
     'macro' => '',
-    'text' => "\@ref reference to nonexistent node `\@code{\x{2000}\x{2001}\x{2002}}'",
-    'type' => 'error'
+    'text' => "\@ref to `\@code{\x{2000}\x{2001}\x{2002}}', different from node name `\x{2000}\x{2001}\x{2002}'",
+    'type' => 'warning'
   }
 ];
 
@@ -716,12 +733,17 @@ $result_floats{'reference_to_only_special_spaces_node'} = {};
 $result_converted{'info'}->{'reference_to_only_special_spaces_node'} = 'This is , produced from reference_to_only_special_spaces_node.texi.
 
 
-File: ,  Node: Top,  Next: ,  Up: (dir)
+File: ,  Node: Top,  Next:    ,  Up: (dir)
 
 top
 ***
 
 * Menu:
+
+*    ::
+
+
+File: ,  Node:    ,  Next: ,  Prev: Top,  Up: Top
 
 1 EN QUAD| | EM QUAD| | EN SPACE| |
 ***********************************
@@ -737,6 +759,7 @@ top
 
 Tag Table:
 Node: Top69
+Node:    154
 
 End Tag Table
 
@@ -769,23 +792,23 @@ $result_converted{'html'}->{'reference_to_only_special_spaces_node'} = '<!DOCTYP
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="" accesskey="n" rel="next">EN QUAD| | EM QUAD| | EN SPACE| |</a> &nbsp; </p>
+Next: <a href="#g_t_2002_2003_2002" accesskey="n" rel="next">EN QUAD| | EM QUAD| | EN SPACE| |</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top">top</h1>
 
 <ul class="mini-toc">
-<li>EN QUAD| | EM QUAD| | EN SPACE| |</li>
+<li><a href="#g_t_2002_2003_2002" accesskey="1">EN QUAD| | EM QUAD| | EN SPACE| |</a></li>
 <li><code class="code">EN QUAD| | EM QUAD| | EN SPACE| |</code></li>
 </ul>
 <hr>
-<div class="chapter-level-extent">
+<div class="chapter-level-extent" id="g_t_2002_2003_2002">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
+Next: <a href="" accesskey="n" rel="next"><code class="code">EN QUAD| | EM QUAD| | EN SPACE| |</code></a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c">1 EN QUAD| | EM QUAD| | EN SPACE| |</h2>
 
-<p>&lsquo;   &rsquo;.
+<p><a class="ref" href="#g_t_2002_2003_2002">   </a>.
 </p>
 <hr>
 </div>
@@ -796,7 +819,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c-1">2 <code class="code">EN QUAD| | EM QUAD| | EN SPACE| |</code></h2>
 
-<p>&lsquo;<code class="code">   </code>&rsquo;.
+<p><a class="ref" href="#g_t_2002_2003_2002"><code class="code">   </code></a>.
 </p>
 
 </div>

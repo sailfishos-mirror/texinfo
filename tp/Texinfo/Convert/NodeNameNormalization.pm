@@ -25,6 +25,10 @@ package Texinfo::Convert::NodeNameNormalization;
 use 5.00405;
 use strict;
 
+# stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
+# used to match Unicode character classes.
+use if $] >= 5.014, re => '/a';
+
 use Unicode::Normalize;
 use Text::Unidecode;
 
@@ -134,11 +138,13 @@ sub _unicode_to_protected($)
   my $text = shift;
   my $result = '';
   while ($text ne '') {
-    if ($text =~ s/^([A-Za-z0-9]+)//o) {
+    if ($text =~ s/^([A-Za-z0-9]+)//) {
       $result .= $1;
-    } elsif ($text =~ s/^ +//o) {
+    } elsif ($text =~ s/^ +//) {
       $result .= '-';
-    } elsif ($text =~ s/^(.)//o) {
+    # with /a some special spaces are not caught without /s, maybe because they are
+    # considered as newlines
+    } elsif ($text =~ s/^(.)//s) {
       $result .= _protect_unicode_char($1);
     } else {
       warn "Bug: unknown character _unicode_to_protected (likely in infinite loop)\n";
@@ -154,11 +160,12 @@ sub _unicode_to_file_name($)
   my $text = shift;
   my $result = '';
   while ($text ne '') {
-    if ($text =~ s/^([A-Za-z0-9_\.\-]+)//o) {
+    if ($text =~ s/^([A-Za-z0-9_\.\-]+)//) {
       $result .= $1;
-    } elsif ($text =~ s/^ +//o) {
+    } elsif ($text =~ s/^ +//) {
       $result .= '-';
-    } elsif ($text =~ s/^(.)//o) {
+    # /s is specified to caught special spaces considered as newlines too
+    } elsif ($text =~ s/^(.)//s) {
       $result .= _protect_unicode_char($1);
     } else {
       warn "Bug: unknown character _unicode_to_file_name (likely in infinite loop)\n";
@@ -178,9 +185,9 @@ sub _unicode_to_transliterate($;$)
   }
   my $result = '';
   while ($text ne '') {
-    if ($text =~ s/^([A-Za-z0-9 ]+)//o) {
+    if ($text =~ s/^([A-Za-z0-9 ]+)//) {
       $result .= $1;
-    } elsif ($text =~ s/^(.)//o) {
+    } elsif ($text =~ s/^(.)//s) {
       my $char = $1;
       if (exists($Texinfo::Convert::Unicode::unicode_simple_character_map{$char})) {
         $result .= $char;
@@ -241,7 +248,7 @@ sub _convert($;$)
   my $result = '';
   if (defined($element->{'text'})) {
     $result = $element->{'text'};
-    $result =~ s/\s+/ /go;
+    $result =~ s/\s+/ /g;
     $result = uc($result) if ($in_sc);
   }
   if ($element->{'cmdname'}) {
