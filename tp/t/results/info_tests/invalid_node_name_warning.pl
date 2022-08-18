@@ -1121,8 +1121,7 @@ File: ,  Node: node,comma,  Next: bidule:,  Prev: nodename. a,  Up: Top
 
 File: ,  Node: bidule:,  Prev: node,comma,  Up: Top
 
-*note truc:: nodename. a.  *note machin: node,comma.  *note
-bidule:::.
+*note truc:: nodename. a.  *note machin: node,comma.  *note bidule:::.
 
 
 Tag Table:

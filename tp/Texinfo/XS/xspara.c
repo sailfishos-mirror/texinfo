@@ -716,10 +716,13 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
 
       while (left > 0)
         {
+          int columns;
           int char_len = mbrtowc (&w, p, left, NULL);
           left -= char_len;
           p += char_len;
-          len++;
+          columns = wcwidth (w);
+          if (columns > 0)
+            len += columns;
         }
 
       state.word_counter += len;

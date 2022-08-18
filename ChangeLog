@@ -1,5 +1,12 @@
 2022-08-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/xspara.c (xspara__add_next):
+	Use wcwidth on each character, rather than assuming they
+	all have display width 1.  Faulty line breaking for DEL characters
+	reported by Patrice.
+
+2022-08-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/t/plaintext_tests.t (del_quote_linebreaking):
 	New test to track line breaking with DEL-quoting.
 
