@@ -719,10 +719,16 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
           int columns;
           int char_len = mbrtowc (&w, p, left, NULL);
           left -= char_len;
-          p += char_len;
+
           columns = wcwidth (w);
+          /* Not correct but this matches the results from
+             the Perl code. */
+          if (columns == 0)
+            columns = 1;
           if (columns > 0)
-            len += columns;
+            len++;
+
+          p += char_len;
         }
 
       state.word_counter += len;

@@ -64,7 +64,8 @@ $result_floats{'empty_accent'} = {};
 
 
 
-$result_converted{'plaintext'}->{'empty_accent'} = '̀';
+$result_converted{'plaintext'}->{'empty_accent'} = '̀
+';
 
 
 $result_converted{'html_text'}->{'empty_accent'} = '<p>&#768;
