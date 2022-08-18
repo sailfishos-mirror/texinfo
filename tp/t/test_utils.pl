@@ -1376,17 +1376,17 @@ sub test($$)
     if ($todos{'text'}) {
       SKIP: {
         skip $todos{'text'}, 1;
-        ok ($converted_text eq $result_texts{$test_name}, $test_name.' text');
+        is ($converted_text, $result_texts{$test_name}, $test_name.' text');
       }
     } else {
-      ok ($converted_text eq $result_texts{$test_name}, $test_name.' text');
+      is ($converted_text, $result_texts{$test_name}, $test_name.' text');
     }
     $tests_count = $nr_comparisons;
     if (defined($result_directions_text{$test_name})) {
       cmp_trimmed($elements, $result_elements{$test_name},
                   \@avoided_keys_elements, $test_name.' elements');
       $tests_count++;
-      ok ($directions_text eq $result_directions_text{$test_name},
+      is ($directions_text, $result_directions_text{$test_name},
           $test_name.' directions text');
       $tests_count++;
     }
@@ -1429,13 +1429,13 @@ sub test($$)
           if ($todos{$format}) {
             SKIP: {
               skip $todos{$format}, 1;
-              ok ($converted{$format}
-                              eq $result_converted{$format}->{$test_name},
-                   $test_name.' converted '.$format);
+              is ($converted{$format},
+                  $result_converted{$format}->{$test_name},
+                  $test_name.' converted '.$format);
             }
           } else {
-            ok ($converted{$format}
-                           eq $result_converted{$format}->{$test_name},
+            is ($converted{$format},
+                $result_converted{$format}->{$test_name},
                 $test_name.' converted '.$format);
           }
         }
