@@ -1,3 +1,12 @@
+2022-08-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	@need
+
+	* doc/texinfo.tex (\need): Implement with vertical skips
+	and penalties only, not with \vtop or \kern.  This has more
+	reliable results when followed by a section title.  It also
+	may work better with footnotes.  Reports from Werner Lemberg.
+
 2022-08-17  Patrice Dumas  <pertusus@free.fr>
 
 	Consider non ascii spaces to be characters for node name normalization

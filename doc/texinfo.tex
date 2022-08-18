@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-08-18.14}
+\def\texinfoversion{2022-08-21.14}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -725,32 +725,21 @@ where each line of input produces a line of output.}
   \dimen2 = \ht\strutbox
   \advance\dimen2 by \dp\strutbox
   \ifdim\dimen0 > \dimen2
+    % This is similar to the 'needspace' module in LaTeX.
+    % The first penalty allows a break if the end of the page is
+    % not too far away.  Following penalties and skips are discarded.
+    % Otherwise, require at least \dimen0 of vertical space.
     %
-    % Do a \strut just to make the height of this box be normal, so the
-    % normal leading is inserted relative to the preceding line.
-    % And a page break here is fine.
-    \vtop to #1\mil{\strut\vfil}%
-    %
-    % TeX does not even consider page breaks if a penalty added to the
-    % main vertical list is 10000 or more.  But in order to see if the
-    % empty box we just added fits on the page, we must make it consider
-    % page breaks.  On the other hand, we don't want to actually break the
-    % page after the empty box.  So we use a penalty of 9999.
-    %
-    % There is an extremely small chance that TeX will actually break the
-    % page at this \penalty, if there are no other feasible breakpoints in
-    % sight.  (If the user is using lots of big @group commands, which
-    % almost-but-not-quite fill up a page, TeX will have a hard time doing
-    % good page breaking, for example.)  However, I could not construct an
-    % example where a page broke at this \penalty; if it happens in a real
-    % document, then we can reconsider our strategy.
+    % (We used to use a \vtop to reserve space, but this had spacing issues
+    % when followed by a section heading, as it was not a "discardable item".
+    % This also has the benefit of providing glue before the page break if
+    % there isn't enough space.)
+    \vskip0pt plus \dimen0
+    \penalty-100
+    \vskip0pt plus -\dimen0
+    \vskip \dimen0
     \penalty9999
-    %
-    % Back up by the size of the box, whether we did a page break or not.
-    \kern -#1\mil
-    %
-    % Do not allow a page break right after this kern.
-    \nobreak
+    \vskip -\dimen0\relax
   \fi
 }
 
