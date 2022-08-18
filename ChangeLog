@@ -1,5 +1,10 @@
 2022-08-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (@afivepaper): Adjust horizontal location so as
+	to balance left and right margins.  Report from Werner Lemberg.
+
+2022-08-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* README-hacking: reminder to rename ChangeLog after next release
 
 2022-08-18  Gavin Smith  <gavinsmith0123@gmail.com>
