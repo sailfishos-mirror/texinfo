@@ -993,9 +993,9 @@ undef,
  'skip' => ($] < 5.014) ? 'Perl too old: /a regex flag needed' : undef, },
 ],
 ['all_spaces',
-undef, {'test_file' => 'all_spaces.texi', 
-        'todo' => {'file_plaintext' => 
-                          'NEL handled differently between perl versions'}}
+undef,
+{'test_file' => 'all_spaces.texi',
+ 'skip' => ($] < 5.014) ? 'Perl too old: LINE TABULATION in /a needed' : undef, },
 ],
 ['east_asian_in_w',
 undef, {'test_file' => 'east_asian_in_w.texi'}
