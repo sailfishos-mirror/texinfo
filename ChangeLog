@@ -1,5 +1,13 @@
 2022-08-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_css_string_accent)
+	(_simplify_text_for_comparison, _default_format_element_footer):
+	use Unicode properties and character classes that match non
+	ascii letters and spaces when in regex where this is what is relevant
+	and not ascii text only.
+
+2022-08-19  Patrice Dumas  <pertusus@free.fr>
+
 	Use gnulib wcwidth in tp/Texinfo/XS/xspara.c
 
 	* tp/Texinfo/XS/xspara.c: remove wcwidth implementation.

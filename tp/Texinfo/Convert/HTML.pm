@@ -2968,7 +2968,7 @@ sub _css_string_accent($$$;$)
 
   my $accent = $command->{'cmdname'};
 
-  if ($in_upper_case and $text =~ /^\w$/) {
+  if ($in_upper_case and $text =~ /^\p{Word}$/) {
     $text = uc ($text);
   }
   if (exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent})
@@ -5634,7 +5634,7 @@ $default_css_string_types_conversion{'text'} = \&_css_string_convert_text;
 sub _simplify_text_for_comparison($)
 {
   my $text = shift;
-  $text =~ s/[^\w]//g;
+  $text =~ s/[^\p{Word}]//g;
   return $text;
 }
 
@@ -6364,7 +6364,9 @@ sub _default_format_element_footer($$$$)
       if ($self->get_conf('HEADERS')) {
         my $no_footer_word_count;
         if ($self->get_conf('WORDS_IN_PAGE')) {
-          my @cnt = split(/\W*\s+\W*/, $content);
+          # FIXME it seems that NO-BREAK SPACE and NEXT LINE (NEL) may
+          # not be in \h and \v in some case, but not sure which case it is
+          my @cnt = split(/\P{Word}*[\h\v]+\P{Word}*/, $content);
           if (scalar(@cnt) < $self->get_conf('WORDS_IN_PAGE')) {
             $no_footer_word_count = 1;
           }
