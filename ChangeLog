@@ -1,3 +1,10 @@
+2022-08-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	\vtop for @group
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert) <@group>:
+	Use \vtop for the output, even though it is not perfect.
+
 2022-08-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_css_string_accent)

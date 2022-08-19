@@ -28,8 +28,6 @@
 #\tableofcontents
 #}
 #
-# @group should also be added together with the non filled environments.
-#
 # There is something about form feeds to do.  There is some processing of form
 # feeds right now, which simply amounts to keeping them in ignorable spaces
 # (and with another condition that may not be relevant for LaTeX as the code
@@ -3080,6 +3078,12 @@ sub _convert($$)
         if ($LaTeX_list_environments{$cmdname}) {
           $self->{'list_environments'}->{$LaTeX_list_environments{$cmdname}} = 1;
         }
+      } elsif ($cmdname eq 'group') {
+        $result .= "\\vtop{%\n";
+        # \vtop rather than \vbox makes vertical space above group correct.
+        # FIXME The space below it will not quite be correct.
+        # An alternative is to use a 'minipage' environment although this
+        # has difficulties with vertical space too.
       }
       if ($preformatted_commands{$cmdname}) {
         _open_preformatted_command($self, $cmdname);
@@ -3796,6 +3800,9 @@ sub _convert($$)
       foreach my $environment (reverse @{$LaTeX_environment_commands{$cmdname}}) {
         $result .= "\\end{".$environment."}\n";
       }
+    } elsif ($cmdname eq 'group') {
+      $result .= "\\strut}%\n";
+      # We use a \strut at the end of the \vtop to get more space beneath it.
     }
     if ($preformatted_commands{$cmdname}) {
       _close_preformatted_command($self, $cmdname);
