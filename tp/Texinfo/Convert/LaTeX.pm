@@ -143,10 +143,6 @@
 # generate bigger fonts and much more vertical whitespace than in Texinfo TeX
 # so maybe it is not needed to do something here.
 #
-# push a context for the formatting of @quotation @author, such that if in a
-# preformatted environment the @quotation @author formatting will be the same
-# as in the main text?
-#
 # index entry between @table and first @item causes an empty \item[] to be
 # output.
 #
@@ -168,6 +164,9 @@
 # @indentedblock and @smallindentedblock should not have a wider right
 # margin.
 #
+# it seems that \indent only works with \setlength{\parindent}{0pt}
+# which makes it quite different from Texinfo @indent.  Implement
+# something differently to have the expected output with @indent?
 
 package Texinfo::Convert::LaTeX;
 
