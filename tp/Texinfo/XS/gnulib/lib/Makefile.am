@@ -36,9 +36,10 @@
 #  iconv \
 #  strchrnul \
 #  strndup \
-#  vasprintf
+#  vasprintf \
+#  wcwidth
 
-AUTOMAKE_OPTIONS = 1.11 gnits
+AUTOMAKE_OPTIONS = 1.14 gnits subdir-objects
 
 SUBDIRS =
 noinst_HEADERS =
@@ -67,6 +68,7 @@ EXTRA_libgnu_la_SOURCES =
 libgnu_la_LDFLAGS = $(AM_LDFLAGS)
 libgnu_la_LDFLAGS += -no-undefined
 libgnu_la_LDFLAGS += $(LTLIBICONV)
+libgnu_la_LDFLAGS += $(LTLIBUNISTRING)
 
 ## begin gnulib module absolute-header
 
@@ -288,6 +290,14 @@ MOSTLYCLEANFILES += limits.h limits.h-t
 EXTRA_DIST += limits.in.h
 
 ## end   gnulib module limits-h
+
+## begin gnulib module localcharset
+
+libgnu_la_SOURCES += localcharset.c
+
+EXTRA_DIST += localcharset.h
+
+## end   gnulib module localcharset
 
 ## begin gnulib module memchr
 
@@ -762,6 +772,13 @@ EXTRA_DIST += strchrnul.valgrind
 
 ## end   gnulib module strchrnul
 
+## begin gnulib module streq
+
+
+EXTRA_DIST += streq.h
+
+## end   gnulib module streq
+
 ## begin gnulib module string
 
 BUILT_SOURCES += string.h
@@ -1065,6 +1082,7 @@ unistd.h: unistd.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H
 	  sed -e 's|@''REPLACE_ACCESS''@|$(REPLACE_ACCESS)|g' \
 	      -e 's|@''REPLACE_CHOWN''@|$(REPLACE_CHOWN)|g' \
 	      -e 's|@''REPLACE_CLOSE''@|$(REPLACE_CLOSE)|g' \
+	      -e 's|@''REPLACE_COPY_FILE_RANGE''@|$(REPLACE_COPY_FILE_RANGE)|g' \
 	      -e 's|@''REPLACE_DUP''@|$(REPLACE_DUP)|g' \
 	      -e 's|@''REPLACE_DUP2''@|$(REPLACE_DUP2)|g' \
 	      -e 's|@''REPLACE_EXECL''@|$(REPLACE_EXECL)|g' \
@@ -1118,6 +1136,42 @@ MOSTLYCLEANFILES += unistd.h unistd.h-t
 EXTRA_DIST += unistd.in.h
 
 ## end   gnulib module unistd
+
+## begin gnulib module unitypes
+
+BUILT_SOURCES += $(LIBUNISTRING_UNITYPES_H)
+
+unitypes.h: unitypes.in.h
+	$(gl_V_at)$(SED_HEADER_TO_AT_t) $(srcdir)/unitypes.in.h
+	$(AM_V_at)mv $@-t $@
+MOSTLYCLEANFILES += unitypes.h unitypes.h-t
+
+EXTRA_DIST += unitypes.in.h
+
+## end   gnulib module unitypes
+
+## begin gnulib module uniwidth/base
+
+BUILT_SOURCES += $(LIBUNISTRING_UNIWIDTH_H)
+
+uniwidth.h: uniwidth.in.h
+	$(gl_V_at)$(SED_HEADER_TO_AT_t) $(srcdir)/uniwidth.in.h
+	$(AM_V_at)mv $@-t $@
+MOSTLYCLEANFILES += uniwidth.h uniwidth.h-t
+
+EXTRA_DIST += localcharset.h uniwidth.in.h
+
+## end   gnulib module uniwidth/base
+
+## begin gnulib module uniwidth/width
+
+if LIBUNISTRING_COMPILE_UNIWIDTH_WIDTH
+libgnu_la_SOURCES += uniwidth/width.c
+endif
+
+EXTRA_DIST += unictype/bitmap.h uniwidth/cjk.h uniwidth/width0.h uniwidth/width2.h
+
+## end   gnulib module uniwidth/width
 
 ## begin gnulib module vasnprintf
 
@@ -1275,6 +1329,58 @@ MOSTLYCLEANFILES += wchar.h wchar.h-t
 EXTRA_DIST += wchar.in.h
 
 ## end   gnulib module wchar
+
+## begin gnulib module wctype-h
+
+BUILT_SOURCES += wctype.h
+libgnu_la_SOURCES += wctype-h.c
+
+# We need the following in order to create <wctype.h> when the system
+# doesn't have one that works with the given compiler.
+wctype.h: wctype.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(WARN_ON_USE_H)
+	$(gl_V_at)$(SED_HEADER_STDOUT) \
+	      -e 's|@''GUARD_PREFIX''@|GL|g' \
+	      -e 's/@''HAVE_WCTYPE_H''@/$(HAVE_WCTYPE_H)/g' \
+	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
+	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
+	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
+	      -e 's|@''NEXT_WCTYPE_H''@|$(NEXT_WCTYPE_H)|g' \
+	      -e 's/@''HAVE_CRTDEFS_H''@/$(HAVE_CRTDEFS_H)/g' \
+	      -e 's/@''GNULIBHEADERS_OVERRIDE_WINT_T''@/$(GNULIBHEADERS_OVERRIDE_WINT_T)/g' \
+	      -e 's/@''GNULIB_ISWBLANK''@/$(GL_GNULIB_ISWBLANK)/g' \
+	      -e 's/@''GNULIB_ISWDIGIT''@/$(GL_GNULIB_ISWDIGIT)/g' \
+	      -e 's/@''GNULIB_ISWXDIGIT''@/$(GL_GNULIB_ISWXDIGIT)/g' \
+	      -e 's/@''GNULIB_WCTYPE''@/$(GL_GNULIB_WCTYPE)/g' \
+	      -e 's/@''GNULIB_ISWCTYPE''@/$(GL_GNULIB_ISWCTYPE)/g' \
+	      -e 's/@''GNULIB_WCTRANS''@/$(GL_GNULIB_WCTRANS)/g' \
+	      -e 's/@''GNULIB_TOWCTRANS''@/$(GL_GNULIB_TOWCTRANS)/g' \
+	      -e 's/@''HAVE_ISWBLANK''@/$(HAVE_ISWBLANK)/g' \
+	      -e 's/@''HAVE_ISWCNTRL''@/$(HAVE_ISWCNTRL)/g' \
+	      -e 's/@''HAVE_WCTYPE_T''@/$(HAVE_WCTYPE_T)/g' \
+	      -e 's/@''HAVE_WCTRANS_T''@/$(HAVE_WCTRANS_T)/g' \
+	      -e 's/@''HAVE_WINT_T''@/$(HAVE_WINT_T)/g' \
+	      -e 's/@''REPLACE_ISWBLANK''@/$(REPLACE_ISWBLANK)/g' \
+	      -e 's/@''REPLACE_ISWDIGIT''@/$(REPLACE_ISWDIGIT)/g' \
+	      -e 's/@''REPLACE_ISWXDIGIT''@/$(REPLACE_ISWXDIGIT)/g' \
+	      -e 's/@''REPLACE_ISWCNTRL''@/$(REPLACE_ISWCNTRL)/g' \
+	      -e 's/@''REPLACE_TOWLOWER''@/$(REPLACE_TOWLOWER)/g' \
+	      -e '/definitions of _GL_FUNCDECL_RPL/r $(CXXDEFS_H)' \
+	      -e '/definition of _GL_WARN_ON_USE/r $(WARN_ON_USE_H)' \
+	      $(srcdir)/wctype.in.h > $@-t
+	$(AM_V_at)mv $@-t $@
+MOSTLYCLEANFILES += wctype.h wctype.h-t
+
+EXTRA_DIST += wctype.in.h
+
+## end   gnulib module wctype-h
+
+## begin gnulib module wcwidth
+
+if GL_COND_OBJ_WCWIDTH
+libgnu_la_SOURCES += wcwidth.c
+endif
+
+## end   gnulib module wcwidth
 
 ## begin gnulib module xsize
 

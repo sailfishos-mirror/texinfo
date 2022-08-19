@@ -206,13 +206,6 @@ iswspace (wint_t wc)
   return 0;
 }
 
-/* FIXME: Provide a real implementation.  */
-int
-wcwidth (const wchar_t wc)
-{
-  return wc == 0 ? 0 : 1;
-}
-
 int
 iswupper (wint_t wi)
 {

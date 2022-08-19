@@ -1,5 +1,13 @@
 2022-08-19  Patrice Dumas  <pertusus@free.fr>
 
+	Use gnulib wcwidth in tp/Texinfo/XS/xspara.c
+
+	* tp/Texinfo/XS/xspara.c: remove wcwidth implementation.
+
+	* tp/Texinfo/XS/gnulib: update and add wcwidth.
+
+2022-08-19  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Node Line Requirements): add in comment that
 	spaces from @-commands are collapsed too.
 

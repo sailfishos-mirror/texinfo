@@ -269,7 +269,10 @@ tp/Texinfo/XS/gnulib/lib/stddef.h
 tp/Texinfo/XS/gnulib/lib/stdint.h
 tp/Texinfo/XS/gnulib/lib/stdio.h
 tp/Texinfo/XS/gnulib/lib/string.h
+tp/Texinfo/XS/gnulib/lib/unitypes.h
+tp/Texinfo/XS/gnulib/lib/uniwidth.h
 tp/Texinfo/XS/gnulib/lib/wchar.h
+tp/Texinfo/XS/gnulib/lib/wctype.h
 tp/Texinfo/XS/gnulib/lib/sys/types.h
 
 tp/Texinfo/XS/gnulib/m4/libtool.m4

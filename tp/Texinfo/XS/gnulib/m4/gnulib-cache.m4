@@ -41,7 +41,8 @@
 #  iconv \
 #  strchrnul \
 #  strndup \
-#  vasprintf
+#  vasprintf \
+#  wcwidth
 
 # Specification in the form of a few gnulib-tool.m4 macro invocations:
 gl_LOCAL_DIR([])
@@ -51,6 +52,7 @@ gl_MODULES([
   strchrnul
   strndup
   vasprintf
+  wcwidth
 ])
 gl_AVOID([])
 gl_SOURCE_BASE([gnulib/lib])

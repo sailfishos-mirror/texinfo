@@ -59,6 +59,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module include_next:
   # Code from module inttypes-incomplete:
   # Code from module limits-h:
+  # Code from module localcharset:
   # Code from module memchr:
   # Code from module multiarch:
   # Code from module rawmemchr:
@@ -75,15 +76,21 @@ AC_DEFUN([gl_EARLY],
   # Code from module stdio:
   # Code from module stdlib:
   # Code from module strchrnul:
+  # Code from module streq:
   # Code from module string:
   # Code from module strndup:
   # Code from module strnlen:
   # Code from module sys_types:
   # Code from module unistd:
+  # Code from module unitypes:
+  # Code from module uniwidth/base:
+  # Code from module uniwidth/width:
   # Code from module vasnprintf:
   # Code from module vasprintf:
   # Code from module verify:
   # Code from module wchar:
+  # Code from module wctype-h:
+  # Code from module wcwidth:
   # Code from module xsize:
 ])
 
@@ -145,6 +152,10 @@ AC_DEFUN([gl_INIT],
   gl_LIMITS_H
   gl_CONDITIONAL_HEADER([limits.h])
   AC_PROG_MKDIR_P
+  gl_LOCALCHARSET
+  dnl For backward compatibility. Some packages still use this.
+  LOCALCHARSET_TESTS_ENVIRONMENT=
+  AC_SUBST([LOCALCHARSET_TESTS_ENVIRONMENT])
   gl_FUNC_MEMCHR
   gl_CONDITIONAL([GL_COND_OBJ_MEMCHR], [test $REPLACE_MEMCHR = 1])
   AM_COND_IF([GL_COND_OBJ_MEMCHR], [
@@ -230,6 +241,26 @@ AC_DEFUN([gl_INIT],
   gl_UNISTD_H
   gl_UNISTD_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
+  gl_LIBUNISTRING_LIBHEADER([0.9.11], [unitypes.h])
+  AC_PROG_MKDIR_P
+  AH_VERBATIM([unitypes_restrict], [
+  /* This definition is a duplicate of the one in unitypes.h.
+     It is here so that we can cope with an older version of unitypes.h
+     that does not contain this definition and that is pre-installed among
+     the public header files.  */
+  # if defined __restrict \
+       || 2 < __GNUC__ + (95 <= __GNUC_MINOR__) \
+       || __clang_major__ >= 3
+  #  define _UC_RESTRICT __restrict
+  # elif 199901L <= __STDC_VERSION__ || defined restrict
+  #  define _UC_RESTRICT restrict
+  # else
+  #  define _UC_RESTRICT
+  # endif
+  ])
+  gl_LIBUNISTRING_LIBHEADER([0.9.11], [uniwidth.h])
+  AC_PROG_MKDIR_P
+  gl_LIBUNISTRING_MODULE([0.9.11], [uniwidth/width])
   AC_REQUIRE([AC_C_RESTRICT])
   gl_FUNC_VASNPRINTF
   gl_FUNC_VASPRINTF
@@ -240,6 +271,16 @@ AC_DEFUN([gl_INIT],
   gl_WCHAR_H
   gl_WCHAR_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
+  gl_WCTYPE_H
+  gl_WCTYPE_H_REQUIRE_DEFAULTS
+  AC_PROG_MKDIR_P
+  gl_FUNC_WCWIDTH
+  gl_CONDITIONAL([GL_COND_OBJ_WCWIDTH],
+                 [test $HAVE_WCWIDTH = 0 || test $REPLACE_WCWIDTH = 1])
+  AM_COND_IF([GL_COND_OBJ_WCWIDTH], [
+    gl_PREREQ_WCWIDTH
+  ])
+  gl_WCHAR_MODULE_INDICATOR([wcwidth])
   gl_XSIZE
   # End of code from modules
   m4_ifval(gl_LIBSOURCES_LIST, [
@@ -427,6 +468,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/inttypes.in.h
   lib/itold.c
   lib/limits.in.h
+  lib/localcharset.c
+  lib/localcharset.h
   lib/memchr.c
   lib/memchr.valgrind
   lib/printf-args.c
@@ -445,23 +488,35 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/stdlib.in.h
   lib/strchrnul.c
   lib/strchrnul.valgrind
+  lib/streq.h
   lib/string.in.h
   lib/strndup.c
   lib/strnlen.c
   lib/sys_types.in.h
+  lib/unictype/bitmap.h
   lib/unistd.c
   lib/unistd.in.h
+  lib/unitypes.in.h
+  lib/uniwidth.in.h
+  lib/uniwidth/cjk.h
+  lib/uniwidth/width.c
+  lib/uniwidth/width0.h
+  lib/uniwidth/width2.h
   lib/vasnprintf.c
   lib/vasnprintf.h
   lib/vasprintf.c
   lib/verify.h
   lib/warn-on-use.h
   lib/wchar.in.h
+  lib/wctype-h.c
+  lib/wctype.in.h
+  lib/wcwidth.c
   lib/xsize.c
   lib/xsize.h
   m4/00gnulib.m4
   m4/absolute-header.m4
   m4/alloca.m4
+  m4/codeset.m4
   m4/errno_h.m4
   m4/exponentd.m4
   m4/extensions.m4
@@ -480,7 +535,9 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/lib-ld.m4
   m4/lib-link.m4
   m4/lib-prefix.m4
+  m4/libunistring-base.m4
   m4/limits-h.m4
+  m4/localcharset.m4
   m4/math_h.m4
   m4/memchr.m4
   m4/mmap-anon.m4
@@ -509,6 +566,8 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/warn-on-use.m4
   m4/wchar_h.m4
   m4/wchar_t.m4
+  m4/wctype_h.m4
+  m4/wcwidth.m4
   m4/wint_t.m4
   m4/xsize.m4
   m4/zzgnulib.m4
