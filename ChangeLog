@@ -1,3 +1,26 @@
+2022-08-20  Patrice Dumas  <pertusus@free.fr>
+
+	Recommend UTF-8 only as encoding
+
+	* doc/texinfo.texi (@code{@@documentencoding}): describe non
+	UTF-8 encodings as being mainly for older manuals.
+	(@code{@@documentencoding}, Info Format Regular Nodes): describe
+	that cross-references between Info files with different character
+	encodings with non-ASCII characters in node names fail in
+	the '@code{@@documentencoding}' node.  Remove uneeded information
+	from 'Info Format Regular Nodes'.
+	Do not recommend using 7bit ASCII for portability, UTF-8 should
+	be portable.
+	(@code{@@euro}): remove information on the 8bit encoding since
+	they should not be used anymore.
+
+	(Internationalization of Document Strings): remove @ from
+	documentlanguage and documentencoding, these are not @-commands
+	in this context.
+
+	(Other Customization Variables): update the description of defaults
+	in Info for *_QUOTE_SYMBOL.
+
 2022-08-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Fix texinfo.tex with XeTeX

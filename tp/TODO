@@ -558,8 +558,6 @@ or Info.pm).  No idea whether it is right or wrong.
 in hyphenation: only text and accent commands, and should
 only appear in toplevel
 
-use definfoenclose information in Convert::Text?
-
 From vincent Belaïche. About svg image files in HTML:
 
 I don't think that supporting svg would be easy: its seems that to embed an
