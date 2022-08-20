@@ -1,3 +1,11 @@
+2022-08-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	@U for ASCII chars again
+
+	* doc/texinfo.tex (\DeclareUnicodeCharacterNative):
+	Do not touch the catcodes of ASCII characters.
+	(\unicodechardefs): Reinstate ASCII definitions.
+
 2022-08-20  Patrice Dumas  <pertusus@free.fr>
 
 	Recommend UTF-8 only as encoding
