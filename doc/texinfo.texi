@@ -12399,7 +12399,7 @@ the official web site for ISO@tie{}3166 can be found via
 In the default case, the input and output document encoding are assumed
 to be UTF-8, the vast global character encoding, expressed in 8-bit bytes.
 UTF-8 is compatible with 7-bit ASCII.  It is recommended to use UTF-8
-encoding for the Texinfo manuals.
+encoding for Texinfo manuals.
 
 The @code{@@documentencoding} command declares the input document encoding,
 and also affects the encoding of the output.  Write it on a line by itself,
@@ -12410,7 +12410,7 @@ if your document encoding is not the default encoding.
 @@documentencoding @var{enc}
 @end example
 
-Using UTF-8 should always be the best choice for the encoding.
+UTF-8 should always be the best choice for the encoding.
 Texinfo still supports additional encodings, mainly for compatibility with
 older manuals:
 
@@ -12422,7 +12422,7 @@ Character encoding based on the English alphabet.
 @itemx ISO-8859-15
 @itemx ISO-8859-2
 @cindex Euro symbol, and encodings
-These specify the pre UTF-8 standard encodings for Western European
+These specify the pre-UTF-8 standard encodings for Western European
 (the first two) and Eastern European languages (the third), respectively.
 ISO 8859-15 replaces some little-used characters from 8859-1 (e.g.,
 precomposed fractions) with more commonly needed ones, such as the
@@ -12510,10 +12510,10 @@ load different fonts in the preamble and use
 @@end latex
 @end example
 
-Cross-references between Info files with different character encodings
+Cross-references between Info files in different character encodings
 with non-ASCII characters in node names fail.  We strongly recommend
 using UTF-8 only as the encoding for manuals with non-ASCII characters
-in cross-references sources or destinations.
+in the destinations of cross-references.
 
 
 @node Conditionals
