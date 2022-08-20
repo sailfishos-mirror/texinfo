@@ -1,3 +1,27 @@
+2022-08-20  Patrice Dumas  <pertusus@free.fr>
+
+	Update DTD to have headings in most environments
+
+	* util/texinfo.dtd: put %heading.cmds in %block.
+	Remove %global.option.cmds, put index definition commands in
+	%multiple.option.cmds, and @-command definitions commands
+	such as alias in the newly added %define.cmds.  Move macro, rmacro
+	and unmacro to %define.cmds.
+	Rename %titlepage.cmds as %intitlepage.cmds.
+	Add %block.cmds containing the block commands.
+	Add %toplevelonly.content for @-commands appearing only in
+	toplevel content, move listoffloats, copying and titlepage to
+	%toplevelonly.content.
+
+	* doc/texinfo.texi (The Body of the Document): remove the comment
+	about @*heading needing to appear in main text, as it is not what
+	is documented.
+	(@code{@@unnumberedsec @@appendixsec @@heading}): remove @titlepage
+	from context where @heading is pathological, as it should not be
+	particularly problematic.
+	(@code{@@listoffloats}): move @listoffloats outside of @display
+	as @listoffloats should only appear in the main text.
+
 2022-08-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Fix texinfo.tex for XeTeX
