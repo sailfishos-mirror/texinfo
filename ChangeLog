@@ -1,3 +1,15 @@
+2022-08-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Character conversion for info reference labels
+
+	* info/scan.c (scan_reference_label): Convert reference label
+	using iconv conversion.
+	(init_conversion, close_conversion): Set iconv object to (iconv_t) -1
+	after calling iconv_close so we know not to use it.
+
+	Patrice reported that index entries would not be converted and
+	not found with info --apropros.
+
 2022-08-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	\vtop for @group

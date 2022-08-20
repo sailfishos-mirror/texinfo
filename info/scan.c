@@ -524,6 +524,7 @@ init_conversion (FILE_BUFFER *fb)
         {
           /* Return if no conversion function implemented */
           iconv_close (iconv_to_output);
+          iconv_to_output = (iconv_t) -1;
           return; 
         }
     }
@@ -539,6 +540,7 @@ void close_conversion (void)
   if (convert_encoding_p)
     {
       iconv_close (iconv_to_output);
+      iconv_to_output = (iconv_t) -1;
       if (!file_is_in_utf8) iconv_close (iconv_to_utf8);
     }
 #endif
@@ -1169,9 +1171,52 @@ scan_reference_label (REFERENCE *entry, int in_index)
       label_len += m - 1;
     }
 
-  entry->label = xmalloc (label_len + 1);
-  memcpy (entry->label, inptr, label_len);
-  entry->label[label_len] = '\0';
+#if HAVE_ICONV
+  if (iconv_to_output != (iconv_t) -1 && iconv_to_output != (iconv_t) 0)
+    {
+      static struct text_buffer label_text;
+      size_t iconv_ret;
+      size_t inbytesleft = label_len;
+      char *p = inptr;
+      text_buffer_reset (&label_text);
+      text_buffer_alloc (&label_text, label_len);
+
+      while (1)
+        {
+          iconv_ret = text_buffer_iconv (&label_text, iconv_to_output,
+                                         (ICONV_CONST char **)&p,
+                                         &inbytesleft);
+
+          /* Make sure libiconv flushes out the last converted character. */
+          if (iconv_ret != (size_t) -1
+                && text_buffer_iconv (&label_text, iconv_to_output,
+                       NULL, NULL) != (size_t) -1)
+            break; /* Success: all of input converted. */
+
+          /* There's been an error while converting. */
+          switch (errno)
+            {
+            case E2BIG:
+              /* Ran out of space in output buffer.  Allocate more
+                 and try again. */
+              text_buffer_alloc (&label_text, label_len);
+              continue;
+            default: /* EINVAL or EILSEQ or unknown error */
+              goto no_convert;
+            }
+        }
+
+      text_buffer_add_char (&label_text, '\0');
+      entry->label = strdup (label_text.base);
+    }
+  else
+#endif
+    {
+  no_convert:
+      entry->label = xmalloc (label_len + 1);
+      memcpy (entry->label, inptr, label_len);
+      entry->label[label_len] = '\0';
+    }
   canonicalize_whitespace (entry->label);
 
   if (preprocess_nodes_p)
