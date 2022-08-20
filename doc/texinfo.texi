@@ -1509,13 +1509,18 @@ By convention, the name of a Texinfo file ends with one of the
 extensions @file{.texi}, @file{.texinfo}, @file{.txi}, or 
 @file{.tex}.  Using @file{.tex} is discouraged as this extension
 is already used by @TeX{} and @LaTeX{} input files.  The most common
-and recommended extension is @file{.texi}.
+and recommended extension is @file{.texi}.  The name of a Texinfo
+file should only contain ASCII characters.
 
 The output name is based on the input file name, in the default case.
 First, any of the extensions @file{.texi}, @file{.tex}, @file{.txi}
 or @file{.texinfo} is removed from the input file name; then,
 the output format specific extension is added---@file{.html} when
 generating HTML, @file{.info} when generating Info, etc.
+The output name should only contain ASCII
+characters@footnote{@command{texi2any} can handle non ASCII characters
+in input file names, but non ASCII characters in output name will create
+problems for some output formats, especially for cross-references.}.
 
 In order to be made into a printed manual, a Texinfo file must begin
 with lines like this:

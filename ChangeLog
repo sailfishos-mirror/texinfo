@@ -1,3 +1,12 @@
+2022-08-20  Patrice Dumas  <pertusus@free.fr>
+
+	Document that input and output file names should only be ASCII
+
+	* doc/texinfo.texi (Minimum): state that input and output
+	file names should only contain ASCII characters.  In a footnote
+	precise that texi2any can handle non ASCII filenames, but that
+	it will be problematic for output formats.
+
 2022-08-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\need):
