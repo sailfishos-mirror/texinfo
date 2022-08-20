@@ -1,5 +1,10 @@
 2022-08-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* info/util.c (text_buffer_iconv): Handle E2BIG error here.
+	* info/scan.c (copy_converting, scan_reference_label): Update.
+
+2022-08-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Character conversion for info reference labels
 
 	* info/scan.c (scan_reference_label): Convert reference label

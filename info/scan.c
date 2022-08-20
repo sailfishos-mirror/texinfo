@@ -715,11 +715,6 @@ copy_converting (long n)
       /* There's been an error while converting. */
       switch (errno)
         {
-        case E2BIG:
-          /* Ran out of space in output buffer.  Allocate more
-             and try again. */
-          text_buffer_alloc (&output_buf, n);
-          continue;
         case EINVAL:
           /* Incomplete byte sequence at end of input buffer.  Try to read
              more. */
@@ -1194,16 +1189,7 @@ scan_reference_label (REFERENCE *entry, int in_index)
             break; /* Success: all of input converted. */
 
           /* There's been an error while converting. */
-          switch (errno)
-            {
-            case E2BIG:
-              /* Ran out of space in output buffer.  Allocate more
-                 and try again. */
-              text_buffer_alloc (&label_text, label_len);
-              continue;
-            default: /* EINVAL or EILSEQ or unknown error */
-              goto no_convert;
-            }
+          goto no_convert;
         }
 
       text_buffer_add_char (&label_text, '\0');

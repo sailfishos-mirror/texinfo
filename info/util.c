@@ -351,11 +351,21 @@ text_buffer_iconv (struct text_buffer *buf, iconv_t iconv_state,
 
   outptr = text_buffer_base (buf) + text_buffer_off (buf);
   out_bytes_left = text_buffer_space_left (buf);
-  iconv_ret = iconv (iconv_state, inbuf, inbytesleft,
-                     &outptr, &out_bytes_left);
 
+  while (1)
+    {
+      iconv_ret = iconv (iconv_state, inbuf, inbytesleft,
+                         &outptr, &out_bytes_left);
+      if (iconv_ret != (size_t) -1)
+        break; /* success */
+
+      /* If we ran out of space, allocate more and try again. */
+      if (errno == E2BIG)
+        text_buffer_alloc (buf, 4);
+      else
+        break; /* let calling code deal with it */
+    }
   text_buffer_off (buf) = outptr - text_buffer_base (buf);    
-
   return iconv_ret;
 }
 
