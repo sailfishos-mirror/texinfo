@@ -1,5 +1,12 @@
 2022-08-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\need):
+	End with a \penalty0 so that \safewhatsit and \dobreak do
+	not remove negative skip, leading to excessive space before
+	section heading.  Report from Werner Lemberg.
+
+2022-08-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@U for ASCII chars again
 
 	* doc/texinfo.tex (\DeclareUnicodeCharacterNative):

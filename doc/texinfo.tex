@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-08-20.16}
+\def\texinfoversion{2022-08-20.18}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -739,7 +739,8 @@ where each line of input produces a line of output.}
     \vskip0pt plus -\dimen0
     \vskip \dimen0
     \penalty9999
-    \vskip -\dimen0\relax
+    \vskip -\dimen0
+    \penalty0\relax % this hides the above glue from \safewhatsit and \dobreak
   \fi
 }
 
