@@ -1,5 +1,15 @@
 2022-08-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Fix texinfo.tex with XeTeX
+
+	* doc/texinfo.tex (\unicodechardefs): Comment out declarations of
+	ASCII characters with \DeclareUnicodeCharacter.  Supply a space after
+	\char argument to terminate numbers in case code is ever used again.
+
+	Werner Lemberg reported texinfo.tex would break with XeTeX.
+
+2022-08-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* info/util.c (text_buffer_iconv): Handle E2BIG error here.
 	* info/scan.c (copy_converting, scan_reference_label): Update.
 
