@@ -15428,7 +15428,7 @@ style.  The value set by this option overrides the value set in a
 Texinfo file by a @code{@@footnotestyle} command (@pxref{Footnote
 Styles}).
 
-When the footnote style is @samp{separate}, @command{texi2any} makes a
+In Info, when the footnote style is @samp{separate}, @command{texi2any} makes a
 new node containing the footnotes found in the current node.  When the
 footnote style is @samp{end}, @command{texi2any} places the footnote
 references at the end of the current node.
@@ -15456,9 +15456,9 @@ successfully.
 @item --html
 @opindex --html
 Generate HTML output (rather than Info).  By default, the HTML output
-is split into one output file per Texinfo source node, and the split
-output is written into a subdirectory based on the name of the
-top-level Info file.  @xref{Generating HTML}.
+is split into one output file per node, and the split output is written
+into a subdirectory based on the name of the input file.
+@xref{Generating HTML}.
 
 @item -I @var{dir}
 @opindex -I @var{dir}
@@ -15518,8 +15518,8 @@ blocks will be.
 Generate Info output.  By default, if the output file contains more
 than about 300,000 bytes, it is split into shorter subfiles of about
 that size.  The name of the output file and any subfiles is determined
-by @code{@@setfilename}, if present (@pxref{Setting the Output File Name}).
-@xref{Tag and Split Files}.
+by the input file name, or by @code{@@setfilename}, if present
+(@pxref{Setting the Output File Name}).  @xref{Tag and Split Files}.
 
 @item --init-file=@var{file}
 @opindex --init-file=@var{file}
@@ -15564,10 +15564,10 @@ internally by @command{texi2any} and then discarded.
 Do not include menus or node separator lines in the output.
 
 When generating Info, this is the same as using @option{--plaintext},
-resulting in a simple plain text file.  Furthermore,
-@code{@@setfilename} and input file name are ignored, and output is to standard
-output unless overridden with @option{-o}.  (This behavior is for backward
-compatibility.)
+resulting in a simple plain text file.  Furthermore output is not to
+a file with name based on input file name or @code{@@setfilename},
+but to standard output unless overridden with @option{-o}.  (This
+behavior is for backward compatibility.)
 
 @cindex Navigation links, omitting
 When generating HTML, and output is split, also output navigation
@@ -15652,7 +15652,7 @@ i.e., the current footnote number is reset to 1 at the start of each node.
 @opindex --number-sections
 @opindex --no-number-sections
 @vindex NUMBER_SECTIONS
-With @option{--number_sections} (the default), output chapter,
+With @option{--number-sections} (the default), output chapter,
 section, and appendix numbers as in printed manuals.  This works only
 with hierarchically structured manuals.  You should specify
 @code{--no-number-sections} if your manual is not normally structured.
@@ -15745,9 +15745,9 @@ plain text file that you can (for example) send in email without
 complications, or include in a distribution (for example, an
 @file{INSTALL} file).
 
-With this option, @code{@@setfilename} and input file name are ignored
-and the output goes to standard output by default; this can be
-overridden with @option{-o}.
+With this option the output goes to standard output by default, instead
+of to a file with name based on input file name or @code{@@setfilename};
+this can be overridden with @option{-o}.
 
 @item --ps
 @opindex --ps
@@ -15810,7 +15810,7 @@ files.)
 @item --transliterate-file-names
 @opindex --transliterate-file-names
 @vindex TRANSLITERATE_FILE_NAMES
-Enable transliteration of 8-bit characters in node names for the
+Enable transliteration of non ASCII characters in node names for the
 purpose of file name creation.  @xref{HTML Xref 8-bit Character Expansion}.
 
 @item -U @var{var}
@@ -15855,6 +15855,10 @@ docbook  dvi  dvipdf  epub3  html  info  latex  pdf  plaintext  ps  xml
 @end example
 
 If not set or otherwise specified, Info output is the default.
+
+Some other special values setting the output, which do not correspond to
+command-line settable output formats may also be specified with
+@code{TEXINFO_OUTPUT_FORMAT} (@pxref{Customization Variables and Options}).
 
 The customization variable of the same name is also read; if set, that
 overrides an environment variable setting, but not a command-line
@@ -16251,8 +16255,9 @@ end of the document if not split, or in a separate file.  If set to
 
 @item CONVERT_TO_LATEX_IN_MATH
 If set, try to convert any Texinfo @@-commands inside @code{@@math} and
-@code{@@displaymath} to @LaTeX{}.  Default @code{undef}.  If undefined, set
-if @code{HTML_MATH} is set.
+@code{@@displaymath} to @LaTeX{}, before converting the @code{@@math} or
+@code{@@displaymath} to HTML.  Default @code{undef}.  If undefined,
+set if @code{HTML_MATH} is set.
 
 @item COPIABLE_LINKS
 If set, output copiable links for the definition commands
@@ -16324,7 +16329,7 @@ Method to use to render @code{@@math}.  This can be unset, set to
 @samp{mathjax} (@pxref{MathJax Customization Variables}),
 set to @samp{l2h}, which uses @command{latex2html}
 (@pxref{@command{latex2html} Customization Variables}), or set to
-@samp{t2h}, which uses @command{tex4ht}.
+@samp{t4h}, which uses @command{tex4ht}.
 
 @item HTML_ROOT_ELEMENT_ATTRIBUTES
 Use that string for the @code{<html>} HTML document root element.
@@ -16648,6 +16653,7 @@ in DocBook.  Undefined in the default case in HTML and set to @code{&rsquo;}
 if @code{USE_NUMERIC_ENTITY} is not set, to @code{&#8217;} if set, and
 to a quote character if @option{--enable-encoding} is set and the output
 encoding includes that character.
+
 The default for Info is set the same as for @code{OPEN_QUOTE_SYMBOL},
 except that the Unicode code is a closing quote (see below).
 
@@ -16797,8 +16803,9 @@ It is also used for command-line argument passed to commands called from
 @anchor{@code{NO_TOP_NODE_OUTPUT}}
 If set do not output the Top node content.  The Top node is still
 parsed, but the content is discarded.  Not set in the default case
-for HTML.  If @code{SHOW_TITLE} is @samp{undef}, setting
-@code{NO_TOP_NODE_OUTPUT} also sets @code{SHOW_TITLE} for HTML.
+for HTML.  Set in the default case for EPUB.  If @code{SHOW_TITLE}
+is @samp{undef}, setting @code{NO_TOP_NODE_OUTPUT} also sets
+@code{SHOW_TITLE} for HTML.
 
 Setting @code{NO_TOP_NODE_OUTPUT}, which removes the Top node and adds
 a title page corresponds more to the formatting of a book.  Setting
@@ -16833,6 +16840,7 @@ Undefined in the default case in HTML and set to @code{&lsquo;}
 if @code{USE_NUMERIC_ENTITY} is not set, to @code{&#8217;} if set, and
 to a quote character if @option{--enable-encoding} is set and the output
 encoding includes that character.
+
 For Info, the default depends on the enabled document encoding.  If
 @option{--disable-encoding} is set or the document encoding is not UTF-8,
 @samp{'} is used.  This character usually appears
@@ -16929,8 +16937,9 @@ can be applied to the Texinfo tree prior to outputting the result.  If
 more than one is specified, the ordering is irrelevant; each is always
 applied at the necessary point during processing.
 
-The only one executed by default is
-@samp{move_index_entries_after_items} for HTML and DocBook output.
+The tree transformations executed by default are
+@samp{move_index_entries_after_items} and
+@samp{relate_index_entries_to_table_entries} for HTML and DocBook output.
 Here's an example of updating the master menu in a document:
 
 @example
@@ -16977,6 +16986,12 @@ mentioned, this is always done for HTML and DocBook output.
 Update the Top node master menu, either replacing the (first)
 @code{@@detailmenu} in the Top node menu, or creating it at the end of
 the Top node menu.
+
+@item relate_index_entries_to_table_entries
+In @code{@@table}, @code{@@vtable} and @code{@@ftable},
+reassociate the index entry information from an index @@-command
+appearing right after an @code{@@item} line to the @code{@@item} first
+element.  Remove the index @@-command from the tree.
 
 @item simple_menu
 Mostly the same as @code{SIMPLE_MENU}: use a simple preformatted style
@@ -17136,9 +17151,9 @@ with @code{@@include}.
 @c @url{http://www.gnu.org/software/texinfo/manual/pod2texi.html}, etc.
 
 The @command{pod2texi} program may be useful outside of the rest of Texinfo,
-thus the invokation of @command{pod2texi} is documented using the man page
-format to follow the convention used in Perl standalone programs, with a
-version on the web
+thus the invokation of @command{pod2texi} is documented in the Pod language
+using the man page format to follow the convention used in Perl standalone
+programs, with a version on the web
 @url{http://www.gnu.org/software/texinfo/manual/pod2texi.html} and a version
 included below.  The version included in the manual is also an example of
 @command{pod2texi} use, as it is converted from Pod using @command{pod2texi}.
@@ -17253,10 +17268,14 @@ notes, but may still be useful to some.
 @node Creating and Installing Info Files
 @chapter Creating and Installing Info Files
 
-This chapter describes how to create and install Info files.
-See also @ref{Generic Translator @command{texi2any}} and @ref{Info Formatting}.
-@xref{Info Files}, for general information about the file format.
+@anchor{Creating an Info File}@c removed, merged to this node and Emacs Info mode
 
+This chapter gives some information on the Info output and describes how to
+install Info files.  For the creation of Info files with @command{texi2any}, see
+@ref{Generic Translator @command{texi2any}} and with Emacs, @ref{Info
+Formatting}.  @xref{Info Files}, for general information about the file format.
+@xref{Info Format Specification}, for a detailed technical specification of the
+Info format.
 
 @menu
 * Installing an Info File::
@@ -17880,15 +17899,17 @@ It's hoped that support for browsing locally installed Texinfo
 documentation in some form of HTML can be improved in the future.
 
 
-@item Why provide the command-line @command{info} program when it is not very good?
+@item Why provide the command-line @command{info} program when the Emacs Info reader is better?
 
-@command{info} has had improvements over time, so perhaps give
-it another go.  It can be configured to change the default key
-bindings, as well as change the color of cross-references and search
-results, and to enable mouse scrolling support.  You should not
-need to be experienced with the Emacs editor to use @command{info}.
-(Some recommend another program called @command{pinfo}, but this
-lacks in important features like index lookup.)
+The Emacs Info reader can display images, and fully supports using
+a mouse.  There are not much differences among the Info readers
+besides that.  Command-line @command{info} can be configured
+to change the default key bindings, as well as change the color
+of cross-references and search results, and to enable mouse
+scrolling support.  You should not need to be experienced with
+the Emacs editor to use @command{info}.  (Some recommend another
+program called @command{pinfo}, but this lacks in important
+features like index lookup.)
 
 Some prefer to be able to scroll through the entire manual at once (as
 happens with man pages), rather than being limited to a single `node'
@@ -17898,7 +17919,7 @@ manual becomes longer and more complicated.  (However, if you really
 want to, you can view an info manual all at once in the @command{less}
 pager with @samp{info @var{foo} | less}.)
 
-@item Why do I have `see' appearing in front of all of my links?
+@item Why do I have `see' appearing in front of all of my links in the Emacs reader?
 
 By default, Emacs Info mode either changes the marker @samp{*note} for
 cross-references to `see', or hides it completely.  Unfortunately,
@@ -18022,7 +18043,7 @@ help users, not blindly comply with standards.
 
 Please report output from an
 error-free run of @command{texi2any} which has @emph{practical} browser
-portability problems as a bug (@pxref{Reporting Bugs}).
+or EPUB reader portability problems as a bug (@pxref{Reporting Bugs}).
 
 In practice, the HTML produced by @command{texi2any} is slowly adjusted
 over time towards the latest HTML standard, while also trying to keep
@@ -21827,6 +21848,7 @@ Texinfo file for Info.
 
 @c anchor{makeinfo in Emacs}@c prev name
 @anchor{@code{makeinfo} in Emacs}@c prev name
+@anchor{@command{makeinfo} Advantages}@c node merged in this one
 @cindex Running @command{makeinfo} in Emacs
 @cindex Running @command{texi2any} in Emacs
 @cindex @command{makeinfo} inside Emacs
