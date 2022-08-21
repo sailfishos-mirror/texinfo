@@ -11,29 +11,34 @@
 <node name="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chapter</sectiontitle>
 
-<para><code>code</code>, <dfn>dfn</dfn>, <var>var</var>, <strong>strong</strong>, <kbd>kbd</kbd>, <samp>samp</samp>.
+<para><code>c--ode</code>, <dfn>d&textndash;fn</dfn>, <var>v&textndash;ar</var>, <strong>s&textndash;trong</strong>, <kbd>k--bd</kbd>, <samp>s--amp</samp>.
 </para>
-<para><code><dfn>dfn in code</dfn></code>
-<var><code>code in var</code></var>
-<code><var>var in code</var></code>
-<strong><kbd>kbd in strong</kbd></strong>
-<samp><strong>strong in samp</strong></samp>
-<strong><samp>samp in strong</samp></strong>
+<para><code><dfn>d--fn in code</dfn></code>
+<var><code>c--ode in var</code></var>
+<code><var>v--ar in code</var></code>
+<strong><kbd>k--bd in strong</kbd></strong>
+<samp><strong>s--trong in samp</strong></samp>
+<strong><samp>s--amp in strong</samp></strong>
 </para>
-<para><cite>cite</cite>
+<para><cite>c&textndash;ite</cite>
 </para>
-<para><code><cite>cite in code</cite></code>
-<cite><code>code in cite</code></cite>
+<para><code><cite>c--ite in code</cite></code>
+<cite><code>c--ode in cite</code></cite>
 </para>
-<para><code>code</code> <slanted>slanted</slanted> <b>b</b>
-<code><slanted>slanted in code</slanted></code>
-<slanted><code>code in slanted</code></slanted>
-<b><slanted>slanted in b</slanted></b>
-<slanted><b>b in slanted</b></slanted>
+<para><code>c--ode</code> <slanted>s&textndash;lanted</slanted> <b>b&textndash;</b> <t>t--</t>
+</para>
+<para><code><slanted>s&textndash;lanted in code</slanted></code>
+<slanted><code>c--ode in slanted</code></slanted>
+<b><slanted>s&textndash;lanted in b</slanted></b>
+<slanted><b>b&textndash; in slanted</b></slanted>
+<t><slanted>s&textndash;lanted in t</slanted></t>
+<slanted><t>t-- in slanted</t></slanted>
+<t><var>v--ar in t</var></t>
+<var><t>t-- in var</t></var>
 </para>
 <example endspaces=" ">
-<pre xml:space="preserve"><var>var in example</var>
-<cite>cite in example</cite>
+<pre xml:space="preserve"><var>v--ar in example</var>
+<cite>c--ite in example</cite>
 </pre></example>
 </chapter>
 </texinfo>

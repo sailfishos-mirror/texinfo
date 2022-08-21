@@ -1076,29 +1076,34 @@ undef, {'test_file' => 'empty.texi'}],
 @node chapter
 @chapter chapter
 
-@code{code}, @dfn{dfn}, @var{var}, @strong{strong}, @kbd{kbd}, @samp{samp}.
+@code{c--ode}, @dfn{d--fn}, @var{v--ar}, @strong{s--trong}, @kbd{k--bd}, @samp{s--amp}.
 
-@code{@dfn{dfn in code}}
-@var{@code{code in var}}
-@code{@var{var in code}}
-@strong{@kbd{kbd in strong}}
-@samp{@strong{strong in samp}}
-@strong{@samp{samp in strong}}
+@code{@dfn{d--fn in code}}
+@var{@code{c--ode in var}}
+@code{@var{v--ar in code}}
+@strong{@kbd{k--bd in strong}}
+@samp{@strong{s--trong in samp}}
+@strong{@samp{s--amp in strong}}
 
-@cite{cite}
+@cite{c--ite}
 
-@code{@cite{cite in code}}
-@cite{@code{code in cite}}
+@code{@cite{c--ite in code}}
+@cite{@code{c--ode in cite}}
 
-@code{code} @slanted{slanted} @b{b}
-@code{@slanted{slanted in code}}
-@slanted{@code{code in slanted}}
-@b{@slanted{slanted in b}}
-@slanted{@b{b in slanted}}
+@code{c--ode} @slanted{s--lanted} @b{b--} @t{t--}
+
+@code{@slanted{s--lanted in code}}
+@slanted{@code{c--ode in slanted}}
+@b{@slanted{s--lanted in b}}
+@slanted{@b{b-- in slanted}}
+@t{@slanted{s--lanted in t}}
+@slanted{@t{t-- in slanted}}
+@t{@var{v--ar in t}}
+@var{@t{t-- in var}}
 
 @example
-@var{var in example}
-@cite{cite in example}
+@var{v--ar in example}
+@cite{c--ite in example}
 @end example
 '],
 );
@@ -1216,6 +1221,7 @@ foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
   push @{$test->[2]->{'test_formats'}}, 'file_info';
   push @{$test->[2]->{'test_formats'}}, ('file_xml', 'file_docbook', 'file_latex');
+  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 run_all('converters_tests', [@test_cases, @html_text_cases, @file_tests]);
