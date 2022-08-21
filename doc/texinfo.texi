@@ -509,14 +509,13 @@ Include Files
 Formatting and Printing Hardcopy with @TeX{}
 
 * Use @TeX{}::                     Use @TeX{} to format for hardcopy.
-* Format with @command{texi2dvi}::        The simplest way to format.
+* Format with @command{texi2dvi} or @command{texi2pdf}:: The simplest way to format.
 * Format with @command{tex}/@command{texindex}::    Formatting with explicit shell commands.
 * Print with @command{lpr}::              How to print.
 * Printing with Emacs::         How to format with @TeX{} and print with Emacs.
 * Requirements Summary::        @TeX{} formatting requirements summary.
 * Preparing for @TeX{}::           What to do before you use @TeX{}.
 * Overfull hboxes::             What are and what to do with overfull hboxes.
-* PDF Output::                  Portable Document Format output.
 
 Format with @command{tex}/@command{texindex}
 
@@ -14381,14 +14380,13 @@ Details are in the following sections.
 
 @menu
 * Use @TeX{}::                     Use @TeX{} to format for hardcopy.
-* Format with @command{texi2dvi}::        The simplest way to format.
+* Format with @command{texi2dvi} or @command{texi2pdf}:: The simplest way to format.
 * Format with @command{tex}/@command{texindex}::    Formatting with explicit shell commands.
 * Print with @command{lpr}::              How to print.
 * Printing with Emacs::         How to format with @TeX{} and print with Emacs.
 * Requirements Summary::        @TeX{} formatting requirements summary.
 * Preparing for @TeX{}::           What to do before you use @TeX{}.
 * Overfull hboxes::             What are and what to do with overfull hboxes.
-* PDF Output::                  Portable Document Format output.
 @end menu
 
 
@@ -14413,18 +14411,28 @@ and you can get it over the Internet or on physical media.  See
 @c please keep that text in sync with www.gnu.org/prep/FTP
 
 
-@node Format with @command{texi2dvi}
-@section Format with @command{texi2dvi}
+@node Format with @command{texi2dvi} or @command{texi2pdf}
+@section Format with @command{texi2dvi} or @command{texi2pdf}
+
+@c previously in a separate node.  To be used when referring
+@c only to PDF output, as is the case in @direntry
+@anchor{PDF Output}
+@c To be used when referring to DVI output or to texi2dvi only,
+@c as is the case in @direntry
+@anchor{Format with @command{texi2dvi}}
 
 @pindex texi2dvi @r{(shell script)}
 @pindex texi2pdf @r{(shell script)}
 @cindex DVI, output in
+@cindex PDF output
+@cindex Output, in PDF
 
 The @command{texi2dvi} program takes care of all the steps for producing
-a @TeX{} DVI file from a Texinfo document.  Similarly, @command{texi2dvi}
-produces a PDF file.
+a @TeX{} DVI file from a Texinfo document.  Similarly, @command{texi2pdf}
+produces a PDF file@footnote{@dfn{PDF} stands for `Portable Document Format'.
+It was invented by Adobe Systems for document interchange, based on their PostScript language.}.
 
-To run @command{texi2dvi} or @command{texi2dvi} on an input file
+To run @command{texi2dvi} or @command{texi2pdf} on an input file
 @file{foo.texi}, do this (where @samp{prompt$ } is your shell prompt):
 
 @example
@@ -14433,7 +14441,7 @@ prompt$ @kbd{texi2pdf foo.texi}
 @end example
 
 As shown in this example, the file names given to @command{texi2dvi} and
-@command{texi2dvi} must include any extension, such as @samp{.texi}.
+@command{texi2pdf} must include any extension, such as @samp{.texi}.
 
 For a list of all the options, run @samp{texi2dvi --help}.  Some of the
 options are discussed below.
@@ -14441,7 +14449,7 @@ options are discussed below.
 @opindex --pdf@r{, for @command{texi2dvi}}
 @pindex pdftexi2dvi
 With the @option{--pdf} option, @command{texi2dvi} produces PDF output
-instead of DVI (@pxref{PDF Output}), by running @command{pdftex}
+instead of DVI, by running @command{pdftex}
 instead of @command{tex}.  Alternatively, the command
 @command{texi2pdf} is an abbreviation for running @samp{texi2dvi
 --pdf}.  The command @command{pdftexi2dvi} is also provided as a
@@ -14674,6 +14682,11 @@ Sort the indices again, with @command{texindex}.
 Run @command{tex} one last time.  This time the correct page numbers are
 written for the cross-references.
 @end enumerate
+
+@pindex pdftex
+To generate PDF, you can run the @command{pdftex}
+program instead of plain @command{tex}.  That is, run @command{pdftex
+foo.texi} instead of @samp{tex foo.texi} in the examples above.
 
 @menu
 * Formatting Partial Documents::
@@ -15196,46 +15209,6 @@ before the @code{@@titlepage} command:
 @example
 @@finalout
 @end example
-
-
-@node PDF Output
-@section PDF Output
-@cindex PDF output
-@cindex Output, in PDF
-
-@pindex pdftex
-The simplest way to generate PDF output from Texinfo source is to run
-the convenience script @command{texi2pdf} (or @command{pdftexi2dvi});
-this executes the @command{texi2dvi} script with the @option{--pdf}
-option (@pxref{Format with @command{texi2dvi}}).  If for some reason you
-want to process the document by hand, you can run the @command{pdftex}
-program instead of plain @command{tex}.  That is, run @samp{pdftex
-foo.texi} instead of @samp{tex foo.texi}.
-
-@dfn{PDF} stands for `Portable Document Format'. It was invented by
-Adobe Systems for document interchange, based on their PostScript language.
-Related links:
-
-@itemize
-@item
-GNU GV, a @uref{http://www.gnu.org/software/gv/, Ghostscript-based PDF
-reader}.  (It can also preview PostScript documents.)
-
-@item
-@code{xpdf}, a freely available standalone
-@uref{https://www.xpdfreader.com/, PDF reader} for the X window
-system.
-
-@item
-@uref{https://en.wikipedia.org/wiki/Portable_Document_Format, PDF at
-Wikipedia}.
-
-@end itemize
-
-At present, Texinfo does not provide @samp{@@ifpdf} or @samp{@@pdf}
-commands as for the other output formats, since PDF documents contain
-many internal low-level offsets and cross-references that would be
-hard or impossible to specify at the Texinfo source level.
 
 
 @node Generic Translator @command{texi2any}
@@ -23428,9 +23401,9 @@ have been called the @code{@@regularbooksize} command, but it came to be
 called the @code{@@smallbook} command by comparison to the 8.5 by 11
 inch format.)
 
-@xref{Format with @command{texi2dvi}}, and @ref{Preparing for @TeX{}},
-for other ways to format with @code{@@smallbook} with @TeX{}
-that do not require changing the source file.
+@xref{Format with @command{texi2dvi} or @command{texi2pdf}},
+and @ref{Preparing for @TeX{}}, for other ways to format with
+@code{@@smallbook} with @TeX{} that do not require changing the source file.
 
 
 @node A4 Paper
@@ -23453,9 +23426,9 @@ You may or may not prefer the formatting that results from the command
 wide format, @code{@@afivepaper} for A5 paper, and @code{@@bsixpaper} for
 B6 paper.
 
-@xref{Format with @command{texi2dvi}} and @ref{Preparing for @TeX{}},
-for other ways to format for different paper sizes that do not require
-changing the source file.
+@xref{Format with @command{texi2dvi} or @command{texi2pdf}}
+and @ref{Preparing for @TeX{}}, for other ways to format for different
+paper sizes that do not require changing the source file.
 
 
 @node @code{@@pagesizes}
@@ -23496,9 +23469,9 @@ To make more elaborate changes, such as changing any of the page
 margins, you must define a new command in @file{texinfo.tex} or
 @file{texinfo.cnf}.
 
-@xref{Format with @command{texi2dvi}}, and @ref{Preparing for @TeX{}},
-for other ways to specify @code{@@pagesizes} that do not require
-changing the source file.
+@xref{Format with @command{texi2dvi} or @command{texi2pdf}},
+and @ref{Preparing for @TeX{}}, for other ways to specify
+@code{@@pagesizes} that do not require changing the source file.
 
 
 @node Magnification

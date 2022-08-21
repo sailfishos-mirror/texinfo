@@ -1,3 +1,25 @@
+2022-08-21  Patrice Dumas  <pertusus@free.fr>
+
+	No separate node for PDF output from DVI output
+
+	* doc/texinfo.texi
+	(Format with @command{texi2dvi} or @command{texi2pdf}):
+	rename 'Format with @command{texi2dvi}' as
+	'Format with @command{texi2dvi} or @command{texi2pdf}'
+	as it is what the node is about.
+	remove the 'PDF Output' node, add it as an @anchor{} in
+	'Format with @command{texi2dvi} or @command{texi2pdf}'
+	instead, since all the relevant information in 'PDF Output'
+	is already in 'Format with @command{texi2dvi}' and there is
+	additional information.
+	'Format with @command{texi2dvi}' can still be used when
+	referring only to texi2dvi.
+	Fix places were texi2dvi was used instead of texi2pdf.
+
+	(Format with @command{tex}/@command{texindex}): add a sentence
+	information on doing pdf formerly in 'PDF Output'.
+
+
 2022-08-20  Patrice Dumas  <pertusus@free.fr>
 
 	Update DTD to have headings in most environments
