@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY tex "TeX">
+  <!ENTITY latex "LaTeX">
+]>
+<book id="combined_fonts.xml" lang="en">
+<chapter label="1" id="chapter">
+<title>chapter</title>
+
+<para><literal>code</literal>, <firstterm>dfn</firstterm>, <replaceable>var</replaceable>, <emphasis role="bold">strong</emphasis>, <userinput>kbd</userinput>, &#8216;<literal>samp</literal>&#8217;.
+</para>
+<para><literal><firstterm>dfn in code</firstterm></literal>
+<replaceable><literal>code in var</literal></replaceable>
+<literal><replaceable>var in code</replaceable></literal>
+<emphasis role="bold"><userinput>kbd in strong</userinput></emphasis>
+&#8216;<literal><emphasis role="bold">strong in samp</emphasis></literal>&#8217;
+<emphasis role="bold">&#8216;<literal>samp in strong</literal>&#8217;</emphasis>
+</para>
+<para><citetitle>cite</citetitle>
+</para>
+<para><literal><citetitle>cite in code</citetitle></literal>
+<citetitle><literal>code in cite</literal></citetitle>
+</para>
+<para><literal>code</literal> slanted <emphasis role="bold">b</emphasis>
+<literal>slanted in code</literal>
+<literal>code in slanted</literal>
+<emphasis role="bold">slanted in b</emphasis>
+<emphasis role="bold">b in slanted</emphasis>
+</para>
+<screen><replaceable>var in example</replaceable>
+<citetitle>cite in example</citetitle>
+</screen></chapter>
+</book>

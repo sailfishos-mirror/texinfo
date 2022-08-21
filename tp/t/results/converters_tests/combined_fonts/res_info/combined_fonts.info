@@ -1,0 +1,44 @@
+This is combined_fonts.info, produced from .
+
+
+File: combined_fonts.info,  Node: Top,  Next: chapter,  Up: (dir)
+
+top section
+***********
+
+* Menu:
+
+* chapter::
+
+
+File: combined_fonts.info,  Node: chapter,  Prev: Top,  Up: Top
+
+1 chapter
+*********
+
+‘code’, “dfn”, VAR, *strong*, ‘kbd’, ‘samp’.
+
+   ‘“dfn in code”’ ‘CODE IN VAR’ ‘VAR IN CODE’ *‘kbd in strong’*
+‘*strong in samp*’ *‘samp in strong’*
+
+   ‘cite’
+
+   ‘‘cite in code’’ ‘‘code in cite’’
+
+   ‘code’ slanted b ‘slanted in code’ ‘code in slanted’ slanted in b b
+in slanted
+
+     VAR IN EXAMPLE
+     ‘cite in example’
+
+
+Tag Table:
+Node: Top46
+Node: chapter162
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:

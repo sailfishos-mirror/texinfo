@@ -10,45 +10,39 @@ $result_trees{'combined_fonts'} = {
     {
       'contents' => [
         {
-          'contents' => [
+          'args' => [
             {
-              'args' => [
+              'contents' => [
                 {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'combined_fonts.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
                   'parent' => {},
-                  'type' => 'line_arg'
+                  'text' => 'combined_fonts.info'
                 }
               ],
-              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'combined_fonts.info'
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
+              'type' => 'line_arg'
             }
           ],
+          'cmdname' => 'setfilename',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'combined_fonts.info'
+          },
           'parent' => {},
-          'type' => 'preamble_before_content'
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          }
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
       'parent' => {},
@@ -1187,11 +1181,10 @@ $result_trees{'combined_fonts'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'combined_fonts'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'combined_fonts'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'combined_fonts'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[0]{'contents'}[0];
-$result_trees{'combined_fonts'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[0]{'contents'}[0];
+$result_trees{'combined_fonts'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'combined_fonts'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[0]{'contents'}[0];
 $result_trees{'combined_fonts'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[0];
+$result_trees{'combined_fonts'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[0];
 $result_trees{'combined_fonts'}{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'};
 $result_trees{'combined_fonts'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[1]{'args'}[0];
 $result_trees{'combined_fonts'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[1];
@@ -1511,39 +1504,5 @@ $result_errors{'combined_fonts'} = [];
 
 $result_floats{'combined_fonts'} = {};
 
-
-
-$result_converted{'latex'}->{'combined_fonts'} = '
-\\begin{document}
-\\label{anchor:Top}%
-\\chapter{{chapter}}
-\\label{anchor:chapter}%
-
-\\texttt{code}, \\textsl{dfn}, \\GNUTexinfocommandstyletextvar{var}, \\textbf{strong}, \\GNUTexinfocommandstyletextkbd{kbd}, `\\texttt{samp}\'.
-
-\\texttt{\\textsl{dfn in code}}
-\\GNUTexinfocommandstyletextvar{\\texttt{code in var}}
-\\texttt{\\GNUTexinfocommandstyletextvar{var in code}}
-\\textbf{\\GNUTexinfocommandstyletextkbd{kbd in strong}}
-`\\texttt{\\textbf{strong in samp}}\'
-\\textbf{`\\texttt{samp in strong}\'}
-
-\\GNUTexinfocommandstyletextcite{cite}
-
-\\texttt{\\GNUTexinfocommandstyletextcite{cite in code}}
-\\GNUTexinfocommandstyletextcite{\\texttt{code in cite}}
-
-\\texttt{code} \\textsl{slanted} \\textbf{b}
-\\texttt{\\textsl{slanted in code}}
-\\textsl{\\texttt{code in slanted}}
-\\textbf{\\textsl{slanted in b}}
-\\textsl{\\textbf{b in slanted}}
-
-\\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-\\GNUTexinfocommandstyletextvar{var in example}
-\\GNUTexinfocommandstyletextcite{cite in example}
-\\end{GNUTexinfopreformatted}
-';
 
 1;

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V5.0//EN" "http://www.gnu.org/software/texinfo/dtd/5.0/texinfo.dtd">
+<texinfo>
+<filename file="combined_fonts.xml"></filename>
+<setfilename file="combined_fonts.info" spaces=" ">combined_fonts.info</setfilename>
+
+<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+<top spaces=" "><sectiontitle>top section</sectiontitle>
+
+</top>
+<node name="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>chapter</sectiontitle>
+
+<para><code>code</code>, <dfn>dfn</dfn>, <var>var</var>, <strong>strong</strong>, <kbd>kbd</kbd>, <samp>samp</samp>.
+</para>
+<para><code><dfn>dfn in code</dfn></code>
+<var><code>code in var</code></var>
+<code><var>var in code</var></code>
+<strong><kbd>kbd in strong</kbd></strong>
+<samp><strong>strong in samp</strong></samp>
+<strong><samp>samp in strong</samp></strong>
+</para>
+<para><cite>cite</cite>
+</para>
+<para><code><cite>cite in code</cite></code>
+<cite><code>code in cite</code></cite>
+</para>
+<para><code>code</code> <slanted>slanted</slanted> <b>b</b>
+<code><slanted>slanted in code</slanted></code>
+<slanted><code>code in slanted</code></slanted>
+<b><slanted>slanted in b</slanted></b>
+<slanted><b>b in slanted</b></slanted>
+</para>
+<example endspaces=" ">
+<pre xml:space="preserve"><var>var in example</var>
+<cite>cite in example</cite>
+</pre></example>
+</chapter>
+</texinfo>

@@ -830,6 +830,10 @@ deffn r slanted for @var{a---rg1} and @var{a--rg2}
 @defspecx foobar (var @r{@slanted{[}}from to @r{@slanted{[}}inc@r{@slanted{]]}}) r:slanted
 @defspecx foobar (var @r{@code{[}}from to @r{@code{[}}inc@r{@code{]]}}) r:code
 @defspecx foobar (var @r{@t{[}}from to @r{@t{[}}inc@r{@t{]]}}) r:t
+@defspecx foobar (var @code{@var{[}}from to @code{@var{[}}inc@code{@var{]]}}) code:var
+@defspecx foobar (var @t{@var{[}}from to @t{@var{[}}inc@t{@var{]]}}) t:var
+@defspecx foobar (var @code{@slanted{[}}from to @code{@slanted{[}}inc@code{@slanted{]]}}) code:slanted
+@defspecx foobar (var @t{@slanted{[}}from to @t{@slanted{[}}inc@t{@slanted{]]}}) t:slanted
 separators
 @end defspec
 
@@ -844,6 +848,10 @@ separators
 @defspecx foobar @r{@slanted{va---riable}} r:slanted
 @defspecx foobar @r{@code{va---riable}} r:code
 @defspecx foobar @r{@t{va---riable}} r:t
+@defspecx foobar @code{@var{va---riable}} code:var
+@defspecx foobar @t{@var{va---riable}} t:var
+@defspecx foobar @code{@slanted{va---riable}} code:slanted
+@defspecx foobar @t{@slanted{va---riable}} t:slanted
 name
 @end defspec
 
@@ -909,6 +917,10 @@ In deffn with code and var used
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@slanted{[}}, float @var{b--ar}@r{@slanted{]}}) r:slanted
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@code{[}}, float @var{b--ar}@r{@code{]}}) r:code
 @deftypefnx {Library Function} int foobar  (int @var{f---oo}@r{@t{[}}, float @var{b--ar}@r{@t{]}}) r:t
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@code{@var{[}}, float @var{b--ar}@code{@var{]}}) code:var
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@t{@var{[}}, float @var{b--ar}@t{@var{]}}) t:var
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@code{@slanted{[}}, float @var{b--ar}@code{@slanted{]}}) code:slanted
+@deftypefnx {Library Function} int foobar  (int @var{f---oo}@t{@slanted{[}}, float @var{b--ar}@t{@slanted{]}}) t:slanted
 separators
 @end deftypefn
 
@@ -923,6 +935,10 @@ separators
 @deftypefnx {Library Function} int foobar  (@r{@slanted{i--nt}} @var{f---oo}[, float @var{b--ar}]) r:slanted
 @deftypefnx {Library Function} int foobar  (@r{@code{i--nt}} @var{f---oo}[, float @var{b--ar}]) r:code
 @deftypefnx {Library Function} int foobar  (@r{@t{i--nt}} @var{f---oo}[, float @var{b--ar}]) r:t
+@deftypefnx {Library Function} int foobar  (@code{@var{i--nt}} @var{f---oo}[, float @var{b--ar}]) code:var
+@deftypefnx {Library Function} int foobar  (@t{@var{i--nt}} @var{f---oo}[, float @var{b--ar}]) t:var
+@deftypefnx {Library Function} int foobar  (@code{@slanted{i--nt}} @var{f---oo}[, float @var{b--ar}]) code:slanted
+@deftypefnx {Library Function} int foobar  (@t{@slanted{i--nt}} @var{f---oo}[, float @var{b--ar}]) t:slanted
 name
 @end deftypefn
 
@@ -1051,6 +1067,40 @@ undef, {'test_file' => 'minimal_empty_with_input.texi'}],
 undef, {'test_file' => 'minimal_empty_empty.texi'}],
 ['empty',
 undef, {'test_file' => 'empty.texi'}],
+['combined_fonts',
+'@setfilename combined_fonts.info
+
+@node Top
+@top top section
+
+@node chapter
+@chapter chapter
+
+@code{code}, @dfn{dfn}, @var{var}, @strong{strong}, @kbd{kbd}, @samp{samp}.
+
+@code{@dfn{dfn in code}}
+@var{@code{code in var}}
+@code{@var{var in code}}
+@strong{@kbd{kbd in strong}}
+@samp{@strong{strong in samp}}
+@strong{@samp{samp in strong}}
+
+@cite{cite}
+
+@code{@cite{cite in code}}
+@cite{@code{code in cite}}
+
+@code{code} @slanted{slanted} @b{b}
+@code{@slanted{slanted in code}}
+@slanted{@code{code in slanted}}
+@b{@slanted{slanted in b}}
+@slanted{@b{b in slanted}}
+
+@example
+@var{var in example}
+@cite{cite in example}
+@end example
+'],
 );
 
 my %info_tests = (
