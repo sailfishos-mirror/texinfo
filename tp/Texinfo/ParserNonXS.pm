@@ -6763,8 +6763,7 @@ The text fragment of text elements.
 
 =item type
 
-The type of the element.  For C<@verb> it is the delimiter.  But otherwise
-it is the type of element considered, in general a container.  Frequent
+The type of element considered, in general a container.  Frequent
 types encountered are I<paragraph> for a paragraph container,
 I<brace_command_arg> for the container holding the brace @-commands
 contents, I<line_arg> and I<block_line_arg> contain the arguments
@@ -6826,9 +6825,8 @@ See L</Information available in the extra key>.
 
 Some types can be associated with @-commands (in addition to the element
 being described by C<cmdname>), although usually there will be no type
-at all.  As said above, for C<@verb> the type is the delimiter.  For a
-C<@value> command that is not expanded because there is no corresponding
-value set, the type is the value argument string.
+at all.  For a C<@value> command that is not expanded because there is
+no corresponding value set, the type is the value argument string.
 
 The following are the other possible values of C<type> for tree elements
 for @-commands.
@@ -7256,60 +7254,15 @@ the command and the argument.
 
 =over
 
-=item C<@macro>
+=item C<@abbr>
 
-I<invalid_syntax> is set if there was an error on the C<@macro>
-line.  I<arg_line> holds the line after C<@macro>.
+=item C<@acronym>
 
-=item C<@node>
-
-The arguments are in the I<nodes_manuals> array. Each
-of the entries is a hash with a I<node_content> key for
-an array holding the corresponding content, a I<manual_content> key
-if there is an associated external manual name, and a I<normalized>
-key for the normalized label, built as specified in the Texinfo manual
-in the B<HTML Xref> node.
-
-An I<associated_section> key holds the tree element of the
-sectioning command that follows the node.  An I<node_preceding_part>
-key holds the tree element of the C<@part> that precedes the node,
-if there is no sectioning command between the C<@part> and the node.
-
-A node containing a menu have a I<menus> key which refers to an array of
-references to menu elements occuring in the node.
-
-The first node containing a C<@printindex> @-command has the I<isindex>
-key set.
-
-=item C<@part>
-
-The next sectioning command tree element is in I<part_associated_section>.
-The following node tree element is in I<part_following_node> if there is
-no sectioning command between the C<@part> and the node.
-
-=item sectioning command
-
-The node preceding the command is in I<associated_node>.
-The part preceding the command is in I<associated_part>.
-If the level of the document was modified by C<@raisections>
-or C<@lowersections>, the differential level is in I<sections_level>.
-
-=item C<@float>
-
-=item C<@listoffloats>
-
-If float has a second argument, and for C<@listoffloats>
-argument there is a I<type> key which is also a hash reference,
-with two keys. I<content> is an array holding the associated
-contents, I<normalized> holds the normalized float type.
-
-I<caption> and I<shortcaption> holds the corresponding
-tree elements for float.  The C<@caption> or C<@shortcaption>
-have the float tree element stored in I<float>.
-
-=item C<@float>
+The first argument normalized is in I<normalized>.
 
 =item C<@anchor>
+
+=item C<@float>
 
 @-commands that are targets for cross-references have a I<normalized>
 key for the normalized label, built as specified in the Texinfo manual
@@ -7319,22 +7272,18 @@ an array holding the corresponding content.
 C<@anchor> also has I<region> set to the special region name if
 in a special region (C<@copying>, C<@titlepage>).
 
-=item C<@ref>
+=item C<@author>
 
-=item C<@xref>
+If in a C<@titlepage>, the titlepage is in I<titlepage>, if in
+C<@quotation> or C<@smallquotation>, the corresponding tree element
+is in I<quotation>.
 
-=item C<@pxref>
+The author tree element is in the I<authors> array of the C<@titlepage>
+or the C<@quotation> or C<@smallquotation> it is associated with.
 
-=item C<@inforef>
+=item C<@click>
 
-The I<node_argument> entry holds a parsed node entry, like
-the one appearing in the I<nodes_manuals> array for C<@node>.
-
-=item C<@abbr>
-
-=item C<@acronym>
-
-The first argument normalized is in I<normalized>.
+In I<clickstyle> there is the current clickstyle command.
 
 =item definition command
 
@@ -7359,18 +7308,73 @@ The I<omit_def_name_space> key value is set and true if the Texinfo variable
 @code{txidefnamenospace} was set for the def_line, signaling that the
 space between function definition name and arguments should be omitted.
 
-=item C<@multitable>
+=item definfoenclose defined commands
 
-The key I<max_columns> holds the maximal number of columns.  If there
-are prototypes on the line they are in the array associated with
-I<prototypes>.  If there is a C<@columnfractions> as argument, then the
-I<columnfractions> key is associated with the element for the
-@columnfractions command.
+I<begin> holds the string beginning the definfoenclose,
+I<end> holds the string ending the definfoenclose.
+
+=item C<@documentencoding>
+
+The argument, normalized is in I<input_encoding_name> if it is recognized.
+The corresponding Perl encoding name is in I<input_perl_encoding>.
+
+=item empty_line_after_command
+
+The corresponding command is in I<command>.
+
+=item C<@end>
+
+The textual argument is in I<command_argument>.
+The corresponding @-command is in I<command>.
 
 =item C<@enumerate>
 
 The extra key I<enumerate_specification> contains the enumerate
 argument.
+
+=item C<@float>
+
+=item C<@listoffloats>
+
+If float has a second argument, and for C<@listoffloats>
+argument there is a I<type> key which is also a hash reference,
+with two keys. I<content> is an array holding the associated
+contents, I<normalized> holds the normalized float type.
+
+I<caption> and I<shortcaption> holds the corresponding
+tree elements for float.  The C<@caption> or C<@shortcaption>
+have the float tree element stored in I<float>.
+
+=item C<@ifclear>
+
+=item C<@ifset>
+
+The original line is in I<line>.
+
+=item C<@inlinefmt>
+
+=item C<@inlineraw>
+
+=item C<@inlinefmtifelse>
+
+=item C<@inlineifclear>
+
+=item C<@inlineifset>
+
+The first argument is in I<format>.  If an argument has been determined
+as being expanded by the Parser, the index of this argument is in
+I<expand_index>.  Index numbering begins at 0, but the first argument is
+always the format or flag name, so, if set, it should be 1 or 2 for
+C<@inlinefmtifelse>, and 1 for other commands.
+
+=item C<@item> in C<@enumerate> or C<@itemize>
+
+The I<item_number> extra key holds the number of this item.
+
+=item C<@item> and C<@tab> in C<@multitable>
+
+The I<cell_number> index key holds the index of the column of
+the cell.
 
 =item C<@itemize>
 
@@ -7388,62 +7392,14 @@ is C<@kbd> and the context and C<@kbdinputstyle> is such that C<@kbd>
 should be formatted as code, the I<command_as_argument_kbd_code>
 extra key is set to 1.
 
-=item paragraph
-
-The I<indent> or I<noindent> key value is set if the corresponding
-@-commands are associated with that paragraph.
-
-=item C<@item> in C<@enumerate> or C<@itemize>
-
-The I<item_number> extra key holds the number of this item.
-
-=item C<@item> and C<@tab> in C<@multitable>
-
-The I<cell_number> index key holds the index of the column of
-the cell.
-
-=item row
-
-The I<row_number> index key holds the index of the row in
-the C<@multitable>.
-
-=item C<@author>
-
-If in a C<@titlepage>, the titlepage is in I<titlepage>, if in
-C<@quotation> or C<@smallquotation>, the corresponding tree element
-is in I<quotation>.
-
-The author tree element is in the I<authors> array of the C<@titlepage>
-or the C<@quotation> or C<@smallquotation> it is associated with.
-
-=item C<@ifclear>
-
-=item C<@ifset>
-
-The original line is in I<line>.
-
-=item C<@end>
-
-The textual argument is in I<command_argument>.
-The corresponding @-command is in I<command>.
-
-=item C<@documentencoding>
-
-The argument, normalized is in I<input_encoding_name> if it is recognized.
-The corresponding Perl encoding name is in I<input_perl_encoding>.
-
-=item C<@click>
-
-In I<clickstyle> there is the current clickstyle command.
-
 =item C<@kbd>
 
 I<code> is set depending on the context and C<@kbdinputstyle>.
 
-=item definfoenclose defined commands
+=item C<@macro>
 
-I<begin> holds the string beginning the definfoenclose,
-I<end> holds the string ending the definfoenclose.
+I<invalid_syntax> is set if there was an error on the C<@macro>
+line.  I<arg_line> holds the line after C<@macro>.
 
 =item menu_entry
 
@@ -7453,25 +7409,71 @@ I<menu_entry_node> value is a hash with information about the parsed
 node entry; its keys are the same as those appearing in the
 elements of the I<nodes_manuals> array for C<@node>.
 
-=item empty_line_after_command
+=item C<@multitable>
 
-The corresponding command is in I<command>.
+The key I<max_columns> holds the maximal number of columns.  If there
+are prototypes on the line they are in the array associated with
+I<prototypes>.  If there is a C<@columnfractions> as argument, then the
+I<columnfractions> key is associated with the element for the
+@columnfractions command.
 
-=item C<@inlinefmt>
+=item C<@node>
 
-=item C<@inlineraw>
+The arguments are in the I<nodes_manuals> array. Each
+of the entries is a hash with a I<node_content> key for
+an array holding the corresponding content, a I<manual_content> key
+if there is an associated external manual name, and a I<normalized>
+key for the normalized label, built as specified in the Texinfo manual
+in the B<HTML Xref> node.
 
-=item C<@inlinefmtifelse>
+An I<associated_section> key holds the tree element of the
+sectioning command that follows the node.  An I<node_preceding_part>
+key holds the tree element of the C<@part> that precedes the node,
+if there is no sectioning command between the C<@part> and the node.
 
-=item C<@inlineifclear>
+A node containing a menu have a I<menus> key which refers to an array of
+references to menu elements occuring in the node.
 
-=item C<@inlineifset>
+The first node containing a C<@printindex> @-command has the I<isindex>
+key set.
 
-The first argument is in I<format>.  If an argument has been determined
-as being expanded by the Parser, the index of this argument is in
-I<expand_index>.  Index numbering begins at 0, but the first argument is
-always the format or flag name, so, if set, it should be 1 or 2 for
-C<@inlinefmtifelse>, and 1 for other commands.
+=item paragraph
+
+The I<indent> or I<noindent> key value is set if the corresponding
+@-commands are associated with that paragraph.
+
+=item C<@part>
+
+The next sectioning command tree element is in I<part_associated_section>.
+The following node tree element is in I<part_following_node> if there is
+no sectioning command between the C<@part> and the node.
+
+=item C<@ref>
+
+=item C<@xref>
+
+=item C<@pxref>
+
+=item C<@inforef>
+
+The I<node_argument> entry holds a parsed node entry, like
+the one appearing in the I<nodes_manuals> array for C<@node>.
+
+=item row
+
+The I<row_number> index key holds the index of the row in
+the C<@multitable>.
+
+=item sectioning command
+
+The node preceding the command is in I<associated_node>.
+The part preceding the command is in I<associated_part>.
+If the level of the document was modified by C<@raisections>
+or C<@lowersections>, the differential level is in I<sections_level>.
+
+=item C<@verb>
+
+The delimiter is in I<delimiter>.
 
 =back
 
