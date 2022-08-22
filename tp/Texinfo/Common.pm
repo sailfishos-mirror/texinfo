@@ -707,16 +707,15 @@ foreach my $accent_command ('"','~','^','`',"'",',','=',
 }
 
 our %style_commands;
-foreach my $style_command ('asis','cite','clicksequence',
-  'dfn', 'emph',
-  'sc', 'var',
-  'headitemfont', 'strong', 'sub', 'sup') {
+foreach my $style_command ('asis', 'cite', 'clicksequence',
+  'dfn', 'emph', 'sc', 'var', 'headitemfont', 'strong', 'sub', 'sup',
+  'i', 'b', 'sansserif', 'slanted') {
   $brace_commands{$style_command} = 'style';
   $style_commands{$style_command} = 1;
 }
 
 our %regular_font_style_commands;
-foreach my $command ('r', 'i', 'b', 'sansserif', 'slanted') {
+foreach my $command ('r') {
   $regular_font_style_commands{$command} = 1;
   $brace_commands{$command} = 'style';
   $style_commands{$command} = 1;

@@ -1,5 +1,10 @@
 2022-08-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%regular_font_style_commands): only @r
+	as regular_font_style_commands stopping code context.
+
+2022-08-22  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm, tp/Texinfo/XS/parsetexi/command_data.txt:
 	reorganize brace commands classifications.  Put hyphenation in
 	brace commands with 1 argument.

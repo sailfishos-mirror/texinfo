@@ -2176,7 +2176,7 @@ cross ref name: (file name). '@inforef{}' *note ::
      @abbr{@'E--. @comma{}A., @'Etude Autonome } É--. ,A. (Étude Autonome)
      @abbr{@'E--. @comma{}A.} É--. ,A.
      @asis{--a} --a
-     @b{--a} -a
+     @b{--a} --a
      @cite{--a} '--a'
      @code{--a} --a
      @command{--a} --a
@@ -2188,7 +2188,7 @@ cross ref name: (file name). '@inforef{}' *note ::
      @emph{--a} _--a_
      @env{--a} --a
      @file{--a} --a
-     @i{--a} -a
+     @i{--a} --a
      @kbd{--a} --a
      @key{--a} <--a>
      @math{--a {\frac{1}{2}} @minus{}} --a {\frac{1}{2}} -
@@ -2198,8 +2198,8 @@ cross ref name: (file name). '@inforef{}' *note ::
      @sc{--a} --A
      @strong{--a} *--a*
      @t{--a} --a
-     @sansserif{--a} -a
-     @slanted{--a} -a
+     @sansserif{--a} --a
+     @slanted{--a} --a
      @titlefont{--a}
      -a
      **
@@ -3576,20 +3576,20 @@ chapter 2
 Tag Table:
 Node: Top18467
 Node: chapter18652
-Ref: chapter-Footnote-196765
-Ref: chapter-Footnote-296785
-Ref: chapter-Footnote-396806
-Ref: chapter-Footnote-496826
-Ref: chapter-Footnote-596847
-Ref: chapter-Footnote-696867
-Ref: chapter-Footnote-796888
-Ref: chapter-Footnote-896926
-Node: s--ect,ion96946
-Node: subsection97149
-Ref: anchor97330
-Node: subsubsection ``simple-double--97330
-Node: subsubsection three---four----''97530
-Node: chapter297702
+Ref: chapter-Footnote-196769
+Ref: chapter-Footnote-296789
+Ref: chapter-Footnote-396810
+Ref: chapter-Footnote-496830
+Ref: chapter-Footnote-596851
+Ref: chapter-Footnote-696871
+Ref: chapter-Footnote-796892
+Ref: chapter-Footnote-896930
+Node: s--ect,ion96950
+Node: subsection97153
+Ref: anchor97334
+Node: subsubsection ``simple-double--97334
+Node: subsubsection three---four----''97534
+Node: chapter297706
 
 End Tag Table
 

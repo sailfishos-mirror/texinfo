@@ -23,11 +23,11 @@
 </para>
 <para><literal>c--ode</literal> s&#8211;lanted <emphasis role="bold">b&#8211;</emphasis> <literal>t--</literal>
 </para>
-<para><literal>s&#8211;lanted in code</literal>
+<para><literal>s--lanted in code</literal>
 <literal>c--ode in slanted</literal>
 <emphasis role="bold">s&#8211;lanted in b</emphasis>
 <emphasis role="bold">b&#8211; in slanted</emphasis>
-<literal>s&#8211;lanted in t</literal>
+<literal>s--lanted in t</literal>
 <literal>t-- in slanted</literal>
 <literal><replaceable>v--ar in t</replaceable></literal>
 <replaceable><literal>t-- in var</literal></replaceable>
