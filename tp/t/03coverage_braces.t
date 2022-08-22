@@ -78,6 +78,11 @@ my @test_cases = (
 ['nested', 'type the characters @kbd{l o g o u t @key{RET}}.'],
 ['nested_args', '@xref{@@ @samp{in samp}, descr @b{in b}, S@~{e}ction, 
 @cite{manual}}.'],
+['one_argument_leading_trailing_spaces',
+'@code{ in code } @slanted{ in slanted } @var{ var } @sub{ sub }
+@hyphenation{ a-b c-d }
+@indicateurl{ http://example.com } @U{ 1234 } @w{ w } @verb{: verb :}.
+'],
 ['verb_in_xref',
 '@node Top
 
