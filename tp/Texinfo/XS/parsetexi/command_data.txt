@@ -274,9 +274,13 @@ clicksequence           brace                           BRACE_style
 dfn                     brace                           BRACE_style
 emph                    brace                           BRACE_style
 sc                      brace                           BRACE_style
-t                       brace                           BRACE_style
 var                     brace                           BRACE_style
 headitemfont            brace                           BRACE_style
+strong                  brace                           BRACE_style
+sub                     brace                           BRACE_style
+sup                     brace                           BRACE_style
+
+# code style commands
 code                    brace,code_style                BRACE_style
 command                 brace,code_style                BRACE_style
 env                     brace,code_style                BRACE_style
@@ -284,9 +288,7 @@ file                    brace,code_style                BRACE_style
 kbd                     brace,code_style                BRACE_style
 option                  brace,code_style                BRACE_style
 samp                    brace,code_style                BRACE_style
-strong                  brace                           BRACE_style
-sub                     brace                           BRACE_style
-sup                     brace                           BRACE_style
+t                       brace,code_style                BRACE_style
 
 # Regular font style commands
 r                       brace                           BRACE_style
@@ -300,9 +302,8 @@ dmn                     brace                           1
 titlefont               brace,global                    1
 
 w                       brace                           BRACE_other
-key                     brace                           BRACE_other
 
-hyphenation             brace,global                    BRACE_other
+hyphenation             brace,global                    1
 anchor                  brace                           1
 errormsg                brace                           1
 sortas                  brace                           1
@@ -311,8 +312,8 @@ seealso                 brace                           1
 
 # more code style commands
 indicateurl             brace,code_style                1
+key                     brace,code_style                BRACE_other
 verb                    brace,code_style                BRACE_other
-t                       brace,code_style                BRACE_other
 
 # context brace commands - commands that enclose full texts
 footnote                brace,global                    BRACE_context

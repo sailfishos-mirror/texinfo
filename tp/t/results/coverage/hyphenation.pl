@@ -21,9 +21,12 @@ $result_trees{'hyphenation'} = {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'some-where '
+                  'text' => 'some-where'
                 }
               ],
+              'extra' => {
+                'spaces_after_argument' => ' '
+              },
               'parent' => {},
               'type' => 'brace_command_arg'
             }

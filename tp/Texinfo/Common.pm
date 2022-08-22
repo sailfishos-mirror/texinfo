@@ -709,9 +709,8 @@ foreach my $accent_command ('"','~','^','`',"'",',','=',
 our %style_commands;
 foreach my $style_command ('asis','cite','clicksequence',
   'dfn', 'emph',
-  'sc', 't', 'var',
-  'headitemfont', 'code', 'command', 'env', 'file', 'kbd',
-  'option', 'samp', 'strong', 'sub', 'sup') {
+  'sc', 'var',
+  'headitemfont', 'strong', 'sub', 'sup') {
   $brace_commands{$style_command} = 'style';
   $style_commands{$style_command} = 1;
 }
@@ -723,26 +722,38 @@ foreach my $command ('r', 'i', 'b', 'sansserif', 'slanted') {
   $style_commands{$command} = 1;
 }
 
-foreach my $one_arg_command ('U', 'dmn', 'key',
+our %code_style_commands;
+foreach my $command ('code', 'command', 'env', 'file', 'kbd', 'option',
+   'samp', 't') {
+  $code_style_commands{$command} = 1;
+  $brace_commands{$command} = 'style';
+  $style_commands{$command} = 1;
+}
+
+# FIXME this category contains commands with different types.  Some should
+# only contain text: 'U' , 'dmn', 'key', 'hyphenation', 'sortas'.
+# The other can contain @-commands, but not full text, for example no @ref,
+# not footnote: 'titlefont', 'anchor', 'indicateurl', 'errormsg', 'seeentry', 'seealso'
+
+# in this category, the leading and trailing spaces are put in specific
+# text with type, but commas do not delimitate arguments
+foreach my $one_arg_command ('U', 'dmn', 'key', 'hyphenation', 'indicateurl',
     'titlefont', 'anchor', 'errormsg', 'sortas', 'seeentry', 'seealso') {
   $brace_commands{$one_arg_command} = 1;
 }
 
-# FIXME: 'key', 'verb', 't'?
-foreach my $other_arg_command ('w', 'hyphenation') {
+# commands in other keep their leading and trailing spaces in main text
+# argument.
+# key should never contain spaces, so it does not matter whether it is 'other' or 1
+# verb is treated especially, so it also should not matter in which category it is
+foreach my $other_arg_command ('w', 'verb') {
   $brace_commands{$other_arg_command} = 'other';
 }
 
-our %code_style_commands;
-foreach my $command ('code', 'command', 'env', 'file', 'kbd', 'key', 'option',
-   'samp', 'verb', 't') {
-  $code_style_commands{$command} = 1;
-  $brace_commands{$command} = 'style';
-}
-
-# FIXME: a special case?
+# code style command that do not contain full text
+$code_style_commands{'key'} = 1;
+$code_style_commands{'verb'} = 1;
 $code_style_commands{'indicateurl'} = 1;
-$brace_commands{'indicateurl'} = 1;
 
 
 # Commands that enclose full texts, that can contain multiple paragraphs.
@@ -3096,8 +3107,7 @@ Block @-commands that enclose full text regions, like C<@titlepage>.
 =item %regular_font_style_commands
 X<C<%regular_font_style_commands>>
 
-I<style_commands> that have their argument in regular font, like
-C<@r> or C<@slanted>.
+I<style_commands> that have their argument in regular font, C<@r>.
 
 =item %root_commands
 X<C<%root_commands>>
