@@ -304,6 +304,7 @@ b}'],
 '@math{aa {
 
 '],
+['math_leading_trailing_spaces','@math{ a = b }'],
 ['unknown_command_with_braces',
 'Unknown thing @thing{}
 
