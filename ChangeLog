@@ -1,3 +1,11 @@
+2022-08-23  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Structuring Command Types): Grammar
+	and style fixes.  Try to avoid confusion between type of DocBook
+	element in abstract and the actual element that is output.
+	Clarify that e.g. @sections would not contain following @chapters
+	even if they were the last section of a chapter.
+
 2022-08-23  Patrice Dumas  <pertusus@free.fr>
 
 	Fix conditions on @kpdinputstyle example

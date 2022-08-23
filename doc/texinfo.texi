@@ -3822,13 +3822,10 @@ in the document.  When a @code{@@setchapternewpage} command says to do so, the
 start new pages in the printed manual; the @code{@@heading} commands
 do not.  @xref{@code{@@setchapternewpage}}.
 
-In Info and plain text output, the command cause the
+In Info and plain text output, the command causes the
 title to appear on a line by itself, with a line of an ASCII character
-(@samp{*}, @samp{=}, @dots{}) inserted
-underneath.  The underlining character is the same for all the commands
-at the same level.  For instance, they are the same for the chapter-level commands
-@code{@@chapter}, @code{@@apppendix}, @code{@@unnumbered} and
-@code{@@chapheading}.  For example, the ``Chapter Structuring'' heading could be:
+(@samp{*}, @samp{=}, @dots{}) inserted underneath.
+For example, the ``Chapter Structuring'' heading could be:
 
 @example
 @group
@@ -3837,15 +3834,21 @@ at the same level.  For instance, they are the same for the chapter-level comman
 @end group
 @end example
 
+@noindent The underlining character is the same for all the commands at the
+same level.  For instance, it is the same for the chapter-level commands
+@code{@@chapter}, @code{@@apppendix}, @code{@@unnumbered} and
+@code{@@chapheading}.
+
 In HTML, the chapter-level commands produce an @code{<h2>}-level
 header by default (controlled by the @code{CHAPTER_HEADER_LEVEL}
 customization variable, @pxref{Other Customization Variables}).
 The heading element level is adjusted for the other commands.
 
-In the XML and DocBook output, the appropriate element is produced
-that includes all the following sections, up to the next command
-at the same level.  For example, a @code{<chapter>} element is produced
-for @code{@@chapter}.
+In the XML and DocBook output, the appropriate level of element is used.
+The produced element includes all following sections up to the next command
+at the same or higher level.
+For example, a @code{<chapter>} element is produced for @code{@@chapter},
+and contains any sections or subsections in the chapter.
 
 Here is a summary:
 
