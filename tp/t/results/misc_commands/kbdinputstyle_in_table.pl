@@ -821,6 +821,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'cmdname' => 'kbd',
                   'contents' => [],
+                  'extra' => {
+                    'code' => 1
+                  },
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -913,6 +916,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
+            'command_as_argument_kbd_code' => 1,
             'end_command' => {},
             'spaces_before_argument' => ' '
           },
@@ -943,6 +947,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   ],
                   'cmdname' => 'kbd',
                   'contents' => [],
+                  'extra' => {
+                    'code' => 1
+                  },
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1035,6 +1042,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
+            'command_as_argument_kbd_code' => 1,
             'end_command' => {},
             'spaces_before_argument' => ' '
           },
@@ -1081,9 +1089,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'cmdname' => 'kbd',
                       'contents' => [],
-                      'extra' => {
-                        'code' => 1
-                      },
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1176,7 +1181,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'extra' => {
                 'command_as_argument' => {},
-                'command_as_argument_kbd_code' => 1,
                 'end_command' => {},
                 'spaces_before_argument' => ' '
               },
@@ -1201,9 +1205,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       ],
                       'cmdname' => 'kbd',
                       'contents' => [],
-                      'extra' => {
-                        'code' => 1
-                      },
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1296,7 +1297,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'extra' => {
                 'command_as_argument' => {},
-                'command_as_argument_kbd_code' => 1,
                 'end_command' => {},
                 'spaces_before_argument' => ' '
               },
@@ -2378,20 +2378,20 @@ $result_converted{'html_text'}->{'kbdinputstyle_in_table'} = '
 </p>
 
 <dl class="table">
-<dt><kbd class="kbd">i--tem out of example</kbd></dt>
+<dt><code class="code as-code-kbd">i--tem out of example</code></dt>
 </dl>
 
 <dl class="table">
-<dt><kbd class="kbd">braced i--tem out of example</kbd></dt>
+<dt><code class="code as-code-kbd">braced i--tem out of example</code></dt>
 </dl>
 
 <p>in example
 </p><div class="example">
 <dl class="table">
-<dt><code class="table-term-preformatted-code"><code class="code as-code-kbd">i--tem in example</code></code></dt>
+<dt><code class="table-term-preformatted-code"><kbd class="kbd">i--tem in example</kbd></code></dt>
 </dl>
 <dl class="table">
-<dt><code class="table-term-preformatted-code"><code class="code as-code-kbd">braced i--tem in example</code></code></dt>
+<dt><code class="table-term-preformatted-code"><kbd class="kbd">braced i--tem in example</kbd></code></dt>
 </dl>
 </div>
 
@@ -2447,22 +2447,22 @@ in example
 
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfocommandstyletextkbd{i{-}{-}tem out of example}}}]
+\\texttt{i{-}{-}tem out of example}}}]
 \\end{description}
 
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfocommandstyletextkbd{braced i{-}{-}tem out of example}}}]
+\\texttt{braced i{-}{-}tem out of example}}}]
 \\end{description}
 
 in example
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\texttt{i{-}{-}tem in example}}}]
+\\GNUTexinfocommandstyletextkbd{i{-}{-}tem in example}}}]
 \\end{description}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\texttt{braced i{-}{-}tem in example}}}]
+\\GNUTexinfocommandstyletextkbd{braced i{-}{-}tem in example}}}]
 \\end{description}
 
 @kbdinputstyle distinct

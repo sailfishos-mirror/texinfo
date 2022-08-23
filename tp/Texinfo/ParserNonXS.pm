@@ -1425,20 +1425,11 @@ sub _kbd_formatted_as_code($$)
   if ($self->{'kbdinputstyle'} eq 'code') {
     return 1;
   } elsif ($self->{'kbdinputstyle'} eq 'example') {
-    my $current = $current->{'parent'};
-    # first check if in code or no code brace nested commands
-    while ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
-           and exists $brace_commands{$current->{'parent'}->{'cmdname'}}
-           and !exists $context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
-      if ($brace_commands{$current->{'parent'}->{'cmdname'}} eq 'style_code') {
-        return 1;
-      } elsif ($brace_commands{$current->{'parent'}->{'cmdname'}} eq 'style_no_code') {
-        return 0;
-      }
+    if ($self->_in_preformatted_context_not_menu()) {
+      return 0;
+    } else {
+      return 1;
     }
-    # check if in preformatted context
-    return 1
-      if $self->_in_preformatted_context_not_menu();
   }
   return 0;
 }

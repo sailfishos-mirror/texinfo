@@ -804,6 +804,9 @@ $result_trees{'kbdinputstyle'} = {
               ],
               'cmdname' => 'kbd',
               'contents' => [],
+              'extra' => {
+                'code' => 1
+              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -899,6 +902,9 @@ $result_trees{'kbdinputstyle'} = {
                               ],
                               'cmdname' => 'kbd',
                               'contents' => [],
+                              'extra' => {
+                                'code' => 1
+                              },
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1038,9 +1044,6 @@ $result_trees{'kbdinputstyle'} = {
                   ],
                   'cmdname' => 'kbd',
                   'contents' => [],
-                  'extra' => {
-                    'code' => 1
-                  },
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1076,9 +1079,6 @@ $result_trees{'kbdinputstyle'} = {
                           ],
                           'cmdname' => 'kbd',
                           'contents' => [],
-                          'extra' => {
-                            'code' => 1
-                          },
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -2201,15 +2201,15 @@ $result_converted{'html_text'}->{'kbdinputstyle'} = '
 </p>
 
 <p><code class="code">in code out of example <code class="code">in nested code</code></code>.
-<kbd class="kbd">kbd out of example</kbd>.
+<code class="code as-code-kbd">kbd out of example</code>.
 <code class="code">kbd <code class="code as-code-kbd">in code</code></code>.
-<code class="code">for nesting <span class="r">r in code <kbd class="kbd">in r in code</kbd></span></code>
+<code class="code">for nesting <span class="r">r in code <code class="code as-code-kbd">in r in code</code></span></code>
 </p>
 <p>in example
 </p><div class="example">
 <pre class="example-preformatted"><code class="code">in code in example <code class="code">in nested code</code></code>.
-<code class="code as-code-kbd">kbd in example</code>.
-<code class="code">kbd <code class="code as-code-kbd">in code</code> in example</code>.
+<kbd class="kbd">kbd in example</kbd>.
+<code class="code">kbd <kbd class="kbd">in code</kbd> in example</code>.
 <code class="code">for nesting in example <span class="r">r in code in example <kbd class="kbd">in r in code in example</kbd></span></code>
 </pre></div>
 
@@ -2253,17 +2253,17 @@ in example
 
 
 \\texttt{in code out of example \\texttt{in nested code}}.
-\\GNUTexinfocommandstyletextkbd{kbd out of example}.
-\\texttt{kbd \\GNUTexinfocommandstyletextkbd{in code}}.
-\\texttt{for nesting \\textnormal{r in code \\GNUTexinfocommandstyletextkbd{in r in code}}}
+\\texttt{kbd out of example}.
+\\texttt{kbd \\texttt{in code}}.
+\\texttt{for nesting \\textnormal{r in code \\texttt{in r in code}}}
 
 in example
 \\begin{GNUTexinfopreformatted}
 \\leftskip=2em\\relax\\ttfamily%
 \\texttt{in code in example \\texttt{in nested code}}.
-\\texttt{kbd in example}.
-\\texttt{kbd \\texttt{in code}\\ in example}.
-\\texttt{for nesting in example \\textnormal{r in code in example \\texttt{in r in code in example}}}
+\\GNUTexinfocommandstyletextkbd{kbd in example}.
+\\texttt{kbd \\GNUTexinfocommandstyletextkbd{in code}\\ in example}.
+\\texttt{for nesting in example \\textnormal{r in code in example \\GNUTexinfocommandstyletextkbd{in r in code in example}}}
 \\end{GNUTexinfopreformatted}
 
 @kbdinputstyle distinct

@@ -361,6 +361,9 @@ $result_trees{'kbdinputstyle_and_kbd'} = {
               ],
               'cmdname' => 'kbd',
               'contents' => [],
+              'extra' => {
+                'code' => 1
+              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -406,9 +409,6 @@ $result_trees{'kbdinputstyle_and_kbd'} = {
                   ],
                   'cmdname' => 'kbd',
                   'contents' => [],
-                  'extra' => {
-                    'code' => 1
-                  },
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -773,10 +773,10 @@ $result_converted{'latex'}->{'kbdinputstyle_and_kbd'} = '\\begin{document}
 \\texttt{in example code kbdinputstyle}
 \\end{GNUTexinfopreformatted}
 
-\\GNUTexinfocommandstyletextkbd{example kbdinputstyle}
+\\texttt{example kbdinputstyle}
 \\begin{GNUTexinfopreformatted}
 \\leftskip=2em\\relax\\ttfamily%
-\\texttt{in example example kbdinputstyle}
+\\GNUTexinfocommandstyletextkbd{in example example kbdinputstyle}
 \\end{GNUTexinfopreformatted}
 
 \\GNUTexinfocommandstyletextkbd{distinct kbdinputstyle}

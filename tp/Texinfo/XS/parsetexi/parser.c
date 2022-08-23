@@ -801,23 +801,9 @@ kbd_formatted_as_code (ELEMENT *current)
     }
   else if (global_kbdinputstyle == kbd_example)
     {
-      /* TODO: Understand what is going on here. */
-      ELEMENT *tmp = current->parent;
-      while (tmp->parent
-             && (command_flags(tmp->parent) & CF_brace)
-             && command_data(tmp->parent->cmd).data != BRACE_context)
-        {
-          if (command_data(tmp->parent->cmd).data == BRACE_style_code)
-            {
-              return 1;
-            }
-          else if (command_data(tmp->parent->cmd).data == BRACE_style_no_code)
-            {
-              return 0;
-            }
-          tmp = tmp->parent->parent;
-        }
       if (in_preformatted_context_not_menu ())
+        return 0;
+      else
         return 1;
     }
   return 0;
