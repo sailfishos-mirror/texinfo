@@ -14547,15 +14547,11 @@ can also be set using the environment variable
 @end table
 
 @pindex etex
-@pindex pdfetex
-@command{texi2dvi} will use @command{etex} (or @command{pdfetex}) if
+@command{texi2dvi} will use @command{etex} if
 it is available, because it runs faster in some cases, and
 provides additional tracing information when debugging
 @file{texinfo.tex}.  Nevertheless, this extended version of @TeX{} is
 not required, and the DVI output is identical.
-(These days, @command{pdftex} and @command{pdfetex} are exactly the
-same, but we still run @command{pdfetex} to cater to ancient @TeX{}
-installations.)
 
 @cindex file recorder for @TeX{}
 @cindex @samp{\openout} line in log file
