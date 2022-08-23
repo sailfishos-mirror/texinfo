@@ -383,7 +383,9 @@ element_to_perl_hash (ELEMENT *e)
       || (command_flags(e) & CF_root)
       || (command_data(e->cmd).flags & CF_brace
           && (command_data(e->cmd).data >= 0
-              || command_data(e->cmd).data == BRACE_style
+              || command_data(e->cmd).data == BRACE_style_other
+              || command_data(e->cmd).data == BRACE_style_code
+              || command_data(e->cmd).data == BRACE_style_no_code
               || command_data(e->cmd).data == BRACE_context
               || command_data(e->cmd).data == BRACE_other
               || command_data(e->cmd).data == BRACE_accent

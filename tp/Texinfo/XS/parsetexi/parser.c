@@ -807,7 +807,7 @@ kbd_formatted_as_code (ELEMENT *current)
              && (command_flags(tmp->parent) & CF_brace)
              && command_data(tmp->parent->cmd).data != BRACE_context)
         {
-          if (command_flags(tmp->parent) & CF_code_style)
+          if (command_data(tmp->parent->cmd).data == BRACE_style_code)
             {
               return 1;
             }
@@ -938,7 +938,9 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
   else if (simple_text_command
            /* "full text commands" */
            || (outer_flags & CF_brace)
-                 && command_data(outer).data == BRACE_style
+                 && (command_data(outer).data == BRACE_style_other
+                      || command_data(outer).data == BRACE_style_code
+                      || command_data(outer).data == BRACE_style_no_code)
            /* "full line commands" */
            || outer == CM_center
            || outer == CM_exdent
@@ -980,7 +982,9 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
           ok = 0;
           if (command_data(outer).data == LINE_heading_spec
               || (outer_flags & CF_brace)
-                 && command_data(outer).data == BRACE_style)
+                 && (command_data(outer).data == BRACE_style_other
+                     || command_data(outer).data == BRACE_style_code
+                     || command_data(outer).data == BRACE_style_no_code))
               ok = 1;
         }
 

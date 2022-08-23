@@ -415,7 +415,7 @@ parse_line_command_args (ELEMENT *line_command)
 
         user_defined_command_data[new_cmd].flags
           |= (CF_INFOENCLOSE | CF_brace);
-        user_defined_command_data[new_cmd].data = BRACE_style;
+        user_defined_command_data[new_cmd].data = BRACE_style_other;
 
         ADD_ARG(new_command); free (new_command);
         ADD_ARG(start); free (start);

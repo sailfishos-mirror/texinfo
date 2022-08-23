@@ -710,14 +710,14 @@ our %style_commands;
 foreach my $style_command ('asis', 'cite', 'clicksequence',
   'dfn', 'emph', 'sc', 'var', 'headitemfont', 'strong', 'sub', 'sup',
   'i', 'b', 'sansserif', 'slanted') {
-  $brace_commands{$style_command} = 'style';
+  $brace_commands{$style_command} = 'style_other';
   $style_commands{$style_command} = 1;
 }
 
 our %regular_font_style_commands;
 foreach my $command ('r') {
   $regular_font_style_commands{$command} = 1;
-  $brace_commands{$command} = 'style';
+  $brace_commands{$command} = 'style_no_code';
   $style_commands{$command} = 1;
 }
 
@@ -725,7 +725,7 @@ our %code_style_commands;
 foreach my $command ('code', 'command', 'env', 'file', 'kbd', 'option',
    'samp', 't') {
   $code_style_commands{$command} = 1;
-  $brace_commands{$command} = 'style';
+  $brace_commands{$command} = 'style_code';
   $style_commands{$command} = 1;
 }
 

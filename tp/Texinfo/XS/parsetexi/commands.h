@@ -54,8 +54,8 @@ void wipe_user_commands (void);
 #define CF_brace		        0x0010
 #define CF_letter_no_arg	        0x0020
 #define CF_accent		        0x0040
+/* CF_style and CF_code_style are not used */
 #define CF_style		        0x0080
-/* CF_code_style is set for brace commands only. */
 #define CF_code_style		        0x0100
 #define CF_INFOENCLOSE  	        0x0200
 #define CF_in_heading     	        0x0400
@@ -83,7 +83,7 @@ void wipe_user_commands (void);
 
 /* NOTE: We've run out of spaces for flags, but some of these may not
    be used, or may not be necessary.
-     CF_code_style, CF_deprecated are hardly used.
+     CF_deprecated is hardly used.
 
    Candidates for flags:
      CF_close_paragraph, CF_heading_spec
@@ -116,7 +116,9 @@ void wipe_user_commands (void);
 /* Types of brace command (CF_brace). */
 #define BRACE_context -1 /* Can enclose paragraph breaks. */
 #define BRACE_accent -2
-#define BRACE_style -3
-#define BRACE_other -4
+#define BRACE_style_other -3
+#define BRACE_style_code -5
+#define BRACE_style_no_code -6
+#define BRACE_other -7
 
 #endif

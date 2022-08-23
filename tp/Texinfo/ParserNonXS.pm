@@ -481,7 +481,9 @@ foreach my $command ('shortcaption', 'math') {
 # commands that accept full text, but no block or top-level commands
 my %full_text_commands;
 foreach my $brace_command (keys (%brace_commands)) {
-  if ($brace_commands{$brace_command} eq 'style') {
+  if ($brace_commands{$brace_command} eq 'style_code'
+      or $brace_commands{$brace_command} eq 'style_other'
+      or $brace_commands{$brace_command} eq 'style_no_code') {
     $full_text_commands{$brace_command} = 1;
   }
 }
@@ -1402,7 +1404,8 @@ sub _in_code($$)
   while ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
           and exists $brace_commands{$current->{'parent'}->{'cmdname'}}
           and !exists $context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
-    return 1 if ($code_style_commands{$current->{'parent'}->{'cmdname'}});
+    return 1
+       if ($brace_commands{$current->{'parent'}->{'cmdname'}} eq 'style_code');
     $current = $current->{'parent'}->{'parent'};
   }
   return 0;
@@ -5891,7 +5894,10 @@ sub _parse_line_command_args($$$)
       $self->{'definfoenclose'}->{$1} = [ $2, $3 ];
       print STDERR "DEFINFOENCLOSE \@$1: $2, $3\n" if ($self->{'DEBUG'});
 
-      $brace_commands{$1} = 'style';
+      # FIXME it is not propagated outside of the Parser.  It is not
+      # reinitialized between calls of the converter.  It is not
+      # put in %in_full_text_commands.
+      $brace_commands{$1} = 'style_other';
 
       # Warning: there is a risk of mixing of data between a built-in
       # command and a user command defined with @definfoenclose.

@@ -2497,14 +2497,13 @@ $style_commands_element{'normal'} = {
       'sup'         => 'sup',
       't'           => 'code',
       'var'         => 'var',
-      'verb'        => 'code',
+      'verb'        => 'code', # not in %style_commands
 };
 
 my %style_commands_formatting;
 
 # this weird construct does like uniq, it avoids duplicates.
-# it is required since math is not in the %style_commands as it is
-# in context command.
+# it may be required since some commands are not in %style_commands.
 my @all_style_commands = keys %{{ map { $_ => 1 }
     (keys(%style_commands), keys(%{$style_commands_element{'normal'}})) }};
 

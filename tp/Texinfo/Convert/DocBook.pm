@@ -120,13 +120,13 @@ my %style_attribute_commands;
       'emph'        => 'emphasis',
       'env'         => 'envar',
       'file'        => 'filename',
-      'footnote'    => 'footnote',
+      'footnote'    => 'footnote',   # not in %style_commands
       'headitemfont' => 'emphasis role="bold"', # actually <th> instead of <td>
       'i'           => 'emphasis',
       'indicateurl' => 'literal',
       'kbd'         => 'userinput',
       'key'         => 'keycap',
-      'math'        => 'mathphrase',
+      'math'        => 'mathphrase', # not in %style_commands
       'option'      => 'option',
       'r'           => '',
       'samp'        => 'literal',
@@ -136,12 +136,11 @@ my %style_attribute_commands;
       'sup'         => 'superscript',
       't'           => 'literal',
       'var'         => 'replaceable',
-      'verb'        => 'literal',
+      'verb'        => 'literal',     # not in %style_commands
 );
 
 # this weird construct does like uniq, it avoids duplicates.
-# it may be required since math is not in the %style_commands as it is 
-# in context command.
+# it may be required since some commands are not in %style_commands.
 my @all_style_commands = keys %{{ map { $_ => 1 }
     (keys(%Texinfo::Common::style_commands), keys(%style_attribute_commands),
      'w', 'dmn', 'titlefont') }};

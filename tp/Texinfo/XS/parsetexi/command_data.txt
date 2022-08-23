@@ -268,52 +268,49 @@ tieaccent               brace,accent                    BRACE_accent
 dotless                 brace,accent                    BRACE_accent
 
 # Style commands
-asis                    brace                           BRACE_style
-cite                    brace                           BRACE_style
-clicksequence           brace                           BRACE_style
-dfn                     brace                           BRACE_style
-emph                    brace                           BRACE_style
-sc                      brace                           BRACE_style
-var                     brace                           BRACE_style
-headitemfont            brace                           BRACE_style
-strong                  brace                           BRACE_style
-sub                     brace                           BRACE_style
-sup                     brace                           BRACE_style
+asis                    brace                           BRACE_style_other
+i                       brace                           BRACE_style_other
+b                       brace                           BRACE_style_other
+sansserif               brace                           BRACE_style_other
+slanted                 brace                           BRACE_style_other
+cite                    brace                           BRACE_style_other
+clicksequence           brace                           BRACE_style_other
+dfn                     brace                           BRACE_style_other
+emph                    brace                           BRACE_style_other
+sc                      brace                           BRACE_style_other
+var                     brace                           BRACE_style_other
+headitemfont            brace                           BRACE_style_other
+strong                  brace                           BRACE_style_other
+sub                     brace                           BRACE_style_other
+sup                     brace                           BRACE_style_other
 
 # code style commands
-code                    brace,code_style                BRACE_style
-command                 brace,code_style                BRACE_style
-env                     brace,code_style                BRACE_style
-file                    brace,code_style                BRACE_style
-kbd                     brace,code_style                BRACE_style
-option                  brace,code_style                BRACE_style
-samp                    brace,code_style                BRACE_style
-t                       brace,code_style                BRACE_style
+code                    brace                           BRACE_style_code
+command                 brace                           BRACE_style_code
+env                     brace                           BRACE_style_code
+file                    brace                           BRACE_style_code
+kbd                     brace                           BRACE_style_code
+option                  brace                           BRACE_style_code
+samp                    brace                           BRACE_style_code
+t                       brace                           BRACE_style_code
 
-# Regular font style commands
-r                       brace                           BRACE_style
-i                       brace                           BRACE_style
-b                       brace                           BRACE_style
-sansserif               brace                           BRACE_style
-slanted                 brace                           BRACE_style
+# No code style commands
+r                       brace                           BRACE_style_no_code
 
 U                       brace                           1
 dmn                     brace                           1
 titlefont               brace,global                    1
-
-w                       brace                           BRACE_other
-
 hyphenation             brace,global                    1
 anchor                  brace                           1
 errormsg                brace                           1
 sortas                  brace                           1
 seeentry                brace                           1
 seealso                 brace                           1
+indicateurl             brace                           1
+key                     brace                           1
 
-# more code style commands
-indicateurl             brace,code_style                1
-key                     brace,code_style                BRACE_other
-verb                    brace,code_style                BRACE_other
+verb                    brace                           BRACE_other
+w                       brace                           BRACE_other
 
 # context brace commands - commands that enclose full texts
 footnote                brace,global                    BRACE_context
