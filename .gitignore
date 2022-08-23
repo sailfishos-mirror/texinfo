@@ -262,6 +262,7 @@ tp/Texinfo/XS/stamp-h1
 tp/Texinfo/XS/gnulib/lib/.libs
 tp/Texinfo/XS/gnulib/lib/*.lo
 tp/Texinfo/XS/gnulib/lib/libgnu.la
+tp/Texinfo/XS/gnulib/lib/uniwidth/*.lo
 
 tp/Texinfo/XS/gnulib/lib/alloca.h
 tp/Texinfo/XS/gnulib/lib/limits.h
