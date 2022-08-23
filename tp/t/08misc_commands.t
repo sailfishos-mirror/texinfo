@@ -470,12 +470,14 @@ In code @code{@thissection}.
 @code{in code out of example @code{in nested code}}.
 @kbd{kbd out of example}.
 @code{kbd @kbd{in code}}.
+@code{for nesting @r{r in code @kbd{in r in code}}}
 
 in example
 @example
 @code{in code in example @code{in nested code}}.
 @kbd{kbd in example}.
 @code{kbd @kbd{in code} in example}.
+@code{for nesting in example @r{r in code in example @kbd{in r in code in example}}}
 @end example
 @end macro
 

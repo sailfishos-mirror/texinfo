@@ -39,6 +39,12 @@ $result_trees{'kbdinputstyle'} = {
             },
             {
               'parent' => {},
+              'text' => '@code{for nesting @r{r in code @kbd{in r in code}}}
+',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
               'text' => '
 ',
               'type' => 'raw'
@@ -70,6 +76,12 @@ $result_trees{'kbdinputstyle'} = {
             {
               'parent' => {},
               'text' => '@code{kbd @kbd{in code} in example}.
+',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '@code{for nesting in example @r{r in code in example @kbd{in r in code in example}}}
 ',
               'type' => 'raw'
             },
@@ -156,7 +168,7 @@ $result_trees{'kbdinputstyle'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 16,
+            'line_nr' => 18,
             'macro' => ''
           }
         },
@@ -194,7 +206,7 @@ $result_trees{'kbdinputstyle'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 18,
+                        'line_nr' => 20,
                         'macro' => 'codekbdmacro'
                       }
                     }
@@ -208,7 +220,7 @@ $result_trees{'kbdinputstyle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 18,
+                'line_nr' => 20,
                 'macro' => 'codekbdmacro'
               }
             },
@@ -238,7 +250,7 @@ $result_trees{'kbdinputstyle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 18,
+                'line_nr' => 20,
                 'macro' => 'codekbdmacro'
               }
             },
@@ -276,7 +288,7 @@ $result_trees{'kbdinputstyle'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 18,
+                        'line_nr' => 20,
                         'macro' => 'codekbdmacro'
                       }
                     }
@@ -290,13 +302,87 @@ $result_trees{'kbdinputstyle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 18,
+                'line_nr' => 20,
                 'macro' => 'codekbdmacro'
               }
             },
             {
               'parent' => {},
               'text' => '.
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'for nesting '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'r in code '
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => 'in r in code'
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'kbd',
+                              'contents' => [],
+                              'extra' => {
+                                'code' => 1
+                              },
+                              'parent' => {},
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 20,
+                                'macro' => 'codekbdmacro'
+                              }
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'r',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 20,
+                        'macro' => 'codekbdmacro'
+                      }
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'code',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 20,
+                'macro' => 'codekbdmacro'
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
 '
             }
           ],
@@ -360,7 +446,7 @@ $result_trees{'kbdinputstyle'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 18,
+                            'line_nr' => 20,
                             'macro' => 'codekbdmacro'
                           }
                         }
@@ -374,7 +460,7 @@ $result_trees{'kbdinputstyle'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 18,
+                    'line_nr' => 20,
                     'macro' => 'codekbdmacro'
                   }
                 },
@@ -404,7 +490,7 @@ $result_trees{'kbdinputstyle'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 18,
+                    'line_nr' => 20,
                     'macro' => 'codekbdmacro'
                   }
                 },
@@ -442,7 +528,7 @@ $result_trees{'kbdinputstyle'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 18,
+                            'line_nr' => 20,
                             'macro' => 'codekbdmacro'
                           }
                         },
@@ -460,13 +546,87 @@ $result_trees{'kbdinputstyle'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 18,
+                    'line_nr' => 20,
                     'macro' => 'codekbdmacro'
                   }
                 },
                 {
                   'parent' => {},
                   'text' => '.
+'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'for nesting in example '
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'parent' => {},
+                                  'text' => 'r in code in example '
+                                },
+                                {
+                                  'args' => [
+                                    {
+                                      'contents' => [
+                                        {
+                                          'parent' => {},
+                                          'text' => 'in r in code in example'
+                                        }
+                                      ],
+                                      'parent' => {},
+                                      'type' => 'brace_command_arg'
+                                    }
+                                  ],
+                                  'cmdname' => 'kbd',
+                                  'contents' => [],
+                                  'extra' => {
+                                    'code' => 1
+                                  },
+                                  'parent' => {},
+                                  'source_info' => {
+                                    'file_name' => '',
+                                    'line_nr' => 20,
+                                    'macro' => 'codekbdmacro'
+                                  }
+                                }
+                              ],
+                              'parent' => {},
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 'r',
+                          'contents' => [],
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 20,
+                            'macro' => 'codekbdmacro'
+                          }
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'code',
+                  'contents' => [],
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 20,
+                    'macro' => 'codekbdmacro'
+                  }
+                },
+                {
+                  'parent' => {},
+                  'text' => '
 '
                 }
               ],
@@ -499,7 +659,7 @@ $result_trees{'kbdinputstyle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 18,
+                'line_nr' => 20,
                 'macro' => 'codekbdmacro'
               }
             }
@@ -510,7 +670,7 @@ $result_trees{'kbdinputstyle'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 18,
+            'line_nr' => 20,
             'macro' => 'codekbdmacro'
           }
         },
@@ -568,7 +728,7 @@ $result_trees{'kbdinputstyle'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 22,
+            'line_nr' => 24,
             'macro' => ''
           }
         },
@@ -606,7 +766,7 @@ $result_trees{'kbdinputstyle'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 24,
+                        'line_nr' => 26,
                         'macro' => 'codekbdmacro'
                       }
                     }
@@ -620,7 +780,7 @@ $result_trees{'kbdinputstyle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 24,
+                'line_nr' => 26,
                 'macro' => 'codekbdmacro'
               }
             },
@@ -647,7 +807,7 @@ $result_trees{'kbdinputstyle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 24,
+                'line_nr' => 26,
                 'macro' => 'codekbdmacro'
               }
             },
@@ -685,7 +845,7 @@ $result_trees{'kbdinputstyle'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 24,
+                        'line_nr' => 26,
                         'macro' => 'codekbdmacro'
                       }
                     }
@@ -699,13 +859,84 @@ $result_trees{'kbdinputstyle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 24,
+                'line_nr' => 26,
                 'macro' => 'codekbdmacro'
               }
             },
             {
               'parent' => {},
               'text' => '.
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'for nesting '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'r in code '
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => 'in r in code'
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'kbd',
+                              'contents' => [],
+                              'parent' => {},
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 26,
+                                'macro' => 'codekbdmacro'
+                              }
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'r',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 26,
+                        'macro' => 'codekbdmacro'
+                      }
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'code',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 26,
+                'macro' => 'codekbdmacro'
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
 '
             }
           ],
@@ -769,7 +1000,7 @@ $result_trees{'kbdinputstyle'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 24,
+                            'line_nr' => 26,
                             'macro' => 'codekbdmacro'
                           }
                         }
@@ -783,7 +1014,7 @@ $result_trees{'kbdinputstyle'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 24,
+                    'line_nr' => 26,
                     'macro' => 'codekbdmacro'
                   }
                 },
@@ -813,7 +1044,7 @@ $result_trees{'kbdinputstyle'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 24,
+                    'line_nr' => 26,
                     'macro' => 'codekbdmacro'
                   }
                 },
@@ -851,7 +1082,7 @@ $result_trees{'kbdinputstyle'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 24,
+                            'line_nr' => 26,
                             'macro' => 'codekbdmacro'
                           }
                         },
@@ -869,13 +1100,84 @@ $result_trees{'kbdinputstyle'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 24,
+                    'line_nr' => 26,
                     'macro' => 'codekbdmacro'
                   }
                 },
                 {
                   'parent' => {},
                   'text' => '.
+'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'for nesting in example '
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'parent' => {},
+                                  'text' => 'r in code in example '
+                                },
+                                {
+                                  'args' => [
+                                    {
+                                      'contents' => [
+                                        {
+                                          'parent' => {},
+                                          'text' => 'in r in code in example'
+                                        }
+                                      ],
+                                      'parent' => {},
+                                      'type' => 'brace_command_arg'
+                                    }
+                                  ],
+                                  'cmdname' => 'kbd',
+                                  'contents' => [],
+                                  'parent' => {},
+                                  'source_info' => {
+                                    'file_name' => '',
+                                    'line_nr' => 26,
+                                    'macro' => 'codekbdmacro'
+                                  }
+                                }
+                              ],
+                              'parent' => {},
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 'r',
+                          'contents' => [],
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 26,
+                            'macro' => 'codekbdmacro'
+                          }
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'code',
+                  'contents' => [],
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 26,
+                    'macro' => 'codekbdmacro'
+                  }
+                },
+                {
+                  'parent' => {},
+                  'text' => '
 '
                 }
               ],
@@ -908,7 +1210,7 @@ $result_trees{'kbdinputstyle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 24,
+                'line_nr' => 26,
                 'macro' => 'codekbdmacro'
               }
             }
@@ -919,7 +1221,7 @@ $result_trees{'kbdinputstyle'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 24,
+            'line_nr' => 26,
             'macro' => 'codekbdmacro'
           }
         },
@@ -977,7 +1279,7 @@ $result_trees{'kbdinputstyle'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 28,
+            'line_nr' => 30,
             'macro' => ''
           }
         },
@@ -1015,7 +1317,7 @@ $result_trees{'kbdinputstyle'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 30,
+                        'line_nr' => 32,
                         'macro' => 'codekbdmacro'
                       }
                     }
@@ -1029,7 +1331,7 @@ $result_trees{'kbdinputstyle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
+                'line_nr' => 32,
                 'macro' => 'codekbdmacro'
               }
             },
@@ -1056,7 +1358,7 @@ $result_trees{'kbdinputstyle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
+                'line_nr' => 32,
                 'macro' => 'codekbdmacro'
               }
             },
@@ -1091,7 +1393,7 @@ $result_trees{'kbdinputstyle'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 30,
+                        'line_nr' => 32,
                         'macro' => 'codekbdmacro'
                       }
                     }
@@ -1105,13 +1407,84 @@ $result_trees{'kbdinputstyle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
+                'line_nr' => 32,
                 'macro' => 'codekbdmacro'
               }
             },
             {
               'parent' => {},
               'text' => '.
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'for nesting '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'r in code '
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => 'in r in code'
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'kbd',
+                              'contents' => [],
+                              'parent' => {},
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 32,
+                                'macro' => 'codekbdmacro'
+                              }
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'r',
+                      'contents' => [],
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 32,
+                        'macro' => 'codekbdmacro'
+                      }
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'code',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 32,
+                'macro' => 'codekbdmacro'
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
 '
             }
           ],
@@ -1175,7 +1548,7 @@ $result_trees{'kbdinputstyle'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 30,
+                            'line_nr' => 32,
                             'macro' => 'codekbdmacro'
                           }
                         }
@@ -1189,7 +1562,7 @@ $result_trees{'kbdinputstyle'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 30,
+                    'line_nr' => 32,
                     'macro' => 'codekbdmacro'
                   }
                 },
@@ -1216,7 +1589,7 @@ $result_trees{'kbdinputstyle'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 30,
+                    'line_nr' => 32,
                     'macro' => 'codekbdmacro'
                   }
                 },
@@ -1251,7 +1624,7 @@ $result_trees{'kbdinputstyle'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 30,
+                            'line_nr' => 32,
                             'macro' => 'codekbdmacro'
                           }
                         },
@@ -1269,13 +1642,84 @@ $result_trees{'kbdinputstyle'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 30,
+                    'line_nr' => 32,
                     'macro' => 'codekbdmacro'
                   }
                 },
                 {
                   'parent' => {},
                   'text' => '.
+'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'for nesting in example '
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'parent' => {},
+                                  'text' => 'r in code in example '
+                                },
+                                {
+                                  'args' => [
+                                    {
+                                      'contents' => [
+                                        {
+                                          'parent' => {},
+                                          'text' => 'in r in code in example'
+                                        }
+                                      ],
+                                      'parent' => {},
+                                      'type' => 'brace_command_arg'
+                                    }
+                                  ],
+                                  'cmdname' => 'kbd',
+                                  'contents' => [],
+                                  'parent' => {},
+                                  'source_info' => {
+                                    'file_name' => '',
+                                    'line_nr' => 32,
+                                    'macro' => 'codekbdmacro'
+                                  }
+                                }
+                              ],
+                              'parent' => {},
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 'r',
+                          'contents' => [],
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 32,
+                            'macro' => 'codekbdmacro'
+                          }
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'code',
+                  'contents' => [],
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 32,
+                    'macro' => 'codekbdmacro'
+                  }
+                },
+                {
+                  'parent' => {},
+                  'text' => '
 '
                 }
               ],
@@ -1308,7 +1752,7 @@ $result_trees{'kbdinputstyle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
+                'line_nr' => 32,
                 'macro' => 'codekbdmacro'
               }
             }
@@ -1319,7 +1763,7 @@ $result_trees{'kbdinputstyle'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 30,
+            'line_nr' => 32,
             'macro' => 'codekbdmacro'
           }
         }
@@ -1342,6 +1786,8 @@ $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'par
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0];
@@ -1371,6 +1817,16 @@ $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[4]{'arg
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[4];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[4]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[5]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'contents'}[7]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[9];
@@ -1396,6 +1852,16 @@ $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'co
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[4];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[2]{'args'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[10]{'contents'}[2];
@@ -1429,6 +1895,16 @@ $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[4]{'ar
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[4];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[4]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[5]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[6]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'contents'}[7]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[18]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[18];
@@ -1454,6 +1930,16 @@ $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'co
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[4];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[2]{'args'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[19]{'contents'}[2];
@@ -1487,6 +1973,16 @@ $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[4]{'ar
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[4];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[4]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[5]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'contents'}[7]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[25]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[26]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[27]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[27];
@@ -1512,6 +2008,16 @@ $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'co
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[4];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[2]{'args'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[28]{'contents'}[2];
@@ -1524,12 +2030,14 @@ $result_texis{'kbdinputstyle'} = '@macro codekbdmacro
 @code{in code out of example @code{in nested code}}.
 @kbd{kbd out of example}.
 @code{kbd @kbd{in code}}.
+@code{for nesting @r{r in code @kbd{in r in code}}}
 
 in example
 @example
 @code{in code in example @code{in nested code}}.
 @kbd{kbd in example}.
 @code{kbd @kbd{in code} in example}.
+@code{for nesting in example @r{r in code in example @kbd{in r in code in example}}}
 @end example
 @end macro
 
@@ -1540,12 +2048,14 @@ in example
 @code{in code out of example @code{in nested code}}.
 @kbd{kbd out of example}.
 @code{kbd @kbd{in code}}.
+@code{for nesting @r{r in code @kbd{in r in code}}}
 
 in example
 @example
 @code{in code in example @code{in nested code}}.
 @kbd{kbd in example}.
 @code{kbd @kbd{in code} in example}.
+@code{for nesting in example @r{r in code in example @kbd{in r in code in example}}}
 @end example
 
 @@kbdinputstyle example
@@ -1555,12 +2065,14 @@ in example
 @code{in code out of example @code{in nested code}}.
 @kbd{kbd out of example}.
 @code{kbd @kbd{in code}}.
+@code{for nesting @r{r in code @kbd{in r in code}}}
 
 in example
 @example
 @code{in code in example @code{in nested code}}.
 @kbd{kbd in example}.
 @code{kbd @kbd{in code} in example}.
+@code{for nesting in example @r{r in code in example @kbd{in r in code in example}}}
 @end example
 
 @@kbdinputstyle distinct
@@ -1570,12 +2082,14 @@ in example
 @code{in code out of example @code{in nested code}}.
 @kbd{kbd out of example}.
 @code{kbd @kbd{in code}}.
+@code{for nesting @r{r in code @kbd{in r in code}}}
 
 in example
 @example
 @code{in code in example @code{in nested code}}.
 @kbd{kbd in example}.
 @code{kbd @kbd{in code} in example}.
+@code{for nesting in example @r{r in code in example @kbd{in r in code in example}}}
 @end example
 ';
 
@@ -1587,11 +2101,13 @@ $result_texts{'kbdinputstyle'} = '
 in code out of example in nested code.
 kbd out of example.
 kbd in code.
+for nesting r in code in r in code
 
 in example
 in code in example in nested code.
 kbd in example.
 kbd in code in example.
+for nesting in example r in code in example in r in code in example
 
 @kbdinputstyle example
 
@@ -1599,11 +2115,13 @@ kbd in code in example.
 in code out of example in nested code.
 kbd out of example.
 kbd in code.
+for nesting r in code in r in code
 
 in example
 in code in example in nested code.
 kbd in example.
 kbd in code in example.
+for nesting in example r in code in example in r in code in example
 
 @kbdinputstyle distinct
 
@@ -1611,11 +2129,13 @@ kbd in code in example.
 in code out of example in nested code.
 kbd out of example.
 kbd in code.
+for nesting r in code in r in code
 
 in example
 in code in example in nested code.
 kbd in example.
 kbd in code in example.
+for nesting in example r in code in example in r in code in example
 ';
 
 $result_errors{'kbdinputstyle'} = [];
@@ -1628,32 +2148,35 @@ $result_floats{'kbdinputstyle'} = {};
 $result_converted{'plaintext'}->{'kbdinputstyle'} = '@kbdinputstyle code
 
    ‘in code out of example in nested code’.  ‘kbd out of example’.  ‘kbd
-in code’.
+in code’.  ‘for nesting r in code ‘in r in code’’
 
    in example
      in code in example in nested code.
      kbd in example.
      kbd in code in example.
+     for nesting in example r in code in example ‘in r in code in example’
 
    @kbdinputstyle example
 
    ‘in code out of example in nested code’.  ‘kbd out of example’.  ‘kbd
-in code’.
+in code’.  ‘for nesting r in code ‘in r in code’’
 
    in example
      in code in example in nested code.
      kbd in example.
      kbd in code in example.
+     for nesting in example r in code in example ‘in r in code in example’
 
    @kbdinputstyle distinct
 
    ‘in code out of example in nested code’.  ‘kbd out of example’.  ‘kbd
-in code’.
+in code’.  ‘for nesting r in code ‘in r in code’’
 
    in example
      in code in example in nested code.
      kbd in example.
      kbd in code in example.
+     for nesting in example r in code in example ‘in r in code in example’
 ';
 
 
@@ -1664,12 +2187,14 @@ $result_converted{'html_text'}->{'kbdinputstyle'} = '
 <p><code class="code">in code out of example <code class="code">in nested code</code></code>.
 <code class="code as-code-kbd">kbd out of example</code>.
 <code class="code">kbd <code class="code as-code-kbd">in code</code></code>.
+<code class="code">for nesting <span class="r">r in code <code class="code as-code-kbd">in r in code</code></span></code>
 </p>
 <p>in example
 </p><div class="example">
 <pre class="example-preformatted"><code class="code">in code in example <code class="code">in nested code</code></code>.
 <code class="code as-code-kbd">kbd in example</code>.
 <code class="code">kbd <code class="code as-code-kbd">in code</code> in example</code>.
+<code class="code">for nesting in example <span class="r">r in code in example <code class="code as-code-kbd">in r in code in example</code></span></code>
 </pre></div>
 
 <p>@kbdinputstyle example
@@ -1678,12 +2203,14 @@ $result_converted{'html_text'}->{'kbdinputstyle'} = '
 <p><code class="code">in code out of example <code class="code">in nested code</code></code>.
 <kbd class="kbd">kbd out of example</kbd>.
 <code class="code">kbd <code class="code as-code-kbd">in code</code></code>.
+<code class="code">for nesting <span class="r">r in code <kbd class="kbd">in r in code</kbd></span></code>
 </p>
 <p>in example
 </p><div class="example">
 <pre class="example-preformatted"><code class="code">in code in example <code class="code">in nested code</code></code>.
 <code class="code as-code-kbd">kbd in example</code>.
 <code class="code">kbd <code class="code as-code-kbd">in code</code> in example</code>.
+<code class="code">for nesting in example <span class="r">r in code in example <kbd class="kbd">in r in code in example</kbd></span></code>
 </pre></div>
 
 <p>@kbdinputstyle distinct
@@ -1692,12 +2219,14 @@ $result_converted{'html_text'}->{'kbdinputstyle'} = '
 <p><code class="code">in code out of example <code class="code">in nested code</code></code>.
 <kbd class="kbd">kbd out of example</kbd>.
 <code class="code">kbd <kbd class="kbd">in code</kbd></code>.
+<code class="code">for nesting <span class="r">r in code <kbd class="kbd">in r in code</kbd></span></code>
 </p>
 <p>in example
 </p><div class="example">
 <pre class="example-preformatted"><code class="code">in code in example <code class="code">in nested code</code></code>.
 <kbd class="kbd">kbd in example</kbd>.
 <code class="code">kbd <kbd class="kbd">in code</kbd> in example</code>.
+<code class="code">for nesting in example <span class="r">r in code in example <kbd class="kbd">in r in code in example</kbd></span></code>
 </pre></div>
 ';
 
@@ -1709,6 +2238,7 @@ $result_converted{'latex'}->{'kbdinputstyle'} = '
 \\texttt{in code out of example \\texttt{in nested code}}.
 \\texttt{kbd out of example}.
 \\texttt{kbd \\texttt{in code}}.
+\\texttt{for nesting \\textnormal{r in code \\texttt{in r in code}}}
 
 in example
 \\begin{GNUTexinfopreformatted}
@@ -1716,6 +2246,7 @@ in example
 \\texttt{in code in example \\texttt{in nested code}}.
 \\texttt{kbd in example}.
 \\texttt{kbd \\texttt{in code}\\ in example}.
+\\texttt{for nesting in example \\textnormal{r in code in example \\texttt{in r in code in example}}}
 \\end{GNUTexinfopreformatted}
 
 @kbdinputstyle example
@@ -1724,6 +2255,7 @@ in example
 \\texttt{in code out of example \\texttt{in nested code}}.
 \\GNUTexinfocommandstyletextkbd{kbd out of example}.
 \\texttt{kbd \\GNUTexinfocommandstyletextkbd{in code}}.
+\\texttt{for nesting \\textnormal{r in code \\GNUTexinfocommandstyletextkbd{in r in code}}}
 
 in example
 \\begin{GNUTexinfopreformatted}
@@ -1731,6 +2263,7 @@ in example
 \\texttt{in code in example \\texttt{in nested code}}.
 \\texttt{kbd in example}.
 \\texttt{kbd \\texttt{in code}\\ in example}.
+\\texttt{for nesting in example \\textnormal{r in code in example \\texttt{in r in code in example}}}
 \\end{GNUTexinfopreformatted}
 
 @kbdinputstyle distinct
@@ -1739,6 +2272,7 @@ in example
 \\texttt{in code out of example \\texttt{in nested code}}.
 \\GNUTexinfocommandstyletextkbd{kbd out of example}.
 \\texttt{kbd \\GNUTexinfocommandstyletextkbd{in code}}.
+\\texttt{for nesting \\textnormal{r in code \\GNUTexinfocommandstyletextkbd{in r in code}}}
 
 in example
 \\begin{GNUTexinfopreformatted}
@@ -1746,6 +2280,7 @@ in example
 \\texttt{in code in example \\texttt{in nested code}}.
 \\GNUTexinfocommandstyletextkbd{kbd in example}.
 \\texttt{kbd \\GNUTexinfocommandstyletextkbd{in code}\\ in example}.
+\\texttt{for nesting in example \\textnormal{r in code in example \\GNUTexinfocommandstyletextkbd{in r in code in example}}}
 \\end{GNUTexinfopreformatted}
 ';
 

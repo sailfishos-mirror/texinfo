@@ -811,6 +811,10 @@ kbd_formatted_as_code (ELEMENT *current)
             {
               return 1;
             }
+          else if (command_data(tmp->parent->cmd).data == BRACE_style_no_code)
+            {
+              return 0;
+            }
           tmp = tmp->parent->parent;
         }
       if (in_preformatted_context_not_menu ())

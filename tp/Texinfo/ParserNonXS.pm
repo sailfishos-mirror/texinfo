@@ -1397,20 +1397,6 @@ sub _close_brace_command($$$;$$)
   return $current;
 }
 
-sub _in_code($$)
-{
-  my ($self, $current) = @_;
-
-  while ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
-          and exists $brace_commands{$current->{'parent'}->{'cmdname'}}
-          and !exists $context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
-    return 1
-       if ($brace_commands{$current->{'parent'}->{'cmdname'}} eq 'style_code');
-    $current = $current->{'parent'}->{'parent'};
-  }
-  return 0;
-}
-
 sub _in_preformatted_context_not_menu($)
 {
   my $self = shift;
@@ -1439,10 +1425,20 @@ sub _kbd_formatted_as_code($$)
   if ($self->{'kbdinputstyle'} eq 'code') {
     return 1;
   } elsif ($self->{'kbdinputstyle'} eq 'example') {
-    if ($self->_in_code($current->{'parent'})
-        or $self->_in_preformatted_context_not_menu()) {
-      return 1;
+    my $current = $current->{'parent'};
+    # first check if in code or no code brace nested commands
+    while ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
+           and exists $brace_commands{$current->{'parent'}->{'cmdname'}}
+           and !exists $context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
+      if ($brace_commands{$current->{'parent'}->{'cmdname'}} eq 'style_code') {
+        return 1;
+      } elsif ($brace_commands{$current->{'parent'}->{'cmdname'}} eq 'style_no_code') {
+        return 0;
+      }
     }
+    # check if in preformatted context
+    return 1
+      if $self->_in_preformatted_context_not_menu();
   }
   return 0;
 }
