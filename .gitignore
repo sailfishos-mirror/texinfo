@@ -276,6 +276,10 @@ tp/Texinfo/XS/gnulib/lib/wctype.h
 tp/Texinfo/XS/gnulib/lib/sys/types.h
 
 tp/Texinfo/XS/gnulib/m4/libtool.m4
+tp/Texinfo/XS/gnulib/m4/ltoptions.m4
+tp/Texinfo/XS/gnulib/m4/ltsugar.m4
+tp/Texinfo/XS/gnulib/m4/ltversion.m4
+tp/Texinfo/XS/gnulib/m4/lt~obsolete.m4
 
 tp/Texinfo/XS/parsetexi/command_data.c
 tp/Texinfo/XS/parsetexi/Parsetexi.c
