@@ -674,7 +674,8 @@ foreach my $index_name (keys (%index_names)) {
   }
 }
 
-# command with braces. Value is the max number of arguments.
+# command with braces. Value is the max number of arguments or
+# a string.
 our %brace_commands;
 
 our %letter_no_arg_commands;
@@ -706,6 +707,10 @@ foreach my $accent_command ('"','~','^','`',"'",',','=',
   $brace_commands{$accent_command} = 'accent';
 }
 
+# FIXME There are some redundant informations in $brace_commands and being
+# in %style_commands and %regular_font_style_commands.
+# NOTE The distinction between 'style_other', 'style_no_code' and 'style_code'
+# is currently not used anywhere, but could be used in the parser if needed.
 our %style_commands;
 foreach my $style_command ('asis', 'cite', 'clicksequence',
   'dfn', 'emph', 'sc', 'var', 'headitemfont', 'strong', 'sub', 'sup',
@@ -721,7 +726,7 @@ foreach my $command ('r') {
   $style_commands{$command} = 1;
 }
 
-our %code_style_commands;
+our %code_style_commands; # contains also non style commands, see below
 foreach my $command ('code', 'command', 'env', 'file', 'kbd', 'option',
    'samp', 't') {
   $code_style_commands{$command} = 1;
@@ -729,10 +734,11 @@ foreach my $command ('code', 'command', 'env', 'file', 'kbd', 'option',
   $style_commands{$command} = 1;
 }
 
-# FIXME this category contains commands with different types.  Some should
+# FIXME this category contains commands with different constraints.  Some should
 # only contain text: 'U' , 'dmn', 'key', 'hyphenation', 'sortas'.
-# The other can contain @-commands, but not full text, for example no @ref,
-# not footnote: 'titlefont', 'anchor', 'indicateurl', 'errormsg', 'seeentry', 'seealso'
+# The others can contain @-commands, but not all, for example no @ref,
+# no @footnote: 'anchor', 'indicateurl', 'errormsg', 'seeentry', 'seealso'
+# and lastly titlefont which may be less constrained.
 
 # in this category, the leading and trailing spaces are put in specific
 # text with type, but commas do not delimitate arguments
@@ -742,18 +748,17 @@ foreach my $one_arg_command ('U', 'dmn', 'key', 'hyphenation', 'indicateurl',
 }
 
 # commands in other keep their leading and trailing spaces in main text
-# argument.
-# key should never contain spaces, so it does not matter whether it is 'other' or 1
-# verb is treated especially, so it also should not matter in which category it is
+# argument, but are not style commands.
+# key should not contain spaces, so it does not matter if 'other' or 1.
+# verb is treated especially, it should not matter in which category it is.
 foreach my $other_arg_command ('w', 'verb') {
   $brace_commands{$other_arg_command} = 'other';
 }
 
-# code style command that do not contain full text
+# code style command that are not style commands
 $code_style_commands{'key'} = 1;
 $code_style_commands{'verb'} = 1;
 $code_style_commands{'indicateurl'} = 1;
-
 
 # Commands that enclose full texts, that can contain multiple paragraphs.
 our %context_brace_commands;
@@ -777,7 +782,6 @@ foreach my $explained_command ('abbr', 'acronym') {
   $explained_commands{$explained_command} = 1;
   $brace_commands{$explained_command} = 2;
 }
-
 
 our %inline_format_commands;
 our %inline_commands;
@@ -815,7 +819,6 @@ our %ref_commands;
 foreach my $ref_command ('xref','ref','pxref','inforef') {
   $ref_commands{$ref_command} = 1;
 }
-
 
 # brace command that is not replaced with text.
 my %unformatted_brace_commands;
