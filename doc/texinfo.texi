@@ -549,7 +549,7 @@ Customization Variables
 
 Invoking @command{pod2texi}: Convert Pod to Texinfo
 
-* pod2texi manual page::      @command{pod2texi} invokation in a manual page format.
+* pod2texi manual page::      @command{pod2texi} invocation in a manual page format.
 
 Creating and Installing Info Files
 
@@ -15563,9 +15563,8 @@ internally by @command{texi2any} and then discarded.
 Do not include menus or node separator lines in the output.
 
 When generating Info, this is the same as using @option{--plaintext},
-resulting in a simple plain text file.  Furthermore output is not to
-a file with name based on input file name or @code{@@setfilename},
-but to standard output unless overridden with @option{-o}.  (This
+resulting in a simple plain text file.  Furthermore, output is
+to standard output unless overridden with @option{-o}.  (This
 behavior is for backward compatibility.)
 
 @cindex Navigation links, omitting
@@ -15745,7 +15744,7 @@ complications, or include in a distribution (for example, an
 @file{INSTALL} file).
 
 With this option the output goes to standard output by default, instead
-of to a file with name based on input file name or @code{@@setfilename};
+of to a file with a name based on the input file name or @code{@@setfilename};
 this can be overridden with @option{-o}.
 
 @item --ps
@@ -15809,7 +15808,7 @@ files.)
 @item --transliterate-file-names
 @opindex --transliterate-file-names
 @vindex TRANSLITERATE_FILE_NAMES
-Enable transliteration of non ASCII characters in node names for the
+Enable transliteration of non-ASCII characters in node names for the
 purpose of file name creation.  @xref{HTML Xref 8-bit Character Expansion}.
 
 @item -U @var{var}
@@ -15855,9 +15854,9 @@ docbook  dvi  dvipdf  epub3  html  info  latex  pdf  plaintext  ps  xml
 
 If not set or otherwise specified, Info output is the default.
 
-Some other special values setting the output, which do not correspond to
-command-line settable output formats may also be specified with
-@code{TEXINFO_OUTPUT_FORMAT} (@pxref{Customization Variables and Options}).
+@code{TEXINFO_OUTPUT_FORMAT} may take some other special values, which do
+not correspond to any command-line settable output format
+(@pxref{Customization Variables and Options}).
 
 The customization variable of the same name is also read; if set, that
 overrides an environment variable setting, but not a command-line
@@ -16802,7 +16801,7 @@ It is also used for command-line argument passed to commands called from
 @anchor{@code{NO_TOP_NODE_OUTPUT}}
 If set do not output the Top node content.  The Top node is still
 parsed, but the content is discarded.  Not set in the default case
-for HTML.  Set in the default case for EPUB.  If @code{SHOW_TITLE}
+for HTML@.  Set in the default case for EPUB@.  If @code{SHOW_TITLE}
 is @samp{undef}, setting @code{NO_TOP_NODE_OUTPUT} also sets
 @code{SHOW_TITLE} for HTML.
 
@@ -16989,8 +16988,8 @@ the Top node menu.
 @item relate_index_entries_to_table_entries
 In @code{@@table}, @code{@@vtable} and @code{@@ftable},
 reassociate the index entry information from an index @@-command
-appearing right after an @code{@@item} line to the @code{@@item} first
-element.  Remove the index @@-command from the tree.
+appearing right after an @code{@@item} line with the first element of
+the @code{@@item}.  Remove the index @@-command from the tree.
 
 @item simple_menu
 Mostly the same as @code{SIMPLE_MENU}: use a simple preformatted style
@@ -17149,8 +17148,8 @@ with @code{@@include}.
 @c output of @code{pod2texi --help}, the version on the web at
 @c @url{http://www.gnu.org/software/texinfo/manual/pod2texi.html}, etc.
 
-The @command{pod2texi} program may be useful outside of the rest of Texinfo,
-thus the invokation of @command{pod2texi} is documented in the Pod language
+The @command{pod2texi} program may be useful outside of the rest of Texinfo;
+thus, the invocation of @command{pod2texi} is documented in the Pod language
 using the man page format to follow the convention used in Perl standalone
 programs, with a version on the web
 @url{http://www.gnu.org/software/texinfo/manual/pod2texi.html} and a version
@@ -17165,7 +17164,7 @@ included below.  The version included in the manual is also an example of
 @c source distribution.
 
 @menu
-* pod2texi manual page::      @command{pod2texi} invokation in a manual page format.
+* pod2texi manual page::      @command{pod2texi} invocation in a manual page format.
 @end menu
 
 
@@ -17271,7 +17270,7 @@ notes, but may still be useful to some.
 
 This chapter gives some information on the Info output and describes how to
 install Info files.  For the creation of Info files with @command{texi2any}, see
-@ref{Generic Translator @command{texi2any}} and with Emacs, @ref{Info
+@ref{Generic Translator @command{texi2any}}, and with Emacs, @ref{Info
 Formatting}.  @xref{Info Files}, for general information about the file format.
 @xref{Info Format Specification}, for a detailed technical specification of the
 Info format.
@@ -17901,7 +17900,7 @@ documentation in some form of HTML can be improved in the future.
 @item Why provide the command-line @command{info} program when the Emacs Info reader is better?
 
 The Emacs Info reader can display images, and fully supports using
-a mouse.  There are not much differences among the Info readers
+a mouse.  There are not many differences among the Info readers
 besides that.  Command-line @command{info} can be configured
 to change the default key bindings, as well as change the color
 of cross-references and search results, and to enable mouse
@@ -17918,11 +17917,12 @@ manual becomes longer and more complicated.  (However, if you really
 want to, you can view an info manual all at once in the @command{less}
 pager with @samp{info @var{foo} | less}.)
 
-@item Why do I have `see' appearing in front of all of my links in the Emacs reader?
+@item Why do I have `see' appearing in front of all of my links?
 
 By default, Emacs Info mode either changes the marker @samp{*note} for
-cross-references to `see', or hides it completely.  Unfortunately,
-there is no way to do this reliably, as both the @code{@@pxref}
+cross-references to `see', or hides it completely.  Command-line
+@command{info} does the same if @code{hide-note-references} is set.
+Unfortunately, there is no way to do this reliably, as both the @code{@@pxref}
 and @code{@@ref} commands in Texinfo output this marker in the Info
 output, and the `see' text is only appropriate for @code{@@pxref}.
 

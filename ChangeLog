@@ -1,5 +1,13 @@
 2022-08-23  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	 * doc/texinfo.texi: Grammar and style fixes.
+	invokation -> invocation.  Associated to -> associated with.
+	Provide @ after acronyms to end sentences.
+	(Info Format FAQ): Note that "*note" may also be hidden for
+	command-line info.
+
+2022-08-23  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Format with texi2dvi or texi2pdf):
 	Remove commentary on the difference between pdftex and pdfetex.
 	(According to pdfTeX documentation, they have been synonymous
