@@ -5,7 +5,7 @@ use Test::More;
 use lib '.';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
-BEGIN { plan tests => 24; }
+BEGIN { plan tests => 27; }
 
 use Texinfo::Parser;
 use Texinfo::Transformations;
@@ -73,6 +73,8 @@ test_new_node ('changed @ref{ @code{node}} and (@pxref{ ,, , @samp{file}})',
 'ref in new node');
 test_new_node ('@asis{}', '-1', '@node @asis{} 1
 ', 'empty node');
+test_new_node ('a::b	 c', 'a_003a_003ab-c', '@node a@asis{::}b@asis{	} c
+', 'with colon and tab');
 
 my $parser = Texinfo::Parser::parser();
 my $tree = $parser->parse_texi_piece('@node a node

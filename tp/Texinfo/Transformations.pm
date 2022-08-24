@@ -201,9 +201,22 @@ sub _new_node($$$$)
   my $targets_list = shift;
   my $labels = shift;
 
+  # We protect for all the contexts, as the node name should be
+  # the same in the different contexts, even if some protections
+  # are not needed for the parsing.  Also, this way the node tree
+  # can be directly reused in the menus for example, without
+  # additional protection, some parts could be double protected
+  # otherwise, those that are protected with @asis.
+  #
+  # needed in nodes lines, @*ref and in menus with a label
   $node_tree = Texinfo::Common::protect_comma_in_tree($node_tree);
+  # always
   $node_tree->{'contents'}
-     = Texinfo::Common::protect_first_parenthesis($node_tree->{'contents'});
+   = Texinfo::Common::protect_first_parenthesis($node_tree->{'contents'});
+  # in menu entry without label
+  $node_tree = Texinfo::Common::protect_colon_in_tree($node_tree);
+  # in menu entry with label
+  $node_tree = Texinfo::Common::protect_node_after_label_in_tree($node_tree);
   $node_tree = reference_to_arg_in_tree($node_tree);
 
   my $empty_node = 0;
