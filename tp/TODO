@@ -87,6 +87,11 @@ my $collator = Unicode::Collate::Locale->new('locale' => $locale_name, 'normaliz
 @sorted = $collator->sort(@not_sorted);
 
 
+in hyphenation: only text and accent commands, and should
+only appear in toplevel.  Not the only command with only
+text and accent commands, there is a FIXME in Common.pm.
+
+
 Some dubious nesting could be warned against.  The parsers context
 command stacks could be used for that.
 
@@ -107,8 +112,9 @@ Some erroneous constructs not already warned against:
  @end example
  Example in heading/heading_in_example.
 
- @group outside of @example  (maybe there is no need for command stack for this one
-                              if @group can only appear directly in @example).
+ @group outside of @example  (maybe there is no need for command stack for
+                              this one if @group can only appear directly
+                              in @example).
 
 maybe checking for incorrectly nested @titlepage, @copying and
 @documentdescription (which is already done in the "regions stack")
@@ -168,14 +174,6 @@ element for references to internal nodes.  In general, it is because
 gdt() is used instead of direct HTML.
 
 
-Nodes that differ only by space are not considered as the same by
-texi2any.  Also nodes with the same normalization but different
-Texinfo code are considered to be the same but still trigger an error.
-Info readers (in 2022) find all the nodes with different spacing.
-Should texi2any be more forgiving?  Example test in
-t/10menu.t space_and_commands_in_menu_node.
-
-
 HTML5 validation tidy errors that do not need fixing
 ----------------------------------------------------
 
@@ -215,6 +213,7 @@ Unit test of end_line_count for Texinfo/Convert/Paragraph.pm .... containers.
 
 anchor in flushright, on an empty line, with a current byte offset.
 
+
 Future features
 ===============
 
@@ -228,7 +227,7 @@ the "\input" line from the other parsing code.
 I understand that the main purpose of the preamble_before_beginning element
 is not to lose information so that the original Texinfo file could be
 regenerated.  If that's the case, maybe the input code could return
-all the text in this preamle as one long string - it wouldn't have to be
+all the text in this preamble as one long string - it wouldn't have to be
 line by line.
 
 
@@ -255,45 +254,6 @@ Should we warn if output is on STDOUT and OUTPUT_ENCODING_NAME != MESSAGE_OUTPUT
 Handle better @exdent in html? (there is a FIXME in the code)
 
 Implement what is proposed in HTML Cross Reference Mismatch.
-
-Protection of punctuation in nodes.
-in @ref. First : is searched.  if followed by a : the node name is found
-and there is no label. When parsing a node a filename with ( is searched for.
-Nested parentheses are taken into account.
-Then more parentheses?
-
-Automatic generation of node names from section names.  To be protected:
-* in every case
-  ( at the beginning
-* In @node line
-  commas
-* In menu entry
-  * if there is a label
-    tab comma dot
-  * if there is no label
-    :
-* In @ref
-  commas
-
-In Info
-
-Nodes:
-* in every case
-  ( at the beginning
-* in Node line
-  commas
-* In menu entry and *Note
-  * if there is a label
-    tab comma dot
-  * if there is no label
-    :
-
-Labels in Info (which also means index entries)
-  :
-
-* at the beginning of a line in a @menu
-*note more or less everywhere
-
 
 For plaintext, implement an effect of NO_TOP_NODE_OUTPUT
 * if true, output some title, possibly based on titlepage
@@ -441,7 +401,6 @@ latin1 encoded manual name and latex2html in latin1 locale
 cp tests/tex_html/tex_encode_latin1.texi tex_encodé_latin1.texi
 ./texi2any.pl -c 'L2H_CLEAN 0' --html --init init/latex2html.pm tex_encodé_latin1.texi
 
-
 Tests with incorrect results, though not bugs
 *********************************************
 
@@ -449,8 +408,8 @@ utf8 encoded manual name and latex2html in latin1 locale
 ./texi2any.pl --html --init init/latex2html.pm -c 'L2H_CLEAN 0' tests/tex_html/tex_encod*_utf8.texi
 No error, but the file names are like
  tex_encodÃ©_utf8_html/tex_encodÃ'$'\203''Â©_utf8_l2h.html
-That's in particular because the document_name is incorrect because it is decoded
-as if it was latin1.
+That's in particular because the document_name is incorrect because it is
+decoded as if it was latin1.
 
 utf8 encoded manual name and tex4ht in latin1 locale
 ./texi2any.pl --html --init init/tex4ht.pm tests/tex_html/tex_encod*_utf8.texi
@@ -469,7 +428,11 @@ The archive epub file is not tested in the automated tests.
 epub for utf8 encoded manual in utf8 locale
 ./texi2any.pl --force -I tests/ --init init/epub3.pm tests/formatting/osé_utf8.texi
 
-The following tests require latin1 encoded file names
+The following tests require latin1 encoded file names.  Note that it
+could be done automatically now with
+tp/maintain/copy_change_file_name_encoding.pl.
+However, there is already a test with an include file in latin1, it
+is enough.
 ./texi2any.pl tex_encod*_latin1.texi
 
 The following tests not important enough to have regression test
@@ -521,6 +484,53 @@ For the classes not associated with @-commands, the names were selected to
 correspond to the role in the document rather than to the formatting style.
 
 
+Notes on protection of punctuation in nodes (done)
+==================================================
+
+This is implemented, in tp/Texinfo/Transformations.pm in _new_node for
+Texinfo generation, and in Info with INFO_SPECIAL_CHARS_QUOTE.  *[nN]ote
+is not protected, though, but it is not clear it would be right to do.
+There is a warning with @strong{note...}.
+
+Automatic generation of node names from section names.  To be protected:
+* in every case
+  ( at the beginning
+* In @node line
+  commas
+* In menu entry
+  * if there is a label
+    tab comma dot
+  * if there is no label
+    :
+* In @ref
+  commas
+
+In Info
+
+in cross-references. First : is searched.  if followed by a : the node
+name is found and there is no label. When parsing a node a filename
+with ( is searched for.  Nested parentheses are taken into account.
+
+Nodes:
+* in every case
+  ( at the beginning
+* in Node line
+  commas
+* In menu entry and *Note
+  * if there is a label
+    tab comma dot
+  * if there is no label
+    :
+
+Labels in Info (not index entries, in index entries the last : not in
+                a uoted node should be used to determine the end of the
+                index entry).
+  :
+
+* at the beginning of a line in a @menu
+*note more or less everywhere
+
+
 Interrogations and remarks
 ==========================
 
@@ -554,9 +564,6 @@ This requires a test, to begin with.
 In HTML, HEADERS is used.  But not in other modules, especially not in
 Plaintext.pm or Info.pm, this is determined by the module used (Plaintext.pm
 or Info.pm).  No idea whether it is right or wrong.
-
-in hyphenation: only text and accent commands, and should
-only appear in toplevel
 
 From vincent Belaïche. About svg image files in HTML:
 
