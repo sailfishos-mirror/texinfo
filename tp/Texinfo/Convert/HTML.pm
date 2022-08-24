@@ -809,7 +809,9 @@ sub command_href($$;$$$)
   my $self = shift;
   my $command = shift;
   my $source_filename = shift;
+  # for messages only
   my $source_command = shift;
+  # to specify explicitly the target
   my $specified_target = shift;
 
   $source_filename = $self->{'current_filename'} if (!defined($source_filename));
@@ -1170,7 +1172,8 @@ foreach my $no_number_type ('text', 'tree', 'string') {
   $valid_direction_return_type{$no_number_type .'_nonumber'} = 1;
 }
 
-# sub from_element_direction($SELF, $DIRECTION, $TYPE, $SOURCE_ELEMENT, $SOURCE_FILENAME)
+# sub from_element_direction($SELF, $DIRECTION, $TYPE, $SOURCE_ELEMENT,
+#                            $SOURCE_FILENAME, $SOURCE_FOR_MESSAGES)
 #
 # Return text used for linking from $SOURCE_ELEMENT in direction $DIRECTION.  The
 # text returned depends on $TYPE.
@@ -1179,19 +1182,26 @@ foreach my $no_number_type ('text', 'tree', 'string') {
 #
 # If $SOURCE_ELEMENT is undef, $self->{'current_root_element'} is used.
 #
+# $SOURCE_FOR_MESSAGES is an element used for messages formatting, to get a
+# location in input file.  It is better to choose the node and not the
+# sectioning command associated with the element, as the error messages
+# are about external nodes not found.
+#
 # $self->{'current_root_element'} undef happens at least when there is no output file,
 # or for the table of content when frames are used.  That call would result
 # for instance from from_element_direction being called from _get_links,
 # itself called from 'format_begin_file' which, in the default case
 # points to _default_format_begin_file.
 # TODO are there other cases?
-sub from_element_direction($$$;$$)
+sub from_element_direction($$$;$$$)
 {
   my $self = shift;
   my $direction = shift;
   my $type = shift;
   my $source_element = shift;
   my $source_filename = shift;
+  # for messages only
+  my $source_command = shift;
 
   my $target_element;
   my $command;
@@ -1199,7 +1209,7 @@ sub from_element_direction($$$;$$)
 
   $source_element = $self->{'current_root_element'} if (!defined($source_element));
   $source_filename = $self->{'current_filename'} if (!defined($source_filename));
- 
+
   if (!$valid_direction_return_type{$type}) {
     print STDERR "Incorrect type $type in from_element_direction call\n";
     return undef;
@@ -1243,7 +1253,8 @@ sub from_element_direction($$$;$$)
       #print STDERR "FROM_ELEMENT_DIRECTION ext node $type $direction\n"
       #  if ($self->get_conf('DEBUG'));
       if ($type eq 'href') {
-        return $self->command_href($external_node, $source_filename);
+        return $self->command_href($external_node, $source_filename,
+                                   $source_command);
       } elsif ($type eq 'text' or $type eq 'node') {
         return $self->command_text($external_node);
       } elsif ($type eq 'string') {
@@ -3151,10 +3162,11 @@ sub _default_format_separate_anchor($$;$)
 # Associated to a button.  Return text to use for a link in button bar.
 # Depending on USE_NODE_DIRECTIONS and xrefautomaticsectiontitle
 # use section or node for link direction and string.
-sub _default_panel_button_dynamic_direction($$;$$)
+sub _default_panel_button_dynamic_direction($$;$$$)
 {
   my $self = shift;
   my $direction = shift;
+  my $source_command = shift;
   my $omit_rel = shift;
   my $use_first_element_in_file_directions = shift;
   
@@ -3171,7 +3183,8 @@ sub _default_panel_button_dynamic_direction($$;$$)
     $direction = 'FirstInFile'.$direction;
   }
 
-  my $href = $self->from_element_direction($direction, 'href');
+  my $href = $self->from_element_direction($direction, 'href',
+                                           undef, undef, $source_command);
   my $node;
 
 
@@ -3199,22 +3212,26 @@ sub _default_panel_button_dynamic_direction($$;$$)
 
 # Used for button bar at the foot of a node, with "rel" and "accesskey"
 # attributes omitted.
-sub _default_panel_button_dynamic_direction_node_footer($$)
+sub _default_panel_button_dynamic_direction_node_footer($$$)
 {
   my $self = shift;
   my $direction = shift;
+  my $source_command = shift;
 
-  return _default_panel_button_dynamic_direction($self, $direction, 1);
+  return _default_panel_button_dynamic_direction($self, $direction,
+                                                 $source_command, 1);
 }
 
 # used for button bar at the foot of a section or chapter with
 # directions of first element in file used instead of the last
 # element directions.
-sub _default_panel_button_dynamic_direction_section_footer($$) {
+sub _default_panel_button_dynamic_direction_section_footer($$$) {
   my $self = shift;
   my $direction = shift;
+  my $source_command = shift;
 
-  return _default_panel_button_dynamic_direction($self, $direction, undef, 1);
+  return _default_panel_button_dynamic_direction($self, $direction,
+                                                 $source_command, undef, 1);
 }
 
 # Only used if ICONS is set and the button is active.
@@ -3270,10 +3287,11 @@ foreach my $node_directions ('NodeNext', 'NodePrev', 'NodeUp') {
   $html_default_node_directions{$node_directions} = 1;
 }
 
-sub _default_format_button($$)
+sub _default_format_button($$;$)
 {
   my $self = shift;
   my $button = shift;
+  my $source_command = shift;
 
   my ($active, $passive, $need_delimiter);
   if (ref($button) eq 'CODE') {
@@ -3288,7 +3306,8 @@ sub _default_format_button($$)
     if (defined($direction) and ref($direction) eq ''
         and defined($text) and (ref($text) eq 'SCALAR') and defined($$text)) {
       # use given text
-      my $href = $self->from_element_direction($direction, 'href');
+      my $href = $self->from_element_direction($direction, 'href',
+                                               undef, undef, $source_command);
       if ($href) {
         my $anchor_attributes = $self->_direction_href_attributes($direction);
         $active = "<a href=\"$href\"${anchor_attributes}>$$text</a>";
@@ -3299,16 +3318,18 @@ sub _default_format_button($$)
     # $direction is simple text and $text is a reference on code
     } elsif (defined($direction) and ref($direction) eq ''
              and defined($text) and (ref($text) eq 'CODE')) {
-      ($active, $need_delimiter) = &$text($self, $direction);
+      ($active, $need_delimiter) = &$text($self, $direction, $source_command);
     # $direction is simple text and $text is also a simple text
     } elsif (defined($direction) and ref($direction) eq ''
              and defined($text) and ref($text) eq '') {
       if ($text =~ s/^->\s*//) {
         # this case is mostly for tests, to test the direction type $text
         # with the direction $direction
-        $active = $self->from_element_direction($direction, $text);
+        $active = $self->from_element_direction($direction, $text,
+                                                undef, undef, $source_command);
       } else {
-        my $href = $self->from_element_direction($direction, 'href');
+        my $href = $self->from_element_direction($direction, 'href',
+                                                 undef, undef, $source_command);
         my $text_formatted = $self->from_element_direction($direction, $text);
         if ($href) {
           my $anchor_attributes = $self->_direction_href_attributes($direction);
@@ -3332,7 +3353,8 @@ sub _default_format_button($$)
     }
     $need_delimiter = 0;
   } else {
-    my $href = $self->from_element_direction($button, 'href');
+    my $href = $self->from_element_direction($button, 'href',
+                                             undef, undef, $source_command);
     if ($href) {
       # button is active
       my $btitle = '';
@@ -3416,7 +3438,7 @@ sub _default_format_navigation_panel($$$$;$)
   my $self = shift;
   my $buttons = shift;
   my $cmdname = shift;
-  my $element = shift;
+  my $source_command = shift;
   my $vertical = shift;
 
   # if VERTICAL_HEAD_NAVIGATION, the buttons are in a vertical table which
@@ -3448,8 +3470,10 @@ sub _default_format_navigation_panel($$$$;$)
 
     my ($active, $passive, $need_delimiter)
       # API info: using the API to allow for customization would be:
-      #  = &{$self->formatting_function('format_button')}($self, $button);
-       = &{$self->{'formatting_function'}->{'format_button'}}($self, $button);
+      #  = &{$self->formatting_function('format_button')}($self, $button,
+      #                                                   $source_command);
+       = &{$self->{'formatting_function'}->{'format_button'}}($self, $button,
+                                                              $source_command);
     if ($self->get_conf('HEADER_IN_TABLE')) {
       if (defined($active)) {
         $result .= $active;
@@ -6296,8 +6320,12 @@ sub _convert_tree_unit_type($$$$)
     }
   }
   $result .= $content;
+  my $command;
+  if ($element->{'extra'} and $element->{'extra'}->{'unit_command'}) {
+    $command = $element->{'extra'}->{'unit_command'};
+  }
   $result .= &{$self->formatting_function('format_element_footer')}($self, $type,
-                                                              $element, $content);
+                                                              $element, $content, $command);
 
   return $result;
 }
@@ -6305,12 +6333,13 @@ sub _convert_tree_unit_type($$$$)
 $default_types_conversion{'unit'} = \&_convert_tree_unit_type;
 
 # for tree unit elements and special elements
-sub _default_format_element_footer($$$$)
+sub _default_format_element_footer($$$$;$)
 {
   my $self = shift;
   my $type = shift;
   my $element = shift;
   my $content = shift;
+  my $command = shift;
 
   my $result = '';
   my $is_top = $self->element_is_tree_unit_top($element);
@@ -6402,8 +6431,10 @@ sub _default_format_element_footer($$$$)
     $result .= "$rule\n" if ($rule);
   }
   if ($buttons) {
+    my $cmdname;
+    $cmdname = $command->{'cmdname'} if ($command and $command->{'cmdname'});
     $result .= &{$self->formatting_function('format_navigation_panel')}($self,
-                                                    $buttons, undef, $element);
+                                                    $buttons, $cmdname, $command);
   }
   
   return $result;
@@ -8198,11 +8229,12 @@ sub _htmlxref($$)
   return $self->{'htmlxref'}->{$file};
 }
 
-sub _external_node_href($$$$)
+sub _external_node_href($$$;$)
 {
   my $self = shift;
   my $external_node = shift;
   my $filename = shift;
+  # for messages only
   my $source_command = shift;
   
   #print STDERR "external_node: ".join('|', keys(%$external_node))."\n";
@@ -8250,15 +8282,22 @@ sub _external_node_href($$$$)
       $target_split = $default_target_split;
       if ($self->get_conf('CHECK_HTMLXREF')) {
         if (defined($source_command) and $source_command->{'source_info'}) {
-          $self->line_warn($self, sprintf(__(
+          my $node_manual_key = $source_command.'-'.$manual_name;
+          if (!$self->{'check_htmlxref_already_warned'}->{$node_manual_key}) {
+            $self->line_warn($self, sprintf(__(
+                    "no htmlxref.cnf entry found for `%s'"), $manual_name),
+                             $source_command->{'source_info'});
+            $self->{'check_htmlxref_already_warned'}->{$node_manual_key} = 1;
+          }
+        } else {
+          if (!$self->{'check_htmlxref_already_warned'}->{'UNDEF-'.$manual_name}) {
+            $self->document_warn($self, sprintf(__(
               "no htmlxref.cnf entry found for `%s'"), $manual_name),
-            $source_command->{'source_info'});
-        } elsif (!$self->{'check_htmlxref_already_warned'}->{$manual_name}) {
-          $self->document_warn($self, sprintf(__(
-            "no htmlxref.cnf entry found for `%s'"), $manual_name),
-            );
+              );
+            $self->{'check_htmlxref_already_warned'}->{'UNDEF-'.$manual_name} = 1;
+            cluck;
+          }
         }
-        $self->{'check_htmlxref_already_warned'}->{$manual_name} = 1;
       }
     }
 
@@ -8718,18 +8757,19 @@ MathJax = {
           $program, $generator);
 }
 
-sub _get_links($$$)
+sub _get_links($$$$)
 {
   my $self = shift;
   my $filename = shift;
   my $element = shift;
+  my $node_command = shift;
 
   my $links = '';
   if ($self->get_conf('USE_LINKS')) {
     my $link_buttons = $self->get_conf('LINKS_BUTTONS');
     foreach my $link (@$link_buttons) {
       my $link_href = $self->from_element_direction($link, 'href', $element,
-                                                    $filename);
+                                                    $filename, $node_command);
       #print STDERR "$link -> $link_href \n";
       if ($link_href and $link_href ne '') {
         my $link_string = $self->from_element_direction($link, 'string',
@@ -8753,17 +8793,26 @@ sub _default_format_begin_file($$$)
   my $filename = shift;
   my $element = shift;
   
-  my $command;
-  if ($element and $self->get_conf('SPLIT')) {
-    $command = $self->tree_unit_element_command($element);
+  my ($element_command, $node_command, $command_for_title);
+  if ($element) {
+    $element_command = $self->tree_unit_element_command($element);
+    $node_command = $element_command;
+    if ($element_command->{'cmdname'} and $element_command->{'cmdname'} ne 'node'
+        and $element_command->{'extra'}
+        and $element_command->{'extra'}->{'associated_node'}) {
+      $node_command = $element_command->{'extra'}->{'associated_node'};
+    }
+
+    $command_for_title = $element_command if ($self->get_conf('SPLIT'));
   }
 
   my ($title, $description, $encoding, $date, $css_lines,
           $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
           $after_body_open, $extra_head, $program_and_version, $program_homepage,
-          $program, $generator) = $self->_file_header_information($command, $filename);
+          $program, $generator) = $self->_file_header_information($command_for_title,
+                                                                  $filename);
 
-  my $links = $self->_get_links($filename, $element);
+  my $links = $self->_get_links($filename, $element, $node_command);
 
   my $result = "$doctype
 <html${root_html_element_attributes}>

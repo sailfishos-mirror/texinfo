@@ -3016,7 +3016,7 @@ To get link information for relative and global
 directions, use @code{from_element_direction}:
 
 @deftypefun {@var{$result} =} @var{$converter}->from_element_direction (@var{$direction}, @var{$type}, @
-   @var{$source_element}, @var{$source_filename})
+   @var{$source_element}, @var{$source_filename}, @var{$source_command})
 Return a string for linking to @var{$direction}, or the information
 to be used for a hyperlink to @var{$direction}, depending on @var{$type}.
 The possible values for @var{$type} are described in
@@ -3025,6 +3025,9 @@ The possible values for @var{$type} are described in
 @var{$source_element} is the tree unit element the link comes from. If not set,
 the current tree unit element is used.  @var{$source_filename} is the file the
 link comes from. If not set, the current file name is used.
+@var{$source_command}
+is an optional argument, the @@-command the link comes from. It is only used for
+messages.
 @end deftypefun
 
 
@@ -3329,8 +3332,10 @@ The function reference @code{format_button} does the formatting of
 one button:
 
 @deftypefn {Function Reference} @var{$formatted_button} format_button @
-           (@var{$converter}, @var{$button})
+           (@var{$converter}, @var{$button}, @var{$source_command})
 @var{$button} holds the specification of the button (@pxref{Buttons Display}).
+@var{$source_command} is an optional argument, the @@-command the link comes from.
+
 Returns the formatted result in @var{$formatted_button}.
 
 The buttons images can be formatted with @code{format_button_icon_img}
@@ -3377,10 +3382,12 @@ Similarly, the function associated with @code{format_element_footer}
 formats the footer and navigation panel of a tree unit element.
 
 @deftypefn {Function Reference} @var{$formatted_footer} format_element_footer @
-   (@var{$converter}, @var{$tree_unit_type}, @var{\%tree_unit_element}, @var{$content})
+   (@var{$converter}, @var{$tree_unit_type}, @var{\%tree_unit_element}, @
+    @var{$content}, @var{$command})
 @var{\%tree_unit_element} is the tree unit element element in which the
 navigation footer is formatted.  @var{$tree_unit_type} is the associated type.
-@var{$content} is the formatted element content.
+@var{$content} is the formatted element content.  @var{$command} is an optional
+argument, the @@-command associated with the @var{\%tree_unit_element}.
 
 Returns the formatted navigation footer and panel.
 

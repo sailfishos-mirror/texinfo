@@ -1,3 +1,17 @@
+2022-08-24  Patrice Dumas  <pertusus@free.fr>
+
+	Pass source element command information to directions formatting
+
+	* tp/Texinfo/Convert/HTML.pm (from_element_direction)
+	(_default_panel_button_dynamic_direction*, _default_format_button)
+	(_convert_tree_unit_type, _default_format_element_footer, _get_links):
+	pass the command associated with the element source of the
+	direction, to be able to format error messages with a line in the
+	document, for now for CHECK_HTMLXREF.
+
+	(_external_node_href): warn only once for htmlxref.cnf missing
+	even if the line is known.
+
 2022-08-23  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	 * doc/texinfo.texi: Grammar and style fixes.

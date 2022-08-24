@@ -146,6 +146,25 @@ a@sup{b - \frac{\xi}{phi @copyright{}}} @dotless{i}
 Some @math{a @minus{} b @geq{} @AA{} @^e}.
 ';
 
+my $check_htmlxref_text = '
+@node Top, (../there/no_existing_no_manual_direction), first, (dir)
+@top top
+
+@ref{a, b, c, no_existing_no_manual.info}
+@ref{a, b, c, no_existing_no_manual.info}
+
+@menu
+* first::
+* (other_no_existing_no_manual)::
+* chapter::
+@end menu
+
+@node first, (no_existing_no_manual.info)
+
+@node chapter, (chap_not_existing)
+@chapter Chapter
+';
+
 
 my @test_cases = (
 ['verbatim_in_multitable_in_example',
@@ -487,20 +506,8 @@ undef, {'test_file' => 'empty_lines_at_beginning_no_setfilename.texi'}
 undef, {'test_file' => 'empty_lines_at_beginning_no_setfilename_no_element.texi'}
 ],
 ['check_htmlxref',
-'
-@node Top, (../there/no_existing_no_manual_direction), first, (dir)
-@top top
-
-@ref{a, b, c, no_existing_no_manual.info}
-@ref{a, b, c, no_existing_no_manual.info}
-
-@menu
-* first::
-* (other_no_existing_no_manual)::
-@end menu
-
-@node first, (no_existing_no_manual.info)
-', {}, {'CHECK_HTMLXREF' => 1}],
+$check_htmlxref_text,
+{}, {'CHECK_HTMLXREF' => 1}],
 ['text_before_top_and_contents_after_title',
 '
 Some text before top
@@ -747,6 +754,12 @@ my @file_tests = (
 '.$itemize_arguments_text
 , {'ENABLE_ENCODING' => 1}
 ],
+['check_htmlxref_no_use_nodes',
+$check_htmlxref_text
+, {}, {'CHECK_HTMLXREF' => 1, 'USE_NODES', 0}],
+['check_htmlxref_menu',
+$check_htmlxref_text
+, {'FORMAT_MENU' => 'menu',}, {'FORMAT_MENU' => 'menu', 'CHECK_HTMLXREF' => 1}],
 );
 
 
@@ -759,6 +772,7 @@ foreach my $test (@test_cases_text) {
 }
 foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
+  $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
 }
 foreach my $test (@test_cases_file_text) {
   push @{$test->[2]->{'test_formats'}}, ('html_text', 'file_html');
