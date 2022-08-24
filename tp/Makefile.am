@@ -121,6 +121,7 @@ initdir = $(datadir)/texinfo/init
 dist_init_DATA = \
  init/book.pm \
  init/chm.pm \
+ init/documentation_examples.pm \
  init/html32.pm \
  init/highlight_syntax.pm
 
@@ -158,8 +159,8 @@ test_files = \
  t/include/incl-incl.txi \
  t/include/macro_included.texi \
  t/include/section_file.texi \
- t/init/only_toc_out.init \
  t/init/cvs.init \
+ t/init/only_toc_out.init \
  t/init/redefine_need.init \
  t/init/icons.init \
  t/init/t2h_singular.init \
