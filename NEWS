@@ -26,6 +26,7 @@ See the manual for detailed information.
      . USE_XML_SYNTAX, HTML_ROOT_ELEMENT_ATTRIBUTES and
        NO_CUSTOM_HTML_ATTRIBUTE variables added that can be used to output
        valid XHTML.
+     . new variable IGNORE_REF_TO_TOP_NODE_UP
      . Use manual_name_html as output directory for split HTML instead of
        manual_name or manual_name.html
      . default DOCTYPE declaration changed to plain HTML5 style rather than

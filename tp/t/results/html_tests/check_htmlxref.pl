@@ -660,6 +660,31 @@ $result_trees{'check_htmlxref'} = {
             }
           ],
           'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '('
+            },
+            {
+              'parent' => {},
+              'text' => 'dir'
+            },
+            {
+              'parent' => {},
+              'text' => ')'
+            },
+            {
+              'parent' => {},
+              'text' => 'node in dir'
+            }
+          ],
+          'extra' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -685,6 +710,15 @@ $result_trees{'check_htmlxref'} = {
             'manual_content' => [
               {}
             ]
+          },
+          {
+            'manual_content' => [
+              {}
+            ],
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'node-in-dir'
           }
         ],
         'normalized' => 'chapter',
@@ -834,9 +868,16 @@ $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[1]{'contents'}[0]{'parent
 $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[1];
 $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[1]{'contents'}[2]{'parent'} = $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[1];
 $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'check_htmlxref'}{'contents'}[4];
+$result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2];
+$result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2]{'contents'}[1]{'parent'} = $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2];
+$result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2]{'contents'}[2]{'parent'} = $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2];
+$result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2]{'contents'}[3]{'parent'} = $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2];
+$result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2]{'parent'} = $result_trees{'check_htmlxref'}{'contents'}[4];
 $result_trees{'check_htmlxref'}{'contents'}[4]{'extra'}{'node_content'}[0] = $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'check_htmlxref'}{'contents'}[4]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'check_htmlxref'}{'contents'}[4]{'extra'}{'nodes_manuals'}[1]{'manual_content'}[0] = $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[1]{'contents'}[1];
+$result_trees{'check_htmlxref'}{'contents'}[4]{'extra'}{'nodes_manuals'}[2]{'manual_content'}[0] = $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2]{'contents'}[1];
+$result_trees{'check_htmlxref'}{'contents'}[4]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'check_htmlxref'}{'contents'}[4]{'args'}[2]{'contents'}[3];
 $result_trees{'check_htmlxref'}{'contents'}[4]{'parent'} = $result_trees{'check_htmlxref'};
 $result_trees{'check_htmlxref'}{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'check_htmlxref'}{'contents'}[5]{'args'}[0];
 $result_trees{'check_htmlxref'}{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'check_htmlxref'}{'contents'}[5];
@@ -857,7 +898,7 @@ $result_texis{'check_htmlxref'} = '
 
 @node first, (no_existing_no_manual.info)
 
-@node chapter, (chap_not_existing)
+@node chapter, (chap_not_existing), (dir)node in dir
 @chapter Chapter
 ';
 
@@ -1067,7 +1108,7 @@ Next: <a href="no_existing_no_manual.html#Top" accesskey="n" rel="next">(no_exis
 <div class="chapter-level-extent" id="chapter">
 <div class="nav-panel">
 <p>
-Next: <a href="chap_not_existing.html#Top" accesskey="n" rel="next">(chap_not_existing)</a> &nbsp; </p>
+Next: <a href="chap_not_existing.html#Top" accesskey="n" rel="next">(chap_not_existing)</a>, Previous: <a href="dir.html#node-in-dir" accesskey="p" rel="prev">(dir)node in dir</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="Chapter">1 Chapter</h2>
 </div>
@@ -1132,6 +1173,15 @@ $result_converted_errors{'html'}->{'check_htmlxref'} = [
     'line_nr' => 16,
     'macro' => '',
     'text' => 'no htmlxref.cnf entry found for `chap_not_existing\'',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: no htmlxref.cnf entry found for `dir\'
+',
+    'file_name' => '',
+    'line_nr' => 16,
+    'macro' => '',
+    'text' => 'no htmlxref.cnf entry found for `dir\'',
     'type' => 'warning'
   }
 ];

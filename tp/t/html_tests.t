@@ -161,7 +161,7 @@ my $check_htmlxref_text = '
 
 @node first, (no_existing_no_manual.info)
 
-@node chapter, (chap_not_existing)
+@node chapter, (chap_not_existing), (dir)node in dir
 @chapter Chapter
 ';
 
@@ -508,6 +508,9 @@ undef, {'test_file' => 'empty_lines_at_beginning_no_setfilename_no_element.texi'
 ['check_htmlxref',
 $check_htmlxref_text,
 {}, {'CHECK_HTMLXREF' => 1}],
+['check_htmlxref_ignore_ref_top_up',
+$check_htmlxref_text,
+{}, {'CHECK_HTMLXREF' => 1, 'IGNORE_REF_TO_TOP_NODE_UP' => 1}],
 ['text_before_top_and_contents_after_title',
 '
 Some text before top

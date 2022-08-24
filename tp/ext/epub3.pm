@@ -160,6 +160,9 @@ texinfo_set_from_init_file('EXTENSION', 'xhtml');
 # found through htmlxref.
 texinfo_set_from_init_file('CHECK_HTMLXREF', 1);
 
+# explicit references to TOP_NODE_UP are ignored
+texinfo_set_from_init_file('IGNORE_REF_TO_TOP_NODE_UP', 1);
+
 # Better use html for external manuals than the xhtml EXTENSION
 texinfo_set_from_init_file('EXTERNAL_CROSSREF_EXTENSION', 'html');
 

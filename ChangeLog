@@ -1,5 +1,19 @@
 2022-08-24  Patrice Dumas  <pertusus@free.fr>
 
+	Add IGNORE_REF_TO_TOP_NODE_UP to ignore (dir), set for EPUB
+
+	* doc/texinfo.texi(HTML Customization Variables), ../NEWS
+	tp/Texinfo/Common.pm (@variable_string_settables),
+	tp/Texinfo/Convert/HTML.pm (_external_node_href), tp/ext/epub3.pm:
+	Add IGNORE_REF_TO_TOP_NODE_UP to ignore references to TOP_NODE_UP,
+	in general (dir) if set.  For HTML.  Set for EPUB.
+
+	* tp/Texinfo/Convert/HTML.pm
+	(_default_panel_button_dynamic_direction): only output the
+	node name and no <a> element if the href is an empty string.
+
+2022-08-24  Patrice Dumas  <pertusus@free.fr>
+
 	Pass source element command information to directions formatting
 
 	* tp/Texinfo/Convert/HTML.pm (from_element_direction)

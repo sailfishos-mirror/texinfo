@@ -16378,6 +16378,9 @@ if JavaScript or web browser features are not available.  However,
 please be cautious when using this option, in case you do make your
 documentation harder to access for some of your users.
 
+@item IGNORE_REF_TO_TOP_NODE_UP
+Ignore references to @code{TOP_NODE_UP}, the up node for the Top node.
+
 @item INLINE_CSS_STYLE
 Put CSS directly in HTML elements rather than at the
 beginning of the output; default false.

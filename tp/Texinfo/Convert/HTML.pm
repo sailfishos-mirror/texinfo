@@ -3196,15 +3196,17 @@ sub _default_panel_button_dynamic_direction($$;$$$)
     $node = $self->from_element_direction($direction, 'node');
   }
 
-  my $anchor;
-  if (defined($href) and defined($node) and $node =~ /\S/) {
-    my $anchor_attributes = $omit_rel ? ''
+  my $hyperlink;
+  if (defined($href) and $href ne '' and defined($node) and $node =~ /\S/) {
+    my $hyperlink_attributes = $omit_rel ? ''
       : $self->_direction_href_attributes($direction);
-    $anchor = "<a href=\"$href\"${anchor_attributes}>$node</a>";
+    $hyperlink = "<a href=\"$href\"${hyperlink_attributes}>$node</a>";
+  } elsif (defined($node) and $node =~ /\S/) {
+    $hyperlink = $node;
   }
-  if (defined($anchor)) {
+  if (defined($hyperlink)) {
     # i18n
-    $result = $self->get_conf('BUTTONS_TEXT')->{$direction}.": $anchor";
+    $result = $self->get_conf('BUTTONS_TEXT')->{$direction}.": $hyperlink";
   }
   # 1 to communicate that a delimiter is needed for that button
   return ($result, 1);
@@ -8259,6 +8261,12 @@ sub _external_node_href($$$;$)
        {'contents' => $external_node->{'manual_content'}},
        { 'code' => 1,
          Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+    if ($self->get_conf('IGNORE_REF_TO_TOP_NODE_UP') and $xml_target eq '') {
+      my $top_node_up = $self->get_conf('TOP_NODE_UP');
+      if (defined($top_node_up) and "($manual_name)" eq $top_node_up) {
+        return '';
+      }
+    }
     my $manual_base = $manual_name;
     $manual_base =~ s/\.info*$//;
     $manual_base =~ s/^.*\///;
