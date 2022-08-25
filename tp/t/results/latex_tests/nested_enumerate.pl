@@ -663,16 +663,16 @@ $result_floats{'nested_enumerate'} = {};
 $result_converted{'latex'}->{'nested_enumerate'} = '
 \\begin{document}
 \\begin{enumerate}[start=1]
-\\item First level item
+   \\item First level item
    \\item First level item
 \\begin{enumerate}[start=1]
-\\item Second level item
+     \\item Second level item
      \\item Second level item
 \\begin{enumerate}[start=1]
-\\item Third level item
+       \\item Third level item
        \\item Third level item
 \\begin{enumerate}[start=1]
-\\item Fourth level item
+         \\item Fourth level item
          \\item Fourth level item
 \\end{enumerate}
 \\end{enumerate}

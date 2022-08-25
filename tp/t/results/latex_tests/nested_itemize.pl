@@ -693,16 +693,16 @@ $result_floats{'nested_itemize'} = {};
 
 $result_converted{'latex'}->{'nested_itemize'} = '\\begin{document}
 \\begin{itemize}
-\\item First level item
+   \\item First level item
    \\item First level item
 \\begin{itemize}
-\\item Second level item
+     \\item Second level item
      \\item Second level item
 \\begin{itemize}
-\\item Third level item
+       \\item Third level item
        \\item Third level item
 \\begin{itemize}
-\\item Fourth level item
+         \\item Fourth level item
          \\item Fourth level item
 \\end{itemize}
 \\end{itemize}

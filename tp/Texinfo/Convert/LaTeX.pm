@@ -28,12 +28,11 @@
 #\tableofcontents
 #}
 #
-# There is something about form feeds to do.  There is some processing of form
-# feeds right now, which simply amounts to keeping them in ignorable spaces
-# (and with another condition that may not be relevant for LaTeX as the code
-# comes from Plaintext). In the manual it is said form feed (CTRL-l) characters
+# There is more about form feeds to do: form feed (CTRL-l) characters
 # in the input are handled as follows: in PDF/DVI In normal text, treated as
 # ending any open paragraph; essentially ignored between paragraphs.
+# We can use \par everywhere (except maybe in @example?) as multiple \par
+# are the same as one, or as an empty line.
 #
 # LaTeX seems to always break at -, and never at _.  If @allowcodebreaks
 # is true \_ should be set to be a possible break point.  Seems that it
@@ -2030,14 +2029,6 @@ sub _tree_anchor_label {
   return "anchor:$label";
 }
 
-sub _get_form_feeds($)
-{
-  my $form_feeds = shift;
-  $form_feeds =~ s/^[^\f]*//;
-  $form_feeds =~ s/[^\f]$//;
-  return $form_feeds;
-}
-
 my %LaTeX_see_index_commands_text = (
   'seeentry' => 'see',
   'seealso' => 'seealso'
@@ -2226,10 +2217,9 @@ sub _convert($$)
 
   # in ignorable spaces, keep only form feeds.
   if ($type and $self->{'ignorable_space_types'}->{$type}
-      and ($type ne 'empty_spaces_before_paragraph'
-           or $self->get_conf('paragraphindent') ne 'asis')) {
+      and ($type ne 'empty_spaces_before_paragraph')) {
     if ($element->{'text'} =~ /\f/) {
-      $result = _get_form_feeds($element->{'text'});
+      $result = '\par{}';
     }
     return $result;
   }
