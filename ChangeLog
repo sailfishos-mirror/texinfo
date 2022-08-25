@@ -1,3 +1,8 @@
+2022-08-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Conventions): Move statement about form
+	feeds ending paragraph out of @ignore block.
+
 2022-08-25  Patrice Dumas  <pertusus@free.fr>
 
 	Replace form feeds in empty lines by \par{}
