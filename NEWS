@@ -85,6 +85,7 @@ See the manual for detailed information.
 
 * Language
   . new commands @latex, @iflatex, @ifnotlatex for new LaTeX output format
+  . do "@set txidefnamenospace" to omit space after a definition name
 
 * Other
   . build fixed for glibc 2.34

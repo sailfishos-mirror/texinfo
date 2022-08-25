@@ -444,6 +444,7 @@ Definition Commands
 * Def Cmd Template::            Writing descriptions using definition commands.
 * Def Cmd Continuation Lines::  Continuing the heading over source lines.
 * Optional Arguments::          Handling optional and repeated arguments.
+* No Space After Definition Name::  How to omit space after name.
 * @code{@@deffnx}::                     Group two or more `first' lines.
 * Def Cmds in Detail::          Reference for all the definition commands.
 * Def Cmd Conventions::         Conventions for writing definitions.
@@ -11177,6 +11178,7 @@ definition commands.
 * Def Cmd Template::            Writing descriptions using definition commands.
 * Def Cmd Continuation Lines::  Continuing the heading over source lines.
 * Optional Arguments::          Handling optional and repeated arguments.
+* No Space After Definition Name::  How to omit space after name.
 * @code{@@deffnx}::                     Group two or more `first' lines.
 * Def Cmds in Detail::          Reference for all the definition commands.
 * Def Cmd Conventions::         Conventions for writing definitions.
@@ -11362,6 +11364,31 @@ this:
 @example
 @@defspec foobar (var [from to [inc]]) body@@dots@{@}
 @end example
+
+
+@node No Space After Definition Name
+@section Omitting the Space After a Definition Name
+
+@vindex txidefnamenospace
+As a matter of style or as demanded by the syntax of a programming language,
+you may wish to omit any space after a name in a definition, occurring
+before an opening bracket.  To do this, set the @samp{txidefnamenospace}
+flag (@pxref{@@set @@value}).  For example, this input
+
+@example
+@@set txidefnamenospace
+@@deffn Builtin index (string, substring)
+@@dots@{@}
+@@end deffn
+@end example
+
+@noindent produces the following:
+
+@set txidefnamenospace
+@deffn Builtin index (string, substring)
+@dots{}
+@end deffn
+@clear txidefnamenospace
 
 
 @node @code{@@deffnx}

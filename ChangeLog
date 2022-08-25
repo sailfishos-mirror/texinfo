@@ -1,5 +1,10 @@
 2022-08-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (No Space After Definition Name),
+	* NEWS: Document @set txidefnamenospace.
+
+2022-08-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Conventions): Move statement about form
 	feeds ending paragraph out of @ignore block.
 
