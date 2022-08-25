@@ -351,4 +351,22 @@ After caption
 </float>
 ';
 
+
+$result_converted{'latex'}->{'caption_in_example'} = '\\begin{TexinfoFloatfloat}
+
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+in example 
+
+\\end{GNUTexinfopreformatted}
+\\caption{caption}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+
+
+After caption
+\\end{GNUTexinfopreformatted}
+\\end{TexinfoFloatfloat}
+';
+
 1;

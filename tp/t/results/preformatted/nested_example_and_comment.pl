@@ -736,4 +736,39 @@ $result_converted{'xml'}->{'nested_example_and_comment'} = '<example endspaces="
 </pre></example>
 ';
 
+
+$result_converted{'latex'}->{'nested_example_and_comment'} = '\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+First line 0 \\end{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+Nested example
+\\end{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+In first one
+\\end{GNUTexinfopreformatted}
+
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+First line 1 \\end{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+Nested example \\end{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+In first one
+\\end{GNUTexinfopreformatted}
+
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+First line 2 \\end{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+Nested example \\end{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+In first one \\end{GNUTexinfopreformatted}
+';
+
 1;

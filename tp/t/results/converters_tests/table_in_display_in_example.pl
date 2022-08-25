@@ -334,4 +334,15 @@ $result_converted{'docbook'}->{'table_in_display_in_example'} = '<variablelist><
 </term><listitem><literallayout>Line
 </literallayout></listitem></varlistentry></variablelist>';
 
+
+$result_converted{'latex'}->{'table_in_display_in_example'} = '\\begin{description}
+\\item[{\\parbox[b]{\\linewidth}{%
+item}}]
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax%
+Line
+\\end{GNUTexinfopreformatted}
+\\end{description}
+';
+
 1;

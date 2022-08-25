@@ -477,4 +477,18 @@ $result_converted{'xml'}->{'text_on_example_command_line'} = '<example spaces=" 
 </example>
 ';
 
+
+$result_converted{'latex'}->{'text_on_example_command_line'} = '
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+normal text
+\\end{GNUTexinfopreformatted}
+
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+in example
+\\end{GNUTexinfopreformatted}
+
+';
+
 1;

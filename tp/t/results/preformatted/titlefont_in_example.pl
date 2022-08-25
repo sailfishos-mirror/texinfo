@@ -165,4 +165,12 @@ Text.
 </pre></example>
 ';
 
+
+$result_converted{'latex'}->{'titlefont_in_example'} = '{\\huge \\bfseries Title}\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+
+Text.
+\\end{GNUTexinfopreformatted}
+';
+
 1;

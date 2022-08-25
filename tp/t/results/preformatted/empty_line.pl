@@ -151,4 +151,13 @@ after empty line
 </pre></example>
 ';
 
+
+$result_converted{'latex'}->{'empty_line'} = '\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+example
+
+after empty line
+\\end{GNUTexinfopreformatted}
+';
+
 1;

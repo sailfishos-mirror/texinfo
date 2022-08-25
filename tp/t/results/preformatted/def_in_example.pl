@@ -316,4 +316,22 @@ $result_converted{'xml'}->{'def_in_example'} = '<example endspaces=" ">
 </example>
 ';
 
+
+$result_converted{'latex'}->{'def_in_example'} = '
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{name \\EmbracOn{}\\textnormal{\\textsl{arg}}\\EmbracOff{}}& [Function]
+\\end{tabularx}
+
+\\index[fn]{name@\\texttt{name}}%
+\\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+in defun
+\\end{GNUTexinfopreformatted}
+\\end{quote}
+';
+
 1;

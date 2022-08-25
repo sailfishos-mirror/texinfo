@@ -147,4 +147,11 @@ $result_converted{'xml'}->{'insertcopying_in_example'} = '<example endspaces=" "
 </pre></example>
 ';
 
+
+$result_converted{'latex'}->{'insertcopying_in_example'} = '\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+text
+\\end{GNUTexinfopreformatted}
+';
+
 1;

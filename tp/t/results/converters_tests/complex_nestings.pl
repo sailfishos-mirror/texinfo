@@ -1771,4 +1771,95 @@ explanation
 </screen></chapter>
 ';
 
+
+$result_converted{'latex'}->{'complex_nestings'} = '\\label{anchor:Top}%
+\\chapter{{Chapter}}
+\\label{anchor:chap}%
+
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+deffs
+\\end{GNUTexinfopreformatted}
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{my def \\EmbracOn{}\\textnormal{\\textsl{args \\GNUTexinfocommandstyletextvar{arg} \\dots{}\\@}}\\EmbracOff{}}& [Function]
+\\end{tabularx}
+
+\\index[fn]{my def@\\texttt{my def}}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{other def \\EmbracOn{}\\textnormal{\\textsl{no args}}\\EmbracOff{}}& [Function]
+\\end{tabularx}
+
+\\index[fn]{other def@\\texttt{other def}}%
+\\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{name \\EmbracOn{}\\textnormal{\\textsl{and now the args}}\\EmbracOff{}}& [type]
+\\end{tabularx}
+
+\\index[fn]{name@\\texttt{name}}%
+\\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{variables \\EmbracOn{}\\textnormal{\\textsl{variable-name}}\\EmbracOff{}}& [Variable]
+\\end{tabularx}
+
+\\index[vr]{variables@\\texttt{variables}}%
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+
+\\end{GNUTexinfopreformatted}
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\noindent\\texttt{variables too \\EmbracOn{}\\textnormal{\\textsl{other-variable}}\\EmbracOff{}}& [Variable]
+\\end{tabularx}
+
+\\index[vr]{variables too@\\texttt{variables too}}%
+\\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+THis is the defvar
+
+A table within the def
+\\end{GNUTexinfopreformatted}
+\\begin{description}
+\\item[{\\parbox[b]{\\linewidth}{%
+item}}]
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+text
+
+more text
+\\end{GNUTexinfopreformatted}
+\\item[{\\parbox[b]{\\linewidth}{%
+second item}}]
+\\end{description}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+
+explanation
+\\end{GNUTexinfopreformatted}
+\\end{quote}
+\\end{quote}
+\\end{quote}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+
+\\end{GNUTexinfopreformatted}
+';
+
 1;

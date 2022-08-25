@@ -143,4 +143,13 @@ $result_converted{'xml'}->{'page_in_example'} = '<example endspaces=" ">
 </pre></example>
 ';
 
+
+$result_converted{'latex'}->{'page_in_example'} = '\\newpage{}%
+\\phantom{blabla}%
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+text
+\\end{GNUTexinfopreformatted}
+';
+
 1;

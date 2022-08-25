@@ -56,6 +56,9 @@
 # (example in customization_api.texi (Texinfo Tree Conversion Functions)
 # convert_tree_new_formatting_context)
 #
+# An empty line in @example is not kept as is.  Tested in t/20preformatted.t
+# empty_line.
+#
 #
 # RELEVANT BUT NOT DECISIVE
 #
@@ -159,7 +162,10 @@
 # https://lists.gnu.org/archive/html/bug-texinfo/2006-06/msg00030.html
 #
 # @indentedblock and @smallindentedblock should not have a wider right
-# margin.
+# margin.  The wider margin is because they are in quote environment.
+#
+# @def* body should not have a wider right margin.  The wider margin
+# is because they are in quote environment.
 #
 # it seems that \indent only works with \setlength{\parindent}{0pt}
 # which makes it quite different from Texinfo @indent.  Implement

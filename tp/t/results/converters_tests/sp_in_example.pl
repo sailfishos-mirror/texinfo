@@ -461,4 +461,26 @@ B
 sp after para
 </screen>';
 
+
+$result_converted{'latex'}->{'sp_in_example'} = '\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+Para
+\\vskip 1\\baselineskip %
+other para
+Now lone @sp:
+
+\\vskip 1\\baselineskip %
+
+\\vskip 2\\baselineskip %
+Para after sp
+
+A
+\\vskip 2\\baselineskip %
+B
+
+sp after para
+\\vskip 1\\baselineskip %
+\\end{GNUTexinfopreformatted}
+';
+
 1;

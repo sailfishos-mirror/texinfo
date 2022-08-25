@@ -481,7 +481,9 @@ Line
 @end table
 @end display
 @end example
-'],['table_in_example_in_display',
+'],
+# in LaTeX TODO. The second display should be more indented
+['table_in_example_in_display',
 '@display
 @example
 @table @asis
@@ -491,6 +493,8 @@ Line
 @end example
 @end display
 '],
+# In LaTeX TODO. This test shows that the @def* have a wider right margin
+# which increases with nesting, because they are in a quote environment.
 ['complex_nestings',
 '@node Top
 @top top
@@ -1136,50 +1140,6 @@ my %docbooc_doc_tests = (
  'line_breaks' => 1,
 );
 
-# this is temporary, all the files in @test_cases should go
-# through the LaTeX converter
-my %latex_tests = (
-  'accent_with_text' => 1,
-  'empty_accent' => 1,
-  'some_at_commands_in_ref_nodes' => 1,
-  'refs_formatting' => 1,
-  'top_in_ref' => 1,
-  'ref_error_formatting' => 1,
-  'ref_in_sectioning' => 1,
-  'unknown_value' => 1,
-  'test_sp' => 1,
-# need final implementation of @example
-# 'sp_in_example' => 1,
-  'line_breaks' => 1,
-  'test_deftypefnnewline' => 1,
-  'raw_block_commands' => 1,
-  'raw_block_commands_expand_tex' => 1,
-  'inline' => 1,
-  'inline_expand_tex' => 1,
-  'inlinefmtifelse' => 1,
-  'inlineifsetifclear' => 1,
-# need final implementation of @example
-# table_in_display_in_example
-# table_in_example_in_display
-# complex_nestings
-  'image_with_spaces' => 1,
-  'image_extension' => 1,
-  'image_formatting' => 1,
-  'enumerate_above_ten' => 1,
-  'footnote_no_number' => 1,
-  'frenchspacing_and_code'  => 1,
-  'footnote_no_number_separate' => 1,
-  'things_before_setfilename' => 1,
-  'things_before_setfilename_no_element' => 1,
-  'spaces_in_node_names' => 1,
-  'spaces_in_empty_node_names' => 1,
-# need final implementation of @example
-#  'normal_font_in_monospace' => 1,
-  'email_table_command_as_argument' => 1,
-  'at_commands_in_raw' => 1,
-  'non_empty_part' => 1,
-);
-
 my %file_latex_tests = (
   'printindex_merged_indices_code_style' => 1,
   'definition_commands' => 1,
@@ -1201,13 +1161,13 @@ foreach my $test (@test_cases) {
   } else {
     push @{$test->[2]->{'test_formats'}}, 'docbook';
   }
-  push @{$test->[2]->{'test_formats'}}, 'latex'
-    if ($latex_tests{$test->[0]});
   if ($file_latex_tests{$test->[0]}) {
     $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
     $test->[2]->{'full_document'} = 1
         unless (exists($test->[2]->{'full_document'}));
     push @{$test->[2]->{'test_formats'}}, 'file_latex';
+  } else {
+    push @{$test->[2]->{'test_formats'}}, 'latex';
   }
   push @{$test->[2]->{'test_formats'}}, 'info'
     if ($info_tests{$test->[0]});

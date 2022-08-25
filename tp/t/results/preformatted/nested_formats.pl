@@ -410,4 +410,20 @@ in -- example/format
 </example>
 ';
 
+
+$result_converted{'latex'}->{'nested_formats'} = '\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+
+in {-}{-} format/example
+
+\\end{GNUTexinfopreformatted}
+
+\\begin{GNUTexinfopreformatted}
+\\leftskip=0em\\relax%
+
+in -- example/format
+
+\\end{GNUTexinfopreformatted}
+';
+
 1;

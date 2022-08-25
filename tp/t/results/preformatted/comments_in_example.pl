@@ -482,4 +482,23 @@ second line
 </pre></example>
 ';
 
+
+$result_converted{'latex'}->{'comments_in_example'} = 'Example with comments 2 lines
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+line second line \\end{GNUTexinfopreformatted}
+
+Example with comments 1 line
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+line \\end{GNUTexinfopreformatted}
+
+Example with newline after comment
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+line 
+second line
+\\end{GNUTexinfopreformatted}
+';
+
 1;

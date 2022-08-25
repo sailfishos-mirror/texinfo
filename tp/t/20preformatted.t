@@ -147,6 +147,8 @@ in -- example/format
 @end format
 @end example
 '],
+# In LaTeX there is no end of line before the paragraph in the
+# 'comment, no blank after' case formatting.  Different from TeX output.
 ['comment_example_and_blank_lines',
 'Para.
 
@@ -201,6 +203,7 @@ foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'html_text';
   push @{$test->[2]->{'test_formats'}}, 'docbook';
   push @{$test->[2]->{'test_formats'}}, 'xml';
+  push @{$test->[2]->{'test_formats'}}, 'latex';
 }
 
 run_all('preformatted', [@test_cases, @test_invalid]);

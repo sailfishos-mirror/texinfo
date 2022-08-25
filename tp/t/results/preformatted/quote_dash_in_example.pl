@@ -151,4 +151,13 @@ $result_converted{'xml'}->{'quote_dash_in_example'} = '
 </pre></example>
 ';
 
+
+$result_converted{'latex'}->{'quote_dash_in_example'} = '
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+and now {-}{-} yes{-}{-}{-}now and {`}{`}so{\'}{\'}.
+
+\\end{GNUTexinfopreformatted}
+';
+
 1;

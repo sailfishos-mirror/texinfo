@@ -477,4 +477,18 @@ $result_converted{'xml'}->{'text_on_display_command_line'} = '<display spaces=" 
 </display>
 ';
 
+
+$result_converted{'latex'}->{'text_on_display_command_line'} = '
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax%
+normal text
+\\end{GNUTexinfopreformatted}
+
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax%
+in display
+\\end{GNUTexinfopreformatted}
+
+';
+
 1;
