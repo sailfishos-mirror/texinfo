@@ -1784,7 +1784,7 @@ deffs
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill
 \\hangindent=2em
-\\noindent\\texttt{my def \\EmbracOn{}\\textnormal{\\textsl{args \\GNUTexinfocommandstyletextvar{arg} \\dots{}\\@}}\\EmbracOff{}}& [Function]
+\\texttt{my def \\EmbracOn{}\\textnormal{\\textsl{args \\GNUTexinfocommandstyletextvar{arg} \\dots{}\\@}}\\EmbracOff{}}& [Function]
 \\end{tabularx}
 
 \\index[fn]{my def@\\texttt{my def}}%
@@ -1792,7 +1792,7 @@ deffs
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill
 \\hangindent=2em
-\\noindent\\texttt{other def \\EmbracOn{}\\textnormal{\\textsl{no args}}\\EmbracOff{}}& [Function]
+\\texttt{other def \\EmbracOn{}\\textnormal{\\textsl{no args}}\\EmbracOff{}}& [Function]
 \\end{tabularx}
 
 \\index[fn]{other def@\\texttt{other def}}%
@@ -1802,7 +1802,7 @@ deffs
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill
 \\hangindent=2em
-\\noindent\\texttt{name \\EmbracOn{}\\textnormal{\\textsl{and now the args}}\\EmbracOff{}}& [type]
+\\texttt{name \\EmbracOn{}\\textnormal{\\textsl{and now the args}}\\EmbracOff{}}& [type]
 \\end{tabularx}
 
 \\index[fn]{name@\\texttt{name}}%
@@ -1812,7 +1812,7 @@ deffs
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill
 \\hangindent=2em
-\\noindent\\texttt{variables \\EmbracOn{}\\textnormal{\\textsl{variable-name}}\\EmbracOff{}}& [Variable]
+\\texttt{variables \\EmbracOn{}\\textnormal{\\textsl{variable-name}}\\EmbracOff{}}& [Variable]
 \\end{tabularx}
 
 \\index[vr]{variables@\\texttt{variables}}%
@@ -1824,7 +1824,7 @@ deffs
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill
 \\hangindent=2em
-\\noindent\\texttt{variables too \\EmbracOn{}\\textnormal{\\textsl{other-variable}}\\EmbracOff{}}& [Variable]
+\\texttt{variables too \\EmbracOn{}\\textnormal{\\textsl{other-variable}}\\EmbracOff{}}& [Variable]
 \\end{tabularx}
 
 \\index[vr]{variables too@\\texttt{variables too}}%

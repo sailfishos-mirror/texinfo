@@ -1,5 +1,10 @@
 2022-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): remove unneeded \noindent
+	in tabularx cell.
+
+2022-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm: replace form feeds in ignorable
 	spaces by \par{}.
 

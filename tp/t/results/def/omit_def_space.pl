@@ -651,7 +651,7 @@ $result_converted{'latex'}->{'omit_def_space'} = '\\label{anchor:Top}%
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill
 \\hangindent=2em
-\\noindent\\texttt{function\\EmbracOn{}\\textnormal{\\textsl{(arg1, arg2)}}\\EmbracOff{}}& [Function]
+\\texttt{function\\EmbracOn{}\\textnormal{\\textsl{(arg1, arg2)}}\\EmbracOff{}}& [Function]
 \\end{tabularx}
 
 \\index[fn]{function@\\texttt{function}}%
@@ -659,7 +659,7 @@ $result_converted{'latex'}->{'omit_def_space'} = '\\label{anchor:Top}%
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill
 \\hangindent=2em
-\\noindent\\texttt{another\\EmbracOn{}\\textnormal{\\textsl{(aarg)}}\\EmbracOff{}}& [Function]
+\\texttt{another\\EmbracOn{}\\textnormal{\\textsl{(aarg)}}\\EmbracOff{}}& [Function]
 \\end{tabularx}
 
 \\index[fn]{another@\\texttt{another}}%

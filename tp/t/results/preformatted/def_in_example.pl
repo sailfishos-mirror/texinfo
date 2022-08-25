@@ -321,7 +321,7 @@ $result_converted{'latex'}->{'def_in_example'} = '
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill
 \\hangindent=2em
-\\noindent\\texttt{name \\EmbracOn{}\\textnormal{\\textsl{arg}}\\EmbracOff{}}& [Function]
+\\texttt{name \\EmbracOn{}\\textnormal{\\textsl{arg}}\\EmbracOff{}}& [Function]
 \\end{tabularx}
 
 \\index[fn]{name@\\texttt{name}}%

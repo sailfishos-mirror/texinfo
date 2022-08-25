@@ -3570,6 +3570,7 @@ sub _convert($$)
         my $def_line_result = '';
         # First column (X) is as wide as possible, second column (r) is for
         # category.  @{} removes space at left side of table.
+        # Without \noindent, a def* after a section beginning is indented
         $def_line_result .= "\\noindent\\begin{tabularx}{\\linewidth}{\@{}Xr}\n";
 
         # This stops the definition line overlapping the category in
@@ -3579,7 +3580,7 @@ sub _convert($$)
         # In case definition "line" doesn't fit on one line.
         $def_line_result .= "\\hangindent=2em\n";
 
-        $def_line_result .= '\noindent\texttt{';
+        $def_line_result .= '\texttt{';
 
         # no end of line in tabularx
         push @{$self->{'formatting_context'}->[-1]->{'no_eol'}}, 1;
