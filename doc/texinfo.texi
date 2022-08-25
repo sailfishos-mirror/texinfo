@@ -1402,7 +1402,7 @@ line or a line containing only spaces. A sequence of several spaces in
 text is usually treated the same as a single space (except in
 verbatim modes).
 
-Other ASCII whitespace (tab, form feed, carriage return) may be treated
+Other ASCII whitespace (tab, carriage return) may be treated
 the same as space characters, although the results may differ depending
 on output format.  Hence, there is not much point in using these
 in documents.  Non-ASCII spaces, such as Unicode ``em space'', are
@@ -1422,13 +1422,15 @@ spaces, or use the @code{unexpand} command from the shell.
 @item
 @cindex Form feed characters
 @cindex @kbd{CTRL-l}
-Lastly, form feed (@kbd{CTRL-l}) characters in the input are handled as
-follows:
+Lastly, form feed (@kbd{CTRL-l}) characters in normal text end
+any open paragraph.  Otherwise, they are handled as follows:
 
 @table @asis
 @item PDF/DVI
-In normal text, treated as ending any open paragraph; essentially
-ignored between paragraphs.
+Ignored between paragraphs.
+
+@item LaTeX
+Written as @code{\par@{@}}, a @LaTeX{} macro that starts a paragraph.
 
 @item Info
 Output as-is between paragraphs (their most common use); in other

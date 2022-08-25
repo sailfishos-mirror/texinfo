@@ -1,5 +1,15 @@
 2022-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	Replace form feeds in empty lines by \par{}
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): replace form feeds in
+	empty_line type by \par{}.
+
+	* doc/texinfo.texi (Conventions): form feeds end a paragraph in all
+	the output formats.  Add effect in LaTeX.
+
+2022-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_convert): remove unneeded \noindent
 	in tabularx cell.
 

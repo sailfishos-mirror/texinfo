@@ -143,6 +143,25 @@ my @test_cases = (
 ['empty_accent',
 '@`{}
 '],
+['form_feeds',
+'@node Top
+
+@node first'."\f".'node
+
+'."\f \f
+
+aa\fbb
+
+cc \f dd".'
+
+@code{end in code'."\f".'}
+
+@code{'."\f".'begin in code}
+
+@code{middle'."\f".' in code}
+
+@xref{first'."\f".'node}
+'],
 ['some_at_commands_in_ref_nodes',
 '
 @node Top

@@ -2231,7 +2231,10 @@ sub _convert($$)
   }
 
   if ($type and ($type eq 'empty_line')) {
-    return "\n";
+    if ($element->{'text'} =~ /\f/) {
+      $result = '\par{}';
+    }
+    return $result."\n";
   }
 
   # process text
