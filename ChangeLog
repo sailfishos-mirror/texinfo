@@ -1,5 +1,9 @@
 2022-08-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* NEWS: @set txicodevaristt.
+
+2022-08-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (No Space After Definition Name),
 	* NEWS: Document @set txidefnamenospace.
 
