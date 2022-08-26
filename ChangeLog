@@ -1,5 +1,9 @@
 2022-08-26  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Conventions): separate ignore block on form feeds
+
+2022-08-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (%ignorable_space_types): remove
 	'empty_spaces_before_paragraph'.
 	(_convert): replace form feeds by \par{} in empty_spaces_after_close_brace

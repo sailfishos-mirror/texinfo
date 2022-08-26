@@ -1423,6 +1423,8 @@ multiple spaces when you press the @key{TAB} key.  Also, you can run
 @code{untabify} in Emacs to convert tabs in a region to multiple
 spaces, or use the @code{unexpand} command from the shell.
 
+@end ignore
+@ignore @c too detailed for the manual, but kept for implementation tips
 @item
 Form feed characters outside of a paragraph are handled as follows:
 
@@ -1431,7 +1433,10 @@ Form feed characters outside of a paragraph are handled as follows:
 Ignored between paragraphs.
 
 @item LaTeX
-Written as @code{\par@{@}}, a @LaTeX{} macro that starts a paragraph.
+Ignored in contexts where spaces are ignored except after specific
+commands closing braces (@code{@@caption} for example).  Left as is
+in the output otherwise.
+@c Written as @code{\par@{@}}, a @LaTeX{} macro that starts a paragraph.
 
 @item Info
 Output as-is between paragraphs (their most common use); in other
@@ -11373,7 +11378,7 @@ this:
 As a matter of style or as demanded by the syntax of a programming language,
 you may wish to omit any space after a name in a definition, occurring
 before an opening bracket.  To do this, set the @samp{txidefnamenospace}
-flag (@pxref{@@set @@value}).  For example, this input
+flag (@pxref{@code{@@set @@value}}).  For example, this input
 
 @example
 @@set txidefnamenospace
