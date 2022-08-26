@@ -1,3 +1,8 @@
+2022-08-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (@var): Add a footnote discussing fonts in
+	TeX output and documenting @set txicodevaristt.
+
 2022-08-26  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (Conventions): separate ignore block on form feeds
