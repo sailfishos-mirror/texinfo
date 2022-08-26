@@ -79,8 +79,10 @@ See the manual for detailed information.
 * texinfo.tex
   . do not ignore @part page immediately following Top node
   . for @deftype* commands, use typewriter font in argument list
-  . use slanted, variable-width roman font for @var, indiscriminately.
-    do "@set txicodevaristt" to get slanted typewriter for @var in code.
+  . do "@set txicodevaristt" to get slanted typewriter for @var in code,
+    "@clear txicodevaristt" to use slanted, variable-width roman font for
+    @var everywhere.  flag is @set by default, but we plan to turn this
+    off in the future.
 
 * info
   . better support for index entries containing parentheses

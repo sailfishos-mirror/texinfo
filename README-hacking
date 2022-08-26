@@ -333,4 +333,10 @@ news item at savannah.
 #  ... post-release, or when development resumes:
 configure.ac, util/texi2dvi: add "dev" to versions for clarity,
 until it's time to do pretests again.
+
+after next release:
 rename old ChangeLog and start a new one
+check TODO file and do pending tasks
+delete these lines from README-hacking
+
+

@@ -45,6 +45,7 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - Support the MediaWiki output format.
 
 * TeX:
+  - turn off @set txicodevaristt after next release
   - Index above @item allows page break.
   - Table of contents is misaligned if there are 10 or more [sub]sections.
   - @float captions should be typeset in a smaller font?

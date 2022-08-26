@@ -1,3 +1,11 @@
+2022-08-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	@set txicodevaristt by default, for now
+
+	* doc/texinfo.tex: @set txicodevaristt by default
+	* NEWS, doc/texinfo.texi (@var): update
+	* README-hacking, TODO: note to turn this off after next release
+
 2022-08-26  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* NEWS: font change for @deftype*

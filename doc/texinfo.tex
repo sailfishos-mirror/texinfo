@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-08-22.20}
+\def\texinfoversion{2022-08-26.23}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -2816,6 +2816,9 @@ end
   }{{\sl #1}}%
   \smartitaliccorrection
 }
+
+% To be removed after next release
+\def\SETtxicodevaristt{}% @set txicodevaristt
 
 \let\i=\smartitalic
 \let\slanted=\smartslanted
