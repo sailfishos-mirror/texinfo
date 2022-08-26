@@ -73,17 +73,21 @@ See the manual for detailed information.
      . new customization variable ASCII_PUNCTUATION to use plain ASCII
        characters for quotation marks and a few other symbols
 
+* texi2any, texinfo.tex
+ . for @deftype* commands, use typewriter font in argument list
+
+* texinfo.tex
+  . do not ignore @part page immediately following Top node
+  . for @deftype* commands, use typewriter font in argument list
+  . use slanted, variable-width roman font for @var, indiscriminately.
+    do "@set txicodevaristt" to get slanted typewriter for @var in code.
+
 * info
   . better support for index entries containing parentheses
   . better support for getting bold text etc. when displaying manpages
   . bug fixed where the first index entry in a file could be ignored
   . M-C-f closes as well as opens footnotes window
   . do not crash if run in Brazillian Portuguese locale
-
-* texinfo.tex
-  . do not ignore @part page immediately following Top node
-  . use slanted, variable-width roman font for @var, indiscriminately.
-    do "@set txicodevaristt" to get slanted typewriter for @var in code.
 
 * Language
   . new commands @latex, @iflatex, @ifnotlatex for new LaTeX output format

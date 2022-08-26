@@ -1,5 +1,9 @@
 2022-08-26  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* NEWS: font change for @deftype*
+
+2022-08-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@var): Add a footnote discussing fonts in
 	TeX output and documenting @set txicodevaristt.
 
