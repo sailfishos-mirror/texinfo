@@ -2668,7 +2668,8 @@ sub _convert_email_command($$$$)
     $text = $text_arg->{'normal'};
   }
   $text = $mail_string unless ($text ne '');
-  return $text if ($mail eq '');
+  # match a non-space character, ascii and non-ascii spaces considered as spaces
+  return $text unless ($mail =~ /[^\v\h]/);
   if ($self->in_string()) {
     return "$mail_string ($text)";
   } else {

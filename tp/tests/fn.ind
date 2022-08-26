@@ -1,0 +1,137 @@
+\begin{theindex}
+
+  \item \texttt{{-}{-}foption}, \hyperpage{i}, \hyperpage{xiv}, 
+		\hyperpage{2}, \hyperpage{15}, \hyperpage{29}
+  \item \texttt{.}, \hyperpage{46}
+  \item \texttt{?}, \hyperpage{46}
+  \item \texttt{{`}{`}}, \hyperpage{i}, \hyperpage{xiv}, \hyperpage{2}, 
+		\hyperpage{15}, \hyperpage{29}
+
+  \indexspace
+
+  \item \texttt  {a}, \hyperpage{xi}, \hyperpage{xiii}, 
+		\hyperpage{xxiv}, \hyperpage{xxvi}, \hyperpage{12}, 
+		\hyperpage{14}, \hyperpage{25}, \hyperpage{27}, 
+		\hyperpage{42}, \hyperpage{45}
+  \item \texttt{a}, \hyperpage{vii}, \hyperpage{xx}, \hyperpage{8}, 
+		\hyperpage{21}, \hyperpage{37}, \hyperpage{46}
+  \item \texttt{after}, \hyperpage{xiv}, \hyperpage{xxvii}, 
+		\hyperpage{15}, \hyperpage{28}, \hyperpage{45}
+  \item \texttt{arg2}, \hyperpage{ix}, \hyperpage{xxii}, \hyperpage{10}, 
+		\hyperpage{23}, \hyperpage{40}
+
+  \indexspace
+
+  \item \texttt  {b}, \hyperpage{xi}, \hyperpage{xiii}, 
+		\hyperpage{xxiv}, \hyperpage{xxvi}, \hyperpage{12}, 
+		\hyperpage{14}, \hyperpage{25}, \hyperpage{27}, 
+		\hyperpage{42}, \hyperpage{45}
+  \item \texttt{bidule machin}, \hyperpage{vii}, \hyperpage{xx}, 
+		\hyperpage{8}, \hyperpage{21}, \hyperpage{37}
+
+  \indexspace
+
+  \item \texttt{d{-}{-}effn\_name}, \hyperpage{vi}, \hyperpage{xix}, 
+		\hyperpage{7}, \hyperpage{20}, \hyperpage{37}
+  \item \texttt{d{-}{-}efmac\_name}, \hyperpage{viii}, \hyperpage{xxi}, 
+		\hyperpage{9}, \hyperpage{22}, \hyperpage{39}
+  \item \texttt{d{-}{-}efmethod\_name\ on c{-}{-}lass}, \hyperpage{ix}, 
+		\hyperpage{xxii}, \hyperpage{10}, \hyperpage{23}, 
+		\hyperpage{39}
+  \item \texttt{d{-}{-}efop\_name\ on c{-}{-}lass}, \hyperpage{viii}, 
+		\hyperpage{xxi}, \hyperpage{9}, \hyperpage{22}, 
+		\hyperpage{38}
+  \item \texttt{d{-}{-}efspec\_name}, \hyperpage{viii}, \hyperpage{xxi}, 
+		\hyperpage{9}, \hyperpage{22}, \hyperpage{39}
+  \item \texttt{d{-}{-}eftypefn\_name}, \hyperpage{vii}, \hyperpage{xx}, 
+		\hyperpage{8}, \hyperpage{21}, \hyperpage{38}
+  \item \texttt{d{-}{-}eftypefn\_name2}, \hyperpage{ix}, 
+		\hyperpage{xxii}, \hyperpage{10}, \hyperpage{23}, 
+		\hyperpage{40}
+  \item \texttt{d{-}{-}eftypefun\_name}, \hyperpage{viii}, 
+		\hyperpage{xxi}, \hyperpage{9}, \hyperpage{22}, 
+		\hyperpage{39}
+  \item \texttt{d{-}{-}eftypemethod\_name\ on c{-}{-}lass}, 
+		\hyperpage{ix}, \hyperpage{xxii}, \hyperpage{10}, 
+		\hyperpage{23}, \hyperpage{39}
+  \item \texttt{d{-}{-}eftypeop\_name\ on c{-}{-}lass}, \hyperpage{vii}, 
+		\hyperpage{xx}, \hyperpage{8}, \hyperpage{21}, 
+		\hyperpage{38}
+  \item \texttt{d{-}{-}eftypeop\_name2\ on c{-}{-}lass2}, 
+		\hyperpage{ix}, \hyperpage{xxii}, \hyperpage{10}, 
+		\hyperpage{23}, \hyperpage{40}
+  \item \texttt{d{-}{-}efun\_name}, \hyperpage{viii}, \hyperpage{xxi}, 
+		\hyperpage{9}, \hyperpage{22}, \hyperpage{39}
+  \item \texttt{de{-}{-}ffn\_name}, \hyperpage{vi}, \hyperpage{xix}, 
+		\hyperpage{7}, \hyperpage{20}, \hyperpage{37}
+  \item \texttt{deffn}, \hyperpage{vii}, \hyperpage{xx}, \hyperpage{8}, 
+		\hyperpage{21}, \hyperpage{37}
+  \item \texttt{deffnx}, \hyperpage{vii}, \hyperpage{xx}, \hyperpage{8}, 
+		\hyperpage{21}, \hyperpage{37}
+
+  \indexspace
+
+  \item \texttt{f{-}{-}{-}aa}, \hyperpage{46}
+  \item \texttt{f{-}{-}{-}bb}
+    \subitem \texttt{f{-}{-}{-}cc}, \hyperpage{46}
+  \item \texttt{f{-}{-}{-}ddd}
+    \subitem \texttt{f{-}{-}{-}eee}
+      \subsubitem \texttt{ffff}, \hyperpage{46}
+  \item \texttt{f{-}{-}{-}aaa}, \hyperindexformat{\see{f---bbb}}{46}
+  \item \texttt{f{-}{-}{-}ddd}, 
+		\hyperindexformat{\seealso{f---ccc}}{46}
+  \item \texttt{followed}, \hyperpage{vii}, \hyperpage{xiii}, 
+		\hyperpage{xx}, \hyperpage{xxvi}, \hyperpage{8}, 
+		\hyperpage{14}, \hyperpage{21}, \hyperpage{27}, 
+		\hyperpage{37}, \hyperpage{45}
+
+  \indexspace
+
+  \item \texttt{\GNUTexinfocommandstyletextvar{i}}, \hyperpage{vii}, 
+		\hyperpage{xx}, \hyperpage{8}, \hyperpage{21}, 
+		\hyperpage{37}
+  \item \texttt{\textbf{id `\texttt{i}'\ ule}}, \hyperpage{vii}, 
+		\hyperpage{xx}, \hyperpage{8}, \hyperpage{21}, 
+		\hyperpage{37}
+  \item \texttt{\textbf{id ule}}, \hyperpage{vii}, \hyperpage{xx}, 
+		\hyperpage{8}, \hyperpage{21}, \hyperpage{37}
+  \item \texttt{\GNUTexinfocommandstyletextvar{invalid}}, 
+		\hyperpage{xiv}, \hyperpage{xxvii}, \hyperpage{15}, 
+		\hyperpage{28}, \hyperpage{45}
+
+  \indexspace
+
+  \item \texttt{log trap}, \hyperpage{vii}, \hyperpage{xx}, 
+		\hyperpage{8}, \hyperpage{21}, \hyperpage{37}
+  \item \texttt{log trap1}, \hyperpage{vii}, \hyperpage{xx}, 
+		\hyperpage{8}, \hyperpage{21}, \hyperpage{37}
+  \item \texttt{log trap2}, \hyperpage{vii}, \hyperpage{xx}, 
+		\hyperpage{8}, \hyperpage{21}, \hyperpage{37}
+
+  \indexspace
+
+  \item \texttt{machin}, \hyperpage{vii}, \hyperpage{xiii}, 
+		\hyperpage{xx}, \hyperpage{xxvi}, \hyperpage{8}, 
+		\hyperpage{14}, \hyperpage{21}, \hyperpage{27}, 
+		\hyperpage{37}, \hyperpage{45}
+
+  \indexspace
+
+  \item \texttt{n{-}{-}ame}, \hyperpage{vii}, \hyperpage{xx}, 
+		\hyperpage{8}, \hyperpage{21}, \hyperpage{37}
+  \item \texttt{name2}, \hyperpage{ix}, \hyperpage{xxii}, 
+		\hyperpage{10}, \hyperpage{23}, \hyperpage{40}
+
+  \indexspace
+
+  \item \texttt{T{-}{-}ruc}, \hyperpage{46}
+  \item \texttt{t{-}{-}ruc}, \hyperpage{46}
+  \item \texttt{truc}, \hyperpage{vii}, \hyperpage{xx}, \hyperpage{8}, 
+		\hyperpage{21}, \hyperpage{37}
+
+  \indexspace
+
+  \item \texttt{xxx}
+    \subitem \texttt{zzz}, \hyperpage{46}
+
+\end{theindex}

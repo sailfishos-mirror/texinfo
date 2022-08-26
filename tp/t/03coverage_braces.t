@@ -246,6 +246,15 @@ $two_footnotes_in_nodes_text,
 '@footnotestyle separate
 '.$two_footnotes_in_nodes_text,
 , {'test_formats' => ['html', 'info'], 'full_document' => 1} ],
+# could be in @test_invalid too, but also allows to test what happens
+# to formatting with empty first email first argument
+['empty_line_in_email',
+'@email{ 
+
+mail,
+
+text
+}'],
 ['form_feed_in_brace_commands',
 '@option{ aa} @anchor{aa}something @email{aaa,  fff}@footnote{ 
  f1 } @footnote{  ggjj}.
@@ -341,7 +350,7 @@ third}
 );
 
 my @latex_tests_cases_tests = ('abbr_acronym', 'uref_url',
-  'uref_with_commands_characters', 'nested', 'uref_in_ref');
+  'uref_with_commands_characters', 'nested', 'uref_in_ref', 'empty_line_in_email');
 
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';

@@ -679,6 +679,392 @@ $result_trees{'cpp_lines'} = {
           'type' => 'empty_line'
         },
         {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'a'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'in footnote'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'paragraph'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_context'
+                }
+              ],
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'extra' => {
+                'spaces_before_argument' => '
+'
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'g_f',
+                'line_nr' => 83,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'a'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'empty_line'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'in 2footnote'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'paragraph'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_context'
+                }
+              ],
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'extra' => {
+                'spaces_before_argument' => '
+'
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'footnote',
+                'line_nr' => 28,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'etext1'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' 
+'
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'etext2'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+',
+                    'spaces_before_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'email',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'footnote2',
+                'line_nr' => 40,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => ' no line directive mail space'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => ' no line directive text space'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+',
+                    'spaces_before_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'email',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'email2',
+                'line_nr' => 64,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => ' mail space'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' 
+'
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => ' text space'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+',
+                    'spaces_before_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'email',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'email2',
+                'line_nr' => 69,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'empty_line'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' 
+'
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'email',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'email12',
+                'line_nr' => 64,
+                'macro' => ''
+              }
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'etext3,
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'etext4
+'
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
           'parent' => {},
           'text' => '
 ',
@@ -858,11 +1244,67 @@ $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[32]{'contents'}[0]{'parent
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[32]{'contents'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[32];
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[32]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[33]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[34]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[34];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[34]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[34]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[34]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[34]{'contents'}[1]{'args'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[34]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[34]{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[34]{'contents'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[34];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[34]{'contents'}[2]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[34];
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[34]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
-$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[35]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[35]{'args'}[0];
-$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[35]{'args'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[35];
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[35]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36]{'contents'}[1]{'args'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36]{'contents'}[1]{'args'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36]{'contents'}[1]{'args'}[0]{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36]{'contents'}[1]{'args'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36]{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36]{'contents'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36]{'contents'}[2]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36];
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[36]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[37]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[38]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[39]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[39]{'contents'}[0]{'args'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[39]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[39]{'contents'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[39]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[39]{'contents'}[0]{'args'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[39]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[39]{'contents'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[39]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[39];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[39]{'contents'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[39];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[39]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[40]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[41]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[41]{'contents'}[0]{'args'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[41]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[41]{'contents'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[41]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[41]{'contents'}[0]{'args'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[41]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[41]{'contents'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[41]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[41];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[41]{'contents'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[41];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[41]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[42]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[43]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[43]{'contents'}[0]{'args'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[43]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[43]{'contents'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[43]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[43]{'contents'}[0]{'args'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[43]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[43]{'contents'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[43]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[43];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[43]{'contents'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[43];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[43]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[44]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[45]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[45]{'contents'}[0]{'args'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[45]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[45]{'contents'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[45]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[45];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[45]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[46]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[46];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[46]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[47]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[48]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[49]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[49];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[49]{'contents'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[49];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[49]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[50]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[51]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[52]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[53]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[54]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[54]{'args'}[0];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[54]{'args'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[54];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[54]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[55]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
 $result_trees{'cpp_lines'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'cpp_lines'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'cpp_lines'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'cpp_lines'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'cpp_lines'}{'contents'}[1]{'parent'} = $result_trees{'cpp_lines'};
@@ -919,6 +1361,39 @@ line before
 
 @email{after verb}
 
+a@footnote{
+in footnote}
+
+a@footnote{
+
+in 2footnote}
+
+
+@email{ 
+etext1,
+etext2
+}
+
+@email{
+ no line directive mail space,
+ no line directive text space
+}
+
+@email{ 
+ mail space,
+ text space
+}
+
+@email{ 
+
+}etext3,
+
+
+etext4
+
+
+
+
 
 @documentlanguage làng
 
@@ -964,6 +1439,26 @@ after inc.
 
 after verb
 
+a
+
+a
+
+
+etext2
+
+ no line directive text space
+
+ text space
+
+
+etext3,
+
+
+etext4
+
+
+
+
 
 
 ';
@@ -983,6 +1478,24 @@ $result_menus{'cpp_lines'} = {
 };
 
 $result_errors{'cpp_lines'} = [
+  {
+    'error_line' => '@email missing closing brace
+',
+    'file_name' => 'email12',
+    'line_nr' => 64,
+    'macro' => '',
+    'text' => '@email missing closing brace',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'misplaced }
+',
+    'file_name' => 'email4',
+    'line_nr' => 63,
+    'macro' => '',
+    'text' => 'misplaced }',
+    'type' => 'error'
+  },
   {
     'error_line' => "warning: l\x{e0}ng is not a valid language code
 ",

@@ -143,6 +143,7 @@ my @test_cases = (
 ['empty_accent',
 '@`{}
 '],
+# FIXME remove duplication from t/03coverage_braces.t form_feed_in_brace_commands
 ['form_feeds',
 '@node Top
 
@@ -161,6 +162,25 @@ cc \f dd".'
 @code{middle'."\f".' in code}
 
 @xref{first'."\f".'node}
+
+@example '."\f".'
+in example
+@end example
+
+@center '."\f".' around center '."\f".'
+@center in '."\f".'center
+
+@indicateurl{ '."\f".' in indicateurl}
+
+@deffn { '."\f".'truc } { machin }  { bidule }  { '."\f".' chose '."\f".'} {  arg'."\f".' }
+T
+@end deffn
+
+@float
+a float
+@caption{'."\f".' in cation '."\f".'} '."\f".' Toto
+@end float '."\f".'
+
 '],
 ['some_at_commands_in_ref_nodes',
 '
