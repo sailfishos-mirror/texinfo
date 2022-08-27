@@ -1410,9 +1410,10 @@ superfluous_arg:
       line = allocated_line;
     }
 
-  /* Cases that may "lead to command closing": brace commands that don't 
-     need a brace: accent commands.
-     @definfoenclose. */
+  /* Brace commands not followed immediately by a brace
+     opening.  In particular cases that may lead to "command closing"
+     or following character association with an @-command, for accent
+     commands */
   /* This condition is only checked immediately after the command opening, 
      otherwise the current element is in the 'args' and not right in the 
      command container. */
@@ -1434,112 +1435,68 @@ superfluous_arg:
           }
           current = current->parent;
         }
-      else if (command_flags(current) & CF_accent)
+      else if (strchr (whitespace_chars, *line)
+               && ((command_flags(current) & CF_accent)
+                   || conf.ignore_space_after_braced_command_name))
         {
-          if (strchr (whitespace_chars, *line))
-            {
-               char *p; char *s;
-               int whitespaces_len;
-               KEY_PAIR *k;
-               whitespaces_len = strspn (line, whitespace_chars);
-               p = line + whitespaces_len;
-               k = lookup_extra (current, "spaces");
-               if (!k)
+           char *p; char *s;
+           int whitespaces_len;
+           KEY_PAIR *k;
+           whitespaces_len = strspn (line, whitespace_chars);
+           p = line + whitespaces_len;
+           k = lookup_extra (current, "spaces");
+           if (!k)
+             {
+               xasprintf (&s, "%.*s", (int) (p - line), line);
+               add_extra_string (current, "spaces", s);
+             }
+           else
+             {
+               xasprintf (&s, "%s%.*s",
+                         (char *) k->value,
+                         (int) (p - line), p);
+               free (k->value);
+               k->value = (ELEMENT *) s;
+             }
+           for (int i = 0; i < whitespaces_len; i++)
+             {
+               if (*(line + i) == '\n')
                  {
-                   xasprintf (&s, "%.*s", (int) (p - line), line);
-                   add_extra_string (current, "spaces", s);
+                   line_warn ("command `@%s' must not be followed by new line",
+                              command_name(current->cmd));
+                   break;
                  }
-               else
-                 {
-                   xasprintf (&s, "%s%.*s",
-                             (char *) k->value,
-                             (int) (p - line), p);
-                   free (k->value);
-                   k->value = (ELEMENT *) s;
-                 }
-               for (int i = 0; i < whitespaces_len; i++)
-                 {
-                   if (*(line + i) == '\n')
-                     {
-                       line_warn ("command `@%s' must not be followed by new line",
-                                  command_name(current->cmd));
-                       break;
-                     }
-                 }
-               line = p;
-            }
-          else if (*line != '\0' && *line != '@')
-            {
-              ELEMENT *e, *e2;
-              debug ("ACCENT");
-              e = new_element (ET_following_arg);
-              add_to_element_args (current, e);
-              e2 = new_element (ET_NONE);
-              text_append_n (&e2->text, line, 1);
-              add_to_element_contents (e, e2);
+             }
+           line = p;
+        }
+    /* special case for accent commands, use following character except @
+     * as argument */
+      else if ((command_flags(current) & CF_accent)
+               && *line != '\0' && *line != '@')
+        {
+          ELEMENT *e, *e2;
+          debug ("ACCENT");
+          e = new_element (ET_following_arg);
+          add_to_element_args (current, e);
+          e2 = new_element (ET_NONE);
+          text_append_n (&e2->text, line, 1);
+          add_to_element_contents (e, e2);
 
-              if (current->cmd == CM_dotless
-                  && *line != 'i' && *line != 'j')
-                {
-                  line_error ("@dotless expects `i' or `j' as argument, "
-                              "not `%c'", *line);
-                }
-              while (current->contents.number > 0)
-                destroy_element (pop_element_from_contents (current));
-              line++;
-              current = current->parent;
-            }
-          else
+          if (current->cmd == CM_dotless
+              && *line != 'i' && *line != 'j')
             {
-              line_error ("@%s expected braces",
-                          command_name(current->cmd));
-              current = current->parent;
+              line_error ("@dotless expects `i' or `j' as argument, "
+                          "not `%c'", *line);
             }
-          goto funexit;
+          while (current->contents.number > 0)
+            destroy_element (pop_element_from_contents (current));
+          line++;
+          current = current->parent;
         }
       else
         {
-          if (conf.ignore_space_after_braced_command_name)
-            {
-              char *p;
-              int whitespaces_len;
-
-              whitespaces_len = strspn (line, whitespace_chars);
-              p = line + whitespaces_len;
-              if (p != line)
-                {
-                  char *s;
-                  KEY_PAIR *k;
-                  
-                  k = lookup_extra (current, "spaces");
-                  if (!k)
-                    {
-                      xasprintf (&s, "%.*s", (int) (p - line), line);
-                      add_extra_string (current, "spaces", s);
-                    }
-                  else
-                    {
-                      xasprintf (&s, "%s%.*s",
-                                (char *) k->value,
-                                (int) (p - line), p);
-                      free (k->value);
-                      k->value = (ELEMENT *) s;
-                    }
-                  for (int i = 0; i < whitespaces_len; i++)
-                    {
-                      if (*(line + i) == '\n')
-                        {
-                          line_warn ("command `@%s' must not be followed by new line",
-                                     command_name(current->cmd));
-                          break;
-                        }
-                    }
-                  line = p;
-                  goto funexit;
-                }
-            }
           line_error ("@%s expected braces",
-                       command_name(current->cmd));
+                      command_name(current->cmd));
           current = current->parent;
         }
     }

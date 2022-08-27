@@ -4202,10 +4202,10 @@ sub _parse_texi($$$)
           next;
         }
       }
-      # Now handle all the cases that may lead to command closing
-      # or following character association with an @-command, especially
-      # accent command, that is handle @-command with braces that don't
-      # always need a brace.
+      # Brace commands not followed immediately by a brace
+      # opening.  In particular cases that may lead to "command closing"
+      # or following character association with an @-command, for accent
+      # commands.
 
       # The condition below is only caught right after command opening,
       # otherwise we are in the 'args' and not right in the command container.
@@ -4225,59 +4225,42 @@ sub _parse_texi($$$)
             $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
           }
           $current = $current->{'parent'};
-        # now accent commands
-        } elsif ($accent_commands{$current->{'cmdname'}}) {
           # Note that non ascii spaces do not count as spaces
-          if ($line =~ s/^(\s+)//) {
-            my $added_space = $1;
-            $current->{'extra'}->{'spaces'} = ''
-              if (!defined($current->{'extra'}->{'spaces'}));
-            $current->{'extra'}->{'spaces'} .= $added_space;
-            if ($added_space =~ /\n/) {
-              $self->_line_warn(sprintf(
-                 __("command `\@%s' must not be followed by new line"),
-                 $current->{'cmdname'}), $source_info);
-            }
-          } elsif ($line =~ s/^([^@])//) {
-            print STDERR "ACCENT \@$current->{'cmdname'}\n"
-              if ($self->{'DEBUG'});
-            my $following_arg = {'type' => 'following_arg',
-                                 'parent' => $current};
-            $following_arg->{'contents'} = [{ 'text' => $1,
-                                             'parent' => $following_arg } ];
-            $current->{'args'} = [ $following_arg ];
-            if ($current->{'cmdname'} eq 'dotless' and $1 ne 'i' and $1 ne 'j') {
-              $self->_line_error(sprintf(
-                 __("%c%s expects `i' or `j' as argument, not `%s'"),
-                                         ord('@'), $current->{'cmdname'}, $1),
-                                 $source_info);
-            }
-            $current = $current->{'parent'};
-          } else {
-            $self->_line_error(sprintf(__("\@%s expected braces"),
-                               $current->{'cmdname'}), $source_info);
-            $current = $current->{'parent'};
+        } elsif ($line =~ s/^(\s+)//
+                 and ($accent_commands{$current->{'cmdname'}}
+                      or $self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'})) {
+          my $added_space = $1;
+          $current->{'extra'}->{'spaces'} = ''
+            if (!defined($current->{'extra'}->{'spaces'}));
+          $current->{'extra'}->{'spaces'} .= $added_space;
+          if ($added_space =~ /\n/) {
+            $self->_line_warn(sprintf(
+               __("command `\@%s' must not be followed by new line"),
+               $current->{'cmdname'}), $source_info);
           }
-          next;
+          # FIXME temporary hack to get the same output as XS parser
+          #$current->{'extra'}->{'spaces'} =~ s/\n\n/\n/;
+        # special case for accent commands, use following character except @
+        # as argument
+        } elsif ($accent_commands{$current->{'cmdname'}}
+                 and $line =~ s/^([^@])//) {
+          print STDERR "ACCENT \@$current->{'cmdname'}\n"
+            if ($self->{'DEBUG'});
+          my $following_arg = {'type' => 'following_arg',
+                               'parent' => $current};
+          $following_arg->{'contents'} = [{ 'text' => $1,
+                                           'parent' => $following_arg } ];
+          $current->{'args'} = [ $following_arg ];
+          if ($current->{'cmdname'} eq 'dotless' and $1 ne 'i' and $1 ne 'j') {
+            $self->_line_error(sprintf(
+               __("%c%s expects `i' or `j' as argument, not `%s'"),
+                                       ord('@'), $current->{'cmdname'}, $1),
+                               $source_info);
+          }
+          $current = $current->{'parent'};
         } else {
-          # ignore space after a braced @-command like TeX does
-          if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'}
-              and $line =~ s/^(\s+)//) {
-            my $added_space = $1;
-            $current->{'extra'}->{'spaces'} = ''
-              if (!defined($current->{'extra'}->{'spaces'}));
-            $current->{'extra'}->{'spaces'} .= $added_space;
-            if ($added_space =~ /\n/) {
-              $self->_line_warn(sprintf(
-                 __("command `\@%s' must not be followed by new line"),
-                 $current->{'cmdname'}), $source_info);
-              # FIXME temporary hack to get the same output as XS parser
-              #$current->{'extra'}->{'spaces'} =~ s/\n\n/\n/;
-            }
-            next;
-          }
           $self->_line_error(sprintf(__("\@%s expected braces"),
-                           $current->{'cmdname'}), $source_info);
+                             $current->{'cmdname'}), $source_info);
           $current = $current->{'parent'};
         }
       # maybe a menu entry beginning: a * at the beginning of a menu line
