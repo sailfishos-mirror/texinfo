@@ -1454,7 +1454,7 @@ superfluous_arg:
              {
                xasprintf (&s, "%s%.*s",
                          (char *) k->value,
-                         (int) (p - line), p);
+                         (int) (p - line), line);
                free (k->value);
                k->value = (ELEMENT *) s;
              }

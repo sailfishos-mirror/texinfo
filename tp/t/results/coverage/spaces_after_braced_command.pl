@@ -108,6 +108,7 @@ $result_trees{'spaces_after_braced_command'} = {
               'contents' => [],
               'extra' => {
                 'spaces' => '
+
 '
               },
               'parent' => {},
@@ -157,6 +158,7 @@ $result_texis{'spaces_after_braced_command'} = '@code {b}
 {v}
 
 @TeX
+
 {}
 ';
 

@@ -4216,7 +4216,8 @@ sub _parse_texi($$$)
           if $self->{'DEBUG'};
         # special case for @-command as argument of @itemize or @*table.
         if (_command_with_command_as_argument($current->{'parent'})) {
-          print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'cmdname'} command_as_argument $current->{'cmdname'}\n" if ($self->{'DEBUG'});
+          print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'cmdname'} ".
+                 "command_as_argument $current->{'cmdname'}\n" if ($self->{'DEBUG'});
           $current->{'type'} = 'command_as_argument' if (!$current->{'type'});
           $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
             = $current;
@@ -4225,11 +4226,13 @@ sub _parse_texi($$$)
             $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
           }
           $current = $current->{'parent'};
-          # Note that non ascii spaces do not count as spaces
+        # Note that non ascii spaces do not count as spaces
         } elsif ($line =~ s/^(\s+)//
                  and ($accent_commands{$current->{'cmdname'}}
                       or $self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'})) {
           my $added_space = $1;
+          print STDERR "BRACE spaces ignored '$added_space'\n"
+            if $self->{'DEBUG'};
           $current->{'extra'}->{'spaces'} = ''
             if (!defined($current->{'extra'}->{'spaces'}));
           $current->{'extra'}->{'spaces'} .= $added_space;
@@ -4238,8 +4241,6 @@ sub _parse_texi($$$)
                __("command `\@%s' must not be followed by new line"),
                $current->{'cmdname'}), $source_info);
           }
-          # FIXME temporary hack to get the same output as XS parser
-          #$current->{'extra'}->{'spaces'} =~ s/\n\n/\n/;
         # special case for accent commands, use following character except @
         # as argument
         } elsif ($accent_commands{$current->{'cmdname'}}
@@ -4331,6 +4332,7 @@ sub _parse_texi($$$)
       } elsif ($current->{'args'} and @{$current->{'args'}}
                and $current->{'args'}->[-1]->{'type'}
                and $current->{'args'}->[-1]->{'type'} eq 'menu_entry_separator') {
+        print STDERR "AFTER menu_entry_separator\n" if ($self->{'DEBUG'});
         my $separator = $current->{'args'}->[-1]->{'text'};
         # separator is ::, we concatenate and let the while restart
         # in order to collect spaces below
