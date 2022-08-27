@@ -1479,7 +1479,7 @@ superfluous_arg:
                  {
                    p = line + whitespaces_len;
                    xasprintf (&s, "%s%.*s",
-                             *previous_value,
+                              previous_value,
                              (int) (p - line), line);
                    free (k->value);
                    k->value = (ELEMENT *) s;

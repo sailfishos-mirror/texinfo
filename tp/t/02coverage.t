@@ -19,6 +19,27 @@ my @test_cases = (
 '],
 ['lettered_accent_and_spaces',
 '@ringaccent    a
+
+@ringaccent
+{a}
+
+@ringaccent
+a
+
+@ringaccent
+  a
+
+@^ a
+
+@^
+a
+
+@^
+ a
+
+@^ {a
+}
+
 '],
 ['accent_and_dash',
 '@^{a--}'],
@@ -665,6 +686,13 @@ cut by blank line}
 
 @samp
 {v}
+
+@AA
+ {}
+
+@email
+{a, b 
+ }
 
 @TeX
 

@@ -97,6 +97,102 @@ $result_trees{'spaces_after_braced_command'} = {
         {
           'contents' => [
             {
+              'args' => [
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'AA',
+              'contents' => [],
+              'extra' => {
+                'spaces' => '
+ '
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'a'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'b 
+'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => ' ',
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'email',
+              'contents' => [],
+              'extra' => {
+                'spaces' => '
+'
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 9,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
               'cmdname' => 'TeX',
               'contents' => [],
               'extra' => {
@@ -106,7 +202,7 @@ $result_trees{'spaces_after_braced_command'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
+                'line_nr' => 13,
                 'macro' => ''
               }
             },
@@ -143,16 +239,36 @@ $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2]{'cont
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'contents'}[0];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4];
-$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[6]{'contents'}[0];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[1];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[6]{'contents'}[0];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[6];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[6];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[8];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[8];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[8];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'};
 
 $result_texis{'spaces_after_braced_command'} = '@code {b}
 
 @samp
 {v}
+
+@AA
+ {}
+
+@email
+{a, b 
+ }
 
 @TeX
 
@@ -163,6 +279,11 @@ $result_texis{'spaces_after_braced_command'} = '@code {b}
 $result_texts{'spaces_after_braced_command'} = 'b
 
 v
+
+AA
+
+b 
+
 
 TeX
 
@@ -179,10 +300,28 @@ $result_errors{'spaces_after_braced_command'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: command `@TeX\' must not be followed by new line
+    'error_line' => 'warning: command `@AA\' must not be followed by new line
 ',
     'file_name' => '',
     'line_nr' => 6,
+    'macro' => '',
+    'text' => 'command `@AA\' must not be followed by new line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: command `@email\' must not be followed by new line
+',
+    'file_name' => '',
+    'line_nr' => 9,
+    'macro' => '',
+    'text' => 'command `@email\' must not be followed by new line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: command `@TeX\' must not be followed by new line
+',
+    'file_name' => '',
+    'line_nr' => 13,
     'macro' => '',
     'text' => 'command `@TeX\' must not be followed by new line',
     'type' => 'warning'
@@ -191,7 +330,7 @@ $result_errors{'spaces_after_braced_command'} = [
     'error_line' => 'warning: command `@TeX\' must not be followed by new line
 ',
     'file_name' => '',
-    'line_nr' => 7,
+    'line_nr' => 14,
     'macro' => '',
     'text' => 'command `@TeX\' must not be followed by new line',
     'type' => 'warning'
@@ -200,7 +339,7 @@ $result_errors{'spaces_after_braced_command'} = [
     'error_line' => '@TeX expected braces
 ',
     'file_name' => '',
-    'line_nr' => 7,
+    'line_nr' => 14,
     'macro' => '',
     'text' => '@TeX expected braces',
     'type' => 'error'
@@ -209,7 +348,7 @@ $result_errors{'spaces_after_braced_command'} = [
     'error_line' => 'misplaced {
 ',
     'file_name' => '',
-    'line_nr' => 8,
+    'line_nr' => 15,
     'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
@@ -218,7 +357,7 @@ $result_errors{'spaces_after_braced_command'} = [
     'error_line' => 'misplaced }
 ',
     'file_name' => '',
-    'line_nr' => 8,
+    'line_nr' => 15,
     'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
