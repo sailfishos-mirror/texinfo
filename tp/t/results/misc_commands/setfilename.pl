@@ -302,6 +302,11 @@ $result_converted{'html_text'}->{'setfilename'} = '
 ';
 
 
+$result_converted{'latex'}->{'setfilename'} = '
+\\begin{document}
+';
+
+
 $result_converted{'docbook'}->{'setfilename'} = '
 ';
 

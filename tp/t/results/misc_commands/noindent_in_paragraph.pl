@@ -142,4 +142,12 @@ after noindent.
 after noindent2.
 </p>';
 
+
+$result_converted{'latex'}->{'noindent_in_paragraph'} = 'Begin para
+\\noindent{}after noindent.
+
+Begin para2
+\\noindent{}after noindent2.
+';
+
 1;

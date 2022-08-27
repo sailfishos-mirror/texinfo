@@ -448,6 +448,7 @@ In text @thispage @thischapternum text.
 
 In code @code{@thissection}.
 '],
+# got LaTeX formatting errors when in @example
 ['heading_command_in_commands',
 '
 @code{
@@ -577,6 +578,7 @@ my %latex_tests = (
 foreach my $test (@converted_test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
+  push @{$test->[2]->{'test_formats'}}, 'latex';
   if ($docbook_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'docbook';
   } elsif ($docbooc_doc_tests{$test->[0]}) {
@@ -588,9 +590,6 @@ foreach my $test (@converted_test_cases) {
   } 
   if ($xml_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'xml';
-  }
-  if ($latex_tests{$test->[0]}) {
-    push @{$test->[2]->{'test_formats'}}, 'latex';
   }
 }
 

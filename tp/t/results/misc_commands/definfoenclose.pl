@@ -462,20 +462,6 @@ $result_converted{'html_text'}->{'definfoenclose'} = '
 </p>';
 
 
-$result_converted{'docbook'}->{'definfoenclose'} = '
-<para>definfoenclose phoo,//,\\  </para>
-<para>bar
-</para>
-<para>definfoenclose phi,:,:  </para>
-<para>bar
-</para>
-<para><emphasis role="bold">very strong</emphasis>
-</para>
-
-<para> is it really strong? 
-</para>';
-
-
 $result_converted{'latex'}->{'definfoenclose'} = '
 definfoenclose phoo,//,\\textbackslash{}  
 bar
@@ -488,5 +474,19 @@ bar
 
 \\textbf{ is it really strong? }
 ';
+
+
+$result_converted{'docbook'}->{'definfoenclose'} = '
+<para>definfoenclose phoo,//,\\  </para>
+<para>bar
+</para>
+<para>definfoenclose phi,:,:  </para>
+<para>bar
+</para>
+<para><emphasis role="bold">very strong</emphasis>
+</para>
+
+<para> is it really strong? 
+</para>';
 
 1;

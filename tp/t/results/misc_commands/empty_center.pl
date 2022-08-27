@@ -73,6 +73,9 @@ $result_converted{'plaintext'}->{'empty_center'} = '';
 $result_converted{'html_text'}->{'empty_center'} = '';
 
 
+$result_converted{'latex'}->{'empty_center'} = '';
+
+
 $result_converted{'docbook'}->{'empty_center'} = '<simpara role="center"></simpara>
 ';
 

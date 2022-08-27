@@ -357,6 +357,23 @@ shows an important feature of the centered text.
 ';
 
 
+$result_converted{'latex'}->{'footnote_in_center'} = '\\begin{center}
+Centered text with a footnote\\footnote{This footnote
+shows an important feature of the centered text.
+
+\\begin{description}
+\\item[{\\parbox[b]{\\linewidth}{%
+item}}]
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+line
+\\end{GNUTexinfopreformatted}
+\\end{description}
+} and text after the footnote.
+\\end{center}
+';
+
+
 $result_converted{'docbook'}->{'footnote_in_center'} = '<simpara role="center">Centered text with a footnote<footnote><para>This footnote
 shows an important feature of the centered text.
 </para>

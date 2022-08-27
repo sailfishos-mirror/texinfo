@@ -352,4 +352,32 @@ $result_converted{'html_text'}->{'heading_command_in_commands'} = '
 </blockquote>
 ';
 
+
+$result_converted{'latex'}->{'heading_command_in_commands'} = '
+\\texttt{
+\\newpagestyle{custom}{%
+\\sethead[in code][][]%
+{in code}{}{}%
+}%
+\\pagestyle{custom}%
+}
+
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+\\renewpagestyle{custom}{%
+\\sethead[in example][][]%
+{in example}{}{}%
+}%
+\\pagestyle{custom}%
+\\end{GNUTexinfopreformatted}
+
+\\begin{quote}
+\\renewpagestyle{custom}{%
+\\sethead[in quotation][][]%
+{in quotation}{}{}%
+}%
+\\pagestyle{custom}%
+\\end{quote}
+';
+
 1;

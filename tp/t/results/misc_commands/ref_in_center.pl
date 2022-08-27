@@ -531,6 +531,23 @@ $result_converted{'html_text'}->{'ref_in_center'} = '<div class="top-level-exten
 ';
 
 
+$result_converted{'latex'}->{'ref_in_center'} = '\\begin{document}
+\\label{anchor:Top}%
+\\chapter{{Chapter}}
+\\label{anchor:chap}%
+
+\\begin{center}
+\\hyperref[anchor:Top]{\\chaptername~\\ref*{anchor:Top} [Top], page~\\pageref*{anchor:Top}}
+\\end{center}
+
+\\begin{center}
+title
+
+\\end{center}
+very long
+';
+
+
 $result_converted{'docbook'}->{'ref_in_center'} = '<chapter label="1" id="chap">
 <title>Chapter</title>
 

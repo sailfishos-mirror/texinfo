@@ -248,6 +248,13 @@ $result_converted{'html_text'}->{'no_empty_line_between_headings'} = '<div class
 ';
 
 
+$result_converted{'latex'}->{'no_empty_line_between_headings'} = '\\part*{{Top}}
+\\GNUTexinfonopagebreakheading{\\subsection*}{{Subheading}}
+\\chapter{{Chapter}}
+\\section{{Section}}
+';
+
+
 $result_converted{'docbook'}->{'no_empty_line_between_headings'} = '<chapter label="">
 <title>Top</title>
 <bridgehead renderas="sect2">Subheading</bridgehead>

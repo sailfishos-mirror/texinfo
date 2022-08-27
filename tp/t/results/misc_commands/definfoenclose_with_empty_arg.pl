@@ -161,6 +161,13 @@ $result_converted{'html_text'}->{'definfoenclose_with_empty_arg'} = '
 ';
 
 
+$result_converted{'latex'}->{'definfoenclose_with_empty_arg'} = '
+
+My something.
+
+';
+
+
 $result_converted{'xml'}->{'definfoenclose_with_empty_arg'} = '
 <definfoenclose command="headword" open="" close=":" line="headword, , :"></definfoenclose>
 

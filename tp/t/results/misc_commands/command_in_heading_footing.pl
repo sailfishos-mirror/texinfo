@@ -216,6 +216,18 @@ $result_converted{'html_text'}->{'command_in_heading_footing'} = '
 </p>';
 
 
+$result_converted{'latex'}->{'command_in_heading_footing'} = '\\newpagestyle{custom}{%
+\\sethead[something \\thepage{} \\thechapter{}][][]%
+{something \\thepage{} \\thechapter{}}{}{}%
+}%
+\\pagestyle{custom}%
+
+In text \\thepage{} \\thechapter{} text.
+
+In code \\texttt{Section \\thesection{} \\sectiontitle{}}.
+';
+
+
 $result_converted{'docbook'}->{'command_in_heading_footing'} = '
 <para>In text   text.
 </para>

@@ -119,4 +119,8 @@ $result_converted{'plaintext'}->{'incorrect_allowcodebreaks_argument'} = '‘b a
 $result_converted{'html_text'}->{'incorrect_allowcodebreaks_argument'} = '<p><code class="code">b a</code>
 </p>';
 
+
+$result_converted{'latex'}->{'incorrect_allowcodebreaks_argument'} = '\\texttt{b a}
+';
+
 1;

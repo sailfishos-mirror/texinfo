@@ -2788,4 +2788,9 @@ anc-hor<a class="anchor" id="A-node2"></a></samp>&rsquo;
 </pre></div>
 ';
 
+
+$result_converted{'latex'}->{'test_allowcodebreaks'} = '\\begin{document}
+\\label{anchor:Top}%
+';
+
 1;

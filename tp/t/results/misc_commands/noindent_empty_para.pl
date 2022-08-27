@@ -94,4 +94,9 @@ $result_converted{'html_text'}->{'noindent_empty_para'} = '
 <p>aaa
 </p>';
 
+
+$result_converted{'latex'}->{'noindent_empty_para'} = '\\noindent{}
+aaa
+';
+
 1;

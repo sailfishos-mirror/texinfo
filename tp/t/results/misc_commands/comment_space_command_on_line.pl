@@ -1059,6 +1059,28 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 ';
 
 
+$result_converted{'latex'}->{'comment_space_command_on_line'} = '
+\\label{anchor:Top}%
+\\chapter{{Chapter\\ {}}}
+\\label{anchor:chap}%
+
+\\frenchspacing
+
+\\index[cp]{index entry \\ {}}%
+
+\\GNUTexinfonopagebreakheading{\\section*}{{Heading \\ {}}}
+
+\\printindex[cp]
+
+\\begin{TexinfoFloatText}
+float
+\\label{anchor:label}%
+\\end{TexinfoFloatText}
+
+
+';
+
+
 $result_converted{'docbook_doc'}->{'comment_space_command_on_line'} = '<?xml version="1.0"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY tex "TeX">
