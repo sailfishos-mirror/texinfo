@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-08-26.23}
+\def\texinfoversion{2022-08-27.12}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -3459,8 +3459,13 @@ $$%
        % Revert to plain's \scriptsize, which is 7pt.
        \count255=\the\fam $\fam\count255 \scriptstyle A$%
      \else
-       % For 11pt, we can use our lllsize.
-       \switchtolllsize A%
+       \ifx\curfontsize\smallword
+         % For footnotes and indices
+         \count255=\the\fam $\fam\count255 \scriptstyle A$%
+       \else
+         % For 11pt, we can use our lllsize.
+         \switchtolllsize A%
+       \fi
      \fi
      }%
      \vss
@@ -3468,6 +3473,7 @@ $$%
   \kern-.15em
   \TeX
 }
+\def\smallword{small}
 
 % Some math mode symbols.  Define \ensuremath to switch into math mode
 % unless we are already there.  Expansion tricks may not be needed here,

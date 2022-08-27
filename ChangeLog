@@ -1,5 +1,10 @@
 2022-08-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\LaTeX): Smaller font for letter A in footnotes
+	and indices.
+
+2022-08-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@set txicodevaristt by default, for now
 
 	* doc/texinfo.tex: @set txicodevaristt by default
