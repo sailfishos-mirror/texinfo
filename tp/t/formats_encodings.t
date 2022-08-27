@@ -390,6 +390,8 @@ my %xml_file_tests = (
  'char_latin1_latin1_in_refs' => 1,
 );
 
+my %latex_tests = ();
+
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   if ($html_tests{$test->[0]}) {
