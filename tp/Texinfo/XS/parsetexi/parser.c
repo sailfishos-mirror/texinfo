@@ -1468,13 +1468,7 @@ superfluous_arg:
                  }
                line = p;
             }
-          else if (*line == '@')
-            {
-              line_error ("use braces to give a command as an argument "
-                          "to @%s", command_name(current->cmd));
-              current = current->parent;
-            }
-          else if (*line != '\0' && *line != '\n' && *line != '\r')
+          else if (*line != '\0' && *line != '@')
             {
               ELEMENT *e, *e2;
               debug ("ACCENT");
@@ -1493,6 +1487,12 @@ superfluous_arg:
               while (current->contents.number > 0)
                 destroy_element (pop_element_from_contents (current));
               line++;
+              current = current->parent;
+            }
+          else
+            {
+              line_error ("@%s expected braces",
+                          command_name(current->cmd));
               current = current->parent;
             }
           goto funexit;

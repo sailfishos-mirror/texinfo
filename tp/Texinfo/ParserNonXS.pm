@@ -4238,12 +4238,7 @@ sub _parse_texi($$$)
                  __("command `\@%s' must not be followed by new line"),
                  $current->{'cmdname'}), $source_info);
             }
-          } elsif ($line =~ /^\@/) {
-            $self->_line_error(sprintf(
-              __("use braces to give a command as an argument to \@%s"),
-                $current->{'cmdname'}), $source_info);
-            $current = $current->{'parent'};
-          } elsif ($line =~ s/^(.)//) {
+          } elsif ($line =~ s/^([^@])//) {
             print STDERR "ACCENT \@$current->{'cmdname'}\n"
               if ($self->{'DEBUG'});
             my $following_arg = {'type' => 'following_arg',
@@ -4257,6 +4252,10 @@ sub _parse_texi($$$)
                                          ord('@'), $current->{'cmdname'}, $1),
                                  $source_info);
             }
+            $current = $current->{'parent'};
+          } else {
+            $self->_line_error(sprintf(__("\@%s expected braces"),
+                               $current->{'cmdname'}), $source_info);
             $current = $current->{'parent'};
           }
           next;

@@ -290,12 +290,12 @@ $result_errors{'accents_errors'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'use braces to give a command as an argument to @ringaccent
+    'error_line' => '@ringaccent expected braces
 ',
     'file_name' => '',
     'line_nr' => 3,
     'macro' => '',
-    'text' => 'use braces to give a command as an argument to @ringaccent',
+    'text' => '@ringaccent expected braces',
     'type' => 'error'
   },
   {
@@ -308,12 +308,12 @@ $result_errors{'accents_errors'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'use braces to give a command as an argument to @~
+    'error_line' => '@~ expected braces
 ',
     'file_name' => '',
     'line_nr' => 7,
     'macro' => '',
-    'text' => 'use braces to give a command as an argument to @~',
+    'text' => '@~ expected braces',
     'type' => 'error'
   }
 ];

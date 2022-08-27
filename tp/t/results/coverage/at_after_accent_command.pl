@@ -80,21 +80,21 @@ $result_texts{'at_after_accent_command'} = '*@. ^@.
 
 $result_errors{'at_after_accent_command'} = [
   {
-    'error_line' => 'use braces to give a command as an argument to @ringaccent
+    'error_line' => '@ringaccent expected braces
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => 'use braces to give a command as an argument to @ringaccent',
+    'text' => '@ringaccent expected braces',
     'type' => 'error'
   },
   {
-    'error_line' => 'use braces to give a command as an argument to @^
+    'error_line' => '@^ expected braces
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => 'use braces to give a command as an argument to @^',
+    'text' => '@^ expected braces',
     'type' => 'error'
   }
 ];
