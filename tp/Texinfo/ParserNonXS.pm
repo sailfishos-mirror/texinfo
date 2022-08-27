@@ -1829,7 +1829,7 @@ sub _close_current($$$;$$)
           and $current->{'contents'}->[0]->{'type'}
                 eq 'empty_spaces_before_argument') {
         # remove spaces element from tree and update extra values
-        _abort_empty_line($self, $current)
+        _abort_empty_line($self, $current);
       }
 
     } elsif ($current->{'type'} eq 'menu_comment'
@@ -2306,7 +2306,6 @@ sub _abort_empty_line {
     # remove empty 'empty*before'.
     if ($spaces_element->{'text'} eq '') {
       pop @{$current->{'contents'}};
-
     } elsif ($spaces_element->{'type'} eq 'empty_line') {
       # exactly the same condition as to begin a paragraph
       if ((!$current->{'type'} or $type_with_paragraph{$current->{'type'}})
@@ -2490,6 +2489,9 @@ sub _parse_def($$$)
   if ($contents[0] and $contents[0]->{'type'}
         and ($contents[0]->{'type'} eq 'empty_spaces_after_command'
           or $contents[0]->{'type'} eq 'empty_line_after_command')) {
+    # FIXME this only happens if there is no argument at all, otherwise the
+    # types should already be put in extra by _abort_empty_line.  Would
+    # probably be better to call _abort_empty_line before.
     $empty_spaces_after_command = shift @contents;
   }
 
@@ -3752,6 +3754,7 @@ sub _is_index_element {
 sub _parse_texi_regex {
   my ($line) = @_;
 
+  # REMACRO
   my ($at_command, $open_brace, $asterisk, $single_letter_command,
       $separator_match, $misc_text)
     = ($line =~ /^\@([[:alnum:]][[:alnum:]-]*)
@@ -4076,105 +4079,126 @@ sub _parse_texi($$$)
         }
       }
 
-      # handle user defined macros before anything else since
-      # their expansion may lead to changes in the line
-      # REMACRO
       my $at_command_length;
+      my @line_parsing = _parse_texi_regex($line);
       my ($at_command, $open_brace, $asterisk, $single_letter_command,
-        $separator_match, $misc_text) = _parse_texi_regex($line);
+        $separator_match, $misc_text) = @line_parsing;
+      print STDERR "PARSED: ".join(', ', map {!defined($_) ? 'UNDEF' : $_} @line_parsing)."\n"
+        if ($self->{'DEBUG'});
 
       if ($at_command) {
         $at_command_length = length($at_command) + 1;
-      }
-      if ($at_command
-            and ($self->{'macros'}->{$at_command}
+
+        # handle unknown @-command
+        if (!$all_commands{$at_command}
+            and !$self->{'macros'}->{$at_command}
+            and !$self->{'definfoenclose'}->{$at_command}
+            and !$self->{'aliases'}->{$at_command}
+            and !$self->{'command_index'}->{$at_command}
+            # @txiinternalvalue is invalid unless accept_internalvalue is set
+            and !($at_command eq 'txiinternalvalue'
+                  and $self->{'accept_internalvalue'})) {
+          $self->_line_error(sprintf(__("unknown command `%s'"),
+                                      $at_command), $source_info);
+          substr($line, 0, $at_command_length) = '';
+          _abort_empty_line($self, $current);
+          my $paragraph = _begin_paragraph($self, $current, $source_info);
+          $current = $paragraph if ($paragraph);
+          next;
+        }
+
+        # handle user defined macros before anything else since
+        # their expansion may lead to changes in the line
+        if ($self->{'macros'}->{$at_command}
                  or (exists $self->{'aliases'}->{$at_command}
-                     and $self->{'macros'}->{$self->{'aliases'}->{$at_command}}))) {
-        substr($line, 0, $at_command_length) = '';
-        my $command = $at_command;
-        my $alias_command;
-        if (exists($self->{'aliases'}->{$command})) {
-          $alias_command = $command;
-          $command = $self->{'aliases'}->{$command};
-        }
-
-        my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
-        my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
-        my $arguments = [];
-        if ($line =~ s/^\s*{\s*//) { # macro with args
-          ($arguments, $line, $source_info)
-           = _expand_macro_arguments($self, $expanded_macro, $line, $source_info);
-        } elsif (($args_number >= 2) or ($args_number <1)) {
-        # as agreed on the bug-texinfo mailing list, no warn when zero
-        # arg and not called with {}.
-          $self->_line_warn(sprintf(__(
-   "\@%s defined with zero or more than one argument should be invoked with {}"),
-                                    $command), $source_info)
-             if ($args_number >= 2);
-        } else {
-          if ($line !~ /\n/) {
-            ($line, $source_info) = _new_line($self, $source_info);
-            $line = '' if (!defined($line));
+                     and $self->{'macros'}->{$self->{'aliases'}->{$at_command}})) {
+          substr($line, 0, $at_command_length) = '';
+          my $command = $at_command;
+          my $alias_command;
+          if (exists($self->{'aliases'}->{$command})) {
+            $alias_command = $command;
+            $command = $self->{'aliases'}->{$command};
           }
-          $line =~ s/^\s*// if ($line =~ /\S/);
-          my $has_end_of_line = chomp $line;
-          $arguments = [$line];
-          $line = "\n" if ($has_end_of_line);
-        }
-        my $expanded = _expand_macro_body($self,
-                                   $self->{'macros'}->{$command},
-                                   $arguments, $source_info);
-        print STDERR "MACROBODY: $expanded".'||||||'."\n"
-           if ($self->{'DEBUG'});
-        # empty result.  It is ignored here.
-        if ($expanded eq '') {
-          next;
-        }
-        if ($self->{'MAX_MACRO_CALL_NESTING'}
-            and scalar(@{$self->{'macro_stack'}}) > $self->{'MAX_MACRO_CALL_NESTING'}) {
-          $self->_line_warn(sprintf(__(
-"macro call nested too deeply (set MAX_NESTED_MACROS to override; current value %d)"),
-                                $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
-          next;
-        }
-        if ($expanded_macro->{'cmdname'} eq 'macro') {
-          my $found = 0;
-          foreach my $macro (@{$self->{'macro_stack'}}) {
-            if ($macro->{'args'}->[0]->{'text'} eq $command) {
-              $self->_line_error(sprintf(__(
-             "recursive call of macro %s is not allowed; use \@rmacro if needed"),
-                                         $command), $source_info);
-              $found = 1;
-              last;
+
+          my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
+          my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
+          my $arguments = [];
+          if ($line =~ s/^\s*{\s*//) { # macro with args
+            ($arguments, $line, $source_info)
+             = _expand_macro_arguments($self, $expanded_macro, $line, $source_info);
+          } elsif (($args_number >= 2) or ($args_number <1)) {
+          # as agreed on the bug-texinfo mailing list, no warn when zero
+          # arg and not called with {}.
+            $self->_line_warn(sprintf(__(
+     "\@%s defined with zero or more than one argument should be invoked with {}"),
+                                      $command), $source_info)
+               if ($args_number >= 2);
+          } else {
+            if ($line !~ /\n/) {
+              ($line, $source_info) = _new_line($self, $source_info);
+              $line = '' if (!defined($line));
             }
+            $line =~ s/^\s*// if ($line =~ /\S/);
+            my $has_end_of_line = chomp $line;
+            $arguments = [$line];
+            $line = "\n" if ($has_end_of_line);
           }
-          next if ($found);
+          my $expanded = _expand_macro_body($self,
+                                     $self->{'macros'}->{$command},
+                                     $arguments, $source_info);
+          print STDERR "MACROBODY: $expanded".'||||||'."\n"
+             if ($self->{'DEBUG'});
+          # empty result.  It is ignored here.
+          if ($expanded eq '') {
+            next;
+          }
+          if ($self->{'MAX_MACRO_CALL_NESTING'}
+              and scalar(@{$self->{'macro_stack'}}) > $self->{'MAX_MACRO_CALL_NESTING'}) {
+            $self->_line_warn(sprintf(__(
+  "macro call nested too deeply (set MAX_NESTED_MACROS to override; current value %d)"),
+                                  $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
+            next;
+          }
+          if ($expanded_macro->{'cmdname'} eq 'macro') {
+            my $found = 0;
+            foreach my $macro (@{$self->{'macro_stack'}}) {
+              if ($macro->{'args'}->[0]->{'text'} eq $command) {
+                $self->_line_error(sprintf(__(
+               "recursive call of macro %s is not allowed; use \@rmacro if needed"),
+                                           $command), $source_info);
+                $found = 1;
+                last;
+              }
+            }
+            next if ($found);
+          }
+
+          my $expanded_lines = _text_to_lines($expanded);
+          next if (!@$expanded_lines);
+          chomp ($expanded_lines->[-1]);
+          pop @$expanded_lines if ($expanded_lines->[-1] eq '');
+          print STDERR "MACRO EXPANSION LINES: ".join('|', @$expanded_lines)
+                                       ."|\nEND LINES MACRO EXPANSION\n" if ($self->{'DEBUG'});
+          next if (!@$expanded_lines);
+          unshift @{$self->{'macro_stack'}}, $expanded_macro;
+          print STDERR "UNSHIFT MACRO_STACK: $expanded_macro->{'args'}->[0]->{'text'}\n"
+            if ($self->{'DEBUG'});
+          my $new_lines = _complete_line_nr($expanded_lines,
+                           $source_info->{'line_nr'}, $source_info->{'file_name'},
+                           $expanded_macro->{'args'}->[0]->{'text'}, 1);
+          $source_info->{'end_macro'} = 1;
+          # first put the line that was interrupted by the macro call
+          # on the input pending text with information stack
+          unshift @{$self->{'input'}->[0]->{'pending'}}, [$line, $source_info];
+          # current line is the first from macro expansion
+          my $new_text = shift @$new_lines;
+          ($line, $source_info) = ($new_text->[0], $new_text->[1]);
+          # then put the following macro expansion lines with information on the
+          # pending text with information stack
+          unshift @{$self->{'input'}->[0]->{'pending'}}, @$new_lines;
+          next;
         }
-
-        my $expanded_lines = _text_to_lines($expanded);
-        next if (!@$expanded_lines);
-        chomp ($expanded_lines->[-1]);
-        pop @$expanded_lines if ($expanded_lines->[-1] eq '');
-        print STDERR "MACRO EXPANSION LINES: ".join('|', @$expanded_lines)
-                                     ."|\nEND LINES MACRO EXPANSION\n" if ($self->{'DEBUG'});
-        next if (!@$expanded_lines);
-        unshift @{$self->{'macro_stack'}}, $expanded_macro;
-        print STDERR "UNSHIFT MACRO_STACK: $expanded_macro->{'args'}->[0]->{'text'}\n"
-          if ($self->{'DEBUG'});
-        my $new_lines = _complete_line_nr($expanded_lines,
-                         $source_info->{'line_nr'}, $source_info->{'file_name'},
-                         $expanded_macro->{'args'}->[0]->{'text'}, 1);
-        $source_info->{'end_macro'} = 1;
-        # first put the line that was interrupted by the macro call
-        # on the input pending text with information stack
-        unshift @{$self->{'input'}->[0]->{'pending'}}, [$line, $source_info];
-        # current line is the first from macro expansion
-        my $new_text = shift @$new_lines;
-        ($line, $source_info) = ($new_text->[0], $new_text->[1]);
-        # then put the following macro expansion lines with information on the
-        # pending text with information stack
-        unshift @{$self->{'input'}->[0]->{'pending'}}, @$new_lines;
-
+      }
       # Now handle all the cases that may lead to command closing
       # or following character association with an @-command, especially
       # accent command, that is handle @-command with braces that don't
@@ -4182,9 +4206,11 @@ sub _parse_texi($$$)
 
       # The condition below is only caught right after command opening,
       # otherwise we are in the 'args' and not right in the command container.
-      } elsif ($current->{'cmdname'}
+      if ($current->{'cmdname'}
             and defined($brace_commands{$current->{'cmdname'}})
             and !$open_brace) {
+        print STDERR "BRACE command \@$current->{'cmdname'}, no brace\n"
+          if $self->{'DEBUG'};
         # now accent commands
         if ($accent_commands{$current->{'cmdname'}}) {
           # we should only warn for empty accent command.  However, it is
@@ -4254,7 +4280,10 @@ sub _parse_texi($$$)
         } else {
           # ignore space after a braced @-command like TeX does
           if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'}
-              and $line =~ s/^\s+//) {
+              and $line =~ s/^(\s+)//) {
+            $current->{'extra'}->{'spaces'} = ''
+              if (!defined($current->{'extra'}->{'spaces'}));
+            $current->{'extra'}->{'spaces'} .= $1;
             next;
           }
           $self->_line_error(sprintf(__("\@%s expected braces"),
@@ -4364,7 +4393,7 @@ sub _parse_texi($$$)
           print STDERR "MENU NODE $separator\n" if ($self->{'DEBUG'});
           $current = _enter_menu_entry_node($self, $current, $source_info);
         }
-        # REMACRO
+      # Any other @-command.
       } elsif ($at_command or $single_letter_command) {
         my $command;
         if (!$at_command) {
@@ -4376,21 +4405,6 @@ sub _parse_texi($$$)
         }
 
         print STDERR "COMMAND $command\n" if ($self->{'DEBUG'});
-        if (!$all_commands{$command}
-            and !$self->{'macros'}->{$command}
-            and !$self->{'definfoenclose'}->{$command}
-            and !$self->{'aliases'}->{$command}
-            and !$self->{'command_index'}->{$command}
-            # @txiinternalvalue is invalid unless accept_internalvalue is set
-            and !($command eq 'txiinternalvalue'
-                  and $self->{'accept_internalvalue'})) {
-          $self->_line_error(sprintf(__("unknown command `%s'"),
-                                      $command), $source_info);
-          _abort_empty_line($self, $current);
-          my $paragraph = _begin_paragraph($self, $current, $source_info);
-          $current = $paragraph if ($paragraph);
-          next;
-        }
 
         my $alias_command;
         if (exists($self->{'aliases'}->{$command})) {
@@ -4620,10 +4634,9 @@ sub _parse_texi($$$)
                 $current = _merge_text($self, $current, $1);
               }
               if ($line ne ''
-                  and $current->{'contents'}->[-1]->{'type'} eq
-                'empty_line_after_command') {
+      and $current->{'contents'}->[-1]->{'type'} eq 'empty_line_after_command') {
                 $current->{'contents'}->[-1]->{'type'}
-                = 'empty_spaces_after_command';
+                              = 'empty_spaces_after_command';
               }
               my $paragraph = _begin_paragraph($self, $current, $source_info);
               $current = $paragraph if $paragraph;
@@ -6948,8 +6961,7 @@ C<@verb>, C<@html>, C<@macro> body).
 
 =item spaces_at_end
 
-Space at the end of an argument to a line command, at the end of an
-comma-separated argument for some brace commands, or at the end of
+Space at the end of an argument to a line command, or at the end of
 bracketed content on a C<@multitable> line or definition line.
 
 =item text_before_beginning

@@ -1510,9 +1510,27 @@ superfluous_arg:
           if (conf.ignore_space_after_braced_command_name)
             {
               char *p;
+
               p = line + strspn (line, whitespace_chars);
               if (p != line)
                 {
+                  char *s;
+                  KEY_PAIR *k;
+                  
+                  k = lookup_extra (current, "spaces");
+                  if (!k)
+                    {
+                      xasprintf (&s, "%.*s", (int) (p - line), line);
+                      add_extra_string (current, "spaces", s);
+                    }
+                  else
+                    {
+                      xasprintf (&s, "%s%.*s",
+                                (char *) k->value,
+                                (int) (p - line), p);
+                      free (k->value);
+                      k->value = (ELEMENT *) s;
+                    }
                   line = p;
                   goto funexit;
                 }

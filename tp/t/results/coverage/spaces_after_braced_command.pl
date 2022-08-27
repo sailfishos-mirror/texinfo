@@ -26,6 +26,9 @@ $result_trees{'spaces_after_braced_command'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
+              'extra' => {
+                'spaces' => ' '
+              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -65,6 +68,10 @@ $result_trees{'spaces_after_braced_command'} = {
               ],
               'cmdname' => 'samp',
               'contents' => [],
+              'extra' => {
+                'spaces' => '
+'
+              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -101,9 +108,10 @@ $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2]{'cont
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'};
 
-$result_texis{'spaces_after_braced_command'} = '@code{b}
+$result_texis{'spaces_after_braced_command'} = '@code {b}
 
-@samp{v}
+@samp
+{v}
 ';
 
 

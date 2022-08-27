@@ -786,7 +786,27 @@ $result_trees{'form_feeds'} = {
                       'contents' => [
                         {
                           'parent' => {},
-                          'text' => 'in cation '
+                          'text' => 'within '
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'paragraph'
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '',
+                      'type' => 'empty_line'
+                    },
+                    {
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'empty_spaces_before_paragraph'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'cation '
                         }
                       ],
                       'parent' => {},
@@ -1021,6 +1041,10 @@ $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'paren
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[3];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
@@ -1071,7 +1095,7 @@ T
 
 @float
 a float
-@caption{ in cation }  Toto
+@caption{ within  cation }  Toto
 @end float 
 
 ';
@@ -1197,7 +1221,9 @@ $result_converted{'plaintext'}->{'form_feeds'} = 'aa
 a float
 Toto
 
-in cation
+within
+
+cation
 
 ';
 
@@ -1246,7 +1272,7 @@ $result_converted{'html_text'}->{'form_feeds'} = '<a class="node-id" id="Top"></
 <div class="float">
 <p>a float
 </p><p>Toto
-</p><div class="caption"><p>in cation </p>&#12;</div></div>
+</p><div class="caption"><p>within </p>&#12;<p>cation </p>&#12;</div></div>
 ';
 
 
@@ -1283,7 +1309,7 @@ $result_converted{'xml'}->{'form_feeds'} = '<node name="Top" spaces=" "><nodenam
 
 <float type="" endspaces=" ">
 <para>a float
-</para><caption spaces="\\f "><para>in cation </para>&formfeed;</caption> &formfeed; <para>Toto
+</para><caption spaces="\\f "><para>within </para>&formfeed; <para>cation </para>&formfeed;</caption> &formfeed; <para>Toto
 </para></float> 
 
 ';
@@ -1369,7 +1395,8 @@ T
 
 \\begin{TexinfoFloat}
 a float
-\\caption{in cation \\par{}
+\\caption{within \\par{}
+ cation \\par{}
 }
 \\par{}Toto
 \\end{TexinfoFloat}

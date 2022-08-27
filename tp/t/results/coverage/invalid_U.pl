@@ -14,6 +14,9 @@ $result_trees{'invalid_U'} = {
             {
               'cmdname' => 'U',
               'contents' => [],
+              'extra' => {
+                'spaces' => ' '
+              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -310,7 +313,7 @@ $result_trees{'invalid_U'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'parent
 $result_trees{'invalid_U'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid_U'}{'contents'}[0];
 $result_trees{'invalid_U'}{'contents'}[0]{'parent'} = $result_trees{'invalid_U'};
 
-$result_texis{'invalid_U'} = '@U@U{} @U{z} @U{abc} @U{9999999999999} @U{110000} @U{10FFFF}
+$result_texis{'invalid_U'} = '@U @U{} @U{z} @U{abc} @U{9999999999999} @U{110000} @U{10FFFF}
 @U{ 0023 } @U{FFFD} @U{ wxyz }
 ';
 

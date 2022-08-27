@@ -178,7 +178,7 @@ T
 
 @float
 a float
-@caption{'."\f".' in cation '."\f".'} '."\f".' Toto
+@caption{'."\f".' within '."\f".' cation '."\f".'} '."\f".' Toto
 @end float '."\f".'
 
 '],

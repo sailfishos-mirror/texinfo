@@ -14,6 +14,9 @@ $result_trees{'no_brace'} = {
             {
               'cmdname' => 'TeX',
               'contents' => [],
+              'extra' => {
+                'spaces' => ' '
+              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -28,6 +31,9 @@ $result_trees{'no_brace'} = {
             {
               'cmdname' => 'code',
               'contents' => [],
+              'extra' => {
+                'spaces' => ' '
+              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -42,6 +48,9 @@ $result_trees{'no_brace'} = {
             {
               'cmdname' => 'footnote',
               'contents' => [],
+              'extra' => {
+                'spaces' => ' '
+              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -73,7 +82,7 @@ $result_trees{'no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'}
 $result_trees{'no_brace'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_brace'}{'contents'}[0];
 $result_trees{'no_brace'}{'contents'}[0]{'parent'} = $result_trees{'no_brace'};
 
-$result_texis{'no_brace'} = '@TeXand @codecode and @footnotefootnote ';
+$result_texis{'no_brace'} = '@TeX and @code code and @footnote footnote ';
 
 
 $result_texts{'no_brace'} = 'TeXand code and footnote ';

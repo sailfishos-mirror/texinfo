@@ -26,6 +26,9 @@ $result_trees{'no_brace_space_end_line'} = {
               ],
               'cmdname' => 'code',
               'contents' => [],
+              'extra' => {
+                'spaces' => ' '
+              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -53,6 +56,10 @@ $result_trees{'no_brace_space_end_line'} = {
             {
               'cmdname' => 'TeX',
               'contents' => [],
+              'extra' => {
+                'spaces' => '
+'
+              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -68,6 +75,10 @@ $result_trees{'no_brace_space_end_line'} = {
             {
               'cmdname' => 'code',
               'contents' => [],
+              'extra' => {
+                'spaces' => '
+'
+              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -103,10 +114,12 @@ $result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[2]{'contents
 $result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'no_brace_space_end_line'}{'contents'}[0];
 $result_trees{'no_brace_space_end_line'}{'contents'}[0]{'parent'} = $result_trees{'no_brace_space_end_line'};
 
-$result_texis{'no_brace_space_end_line'} = '@code{c}.
+$result_texis{'no_brace_space_end_line'} = '@code {c}.
 
-@TeXtext
-@codeArg.';
+@TeX
+text
+@code
+Arg.';
 
 
 $result_texts{'no_brace_space_end_line'} = 'c.
