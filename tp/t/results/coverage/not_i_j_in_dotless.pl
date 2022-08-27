@@ -21,7 +21,7 @@ $result_trees{'not_i_j_in_dotless'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'dotless',

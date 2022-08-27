@@ -111,7 +111,7 @@ $result_trees{'macro_in_accent'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'ringaccent',
@@ -141,7 +141,7 @@ $result_trees{'macro_in_accent'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'ringaccent',
@@ -234,7 +234,7 @@ $result_trees{'macro_in_accent'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'ringaccent',

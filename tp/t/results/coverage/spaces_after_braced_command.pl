@@ -168,7 +168,35 @@ v
 TeX
 ';
 
-$result_errors{'spaces_after_braced_command'} = [];
+$result_errors{'spaces_after_braced_command'} = [
+  {
+    'error_line' => 'warning: command `@samp\' must not be followed by new line
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => 'command `@samp\' must not be followed by new line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: command `@TeX\' must not be followed by new line
+',
+    'file_name' => '',
+    'line_nr' => 6,
+    'macro' => '',
+    'text' => 'command `@TeX\' must not be followed by new line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: command `@TeX\' must not be followed by new line
+',
+    'file_name' => '',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => 'command `@TeX\' must not be followed by new line',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'spaces_after_braced_command'} = {};

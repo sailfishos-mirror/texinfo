@@ -129,6 +129,15 @@ Arg.';
 
 $result_errors{'no_brace_space_end_line'} = [
   {
+    'error_line' => 'warning: command `@TeX\' must not be followed by new line
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => 'command `@TeX\' must not be followed by new line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => '@TeX expected braces
 ',
     'file_name' => '',
@@ -136,6 +145,15 @@ $result_errors{'no_brace_space_end_line'} = [
     'macro' => '',
     'text' => '@TeX expected braces',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: command `@code\' must not be followed by new line
+',
+    'file_name' => '',
+    'line_nr' => 5,
+    'macro' => '',
+    'text' => 'command `@code\' must not be followed by new line',
+    'type' => 'warning'
   },
   {
     'error_line' => '@code expected braces

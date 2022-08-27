@@ -14,18 +14,6 @@ $result_trees{'accent_argument'} = {
             {
               'contents' => [
                 {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'e'
-                        }
-                      ],
-                      'parent' => {},
-                      'type' => 'following_arg'
-                    }
-                  ],
                   'cmdname' => '~',
                   'contents' => [],
                   'parent' => {},
@@ -34,6 +22,10 @@ $result_trees{'accent_argument'} = {
                     'line_nr' => 1,
                     'macro' => ''
                   }
+                },
+                {
+                  'parent' => {},
+                  'text' => 'e'
                 }
               ],
               'extra' => {
@@ -232,9 +224,8 @@ $result_trees{'accent_argument'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'accent_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'accent_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accent_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'accent_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'accent_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'accent_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'accent_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accent_argument'}{'contents'}[0]{'contents'}[0];
 $result_trees{'accent_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'accent_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
@@ -281,13 +272,13 @@ $result_floats{'accent_argument'} = {};
 
 
 
-$result_converted{'plaintext'}->{'accent_argument'} = '   ẽ item
+$result_converted{'plaintext'}->{'accent_argument'} = '   ̃e item
 
    ẽ item
 ';
 
 
-$result_converted{'html_text'}->{'accent_argument'} = '<ul class="itemize" style="list-style-type: \'\\1EBD \'">
+$result_converted{'html_text'}->{'accent_argument'} = '<ul class="itemize" style="list-style-type: \'\\0303 e\'">
 <li>item
 </li></ul>
 

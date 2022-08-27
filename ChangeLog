@@ -1,5 +1,16 @@
 2022-08-27  Patrice Dumas  <pertusus@free.fr>
 
+	Handle different accent commands and brace commands more similarly
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	tp/Texinfo/XS/parsetexi/parser.c(process_remaining_on_line): handle
+	accent commands more similarily to other brace commands, by treating
+	them the same when on @itemize line and ignoring spaces similarly.
+	Also treat accent commands with letters or one non letter character
+	more similarly, since TeX treat them the same too.
+
+2022-08-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi): set $command based on
 	$at_command and $single_letter_command earlier, apply alias earlier,
 	to avoid code duplication and be more similar to the XS parser.

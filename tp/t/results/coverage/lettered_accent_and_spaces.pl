@@ -21,7 +21,7 @@ $result_trees{'lettered_accent_and_spaces'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'ringaccent',
@@ -81,7 +81,7 @@ $result_converted{'html_text'}->{'lettered_accent_and_spaces'} = '<p>&aring;
 </p>';
 
 
-$result_converted{'xml'}->{'lettered_accent_and_spaces'} = '<para><accent type="ring" spaces="    ">a</accent>
+$result_converted{'xml'}->{'lettered_accent_and_spaces'} = '<para><accent type="ring" spaces="    " bracketed="off">a</accent>
 </para>';
 
 

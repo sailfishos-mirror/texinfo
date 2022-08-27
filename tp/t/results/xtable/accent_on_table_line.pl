@@ -27,7 +27,8 @@ $result_trees{'accent_on_table_line'} = {
                     'file_name' => '',
                     'line_nr' => 1,
                     'macro' => ''
-                  }
+                  },
+                  'type' => 'command_as_argument'
                 }
               ],
               'extra' => {
@@ -451,22 +452,13 @@ no at-command code acc brace
 
 $result_errors{'accent_on_table_line'} = [
   {
-    'error_line' => 'warning: accent command `@~\' must not be followed by new line
+    'error_line' => 'warning: accent command `@~\' not allowed as @table argument
 ',
     'file_name' => '',
     'line_nr' => 1,
     'macro' => '',
-    'text' => 'accent command `@~\' must not be followed by new line',
+    'text' => 'accent command `@~\' not allowed as @table argument',
     'type' => 'warning'
-  },
-  {
-    'error_line' => 'table requires an argument: the formatter for @item
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => 'table requires an argument: the formatter for @item',
-    'type' => 'error'
   },
   {
     'error_line' => 'warning: accent command `@~\' not allowed as @table argument

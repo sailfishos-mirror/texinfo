@@ -2141,13 +2141,11 @@ in verbatim ''
 <!-- c invalid texinfo -->
 
 <para>Somehow invalid use of &arobase;,:&linebreak;
-&arobase;, <accent type="cedil"></accent>
-&linebreak;
+&arobase;, <accent type="cedil"></accent>&linebreak;
 &arobase;,&arobase;&quot;u <accent type="cedil"></accent><accent type="uml" bracketed="off">u</accent>
 </para>
 <para>Invalid use of &arobase;&textrsquo;:&linebreak;
-&arobase;&textrsquo; <accent type="acute"></accent>
-&linebreak;
+&arobase;&textrsquo; <accent type="acute"></accent>&linebreak;
 &arobase;&textrsquo;&arobase;&quot;u <accent type="acute"></accent><accent type="uml" bracketed="off">u</accent>
 </para>
 <!-- c should only appear in @*heading -->
@@ -3279,13 +3277,11 @@ in verbatim ''
 <!-- c invalid texinfo -->
 
 <para>Somehow invalid use of &arobase;,:&linebreak;
-&arobase;, <accent type="cedil"></accent>
-&linebreak;
+&arobase;, <accent type="cedil"></accent>&linebreak;
 &arobase;,&arobase;&quot;u <accent type="cedil"></accent><accent type="uml" bracketed="off">u</accent>
 </para>
 <para>Invalid use of &arobase;&textrsquo;:&linebreak;
-&arobase;&textrsquo; <accent type="acute"></accent>
-&linebreak;
+&arobase;&textrsquo; <accent type="acute"></accent>&linebreak;
 &arobase;&textrsquo;&arobase;&quot;u <accent type="acute"></accent><accent type="uml" bracketed="off">u</accent>
 </para>
 <!-- c should only appear in @*heading -->
@@ -4444,13 +4440,11 @@ in verbatim ''
 <!-- c invalid texinfo -->
 
 <para>Somehow invalid use of &arobase;,:&linebreak;
-&arobase;, <accent type="cedil"></accent>
-&linebreak;
+&arobase;, <accent type="cedil"></accent>&linebreak;
 &arobase;,&arobase;&quot;u <accent type="cedil"></accent><accent type="uml" bracketed="off">u</accent>
 </para>
 <para>Invalid use of &arobase;&textrsquo;:&linebreak;
-&arobase;&textrsquo; <accent type="acute"></accent>
-&linebreak;
+&arobase;&textrsquo; <accent type="acute"></accent>&linebreak;
 &arobase;&textrsquo;&arobase;&quot;u <accent type="acute"></accent><accent type="uml" bracketed="off">u</accent>
 </para>
 <!-- c should only appear in @*heading -->
@@ -5577,13 +5571,11 @@ in verbatim ''
 <!-- c invalid texinfo -->
 
 Somehow invalid use of &arobase;,:&linebreak;
-&arobase;, <accent type="cedil"></accent>
-&linebreak;
+&arobase;, <accent type="cedil"></accent>&linebreak;
 &arobase;,&arobase;&quot;u <accent type="cedil"></accent><accent type="uml" bracketed="off">u</accent>
 
 Invalid use of &arobase;':&linebreak;
-&arobase;' <accent type="acute"></accent>
-&linebreak;
+&arobase;' <accent type="acute"></accent>&linebreak;
 &arobase;'&arobase;&quot;u <accent type="acute"></accent><accent type="uml" bracketed="off">u</accent>
 
 <!-- c should only appear in @*heading -->

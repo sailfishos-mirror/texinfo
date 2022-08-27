@@ -151,7 +151,7 @@ $result_trees{'commands'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'ringaccent',
@@ -603,7 +603,7 @@ $result_converted{'html_text'}->{'commands'} = '<p>@ TeX &nbsp;&euml; &icirc; &a
 ';
 
 
-$result_converted{'xml'}->{'commands'} = '<para>&arobase; &tex; <spacecmd type="nl"/><accent type="uml" bracketed="off">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="tilde">a</accent> <accent type="ring" spaces=" ">a</accent>
+$result_converted{'xml'}->{'commands'} = '<para>&arobase; &tex; <spacecmd type="nl"/><accent type="uml" bracketed="off">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="tilde">a</accent> <accent type="ring" spaces=" " bracketed="off">a</accent>
 </para>
 <para><clicksequence>File <click command="arrow"/> Open</clicksequence>&eosperiod;
 <email><emailaddress>a</emailaddress><emailname spaces=" ">b</emailname></email> <code>code --- -- \'\' ``</code>

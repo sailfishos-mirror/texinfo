@@ -4214,28 +4214,29 @@ sub _parse_texi($$$)
             and !$open_brace) {
         print STDERR "BRACE command \@$current->{'cmdname'}, no brace\n"
           if $self->{'DEBUG'};
+        # special case for @-command as argument of @itemize or @*table.
+        if (_command_with_command_as_argument($current->{'parent'})) {
+          print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'cmdname'} command_as_argument $current->{'cmdname'}\n" if ($self->{'DEBUG'});
+          $current->{'type'} = 'command_as_argument' if (!$current->{'type'});
+          $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
+            = $current;
+          if ($current->{'cmdname'} eq 'kbd'
+              and _kbd_formatted_as_code($self, $current->{'parent'}->{'parent'})) {
+            $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
+          }
+          $current = $current->{'parent'};
         # now accent commands
-        if ($accent_commands{$current->{'cmdname'}}) {
-          # we should only warn for empty accent command.  However, it is
-          # already incorrect and warned just below, depending on the case
-          #if (_command_with_command_as_argument($current->{'parent'})) {
-          #  $self->_command_warn($current, $source_info,
-          #    __("accent command `\@%s' not allowed as \@%s argument"),
-          #    $current->{'cmdname'},
-          #    $current->{'parent'}->{'parent'}->{'cmdname'});
-          #}
+        } elsif ($accent_commands{$current->{'cmdname'}}) {
           # Note that non ascii spaces do not count as spaces
-          if ($line =~ /^[^\S\r\n]/) {
-            if ($current->{'cmdname'} =~ /^[a-zA-Z]/) {
-              $line =~ s/^([^\S\r\n]+)//;
-              $current->{'extra'}->{'spaces'} = ''
-                if (!defined($current->{'extra'}->{'spaces'}));
-              $current->{'extra'}->{'spaces'} .= $1;
-            } else {
+          if ($line =~ s/^(\s+)//) {
+            my $added_space = $1;
+            $current->{'extra'}->{'spaces'} = ''
+              if (!defined($current->{'extra'}->{'spaces'}));
+            $current->{'extra'}->{'spaces'} .= $added_space;
+            if ($added_space =~ /\n/) {
               $self->_line_warn(sprintf(
-                __("accent command `\@%s' must not be followed by whitespace"),
-                $current->{'cmdname'}), $source_info);
-              $current = $current->{'parent'};
+                 __("command `\@%s' must not be followed by new line"),
+                 $current->{'cmdname'}), $source_info);
             }
           } elsif ($line =~ /^\@/) {
             $self->_line_error(sprintf(
@@ -4256,39 +4257,24 @@ sub _parse_texi($$$)
                                          ord('@'), $current->{'cmdname'}, $1),
                                  $source_info);
             }
-            if ($current->{'cmdname'} =~ /^[a-zA-Z]/) {
-              $current->{'args'}->[-1]->{'type'} = 'space_command_arg';
-            }
-            $current = $current->{'parent'};
-          } else { # The accent is at end of line
-            # whitespace for commands with letter.
-            print STDERR "STRANGE ACC \@$current->{'cmdname'}\n" if ($self->{'DEBUG'});
-            $self->_line_warn(sprintf(
-               __("accent command `\@%s' must not be followed by new line"),
-               $current->{'cmdname'}), $source_info);
             $current = $current->{'parent'};
           }
           next;
-        # special case for @-command as argument of @itemize or @*table.
-        } elsif (_command_with_command_as_argument($current->{'parent'})) {
-          print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'cmdname'} command_as_argument $current->{'cmdname'}\n" if ($self->{'DEBUG'});
-          $current->{'type'} = 'command_as_argument' if (!$current->{'type'});
-          $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
-            = $current;
-          if ($current->{'cmdname'} eq 'kbd'
-              and _kbd_formatted_as_code($self, $current->{'parent'}->{'parent'})) {
-            $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
-          }
-          $current = $current->{'parent'};
         } else {
           # ignore space after a braced @-command like TeX does
           if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'}
               and $line =~ s/^(\s+)//) {
+            my $added_space = $1;
             $current->{'extra'}->{'spaces'} = ''
               if (!defined($current->{'extra'}->{'spaces'}));
-            $current->{'extra'}->{'spaces'} .= $1;
-            # FIXME temporary hack to get the same output as XS parser
-            #$current->{'extra'}->{'spaces'} =~ s/\n\n/\n/;
+            $current->{'extra'}->{'spaces'} .= $added_space;
+            if ($added_space =~ /\n/) {
+              $self->_line_warn(sprintf(
+                 __("command `\@%s' must not be followed by new line"),
+                 $current->{'cmdname'}), $source_info);
+              # FIXME temporary hack to get the same output as XS parser
+              #$current->{'extra'}->{'spaces'} =~ s/\n\n/\n/;
+            }
             next;
           }
           $self->_line_error(sprintf(__("\@%s expected braces"),
@@ -6878,16 +6864,10 @@ type.
 
 =item following_arg
 
-This type is set for non-alphabetic accent @-commands that don't use braces
-but instead have their argument right after them, as
+This type is set for accent @-commands that don't use braces but instead
+have their argument after them, as
 
   @~n
-
-=item space_command_arg
-
-This type is set for accent @-commands that don't use brace but instead
-have their argument after some space, as
-
   @ringaccent A
 
 =item definfoenclose_command

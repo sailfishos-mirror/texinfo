@@ -911,7 +911,7 @@ $result_trees{'accent_enable_encoding'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'H',
@@ -983,7 +983,7 @@ $result_trees{'accent_enable_encoding'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'dotaccent',
@@ -1055,7 +1055,7 @@ $result_trees{'accent_enable_encoding'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'ringaccent',
@@ -1170,7 +1170,7 @@ $result_trees{'accent_enable_encoding'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'u',
@@ -1242,7 +1242,7 @@ $result_trees{'accent_enable_encoding'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'ubaraccent',
@@ -1314,7 +1314,7 @@ $result_trees{'accent_enable_encoding'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'udotaccent',
@@ -1386,7 +1386,7 @@ $result_trees{'accent_enable_encoding'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'v',
@@ -1458,7 +1458,7 @@ $result_trees{'accent_enable_encoding'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'ogonek',
@@ -1530,7 +1530,7 @@ $result_trees{'accent_enable_encoding'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'ogonek',

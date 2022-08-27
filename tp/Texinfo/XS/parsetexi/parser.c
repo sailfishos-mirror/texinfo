@@ -1418,38 +1418,55 @@ superfluous_arg:
      command container. */
   else if (command_flags(current) & CF_brace && *line != '{')
     {
-      if (command_flags(current) & CF_accent)
+      if (command_with_command_as_argument (current->parent))
         {
-          if (strchr (whitespace_chars_except_newline, *line))
+          debug ("FOR PARENT @%s command_as_argument @%s",
+                 command_name(current->parent->parent->cmd),
+                 command_name(current->cmd));
+          if (!current->type)
+            current->type = ET_command_as_argument;
+          add_extra_element (current->parent->parent,
+                                 "command_as_argument", current);
+          if (current->cmd == CM_kbd
+              && kbd_formatted_as_code(current->parent->parent)) {
+            add_extra_integer (current->parent->parent,
+                               "command_as_argument_kbd_code", 1);
+          }
+          current = current->parent;
+        }
+      else if (command_flags(current) & CF_accent)
+        {
+          if (strchr (whitespace_chars, *line))
             {
-              if (isalpha ((unsigned char) command_name(current->cmd)[0]))
-              /* e.g. @dotaccent */
-                {
-                  char *p; char *s;
-                  KEY_PAIR *k;
-                  p = line + strspn (line, whitespace_chars_except_newline);
-                  k = lookup_extra (current, "spaces");
-                  if (!k)
-                    {
-                      xasprintf (&s, "%.*s", (int) (p - line), line);
-                      add_extra_string (current, "spaces", s);
-                    }
-                  else
-                    {
-                      xasprintf (&s, "%s%.*s",
-                                (char *) k->value,
-                                (int) (p - line), p);
-                      free (k->value);
-                      k->value = (ELEMENT *) s;
-                    }
-                  line = p;
-                }
-              else
-                {
-                  line_warn ("accent command `@%s' must not be followed "
-                             "by whitespace", command_name(current->cmd));
-                  current = current->parent;
-                }
+               char *p; char *s;
+               int whitespaces_len;
+               KEY_PAIR *k;
+               whitespaces_len = strspn (line, whitespace_chars);
+               p = line + whitespaces_len;
+               k = lookup_extra (current, "spaces");
+               if (!k)
+                 {
+                   xasprintf (&s, "%.*s", (int) (p - line), line);
+                   add_extra_string (current, "spaces", s);
+                 }
+               else
+                 {
+                   xasprintf (&s, "%s%.*s",
+                             (char *) k->value,
+                             (int) (p - line), p);
+                   free (k->value);
+                   k->value = (ELEMENT *) s;
+                 }
+               for (int i = 0; i < whitespaces_len; i++)
+                 {
+                   if (*(line + i) == '\n')
+                     {
+                       line_warn ("command `@%s' must not be followed by new line",
+                                  command_name(current->cmd));
+                       break;
+                     }
+                 }
+               line = p;
             }
           else if (*line == '@')
             {
@@ -1473,45 +1490,22 @@ superfluous_arg:
                   line_error ("@dotless expects `i' or `j' as argument, "
                               "not `%c'", *line);
                 }
-              if (isalpha ((unsigned char) command_name(current->cmd)[0]))
-                e->type = ET_space_command_arg;
               while (current->contents.number > 0)
                 destroy_element (pop_element_from_contents (current));
               line++;
               current = current->parent;
             }
-          else
-            {
-              debug ("STRANGE ACC");
-              line_warn ("accent command `@%s' must not be followed by "
-                         "new line", command_name(current->cmd));
-              current = current->parent;
-            }
           goto funexit;
-        }
-      else if (command_with_command_as_argument (current->parent))
-        {
-          debug ("FOR PARENT @%s command_as_argument @%s",
-                 command_name(current->parent->parent->cmd),
-                 command_name(current->cmd));
-          if (!current->type)
-            current->type = ET_command_as_argument;
-          add_extra_element (current->parent->parent, 
-                                 "command_as_argument", current);
-          if (current->cmd == CM_kbd
-              && kbd_formatted_as_code(current->parent->parent)) {
-            add_extra_integer (current->parent->parent,
-                               "command_as_argument_kbd_code", 1);
-          }
-          current = current->parent;
         }
       else
         {
           if (conf.ignore_space_after_braced_command_name)
             {
               char *p;
+              int whitespaces_len;
 
-              p = line + strspn (line, whitespace_chars);
+              whitespaces_len = strspn (line, whitespace_chars);
+              p = line + whitespaces_len;
               if (p != line)
                 {
                   char *s;
@@ -1530,6 +1524,15 @@ superfluous_arg:
                                 (int) (p - line), p);
                       free (k->value);
                       k->value = (ELEMENT *) s;
+                    }
+                  for (int i = 0; i < whitespaces_len; i++)
+                    {
+                      if (*(line + i) == '\n')
+                        {
+                          line_warn ("command `@%s' must not be followed by new line",
+                                     command_name(current->cmd));
+                          break;
+                        }
                     }
                   line = p;
                   goto funexit;

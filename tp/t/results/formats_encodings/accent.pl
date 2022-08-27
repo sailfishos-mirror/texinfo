@@ -911,7 +911,7 @@ $result_trees{'accent'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'H',
@@ -983,7 +983,7 @@ $result_trees{'accent'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'dotaccent',
@@ -1055,7 +1055,7 @@ $result_trees{'accent'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'ringaccent',
@@ -1170,7 +1170,7 @@ $result_trees{'accent'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'u',
@@ -1242,7 +1242,7 @@ $result_trees{'accent'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'ubaraccent',
@@ -1314,7 +1314,7 @@ $result_trees{'accent'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'udotaccent',
@@ -1386,7 +1386,7 @@ $result_trees{'accent'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'v',
@@ -1458,7 +1458,7 @@ $result_trees{'accent'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'ogonek',
@@ -1530,7 +1530,7 @@ $result_trees{'accent'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'space_command_arg'
+                  'type' => 'following_arg'
                 }
               ],
               'cmdname' => 'ogonek',
@@ -3359,25 +3359,25 @@ $result_converted{'xml'}->{'accent'} = '<node name="Top-node" spaces=" "><nodena
 </para>
 <para>should be e=: <accent type="macr">e</accent> <accent type="macr" bracketed="off">e</accent>
 </para>
-<para>should be e<w>&textrsquo;</w>&textrsquo;: <accent type="doubleacute">e</accent> <accent type="doubleacute" spaces=" ">e</accent>
+<para>should be e<w>&textrsquo;</w>&textrsquo;: <accent type="doubleacute">e</accent> <accent type="doubleacute" spaces=" " bracketed="off">e</accent>
 </para>
-<para>should be e.: <accent type="dotaccent">e</accent> <accent type="dotaccent" spaces=" ">e</accent>
+<para>should be e.: <accent type="dotaccent">e</accent> <accent type="dotaccent" spaces=" " bracketed="off">e</accent>
 </para>
-<para>should be e*: <accent type="ring">e</accent> <accent type="ring" spaces=" ">e</accent>
+<para>should be e*: <accent type="ring">e</accent> <accent type="ring" spaces=" " bracketed="off">e</accent>
 </para>
 <para>should be ee[: <accent type="tieaccent">ee</accent>
 </para>
-<para>should be e(: <accent type="breve">e</accent> <accent type="breve" spaces=" ">e</accent>
+<para>should be e(: <accent type="breve">e</accent> <accent type="breve" spaces=" " bracketed="off">e</accent>
 </para>
-<para>should be e_: <accent type="ubaraccent">e</accent> <accent type="ubaraccent" spaces=" ">e</accent>
+<para>should be e_: <accent type="ubaraccent">e</accent> <accent type="ubaraccent" spaces=" " bracketed="off">e</accent>
 </para>
-<para>should be .e: <accent type="udotaccent">e</accent> <accent type="udotaccent" spaces=" ">e</accent>
+<para>should be .e: <accent type="udotaccent">e</accent> <accent type="udotaccent" spaces=" " bracketed="off">e</accent>
 </para>
-<para>should be e&lt;: <accent type="caron">e</accent> <accent type="caron" spaces=" ">e</accent>
+<para>should be e&lt;: <accent type="caron">e</accent> <accent type="caron" spaces=" " bracketed="off">e</accent>
 </para>
-<para>should be a; : <accent type="ogon">a</accent> <accent type="ogon" spaces=" ">a</accent>
+<para>should be a; : <accent type="ogon">a</accent> <accent type="ogon" spaces=" " bracketed="off">a</accent>
 </para>
-<para>should be e; : <accent type="ogon">e</accent> <accent type="ogon" spaces=" ">e</accent>
+<para>should be e; : <accent type="ogon">e</accent> <accent type="ogon" spaces=" " bracketed="off">e</accent>
 </para>
 <para>upside down: &iquest; &iexcl;
 </para>
