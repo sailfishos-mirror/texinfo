@@ -4086,20 +4086,24 @@ sub _parse_texi($$$)
       print STDERR "PARSED: ".join(', ', map {!defined($_) ? 'UNDEF' : $_} @line_parsing)."\n"
         if ($self->{'DEBUG'});
 
-      if ($at_command) {
+      my $command;
+      if ($single_letter_command) {
+        $command = $single_letter_command;
+      } elsif ($at_command) {
         $at_command_length = length($at_command) + 1;
+        $command = $at_command;
 
         # handle unknown @-command
-        if (!$all_commands{$at_command}
-            and !$self->{'macros'}->{$at_command}
-            and !$self->{'definfoenclose'}->{$at_command}
-            and !$self->{'aliases'}->{$at_command}
-            and !$self->{'command_index'}->{$at_command}
+        if (!$all_commands{$command}
+            and !$self->{'macros'}->{$command}
+            and !$self->{'definfoenclose'}->{$command}
+            and !$self->{'aliases'}->{$command}
+            and !$self->{'command_index'}->{$command}
             # @txiinternalvalue is invalid unless accept_internalvalue is set
-            and !($at_command eq 'txiinternalvalue'
+            and !($command eq 'txiinternalvalue'
                   and $self->{'accept_internalvalue'})) {
           $self->_line_error(sprintf(__("unknown command `%s'"),
-                                      $at_command), $source_info);
+                                      $command), $source_info);
           substr($line, 0, $at_command_length) = '';
           _abort_empty_line($self, $current);
           my $paragraph = _begin_paragraph($self, $current, $source_info);
@@ -4107,18 +4111,17 @@ sub _parse_texi($$$)
           next;
         }
 
+        my $alias_command;
+        if (exists($self->{'aliases'}->{$command})) {
+          $alias_command = $command;
+          $command = $self->{'aliases'}->{$command};
+        }
+
+
         # handle user defined macros before anything else since
         # their expansion may lead to changes in the line
-        if ($self->{'macros'}->{$at_command}
-                 or (exists $self->{'aliases'}->{$at_command}
-                     and $self->{'macros'}->{$self->{'aliases'}->{$at_command}})) {
+        if ($self->{'macros'}->{$command}) {
           substr($line, 0, $at_command_length) = '';
-          my $command = $at_command;
-          my $alias_command;
-          if (exists($self->{'aliases'}->{$command})) {
-            $alias_command = $command;
-            $command = $self->{'aliases'}->{$command};
-          }
 
           my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
           my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
@@ -4284,6 +4287,8 @@ sub _parse_texi($$$)
             $current->{'extra'}->{'spaces'} = ''
               if (!defined($current->{'extra'}->{'spaces'}));
             $current->{'extra'}->{'spaces'} .= $1;
+            # FIXME temporary hack to get the same output as XS parser
+            #$current->{'extra'}->{'spaces'} =~ s/\n\n/\n/;
             next;
           }
           $self->_line_error(sprintf(__("\@%s expected braces"),
@@ -4394,23 +4399,14 @@ sub _parse_texi($$$)
           $current = _enter_menu_entry_node($self, $current, $source_info);
         }
       # Any other @-command.
-      } elsif ($at_command or $single_letter_command) {
-        my $command;
+      } elsif ($command) {
         if (!$at_command) {
-          $command = $single_letter_command;
           substr($line, 0, 2) = '';
         } else {
-          $command = $at_command;
           substr($line, 0, $at_command_length) = '';
         }
 
         print STDERR "COMMAND $command\n" if ($self->{'DEBUG'});
-
-        my $alias_command;
-        if (exists($self->{'aliases'}->{$command})) {
-          $alias_command = $command;
-          $command = $self->{'aliases'}->{$command};
-        }
 
         if ($command eq 'value' or $command eq 'txiinternalvalue') {
           $line =~ s/^\s*//
