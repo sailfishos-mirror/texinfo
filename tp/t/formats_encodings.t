@@ -326,6 +326,7 @@ $accents_text
 ['accent_enable_encoding',
 $accents_text, {'ENABLE_ENCODING' => 1}
 ],
+# numerous LaTeX formatting errors
 ['at_commands_in_refs',
 $at_commands_in_refs_text, 
  {},
@@ -389,12 +390,6 @@ my %xml_file_tests = (
  'char_latin1_latin1_in_refs' => 1,
 );
 
-# this is temporary, all the files in @test_full_doc should go
-# through the LaTeX converter
-my %latex_tests = (
-  'accentenc' => 1,
-);
-
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   if ($html_tests{$test->[0]}) {
@@ -419,8 +414,7 @@ foreach my $test (@test_full_doc) {
   }
   push @{$test->[2]->{'test_formats'}}, 'xml';
   push @{$test->[2]->{'test_formats'}}, 'docbook';
-  push @{$test->[2]->{'test_formats'}}, 'latex'
-    if ($latex_tests{$test->[0]});
+  push @{$test->[2]->{'test_formats'}}, 'latex';
   push @{$test->[2]->{'test_formats'}}, 'info'
     if ($info_tests{$test->[0]});
 

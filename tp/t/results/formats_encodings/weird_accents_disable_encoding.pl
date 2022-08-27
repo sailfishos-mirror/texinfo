@@ -859,4 +859,22 @@ $result_converted{'docbook'}->{'weird_accents_disable_encoding'} = '<chapter lab
 </para></chapter>
 ';
 
+
+$result_converted{'latex'}->{'weird_accents_disable_encoding'} = '
+\\begin{document}
+\\label{anchor:Top}%
+\\chapter{{Chapter}}
+\\label{anchor:chap}%
+
+\\={\\~{\\i{}}}
+
+\\={\\c{\\~{n}}}
+
+\\={\\b{a}}
+
+\\^{\\d{\\`{r}}}
+
+\\={\\\'{\\`{r}}}
+';
+
 1;

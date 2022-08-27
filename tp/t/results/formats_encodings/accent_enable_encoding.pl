@@ -3497,4 +3497,84 @@ $result_converted{'docbook'}->{'accent_enable_encoding'} = '<chapter label="" id
 </para></chapter>
 ';
 
+
+$result_converted{'latex'}->{'accent_enable_encoding'} = '\\begin{document}
+\\part*{{top}}
+\\label{anchor:Top-node}%
+
+should be e`: è è
+
+should be e\': é é
+
+should be e\\^{}: ê ê
+
+should be u": ü ü
+
+should be i`: ì ì
+
+should be i\': í í
+
+should be i\\^{}: î î
+
+should be u": ü ü
+
+should be c,: ç ç
+
+should be n\\~{}: ñ ñ
+
+should be e=: ē ē
+
+should be e\\hbox{\'}\': e̋ e̋
+
+should be e.: ė ė
+
+should be e*: e̊ e̊
+
+should be ee[: e͡e
+
+should be e(: ĕ ĕ
+
+should be e\\_: e̲ e̲
+
+should be .e: ẹ ẹ
+
+should be e<: ě ě
+
+should be a; : ą ą
+
+should be e; : ę ę
+
+upside down: \\textquestiondown{} \\textexclamdown{}
+
+A-with-circle: å,Å
+
+AE, OE ligatures: æ Æ œ Œ
+
+dotless i, j: ı ȷ
+
+Polish suppressed-L: ł Ł
+
+O-with-slash: ø Ø
+
+es-zet or sharp S: ß
+
+pounds sterling: \\textsterling{}
+
+should be dotless i`: ì
+
+should be dotless i\': í
+
+should be dotless i\\^{}: î
+
+should be dotless i": ï
+
+should be dotless j`: j̀
+
+should be dotless j\': j́
+
+should be dotless j\\^{}: ĵ
+
+should be dotless j": j̈
+';
+
 1;
