@@ -665,6 +665,10 @@ cut by blank line}
 
 @samp
 {v}
+
+@TeX
+
+{}
 '],
 ['spaces_no_brace_after_braced_command',
 '@code b

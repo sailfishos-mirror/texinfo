@@ -87,6 +87,44 @@ $result_trees{'spaces_after_braced_command'} = {
           ],
           'parent' => {},
           'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'TeX',
+              'contents' => [],
+              'extra' => {
+                'spaces' => '
+'
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
@@ -106,18 +144,28 @@ $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2]{'cont
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'contents'}[0];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'};
 
 $result_texis{'spaces_after_braced_command'} = '@code {b}
 
 @samp
 {v}
+
+@TeX
+{}
 ';
 
 
 $result_texts{'spaces_after_braced_command'} = 'b
 
 v
+
+TeX
 ';
 
 $result_errors{'spaces_after_braced_command'} = [];
