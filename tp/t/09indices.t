@@ -235,6 +235,8 @@ Text.
 ['empty_index_entry',
 '@node Top
 
+@node node
+
 @deffn {} { }
 @end deffn
 
@@ -242,10 +244,12 @@ Text.
 '],
 ['empty_cindex_entry',
 '@node Top
+@node node
 @cindex
 '],
 ['empty_string_index_entry',
 '@node Top
+@node node
 
 @findex @w{}
 
@@ -513,6 +517,8 @@ This variable represents MMM Mode.
 '@node Top
 @top
 
+@node node
+
 @defindex SK
 
 @SKindex @sortas{A} bbbbbbb (first)
@@ -532,6 +538,8 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 
 @node Top
 @top
+
+@node node
 
 @cindex @code{--version}, for @command{install-info}
 @cindex Source file format
@@ -735,8 +743,10 @@ undef,
 );
 
 my @file_latex_tests_cases_tests = ('syncode_index_print_both',
+  'empty_index_entry', 'empty_cindex_entry', 'empty_string_index_entry',
+  'explicit_sort_key', 'transparent_sort_chars',
   'def_syn_indices', 'seeentry', 'subentry_and_sortas', 'subentries',
-  'double_seeentry_seealso');
+  'double_seeentry_seealso', 'seealso_duplicate');
 
 foreach my $test (@test_formatted) {
   push @{$test->[2]->{'test_formats'}}, 'info';
