@@ -1008,4 +1008,43 @@ convention should be followed in Texinfo files.  TeX converts
 two single quotes to left- and right-hand doubled.
 </p>';
 
+
+$result_converted{'latex'}->{'test_w'} = '\\hbox{aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbb bbbbb bbb b b b b b b b b b bb .
+ccc dddd}.
+
+a a a a a a a a a a a a a a a a a a a a a a a a a a a a  \\hbox{b a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
+
+
+\\hbox{}
+
+\\hbox{ a rr   
+  ggg.}
+
+AA\\hbox{}bbb.
+
+FF\\hbox{d}nnn.
+
+aa\\hbox{  f  f}ggg.
+
+aa2\\hbox{  f  f }ggg2.
+
+
+aa3 \\hbox{  f  f }ggg3.
+
+
+aa4 \\hbox{  f  f } ggg4.
+
+aa5 \\hbox{} ggg5.
+
+aa6 \\hbox{}ggg6.
+
+aa6\\hbox{} ggg6.
+
+aaf \\hbox{ } bbb.
+
+begin and end quotations: \\hbox{\\texttt{`\\hbox{}`\\dots{}\\@\'\\hbox{}\'}}.  This
+convention should be followed in Texinfo files.  TeX converts
+two single quotes to left- and right-hand doubled.
+';
+
 1;

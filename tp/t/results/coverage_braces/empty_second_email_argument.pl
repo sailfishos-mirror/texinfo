@@ -90,4 +90,7 @@ $result_converted{'plaintext'}->{'empty_second_email_argument'} = '<a@b.c>
 
 $result_converted{'html_text'}->{'empty_second_email_argument'} = '<p><a class="email" href="mailto:a@b.c">a@b.c</a></p>';
 
+
+$result_converted{'latex'}->{'empty_second_email_argument'} = '\\href{mailto:a@b.c}{\\nolinkurl{a@b.c}}';
+
 1;

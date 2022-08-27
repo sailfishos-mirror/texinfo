@@ -340,4 +340,9 @@ $result_converted{'html_text'}->{'one_argument_leading_trailing_spaces'} = '<p><
 &lsquo;<code class="indicateurl">http://example.com</code>&rsquo; &#x1234; &nbsp;w&nbsp;<!-- /@w --> <code class="verb"> verb </code>.
 </p>';
 
+
+$result_converted{'latex'}->{'one_argument_leading_trailing_spaces'} = '\\texttt{\\ in code } \\textsl{ in slanted } \\GNUTexinfocommandstyletextvar{ var } \\textsubscript{ sub }
+\\hyphenation{a-b c-d}`\\texttt{http://example.com}\' ሴ \\hbox{ w } \\verb: verb :.
+';
+
 1;

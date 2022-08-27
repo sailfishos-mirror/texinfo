@@ -4299,4 +4299,11 @@ $result_converted_errors{'html_text'}->{'test_image'} = [
 ];
 
 
+
+$result_converted{'latex'}->{'test_image'} = '
+
+\\label{anchor:Top}%
+\\label{anchor:Image-with-commands}%
+';
+
 1;

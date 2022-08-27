@@ -297,4 +297,10 @@ $result_converted{'html_text'}->{'empty_commands'} = '
 </div>
 ';
 
+
+$result_converted{'latex'}->{'empty_commands'} = '{\\huge \\bfseries }
+
+   \\texttt{}\\footnote{} \\~{}  \\verb;;
+';
+
 1;

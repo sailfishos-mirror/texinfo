@@ -349,14 +349,10 @@ third}
 ']
 );
 
-my @latex_tests_cases_tests = ('abbr_acronym', 'uref_url',
-  'uref_with_commands_characters', 'nested', 'uref_in_ref', 'empty_line_in_email');
-
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
-  push @{$test->[2]->{'test_formats'}}, 'latex'
-    if (grep {$_ eq $test->[0]} @latex_tests_cases_tests);
+  push @{$test->[2]->{'test_formats'}}, 'latex';
 }
 
 run_all('coverage_braces', [@test_cases, @test_invalid]);

@@ -117,4 +117,8 @@ $result_converted{'plaintext'}->{'recursive_acronym'} = 'GNU (GNU’s Not Unix)
 $result_converted{'html_text'}->{'recursive_acronym'} = '<p><abbr class="acronym" title="GNU&rsquo;s Not Unix">GNU</abbr> (<abbr class="acronym">GNU</abbr>&rsquo;s Not Unix)
 </p>';
 
+
+$result_converted{'latex'}->{'recursive_acronym'} = 'GNU (GNU\'s Not Unix)
+';
+
 1;

@@ -197,4 +197,10 @@ $result_converted{'html_text'}->{'inforef_too_much_args'} = '<h4 class="node" id
 <p>See <a data-manual="file name, spurious arg" href="file%20name%2c%20spurious%20arg.html#chapter">(file name, spurious arg)cross ref name</a>
 </p>';
 
+
+$result_converted{'latex'}->{'inforef_too_much_args'} = '\\label{anchor:chapter}%
+
+Section ``chapter\'\' in \\texttt{file name,\\ spurious arg}
+';
+
 1;

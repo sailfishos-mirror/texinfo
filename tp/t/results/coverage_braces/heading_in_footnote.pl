@@ -227,4 +227,12 @@ $result_converted{'html_text'}->{'heading_in_footnote'} = '<p>T<a class="footnot
 </div>
 ';
 
+
+$result_converted{'latex'}->{'heading_in_footnote'} = 'T\\footnote{AAA
+\\GNUTexinfonopagebreakheading{\\section*}{{H1}}
+\\index[cp]{ind e}%
+BBB
+}
+';
+
 1;

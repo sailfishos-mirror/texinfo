@@ -311,4 +311,18 @@ $result_converted{'html_text'}->{'format_on_first_footnote_line'} = '<p>Texte<a 
 </div>
 ';
 
+
+$result_converted{'latex'}->{'format_on_first_footnote_line'} = 'Texte\\footnote{\\begin{quote}
+in quotation on the first footnote line
+\\end{quote}
+}.
+
+Last text \\footnote{\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+in example
+\\end{GNUTexinfopreformatted}
+
+}
+';
+
 1;

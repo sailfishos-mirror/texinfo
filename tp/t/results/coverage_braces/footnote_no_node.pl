@@ -169,4 +169,10 @@ $result_converted{'html_text'}->{'footnote_no_node'} = '<div class="top-level-ex
 </div>
 ';
 
+
+$result_converted{'latex'}->{'footnote_no_node'} = '\\part*{{top}}
+
+F\\footnote{In footnote}.
+';
+
 1;

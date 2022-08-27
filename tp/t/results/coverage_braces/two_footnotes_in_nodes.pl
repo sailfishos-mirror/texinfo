@@ -1035,4 +1035,20 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top-le
 </div>
 ';
 
+
+$result_converted{'latex'}->{'two_footnotes_in_nodes'} = '\\begin{document}
+\\label{anchor:Top}%
+\\chapter{{chapter}}
+\\label{anchor:chapter}%
+
+C\\footnote{Footnote chapter/1
+
+para2}
+
+D\\footnote{Footnote chapter/2
+
+para2}
+
+';
+
 1;
