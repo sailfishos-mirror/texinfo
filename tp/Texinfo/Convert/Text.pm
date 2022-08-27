@@ -509,7 +509,8 @@ sub _convert($;$)
     } elsif ($element->{'args'} and $element->{'args'}->[0]
            and (($element->{'args'}->[0]->{'type'}
                 and $element->{'args'}->[0]->{'type'} eq 'brace_command_arg')
-                or $Texinfo::Common::math_commands{$element->{'cmdname'}})) {
+                or ($Texinfo::Common::math_commands{$element->{'cmdname'}}
+                    and defined($Texinfo::Common::brace_commands{$element->{'cmdname'}})))) {
       my $result;
       my $in_code;
       $options->{'sc'}++ if ($element->{'cmdname'} eq 'sc');
