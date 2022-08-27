@@ -2527,6 +2527,144 @@ $result_converted{'xml'}->{'def'} = '
 ';
 
 
+$result_converted{'latex'}->{'def'} = '
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{d{-}{-}effn\\_name \\EmbracOn{}\\textnormal{\\textsl{a--rguments...}}\\EmbracOff{}}& [c--ategory]
+\\end{tabularx}
+
+\\index[fn]{d--effn\\_name@\\texttt{d{-}{-}effn\\_name}}%
+\\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
+d--effn
+\\end{quote}
+
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{de{-}{-}ffn\\_name \\EmbracOn{}\\textnormal{\\textsl{ar--guments    more args   even more so}}\\EmbracOff{}}& [cate--gory]
+\\end{tabularx}
+
+\\index[fn]{de--ffn\\_name@\\texttt{de{-}{-}ffn\\_name}}%
+\\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
+def--fn
+\\end{quote}
+
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{\\GNUTexinfocommandstyletextvar{i} \\EmbracOn{}\\textnormal{\\textsl{a g}}\\EmbracOff{}}& [fset]
+\\end{tabularx}
+
+\\index[fn]{i@\\texttt{\\GNUTexinfocommandstyletextvar{i}}}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{truc \\EmbracOn{}\\textnormal{\\textsl{}}\\EmbracOff{}}& [cmde]
+\\end{tabularx}
+
+\\index[fn]{truc@\\texttt{truc}}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{log trap \\EmbracOn{}\\textnormal{\\textsl{}}\\EmbracOff{}}& [Command]
+\\end{tabularx}
+
+\\index[fn]{log trap@\\texttt{log trap}}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{log trap1 \\EmbracOn{}\\textnormal{\\textsl{}}\\EmbracOff{}}& [Command]
+\\end{tabularx}
+
+\\index[fn]{log trap1@\\texttt{log trap1}}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{log trap2 \\EmbracOn{}\\textnormal{\\textsl{}}\\EmbracOff{}}& [Command]
+\\end{tabularx}
+
+\\index[fn]{log trap2@\\texttt{log trap2}}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{\\textbf{id ule} \\EmbracOn{}\\textnormal{\\textsl{truc}}\\EmbracOff{}}& [cmde]
+\\end{tabularx}
+
+\\index[fn]{id ule@\\texttt{\\textbf{id ule}}}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{\\textbf{id `\\texttt{i}\'\\ ule} \\EmbracOn{}\\textnormal{\\textsl{truc}}\\EmbracOff{}}& [cmde2]
+\\end{tabularx}
+
+\\index[fn]{id i ule@\\texttt{\\textbf{id `\\texttt{i}\'\\ ule}}}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{machin}& []
+\\end{tabularx}
+
+\\index[fn]{machin@\\texttt{machin}}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{bidule machin}& []
+\\end{tabularx}
+
+\\index[fn]{bidule machin@\\texttt{bidule machin}}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{machin}& [truc]
+\\end{tabularx}
+
+\\index[fn]{machin@\\texttt{machin}}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{followed \\EmbracOn{}\\textnormal{\\textsl{by a comment}}\\EmbracOff{}}& [truc]
+\\end{tabularx}
+
+\\index[fn]{followed@\\texttt{followed}}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{after \\EmbracOn{}\\textnormal{\\textsl{a deff item}}\\EmbracOff{}}& [truc]
+\\end{tabularx}
+
+\\index[fn]{after@\\texttt{after}}%
+
+\\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
+\\rightskip=5em plus 1 fill
+\\hangindent=2em
+\\texttt{deffnx \\EmbracOn{}\\textnormal{\\textsl{before end deffn}}\\EmbracOff{}}& [truc]
+\\end{tabularx}
+
+\\index[fn]{deffnx@\\texttt{deffnx}}%
+\\begin{quote}
+\\unskip{\\parskip=0pt\\noindent}%
+Various deff lines
+\\end{quote}
+';
+
+
 $result_converted{'docbook'}->{'def'} = '
 <synopsis><indexterm role="fn"><primary>d--effn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>d--effn_name</function> <emphasis role="arg">a--rguments...</emphasis></synopsis>
 <blockquote><para>d&#8211;effn

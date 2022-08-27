@@ -734,6 +734,22 @@ $result_converted{'xml'}->{'multitable'} = '
 ';
 
 
+$result_converted{'latex'}->{'multitable'} = '
+\\begin{tabular}{m{0.6\\textwidth} m{0.4\\textwidth}}%
+mu--ltitable headitem &another tab\\\\
+mu--ltitable item &multitable tab\\\\
+mu--ltitable item 2 &multitable tab 2
+\\index[cp]{index entry within multitable}%
+\\\\
+lone mu--ltitable item&\\\\
+\\end{tabular}%
+
+\\begin{tabular}{m{0.4\\textwidth} m{0.6\\textwidth}}%
+truc &bidule\\\\
+\\end{tabular}%
+';
+
+
 $result_converted{'docbook'}->{'multitable'} = '
 <informaltable><tgroup cols="2"><colspec colwidth="60*"></colspec><colspec colwidth="40*"></colspec><thead><row><entry><para>mu&#8211;ltitable headitem </para></entry><entry><para>another tab
 </para></entry></row></thead><tbody><row><entry><para>mu&#8211;ltitable item </para></entry><entry><para>multitable tab

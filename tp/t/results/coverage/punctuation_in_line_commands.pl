@@ -1279,6 +1279,55 @@ $result_converted{'xml'}->{'punctuation_in_line_commands'} = '
 ';
 
 
+$result_converted{'latex'}->{'punctuation_in_line_commands'} = '
+\\part*{{top! After punc}}
+\\label{anchor:node_0021-After-punc}%
+
+\\begin{description}
+\\item[{\\parbox[b]{\\linewidth}{%
+item! After punc}}]
+\\end{description}
+
+\\begin{quote}
+\\textbf{quotation arg! After punc:} In quotation
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+exdent quotation! After punc
+\\\\
+\\end{quote}
+
+\\begin{TexinfoFloatfloattypeAfterpunc}
+In float
+\\caption{shortcaption! After punc}
+
+\\label{anchor:float-label_0021-After-punc}%
+\\end{TexinfoFloatfloattypeAfterpunc}
+
+\\begin{TexinfoFloatfloattypeAfterpunc}
+In float with caption.
+\\caption{caption! After punc}
+
+\\label{anchor:label-with-caption}%
+\\end{TexinfoFloatfloattypeAfterpunc}
+
+\\listof{TexinfoFloatfloattypeAfterpunc}{}
+
+\\index[cp]{index"! After punc}%
+
+\\GNUTexinfonopagebreakheading{\\section*}{{heading! After punc}}
+
+{\\huge \\bfseries titlefont! After punc}
+
+\\begin{center}
+center! After punc
+\\end{center}
+
+\\printindex[cp]
+
+
+';
+
+
 $result_converted{'docbook'}->{'punctuation_in_line_commands'} = '<chapter label="" id="node_0021-After-punc">
 <title>top! After punc</title>
 

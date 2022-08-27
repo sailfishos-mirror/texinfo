@@ -123,6 +123,14 @@ $result_converted{'xml'}->{'center'} = '
 ';
 
 
+$result_converted{'latex'}->{'center'} = '
+\\begin{center}
+in center \\texttt{in code}
+\\end{center}
+
+';
+
+
 $result_converted{'docbook'}->{'center'} = '
 <simpara role="center">in center <literal>in code</literal></simpara>
 

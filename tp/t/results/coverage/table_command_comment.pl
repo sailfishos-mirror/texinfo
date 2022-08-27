@@ -184,6 +184,13 @@ $result_converted{'xml'}->{'table_command_comment'} = '<table commandarg="code" 
 </tableterm></tableentry></table>';
 
 
+$result_converted{'latex'}->{'table_command_comment'} = '\\begin{description}
+\\item[{\\parbox[b]{\\linewidth}{%
+\\texttt{item}}}]
+\\end{description}
+';
+
+
 $result_converted{'docbook'}->{'table_command_comment'} = '<variablelist><varlistentry><term><literal>item</literal>
 </term></varlistentry></variablelist>';
 

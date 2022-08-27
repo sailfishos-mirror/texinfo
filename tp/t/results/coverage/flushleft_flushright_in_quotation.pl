@@ -304,6 +304,23 @@ $result_converted{'xml'}->{'flushleft_flushright_in_quotation'} = '
 ';
 
 
+$result_converted{'latex'}->{'flushleft_flushright_in_quotation'} = '
+\\begin{quote}
+\\begin{flushleft}
+\\begin{GNUTexinfopreformatted}
+   f l
+\\end{GNUTexinfopreformatted}
+\\end{flushleft}
+
+\\begin{flushright}
+\\begin{GNUTexinfopreformatted}
+  f r
+\\end{GNUTexinfopreformatted}
+\\end{flushright}
+\\end{quote}
+';
+
+
 $result_converted{'docbook'}->{'flushleft_flushright_in_quotation'} = '
 <blockquote><para>f l
 </para>

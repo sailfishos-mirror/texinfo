@@ -159,6 +159,14 @@ $result_converted{'xml'}->{'indentedblock'} = '<indentedblock endspaces=" ">
 ';
 
 
+$result_converted{'latex'}->{'indentedblock'} = '\\begin{quote}
+  indented block
+
+Text
+\\end{quote}
+';
+
+
 $result_converted{'docbook'}->{'indentedblock'} = '<para>indented block
 </para>
 <para>Text

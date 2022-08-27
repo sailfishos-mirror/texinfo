@@ -268,6 +268,21 @@ quotation continues.
 ';
 
 
+$result_converted{'latex'}->{'quotation_author'} = '\\begin{quote}
+
+quotation
+quotation continues.
+
+\\end{quote}
+\\begin{center}
+--- \\emph{First Author}
+\\end{center}
+\\begin{center}
+--- \\emph{S\\~{e}cond author}
+\\end{center}
+';
+
+
 $result_converted{'docbook'}->{'quotation_author'} = '<blockquote><attribution>First Author</attribution>
 <attribution>S&#7869;cond author</attribution>
 

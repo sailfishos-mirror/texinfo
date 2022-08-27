@@ -636,6 +636,23 @@ $result_converted{'xml'}->{'math'} = '<para>Simple math
 ';
 
 
+$result_converted{'latex'}->{'math'} = 'Simple math
+$--{x^i}\\over{\\tan y}$
+
+Math with @-command
+$\\mathtt{math code} a < b \\sum_{i} q^{2}$
+
+Complex
+$\\underline{\\mathtt{math \\hbox{ code }}} \\i \\sum_{i}{\\underline{f}}$
+
+@\\textbackslash{} outside of math
+\\textbackslash{}
+
+The 3\\textsuperscript{rd}is the I\\textsubscript{r}.
+
+';
+
+
 $result_converted{'docbook'}->{'math'} = '<para>Simple math
 <inlineequation><mathphrase>--{x^i}\\over{\\tan y}</mathphrase></inlineequation>
 </para>

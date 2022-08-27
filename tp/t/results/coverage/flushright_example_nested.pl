@@ -382,6 +382,29 @@ flush then example
 ';
 
 
+$result_converted{'latex'}->{'flushright_example_nested'} = '\\begin{flushright}
+\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+in   {-}{-}{-} flushright
+
+\\end{GNUTexinfopreformatted}
+\\end{GNUTexinfopreformatted}
+\\end{flushright}
+
+\\begin{flushright}
+\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+in   {-}{-}{-} example
+
+flush then example
+\\end{GNUTexinfopreformatted}
+\\end{GNUTexinfopreformatted}
+\\end{flushright}
+';
+
+
 $result_converted{'docbook'}->{'flushright_example_nested'} = '<screen>in   --- flushright
 
 </screen>

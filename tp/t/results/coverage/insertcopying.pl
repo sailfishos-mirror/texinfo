@@ -276,6 +276,17 @@ $result_converted{'xml'}->{'insertcopying'} = '<copying endspaces=" ">
 ';
 
 
+$result_converted{'latex'}->{'insertcopying'} = '
+License:
+
+License.
+
+\\begin{quote}
+You are not allowed.
+\\end{quote}
+';
+
+
 $result_converted{'docbook_doc'}->{'insertcopying'} = '<?xml version="1.0"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY tex "TeX">

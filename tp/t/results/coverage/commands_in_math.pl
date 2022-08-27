@@ -2893,6 +2893,39 @@ $result_converted{'xml'}->{'commands_in_math'} = '
 ';
 
 
+$result_converted{'latex'}->{'commands_in_math'} = '
+$$
+\\mathbf{``simple-double--three---four----\'\'} \\hbox{aa}
+`\\hbox{}`simple-double-\\hbox{}-three---four----\'\\hbox{}\'
+$$
+
+$$
+\\ddot{u} \\ddot{U} \\tilde{n} \\hat{a} \\acute{e} \\bar{o} \\grave{i} \\acute{e} \\imath{} \\jmath{} \\grave{\\bar{E}}
+\\mathord{\\text{\\l{}}} \\textsl{\\c{\\\'{C}}} \\textsl{\\c{\\\'{C}}} \\textsl{\\c{c}} \\textsl{\\H{a}} \\dot{a} \\mathring{a} \\textsl{\\t{a}}
+\\breve{a} \\textsl{\\b{a}} \\textsl{\\d{a}} \\check{a} \\textsl{\\k{a}} a^{h}_{l}
+ \\ {}\\ {} \\ {}\\-{}   ! ? . @ \\} \\{ 
+\\today{}
+$$
+
+$$
+\\rightarrow{}
+u
+TeX LaTeX \\bullet{} \\copyright{} \\dots{} \\dots{} \\equiv{}
+\\fbox{error} \\mapsto{} - \\star{} \\dashv{} \\Rightarrow{}
+\\mathord{\\text{\\aa{}}} \\mathord{\\text{\\AA{}}} \\mathord{\\text{\\ae{}}} \\mathord{\\text{\\oe{}}} \\mathord{\\text{\\AE{}}} \\mathord{\\text{\\OE{}}} \\mathord{\\text{\\o{}}} \\mathord{\\text{\\O{}}} \\mathord{\\text{\\ss{}}} \\mathord{\\text{\\l{}}} \\mathord{\\text{\\L{}}} \\mathord{\\text{\\DH{}}}
+\\mathord{\\text{\\TH{}}} \\mathord{\\text{\\dh{}}} \\mathord{\\text{\\th{}}} \\mathord{\\text{\\textexclamdown{}}} \\mathord{\\text{\\textquestiondown{}}} \\mathsterling{}
+\\circledR{} \\mathord{\\text{\\textordfeminine{}}} \\mathord{\\text{\\textordmasculine{}}} , 
+$$
+
+$$
+\\mathord{\\text{\\textquotedblleft{}}} \\mathord{\\text{\\textquotedblright{}}} 
+\\mathord{\\text{\\textquoteleft{}}} \\mathord{\\text{\\textquoteright{}}} \\mathord{\\text{\\quotedblbase{}}} \\mathord{\\text{\\quotesinglbase{}}} \\mathord{\\text{\\guillemotleft{}}}
+\\mathord{\\text{\\guillemotright{}}} \\mathord{\\text{\\guillemotleft{}}} \\mathord{\\text{\\guillemotright{}}} \\mathord{\\text{\\guilsinglleft{}}}
+\\mathord{\\text{\\guilsinglright{}}} ^{\\circ{}} \\euro{} \\rightarrow{} \\leq{} \\geq{}
+$$
+';
+
+
 $result_converted{'docbook'}->{'commands_in_math'} = '
 <informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----\'\'</emphasis> aa<!-- /@w -->
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----\'<!-- /@w -->\'

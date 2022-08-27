@@ -225,6 +225,23 @@ $result_converted{'xml'}->{'cartouche_in_example'} = '<example endspaces=" ">
 ';
 
 
+$result_converted{'latex'}->{'cartouche_in_example'} = '\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+In example
+\\end{GNUTexinfopreformatted}
+\\begin{mdframed}[style=GNUTexinfocartouche]
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+In cartouche in example
+\\end{GNUTexinfopreformatted}
+\\end{mdframed}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+end example
+\\end{GNUTexinfopreformatted}
+';
+
+
 $result_converted{'docbook'}->{'cartouche_in_example'} = '<screen>In example
 </screen><screen>In cartouche in example
 </screen><screen>end example

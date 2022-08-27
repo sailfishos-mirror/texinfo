@@ -205,6 +205,12 @@ $result_converted{'xml'}->{'test_errormsg'} = '<para>Some text
 </para>';
 
 
+$result_converted{'latex'}->{'test_errormsg'} = 'Some text
+
+
+';
+
+
 $result_converted{'docbook'}->{'test_errormsg'} = '<para>Some text
 
 

@@ -132,6 +132,13 @@ $result_converted{'xml'}->{'raggedright'} = '
 ';
 
 
+$result_converted{'latex'}->{'raggedright'} = '
+\\begin{flushleft}
+in raggedright
+\\end{flushleft}
+';
+
+
 $result_converted{'docbook'}->{'raggedright'} = '
 <para>in raggedright
 </para>';

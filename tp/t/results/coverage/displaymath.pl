@@ -733,6 +733,28 @@ a/2
 ';
 
 
+$result_converted{'latex'}->{'displaymath'} = 'Simple
+$$
+--{x^i}\\over{\\tan y}
+$$
+
+Math with @-command
+$$
+\\mathtt{math code} a < b \\sum_{i} q^{2}
+$$
+
+Complex
+$$
+ \\underline{\\mathtt{math \\hbox{ code }}} \\i \\sum_{i}{\\underline{f}}
+$$
+
+With a comment
+$$
+a/2
+$$
+';
+
+
 $result_converted{'docbook'}->{'displaymath'} = '<para>Simple
 </para><informalequation><mathphrase>--{x^i}\\over{\\tan y}
 </mathphrase></informalequation>

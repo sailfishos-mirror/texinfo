@@ -3524,8 +3524,9 @@ sub _convert($$)
         # condition
         and !($def_commands{$cmdname}
               and $cmdname =~ /x$/)) {
+      # this is output for errormsg
       warn "Unhandled $cmdname\n";
-      $result .= "!!!!!!!!! Unhandled $cmdname !!!!!!!!!\n";
+      #$result .= "!!!!!!!!! Unhandled $cmdname !!!!!!!!!\n";
     }
   }
 

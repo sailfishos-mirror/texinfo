@@ -569,6 +569,26 @@ $result_converted{'xml'}->{'lettered_accent_and_spaces'} = '<para><accent type="
 ';
 
 
+$result_converted{'latex'}->{'lettered_accent_and_spaces'} = '\\r{a}
+
+\\r{a}
+
+\\r{a}
+
+\\r{a}
+
+\\^{a}
+
+\\^{a}
+
+\\^{a}
+
+\\^{a
+}
+
+';
+
+
 $result_converted{'docbook'}->{'lettered_accent_and_spaces'} = '<para>&#229;
 </para>
 <para>&#229;

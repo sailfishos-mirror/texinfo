@@ -482,6 +482,37 @@ $result_converted{'xml'}->{'exdent_and_commands'} = '<quotation endspaces=" ">
 ';
 
 
+$result_converted{'latex'}->{'exdent_and_commands'} = '\\begin{quote}
+quotation1
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+in exdented protected eol \\ {}
+\\\\
+following
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+in exdented a @* \\leavevmode{}\\\\ and following
+\\\\
+after exdented
+\\end{quote}
+
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+example
+\\end{GNUTexinfopreformatted}
+\\noindent in exdented protected eol \\ {}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+following
+\\end{GNUTexinfopreformatted}
+\\noindent in exdented a @* \\leavevmode{}\\\\ and following
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+after exdented
+\\end{GNUTexinfopreformatted}
+';
+
+
 $result_converted{'docbook'}->{'exdent_and_commands'} = '<blockquote><para>quotation1
 </para><simpara role="exdent">in exdented protected eol &#160;</simpara>
 <para>following

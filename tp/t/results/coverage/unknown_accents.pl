@@ -937,6 +937,22 @@ $result_converted{'xml'}->{'unknown_accents'} = '<para><accent type="uml" bracke
 </para>';
 
 
+$result_converted{'latex'}->{'unknown_accents'} = '\\"{X} \\"{x} \\"{Q} \\"{Y}
+
+\\\'{z} \\\'{q} \\\'{r}
+\\\'{Z} \\\'{Q} \\\'{R}
+
+\\c{H} \\c{h}
+
+\\^{z} \\^{r} \\^{t} \\^{k}
+\\^{Z} \\^{R} \\^{T} \\^{K}
+
+\\`{z} \\`{m} \\`{p}
+
+\\~{Z} \\~{s}
+';
+
+
 $result_converted{'docbook'}->{'unknown_accents'} = '<para>&#7820; &#7821; Q&#776; &#376;
 </para>
 <para>&#394; q&#769; &#341;

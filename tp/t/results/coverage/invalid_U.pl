@@ -407,6 +407,11 @@ $result_converted{'xml'}->{'invalid_U'} = '<para><U></U> <U>z</U> <U>abc</U> <U>
 </para>';
 
 
+$result_converted{'latex'}->{'invalid_U'} = ' U+z ઼ U+9999999999999 U+110000 U+10FFFF
+\\# � U+wxyz
+';
+
+
 $result_converted{'docbook'}->{'invalid_U'} = '<para> &#xz; &#xabc; &#x9999999999999; &#x110000; &#x10FFFF;
 &#x0023; &#xFFFD; &#xwxyz;
 </para>';

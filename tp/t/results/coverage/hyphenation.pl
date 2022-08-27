@@ -98,6 +98,11 @@ $result_converted{'xml'}->{'hyphenation'} = '
 ';
 
 
+$result_converted{'latex'}->{'hyphenation'} = '
+\\hyphenation{some-where}
+';
+
+
 $result_converted{'docbook'}->{'hyphenation'} = '
 
 ';

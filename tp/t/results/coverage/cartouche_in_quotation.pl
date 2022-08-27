@@ -225,6 +225,16 @@ $result_converted{'xml'}->{'cartouche_in_quotation'} = '<quotation endspaces=" "
 ';
 
 
+$result_converted{'latex'}->{'cartouche_in_quotation'} = '\\begin{quote}
+In quotation
+\\begin{mdframed}[style=GNUTexinfocartouche]
+In cartouche in quotation
+\\end{mdframed}
+end quotation
+\\end{quote}
+';
+
+
 $result_converted{'docbook'}->{'cartouche_in_quotation'} = '<blockquote><para>In quotation
 </para><para>In cartouche in quotation
 </para><para>end quotation

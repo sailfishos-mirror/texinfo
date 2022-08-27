@@ -107,6 +107,13 @@ $result_converted{'xml'}->{'titlefont_in_center'} = '
 ';
 
 
+$result_converted{'latex'}->{'titlefont_in_center'} = '
+\\begin{center}
+{\\huge \\bfseries A manual}
+\\end{center}
+';
+
+
 $result_converted{'docbook'}->{'titlefont_in_center'} = '
 <simpara role="center">A manual</simpara>
 ';

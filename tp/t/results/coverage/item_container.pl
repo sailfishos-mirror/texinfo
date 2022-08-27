@@ -428,6 +428,21 @@ $result_converted{'xml'}->{'item_container'} = '
 ';
 
 
+$result_converted{'latex'}->{'item_container'} = '
+\\begin{itemize}[label=+]
+\\item i--tem +
+\\end{itemize}
+
+\\begin{itemize}[label=\\textbullet{}]
+\\item  b--ullet
+\\end{itemize}
+
+\\begin{itemize}
+\\item no itemize argument
+\\end{itemize}
+';
+
+
 $result_converted{'docbook'}->{'item_container'} = '
 <itemizedlist><listitem><para>+ i&#8211;tem +
 </para></listitem></itemizedlist>

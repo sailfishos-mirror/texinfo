@@ -330,6 +330,29 @@ ldskf dsflj
 ';
 
 
+$result_converted{'latex'}->{'flushleft_flushright'} = '
+\\begin{flushleft}
+\\begin{GNUTexinfopreformatted}
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb ccccccccccccccc
+ldskf dsflj
+     lklsdlv l    lll. Bbb.
+
+lhds
+\\end{GNUTexinfopreformatted}
+\\end{flushleft}
+
+\\begin{flushright}
+\\begin{GNUTexinfopreformatted}
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb ccccccccccccccc
+ldskf dsflj
+     lklsdlv l    lll. Bbb.
+
+lhds
+\\end{GNUTexinfopreformatted}
+\\end{flushright}
+';
+
+
 $result_converted{'docbook'}->{'flushleft_flushright'} = '
 <para>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb ccccccccccccccc
 ldskf dsflj

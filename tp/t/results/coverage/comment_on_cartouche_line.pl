@@ -143,6 +143,12 @@ $result_converted{'xml'}->{'comment_on_cartouche_line'} = '<cartouche spaces=" "
 ';
 
 
+$result_converted{'latex'}->{'comment_on_cartouche_line'} = '\\begin{mdframed}[style=GNUTexinfocartouche]
+in cartouche.
+\\end{mdframed}
+';
+
+
 $result_converted{'docbook'}->{'comment_on_cartouche_line'} = '<para>in cartouche.
 </para>';
 

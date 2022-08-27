@@ -141,6 +141,12 @@ $result_converted{'xml'}->{'comment_on_group_line'} = '<group spaces=" " endspac
 ';
 
 
+$result_converted{'latex'}->{'comment_on_group_line'} = '\\vtop{%
+in group.
+\\strut}%
+';
+
+
 $result_converted{'docbook'}->{'comment_on_group_line'} = '<para>in group.
 </para>';
 

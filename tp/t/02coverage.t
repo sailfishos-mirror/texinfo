@@ -875,6 +875,7 @@ foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
   push @{$test->[2]->{'test_formats'}}, 'xml';
+  push @{$test->[2]->{'test_formats'}}, 'latex';
   if ($docbooc_doc_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'docbook_doc';
   } else {

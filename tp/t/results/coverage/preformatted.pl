@@ -438,6 +438,28 @@ in table in format
 ';
 
 
+$result_converted{'latex'}->{'preformatted'} = '
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+e{-}{-}xample  some  
+
+\\   text
+\\end{GNUTexinfopreformatted}
+
+\\begin{description}
+\\item[{\\parbox[b]{\\linewidth}{%
+\\texttt{item in table in format}
+\\index[vr]{item in table in format@\\texttt{item in table in format}}%
+}}]
+\\begin{GNUTexinfopreformatted}
+\\leftskip=0em\\relax%
+
+in table in format
+\\end{GNUTexinfopreformatted}
+\\end{description}
+';
+
+
 $result_converted{'docbook'}->{'preformatted'} = '
 <screen>e--xample  some  
 

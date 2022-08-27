@@ -494,6 +494,28 @@ $result_converted{'xml'}->{'block_commands'} = '
 ';
 
 
+$result_converted{'latex'}->{'block_commands'} = '
+\\vtop{%
+in group
+\\strut}%
+
+\\begin{quote}
+\\textbf{warning:} in quotation
+\\end{quote}
+
+\\begin{TexinfoFloatafloat}
+In float
+
+
+\\caption{in caption
+
+in caption}
+
+\\label{anchor:b-float}%
+\\end{TexinfoFloatafloat}
+';
+
+
 $result_converted{'docbook'}->{'block_commands'} = '
 <para>in group
 </para>

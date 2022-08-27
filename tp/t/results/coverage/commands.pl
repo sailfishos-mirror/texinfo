@@ -615,6 +615,18 @@ $result_converted{'xml'}->{'commands'} = '<para>&arobase; &tex; <spacecmd type="
 ';
 
 
+$result_converted{'latex'}->{'commands'} = '@ \\TeX{} \\ {}\\"{e} \\^{\\i{}} \\~{a} \\r{a}
+
+File $\\rightarrow{}$ Open\\@.
+\\href{mailto:a}{b} \\texttt{code {-}{-}{-} {-}{-} {\'}{\'} {`}{`}}
+--- -- \'\' ``. \\textsc{small caps}.
+
+\\index[cp]{index entry ``in text\'\' \\LaTeX{}}%
+
+\\GNUTexinfonopagebreakheading{\\chapter*}{{majorheading \\textbf{in b}}}
+';
+
+
 $result_converted{'docbook'}->{'commands'} = '<para>@ &tex; &#160;&#235; &#238; &#227; &#229;
 </para>
 <para>File &#8594; Open.

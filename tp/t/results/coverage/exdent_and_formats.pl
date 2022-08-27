@@ -2069,6 +2069,129 @@ quotation2
 ';
 
 
+$result_converted{'latex'}->{'exdent_and_formats'} = '\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+\\ Example   Hoho.\\ \\TeX{}\\ .\\ \\leavevmode{}\\\\\\ @.
+
+\\end{GNUTexinfopreformatted}
+\\noindent Other line
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+not exdented
+\\end{GNUTexinfopreformatted}
+
+
+\\noindent exdented  and dash --- in example
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+Not exdented
+\\end{GNUTexinfopreformatted}
+\\noindent exdented
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+Not exdented
+\\end{GNUTexinfopreformatted}
+
+Para1.
+
+\\begin{quote}
+qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
+qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
+\\end{quote}
+
+Para2.
+
+Para3.
+
+Last para.
+
+\\begin{quote}
+quotation1
+quotation2
+\\end{quote}
+
+\\begin{quote}
+quotation para 1
+
+quotation para 2
+\\end{quote}
+
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+Example   Hoho.
+\\end{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}
+\\leftskip=2em\\relax\\ttfamily%
+Nested Other line
+\\end{GNUTexinfopreformatted}
+\\noindent exdented nested other line
+
+\\begin{quote}
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+exdented quotation line   and dash --- in quotation
+\\\\
+\\end{quote}
+
+\\begin{quote}
+Not exdented followed by exdented
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+exdented quotation line
+\\\\
+\\end{quote}
+
+\\begin{quote}
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+exdented quotation line
+\\\\
+Followed by not exdented 
+\\end{quote}
+
+\\begin{quote}
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az
+\\\\
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+azeaz az az az az
+\\\\
+\\end{quote}
+
+\\begin{quote}
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line
+\\\\
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+az az az az
+\\\\
+\\end{quote}
+
+\\begin{quote}
+quotation line oidfjslsd aez a aze azaz aeae za eaz az zelef  aaa
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+ezkfjklezf
+\\\\
+\\end{quote}
+
+\\begin{quote}
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+very loooooooooooooooooooooooooooooooooong exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line
+\\\\
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+az az az az
+\\\\
+\\end{quote}
+';
+
+
 $result_converted{'docbook'}->{'exdent_and_formats'} = '<screen> Example   Hoho. &tex; . 
  @.
 

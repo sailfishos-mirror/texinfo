@@ -586,6 +586,27 @@ $result_converted{'xml'}->{'symbol_after_command'} = '<table commandarg="asis" s
 </para>';
 
 
+$result_converted{'latex'}->{'symbol_after_command'} = '\\begin{description}
+\\item[{\\parbox[b]{\\linewidth}{%
+. dot}}]
+\\item[{\\parbox[b]{\\linewidth}{%
+, comma}}]
+\\item[{\\parbox[b]{\\linewidth}{%
+@ @}}]
+\\item[{\\parbox[b]{\\linewidth}{%
+\\{ \\{}}]
+\\item[{\\parbox[b]{\\linewidth}{%
+! exclam}}]
+\\item[{\\parbox[b]{\\linewidth}{%
+\'\' quotes}}]
+\\item[{\\parbox[b]{\\linewidth}{%
+: colon}}]
+\\end{description}
+
+@. \\{, @@ \\@?, \\@!: @\\{ @\'\' @:
+';
+
+
 $result_converted{'docbook'}->{'symbol_after_command'} = '<variablelist><varlistentry><term>. dot
 </term></varlistentry><varlistentry><term>, comma
 </term></varlistentry><varlistentry><term>@ @

@@ -741,6 +741,30 @@ $result_converted{'xml'}->{'table'} = '
 ';
 
 
+$result_converted{'latex'}->{'table'} = '
+\\begin{description}
+\\item[{\\parbox[b]{\\linewidth}{%
+table item\\\\
+table itemx}}]
+
+In table
+\\end{description}
+
+\\begin{description}
+\\item[] \\index[cp]{index entry}%
+
+\\item[{\\parbox[b]{\\linewidth}{%
+\\GNUTexinfotablestylesamp{vtable item}\\\\
+\\index[vr]{vtable item@\\texttt{vtable item}}%
+\\index[ky]{key@\\texttt{key}}%
+\\GNUTexinfotablestylesamp{itemx vtable}
+\\index[vr]{itemx vtable@\\texttt{itemx vtable}}%
+}}]
+
+\\end{description}
+';
+
+
 $result_converted{'docbook'}->{'table'} = '
 <variablelist><varlistentry><term>table item
 </term><term>table itemx

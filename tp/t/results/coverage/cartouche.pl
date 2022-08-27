@@ -117,6 +117,12 @@ $result_converted{'xml'}->{'cartouche'} = '<cartouche endspaces=" ">
 </para></cartouche>';
 
 
+$result_converted{'latex'}->{'cartouche'} = '\\begin{mdframed}[style=GNUTexinfocartouche]
+in cartouche.
+\\end{mdframed}
+';
+
+
 $result_converted{'docbook'}->{'cartouche'} = '<para>in cartouche.
 </para>';
 

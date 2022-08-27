@@ -87,6 +87,13 @@ $result_converted{'xml'}->{'verbatiminclude'} = '
 ';
 
 
+$result_converted{'latex'}->{'verbatiminclude'} = '
+\\begin{verbatim}
+This is the @emph{included} file (include-value2.txi) <> ---. 
+\\end{verbatim}
+';
+
+
 $result_converted{'docbook'}->{'verbatiminclude'} = '
 <screen>This is the @emph{included} file (include-value2.txi) &lt;&gt; ---. 
 </screen>';
