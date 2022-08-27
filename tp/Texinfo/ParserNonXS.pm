@@ -4212,7 +4212,7 @@ sub _parse_texi($$$)
       if ($current->{'cmdname'}
             and defined($brace_commands{$current->{'cmdname'}})
             and !$open_brace) {
-        print STDERR "BRACE command \@$current->{'cmdname'}, no brace\n"
+        print STDERR "BRACE CMD \@$current->{'cmdname'}, no following brace\n"
           if $self->{'DEBUG'};
         # special case for @-command as argument of @itemize or @*table.
         if (_command_with_command_as_argument($current->{'parent'})) {
@@ -4227,19 +4227,32 @@ sub _parse_texi($$$)
           }
           $current = $current->{'parent'};
         # Note that non ascii spaces do not count as spaces
-        } elsif ($line =~ s/^(\s+)//
+        } elsif ($line =~ /^(\s+)/
                  and ($accent_commands{$current->{'cmdname'}}
                       or $self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'})) {
           my $added_space = $1;
-          print STDERR "BRACE spaces ignored '$added_space'\n"
-            if $self->{'DEBUG'};
-          $current->{'extra'}->{'spaces'} = ''
-            if (!defined($current->{'extra'}->{'spaces'}));
-          $current->{'extra'}->{'spaces'} .= $added_space;
+          my $additional_newline;
           if ($added_space =~ /\n/) {
             $self->_line_warn(sprintf(
                __("command `\@%s' must not be followed by new line"),
                $current->{'cmdname'}), $source_info);
+            $additional_newline = 1;
+          }
+          print STDERR "BRACE CMD following command space ignored '$added_space'\n"
+            if $self->{'DEBUG'};
+          if (!defined($current->{'extra'}->{'spaces'})) {
+            $line =~ s/^(\s+)//;
+            $current->{'extra'}->{'spaces'} = $added_space;
+          # only ignore spaces and one newline, two newlines lead to
+          # an empty line before the brace or argument which is incorrect.
+          } elsif ($additional_newline
+                   and $current->{'extra'}->{'spaces'} =~ /\n/) {
+            $self->_line_error(sprintf(__("\@%s expected braces"),
+                               $current->{'cmdname'}), $source_info);
+            $current = $current->{'parent'};
+          } else {
+            $line =~ s/^(\s+)//;
+            $current->{'extra'}->{'spaces'} .= $added_space;
           }
         # special case for accent commands, use following character except @
         # as argument

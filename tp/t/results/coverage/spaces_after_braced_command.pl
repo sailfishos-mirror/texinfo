@@ -97,18 +97,10 @@ $result_trees{'spaces_after_braced_command'} = {
         {
           'contents' => [
             {
-              'args' => [
-                {
-                  'contents' => [],
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                }
-              ],
               'cmdname' => 'TeX',
               'contents' => [],
               'extra' => {
                 'spaces' => '
-
 '
               },
               'parent' => {},
@@ -117,6 +109,11 @@ $result_trees{'spaces_after_braced_command'} = {
                 'line_nr' => 6,
                 'macro' => ''
               }
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
             },
             {
               'parent' => {},
@@ -146,9 +143,9 @@ $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2]{'cont
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0];
-$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'contents'}[0];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4];
+$result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'spaces_after_braced_command'}{'contents'}[0];
 $result_trees{'spaces_after_braced_command'}{'contents'}[0]{'parent'} = $result_trees{'spaces_after_braced_command'};
 
@@ -159,7 +156,7 @@ $result_texis{'spaces_after_braced_command'} = '@code {b}
 
 @TeX
 
-{}
+
 ';
 
 
@@ -168,6 +165,7 @@ $result_texts{'spaces_after_braced_command'} = 'b
 v
 
 TeX
+
 ';
 
 $result_errors{'spaces_after_braced_command'} = [
@@ -197,6 +195,33 @@ $result_errors{'spaces_after_braced_command'} = [
     'macro' => '',
     'text' => 'command `@TeX\' must not be followed by new line',
     'type' => 'warning'
+  },
+  {
+    'error_line' => '@TeX expected braces
+',
+    'file_name' => '',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => '@TeX expected braces',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'misplaced {
+',
+    'file_name' => '',
+    'line_nr' => 8,
+    'macro' => '',
+    'text' => 'misplaced {',
+    'type' => 'error'
+  },
+  {
+    'error_line' => 'misplaced }
+',
+    'file_name' => '',
+    'line_nr' => 8,
+    'macro' => '',
+    'text' => 'misplaced }',
+    'type' => 'error'
   }
 ];
 

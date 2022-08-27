@@ -752,7 +752,8 @@ Invalid use of @':
 @U{FFFFFFFFFFFFFF}, value much too large FFFFFFFFFFFFFF
 @U{110000}, value just beyond Unicode 110000
 
-@TeX, but without brace TeX@# #
+@TeX, but without brace TeX
+@# #
 
 @w{--a} -a
 
@@ -1582,7 +1583,8 @@ Invalid use of @':
 @U{FFFFFFFFFFFFFF}, value much too large FFFFFFFFFFFFFF
 @U{110000}, value just beyond Unicode 110000
 
-@TeX, but without brace TeX@# #
+@TeX, but without brace TeX
+@# #
 
 @w{--a} --a
 

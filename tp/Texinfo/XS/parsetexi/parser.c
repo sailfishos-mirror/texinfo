@@ -1441,33 +1441,51 @@ superfluous_arg:
         {
            char *p; char *s;
            int whitespaces_len;
+           int additional_newline = 0;
            KEY_PAIR *k;
            whitespaces_len = strspn (line, whitespace_chars);
-           p = line + whitespaces_len;
-           k = lookup_extra (current, "spaces");
-           if (!k)
-             {
-               xasprintf (&s, "%.*s", (int) (p - line), line);
-               add_extra_string (current, "spaces", s);
-             }
-           else
-             {
-               xasprintf (&s, "%s%.*s",
-                         (char *) k->value,
-                         (int) (p - line), line);
-               free (k->value);
-               k->value = (ELEMENT *) s;
-             }
+
            for (int i = 0; i < whitespaces_len; i++)
              {
                if (*(line + i) == '\n')
                  {
                    line_warn ("command `@%s' must not be followed by new line",
                               command_name(current->cmd));
+                   additional_newline = 1;
                    break;
                  }
              }
-           line = p;
+
+           k = lookup_extra (current, "spaces");
+           if (!k)
+             {
+               p = line + whitespaces_len;
+               xasprintf (&s, "%.*s", (int) (p - line), line);
+               add_extra_string (current, "spaces", s);
+               line = p;
+             }
+           else
+             {
+            /* only ignore spaces and one newline, two newlines lead to
+               an empty line before the brace or argument which is incorrect. */
+               char *previous_value = (char *) k->value;
+               if (additional_newline && strchr ("\n", *previous_value))
+                 {
+                   line_error ("@%s expected braces",
+                               command_name(current->cmd));
+                   current = current->parent;
+                 }
+               else
+                 {
+                   p = line + whitespaces_len;
+                   xasprintf (&s, "%s%.*s",
+                             *previous_value,
+                             (int) (p - line), line);
+                   free (k->value);
+                   k->value = (ELEMENT *) s;
+                   line = p;
+                 }
+             }
         }
     /* special case for accent commands, use following character except @
      * as argument */

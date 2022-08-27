@@ -2165,7 +2165,8 @@ in verbatim ''
 &arobase;U&lbrace;110000&rbrace;, value just beyond Unicode <U>110000</U>
 </para>
 <!-- c braces missing -->
-<para>&arobase;TeX, but without brace &tex;<!-- c unknown command -->
+<para>&arobase;TeX, but without brace &tex;
+<!-- c unknown command -->
 <code>&arobase;#</code> #
 </para>
 <!-- c no arg -->
@@ -3301,7 +3302,8 @@ in verbatim ''
 &arobase;U&lbrace;110000&rbrace;, value just beyond Unicode <U>110000</U>
 </para>
 <!-- c braces missing -->
-<para>&arobase;TeX, but without brace &tex;<!-- c unknown command -->
+<para>&arobase;TeX, but without brace &tex;
+<!-- c unknown command -->
 <code>&arobase;#</code> #
 </para>
 <!-- c no arg -->
@@ -4464,7 +4466,8 @@ in verbatim ''
 &arobase;U&lbrace;110000&rbrace;, value just beyond Unicode <U>110000</U>
 </para>
 <!-- c braces missing -->
-<para>&arobase;TeX, but without brace &tex;<!-- c unknown command -->
+<para>&arobase;TeX, but without brace &tex;
+<!-- c unknown command -->
 <code>&arobase;#</code> #
 </para>
 <!-- c no arg -->
@@ -5595,7 +5598,8 @@ Invalid use of &arobase;':&linebreak;
 &arobase;U&lbrace;110000&rbrace;, value just beyond Unicode <U>110000</U>
 
 <!-- c braces missing -->
-&arobase;TeX, but without brace &tex;<!-- c unknown command -->
+&arobase;TeX, but without brace &tex;
+<!-- c unknown command -->
 <code>&arobase;#</code> #
 
 <!-- c no arg -->

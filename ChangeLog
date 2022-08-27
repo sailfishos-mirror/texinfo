@@ -1,5 +1,14 @@
 2022-08-27  Patrice Dumas  <pertusus@free.fr>
 
+	Only ignore one end of line after a brace command before a brace
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	tp/Texinfo/XS/parsetexi/parser.c(process_remaining_on_line): only
+	ignore one newline after a brace command before a brace.  Report
+	from Gavin.
+
+2022-08-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi): remove comment on hack
 	for difference with XS parser.  Add/modify debug messages.
 
