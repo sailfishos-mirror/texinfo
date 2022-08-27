@@ -10,91 +10,97 @@ $result_trees{'today_in_copying'} = {
     {
       'contents' => [
         {
-          'cmdname' => 'copying',
           'contents' => [
             {
-              'extra' => {
-                'command' => {}
-              },
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
-            {
+              'cmdname' => 'copying',
               'contents' => [
                 {
-                  'args' => [
-                    {
-                      'contents' => [],
-                      'parent' => {},
-                      'type' => 'brace_command_arg'
-                    }
-                  ],
-                  'cmdname' => 'today',
-                  'contents' => [],
+                  'extra' => {
+                    'command' => {}
+                  },
                   'parent' => {},
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 2,
-                    'macro' => ''
-                  }
+                  'text' => '
+',
+                  'type' => 'empty_line_after_command'
                 },
-                {
-                  'parent' => {},
-                  'text' => '.
-'
-                }
-              ],
-              'parent' => {},
-              'type' => 'paragraph'
-            },
-            {
-              'args' => [
                 {
                   'contents' => [
                     {
+                      'args' => [
+                        {
+                          'contents' => [],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'today',
+                      'contents' => [],
                       'parent' => {},
-                      'text' => 'copying'
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 2,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '.
+'
                     }
                   ],
-                  'extra' => {
-                    'spaces_after_argument' => '
+                  'parent' => {},
+                  'type' => 'paragraph'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'copying'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
 '
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'command_argument' => 'copying',
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'copying'
                   },
                   'parent' => {},
-                  'type' => 'line_arg'
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 3,
+                    'macro' => ''
+                  }
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'copying',
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'copying'
+                'end_command' => {}
               },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
+                'line_nr' => 1,
                 'macro' => ''
               }
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          }
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -165,6 +171,42 @@ $result_trees{'today_in_copying'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'spaces_before_argument' => ' '
+      },
+      'parent' => {},
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 6,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'node'
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'args' => [
@@ -179,36 +221,49 @@ $result_trees{'today_in_copying'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
+            'line_nr' => 10,
             'macro' => ''
           }
         }
       ],
       'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'node'
+          }
+        ],
+        'normalized' => 'node',
         'spaces_before_argument' => ' '
       },
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 8,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0];
+$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0];
-$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0];
-$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0];
-$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0];
-$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0];
 $result_trees{'today_in_copying'}{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'};
 $result_trees{'today_in_copying'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[1]{'args'}[0];
 $result_trees{'today_in_copying'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[1];
@@ -218,9 +273,15 @@ $result_trees{'today_in_copying'}{'contents'}[1]{'parent'} = $result_trees{'toda
 $result_trees{'today_in_copying'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[2]{'args'}[0];
 $result_trees{'today_in_copying'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[2];
 $result_trees{'today_in_copying'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[2];
-$result_trees{'today_in_copying'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[2]{'contents'}[1];
-$result_trees{'today_in_copying'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[2];
 $result_trees{'today_in_copying'}{'contents'}[2]{'parent'} = $result_trees{'today_in_copying'};
+$result_trees{'today_in_copying'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[3]{'args'}[0];
+$result_trees{'today_in_copying'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[3];
+$result_trees{'today_in_copying'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[3];
+$result_trees{'today_in_copying'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[3]{'contents'}[1];
+$result_trees{'today_in_copying'}{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[3];
+$result_trees{'today_in_copying'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'today_in_copying'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'today_in_copying'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'today_in_copying'}{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'today_in_copying'}{'contents'}[3]{'parent'} = $result_trees{'today_in_copying'};
 
 $result_texis{'today_in_copying'} = '@copying
 @today{}.
@@ -229,6 +290,8 @@ $result_texis{'today_in_copying'} = '@copying
 @node Top
 @top top
 
+@node node
+
 @insertcopying
 ';
 
@@ -236,6 +299,7 @@ $result_texis{'today_in_copying'} = '@copying
 $result_texts{'today_in_copying'} = '
 top
 ***
+
 
 ';
 
@@ -249,7 +313,8 @@ $result_sectioning{'today_in_copying'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'structure' => {}
           }
         },
         'structure' => {
@@ -272,14 +337,27 @@ $result_nodes{'today_in_copying'} = {
       'structure' => {}
     },
     'normalized' => 'Top'
+  },
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'node'
+      },
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
   }
 };
+$result_nodes{'today_in_copying'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'today_in_copying'};
 
 $result_menus{'today_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'today_in_copying'} = [];
@@ -294,16 +372,20 @@ $result_converted{'info'}->{'today_in_copying'} = 'This is , produced from .
 a sunny day.
 
 
-File: ,  Node: Top,  Up: (dir)
+File: ,  Node: Top,  Next: node,  Up: (dir)
 
 top
 ***
+
+
+File: ,  Node: node,  Prev: Top
 
 a sunny day.
 
 
 Tag Table:
 Node: Top41
+Node: node97
 
 End Tag Table
 
@@ -336,7 +418,18 @@ $result_converted{'html'}->{'today_in_copying'} = '<!DOCTYPE html>
 <body lang="en">
 
 <div class="top-level-extent" id="Top">
+<div class="nav-panel">
+<p>
+Next: <a href="#node" accesskey="n" rel="next">node</a> &nbsp; </p>
+</div>
 <h1 class="top" id="top">top</h1>
+
+<hr>
+<a class="node-id" id="node"></a><div class="nav-panel">
+<p>
+Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
+</div>
+<h4 class="node">node</h4>
 
 <p>a sunny day.
 </p></div>
@@ -345,6 +438,15 @@ $result_converted{'html'}->{'today_in_copying'} = '<!DOCTYPE html>
 
 </body>
 </html>
+';
+
+
+$result_converted{'latex'}->{'today_in_copying'} = '
+\\begin{document}
+\\label{anchor:Top}%
+\\label{anchor:node}%
+
+\\today{}.
 ';
 
 1;

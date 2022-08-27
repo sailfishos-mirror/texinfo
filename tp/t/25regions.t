@@ -54,6 +54,9 @@ my $anchor_in_titlepage_text =
 @top top
 @node Top
 
+@chapter Chapter
+@node nchap
+
 @xref{in titlepage}.
 ';
 
@@ -68,6 +71,8 @@ Copying.
 @end copying
 
 @node Top
+
+@node node
 
 @insertcopying
 
@@ -87,6 +92,8 @@ In footnote.
 @end copying
 
 @node Top
+
+@node node
 
 @insertcopying
 
@@ -125,6 +132,27 @@ $anchor_in_titlepage_text, {}, {'SHOW_TITLE' => 1}
 @chapter GFDL
 
 '],
+['ref_in_copying_insert_in_chapter',
+'@copying
+@ref{GFDL}
+@end copying
+
+@node Top
+@top top
+
+@node Intro
+@chapter Introduction
+
+@insertcopying
+
+@menu
+* GFDL::
+@end menu
+
+@node GFDL
+@section GFDL
+
+'],
 ['today_in_copying',
 '@copying
 @today{}.
@@ -133,6 +161,8 @@ $anchor_in_titlepage_text, {}, {'SHOW_TITLE' => 1}
 @node Top
 @top top
 
+@node node
+
 @insertcopying
 ',{},{'TEST' => 1}],
 );
@@ -140,6 +170,8 @@ $anchor_in_titlepage_text, {}, {'SHOW_TITLE' => 1}
 foreach my $test (@test_formatted) {
   push @{$test->[2]->{'test_formats'}}, 'info';
   push @{$test->[2]->{'test_formats'}}, 'html';
+  push @{$test->[2]->{'test_formats'}}, 'latex';
+  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 run_all('regions', [@test_cases, @test_formatted]);
