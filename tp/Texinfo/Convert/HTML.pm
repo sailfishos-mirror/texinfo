@@ -2669,7 +2669,7 @@ sub _convert_email_command($$$$)
   }
   $text = $mail_string unless ($text ne '');
   # match a non-space character, ascii and non-ascii spaces considered as spaces
-  return $text unless ($mail =~ /[^\v\h]/);
+  return $text unless ($mail =~ /[^\v\h\s]/);
   if ($self->in_string()) {
     return "$mail_string ($text)";
   } else {
