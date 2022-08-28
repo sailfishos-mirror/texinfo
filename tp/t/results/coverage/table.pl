@@ -518,6 +518,121 @@ $result_trees{'table'} = {
             'line_nr' => 9,
             'macro' => ''
           }
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'cmdname' => 'strong',
+                  'contents' => [],
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 20,
+                    'macro' => ''
+                  },
+                  'type' => 'command_as_argument'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'table',
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'unknown command after indicating command'
+                            }
+                          ],
+                          'extra' => {
+                            'spaces_after_argument' => '
+'
+                          },
+                          'parent' => {},
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'item',
+                      'extra' => {
+                        'spaces_before_argument' => ' '
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 21,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'table_term'
+                }
+              ],
+              'parent' => {},
+              'type' => 'table_entry'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'table'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'table',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'table'
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 22,
+                'macro' => ''
+              }
+            }
+          ],
+          'extra' => {
+            'command_as_argument' => {},
+            'end_command' => {},
+            'spaces_before_argument' => ' '
+          },
+          'parent' => {},
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 20,
+            'macro' => ''
+          }
         }
       ],
       'parent' => {},
@@ -595,6 +710,20 @@ $result_trees{'table'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = 
 $result_trees{'table'}{'contents'}[0]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'table'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'table'}{'contents'}[0]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'table'}{'contents'}[0]{'contents'}[3]{'contents'}[2];
 $result_trees{'table'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'table'}{'contents'}[0];
+$result_trees{'table'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'table'}{'contents'}[0];
+$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5]{'args'}[0];
+$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5];
+$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0];
+$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[0];
+$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5];
+$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0];
+$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
+$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5];
+$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0];
+$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'table'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
+$result_trees{'table'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'table'}{'contents'}[0];
 $result_trees{'table'}{'contents'}[0]{'parent'} = $result_trees{'table'};
 
 $result_texis{'table'} = '
@@ -615,6 +744,10 @@ In table
 @itemx itemx vtable @comment comment in itemx line
 
 @end vtable
+
+@table @strong
+@item unknown command after indicating command
+@end table
 ';
 
 
@@ -628,6 +761,8 @@ In table
 vtable item
 itemx vtable
 
+
+unknown command after indicating command
 ';
 
 $result_errors{'table'} = [
@@ -666,6 +801,15 @@ $result_errors{'table'} = [
     'macro' => '',
     'text' => 'entry for index `vr\' outside of any node',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'unknown command `unknown\'
+',
+    'file_name' => '',
+    'line_nr' => 20,
+    'macro' => '',
+    'text' => 'unknown command `unknown\'',
+    'type' => 'error'
   }
 ];
 
@@ -696,6 +840,7 @@ table itemx
 ‘vtable item’
 ‘itemx vtable’
 
+*unknown command after indicating command*
 ';
 
 
@@ -716,6 +861,10 @@ $result_converted{'html_text'}->{'table'} = '
 <dd><a class="index-entry-id" id="index-key"></a>
 </dd>
 <dt id=\'index-itemx-vtable\'><span>&lsquo;<samp class="samp">itemx vtable</samp>&rsquo;<a class="copiable-link" href=\'#index-itemx-vtable\'> &para;</a></span></dt>
+</dl>
+
+<dl class="table">
+<dt><strong class="strong">unknown command after indicating command</strong></dt>
 </dl>
 ';
 
@@ -738,6 +887,10 @@ $result_converted{'xml'}->{'table'} = '
 <itemx spaces=" "><itemformat command="samp"><indexterm index="vr" number="2">itemx vtable</indexterm>itemx vtable </itemformat></itemx><!-- comment comment in itemx line -->
 </tableterm><tableitem>
 </tableitem></tableentry></vtable>
+
+<table commandarg="strong" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="strong">unknown command after indicating command</itemformat></item>
+</tableterm></tableentry></table>
 ';
 
 
@@ -762,6 +915,11 @@ In table
 }}]
 
 \\end{description}
+
+\\begin{description}
+\\item[{\\parbox[b]{\\linewidth}{%
+\\textbf{unknown command after indicating command}}}]
+\\end{description}
 ';
 
 
@@ -779,6 +937,8 @@ $result_converted{'docbook'}->{'table'} = '
 <indexterm role="ky"><primary>key</primary></indexterm>
 <term><indexterm role="vr"><primary>itemx vtable</primary></indexterm>&#8216;<literal>itemx vtable</literal>&#8217;
 </term><listitem>
-</listitem></varlistentry></variablelist>';
+</listitem></varlistentry></variablelist>
+<variablelist><varlistentry><term><emphasis role="bold">unknown command after indicating command</emphasis>
+</term></varlistentry></variablelist>';
 
 1;

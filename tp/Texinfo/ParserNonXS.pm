@@ -4093,24 +4093,6 @@ sub _parse_texi($$$)
         $at_command_length = length($at_command) + 1;
         $command = $at_command;
 
-        # handle unknown @-command
-        if (!$all_commands{$command}
-            and !$self->{'macros'}->{$command}
-            and !$self->{'definfoenclose'}->{$command}
-            and !$self->{'aliases'}->{$command}
-            and !$self->{'command_index'}->{$command}
-            # @txiinternalvalue is invalid unless accept_internalvalue is set
-            and !($command eq 'txiinternalvalue'
-                  and $self->{'accept_internalvalue'})) {
-          $self->_line_error(sprintf(__("unknown command `%s'"),
-                                      $command), $source_info);
-          substr($line, 0, $at_command_length) = '';
-          _abort_empty_line($self, $current);
-          my $paragraph = _begin_paragraph($self, $current, $source_info);
-          $current = $paragraph if ($paragraph);
-          next;
-        }
-
         my $alias_command;
         if (exists($self->{'aliases'}->{$command})) {
           $alias_command = $command;
@@ -4219,6 +4201,46 @@ sub _parse_texi($$$)
             }
           }
         }
+          #substr($line, 0, $at_command_length) = '';
+      }
+
+      # special case for @-command as argument of @itemize or @*table.
+      # The normal case for those are to be identifier only, not a true command
+      # with argument, so can be followed by anything.  If followed by
+      # braces, will be handled as a normal brace command.
+      #
+      # Need to be done as early as possible such that no other condition
+      # prevail and lead to a missed command
+      if ($current->{'cmdname'}
+          and defined($brace_commands{$current->{'cmdname'}})
+          and !$open_brace
+          and _command_with_command_as_argument($current->{'parent'})) {
+        print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'cmdname'} ".
+               "command_as_argument $current->{'cmdname'}\n" if ($self->{'DEBUG'});
+        $current->{'type'} = 'command_as_argument' if (!$current->{'type'});
+        $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
+          = $current;
+        if ($current->{'cmdname'} eq 'kbd'
+            and _kbd_formatted_as_code($self, $current->{'parent'}->{'parent'})) {
+          $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
+        }
+        $current = $current->{'parent'};
+      }
+
+      # handle unknown @-command
+      if ($command and !$all_commands{$command}
+          and !$self->{'definfoenclose'}->{$command}
+          and !$self->{'command_index'}->{$command}
+          # @txiinternalvalue is invalid unless accept_internalvalue is set
+          and !($command eq 'txiinternalvalue'
+                and $self->{'accept_internalvalue'})) {
+        $self->_line_error(sprintf(__("unknown command `%s'"),
+                                      $command), $source_info);
+        substr($line, 0, $at_command_length) = '';
+        _abort_empty_line($self, $current);
+        my $paragraph = _begin_paragraph($self, $current, $source_info);
+        $current = $paragraph if ($paragraph);
+        next;
       }
 
       # this situation arises when after the $current->{'cmdname'}
@@ -4231,13 +4253,15 @@ sub _parse_texi($$$)
       # It would have been nice to allow for comments, but there is no
       # container in the tree to put them when after command and before brace
       # or argument for accent commands.
-      #
-      # TODO stop the brace command
-      #if ($command
-      #    and $current->{'cmdname'}
-      #    and defined($brace_commands{$current->{'cmdname'}})) {
-      #  #print STDERR "AAA \@$command \@$current->{'cmdname'}\n";
-      #}
+      # FIXME this is sort of a duplicate of what is happening later
+      # with the condition of !$open_brace.  It could allow for more
+      # precise error messages.
+      if ($command
+          and $current->{'cmdname'}
+          and defined($brace_commands{$current->{'cmdname'}})) {
+        $self->_line_error(sprintf(__("\@%s expected braces"),
+                           $current->{'cmdname'}), $source_info);
+        $current = $current->{'parent'};
 
       # Brace commands not followed immediately by a brace
       # opening.  In particular cases that may lead to "command closing"
@@ -4247,28 +4271,16 @@ sub _parse_texi($$$)
       # This condition can only happen immediately after the command opening,
       # otherwise the current element is in the 'args' and not right in the
       # command container.
-      # TODO add and !$command?
-      if ($current->{'cmdname'}
+      } elsif ($current->{'cmdname'}
+      #if ($current->{'cmdname'}
             and defined($brace_commands{$current->{'cmdname'}})
             and !$open_brace) {
         print STDERR "BRACE CMD: no brace after \@$current->{'cmdname'}: $line"
           if $self->{'DEBUG'};
-        # special case for @-command as argument of @itemize or @*table.
-        if (_command_with_command_as_argument($current->{'parent'})) {
-          print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'cmdname'} ".
-                 "command_as_argument $current->{'cmdname'}\n" if ($self->{'DEBUG'});
-          $current->{'type'} = 'command_as_argument' if (!$current->{'type'});
-          $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
-            = $current;
-          if ($current->{'cmdname'} eq 'kbd'
-              and _kbd_formatted_as_code($self, $current->{'parent'}->{'parent'})) {
-            $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
-          }
-          $current = $current->{'parent'};
         # Note that non ascii spaces do not count as spaces
-        } elsif ($line =~ /^(\s+)/
-                 and ($accent_commands{$current->{'cmdname'}}
-                      or $self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'})) {
+        if ($line =~ /^(\s+)/
+            and ($accent_commands{$current->{'cmdname'}}
+                 or $self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'})) {
           my $added_space = $1;
           my $additional_newline;
           if ($added_space =~ /\n/) {
@@ -4298,7 +4310,9 @@ sub _parse_texi($$$)
               if $self->{'DEBUG'};
           }
         # special case for accent commands, use following character except @
-        # as argument
+        # as argument.  Note that since we checked before that there isn't
+        # an @-command opening, there should not be an @ anyway.  The line
+        # may possibly be empty in some specific case, without end of line.
         } elsif ($accent_commands{$current->{'cmdname'}}
                  and $line =~ s/^([^@])//) {
           print STDERR "ACCENT following_arg \@$current->{'cmdname'}\n"

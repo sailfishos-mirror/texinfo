@@ -4,6 +4,15 @@
 
 2022-08-28  Patrice Dumas  <pertusus@free.fr>
 
+	Handle indicatric command on table line before unknown command
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	associate indicatric command to the @*table before handling
+	unknown command.
+
+2022-08-28  Patrice Dumas  <pertusus@free.fr>
+
 	Expand @value before processing the remaining of the line
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi),

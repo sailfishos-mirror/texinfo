@@ -144,6 +144,10 @@ In table
 @itemx itemx vtable @comment comment in itemx line
 
 @end vtable
+
+@table @strong@unknown
+@item unknown command after indicating command
+@end table
 '],
 ['table_command_comment',
 '@table @code@c in comment

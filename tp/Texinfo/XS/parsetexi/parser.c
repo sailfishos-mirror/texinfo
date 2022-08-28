@@ -1041,6 +1041,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   int retval = STILL_MORE_TO_PROCESS;
   enum command_id end_cmd;
   char *p;
+  int unknown_command = 0;
 
   enum command_id cmd = CM_NONE;
 
@@ -1368,23 +1369,12 @@ superfluous_arg:
           cmd = 0;
           if (command)
             {
-              ELEMENT *paragraph;
-
               cmd = lookup_command (command);
               if (!cmd)
                 {
                   line_error ("unknown command `%s'", command);
                   debug ("COMMAND (UNKNOWN) %s", command);
-                  free (command);
-
-                  abort_empty_line (&current, 0);
-                  paragraph = begin_paragraph (current);
-                  if (paragraph)
-                    current = paragraph;
-
-                  line = line_after_command;
-                  retval = STILL_MORE_TO_PROCESS;
-                  goto funexit;
+                  unknown_command = 1;
                 }
               free (command);
             }
@@ -1415,7 +1405,7 @@ superfluous_arg:
      considered again together with other commands below for all the other cases
      which may need a well formed tree, which is not needed nor available here,
      and early value expansion may be needed to provide with an argument. */
-  else if (cmd == CM_value)
+  else if (cmd && cmd == CM_value)
     {
       char *expanded_line = line_after_command;
       if (conf.ignore_space_after_braced_command_name)
@@ -1449,6 +1439,45 @@ superfluous_arg:
         }
     }
 
+  /* special case for @-command as argument of @itemize or @*table.
+     The normal case for those are to be identifier only, not a true command
+     with argument, so can be followed by anything.  If followed by
+     braces, will be handled as a normal brace command.
+
+     Need to be done as early as possible such that no other condition
+     prevail and lead to a missed command */
+  if (command_flags(current) & CF_brace && *line != '{'
+      && command_with_command_as_argument (current->parent))
+    {
+      debug ("FOR PARENT @%s command_as_argument @%s",
+             command_name(current->parent->parent->cmd),
+             command_name(current->cmd));
+      if (!current->type)
+        current->type = ET_command_as_argument;
+      add_extra_element (current->parent->parent,
+                             "command_as_argument", current);
+      if (current->cmd == CM_kbd
+          && kbd_formatted_as_code(current->parent->parent)) {
+        add_extra_integer (current->parent->parent,
+                           "command_as_argument_kbd_code", 1);
+      }
+      current = current->parent;
+    }
+
+  if (unknown_command)
+    {
+      ELEMENT *paragraph;
+
+      abort_empty_line (&current, 0);
+      paragraph = begin_paragraph (current);
+      if (paragraph)
+        current = paragraph;
+
+      line = line_after_command;
+      retval = STILL_MORE_TO_PROCESS;
+      goto funexit;
+    }
+   
   /* Brace commands not followed immediately by a brace
      opening.  In particular cases that may lead to "command closing"
      or following character association with an @-command, for accent
@@ -1458,23 +1487,7 @@ superfluous_arg:
      command container. */
   if (command_flags(current) & CF_brace && *line != '{')
     {
-      if (command_with_command_as_argument (current->parent))
-        {
-          debug ("FOR PARENT @%s command_as_argument @%s",
-                 command_name(current->parent->parent->cmd),
-                 command_name(current->cmd));
-          if (!current->type)
-            current->type = ET_command_as_argument;
-          add_extra_element (current->parent->parent,
-                                 "command_as_argument", current);
-          if (current->cmd == CM_kbd
-              && kbd_formatted_as_code(current->parent->parent)) {
-            add_extra_integer (current->parent->parent,
-                               "command_as_argument_kbd_code", 1);
-          }
-          current = current->parent;
-        }
-      else if (strchr (whitespace_chars, *line)
+      if (strchr (whitespace_chars, *line)
                && ((command_flags(current) & CF_accent)
                    || conf.ignore_space_after_braced_command_name))
         {
