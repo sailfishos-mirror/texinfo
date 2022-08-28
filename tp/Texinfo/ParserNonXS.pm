@@ -4083,7 +4083,7 @@ sub _parse_texi($$$)
       my @line_parsing = _parse_texi_regex($line);
       my ($at_command, $open_brace, $asterisk, $single_letter_command,
         $separator_match, $misc_text) = @line_parsing;
-      print STDERR "PARSED: ".join(', ', map {!defined($_) ? 'UNDEF' : $_} @line_parsing)."\n"
+      print STDERR "PARSED: ".join(', ', map {!defined($_) ? 'UNDEF' : "'$_'"} @line_parsing)."\n"
         if ($self->{'DEBUG'});
 
       my $command;
@@ -4201,18 +4201,57 @@ sub _parse_texi($$$)
           unshift @{$self->{'input'}->[0]->{'pending'}}, @$new_lines;
           next;
         }
+        # expand value if it can change the line.  It considered again
+        # together with other commands below for all the other cases
+        # which may need a well formed tree, which is not needed here, and
+        # early value expansion may be needed to provide with an argument.
+        if ($command eq 'value') {
+          my $expanded_line = $line;
+          substr($expanded_line, 0, $at_command_length) = '';
+          $expanded_line =~ s/^\s*//
+             if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'});
+          # REVALUE
+          if ($expanded_line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
+            my $value = $1;
+            if (exists($self->{'values'}->{$value})) {
+              $line = $self->{'values'}->{$value} . $expanded_line;
+              next;
+            }
+          }
+        }
       }
+
+      # this situation arises when after the $current->{'cmdname'}
+      # command but before an opening brace, otherwise $current
+      # would be an argument type and not the command, and a new
+      # @-command was found.  This means that the $current->{'cmdname'}
+      # argument (an opening brace, or a character after spaces for
+      # accent commands) was not found and there is already a new command.
+      #
+      # It would have been nice to allow for comments, but there is no
+      # container in the tree to put them when after command and before brace
+      # or argument for accent commands.
+      #
+      # TODO stop the brace command
+      #if ($command
+      #    and $current->{'cmdname'}
+      #    and defined($brace_commands{$current->{'cmdname'}})) {
+      #  #print STDERR "AAA \@$command \@$current->{'cmdname'}\n";
+      #}
+
       # Brace commands not followed immediately by a brace
       # opening.  In particular cases that may lead to "command closing"
       # or following character association with an @-command, for accent
       # commands.
 
-      # The condition below is only caught right after command opening,
-      # otherwise we are in the 'args' and not right in the command container.
+      # This condition can only happen immediately after the command opening,
+      # otherwise the current element is in the 'args' and not right in the
+      # command container.
+      # TODO add and !$command?
       if ($current->{'cmdname'}
             and defined($brace_commands{$current->{'cmdname'}})
             and !$open_brace) {
-        print STDERR "BRACE CMD \@$current->{'cmdname'}, no following brace\n"
+        print STDERR "BRACE CMD: no brace after \@$current->{'cmdname'}: $line"
           if $self->{'DEBUG'};
         # special case for @-command as argument of @itemize or @*table.
         if (_command_with_command_as_argument($current->{'parent'})) {
@@ -4238,27 +4277,31 @@ sub _parse_texi($$$)
                $current->{'cmdname'}), $source_info);
             $additional_newline = 1;
           }
-          print STDERR "BRACE CMD following command space ignored '$added_space'\n"
-            if $self->{'DEBUG'};
           if (!defined($current->{'extra'}->{'spaces'})) {
             $line =~ s/^(\s+)//;
             $current->{'extra'}->{'spaces'} = $added_space;
+            print STDERR "BRACE CMD before brace init spaces '$added_space'\n"
+              if $self->{'DEBUG'};
           # only ignore spaces and one newline, two newlines lead to
           # an empty line before the brace or argument which is incorrect.
           } elsif ($additional_newline
                    and $current->{'extra'}->{'spaces'} =~ /\n/) {
+            print STDERR "BRACE CMD before brace second newline stops spaces\n"
+              if $self->{'DEBUG'};
             $self->_line_error(sprintf(__("\@%s expected braces"),
                                $current->{'cmdname'}), $source_info);
             $current = $current->{'parent'};
           } else {
             $line =~ s/^(\s+)//;
             $current->{'extra'}->{'spaces'} .= $added_space;
+            print STDERR "BRACE CMD before brace add spaces '$added_space'\n"
+              if $self->{'DEBUG'};
           }
         # special case for accent commands, use following character except @
         # as argument
         } elsif ($accent_commands{$current->{'cmdname'}}
                  and $line =~ s/^([^@])//) {
-          print STDERR "ACCENT \@$current->{'cmdname'}\n"
+          print STDERR "ACCENT following_arg \@$current->{'cmdname'}\n"
             if ($self->{'DEBUG'});
           my $following_arg = {'type' => 'following_arg',
                                'parent' => $current};
@@ -4398,9 +4441,7 @@ sub _parse_texi($$$)
           if ($line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
             my $value = $1;
             if ($command eq 'value') {
-              if (exists($self->{'values'}->{$value})) {
-                $line = $self->{'values'}->{$value} . $line;
-              } else {
+              if (not exists($self->{'values'}->{$value})) {
                 _abort_empty_line($self, $current);
                 # caller should expand something along
                 # gdt('@{No value for `{value}\'@}', {'value' => $value}, {'keep_texi'=> 1});
@@ -4410,6 +4451,8 @@ sub _parse_texi($$$)
                                                   'parent' => $current };
                 $self->_line_warn(
                    sprintf(__("undefined flag: %s"), $value), $source_info);
+              # expansion of value already done above
+              #} else {
               }
             } else {
               # txiinternalvalue

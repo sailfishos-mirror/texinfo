@@ -1398,7 +1398,7 @@ superfluous_arg:
         cmd = command_data(cmd).data;
     }
 
-  /* Handle user-defined macros before anything else because their expansion 
+  /* Handle user-defined macros before anything else because their expansion
      may lead to changes in the line. */
   if (cmd && (command_data(cmd).flags & CF_MACRO))
     {
@@ -1408,16 +1408,55 @@ superfluous_arg:
       free (allocated_line);
       allocated_line = next_text ();
       line = allocated_line;
+      retval = STILL_MORE_TO_PROCESS;
+      goto funexit;
+    }
+  /* expand value if it actually expands and changes the line.  It is
+     considered again together with other commands below for all the other cases
+     which may need a well formed tree, which is not needed nor available here,
+     and early value expansion may be needed to provide with an argument. */
+  else if (cmd == CM_value)
+    {
+      char *expanded_line = line_after_command;
+      if (conf.ignore_space_after_braced_command_name)
+        expanded_line += strspn (expanded_line, whitespace_chars);
+      if (*expanded_line == '{')
+        {
+          char *flag;
+
+          expanded_line++;
+          flag = read_flag_name (&expanded_line);
+          if (flag)
+            {
+              if (*expanded_line == '}')
+                {
+                  char *value;
+                  value = fetch_value (flag);
+
+                  if (value)
+                    {
+                      expanded_line++; /* past '}' */
+                      input_push_text (strdup (expanded_line), current_source_info.macro);
+                      input_push_text (strdup (value), current_source_info.macro);
+                      line = expanded_line + strlen (expanded_line);
+                      retval = STILL_MORE_TO_PROCESS;
+                    }
+                  free (flag);
+                  if (value)
+                    goto funexit;
+                }
+            }
+        }
     }
 
   /* Brace commands not followed immediately by a brace
      opening.  In particular cases that may lead to "command closing"
      or following character association with an @-command, for accent
      commands */
-  /* This condition is only checked immediately after the command opening, 
-     otherwise the current element is in the 'args' and not right in the 
+  /* This condition can only happen immediately after the command opening,
+     otherwise the current element is in the 'args' and not right in the
      command container. */
-  else if (command_flags(current) & CF_brace && *line != '{')
+  if (command_flags(current) & CF_brace && *line != '{')
     {
       if (command_with_command_as_argument (current->parent))
         {
@@ -1535,7 +1574,8 @@ superfluous_arg:
         {
           char *arg_start;
           char *flag;
-          line += strspn (line, whitespace_chars);
+          if (conf.ignore_space_after_braced_command_name)
+            line += strspn (line, whitespace_chars);
           if (*line != '{')
             goto value_invalid;
 
@@ -1582,14 +1622,12 @@ value_valid:
                       line++; /* past '}' */
                       retval = STILL_MORE_TO_PROCESS;
                     }
+                   /* expansion of value already done above
                   else
                     {
-                      line++; /* past '}' */
-                      input_push_text (strdup (line), current_source_info.macro);
-                      input_push_text (strdup (value), current_source_info.macro);
-                      line += strlen (line);
-                      retval = STILL_MORE_TO_PROCESS;
+                      value is set
                     }
+                    */
                   free (flag);
                   goto funexit;
                 }
