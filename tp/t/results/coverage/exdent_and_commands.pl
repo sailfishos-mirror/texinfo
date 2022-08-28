@@ -496,20 +496,25 @@ in exdented a @* \\leavevmode{}\\\\ and following
 after exdented
 \\end{quote}
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-example
+\\ttfamily example
 \\end{GNUTexinfopreformatted}
-\\noindent in exdented protected eol \\ {}
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+in exdented protected eol \\ {}
+\\\\
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-following
+\\ttfamily following
 \\end{GNUTexinfopreformatted}
-\\noindent in exdented a @* \\leavevmode{}\\\\ and following
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+in exdented a @* \\leavevmode{}\\\\ and following
+\\\\
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-after exdented
+\\ttfamily after exdented
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 ';
 
 

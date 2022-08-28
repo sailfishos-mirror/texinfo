@@ -641,6 +641,10 @@ $result_converted{'file_latex'}->{'transparent_sort_chars'} = '\\documentclass{b
 \\newenvironment{GNUTexinfopreformatted}{%
   \\par\\obeylines\\obeyspaces\\frenchspacing
   \\parskip=\\z@\\parindent=\\z@}{}
+\\newenvironment{GNUTexinfoindented}
+  {\\begin{list}{}{}
+  \\item\\relax}
+  {\\end{list}}
 % command that does nothing used to help with substitutions in commands
 \\newcommand{\\GNUTexinfoplaceholder}[1]{}
 

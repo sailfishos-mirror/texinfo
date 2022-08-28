@@ -225,20 +225,19 @@ $result_converted{'xml'}->{'cartouche_in_example'} = '<example endspaces=" ">
 ';
 
 
-$result_converted{'latex'}->{'cartouche_in_example'} = '\\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-In example
+$result_converted{'latex'}->{'cartouche_in_example'} = '\\begin{GNUTexinfoindented}
+\\begin{GNUTexinfopreformatted}
+\\ttfamily In example
 \\end{GNUTexinfopreformatted}
 \\begin{mdframed}[style=GNUTexinfocartouche]
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-In cartouche in example
+\\ttfamily In cartouche in example
 \\end{GNUTexinfopreformatted}
 \\end{mdframed}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-end example
+\\ttfamily end example
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 ';
 
 

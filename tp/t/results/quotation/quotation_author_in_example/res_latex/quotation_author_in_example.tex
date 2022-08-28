@@ -24,6 +24,10 @@
 \newenvironment{GNUTexinfopreformatted}{%
   \par\obeylines\obeyspaces\frenchspacing
   \parskip=\z@\parindent=\z@}{}
+\newenvironment{GNUTexinfoindented}
+  {\begin{list}{}{}
+  \item\relax}
+  {\end{list}}
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
 
@@ -59,13 +63,14 @@
 \GNUTexinfosetsingleheader{}%
 
 \begin{document}
+\begin{GNUTexinfoindented}
 \begin{quote}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em\relax\ttfamily%
-A quot{-}{-}{-}ation
+\ttfamily A quot{-}{-}{-}ation
 \end{GNUTexinfopreformatted}
 \end{quote}
 \begin{center}
 --- \emph{Some One}
 \end{center}
+\end{GNUTexinfoindented}
 \end{document}

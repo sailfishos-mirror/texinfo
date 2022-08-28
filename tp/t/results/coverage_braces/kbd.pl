@@ -587,16 +587,16 @@ kbd in kbd: \\GNUTexinfocommandstyletextkbd{in top kbd \\GNUTexinfocommandstylet
 
 kbd in @example:
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-in example
+\\ttfamily in example
 \\texttt{in example in kbd}.
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
 kbd in @format:
 
 \\begin{GNUTexinfopreformatted}
-\\leftskip=0em\\relax%
 in format
 \\texttt{in format in kbd}.
 \\end{GNUTexinfopreformatted}

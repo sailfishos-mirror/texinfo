@@ -2528,10 +2528,11 @@ In text w: z? n; p. f
 
 \\texttt{a:\\ b!\\ gg;\\ h}
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-c:\\ d?\\ j
+\\ttfamily c:\\ d?\\ j
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -2567,10 +2568,11 @@ In text w: z? n; p. fn
 
 \\texttt{a:\\ b!\\ gg;\\ hn}
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-c:\\ d?\\ jn
+\\ttfamily c:\\ d?\\ jn
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}

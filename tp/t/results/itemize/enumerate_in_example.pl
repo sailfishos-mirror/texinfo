@@ -263,18 +263,18 @@ still second
 
 
 $result_converted{'latex'}->{'enumerate_in_example'} = '
+\\begin{GNUTexinfoindented}
 \\begin{enumerate}[start=1]
 \\item \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-first item
+\\ttfamily first item
 \\end{GNUTexinfopreformatted}
 \\item \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-second  item
+\\ttfamily second  item
 
 still second
 \\end{GNUTexinfopreformatted}
 \\end{enumerate}
+\\end{GNUTexinfoindented}
 ';
 
 1;

@@ -317,10 +317,11 @@ in quotation on the first footnote line
 \\end{quote}
 }.
 
-Last text \\footnote{\\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-in example
+Last text \\footnote{\\begin{GNUTexinfoindented}
+\\begin{GNUTexinfopreformatted}
+\\ttfamily in example
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
 }
 ';

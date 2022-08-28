@@ -152,12 +152,13 @@ after empty line
 ';
 
 
-$result_converted{'latex'}->{'empty_line'} = '\\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-example
+$result_converted{'latex'}->{'empty_line'} = '\\begin{GNUTexinfoindented}
+\\begin{GNUTexinfopreformatted}
+\\ttfamily example
 
 after empty line
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 ';
 
 1;

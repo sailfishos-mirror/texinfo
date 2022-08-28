@@ -343,7 +343,6 @@ $result_converted{'latex'}->{'format_in_titlepage'} = '
     \\vglue\\titlepagetopglue
 
 \\begin{GNUTexinfopreformatted}
-\\leftskip=0em\\relax%
 Published
 \\end{GNUTexinfopreformatted}
 

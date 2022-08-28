@@ -2069,28 +2069,37 @@ quotation2
 ';
 
 
-$result_converted{'latex'}->{'exdent_and_formats'} = '\\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-\\ Example   Hoho.\\ \\TeX{}\\ .\\ \\leavevmode{}\\\\\\ @.
+$result_converted{'latex'}->{'exdent_and_formats'} = '\\begin{GNUTexinfoindented}
+\\begin{GNUTexinfopreformatted}
+\\ttfamily \\ Example   Hoho.\\ \\TeX{}\\ .\\ \\leavevmode{}\\\\\\ @.
 
 \\end{GNUTexinfopreformatted}
-\\noindent Other line
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+Other line
+\\\\
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-not exdented
+\\ttfamily not exdented
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
 
-\\noindent exdented  and dash --- in example
+\\begin{GNUTexinfoindented}
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+exdented  and dash --- in example
+\\\\
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-Not exdented
+\\ttfamily Not exdented
 \\end{GNUTexinfopreformatted}
-\\noindent exdented
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+exdented
+\\\\
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-Not exdented
+\\ttfamily Not exdented
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
 Para1.
 
@@ -2116,15 +2125,20 @@ quotation para 1
 quotation para 2
 \\end{quote}
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-Example   Hoho.
+\\ttfamily Example   Hoho.
 \\end{GNUTexinfopreformatted}
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-Nested Other line
+\\ttfamily Nested Other line
 \\end{GNUTexinfopreformatted}
-\\noindent exdented nested other line
+\\leavevmode{}\\\\
+\\hbox{\\kern -\\leftmargin}%
+exdented nested other line
+\\\\
+\\end{GNUTexinfoindented}
+\\end{GNUTexinfoindented}
 
 \\begin{quote}
 \\leavevmode{}\\\\

@@ -382,24 +382,26 @@ flush then example
 ';
 
 
-$result_converted{'latex'}->{'flushright_example_nested'} = '\\begin{flushright}
+$result_converted{'latex'}->{'flushright_example_nested'} = '\\begin{GNUTexinfoindented}
+\\begin{flushright}
 \\begin{GNUTexinfopreformatted}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-in   {-}{-}{-} flushright
+\\ttfamily in   {-}{-}{-} flushright
 
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfopreformatted}
 \\end{flushright}
+\\end{GNUTexinfoindented}
 
 \\begin{flushright}
 \\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-in   {-}{-}{-} example
+\\ttfamily in   {-}{-}{-} example
 
 flush then example
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 \\end{GNUTexinfopreformatted}
 \\end{flushright}
 ';

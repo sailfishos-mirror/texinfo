@@ -33,6 +33,10 @@
 \newenvironment{GNUTexinfopreformatted}{%
   \par\obeylines\obeyspaces\frenchspacing
   \parskip=\z@\parindent=\z@}{}
+\newenvironment{GNUTexinfoindented}
+  {\begin{list}{}{}
+  \item\relax}
+  {\end{list}}
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
 
@@ -98,9 +102,10 @@
 \texttt{\GNUTexinfocommandstyletextvar{v--ar in t}}
 \GNUTexinfocommandstyletextvar{\texttt{t{-}{-} in var}}
 
+\begin{GNUTexinfoindented}
 \begin{GNUTexinfopreformatted}
-\leftskip=2em\relax\ttfamily%
-\GNUTexinfocommandstyletextvar{v--ar in example}
+\ttfamily \GNUTexinfocommandstyletextvar{v--ar in example}
 \GNUTexinfocommandstyletextcite{c--ite in example}
 \end{GNUTexinfopreformatted}
+\end{GNUTexinfoindented}
 \end{document}

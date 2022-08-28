@@ -345,11 +345,12 @@ New para
 \\end{mdframed}
 
 \\begin{mdframed}[style=GNUTexinfocartouche]
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-\\% pwd
+\\ttfamily \\% pwd
 /usr/local/share/emacs
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 \\end{mdframed}
 ';
 

@@ -335,14 +335,17 @@ $result_converted{'docbook'}->{'table_in_display_in_example'} = '<variablelist><
 </literallayout></listitem></varlistentry></variablelist>';
 
 
-$result_converted{'latex'}->{'table_in_display_in_example'} = '\\begin{description}
+$result_converted{'latex'}->{'table_in_display_in_example'} = '\\begin{GNUTexinfoindented}
+\\begin{GNUTexinfoindented}
+\\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 item}}]
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax%
 Line
 \\end{GNUTexinfopreformatted}
 \\end{description}
+\\end{GNUTexinfoindented}
+\\end{GNUTexinfoindented}
 ';
 
 1;

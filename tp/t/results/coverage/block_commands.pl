@@ -495,9 +495,7 @@ $result_converted{'xml'}->{'block_commands'} = '
 
 
 $result_converted{'latex'}->{'block_commands'} = '
-\\vtop{%
 in group
-\\strut}%
 
 \\begin{quote}
 \\textbf{warning:} in quotation

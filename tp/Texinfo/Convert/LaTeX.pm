@@ -109,6 +109,8 @@
 # @need is implemented in a specific way, maybe there could be a definition of
 # \mil instead.
 #
+# @group is not implemented.  We could try the minipage environment.
+#
 # @fonttextsize with \changefontsize does not seems to change fonts much.  It
 # seems to change in the text, but only 10pt, and does not seems to change
 # sections font sizes.
@@ -508,6 +510,9 @@ my %LaTeX_environment_commands = (
   'table' => ['description'],
   'vtable' => ['description'],
   'ftable' => ['description'],
+  'example' => ['GNUTexinfoindented'],
+  'lisp' => ['GNUTexinfoindented'],
+  'display' => ['GNUTexinfoindented'],
 );
 
 my %LaTeX_environment_options = (
@@ -1289,6 +1294,12 @@ sub _latex_header() {
   \\par\\obeylines\\obeyspaces\\frenchspacing
   \\parskip=\\z@\\parindent=\\z@}{}'."\n";
 
+  $header_code .=
+'\newenvironment{GNUTexinfoindented}
+  {\begin{list}{}{}
+  \item\relax}
+  {\end{list}}'."\n";
+
   if ($self->{'packages'}->{'babel'}) {
     $header_code .= '
 % this allows to select languages based on bcp47 codes.  bcp47 is a superset
@@ -1821,9 +1832,6 @@ foreach my $small_font_preformatted_command (
   $small_font_preformatted_commands{$small_font_preformatted_command} = 1;
 }
 
-# TODO should this be set anywhere?
-my $example_indent = '2em';
-
 sub _open_preformatted($$)
 {
   my $self = shift;
@@ -1838,21 +1846,12 @@ sub _open_preformatted($$)
   my $result = '';
   $result .= '\\begin{GNUTexinfopreformatted}'."\n";
 
-  my $indent;
-  if ($command eq 'format' or $command eq 'smallformat') {
-    $indent = '0em';
-  } else {
-    $indent = $example_indent;
-  }
-  $result .= "\\leftskip=$indent\\relax";
-
   if ($preformatted_code_commands{$command}) {
-    $result .= '\\ttfamily';
+    $result .= '\\ttfamily ';
   }
   if ($small_font_preformatted_commands{$command}) {
-    $result .= "\\$small_font_size";
+    $result .= "\\$small_font_size ";
   }
-  $result .= "%\n";
   return $result;
 }
 
@@ -3078,12 +3077,6 @@ sub _convert($$)
         if ($LaTeX_list_environments{$cmdname}) {
           $self->{'list_environments'}->{$LaTeX_list_environments{$cmdname}} = 1;
         }
-      } elsif ($cmdname eq 'group') {
-        $result .= "\\vtop{%\n";
-        # \vtop rather than \vbox makes vertical space above group correct.
-        # FIXME The space below it will not quite be correct.
-        # An alternative is to use a 'minipage' environment although this
-        # has difficulties with vertical space too.
       }
       if ($preformatted_commands{$cmdname}) {
         _open_preformatted_command($self, $cmdname);
@@ -3264,18 +3257,13 @@ sub _convert($$)
       $result .= "\n\\end{center}\n";
       return $result;
     } elsif ($cmdname eq 'exdent') {
-      if (scalar(@{$self->{'formatting_context'}->[-1]->{'preformatted_context'}})) {
-        $result .= '\\noindent ';
-        $result .= $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}})."\n";
-      } else {
-        # FIXME \leavevmode{} is added to avoid
-        # ! LaTeX Error: There's no line here to end.
-        # but it is not clearly correct
-        $result .= "\\leavevmode{}\\\\\n";
-        $result .= "\\hbox{\\kern -\\leftmargin}%\n";
-        $result .= $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}})."\n";
-        $result .= "\\\\\n";
-      }
+      # FIXME \leavevmode{} is added to avoid
+      # ! LaTeX Error: There's no line here to end.
+      # but it is not clearly correct
+      $result .= "\\leavevmode{}\\\\\n";
+      $result .= "\\hbox{\\kern -\\leftmargin}%\n";
+      $result .= $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}})."\n";
+      $result .= "\\\\\n";
       return $result;
     } elsif ($cmdname eq 'verbatiminclude') {
       my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude($self,
@@ -3802,9 +3790,6 @@ sub _convert($$)
       foreach my $environment (reverse @{$LaTeX_environment_commands{$cmdname}}) {
         $result .= "\\end{".$environment."}\n";
       }
-    } elsif ($cmdname eq 'group') {
-      $result .= "\\strut}%\n";
-      # We use a \strut at the end of the \vtop to get more space beneath it.
     }
     if ($preformatted_commands{$cmdname}) {
       _close_preformatted_command($self, $cmdname);

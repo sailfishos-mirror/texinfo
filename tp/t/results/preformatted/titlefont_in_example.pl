@@ -166,11 +166,12 @@ Text.
 ';
 
 
-$result_converted{'latex'}->{'titlefont_in_example'} = '{\\huge \\bfseries Title}\\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-
+$result_converted{'latex'}->{'titlefont_in_example'} = '\\begin{GNUTexinfoindented}
+{\\huge \\bfseries Title}\\begin{GNUTexinfopreformatted}
+\\ttfamily 
 Text.
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 ';
 
 1;

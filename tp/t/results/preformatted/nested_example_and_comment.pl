@@ -737,38 +737,41 @@ $result_converted{'xml'}->{'nested_example_and_comment'} = '<example endspaces="
 ';
 
 
-$result_converted{'latex'}->{'nested_example_and_comment'} = '\\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-First line 0 \\end{GNUTexinfopreformatted}
+$result_converted{'latex'}->{'nested_example_and_comment'} = '\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-Nested example
-\\end{GNUTexinfopreformatted}
+\\ttfamily First line 0 \\end{GNUTexinfopreformatted}
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-In first one
+\\ttfamily Nested example
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
+\\begin{GNUTexinfopreformatted}
+\\ttfamily In first one
+\\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-First line 1 \\end{GNUTexinfopreformatted}
+\\ttfamily First line 1 \\end{GNUTexinfopreformatted}
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-Nested example \\end{GNUTexinfopreformatted}
+\\ttfamily Nested example \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-In first one
+\\ttfamily In first one
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-First line 2 \\end{GNUTexinfopreformatted}
+\\ttfamily First line 2 \\end{GNUTexinfopreformatted}
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-Nested example \\end{GNUTexinfopreformatted}
+\\ttfamily Nested example \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-In first one \\end{GNUTexinfopreformatted}
+\\ttfamily In first one \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 ';
 
 1;

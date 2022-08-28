@@ -1776,9 +1776,9 @@ $result_converted{'latex'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chap}%
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-deffs
+\\ttfamily deffs
 \\end{GNUTexinfopreformatted}
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -1817,8 +1817,7 @@ deffs
 
 \\index[vr]{variables@\\texttt{variables}}%
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-
+\\ttfamily 
 \\end{GNUTexinfopreformatted}
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
@@ -1831,8 +1830,7 @@ deffs
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-THis is the defvar
+\\ttfamily THis is the defvar
 
 A table within the def
 \\end{GNUTexinfopreformatted}
@@ -1840,8 +1838,7 @@ A table within the def
 \\item[{\\parbox[b]{\\linewidth}{%
 item}}]
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-text
+\\ttfamily text
 
 more text
 \\end{GNUTexinfopreformatted}
@@ -1849,17 +1846,16 @@ more text
 second item}}]
 \\end{description}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-
+\\ttfamily 
 explanation
 \\end{GNUTexinfopreformatted}
 \\end{quote}
 \\end{quote}
 \\end{quote}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-
+\\ttfamily 
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 ';
 
 1;

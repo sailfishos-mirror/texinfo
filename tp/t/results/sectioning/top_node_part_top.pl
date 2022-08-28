@@ -495,6 +495,10 @@ $result_converted{'file_latex'}->{'top_node_part_top'} = '\\documentclass{book}
 \\newenvironment{GNUTexinfopreformatted}{%
   \\par\\obeylines\\obeyspaces\\frenchspacing
   \\parskip=\\z@\\parindent=\\z@}{}
+\\newenvironment{GNUTexinfoindented}
+  {\\begin{list}{}{}
+  \\item\\relax}
+  {\\end{list}}
 % command that does nothing used to help with substitutions in commands
 \\newcommand{\\GNUTexinfoplaceholder}[1]{}
 

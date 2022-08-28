@@ -591,28 +591,32 @@ $result_converted{'xml'}->{'comment_example_and_blank_lines'} = '<para>Para.
 
 $result_converted{'latex'}->{'comment_example_and_blank_lines'} = 'Para.
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-comment,\\ blank after \\end{GNUTexinfopreformatted}
+\\ttfamily comment,\\ blank after \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
 Para.
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-comment,\\ no blank after \\end{GNUTexinfopreformatted}
+\\ttfamily comment,\\ no blank after \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 Para.
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-no comment,\\ blank after
+\\ttfamily no comment,\\ blank after
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
 Para.
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-no comment,\\ no blank after
+\\ttfamily no comment,\\ no blank after
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 Para.
 ';
 

@@ -1085,6 +1085,10 @@ $result_converted{'file_latex'}->{'empty_string_index_entry'} = '\\documentclass
 \\newenvironment{GNUTexinfopreformatted}{%
   \\par\\obeylines\\obeyspaces\\frenchspacing
   \\parskip=\\z@\\parindent=\\z@}{}
+\\newenvironment{GNUTexinfoindented}
+  {\\begin{list}{}{}
+  \\item\\relax}
+  {\\end{list}}
 % set defaults for lists that match Texinfo TeX formatting
 \\setlist[description]{style=nextline, font=\\normalfont}
 

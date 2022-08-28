@@ -2246,98 +2246,74 @@ $result_converted{'xml'}->{'nested_block_commands'} = '<group endspaces=" ">
 ';
 
 
-$result_converted{'latex'}->{'nested_block_commands'} = '\\vtop{%
-In group
+$result_converted{'latex'}->{'nested_block_commands'} = 'In group
 \\begin{quote}
 in quotation
 \\end{quote}
-\\strut}%
 
-\\vtop{%
 \\begin{quote}
 in quotation
 \\end{quote}
-\\strut}%
 
-\\vtop{%
 In group
 \\begin{quote}
 in quotation
 \\end{quote}
 after quotation
-\\strut}%
 
-\\vtop{%
 
 In group sp b
 \\begin{quote}
 in quotation
 \\end{quote}
-\\strut}%
 
-\\vtop{%
 
 In group sp b a
 
 \\begin{quote}
 in quotation
 \\end{quote}
-\\strut}%
 
-\\vtop{%
 In group sp a
 
 \\begin{quote}
 in quotation
 \\end{quote}
-\\strut}%
 
-\\vtop{%
 \\begin{quote}
 
 in quotation sp b
 \\end{quote}
-\\strut}%
 
-\\vtop{%
 \\begin{quote}
 
 in quotation sp b a
 
 \\end{quote}
-\\strut}%
 
-\\vtop{%
 \\begin{quote}
 in quotation sp a
 
 \\end{quote}
-\\strut}%
 
-\\vtop{%
 \\begin{quote}
 in quotation
 \\end{quote}
 
 After quotation sp b
-\\strut}%
 
-\\vtop{%
 \\begin{quote}
 in quotation
 \\end{quote}
 After quotation sp a
 
-\\strut}%
 
-\\vtop{%
 \\begin{quote}
 in quotation
 \\end{quote}
 
 After quotation sp b a
 
-\\strut}%
 ';
 
 

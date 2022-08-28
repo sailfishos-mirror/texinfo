@@ -439,12 +439,13 @@ in table in format
 
 
 $result_converted{'latex'}->{'preformatted'} = '
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-e{-}{-}xample  some  
+\\ttfamily e{-}{-}xample  some  
 
 \\   text
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
@@ -452,7 +453,6 @@ e{-}{-}xample  some
 \\index[vr]{item in table in format@\\texttt{item in table in format}}%
 }}]
 \\begin{GNUTexinfopreformatted}
-\\leftskip=0em\\relax%
 
 in table in format
 \\end{GNUTexinfopreformatted}

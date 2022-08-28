@@ -31,6 +31,10 @@
 \newenvironment{GNUTexinfopreformatted}{%
   \par\obeylines\obeyspaces\frenchspacing
   \parskip=\z@\parindent=\z@}{}
+\newenvironment{GNUTexinfoindented}
+  {\begin{list}{}{}
+  \item\relax}
+  {\end{list}}
 % set defaults for lists that match Texinfo TeX formatting
 \setlist[description]{style=nextline, font=\normalfont}
 
@@ -70,6 +74,7 @@
 
 
 \begin{document}
+\begin{GNUTexinfoindented}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfocommandstyletextvar{a--b}\\
@@ -77,10 +82,10 @@
 \GNUTexinfocommandstyletextvar{b}\\
 \GNUTexinfocommandstyletextvar{c}}}]
 \begin{GNUTexinfopreformatted}
-\leftskip=2em\relax\ttfamily%
-l{-}{-}ine
+\ttfamily l{-}{-}ine
 \end{GNUTexinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 \GNUTexinfocommandstyletextvar{d}}}]
 \end{description}
+\end{GNUTexinfoindented}
 \end{document}

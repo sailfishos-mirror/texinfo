@@ -2241,13 +2241,14 @@ $result_converted{'latex'}->{'kbdinputstyle'} = '
 \\texttt{for nesting \\textnormal{r in code \\texttt{in r in code}}}
 
 in example
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-\\texttt{in code in example \\texttt{in nested code}}.
+\\ttfamily \\texttt{in code in example \\texttt{in nested code}}.
 \\texttt{kbd in example}.
 \\texttt{kbd \\texttt{in code}\\ in example}.
 \\texttt{for nesting in example \\textnormal{r in code in example \\texttt{in r in code in example}}}
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
 @kbdinputstyle example
 
@@ -2258,13 +2259,14 @@ in example
 \\texttt{for nesting \\textnormal{r in code \\texttt{in r in code}}}
 
 in example
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-\\texttt{in code in example \\texttt{in nested code}}.
+\\ttfamily \\texttt{in code in example \\texttt{in nested code}}.
 \\GNUTexinfocommandstyletextkbd{kbd in example}.
 \\texttt{kbd \\GNUTexinfocommandstyletextkbd{in code}\\ in example}.
 \\texttt{for nesting in example \\textnormal{r in code in example \\GNUTexinfocommandstyletextkbd{in r in code in example}}}
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
 @kbdinputstyle distinct
 
@@ -2275,13 +2277,14 @@ in example
 \\texttt{for nesting \\textnormal{r in code \\GNUTexinfocommandstyletextkbd{in r in code}}}
 
 in example
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-\\texttt{in code in example \\texttt{in nested code}}.
+\\ttfamily \\texttt{in code in example \\texttt{in nested code}}.
 \\GNUTexinfocommandstyletextkbd{kbd in example}.
 \\texttt{kbd \\GNUTexinfocommandstyletextkbd{in code}\\ in example}.
 \\texttt{for nesting in example \\textnormal{r in code in example \\GNUTexinfocommandstyletextkbd{in r in code in example}}}
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 ';
 
 1;

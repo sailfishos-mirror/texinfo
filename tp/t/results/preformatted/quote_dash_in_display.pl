@@ -153,11 +153,12 @@ $result_converted{'xml'}->{'quote_dash_in_display'} = '
 
 
 $result_converted{'latex'}->{'quote_dash_in_display'} = '
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax%
 and now -- yes---now and ``so\'\'.
 
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 ';
 
 1;

@@ -362,14 +362,15 @@ $result_converted{'latex'}->{'heading_command_in_commands'} = '
 \\pagestyle{custom}%
 }
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-\\renewpagestyle{custom}{%
+\\ttfamily \\renewpagestyle{custom}{%
 \\sethead[in example][][]%
 {in example}{}{}%
 }%
 \\pagestyle{custom}%
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
 \\begin{quote}
 \\renewpagestyle{custom}{%

@@ -31,6 +31,10 @@
 \newenvironment{GNUTexinfopreformatted}{%
   \par\obeylines\obeyspaces\frenchspacing
   \parskip=\z@\parindent=\z@}{}
+\newenvironment{GNUTexinfoindented}
+  {\begin{list}{}{}
+  \item\relax}
+  {\end{list}}
 
 % this allows to select languages based on bcp47 codes.  bcp47 is a superset
 % of the LL_CC ISO 639-2 LL ISO 3166 CC information of @documentlanguage

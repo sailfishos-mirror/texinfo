@@ -2433,6 +2433,7 @@ $result_converted{'latex'}->{'kbdinputstyle_in_table'} = '
 \\end{description}
 
 in example
+\\begin{GNUTexinfoindented}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 \\texttt{i{-}{-}tem in example}}}]
@@ -2441,6 +2442,7 @@ in example
 \\item[{\\parbox[b]{\\linewidth}{%
 \\texttt{braced i{-}{-}tem in example}}}]
 \\end{description}
+\\end{GNUTexinfoindented}
 
 @kbdinputstyle example
 
@@ -2456,6 +2458,7 @@ in example
 \\end{description}
 
 in example
+\\begin{GNUTexinfoindented}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 \\GNUTexinfocommandstyletextkbd{i{-}{-}tem in example}}}]
@@ -2464,6 +2467,7 @@ in example
 \\item[{\\parbox[b]{\\linewidth}{%
 \\GNUTexinfocommandstyletextkbd{braced i{-}{-}tem in example}}}]
 \\end{description}
+\\end{GNUTexinfoindented}
 
 @kbdinputstyle distinct
 
@@ -2479,6 +2483,7 @@ in example
 \\end{description}
 
 in example
+\\begin{GNUTexinfoindented}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 \\GNUTexinfocommandstyletextkbd{i{-}{-}tem in example}}}]
@@ -2487,6 +2492,7 @@ in example
 \\item[{\\parbox[b]{\\linewidth}{%
 \\GNUTexinfocommandstyletextkbd{braced i{-}{-}tem in example}}}]
 \\end{description}
+\\end{GNUTexinfoindented}
 ';
 
 1;

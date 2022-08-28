@@ -645,15 +645,16 @@ $result_converted{'latex'}->{'index_entry_in_preformatted'} = '\\label{anchor:To
 \\chapter{{Chapter}}
 \\label{anchor:chap}%
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-\\index[cp]{first}%
+\\ttfamily \\index[cp]{first}%
 text
 
 \\index[cp]{other}%
 text2
 \\index[cp]{last}%
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 ';
 
 1;

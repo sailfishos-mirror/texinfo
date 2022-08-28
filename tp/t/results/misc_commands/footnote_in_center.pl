@@ -361,14 +361,15 @@ $result_converted{'latex'}->{'footnote_in_center'} = '\\begin{center}
 Centered text with a footnote\\footnote{This footnote
 shows an important feature of the centered text.
 
+\\begin{GNUTexinfoindented}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 item}}]
 \\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-line
+\\ttfamily line
 \\end{GNUTexinfopreformatted}
 \\end{description}
+\\end{GNUTexinfoindented}
 } and text after the footnote.
 \\end{center}
 ';

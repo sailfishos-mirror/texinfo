@@ -411,19 +411,21 @@ in -- example/format
 ';
 
 
-$result_converted{'latex'}->{'nested_formats'} = '\\begin{GNUTexinfopreformatted}
-\\leftskip=2em\\relax\\ttfamily%
-
+$result_converted{'latex'}->{'nested_formats'} = '\\begin{GNUTexinfoindented}
+\\begin{GNUTexinfopreformatted}
+\\ttfamily 
 in {-}{-} format/example
 
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 
+\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
-\\leftskip=0em\\relax%
 
 in -- example/format
 
 \\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
 ';
 
 1;
