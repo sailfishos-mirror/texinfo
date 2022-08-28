@@ -1,5 +1,12 @@
 2022-08-28  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@group): Revise.  Remove or comment out
+	extraneous text.  Be clear that it cannot be used in filled
+	contexts as this actually produces an error with texinfo.tex.
+	* NEWS: EPUB3 -> EPUB 3.
+
+2022-08-28  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	LaTeX list environment for indentation
 
 	* tp/Texinfo/Convert/LaTeX.pm (_latex_header): Define

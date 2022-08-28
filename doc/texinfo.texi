@@ -11091,27 +11091,16 @@ page.
 @cindex Holding text together vertically
 @cindex Vertically holding text together
 
-The @code{@@group} command (on a line by itself) is used inside an
+The @code{@@group} command is used to hold an example
+together on one page.  Use it inside an
 @code{@@example} or similar construct to begin an unsplittable vertical
 group, which will appear entirely on one page in the printed output.
-The group is terminated by a line containing only @code{@@end group}.
-These two lines produce no output of their own, and have an effect in
-@TeX{} output only.
-
-@c Once said that these environments
-@c turn off vertical spacing between ``paragraphs''.
-@c Also, quotation used to work, but doesn't in texinfo-2.72
-Although @code{@@group} would make sense conceptually in a wide
-variety of contexts, its current implementation works reliably only
-within @code{@@example} and variants, and within @code{@@display},
-@code{@@format}, @code{@@flushleft} and @code{@@flushright}.
-@xref{Quotations and Examples}.  (What all these commands have in
-common is that each line of input produces a line of output.)  In
-other contexts, @code{@@group} can cause anomalous vertical
-spacing.
+Terminate the group by a line containing only @code{@@end group}.
+This command has an effect in @TeX{} output only.
 
 @need 750
-This formatting requirement means that you should write:
+The @code{@@group} and @code{@@end group} commands need to be inside the
+@code{@@example} and @code{@@end example} commands, thus:
 
 @example
 @group
@@ -11123,22 +11112,26 @@ This formatting requirement means that you should write:
 @end group
 @end example
 
-@noindent
-with the @code{@@group} and @code{@@end group} commands inside the
-@code{@@example} and @code{@@end example} commands.
+Although @code{@@group} would make sense conceptually in a wide
+variety of contexts, its current implementation works only
+within @code{@@example} and variants, and within @code{@@display},
+@code{@@format}, @code{@@flushleft} and @code{@@flushright}.
+@xref{Quotations and Examples}.  (What all these commands have in
+common is that each line of input produces a line of output.)
 
-The @code{@@group} command is most often used to hold an example
-together on one page.  In this Texinfo manual, more than 100 examples
-contain text that is enclosed between @code{@@group} and @code{@@end
-group}.
+@c  In other contexts, @code{@@group} can cause anomalous vertical
+@c  spacing.
 
-If you forget to end a group, you may get strange and unfathomable
-error messages when you run @TeX{}.  This is because @TeX{} keeps
-trying to put the rest of the Texinfo file onto the one page and does
-not start to generate error messages until it has processed
-considerable text.  It is a good rule of thumb to look for a missing
-@code{@@end group} if you get incomprehensible error messages in
-@TeX{}.
+@c commented out below because all TeX errors are strange and unfathomable,
+@c not just for @group
+
+@c If you forget to end a group, you may get strange and unfathomable
+@c error messages when you run @TeX{}.  This is because @TeX{} keeps
+@c trying to put the rest of the Texinfo file onto the one page and does
+@c not start to generate error messages until it has processed
+@c considerable text.  It is a good rule of thumb to look for a missing
+@c @code{@@end group} if you get incomprehensible error messages in
+@c @TeX{}.
 
 
 @node @code{@@need}
