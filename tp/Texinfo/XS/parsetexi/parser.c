@@ -1428,6 +1428,9 @@ superfluous_arg:
                       expanded_line++; /* past '}' */
                       input_push_text (strdup (expanded_line), current_source_info.macro);
                       input_push_text (strdup (value), current_source_info.macro);
+
+                      /* Move 'line' to end of string so next input to
+                         be processed is taken from input stack. */
                       line = expanded_line + strlen (expanded_line);
                       retval = STILL_MORE_TO_PROCESS;
                     }
