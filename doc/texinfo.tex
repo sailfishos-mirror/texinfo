@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-08-28.13}
+\def\texinfoversion{2022-08-29.15}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -240,9 +240,6 @@
 % that the text looks ok even though it passes the margin).
 %
 \def\finalout{\overfullrule=0pt }
-
-\newdimen\outerhsize \newdimen\outervsize % set by the paper size routines
-\newdimen\topandbottommargin \topandbottommargin=.75in
 
 % Output a mark which sets \thischapter, \thissection and \thiscolor.
 % We dump everything together because we only have one kind of mark.
@@ -11232,13 +11229,9 @@ directory should work if nowhere else does.}
   %
   \vsize = #1\relax
   \advance\vsize by \topskip
-  \outervsize = \vsize
-  \advance\outervsize by 2\topandbottommargin
   \txipageheight = \vsize
   %
   \hsize = #2\relax
-  \outerhsize = \hsize
-  \advance\outerhsize by 0.5in
   \txipagewidth = \hsize
   %
   \normaloffset = #4\relax

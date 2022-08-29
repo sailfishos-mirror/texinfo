@@ -1,3 +1,8 @@
+2022-08-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\outerhsize, \outervsize, \topandbottommargin):
+	Remove unused.  From Werner.
+
 2022-08-28  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex [e-TeX]: Set \lastlinefit to 500.
