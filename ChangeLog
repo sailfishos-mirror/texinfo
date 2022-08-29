@@ -1,3 +1,13 @@
+2022-08-29  Patrice Dumas  <pertusus@free.fr>
+
+	Hanle brace @-command before opening brace with another command
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	close brace @-command if after the command name but before the
+	brace, and anther @-command is seen before handling unknown
+	@-command.
+
 2022-08-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\outerhsize, \outervsize, \topandbottommargin):

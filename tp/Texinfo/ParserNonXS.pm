@@ -4227,6 +4227,23 @@ sub _parse_texi($$$)
         $current = $current->{'parent'};
       }
 
+      # command but before an opening brace, otherwise $current
+      # would be an argument type and not the command, and a new
+      # @-command was found.  This means that the $current->{'cmdname'}
+      # argument (an opening brace, or a character after spaces for
+      # accent commands) was not found and there is already a new command.
+      #
+      # It would have been nice to allow for comments, but there is no
+      # container in the tree to put them when after command and before brace
+      # or argument for accent commands.
+      if ($command
+          and $current->{'cmdname'}
+          and defined($brace_commands{$current->{'cmdname'}})) {
+        $self->_line_error(sprintf(__("\@%s expected braces"),
+                           $current->{'cmdname'}), $source_info);
+        $current = $current->{'parent'};
+      }
+
       # handle unknown @-command
       if ($command and !$all_commands{$command}
           and !$self->{'definfoenclose'}->{$command}
@@ -4244,25 +4261,6 @@ sub _parse_texi($$$)
       }
 
       # this situation arises when after the $current->{'cmdname'}
-      # command but before an opening brace, otherwise $current
-      # would be an argument type and not the command, and a new
-      # @-command was found.  This means that the $current->{'cmdname'}
-      # argument (an opening brace, or a character after spaces for
-      # accent commands) was not found and there is already a new command.
-      #
-      # It would have been nice to allow for comments, but there is no
-      # container in the tree to put them when after command and before brace
-      # or argument for accent commands.
-      # FIXME this is sort of a duplicate of what is happening later
-      # with the condition of !$open_brace.  It could allow for more
-      # precise error messages.
-      if ($command
-          and $current->{'cmdname'}
-          and defined($brace_commands{$current->{'cmdname'}})) {
-        $self->_line_error(sprintf(__("\@%s expected braces"),
-                           $current->{'cmdname'}), $source_info);
-        $current = $current->{'parent'};
-
       # Brace commands not followed immediately by a brace
       # opening.  In particular cases that may lead to "command closing"
       # or following character association with an @-command, for accent
@@ -4271,8 +4269,7 @@ sub _parse_texi($$$)
       # This condition can only happen immediately after the command opening,
       # otherwise the current element is in the 'args' and not right in the
       # command container.
-      } elsif ($current->{'cmdname'}
-      #if ($current->{'cmdname'}
+      if ($current->{'cmdname'}
             and defined($brace_commands{$current->{'cmdname'}})
             and !$open_brace) {
         print STDERR "BRACE CMD: no brace after \@$current->{'cmdname'}: $line"
@@ -4448,6 +4445,7 @@ sub _parse_texi($$$)
 
         print STDERR "COMMAND $command\n" if ($self->{'DEBUG'});
 
+        # @value not expanded (expansion is done above), and @txiinternalvalue
         if ($command eq 'value' or $command eq 'txiinternalvalue') {
           $line =~ s/^\s*//
              if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'});

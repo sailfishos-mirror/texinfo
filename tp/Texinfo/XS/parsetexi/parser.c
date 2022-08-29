@@ -1041,9 +1041,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   int retval = STILL_MORE_TO_PROCESS;
   enum command_id end_cmd;
   char *p;
-  int unknown_command = 0;
 
   enum command_id cmd = CM_NONE;
+  /* remains set only if command is unknown, otherwise cmd is used */
+  char *command;
 
   /********* BLOCK_raw or (ignored) BLOCK_conditional ******************/
   /* If in raw block, or ignored conditional block. */
@@ -1364,19 +1365,18 @@ superfluous_arg:
         }
       else
         {
-          char *command = read_command_name (&line_after_command);
+          command = read_command_name (&line_after_command);
 
           cmd = 0;
           if (command)
             {
               cmd = lookup_command (command);
-              if (!cmd)
+              /* known command */
+              if (cmd)
                 {
-                  line_error ("unknown command `%s'", command);
-                  debug ("COMMAND (UNKNOWN) %s", command);
-                  unknown_command = 1;
+                  free (command);
                 }
-              free (command);
+              /* command holds the unknown command name if !cmd && command */
             }
           else
             {
@@ -1464,10 +1464,31 @@ superfluous_arg:
       current = current->parent;
     }
 
-  if (unknown_command)
+  /* command but before an opening brace, otherwise current
+     would be an argument type and not the command, and a new
+     @-command was found.  This means that the current->cmd
+     argument (an opening brace, or a character after spaces for
+     accent commands) was not found and there is already a new command.
+
+     It would have been nice to allow for comments, but there is no
+     container in the tree to put them when after command and before brace
+     or argument for accent commands. */
+
+  if (command_flags(current) & CF_brace && (cmd || command))
+    {
+      line_error ("@%s expected braces",
+                  command_name(current->cmd));
+      current = current->parent;
+    }
+
+  /* Handle unknown command. */
+  if (!cmd && command)
     {
       ELEMENT *paragraph;
 
+      line_error ("unknown command `%s'", command);
+      debug ("COMMAND (UNKNOWN) %s", command);
+      free (command);
       abort_empty_line (&current, 0);
       paragraph = begin_paragraph (current);
       if (paragraph)
@@ -1582,7 +1603,7 @@ superfluous_arg:
       line = line_after_command;
       debug ("COMMAND %s", command_name(cmd));
 
-      /* @value and @txiinternalvalue */
+      /* @value not expanded (expansion is done above), and @txiinternalvalue */
       if ((cmd == CM_value) || (cmd == CM_txiinternalvalue))
         {
           char *arg_start;

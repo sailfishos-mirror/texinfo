@@ -705,6 +705,12 @@ cut by blank line}
 ['spaces_no_brace_after_braced_command',
 '@code b
 '],
+['spaces_unknown_command_after_braced_command',
+'@code @unknown 
+
+@~ @notexisting
+ e
+'],
 ['flushright_not_closed',
 '@flushright
 
