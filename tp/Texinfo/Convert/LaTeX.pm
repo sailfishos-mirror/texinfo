@@ -28,12 +28,6 @@
 #\tableofcontents
 #}
 #
-# There is more about form feeds to do: form feed (CTRL-l) characters
-# in the input are handled as follows: in PDF/DVI In normal text, treated as
-# ending any open paragraph; essentially ignored between paragraphs.
-# We can use \par everywhere (except maybe in @example?) as multiple \par
-# are the same as one, or as an empty line.
-#
 # LaTeX seems to always break at -, and never at _.  If @allowcodebreaks
 # is true \_ should be set to be a possible break point.  Seems that it
 # may be done with something like:
