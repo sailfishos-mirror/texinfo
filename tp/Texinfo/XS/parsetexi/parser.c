@@ -1405,7 +1405,7 @@ superfluous_arg:
      considered again together with other commands below for all the other cases
      which may need a well formed tree, which is not needed nor available here,
      and early value expansion may be needed to provide with an argument. */
-  else if (cmd && cmd == CM_value)
+  else if (cmd == CM_value)
     {
       char *expanded_line = line_after_command;
       if (conf.ignore_space_after_braced_command_name)
