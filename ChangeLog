@@ -1,5 +1,12 @@
 2022-08-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Plaintext.pm (_convert),
+	doc/texinfo.texi (Conventions, in @ignore block):
+	keep form feeds in empty_spaces_after_close_brace only among
+	ignored spaces.
+
+2022-08-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoXML.pm (_end_line_spaces): protect
 	form feeds in spaces_after_argument.
 

@@ -1208,7 +1208,7 @@ $result_converted{'plaintext'}->{'form_feeds'} = 'aa
 
    *Note firstnode::
 
-     in example
+     in example
 
                              around center
                                in center

@@ -1580,7 +1580,10 @@ sub _convert($$)
   if ($type and $self->{'ignorable_space_types'}->{$type}
       and ($type ne 'empty_spaces_before_paragraph'
            or $self->get_conf('paragraphindent') ne 'asis')) {
-    if ($element->{'text'} =~ /\f/) {
+    if ($type eq 'empty_spaces_after_close_brace'
+        and $element->{'text'} =~ /\f/) {
+      # FIXME also in empty_spaces_before_paragraph?  Does not seems to be
+      # relevant to keep form feeds in other ignorable spaces.
       $result = _get_form_feeds($element->{'text'});
     }
     add_text_count($self, $result);
