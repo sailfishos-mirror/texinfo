@@ -856,6 +856,79 @@ $result_trees{'form_feeds'} = {
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'shc within '
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'paragraph'
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '',
+                      'type' => 'empty_line'
+                    },
+                    {
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'empty_spaces_before_paragraph'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'shortcaption '
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'paragraph'
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '',
+                      'type' => 'empty_line'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_context'
+                }
+              ],
+              'cmdname' => 'shortcaption',
+              'contents' => [],
+              'extra' => {
+                'float' => {},
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 35,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '  ',
+              'type' => 'empty_spaces_after_close_brace'
+            },
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'After shc
+'
+                }
+              ],
+              'parent' => {},
+              'type' => 'paragraph'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
                       'parent' => {},
                       'text' => 'float'
                     }
@@ -877,7 +950,7 @@ $result_trees{'form_feeds'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 35,
+                'line_nr' => 36,
                 'macro' => ''
               }
             }
@@ -885,6 +958,7 @@ $result_trees{'form_feeds'} = {
           'extra' => {
             'caption' => {},
             'end_command' => {},
+            'shortcaption' => {},
             'type' => {
               'normalized' => ''
             }
@@ -1051,11 +1125,25 @@ $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'paren
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[3]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[3];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[6]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[8]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[8];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[8]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'caption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'end_command'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'end_command'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[8];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'shortcaption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[30]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'args'}[0]{'contents'}[0];
@@ -1096,6 +1184,7 @@ T
 @float
 a float
 @caption{ within  cation }  Toto
+@shortcaption{ shc within  shortcaption }  After shc
 @end float 
 
 ';
@@ -1129,6 +1218,7 @@ T
 
 a float
 Toto
+After shc
 
 ';
 
@@ -1173,6 +1263,12 @@ $result_floats{'form_feeds'} = {
             'float' => {}
           }
         },
+        'shortcaption' => {
+          'cmdname' => 'shortcaption',
+          'extra' => {
+            'float' => {}
+          }
+        },
         'type' => {
           'normalized' => ''
         }
@@ -1182,6 +1278,7 @@ $result_floats{'form_feeds'} = {
   ]
 };
 $result_floats{'form_feeds'}{''}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'form_feeds'}{''}[0];
+$result_floats{'form_feeds'}{''}[0]{'extra'}{'shortcaption'}{'extra'}{'float'} = $result_floats{'form_feeds'}{''}[0];
 
 
 $result_indices_sort_strings{'form_feeds'} = {
@@ -1220,6 +1317,7 @@ $result_converted{'plaintext'}->{'form_feeds'} = 'aa
 
 a float
 Toto
+After shc
 
 within
 
@@ -1272,6 +1370,7 @@ $result_converted{'html_text'}->{'form_feeds'} = '<a class="node-id" id="Top"></
 <div class="float">
 <p>a float
 </p><p>Toto
+</p><p>After shc
 </p><div class="caption"><p>within </p>&#12;<p>cation </p>&#12;</div></div>
 ';
 
@@ -1310,6 +1409,7 @@ $result_converted{'xml'}->{'form_feeds'} = '<node name="Top" spaces=" "><nodenam
 <float type="" endspaces=" ">
 <para>a float
 </para><caption spaces="\\f "><para>within </para>&formfeed; <para>cation </para>&formfeed;</caption> &formfeed; <para>Toto
+</para><shortcaption spaces="\\f "><para>shc within </para>&formfeed; <para>shortcaption </para>&formfeed;</shortcaption> &formfeed; <para>After shc
 </para></float> &formfeed;
 
 ';
@@ -1343,6 +1443,7 @@ $result_converted{'docbook'}->{'form_feeds'} = '<anchor id="first-node"/>
 </para></blockquote>
 <para>a float
 </para><para>Toto
+</para><para>After shc
 </para>
 ';
 
@@ -1396,10 +1497,13 @@ T
 
 \\begin{TexinfoFloat}
 a float
-\\caption{within \\par{}
+\\caption[shc within \\par{}
+ shortcaption \\par{}
+]{within \\par{}
  cation \\par{}
 }
 \\par{}Toto
+\\par{}After shc
 \\end{TexinfoFloat}
 
 ';

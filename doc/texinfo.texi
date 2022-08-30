@@ -8035,9 +8035,11 @@ example:
 
 The text for @code{@@shortcaption} may not contain comments
 (@code{@@c}), verbatim text (@code{@@verb}), environments such as
-@code{@@example}, footnotes (@code{@@footnote}) or other complex
-constructs.  The same constraints apply to @code{@@caption} unless
-there is a @code{@@shortcaption}.
+@code{@@example}, footnotes (@code{@@footnote}), multiple paragraphs
+or other complex constructs.  The same constraints apply to
+@code{@@caption} unless there is a @code{@@shortcaption}.  In
+@LaTeX{} a multi-paragraph @code{@@caption} will lead to an error
+when formatted, unless there is a @code{@@shortcaption}.
 
 
 @node @code{@@listoffloats}

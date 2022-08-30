@@ -1,5 +1,11 @@
 2022-08-30  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (@code{@@caption @@shortcaption}): no multiple
+	paragraph in @shortcaption, and document error in LaTeX with
+	multi-paragraph @caption when there is no @shortcaption.
+
+2022-08-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert),
 	doc/texinfo.texi (Conventions, in @ignore block):
 	keep form feeds in empty_spaces_after_close_brace only among

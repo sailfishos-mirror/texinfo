@@ -179,6 +179,7 @@ T
 @float
 a float
 @caption{'."\f".' within '."\f".' cation '."\f".'} '."\f".' Toto
+@shortcaption{'."\f".' shc within '."\f".' shortcaption '."\f".'} '."\f".' After shc
 @end float '."\f".'
 
 '],
