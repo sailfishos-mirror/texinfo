@@ -595,13 +595,16 @@ sub _leading_spaces_before_argument($)
 # format_comment_or_return_end_line
 sub _end_line_spaces
 {
+  my $self = shift;
   my $element = shift;
 
   my $end_spaces = '';
   if ($element->{'args'}->[-1]
       and $element->{'args'}->[-1]->{'extra'}
       and $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'}) {
-    $end_spaces = $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'};
+    # spaces and form feeds only, protection is needed for form feeds
+    $end_spaces = $self->protect_text(
+              $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'});
     chomp $end_spaces;
   }
   return $end_spaces;
@@ -720,7 +723,7 @@ sub _convert_argument_and_end_line($$)
   my $element = shift;
 
   my $converted = $self->convert_tree($element->{'args'}->[-1]);
-  $converted .= _end_line_spaces($element);
+  $converted .= _end_line_spaces($self, $element);
   my $end_line = $self->format_comment_or_return_end_line($element);
   return ($converted, $end_line);
 }
@@ -1498,7 +1501,7 @@ sub _convert($$;$)
             } else {
               # get end of lines from @*table and block @-commands with
               # no argument that have a bogus argument.
-              $result .= _end_line_spaces($element);
+              $result .= _end_line_spaces($self, $element);
               $result .= $self->format_comment_or_return_end_line($element);
             }
           }
@@ -1653,7 +1656,7 @@ sub _convert($$;$)
     } else {
       my $end_command = $element->{'extra'}->{'end_command'};
       if ($end_command) {
-        $result .= _end_line_spaces($end_command);
+        $result .= _end_line_spaces($self, $end_command);
         $result .= $self->format_comment_or_return_end_line($end_command);
       }
     }

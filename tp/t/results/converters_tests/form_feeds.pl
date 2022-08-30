@@ -1298,7 +1298,7 @@ $result_converted{'xml'}->{'form_feeds'} = '<node name="Top" spaces=" "><nodenam
 <pre xml:space="preserve">in example
 </pre></example>
 
-<center spaces=" \\f ">around center </center>
+<center spaces=" \\f ">around center &formfeed;</center>
 <center spaces=" ">in &formfeed;center</center>
 
 <para><indicateurl spaces=" \\f ">in indicateurl</indicateurl>
@@ -1310,7 +1310,7 @@ $result_converted{'xml'}->{'form_feeds'} = '<node name="Top" spaces=" "><nodenam
 <float type="" endspaces=" ">
 <para>a float
 </para><caption spaces="\\f "><para>within </para>&formfeed; <para>cation </para>&formfeed;</caption> &formfeed; <para>Toto
-</para></float> 
+</para></float> &formfeed;
 
 ';
 
