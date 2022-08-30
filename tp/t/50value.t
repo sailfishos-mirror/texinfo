@@ -102,6 +102,17 @@ Value
 @ringaccent @value{a_letter}
 @~@value{a_letter}'
 ],
+['value_after_brace_command',
+'@set bracedletter {a}
+@set unknowncmd @unknown
+
+@ringaccent @value{bracedletter}
+@ringaccent @value{unknowncmd}
+@^ @value{bracedletter}
+@^ @value{unknowncmd}
+@code @value{bracedletter}
+@code @value{unknowncmd}
+'],
 ['value_in_index_commands',
 '@set cp cp
 @set fn fn
