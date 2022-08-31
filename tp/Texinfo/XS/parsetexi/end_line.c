@@ -1243,10 +1243,21 @@ end_line_starting_block (ELEMENT *current)
               || current->args.list[0]->contents.number == 0))
         {
           ELEMENT *e;
+          ELEMENT *block_line_arg;
+          if (last_args_child(current)
+              && last_args_child(current)->type == ET_block_line_arg)
+            {
+              block_line_arg = last_args_child(current);
+            }
+          else
+            {
+              block_line_arg = new_element (ET_block_line_arg);
+              insert_into_args (current, block_line_arg, 0);
+            }
 
           e = new_element (ET_command_as_argument_inserted);
           e->cmd = CM_bullet;
-          insert_into_args (current, e, 0);
+          insert_into_contents (block_line_arg, e, 0);
           add_extra_element (current, "command_as_argument", e);
         }
       else if (item_line_command (current->cmd)

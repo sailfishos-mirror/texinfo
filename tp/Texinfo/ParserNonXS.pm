@@ -2355,6 +2355,8 @@ sub _isolate_last_space
             or ($current->{'contents'}->[-1]->{'type'}
                   and (!$current->{'type'}
                         or $current->{'type'} ne 'line_arg'))
+                        #or ($current->{'type'} ne 'line_arg'
+                        #    and $current->{'type'} ne 'block_line_arg')))
             or $current->{'contents'}->[-1]->{'text'} !~ /\s+$/;
 
   if ($current->{'type'} and $current->{'type'} eq 'menu_entry_node') {
@@ -3157,11 +3159,22 @@ sub _end_line($$$)
             or !$current->{'args'}->[0]
             or !$current->{'args'}->[0]->{'contents'}
             or !@{$current->{'args'}->[0]->{'contents'}})) {
-          my $inserted =  { 'cmdname' => 'bullet',
-                            'contents' => [],
-                            'type' => 'command_as_argument_inserted',
-                            'parent' => $current };
-          unshift @{$current->{'args'}}, $inserted;
+          my $block_line_arg;
+          if ($current->{'args'} and $current->{'args'}->[-1]
+              and $current->{'args'}->[-1]->{'type'}
+              and $current->{'args'}->[-1]->{'type'} eq 'block_line_arg') {
+            $block_line_arg = $current->{'args'}->[-1];
+          } else {
+            $block_line_arg = { 'type' => 'block_line_arg',
+                                'parent' => $current,
+                                'contents' => [] };
+            unshift @{$current->{'args'}}, $block_line_arg;
+          }
+          my $inserted = { 'cmdname' => 'bullet',
+                           'contents' => [],
+                           'type' => 'command_as_argument_inserted',
+                           'parent' => $block_line_arg };
+          unshift @{$block_line_arg->{'contents'}}, $inserted;
           $current->{'extra'}->{'command_as_argument'} = $inserted;
         }
       } elsif ($item_line_commands{$current->{'cmdname'}} and

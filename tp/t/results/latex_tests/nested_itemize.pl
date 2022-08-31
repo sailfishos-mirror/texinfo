@@ -47,10 +47,16 @@ $result_trees{'nested_itemize'} = {
         {
           'args' => [
             {
-              'cmdname' => 'bullet',
-              'contents' => [],
+              'contents' => [
+                {
+                  'cmdname' => 'bullet',
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'command_as_argument_inserted'
+                }
+              ],
               'parent' => {},
-              'type' => 'command_as_argument_inserted'
+              'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'itemize',
@@ -122,10 +128,16 @@ $result_trees{'nested_itemize'} = {
                 {
                   'args' => [
                     {
-                      'cmdname' => 'bullet',
-                      'contents' => [],
+                      'contents' => [
+                        {
+                          'cmdname' => 'bullet',
+                          'contents' => [],
+                          'parent' => {},
+                          'type' => 'command_as_argument_inserted'
+                        }
+                      ],
                       'parent' => {},
-                      'type' => 'command_as_argument_inserted'
+                      'type' => 'block_line_arg'
                     }
                   ],
                   'cmdname' => 'itemize',
@@ -197,10 +209,16 @@ $result_trees{'nested_itemize'} = {
                         {
                           'args' => [
                             {
-                              'cmdname' => 'bullet',
-                              'contents' => [],
+                              'contents' => [
+                                {
+                                  'cmdname' => 'bullet',
+                                  'contents' => [],
+                                  'parent' => {},
+                                  'type' => 'command_as_argument_inserted'
+                                }
+                              ],
                               'parent' => {},
-                              'type' => 'command_as_argument_inserted'
+                              'type' => 'block_line_arg'
                             }
                           ],
                           'cmdname' => 'itemize',
@@ -272,10 +290,16 @@ $result_trees{'nested_itemize'} = {
                                 {
                                   'args' => [
                                     {
-                                      'cmdname' => 'bullet',
-                                      'contents' => [],
+                                      'contents' => [
+                                        {
+                                          'cmdname' => 'bullet',
+                                          'contents' => [],
+                                          'parent' => {},
+                                          'type' => 'command_as_argument_inserted'
+                                        }
+                                      ],
                                       'parent' => {},
-                                      'type' => 'command_as_argument_inserted'
+                                      'type' => 'block_line_arg'
                                     }
                                   ],
                                   'cmdname' => 'itemize',
@@ -577,6 +601,7 @@ $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'ar
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1];
@@ -588,6 +613,7 @@ $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'co
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1];
@@ -599,6 +625,7 @@ $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'co
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
@@ -610,6 +637,7 @@ $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'co
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
@@ -625,28 +653,28 @@ $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'co
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1];
-$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0];

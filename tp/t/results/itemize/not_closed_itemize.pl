@@ -12,10 +12,16 @@ $result_trees{'not_closed_itemize'} = {
         {
           'args' => [
             {
-              'cmdname' => 'bullet',
-              'contents' => [],
+              'contents' => [
+                {
+                  'cmdname' => 'bullet',
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'command_as_argument_inserted'
+                }
+              ],
               'parent' => {},
-              'type' => 'command_as_argument_inserted'
+              'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'itemize',
@@ -47,10 +53,11 @@ $result_trees{'not_closed_itemize'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0];
 $result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0];
 $result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0];
-$result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'not_closed_itemize'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_closed_itemize'}{'contents'}[0];
 $result_trees{'not_closed_itemize'}{'contents'}[0]{'parent'} = $result_trees{'not_closed_itemize'};
 

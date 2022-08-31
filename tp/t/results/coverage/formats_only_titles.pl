@@ -12,10 +12,16 @@ $result_trees{'formats_only_titles'} = {
         {
           'args' => [
             {
-              'cmdname' => 'bullet',
-              'contents' => [],
+              'contents' => [
+                {
+                  'cmdname' => 'bullet',
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'command_as_argument_inserted'
+                }
+              ],
               'parent' => {},
-              'type' => 'command_as_argument_inserted'
+              'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'itemize',
@@ -466,6 +472,7 @@ $result_trees{'formats_only_titles'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0];
 $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0];
 $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0];
@@ -475,7 +482,7 @@ $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'contents'}[1
 $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
 $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0];
-$result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'formats_only_titles'}{'contents'}[0];
 $result_trees{'formats_only_titles'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'formats_only_titles'}{'contents'}[0];

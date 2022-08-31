@@ -589,10 +589,16 @@ $result_trees{'inter_item_commands_in_itemize'} = {
         {
           'args' => [
             {
-              'cmdname' => 'bullet',
-              'contents' => [],
+              'contents' => [
+                {
+                  'cmdname' => 'bullet',
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'command_as_argument_inserted'
+                }
+              ],
               'parent' => {},
-              'type' => 'command_as_argument_inserted'
+              'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'itemize',
@@ -841,6 +847,7 @@ $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[3]{'e
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[3]{'contents'}[3];
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4];
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4];
+$result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'args'}[0];
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5];
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'command'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5];
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5];
@@ -862,7 +869,7 @@ $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'c
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'contents'}[3]{'args'}[0];
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'contents'}[3];
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5];
-$result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'args'}[0];
+$result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'contents'}[3];
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4];
 $result_trees{'inter_item_commands_in_itemize'}{'contents'}[4]{'parent'} = $result_trees{'inter_item_commands_in_itemize'};

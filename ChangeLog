@@ -1,3 +1,11 @@
+2022-08-31  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block):
+	insert 'command_as_argument_inserted' in the proper
+	'block_line_arg' type when default @bullet formatting command
+	is added on an @itemize line.
+
 2022-08-30  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (@code{@@caption @@shortcaption}): no multiple

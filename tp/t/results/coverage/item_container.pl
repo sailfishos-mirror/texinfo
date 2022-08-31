@@ -225,10 +225,16 @@ $result_trees{'item_container'} = {
         {
           'args' => [
             {
-              'cmdname' => 'bullet',
-              'contents' => [],
+              'contents' => [
+                {
+                  'cmdname' => 'bullet',
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'command_as_argument_inserted'
+                }
+              ],
               'parent' => {},
-              'type' => 'command_as_argument_inserted'
+              'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'itemize',
@@ -344,6 +350,7 @@ $result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'extra'}{'command_
 $result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
 $result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'item_container'}{'contents'}[0];
 $result_trees{'item_container'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'item_container'}{'contents'}[0];
+$result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'args'}[0];
 $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5];
 $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'command'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5];
 $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5];
@@ -353,7 +360,7 @@ $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'pa
 $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0];
 $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[2];
 $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'args'}[0];
+$result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[2];
 $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'item_container'}{'contents'}[0];
 $result_trees{'item_container'}{'contents'}[0]{'parent'} = $result_trees{'item_container'};

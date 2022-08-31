@@ -12,13 +12,14 @@ $result_trees{'comments_on_block_command_lines'} = {
         {
           'args' => [
             {
-              'cmdname' => 'bullet',
-              'contents' => [],
-              'parent' => {},
-              'type' => 'command_as_argument_inserted'
-            },
-            {
-              'contents' => [],
+              'contents' => [
+                {
+                  'cmdname' => 'bullet',
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'command_as_argument_inserted'
+                }
+              ],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [
@@ -2321,17 +2322,17 @@ $result_trees{'comments_on_block_command_lines'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'}{'args'}[0]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'};
+$result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'}{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0];
-$result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'extra'}{'comment_at_end'}{'args'}[0]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'extra'}{'comment_at_end'};
-$result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'extra'}{'comment_at_end'}{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0];
-$result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0];
@@ -2767,7 +2768,8 @@ $result_floats{'comments_on_block_command_lines'} = {
 
 
 
-$result_converted{'xml'}->{'comments_on_block_command_lines'} = '<itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend>&bullet;</itemprepend><listitem spaces=" "><prepend>&bullet;</prepend><para>itemize it
+$result_converted{'xml'}->{'comments_on_block_command_lines'} = '<itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend>&bullet;</itemprepend><!-- c comm -->
+<listitem spaces=" "><prepend>&bullet;</prepend><para>itemize it
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend>x </itemprepend><!-- c comm -->
