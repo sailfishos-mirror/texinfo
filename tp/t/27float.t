@@ -18,6 +18,24 @@ my @test_cases = (
 In float.
 @caption{Caption.}
 @end float'],
+['empty_label_with_space',
+'@float Type, 
+@end float
+'],
+# FIXME no error 'empty node name after expansion'
+['empty_label_with_space_comment',
+'@float Type, @c comment
+@end float
+'],
+['empty_label_no_space',
+'@float Type,
+@end float
+'],
+# FIXME no error 'empty node name after expansion'
+['empty_label_no_space_comment',
+'@float Type,@c comment
+@end float
+'],
 ['ref_to_float',
 '@float Text, Label1
 Float

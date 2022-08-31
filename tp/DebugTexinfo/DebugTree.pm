@@ -185,6 +185,12 @@ sub _print_tree($$;$$)
     .'a/'._protect_text($element->{'extra'}->{'spaces_after_argument'}).'/';
   }
   $result .= "\n";
+  if ($element->{'extra'}
+      and defined($element->{'extra'}->{'comment_at_end'})) {
+    $result .= ' ' x ($level + 1).'/comment_at_end/'."\n";
+    $result .= _print_tree ($self, $element->{'extra'}->{'comment_at_end'},
+                            $level +2);
+  }
   if ($element->{'args'}) {
     foreach my $arg (@{$element->{'args'}}) {
       $result .= _print_tree ($self, $arg, $level +1, 1);
