@@ -30,6 +30,8 @@
 # --debug=10 (or more), the tree is printed at the end of the run,
 # --debug=100 (or more), the tree is printed at each newline.
 
+use strict;
+
 package DebugTexinfo::DebugTree;
 
 # also for __(
@@ -37,6 +39,7 @@ use Texinfo::Common;
 use Texinfo::Structuring;
 use Texinfo::Convert::Converter;
 
+use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Converter);
 
 my %defaults = (
@@ -139,6 +142,15 @@ sub convert_tree($$)
 
 sub _print_tree($$;$$);
 
+sub _protect_text($)
+{
+  my $text = shift;
+  $text =~ s/\n/\\n/g;
+  $text =~ s/\f/\\f/g;
+  $text =~ s/\r/\\r/g;
+  return $text;
+}
+
 sub _print_tree($$;$$)
 {
   my $self = shift;
@@ -159,11 +171,18 @@ sub _print_tree($$;$$)
     $result .= "$element->{'type'} ";
   }
   if (defined($element->{'text'})) {
-    my $text = $element->{'text'};
-    $text =~ s/\n/\\n/g;
-    $text =~ s/\f/\\f/g;
-    $text =~ s/\r/\\r/g;
+    my $text = _protect_text($element->{'text'});
     $result .= "|$text|";
+  }
+  if ($element->{'extra'}
+      and defined($element->{'extra'}->{'spaces_before_argument'})) {
+    $result .= ' '
+    .'b/'._protect_text($element->{'extra'}->{'spaces_before_argument'}).'/';
+  }
+  if ($element->{'extra'}
+      and defined($element->{'extra'}->{'spaces_after_argument'})) {
+    $result .= ' '
+    .'a/'._protect_text($element->{'extra'}->{'spaces_after_argument'}).'/';
   }
   $result .= "\n";
   if ($element->{'args'}) {
