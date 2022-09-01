@@ -631,6 +631,18 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @printindex fn
 ', {'test_formats' => ['plaintext', 'docbook', 'html']}
 ],
+['multiple_index_text_sortas_seeentry_seealso',
+'@node Top
+@top
+
+@node chapter index
+@chapter Index
+
+@cindex aaa @sortas{A---S} continue @seeentry{other second} aagain @seealso{toto}
+@cindex other @sortas{OO} second
+
+@printindex cp
+', {'test_formats' => ['docbook']}],
 ['w_lines_count',
 '@node Top
 @top
@@ -746,7 +758,8 @@ my @file_latex_tests_cases_tests = ('syncode_index_print_both',
   'empty_index_entry', 'empty_cindex_entry', 'empty_string_index_entry',
   'explicit_sort_key', 'transparent_sort_chars',
   'def_syn_indices', 'seeentry', 'subentry_and_sortas', 'subentries',
-  'double_seeentry_seealso', 'seealso_duplicate');
+  'double_seeentry_seealso', 'seealso_duplicate',
+  'multiple_index_text_sortas_seeentry_seealso');
 
 foreach my $test (@test_formatted) {
   push @{$test->[2]->{'test_formats'}}, 'info';
