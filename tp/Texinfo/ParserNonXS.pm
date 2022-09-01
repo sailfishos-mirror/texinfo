@@ -1795,6 +1795,10 @@ sub _close_current($$$;$$)
         $self->_line_error(sprintf(__("\@%s seen before \@end %s"),
                                   $interrupting_command, $current->{'cmdname'}),
                            $source_info);
+        # to have same result as the XS parser
+        if (scalar(@{$current->{'contents'}}) == 0) {
+          delete $current->{'contents'};
+        }
       } else {
         $self->_line_error(sprintf(__("no matching `%cend %s'"),
                                    ord('@'), $current->{'cmdname'}),
@@ -1802,6 +1806,11 @@ sub _close_current($$$;$$)
         if ($block_commands{$current->{'cmdname'}} eq 'conditional') {
           # in this case we are within an ignored conditional
           my $conditional = pop @{$current->{'parent'}->{'contents'}};
+        } elsif ($current->{'contents'}
+                 and scalar(@{$current->{'contents'}}) == 0
+                 and $block_commands{$current->{'cmdname'}} =~ /^\d+$/) {
+          # to have the same result as the XS parser
+          delete $current->{'contents'};
         }
       }
       if ($preformatted_commands{$current->{'cmdname'}}
@@ -2345,18 +2354,17 @@ sub _isolate_last_space
       and $current->{'contents'}->[-1]->{'cmdname'}
       and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
             or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
-     $current->{'extra'}->{'comment_at_end'} = pop @{$current->{'contents'}};
-     # TODO: @c should probably not be allowed inside most brace commands
-     # as this would be difficult to implement properly in TeX.
+    $current->{'extra'}->{'comment_at_end'} = pop @{$current->{'contents'}};
+    # TODO: @c should probably not be allowed inside most brace commands
+    # as this would be difficult to implement properly in TeX.
   }
 
   return if !@{$current->{'contents'}}
             or !defined($current->{'contents'}->[-1]->{'text'})
             or ($current->{'contents'}->[-1]->{'type'}
                   and (!$current->{'type'}
-                        or $current->{'type'} ne 'line_arg'))
-                        #or ($current->{'type'} ne 'line_arg'
-                        #    and $current->{'type'} ne 'block_line_arg')))
+                        or ($current->{'type'} ne 'line_arg'
+                            and $current->{'type'} ne 'block_line_arg')))
             or $current->{'contents'}->[-1]->{'text'} !~ /\s+$/;
 
   if ($current->{'type'} and $current->{'type'} eq 'menu_entry_node') {
@@ -3063,6 +3071,10 @@ sub _end_line($$$)
       $empty_text->{'parent'} = $current;
       unshift @{$current->{'contents'}}, $empty_text;
       delete $current->{'args'};
+    }
+    # this is in particular to have the same output as the XS parser
+    if (scalar(@{$current->{'contents'}}) == 0) {
+      delete $current->{'contents'};
     }
 
     # @float args

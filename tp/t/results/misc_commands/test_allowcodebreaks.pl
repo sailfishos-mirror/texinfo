@@ -579,17 +579,19 @@ $result_trees{'test_allowcodebreaks'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'example',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'example',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1094,17 +1096,19 @@ $result_trees{'test_allowcodebreaks'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'example',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'example',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1601,17 +1605,19 @@ $result_trees{'test_allowcodebreaks'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'example',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'example',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2134,17 +2140,19 @@ $result_trees{'test_allowcodebreaks'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'example',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'example',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -2331,17 +2339,16 @@ $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[7]{'contents'}[
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[7]{'contents'}[21]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[7];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[8]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'extra'}{'command'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[0];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'contents'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[1];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[1];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[2]{'args'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[2];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[2]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'extra'}{'end_command'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[2];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'extra'}{'end_command'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[9]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[10]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[11]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[11]{'args'}[0];
@@ -2407,17 +2414,16 @@ $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[12]{'contents'}
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[12]{'contents'}[21]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[12];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[12]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[13]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[0]{'extra'}{'command'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[0]{'contents'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[0];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[1]{'contents'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[1];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[1];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[1]{'args'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[1]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[2]{'args'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[2];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[2]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'extra'}{'end_command'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[2];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'extra'}{'end_command'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[14]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[15]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[16]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[16];
@@ -2483,19 +2489,18 @@ $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[16]{'contents'}
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[16]{'contents'}[2]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[16];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[16]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[17]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[0]{'extra'}{'command'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[0]{'contents'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[0];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1]{'contents'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1]{'args'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[2]{'args'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[2];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[2]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'extra'}{'end_command'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[2];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'extra'}{'end_command'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[18]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[19]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[20]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[20]{'args'}[0];
@@ -2561,17 +2566,16 @@ $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[21]{'contents'}
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[21]{'contents'}[21]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[21];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[21]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[22]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[0]{'extra'}{'command'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[0]{'contents'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[0];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[1]{'contents'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[1];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[1];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[1]{'args'}[0];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[1]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[2]{'args'}[0];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[2];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[2]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23];
-$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'extra'}{'end_command'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[2];
+$result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'extra'}{'end_command'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'contents'}[23]{'parent'} = $result_trees{'test_allowcodebreaks'}{'contents'}[1];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'test_allowcodebreaks'}{'contents'}[1]{'args'}[0]{'contents'}[0];

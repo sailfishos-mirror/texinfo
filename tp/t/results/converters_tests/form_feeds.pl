@@ -332,17 +332,19 @@ $result_trees{'form_feeds'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'example',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'command' => {}
+                'spaces_after_argument' => ' 
+'
               },
               'parent' => {},
-              'text' => ' 
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'example',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -756,17 +758,19 @@ $result_trees{'form_feeds'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'float',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'float',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1053,14 +1057,13 @@ $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[18]{'contents'}[0]{'paren
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[18]{'contents'}[1]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[18];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[18]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[19]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[0]{'extra'}{'command'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[0];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[1];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[1]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[1];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[1]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[2]{'args'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[2];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[2]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'extra'}{'end_command'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[2];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'extra'}{'end_command'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[1];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[21]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[22]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[22]{'args'}[0];
@@ -1108,42 +1111,41 @@ $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'paren
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[27]{'extra'}{'end_command'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[27]{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[27]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[28]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[0]{'extra'}{'command'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[0];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0]{'contents'}[3];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[3];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[3];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[3]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0]{'contents'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0]{'contents'}[3];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[3];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'extra'}{'float'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[6];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[6]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7]{'args'}[0];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[8]{'args'}[0];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[8];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[8]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'caption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[2];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'end_command'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[8];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'shortcaption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[5];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'caption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'end_command'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7];
+$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'shortcaption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[30]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'form_feeds'}{'contents'}[2]{'args'}[0]{'contents'}[0];

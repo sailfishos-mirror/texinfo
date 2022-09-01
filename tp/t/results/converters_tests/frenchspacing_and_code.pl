@@ -256,17 +256,19 @@ $result_trees{'frenchspacing_and_code'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'example',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'example',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1129,17 +1131,19 @@ $result_trees{'frenchspacing_and_code'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'example',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'example',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -1877,14 +1881,13 @@ $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[3]{'contents'
 $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[3];
 $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4];
 $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4];
-$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'extra'}{'command'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5];
+$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5];
+$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[0];
 $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5];
-$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[1];
+$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'args'}[0];
+$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[1];
 $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5];
-$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[2]{'args'}[0];
-$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[2];
-$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5];
-$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[2];
+$result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'contents'}[1];
 $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4];
 $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4];
 $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[0];
@@ -1994,14 +1997,13 @@ $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[3]{'contents'
 $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[3];
 $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6];
 $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6];
-$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[0]{'extra'}{'command'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5];
+$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5];
+$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[0];
 $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5];
-$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[1];
+$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[1]{'args'}[0];
+$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[1];
 $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5];
-$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[2]{'args'}[0];
-$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[2];
-$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5];
-$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[2];
+$result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'contents'}[1];
 $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[5]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6];
 $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[6]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6];
 $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'frenchspacing_and_code'}{'contents'}[6]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[0];

@@ -152,6 +152,12 @@ sub _convert($$)
     }
     foreach my $arg (@{$args}) {
       $result .= _convert($self, $arg);
+      if ($arg->{'type'}
+          and $arg->{'type'} eq 'block_line_arg'
+          and $arg->{'extra'} and $arg->{'extra'}->{'spaces_after_argument'}
+          and $result =~ /\S/) {
+        $result .= $arg->{'extra'}->{'spaces_after_argument'};
+      }
     }
   }
   if ($element->{'contents'}) {

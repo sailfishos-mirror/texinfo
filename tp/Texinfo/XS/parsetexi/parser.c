@@ -750,7 +750,8 @@ isolate_last_space (ELEMENT *current)
   text = element_text (last_elt);
   if (!text || !*text
       || (last_elt->type && (!current->type
-                             || current->type != ET_line_arg)))
+                             || (current->type != ET_line_arg
+                                 && current->type != ET_block_line_arg))))
     return;
 
   text_len = last_elt->text.end;

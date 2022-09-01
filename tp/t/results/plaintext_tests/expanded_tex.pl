@@ -17,17 +17,19 @@ $result_trees{'expanded_tex'} = {
 '
             },
             {
-              'cmdname' => 'tex',
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [],
                   'extra' => {
-                    'command' => {}
+                    'spaces_after_argument' => '
+'
                   },
                   'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line_after_command'
-                },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'cmdname' => 'tex',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -107,16 +109,15 @@ $result_trees{'expanded_tex'} = {
   'type' => 'document_root'
 };
 $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
+$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0];
 $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0];
 $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0];

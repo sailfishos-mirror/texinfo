@@ -265,28 +265,38 @@ vtable i--tem in example distinct kbdinputstyle
 
 A quot---ation
 
-NoteA Note
+Note
+A Note
 
-noteA note
+note
+A note
 
-CautionCaution
+Caution
+Caution
 
-ImportantImportant
+Important
+Important
 
-Tipa Tip
+Tip
+a Tip
 
-Warninga Warning.
+Warning
+a Warning.
 
-something e' TeXThe something e' TeX is here.
+something e' TeX
+The something e' TeX is here.
 
 @ at the end of line  A @ at the end of the @quotation line.
 
-something, other thingsomething, other thing
+something, other thing
+something, other thing
 
-Note, the noteNote, the note
+Note, the note
+Note, the note
 
 
 Empty
+
 
 
 
@@ -312,9 +322,11 @@ after exdented
 
 A small quot---ation
 
-NoteA small Note
+Note
+A small Note
 
-something, other thingsomething, other thing
+something, other thing
+something, other thing
 
 i--temize
 
@@ -355,20 +367,25 @@ truc bidule
 e--xample  some
    text
 
-first argexample one arg
+first arg
+example one arg
 
-first argsecond argexample two args
+first argsecond arg
+example two args
 
-first argsecond argthird argexample three args
+first argsecond argthird arg
+example three args
 
-first argsecond argthird argfourth argexample four args
+first argsecond argthird argfourth arg
+example four args
 
-first argsecond argthird argfourth argfifth argexample five args
+first argsecond argthird argfourth argfifth arg
+example five args
 
-something e' TeXThe something e' TeX is here.
+something e' TeX
+The something e' TeX is here.
 
 @ at the end of line  A @ at the end of the @example line.
-
 
 example with empty args
 
@@ -1073,28 +1090,38 @@ vtable i--tem in example distinct kbdinputstyle
 
 A quot---ation
 
-NoteA Note
+Note
+A Note
 
-noteA note
+note
+A note
 
-CautionCaution
+Caution
+Caution
 
-ImportantImportant
+Important
+Important
 
-Tipa Tip
+Tip
+a Tip
 
-Warninga Warning.
+Warning
+a Warning.
 
-something e' TeXThe something e' TeX is here.
+something e' TeX
+The something e' TeX is here.
 
 @ at the end of line  A @ at the end of the @quotation line.
 
-something, other thingsomething, other thing
+something, other thing
+something, other thing
 
-Note, the noteNote, the note
+Note, the note
+Note, the note
 
 
 Empty
+
 
 
 
@@ -1120,9 +1147,11 @@ after exdented
 
 A small quot---ation
 
-NoteA small Note
+Note
+A small Note
 
-something, other thingsomething, other thing
+something, other thing
+something, other thing
 
 i--temize
 
@@ -1163,20 +1192,25 @@ truc bidule
 e--xample  some
    text
 
-first argexample one arg
+first arg
+example one arg
 
-first argsecond argexample two args
+first argsecond arg
+example two args
 
-first argsecond argthird argexample three args
+first argsecond argthird arg
+example three args
 
-first argsecond argthird argfourth argexample four args
+first argsecond argthird argfourth arg
+example four args
 
-first argsecond argthird argfourth argfifth argexample five args
+first argsecond argthird argfourth argfifth arg
+example five args
 
-something e' TeXThe something e' TeX is here.
+something e' TeX
+The something e' TeX is here.
 
 @ at the end of line  A @ at the end of the @example line.
-
 
 example with empty args
 
@@ -1902,28 +1936,38 @@ vtable i--tem in example distinct kbdinputstyle
 
 A quot---ation
 
-NoteA Note
+Note
+A Note
 
-noteA note
+note
+A note
 
-CautionCaution
+Caution
+Caution
 
-ImportantImportant
+Important
+Important
 
-Tipa Tip
+Tip
+a Tip
 
-Warninga Warning.
+Warning
+a Warning.
 
-something e' TeXThe something e' TeX is here.
+something e' TeX
+The something e' TeX is here.
 
 @ at the end of line  A @ at the end of the @quotation line.
 
-something, other thingsomething, other thing
+something, other thing
+something, other thing
 
-Note, the noteNote, the note
+Note, the note
+Note, the note
 
 
 Empty
+
 
 
 
@@ -1949,9 +1993,11 @@ after exdented
 
 A small quot---ation
 
-NoteA small Note
+Note
+A small Note
 
-something, other thingsomething, other thing
+something, other thing
+something, other thing
 
 i--temize
 
@@ -1992,20 +2038,25 @@ truc bidule
 e--xample  some
    text
 
-first argexample one arg
+first arg
+example one arg
 
-first argsecond argexample two args
+first argsecond arg
+example two args
 
-first argsecond argthird argexample three args
+first argsecond argthird arg
+example three args
 
-first argsecond argthird argfourth argexample four args
+first argsecond argthird argfourth arg
+example four args
 
-first argsecond argthird argfourth argfifth argexample five args
+first argsecond argthird argfourth argfifth arg
+example five args
 
-something e' TeXThe something e' TeX is here.
+something e' TeX
+The something e' TeX is here.
 
 @ at the end of line  A @ at the end of the @example line.
-
 
 example with empty args
 
@@ -2705,28 +2756,38 @@ vtable i--tem in example distinct kbdinputstyle
 
 A quot---ation
 
-NoteA Note
+Note
+A Note
 
-noteA note
+note
+A note
 
-CautionCaution
+Caution
+Caution
 
-ImportantImportant
+Important
+Important
 
-Tipa Tip
+Tip
+a Tip
 
-Warninga Warning.
+Warning
+a Warning.
 
-something e' TeXThe something e' TeX is here.
+something e' TeX
+The something e' TeX is here.
 
 @ at the end of line  A @ at the end of the @quotation line.
 
-something, other thingsomething, other thing
+something, other thing
+something, other thing
 
-Note, the noteNote, the note
+Note, the note
+Note, the note
 
 
 Empty
+
 
 
 
@@ -2752,9 +2813,11 @@ after exdented
 
 A small quot---ation
 
-NoteA small Note
+Note
+A small Note
 
-something, other thingsomething, other thing
+something, other thing
+something, other thing
 
 i--temize
 
@@ -2795,20 +2858,25 @@ truc bidule
 e--xample  some
    text
 
-first argexample one arg
+first arg
+example one arg
 
-first argsecond argexample two args
+first argsecond arg
+example two args
 
-first argsecond argthird argexample three args
+first argsecond argthird arg
+example three args
 
-first argsecond argthird argfourth argexample four args
+first argsecond argthird argfourth arg
+example four args
 
-first argsecond argthird argfourth argfifth argexample five args
+first argsecond argthird argfourth argfifth arg
+example five args
 
-something e' TeXThe something e' TeX is here.
+something e' TeX
+The something e' TeX is here.
 
 @ at the end of line  A @ at the end of the @example line.
-
 
 example with empty args
 

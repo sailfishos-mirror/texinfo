@@ -1,3 +1,19 @@
+2022-09-01  Patrice Dumas  <pertusus@free.fr>
+
+	Replace empty_line_after_command by block command extra spaces_after_argument
+
+	* tp/Texinfo/ParserNonXS.pm (_isolate_last_space),
+	tp/Texinfo/XS/parsetexi/parser.c (isolate_last_space):
+	put last space in extra spaces_after_argument for block
+	command lines, not only line commands.
+	* tp/Texinfo/Convert/TexinfoXML.pm (_convert_argument_and_end_line):
+	return separately the end space and the end line to be able to
+	use the end space for block line arg without adding an argument
+	element.  Reindent.
+
+	* tp/Texinfo/Convert/TextContent.pm (_convert): add spaces after
+	block command arguments if the arguments line is not empty.
+
 2022-09-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (@headings double): Put document title on all

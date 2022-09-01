@@ -1723,10 +1723,12 @@ quotation
 <example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage><pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
 </pre></example>
 
-<example spaces=" " endspaces=" "><pre xml:space="preserve">example with empty args
+<example spaces=" " endspaces=" ">
+<pre xml:space="preserve">example with empty args
 </pre></example>
 
-<example spaces=" " endspaces=" "><examplearg>nonempty</examplearg><pre xml:space="preserve">example with empty and non empty args mix
+<example spaces=" " endspaces=" "><examplearg>nonempty</examplearg>
+<pre xml:space="preserve">example with empty and non empty args mix
 </pre></example>
 
 <example endspaces=" ">
@@ -2860,10 +2862,12 @@ quotation
 <example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage><pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
 </pre></example>
 
-<example spaces=" " endspaces=" "><pre xml:space="preserve">example with empty args
+<example spaces=" " endspaces=" ">
+<pre xml:space="preserve">example with empty args
 </pre></example>
 
-<example spaces=" " endspaces=" "><examplearg>nonempty</examplearg><pre xml:space="preserve">example with empty and non empty args mix
+<example spaces=" " endspaces=" "><examplearg>nonempty</examplearg>
+<pre xml:space="preserve">example with empty and non empty args mix
 </pre></example>
 
 <example endspaces=" ">
@@ -4024,10 +4028,12 @@ quotation
 <example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage><pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
 </pre></example>
 
-<example spaces=" " endspaces=" "><pre xml:space="preserve">example with empty args
+<example spaces=" " endspaces=" ">
+<pre xml:space="preserve">example with empty args
 </pre></example>
 
-<example spaces=" " endspaces=" "><examplearg>nonempty</examplearg><pre xml:space="preserve">example with empty and non empty args mix
+<example spaces=" " endspaces=" "><examplearg>nonempty</examplearg>
+<pre xml:space="preserve">example with empty and non empty args mix
 </pre></example>
 
 <example endspaces=" ">
@@ -5156,10 +5162,12 @@ indent in quotation
 </pre><example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage><pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
 </pre></example>
 <pre xml:space="preserve">
-</pre><example spaces=" " endspaces=" "><pre xml:space="preserve">example with empty args
+</pre><example spaces=" " endspaces=" ">
+<pre xml:space="preserve">example with empty args
 </pre></example>
 <pre xml:space="preserve">
-</pre><example spaces=" " endspaces=" "><examplearg>nonempty</examplearg><pre xml:space="preserve">example with empty and non empty args mix
+</pre><example spaces=" " endspaces=" "><examplearg>nonempty</examplearg>
+<pre xml:space="preserve">example with empty and non empty args mix
 </pre></example>
 <pre xml:space="preserve">
 </pre><example endspaces=" ">

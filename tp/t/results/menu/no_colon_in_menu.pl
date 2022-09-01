@@ -38,17 +38,19 @@ $result_trees{'no_colon_in_menu'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'menu',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'menu',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -137,15 +139,14 @@ $result_trees{'no_colon_in_menu'}{'contents'}[0]{'parent'} = $result_trees{'no_c
 $result_trees{'no_colon_in_menu'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'args'}[0];
 $result_trees{'no_colon_in_menu'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1];
 $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1];
-$result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1];
+$result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1];
+$result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1];
-$result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
+$result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0];
+$result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
 $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1];
-$result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2];
-$result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1];
-$result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2];
+$result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
 $result_trees{'no_colon_in_menu'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'no_colon_in_menu'}{'contents'}[1];
 $result_trees{'no_colon_in_menu'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'no_colon_in_menu'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'no_colon_in_menu'}{'contents'}[1]{'args'}[0]{'contents'}[0];

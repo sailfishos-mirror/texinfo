@@ -12,17 +12,19 @@ $result_trees{'two_paragraphindent_in_preamble_and_in_document'} = {
         {
           'contents' => [
             {
-              'cmdname' => 'copying',
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [],
                   'extra' => {
-                    'command' => {}
+                    'spaces_after_argument' => '
+'
                   },
                   'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line_after_command'
-                },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'cmdname' => 'copying',
+              'contents' => [
                 {
                   'contents' => [
                     {
@@ -385,17 +387,16 @@ $result_trees{'two_paragraphindent_in_preamble_and_in_document'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3];
+$result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3];
 $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3];
 $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0];
 $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0];
 $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_paragraphindent_in_preamble_and_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];

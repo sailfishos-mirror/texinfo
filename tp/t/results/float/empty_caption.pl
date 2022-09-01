@@ -259,17 +259,19 @@ $result_trees{'empty_caption'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'float',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'float',
+          'contents' => [
             {
               'contents' => [
                 {
@@ -423,24 +425,23 @@ $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_cont
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'extra'}{'shortcaption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'command'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
+$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
+$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[0];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
+$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
+$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'float'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[2];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'extra'}{'float'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
+$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[3];
+$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'extra'}{'float'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[4];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[4]{'extra'}{'float'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[4]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
+$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5]{'args'}[0];
+$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[6]{'args'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[6];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[6]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'extra'}{'caption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[4];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[6];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'extra'}{'shortcaption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[2];
+$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'extra'}{'caption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[3];
+$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5];
+$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'extra'}{'shortcaption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0];
 $result_trees{'empty_caption'}{'contents'}[0]{'parent'} = $result_trees{'empty_caption'};
 

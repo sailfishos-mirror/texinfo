@@ -723,9 +723,9 @@ sub _convert_argument_and_end_line($$)
   my $element = shift;
 
   my $converted = $self->convert_tree($element->{'args'}->[-1]);
-  $converted .= _end_line_spaces($self, $element);
+  my $end_space = _end_line_spaces($self, $element);
   my $end_line = $self->format_comment_or_return_end_line($element);
-  return ($converted, $end_line);
+  return ($converted, $end_space, $end_line);
 }
 
 my @node_directions = ('Next', 'Prev', 'Up');
@@ -858,12 +858,13 @@ sub _convert($$;$)
           $in_monospace_not_normal
             if (defined($in_monospace_not_normal));
 
-        my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
+        my ($arg, $end_space, $end_line)
+             = $self->_convert_argument_and_end_line($element);
 
         pop @{$self->{'document_context'}->[-1]->{'monospace'}}
           if (defined($in_monospace_not_normal));
 
-        $line_item_result .= $arg;
+        $line_item_result .= $arg . $end_space;
         if ($format_item_command) {
           $line_item_result .= $self->close_element('itemformat');
         }
@@ -912,9 +913,10 @@ sub _convert($$;$)
                   $element->{'extra'}->{'text_arg'});
           }
         }
-        my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
+        my ($arg, $end_space, $end_line)
+              = $self->_convert_argument_and_end_line($element);
         push @$attribute, _leading_spaces_before_argument($element);
-        return $self->open_element($cmdname, $attribute).$arg
+        return $self->open_element($cmdname, $attribute).$arg.$end_space
                 .$self->close_element($cmdname).${end_line};
       } elsif ($type eq 'line') {
         if ($cmdname eq 'node') {
@@ -993,8 +995,9 @@ sub _convert($$;$)
           }
 
           if ($element->{'args'} and $element->{'args'}->[0]) {
-            my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
-            $result .= $self->open_element('sectiontitle').$arg
+            my ($arg, $end_space, $end_line)
+               = $self->_convert_argument_and_end_line($element);
+            $result .= $self->open_element('sectiontitle').$arg.$end_space
                       .$self->close_element('sectiontitle')
                       .$closed_section_element.$end_line;
           } else {
@@ -1007,8 +1010,9 @@ sub _convert($$;$)
               and defined($element->{'extra'}->{'type'}->{'normalized'})) {
             unshift @$attribute, ('type', $element->{'extra'}->{'type'}->{'normalized'});
           }
-          my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
-          return $self->open_element($cmdname, ${attribute}).$arg
+          my ($arg, $end_space, $end_line)
+                = $self->_convert_argument_and_end_line($element);
+          return $self->open_element($cmdname, ${attribute}).$arg.$end_space
                .$self->close_element($cmdname).$end_line;
         }
       } elsif ($type eq 'skipline') {
@@ -1353,40 +1357,49 @@ sub _convert($$;$)
           $end_command_space->[0] = 'endspaces';
         }
         $result .= $self->open_element($element->{'cmdname'}, [@$attribute,
-                       _leading_spaces_before_argument($element), @$end_command_space])
-                      .${prepended_elements};
+                                     _leading_spaces_before_argument($element),
+                                                           @$end_command_space])
+                   .${prepended_elements};
         if ($element->{'args'}) {
           my $end_line = '';
           if ($commands_args_elements{$element->{'cmdname'}}) {
             my $arg_index = 0;
             my $variadic_element = undef;
-            while (defined($commands_args_elements{$element->{'cmdname'}}->[$arg_index])
+            while (defined($commands_args_elements{$element->{'cmdname'}}
+                                                                ->[$arg_index])
                    or defined($variadic_element)) {
               my $format_element;
               if (defined($variadic_element)) {
                 $format_element = $variadic_element;
               } else {
-                if ($commands_args_elements{$element->{'cmdname'}}->[$arg_index] eq '*') {
-                  $variadic_element = $commands_args_elements{$element->{'cmdname'}}->[$arg_index-1];
+                if ($commands_args_elements{$element->{'cmdname'}}
+                                                      ->[$arg_index] eq '*') {
+                  $variadic_element
+                        = $commands_args_elements{$element->{'cmdname'}}
+                                                               ->[$arg_index-1];
                   $format_element = $variadic_element;
                 } else {
-                  $format_element = $commands_args_elements{$element->{'cmdname'}}->[$arg_index];
+                  $format_element
+                    = $commands_args_elements{$element->{'cmdname'}}
+                                                        ->[$arg_index];
                 }
               }
               if (defined($element->{'args'}->[$arg_index])) {
                 my $in_code;
                  $in_code = 1
                   if (defined($default_args_code_style{$element->{'cmdname'}})
-                    and $default_args_code_style{$element->{'cmdname'}}->[$arg_index]);
+                    and $default_args_code_style{$element->{'cmdname'}}
+                                                               ->[$arg_index]);
                 push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1
                   if ($in_code);
-                my $arg;
+                my ($arg, $end_space);
                 if ($arg_index+1 eq scalar(@{$element->{'args'}})) {
                   # last argument
-                  ($arg, $end_line)
+                  ($arg, $end_space, $end_line)
                     = $self->_convert_argument_and_end_line($element);
                 } else {
                   $arg = $self->_convert($element->{'args'}->[$arg_index]);
+                  $end_space = '';
                 }
                 my $spaces = [];
                 if ($arg_index != 0) {
@@ -1394,8 +1407,11 @@ sub _convert($$;$)
                                               $element->{'args'}->[$arg_index]);
                 }
                 if ($arg ne '' or scalar(@$spaces)) {
-                  $result .= $self->open_element($format_element, $spaces).$arg
+                  $result .= $self->open_element($format_element, $spaces)
+                           .$arg.$end_space
                            .$self->close_element($format_element);
+                } else {
+                  $result .= $end_space;
                 }
                 pop @{$self->{'document_context'}->[-1]->{'monospace'}}
                   if ($in_code);

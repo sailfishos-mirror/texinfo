@@ -27,17 +27,11 @@ $result_trees{'empty_label_no_space'} = {
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [
-                {
-                  'extra' => {
-                    'command' => {}
-                  },
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_spaces_before_argument'
-                }
-              ],
+              'contents' => [],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
               'type' => 'block_line_arg'
             }
@@ -102,8 +96,6 @@ $result_trees{'empty_label_no_space'} = {
 $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0];
 $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'args'}[1];
-$result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'args'}[1];
 $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1];
 $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
 $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
@@ -121,19 +113,7 @@ $result_texis{'empty_label_no_space'} = '@float Type,
 $result_texts{'empty_label_no_space'} = 'Type
 ';
 
-$result_errors{'empty_label_no_space'} = [
-  {
-    'error_line' => 'empty node name after expansion `
-\'
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => 'empty node name after expansion `
-\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty_label_no_space'} = [];
 
 
 $result_floats{'empty_label_no_space'} = {
