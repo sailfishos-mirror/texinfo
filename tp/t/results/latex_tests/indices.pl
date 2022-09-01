@@ -12,40 +12,17 @@ $result_trees{'indices'} = {
         {
           'contents' => [
             {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'indices.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'indices.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'empty_line'
-            },
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'parent' => {},
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [
             {
               'args' => [
                 {
@@ -121,7 +98,7 @@ $result_trees{'indices'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -157,7 +134,7 @@ $result_trees{'indices'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 5,
         'macro' => ''
       }
     },
@@ -199,7 +176,7 @@ $result_trees{'indices'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
+        'line_nr' => 7,
         'macro' => ''
       }
     },
@@ -258,7 +235,7 @@ $result_trees{'indices'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 11,
+                    'line_nr' => 10,
                     'macro' => ''
                   }
                 },
@@ -292,7 +269,7 @@ $result_trees{'indices'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 11,
+                    'line_nr' => 10,
                     'macro' => ''
                   }
                 },
@@ -318,7 +295,7 @@ $result_trees{'indices'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 11,
+                    'line_nr' => 10,
                     'macro' => ''
                   }
                 }
@@ -377,7 +354,7 @@ $result_trees{'indices'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
+                        'line_nr' => 10,
                         'macro' => ''
                       }
                     },
@@ -416,7 +393,7 @@ $result_trees{'indices'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
+                        'line_nr' => 10,
                         'macro' => ''
                       }
                     },
@@ -450,7 +427,7 @@ $result_trees{'indices'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
+                        'line_nr' => 10,
                         'macro' => ''
                       }
                     },
@@ -476,7 +453,7 @@ $result_trees{'indices'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
+                        'line_nr' => 10,
                         'macro' => ''
                       }
                     },
@@ -515,7 +492,7 @@ $result_trees{'indices'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 11,
+                                'line_nr' => 10,
                                 'macro' => ''
                               }
                             },
@@ -549,7 +526,7 @@ $result_trees{'indices'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 11,
+                                'line_nr' => 10,
                                 'macro' => ''
                               }
                             },
@@ -575,7 +552,7 @@ $result_trees{'indices'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 11,
+                                'line_nr' => 10,
                                 'macro' => ''
                               }
                             }
@@ -589,7 +566,7 @@ $result_trees{'indices'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
+                        'line_nr' => 10,
                         'macro' => ''
                       }
                     }
@@ -612,7 +589,7 @@ $result_trees{'indices'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
+                'line_nr' => 10,
                 'macro' => ''
               }
             }
@@ -620,7 +597,7 @@ $result_trees{'indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
+            'line_nr' => 10,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -664,7 +641,7 @@ $result_trees{'indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 12,
+            'line_nr' => 11,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -700,7 +677,7 @@ $result_trees{'indices'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 13,
+                    'line_nr' => 12,
                     'macro' => ''
                   }
                 }
@@ -736,7 +713,7 @@ $result_trees{'indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 13,
+            'line_nr' => 12,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -797,7 +774,7 @@ $result_trees{'indices'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 17,
+                    'line_nr' => 16,
                     'macro' => ''
                   }
                 }
@@ -846,7 +823,7 @@ $result_trees{'indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 17,
+            'line_nr' => 16,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -883,7 +860,7 @@ $result_trees{'indices'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 19,
+                    'line_nr' => 18,
                     'macro' => ''
                   }
                 },
@@ -909,7 +886,7 @@ $result_trees{'indices'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 19,
+                    'line_nr' => 18,
                     'macro' => ''
                   }
                 }
@@ -941,7 +918,7 @@ $result_trees{'indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 19,
+            'line_nr' => 18,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -979,7 +956,7 @@ $result_trees{'indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 21,
+            'line_nr' => 20,
             'macro' => ''
           }
         },
@@ -1016,7 +993,7 @@ $result_trees{'indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 23,
+            'line_nr' => 22,
             'macro' => ''
           }
         }
@@ -1027,22 +1004,20 @@ $result_trees{'indices'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
+        'line_nr' => 8,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0];
-$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0];
-$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0];
-$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0];
 $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[1];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[1];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[0];
 $result_trees{'indices'}{'contents'}[0]{'parent'} = $result_trees{'indices'};
 $result_trees{'indices'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[1]{'args'}[0];
 $result_trees{'indices'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[1];
@@ -1185,8 +1160,7 @@ $result_trees{'indices'}{'contents'}[4]{'contents'}[14]{'args'}[0]{'parent'} = $
 $result_trees{'indices'}{'contents'}[4]{'contents'}[14]{'parent'} = $result_trees{'indices'}{'contents'}[4];
 $result_trees{'indices'}{'contents'}[4]{'parent'} = $result_trees{'indices'};
 
-$result_texis{'indices'} = '@setfilename indices.info
-
+$result_texis{'indices'} = '
 @set txiindexbackslashignore
 
 @node Top
@@ -1212,7 +1186,6 @@ $result_texis{'indices'} = '@setfilename indices.info
 
 
 $result_texts{'indices'} = '
-
 top section
 ***********
 
@@ -1323,7 +1296,7 @@ $result_errors{'indices'} = [
     'error_line' => 'misplaced {
 ',
     'file_name' => '',
-    'line_nr' => 17,
+    'line_nr' => 16,
     'macro' => '',
     'text' => 'misplaced {',
     'type' => 'error'
@@ -1332,7 +1305,7 @@ $result_errors{'indices'} = [
     'error_line' => 'misplaced }
 ',
     'file_name' => '',
-    'line_nr' => 17,
+    'line_nr' => 16,
     'macro' => '',
     'text' => 'misplaced }',
     'type' => 'error'
@@ -1358,7 +1331,6 @@ $result_indices_sort_strings{'indices'} = {
 
 
 $result_converted{'latex_text'}->{'indices'} = '
-
 \\begin{document}
 \\label{anchor:Top}%
 \\chapter{{Index}}

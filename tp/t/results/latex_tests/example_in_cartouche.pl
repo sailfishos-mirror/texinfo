@@ -10,43 +10,7 @@ $result_trees{'example_in_cartouche'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'example_in_cartouche.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'example_in_cartouche.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'parent' => {},
           'type' => 'preamble_before_content'
         },
@@ -118,7 +82,7 @@ $result_trees{'example_in_cartouche'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
+                'line_nr' => 5,
                 'macro' => ''
               }
             }
@@ -129,7 +93,7 @@ $result_trees{'example_in_cartouche'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
+            'line_nr' => 1,
             'macro' => ''
           }
         },
@@ -209,7 +173,7 @@ $result_trees{'example_in_cartouche'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 13,
+                    'line_nr' => 11,
                     'macro' => ''
                   }
                 }
@@ -220,7 +184,7 @@ $result_trees{'example_in_cartouche'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
+                'line_nr' => 8,
                 'macro' => ''
               }
             },
@@ -250,7 +214,7 @@ $result_trees{'example_in_cartouche'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
+                'line_nr' => 12,
                 'macro' => ''
               }
             }
@@ -261,7 +225,7 @@ $result_trees{'example_in_cartouche'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
+            'line_nr' => 7,
             'macro' => ''
           }
         }
@@ -272,10 +236,6 @@ $result_trees{'example_in_cartouche'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0];
 $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0];
 $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1];
 $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
@@ -306,9 +266,7 @@ $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'extra'}{'en
 $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0];
 $result_trees{'example_in_cartouche'}{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'};
 
-$result_texis{'example_in_cartouche'} = '@setfilename example_in_cartouche.info
-
-@cartouche
+$result_texis{'example_in_cartouche'} = '@cartouche
 Normal cartouche
 
 New para
@@ -323,8 +281,7 @@ New para
 ';
 
 
-$result_texts{'example_in_cartouche'} = '
-Normal cartouche
+$result_texts{'example_in_cartouche'} = 'Normal cartouche
 
 New para
 
@@ -339,8 +296,7 @@ $result_floats{'example_in_cartouche'} = {};
 
 
 
-$result_converted{'latex_text'}->{'example_in_cartouche'} = '
-\\begin{document}
+$result_converted{'latex_text'}->{'example_in_cartouche'} = '\\begin{document}
 \\begin{mdframed}[style=GNUTexinfocartouche]
 Normal cartouche
 

@@ -64,7 +64,6 @@
 % no headings before titlepage
 \pagestyle{empty}%
 
-
 \makeatletter
 \patchcmd{\chapter}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}
 \makeatother

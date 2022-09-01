@@ -10,43 +10,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'anchor_links_xref_xrefautomaticsectiontitle.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'anchor_links_xref_xrefautomaticsectiontitle.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'parent' => {},
           'type' => 'preamble_before_content'
         }
@@ -110,7 +74,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
+                'line_nr' => 4,
                 'macro' => ''
               }
             },
@@ -149,7 +113,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -190,7 +154,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
+        'line_nr' => 6,
         'macro' => ''
       }
     },
@@ -250,7 +214,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
+                'line_nr' => 10,
                 'macro' => ''
               }
             },
@@ -277,7 +241,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
+        'line_nr' => 7,
         'macro' => ''
       }
     },
@@ -337,7 +301,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
+                'line_nr' => 15,
                 'macro' => ''
               }
             },
@@ -376,7 +340,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 14,
+        'line_nr' => 12,
         'macro' => ''
       }
     },
@@ -417,7 +381,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 19,
+        'line_nr' => 17,
         'macro' => ''
       }
     },
@@ -477,7 +441,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
+                'line_nr' => 21,
                 'macro' => ''
               }
             },
@@ -524,7 +488,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 25,
+            'line_nr' => 23,
             'macro' => ''
           }
         },
@@ -557,7 +521,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 26,
+                'line_nr' => 24,
                 'macro' => ''
               }
             },
@@ -593,7 +557,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 27,
+                'line_nr' => 25,
                 'macro' => ''
               }
             },
@@ -629,7 +593,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 28,
+                'line_nr' => 26,
                 'macro' => ''
               }
             },
@@ -665,7 +629,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 29,
+                'line_nr' => 27,
                 'macro' => ''
               }
             },
@@ -711,7 +675,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 31,
+            'line_nr' => 29,
             'macro' => ''
           }
         },
@@ -744,7 +708,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 32,
+                'line_nr' => 30,
                 'macro' => ''
               }
             },
@@ -780,7 +744,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 33,
+                'line_nr' => 31,
                 'macro' => ''
               }
             },
@@ -816,7 +780,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 34,
+                'line_nr' => 32,
                 'macro' => ''
               }
             },
@@ -852,7 +816,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 35,
+                'line_nr' => 33,
                 'macro' => ''
               }
             },
@@ -872,17 +836,13 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 20,
+        'line_nr' => 18,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[0]{'contents'}[0];
-$result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[0]{'contents'}[0];
 $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[0];
 $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[0]{'parent'} = $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'};
 $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[1]{'args'}[0];
@@ -1005,9 +965,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[6]{'con
 $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[6]{'contents'}[7]{'parent'} = $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[6];
 $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'}{'contents'}[6]{'parent'} = $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'};
 
-$result_texis{'anchor_links_xref_xrefautomaticsectiontitle'} = '@setfilename anchor_links_xref_xrefautomaticsectiontitle.info
-
-@node node before
+$result_texis{'anchor_links_xref_xrefautomaticsectiontitle'} = '@node node before
 
 In node before
 @anchor{anch: in node before}
@@ -1044,7 +1002,6 @@ in chap
 
 
 $result_texts{'anchor_links_xref_xrefautomaticsectiontitle'} = '
-
 In node before
 
 top sectionning
@@ -1166,7 +1123,7 @@ $result_errors{'anchor_links_xref_xrefautomaticsectiontitle'} = [
     'error_line' => 'warning: node `node before\' unreferenced
 ',
     'file_name' => '',
-    'line_nr' => 3,
+    'line_nr' => 1,
     'macro' => '',
     'text' => 'node `node before\' unreferenced',
     'type' => 'warning'
@@ -1175,7 +1132,7 @@ $result_errors{'anchor_links_xref_xrefautomaticsectiontitle'} = [
     'error_line' => 'warning: node `after\' unreferenced
 ',
     'file_name' => '',
-    'line_nr' => 14,
+    'line_nr' => 12,
     'macro' => '',
     'text' => 'node `after\' unreferenced',
     'type' => 'warning'
@@ -1187,8 +1144,7 @@ $result_floats{'anchor_links_xref_xrefautomaticsectiontitle'} = {};
 
 
 
-$result_converted{'latex_text'}->{'anchor_links_xref_xrefautomaticsectiontitle'} = '
-\\begin{document}
+$result_converted{'latex_text'}->{'anchor_links_xref_xrefautomaticsectiontitle'} = '\\begin{document}
 \\label{anchor:node-before}%
 
 In node before

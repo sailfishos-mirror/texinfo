@@ -14,25 +14,13 @@ $result_trees{'pagetype'} = {
             {
               'args' => [
                 {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'pagetype.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
                   'parent' => {},
-                  'type' => 'line_arg'
+                  'text' => '
+',
+                  'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'pagetype.info'
-              },
+              'cmdname' => 'afourpaper',
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -55,34 +43,11 @@ $result_trees{'pagetype'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'afourpaper',
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'args' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'misc_arg'
-                }
-              ],
               'cmdname' => 'afourwide',
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
+                'line_nr' => 3,
                 'macro' => ''
               }
             },
@@ -137,7 +102,7 @@ $result_trees{'pagetype'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
+        'line_nr' => 5,
         'macro' => ''
       }
     },
@@ -173,7 +138,7 @@ $result_trees{'pagetype'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
+        'line_nr' => 6,
         'macro' => ''
       }
     },
@@ -214,7 +179,7 @@ $result_trees{'pagetype'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 10,
+        'line_nr' => 8,
         'macro' => ''
       }
     },
@@ -256,7 +221,7 @@ $result_trees{'pagetype'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 13,
+            'line_nr' => 11,
             'macro' => ''
           }
         },
@@ -303,7 +268,7 @@ $result_trees{'pagetype'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 18,
+                'line_nr' => 16,
                 'macro' => ''
               }
             }
@@ -341,7 +306,7 @@ $result_trees{'pagetype'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 11,
+        'line_nr' => 9,
         'macro' => ''
       }
     },
@@ -388,23 +353,19 @@ $result_trees{'pagetype'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 22,
+        'line_nr' => 20,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0];
 $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0];
 $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0];
 $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0];
-$result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0];
-$result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0];
 $result_trees{'pagetype'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'pagetype'}{'contents'}[0];
 $result_trees{'pagetype'}{'contents'}[0]{'parent'} = $result_trees{'pagetype'};
 $result_trees{'pagetype'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'pagetype'}{'contents'}[1]{'args'}[0];
@@ -446,9 +407,7 @@ $result_trees{'pagetype'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'parent'}
 $result_trees{'pagetype'}{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'pagetype'}{'contents'}[5];
 $result_trees{'pagetype'}{'contents'}[5]{'parent'} = $result_trees{'pagetype'};
 
-$result_texis{'pagetype'} = '@setfilename pagetype.info
-
-@afourpaper
+$result_texis{'pagetype'} = '@afourpaper
 
 @afourwide
 
@@ -474,7 +433,6 @@ In afourpaper reset
 
 
 $result_texts{'pagetype'} = '
-
 
 section top
 ***********
@@ -606,7 +564,7 @@ $result_errors{'pagetype'} = [
     'error_line' => 'unknown command `Chapter\'
 ',
     'file_name' => '',
-    'line_nr' => 15,
+    'line_nr' => 13,
     'macro' => '',
     'text' => 'unknown command `Chapter\'',
     'type' => 'error'
@@ -615,7 +573,7 @@ $result_errors{'pagetype'} = [
     'error_line' => 'warning: multiple @afourpaper
 ',
     'file_name' => '',
-    'line_nr' => 18,
+    'line_nr' => 16,
     'macro' => '',
     'text' => 'multiple @afourpaper',
     'type' => 'warning'
@@ -627,8 +585,7 @@ $result_floats{'pagetype'} = {};
 
 
 
-$result_converted{'latex_text'}->{'pagetype'} = '
-\\geometry{papername=a4paper}%
+$result_converted{'latex_text'}->{'pagetype'} = '\\geometry{papername=a4paper}%
 
 \\geometry{papername=a4paper}%
 

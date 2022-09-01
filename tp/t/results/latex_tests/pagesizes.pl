@@ -17,41 +17,6 @@ $result_trees{'pagesizes'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'pagesizes.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'pagesizes.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
                       'text' => '200mm,150mm'
                     }
                   ],
@@ -70,7 +35,7 @@ $result_trees{'pagesizes'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
+                'line_nr' => 1,
                 'macro' => ''
               }
             },
@@ -125,7 +90,7 @@ $result_trees{'pagesizes'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -161,7 +126,7 @@ $result_trees{'pagesizes'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -202,7 +167,7 @@ $result_trees{'pagesizes'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
+        'line_nr' => 6,
         'macro' => ''
       }
     },
@@ -255,7 +220,7 @@ $result_trees{'pagesizes'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
+            'line_nr' => 9,
             'macro' => ''
           }
         },
@@ -272,7 +237,7 @@ $result_trees{'pagesizes'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
+        'line_nr' => 7,
         'macro' => ''
       }
     },
@@ -325,7 +290,7 @@ $result_trees{'pagesizes'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 15,
+            'line_nr' => 13,
             'macro' => ''
           }
         },
@@ -359,7 +324,7 @@ $result_trees{'pagesizes'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 17,
+            'line_nr' => 15,
             'macro' => ''
           }
         }
@@ -370,7 +335,7 @@ $result_trees{'pagesizes'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 13,
+        'line_nr' => 11,
         'macro' => ''
       }
     }
@@ -381,10 +346,6 @@ $result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[
 $result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0];
 $result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0];
-$result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0];
-$result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0];
 $result_trees{'pagesizes'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'pagesizes'}{'contents'}[0];
 $result_trees{'pagesizes'}{'contents'}[0]{'parent'} = $result_trees{'pagesizes'};
 $result_trees{'pagesizes'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'pagesizes'}{'contents'}[1]{'args'}[0];
@@ -421,9 +382,7 @@ $result_trees{'pagesizes'}{'contents'}[5]{'contents'}[3]{'args'}[0]{'parent'} = 
 $result_trees{'pagesizes'}{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'pagesizes'}{'contents'}[5];
 $result_trees{'pagesizes'}{'contents'}[5]{'parent'} = $result_trees{'pagesizes'};
 
-$result_texis{'pagesizes'} = '@setfilename pagesizes.info
-
-@pagesizes 200mm,150mm
+$result_texis{'pagesizes'} = '@pagesizes 200mm,150mm
 
 @node Top
 @top section top
@@ -442,7 +401,6 @@ $result_texis{'pagesizes'} = '@setfilename pagesizes.info
 
 
 $result_texts{'pagesizes'} = '
-
 section top
 ***********
 
@@ -567,7 +525,16 @@ $result_errors{'pagesizes'} = [
     'error_line' => 'warning: multiple @pagesizes
 ',
     'file_name' => '',
-    'line_nr' => 11,
+    'line_nr' => 9,
+    'macro' => '',
+    'text' => 'multiple @pagesizes',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: multiple @pagesizes
+',
+    'file_name' => '',
+    'line_nr' => 13,
     'macro' => '',
     'text' => 'multiple @pagesizes',
     'type' => 'warning'
@@ -580,15 +547,6 @@ $result_errors{'pagesizes'} = [
     'macro' => '',
     'text' => 'multiple @pagesizes',
     'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @pagesizes
-',
-    'file_name' => '',
-    'line_nr' => 17,
-    'macro' => '',
-    'text' => 'multiple @pagesizes',
-    'type' => 'warning'
   }
 ];
 
@@ -597,8 +555,7 @@ $result_floats{'pagesizes'} = {};
 
 
 
-$result_converted{'latex_text'}->{'pagesizes'} = '
-\\newgeometry{textheight=200mm,textwidth=150mm}
+$result_converted{'latex_text'}->{'pagesizes'} = '\\newgeometry{textheight=200mm,textwidth=150mm}
 
 \\begin{document}
 \\label{anchor:Top}%

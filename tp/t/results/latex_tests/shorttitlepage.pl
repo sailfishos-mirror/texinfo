@@ -17,41 +17,6 @@ $result_trees{'shorttitlepage'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'shorttitlepage.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'shorttitlepage.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
                       'text' => 'the title with shorttitlepage '
                     },
                     {
@@ -78,7 +43,7 @@ $result_trees{'shorttitlepage'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
+                'line_nr' => 1,
                 'macro' => ''
               }
             },
@@ -133,7 +98,7 @@ $result_trees{'shorttitlepage'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -169,7 +134,7 @@ $result_trees{'shorttitlepage'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -210,7 +175,7 @@ $result_trees{'shorttitlepage'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
+        'line_nr' => 6,
         'macro' => ''
       }
     },
@@ -257,7 +222,7 @@ $result_trees{'shorttitlepage'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
+        'line_nr' => 7,
         'macro' => ''
       }
     }
@@ -265,15 +230,11 @@ $result_trees{'shorttitlepage'} = {
   'type' => 'document_root'
 };
 $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0];
 $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0];
 $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0];
 $result_trees{'shorttitlepage'}{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'};
 $result_trees{'shorttitlepage'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[1]{'args'}[0];
@@ -297,9 +258,7 @@ $result_trees{'shorttitlepage'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'pa
 $result_trees{'shorttitlepage'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[4];
 $result_trees{'shorttitlepage'}{'contents'}[4]{'parent'} = $result_trees{'shorttitlepage'};
 
-$result_texis{'shorttitlepage'} = '@setfilename shorttitlepage.info
-
-@shorttitlepage the title with shorttitlepage @* it can be long
+$result_texis{'shorttitlepage'} = '@shorttitlepage the title with shorttitlepage @* it can be long
 
 @node Top
 @top section top
@@ -312,7 +271,6 @@ In chapter
 
 
 $result_texts{'shorttitlepage'} = '
-
 section top
 ***********
 
@@ -420,7 +378,6 @@ $result_floats{'shorttitlepage'} = {};
 
 
 $result_converted{'latex_text'}->{'shorttitlepage'} = '
-
 \\begin{document}
 
 \\GNUTexinfofrontmatter

@@ -14,41 +14,6 @@ $result_trees{'error_in_sectioning_command'} = {
             {
               'args' => [
                 {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'error_in_sectioning_command.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'error_in_sectioning_command.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'args' => [
-                {
                   'parent' => {},
                   'text' => '
 ',
@@ -59,7 +24,7 @@ $result_trees{'error_in_sectioning_command'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
+                'line_nr' => 1,
                 'macro' => ''
               }
             },
@@ -114,7 +79,7 @@ $result_trees{'error_in_sectioning_command'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -145,6 +110,108 @@ $result_trees{'error_in_sectioning_command'} = {
         }
       ],
       'extra' => {
+        'spaces_before_argument' => ' '
+      },
+      'parent' => {},
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 4,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'cmdname' => '@',
+                      'parent' => {}
+                    },
+                    {
+                      'parent' => {},
+                      'text' => 'error'
+                    },
+                    {
+                      'cmdname' => '{',
+                      'parent' => {}
+                    },
+                    {
+                      'cmdname' => '}',
+                      'parent' => {}
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'code',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => ' ('
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'error',
+              'contents' => [],
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '): Indicating an Error Message'
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'contents' => [],
+      'extra' => {
+        'node_content' => [
+          {},
+          {},
+          {},
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {},
+              {},
+              {},
+              {}
+            ],
+            'normalized' => '_0040error_007b_007d-_0028error_002d_002d_003e_0029_003a-Indicating-an-Error-Message'
+          }
+        ],
+        'normalized' => '_0040error_007b_007d-_0028error_002d_002d_003e_0029_003a-Indicating-an-Error-Message',
         'spaces_before_argument' => ' '
       },
       'parent' => {},
@@ -188,7 +255,7 @@ $result_trees{'error_in_sectioning_command'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
+                'line_nr' => 7,
                 'macro' => ''
               }
             },
@@ -209,109 +276,7 @@ $result_trees{'error_in_sectioning_command'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '): Indicating an Error Message'
-            }
-          ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'node',
-      'contents' => [],
-      'extra' => {
-        'node_content' => [
-          {},
-          {},
-          {},
-          {}
-        ],
-        'nodes_manuals' => [
-          {
-            'node_content' => [
-              {},
-              {},
-              {},
-              {}
-            ],
-            'normalized' => '_0040error_007b_007d-_0028error_002d_002d_003e_0029_003a-Indicating-an-Error-Message'
-          }
-        ],
-        'normalized' => '_0040error_007b_007d-_0028error_002d_002d_003e_0029_003a-Indicating-an-Error-Message',
-        'spaces_before_argument' => ' '
-      },
-      'parent' => {},
-      'source_info' => {
-        'file_name' => '',
-        'line_nr' => 8,
-        'macro' => ''
-      }
-    },
-    {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'cmdname' => '@',
-                      'parent' => {}
-                    },
-                    {
-                      'parent' => {},
-                      'text' => 'error'
-                    },
-                    {
-                      'cmdname' => '{',
-                      'parent' => {}
-                    },
-                    {
-                      'cmdname' => '}',
-                      'parent' => {}
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                }
-              ],
-              'cmdname' => 'code',
-              'contents' => [],
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => ' ('
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [],
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                }
-              ],
-              'cmdname' => 'error',
-              'contents' => [],
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 9,
+                'line_nr' => 7,
                 'macro' => ''
               }
             },
@@ -355,7 +320,7 @@ $result_trees{'error_in_sectioning_command'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
+                'line_nr' => 9,
                 'macro' => ''
               }
             },
@@ -375,20 +340,16 @@ $result_trees{'error_in_sectioning_command'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
+        'line_nr' => 7,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0];
 $result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0];
-$result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0];
-$result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0];
 $result_trees{'error_in_sectioning_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_sectioning_command'}{'contents'}[0];
 $result_trees{'error_in_sectioning_command'}{'contents'}[0]{'parent'} = $result_trees{'error_in_sectioning_command'};
 $result_trees{'error_in_sectioning_command'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_sectioning_command'}{'contents'}[1]{'args'}[0];
@@ -439,9 +400,7 @@ $result_trees{'error_in_sectioning_command'}{'contents'}[4]{'contents'}[1]{'cont
 $result_trees{'error_in_sectioning_command'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'error_in_sectioning_command'}{'contents'}[4];
 $result_trees{'error_in_sectioning_command'}{'contents'}[4]{'parent'} = $result_trees{'error_in_sectioning_command'};
 
-$result_texis{'error_in_sectioning_command'} = '@setfilename error_in_sectioning_command.info
-
-@contents
+$result_texis{'error_in_sectioning_command'} = '@contents
 
 @node Top
 @top top section
@@ -454,7 +413,6 @@ Describe @error{}.
 
 
 $result_texts{'error_in_sectioning_command'} = '
-
 top section
 ***********
 
@@ -562,7 +520,6 @@ $result_floats{'error_in_sectioning_command'} = {};
 
 
 $result_converted{'latex_text'}->{'error_in_sectioning_command'} = '
-
 \\begin{document}
 \\tableofcontents\\newpage
 \\label{anchor:Top}%

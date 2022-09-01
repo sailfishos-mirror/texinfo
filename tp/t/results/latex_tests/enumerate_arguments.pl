@@ -10,43 +10,7 @@ $result_trees{'enumerate_arguments'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'enumerate_arguments.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'enumerate_arguments.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'parent' => {},
           'type' => 'preamble_before_content'
         },
@@ -91,7 +55,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
+                'line_nr' => 2,
                 'macro' => ''
               }
             },
@@ -117,7 +81,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
+                'line_nr' => 3,
                 'macro' => ''
               }
             },
@@ -147,7 +111,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
+                'line_nr' => 4,
                 'macro' => ''
               }
             }
@@ -160,7 +124,7 @@ $result_trees{'enumerate_arguments'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
+            'line_nr' => 1,
             'macro' => ''
           }
         },
@@ -211,7 +175,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
+                'line_nr' => 7,
                 'macro' => ''
               }
             },
@@ -237,7 +201,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
+                'line_nr' => 8,
                 'macro' => ''
               }
             },
@@ -267,7 +231,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
+                'line_nr' => 9,
                 'macro' => ''
               }
             }
@@ -280,7 +244,7 @@ $result_trees{'enumerate_arguments'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
+            'line_nr' => 6,
             'macro' => ''
           }
         },
@@ -331,7 +295,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
+                'line_nr' => 12,
                 'macro' => ''
               }
             },
@@ -357,7 +321,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
+                'line_nr' => 13,
                 'macro' => ''
               }
             },
@@ -387,7 +351,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 16,
+                'line_nr' => 14,
                 'macro' => ''
               }
             }
@@ -400,7 +364,7 @@ $result_trees{'enumerate_arguments'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 13,
+            'line_nr' => 11,
             'macro' => ''
           }
         },
@@ -451,7 +415,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
+                'line_nr' => 17,
                 'macro' => ''
               }
             },
@@ -477,7 +441,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
+                'line_nr' => 18,
                 'macro' => ''
               }
             },
@@ -507,7 +471,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
+                'line_nr' => 19,
                 'macro' => ''
               }
             }
@@ -520,7 +484,7 @@ $result_trees{'enumerate_arguments'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 18,
+            'line_nr' => 16,
             'macro' => ''
           }
         },
@@ -571,7 +535,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 24,
+                'line_nr' => 22,
                 'macro' => ''
               }
             },
@@ -597,7 +561,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 25,
+                'line_nr' => 23,
                 'macro' => ''
               }
             },
@@ -627,7 +591,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 26,
+                'line_nr' => 24,
                 'macro' => ''
               }
             }
@@ -640,7 +604,7 @@ $result_trees{'enumerate_arguments'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 23,
+            'line_nr' => 21,
             'macro' => ''
           }
         },
@@ -691,7 +655,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 29,
+                'line_nr' => 27,
                 'macro' => ''
               }
             },
@@ -717,7 +681,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 30,
+                'line_nr' => 28,
                 'macro' => ''
               }
             },
@@ -747,7 +711,7 @@ $result_trees{'enumerate_arguments'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 31,
+                'line_nr' => 29,
                 'macro' => ''
               }
             }
@@ -760,7 +724,7 @@ $result_trees{'enumerate_arguments'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 28,
+            'line_nr' => 26,
             'macro' => ''
           }
         },
@@ -777,10 +741,6 @@ $result_trees{'enumerate_arguments'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[0];
 $result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_arguments'}{'contents'}[0];
 $result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[1];
@@ -868,9 +828,7 @@ $result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[11]{'parent'} = 
 $result_trees{'enumerate_arguments'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'enumerate_arguments'}{'contents'}[0];
 $result_trees{'enumerate_arguments'}{'contents'}[0]{'parent'} = $result_trees{'enumerate_arguments'};
 
-$result_texis{'enumerate_arguments'} = '@setfilename enumerate_arguments.info
-
-@enumerate a
+$result_texis{'enumerate_arguments'} = '@enumerate a
 @item value
 @item value
 @end enumerate
@@ -903,8 +861,7 @@ $result_texis{'enumerate_arguments'} = '@setfilename enumerate_arguments.info
 ';
 
 
-$result_texts{'enumerate_arguments'} = '
-a. value
+$result_texts{'enumerate_arguments'} = 'a. value
 b. value
 
 A. value
@@ -931,8 +888,7 @@ $result_floats{'enumerate_arguments'} = {};
 
 
 
-$result_converted{'latex_text'}->{'enumerate_arguments'} = '
-\\begin{document}
+$result_converted{'latex_text'}->{'enumerate_arguments'} = '\\begin{document}
 \\begin{enumerate}[label=\\alph*.]
 \\item value
 \\item value

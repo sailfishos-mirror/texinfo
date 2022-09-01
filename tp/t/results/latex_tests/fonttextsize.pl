@@ -17,41 +17,6 @@ $result_trees{'fonttextsize'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'fonttextsize.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'fonttextsize.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
                       'text' => '10'
                     }
                   ],
@@ -73,7 +38,7 @@ $result_trees{'fonttextsize'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
+                'line_nr' => 1,
                 'macro' => ''
               }
             },
@@ -128,7 +93,7 @@ $result_trees{'fonttextsize'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -164,7 +129,7 @@ $result_trees{'fonttextsize'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -205,7 +170,7 @@ $result_trees{'fonttextsize'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
+        'line_nr' => 6,
         'macro' => ''
       }
     },
@@ -241,7 +206,7 @@ $result_trees{'fonttextsize'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
+        'line_nr' => 7,
         'macro' => ''
       }
     },
@@ -277,7 +242,7 @@ $result_trees{'fonttextsize'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 11,
+        'line_nr' => 9,
         'macro' => ''
       }
     },
@@ -344,7 +309,7 @@ $result_trees{'fonttextsize'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 16,
+            'line_nr' => 14,
             'macro' => ''
           }
         }
@@ -355,7 +320,7 @@ $result_trees{'fonttextsize'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 13,
+        'line_nr' => 11,
         'macro' => ''
       }
     },
@@ -426,7 +391,7 @@ $result_trees{'fonttextsize'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 21,
+            'line_nr' => 19,
             'macro' => ''
           }
         }
@@ -437,7 +402,7 @@ $result_trees{'fonttextsize'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 17,
+        'line_nr' => 15,
         'macro' => ''
       }
     },
@@ -508,7 +473,7 @@ $result_trees{'fonttextsize'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 26,
+            'line_nr' => 24,
             'macro' => ''
           }
         }
@@ -519,7 +484,7 @@ $result_trees{'fonttextsize'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 22,
+        'line_nr' => 20,
         'macro' => ''
       }
     },
@@ -566,7 +531,7 @@ $result_trees{'fonttextsize'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 27,
+        'line_nr' => 25,
         'macro' => ''
       }
     }
@@ -577,10 +542,6 @@ $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args
 $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0];
 $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0];
-$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0];
-$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0];
 $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0];
 $result_trees{'fonttextsize'}{'contents'}[0]{'parent'} = $result_trees{'fonttextsize'};
 $result_trees{'fonttextsize'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[1]{'args'}[0];
@@ -641,9 +602,7 @@ $result_trees{'fonttextsize'}{'contents'}[9]{'contents'}[1]{'contents'}[0]{'pare
 $result_trees{'fonttextsize'}{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[9];
 $result_trees{'fonttextsize'}{'contents'}[9]{'parent'} = $result_trees{'fonttextsize'};
 
-$result_texis{'fonttextsize'} = '@setfilename fonttextsize.info
-
-@fonttextsize 10
+$result_texis{'fonttextsize'} = '@fonttextsize 10
 
 @node Top
 @top section top
@@ -674,7 +633,6 @@ In 15pts
 
 
 $result_texts{'fonttextsize'} = '
-
 section top
 ***********
 
@@ -859,7 +817,7 @@ $result_errors{'fonttextsize'} = [
     'error_line' => 'warning: multiple @fonttextsize
 ',
     'file_name' => '',
-    'line_nr' => 16,
+    'line_nr' => 14,
     'macro' => '',
     'text' => 'multiple @fonttextsize',
     'type' => 'warning'
@@ -868,7 +826,7 @@ $result_errors{'fonttextsize'} = [
     'error_line' => 'warning: multiple @fonttextsize
 ',
     'file_name' => '',
-    'line_nr' => 21,
+    'line_nr' => 19,
     'macro' => '',
     'text' => 'multiple @fonttextsize',
     'type' => 'warning'
@@ -877,7 +835,7 @@ $result_errors{'fonttextsize'} = [
     'error_line' => 'Only @fonttextsize 10 or 11 is supported, not `8\'
 ',
     'file_name' => '',
-    'line_nr' => 21,
+    'line_nr' => 19,
     'macro' => '',
     'text' => 'Only @fonttextsize 10 or 11 is supported, not `8\'',
     'type' => 'error'
@@ -886,7 +844,7 @@ $result_errors{'fonttextsize'} = [
     'error_line' => 'warning: multiple @fonttextsize
 ',
     'file_name' => '',
-    'line_nr' => 26,
+    'line_nr' => 24,
     'macro' => '',
     'text' => 'multiple @fonttextsize',
     'type' => 'warning'
@@ -895,7 +853,7 @@ $result_errors{'fonttextsize'} = [
     'error_line' => 'Only @fonttextsize 10 or 11 is supported, not `15\'
 ',
     'file_name' => '',
-    'line_nr' => 26,
+    'line_nr' => 24,
     'macro' => '',
     'text' => 'Only @fonttextsize 10 or 11 is supported, not `15\'',
     'type' => 'error'
@@ -907,8 +865,7 @@ $result_floats{'fonttextsize'} = {};
 
 
 
-$result_converted{'latex_text'}->{'fonttextsize'} = '
-\\changefontsize{10}
+$result_converted{'latex_text'}->{'fonttextsize'} = '\\changefontsize{10}
 
 \\begin{document}
 \\label{anchor:Top}%

@@ -17,35 +17,6 @@ $result_trees{'no_titlepage_and_setchapternewpage_odd'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'no_titlepage_and_setchapternewpage_odd.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'no_titlepage_and_setchapternewpage_odd.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
                       'text' => 'odd'
                     }
                   ],
@@ -67,7 +38,7 @@ $result_trees{'no_titlepage_and_setchapternewpage_odd'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
+                'line_nr' => 1,
                 'macro' => ''
               }
             }
@@ -85,14 +56,10 @@ $result_trees{'no_titlepage_and_setchapternewpage_odd'} = {
 $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0];
 $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0];
 $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'};
 
-$result_texis{'no_titlepage_and_setchapternewpage_odd'} = '@setfilename no_titlepage_and_setchapternewpage_odd.info
-@setchapternewpage odd
+$result_texis{'no_titlepage_and_setchapternewpage_odd'} = '@setchapternewpage odd
 ';
 
 

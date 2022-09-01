@@ -117,8 +117,7 @@ Cop. @anchor{a in copying}. Ying.
 
 my @file_tests = (
 ['settitle_and_headings',
-'@setfilename settitle_and_headings.info
-@settitle Title @* for a manual
+'@settitle Title @* for a manual
 
 @headings double
 
@@ -134,9 +133,7 @@ Another page
 '],
 # default case
 ['titlepage_and_headings',
-'@setfilename titlepage_and_headings.info
-
-@titlepage
+'@titlepage
 in titlepage
 @end titlepage
 
@@ -147,9 +144,7 @@ in titlepage
 # to Texinfo default (@setchapternewpage on).  With 'file_latex',
 # they correspond to the actual output
 ['titlepage_and_setchapternewpage_odd',
-'@setfilename titlepage_and_setchapternewpage_odd.info
-
-@setchapternewpage odd
+'@setchapternewpage odd
 
 @titlepage
 in titlepage
@@ -157,12 +152,10 @@ in titlepage
 
 '],
 ['no_titlepage_and_setchapternewpage_odd',
-'@setfilename no_titlepage_and_setchapternewpage_odd.info
-@setchapternewpage odd
+'@setchapternewpage odd
 '],
 ['titlepage_and_setchapternewpage_on',
-'@setfilename titlepage_and_setchapternewpage_on.info
-@setchapternewpage on
+'@setchapternewpage on
 
 @titlepage
 in titlepage
@@ -170,24 +163,20 @@ in titlepage
 
 '],
 ['no_titlepage_and_setchapternewpage_on',
-'@setfilename no_titlepage_and_setchapternewpage_on.info
-@setchapternewpage on
+'@setchapternewpage on
 '],
 ['two_setchapternewpage_odd_on',
-'@setfilename two_setchapternewpage_odd_on.info
-@setchapternewpage odd
+'@setchapternewpage odd
 
 @setchapternewpage on
 '],
 ['two_setchapternewpage_on_odd',
-'@setfilename two_setchapternewpage_on_odd.info
-@setchapternewpage on
+'@setchapternewpage on
 
 @setchapternewpage odd
 '],
 ['three_setchapternewpage_on_odd_off',
-'@setfilename three_setchapternewpage_on_odd_off.info
-@setchapternewpage on
+'@setchapternewpage on
 
 @setchapternewpage odd
 
@@ -198,8 +187,7 @@ in titlepage
 # to @setchapternewpage on in preamble, then odd and then the
 # title page
 ['setchapternewpage_on_odd_titlepage',
-'@setfilename setchapternewpage_on_odd_titlepage.info
-@setchapternewpage on
+'@setchapternewpage on
 
 @setchapternewpage odd
 
@@ -208,8 +196,7 @@ in titlepage
 @end titlepage
 '],
 ['custom_headings',
-'@setfilename custom_headings.info
-
+'
 @evenheading @thispage @thissectionname @| @thissectionnum @thissection @| @thischaptername @thischapternum
 @evenfooting @thischapter @thistitle @| @thisfile @| @code{@thischaptername}
 
@@ -250,9 +237,7 @@ after everyheading before chap 3 second page
 '
 ],
 ['titlepage_in_top_node',
-'@setfilename titlepage_in_top_node.info
-
-@node Top
+'@node Top
 @top top sectionning
 
 In top
@@ -267,9 +252,7 @@ In top
 in chap
 '],
 ['informative_commands_in_top_node',
-'@setfilename informative_commands_in_top_node.info
-
-@node Top
+'@node Top
 @top top sectionning
 
 @paragraphindent 5
@@ -283,9 +266,7 @@ in chap
 In chapter
 '],
 ['shorttitlepage',
-'@setfilename shorttitlepage.info
-
-@shorttitlepage the title with shorttitlepage @* it can be long
+'@shorttitlepage the title with shorttitlepage @* it can be long
 
 @node Top
 @top section top
@@ -296,8 +277,7 @@ In chapter
 In chapter
 '],
 ['titlepage_no_author',
-'@setfilename titlepage_no_author.info
-@titlepage
+'@titlepage
 @title Some manual tested
 @end titlepage
 
@@ -310,8 +290,7 @@ In chapter
 In chapter
 '],
 ['titlepage_no_title',
-'@setfilename titlepage_no_title.info
-@titlepage
+'@titlepage
 @titlefont{Some manual tested}
 
 @author Some Author
@@ -326,8 +305,7 @@ In chapter
 In chapter
 '],
 ['titlepage_long_title',
-'@setfilename titlepage_long_title.info
-@titlepage
+'@titlepage
 @title a title than is long, very long, veeeeeeeeeeeeeeeeery long, it seems to never stop and it is not so interesting only very long oh an end of line @* and the title continue and keep on being unfinished until it is the end
 
 @end titlepage
@@ -341,9 +319,7 @@ In chapter
 In chapter
 '],
 ['titlepage_classical',
-'@setfilename titlepage_classical.info
-
-@copying
+'@copying
 in Copying
 @end copying
 
@@ -371,9 +347,7 @@ In chapter
 
 '],
 ['titlepage_with_commands_classical',
-'@setfilename titlepage_with_commands_classical.info
-
-@copying
+'@copying
 in Copying
 @end copying
 
@@ -407,9 +381,7 @@ In chapter
 
 '],
 ['float_and_refs',
-'@setfilename float_and_refs.info
-
-@node Top
+'@node Top
 @top top
 
 @node chapter
@@ -461,9 +433,7 @@ In figure
 
 '],
 ['anchor_links_xref_xrefautomaticsectiontitle',
-'@setfilename anchor_links_xref_xrefautomaticsectiontitle.info
-
-@node node before
+'@node node before
 
 In node before
 @anchor{anch: in node before}
@@ -498,9 +468,7 @@ in chap
 @xref{anch: in chap}.
 '],
 ['fonttextsize',
-'@setfilename fonttextsize.info
-
-@fonttextsize 10
+'@fonttextsize 10
 
 @node Top
 @top section top
@@ -529,9 +497,7 @@ In 8pts
 In 15pts
 '],
 ['pagetype',
-'@setfilename pagetype.info
-
-@afourpaper
+'@afourpaper
 
 @afourwide
 
@@ -555,9 +521,7 @@ After afourpaper
 In afourpaper reset
 '],
 ['pagesizes',
-'@setfilename pagesizes.info
-
-@pagesizes 200mm,150mm
+'@pagesizes 200mm,150mm
 
 @node Top
 @top section top
@@ -574,18 +538,14 @@ In afourpaper reset
 @pagesizes , 
 '],
 ['verbatim_in_smallformat',
-'@setfilename verbatim_in_smallformat.info
-
-@smallformat
+'@smallformat
 @verbatim
 ... still verbatim, but in a smaller font ...
 @end verbatim
 @end smallformat
 '],
 ['example_in_cartouche',
-'@setfilename example_in_cartouche.info
-
-@cartouche
+'@cartouche
 Normal cartouche
 
 New para
@@ -599,8 +559,7 @@ New para
 @end cartouche
 '],
 ['nested_itemize',
-'@setfilename nested_itemize.info
-@itemize
+'@itemize
    @item First level item
    @item First level item
 @itemize
@@ -619,9 +578,7 @@ New para
 
 '],
 ['nested_enumerate',
-'@setfilename nested_enumerate.info
-
-@enumerate
+'@enumerate
    @item First level item
    @item First level item
 @enumerate
@@ -640,9 +597,7 @@ New para
 
 '],
 ['enumerate_arguments',
-'@setfilename enumerate_arguments.info
-
-@enumerate a
+'@enumerate a
 @item value
 @item value
 @end enumerate
@@ -674,8 +629,7 @@ New para
 
 '],
 ['indices',
-'@setfilename indices.info
-
+'
 @set txiindexbackslashignore
 
 @node Top
@@ -699,9 +653,7 @@ New para
 @printindex fn
 '],
 ['error_in_sectioning_command',
-'@setfilename error_in_sectioning_command.info
-
-@contents
+'@contents
 
 @node Top
 @top top section
@@ -740,7 +692,7 @@ foreach my $test (@test_cases) {
 
 foreach my $test (@file_tests) {
   $test->[2]->{'test_formats'} = ['latex_text', 'file_latex'];
-
+  $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 

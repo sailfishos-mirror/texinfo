@@ -10,43 +10,7 @@ $result_trees{'float_and_refs'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'float_and_refs.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'float_and_refs.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'parent' => {},
           'type' => 'preamble_before_content'
         }
@@ -91,7 +55,7 @@ $result_trees{'float_and_refs'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -127,7 +91,7 @@ $result_trees{'float_and_refs'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
+        'line_nr' => 2,
         'macro' => ''
       }
     },
@@ -168,7 +132,7 @@ $result_trees{'float_and_refs'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -260,7 +224,7 @@ $result_trees{'float_and_refs'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
+                'line_nr' => 9,
                 'macro' => ''
               }
             },
@@ -296,7 +260,7 @@ $result_trees{'float_and_refs'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
+                'line_nr' => 10,
                 'macro' => ''
               }
             },
@@ -331,7 +295,7 @@ $result_trees{'float_and_refs'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
+                'line_nr' => 11,
                 'macro' => ''
               }
             }
@@ -353,7 +317,7 @@ $result_trees{'float_and_refs'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
+            'line_nr' => 7,
             'macro' => ''
           }
         },
@@ -431,7 +395,7 @@ $result_trees{'float_and_refs'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
+                'line_nr' => 15,
                 'macro' => ''
               }
             },
@@ -467,7 +431,7 @@ $result_trees{'float_and_refs'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 18,
+                'line_nr' => 16,
                 'macro' => ''
               }
             },
@@ -502,7 +466,7 @@ $result_trees{'float_and_refs'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
+                'line_nr' => 17,
                 'macro' => ''
               }
             }
@@ -527,7 +491,7 @@ $result_trees{'float_and_refs'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 15,
+            'line_nr' => 13,
             'macro' => ''
           }
         },
@@ -605,7 +569,7 @@ $result_trees{'float_and_refs'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 23,
+                'line_nr' => 21,
                 'macro' => ''
               }
             },
@@ -641,7 +605,7 @@ $result_trees{'float_and_refs'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 24,
+                'line_nr' => 22,
                 'macro' => ''
               }
             },
@@ -676,7 +640,7 @@ $result_trees{'float_and_refs'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 25,
+                'line_nr' => 23,
                 'macro' => ''
               }
             }
@@ -701,7 +665,7 @@ $result_trees{'float_and_refs'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 21,
+            'line_nr' => 19,
             'macro' => ''
           }
         },
@@ -718,7 +682,7 @@ $result_trees{'float_and_refs'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
+        'line_nr' => 5,
         'macro' => ''
       }
     },
@@ -776,7 +740,7 @@ $result_trees{'float_and_refs'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 29,
+                'line_nr' => 27,
                 'macro' => ''
               }
             },
@@ -820,6 +784,141 @@ $result_trees{'float_and_refs'} = {
                     {}
                   ],
                   'normalized' => 'no-type'
+                }
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 28,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'no type'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'two'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'three'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'xref',
+              'contents' => [],
+              'extra' => {
+                'label' => {},
+                'node_argument' => {
+                  'node_content' => [
+                    {}
+                  ],
+                  'normalized' => 'no-type'
+                }
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 29,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'no type'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'two'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'three'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'four'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'xref',
+              'contents' => [],
+              'extra' => {
+                'node_argument' => {
+                  'node_content' => [
+                    {}
+                  ]
                 }
               },
               'parent' => {},
@@ -871,141 +970,6 @@ $result_trees{'float_and_refs'} = {
                   },
                   'parent' => {},
                   'type' => 'brace_command_arg'
-                }
-              ],
-              'cmdname' => 'xref',
-              'contents' => [],
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'no-type'
-                }
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 31,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '.
-'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'no type'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'two'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'three'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'four'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                }
-              ],
-              'cmdname' => 'xref',
-              'contents' => [],
-              'extra' => {
-                'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ]
-                }
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 32,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '.
-'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'no type'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'two'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'three'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
@@ -1046,7 +1010,7 @@ $result_trees{'float_and_refs'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 33,
+                'line_nr' => 31,
                 'macro' => ''
               }
             },
@@ -1076,6 +1040,117 @@ $result_trees{'float_and_refs'} = {
                       'text' => 'with type'
                     }
                   ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'xref',
+              'contents' => [],
+              'extra' => {
+                'label' => {},
+                'node_argument' => {
+                  'node_content' => [
+                    {}
+                  ],
+                  'normalized' => 'with-type'
+                }
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 33,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'with type'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'two'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'xref',
+              'contents' => [],
+              'extra' => {
+                'label' => {},
+                'node_argument' => {
+                  'node_content' => [
+                    {}
+                  ],
+                  'normalized' => 'with-type'
+                }
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 34,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'with type'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'two'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'three'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
@@ -1127,17 +1202,41 @@ $result_trees{'float_and_refs'} = {
                   },
                   'parent' => {},
                   'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'three'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'four'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'xref',
               'contents' => [],
               'extra' => {
-                'label' => {},
                 'node_argument' => {
                   'node_content' => [
                     {}
-                  ],
-                  'normalized' => 'with-type'
+                  ]
                 }
               },
               'parent' => {},
@@ -1189,141 +1288,6 @@ $result_trees{'float_and_refs'} = {
                   },
                   'parent' => {},
                   'type' => 'brace_command_arg'
-                }
-              ],
-              'cmdname' => 'xref',
-              'contents' => [],
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'with-type'
-                }
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 37,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '.
-'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'with type'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'two'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'three'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'four'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                }
-              ],
-              'cmdname' => 'xref',
-              'contents' => [],
-              'extra' => {
-                'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ]
-                }
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 38,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '.
-'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'with type'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'two'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'three'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
@@ -1364,7 +1328,7 @@ $result_trees{'float_and_refs'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 39,
+                'line_nr' => 37,
                 'macro' => ''
               }
             },
@@ -1394,6 +1358,117 @@ $result_trees{'float_and_refs'} = {
                       'text' => 'my figure'
                     }
                   ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'xref',
+              'contents' => [],
+              'extra' => {
+                'label' => {},
+                'node_argument' => {
+                  'node_content' => [
+                    {}
+                  ],
+                  'normalized' => 'my-figure'
+                }
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 39,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'my figure'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'two'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'xref',
+              'contents' => [],
+              'extra' => {
+                'label' => {},
+                'node_argument' => {
+                  'node_content' => [
+                    {}
+                  ],
+                  'normalized' => 'my-figure'
+                }
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 40,
+                'macro' => ''
+              }
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'my figure'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'two'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'three'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
@@ -1445,117 +1520,6 @@ $result_trees{'float_and_refs'} = {
                   },
                   'parent' => {},
                   'type' => 'brace_command_arg'
-                }
-              ],
-              'cmdname' => 'xref',
-              'contents' => [],
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'my-figure'
-                }
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 42,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '.
-'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'my figure'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'two'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'three'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                }
-              ],
-              'cmdname' => 'xref',
-              'contents' => [],
-              'extra' => {
-                'label' => {},
-                'node_argument' => {
-                  'node_content' => [
-                    {}
-                  ],
-                  'normalized' => 'my-figure'
-                }
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 43,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '.
-'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'my figure'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'two'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'parent' => {},
-                  'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
@@ -1596,7 +1560,7 @@ $result_trees{'float_and_refs'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 44,
+                'line_nr' => 42,
                 'macro' => ''
               }
             },
@@ -1682,7 +1646,7 @@ $result_trees{'float_and_refs'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 45,
+                'line_nr' => 43,
                 'macro' => ''
               }
             },
@@ -1708,7 +1672,7 @@ $result_trees{'float_and_refs'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 27,
+        'line_nr' => 25,
         'macro' => ''
       }
     },
@@ -1758,7 +1722,7 @@ $result_trees{'float_and_refs'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 49,
+            'line_nr' => 47,
             'macro' => ''
           }
         },
@@ -1792,7 +1756,7 @@ $result_trees{'float_and_refs'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 50,
+            'line_nr' => 48,
             'macro' => ''
           }
         },
@@ -1826,7 +1790,7 @@ $result_trees{'float_and_refs'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 51,
+            'line_nr' => 49,
             'macro' => ''
           }
         },
@@ -1843,17 +1807,13 @@ $result_trees{'float_and_refs'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 47,
+        'line_nr' => 45,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0];
-$result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0];
 $result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[0];
 $result_trees{'float_and_refs'}{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'};
 $result_trees{'float_and_refs'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[1]{'args'}[0];
@@ -2129,9 +2089,7 @@ $result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[3]{'parent'} = $resul
 $result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[6];
 $result_trees{'float_and_refs'}{'contents'}[6]{'parent'} = $result_trees{'float_and_refs'};
 
-$result_texis{'float_and_refs'} = '@setfilename float_and_refs.info
-
-@node Top
+$result_texis{'float_and_refs'} = '@node Top
 @top top
 
 @node chapter
@@ -2184,8 +2142,7 @@ In figure
 ';
 
 
-$result_texts{'float_and_refs'} = '
-top
+$result_texts{'float_and_refs'} = 'top
 ***
 
 1 chapter
@@ -2468,8 +2425,7 @@ $result_floats{'float_and_refs'}{'Thing'}[0]{'extra'}{'shortcaption'}{'extra'}{'
 
 
 
-$result_converted{'latex_text'}->{'float_and_refs'} = '
-\\begin{document}
+$result_converted{'latex_text'}->{'float_and_refs'} = '\\begin{document}
 \\label{anchor:Top}%
 \\chapter{{chapter}}
 \\label{anchor:chapter}%

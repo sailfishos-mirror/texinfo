@@ -17,35 +17,6 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'setchapternewpage_on_odd_titlepage.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'setchapternewpage_on_odd_titlepage.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
                       'text' => 'on'
                     }
                   ],
@@ -67,7 +38,7 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
+                'line_nr' => 1,
                 'macro' => ''
               }
             },
@@ -104,7 +75,7 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
+                'line_nr' => 3,
                 'macro' => ''
               }
             },
@@ -165,7 +136,7 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 8,
+                    'line_nr' => 7,
                     'macro' => ''
                   }
                 }
@@ -176,7 +147,7 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
+                'line_nr' => 5,
                 'macro' => ''
               }
             }
@@ -194,27 +165,23 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
 $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0];
-$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0];
+$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0];
-$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
 $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0];
+$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[0];
+$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
+$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1];
+$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1];
 $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0];
-$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5];
-$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0];
-$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5];
-$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0];
-$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[1];
-$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5];
-$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[1];
-$result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0];
 $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0];
 $result_trees{'setchapternewpage_on_odd_titlepage'}{'contents'}[0]{'parent'} = $result_trees{'setchapternewpage_on_odd_titlepage'};
 
-$result_texis{'setchapternewpage_on_odd_titlepage'} = '@setfilename setchapternewpage_on_odd_titlepage.info
-@setchapternewpage on
+$result_texis{'setchapternewpage_on_odd_titlepage'} = '@setchapternewpage on
 
 @setchapternewpage odd
 
@@ -233,7 +200,7 @@ $result_errors{'setchapternewpage_on_odd_titlepage'} = [
     'error_line' => 'warning: multiple @setchapternewpage
 ',
     'file_name' => '',
-    'line_nr' => 4,
+    'line_nr' => 3,
     'macro' => '',
     'text' => 'multiple @setchapternewpage',
     'type' => 'warning'

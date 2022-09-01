@@ -10,43 +10,7 @@ $result_trees{'titlepage_in_top_node'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'titlepage_in_top_node.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'titlepage_in_top_node.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'parent' => {},
           'type' => 'preamble_before_content'
         }
@@ -91,7 +55,7 @@ $result_trees{'titlepage_in_top_node'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -175,7 +139,7 @@ $result_trees{'titlepage_in_top_node'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
+                'line_nr' => 7,
                 'macro' => ''
               }
             },
@@ -205,7 +169,7 @@ $result_trees{'titlepage_in_top_node'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
+                'line_nr' => 8,
                 'macro' => ''
               }
             }
@@ -216,7 +180,7 @@ $result_trees{'titlepage_in_top_node'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 8,
+            'line_nr' => 6,
             'macro' => ''
           }
         },
@@ -233,7 +197,7 @@ $result_trees{'titlepage_in_top_node'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
+        'line_nr' => 2,
         'macro' => ''
       }
     },
@@ -274,7 +238,7 @@ $result_trees{'titlepage_in_top_node'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 12,
+        'line_nr' => 10,
         'macro' => ''
       }
     },
@@ -321,17 +285,13 @@ $result_trees{'titlepage_in_top_node'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 13,
+        'line_nr' => 11,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'titlepage_in_top_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_in_top_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'titlepage_in_top_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'titlepage_in_top_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'titlepage_in_top_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_in_top_node'}{'contents'}[0]{'contents'}[0];
-$result_trees{'titlepage_in_top_node'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'titlepage_in_top_node'}{'contents'}[0]{'contents'}[0];
 $result_trees{'titlepage_in_top_node'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_in_top_node'}{'contents'}[0];
 $result_trees{'titlepage_in_top_node'}{'contents'}[0]{'parent'} = $result_trees{'titlepage_in_top_node'};
 $result_trees{'titlepage_in_top_node'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_in_top_node'}{'contents'}[1]{'args'}[0];
@@ -368,9 +328,7 @@ $result_trees{'titlepage_in_top_node'}{'contents'}[4]{'contents'}[1]{'contents'}
 $result_trees{'titlepage_in_top_node'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'titlepage_in_top_node'}{'contents'}[4];
 $result_trees{'titlepage_in_top_node'}{'contents'}[4]{'parent'} = $result_trees{'titlepage_in_top_node'};
 
-$result_texis{'titlepage_in_top_node'} = '@setfilename titlepage_in_top_node.info
-
-@node Top
+$result_texis{'titlepage_in_top_node'} = '@node Top
 @top top sectionning
 
 In top
@@ -386,8 +344,7 @@ in chap
 ';
 
 
-$result_texts{'titlepage_in_top_node'} = '
-top sectionning
+$result_texts{'titlepage_in_top_node'} = 'top sectionning
 ***************
 
 In top
@@ -496,8 +453,7 @@ $result_floats{'titlepage_in_top_node'} = {};
 
 
 
-$result_converted{'latex_text'}->{'titlepage_in_top_node'} = '
-\\begin{document}
+$result_converted{'latex_text'}->{'titlepage_in_top_node'} = '\\begin{document}
 
 \\GNUTexinfofrontmatter
 \\begin{titlepage}

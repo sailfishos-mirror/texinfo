@@ -17,35 +17,6 @@ $result_trees{'settitle_and_headings'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'settitle_and_headings.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'settitle_and_headings.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
                       'text' => 'Title '
                     },
                     {
@@ -72,7 +43,7 @@ $result_trees{'settitle_and_headings'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 2,
+                'line_nr' => 1,
                 'macro' => ''
               }
             },
@@ -109,7 +80,7 @@ $result_trees{'settitle_and_headings'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
+                'line_nr' => 3,
                 'macro' => ''
               }
             },
@@ -223,7 +194,7 @@ $result_trees{'settitle_and_headings'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 5,
         'macro' => ''
       }
     }
@@ -231,18 +202,15 @@ $result_trees{'settitle_and_headings'} = {
   'type' => 'document_root'
 };
 $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0];
+$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
 $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0];
 $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0];
 $result_trees{'settitle_and_headings'}{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'};
 $result_trees{'settitle_and_headings'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1]{'args'}[0];
@@ -261,8 +229,7 @@ $result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[7]{'contents'}
 $result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
 $result_trees{'settitle_and_headings'}{'contents'}[1]{'parent'} = $result_trees{'settitle_and_headings'};
 
-$result_texis{'settitle_and_headings'} = '@setfilename settitle_and_headings.info
-@settitle Title @* for a manual
+$result_texis{'settitle_and_headings'} = '@settitle Title @* for a manual
 
 @headings double
 

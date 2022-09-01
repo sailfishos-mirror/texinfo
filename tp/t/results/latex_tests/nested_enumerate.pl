@@ -10,43 +10,7 @@ $result_trees{'nested_enumerate'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'nested_enumerate.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'nested_enumerate.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'parent' => {},
           'type' => 'preamble_before_content'
         },
@@ -101,7 +65,7 @@ $result_trees{'nested_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
+                'line_nr' => 2,
                 'macro' => ''
               }
             },
@@ -170,7 +134,7 @@ $result_trees{'nested_enumerate'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 7,
+                        'line_nr' => 5,
                         'macro' => ''
                       }
                     },
@@ -239,7 +203,7 @@ $result_trees{'nested_enumerate'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 10,
+                                'line_nr' => 8,
                                 'macro' => ''
                               }
                             },
@@ -308,7 +272,7 @@ $result_trees{'nested_enumerate'} = {
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
-                                        'line_nr' => 13,
+                                        'line_nr' => 11,
                                         'macro' => ''
                                       }
                                     },
@@ -334,7 +298,7 @@ $result_trees{'nested_enumerate'} = {
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
-                                        'line_nr' => 14,
+                                        'line_nr' => 12,
                                         'macro' => ''
                                       }
                                     },
@@ -364,7 +328,7 @@ $result_trees{'nested_enumerate'} = {
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
-                                        'line_nr' => 15,
+                                        'line_nr' => 13,
                                         'macro' => ''
                                       }
                                     }
@@ -376,7 +340,7 @@ $result_trees{'nested_enumerate'} = {
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
-                                    'line_nr' => 12,
+                                    'line_nr' => 10,
                                     'macro' => ''
                                   }
                                 }
@@ -388,7 +352,7 @@ $result_trees{'nested_enumerate'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 11,
+                                'line_nr' => 9,
                                 'macro' => ''
                               }
                             },
@@ -418,7 +382,7 @@ $result_trees{'nested_enumerate'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 16,
+                                'line_nr' => 14,
                                 'macro' => ''
                               }
                             }
@@ -430,7 +394,7 @@ $result_trees{'nested_enumerate'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 9,
+                            'line_nr' => 7,
                             'macro' => ''
                           }
                         }
@@ -442,7 +406,7 @@ $result_trees{'nested_enumerate'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 8,
+                        'line_nr' => 6,
                         'macro' => ''
                       }
                     },
@@ -472,7 +436,7 @@ $result_trees{'nested_enumerate'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 17,
+                        'line_nr' => 15,
                         'macro' => ''
                       }
                     }
@@ -484,7 +448,7 @@ $result_trees{'nested_enumerate'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 6,
+                    'line_nr' => 4,
                     'macro' => ''
                   }
                 }
@@ -496,7 +460,7 @@ $result_trees{'nested_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 5,
+                'line_nr' => 3,
                 'macro' => ''
               }
             },
@@ -526,7 +490,7 @@ $result_trees{'nested_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 18,
+                'line_nr' => 16,
                 'macro' => ''
               }
             }
@@ -538,7 +502,7 @@ $result_trees{'nested_enumerate'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
+            'line_nr' => 1,
             'macro' => ''
           }
         },
@@ -555,10 +519,6 @@ $result_trees{'nested_enumerate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[0];
 $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0];
 $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[1];
 $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
@@ -623,9 +583,7 @@ $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[1]{'parent'} = $res
 $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0];
 $result_trees{'nested_enumerate'}{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'};
 
-$result_texis{'nested_enumerate'} = '@setfilename nested_enumerate.info
-
-@enumerate
+$result_texis{'nested_enumerate'} = '@enumerate
    @item First level item
    @item First level item
 @enumerate
@@ -645,8 +603,7 @@ $result_texis{'nested_enumerate'} = '@setfilename nested_enumerate.info
 ';
 
 
-$result_texts{'nested_enumerate'} = '
-1. First level item
+$result_texts{'nested_enumerate'} = '1. First level item
    2. First level item
 1. Second level item
      2. Second level item
@@ -664,8 +621,7 @@ $result_floats{'nested_enumerate'} = {};
 
 
 
-$result_converted{'latex_text'}->{'nested_enumerate'} = '
-\\begin{document}
+$result_converted{'latex_text'}->{'nested_enumerate'} = '\\begin{document}
 \\begin{enumerate}[start=1]
    \\item First level item
    \\item First level item

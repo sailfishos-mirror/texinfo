@@ -10,43 +10,7 @@ $result_trees{'verbatim_in_smallformat'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'verbatim_in_smallformat.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'verbatim_in_smallformat.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'parent' => {},
           'type' => 'preamble_before_content'
         },
@@ -86,7 +50,7 @@ $result_trees{'verbatim_in_smallformat'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
+                'line_nr' => 2,
                 'macro' => ''
               }
             },
@@ -122,7 +86,7 @@ $result_trees{'verbatim_in_smallformat'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
+                'line_nr' => 5,
                 'macro' => ''
               }
             }
@@ -133,7 +97,7 @@ $result_trees{'verbatim_in_smallformat'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
+            'line_nr' => 1,
             'macro' => ''
           }
         }
@@ -144,10 +108,6 @@ $result_trees{'verbatim_in_smallformat'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0];
 $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0];
 $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1];
 $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
@@ -162,9 +122,7 @@ $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'extra'}{
 $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0];
 $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'};
 
-$result_texis{'verbatim_in_smallformat'} = '@setfilename verbatim_in_smallformat.info
-
-@smallformat
+$result_texis{'verbatim_in_smallformat'} = '@smallformat
 @verbatim
 ... still verbatim, but in a smaller font ...
 @end verbatim
@@ -172,8 +130,7 @@ $result_texis{'verbatim_in_smallformat'} = '@setfilename verbatim_in_smallformat
 ';
 
 
-$result_texts{'verbatim_in_smallformat'} = '
-... still verbatim, but in a smaller font ...
+$result_texts{'verbatim_in_smallformat'} = '... still verbatim, but in a smaller font ...
 ';
 
 $result_errors{'verbatim_in_smallformat'} = [];
@@ -183,8 +140,7 @@ $result_floats{'verbatim_in_smallformat'} = {};
 
 
 
-$result_converted{'latex_text'}->{'verbatim_in_smallformat'} = '
-\\begin{document}
+$result_converted{'latex_text'}->{'verbatim_in_smallformat'} = '\\begin{document}
 \\begin{verbatim}
 ... still verbatim, but in a smaller font ...
 \\end{verbatim}

@@ -1,4 +1,5 @@
 \documentclass{book}
+\usepackage{imakeidx}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage[gen]{eurosym}
@@ -6,6 +7,9 @@
 \usepackage{textcomp}
 \usepackage{graphicx}
 \usepackage{etoolbox}
+\usepackage{embrac}
+\usepackage{expl3}
+\usepackage{tabularx}
 \usepackage{titleps}
 \usepackage{float}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
@@ -14,6 +18,9 @@
 
 \makeatletter
 \newcommand{\GNUTexinfosettitle}{No Title}%
+
+\makeindex[name=cp]%
+\makeindex[name=fn]%
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -53,6 +60,10 @@
 % avoid pagebreak and headings setting for a sectionning command
 \newcommand{\GNUTexinfonopagebreakheading}[2]{{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}}
 
+% braces are upright in italic and slanted only in @def*
+% so it is turned off here, and turned on @def* lines
+\EmbracOff{}%
+
 \renewcommand{\includegraphics}[1]{\fbox{FIG \detokenize{#1}}}
 
 \makeatother
@@ -60,24 +71,33 @@
 \makeatletter
 \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
 \makeatother
-
-% no headings before titlepage
-\pagestyle{empty}%
-
+\GNUTexinfosetsingleheader{}%
 
 \begin{document}
+\{
 
-\GNUTexinfofrontmatter
-\begin{titlepage}
-\begingroup
-\newskip\titlepagetopglue \titlepagetopglue = 1.5in
-\newskip\titlepagebottomglue \titlepagebottomglue = 2pc
-\setlength{\parindent}{0pt}
-% Leave some space at the very top of the page.
-    \vglue\titlepagetopglue
-in titlepage
-\endgroup
-\end{titlepage}
-\GNUTexinfosetsingleheader{}%
-\GNUTexinfomainmatter
+$\{$
+
+$$
+\{
+$$
+
+\index[cp]{\textbraceleft{}}%
+
+\index[cp]{$\lbrace{}$}%
+
+\index[cp]{`\texttt{\textbraceleft{}}'}%
+
+
+\noindent\begin{tabularx}{\linewidth}{@{}Xr}
+\rightskip=5em plus 1 fill
+\hangindent=2em
+\texttt{A\{A \EmbracOn{}\textnormal{\textsl{(BBB)}}\EmbracOff{}}& [Function]
+\end{tabularx}
+
+\index[fn]{AA@\texttt{A\textbraceleft{}A}}%
+\begin{quote}
+\unskip{\parskip=0pt\noindent}%
+CCC
+\end{quote}
 \end{document}
