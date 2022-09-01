@@ -17,41 +17,6 @@ $result_trees{'def_syn_indices'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'def_syn_indices.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'def_syn_indices.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
                       'text' => 'cp fn'
                     }
                   ],
@@ -74,7 +39,7 @@ $result_trees{'def_syn_indices'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
+                'line_nr' => 1,
                 'macro' => ''
               }
             },
@@ -129,7 +94,7 @@ $result_trees{'def_syn_indices'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -165,7 +130,7 @@ $result_trees{'def_syn_indices'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -207,7 +172,7 @@ $result_trees{'def_syn_indices'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
+        'line_nr' => 6,
         'macro' => ''
       }
     },
@@ -270,7 +235,7 @@ $result_trees{'def_syn_indices'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
+                'line_nr' => 10,
                 'macro' => ''
               }
             },
@@ -325,7 +290,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 15,
+            'line_nr' => 13,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -363,7 +328,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 17,
+            'line_nr' => 15,
             'macro' => ''
           }
         },
@@ -399,7 +364,7 @@ $result_trees{'def_syn_indices'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 19,
+                    'line_nr' => 17,
                     'macro' => ''
                   }
                 },
@@ -425,7 +390,7 @@ $result_trees{'def_syn_indices'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 19,
+                    'line_nr' => 17,
                     'macro' => ''
                   }
                 },
@@ -455,7 +420,7 @@ $result_trees{'def_syn_indices'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 19,
+                            'line_nr' => 17,
                             'macro' => ''
                           }
                         }
@@ -469,7 +434,7 @@ $result_trees{'def_syn_indices'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 19,
+                    'line_nr' => 17,
                     'macro' => ''
                   }
                 }
@@ -501,7 +466,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 19,
+            'line_nr' => 17,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -548,7 +513,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 21,
+            'line_nr' => 19,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -587,7 +552,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 23,
+            'line_nr' => 21,
             'macro' => ''
           }
         },
@@ -633,7 +598,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 25,
+            'line_nr' => 23,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -674,7 +639,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 26,
+            'line_nr' => 24,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -713,7 +678,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 28,
+            'line_nr' => 26,
             'macro' => ''
           }
         },
@@ -750,7 +715,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 30,
+            'line_nr' => 28,
             'macro' => ''
           }
         },
@@ -781,7 +746,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 31,
+            'line_nr' => 29,
             'macro' => ''
           }
         },
@@ -819,7 +784,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 33,
+            'line_nr' => 31,
             'macro' => ''
           }
         },
@@ -851,7 +816,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 34,
+            'line_nr' => 32,
             'macro' => ''
           }
         },
@@ -897,7 +862,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 36,
+            'line_nr' => 34,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -944,7 +909,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 38,
+            'line_nr' => 36,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -993,7 +958,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 41,
+            'line_nr' => 39,
             'macro' => ''
           }
         },
@@ -1041,7 +1006,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 44,
+            'line_nr' => 42,
             'macro' => ''
           }
         },
@@ -1089,7 +1054,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 47,
+            'line_nr' => 45,
             'macro' => ''
           }
         },
@@ -1137,7 +1102,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 50,
+            'line_nr' => 48,
             'macro' => ''
           }
         },
@@ -1185,7 +1150,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 53,
+            'line_nr' => 51,
             'macro' => ''
           }
         },
@@ -1233,7 +1198,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 56,
+            'line_nr' => 54,
             'macro' => ''
           }
         },
@@ -1281,7 +1246,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 59,
+            'line_nr' => 57,
             'macro' => ''
           }
         },
@@ -1329,7 +1294,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 62,
+            'line_nr' => 60,
             'macro' => ''
           }
         },
@@ -1377,7 +1342,7 @@ $result_trees{'def_syn_indices'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 65,
+            'line_nr' => 63,
             'macro' => ''
           }
         }
@@ -1388,7 +1353,7 @@ $result_trees{'def_syn_indices'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
+        'line_nr' => 7,
         'macro' => ''
       }
     }
@@ -1399,10 +1364,6 @@ $result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'a
 $result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0];
 $result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0];
-$result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0];
-$result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0];
 $result_trees{'def_syn_indices'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'def_syn_indices'}{'contents'}[0];
 $result_trees{'def_syn_indices'}{'contents'}[0]{'parent'} = $result_trees{'def_syn_indices'};
 $result_trees{'def_syn_indices'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'def_syn_indices'}{'contents'}[1]{'args'}[0];
@@ -1578,9 +1539,7 @@ $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[53]{'args'}[0]{'pare
 $result_trees{'def_syn_indices'}{'contents'}[4]{'contents'}[53]{'parent'} = $result_trees{'def_syn_indices'}{'contents'}[4];
 $result_trees{'def_syn_indices'}{'contents'}[4]{'parent'} = $result_trees{'def_syn_indices'};
 
-$result_texis{'def_syn_indices'} = '@setfilename def_syn_indices.info
-
-@syncodeindex cp fn
+$result_texis{'def_syn_indices'} = '@syncodeindex cp fn
 
 @node Top
 @top top
@@ -1647,7 +1606,6 @@ fn
 
 
 $result_texts{'def_syn_indices'} = '
-
 top
 ***
 
@@ -1784,7 +1742,7 @@ $result_errors{'def_syn_indices'} = [
     'error_line' => 'warning: printing an index `ky\' merged in another one, `pg\'
 ',
     'file_name' => '',
-    'line_nr' => 44,
+    'line_nr' => 42,
     'macro' => '',
     'text' => 'printing an index `ky\' merged in another one, `pg\'',
     'type' => 'warning'
@@ -1793,7 +1751,7 @@ $result_errors{'def_syn_indices'} = [
     'error_line' => 'warning: printing an index `truc\' merged in another one, `fn\'
 ',
     'file_name' => '',
-    'line_nr' => 47,
+    'line_nr' => 45,
     'macro' => '',
     'text' => 'printing an index `truc\' merged in another one, `fn\'',
     'type' => 'warning'
@@ -1802,7 +1760,7 @@ $result_errors{'def_syn_indices'} = [
     'error_line' => 'warning: printing an index `truc\' merged in another one, `fn\'
 ',
     'file_name' => '',
-    'line_nr' => 50,
+    'line_nr' => 48,
     'macro' => '',
     'text' => 'printing an index `truc\' merged in another one, `fn\'',
     'type' => 'warning'
@@ -1811,7 +1769,7 @@ $result_errors{'def_syn_indices'} = [
     'error_line' => 'warning: printing an index `cp\' merged in another one, `fn\'
 ',
     'file_name' => '',
-    'line_nr' => 53,
+    'line_nr' => 51,
     'macro' => '',
     'text' => 'printing an index `cp\' merged in another one, `fn\'',
     'type' => 'warning'
@@ -1820,7 +1778,7 @@ $result_errors{'def_syn_indices'} = [
     'error_line' => 'warning: printing an index `cp\' merged in another one, `fn\'
 ',
     'file_name' => '',
-    'line_nr' => 56,
+    'line_nr' => 54,
     'macro' => '',
     'text' => 'printing an index `cp\' merged in another one, `fn\'',
     'type' => 'warning'
@@ -1829,7 +1787,7 @@ $result_errors{'def_syn_indices'} = [
     'error_line' => 'warning: printing an index `defg\' merged in another one, `pg\'
 ',
     'file_name' => '',
-    'line_nr' => 59,
+    'line_nr' => 57,
     'macro' => '',
     'text' => 'printing an index `defg\' merged in another one, `pg\'',
     'type' => 'warning'
@@ -1838,7 +1796,7 @@ $result_errors{'def_syn_indices'} = [
     'error_line' => 'warning: printing an index `abc\' merged in another one, `pg\'
 ',
     'file_name' => '',
-    'line_nr' => 62,
+    'line_nr' => 60,
     'macro' => '',
     'text' => 'printing an index `abc\' merged in another one, `pg\'',
     'type' => 'warning'
@@ -1938,10 +1896,10 @@ $result_indices_sort_strings{'def_syn_indices'} = {
 
 
 
-$result_converted{'info'}->{'def_syn_indices'} = 'This is def_syn_indices.info, produced from .
+$result_converted{'info'}->{'def_syn_indices'} = 'This is , produced from .
 
 
-File: def_syn_indices.info,  Node: Top,  Next: Chapter index,  Up: (dir)
+File: ,  Node: Top,  Next: Chapter index,  Up: (dir)
 
 top
 ***
@@ -1951,7 +1909,7 @@ top
 * Chapter index::
 
 
-File: def_syn_indices.info,  Node: Chapter index,  Prev: Top,  Up: Top
+File: ,  Node: Chapter index,  Prev: Top,  Up: Top
 
 1 Index
 *******
@@ -1993,8 +1951,8 @@ definedx truc after
 
 
 Tag Table:
-Node: Top47
-Node: Chapter index160
+Node: Top27
+Node: Chapter index120
 
 End Tag Table
 
@@ -2047,7 +2005,6 @@ definedx truc after
 
 
 $result_converted{'html_text'}->{'def_syn_indices'} = '
-
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
@@ -2164,6 +2121,128 @@ after
 </div>
 </div>
 </div>
+';
+
+
+$result_converted{'file_latex'}->{'def_syn_indices'} = '\\documentclass{book}
+\\usepackage{imakeidx}
+\\usepackage{amsfonts}
+\\usepackage{amsmath}
+\\usepackage[gen]{eurosym}
+\\usepackage[T1]{fontenc}
+\\usepackage{textcomp}
+\\usepackage{graphicx}
+\\usepackage{etoolbox}
+\\usepackage{titleps}
+\\usepackage{float}
+% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+\\usepackage[hidelinks]{hyperref}
+\\usepackage[utf8]{inputenc}
+
+\\makeatletter
+\\newcommand{\\GNUTexinfosettitle}{No Title}%
+
+\\makeindex[name=codeidx]%
+\\makeindex[name=fn]%
+\\makeindex[name=pg]%
+
+% style command for var in \'cmd_text\' formatting context
+\\newcommand\\GNUTexinfocommandstyletextvar[1]{{\\normalfont{}\\textsl{#1}}}%
+
+% redefine the \\mainmatter command such that it does not clear page
+% as if in double page
+\\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
+% add command aliases to use the same command in book and report
+\\newcommand\\GNUTexinfomainmatter{\\mainmatter}
+\\newcommand\\GNUTexinfofrontmatter{\\frontmatter}
+\\newenvironment{GNUTexinfopreformatted}{%
+  \\par\\obeylines\\obeyspaces\\frenchspacing
+  \\parskip=\\z@\\parindent=\\z@}{}
+\\newenvironment{GNUTexinfoindented}
+  {\\begin{list}{}{}
+  \\item\\relax}
+  {\\end{list}}
+% command that does nothing used to help with substitutions in commands
+\\newcommand{\\GNUTexinfoplaceholder}[1]{}
+
+% plain page style, for part and chapter, which call \\thispagestyle{plain}
+\\renewpagestyle{plain}{\\sethead[\\thepage{}][][]
+                             {}{}{\\thepage{}}}
+
+% single header
+\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
+                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+
+% called when setting single headers
+\\newcommand{\\GNUTexinfosetsingleheader}{\\pagestyle{single}}
+
+% double header
+\\newpagestyle{double}{\\sethead[\\thepage{}][][\\GNUTexinfosettitle]
+                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+
+% called when setting double headers
+\\newcommand{\\GNUTexinfosetdoubleheader}{\\pagestyle{double}}
+
+
+% avoid pagebreak and headings setting for a sectionning command
+\\newcommand{\\GNUTexinfonopagebreakheading}[2]{{\\let\\clearpage\\relax \\let\\cleardoublepage\\relax \\let\\thispagestyle\\GNUTexinfoplaceholder #1{#2}}}
+
+\\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
+
+\\makeatother
+% set default for @setchapternewpage
+\\makeatletter
+\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
+\\makeatother
+\\GNUTexinfosetsingleheader{}%
+
+
+\\begin{document}
+\\label{anchor:Top}%
+\\chapter{{Index}}
+\\label{anchor:Chapter-index}%
+
+definedx truc
+after
+
+\\index[fn]{index truc}%
+
+
+\\index[codeidx]{a index entry te\\~{} i\\^{}@\\texttt{a \\GNUTexinfocommandstyletextvar{index entry}\\ t\\~{e}\\ \\^{\\i{}}}}%
+
+\\index[fn]{cindex entry@\\texttt{cindex entry}}%
+
+
+\\index[pg]{truc kindex@\\texttt{truc kindex}}%
+\\index[pg]{pindex codeidx@\\texttt{pindex codeidx}}%
+
+
+
+
+\\index[pg]{defg index entry}%
+
+\\index[pg]{abc index entry}%
+
+pg
+\\printindex[pg]
+
+ky
+
+truc
+
+value truc
+
+cp
+
+value cp
+
+defg
+
+abc
+
+fn
+\\printindex[fn]
+\\end{document}
 ';
 
 1;

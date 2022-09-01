@@ -416,9 +416,7 @@ vr index.
 @printindex vr
 '],
 ['def_syn_indices',
-'@setfilename def_syn_indices.info
-
-@syncodeindex cp fn
+'@syncodeindex cp fn
 
 @node Top
 @top top
@@ -548,9 +546,7 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @printindex cp
 '],
 ['subentries',
-'@setfilename subentries.info
-
-@node Top
+'@node Top
 @top
 
 @node chapter index
@@ -571,9 +567,7 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 ', {'test_formats' => ['docbook']}
 ],
 ['seeentry',
-'@setfilename seeentry.info
-
-@node Top
+'@node Top
 @top
 
 @node chapter index
@@ -590,9 +584,7 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 ', {'test_formats' => ['docbook']}
 ],
 ['double_seeentry_seealso',
-'@setfilename double_seeentry_seealso.info
-
-@node top
+'@node top
 @top top
 
 @node node index
@@ -615,9 +607,7 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @printindex cp
 '],
 ['subentry_and_sortas',
-'@setfilename subentry_and_sortas.info
-
-@node Top
+'@node Top
 @top
 
 @node chapter index

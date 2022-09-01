@@ -10,43 +10,7 @@ $result_trees{'subentries'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'subentries.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'subentries.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'parent' => {},
           'type' => 'preamble_before_content'
         }
@@ -91,7 +55,7 @@ $result_trees{'subentries'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -120,7 +84,7 @@ $result_trees{'subentries'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
+        'line_nr' => 2,
         'macro' => ''
       }
     },
@@ -162,7 +126,7 @@ $result_trees{'subentries'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -227,7 +191,7 @@ $result_trees{'subentries'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
+            'line_nr' => 7,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -288,7 +252,7 @@ $result_trees{'subentries'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 10,
+                'line_nr' => 8,
                 'macro' => ''
               }
             }
@@ -296,7 +260,7 @@ $result_trees{'subentries'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
+            'line_nr' => 8,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -378,7 +342,7 @@ $result_trees{'subentries'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 11,
+                    'line_nr' => 9,
                     'macro' => ''
                   }
                 }
@@ -386,7 +350,7 @@ $result_trees{'subentries'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
+                'line_nr' => 9,
                 'macro' => ''
               }
             }
@@ -394,7 +358,7 @@ $result_trees{'subentries'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
+            'line_nr' => 9,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -497,7 +461,7 @@ $result_trees{'subentries'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 12,
+                        'line_nr' => 10,
                         'macro' => ''
                       }
                     }
@@ -505,7 +469,7 @@ $result_trees{'subentries'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 12,
+                    'line_nr' => 10,
                     'macro' => ''
                   }
                 }
@@ -513,7 +477,7 @@ $result_trees{'subentries'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
+                'line_nr' => 10,
                 'macro' => ''
               }
             }
@@ -521,7 +485,7 @@ $result_trees{'subentries'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 12,
+            'line_nr' => 10,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -571,7 +535,7 @@ $result_trees{'subentries'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 14,
+            'line_nr' => 12,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -632,7 +596,7 @@ $result_trees{'subentries'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
+                'line_nr' => 13,
                 'macro' => ''
               }
             }
@@ -640,7 +604,7 @@ $result_trees{'subentries'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 15,
+            'line_nr' => 13,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -722,7 +686,7 @@ $result_trees{'subentries'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 16,
+                    'line_nr' => 14,
                     'macro' => ''
                   }
                 }
@@ -730,7 +694,7 @@ $result_trees{'subentries'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 16,
+                'line_nr' => 14,
                 'macro' => ''
               }
             }
@@ -738,7 +702,7 @@ $result_trees{'subentries'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 16,
+            'line_nr' => 14,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -841,7 +805,7 @@ $result_trees{'subentries'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 17,
+                        'line_nr' => 15,
                         'macro' => ''
                       }
                     }
@@ -849,7 +813,7 @@ $result_trees{'subentries'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 17,
+                    'line_nr' => 15,
                     'macro' => ''
                   }
                 }
@@ -857,7 +821,7 @@ $result_trees{'subentries'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
+                'line_nr' => 15,
                 'macro' => ''
               }
             }
@@ -865,7 +829,7 @@ $result_trees{'subentries'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 17,
+            'line_nr' => 15,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -906,7 +870,7 @@ $result_trees{'subentries'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 19,
+            'line_nr' => 17,
             'macro' => ''
           }
         },
@@ -937,7 +901,7 @@ $result_trees{'subentries'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 20,
+            'line_nr' => 18,
             'macro' => ''
           }
         }
@@ -948,17 +912,13 @@ $result_trees{'subentries'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
+        'line_nr' => 5,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'subentries'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'subentries'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'subentries'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'subentries'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'subentries'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'subentries'}{'contents'}[0]{'contents'}[0];
-$result_trees{'subentries'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'subentries'}{'contents'}[0]{'contents'}[0];
 $result_trees{'subentries'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'subentries'}{'contents'}[0];
 $result_trees{'subentries'}{'contents'}[0]{'parent'} = $result_trees{'subentries'};
 $result_trees{'subentries'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'subentries'}{'contents'}[1]{'args'}[0];
@@ -1091,9 +1051,7 @@ $result_trees{'subentries'}{'contents'}[4]{'contents'}[24]{'args'}[0]{'parent'} 
 $result_trees{'subentries'}{'contents'}[4]{'contents'}[24]{'parent'} = $result_trees{'subentries'}{'contents'}[4];
 $result_trees{'subentries'}{'contents'}[4]{'parent'} = $result_trees{'subentries'};
 
-$result_texis{'subentries'} = '@setfilename subentries.info
-
-@node Top
+$result_texis{'subentries'} = '@node Top
 @top
 
 @node chapter index
@@ -1115,7 +1073,6 @@ $result_texis{'subentries'} = '@setfilename subentries.info
 
 
 $result_texts{'subentries'} = '
-
 1 Index
 *******
 
@@ -1220,7 +1177,7 @@ $result_errors{'subentries'} = [
     'error_line' => 'no more than two levels of index subentry are allowed
 ',
     'file_name' => '',
-    'line_nr' => 12,
+    'line_nr' => 10,
     'macro' => '',
     'text' => 'no more than two levels of index subentry are allowed',
     'type' => 'error'
@@ -1229,7 +1186,7 @@ $result_errors{'subentries'} = [
     'error_line' => 'no more than two levels of index subentry are allowed
 ',
     'file_name' => '',
-    'line_nr' => 17,
+    'line_nr' => 15,
     'macro' => '',
     'text' => 'no more than two levels of index subentry are allowed',
     'type' => 'error'
@@ -1270,17 +1227,17 @@ $result_converted{'docbook'}->{'subentries'} = '<chapter label="1" id="chapter-i
 ';
 
 
-$result_converted{'info'}->{'subentries'} = 'This is subentries.info, produced from .
+$result_converted{'info'}->{'subentries'} = 'This is , produced from .
 
 
-File: subentries.info,  Node: Top,  Next: chapter index,  Up: (dir)
+File: ,  Node: Top,  Next: chapter index,  Up: (dir)
 
 * Menu:
 
 * chapter index::
 
 
-File: subentries.info,  Node: chapter index,  Prev: Top,  Up: Top
+File: ,  Node: chapter index,  Prev: Top,  Up: Top
 
 1 Index
 *******
@@ -1304,8 +1261,8 @@ File: subentries.info,  Node: chapter index,  Prev: Top,  Up: Top
 
 
 Tag Table:
-Node: Top42
-Node: chapter index141
+Node: Top27
+Node: chapter index111
 
 End Tag Table
 
@@ -1336,8 +1293,7 @@ $result_converted{'plaintext'}->{'subentries'} = '1 Index
 ';
 
 
-$result_converted{'html_text'}->{'subentries'} = '
-<div class="top-level-extent" id="Top">
+$result_converted{'html_text'}->{'subentries'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
@@ -1414,6 +1370,95 @@ $result_converted{'html_text'}->{'subentries'} = '
 </div>
 </div>
 </div>
+';
+
+
+$result_converted{'file_latex'}->{'subentries'} = '\\documentclass{book}
+\\usepackage{imakeidx}
+\\usepackage{amsfonts}
+\\usepackage{amsmath}
+\\usepackage[gen]{eurosym}
+\\usepackage[T1]{fontenc}
+\\usepackage{textcomp}
+\\usepackage{graphicx}
+\\usepackage{etoolbox}
+\\usepackage{titleps}
+\\usepackage{float}
+% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+\\usepackage[hidelinks]{hyperref}
+\\usepackage[utf8]{inputenc}
+
+\\makeatletter
+\\newcommand{\\GNUTexinfosettitle}{No Title}%
+
+\\makeindex[name=cp]%
+\\makeindex[name=fn]%
+
+% redefine the \\mainmatter command such that it does not clear page
+% as if in double page
+\\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
+% add command aliases to use the same command in book and report
+\\newcommand\\GNUTexinfomainmatter{\\mainmatter}
+\\newcommand\\GNUTexinfofrontmatter{\\frontmatter}
+\\newenvironment{GNUTexinfopreformatted}{%
+  \\par\\obeylines\\obeyspaces\\frenchspacing
+  \\parskip=\\z@\\parindent=\\z@}{}
+\\newenvironment{GNUTexinfoindented}
+  {\\begin{list}{}{}
+  \\item\\relax}
+  {\\end{list}}
+% command that does nothing used to help with substitutions in commands
+\\newcommand{\\GNUTexinfoplaceholder}[1]{}
+
+% plain page style, for part and chapter, which call \\thispagestyle{plain}
+\\renewpagestyle{plain}{\\sethead[\\thepage{}][][]
+                             {}{}{\\thepage{}}}
+
+% single header
+\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
+                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+
+% called when setting single headers
+\\newcommand{\\GNUTexinfosetsingleheader}{\\pagestyle{single}}
+
+% double header
+\\newpagestyle{double}{\\sethead[\\thepage{}][][\\GNUTexinfosettitle]
+                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+
+% called when setting double headers
+\\newcommand{\\GNUTexinfosetdoubleheader}{\\pagestyle{double}}
+
+
+% avoid pagebreak and headings setting for a sectionning command
+\\newcommand{\\GNUTexinfonopagebreakheading}[2]{{\\let\\clearpage\\relax \\let\\cleardoublepage\\relax \\let\\thispagestyle\\GNUTexinfoplaceholder #1{#2}}}
+
+\\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
+
+\\makeatother
+% set default for @setchapternewpage
+\\makeatletter
+\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
+\\makeatother
+\\GNUTexinfosetsingleheader{}%
+
+\\begin{document}
+\\label{anchor:Top}%
+\\chapter{{Index}}
+\\label{anchor:chapter-index}%
+
+\\index[cp]{a---a}%
+\\index[cp]{b---b!c---c}%
+\\index[cp]{d---dd!e---ee!f---ff}%
+\\index[cp]{g---gg!h---hh jjj!k---kk!l---ll}%
+
+\\index[fn]{f---aa@\\texttt{f{-}{-}{-}aa}}%
+\\index[fn]{f---bb@\\texttt{f{-}{-}{-}bb}!f---cc@\\texttt{f{-}{-}{-}cc}}%
+\\index[fn]{f---ddd@\\texttt{f{-}{-}{-}ddd}!f---eee@\\texttt{f{-}{-}{-}eee}!ffff@\\texttt{ffff}}%
+\\index[fn]{f---ggg@\\texttt{f{-}{-}{-}ggg}!f---hhh fjjj@\\texttt{f{-}{-}{-}hhh fjjj}!f---kkk@\\texttt{f{-}{-}{-}kkk}!f---lll@\\texttt{f{-}{-}{-}lll}}%
+
+\\printindex[cp]
+\\printindex[fn]
+\\end{document}
 ';
 
 1;

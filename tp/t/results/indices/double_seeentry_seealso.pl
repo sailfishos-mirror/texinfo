@@ -10,43 +10,7 @@ $result_trees{'double_seeentry_seealso'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'double_seeentry_seealso.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'double_seeentry_seealso.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'parent' => {},
           'type' => 'preamble_before_content'
         }
@@ -91,7 +55,7 @@ $result_trees{'double_seeentry_seealso'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -127,7 +91,7 @@ $result_trees{'double_seeentry_seealso'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
+        'line_nr' => 2,
         'macro' => ''
       }
     },
@@ -169,7 +133,7 @@ $result_trees{'double_seeentry_seealso'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -229,7 +193,7 @@ $result_trees{'double_seeentry_seealso'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
+                    'line_nr' => 7,
                     'macro' => ''
                   }
                 },
@@ -256,7 +220,7 @@ $result_trees{'double_seeentry_seealso'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
+                    'line_nr' => 7,
                     'macro' => ''
                   }
                 }
@@ -288,7 +252,7 @@ $result_trees{'double_seeentry_seealso'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
+            'line_nr' => 7,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -315,7 +279,7 @@ $result_trees{'double_seeentry_seealso'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 10,
+                    'line_nr' => 8,
                     'macro' => ''
                   }
                 },
@@ -351,7 +315,7 @@ $result_trees{'double_seeentry_seealso'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 10,
+                    'line_nr' => 8,
                     'macro' => ''
                   }
                 }
@@ -383,7 +347,7 @@ $result_trees{'double_seeentry_seealso'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
+            'line_nr' => 8,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -419,7 +383,7 @@ $result_trees{'double_seeentry_seealso'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 11,
+                    'line_nr' => 9,
                     'macro' => ''
                   }
                 },
@@ -446,7 +410,7 @@ $result_trees{'double_seeentry_seealso'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 11,
+                    'line_nr' => 9,
                     'macro' => ''
                   }
                 }
@@ -479,7 +443,7 @@ $result_trees{'double_seeentry_seealso'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
+            'line_nr' => 9,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -506,7 +470,7 @@ $result_trees{'double_seeentry_seealso'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 12,
+                    'line_nr' => 10,
                     'macro' => ''
                   }
                 }
@@ -564,7 +528,7 @@ $result_trees{'double_seeentry_seealso'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 12,
+                        'line_nr' => 10,
                         'macro' => ''
                       }
                     }
@@ -586,7 +550,7 @@ $result_trees{'double_seeentry_seealso'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
+                'line_nr' => 10,
                 'macro' => ''
               }
             }
@@ -594,7 +558,7 @@ $result_trees{'double_seeentry_seealso'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 12,
+            'line_nr' => 10,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -633,7 +597,7 @@ $result_trees{'double_seeentry_seealso'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 14,
+            'line_nr' => 12,
             'macro' => ''
           }
         }
@@ -644,17 +608,13 @@ $result_trees{'double_seeentry_seealso'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
+        'line_nr' => 5,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'double_seeentry_seealso'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_seeentry_seealso'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'double_seeentry_seealso'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'double_seeentry_seealso'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'double_seeentry_seealso'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_seeentry_seealso'}{'contents'}[0]{'contents'}[0];
-$result_trees{'double_seeentry_seealso'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'double_seeentry_seealso'}{'contents'}[0]{'contents'}[0];
 $result_trees{'double_seeentry_seealso'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_seeentry_seealso'}{'contents'}[0];
 $result_trees{'double_seeentry_seealso'}{'contents'}[0]{'parent'} = $result_trees{'double_seeentry_seealso'};
 $result_trees{'double_seeentry_seealso'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_seeentry_seealso'}{'contents'}[1]{'args'}[0];
@@ -748,9 +708,7 @@ $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[7]{'args'}[0
 $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'double_seeentry_seealso'}{'contents'}[4];
 $result_trees{'double_seeentry_seealso'}{'contents'}[4]{'parent'} = $result_trees{'double_seeentry_seealso'};
 
-$result_texis{'double_seeentry_seealso'} = '@setfilename double_seeentry_seealso.info
-
-@node top
+$result_texis{'double_seeentry_seealso'} = '@node top
 @top top
 
 @node node index
@@ -765,8 +723,7 @@ $result_texis{'double_seeentry_seealso'} = '@setfilename double_seeentry_seealso
 ';
 
 
-$result_texts{'double_seeentry_seealso'} = '
-top
+$result_texts{'double_seeentry_seealso'} = 'top
 ***
 
 1 Chapter Index
@@ -886,10 +843,10 @@ $result_converted{'docbook'}->{'double_seeentry_seealso'} = '<chapter label="1" 
 ';
 
 
-$result_converted{'info'}->{'double_seeentry_seealso'} = 'This is double_seeentry_seealso.info, produced from .
+$result_converted{'info'}->{'double_seeentry_seealso'} = 'This is , produced from .
 
 
-File: double_seeentry_seealso.info,  Node: Top,  Next: node index,  Up: (dir)
+File: ,  Node: Top,  Next: node index,  Up: (dir)
 
 top
 ***
@@ -899,7 +856,7 @@ top
 * node index::
 
 
-File: double_seeentry_seealso.info,  Node: node index,  Prev: Top,  Up: Top
+File: ,  Node: node index,  Prev: Top,  Up: Top
 
 1 Chapter Index
 ***************
@@ -907,8 +864,8 @@ File: double_seeentry_seealso.info,  Node: node index,  Prev: Top,  Up: Top
 
 
 Tag Table:
-Node: Top55
-Node: node index170
+Node: Top27
+Node: node index114
 
 End Tag Table
 
@@ -928,8 +885,7 @@ $result_converted{'plaintext'}->{'double_seeentry_seealso'} = 'top
 ';
 
 
-$result_converted{'html_text'}->{'double_seeentry_seealso'} = '
-<div class="top-level-extent" id="Top">
+$result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
  &nbsp; [<a href="#node-index" title="Index" rel="index">Index</a>]</p>
@@ -950,6 +906,84 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '
 
 </div>
 </div>
+';
+
+
+$result_converted{'file_latex'}->{'double_seeentry_seealso'} = '\\documentclass{book}
+\\usepackage{amsfonts}
+\\usepackage{amsmath}
+\\usepackage[gen]{eurosym}
+\\usepackage[T1]{fontenc}
+\\usepackage{textcomp}
+\\usepackage{graphicx}
+\\usepackage{etoolbox}
+\\usepackage{titleps}
+\\usepackage{float}
+% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+\\usepackage[hidelinks]{hyperref}
+\\usepackage[utf8]{inputenc}
+
+\\makeatletter
+\\newcommand{\\GNUTexinfosettitle}{No Title}%
+
+% redefine the \\mainmatter command such that it does not clear page
+% as if in double page
+\\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
+% add command aliases to use the same command in book and report
+\\newcommand\\GNUTexinfomainmatter{\\mainmatter}
+\\newcommand\\GNUTexinfofrontmatter{\\frontmatter}
+\\newenvironment{GNUTexinfopreformatted}{%
+  \\par\\obeylines\\obeyspaces\\frenchspacing
+  \\parskip=\\z@\\parindent=\\z@}{}
+\\newenvironment{GNUTexinfoindented}
+  {\\begin{list}{}{}
+  \\item\\relax}
+  {\\end{list}}
+% command that does nothing used to help with substitutions in commands
+\\newcommand{\\GNUTexinfoplaceholder}[1]{}
+
+% plain page style, for part and chapter, which call \\thispagestyle{plain}
+\\renewpagestyle{plain}{\\sethead[\\thepage{}][][]
+                             {}{}{\\thepage{}}}
+
+% single header
+\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
+                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+
+% called when setting single headers
+\\newcommand{\\GNUTexinfosetsingleheader}{\\pagestyle{single}}
+
+% double header
+\\newpagestyle{double}{\\sethead[\\thepage{}][][\\GNUTexinfosettitle]
+                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+
+% called when setting double headers
+\\newcommand{\\GNUTexinfosetdoubleheader}{\\pagestyle{double}}
+
+
+% avoid pagebreak and headings setting for a sectionning command
+\\newcommand{\\GNUTexinfonopagebreakheading}[2]{{\\let\\clearpage\\relax \\let\\cleardoublepage\\relax \\let\\thispagestyle\\GNUTexinfoplaceholder #1{#2}}}
+
+\\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
+
+\\makeatother
+% set default for @setchapternewpage
+\\makeatletter
+\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
+\\makeatother
+\\GNUTexinfosetsingleheader{}%
+
+\\begin{document}
+\\label{anchor:Top}%
+\\chapter{{Chapter Index}}
+\\label{anchor:node-index}%
+
+\\index[cp]{aaa|see{ccc}}%
+\\index[cp]{ddd|seealso{eee}}%
+\\index[cp]{ggg|see{hhh}}%
+\\index[cp]{!subggg|seealso{fff}}%
+
+\\end{document}
 ';
 
 1;
