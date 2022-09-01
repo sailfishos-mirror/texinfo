@@ -129,6 +129,9 @@ if (defined($locale_encoding)) {
   binmode $builder->todo_output,    ":encoding($locale_encoding)";
 }
 
+# used to check that there are no file overwritten with -o
+my %output_files;
+
 ok(1);
 
 my %formats = (
@@ -1127,15 +1130,22 @@ sub test($$)
         mkdir ("$output_files_dir/$self->{'name'}")
           if (! -d "$output_files_dir/$self->{'name'}");
         my $extension;
-        if ($extensions{$format}) {
-          $extension = $extensions{$format};
+        if ($extensions{$format_type}) {
+          $extension = $extensions{$format_type};
         } else {
-          $extension = $format;
+          $extension = $format_type;
         }
 
         if (defined ($converted{$format})) {
-          my $outfile
-            = "$output_files_dir/$self->{'name'}/$test_name.$extension";
+          my $test_outfile = "$self->{'name'}/$test_name.$extension";
+          my $outfile = "$output_files_dir/$test_outfile";
+          if ($output_files{$test_outfile}) {
+            warn "$format: $test_name: overwrite $outfile "
+                     ."(".join("|", @{$output_files{$test_outfile}}).")\n";
+            push @{$output_files{$test_outfile}}, $format;
+          } else {
+            $output_files{$test_outfile} = [$format];
+          }
           if (!open (OUTFILE, ">$outfile")) {
             warn "Open $outfile: $!\n";
           } else {
@@ -1178,7 +1188,7 @@ sub test($$)
         }
         if ($converted_errors{$format}) {
           my $errors_file
-            = "$output_files_dir/$self->{'name'}/${test_name}_$extension.err";
+            = "$output_files_dir/$self->{'name'}/${test_name}_$format.err";
           if (!open (ERRFILE, ">$errors_file")) {
             warn "Open $errors_file: $!\n";
           } else {
