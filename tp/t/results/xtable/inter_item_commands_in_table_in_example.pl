@@ -10,43 +10,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'inter_item_commands_in_table_in_example.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'inter_item_commands_in_table_in_example.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'parent' => {},
           'type' => 'preamble_before_content'
         },
@@ -74,7 +38,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 4,
+                        'line_nr' => 2,
                         'macro' => ''
                       },
                       'type' => 'command_as_argument'
@@ -118,7 +82,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 5,
+                            'line_nr' => 3,
                             'macro' => ''
                           }
                         },
@@ -161,7 +125,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
-                                    'line_nr' => 6,
+                                    'line_nr' => 4,
                                     'macro' => ''
                                   },
                                   'type' => 'index_entry_command'
@@ -234,7 +198,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 9,
+                            'line_nr' => 7,
                             'macro' => ''
                           }
                         },
@@ -280,7 +244,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 11,
+                            'line_nr' => 9,
                             'macro' => ''
                           }
                         }
@@ -337,7 +301,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 13,
+                            'line_nr' => 11,
                             'macro' => ''
                           }
                         }
@@ -375,7 +339,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 14,
+                    'line_nr' => 12,
                     'macro' => ''
                   }
                 }
@@ -388,7 +352,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
+                'line_nr' => 2,
                 'macro' => ''
               }
             },
@@ -418,7 +382,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
+                'line_nr' => 13,
                 'macro' => ''
               }
             }
@@ -429,7 +393,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 3,
+            'line_nr' => 1,
             'macro' => ''
           }
         }
@@ -440,10 +404,6 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'contents'}[0];
 $result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0];
 $result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
@@ -495,9 +455,7 @@ $result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'content
 $result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0];
 $result_trees{'inter_item_commands_in_table_in_example'}{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_table_in_example'};
 
-$result_texis{'inter_item_commands_in_table_in_example'} = '@setfilename inter_item_commands_in_table_in_example.info
-
-@example
+$result_texis{'inter_item_commands_in_table_in_example'} = '@example
 @table @var
 @item a--b
 @cindex index entry between item and itemx
@@ -513,8 +471,7 @@ l--ine
 ';
 
 
-$result_texts{'inter_item_commands_in_table_in_example'} = '
-a--b
+$result_texts{'inter_item_commands_in_table_in_example'} = 'a--b
 b
 
 c
@@ -527,7 +484,7 @@ $result_errors{'inter_item_commands_in_table_in_example'} = [
     'error_line' => 'warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
-    'line_nr' => 6,
+    'line_nr' => 4,
     'macro' => '',
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
@@ -555,8 +512,7 @@ $result_converted{'plaintext'}->{'inter_item_commands_in_table_in_example'} = ' 
 ';
 
 
-$result_converted{'html_text'}->{'inter_item_commands_in_table_in_example'} = '
-<div class="example">
+$result_converted{'html_text'}->{'inter_item_commands_in_table_in_example'} = '<div class="example">
 <dl class="table">
 <dt><code class="table-term-preformatted-code"><var class="var">a--b</var></code></dt>
 <dd><pre class="example-preformatted"><a class="index-entry-id" id="index-index-entry-between-item-and-itemx"></a></pre></dd>
@@ -573,9 +529,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table_in_example'} = '
 ';
 
 
-$result_converted{'xml'}->{'inter_item_commands_in_table_in_example'} = '<setfilename file="inter_item_commands_in_table_in_example.info" spaces=" ">inter_item_commands_in_table_in_example.info</setfilename>
-
-<example endspaces=" ">
+$result_converted{'xml'}->{'inter_item_commands_in_table_in_example'} = '<example endspaces=" ">
 <table commandarg="var" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="var">a--b</itemformat></item>
 <pre xml:space="preserve"><cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry between item and itemx</indexterm></cindex>

@@ -2188,6 +2188,7 @@ foreach my $test (@test_cases) {
     if (grep {$_ eq $test->[0]} @latex_tests_cases_tests);
   if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests) {
     push @{$test->[2]->{'test_formats'}}, 'file_latex';
+    $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
     $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
   }
 }

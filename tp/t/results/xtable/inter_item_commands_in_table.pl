@@ -10,43 +10,7 @@ $result_trees{'inter_item_commands_in_table'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'inter_item_commands_in_table.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'inter_item_commands_in_table.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'parent' => {},
           'type' => 'preamble_before_content'
         }
@@ -91,7 +55,7 @@ $result_trees{'inter_item_commands_in_table'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -127,7 +91,7 @@ $result_trees{'inter_item_commands_in_table'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
+        'line_nr' => 2,
         'macro' => ''
       }
     },
@@ -168,7 +132,7 @@ $result_trees{'inter_item_commands_in_table'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -207,7 +171,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 9,
+                    'line_nr' => 7,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -287,7 +251,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
+                        'line_nr' => 9,
                         'macro' => ''
                       }
                     }
@@ -342,7 +306,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
+                'line_nr' => 11,
                 'macro' => ''
               }
             }
@@ -355,7 +319,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
+            'line_nr' => 7,
             'macro' => ''
           }
         },
@@ -375,7 +339,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 15,
+                    'line_nr' => 13,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -431,7 +395,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 16,
+                        'line_nr' => 14,
                         'macro' => ''
                       }
                     },
@@ -495,7 +459,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 18,
+                        'line_nr' => 16,
                         'macro' => ''
                       }
                     }
@@ -550,7 +514,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
+                'line_nr' => 18,
                 'macro' => ''
               }
             }
@@ -563,7 +527,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 15,
+            'line_nr' => 13,
             'macro' => ''
           }
         },
@@ -583,7 +547,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 22,
+                    'line_nr' => 20,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -639,7 +603,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 23,
+                        'line_nr' => 21,
                         'macro' => ''
                       }
                     },
@@ -681,7 +645,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 24,
+                            'line_nr' => 22,
                             'macro' => ''
                           },
                           'type' => 'index_entry_command'
@@ -762,7 +726,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 27,
+                        'line_nr' => 25,
                         'macro' => ''
                       }
                     }
@@ -831,7 +795,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 29,
+                        'line_nr' => 27,
                         'macro' => ''
                       }
                     },
@@ -907,7 +871,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 33,
+                        'line_nr' => 31,
                         'macro' => ''
                       }
                     }
@@ -975,7 +939,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 36,
+                'line_nr' => 34,
                 'macro' => ''
               }
             }
@@ -988,7 +952,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 22,
+            'line_nr' => 20,
             'macro' => ''
           }
         },
@@ -1008,7 +972,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 38,
+                    'line_nr' => 36,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -1062,7 +1026,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 39,
+                    'line_nr' => 37,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -1117,7 +1081,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 41,
+                        'line_nr' => 39,
                         'macro' => ''
                       }
                     }
@@ -1172,7 +1136,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 43,
+                'line_nr' => 41,
                 'macro' => ''
               }
             }
@@ -1185,7 +1149,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 38,
+            'line_nr' => 36,
             'macro' => ''
           }
         },
@@ -1205,7 +1169,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 45,
+                    'line_nr' => 43,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -1259,7 +1223,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 46,
+                    'line_nr' => 44,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -1307,7 +1271,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 48,
+                        'line_nr' => 46,
                         'macro' => ''
                       }
                     }
@@ -1345,7 +1309,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 49,
+                'line_nr' => 47,
                 'macro' => ''
               }
             }
@@ -1358,7 +1322,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 45,
+            'line_nr' => 43,
             'macro' => ''
           }
         },
@@ -1378,7 +1342,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 51,
+                    'line_nr' => 49,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -1432,7 +1396,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 52,
+                    'line_nr' => 50,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -1487,7 +1451,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 54,
+                        'line_nr' => 52,
                         'macro' => ''
                       }
                     }
@@ -1542,7 +1506,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 56,
+                'line_nr' => 54,
                 'macro' => ''
               }
             }
@@ -1555,7 +1519,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 51,
+            'line_nr' => 49,
             'macro' => ''
           }
         },
@@ -1575,7 +1539,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 58,
+                    'line_nr' => 56,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -1629,7 +1593,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 59,
+                    'line_nr' => 57,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -1677,7 +1641,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 61,
+                        'line_nr' => 59,
                         'macro' => ''
                       }
                     }
@@ -1715,7 +1679,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 62,
+                'line_nr' => 60,
                 'macro' => ''
               }
             }
@@ -1728,7 +1692,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 58,
+            'line_nr' => 56,
             'macro' => ''
           }
         },
@@ -1748,7 +1712,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 64,
+                    'line_nr' => 62,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -1808,7 +1772,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 66,
+                    'line_nr' => 64,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -1851,7 +1815,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 68,
+                        'line_nr' => 66,
                         'macro' => ''
                       }
                     }
@@ -1889,7 +1853,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 69,
+                'line_nr' => 67,
                 'macro' => ''
               }
             }
@@ -1902,7 +1866,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 64,
+            'line_nr' => 62,
             'macro' => ''
           }
         },
@@ -1922,7 +1886,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 71,
+                    'line_nr' => 69,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -1976,7 +1940,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 72,
+                    'line_nr' => 70,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -2019,7 +1983,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 74,
+                        'line_nr' => 72,
                         'macro' => ''
                       }
                     }
@@ -2057,7 +2021,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 75,
+                'line_nr' => 73,
                 'macro' => ''
               }
             }
@@ -2070,7 +2034,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 71,
+            'line_nr' => 69,
             'macro' => ''
           }
         },
@@ -2090,7 +2054,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 77,
+                    'line_nr' => 75,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -2150,7 +2114,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 79,
+                    'line_nr' => 77,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -2187,7 +2151,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 80,
+                        'line_nr' => 78,
                         'macro' => ''
                       }
                     }
@@ -2225,7 +2189,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 81,
+                'line_nr' => 79,
                 'macro' => ''
               }
             }
@@ -2238,7 +2202,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 77,
+            'line_nr' => 75,
             'macro' => ''
           }
         },
@@ -2258,7 +2222,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 83,
+                    'line_nr' => 81,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -2312,7 +2276,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 84,
+                    'line_nr' => 82,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -2371,7 +2335,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 86,
+                    'line_nr' => 84,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -2412,7 +2376,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 87,
+                    'line_nr' => 85,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -2449,7 +2413,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 88,
+                        'line_nr' => 86,
                         'macro' => ''
                       }
                     }
@@ -2487,7 +2451,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 89,
+                'line_nr' => 87,
                 'macro' => ''
               }
             }
@@ -2500,7 +2464,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 83,
+            'line_nr' => 81,
             'macro' => ''
           }
         },
@@ -2523,17 +2487,13 @@ $result_trees{'inter_item_commands_in_table'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
+        'line_nr' => 5,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'inter_item_commands_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[0]{'contents'}[0];
 $result_trees{'inter_item_commands_in_table'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[0];
 $result_trees{'inter_item_commands_in_table'}{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_table'};
 $result_trees{'inter_item_commands_in_table'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[1]{'args'}[0];
@@ -2886,9 +2846,7 @@ $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[22]{'pa
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'parent'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4];
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'parent'} = $result_trees{'inter_item_commands_in_table'};
 
-$result_texis{'inter_item_commands_in_table'} = '@setfilename inter_item_commands_in_table.info
-
-@node Top
+$result_texis{'inter_item_commands_in_table'} = '@node Top
 @top top
 
 @node chapter
@@ -2980,8 +2938,7 @@ Texte before first item samp.
 ';
 
 
-$result_texts{'inter_item_commands_in_table'} = '
-top
+$result_texts{'inter_item_commands_in_table'} = 'top
 ***
 
 1 chap
@@ -3198,8 +3155,7 @@ D
 ';
 
 
-$result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
-<div class="top-level-extent" id="Top">
+$result_converted{'html_text'}->{'inter_item_commands_in_table'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
  &nbsp; </p>
@@ -3307,9 +3263,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 ';
 
 
-$result_converted{'xml'}->{'inter_item_commands_in_table'} = '<setfilename file="inter_item_commands_in_table.info" spaces=" ">inter_item_commands_in_table.info</setfilename>
-
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+$result_converted{'xml'}->{'inter_item_commands_in_table'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
 </top>

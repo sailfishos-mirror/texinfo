@@ -101,7 +101,7 @@ A@footnote{My feet} b.
 '],
 );
 
-my @file_latex_tests_cases_tests = ('quotation_and_author',
+my @latex_tests_cases_tests = ('quotation_and_author',
   'quotation_author_in_example', 'space_at_commands_end_quotation_line',
   'empty_quotation');
 
@@ -111,10 +111,8 @@ foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'xml';
   push @{$test->[2]->{'test_formats'}}, 'docbook';
 
-  if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests) {
-    push @{$test->[2]->{'test_formats'}}, 'file_latex';
-    $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
-    $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
+  if (grep {$_ eq $test->[0]} @latex_tests_cases_tests) {
+    push @{$test->[2]->{'test_formats'}}, 'latex';
   }
 }
 

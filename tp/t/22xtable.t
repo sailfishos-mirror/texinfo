@@ -48,9 +48,7 @@ Text.
 @end table
 '],
 ['inter_item_commands_in_table',
-'@setfilename inter_item_commands_in_table.info
-
-@node Top
+'@node Top
 @top top
 
 @node chapter
@@ -141,9 +139,7 @@ Texte before first item samp.
 
 '],
 ['inter_item_commands_in_table_in_example',
-'@setfilename inter_item_commands_in_table_in_example.info
-
-@example
+'@example
 @table @var
 @item a--b
 @cindex index entry between item and itemx
@@ -325,6 +321,7 @@ foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'xml';
   if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests) {
     push @{$test->[2]->{'test_formats'}}, 'file_latex';
+    $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
     $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
   }
 }
