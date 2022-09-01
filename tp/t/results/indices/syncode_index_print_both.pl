@@ -17,41 +17,6 @@ $result_trees{'syncode_index_print_both'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'syncode_index_print_both.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'syncode_index_print_both.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
                       'text' => 'fn cp'
                     }
                   ],
@@ -74,7 +39,7 @@ $result_trees{'syncode_index_print_both'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
+                'line_nr' => 1,
                 'macro' => ''
               }
             },
@@ -129,7 +94,7 @@ $result_trees{'syncode_index_print_both'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -165,7 +130,7 @@ $result_trees{'syncode_index_print_both'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -207,7 +172,7 @@ $result_trees{'syncode_index_print_both'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
+        'line_nr' => 6,
         'macro' => ''
       }
     },
@@ -272,7 +237,7 @@ $result_trees{'syncode_index_print_both'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 11,
+            'line_nr' => 9,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -313,7 +278,7 @@ $result_trees{'syncode_index_print_both'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 12,
+            'line_nr' => 10,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -374,7 +339,7 @@ $result_trees{'syncode_index_print_both'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 17,
+            'line_nr' => 15,
             'macro' => ''
           }
         },
@@ -428,7 +393,7 @@ $result_trees{'syncode_index_print_both'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 21,
+            'line_nr' => 19,
             'macro' => ''
           }
         },
@@ -445,7 +410,7 @@ $result_trees{'syncode_index_print_both'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 9,
+        'line_nr' => 7,
         'macro' => ''
       }
     }
@@ -456,10 +421,6 @@ $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'content
 $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0];
 $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0];
 $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[0];
 $result_trees{'syncode_index_print_both'}{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'};
 $result_trees{'syncode_index_print_both'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[1]{'args'}[0];
@@ -511,9 +472,7 @@ $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[11]{'parent
 $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[12]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
 $result_trees{'syncode_index_print_both'}{'contents'}[4]{'parent'} = $result_trees{'syncode_index_print_both'};
 
-$result_texis{'syncode_index_print_both'} = '@setfilename syncode_index_print_both.info
-
-@syncodeindex fn cp
+$result_texis{'syncode_index_print_both'} = '@syncodeindex fn cp
 
 @node Top
 @top top
@@ -537,7 +496,6 @@ Print cp
 
 
 $result_texts{'syncode_index_print_both'} = '
-
 top
 ***
 
@@ -651,7 +609,7 @@ $result_errors{'syncode_index_print_both'} = [
     'error_line' => 'warning: printing an index `fn\' merged in another one, `cp\'
 ',
     'file_name' => '',
-    'line_nr' => 17,
+    'line_nr' => 15,
     'macro' => '',
     'text' => 'printing an index `fn\' merged in another one, `cp\'',
     'type' => 'warning'
@@ -718,10 +676,10 @@ $result_indices_sort_strings{'syncode_index_print_both'} = {
 
 
 
-$result_converted{'info'}->{'syncode_index_print_both'} = 'This is syncode_index_print_both.info, produced from .
+$result_converted{'info'}->{'syncode_index_print_both'} = 'This is , produced from .
 
 
-File: syncode_index_print_both.info,  Node: Top,  Next: chapter index,  Up: (dir)
+File: ,  Node: Top,  Next: chapter index,  Up: (dir)
 
 top
 ***
@@ -731,7 +689,7 @@ top
 * chapter index::
 
 
-File: syncode_index_print_both.info,  Node: chapter index,  Prev: Top,  Up: Top
+File: ,  Node: chapter index,  Prev: Top,  Up: Top
 
 1 index
 *******
@@ -749,8 +707,8 @@ Print fn
 
 
 Tag Table:
-Node: Top56
-Node: chapter index178
+Node: Top27
+Node: chapter index120
 
 End Tag Table
 
@@ -780,7 +738,6 @@ Print fn
 
 
 $result_converted{'html_text'}->{'syncode_index_print_both'} = '
-
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
@@ -833,6 +790,94 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 
 </div>
 </div>
+';
+
+
+$result_converted{'file_latex'}->{'syncode_index_print_both'} = '\\documentclass{book}
+\\usepackage{imakeidx}
+\\usepackage{amsfonts}
+\\usepackage{amsmath}
+\\usepackage[gen]{eurosym}
+\\usepackage[T1]{fontenc}
+\\usepackage{textcomp}
+\\usepackage{graphicx}
+\\usepackage{etoolbox}
+\\usepackage{titleps}
+\\usepackage{float}
+% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+\\usepackage[hidelinks]{hyperref}
+\\usepackage[utf8]{inputenc}
+
+\\makeatletter
+\\newcommand{\\GNUTexinfosettitle}{No Title}%
+
+\\makeindex[name=cp]%
+
+% redefine the \\mainmatter command such that it does not clear page
+% as if in double page
+\\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
+% add command aliases to use the same command in book and report
+\\newcommand\\GNUTexinfomainmatter{\\mainmatter}
+\\newcommand\\GNUTexinfofrontmatter{\\frontmatter}
+\\newenvironment{GNUTexinfopreformatted}{%
+  \\par\\obeylines\\obeyspaces\\frenchspacing
+  \\parskip=\\z@\\parindent=\\z@}{}
+\\newenvironment{GNUTexinfoindented}
+  {\\begin{list}{}{}
+  \\item\\relax}
+  {\\end{list}}
+% command that does nothing used to help with substitutions in commands
+\\newcommand{\\GNUTexinfoplaceholder}[1]{}
+
+% plain page style, for part and chapter, which call \\thispagestyle{plain}
+\\renewpagestyle{plain}{\\sethead[\\thepage{}][][]
+                             {}{}{\\thepage{}}}
+
+% single header
+\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
+                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+
+% called when setting single headers
+\\newcommand{\\GNUTexinfosetsingleheader}{\\pagestyle{single}}
+
+% double header
+\\newpagestyle{double}{\\sethead[\\thepage{}][][\\GNUTexinfosettitle]
+                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+
+% called when setting double headers
+\\newcommand{\\GNUTexinfosetdoubleheader}{\\pagestyle{double}}
+
+
+% avoid pagebreak and headings setting for a sectionning command
+\\newcommand{\\GNUTexinfonopagebreakheading}[2]{{\\let\\clearpage\\relax \\let\\cleardoublepage\\relax \\let\\thispagestyle\\GNUTexinfoplaceholder #1{#2}}}
+
+\\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
+
+\\makeatother
+% set default for @setchapternewpage
+\\makeatletter
+\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
+\\makeatother
+\\GNUTexinfosetsingleheader{}%
+
+
+\\begin{document}
+\\label{anchor:Top}%
+\\chapter{{index}}
+\\label{anchor:chapter-index}%
+
+\\index[cp]{c---oncept}%
+\\index[cp]{f---un@\\texttt{f{-}{-}{-}un}}%
+
+
+Print fn
+
+
+Print cp
+
+\\printindex[cp]
+
+\\end{document}
 ';
 
 1;

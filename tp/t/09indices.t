@@ -165,9 +165,7 @@ Last paragraph.
 @printindex cp
 '],
 ['syncode_index_print_both',
-'@setfilename syncode_index_print_both.info
-
-@syncodeindex fn cp
+'@syncodeindex fn cp
 
 @node Top
 @top top
