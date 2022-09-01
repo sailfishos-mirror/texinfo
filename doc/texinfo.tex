@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-08-29.15}
+\def\texinfoversion{2022-09-01.06}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -3975,7 +3975,7 @@ $$%
 \global\oddfootline={\hfil}
 \global\evenheadline={\line{\folio\hfil\thistitle}}
 \global\oddheadline={\line{\thischapter\hfil\folio}}
-\global\evenchapheadline={\line{\folio\hfil}}
+\global\evenchapheadline={\line{\folio\hfil\thistitle}}
 \global\oddchapheadline={\line{\hfil\folio}}
 \global\let\contentsalignmacro = \chapoddpage
 }
