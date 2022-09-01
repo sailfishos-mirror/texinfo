@@ -413,7 +413,7 @@ $result_converted{'html_text'}->{'empty_index_entry'} = '<a class="node-id" id="
 ';
 
 
-$result_converted{'file_latex'}->{'empty_index_entry'} = '\\documentclass{book}
+$result_converted{'latex'}->{'empty_index_entry'} = '\\documentclass{book}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}
 \\usepackage[gen]{eurosym}

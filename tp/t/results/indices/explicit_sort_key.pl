@@ -1147,7 +1147,7 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top-level-e
 ';
 
 
-$result_converted{'file_latex'}->{'explicit_sort_key'} = '\\documentclass{book}
+$result_converted{'latex'}->{'explicit_sort_key'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}

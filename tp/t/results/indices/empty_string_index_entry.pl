@@ -1052,7 +1052,7 @@ $result_converted_errors{'html_text'}->{'empty_string_index_entry'} = [
 
 
 
-$result_converted{'file_latex'}->{'empty_string_index_entry'} = '\\documentclass{book}
+$result_converted{'latex'}->{'empty_string_index_entry'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}

@@ -753,7 +753,7 @@ foreach my $test (@test_formatted) {
   push @{$test->[2]->{'test_formats'}}, 'info';
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
-  push @{$test->[2]->{'test_formats'}}, 'file_latex'
+  push @{$test->[2]->{'test_formats'}}, 'latex'
     if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests);
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }

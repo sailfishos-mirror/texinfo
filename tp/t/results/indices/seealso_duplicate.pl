@@ -475,7 +475,7 @@ $result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node" id="To
 ';
 
 
-$result_converted{'file_latex'}->{'seealso_duplicate'} = '\\documentclass{book}
+$result_converted{'latex'}->{'seealso_duplicate'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}

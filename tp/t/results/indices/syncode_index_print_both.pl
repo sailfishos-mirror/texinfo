@@ -793,7 +793,7 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 ';
 
 
-$result_converted{'file_latex'}->{'syncode_index_print_both'} = '\\documentclass{book}
+$result_converted{'latex'}->{'syncode_index_print_both'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}

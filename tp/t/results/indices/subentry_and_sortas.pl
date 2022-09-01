@@ -906,7 +906,7 @@ $result_converted{'html_text'}->{'subentry_and_sortas'} = '<div class="top-level
 ';
 
 
-$result_converted{'file_latex'}->{'subentry_and_sortas'} = '\\documentclass{book}
+$result_converted{'latex'}->{'subentry_and_sortas'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}

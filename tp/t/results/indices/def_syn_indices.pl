@@ -2124,7 +2124,7 @@ after
 ';
 
 
-$result_converted{'file_latex'}->{'def_syn_indices'} = '\\documentclass{book}
+$result_converted{'latex'}->{'def_syn_indices'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}

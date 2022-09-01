@@ -705,7 +705,7 @@ $result_converted{'html_text'}->{'multiple_index_text_sortas_seeentry_seealso'} 
 ';
 
 
-$result_converted{'file_latex'}->{'multiple_index_text_sortas_seeentry_seealso'} = '\\documentclass{book}
+$result_converted{'latex'}->{'multiple_index_text_sortas_seeentry_seealso'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}

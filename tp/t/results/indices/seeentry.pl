@@ -790,7 +790,7 @@ $result_converted{'html_text'}->{'seeentry'} = '<div class="top-level-extent" id
 ';
 
 
-$result_converted{'file_latex'}->{'seeentry'} = '\\documentclass{book}
+$result_converted{'latex'}->{'seeentry'} = '\\documentclass{book}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}
 \\usepackage[gen]{eurosym}

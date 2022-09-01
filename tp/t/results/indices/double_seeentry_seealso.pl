@@ -909,7 +909,7 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-l
 ';
 
 
-$result_converted{'file_latex'}->{'double_seeentry_seealso'} = '\\documentclass{book}
+$result_converted{'latex'}->{'double_seeentry_seealso'} = '\\documentclass{book}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}
 \\usepackage[gen]{eurosym}

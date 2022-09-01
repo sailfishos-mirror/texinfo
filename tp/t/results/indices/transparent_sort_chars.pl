@@ -612,7 +612,7 @@ $result_converted{'html_text'}->{'transparent_sort_chars'} = '
 ';
 
 
-$result_converted{'file_latex'}->{'transparent_sort_chars'} = '\\documentclass{book}
+$result_converted{'latex'}->{'transparent_sort_chars'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}

@@ -1373,7 +1373,7 @@ $result_converted{'html_text'}->{'subentries'} = '<div class="top-level-extent" 
 ';
 
 
-$result_converted{'file_latex'}->{'subentries'} = '\\documentclass{book}
+$result_converted{'latex'}->{'subentries'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}
