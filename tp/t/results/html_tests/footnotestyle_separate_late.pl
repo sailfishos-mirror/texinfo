@@ -9,43 +9,7 @@ $result_trees{'footnotestyle_separate_late'} = [
   {
     'contents' => [
       {
-        'contents' => [
-          {
-            'args' => [
-              {
-                'contents' => [
-                  {
-                    'parent' => {},
-                    'text' => 'footnotestyle_separate_late.info'
-                  }
-                ],
-                'extra' => {
-                  'spaces_after_argument' => '
-'
-                },
-                'parent' => {},
-                'type' => 'line_arg'
-              }
-            ],
-            'cmdname' => 'setfilename',
-            'extra' => {
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'footnotestyle_separate_late.info'
-            },
-            'parent' => {},
-            'source_info' => {
-              'file_name' => '',
-              'line_nr' => 1,
-              'macro' => ''
-            }
-          },
-          {
-            'parent' => {},
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
+        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -86,7 +50,7 @@ $result_trees{'footnotestyle_separate_late'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
+                'line_nr' => 1,
                 'macro' => ''
               }
             },
@@ -122,7 +86,7 @@ $result_trees{'footnotestyle_separate_late'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
+                'line_nr' => 2,
                 'macro' => ''
               }
             },
@@ -163,7 +127,7 @@ $result_trees{'footnotestyle_separate_late'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 6,
+                'line_nr' => 4,
                 'macro' => ''
               }
             },
@@ -218,7 +182,7 @@ $result_trees{'footnotestyle_separate_late'} = [
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 9,
+                        'line_nr' => 7,
                         'macro' => ''
                       }
                     },
@@ -244,7 +208,7 @@ $result_trees{'footnotestyle_separate_late'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 7,
+                'line_nr' => 5,
                 'macro' => ''
               }
             },
@@ -285,7 +249,7 @@ $result_trees{'footnotestyle_separate_late'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
+                'line_nr' => 9,
                 'macro' => ''
               }
             },
@@ -340,7 +304,7 @@ $result_trees{'footnotestyle_separate_late'} = [
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 14,
+                        'line_nr' => 12,
                         'macro' => ''
                       }
                     },
@@ -386,7 +350,7 @@ $result_trees{'footnotestyle_separate_late'} = [
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 16,
+                    'line_nr' => 14,
                     'macro' => ''
                   }
                 }
@@ -397,7 +361,7 @@ $result_trees{'footnotestyle_separate_late'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
+                'line_nr' => 10,
                 'macro' => ''
               }
             }
@@ -435,10 +399,6 @@ $result_trees{'footnotestyle_separate_late'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0];
-$result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0];
 $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'parent'}{'contents'}[0] = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0];
 $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0];
 $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
@@ -494,9 +454,7 @@ $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0] = $result_trees{'
 $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[1] = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'parent'}{'contents'}[6];
 $result_trees{'footnotestyle_separate_late'}[2]{'extra'}{'unit_command'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'parent'}{'contents'}[5];
 
-$result_texis{'footnotestyle_separate_late'} = '@setfilename footnotestyle_separate_late.info
-
-@node Top
+$result_texis{'footnotestyle_separate_late'} = '@node Top
 @top top
 
 @node chap f
@@ -513,8 +471,7 @@ $result_texis{'footnotestyle_separate_late'} = '@setfilename footnotestyle_separ
 ';
 
 
-$result_texts{'footnotestyle_separate_late'} = '
-top
+$result_texts{'footnotestyle_separate_late'} = 'top
 ***
 
 1 Chapter f

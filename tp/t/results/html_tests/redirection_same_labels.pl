@@ -9,43 +9,7 @@ $result_trees{'redirection_same_labels'} = [
   {
     'contents' => [
       {
-        'contents' => [
-          {
-            'args' => [
-              {
-                'contents' => [
-                  {
-                    'parent' => {},
-                    'text' => 'redirection_same_labels.info'
-                  }
-                ],
-                'extra' => {
-                  'spaces_after_argument' => '
-'
-                },
-                'parent' => {},
-                'type' => 'line_arg'
-              }
-            ],
-            'cmdname' => 'setfilename',
-            'extra' => {
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'redirection_same_labels.info'
-            },
-            'parent' => {},
-            'source_info' => {
-              'file_name' => '',
-              'line_nr' => 1,
-              'macro' => ''
-            }
-          },
-          {
-            'parent' => {},
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
+        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -86,7 +50,7 @@ $result_trees{'redirection_same_labels'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 3,
+                'line_nr' => 1,
                 'macro' => ''
               }
             },
@@ -247,7 +211,7 @@ $result_trees{'redirection_same_labels'} = [
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
+                        'line_nr' => 8,
                         'macro' => ''
                       },
                       'type' => 'menu_entry'
@@ -304,7 +268,7 @@ $result_trees{'redirection_same_labels'} = [
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 11,
+                        'line_nr' => 9,
                         'macro' => ''
                       },
                       'type' => 'menu_entry'
@@ -335,7 +299,7 @@ $result_trees{'redirection_same_labels'} = [
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 12,
+                        'line_nr' => 10,
                         'macro' => ''
                       }
                     }
@@ -346,7 +310,7 @@ $result_trees{'redirection_same_labels'} = [
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 6,
+                    'line_nr' => 4,
                     'macro' => ''
                   }
                 },
@@ -363,7 +327,7 @@ $result_trees{'redirection_same_labels'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 4,
+                'line_nr' => 2,
                 'macro' => ''
               }
             },
@@ -404,7 +368,7 @@ $result_trees{'redirection_same_labels'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 14,
+                'line_nr' => 12,
                 'macro' => ''
               }
             },
@@ -474,7 +438,7 @@ $result_trees{'redirection_same_labels'} = [
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 18,
+                                'line_nr' => 16,
                                 'macro' => ''
                               }
                             }
@@ -517,7 +481,7 @@ $result_trees{'redirection_same_labels'} = [
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 18,
+                        'line_nr' => 16,
                         'macro' => ''
                       },
                       'type' => 'menu_entry'
@@ -553,7 +517,7 @@ $result_trees{'redirection_same_labels'} = [
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
-                                        'line_nr' => 19,
+                                        'line_nr' => 17,
                                         'macro' => ''
                                       }
                                     }
@@ -567,7 +531,7 @@ $result_trees{'redirection_same_labels'} = [
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 19,
+                                'line_nr' => 17,
                                 'macro' => ''
                               }
                             }
@@ -610,7 +574,7 @@ $result_trees{'redirection_same_labels'} = [
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 19,
+                        'line_nr' => 17,
                         'macro' => ''
                       },
                       'type' => 'menu_entry'
@@ -641,7 +605,7 @@ $result_trees{'redirection_same_labels'} = [
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 20,
+                        'line_nr' => 18,
                         'macro' => ''
                       }
                     }
@@ -652,7 +616,7 @@ $result_trees{'redirection_same_labels'} = [
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 17,
+                    'line_nr' => 15,
                     'macro' => ''
                   }
                 },
@@ -669,7 +633,7 @@ $result_trees{'redirection_same_labels'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
+                'line_nr' => 13,
                 'macro' => ''
               }
             },
@@ -695,7 +659,7 @@ $result_trees{'redirection_same_labels'} = [
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 22,
+                        'line_nr' => 20,
                         'macro' => ''
                       }
                     }
@@ -735,7 +699,7 @@ $result_trees{'redirection_same_labels'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
+                'line_nr' => 20,
                 'macro' => ''
               }
             },
@@ -765,7 +729,7 @@ $result_trees{'redirection_same_labels'} = [
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 24,
+                                'line_nr' => 22,
                                 'macro' => ''
                               }
                             }
@@ -779,7 +743,7 @@ $result_trees{'redirection_same_labels'} = [
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 24,
+                        'line_nr' => 22,
                         'macro' => ''
                       }
                     }
@@ -819,7 +783,7 @@ $result_trees{'redirection_same_labels'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 24,
+                'line_nr' => 22,
                 'macro' => ''
               }
             },
@@ -860,7 +824,7 @@ $result_trees{'redirection_same_labels'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 26,
+                'line_nr' => 24,
                 'macro' => ''
               }
             },
@@ -930,7 +894,7 @@ $result_trees{'redirection_same_labels'} = [
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 30,
+                                'line_nr' => 28,
                                 'macro' => ''
                               }
                             }
@@ -973,7 +937,7 @@ $result_trees{'redirection_same_labels'} = [
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 30,
+                        'line_nr' => 28,
                         'macro' => ''
                       },
                       'type' => 'menu_entry'
@@ -1004,7 +968,7 @@ $result_trees{'redirection_same_labels'} = [
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 31,
+                        'line_nr' => 29,
                         'macro' => ''
                       }
                     }
@@ -1015,7 +979,7 @@ $result_trees{'redirection_same_labels'} = [
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 29,
+                    'line_nr' => 27,
                     'macro' => ''
                   }
                 },
@@ -1032,7 +996,7 @@ $result_trees{'redirection_same_labels'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 27,
+                'line_nr' => 25,
                 'macro' => ''
               }
             },
@@ -1058,7 +1022,7 @@ $result_trees{'redirection_same_labels'} = [
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 33,
+                        'line_nr' => 31,
                         'macro' => ''
                       }
                     }
@@ -1091,7 +1055,7 @@ $result_trees{'redirection_same_labels'} = [
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 33,
+                'line_nr' => 31,
                 'macro' => ''
               }
             }
@@ -1132,10 +1096,6 @@ $result_trees{'redirection_same_labels'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'redirection_same_labels'}[0]{'contents'}[0];
-$result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'redirection_same_labels'}[0]{'contents'}[0];
 $result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'parent'}{'contents'}[0] = $result_trees{'redirection_same_labels'}[0]{'contents'}[0];
 $result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0];
 $result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
@@ -1289,9 +1249,7 @@ $result_trees{'redirection_same_labels'}[2]{'contents'}[1] = $result_trees{'redi
 $result_trees{'redirection_same_labels'}[2]{'contents'}[2] = $result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'parent'}{'contents'}[9];
 $result_trees{'redirection_same_labels'}[2]{'extra'}{'unit_command'} = $result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'parent'}{'contents'}[8];
 
-$result_texis{'redirection_same_labels'} = '@setfilename redirection_same_labels.info
-
-@node Top
+$result_texis{'redirection_same_labels'} = '@node Top
 @top the top
 
 @menu
@@ -1325,8 +1283,7 @@ $result_texis{'redirection_same_labels'} = '@setfilename redirection_same_labels
 ';
 
 
-$result_texts{'redirection_same_labels'} = '
-the top
+$result_texts{'redirection_same_labels'} = 'the top
 *******
 
 * umlaut::

@@ -10,43 +10,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'inter_item_commands_in_enumerate.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'inter_item_commands_in_enumerate.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'parent' => {},
           'type' => 'preamble_before_content'
         }
@@ -91,7 +55,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -127,7 +91,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
+        'line_nr' => 2,
         'macro' => ''
       }
     },
@@ -168,7 +132,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -263,7 +227,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 12,
+                'line_nr' => 10,
                 'macro' => ''
               }
             },
@@ -293,7 +257,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
+                'line_nr' => 11,
                 'macro' => ''
               }
             }
@@ -305,7 +269,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
+            'line_nr' => 7,
             'macro' => ''
           }
         },
@@ -373,7 +337,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 17,
+                    'line_nr' => 15,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -410,7 +374,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
+                'line_nr' => 17,
                 'macro' => ''
               }
             },
@@ -440,7 +404,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
+                'line_nr' => 18,
                 'macro' => ''
               }
             }
@@ -452,7 +416,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 15,
+            'line_nr' => 13,
             'macro' => ''
           }
         },
@@ -520,7 +484,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 24,
+                    'line_nr' => 22,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -551,7 +515,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 25,
+                'line_nr' => 23,
                 'macro' => ''
               }
             },
@@ -581,7 +545,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 26,
+                'line_nr' => 24,
                 'macro' => ''
               }
             }
@@ -593,7 +557,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 22,
+            'line_nr' => 20,
             'macro' => ''
           }
         },
@@ -655,7 +619,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 29,
+                    'line_nr' => 27,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -692,7 +656,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 31,
+                'line_nr' => 29,
                 'macro' => ''
               }
             },
@@ -722,7 +686,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 32,
+                'line_nr' => 30,
                 'macro' => ''
               }
             }
@@ -734,7 +698,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 28,
+            'line_nr' => 26,
             'macro' => ''
           }
         },
@@ -803,7 +767,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 36,
+                        'line_nr' => 34,
                         'macro' => ''
                       },
                       'type' => 'index_entry_command'
@@ -838,7 +802,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 37,
+                'line_nr' => 35,
                 'macro' => ''
               }
             },
@@ -868,7 +832,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 38,
+                'line_nr' => 36,
                 'macro' => ''
               }
             }
@@ -880,7 +844,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 34,
+            'line_nr' => 32,
             'macro' => ''
           }
         },
@@ -942,7 +906,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 41,
+                    'line_nr' => 39,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -1001,7 +965,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 43,
+                    'line_nr' => 41,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -1042,7 +1006,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 44,
+                    'line_nr' => 42,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -1073,7 +1037,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 45,
+                'line_nr' => 43,
                 'macro' => ''
               }
             },
@@ -1103,7 +1067,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 46,
+                'line_nr' => 44,
                 'macro' => ''
               }
             }
@@ -1115,7 +1079,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 40,
+            'line_nr' => 38,
             'macro' => ''
           }
         },
@@ -1132,17 +1096,13 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
+        'line_nr' => 5,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[0]{'contents'}[0];
 $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[0];
 $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_enumerate'};
 $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[1]{'args'}[0];
@@ -1290,9 +1250,7 @@ $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[11]
 $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'contents'}[12]{'parent'} = $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4];
 $result_trees{'inter_item_commands_in_enumerate'}{'contents'}[4]{'parent'} = $result_trees{'inter_item_commands_in_enumerate'};
 
-$result_texis{'inter_item_commands_in_enumerate'} = '@setfilename inter_item_commands_in_enumerate.info
-
-@node Top
+$result_texis{'inter_item_commands_in_enumerate'} = '@node Top
 @top top
 
 @node chapter
@@ -1340,8 +1298,7 @@ Title
 ';
 
 
-$result_texts{'inter_item_commands_in_enumerate'} = '
-top
+$result_texts{'inter_item_commands_in_enumerate'} = 'top
 ***
 
 1 chap
@@ -1499,8 +1456,7 @@ $result_converted{'plaintext'}->{'inter_item_commands_in_enumerate'} = 'top
 ';
 
 
-$result_converted{'html_text'}->{'inter_item_commands_in_enumerate'} = '
-<div class="top-level-extent" id="Top">
+$result_converted{'html_text'}->{'inter_item_commands_in_enumerate'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
  &nbsp; </p>

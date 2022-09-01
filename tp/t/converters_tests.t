@@ -843,9 +843,7 @@ Macros that should not be defined: @mymacro{}. @macroarg{with arg}.
 $non_empty_part_text
 ,],
 ['definition_commands',
-'@setfilename definition_commands.info
-
-@node Top
+'@node Top
 @top top section
 
 @node chapter

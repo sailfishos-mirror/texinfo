@@ -494,9 +494,7 @@ New para.
 
 my @test_full_doc = (
 ['inter_item_commands_in_itemize',
-'@setfilename inter_item_commands_in_itemize.info
-
-@node Top
+'@node Top
 @top top
 
 @node chapter
@@ -523,9 +521,7 @@ T--ext before items.
 @end itemize
 '],
 ['inter_item_commands_in_enumerate',
-'@setfilename inter_item_commands_in_enumerate.info
-
-@node Top
+'@node Top
 @top top
 
 @node chapter
@@ -616,9 +612,6 @@ my @test_invalid = (
 '],
 );
 
-my @file_latex_tests_cases_tests = ('inter_item_commands_in_itemize',
-  'inter_item_commands_in_enumerate');
-
 my @latex_tests_cases_tests = ('w_argument', 'enumerate_in_example',
                                'itemize_long_item', 'itemize_in_example');
 
@@ -632,9 +625,8 @@ foreach my $test (@test_cases) {
 foreach my $test (@test_full_doc) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
-  push @{$test->[2]->{'test_formats'}}, 'file_latex'
-    if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests);
-
+  push @{$test->[2]->{'test_formats'}}, 'file_latex';
+  $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 

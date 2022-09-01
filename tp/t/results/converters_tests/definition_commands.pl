@@ -10,43 +10,7 @@ $result_trees{'definition_commands'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'definition_commands.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'definition_commands.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'parent' => {},
           'type' => 'preamble_before_content'
         }
@@ -91,7 +55,7 @@ $result_trees{'definition_commands'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -127,7 +91,7 @@ $result_trees{'definition_commands'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 4,
+        'line_nr' => 2,
         'macro' => ''
       }
     },
@@ -168,7 +132,7 @@ $result_trees{'definition_commands'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -297,7 +261,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 9,
+                'line_nr' => 7,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -328,7 +292,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
+                        'line_nr' => 8,
                         'macro' => ''
                       }
                     },
@@ -354,7 +318,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 10,
+                        'line_nr' => 8,
                         'macro' => ''
                       }
                     },
@@ -397,7 +361,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 11,
+                'line_nr' => 9,
                 'macro' => ''
               }
             }
@@ -409,7 +373,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 9,
+            'line_nr' => 7,
             'macro' => ''
           }
         },
@@ -477,7 +441,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 13,
+                        'line_nr' => 11,
                         'macro' => ''
                       }
                     },
@@ -510,7 +474,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 13,
+                        'line_nr' => 11,
                         'macro' => ''
                       }
                     },
@@ -555,7 +519,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 13,
+                'line_nr' => 11,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -586,7 +550,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 14,
+                        'line_nr' => 12,
                         'macro' => ''
                       }
                     },
@@ -612,7 +576,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 14,
+                        'line_nr' => 12,
                         'macro' => ''
                       }
                     },
@@ -655,7 +619,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 15,
+                'line_nr' => 13,
                 'macro' => ''
               }
             }
@@ -667,7 +631,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 13,
+            'line_nr' => 11,
             'macro' => ''
           }
         },
@@ -736,7 +700,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 17,
+                                'line_nr' => 15,
                                 'macro' => ''
                               }
                             }
@@ -753,7 +717,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 17,
+                        'line_nr' => 15,
                         'macro' => ''
                       }
                     },
@@ -787,7 +751,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 17,
+                                'line_nr' => 15,
                                 'macro' => ''
                               }
                             }
@@ -804,7 +768,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 17,
+                        'line_nr' => 15,
                         'macro' => ''
                       }
                     },
@@ -849,7 +813,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 17,
+                'line_nr' => 15,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -880,7 +844,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 18,
+                        'line_nr' => 16,
                         'macro' => ''
                       }
                     },
@@ -906,7 +870,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 18,
+                        'line_nr' => 16,
                         'macro' => ''
                       }
                     },
@@ -949,7 +913,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
+                'line_nr' => 17,
                 'macro' => ''
               }
             }
@@ -961,7 +925,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 17,
+            'line_nr' => 15,
             'macro' => ''
           }
         },
@@ -1170,7 +1134,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 21,
+                'line_nr' => 19,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -1259,7 +1223,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 22,
+                        'line_nr' => 20,
                         'macro' => ''
                       }
                     },
@@ -1314,7 +1278,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 22,
+                        'line_nr' => 20,
                         'macro' => ''
                       }
                     },
@@ -1346,7 +1310,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 22,
+                        'line_nr' => 20,
                         'macro' => ''
                       }
                     },
@@ -1409,6 +1373,498 @@ $result_trees{'definition_commands'} = {
                   'index_type_command' => 'defspec',
                   'node' => {},
                   'number' => 5
+                },
+                'original_def_cmdname' => 'defspecx',
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 20,
+                'macro' => ''
+              },
+              'type' => 'def_line'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Special Form'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'category'
+                      },
+                      'parent' => {},
+                      'type' => 'bracketed_inserted'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces_inserted'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'parent' => {},
+                      'text' => 'foobar'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => '(',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'text' => 'var'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => '['
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 21,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'text' => 'from'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'text' => 'to'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => '['
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 21,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'text' => 'inc'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => ']]'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 21,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => ')',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'text' => 'var'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'spaces_at_end'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'defspecx',
+              'extra' => {
+                'def_command' => 'defspec',
+                'def_parsed_hash' => {
+                  'category' => {},
+                  'name' => {}
+                },
+                'index_entry' => {
+                  'command' => {},
+                  'content' => [
+                    {}
+                  ],
+                  'content_normalized' => [
+                    {}
+                  ],
+                  'in_code' => 1,
+                  'index_at_command' => 'defspecx',
+                  'index_ignore_chars' => {},
+                  'index_name' => 'fn',
+                  'index_type_command' => 'defspec',
+                  'node' => {},
+                  'number' => 6
+                },
+                'original_def_cmdname' => 'defspecx',
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 21,
+                'macro' => ''
+              },
+              'type' => 'def_line'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Special Form'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'category'
+                      },
+                      'parent' => {},
+                      'type' => 'bracketed_inserted'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces_inserted'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'parent' => {},
+                      'text' => 'foobar'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => '(',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'text' => 'var'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => '['
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'slanted',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 22,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'text' => 'from'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'text' => 'to'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => '['
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'slanted',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 22,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'text' => 'inc'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => ']]'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'slanted',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 22,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => ')',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'text' => 'slanted'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'spaces_at_end'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'defspecx',
+              'extra' => {
+                'def_command' => 'defspec',
+                'def_parsed_hash' => {
+                  'category' => {},
+                  'name' => {}
+                },
+                'index_entry' => {
+                  'command' => {},
+                  'content' => [
+                    {}
+                  ],
+                  'content_normalized' => [
+                    {}
+                  ],
+                  'in_code' => 1,
+                  'index_at_command' => 'defspecx',
+                  'index_ignore_chars' => {},
+                  'index_name' => 'fn',
+                  'index_type_command' => 'defspec',
+                  'node' => {},
+                  'number' => 7
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -1497,7 +1953,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'var',
+                      'cmdname' => 'code',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -1552,7 +2008,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'var',
+                      'cmdname' => 'code',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -1584,7 +2040,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'var',
+                      'cmdname' => 'code',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -1617,7 +2073,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 'var'
+                      'text' => 'code'
                     },
                     {
                       'extra' => {
@@ -1654,7 +2110,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 6
+                  'number' => 8
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -1743,7 +2199,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'slanted',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -1798,7 +2254,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'slanted',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -1830,7 +2286,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'slanted',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -1863,7 +2319,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 'slanted'
+                      'text' => 't'
                     },
                     {
                       'extra' => {
@@ -1900,7 +2356,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 7
+                  'number' => 9
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -1981,15 +2437,33 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => '['
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'b',
+                              'contents' => [],
                               'parent' => {},
-                              'text' => '['
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 25,
+                                'macro' => ''
+                              }
                             }
                           ],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'code',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -2036,15 +2510,33 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => '['
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'b',
+                              'contents' => [],
                               'parent' => {},
-                              'text' => '['
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 25,
+                                'macro' => ''
+                              }
                             }
                           ],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'code',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -2068,15 +2560,33 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => ']]'
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'b',
+                              'contents' => [],
                               'parent' => {},
-                              'text' => ']]'
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 25,
+                                'macro' => ''
+                              }
                             }
                           ],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'code',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -2109,7 +2619,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 'code'
+                      'text' => 't:b'
                     },
                     {
                       'extra' => {
@@ -2146,7 +2656,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 8
+                  'number' => 10
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -2227,15 +2737,33 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => '['
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'var',
+                              'contents' => [],
                               'parent' => {},
-                              'text' => '['
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 26,
+                                'macro' => ''
+                              }
                             }
                           ],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 't',
+                      'cmdname' => 'r',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -2282,15 +2810,33 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => '['
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'var',
+                              'contents' => [],
                               'parent' => {},
-                              'text' => '['
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 26,
+                                'macro' => ''
+                              }
                             }
                           ],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 't',
+                      'cmdname' => 'r',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -2314,15 +2860,33 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => ']]'
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'var',
+                              'contents' => [],
                               'parent' => {},
-                              'text' => ']]'
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 26,
+                                'macro' => ''
+                              }
                             }
                           ],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 't',
+                      'cmdname' => 'r',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -2355,7 +2919,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 't'
+                      'text' => 'r:var'
                     },
                     {
                       'extra' => {
@@ -2392,7 +2956,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 9
+                  'number' => 11
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -2485,7 +3049,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'b',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -2499,7 +3063,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 't',
+                      'cmdname' => 'r',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -2558,7 +3122,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'b',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -2572,7 +3136,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 't',
+                      'cmdname' => 'r',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -2608,7 +3172,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'b',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -2622,7 +3186,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 't',
+                      'cmdname' => 'r',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -2655,7 +3219,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 't:b'
+                      'text' => 'r:slanted'
                     },
                     {
                       'extra' => {
@@ -2692,7 +3256,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 10
+                  'number' => 12
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -2785,7 +3349,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'code',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -2858,7 +3422,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'code',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -2908,7 +3472,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'code',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -2955,7 +3519,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 'r:var'
+                      'text' => 'r:code'
                     },
                     {
                       'extra' => {
@@ -2992,7 +3556,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 11
+                  'number' => 13
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -3085,7 +3649,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'slanted',
+                              'cmdname' => 't',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -3158,7 +3722,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'slanted',
+                              'cmdname' => 't',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -3208,7 +3772,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'slanted',
+                              'cmdname' => 't',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -3255,7 +3819,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 'r:slanted'
+                      'text' => 'r:t'
                     },
                     {
                       'extra' => {
@@ -3292,7 +3856,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 12
+                  'number' => 14
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -3385,7 +3949,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'code',
+                              'cmdname' => 'var',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -3399,7 +3963,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 'code',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -3458,7 +4022,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'code',
+                              'cmdname' => 'var',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -3472,7 +4036,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 'code',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -3508,7 +4072,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'code',
+                              'cmdname' => 'var',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -3522,7 +4086,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 'code',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -3555,7 +4119,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 'r:code'
+                      'text' => 'code:var'
                     },
                     {
                       'extra' => {
@@ -3592,7 +4156,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 13
+                  'number' => 15
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -3685,7 +4249,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 't',
+                              'cmdname' => 'var',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -3699,7 +4263,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -3758,7 +4322,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 't',
+                              'cmdname' => 'var',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -3772,7 +4336,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -3808,7 +4372,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 't',
+                              'cmdname' => 'var',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -3822,7 +4386,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -3855,7 +4419,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 'r:t'
+                      'text' => 't:var'
                     },
                     {
                       'extra' => {
@@ -3892,7 +4456,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 14
+                  'number' => 16
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -3985,7 +4549,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -4058,7 +4622,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -4108,7 +4672,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -4155,7 +4719,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 'code:var'
+                      'text' => 'code:slanted'
                     },
                     {
                       'extra' => {
@@ -4192,7 +4756,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 15
+                  'number' => 17
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -4285,7 +4849,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -4358,7 +4922,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -4408,7 +4972,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -4431,606 +4995,6 @@ $result_trees{'definition_commands'} = {
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 33,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => ')',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'text' => 't:var'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'defspecx',
-              'extra' => {
-                'def_command' => 'defspec',
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {}
-                },
-                'index_entry' => {
-                  'command' => {},
-                  'content' => [
-                    {}
-                  ],
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'in_code' => 1,
-                  'index_at_command' => 'defspecx',
-                  'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'defspec',
-                  'node' => {},
-                  'number' => 16
-                },
-                'original_def_cmdname' => 'defspecx',
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 33,
-                'macro' => ''
-              },
-              'type' => 'def_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'Special Form'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
-                      'parent' => {},
-                      'type' => 'bracketed_inserted'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces_inserted'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
-                      'parent' => {},
-                      'text' => 'foobar'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'text' => 'var'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => '['
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'slanted',
-                              'contents' => [],
-                              'parent' => {},
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 34,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'code',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 34,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'text' => 'from'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'text' => 'to'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => '['
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'slanted',
-                              'contents' => [],
-                              'parent' => {},
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 34,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'code',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 34,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'text' => 'inc'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => ']]'
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'slanted',
-                              'contents' => [],
-                              'parent' => {},
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 34,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'code',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 34,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => ')',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'text' => 'code:slanted'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'defspecx',
-              'extra' => {
-                'def_command' => 'defspec',
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {}
-                },
-                'index_entry' => {
-                  'command' => {},
-                  'content' => [
-                    {}
-                  ],
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'in_code' => 1,
-                  'index_at_command' => 'defspecx',
-                  'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'defspec',
-                  'node' => {},
-                  'number' => 17
-                },
-                'original_def_cmdname' => 'defspecx',
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 34,
-                'macro' => ''
-              },
-              'type' => 'def_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'Special Form'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
-                      'parent' => {},
-                      'type' => 'bracketed_inserted'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces_inserted'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
-                      'parent' => {},
-                      'text' => 'foobar'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'text' => 'var'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => '['
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'slanted',
-                              'contents' => [],
-                              'parent' => {},
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 35,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 't',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 35,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'text' => 'from'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'text' => 'to'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => '['
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'slanted',
-                              'contents' => [],
-                              'parent' => {},
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 35,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 't',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 35,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'text' => 'inc'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => ']]'
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'slanted',
-                              'contents' => [],
-                              'parent' => {},
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 35,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 't',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 35,
                         'macro' => ''
                       }
                     },
@@ -5100,7 +5064,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 35,
+                'line_nr' => 33,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -5148,7 +5112,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 37,
+                'line_nr' => 35,
                 'macro' => ''
               }
             }
@@ -5160,7 +5124,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 21,
+            'line_nr' => 19,
             'macro' => ''
           }
         },
@@ -5276,7 +5240,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 39,
+                'line_nr' => 37,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -5342,7 +5306,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 40,
+                        'line_nr' => 38,
                         'macro' => ''
                       }
                     },
@@ -5404,7 +5368,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 40,
+                'line_nr' => 38,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -5470,7 +5434,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 41,
+                        'line_nr' => 39,
                         'macro' => ''
                       }
                     },
@@ -5532,7 +5496,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 41,
+                'line_nr' => 39,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -5598,7 +5562,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 42,
+                        'line_nr' => 40,
                         'macro' => ''
                       }
                     },
@@ -5660,7 +5624,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 42,
+                'line_nr' => 40,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -5726,7 +5690,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 43,
+                        'line_nr' => 41,
                         'macro' => ''
                       }
                     },
@@ -5788,7 +5752,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 43,
+                'line_nr' => 41,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -5854,7 +5818,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 44,
+                        'line_nr' => 42,
                         'macro' => ''
                       }
                     },
@@ -5909,6 +5873,298 @@ $result_trees{'definition_commands'} = {
                   'index_type_command' => 'defspec',
                   'node' => {},
                   'number' => 24
+                },
+                'original_def_cmdname' => 'defspecx',
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 42,
+                'macro' => ''
+              },
+              'type' => 'def_line'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Special Form'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'category'
+                      },
+                      'parent' => {},
+                      'type' => 'bracketed_inserted'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces_inserted'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'parent' => {},
+                      'text' => 'foobar'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => 'va---riable'
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'b',
+                              'contents' => [],
+                              'parent' => {},
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 43,
+                                'macro' => ''
+                              }
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 't',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 43,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'text' => 't:b'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'spaces_at_end'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'defspecx',
+              'extra' => {
+                'def_command' => 'defspec',
+                'def_parsed_hash' => {
+                  'category' => {},
+                  'name' => {}
+                },
+                'index_entry' => {
+                  'command' => {},
+                  'content' => [
+                    {}
+                  ],
+                  'content_normalized' => [
+                    {}
+                  ],
+                  'in_code' => 1,
+                  'index_at_command' => 'defspecx',
+                  'index_ignore_chars' => {},
+                  'index_name' => 'fn',
+                  'index_type_command' => 'defspec',
+                  'node' => {},
+                  'number' => 25
+                },
+                'original_def_cmdname' => 'defspecx',
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 43,
+                'macro' => ''
+              },
+              'type' => 'def_line'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Special Form'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'category'
+                      },
+                      'parent' => {},
+                      'type' => 'bracketed_inserted'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces_inserted'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'parent' => {},
+                      'text' => 'foobar'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => 'va---riable'
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'var',
+                              'contents' => [],
+                              'parent' => {},
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 44,
+                                'macro' => ''
+                              }
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'r',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 44,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'text' => 'r:var'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'spaces_at_end'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'defspecx',
+              'extra' => {
+                'def_command' => 'defspec',
+                'def_parsed_hash' => {
+                  'category' => {},
+                  'name' => {}
+                },
+                'index_entry' => {
+                  'command' => {},
+                  'content' => [
+                    {}
+                  ],
+                  'content_normalized' => [
+                    {}
+                  ],
+                  'in_code' => 1,
+                  'index_at_command' => 'defspecx',
+                  'index_ignore_chars' => {},
+                  'index_name' => 'fn',
+                  'index_type_command' => 'defspec',
+                  'node' => {},
+                  'number' => 26
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -5978,7 +6234,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'b',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -5992,7 +6248,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 't',
+                      'cmdname' => 'r',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -6017,7 +6273,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 't:b'
+                      'text' => 'r:slanted'
                     },
                     {
                       'extra' => {
@@ -6054,7 +6310,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 25
+                  'number' => 27
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -6124,7 +6380,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'code',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -6163,7 +6419,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 'r:var'
+                      'text' => 'r:code'
                     },
                     {
                       'extra' => {
@@ -6200,7 +6456,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 26
+                  'number' => 28
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -6270,7 +6526,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'slanted',
+                              'cmdname' => 't',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -6309,7 +6565,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 'r:slanted'
+                      'text' => 'r:t'
                     },
                     {
                       'extra' => {
@@ -6346,7 +6602,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 27
+                  'number' => 29
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -6416,7 +6672,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'code',
+                              'cmdname' => 'var',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -6430,7 +6686,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 'code',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -6455,7 +6711,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 'r:code'
+                      'text' => 'code:var'
                     },
                     {
                       'extra' => {
@@ -6492,7 +6748,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 28
+                  'number' => 30
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -6562,7 +6818,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 't',
+                              'cmdname' => 'var',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -6576,7 +6832,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -6601,7 +6857,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 'r:t'
+                      'text' => 't:var'
                     },
                     {
                       'extra' => {
@@ -6638,7 +6894,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 29
+                  'number' => 31
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -6708,7 +6964,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -6747,7 +7003,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 'code:var'
+                      'text' => 'code:slanted'
                     },
                     {
                       'extra' => {
@@ -6784,7 +7040,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'defspec',
                   'node' => {},
-                  'number' => 30
+                  'number' => 32
                 },
                 'original_def_cmdname' => 'defspecx',
                 'spaces_before_argument' => ' '
@@ -6854,7 +7110,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -6877,298 +7133,6 @@ $result_trees{'definition_commands'} = {
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 51,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'text' => 't:var'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'defspecx',
-              'extra' => {
-                'def_command' => 'defspec',
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {}
-                },
-                'index_entry' => {
-                  'command' => {},
-                  'content' => [
-                    {}
-                  ],
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'in_code' => 1,
-                  'index_at_command' => 'defspecx',
-                  'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'defspec',
-                  'node' => {},
-                  'number' => 31
-                },
-                'original_def_cmdname' => 'defspecx',
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 51,
-                'macro' => ''
-              },
-              'type' => 'def_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'Special Form'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
-                      'parent' => {},
-                      'type' => 'bracketed_inserted'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces_inserted'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
-                      'parent' => {},
-                      'text' => 'foobar'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => 'va---riable'
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'slanted',
-                              'contents' => [],
-                              'parent' => {},
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 52,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'code',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 52,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'text' => 'code:slanted'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'defspecx',
-              'extra' => {
-                'def_command' => 'defspec',
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {}
-                },
-                'index_entry' => {
-                  'command' => {},
-                  'content' => [
-                    {}
-                  ],
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'in_code' => 1,
-                  'index_at_command' => 'defspecx',
-                  'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'defspec',
-                  'node' => {},
-                  'number' => 32
-                },
-                'original_def_cmdname' => 'defspecx',
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 52,
-                'macro' => ''
-              },
-              'type' => 'def_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'Special Form'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
-                      'parent' => {},
-                      'type' => 'bracketed_inserted'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces_inserted'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
-                      'parent' => {},
-                      'text' => 'foobar'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => 'va---riable'
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'slanted',
-                              'contents' => [],
-                              'parent' => {},
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 53,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 't',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 53,
                         'macro' => ''
                       }
                     },
@@ -7230,7 +7194,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 53,
+                'line_nr' => 51,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -7278,7 +7242,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 55,
+                'line_nr' => 53,
                 'macro' => ''
               }
             }
@@ -7290,7 +7254,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 39,
+            'line_nr' => 37,
             'macro' => ''
           }
         },
@@ -7343,7 +7307,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 57,
+                        'line_nr' => 55,
                         'macro' => ''
                       }
                     },
@@ -7385,7 +7349,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 57,
+                                'line_nr' => 55,
                                 'macro' => ''
                               }
                             }
@@ -7402,7 +7366,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 57,
+                        'line_nr' => 55,
                         'macro' => ''
                       }
                     },
@@ -7451,6 +7415,370 @@ $result_trees{'definition_commands'} = {
                   'number' => 34
                 },
                 'original_def_cmdname' => 'deffn'
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 55,
+                'macro' => ''
+              },
+              'type' => 'def_line'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Escape'
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [],
+                              'parent' => {},
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 'tie',
+                          'contents' => [],
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 56,
+                            'macro' => ''
+                          }
+                        },
+                        {
+                          'parent' => {},
+                          'text' => 'sequence'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'category'
+                      },
+                      'parent' => {},
+                      'type' => 'def_aggregate'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'parent' => {},
+                                  'text' => '\\f'
+                                }
+                              ],
+                              'parent' => {},
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 't',
+                          'contents' => [],
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 56,
+                            'macro' => ''
+                          }
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'args' => [
+                                    {
+                                      'contents' => [
+                                        {
+                                          'parent' => {},
+                                          'text' => 'f'
+                                        }
+                                      ],
+                                      'parent' => {},
+                                      'type' => 'brace_command_arg'
+                                    }
+                                  ],
+                                  'cmdname' => 'slanted',
+                                  'contents' => [],
+                                  'parent' => {},
+                                  'source_info' => {
+                                    'file_name' => '',
+                                    'line_nr' => 56,
+                                    'macro' => ''
+                                  }
+                                }
+                              ],
+                              'parent' => {},
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 'r',
+                          'contents' => [],
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 56,
+                            'macro' => ''
+                          }
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [],
+                              'parent' => {},
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 't',
+                          'contents' => [],
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 56,
+                            'macro' => ''
+                          }
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'parent' => {},
+                      'type' => 'def_aggregate'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'spaces_at_end'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'deffnx',
+              'extra' => {
+                'def_command' => 'deffn',
+                'def_parsed_hash' => {
+                  'category' => {},
+                  'name' => {}
+                },
+                'index_entry' => {
+                  'command' => {},
+                  'content' => [
+                    {}
+                  ],
+                  'content_normalized' => [
+                    {}
+                  ],
+                  'in_code' => 1,
+                  'index_at_command' => 'deffnx',
+                  'index_ignore_chars' => {},
+                  'index_name' => 'fn',
+                  'index_type_command' => 'deffn',
+                  'node' => {},
+                  'number' => 35
+                },
+                'original_def_cmdname' => 'deffnx',
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 56,
+                'macro' => ''
+              },
+              'type' => 'def_line'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Escape'
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [],
+                              'parent' => {},
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 'tie',
+                          'contents' => [],
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 57,
+                            'macro' => ''
+                          }
+                        },
+                        {
+                          'parent' => {},
+                          'text' => 'sequence'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'category'
+                      },
+                      'parent' => {},
+                      'type' => 'def_aggregate'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'parent' => {},
+                                  'text' => '\\f('
+                                }
+                              ],
+                              'parent' => {},
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 't',
+                          'contents' => [],
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 57,
+                            'macro' => ''
+                          }
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'args' => [
+                                    {
+                                      'contents' => [
+                                        {
+                                          'parent' => {},
+                                          'text' => 'fn'
+                                        }
+                                      ],
+                                      'parent' => {},
+                                      'type' => 'brace_command_arg'
+                                    }
+                                  ],
+                                  'cmdname' => 'slanted',
+                                  'contents' => [],
+                                  'parent' => {},
+                                  'source_info' => {
+                                    'file_name' => '',
+                                    'line_nr' => 57,
+                                    'macro' => ''
+                                  }
+                                }
+                              ],
+                              'parent' => {},
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 'r',
+                          'contents' => [],
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 57,
+                            'macro' => ''
+                          }
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [],
+                              'parent' => {},
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 't',
+                          'contents' => [],
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 57,
+                            'macro' => ''
+                          }
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'parent' => {},
+                      'type' => 'def_aggregate'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'spaces_at_end'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'deffnx',
+              'extra' => {
+                'def_command' => 'deffn',
+                'def_parsed_hash' => {
+                  'category' => {},
+                  'name' => {}
+                },
+                'index_entry' => {
+                  'command' => {},
+                  'content' => [
+                    {}
+                  ],
+                  'content_normalized' => [
+                    {}
+                  ],
+                  'in_code' => 1,
+                  'index_at_command' => 'deffnx',
+                  'index_ignore_chars' => {},
+                  'index_name' => 'fn',
+                  'index_type_command' => 'deffn',
+                  'node' => {},
+                  'number' => 36
+                },
+                'original_def_cmdname' => 'deffnx',
+                'spaces_before_argument' => ' '
               },
               'parent' => {},
               'source_info' => {
@@ -7514,7 +7842,7 @@ $result_trees{'definition_commands'} = {
                               'contents' => [
                                 {
                                   'parent' => {},
-                                  'text' => '\\f'
+                                  'text' => '\\f['
                                 }
                               ],
                               'parent' => {},
@@ -7540,7 +7868,7 @@ $result_trees{'definition_commands'} = {
                                       'contents' => [
                                         {
                                           'parent' => {},
-                                          'text' => 'f'
+                                          'text' => 'font'
                                         }
                                       ],
                                       'parent' => {},
@@ -7573,370 +7901,6 @@ $result_trees{'definition_commands'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
-                              'parent' => {},
-                              'type' => 'brace_command_arg'
-                            }
-                          ],
-                          'cmdname' => 't',
-                          'contents' => [],
-                          'parent' => {},
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 58,
-                            'macro' => ''
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
-                      'parent' => {},
-                      'type' => 'def_aggregate'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'deffnx',
-              'extra' => {
-                'def_command' => 'deffn',
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {}
-                },
-                'index_entry' => {
-                  'command' => {},
-                  'content' => [
-                    {}
-                  ],
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'in_code' => 1,
-                  'index_at_command' => 'deffnx',
-                  'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn',
-                  'node' => {},
-                  'number' => 35
-                },
-                'original_def_cmdname' => 'deffnx',
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 58,
-                'macro' => ''
-              },
-              'type' => 'def_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'Escape'
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [],
-                              'parent' => {},
-                              'type' => 'brace_command_arg'
-                            }
-                          ],
-                          'cmdname' => 'tie',
-                          'contents' => [],
-                          'parent' => {},
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 59,
-                            'macro' => ''
-                          }
-                        },
-                        {
-                          'parent' => {},
-                          'text' => 'sequence'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
-                      'parent' => {},
-                      'type' => 'def_aggregate'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'parent' => {},
-                                  'text' => '\\f('
-                                }
-                              ],
-                              'parent' => {},
-                              'type' => 'brace_command_arg'
-                            }
-                          ],
-                          'cmdname' => 't',
-                          'contents' => [],
-                          'parent' => {},
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 59,
-                            'macro' => ''
-                          }
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'args' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'parent' => {},
-                                          'text' => 'fn'
-                                        }
-                                      ],
-                                      'parent' => {},
-                                      'type' => 'brace_command_arg'
-                                    }
-                                  ],
-                                  'cmdname' => 'slanted',
-                                  'contents' => [],
-                                  'parent' => {},
-                                  'source_info' => {
-                                    'file_name' => '',
-                                    'line_nr' => 59,
-                                    'macro' => ''
-                                  }
-                                }
-                              ],
-                              'parent' => {},
-                              'type' => 'brace_command_arg'
-                            }
-                          ],
-                          'cmdname' => 'r',
-                          'contents' => [],
-                          'parent' => {},
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 59,
-                            'macro' => ''
-                          }
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [],
-                              'parent' => {},
-                              'type' => 'brace_command_arg'
-                            }
-                          ],
-                          'cmdname' => 't',
-                          'contents' => [],
-                          'parent' => {},
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 59,
-                            'macro' => ''
-                          }
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
-                      'parent' => {},
-                      'type' => 'def_aggregate'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'deffnx',
-              'extra' => {
-                'def_command' => 'deffn',
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {}
-                },
-                'index_entry' => {
-                  'command' => {},
-                  'content' => [
-                    {}
-                  ],
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'in_code' => 1,
-                  'index_at_command' => 'deffnx',
-                  'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deffn',
-                  'node' => {},
-                  'number' => 36
-                },
-                'original_def_cmdname' => 'deffnx',
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 59,
-                'macro' => ''
-              },
-              'type' => 'def_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'Escape'
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [],
-                              'parent' => {},
-                              'type' => 'brace_command_arg'
-                            }
-                          ],
-                          'cmdname' => 'tie',
-                          'contents' => [],
-                          'parent' => {},
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 60,
-                            'macro' => ''
-                          }
-                        },
-                        {
-                          'parent' => {},
-                          'text' => 'sequence'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
-                      'parent' => {},
-                      'type' => 'def_aggregate'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'parent' => {},
-                                  'text' => '\\f['
-                                }
-                              ],
-                              'parent' => {},
-                              'type' => 'brace_command_arg'
-                            }
-                          ],
-                          'cmdname' => 't',
-                          'contents' => [],
-                          'parent' => {},
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 60,
-                            'macro' => ''
-                          }
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'args' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'parent' => {},
-                                          'text' => 'font'
-                                        }
-                                      ],
-                                      'parent' => {},
-                                      'type' => 'brace_command_arg'
-                                    }
-                                  ],
-                                  'cmdname' => 'slanted',
-                                  'contents' => [],
-                                  'parent' => {},
-                                  'source_info' => {
-                                    'file_name' => '',
-                                    'line_nr' => 60,
-                                    'macro' => ''
-                                  }
-                                }
-                              ],
-                              'parent' => {},
-                              'type' => 'brace_command_arg'
-                            }
-                          ],
-                          'cmdname' => 'r',
-                          'contents' => [],
-                          'parent' => {},
-                          'source_info' => {
-                            'file_name' => '',
-                            'line_nr' => 60,
-                            'macro' => ''
-                          }
-                        },
-                        {
-                          'args' => [
-                            {
                               'contents' => [
                                 {
                                   'parent' => {},
@@ -7952,7 +7916,7 @@ $result_trees{'definition_commands'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 60,
+                            'line_nr' => 58,
                             'macro' => ''
                           }
                         }
@@ -7992,7 +7956,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 60,
+                        'line_nr' => 58,
                         'macro' => ''
                       }
                     },
@@ -8018,7 +7982,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 60,
+                                'line_nr' => 58,
                                 'macro' => ''
                               }
                             }
@@ -8035,7 +7999,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 60,
+                        'line_nr' => 58,
                         'macro' => ''
                       }
                     },
@@ -8060,7 +8024,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 60,
+                        'line_nr' => 58,
                         'macro' => ''
                       }
                     },
@@ -8107,7 +8071,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 60,
+                'line_nr' => 58,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -8152,7 +8116,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 61,
+                        'line_nr' => 59,
                         'macro' => ''
                       }
                     },
@@ -8199,7 +8163,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 61,
+                'line_nr' => 59,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -8230,7 +8194,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 62,
+                        'line_nr' => 60,
                         'macro' => ''
                       }
                     },
@@ -8256,7 +8220,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 62,
+                        'line_nr' => 60,
                         'macro' => ''
                       }
                     },
@@ -8287,7 +8251,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 63,
+                        'line_nr' => 61,
                         'macro' => ''
                       }
                     },
@@ -8308,7 +8272,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 63,
+                        'line_nr' => 61,
                         'macro' => ''
                       }
                     },
@@ -8330,7 +8294,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 63,
+                        'line_nr' => 61,
                         'macro' => ''
                       }
                     },
@@ -8357,7 +8321,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 64,
+                        'line_nr' => 62,
                         'macro' => ''
                       }
                     },
@@ -8400,7 +8364,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 65,
+                'line_nr' => 63,
                 'macro' => ''
               }
             }
@@ -8412,7 +8376,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 57,
+            'line_nr' => 55,
             'macro' => ''
           }
         },
@@ -8502,7 +8466,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -8535,7 +8499,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -8568,7 +8532,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -8601,7 +8565,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -8635,7 +8599,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 67,
+                                'line_nr' => 65,
                                 'macro' => ''
                               }
                             }
@@ -8652,7 +8616,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -8686,7 +8650,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 67,
+                                'line_nr' => 65,
                                 'macro' => ''
                               }
                             }
@@ -8703,7 +8667,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -8741,7 +8705,7 @@ $result_trees{'definition_commands'} = {
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
-                                        'line_nr' => 67,
+                                        'line_nr' => 65,
                                         'macro' => ''
                                       }
                                     }
@@ -8755,7 +8719,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 67,
+                                'line_nr' => 65,
                                 'macro' => ''
                               }
                             }
@@ -8772,7 +8736,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -8806,7 +8770,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 67,
+                                'line_nr' => 65,
                                 'macro' => ''
                               }
                             }
@@ -8823,7 +8787,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -8872,7 +8836,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -8905,7 +8869,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -8938,7 +8902,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -8971,7 +8935,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -9005,7 +8969,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 67,
+                                'line_nr' => 65,
                                 'macro' => ''
                               }
                             }
@@ -9022,7 +8986,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -9056,7 +9020,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 67,
+                                'line_nr' => 65,
                                 'macro' => ''
                               }
                             }
@@ -9073,7 +9037,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -9111,7 +9075,7 @@ $result_trees{'definition_commands'} = {
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
-                                        'line_nr' => 67,
+                                        'line_nr' => 65,
                                         'macro' => ''
                                       }
                                     }
@@ -9125,7 +9089,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 67,
+                                'line_nr' => 65,
                                 'macro' => ''
                               }
                             }
@@ -9142,7 +9106,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -9176,7 +9140,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 67,
+                                'line_nr' => 65,
                                 'macro' => ''
                               }
                             }
@@ -9193,7 +9157,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -9242,7 +9206,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -9275,7 +9239,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -9308,7 +9272,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -9341,7 +9305,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -9375,7 +9339,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 67,
+                                'line_nr' => 65,
                                 'macro' => ''
                               }
                             }
@@ -9392,7 +9356,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -9426,7 +9390,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 67,
+                                'line_nr' => 65,
                                 'macro' => ''
                               }
                             }
@@ -9443,7 +9407,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -9481,7 +9445,7 @@ $result_trees{'definition_commands'} = {
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
-                                        'line_nr' => 67,
+                                        'line_nr' => 65,
                                         'macro' => ''
                                       }
                                     }
@@ -9495,7 +9459,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 67,
+                                'line_nr' => 65,
                                 'macro' => ''
                               }
                             }
@@ -9512,7 +9476,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -9546,7 +9510,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 67,
+                                'line_nr' => 65,
                                 'macro' => ''
                               }
                             }
@@ -9563,7 +9527,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 67,
+                        'line_nr' => 65,
                         'macro' => ''
                       }
                     },
@@ -9608,7 +9572,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 67,
+                'line_nr' => 65,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -9698,7 +9662,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 68,
+                        'line_nr' => 66,
                         'macro' => ''
                       }
                     },
@@ -9731,7 +9695,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 68,
+                        'line_nr' => 66,
                         'macro' => ''
                       }
                     },
@@ -9764,7 +9728,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 68,
+                        'line_nr' => 66,
                         'macro' => ''
                       }
                     },
@@ -9797,7 +9761,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 68,
+                        'line_nr' => 66,
                         'macro' => ''
                       }
                     },
@@ -9831,7 +9795,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 68,
+                                'line_nr' => 66,
                                 'macro' => ''
                               }
                             }
@@ -9848,7 +9812,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 68,
+                        'line_nr' => 66,
                         'macro' => ''
                       }
                     },
@@ -9882,7 +9846,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 68,
+                                'line_nr' => 66,
                                 'macro' => ''
                               }
                             }
@@ -9899,7 +9863,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 68,
+                        'line_nr' => 66,
                         'macro' => ''
                       }
                     },
@@ -9937,7 +9901,7 @@ $result_trees{'definition_commands'} = {
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
-                                        'line_nr' => 68,
+                                        'line_nr' => 66,
                                         'macro' => ''
                                       }
                                     }
@@ -9951,7 +9915,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 68,
+                                'line_nr' => 66,
                                 'macro' => ''
                               }
                             }
@@ -9968,7 +9932,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 68,
+                        'line_nr' => 66,
                         'macro' => ''
                       }
                     },
@@ -10015,7 +9979,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 68,
+                'line_nr' => 66,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -10063,7 +10027,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 70,
+                'line_nr' => 68,
                 'macro' => ''
               }
             }
@@ -10075,7 +10039,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 67,
+            'line_nr' => 65,
             'macro' => ''
           }
         },
@@ -10105,7 +10069,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 72,
+                        'line_nr' => 70,
                         'macro' => ''
                       },
                       'type' => 'bracketed_def_content'
@@ -10192,7 +10156,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 72,
+                        'line_nr' => 70,
                         'macro' => ''
                       }
                     },
@@ -10248,7 +10212,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 72,
+                        'line_nr' => 70,
                         'macro' => ''
                       }
                     },
@@ -10302,7 +10266,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 72,
+                'line_nr' => 70,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -10324,7 +10288,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 73,
+                        'line_nr' => 71,
                         'macro' => ''
                       }
                     },
@@ -10350,7 +10314,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 73,
+                        'line_nr' => 71,
                         'macro' => ''
                       }
                     },
@@ -10376,7 +10340,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 73,
+                        'line_nr' => 71,
                         'macro' => ''
                       }
                     },
@@ -10419,7 +10383,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 74,
+                'line_nr' => 72,
                 'macro' => ''
               }
             }
@@ -10431,7 +10395,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 72,
+            'line_nr' => 70,
             'macro' => ''
           }
         },
@@ -10461,7 +10425,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 76,
+                        'line_nr' => 74,
                         'macro' => ''
                       },
                       'type' => 'bracketed_def_content'
@@ -10549,7 +10513,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 76,
+                                'line_nr' => 74,
                                 'macro' => ''
                               }
                             }
@@ -10566,7 +10530,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 76,
+                        'line_nr' => 74,
                         'macro' => ''
                       }
                     },
@@ -10623,7 +10587,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 76,
+                                'line_nr' => 74,
                                 'macro' => ''
                               }
                             }
@@ -10640,7 +10604,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 76,
+                        'line_nr' => 74,
                         'macro' => ''
                       }
                     },
@@ -10694,7 +10658,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 76,
+                'line_nr' => 74,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -10716,7 +10680,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 77,
+                        'line_nr' => 75,
                         'macro' => ''
                       }
                     },
@@ -10742,7 +10706,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 77,
+                        'line_nr' => 75,
                         'macro' => ''
                       }
                     },
@@ -10768,7 +10732,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 77,
+                        'line_nr' => 75,
                         'macro' => ''
                       }
                     },
@@ -10811,7 +10775,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 78,
+                'line_nr' => 76,
                 'macro' => ''
               }
             }
@@ -10823,7 +10787,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 76,
+            'line_nr' => 74,
             'macro' => ''
           }
         },
@@ -10838,7 +10802,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 80,
+            'line_nr' => 78,
             'macro' => ''
           }
         },
@@ -10884,7 +10848,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 81,
+                        'line_nr' => 79,
                         'macro' => ''
                       },
                       'type' => 'bracketed_def_content'
@@ -10961,7 +10925,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 81,
+                'line_nr' => 79,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -10983,7 +10947,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 82,
+                        'line_nr' => 80,
                         'macro' => ''
                       }
                     },
@@ -11026,7 +10990,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 83,
+                'line_nr' => 81,
                 'macro' => ''
               }
             }
@@ -11038,7 +11002,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 81,
+            'line_nr' => 79,
             'macro' => ''
           }
         },
@@ -11068,7 +11032,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 85,
+                        'line_nr' => 83,
                         'macro' => ''
                       },
                       'type' => 'bracketed_def_content'
@@ -11116,7 +11080,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 85,
+                        'line_nr' => 83,
                         'macro' => ''
                       }
                     },
@@ -11185,7 +11149,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 85,
+                'line_nr' => 83,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -11207,7 +11171,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 86,
+                        'line_nr' => 84,
                         'macro' => ''
                       }
                     },
@@ -11250,7 +11214,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 87,
+                'line_nr' => 85,
                 'macro' => ''
               }
             }
@@ -11262,7 +11226,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 85,
+            'line_nr' => 83,
             'macro' => ''
           }
         },
@@ -11306,7 +11270,7 @@ $result_trees{'definition_commands'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 90,
+                            'line_nr' => 88,
                             'macro' => ''
                           },
                           'type' => 'bracketed_def_content'
@@ -11393,7 +11357,7 @@ $result_trees{'definition_commands'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 90,
+                            'line_nr' => 88,
                             'macro' => ''
                           }
                         },
@@ -11449,7 +11413,7 @@ $result_trees{'definition_commands'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 90,
+                            'line_nr' => 88,
                             'macro' => ''
                           }
                         },
@@ -11503,7 +11467,7 @@ $result_trees{'definition_commands'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 90,
+                    'line_nr' => 88,
                     'macro' => ''
                   },
                   'type' => 'def_line'
@@ -11525,7 +11489,7 @@ $result_trees{'definition_commands'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 91,
+                            'line_nr' => 89,
                             'macro' => ''
                           }
                         },
@@ -11551,7 +11515,7 @@ $result_trees{'definition_commands'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 91,
+                            'line_nr' => 89,
                             'macro' => ''
                           }
                         },
@@ -11577,7 +11541,7 @@ $result_trees{'definition_commands'} = {
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 91,
+                            'line_nr' => 89,
                             'macro' => ''
                           }
                         },
@@ -11620,7 +11584,7 @@ $result_trees{'definition_commands'} = {
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 92,
+                    'line_nr' => 90,
                     'macro' => ''
                   }
                 }
@@ -11632,7 +11596,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 90,
+                'line_nr' => 88,
                 'macro' => ''
               }
             },
@@ -11662,7 +11626,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 93,
+                'line_nr' => 91,
                 'macro' => ''
               }
             }
@@ -11673,7 +11637,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 89,
+            'line_nr' => 87,
             'macro' => ''
           }
         },
@@ -11804,7 +11768,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 95,
+                'line_nr' => 93,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -11831,7 +11795,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 96,
+                        'line_nr' => 94,
                         'macro' => ''
                       }
                     },
@@ -11857,7 +11821,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 96,
+                        'line_nr' => 94,
                         'macro' => ''
                       }
                     },
@@ -11883,7 +11847,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 96,
+                        'line_nr' => 94,
                         'macro' => ''
                       }
                     },
@@ -11926,7 +11890,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 97,
+                'line_nr' => 95,
                 'macro' => ''
               }
             }
@@ -11938,7 +11902,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 95,
+            'line_nr' => 93,
             'macro' => ''
           }
         },
@@ -12028,7 +11992,7 @@ $result_trees{'definition_commands'} = {
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
-                                'line_nr' => 99,
+                                'line_nr' => 97,
                                 'macro' => ''
                               }
                             }
@@ -12045,7 +12009,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 99,
+                        'line_nr' => 97,
                         'macro' => ''
                       }
                     },
@@ -12105,7 +12069,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 99,
+                'line_nr' => 97,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -12136,7 +12100,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 100,
+                        'line_nr' => 98,
                         'macro' => ''
                       }
                     },
@@ -12162,7 +12126,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 100,
+                        'line_nr' => 98,
                         'macro' => ''
                       }
                     },
@@ -12205,7 +12169,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 101,
+                'line_nr' => 99,
                 'macro' => ''
               }
             }
@@ -12217,7 +12181,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 99,
+            'line_nr' => 97,
             'macro' => ''
           }
         },
@@ -12300,7 +12264,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 103,
+                        'line_nr' => 101,
                         'macro' => ''
                       }
                     },
@@ -12333,7 +12297,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 103,
+                        'line_nr' => 101,
                         'macro' => ''
                       }
                     },
@@ -12366,7 +12330,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 103,
+                        'line_nr' => 101,
                         'macro' => ''
                       }
                     },
@@ -12422,7 +12386,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 103,
+                        'line_nr' => 101,
                         'macro' => ''
                       }
                     },
@@ -12463,7 +12427,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 103,
+                        'line_nr' => 101,
                         'macro' => ''
                       }
                     },
@@ -12504,7 +12468,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 103,
+                        'line_nr' => 101,
                         'macro' => ''
                       }
                     },
@@ -12545,7 +12509,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 104,
+                        'line_nr' => 102,
                         'macro' => ''
                       }
                     },
@@ -12586,7 +12550,7 @@ $result_trees{'definition_commands'} = {
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 104,
+                        'line_nr' => 102,
                         'macro' => ''
                       }
                     },
@@ -12655,7 +12619,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 103,
+                'line_nr' => 101,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -12703,7 +12667,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 106,
+                'line_nr' => 104,
                 'macro' => ''
               }
             }
@@ -12715,7 +12679,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 103,
+            'line_nr' => 101,
             'macro' => ''
           }
         },
@@ -12728,6 +12692,542 @@ $result_trees{'definition_commands'} = {
         {
           'cmdname' => 'deftypefn',
           'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Library Function'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'category'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 106,
+                        'macro' => ''
+                      },
+                      'type' => 'bracketed_def_content'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'type'
+                      },
+                      'parent' => {},
+                      'text' => 'int'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'parent' => {},
+                      'text' => 'foobar'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => '  ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => '(',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'typearg'
+                      },
+                      'parent' => {},
+                      'text' => 'int'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'f---oo'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 106,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => '[',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => ',',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'typearg'
+                      },
+                      'parent' => {},
+                      'text' => 'float'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'b--ar'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 106,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => ']',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => ')',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'typearg'
+                      },
+                      'parent' => {},
+                      'text' => 'default'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'spaces_at_end'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'extra' => {
+                'def_command' => 'deftypefn',
+                'def_parsed_hash' => {
+                  'category' => {},
+                  'name' => {},
+                  'type' => {}
+                },
+                'index_entry' => {
+                  'command' => {},
+                  'content' => [
+                    {}
+                  ],
+                  'content_normalized' => [
+                    {}
+                  ],
+                  'in_code' => 1,
+                  'index_at_command' => 'deftypefn',
+                  'index_ignore_chars' => {},
+                  'index_name' => 'fn',
+                  'index_type_command' => 'deftypefn',
+                  'node' => {},
+                  'number' => 47
+                },
+                'original_def_cmdname' => 'deftypefn'
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 106,
+                'macro' => ''
+              },
+              'type' => 'def_line'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Library Function'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'category'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 107,
+                        'macro' => ''
+                      },
+                      'type' => 'bracketed_def_content'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'type'
+                      },
+                      'parent' => {},
+                      'text' => 'int'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'parent' => {},
+                      'text' => 'foobar'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => '  ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => '(',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'typearg'
+                      },
+                      'parent' => {},
+                      'text' => 'int'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'f---oo'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 107,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => '['
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'r',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 107,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => ',',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'typearg'
+                      },
+                      'parent' => {},
+                      'text' => 'float'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'b--ar'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 107,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => ']'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'r',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 107,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => ')',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'typearg'
+                      },
+                      'parent' => {},
+                      'text' => 'r'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'spaces_at_end'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'deftypefnx',
+              'extra' => {
+                'def_command' => 'deftypefn',
+                'def_parsed_hash' => {
+                  'category' => {},
+                  'name' => {},
+                  'type' => {}
+                },
+                'index_entry' => {
+                  'command' => {},
+                  'content' => [
+                    {}
+                  ],
+                  'content_normalized' => [
+                    {}
+                  ],
+                  'in_code' => 1,
+                  'index_at_command' => 'deftypefnx',
+                  'index_ignore_chars' => {},
+                  'index_name' => 'fn',
+                  'index_type_command' => 'deftypefn',
+                  'node' => {},
+                  'number' => 48
+                },
+                'original_def_cmdname' => 'deftypefnx',
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 107,
+                'macro' => ''
+              },
+              'type' => 'def_line'
+            },
             {
               'args' => [
                 {
@@ -12837,12 +13337,29 @@ $result_trees{'definition_commands'} = {
                       }
                     },
                     {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => '['
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
                       'extra' => {
-                        'def_role' => 'delimiter'
+                        'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => '[',
-                      'type' => 'delimiter'
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 108,
+                        'macro' => ''
+                      }
                     },
                     {
                       'extra' => {
@@ -12901,12 +13418,29 @@ $result_trees{'definition_commands'} = {
                       }
                     },
                     {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => ']'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
                       'extra' => {
-                        'def_role' => 'delimiter'
+                        'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => ']',
-                      'type' => 'delimiter'
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 108,
+                        'macro' => ''
+                      }
                     },
                     {
                       'extra' => {
@@ -12929,7 +13463,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'default'
+                      'text' => 'var'
                     },
                     {
                       'extra' => {
@@ -12942,9 +13476,10 @@ $result_trees{'definition_commands'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'block_line_arg'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
                 'def_parsed_hash' => {
@@ -12961,14 +13496,15 @@ $result_trees{'definition_commands'} = {
                     {}
                   ],
                   'in_code' => 1,
-                  'index_at_command' => 'deftypefn',
+                  'index_at_command' => 'deftypefnx',
                   'index_ignore_chars' => {},
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 47
+                  'number' => 49
                 },
-                'original_def_cmdname' => 'deftypefn'
+                'original_def_cmdname' => 'deftypefnx',
+                'spaces_before_argument' => ' '
               },
               'parent' => {},
               'source_info' => {
@@ -13099,7 +13635,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 'slanted',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -13180,7 +13716,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 'slanted',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -13213,7 +13749,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'r'
+                      'text' => 'slanted'
                     },
                     {
                       'extra' => {
@@ -13251,7 +13787,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 48
+                  'number' => 50
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -13385,10 +13921,10 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'var',
+                      'cmdname' => 'code',
                       'contents' => [],
                       'extra' => {
-                        'def_role' => 'arg'
+                        'def_role' => 'typearg'
                       },
                       'parent' => {},
                       'source_info' => {
@@ -13466,10 +14002,10 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'var',
+                      'cmdname' => 'code',
                       'contents' => [],
                       'extra' => {
-                        'def_role' => 'arg'
+                        'def_role' => 'typearg'
                       },
                       'parent' => {},
                       'source_info' => {
@@ -13499,7 +14035,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'var'
+                      'text' => 'code'
                     },
                     {
                       'extra' => {
@@ -13537,7 +14073,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 49
+                  'number' => 51
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -13671,7 +14207,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'slanted',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -13752,7 +14288,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'slanted',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -13785,7 +14321,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'slanted'
+                      'text' => 't'
                     },
                     {
                       'extra' => {
@@ -13823,7 +14359,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 50
+                  'number' => 52
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -13949,18 +14485,36 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => '['
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'b',
+                              'contents' => [],
                               'parent' => {},
-                              'text' => '['
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 112,
+                                'macro' => ''
+                              }
                             }
                           ],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'code',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
-                        'def_role' => 'typearg'
+                        'def_role' => 'arg'
                       },
                       'parent' => {},
                       'source_info' => {
@@ -14030,18 +14584,36 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => ']'
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'b',
+                              'contents' => [],
                               'parent' => {},
-                              'text' => ']'
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 112,
+                                'macro' => ''
+                              }
                             }
                           ],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'code',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
-                        'def_role' => 'typearg'
+                        'def_role' => 'arg'
                       },
                       'parent' => {},
                       'source_info' => {
@@ -14071,7 +14643,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'code'
+                      'text' => 't:b'
                     },
                     {
                       'extra' => {
@@ -14109,7 +14681,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 51
+                  'number' => 53
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -14235,15 +14807,33 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => '['
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'var',
+                              'contents' => [],
                               'parent' => {},
-                              'text' => '['
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 113,
+                                'macro' => ''
+                              }
                             }
                           ],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 't',
+                      'cmdname' => 'r',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -14316,15 +14906,33 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => ']'
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'var',
+                              'contents' => [],
                               'parent' => {},
-                              'text' => ']'
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 113,
+                                'macro' => ''
+                              }
                             }
                           ],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 't',
+                      'cmdname' => 'r',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -14357,7 +14965,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 't'
+                      'text' => 'r:var'
                     },
                     {
                       'extra' => {
@@ -14395,7 +15003,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 52
+                  'number' => 54
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -14533,7 +15141,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'b',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -14547,7 +15155,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 't',
+                      'cmdname' => 'r',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -14632,7 +15240,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'b',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -14646,7 +15254,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 't',
+                      'cmdname' => 'r',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -14679,7 +15287,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 't:b'
+                      'text' => 'r:slanted'
                     },
                     {
                       'extra' => {
@@ -14717,7 +15325,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 53
+                  'number' => 55
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -14855,7 +15463,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'code',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -14954,7 +15562,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'code',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -15001,7 +15609,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'r:var'
+                      'text' => 'r:code'
                     },
                     {
                       'extra' => {
@@ -15039,7 +15647,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 54
+                  'number' => 56
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -15177,7 +15785,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'slanted',
+                              'cmdname' => 't',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -15276,7 +15884,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'slanted',
+                              'cmdname' => 't',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -15323,7 +15931,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'r:slanted'
+                      'text' => 'r:t'
                     },
                     {
                       'extra' => {
@@ -15361,7 +15969,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 55
+                  'number' => 57
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -15499,7 +16107,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'code',
+                              'cmdname' => 'var',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -15513,10 +16121,10 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 'code',
                       'contents' => [],
                       'extra' => {
-                        'def_role' => 'arg'
+                        'def_role' => 'typearg'
                       },
                       'parent' => {},
                       'source_info' => {
@@ -15598,7 +16206,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'code',
+                              'cmdname' => 'var',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -15612,10 +16220,10 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 'code',
                       'contents' => [],
                       'extra' => {
-                        'def_role' => 'arg'
+                        'def_role' => 'typearg'
                       },
                       'parent' => {},
                       'source_info' => {
@@ -15645,7 +16253,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'r:code'
+                      'text' => 'code:var'
                     },
                     {
                       'extra' => {
@@ -15683,7 +16291,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 56
+                  'number' => 58
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -15821,7 +16429,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 't',
+                              'cmdname' => 'var',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -15835,7 +16443,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -15920,7 +16528,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 't',
+                              'cmdname' => 'var',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -15934,7 +16542,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -15967,7 +16575,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'r:t'
+                      'text' => 't:var'
                     },
                     {
                       'extra' => {
@@ -16005,7 +16613,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 57
+                  'number' => 59
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -16143,7 +16751,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -16242,7 +16850,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -16289,7 +16897,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'code:var'
+                      'text' => 'code:slanted'
                     },
                     {
                       'extra' => {
@@ -16327,7 +16935,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 58
+                  'number' => 60
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -16465,7 +17073,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -16564,7 +17172,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -16587,650 +17195,6 @@ $result_trees{'definition_commands'} = {
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 120,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => ')',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
-                      'parent' => {},
-                      'text' => 't:var'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'deftypefnx',
-              'extra' => {
-                'def_command' => 'deftypefn',
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {},
-                  'type' => {}
-                },
-                'index_entry' => {
-                  'command' => {},
-                  'content' => [
-                    {}
-                  ],
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'in_code' => 1,
-                  'index_at_command' => 'deftypefnx',
-                  'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deftypefn',
-                  'node' => {},
-                  'number' => 59
-                },
-                'original_def_cmdname' => 'deftypefnx',
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 120,
-                'macro' => ''
-              },
-              'type' => 'def_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'Library Function'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 121,
-                        'macro' => ''
-                      },
-                      'type' => 'bracketed_def_content'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'type'
-                      },
-                      'parent' => {},
-                      'text' => 'int'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
-                      'parent' => {},
-                      'text' => 'foobar'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => '  ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
-                      'parent' => {},
-                      'text' => 'int'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'parent' => {},
-                              'text' => 'f---oo'
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'var',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 121,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => '['
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'slanted',
-                              'contents' => [],
-                              'parent' => {},
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 121,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'code',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 121,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => ',',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
-                      'parent' => {},
-                      'text' => 'float'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'parent' => {},
-                              'text' => 'b--ar'
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'var',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 121,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => ']'
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'slanted',
-                              'contents' => [],
-                              'parent' => {},
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 121,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'code',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 121,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => ')',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
-                      'parent' => {},
-                      'text' => 'code:slanted'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'deftypefnx',
-              'extra' => {
-                'def_command' => 'deftypefn',
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {},
-                  'type' => {}
-                },
-                'index_entry' => {
-                  'command' => {},
-                  'content' => [
-                    {}
-                  ],
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'in_code' => 1,
-                  'index_at_command' => 'deftypefnx',
-                  'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deftypefn',
-                  'node' => {},
-                  'number' => 60
-                },
-                'original_def_cmdname' => 'deftypefnx',
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 121,
-                'macro' => ''
-              },
-              'type' => 'def_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'Library Function'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 122,
-                        'macro' => ''
-                      },
-                      'type' => 'bracketed_def_content'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'type'
-                      },
-                      'parent' => {},
-                      'text' => 'int'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
-                      'parent' => {},
-                      'text' => 'foobar'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => '  ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
-                      'parent' => {},
-                      'text' => 'int'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'parent' => {},
-                              'text' => 'f---oo'
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'var',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 122,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => '['
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'slanted',
-                              'contents' => [],
-                              'parent' => {},
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 122,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 't',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 122,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => ',',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
-                      'parent' => {},
-                      'text' => 'float'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'parent' => {},
-                              'text' => 'b--ar'
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'var',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 122,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => ']'
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'slanted',
-                              'contents' => [],
-                              'parent' => {},
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 122,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 't',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 122,
                         'macro' => ''
                       }
                     },
@@ -17301,7 +17265,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 122,
+                'line_nr' => 120,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -17349,7 +17313,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 124,
+                'line_nr' => 122,
                 'macro' => ''
               }
             }
@@ -17361,7 +17325,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 108,
+            'line_nr' => 106,
             'macro' => ''
           }
         },
@@ -17374,6 +17338,526 @@ $result_trees{'definition_commands'} = {
         {
           'cmdname' => 'deftypefn',
           'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Library Function'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'category'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 124,
+                        'macro' => ''
+                      },
+                      'type' => 'bracketed_def_content'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'type'
+                      },
+                      'parent' => {},
+                      'text' => 'int'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'parent' => {},
+                      'text' => 'foobar'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => '  ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => '(',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'typearg'
+                      },
+                      'parent' => {},
+                      'text' => 'i--nt'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'f---oo'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 124,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => '[',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => ',',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'typearg'
+                      },
+                      'parent' => {},
+                      'text' => 'float'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'b--ar'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 124,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => ']',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => ')',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'typearg'
+                      },
+                      'parent' => {},
+                      'text' => 'default'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'spaces_at_end'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'extra' => {
+                'def_command' => 'deftypefn',
+                'def_parsed_hash' => {
+                  'category' => {},
+                  'name' => {},
+                  'type' => {}
+                },
+                'index_entry' => {
+                  'command' => {},
+                  'content' => [
+                    {}
+                  ],
+                  'content_normalized' => [
+                    {}
+                  ],
+                  'in_code' => 1,
+                  'index_at_command' => 'deftypefn',
+                  'index_ignore_chars' => {},
+                  'index_name' => 'fn',
+                  'index_type_command' => 'deftypefn',
+                  'node' => {},
+                  'number' => 62
+                },
+                'original_def_cmdname' => 'deftypefn'
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 124,
+                'macro' => ''
+              },
+              'type' => 'def_line'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Library Function'
+                        }
+                      ],
+                      'extra' => {
+                        'def_role' => 'category'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 125,
+                        'macro' => ''
+                      },
+                      'type' => 'bracketed_def_content'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'type'
+                      },
+                      'parent' => {},
+                      'text' => 'int'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'name'
+                      },
+                      'parent' => {},
+                      'text' => 'foobar'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => '  ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => '(',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'i--nt'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'r',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 125,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'f---oo'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 125,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => '[',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => ',',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'typearg'
+                      },
+                      'parent' => {},
+                      'text' => 'float'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'b--ar'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'extra' => {
+                        'def_role' => 'arg'
+                      },
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 125,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => ']',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'delimiter'
+                      },
+                      'parent' => {},
+                      'text' => ')',
+                      'type' => 'delimiter'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => ' ',
+                      'type' => 'spaces'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'typearg'
+                      },
+                      'parent' => {},
+                      'text' => 'r'
+                    },
+                    {
+                      'extra' => {
+                        'def_role' => 'spaces'
+                      },
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'spaces_at_end'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'deftypefnx',
+              'extra' => {
+                'def_command' => 'deftypefn',
+                'def_parsed_hash' => {
+                  'category' => {},
+                  'name' => {},
+                  'type' => {}
+                },
+                'index_entry' => {
+                  'command' => {},
+                  'content' => [
+                    {}
+                  ],
+                  'content_normalized' => [
+                    {}
+                  ],
+                  'in_code' => 1,
+                  'index_at_command' => 'deftypefnx',
+                  'index_ignore_chars' => {},
+                  'index_name' => 'fn',
+                  'index_type_command' => 'deftypefn',
+                  'node' => {},
+                  'number' => 63
+                },
+                'original_def_cmdname' => 'deftypefnx',
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 125,
+                'macro' => ''
+              },
+              'type' => 'def_line'
+            },
             {
               'args' => [
                 {
@@ -17443,11 +17927,29 @@ $result_trees{'definition_commands'} = {
                       'type' => 'delimiter'
                     },
                     {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'i--nt'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
                       'extra' => {
-                        'def_role' => 'typearg'
+                        'def_role' => 'arg'
                       },
                       'parent' => {},
-                      'text' => 'i--nt'
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 126,
+                        'macro' => ''
+                      }
                     },
                     {
                       'extra' => {
@@ -17575,7 +18077,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'default'
+                      'text' => 'var'
                     },
                     {
                       'extra' => {
@@ -17588,9 +18090,10 @@ $result_trees{'definition_commands'} = {
                     }
                   ],
                   'parent' => {},
-                  'type' => 'block_line_arg'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'deftypefnx',
               'extra' => {
                 'def_command' => 'deftypefn',
                 'def_parsed_hash' => {
@@ -17607,14 +18110,15 @@ $result_trees{'definition_commands'} = {
                     {}
                   ],
                   'in_code' => 1,
-                  'index_at_command' => 'deftypefn',
+                  'index_at_command' => 'deftypefnx',
                   'index_ignore_chars' => {},
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 62
+                  'number' => 64
                 },
-                'original_def_cmdname' => 'deftypefn'
+                'original_def_cmdname' => 'deftypefnx',
+                'spaces_before_argument' => ' '
               },
               'parent' => {},
               'source_info' => {
@@ -17705,7 +18209,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 'slanted',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -17843,7 +18347,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'r'
+                      'text' => 'slanted'
                     },
                     {
                       'extra' => {
@@ -17881,7 +18385,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 63
+                  'number' => 65
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -17975,10 +18479,10 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'var',
+                      'cmdname' => 'code',
                       'contents' => [],
                       'extra' => {
-                        'def_role' => 'arg'
+                        'def_role' => 'typearg'
                       },
                       'parent' => {},
                       'source_info' => {
@@ -18113,7 +18617,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'var'
+                      'text' => 'code'
                     },
                     {
                       'extra' => {
@@ -18151,7 +18655,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 64
+                  'number' => 66
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -18245,7 +18749,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'slanted',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -18383,7 +18887,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'slanted'
+                      'text' => 't'
                     },
                     {
                       'extra' => {
@@ -18421,7 +18925,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 65
+                  'number' => 67
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -18507,18 +19011,36 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => 'i--nt'
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'b',
+                              'contents' => [],
                               'parent' => {},
-                              'text' => 'i--nt'
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 130,
+                                'macro' => ''
+                              }
                             }
                           ],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'code',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
-                        'def_role' => 'typearg'
+                        'def_role' => 'arg'
                       },
                       'parent' => {},
                       'source_info' => {
@@ -18653,7 +19175,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'code'
+                      'text' => 't:b'
                     },
                     {
                       'extra' => {
@@ -18691,7 +19213,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 66
+                  'number' => 68
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -18777,15 +19299,33 @@ $result_trees{'definition_commands'} = {
                         {
                           'contents' => [
                             {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => 'i--nt'
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'var',
+                              'contents' => [],
                               'parent' => {},
-                              'text' => 'i--nt'
+                              'source_info' => {
+                                'file_name' => '',
+                                'line_nr' => 131,
+                                'macro' => ''
+                              }
                             }
                           ],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 't',
+                      'cmdname' => 'r',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -18923,7 +19463,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 't'
+                      'text' => 'r:var'
                     },
                     {
                       'extra' => {
@@ -18961,7 +19501,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 67
+                  'number' => 69
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -19059,7 +19599,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'b',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -19073,7 +19613,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 't',
+                      'cmdname' => 'r',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -19211,7 +19751,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 't:b'
+                      'text' => 'r:slanted'
                     },
                     {
                       'extra' => {
@@ -19249,7 +19789,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 68
+                  'number' => 70
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -19347,7 +19887,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'code',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -19499,7 +20039,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'r:var'
+                      'text' => 'r:code'
                     },
                     {
                       'extra' => {
@@ -19537,7 +20077,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 69
+                  'number' => 71
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -19635,7 +20175,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'slanted',
+                              'cmdname' => 't',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -19787,7 +20327,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'r:slanted'
+                      'text' => 'r:t'
                     },
                     {
                       'extra' => {
@@ -19825,7 +20365,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 70
+                  'number' => 72
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -19923,7 +20463,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'code',
+                              'cmdname' => 'var',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -19937,10 +20477,10 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 'code',
                       'contents' => [],
                       'extra' => {
-                        'def_role' => 'arg'
+                        'def_role' => 'typearg'
                       },
                       'parent' => {},
                       'source_info' => {
@@ -20075,7 +20615,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'r:code'
+                      'text' => 'code:var'
                     },
                     {
                       'extra' => {
@@ -20113,7 +20653,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 71
+                  'number' => 73
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -20211,7 +20751,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 't',
+                              'cmdname' => 'var',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -20225,7 +20765,7 @@ $result_trees{'definition_commands'} = {
                           'type' => 'brace_command_arg'
                         }
                       ],
-                      'cmdname' => 'r',
+                      'cmdname' => 't',
                       'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
@@ -20363,7 +20903,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'r:t'
+                      'text' => 't:var'
                     },
                     {
                       'extra' => {
@@ -20401,7 +20941,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 72
+                  'number' => 74
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -20499,7 +21039,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -20651,7 +21191,7 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 'code:var'
+                      'text' => 'code:slanted'
                     },
                     {
                       'extra' => {
@@ -20689,7 +21229,7 @@ $result_trees{'definition_commands'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefn',
                   'node' => {},
-                  'number' => 73
+                  'number' => 75
                 },
                 'original_def_cmdname' => 'deftypefnx',
                 'spaces_before_argument' => ' '
@@ -20787,7 +21327,7 @@ $result_trees{'definition_commands'} = {
                                   'type' => 'brace_command_arg'
                                 }
                               ],
-                              'cmdname' => 'var',
+                              'cmdname' => 'slanted',
                               'contents' => [],
                               'parent' => {},
                               'source_info' => {
@@ -20939,582 +21479,6 @@ $result_trees{'definition_commands'} = {
                         'def_role' => 'typearg'
                       },
                       'parent' => {},
-                      'text' => 't:var'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'deftypefnx',
-              'extra' => {
-                'def_command' => 'deftypefn',
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {},
-                  'type' => {}
-                },
-                'index_entry' => {
-                  'command' => {},
-                  'content' => [
-                    {}
-                  ],
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'in_code' => 1,
-                  'index_at_command' => 'deftypefnx',
-                  'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deftypefn',
-                  'node' => {},
-                  'number' => 74
-                },
-                'original_def_cmdname' => 'deftypefnx',
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 138,
-                'macro' => ''
-              },
-              'type' => 'def_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'Library Function'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 139,
-                        'macro' => ''
-                      },
-                      'type' => 'bracketed_def_content'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'type'
-                      },
-                      'parent' => {},
-                      'text' => 'int'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
-                      'parent' => {},
-                      'text' => 'foobar'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => '  ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => 'i--nt'
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'slanted',
-                              'contents' => [],
-                              'parent' => {},
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 139,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'code',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 139,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'parent' => {},
-                              'text' => 'f---oo'
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'var',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 139,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => '[',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => ',',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
-                      'parent' => {},
-                      'text' => 'float'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'parent' => {},
-                              'text' => 'b--ar'
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'var',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 139,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => ']',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => ')',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
-                      'parent' => {},
-                      'text' => 'code:slanted'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => '
-',
-                      'type' => 'spaces_at_end'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'deftypefnx',
-              'extra' => {
-                'def_command' => 'deftypefn',
-                'def_parsed_hash' => {
-                  'category' => {},
-                  'name' => {},
-                  'type' => {}
-                },
-                'index_entry' => {
-                  'command' => {},
-                  'content' => [
-                    {}
-                  ],
-                  'content_normalized' => [
-                    {}
-                  ],
-                  'in_code' => 1,
-                  'index_at_command' => 'deftypefnx',
-                  'index_ignore_chars' => {},
-                  'index_name' => 'fn',
-                  'index_type_command' => 'deftypefn',
-                  'node' => {},
-                  'number' => 75
-                },
-                'original_def_cmdname' => 'deftypefnx',
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 139,
-                'macro' => ''
-              },
-              'type' => 'def_line'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'Library Function'
-                        }
-                      ],
-                      'extra' => {
-                        'def_role' => 'category'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 140,
-                        'macro' => ''
-                      },
-                      'type' => 'bracketed_def_content'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'type'
-                      },
-                      'parent' => {},
-                      'text' => 'int'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'name'
-                      },
-                      'parent' => {},
-                      'text' => 'foobar'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => '  ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => '(',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'args' => [
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => 'i--nt'
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'brace_command_arg'
-                                }
-                              ],
-                              'cmdname' => 'slanted',
-                              'contents' => [],
-                              'parent' => {},
-                              'source_info' => {
-                                'file_name' => '',
-                                'line_nr' => 140,
-                                'macro' => ''
-                              }
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 't',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 140,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'parent' => {},
-                              'text' => 'f---oo'
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'var',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 140,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => '[',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => ',',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
-                      'parent' => {},
-                      'text' => 'float'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'parent' => {},
-                              'text' => 'b--ar'
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'brace_command_arg'
-                        }
-                      ],
-                      'cmdname' => 'var',
-                      'contents' => [],
-                      'extra' => {
-                        'def_role' => 'arg'
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 140,
-                        'macro' => ''
-                      }
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => ']',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'delimiter'
-                      },
-                      'parent' => {},
-                      'text' => ')',
-                      'type' => 'delimiter'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'spaces'
-                      },
-                      'parent' => {},
-                      'text' => ' ',
-                      'type' => 'spaces'
-                    },
-                    {
-                      'extra' => {
-                        'def_role' => 'typearg'
-                      },
-                      'parent' => {},
                       'text' => 't:slanted'
                     },
                     {
@@ -21561,7 +21525,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 140,
+                'line_nr' => 138,
                 'macro' => ''
               },
               'type' => 'def_line'
@@ -21609,7 +21573,7 @@ $result_trees{'definition_commands'} = {
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 142,
+                'line_nr' => 140,
                 'macro' => ''
               }
             }
@@ -21621,7 +21585,7 @@ $result_trees{'definition_commands'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 126,
+            'line_nr' => 124,
             'macro' => ''
           }
         },
@@ -21638,17 +21602,13 @@ $result_trees{'definition_commands'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 7,
+        'line_nr' => 5,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'definition_commands'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'definition_commands'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'definition_commands'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[0]{'contents'}[0];
-$result_trees{'definition_commands'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'definition_commands'}{'contents'}[0]{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[0];
 $result_trees{'definition_commands'}{'contents'}[0]{'parent'} = $result_trees{'definition_commands'};
 $result_trees{'definition_commands'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[1]{'args'}[0];
@@ -24598,9 +24558,7 @@ $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[36]{'parent'} = 
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[37]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'parent'} = $result_trees{'definition_commands'};
 
-$result_texis{'definition_commands'} = '@setfilename definition_commands.info
-
-@node Top
+$result_texis{'definition_commands'} = '@node Top
 @top top section
 
 @node chapter
@@ -24743,8 +24701,7 @@ name
 ';
 
 
-$result_texts{'definition_commands'} = '
-top section
+$result_texts{'definition_commands'} = 'top section
 ***********
 
 1 chapter
@@ -25177,8 +25134,7 @@ produces:
 ';
 
 
-$result_converted{'html_text'}->{'definition_commands'} = '
-<div class="top-level-extent" id="Top">
+$result_converted{'html_text'}->{'definition_commands'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
  &nbsp; </p>
@@ -25352,9 +25308,7 @@ to <var class="var">font</var> (one-character name&nbsp;<var class="var">f</var>
 ';
 
 
-$result_converted{'xml'}->{'definition_commands'} = '<setfilename file="definition_commands.info" spaces=" ">definition_commands.info</setfilename>
-
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+$result_converted{'xml'}->{'definition_commands'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
 <top spaces=" "><sectiontitle>top section</sectiontitle>
 
 </top>

@@ -692,9 +692,7 @@ undef, {'test_file' => 'punctuation_small_case_accents_us_ascii.texi',
 # test that the node name that goes in the redirection file is reproducible.
 my @file_tests = (
 ['redirection_same_labels',
-'@setfilename redirection_same_labels.info
-
-@node Top
+'@node Top
 @top the top
 
 @menu
@@ -731,9 +729,7 @@ my @file_tests = (
 # The manual states that the footnotestyle should be in the preamble,
 # so it needs not to be fixed.
 ['footnotestyle_separate_late',
-'@setfilename footnotestyle_separate_late.info
-
-@node Top
+'@node Top
 @top top
 
 @node chap f
@@ -749,12 +745,10 @@ my @file_tests = (
 @footnotestyle separate
 ', {'test_split' => 'node'}, {'SPLIT' => 'node'}],
 ['itemize_arguments',
-'@setfilename itemize_arguments.info
-'.$itemize_arguments_text
+$itemize_arguments_text
 ],
 ['itemize_arguments_enable_encoding',
-'@setfilename itemize_arguments_enable_encoding.info
-'.$itemize_arguments_text
+$itemize_arguments_text
 , {'ENABLE_ENCODING' => 1}
 ],
 ['check_htmlxref_no_use_nodes',

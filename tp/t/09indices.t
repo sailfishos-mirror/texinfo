@@ -742,7 +742,7 @@ undef,
 ],
 );
 
-my @file_latex_tests_cases_tests = ('syncode_index_print_both',
+my @latex_tests_cases_tests = ('syncode_index_print_both',
   'empty_index_entry', 'empty_cindex_entry', 'empty_string_index_entry',
   'explicit_sort_key', 'transparent_sort_chars',
   'def_syn_indices', 'seeentry', 'subentry_and_sortas', 'subentries',
@@ -754,7 +754,7 @@ foreach my $test (@test_formatted) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
   push @{$test->[2]->{'test_formats'}}, 'latex'
-    if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests);
+    if (grep {$_ eq $test->[0]} @latex_tests_cases_tests);
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
