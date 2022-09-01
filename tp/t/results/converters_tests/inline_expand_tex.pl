@@ -781,7 +781,7 @@ raw $\\underline{a < b <literal>tex \\hbox{ code }</literal>}$ ``
 </para>';
 
 
-$result_converted{'latex'}->{'inline_expand_tex'} = '
+$result_converted{'latex_text'}->{'inline_expand_tex'} = '
 , 
 , 
 ,

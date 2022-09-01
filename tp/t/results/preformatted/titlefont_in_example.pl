@@ -167,7 +167,7 @@ Text.
 ';
 
 
-$result_converted{'latex'}->{'titlefont_in_example'} = '\\begin{GNUTexinfoindented}
+$result_converted{'latex_text'}->{'titlefont_in_example'} = '\\begin{GNUTexinfoindented}
 {\\huge \\bfseries Title}\\begin{GNUTexinfopreformatted}
 \\ttfamily 
 Text.

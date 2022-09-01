@@ -253,7 +253,7 @@ qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
 </p>';
 
 
-$result_converted{'latex'}->{'noindent_indent'} = '
+$result_converted{'latex_text'}->{'noindent_indent'} = '
 First para
 
 \\noindent{}qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 

@@ -143,7 +143,7 @@ $result_converted{'html_text'}->{'indent_in_quotation'} = '<blockquote class="qu
 ';
 
 
-$result_converted{'latex'}->{'indent_in_quotation'} = '\\begin{quote}
+$result_converted{'latex_text'}->{'indent_in_quotation'} = '\\begin{quote}
 indent in quotation
 \\end{quote}
 ';

@@ -646,7 +646,7 @@ $\\underline{a < b <literal>tex \\hbox{ code }</literal>}$ ``
 ';
 
 
-$result_converted{'latex'}->{'raw_block_commands_expand_tex'} = '
+$result_converted{'latex_text'}->{'raw_block_commands_expand_tex'} = '
 
 
 

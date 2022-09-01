@@ -339,7 +339,7 @@ $result_floats{'example_in_cartouche'} = {};
 
 
 
-$result_converted{'latex'}->{'example_in_cartouche'} = '
+$result_converted{'latex_text'}->{'example_in_cartouche'} = '
 \\begin{document}
 \\begin{mdframed}[style=GNUTexinfocartouche]
 Normal cartouche

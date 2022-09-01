@@ -481,7 +481,7 @@ $result_converted{'xml'}->{'text_on_example_command_line'} = '<example spaces=" 
 ';
 
 
-$result_converted{'latex'}->{'text_on_example_command_line'} = '\\begin{GNUTexinfoindented}
+$result_converted{'latex_text'}->{'text_on_example_command_line'} = '\\begin{GNUTexinfoindented}
 \\end{GNUTexinfoindented}
 
 \\begin{GNUTexinfoindented}

@@ -209,7 +209,7 @@ $result_floats{'titlepage_and_setchapternewpage_odd'} = {};
 
 
 
-$result_converted{'latex'}->{'titlepage_and_setchapternewpage_odd'} = '
+$result_converted{'latex_text'}->{'titlepage_and_setchapternewpage_odd'} = '
 
 
 \\begin{document}

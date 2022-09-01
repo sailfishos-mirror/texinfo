@@ -860,7 +860,7 @@ $result_converted{'docbook'}->{'weird_accents'} = '<chapter label="1" id="chap">
 ';
 
 
-$result_converted{'latex'}->{'weird_accents'} = '
+$result_converted{'latex_text'}->{'weird_accents'} = '
 \\begin{document}
 \\label{anchor:Top}%
 \\chapter{{Chapter}}

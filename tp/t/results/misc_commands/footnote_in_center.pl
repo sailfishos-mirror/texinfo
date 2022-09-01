@@ -358,7 +358,7 @@ shows an important feature of the centered text.
 ';
 
 
-$result_converted{'latex'}->{'footnote_in_center'} = '\\begin{center}
+$result_converted{'latex_text'}->{'footnote_in_center'} = '\\begin{center}
 Centered text with a footnote\\footnote{This footnote
 shows an important feature of the centered text.
 

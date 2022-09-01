@@ -197,9 +197,9 @@ $result_converted_errors{'html_text'}->{'space_in_image'} = [
 
 
 
-$result_converted{'latex'}->{'space_in_image'} = '\\includegraphics[width=bb,height=cc]{a}. \\includegraphics{f}.';
+$result_converted{'latex_text'}->{'space_in_image'} = '\\includegraphics[width=bb,height=cc]{a}. \\includegraphics{f}.';
 
-$result_converted_errors{'latex'}->{'space_in_image'} = [
+$result_converted_errors{'latex_text'}->{'space_in_image'} = [
   {
     'error_line' => 'warning: @image file `a\' (for LaTeX) not found
 ',

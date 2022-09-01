@@ -1075,7 +1075,7 @@ Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 ';
 
 
-$result_converted{'latex'}->{'unnumbered_top_without_node_sections'} = '\\begin{document}
+$result_converted{'latex_text'}->{'unnumbered_top_without_node_sections'} = '\\begin{document}
 \\chapter*{{unnumbered}}
 \\label{anchor:a-node}%
 

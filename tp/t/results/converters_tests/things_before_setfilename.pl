@@ -1769,7 +1769,7 @@ $result_converted{'docbook'}->{'things_before_setfilename'} = '<chapter label="1
 ';
 
 
-$result_converted{'latex'}->{'things_before_setfilename'} = '
+$result_converted{'latex_text'}->{'things_before_setfilename'} = '
 \\begin{document}
 \\tableofcontents\\newpage
 \\label{anchor:Top}%

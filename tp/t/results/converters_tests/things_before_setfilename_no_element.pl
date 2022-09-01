@@ -1454,7 +1454,7 @@ $result_converted{'docbook'}->{'things_before_setfilename_no_element'} = '
 ';
 
 
-$result_converted{'latex'}->{'things_before_setfilename_no_element'} = '
+$result_converted{'latex_text'}->{'things_before_setfilename_no_element'} = '
 \\begin{document}
 Ref to anchor
 \\hyperref[anchor:An-anchor]{[An anchor], page~\\pageref*{anchor:An-anchor}}

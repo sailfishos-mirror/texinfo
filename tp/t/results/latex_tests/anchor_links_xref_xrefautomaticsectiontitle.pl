@@ -1187,7 +1187,7 @@ $result_floats{'anchor_links_xref_xrefautomaticsectiontitle'} = {};
 
 
 
-$result_converted{'latex'}->{'anchor_links_xref_xrefautomaticsectiontitle'} = '
+$result_converted{'latex_text'}->{'anchor_links_xref_xrefautomaticsectiontitle'} = '
 \\begin{document}
 \\label{anchor:node-before}%
 

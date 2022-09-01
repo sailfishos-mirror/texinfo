@@ -161,7 +161,7 @@ $result_converted{'html_text'}->{'definfoenclose_with_empty_arg'} = '
 ';
 
 
-$result_converted{'latex'}->{'definfoenclose_with_empty_arg'} = '
+$result_converted{'latex_text'}->{'definfoenclose_with_empty_arg'} = '
 
 My something.
 

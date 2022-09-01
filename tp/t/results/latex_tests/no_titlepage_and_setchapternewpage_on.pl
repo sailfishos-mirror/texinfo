@@ -105,7 +105,7 @@ $result_floats{'no_titlepage_and_setchapternewpage_on'} = {};
 
 
 
-$result_converted{'latex'}->{'no_titlepage_and_setchapternewpage_on'} = '\\makeatletter
+$result_converted{'latex_text'}->{'no_titlepage_and_setchapternewpage_on'} = '\\makeatletter
 \\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
 \\makeatother
 \\GNUTexinfosetsingleheader{}%

@@ -486,7 +486,7 @@ second line
 ';
 
 
-$result_converted{'latex'}->{'comments_in_example'} = 'Example with comments 2 lines
+$result_converted{'latex_text'}->{'comments_in_example'} = 'Example with comments 2 lines
 \\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
 \\ttfamily line second line \\end{GNUTexinfopreformatted}

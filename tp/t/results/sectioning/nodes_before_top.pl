@@ -911,7 +911,7 @@ $result_floats{'nodes_before_top'} = {};
 
 
 
-$result_converted{'latex'}->{'nodes_before_top'} = '
+$result_converted{'latex_text'}->{'nodes_before_top'} = '
 \\begin{document}
 \\label{anchor:first}%
 

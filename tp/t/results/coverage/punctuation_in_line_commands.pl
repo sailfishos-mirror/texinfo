@@ -1279,7 +1279,7 @@ $result_converted{'xml'}->{'punctuation_in_line_commands'} = '
 ';
 
 
-$result_converted{'latex'}->{'punctuation_in_line_commands'} = '
+$result_converted{'latex_text'}->{'punctuation_in_line_commands'} = '
 \\part*{{top! After punc}}
 \\label{anchor:node_0021-After-punc}%
 

@@ -1124,7 +1124,7 @@ $result_converted{'docbook'}->{'spaces_in_node_names'} = '<anchor id="a-"/>
 </para>';
 
 
-$result_converted{'latex'}->{'spaces_in_node_names'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'spaces_in_node_names'} = '\\label{anchor:Top}%
 \\label{anchor:a-}%
 
 \\label{anchor:b-}%

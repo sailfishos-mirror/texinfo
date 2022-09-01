@@ -1207,7 +1207,7 @@ foreach my $test (@test_cases) {
         unless (exists($test->[2]->{'full_document'}));
     push @{$test->[2]->{'test_formats'}}, 'file_latex';
   } else {
-    push @{$test->[2]->{'test_formats'}}, 'latex';
+    push @{$test->[2]->{'test_formats'}}, 'latex_text';
   }
   push @{$test->[2]->{'test_formats'}}, 'info'
     if ($info_tests{$test->[0]});

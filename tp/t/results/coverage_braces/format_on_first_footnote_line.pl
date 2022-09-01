@@ -314,7 +314,7 @@ $result_converted{'html_text'}->{'format_on_first_footnote_line'} = '<p>Texte<a 
 ';
 
 
-$result_converted{'latex'}->{'format_on_first_footnote_line'} = 'Texte\\footnote{\\begin{quote}
+$result_converted{'latex_text'}->{'format_on_first_footnote_line'} = 'Texte\\footnote{\\begin{quote}
 in quotation on the first footnote line
 \\end{quote}
 }.

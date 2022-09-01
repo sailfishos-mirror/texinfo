@@ -153,7 +153,7 @@ after empty line
 ';
 
 
-$result_converted{'latex'}->{'empty_line'} = '\\begin{GNUTexinfoindented}
+$result_converted{'latex_text'}->{'empty_line'} = '\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
 \\ttfamily example
 

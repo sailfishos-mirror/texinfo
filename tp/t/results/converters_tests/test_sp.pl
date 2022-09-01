@@ -429,7 +429,7 @@ Now lone @sp:
 </para>';
 
 
-$result_converted{'latex'}->{'test_sp'} = 'Para
+$result_converted{'latex_text'}->{'test_sp'} = 'Para
 \\vskip 1\\baselineskip %
 other para
 Now lone @sp:

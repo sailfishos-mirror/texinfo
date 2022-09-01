@@ -71,7 +71,7 @@ $result_converted{'html_text'}->{'test_today'} = '<p>a sunny day.</p>';
 $result_converted{'xml'}->{'test_today'} = '<para><today/>.</para>';
 
 
-$result_converted{'latex'}->{'test_today'} = '\\today{}.';
+$result_converted{'latex_text'}->{'test_today'} = '\\today{}.';
 
 
 $result_converted{'docbook'}->{'test_today'} = '<para>a sunny day.</para>';

@@ -213,7 +213,7 @@ $result_converted{'docbook'}->{'email_table_command_as_argument'} = '<variableli
 </para></listitem></varlistentry></variablelist>';
 
 
-$result_converted{'latex'}->{'email_table_command_as_argument'} = '\\begin{description}
+$result_converted{'latex_text'}->{'email_table_command_as_argument'} = '\\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 www-discuss@gnu.org}}]
 discussion

@@ -463,7 +463,7 @@ $result_floats{'titlepage_no_author'} = {};
 
 
 
-$result_converted{'latex'}->{'titlepage_no_author'} = '
+$result_converted{'latex_text'}->{'titlepage_no_author'} = '
 \\begin{document}
 
 \\GNUTexinfofrontmatter

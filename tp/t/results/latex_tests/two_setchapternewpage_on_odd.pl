@@ -159,7 +159,7 @@ $result_floats{'two_setchapternewpage_on_odd'} = {};
 
 
 
-$result_converted{'latex'}->{'two_setchapternewpage_on_odd'} = '\\makeatletter
+$result_converted{'latex_text'}->{'two_setchapternewpage_on_odd'} = '\\makeatletter
 \\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
 \\makeatother
 \\GNUTexinfosetsingleheader{}%

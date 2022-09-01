@@ -569,7 +569,7 @@ $result_converted{'xml'}->{'lettered_accent_and_spaces'} = '<para><accent type="
 ';
 
 
-$result_converted{'latex'}->{'lettered_accent_and_spaces'} = '\\r{a}
+$result_converted{'latex_text'}->{'lettered_accent_and_spaces'} = '\\r{a}
 
 \\r{a}
 

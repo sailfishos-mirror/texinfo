@@ -799,7 +799,7 @@ $result_floats{'titlepage_classical'} = {};
 
 
 
-$result_converted{'latex'}->{'titlepage_classical'} = '
+$result_converted{'latex_text'}->{'titlepage_classical'} = '
 
 
 \\begin{document}

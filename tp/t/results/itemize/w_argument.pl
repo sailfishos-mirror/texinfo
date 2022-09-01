@@ -241,7 +241,7 @@ $result_converted{'html_text'}->{'w_argument'} = '<ul class="itemize mark-none">
 ';
 
 
-$result_converted{'latex'}->{'w_argument'} = '\\begin{itemize}[label={}]
+$result_converted{'latex_text'}->{'w_argument'} = '\\begin{itemize}[label={}]
 \\item \\texttt{{-}{-}build=} platform on which the program is compiled,
 \\item \\texttt{{-}{-}target=} target platform on which the program is processed.
 \\end{itemize}

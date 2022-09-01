@@ -578,7 +578,7 @@ $result_floats{'anchor_in_copying_insertcopying_chap'} = {};
 
 
 
-$result_converted{'latex'}->{'anchor_in_copying_insertcopying_chap'} = '
+$result_converted{'latex_text'}->{'anchor_in_copying_insertcopying_chap'} = '
 \\begin{document}
 \\label{anchor:Top}%
 \\chapter{{Chap}}

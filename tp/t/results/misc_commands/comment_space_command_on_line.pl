@@ -1059,7 +1059,7 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 ';
 
 
-$result_converted{'latex'}->{'comment_space_command_on_line'} = '
+$result_converted{'latex_text'}->{'comment_space_command_on_line'} = '
 \\label{anchor:Top}%
 \\chapter{{Chapter\\ {}}}
 \\label{anchor:chap}%

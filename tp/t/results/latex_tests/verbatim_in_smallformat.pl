@@ -183,7 +183,7 @@ $result_floats{'verbatim_in_smallformat'} = {};
 
 
 
-$result_converted{'latex'}->{'verbatim_in_smallformat'} = '
+$result_converted{'latex_text'}->{'verbatim_in_smallformat'} = '
 \\begin{document}
 \\begin{verbatim}
 ... still verbatim, but in a smaller font ...

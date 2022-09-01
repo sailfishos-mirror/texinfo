@@ -332,7 +332,7 @@ $result_converted_errors{'html'}->{'format_in_titlepage'} = [
 
 
 
-$result_converted{'latex'}->{'format_in_titlepage'} = '
+$result_converted{'latex_text'}->{'format_in_titlepage'} = '
 \\begin{document}
 
 \\GNUTexinfofrontmatter

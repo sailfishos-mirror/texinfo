@@ -2083,7 +2083,7 @@ quotation2
 ';
 
 
-$result_converted{'latex'}->{'exdent_and_formats'} = '\\begin{GNUTexinfoindented}
+$result_converted{'latex_text'}->{'exdent_and_formats'} = '\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
 \\ttfamily \\ Example   Hoho.\\ \\TeX{}\\ .\\ \\leavevmode{}\\\\\\ @.
 

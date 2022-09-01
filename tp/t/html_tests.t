@@ -493,7 +493,7 @@ in <b>html</b> in copying ``
 ['mathjax_with_texinfo',
 $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax'}],
 ['mathjax_with_texinfo_enable_encoding',
-$mathjax_with_texinfo, {'test_formats' => ['latex', 'file_latex'],
+$mathjax_with_texinfo, {'test_formats' => ['latex_text', 'file_latex'],
                         'full_document' => 1},
 {'HTML_MATH' => 'mathjax', 'ENABLE_ENCODING' => 1,},],
 ['mathjax_with_texinfo_no_convert_to_latex',

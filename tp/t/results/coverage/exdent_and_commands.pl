@@ -484,7 +484,7 @@ $result_converted{'xml'}->{'exdent_and_commands'} = '<quotation endspaces=" ">
 ';
 
 
-$result_converted{'latex'}->{'exdent_and_commands'} = '\\begin{quote}
+$result_converted{'latex_text'}->{'exdent_and_commands'} = '\\begin{quote}
 quotation1
 \\leavevmode{}\\\\
 \\hbox{\\kern -\\leftmargin}%

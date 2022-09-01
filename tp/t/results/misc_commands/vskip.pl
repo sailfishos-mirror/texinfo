@@ -57,7 +57,7 @@ $result_converted{'plaintext'}->{'vskip'} = '';
 $result_converted{'html_text'}->{'vskip'} = '';
 
 
-$result_converted{'latex'}->{'vskip'} = '\\vskip 0pt plus 1filll
+$result_converted{'latex_text'}->{'vskip'} = '\\vskip 0pt plus 1filll
 ';
 
 

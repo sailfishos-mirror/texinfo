@@ -714,7 +714,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 ';
 
 
-$result_converted{'latex'}->{'ref_in_copying'} = '
+$result_converted{'latex_text'}->{'ref_in_copying'} = '
 \\begin{document}
 \\label{anchor:Top}%
 \\chapter{{GFDL}}

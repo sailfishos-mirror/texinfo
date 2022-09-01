@@ -569,7 +569,7 @@ $result_converted{'docbook'}->{'node_sectop_before_lone_node_Top'} = '<chapter l
 ';
 
 
-$result_converted{'latex'}->{'node_sectop_before_lone_node_Top'} = '
+$result_converted{'latex_text'}->{'node_sectop_before_lone_node_Top'} = '
 \\begin{document}
 \\part*{{top sectionning}}
 \\label{anchor:node-before}%

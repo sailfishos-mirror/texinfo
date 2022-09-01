@@ -170,7 +170,7 @@ $anchor_in_titlepage_text, {}, {'SHOW_TITLE' => 1}
 foreach my $test (@test_formatted) {
   push @{$test->[2]->{'test_formats'}}, 'info';
   push @{$test->[2]->{'test_formats'}}, 'html';
-  push @{$test->[2]->{'test_formats'}}, 'latex';
+  push @{$test->[2]->{'test_formats'}}, 'latex_text';
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 

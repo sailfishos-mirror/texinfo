@@ -107,7 +107,7 @@ $result_converted{'xml'}->{'titlefont_in_center'} = '
 ';
 
 
-$result_converted{'latex'}->{'titlefont_in_center'} = '
+$result_converted{'latex_text'}->{'titlefont_in_center'} = '
 \\begin{center}
 {\\huge \\bfseries A manual}
 \\end{center}

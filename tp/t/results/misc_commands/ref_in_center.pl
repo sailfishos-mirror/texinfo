@@ -531,7 +531,7 @@ $result_converted{'html_text'}->{'ref_in_center'} = '<div class="top-level-exten
 ';
 
 
-$result_converted{'latex'}->{'ref_in_center'} = '\\begin{document}
+$result_converted{'latex_text'}->{'ref_in_center'} = '\\begin{document}
 \\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chap}%

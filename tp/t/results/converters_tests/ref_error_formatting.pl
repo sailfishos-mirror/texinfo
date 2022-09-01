@@ -4597,7 +4597,7 @@ $result_converted{'docbook'}->{'ref_error_formatting'} = '
 </para>';
 
 
-$result_converted{'latex'}->{'ref_error_formatting'} = '
+$result_converted{'latex_text'}->{'ref_error_formatting'} = '
 \\texttt{@ref\\{node\\}} node
 
 \\texttt{@ref\\{,cross ref name\\}} 

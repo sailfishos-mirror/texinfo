@@ -494,7 +494,7 @@ $result_converted{'docbook'}->{'footnote_no_number'} = '<chapter label="1" id="c
 ';
 
 
-$result_converted{'latex'}->{'footnote_no_number'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'footnote_no_number'} = '\\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chap}%
 

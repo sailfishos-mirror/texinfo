@@ -586,7 +586,7 @@ $result_converted{'xml'}->{'symbol_after_command'} = '<table commandarg="asis" s
 </para>';
 
 
-$result_converted{'latex'}->{'symbol_after_command'} = '\\begin{description}
+$result_converted{'latex_text'}->{'symbol_after_command'} = '\\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 . dot}}]
 \\item[{\\parbox[b]{\\linewidth}{%

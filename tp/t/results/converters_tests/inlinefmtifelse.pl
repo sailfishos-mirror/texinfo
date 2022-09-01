@@ -779,7 +779,7 @@ else plaintext.
 </para>';
 
 
-$result_converted{'latex'}->{'inlinefmtifelse'} = 'else html no if.
+$result_converted{'latex_text'}->{'inlinefmtifelse'} = 'else html no if.
 else html.
 
 .

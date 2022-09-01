@@ -1450,7 +1450,7 @@ $result_converted{'docbook'}->{'form_feeds'} = '<anchor id="first-node"/>
 ';
 
 
-$result_converted{'latex'}->{'form_feeds'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'form_feeds'} = '\\label{anchor:Top}%
 \\label{anchor:first-node}%
 
 \\par{}

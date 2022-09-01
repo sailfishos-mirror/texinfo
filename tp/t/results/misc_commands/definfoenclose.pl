@@ -462,7 +462,7 @@ $result_converted{'html_text'}->{'definfoenclose'} = '
 </p>';
 
 
-$result_converted{'latex'}->{'definfoenclose'} = '
+$result_converted{'latex_text'}->{'definfoenclose'} = '
 definfoenclose phoo,//,\\textbackslash{}  
 bar
 

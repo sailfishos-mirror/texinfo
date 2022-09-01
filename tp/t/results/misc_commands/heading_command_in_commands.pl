@@ -355,7 +355,7 @@ $result_converted{'html_text'}->{'heading_command_in_commands'} = '
 ';
 
 
-$result_converted{'latex'}->{'heading_command_in_commands'} = '
+$result_converted{'latex_text'}->{'heading_command_in_commands'} = '
 \\texttt{
 \\newpagestyle{custom}{%
 \\sethead[in code][][]%

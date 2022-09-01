@@ -1077,7 +1077,7 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes_separate'} = '<div clas
 </div>';
 
 
-$result_converted{'latex'}->{'two_footnotes_in_nodes_separate'} = '\\begin{document}
+$result_converted{'latex_text'}->{'two_footnotes_in_nodes_separate'} = '\\begin{document}
 \\label{anchor:Top}%
 \\chapter{{chapter}}
 \\label{anchor:chapter}%

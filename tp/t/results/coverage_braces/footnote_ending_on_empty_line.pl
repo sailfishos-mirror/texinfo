@@ -107,7 +107,7 @@ $result_converted{'html_text'}->{'footnote_ending_on_empty_line'} = '<p>text<a c
 ';
 
 
-$result_converted{'latex'}->{'footnote_ending_on_empty_line'} = 'text\\footnote{in footnote.
+$result_converted{'latex_text'}->{'footnote_ending_on_empty_line'} = 'text\\footnote{in footnote.
 
 }';
 

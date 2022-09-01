@@ -105,7 +105,7 @@ $result_floats{'no_titlepage_and_setchapternewpage_odd'} = {};
 
 
 
-$result_converted{'latex'}->{'no_titlepage_and_setchapternewpage_odd'} = '\\GNUTexinfosetdoubleheader{}%
+$result_converted{'latex_text'}->{'no_titlepage_and_setchapternewpage_odd'} = '\\GNUTexinfosetdoubleheader{}%
 \\begin{document}
 ';
 

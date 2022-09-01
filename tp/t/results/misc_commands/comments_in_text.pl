@@ -214,7 +214,7 @@ $result_converted{'html_text'}->{'comments_in_text'} = '
 <p>Comment at the end of the line </p>';
 
 
-$result_converted{'latex'}->{'comments_in_text'} = '
+$result_converted{'latex_text'}->{'comments_in_text'} = '
 
 Text line followed by a comment on the same line and another below Text line after the comment followed by a comment Text line after the text line followed by the comment.
 

@@ -3022,7 +3022,7 @@ $result_converted_errors{'docbook'}->{'image_formatting'} = [
 
 
 
-$result_converted{'latex'}->{'image_formatting'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'image_formatting'} = '\\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chap}%
 
@@ -3056,7 +3056,7 @@ in para
 \\includegraphics{f--ile}.
 ';
 
-$result_converted_errors{'latex'}->{'image_formatting'} = [
+$result_converted_errors{'latex_text'}->{'image_formatting'} = [
   {
     'error_line' => 'warning: @image file `f-ile\' (for LaTeX) not found
 ',

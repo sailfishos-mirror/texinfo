@@ -627,7 +627,7 @@ $result_floats{'pagetype'} = {};
 
 
 
-$result_converted{'latex'}->{'pagetype'} = '
+$result_converted{'latex_text'}->{'pagetype'} = '
 \\geometry{papername=a4paper}%
 
 \\geometry{papername=a4paper}%

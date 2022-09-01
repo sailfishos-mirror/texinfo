@@ -353,7 +353,7 @@ After caption
 ';
 
 
-$result_converted{'latex'}->{'caption_in_example'} = '\\begin{TexinfoFloatfloat}
+$result_converted{'latex_text'}->{'caption_in_example'} = '\\begin{TexinfoFloatfloat}
 
 \\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}

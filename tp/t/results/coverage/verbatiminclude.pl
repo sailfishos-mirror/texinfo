@@ -87,7 +87,7 @@ $result_converted{'xml'}->{'verbatiminclude'} = '
 ';
 
 
-$result_converted{'latex'}->{'verbatiminclude'} = '
+$result_converted{'latex_text'}->{'verbatiminclude'} = '
 \\begin{verbatim}
 This is the @emph{included} file (include-value2.txi) <> ---. 
 \\end{verbatim}

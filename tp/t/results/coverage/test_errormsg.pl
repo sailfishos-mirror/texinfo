@@ -205,7 +205,7 @@ $result_converted{'xml'}->{'test_errormsg'} = '<para>Some text
 </para>';
 
 
-$result_converted{'latex'}->{'test_errormsg'} = 'Some text
+$result_converted{'latex_text'}->{'test_errormsg'} = 'Some text
 
 
 ';

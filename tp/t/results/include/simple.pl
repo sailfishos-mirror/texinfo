@@ -120,7 +120,7 @@ $result_converted{'docbook'}->{'simple'} = '<para>In included file.
 </para>';
 
 
-$result_converted{'latex'}->{'simple'} = 'In included file.
+$result_converted{'latex_text'}->{'simple'} = 'In included file.
 ';
 
 1;

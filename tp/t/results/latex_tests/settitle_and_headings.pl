@@ -317,7 +317,7 @@ $result_floats{'settitle_and_headings'} = {};
 
 
 
-$result_converted{'latex'}->{'settitle_and_headings'} = '
+$result_converted{'latex_text'}->{'settitle_and_headings'} = '
 \\GNUTexinfosetdoubleheader{}%
 
 \\begin{document}

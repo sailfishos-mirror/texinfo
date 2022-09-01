@@ -1243,7 +1243,7 @@ Previous: <a href="#node-after-chapter-1" accesskey="p" rel="prev">node after ch
 ';
 
 
-$result_converted{'latex'}->{'two_nodes_at_the_end'} = '\\begin{document}
+$result_converted{'latex_text'}->{'two_nodes_at_the_end'} = '\\begin{document}
 \\label{anchor:Top}%
 \\chapter{{chapter c1}}
 \\label{anchor:chapter-1}%

@@ -216,7 +216,7 @@ $result_converted{'html_text'}->{'command_in_heading_footing'} = '
 </p>';
 
 
-$result_converted{'latex'}->{'command_in_heading_footing'} = '\\newpagestyle{custom}{%
+$result_converted{'latex_text'}->{'command_in_heading_footing'} = '\\newpagestyle{custom}{%
 \\sethead[something \\thepage{} \\thechapter{}][][]%
 {something \\thepage{} \\thechapter{}}{}{}%
 }%

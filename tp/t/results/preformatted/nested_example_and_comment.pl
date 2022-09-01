@@ -743,7 +743,7 @@ $result_converted{'xml'}->{'nested_example_and_comment'} = '<example endspaces="
 ';
 
 
-$result_converted{'latex'}->{'nested_example_and_comment'} = '\\begin{GNUTexinfoindented}
+$result_converted{'latex_text'}->{'nested_example_and_comment'} = '\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
 \\ttfamily First line 0 \\end{GNUTexinfopreformatted}
 \\begin{GNUTexinfoindented}

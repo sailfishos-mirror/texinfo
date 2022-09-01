@@ -558,7 +558,7 @@ $result_floats{'informative_commands_in_top_node'} = {};
 
 
 
-$result_converted{'latex'}->{'informative_commands_in_top_node'} = '
+$result_converted{'latex_text'}->{'informative_commands_in_top_node'} = '
 \\begin{document}
 \\label{anchor:Top}%
 \\setlength{\\parindent}{5em}

@@ -643,7 +643,7 @@ $result_converted_errors{'html'}->{'omit_def_space'} = [
 
 
 
-$result_converted{'latex'}->{'omit_def_space'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'omit_def_space'} = '\\label{anchor:Top}%
 \\label{anchor:first}%
 
 

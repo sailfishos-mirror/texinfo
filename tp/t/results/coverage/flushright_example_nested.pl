@@ -386,7 +386,7 @@ flush then example
 ';
 
 
-$result_converted{'latex'}->{'flushright_example_nested'} = '\\begin{GNUTexinfoindented}
+$result_converted{'latex_text'}->{'flushright_example_nested'} = '\\begin{GNUTexinfoindented}
 \\begin{flushright}
 \\begin{GNUTexinfopreformatted}
 \\begin{GNUTexinfopreformatted}

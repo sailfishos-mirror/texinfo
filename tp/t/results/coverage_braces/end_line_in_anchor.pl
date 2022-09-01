@@ -85,7 +85,7 @@ $result_converted{'plaintext'}->{'end_line_in_anchor'} = '';
 $result_converted{'html_text'}->{'end_line_in_anchor'} = '<a class="anchor" id="an-anchor"></a>';
 
 
-$result_converted{'latex'}->{'end_line_in_anchor'} = '\\label{anchor:an-anchor}%
+$result_converted{'latex_text'}->{'end_line_in_anchor'} = '\\label{anchor:an-anchor}%
 ';
 
 1;

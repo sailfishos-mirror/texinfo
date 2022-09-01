@@ -578,7 +578,7 @@ my %latex_tests = (
 foreach my $test (@converted_test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
-  push @{$test->[2]->{'test_formats'}}, 'latex';
+  push @{$test->[2]->{'test_formats'}}, 'latex_text';
   if ($docbook_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'docbook';
   } elsif ($docbooc_doc_tests{$test->[0]}) {

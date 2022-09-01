@@ -1773,7 +1773,7 @@ explanation
 ';
 
 
-$result_converted{'latex'}->{'complex_nestings'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chap}%
 

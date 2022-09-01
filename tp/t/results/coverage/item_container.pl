@@ -428,7 +428,7 @@ $result_converted{'xml'}->{'item_container'} = '
 ';
 
 
-$result_converted{'latex'}->{'item_container'} = '
+$result_converted{'latex_text'}->{'item_container'} = '
 \\begin{itemize}[label=+]
 \\item i--tem +
 \\end{itemize}

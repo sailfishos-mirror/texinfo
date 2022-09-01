@@ -266,7 +266,7 @@ $result_converted{'docbook'}->{'accent_with_text'} = '<para>&#8211;a&#774; &#821
 </para>';
 
 
-$result_converted{'latex'}->{'accent_with_text'} = '\\u{--a} --b \\^{--\\i{}} \\^{--\\j{}} \\^{--a}
+$result_converted{'latex_text'}->{'accent_with_text'} = '\\u{--a} --b \\^{--\\i{}} \\^{--\\j{}} \\^{--a}
 ';
 
 1;

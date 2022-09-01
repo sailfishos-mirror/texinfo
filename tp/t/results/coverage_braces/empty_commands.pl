@@ -298,7 +298,7 @@ $result_converted{'html_text'}->{'empty_commands'} = '
 ';
 
 
-$result_converted{'latex'}->{'empty_commands'} = '{\\huge \\bfseries }
+$result_converted{'latex_text'}->{'empty_commands'} = '{\\huge \\bfseries }
 
    \\texttt{}\\footnote{} \\~{}  \\verb;;
 ';

@@ -688,7 +688,7 @@ empty line.
 ';
 
 
-$result_converted{'latex'}->{'itemize_long_item'} = '\\begin{itemize}[label=youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc]
+$result_converted{'latex_text'}->{'itemize_long_item'} = '\\begin{itemize}[label=youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc]
 \\item first item
 \\item \\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}

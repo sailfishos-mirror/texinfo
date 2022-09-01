@@ -760,7 +760,7 @@ more.
 ';
 
 
-$result_converted{'latex'}->{'itemize_in_example'} = '\\begin{GNUTexinfoindented}
+$result_converted{'latex_text'}->{'itemize_in_example'} = '\\begin{GNUTexinfoindented}
 \\begin{itemize}[label=\\textbullet{}]
 \\item \\begin{GNUTexinfopreformatted}
 \\ttfamily first

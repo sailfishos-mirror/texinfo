@@ -488,7 +488,7 @@ $result_converted{'html_text'}->{'abbr_acronym'} = '<p><abbr class="acronym" tit
 </p>';
 
 
-$result_converted{'latex'}->{'abbr_acronym'} = '--a (an accronym)
+$result_converted{'latex_text'}->{'abbr_acronym'} = '--a (an accronym)
 --a
 --a (an accronym , \\dots{})
 

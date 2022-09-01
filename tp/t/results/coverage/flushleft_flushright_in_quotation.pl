@@ -307,7 +307,7 @@ $result_converted{'xml'}->{'flushleft_flushright_in_quotation'} = '
 ';
 
 
-$result_converted{'latex'}->{'flushleft_flushright_in_quotation'} = '
+$result_converted{'latex_text'}->{'flushleft_flushright_in_quotation'} = '
 \\begin{quote}
 \\begin{flushleft}
 \\begin{GNUTexinfopreformatted}

@@ -328,7 +328,7 @@ $result_converted{'html_text'}->{'uref_in_ref'} = '<p><a data-manual="info file 
 </p>';
 
 
-$result_converted{'latex'}->{'uref_in_ref'} = 'Section ``title with uref2 \\href{href://http/myhost.com/index2.html}{uref2 (\\nolinkurl{href://http/myhost.com/index2.html})}\'\' in \\textsl{printed manual with uref4 \\href{href://http/myhost.com/index4.html}{uref4 (\\nolinkurl{href://http/myhost.com/index4.html})}}
+$result_converted{'latex_text'}->{'uref_in_ref'} = 'Section ``title with uref2 \\href{href://http/myhost.com/index2.html}{uref2 (\\nolinkurl{href://http/myhost.com/index2.html})}\'\' in \\textsl{printed manual with uref4 \\href{href://http/myhost.com/index4.html}{uref4 (\\nolinkurl{href://http/myhost.com/index4.html})}}
 ';
 
 1;

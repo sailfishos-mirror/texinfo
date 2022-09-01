@@ -2270,7 +2270,7 @@ $result_converted{'xml'}->{'nested_block_commands'} = '<group endspaces=" ">
 ';
 
 
-$result_converted{'latex'}->{'nested_block_commands'} = 'In group
+$result_converted{'latex_text'}->{'nested_block_commands'} = 'In group
 \\begin{quote}
 in quotation
 \\end{quote}

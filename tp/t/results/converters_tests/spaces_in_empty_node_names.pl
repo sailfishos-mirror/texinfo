@@ -1013,7 +1013,7 @@ $result_converted{'docbook'}->{'spaces_in_empty_node_names'} = '
 </para>';
 
 
-$result_converted{'latex'}->{'spaces_in_empty_node_names'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'spaces_in_empty_node_names'} = '\\label{anchor:Top}%
 \\label{anchor:}%
 
 \\label{anchor:}%

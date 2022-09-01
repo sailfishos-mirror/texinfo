@@ -1037,7 +1037,7 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top-le
 ';
 
 
-$result_converted{'latex'}->{'two_footnotes_in_nodes'} = '\\begin{document}
+$result_converted{'latex_text'}->{'two_footnotes_in_nodes'} = '\\begin{document}
 \\label{anchor:Top}%
 \\chapter{{chapter}}
 \\label{anchor:chapter}%

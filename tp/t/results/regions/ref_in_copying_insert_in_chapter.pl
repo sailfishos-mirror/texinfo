@@ -850,7 +850,7 @@ Up: <a href="#Intro" accesskey="u" rel="up">Introduction</a> &nbsp; </p>
 ';
 
 
-$result_converted{'latex'}->{'ref_in_copying_insert_in_chapter'} = '
+$result_converted{'latex_text'}->{'ref_in_copying_insert_in_chapter'} = '
 \\begin{document}
 \\label{anchor:Top}%
 \\chapter{{Introduction}}

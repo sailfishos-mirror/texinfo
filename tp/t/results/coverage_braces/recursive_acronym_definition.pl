@@ -173,7 +173,7 @@ $result_converted{'html_text'}->{'recursive_acronym_definition'} = '<p><abbr cla
 </p>';
 
 
-$result_converted{'latex'}->{'recursive_acronym_definition'} = 'GNU (GNU (GNU (is something)\'s Not Unix)\'s Not Unix)
+$result_converted{'latex_text'}->{'recursive_acronym_definition'} = 'GNU (GNU (GNU (is something)\'s Not Unix)\'s Not Unix)
 ';
 
 1;

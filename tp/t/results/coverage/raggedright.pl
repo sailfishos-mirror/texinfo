@@ -133,7 +133,7 @@ $result_converted{'xml'}->{'raggedright'} = '
 ';
 
 
-$result_converted{'latex'}->{'raggedright'} = '
+$result_converted{'latex_text'}->{'raggedright'} = '
 \\begin{flushleft}
 in raggedright
 \\end{flushleft}

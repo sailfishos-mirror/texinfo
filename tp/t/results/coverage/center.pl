@@ -123,7 +123,7 @@ $result_converted{'xml'}->{'center'} = '
 ';
 
 
-$result_converted{'latex'}->{'center'} = '
+$result_converted{'latex_text'}->{'center'} = '
 \\begin{center}
 in center \\texttt{in code}
 \\end{center}

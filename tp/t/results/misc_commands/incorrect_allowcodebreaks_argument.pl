@@ -120,7 +120,7 @@ $result_converted{'html_text'}->{'incorrect_allowcodebreaks_argument'} = '<p><co
 </p>';
 
 
-$result_converted{'latex'}->{'incorrect_allowcodebreaks_argument'} = '\\texttt{b a}
+$result_converted{'latex_text'}->{'incorrect_allowcodebreaks_argument'} = '\\texttt{b a}
 ';
 
 1;

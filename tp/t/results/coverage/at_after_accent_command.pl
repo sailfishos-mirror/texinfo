@@ -116,7 +116,7 @@ $result_converted{'xml'}->{'at_after_accent_command'} = '<para><accent type="rin
 </para>';
 
 
-$result_converted{'latex'}->{'at_after_accent_command'} = '\\r{}@. \\^{}@.
+$result_converted{'latex_text'}->{'at_after_accent_command'} = '\\r{}@. \\^{}@.
 ';
 
 

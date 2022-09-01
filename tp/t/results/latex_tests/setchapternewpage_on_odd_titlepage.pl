@@ -245,7 +245,7 @@ $result_floats{'setchapternewpage_on_odd_titlepage'} = {};
 
 
 
-$result_converted{'latex'}->{'setchapternewpage_on_odd_titlepage'} = '\\makeatletter
+$result_converted{'latex_text'}->{'setchapternewpage_on_odd_titlepage'} = '\\makeatletter
 \\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
 \\makeatother
 

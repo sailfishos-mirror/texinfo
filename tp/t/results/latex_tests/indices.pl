@@ -1357,7 +1357,7 @@ $result_indices_sort_strings{'indices'} = {
 
 
 
-$result_converted{'latex'}->{'indices'} = '
+$result_converted{'latex_text'}->{'indices'} = '
 
 \\begin{document}
 \\label{anchor:Top}%

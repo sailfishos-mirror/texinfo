@@ -481,7 +481,7 @@ $result_floats{'titlepage_long_title'} = {};
 
 
 
-$result_converted{'latex'}->{'titlepage_long_title'} = '
+$result_converted{'latex_text'}->{'titlepage_long_title'} = '
 \\begin{document}
 
 \\GNUTexinfofrontmatter

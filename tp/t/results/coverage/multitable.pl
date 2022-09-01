@@ -734,7 +734,7 @@ $result_converted{'xml'}->{'multitable'} = '
 ';
 
 
-$result_converted{'latex'}->{'multitable'} = '
+$result_converted{'latex_text'}->{'multitable'} = '
 \\begin{tabular}{m{0.6\\textwidth} m{0.4\\textwidth}}%
 mu--ltitable headitem &another tab\\\\
 mu--ltitable item &multitable tab\\\\

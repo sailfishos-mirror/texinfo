@@ -440,7 +440,7 @@ in table in format
 ';
 
 
-$result_converted{'latex'}->{'preformatted'} = '
+$result_converted{'latex_text'}->{'preformatted'} = '
 \\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
 \\ttfamily e{-}{-}xample  some  

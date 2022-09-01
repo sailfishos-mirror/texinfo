@@ -2421,7 +2421,7 @@ $result_converted{'html_text'}->{'kbdinputstyle_in_table'} = '
 ';
 
 
-$result_converted{'latex'}->{'kbdinputstyle_in_table'} = '
+$result_converted{'latex_text'}->{'kbdinputstyle_in_table'} = '
 @kbdinputstyle code
 
 

@@ -631,7 +631,7 @@ $result_converted{'docbook'}->{'raw_block_commands'} = '
 ';
 
 
-$result_converted{'latex'}->{'raw_block_commands'} = '
+$result_converted{'latex_text'}->{'raw_block_commands'} = '
 
 
 

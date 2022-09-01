@@ -917,7 +917,7 @@ raw <emphasis>docbook</emphasis> ``,
 </para>';
 
 
-$result_converted{'latex'}->{'inline'} = '
+$result_converted{'latex_text'}->{'inline'} = '
 , 
 , 
 ,

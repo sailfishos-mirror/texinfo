@@ -4588,7 +4588,7 @@ $result_converted{'docbook'}->{'top_in_ref'} = '<anchor id="refs-node"/>
 </para>';
 
 
-$result_converted{'latex'}->{'top_in_ref'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'top_in_ref'} = '\\label{anchor:Top}%
 \\label{anchor:refs-node}%
 
 \\texttt{@ref\\{Top,cross ref name\\}} \\hyperref[anchor:Top]{[Top], page~\\pageref*{anchor:Top}}

@@ -860,7 +860,7 @@ $result_converted{'docbook'}->{'weird_accents_disable_encoding'} = '<chapter lab
 ';
 
 
-$result_converted{'latex'}->{'weird_accents_disable_encoding'} = '
+$result_converted{'latex_text'}->{'weird_accents_disable_encoding'} = '
 \\begin{document}
 \\label{anchor:Top}%
 \\chapter{{Chapter}}

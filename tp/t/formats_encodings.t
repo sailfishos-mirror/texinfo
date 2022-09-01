@@ -401,7 +401,7 @@ foreach my $test (@test_cases) {
   }
   push @{$test->[2]->{'test_formats'}}, 'xml';
   push @{$test->[2]->{'test_formats'}}, 'docbook';
-  push @{$test->[2]->{'test_formats'}}, 'latex'
+  push @{$test->[2]->{'test_formats'}}, 'latex_text'
     if ($latex_tests{$test->[0]});
   push @{$test->[2]->{'test_formats'}}, 'info'
     if ($info_tests{$test->[0]});
@@ -416,7 +416,7 @@ foreach my $test (@test_full_doc) {
   }
   push @{$test->[2]->{'test_formats'}}, 'xml';
   push @{$test->[2]->{'test_formats'}}, 'docbook';
-  push @{$test->[2]->{'test_formats'}}, 'latex';
+  push @{$test->[2]->{'test_formats'}}, 'latex_text';
   push @{$test->[2]->{'test_formats'}}, 'info'
     if ($info_tests{$test->[0]});
 

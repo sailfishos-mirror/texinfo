@@ -145,6 +145,7 @@ my %formats = (
   'file_docbook' => \&convert_to_docbook,
   'docbook_doc' => \&convert_to_docbook,
   'latex' => \&convert_to_latex,
+  'latex_text' => \&convert_to_latex,
   'file_latex' => \&convert_to_latex,
 );
 
@@ -155,6 +156,7 @@ my %extensions = (
   'docbook' => 'dbk',
   'docbook_doc' => 'dbk',
   'latex' => 'tex',
+  'latex_text' => 'tex',
 );
 
 my %xml_converter_defaults
@@ -174,7 +176,7 @@ my %outfile_preamble = (
 ', "</texinfo>\n"],
  # done dynamically for CSS
  'html_text' => \&output_preamble_postamble_html,
- 'latex' => \&output_preamble_postamble_latex,
+ 'latex_text' => \&output_preamble_postamble_latex,
 );
 
 my $arg_generate;
@@ -741,8 +743,7 @@ sub convert_to_latex($$$$$$;$)
                                          'converted_format' => 'latex',
                                           %$converter_options });
   my $result;
-  if (defined($converter_options->{'OUTFILE'})
-      and $converter_options->{'OUTFILE'} eq '') {
+  if ($format eq 'latex_text') {
     $result = $converter->convert($tree);
   } else {
     $result = $converter->output($tree);

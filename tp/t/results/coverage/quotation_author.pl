@@ -269,7 +269,7 @@ quotation continues.
 ';
 
 
-$result_converted{'latex'}->{'quotation_author'} = '\\begin{quote}
+$result_converted{'latex_text'}->{'quotation_author'} = '\\begin{quote}
 
 quotation
 quotation continues.

@@ -203,7 +203,7 @@ foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'html_text';
   push @{$test->[2]->{'test_formats'}}, 'docbook';
   push @{$test->[2]->{'test_formats'}}, 'xml';
-  push @{$test->[2]->{'test_formats'}}, 'latex';
+  push @{$test->[2]->{'test_formats'}}, 'latex_text';
 }
 
 run_all('preformatted', [@test_cases, @test_invalid]);

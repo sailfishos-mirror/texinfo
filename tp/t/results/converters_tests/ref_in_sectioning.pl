@@ -2981,7 +2981,7 @@ $result_converted{'docbook'}->{'ref_in_sectioning'} = '<chapter label="1" id="no
 ';
 
 
-$result_converted{'latex'}->{'ref_in_sectioning'} = '
+$result_converted{'latex_text'}->{'ref_in_sectioning'} = '
 \\label{anchor:Top}%
 \\chapter{{See Section ``title\'\' in \\textsl{Manual}.}}
 \\label{anchor:node}%

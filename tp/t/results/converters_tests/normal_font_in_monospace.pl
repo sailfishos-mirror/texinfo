@@ -290,7 +290,7 @@ $result_converted{'docbook'}->{'normal_font_in_monospace'} = '<screen>in example
 </para>';
 
 
-$result_converted{'latex'}->{'normal_font_in_monospace'} = '\\begin{GNUTexinfoindented}
+$result_converted{'latex_text'}->{'normal_font_in_monospace'} = '\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
 \\ttfamily in example \\textnormal{in r---now \\texttt{in co{-}{-}{-}de}}
 \\end{GNUTexinfopreformatted}

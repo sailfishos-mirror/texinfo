@@ -569,7 +569,7 @@ Documentation of @code{foo}.
 explain
 @end defun
 ',
-{'test_formats' => ['plaintext', 'html', 'latex']}],
+{'test_formats' => ['plaintext', 'html', 'latex_text']}],
 );
 
 my @test_printindex = ();

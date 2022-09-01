@@ -352,7 +352,7 @@ third}
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
-  push @{$test->[2]->{'test_formats'}}, 'latex';
+  push @{$test->[2]->{'test_formats'}}, 'latex_text';
 }
 
 run_all('coverage_braces', [@test_cases, @test_invalid]);

@@ -664,7 +664,7 @@ $result_floats{'nested_enumerate'} = {};
 
 
 
-$result_converted{'latex'}->{'nested_enumerate'} = '
+$result_converted{'latex_text'}->{'nested_enumerate'} = '
 \\begin{document}
 \\begin{enumerate}[start=1]
    \\item First level item

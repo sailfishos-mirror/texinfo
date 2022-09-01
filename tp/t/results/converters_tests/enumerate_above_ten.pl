@@ -152,7 +152,7 @@ $result_converted{'docbook'}->{'enumerate_above_ten'} = '<orderedlist numeration
 </para></listitem></orderedlist>';
 
 
-$result_converted{'latex'}->{'enumerate_above_ten'} = '\\begin{enumerate}[start=14]
+$result_converted{'latex_text'}->{'enumerate_above_ten'} = '\\begin{enumerate}[start=14]
 \\item a
 \\end{enumerate}
 ';

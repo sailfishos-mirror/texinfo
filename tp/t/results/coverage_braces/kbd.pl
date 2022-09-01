@@ -581,7 +581,7 @@ $result_converted{'html_text'}->{'kbd'} = '<p>kbd: <code class="code">in kbd</co
 ';
 
 
-$result_converted{'latex'}->{'kbd'} = 'kbd: \\texttt{in kbd}.
+$result_converted{'latex_text'}->{'kbd'} = 'kbd: \\texttt{in kbd}.
 
 kbd in code: \\texttt{in first \\GNUTexinfocommandstyletextkbd{in nested kbd}}.
 

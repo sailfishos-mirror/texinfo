@@ -442,7 +442,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
 ';
 
 
-$result_converted{'latex'}->{'today_in_copying'} = '
+$result_converted{'latex_text'}->{'today_in_copying'} = '
 \\begin{document}
 \\label{anchor:Top}%
 \\label{anchor:node}%

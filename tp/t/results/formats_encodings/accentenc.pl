@@ -3546,7 +3546,7 @@ $result_converted{'docbook'}->{'accentenc'} = '<chapter label="" id="Top-node">
 ';
 
 
-$result_converted{'latex'}->{'accentenc'} = '
+$result_converted{'latex_text'}->{'accentenc'} = '
 \\begin{document}
 \\part*{{top}}
 \\label{anchor:Top-node}%

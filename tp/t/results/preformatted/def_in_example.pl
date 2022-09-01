@@ -318,7 +318,7 @@ $result_converted{'xml'}->{'def_in_example'} = '<example endspaces=" ">
 ';
 
 
-$result_converted{'latex'}->{'def_in_example'} = '\\begin{GNUTexinfoindented}
+$result_converted{'latex_text'}->{'def_in_example'} = '\\begin{GNUTexinfoindented}
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill

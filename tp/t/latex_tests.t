@@ -141,7 +141,7 @@ in titlepage
 @end titlepage
 
 '],
-# note that those tests with 'latex' do not really correspond to
+# note that those tests with 'latex_text' do not really correspond to
 # what happens for real documents, as in real documents,
 # LaTeX default (start chapter on odd page) is switched
 # to Texinfo default (@setchapternewpage on).  With 'file_latex',
@@ -193,7 +193,7 @@ in titlepage
 
 @setchapternewpage off
 '],
-# With 'latex' test type this is more like what would actually 
+# With 'latex_text' test type this is more like what would actually 
 # happen in the default case with output to a file, switching
 # to @setchapternewpage on in preamble, then odd and then the
 # title page
@@ -733,13 +733,13 @@ CCC
 );
 
 foreach my $test (@test_cases) {
-  $test->[2]->{'test_formats'} = ['latex'];
+  $test->[2]->{'test_formats'} = ['latex_text'];
 
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 foreach my $test (@file_tests) {
-  $test->[2]->{'test_formats'} = ['latex', 'file_latex'];
+  $test->[2]->{'test_formats'} = ['latex_text', 'file_latex'];
 
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }

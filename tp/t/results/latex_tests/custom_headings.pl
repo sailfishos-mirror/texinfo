@@ -1088,7 +1088,7 @@ $result_floats{'custom_headings'} = {};
 
 
 
-$result_converted{'latex'}->{'custom_headings'} = '
+$result_converted{'latex_text'}->{'custom_headings'} = '
 \\newpagestyle{custom}{%
 \\sethead[\\thepage{} \\sectiontitle{}][\\thesection{} Section \\thesection{} \\sectiontitle{}][\\chaptertitle{} \\thechapter{}]%
 {}{}{}%

@@ -2897,7 +2897,7 @@ $result_converted{'xml'}->{'commands_in_math'} = '
 ';
 
 
-$result_converted{'latex'}->{'commands_in_math'} = '
+$result_converted{'latex_text'}->{'commands_in_math'} = '
 $$
 \\mathbf{``simple-double--three---four----\'\'} \\hbox{aa}
 `\\hbox{}`simple-double-\\hbox{}-three---four----\'\\hbox{}\'

@@ -894,7 +894,7 @@ $result_converted{'xml'}->{'table'} = '
 ';
 
 
-$result_converted{'latex'}->{'table'} = '
+$result_converted{'latex_text'}->{'table'} = '
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 table item\\\\

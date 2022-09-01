@@ -3498,7 +3498,7 @@ $result_converted{'docbook'}->{'accent_enable_encoding'} = '<chapter label="" id
 ';
 
 
-$result_converted{'latex'}->{'accent_enable_encoding'} = '\\begin{document}
+$result_converted{'latex_text'}->{'accent_enable_encoding'} = '\\begin{document}
 \\part*{{top}}
 \\label{anchor:Top-node}%
 

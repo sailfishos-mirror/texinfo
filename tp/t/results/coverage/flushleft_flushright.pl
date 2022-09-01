@@ -332,7 +332,7 @@ ldskf dsflj
 ';
 
 
-$result_converted{'latex'}->{'flushleft_flushright'} = '
+$result_converted{'latex_text'}->{'flushleft_flushright'} = '
 \\begin{flushleft}
 \\begin{GNUTexinfopreformatted}
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb ccccccccccccccc

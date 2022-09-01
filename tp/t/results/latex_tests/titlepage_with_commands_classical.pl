@@ -1023,7 +1023,7 @@ $result_floats{'titlepage_with_commands_classical'} = {};
 
 
 
-$result_converted{'latex'}->{'titlepage_with_commands_classical'} = '
+$result_converted{'latex_text'}->{'titlepage_with_commands_classical'} = '
 
 
 \\begin{document}

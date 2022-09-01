@@ -160,7 +160,7 @@ $result_converted{'xml'}->{'indentedblock'} = '<indentedblock endspaces=" ">
 ';
 
 
-$result_converted{'latex'}->{'indentedblock'} = '\\begin{quote}
+$result_converted{'latex_text'}->{'indentedblock'} = '\\begin{quote}
   indented block
 
 Text

@@ -551,7 +551,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Chapter</a> &nbsp; </p>
 ';
 
 
-$result_converted{'latex'}->{'anchor_in_titlepage'} = '
+$result_converted{'latex_text'}->{'anchor_in_titlepage'} = '
 \\begin{document}
 
 \\GNUTexinfofrontmatter

@@ -561,7 +561,7 @@ $result_floats{'error_in_sectioning_command'} = {};
 
 
 
-$result_converted{'latex'}->{'error_in_sectioning_command'} = '
+$result_converted{'latex_text'}->{'error_in_sectioning_command'} = '
 
 \\begin{document}
 \\tableofcontents\\newpage

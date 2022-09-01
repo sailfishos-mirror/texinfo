@@ -352,7 +352,7 @@ $result_converted{'html_text'}->{'nested_in_sc'} = '<p><small class="sc"><small 
 ';
 
 
-$result_converted{'latex'}->{'nested_in_sc'} = '\\textsc{\\textsc{aaa \\~{n} \\aa{} \\TeX{} \\~{\\aa{}} \\footnote{In footnote}, ABr (expl), 
+$result_converted{'latex_text'}->{'nested_in_sc'} = '\\textsc{\\textsc{aaa \\~{n} \\aa{} \\TeX{} \\~{\\aa{}} \\footnote{In footnote}, ABr (expl), 
 \\verb:in verb:}}
 ';
 

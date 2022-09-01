@@ -278,7 +278,7 @@ $result_converted{'xml'}->{'insertcopying'} = '<copying endspaces=" ">
 ';
 
 
-$result_converted{'latex'}->{'insertcopying'} = '
+$result_converted{'latex_text'}->{'insertcopying'} = '
 License:
 
 License.

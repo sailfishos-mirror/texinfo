@@ -89,7 +89,7 @@ $result_converted{'html_text'}->{'space_in_anchor'} = '<a class="anchor" id="anc
 </p>';
 
 
-$result_converted{'latex'}->{'space_in_anchor'} = '\\label{anchor:anchor-name}%
+$result_converted{'latex_text'}->{'space_in_anchor'} = '\\label{anchor:anchor-name}%
 .
 ';
 

@@ -91,7 +91,7 @@ $result_converted{'xml'}->{'setfilename_in_paragraph'} = '<para>Some text
 ';
 
 
-$result_converted{'latex'}->{'setfilename_in_paragraph'} = 'Some text
+$result_converted{'latex_text'}->{'setfilename_in_paragraph'} = 'Some text
 ';
 
 

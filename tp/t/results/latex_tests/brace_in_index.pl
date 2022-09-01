@@ -672,7 +672,7 @@ $result_indices_sort_strings{'brace_in_index'} = {
 
 
 
-$result_converted{'latex'}->{'brace_in_index'} = '\\begin{document}
+$result_converted{'latex_text'}->{'brace_in_index'} = '\\begin{document}
 \\{
 
 $\\{$

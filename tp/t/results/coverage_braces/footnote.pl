@@ -149,7 +149,7 @@ $result_converted{'html_text'}->{'footnote'} = '<p>text<a class="footnote" id="D
 ';
 
 
-$result_converted{'latex'}->{'footnote'} = 'text\\footnote{in footnote.
+$result_converted{'latex_text'}->{'footnote'} = 'text\\footnote{in footnote.
 
 \\textnormal{in footnote r}. } after footnote.';
 

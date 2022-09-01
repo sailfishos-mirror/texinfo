@@ -296,7 +296,7 @@ $result_floats{'top_no_sectioning_command'} = {};
 
 
 
-$result_converted{'latex'}->{'top_no_sectioning_command'} = '\\begin{document}
+$result_converted{'latex_text'}->{'top_no_sectioning_command'} = '\\begin{document}
 \\label{anchor:Top}%
 \\chapter{{Chap}}
 \\label{anchor:Chapter}%

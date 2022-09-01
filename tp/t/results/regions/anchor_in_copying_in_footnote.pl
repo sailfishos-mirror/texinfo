@@ -618,7 +618,7 @@ $result_converted_errors{'html'}->{'anchor_in_copying_in_footnote'} = [
 
 
 
-$result_converted{'latex'}->{'anchor_in_copying_in_footnote'} = '
+$result_converted{'latex_text'}->{'anchor_in_copying_in_footnote'} = '
 \\begin{document}
 \\label{anchor:Top}%
 \\label{anchor:node}%

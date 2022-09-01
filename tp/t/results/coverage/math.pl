@@ -636,7 +636,7 @@ $result_converted{'xml'}->{'math'} = '<para>Simple math
 ';
 
 
-$result_converted{'latex'}->{'math'} = 'Simple math
+$result_converted{'latex_text'}->{'math'} = 'Simple math
 $--{x^i}\\over{\\tan y}$
 
 Math with @-command

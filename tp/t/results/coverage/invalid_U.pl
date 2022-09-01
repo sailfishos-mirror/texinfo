@@ -407,7 +407,7 @@ $result_converted{'xml'}->{'invalid_U'} = '<para><U></U> <U>z</U> <U>abc</U> <U>
 </para>';
 
 
-$result_converted{'latex'}->{'invalid_U'} = ' U+z ઼ U+9999999999999 U+110000 U+10FFFF
+$result_converted{'latex_text'}->{'invalid_U'} = ' U+z ઼ U+9999999999999 U+110000 U+10FFFF
 \\# � U+wxyz
 ';
 

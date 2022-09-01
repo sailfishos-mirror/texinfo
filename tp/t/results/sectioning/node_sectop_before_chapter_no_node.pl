@@ -315,7 +315,7 @@ $result_converted{'html'}->{'node_sectop_before_chapter_no_node'} = '<!DOCTYPE h
 $result_converted{'docbook'}->{'node_sectop_before_chapter_no_node'} = '';
 
 
-$result_converted{'latex'}->{'node_sectop_before_chapter_no_node'} = '
+$result_converted{'latex_text'}->{'node_sectop_before_chapter_no_node'} = '
 \\begin{document}
 \\label{anchor:Top}%
 ';

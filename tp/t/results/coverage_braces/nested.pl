@@ -104,6 +104,6 @@ $result_converted{'plaintext'}->{'nested'} = 'type the characters ‘l o g o u t
 $result_converted{'html_text'}->{'nested'} = '<p>type the characters <kbd class="kbd">l o g o u t <kbd class="key">RET</kbd></kbd>.</p>';
 
 
-$result_converted{'latex'}->{'nested'} = 'type the characters \\GNUTexinfocommandstyletextkbd{l o g o u t \\texttt{RET}}.';
+$result_converted{'latex_text'}->{'nested'} = 'type the characters \\GNUTexinfocommandstyletextkbd{l o g o u t \\texttt{RET}}.';
 
 1;

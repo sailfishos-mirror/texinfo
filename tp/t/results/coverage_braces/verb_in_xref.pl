@@ -240,7 +240,7 @@ ggg </code></a>.
 </p>';
 
 
-$result_converted{'latex'}->{'verb_in_xref'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'verb_in_xref'} = '\\label{anchor:Top}%
 ';
 
 1;

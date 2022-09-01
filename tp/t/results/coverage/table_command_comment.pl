@@ -184,7 +184,7 @@ $result_converted{'xml'}->{'table_command_comment'} = '<table commandarg="code" 
 </tableterm></tableentry></table>';
 
 
-$result_converted{'latex'}->{'table_command_comment'} = '\\begin{description}
+$result_converted{'latex_text'}->{'table_command_comment'} = '\\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 \\texttt{item}}}]
 \\end{description}

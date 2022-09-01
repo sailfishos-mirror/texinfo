@@ -74,6 +74,6 @@ $result_converted{'plaintext'}->{'w_end_sentence'} = 'a.  b
 $result_converted{'html_text'}->{'w_end_sentence'} = '<p>a. b<!-- /@w --></p>';
 
 
-$result_converted{'latex'}->{'w_end_sentence'} = 'a. \\hbox{b}';
+$result_converted{'latex_text'}->{'w_end_sentence'} = 'a. \\hbox{b}';
 
 1;

@@ -101,7 +101,7 @@ $result_converted{'html_text'}->{'empty_w'} = '<p><!-- /@w --> a&nbsp;b<!-- /@w 
 $result_converted{'xml'}->{'empty_w'} = '<para><w></w> <w>a b</w>.</para>';
 
 
-$result_converted{'latex'}->{'empty_w'} = '\\hbox{} \\hbox{a b}.';
+$result_converted{'latex_text'}->{'empty_w'} = '\\hbox{} \\hbox{a b}.';
 
 
 $result_converted{'docbook'}->{'empty_w'} = '<para><!-- /@w --> a b<!-- /@w -->.</para>';

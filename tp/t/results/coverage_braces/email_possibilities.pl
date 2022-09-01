@@ -164,7 +164,7 @@ $result_converted{'html_text'}->{'email_possibilities'} = '<p><a class="email" h
 </p>';
 
 
-$result_converted{'latex'}->{'email_possibilities'} = '\\href{mailto:--a}{--b}
+$result_converted{'latex_text'}->{'email_possibilities'} = '\\href{mailto:--a}{--b}
 --b
 \\href{mailto:--a}{\\nolinkurl{--a}}
 ';

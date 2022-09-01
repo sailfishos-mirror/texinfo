@@ -84,7 +84,7 @@ $result_converted{'html_text'}->{'empty_center_with_arg'} = '<div class="center"
 </div>';
 
 
-$result_converted{'latex'}->{'empty_center_with_arg'} = '\\begin{center}
+$result_converted{'latex_text'}->{'empty_center_with_arg'} = '\\begin{center}
 \\hbox{}
 \\end{center}
 ';

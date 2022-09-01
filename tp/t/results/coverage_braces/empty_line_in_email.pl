@@ -142,7 +142,7 @@ $result_converted{'html_text'}->{'empty_line_in_email'} = '<p>mail,
 </p>';
 
 
-$result_converted{'latex'}->{'empty_line_in_email'} = '\\href{mailto:
+$result_converted{'latex_text'}->{'empty_line_in_email'} = '\\href{mailto:
 }{\\nolinkurl{
 }}mail,
 

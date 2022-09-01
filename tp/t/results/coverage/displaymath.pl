@@ -737,7 +737,7 @@ a/2
 ';
 
 
-$result_converted{'latex'}->{'displaymath'} = 'Simple
+$result_converted{'latex_text'}->{'displaymath'} = 'Simple
 $$
 --{x^i}\\over{\\tan y}
 $$

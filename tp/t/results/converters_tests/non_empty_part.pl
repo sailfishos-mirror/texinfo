@@ -1778,7 +1778,7 @@ $result_converted{'docbook'}->{'non_empty_part'} = '<part label="">
 ';
 
 
-$result_converted{'latex'}->{'non_empty_part'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'non_empty_part'} = '\\label{anchor:Top}%
 \\part{{part I}}
 
 Content I

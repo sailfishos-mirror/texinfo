@@ -463,7 +463,7 @@ sp after para
 </screen>';
 
 
-$result_converted{'latex'}->{'sp_in_example'} = '\\begin{GNUTexinfoindented}
+$result_converted{'latex_text'}->{'sp_in_example'} = '\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
 \\ttfamily Para
 \\vskip 1\\baselineskip %

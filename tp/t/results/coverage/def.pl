@@ -2527,7 +2527,7 @@ $result_converted{'xml'}->{'def'} = '
 ';
 
 
-$result_converted{'latex'}->{'def'} = '
+$result_converted{'latex_text'}->{'def'} = '
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill

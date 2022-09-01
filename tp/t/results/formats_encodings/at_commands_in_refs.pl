@@ -23615,7 +23615,7 @@ $result_converted_errors{'docbook'}->{'at_commands_in_refs'} = [
 
 
 
-$result_converted{'latex'}->{'at_commands_in_refs'} = '\\begin{document}
+$result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 \\label{anchor:Top}%
 \\chapter{{\\-{} \\{ \\}}}
 \\label{anchor:-_007b-_007d}%
@@ -23754,7 +23754,7 @@ $result_converted{'latex'}->{'at_commands_in_refs'} = '\\begin{document}
 
 ';
 
-$result_converted_errors{'latex'}->{'at_commands_in_refs'} = [
+$result_converted_errors{'latex_text'}->{'at_commands_in_refs'} = [
   {
     'error_line' => 'warning: @image file `f--ile1\' (for LaTeX) not found
 ',

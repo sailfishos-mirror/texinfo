@@ -2324,7 +2324,7 @@ $result_converted{'docbook'}->{'character_and_spaces_in_refs'} = '<chapter label
 ';
 
 
-$result_converted{'latex'}->{'character_and_spaces_in_refs'} = '\\begin{document}
+$result_converted{'latex_text'}->{'character_and_spaces_in_refs'} = '\\begin{document}
 \\label{anchor:Top}%
 \\chapter{{first chapter}}
 \\label{anchor:node-to-avoid-DocBook-or-LaTeX-ignored}%

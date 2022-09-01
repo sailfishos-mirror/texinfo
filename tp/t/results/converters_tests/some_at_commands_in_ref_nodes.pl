@@ -2291,7 +2291,7 @@ $result_converted{'docbook'}->{'some_at_commands_in_ref_nodes'} = '<chapter labe
 ';
 
 
-$result_converted{'latex'}->{'some_at_commands_in_ref_nodes'} = '
+$result_converted{'latex_text'}->{'some_at_commands_in_ref_nodes'} = '
 \\label{anchor:Top}%
 \\chapter{{A \\textsc{sc} node \\"{i} \\"{\\i{}} \\`{\\={E}} \\l{} \\c{\\\'{C}} \\textexclamdown{}}}
 \\label{anchor:A-SC-_00d1-_00c5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1}%

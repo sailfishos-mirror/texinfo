@@ -98,7 +98,7 @@ $result_converted{'xml'}->{'hyphenation'} = '
 ';
 
 
-$result_converted{'latex'}->{'hyphenation'} = '
+$result_converted{'latex_text'}->{'hyphenation'} = '
 \\hyphenation{some-where}
 ';
 

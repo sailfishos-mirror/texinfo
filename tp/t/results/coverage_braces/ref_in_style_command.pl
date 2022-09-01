@@ -121,6 +121,6 @@ $result_converted{'plaintext'}->{'ref_in_style_command'} = '‘*note (manula)oth
 $result_converted{'html_text'}->{'ref_in_style_command'} = '<p>&lsquo;<samp class="samp"><a data-manual="manula" href="manula.html#other-node">(manula)other node</a></samp>&rsquo;.</p>';
 
 
-$result_converted{'latex'}->{'ref_in_style_command'} = '`\\texttt{(manula)other node}\'.';
+$result_converted{'latex_text'}->{'ref_in_style_command'} = '`\\texttt{(manula)other node}\'.';
 
 1;

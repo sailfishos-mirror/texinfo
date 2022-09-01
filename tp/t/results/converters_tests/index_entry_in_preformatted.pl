@@ -642,7 +642,7 @@ $result_converted{'docbook'}->{'index_entry_in_preformatted'} = '<chapter label=
 ';
 
 
-$result_converted{'latex'}->{'index_entry_in_preformatted'} = '\\label{anchor:Top}%
+$result_converted{'latex_text'}->{'index_entry_in_preformatted'} = '\\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chap}%
 

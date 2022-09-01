@@ -425,7 +425,7 @@ $result_floats{'anchor_before_top'} = {};
 
 
 
-$result_converted{'latex'}->{'anchor_before_top'} = '\\begin{document}
+$result_converted{'latex_text'}->{'anchor_before_top'} = '\\begin{document}
 \\label{anchor:a-before-Top}%
 
 \\label{anchor:Top}%

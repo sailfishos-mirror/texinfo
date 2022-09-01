@@ -937,7 +937,7 @@ $result_converted{'xml'}->{'unknown_accents'} = '<para><accent type="uml" bracke
 </para>';
 
 
-$result_converted{'latex'}->{'unknown_accents'} = '\\"{X} \\"{x} \\"{Q} \\"{Y}
+$result_converted{'latex_text'}->{'unknown_accents'} = '\\"{X} \\"{x} \\"{Q} \\"{Y}
 
 \\\'{z} \\\'{q} \\\'{r}
 \\\'{Z} \\\'{Q} \\\'{R}

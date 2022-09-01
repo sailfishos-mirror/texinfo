@@ -198,7 +198,7 @@ $result_converted{'html_text'}->{'inforef_too_much_args'} = '<h4 class="node" id
 </p>';
 
 
-$result_converted{'latex'}->{'inforef_too_much_args'} = '\\label{anchor:chapter}%
+$result_converted{'latex_text'}->{'inforef_too_much_args'} = '\\label{anchor:chapter}%
 
 Section ``chapter\'\' in \\texttt{file name,\\ spurious arg}
 ';

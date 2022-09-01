@@ -2519,7 +2519,7 @@ $result_converted{'docbook'}->{'frenchspacing_and_code'} = '<chapter label="1" i
 ';
 
 
-$result_converted{'latex'}->{'frenchspacing_and_code'} = '
+$result_converted{'latex_text'}->{'frenchspacing_and_code'} = '
 \\frenchspacing
 
 \\label{anchor:Top}%

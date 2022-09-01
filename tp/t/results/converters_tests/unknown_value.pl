@@ -60,6 +60,6 @@ $result_converted{'xml'}->{'unknown_value'} = '';
 $result_converted{'docbook'}->{'unknown_value'} = '';
 
 
-$result_converted{'latex'}->{'unknown_value'} = '\\{No value for `unknown\'\\}';
+$result_converted{'latex_text'}->{'unknown_value'} = '\\{No value for `unknown\'\\}';
 
 1;

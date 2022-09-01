@@ -593,7 +593,7 @@ $result_converted{'xml'}->{'comment_example_and_blank_lines'} = '<para>Para.
 </para>';
 
 
-$result_converted{'latex'}->{'comment_example_and_blank_lines'} = 'Para.
+$result_converted{'latex_text'}->{'comment_example_and_blank_lines'} = 'Para.
 
 \\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}

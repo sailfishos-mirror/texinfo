@@ -495,7 +495,7 @@ $result_converted{'xml'}->{'block_commands'} = '
 ';
 
 
-$result_converted{'latex'}->{'block_commands'} = '
+$result_converted{'latex_text'}->{'block_commands'} = '
 in group
 
 \\begin{quote}

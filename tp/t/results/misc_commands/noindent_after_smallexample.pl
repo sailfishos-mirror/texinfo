@@ -187,7 +187,7 @@ $ wget \'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HE
 </p>';
 
 
-$result_converted{'latex'}->{'noindent_after_smallexample'} = 'To obtain.
+$result_converted{'latex_text'}->{'noindent_after_smallexample'} = 'To obtain.
 \\begin{GNUTexinfopreformatted}
 \\ttfamily \\footnotesize \\$ wget \'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\\&content-type=text/plain\'
 \\$ wget \'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\\&content-type=text/plain\'

@@ -702,7 +702,7 @@ $result_converted{'docbook_doc'}->{'line_breaks'} = '<?xml version="1.0"?>
 ';
 
 
-$result_converted{'latex'}->{'line_breaks'} = '
+$result_converted{'latex_text'}->{'line_breaks'} = '
 {\\raggedright {\\huge \\bfseries AWK As A Major Systems Programming \\leavevmode{}\\\\ Language---Revisited}}
 \\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt
 

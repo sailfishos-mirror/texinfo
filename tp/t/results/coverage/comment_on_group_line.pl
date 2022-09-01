@@ -141,7 +141,7 @@ $result_converted{'xml'}->{'comment_on_group_line'} = '<group spaces=" " endspac
 ';
 
 
-$result_converted{'latex'}->{'comment_on_group_line'} = 'in group.
+$result_converted{'latex_text'}->{'comment_on_group_line'} = 'in group.
 ';
 
 

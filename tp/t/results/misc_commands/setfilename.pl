@@ -302,7 +302,7 @@ $result_converted{'html_text'}->{'setfilename'} = '
 ';
 
 
-$result_converted{'latex'}->{'setfilename'} = '
+$result_converted{'latex_text'}->{'setfilename'} = '
 \\begin{document}
 ';
 

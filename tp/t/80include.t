@@ -8,7 +8,7 @@ require 't/test_utils.pl';
 my @test_cases = (
 [ 'simple',
 '@include inc_file.texi
-',{'test_formats' => ['info', 'plaintext', 'html', 'xml', 'docbook', 'latex']}],
+',{'test_formats' => ['info', 'plaintext', 'html', 'xml', 'docbook', 'latex_text']}],
 ['simple_no_eol',
 '@include inc_file.texi'
 ],

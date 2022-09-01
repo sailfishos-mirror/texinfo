@@ -145,6 +145,6 @@ $result_converted{'plaintext'}->{'space_command_in_image'} = 'Image description"
 $result_converted{'html_text'}->{'space_command_in_image'} = '<img class="image" src="f--ile.png" alt="&nbsp;"> <img class="image" src="f--ile.png" alt="f--ile">';
 
 
-$result_converted{'latex'}->{'space_command_in_image'} = '\\includegraphics{f--ile} \\includegraphics{f--ile}';
+$result_converted{'latex_text'}->{'space_command_in_image'} = '\\includegraphics{f--ile} \\includegraphics{f--ile}';
 
 1;

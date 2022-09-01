@@ -264,7 +264,7 @@ still second
 ';
 
 
-$result_converted{'latex'}->{'enumerate_in_example'} = '
+$result_converted{'latex_text'}->{'enumerate_in_example'} = '
 \\begin{GNUTexinfoindented}
 \\begin{enumerate}[start=1]
 \\item \\begin{GNUTexinfopreformatted}

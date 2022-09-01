@@ -841,7 +841,7 @@ $result_floats{'nodes_before_after_top_xref'} = {};
 
 
 
-$result_converted{'latex'}->{'nodes_before_after_top_xref'} = '
+$result_converted{'latex_text'}->{'nodes_before_after_top_xref'} = '
 \\begin{document}
 \\label{anchor:node-before}%
 

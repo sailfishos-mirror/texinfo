@@ -313,7 +313,7 @@ $result_converted{'html_text'}->{'form_feed_in_brace_commands'} = '<p><samp clas
 ';
 
 
-$result_converted{'latex'}->{'form_feed_in_brace_commands'} = '\\texttt{\\ aa} \\label{anchor:aa}%
+$result_converted{'latex_text'}->{'form_feed_in_brace_commands'} = '\\texttt{\\ aa} \\label{anchor:aa}%
 \\par{}
 something \\href{mailto:aaa}{fff}\\footnote{ f1 \\par{}
 } \\footnote{gg\\par{}

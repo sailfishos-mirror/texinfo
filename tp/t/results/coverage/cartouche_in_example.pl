@@ -227,7 +227,7 @@ $result_converted{'xml'}->{'cartouche_in_example'} = '<example endspaces=" ">
 ';
 
 
-$result_converted{'latex'}->{'cartouche_in_example'} = '\\begin{GNUTexinfoindented}
+$result_converted{'latex_text'}->{'cartouche_in_example'} = '\\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}
 \\ttfamily In example
 \\end{GNUTexinfopreformatted}

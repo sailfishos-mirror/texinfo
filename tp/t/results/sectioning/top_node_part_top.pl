@@ -461,7 +461,7 @@ $result_converted{'docbook'}->{'top_node_part_top'} = '<part label="">
 ';
 
 
-$result_converted{'latex'}->{'top_node_part_top'} = '\\begin{document}
+$result_converted{'latex_text'}->{'top_node_part_top'} = '\\begin{document}
 \\part{{part}}
 
 \\part*{{top}}

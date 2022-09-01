@@ -5551,7 +5551,7 @@ samp: &lsquo;<samp class="samp">``simple-double--three---four----\'\' `simple\' 
 ';
 
 
-$result_converted{'latex'}->{'codequoteundirected_codequotebacktick'} = '
+$result_converted{'latex_text'}->{'codequoteundirected_codequotebacktick'} = '
 
 
 

@@ -691,7 +691,7 @@ $result_floats{'nested_itemize'} = {};
 
 
 
-$result_converted{'latex'}->{'nested_itemize'} = '\\begin{document}
+$result_converted{'latex_text'}->{'nested_itemize'} = '\\begin{document}
 \\begin{itemize}
    \\item First level item
    \\item First level item

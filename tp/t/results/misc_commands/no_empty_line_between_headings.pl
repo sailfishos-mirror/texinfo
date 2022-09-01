@@ -248,7 +248,7 @@ $result_converted{'html_text'}->{'no_empty_line_between_headings'} = '<div class
 ';
 
 
-$result_converted{'latex'}->{'no_empty_line_between_headings'} = '\\part*{{Top}}
+$result_converted{'latex_text'}->{'no_empty_line_between_headings'} = '\\part*{{Top}}
 \\GNUTexinfonopagebreakheading{\\subsection*}{{Subheading}}
 \\chapter{{Chapter}}
 \\section{{Section}}
