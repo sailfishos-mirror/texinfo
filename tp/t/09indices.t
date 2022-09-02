@@ -617,7 +617,7 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 
 @printindex cp
 @printindex fn
-', {'test_formats' => ['plaintext', 'docbook', 'html']}
+', {'test_formats' => ['docbook']}
 ],
 ['multiple_index_text_sortas_seeentry_seealso',
 '@node Top

@@ -695,20 +695,6 @@ $result_indices_sort_strings{'subentry_and_sortas'} = {
 
 
 
-$result_converted{'plaintext'}->{'subentry_and_sortas'} = '1 Index
-*******
-
-* Menu:
-
-* aaa, bbb:                              chapter index.         (line 3)
-
-* Menu:
-
-* xxx, zzz:                              chapter index.         (line 3)
-
-';
-
-
 $result_converted{'docbook'}->{'subentry_and_sortas'} = '<chapter label="1" id="chapter-index">
 <title>Index</title>
 
@@ -718,94 +704,6 @@ $result_converted{'docbook'}->{'subentry_and_sortas'} = '<chapter label="1" id="
 <index role="fn"></index>
 </chapter>
 ';
-
-
-$result_converted{'html'}->{'subentry_and_sortas'} = '<!DOCTYPE html>
-<html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Untitled Document</title>
-
-<meta name="description" content="Untitled Document">
-<meta name="keywords" content="Untitled Document">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="#Top" rel="start" title="Top">
-<link href="#chapter-index" rel="index" title="chapter index">
-<style type="text/css">
-<!--
-a.summary-letter-printindex {text-decoration: none}
-td.printindex-index-entry {vertical-align: top}
-td.printindex-index-section {vertical-align: top}
-th.entries-header-printindex {text-align:left}
-th.sections-header-printindex {text-align:left}
--->
-</style>
-
-
-</head>
-
-<body lang="en">
-<div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
-Next: <a href="#chapter-index" accesskey="n" rel="next">Index</a> &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
-</div>
-<a class="top" id="SEC_Top"></a>
-<ul class="mini-toc">
-<li><a href="#chapter-index" accesskey="1">Index</a></li>
-</ul>
-<hr>
-<div class="chapter-level-extent" id="chapter-index">
-<div class="nav-panel">
-<p>
- &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
-</div>
-<h2 class="chapter" id="Index">1 Index</h2>
-
-<a class="index-entry-id" id="index-aaa"></a>
-
-<a class="index-entry-id" id="index-xxx"></a>
-
-<div class="printindex cp-printindex">
-<table class="cp-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="chapter-index_cp_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa">aaa, bbb</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-</table>
-</div>
-<div class="printindex fn-printindex">
-<table class="fn-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="chapter-index_fn_letter-X">X</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-xxx"><code>xxx, zzz</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-</table>
-</div>
-</div>
-</div>
-
-
-
-</body>
-</html>
-';
-
-$result_converted_errors{'html'}->{'subentry_and_sortas'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
-
 
 
 $result_converted{'info'}->{'subentry_and_sortas'} = 'This is , produced from .

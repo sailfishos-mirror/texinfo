@@ -1125,6 +1125,17 @@ sub test($$)
                                   $format_converter_options);
       $converted_errors{$format} = undef if (!@{$converted_errors{$format}});
 
+      if ($format =~ /^file_/ and defined ($converted{$format})) {
+        # This is certainly wrong, because the differences are made on
+        # the output files which should be empty.  Differences in output
+        # will be missed.  It is tempting to use such format to have
+        # output() called by the converter and get the file headers and
+        # footers output in the main test perl file, but it is incorrect.
+        # It is better to do as for the html or latex cases, have a _text
+        # format, like html_text for which convert() is called and have
+        # output() be called for the main format name, for example html.
+        warn "ERROR: $self->{'name'}: $test_name: $format: file test with result as text\n";
+      }
       # output converted result and errors in files if $arg_output is set
       if ($arg_output) {
         mkdir ("$output_files_dir/$self->{'name'}")
@@ -1137,22 +1148,31 @@ sub test($$)
         }
 
         if (defined ($converted{$format})) {
-          my $test_outfile = "$self->{'name'}/$test_name.$extension";
-          my $outfile = "$output_files_dir/$test_outfile";
-          if ($output_files{$test_outfile}) {
-            warn "$format: $test_name: overwrite $outfile "
-                     ."(".join("|", @{$output_files{$test_outfile}}).")\n";
-            push @{$output_files{$test_outfile}}, $format;
+          my $original_test_outfile = "$self->{'name'}/$test_name.$extension";
+          my $test_outfile = $original_test_outfile;
+          if ($output_files{$original_test_outfile}) {
+            warn "WARNING: $self->{'name'}: $test_name: $format: same name: $original_test_outfile "
+                     ."(".join("|", @{$output_files{$original_test_outfile}}).")\n";
+            push @{$output_files{$original_test_outfile}}, $format;
+            $test_outfile = "$self->{'name'}/${test_name}_${format}.$extension";
+            # we also check that the file name with the format in name
+            # has not already been output
+            if ($output_files{$test_outfile}) {
+              warn "ERROR: $self->{'name'}: $test_name: $format: same name with format: $test_outfile\n";
+            } else {
+              $output_files{$test_outfile} = [$format];
+            }
           } else {
-            $output_files{$test_outfile} = [$format];
+            $output_files{$original_test_outfile} = [$format];
           }
+          my $outfile = "$output_files_dir/$test_outfile";
           if (!open (OUTFILE, ">$outfile")) {
-            warn "Open $outfile: $!\n";
+            warn "ERROR: open $outfile: $!\n";
           } else {
             my $output_file_encoding;
             # FIXME do all the converters implement get_conf?  Otherwise
             # the OUTPUT_PERL_ENCODING could ve determined from
-            # $format_converter_options->{'OUTPUT_ENCODING_NAME'} useing the
+            # $format_converter_options->{'OUTPUT_ENCODING_NAME'} using the
             # same code as in Texinfo/Common.pm set_output_encodings
             my $output_perl_encoding = $converter->get_conf('OUTPUT_PERL_ENCODING');
             if (defined($output_perl_encoding)) {

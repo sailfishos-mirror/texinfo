@@ -339,7 +339,7 @@ before
 @end displaymath
 after
 ',
-{'test_formats' => ['file_html', 'docbook']},
+{'test_formats' => ['html', 'docbook']},
 {'HTML_MATH' => 'mathjax'}
 ],
 );

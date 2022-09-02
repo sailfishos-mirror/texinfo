@@ -299,7 +299,7 @@ $result_floats{'displaymath'} = {};
 
 
 
-$result_converted{'file_html'}->{'displaymath'} = '<!DOCTYPE html>
+$result_converted{'html'}->{'displaymath'} = '<!DOCTYPE html>
 <html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
@@ -339,7 +339,7 @@ MathJax = {
 </html>
 ';
 
-$result_converted_errors{'file_html'}->{'displaymath'} = [
+$result_converted_errors{'html'}->{'displaymath'} = [
   {
     'error_line' => 'warning: must specify a title with a title command or @top
 ',
