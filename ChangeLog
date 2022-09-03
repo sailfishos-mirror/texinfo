@@ -2,6 +2,15 @@
 
 	Shorter LaTeX preamble
 
+	* tp/Texinfo/Convert/LaTeX.pm: (_latex_header):
+	Do not redefine 'plain' page style.  Condense lines in some
+	definitions.  Fix a spelling error.
+	($titleps_preamble): Remove unused.
+
+2022-09-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Shorter LaTeX preamble
+
 	* tp/Texinfo/Convert/LaTeX.pm
 	(_begin_document, %front_main_matter_definitions): Output commands 
 	\mainmatter, \frontmatter directly using hash, rather than via

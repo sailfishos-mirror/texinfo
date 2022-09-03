@@ -1156,7 +1156,7 @@ my %front_main_matter_definitions = (
 );
 
 # not used as it is complicated to use section and chapter title
-# this will not work any more as the \GNUTexinfoset... macros are
+# NB this will not work any more as the \GNUTexinfoset... macros are
 # not used, and \pagestyle is used directly.
 my $fancyhdr_preamble =
 '% called when setting single headers
@@ -1183,19 +1183,6 @@ my $fancyhdr_preamble =
 
 % match Texinfo TeX style
 \renewcommand{\headrulewidth}{0pt}%';
-
-my $titleps_preamble = '% plain page style, for part and chapter, which call \thispagestyle{plain}
-\renewpagestyle{plain}{\sethead[\thepage{}][][]
-                             {}{}{\thepage{}}}
-
-% single header
-\newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
-                              {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
-
-% double header
-\newpagestyle{double}{\sethead[\thepage{}][][\GNUTexinfosettitle]
-                              {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
-';
 
 # TODO translation
 my $default_title = 'No Title';
@@ -1276,16 +1263,13 @@ sub _latex_header() {
 
   $header_code .=
 '\newenvironment{GNUTexinfopreformatted}{%
-  \\par\\GNUTobeylines\\obeyspaces\\frenchspacing
-  \\parskip=\\z@\\parindent=\\z@}{}
+  \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
 {\catcode`\^^M=13 \gdef\GNUTobeylines{\catcode`\^^M=13 \def^^M{\null\par}}}
 ';
 
   $header_code .=
-'\newenvironment{GNUTexinfoindented}
-  {\begin{list}{}{}
-  \item\relax}
-  {\end{list}}'."\n";
+'\newenvironment{GNUTexinfoindented}{\begin{list}{}{}\item\relax}{\end{list}}
+';
 
   if ($self->{'packages'}->{'babel'}) {
     $header_code .= '
@@ -1315,13 +1299,6 @@ sub _latex_header() {
 
 ';
 
-  $header_code .=
-'% plain page style for part and chapter, which call \thispagestyle{plain}
-\renewpagestyle{plain}{\sethead[\thepage{}][][]
-                             {}{}{\thepage{}}}
-
-';
-
   if ($self->{'page_styles'}->{'single'}) {
     $header_code .=
 '\newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
@@ -1339,7 +1316,7 @@ sub _latex_header() {
   }
 
   $header_code .=
-'% avoid pagebreak and headings setting for a sectionning command
+'% avoid pagebreak and headings setting for a sectioning command
 \newcommand{\GNUTexinfonopagebreakheading}[2]{{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}}
 
 ';
