@@ -3801,9 +3801,9 @@ subsections, and subsubsections:
 
 @itemize @bullet
 @item
-The @code{@@chapter}-like commands produce
-numbered or lettered entries both in the body of a document and in its
-table of contents.
+The @code{@@chapter}-like commands and @code{@@appendix}-like commands
+produce numbered or lettered entries both in the body of a document and
+in its table of contents.
 
 @item
 The @code{@@unnumbered}-like commands produce unnumbered entries
