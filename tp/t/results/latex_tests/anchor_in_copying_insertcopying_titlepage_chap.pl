@@ -729,7 +729,7 @@ $result_converted{'latex_text'}->{'anchor_in_copying_insertcopying_titlepage_cha
 
 \\begin{document}
 
-\\GNUTexinfofrontmatter
+\\frontmatter
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
@@ -749,7 +749,7 @@ Cop. \\label{anchor:a-in-copying}%
 . Ying.
 \\end{titlepage}
 \\pagestyle{single}%
-\\GNUTexinfomainmatter
+\\mainmatter
 \\label{anchor:Top}%
 \\chapter{{Chap}}
 \\label{anchor:Chapter}%

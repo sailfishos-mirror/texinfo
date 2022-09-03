@@ -335,7 +335,7 @@ $result_converted_errors{'html'}->{'format_in_titlepage'} = [
 $result_converted{'latex_text'}->{'format_in_titlepage'} = '
 \\begin{document}
 
-\\GNUTexinfofrontmatter
+\\frontmatter
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
@@ -351,7 +351,7 @@ Published
 \\endgroup
 \\end{titlepage}
 \\pagestyle{single}%
-\\GNUTexinfomainmatter
+\\mainmatter
 \\label{anchor:Top}%
 ';
 

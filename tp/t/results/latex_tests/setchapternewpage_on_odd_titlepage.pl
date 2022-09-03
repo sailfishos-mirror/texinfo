@@ -222,7 +222,7 @@ $result_converted{'latex_text'}->{'setchapternewpage_on_odd_titlepage'} = '\\mak
 
 \\begin{document}
 
-\\GNUTexinfofrontmatter
+\\frontmatter
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
@@ -234,7 +234,7 @@ in titlepage
 \\endgroup
 \\end{titlepage}
 \\pagestyle{double}%
-\\GNUTexinfomainmatter
+\\mainmatter
 ';
 
 1;

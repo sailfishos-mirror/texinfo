@@ -5574,9 +5574,6 @@ $result_converted{'latex'}->{'codequoteundirected_codequotebacktick'} = '\\docum
 % redefine the \\mainmatter command such that it does not clear page
 % as if in double page
 \\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
-% add command aliases to use the same command in book and report
-\\newcommand\\GNUTexinfomainmatter{\\mainmatter}
-\\newcommand\\GNUTexinfofrontmatter{\\frontmatter}
 \\newenvironment{GNUTexinfopreformatted}{%
   \\par\\GNUTobeylines\\obeyspaces\\frenchspacing
   \\parskip=\\z@\\parindent=\\z@}{}
@@ -5615,7 +5612,7 @@ $result_converted{'latex'}->{'codequoteundirected_codequotebacktick'} = '\\docum
 
 \\begin{document}
 
-\\GNUTexinfofrontmatter
+\\frontmatter
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
@@ -5659,7 +5656,7 @@ samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `s
 \\endgroup
 \\end{titlepage}
 \\pagestyle{single}%
-\\GNUTexinfomainmatter
+\\mainmatter
 \\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chap}%

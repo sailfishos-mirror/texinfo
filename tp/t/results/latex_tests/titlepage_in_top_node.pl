@@ -455,7 +455,7 @@ $result_floats{'titlepage_in_top_node'} = {};
 
 $result_converted{'latex_text'}->{'titlepage_in_top_node'} = '\\begin{document}
 
-\\GNUTexinfofrontmatter
+\\frontmatter
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
@@ -470,7 +470,7 @@ $result_converted{'latex_text'}->{'titlepage_in_top_node'} = '\\begin{document}
 \\endgroup
 \\end{titlepage}
 \\pagestyle{single}%
-\\GNUTexinfomainmatter
+\\mainmatter
 \\label{anchor:Top}%
 \\chapter{{chap}}
 \\label{anchor:chap}%

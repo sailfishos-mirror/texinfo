@@ -451,7 +451,7 @@ $result_floats{'titlepage_long_title'} = {};
 $result_converted{'latex_text'}->{'titlepage_long_title'} = '
 \\begin{document}
 
-\\GNUTexinfofrontmatter
+\\frontmatter
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
@@ -467,7 +467,7 @@ $result_converted{'latex_text'}->{'titlepage_long_title'} = '
 \\endgroup
 \\end{titlepage}
 \\pagestyle{single}%
-\\GNUTexinfomainmatter
+\\mainmatter
 \\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chapter}%

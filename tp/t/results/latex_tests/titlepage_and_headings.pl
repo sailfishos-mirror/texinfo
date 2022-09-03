@@ -126,7 +126,7 @@ $result_floats{'titlepage_and_headings'} = {};
 $result_converted{'latex_text'}->{'titlepage_and_headings'} = '
 \\begin{document}
 
-\\GNUTexinfofrontmatter
+\\frontmatter
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
@@ -138,7 +138,7 @@ in titlepage
 \\endgroup
 \\end{titlepage}
 \\pagestyle{single}%
-\\GNUTexinfomainmatter
+\\mainmatter
 ';
 
 1;

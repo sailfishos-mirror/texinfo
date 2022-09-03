@@ -1149,17 +1149,10 @@ my %LaTeX_encoding_names_map = (
 my $documentclass = 'book';
 
 my %front_main_matter_definitions = (
-  'book' => '% redefine the \mainmatter command such that it does not clear page
-% as if in double page
-\renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
-% add command aliases to use the same command in book and report
-\newcommand\GNUTexinfomainmatter{\mainmatter}
-\newcommand\GNUTexinfofrontmatter{\frontmatter}
-',
-  'report' => '% add mainmatter and frontmatter commands
-\newcommand\GNUTexinfomainmatter{\clearpage\pagenumbering{arabic}}
-\newcommand\GNUTexinfofrontmatter{\clearpage\pagenumbering{roman}}
-'
+  'book' =>   {'main'  => '\mainmatter',
+               'front' => '\frontmatter'},
+  'report' => {'main'  => '\clearpage\pagenumbering{arabic}',
+               'front' => '\clearpage\pagenumbering{roman}'}
 );
 
 # not used as it is complicated to use section and chapter title
@@ -1273,7 +1266,13 @@ sub _latex_header() {
     }
   }
 
-  $header_code .= $front_main_matter_definitions{$documentclass};
+  if ($documentclass eq 'book') {
+    $header_code .=
+'% redefine the \mainmatter command such that it does not clear page
+% as if in double page
+\renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
+';
+  }
 
   $header_code .=
 '\newenvironment{GNUTexinfopreformatted}{%
@@ -1486,7 +1485,8 @@ sub _begin_document($)
 ';
   if (exists($self->{'global_commands'}->{'titlepage'})
       or exists($self->{'global_commands'}->{'shorttitlepage'})) {
-    $result .= "\n\\GNUTexinfofrontmatter\n";
+    $result .= "\n";
+    $result .= $front_main_matter_definitions{$documentclass}->{'front'}."\n";
 
     if (exists($self->{'global_commands'}->{'titlepage'})) {
       my $element = $self->{'global_commands'}->{'titlepage'};
@@ -1518,7 +1518,7 @@ sub _begin_document($)
       $result .= "\\end{titlepage}\n";
     }
     $result .= _set_headings($self, 'on');
-    $result .= "\\GNUTexinfomainmatter\n";
+    $result .= $front_main_matter_definitions{$documentclass}->{'main'}."\n";
     $self->{'titlepage_done'} = 1;
   }
 

@@ -174,7 +174,7 @@ $result_converted{'latex_text'}->{'titlepage_and_setchapternewpage_on'} = '\\mak
 
 \\begin{document}
 
-\\GNUTexinfofrontmatter
+\\frontmatter
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
@@ -186,7 +186,7 @@ in titlepage
 \\endgroup
 \\end{titlepage}
 \\pagestyle{single}%
-\\GNUTexinfomainmatter
+\\mainmatter
 ';
 
 1;

@@ -433,7 +433,7 @@ $result_floats{'titlepage_no_author'} = {};
 $result_converted{'latex_text'}->{'titlepage_no_author'} = '
 \\begin{document}
 
-\\GNUTexinfofrontmatter
+\\frontmatter
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
@@ -448,7 +448,7 @@ $result_converted{'latex_text'}->{'titlepage_no_author'} = '
 \\endgroup
 \\end{titlepage}
 \\pagestyle{single}%
-\\GNUTexinfomainmatter
+\\mainmatter
 \\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chapter}%

@@ -554,7 +554,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Chapter</a> &nbsp; </p>
 $result_converted{'latex_text'}->{'anchor_in_titlepage'} = '
 \\begin{document}
 
-\\GNUTexinfofrontmatter
+\\frontmatter
 \\begin{titlepage}
 \\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
@@ -567,7 +567,7 @@ $result_converted{'latex_text'}->{'anchor_in_titlepage'} = '
 \\endgroup
 \\end{titlepage}
 \\pagestyle{single}%
-\\GNUTexinfomainmatter
+\\mainmatter
 \\part*{{top}}
 \\label{anchor:Top}%
 \\label{anchor:nchap}%

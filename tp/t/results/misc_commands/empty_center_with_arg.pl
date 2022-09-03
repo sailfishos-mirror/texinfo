@@ -104,9 +104,6 @@ $result_converted{'latex'}->{'empty_center_with_arg'} = '\\documentclass{book}
 % redefine the \\mainmatter command such that it does not clear page
 % as if in double page
 \\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
-% add command aliases to use the same command in book and report
-\\newcommand\\GNUTexinfomainmatter{\\mainmatter}
-\\newcommand\\GNUTexinfofrontmatter{\\frontmatter}
 \\newenvironment{GNUTexinfopreformatted}{%
   \\par\\GNUTobeylines\\obeyspaces\\frenchspacing
   \\parskip=\\z@\\parindent=\\z@}{}

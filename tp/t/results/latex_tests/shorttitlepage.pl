@@ -380,14 +380,14 @@ $result_floats{'shorttitlepage'} = {};
 $result_converted{'latex_text'}->{'shorttitlepage'} = '
 \\begin{document}
 
-\\GNUTexinfofrontmatter
+\\frontmatter
 \\begin{titlepage}
 {\\raggedright {\\huge \\bfseries the title with shorttitlepage \\leavevmode{}\\\\ it can be long}}
 \\newpage{}
 \\phantom{blabla}\\newpage{}
 \\end{titlepage}
 \\pagestyle{single}%
-\\GNUTexinfomainmatter
+\\mainmatter
 \\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chapter}%
