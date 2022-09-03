@@ -49,18 +49,12 @@
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
 
-% plain page style, for part and chapter, which call \thispagestyle{plain}
+% plain page style for part and chapter, which call \thispagestyle{plain}
 \renewpagestyle{plain}{\sethead[\thepage{}][][]
                              {}{}{\thepage{}}}
 
-% single header
 \newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
                               {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
-
-% double header
-\newpagestyle{double}{\sethead[\thepage{}][][\GNUTexinfosettitle]
-                              {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
-
 
 % avoid pagebreak and headings setting for a sectionning command
 \newcommand{\GNUTexinfonopagebreakheading}[2]{{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}}

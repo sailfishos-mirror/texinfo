@@ -1314,9 +1314,33 @@ sub _latex_header() {
   $header_code .= '% command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
 
-'.$titleps_preamble.'
+';
 
-% avoid pagebreak and headings setting for a sectionning command
+  $header_code .=
+'% plain page style for part and chapter, which call \thispagestyle{plain}
+\renewpagestyle{plain}{\sethead[\thepage{}][][]
+                             {}{}{\thepage{}}}
+
+';
+
+  if ($self->{'page_styles'}->{'single'}) {
+    $header_code .=
+'\newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
+                              {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
+
+';
+  }
+
+  if ($self->{'page_styles'}->{'double'}) {
+    $header_code .=
+'\newpagestyle{double}{\sethead[\thepage{}][][\GNUTexinfosettitle]
+                              {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
+
+';
+  }
+
+  $header_code .=
+'% avoid pagebreak and headings setting for a sectionning command
 \newcommand{\GNUTexinfonopagebreakheading}[2]{{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}}
 
 ';
@@ -1672,6 +1696,7 @@ sub _set_headings($$)
   } elsif ($headings_type eq 'off') {
     $result = "\\pagestyle{empty}%\n";
   }
+  $self->{'page_styles'}->{$headings_type} = 1;
   return $result;
 }
 
