@@ -3037,7 +3037,7 @@ $result_converted{'latex_text'}->{'image_formatting'} = '\\label{anchor:Top}%
 \\includegraphics{image} \\includegraphics{image}
 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily \\texttt{@image\\{f{-}{-}ile\\}}\\ \\includegraphics{f--ile}
 \\texttt{@image\\{f{-}{-}ile,l{-}{-}i\\}}\\ \\includegraphics[width=l--i]{f--ile}
 \\texttt{@image\\{f{-}{-}ile{,}{,}l{-}{-}e\\}}\\ \\includegraphics[height=l--e]{f--ile}

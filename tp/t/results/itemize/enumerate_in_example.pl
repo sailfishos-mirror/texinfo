@@ -267,10 +267,10 @@ still second
 $result_converted{'latex_text'}->{'enumerate_in_example'} = '
 \\begin{GNUTexinfoindented}
 \\begin{enumerate}[start=1]
-\\item \\begin{GNUTexinfopreformatted}
+\\item \\begin{GNUTexinfopreformatted}%
 \\ttfamily first item
 \\end{GNUTexinfopreformatted}
-\\item \\begin{GNUTexinfopreformatted}
+\\item \\begin{GNUTexinfopreformatted}%
 \\ttfamily second  item
 
 still second

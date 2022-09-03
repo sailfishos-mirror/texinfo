@@ -485,13 +485,13 @@ $result_converted{'latex_text'}->{'text_on_display_command_line'} = '\\begin{GNU
 \\end{GNUTexinfoindented}
 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 normal text
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}
 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 in display
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}

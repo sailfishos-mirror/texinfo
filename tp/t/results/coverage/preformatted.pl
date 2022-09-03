@@ -442,7 +442,7 @@ in table in format
 
 $result_converted{'latex_text'}->{'preformatted'} = '
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily e{-}{-}xample  some  
 
 \\   text
@@ -454,7 +454,7 @@ $result_converted{'latex_text'}->{'preformatted'} = '
 \\texttt{item in table in format}
 \\index[vr]{item in table in format@\\texttt{item in table in format}}%
 }}]
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 
 in table in format
 \\end{GNUTexinfopreformatted}

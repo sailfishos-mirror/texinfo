@@ -342,7 +342,7 @@ $result_converted{'latex_text'}->{'table_in_display_in_example'} = '\\begin{GNUT
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 item}}]
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 Line
 \\end{GNUTexinfopreformatted}
 \\end{description}

@@ -329,7 +329,7 @@ $result_converted{'latex_text'}->{'def_in_example'} = '\\begin{GNUTexinfoindente
 \\index[fn]{name@\\texttt{name}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily in defun
 \\end{GNUTexinfopreformatted}
 \\end{quote}

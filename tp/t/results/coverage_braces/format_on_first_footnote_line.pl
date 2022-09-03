@@ -320,7 +320,7 @@ in quotation on the first footnote line
 }.
 
 Last text \\footnote{\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily in example
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}

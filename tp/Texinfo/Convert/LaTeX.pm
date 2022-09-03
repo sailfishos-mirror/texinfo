@@ -50,10 +50,6 @@
 # (example in customization_api.texi (Texinfo Tree Conversion Functions)
 # convert_tree_new_formatting_context)
 #
-# An empty line in @example is not kept as is.  Tested in t/20preformatted.t
-# empty_line.
-#
-#
 # RELEVANT BUT NOT DECISIVE
 #
 # breaking in urls is not implemented, maybe there is some support already in
@@ -1285,8 +1281,10 @@ sub _latex_header() {
 
   $header_code .=
 '\newenvironment{GNUTexinfopreformatted}{%
-  \\par\\obeylines\\obeyspaces\\frenchspacing
-  \\parskip=\\z@\\parindent=\\z@}{}'."\n";
+  \\par\\GNUTobeylines\\obeyspaces\\frenchspacing
+  \\parskip=\\z@\\parindent=\\z@}{}
+{\catcode`\^^M=13 \gdef\GNUTobeylines{\catcode`\^^M=13 \def^^M{\null\par}}}
+';
 
   $header_code .=
 '\newenvironment{GNUTexinfoindented}
@@ -1838,7 +1836,8 @@ sub _open_preformatted($$)
   }
 
   my $result = '';
-  $result .= '\\begin{GNUTexinfopreformatted}'."\n";
+  $result .= '\\begin{GNUTexinfopreformatted}%'."\n";
+  # The % comments out the newline to avoid extra vertical space.
 
   if ($preformatted_code_commands{$command}) {
     $result .= '\\ttfamily ';
@@ -3061,6 +3060,10 @@ sub _convert($$)
               exists($environment_options->{$environment})) {
             $result .= '['.$environment_options->{$environment}.']';
           }
+          # For @flushright and @flushleft, which don't use 'preformatted'
+          # elements, unlike @display and @format.  This comments out the
+          # newline.
+          $result .= '%' if $environment eq 'GNUTexinfopreformatted';
           $result .= "\n";
         }
         if ($LaTeX_environment_packages{$cmdname}) {

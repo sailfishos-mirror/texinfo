@@ -416,7 +416,7 @@ in -- example/format
 
 
 $result_converted{'latex_text'}->{'nested_formats'} = '\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily 
 in {-}{-} format/example
 
@@ -424,7 +424,7 @@ in {-}{-} format/example
 \\end{GNUTexinfoindented}
 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 
 in -- example/format
 

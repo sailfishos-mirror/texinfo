@@ -150,7 +150,7 @@ $result_converted{'xml'}->{'insertcopying_in_example'} = '<example endspaces=" "
 
 
 $result_converted{'latex_text'}->{'insertcopying_in_example'} = '\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily text
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}

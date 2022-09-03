@@ -344,7 +344,7 @@ $result_converted{'latex_text'}->{'format_in_titlepage'} = '
 % Leave some space at the very top of the page.
     \\vglue\\titlepagetopglue
 
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 Published
 \\end{GNUTexinfopreformatted}
 

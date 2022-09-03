@@ -211,8 +211,9 @@ $result_converted{'latex'}->{'noindent_after_smallexample'} = '\\documentclass{b
 \\newcommand\\GNUTexinfomainmatter{\\mainmatter}
 \\newcommand\\GNUTexinfofrontmatter{\\frontmatter}
 \\newenvironment{GNUTexinfopreformatted}{%
-  \\par\\obeylines\\obeyspaces\\frenchspacing
+  \\par\\GNUTobeylines\\obeyspaces\\frenchspacing
   \\parskip=\\z@\\parindent=\\z@}{}
+{\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
 \\newenvironment{GNUTexinfoindented}
   {\\begin{list}{}{}
   \\item\\relax}
@@ -252,7 +253,7 @@ $result_converted{'latex'}->{'noindent_after_smallexample'} = '\\documentclass{b
 \\GNUTexinfosetsingleheader{}%
 
 To obtain.
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily \\footnotesize \\$ wget \'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\\&content-type=text/plain\'
 \\$ wget \'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\\&content-type=text/plain\'
 \\end{GNUTexinfopreformatted}

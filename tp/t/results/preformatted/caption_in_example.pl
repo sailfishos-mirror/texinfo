@@ -356,12 +356,12 @@ After caption
 $result_converted{'latex_text'}->{'caption_in_example'} = '\\begin{TexinfoFloatfloat}
 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily in example 
 
 \\end{GNUTexinfopreformatted}
 \\caption{caption}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily 
 
 After caption

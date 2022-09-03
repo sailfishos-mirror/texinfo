@@ -155,7 +155,7 @@ $result_converted{'xml'}->{'quote_dash_in_example'} = '
 
 $result_converted{'latex_text'}->{'quote_dash_in_example'} = '
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily and now {-}{-} yes{-}{-}{-}now and {`}{`}so{\'}{\'}.
 
 \\end{GNUTexinfopreformatted}

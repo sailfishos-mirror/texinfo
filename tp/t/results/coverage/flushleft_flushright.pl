@@ -334,7 +334,7 @@ ldskf dsflj
 
 $result_converted{'latex_text'}->{'flushleft_flushright'} = '
 \\begin{flushleft}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb ccccccccccccccc
 ldskf dsflj
      lklsdlv l    lll. Bbb.
@@ -344,7 +344,7 @@ lhds
 \\end{flushleft}
 
 \\begin{flushright}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb ccccccccccccccc
 ldskf dsflj
      lklsdlv l    lll. Bbb.

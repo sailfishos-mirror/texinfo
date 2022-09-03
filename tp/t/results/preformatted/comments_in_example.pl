@@ -488,19 +488,19 @@ second line
 
 $result_converted{'latex_text'}->{'comments_in_example'} = 'Example with comments 2 lines
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily line second line \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}
 
 Example with comments 1 line
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily line \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}
 
 Example with newline after comment
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily line 
 second line
 \\end{GNUTexinfopreformatted}

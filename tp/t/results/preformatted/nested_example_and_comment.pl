@@ -744,38 +744,38 @@ $result_converted{'xml'}->{'nested_example_and_comment'} = '<example endspaces="
 
 
 $result_converted{'latex_text'}->{'nested_example_and_comment'} = '\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily First line 0 \\end{GNUTexinfopreformatted}
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily Nested example
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily In first one
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}
 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily First line 1 \\end{GNUTexinfopreformatted}
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily Nested example \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily In first one
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}
 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily First line 2 \\end{GNUTexinfopreformatted}
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily Nested example \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily In first one \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}
 ';

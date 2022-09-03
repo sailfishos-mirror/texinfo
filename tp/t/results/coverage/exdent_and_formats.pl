@@ -2084,7 +2084,7 @@ quotation2
 
 
 $result_converted{'latex_text'}->{'exdent_and_formats'} = '\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily \\ Example   Hoho.\\ \\TeX{}\\ .\\ \\leavevmode{}\\\\\\ @.
 
 \\end{GNUTexinfopreformatted}
@@ -2092,7 +2092,7 @@ $result_converted{'latex_text'}->{'exdent_and_formats'} = '\\begin{GNUTexinfoind
 \\hbox{\\kern -\\leftmargin}%
 Other line
 \\\\
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily not exdented
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}
@@ -2103,14 +2103,14 @@ Other line
 \\hbox{\\kern -\\leftmargin}%
 exdented  and dash --- in example
 \\\\
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily Not exdented
 \\end{GNUTexinfopreformatted}
 \\leavevmode{}\\\\
 \\hbox{\\kern -\\leftmargin}%
 exdented
 \\\\
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily Not exdented
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}
@@ -2140,11 +2140,11 @@ quotation para 2
 \\end{quote}
 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily Example   Hoho.
 \\end{GNUTexinfopreformatted}
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily Nested Other line
 \\end{GNUTexinfopreformatted}
 \\leavevmode{}\\\\

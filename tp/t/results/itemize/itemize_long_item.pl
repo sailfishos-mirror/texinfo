@@ -691,7 +691,7 @@ empty line.
 $result_converted{'latex_text'}->{'itemize_long_item'} = '\\begin{itemize}[label=youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc]
 \\item first item
 \\item \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily In example
 
 end example.
@@ -701,7 +701,7 @@ end example.
 empty line.
 \\item 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily In second example
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}

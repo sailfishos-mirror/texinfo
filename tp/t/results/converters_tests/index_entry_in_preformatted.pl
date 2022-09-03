@@ -647,7 +647,7 @@ $result_converted{'latex_text'}->{'index_entry_in_preformatted'} = '\\label{anch
 \\label{anchor:chap}%
 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily \\index[cp]{first}%
 text
 

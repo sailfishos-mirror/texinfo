@@ -383,8 +383,9 @@ $result_converted{'latex'}->{'footnote_in_center'} = '\\documentclass{book}
 \\newcommand\\GNUTexinfomainmatter{\\mainmatter}
 \\newcommand\\GNUTexinfofrontmatter{\\frontmatter}
 \\newenvironment{GNUTexinfopreformatted}{%
-  \\par\\obeylines\\obeyspaces\\frenchspacing
+  \\par\\GNUTobeylines\\obeyspaces\\frenchspacing
   \\parskip=\\z@\\parindent=\\z@}{}
+{\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
 \\newenvironment{GNUTexinfoindented}
   {\\begin{list}{}{}
   \\item\\relax}
@@ -434,7 +435,7 @@ shows an important feature of the centered text.
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 item}}]
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily line
 \\end{GNUTexinfopreformatted}
 \\end{description}

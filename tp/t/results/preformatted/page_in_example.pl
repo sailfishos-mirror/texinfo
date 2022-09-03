@@ -148,7 +148,7 @@ $result_converted{'xml'}->{'page_in_example'} = '<example endspaces=" ">
 $result_converted{'latex_text'}->{'page_in_example'} = '\\begin{GNUTexinfoindented}
 \\newpage{}%
 \\phantom{blabla}%
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily text
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}

@@ -305,7 +305,7 @@ New para
 
 \\begin{mdframed}[style=GNUTexinfocartouche]
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily \\% pwd
 /usr/local/share/emacs
 \\end{GNUTexinfopreformatted}

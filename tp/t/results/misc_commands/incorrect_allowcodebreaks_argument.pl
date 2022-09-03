@@ -144,8 +144,9 @@ $result_converted{'latex'}->{'incorrect_allowcodebreaks_argument'} = '\\document
 \\newcommand\\GNUTexinfomainmatter{\\mainmatter}
 \\newcommand\\GNUTexinfofrontmatter{\\frontmatter}
 \\newenvironment{GNUTexinfopreformatted}{%
-  \\par\\obeylines\\obeyspaces\\frenchspacing
+  \\par\\GNUTobeylines\\obeyspaces\\frenchspacing
   \\parskip=\\z@\\parindent=\\z@}{}
+{\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
 \\newenvironment{GNUTexinfoindented}
   {\\begin{list}{}{}
   \\item\\relax}

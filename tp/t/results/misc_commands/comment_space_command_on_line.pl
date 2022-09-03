@@ -1089,8 +1089,9 @@ $result_converted{'latex'}->{'comment_space_command_on_line'} = '\\documentclass
 \\newcommand\\GNUTexinfomainmatter{\\mainmatter}
 \\newcommand\\GNUTexinfofrontmatter{\\frontmatter}
 \\newenvironment{GNUTexinfopreformatted}{%
-  \\par\\obeylines\\obeyspaces\\frenchspacing
+  \\par\\GNUTobeylines\\obeyspaces\\frenchspacing
   \\parskip=\\z@\\parindent=\\z@}{}
+{\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
 \\newenvironment{GNUTexinfoindented}
   {\\begin{list}{}{}
   \\item\\relax}

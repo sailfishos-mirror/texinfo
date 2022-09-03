@@ -2531,7 +2531,7 @@ In text w: z? n; p. f
 \\texttt{a:\\ b!\\ gg;\\ h}
 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily c:\\ d?\\ j
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}
@@ -2571,7 +2571,7 @@ In text w: z? n; p. fn
 \\texttt{a:\\ b!\\ gg;\\ hn}
 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily c:\\ d?\\ jn
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}

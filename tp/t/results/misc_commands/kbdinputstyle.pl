@@ -2261,8 +2261,9 @@ $result_converted{'latex'}->{'kbdinputstyle'} = '\\documentclass{book}
 \\newcommand\\GNUTexinfomainmatter{\\mainmatter}
 \\newcommand\\GNUTexinfofrontmatter{\\frontmatter}
 \\newenvironment{GNUTexinfopreformatted}{%
-  \\par\\obeylines\\obeyspaces\\frenchspacing
+  \\par\\GNUTobeylines\\obeyspaces\\frenchspacing
   \\parskip=\\z@\\parindent=\\z@}{}
+{\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
 \\newenvironment{GNUTexinfoindented}
   {\\begin{list}{}{}
   \\item\\relax}
@@ -2312,7 +2313,7 @@ $result_converted{'latex'}->{'kbdinputstyle'} = '\\documentclass{book}
 
 in example
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily \\texttt{in code in example \\texttt{in nested code}}.
 \\texttt{kbd in example}.
 \\texttt{kbd \\texttt{in code}\\ in example}.
@@ -2330,7 +2331,7 @@ in example
 
 in example
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily \\texttt{in code in example \\texttt{in nested code}}.
 \\GNUTexinfocommandstyletextkbd{kbd in example}.
 \\texttt{kbd \\GNUTexinfocommandstyletextkbd{in code}\\ in example}.
@@ -2348,7 +2349,7 @@ in example
 
 in example
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily \\texttt{in code in example \\texttt{in nested code}}.
 \\GNUTexinfocommandstyletextkbd{kbd in example}.
 \\texttt{kbd \\GNUTexinfocommandstyletextkbd{in code}\\ in example}.

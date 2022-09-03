@@ -1,3 +1,14 @@
+2022-09-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Keep blank lines in @example
+
+	* tp/Texinfo/Convert/LaTeX.pm (_latex_header) <GNUTexinfopreformatted>:
+	Use our own definition of active newline to add \null so that empty
+	lines are kept in @examples.
+	(_open_preformatted), (convert) <environment commands>:
+	Supply % to comment out empty line after closing brace.  Add comment
+	to note that @flushleft and @flushright are anomalous.
+
 2022-09-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/t/converters_tests.t: warn file_* tests with output as text returned

@@ -310,13 +310,13 @@ $result_converted{'xml'}->{'flushleft_flushright_in_quotation'} = '
 $result_converted{'latex_text'}->{'flushleft_flushright_in_quotation'} = '
 \\begin{quote}
 \\begin{flushleft}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
    f l
 \\end{GNUTexinfopreformatted}
 \\end{flushleft}
 
 \\begin{flushright}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
   f r
 \\end{GNUTexinfopreformatted}
 \\end{flushright}

@@ -762,41 +762,41 @@ more.
 
 $result_converted{'latex_text'}->{'itemize_in_example'} = '\\begin{GNUTexinfoindented}
 \\begin{itemize}[label=\\textbullet{}]
-\\item \\begin{GNUTexinfopreformatted}
+\\item \\begin{GNUTexinfopreformatted}%
 \\ttfamily first
 
 more.
 \\end{GNUTexinfopreformatted}
 \\end{itemize}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily 
 \\end{GNUTexinfopreformatted}
 \\begin{itemize}
-\\item \\begin{GNUTexinfopreformatted}
+\\item \\begin{GNUTexinfopreformatted}%
 \\ttfamily as is
 \\end{GNUTexinfopreformatted}
 \\end{itemize}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily 
 \\end{GNUTexinfopreformatted}
 \\begin{itemize}[label=+]
-\\item \\begin{GNUTexinfopreformatted}
+\\item \\begin{GNUTexinfopreformatted}%
 \\ttfamily item +
 \\end{GNUTexinfopreformatted}
 \\end{itemize}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily 
 \\end{GNUTexinfopreformatted}
 \\begin{itemize}[label=m--n]
-\\item \\begin{GNUTexinfopreformatted}
+\\item \\begin{GNUTexinfopreformatted}%
 \\ttfamily with m{-}{-}n
 \\end{GNUTexinfopreformatted}
 \\end{itemize}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily 
 \\end{GNUTexinfopreformatted}
 \\begin{itemize}[label=\\textbullet{} a--n itemize line]
-\\item \\begin{GNUTexinfopreformatted}
+\\item \\begin{GNUTexinfopreformatted}%
 \\ttfamily in an itemize line
 \\end{GNUTexinfopreformatted}
 \\end{itemize}

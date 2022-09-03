@@ -388,8 +388,8 @@ flush then example
 
 $result_converted{'latex_text'}->{'flushright_example_nested'} = '\\begin{GNUTexinfoindented}
 \\begin{flushright}
-\\begin{GNUTexinfopreformatted}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily in   {-}{-}{-} flushright
 
 \\end{GNUTexinfopreformatted}
@@ -398,9 +398,9 @@ $result_converted{'latex_text'}->{'flushright_example_nested'} = '\\begin{GNUTex
 \\end{GNUTexinfoindented}
 
 \\begin{flushright}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily in   {-}{-}{-} example
 
 flush then example

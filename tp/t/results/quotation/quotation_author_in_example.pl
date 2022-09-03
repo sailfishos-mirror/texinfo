@@ -262,8 +262,9 @@ $result_converted{'latex'}->{'quotation_author_in_example'} = '\\documentclass{b
 \\newcommand\\GNUTexinfomainmatter{\\mainmatter}
 \\newcommand\\GNUTexinfofrontmatter{\\frontmatter}
 \\newenvironment{GNUTexinfopreformatted}{%
-  \\par\\obeylines\\obeyspaces\\frenchspacing
+  \\par\\GNUTobeylines\\obeyspaces\\frenchspacing
   \\parskip=\\z@\\parindent=\\z@}{}
+{\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
 \\newenvironment{GNUTexinfoindented}
   {\\begin{list}{}{}
   \\item\\relax}
@@ -304,7 +305,7 @@ $result_converted{'latex'}->{'quotation_author_in_example'} = '\\documentclass{b
 
 \\begin{GNUTexinfoindented}
 \\begin{quote}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily A quot{-}{-}{-}ation
 \\end{GNUTexinfopreformatted}
 \\end{quote}

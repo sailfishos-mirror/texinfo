@@ -590,7 +590,7 @@ kbd in kbd: \\GNUTexinfocommandstyletextkbd{in top kbd \\GNUTexinfocommandstylet
 kbd in @example:
 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily in example
 \\texttt{in example in kbd}.
 \\end{GNUTexinfopreformatted}
@@ -598,7 +598,7 @@ kbd in @example:
 
 kbd in @format:
 
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 in format
 \\texttt{in format in kbd}.
 \\end{GNUTexinfopreformatted}

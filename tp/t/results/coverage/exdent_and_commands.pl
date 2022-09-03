@@ -499,21 +499,21 @@ after exdented
 \\end{quote}
 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily example
 \\end{GNUTexinfopreformatted}
 \\leavevmode{}\\\\
 \\hbox{\\kern -\\leftmargin}%
 in exdented protected eol \\ {}
 \\\\
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily following
 \\end{GNUTexinfopreformatted}
 \\leavevmode{}\\\\
 \\hbox{\\kern -\\leftmargin}%
 in exdented a @* \\leavevmode{}\\\\ and following
 \\\\
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily after exdented
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}

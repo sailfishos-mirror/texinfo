@@ -1470,7 +1470,7 @@ cc \\par{}
 See \\hyperref[anchor:first-node]{[firstnode], page~\\pageref*{anchor:first-node}}
 
 \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily in example
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}

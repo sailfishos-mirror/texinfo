@@ -154,7 +154,7 @@ after empty line
 
 
 $result_converted{'latex_text'}->{'empty_line'} = '\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}
+\\begin{GNUTexinfopreformatted}%
 \\ttfamily example
 
 after empty line
