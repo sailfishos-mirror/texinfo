@@ -3795,39 +3795,31 @@ the previous chapter (@pxref{Nodes}).
 @node Structuring Command Types
 @section Structuring Command Types
 
-The chapter structuring commands fall into four groups or series, each
-of which contains structuring commands corresponding to the
-hierarchical levels of chapters, sections, subsections, and
-subsubsections.
-
-The four groups of commands are the @code{@@chapter} series, the
-@code{@@unnumbered} series, the @code{@@appendix} series, and the
-@code{@@heading} series.  Each command produces a title with a
-different appearance in the body of the document.  Some of the
-commands list their titles in the tables of contents, while others do
-not.  Here are the details:
+The chapter structuring commands fall into four groups, each of which
+contains structuring commands at the levels of chapters, sections,
+subsections, and subsubsections:
 
 @itemize @bullet
 @item
-The @code{@@chapter} and @code{@@appendix} series of commands produce
+The @code{@@chapter}-like commands produce
 numbered or lettered entries both in the body of a document and in its
 table of contents.
 
 @item
-The @code{@@unnumbered} series of commands produce unnumbered entries
+The @code{@@unnumbered}-like commands produce unnumbered entries
 both in the body of a document and in its table of contents.  The
 @code{@@top} command, which has a special use, is a member of this
-series (@pxref{@code{@@top} Command}).  An @code{@@unnumbered} section
+group (@pxref{@code{@@top} Command}).  An @code{@@unnumbered} section
 is a normal part of the document structure.
 
 @item
-The @code{@@heading} series of commands produce simple unnumbered
+The @code{@@heading}-like commands produce simple unnumbered
 headings that do not appear in a table of contents, are not associated
 with nodes, and cannot be cross-referenced.  These heading commands
 never start a new page.
 @end itemize
 
-In printed output, the chapter structuring commands produce a heading
+In printed output, the chapter structuring commands produce headings
 in the document.  When a @code{@@setchapternewpage} command says to do so, the
 @code{@@chapter}, @code{@@unnumbered}, and @code{@@appendix} commands
 start new pages in the printed manual; the @code{@@heading} commands

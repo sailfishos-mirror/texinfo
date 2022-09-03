@@ -1,3 +1,8 @@
+2022-09-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Structuring Command Types):
+	Minor edits for grammar and concision.
+
 2022-09-03  Patrice Dumas  <pertusus@free.fr>
 
 	Use spaces_at_end for spaces before @-command in index entry
