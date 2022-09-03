@@ -1,5 +1,12 @@
 2022-09-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Shorter LaTeX preamble
+
+	* tp/Texinfo/Convert/LaTeX.pm (_set_headings): Call \pagestyle
+	directly, rather than via macros defined in preamble.
+
+2022-09-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Keep blank lines in @example
 
 	* tp/Texinfo/Convert/LaTeX.pm (_latex_header) <GNUTexinfopreformatted>:

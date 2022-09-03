@@ -361,7 +361,7 @@ Published
 
 \\endgroup
 \\end{titlepage}
-\\GNUTexinfosetsingleheader{}%
+\\pagestyle{single}%
 \\GNUTexinfomainmatter
 \\label{anchor:Top}%
 ';

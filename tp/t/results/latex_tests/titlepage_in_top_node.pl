@@ -469,7 +469,7 @@ $result_converted{'latex_text'}->{'titlepage_in_top_node'} = '\\begin{document}
   \\vskip\\titlepagebottomglue
 \\endgroup
 \\end{titlepage}
-\\GNUTexinfosetsingleheader{}%
+\\pagestyle{single}%
 \\GNUTexinfomainmatter
 \\label{anchor:Top}%
 \\chapter{{chap}}

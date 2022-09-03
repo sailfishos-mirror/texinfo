@@ -5596,15 +5596,9 @@ $result_converted{'latex'}->{'codequoteundirected_codequotebacktick'} = '\\docum
 \\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
                               {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
 
-% called when setting single headers
-\\newcommand{\\GNUTexinfosetsingleheader}{\\pagestyle{single}}
-
 % double header
 \\newpagestyle{double}{\\sethead[\\thepage{}][][\\GNUTexinfosettitle]
                               {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
-
-% called when setting double headers
-\\newcommand{\\GNUTexinfosetdoubleheader}{\\pagestyle{double}}
 
 
 % avoid pagebreak and headings setting for a sectionning command
@@ -5670,7 +5664,7 @@ kbd: \\GNUTexinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four
 samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\' \\leavevmode{}\\\\
 \\endgroup
 \\end{titlepage}
-\\GNUTexinfosetsingleheader{}%
+\\pagestyle{single}%
 \\GNUTexinfomainmatter
 \\label{anchor:Top}%
 \\chapter{{Chapter}}

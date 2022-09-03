@@ -787,7 +787,7 @@ $result_converted{'latex_text'}->{'titlepage_classical'} = '
 \\vskip 0pt plus 1filll
 in Copying
 \\end{titlepage}
-\\GNUTexinfosetsingleheader{}%
+\\pagestyle{single}%
 \\GNUTexinfomainmatter
 \\label{anchor:Top}%
 \\chapter{{Chapter}}

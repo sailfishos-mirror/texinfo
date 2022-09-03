@@ -182,17 +182,17 @@ $result_floats{'three_setchapternewpage_on_odd_off'} = {};
 $result_converted{'latex_text'}->{'three_setchapternewpage_on_odd_off'} = '\\makeatletter
 \\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
 \\makeatother
-\\GNUTexinfosetsingleheader{}%
+\\pagestyle{single}%
 
 \\makeatletter
 \\patchcmd{\\chapter}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{}{}
 \\makeatother
-\\GNUTexinfosetdoubleheader{}%
+\\pagestyle{double}%
 
 \\makeatletter
 \\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}}{}{}
 \\makeatother
-\\GNUTexinfosetsingleheader{}%
+\\pagestyle{single}%
 \\begin{document}
 ';
 

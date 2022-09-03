@@ -1163,6 +1163,8 @@ my %front_main_matter_definitions = (
 );
 
 # not used as it is complicated to use section and chapter title
+# this will not work any more as the \GNUTexinfoset... macros are
+# not used, and \pagestyle is used directly.
 my $fancyhdr_preamble =
 '% called when setting single headers
 % use \nouppercase to match with Texinfo TeX style
@@ -1197,15 +1199,9 @@ my $titleps_preamble = '% plain page style, for part and chapter, which call \th
 \newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
                               {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
 
-% called when setting single headers
-\newcommand{\GNUTexinfosetsingleheader}{\pagestyle{single}}
-
 % double header
 \newpagestyle{double}{\sethead[\thepage{}][][\GNUTexinfosettitle]
                               {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
-
-% called when setting double headers
-\newcommand{\GNUTexinfosetdoubleheader}{\pagestyle{double}}
 ';
 
 # TODO translation
@@ -1670,9 +1666,9 @@ sub _set_headings($$)
 
   my $result = '';
   if ($headings_type eq 'single') {
-    $result = "\\GNUTexinfosetsingleheader{}%\n";
+    $result = "\\pagestyle{single}%\n";
   } elsif ($headings_type eq 'double') {
-    $result = "\\GNUTexinfosetdoubleheader{}%\n";
+    $result = "\\pagestyle{double}%\n";
   } elsif ($headings_type eq 'off') {
     $result = "\\pagestyle{empty}%\n";
   }

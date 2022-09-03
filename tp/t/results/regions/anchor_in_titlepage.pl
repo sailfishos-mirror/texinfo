@@ -566,7 +566,7 @@ $result_converted{'latex_text'}->{'anchor_in_titlepage'} = '
 \\label{anchor:in-titlepage}%
 \\endgroup
 \\end{titlepage}
-\\GNUTexinfosetsingleheader{}%
+\\pagestyle{single}%
 \\GNUTexinfomainmatter
 \\part*{{top}}
 \\label{anchor:Top}%

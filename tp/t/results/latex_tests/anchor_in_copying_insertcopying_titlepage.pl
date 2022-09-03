@@ -748,7 +748,7 @@ $result_converted{'latex_text'}->{'anchor_in_copying_insertcopying_titlepage'} =
 Cop. \\label{anchor:a-in-copying}%
 . Ying.
 \\end{titlepage}
-\\GNUTexinfosetsingleheader{}%
+\\pagestyle{single}%
 \\GNUTexinfomainmatter
 \\label{anchor:Top}%
 \\chapter{{Chap}}

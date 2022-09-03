@@ -447,7 +447,7 @@ $result_converted{'latex_text'}->{'titlepage_no_author'} = '
   \\vskip\\titlepagebottomglue
 \\endgroup
 \\end{titlepage}
-\\GNUTexinfosetsingleheader{}%
+\\pagestyle{single}%
 \\GNUTexinfomainmatter
 \\label{anchor:Top}%
 \\chapter{{Chapter}}

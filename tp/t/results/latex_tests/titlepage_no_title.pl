@@ -489,7 +489,7 @@ $result_converted{'latex_text'}->{'titlepage_no_title'} = '
 \\leftline{\\Large \\bfseries Some Author}%
 \\endgroup
 \\end{titlepage}
-\\GNUTexinfosetsingleheader{}%
+\\pagestyle{single}%
 \\GNUTexinfomainmatter
 \\label{anchor:Top}%
 \\chapter{{Chapter}}

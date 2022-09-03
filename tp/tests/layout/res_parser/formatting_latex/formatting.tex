@@ -71,15 +71,9 @@
 \newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
                               {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
 
-% called when setting single headers
-\newcommand{\GNUTexinfosetsingleheader}{\pagestyle{single}}
-
 % double header
 \newpagestyle{double}{\sethead[\thepage{}][][\GNUTexinfosettitle]
                               {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
-
-% called when setting double headers
-\newcommand{\GNUTexinfosetdoubleheader}{\pagestyle{double}}
 
 
 % avoid pagebreak and headings setting for a sectionning command
@@ -3562,7 +3556,7 @@ g--roupe
 
 
 \end{titlepage}
-\GNUTexinfosetsingleheader{}%
+\pagestyle{single}%
 \GNUTexinfomainmatter
 \tableofcontents\newpage
 

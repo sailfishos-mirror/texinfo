@@ -137,7 +137,7 @@ $result_converted{'latex_text'}->{'titlepage_and_headings'} = '
 in titlepage
 \\endgroup
 \\end{titlepage}
-\\GNUTexinfosetsingleheader{}%
+\\pagestyle{single}%
 \\GNUTexinfomainmatter
 ';
 

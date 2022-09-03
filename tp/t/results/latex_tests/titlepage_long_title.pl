@@ -466,7 +466,7 @@ $result_converted{'latex_text'}->{'titlepage_long_title'} = '
   \\vskip\\titlepagebottomglue
 \\endgroup
 \\end{titlepage}
-\\GNUTexinfosetsingleheader{}%
+\\pagestyle{single}%
 \\GNUTexinfomainmatter
 \\label{anchor:Top}%
 \\chapter{{Chapter}}

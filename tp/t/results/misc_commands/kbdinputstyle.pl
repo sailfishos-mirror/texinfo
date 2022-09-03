@@ -2279,15 +2279,9 @@ $result_converted{'latex'}->{'kbdinputstyle'} = '\\documentclass{book}
 \\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
                               {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
 
-% called when setting single headers
-\\newcommand{\\GNUTexinfosetsingleheader}{\\pagestyle{single}}
-
 % double header
 \\newpagestyle{double}{\\sethead[\\thepage{}][][\\GNUTexinfosettitle]
                               {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
-
-% called when setting double headers
-\\newcommand{\\GNUTexinfosetdoubleheader}{\\pagestyle{double}}
 
 
 % avoid pagebreak and headings setting for a sectionning command
@@ -2300,7 +2294,7 @@ $result_converted{'latex'}->{'kbdinputstyle'} = '\\documentclass{book}
 \\makeatletter
 \\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
 \\makeatother
-\\GNUTexinfosetsingleheader{}%
+\\pagestyle{single}%
 
 
 @kbdinputstyle code
