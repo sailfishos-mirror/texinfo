@@ -191,7 +191,7 @@ $result_trees{'seealso_duplicate'} = {
                     {
                       'parent' => {},
                       'text' => ' ',
-                      'type' => 'empty_spaces_before_argument'
+                      'type' => 'spaces_at_end'
                     },
                     {
                       'args' => [

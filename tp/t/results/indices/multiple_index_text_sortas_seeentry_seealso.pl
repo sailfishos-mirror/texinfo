@@ -166,7 +166,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_before_argument'
+                  'type' => 'spaces_at_end'
                 },
                 {
                   'args' => [
@@ -202,7 +202,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_before_argument'
+                  'type' => 'spaces_at_end'
                 },
                 {
                   'args' => [
@@ -238,7 +238,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_before_argument'
+                  'type' => 'spaces_at_end'
                 },
                 {
                   'args' => [
@@ -309,7 +309,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_before_argument'
+                  'type' => 'spaces_at_end'
                 },
                 {
                   'args' => [

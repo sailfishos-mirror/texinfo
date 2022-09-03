@@ -375,7 +375,7 @@ $result_trees{'explicit_sort_key'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_spaces_before_argument'
+                          'type' => 'spaces_at_end'
                         },
                         {
                           'args' => [
@@ -461,7 +461,7 @@ $result_trees{'explicit_sort_key'} = {
             {
               'parent' => {},
               'text' => ' ',
-              'type' => 'empty_spaces_before_argument'
+              'type' => 'spaces_at_end'
             },
             {
               'args' => [
@@ -500,7 +500,7 @@ $result_trees{'explicit_sort_key'} = {
                     {
                       'parent' => {},
                       'text' => ' ',
-                      'type' => 'empty_spaces_before_argument'
+                      'type' => 'spaces_at_end'
                     },
                     {
                       'args' => [
@@ -615,7 +615,7 @@ $result_trees{'explicit_sort_key'} = {
                     {
                       'parent' => {},
                       'text' => ' ',
-                      'type' => 'empty_spaces_before_argument'
+                      'type' => 'spaces_at_end'
                     },
                     {
                       'args' => [

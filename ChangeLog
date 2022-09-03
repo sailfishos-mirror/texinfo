@@ -1,3 +1,12 @@
+2022-09-03  Patrice Dumas  <pertusus@free.fr>
+
+	Use spaces_at_end for spaces before @-command in index entry
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	use spaces_at_end type for space before @sortas, @subentry and
+	similar @-command on index @-command lines.
+
 2022-09-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\headitem): Do not call \checkenv as

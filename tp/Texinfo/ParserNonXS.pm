@@ -3239,7 +3239,8 @@ sub _end_line($$$)
     my $misc_cmd = $current;
     my $command = $current->{'cmdname'};
     my $end_command;
-    print STDERR "MISC END \@$command\n" if ($self->{'DEBUG'});
+    print STDERR "MISC END \@$command: $self->{'line_commands'}->{$command}\n"
+       if ($self->{'DEBUG'});
 
     if ($self->{'line_commands'}->{$command} =~ /^\d$/) {
       my $args = _parse_line_command_args($self, $current, $source_info);
@@ -4109,7 +4110,7 @@ sub _parse_texi($$$)
       my ($at_command, $open_brace, $asterisk, $single_letter_command,
         $separator_match, $misc_text) = @line_parsing;
       print STDERR "PARSED: ".join(', ', map {!defined($_) ? 'UNDEF' : "'$_'"} @line_parsing)."\n"
-        if ($self->{'DEBUG'});
+        if ($self->{'DEBUG'} and $self->{'DEBUG'} > 3);
 
       my $command;
       if ($single_letter_command) {
@@ -4558,10 +4559,10 @@ sub _parse_texi($$$)
           if ($1 ne '') {
             if ($current->{'contents'}->[-1]->{'text'} eq '') {
               $current->{'contents'}->[-1]->{'text'} = $1;
-              $current->{'contents'}->[-1]->{'type'} = 'empty_spaces_before_argument';
+              $current->{'contents'}->[-1]->{'type'} = 'spaces_at_end';
             } else {
               my $new_spaces = { 'text' => $1, 'parent' => $current,
-                'type' => 'empty_spaces_before_argument' };
+                'type' => 'spaces_at_end' };
               push @{$current->{'contents'}}, $new_spaces;
             }
           }
@@ -7014,7 +7015,8 @@ C<@verb>, C<@html>, C<@macro> body).
 
 =item spaces_at_end
 
-Space at the end of an argument to a line command, or at the end of
+Space at the end of an argument to a line command, within an index @-command
+before an @-command interrupting the index command, or at the end of
 bracketed content on a C<@multitable> line or definition line.
 
 =item text_before_beginning

@@ -460,7 +460,7 @@ $result_trees{'indices'} = {
                     {
                       'parent' => {},
                       'text' => ' ',
-                      'type' => 'empty_spaces_before_argument'
+                      'type' => 'spaces_at_end'
                     },
                     {
                       'args' => [
@@ -657,7 +657,7 @@ $result_trees{'indices'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_before_argument'
+                  'type' => 'spaces_at_end'
                 },
                 {
                   'args' => [

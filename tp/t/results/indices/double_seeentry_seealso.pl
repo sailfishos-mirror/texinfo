@@ -173,7 +173,7 @@ $result_trees{'double_seeentry_seealso'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_before_argument'
+                  'type' => 'spaces_at_end'
                 },
                 {
                   'args' => [
@@ -200,7 +200,7 @@ $result_trees{'double_seeentry_seealso'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_before_argument'
+                  'type' => 'spaces_at_end'
                 },
                 {
                   'args' => [
@@ -295,7 +295,7 @@ $result_trees{'double_seeentry_seealso'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_before_argument'
+                  'type' => 'spaces_at_end'
                 },
                 {
                   'args' => [
@@ -363,7 +363,7 @@ $result_trees{'double_seeentry_seealso'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_before_argument'
+                  'type' => 'spaces_at_end'
                 },
                 {
                   'args' => [
@@ -390,7 +390,7 @@ $result_trees{'double_seeentry_seealso'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_before_argument'
+                  'type' => 'spaces_at_end'
                 },
                 {
                   'args' => [
@@ -508,7 +508,7 @@ $result_trees{'double_seeentry_seealso'} = {
                     {
                       'parent' => {},
                       'text' => ' ',
-                      'type' => 'empty_spaces_before_argument'
+                      'type' => 'spaces_at_end'
                     },
                     {
                       'args' => [

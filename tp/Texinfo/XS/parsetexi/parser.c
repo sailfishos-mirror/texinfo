@@ -1787,7 +1787,7 @@ value_invalid:
           && current->contents.number > 0
           && last_contents_child(current)->text.end > 0)
         {
-          isolate_trailing_space (current, ET_empty_spaces_before_argument);
+          isolate_trailing_space (current, ET_spaces_at_end);
         }
 
       if (cmd == CM_item && item_line_parent (current))
