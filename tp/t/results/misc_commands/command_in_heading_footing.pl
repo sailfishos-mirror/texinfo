@@ -226,7 +226,7 @@ $result_converted{'latex'}->{'command_in_heading_footing'} = '\\documentclass{bo
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}
-% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+% use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \\usepackage[hidelinks]{hyperref}
 \\usepackage[utf8]{inputenc}
 

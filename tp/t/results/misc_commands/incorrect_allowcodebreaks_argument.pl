@@ -130,7 +130,7 @@ $result_converted{'latex'}->{'incorrect_allowcodebreaks_argument'} = '\\document
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}
-% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+% use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \\usepackage[hidelinks]{hyperref}
 \\usepackage[utf8]{inputenc}
 

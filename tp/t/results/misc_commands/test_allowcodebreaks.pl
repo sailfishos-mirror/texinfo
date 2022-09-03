@@ -2803,7 +2803,7 @@ $result_converted{'latex'}->{'test_allowcodebreaks'} = '\\documentclass{book}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}
-% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+% use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \\usepackage[hidelinks]{hyperref}
 \\usepackage[utf8]{inputenc}
 

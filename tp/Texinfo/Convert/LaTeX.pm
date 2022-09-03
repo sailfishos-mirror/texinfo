@@ -1435,7 +1435,7 @@ roundcorner=10pt}
   if ($self->{'packages'}->{'babel'}) {
     $header .= "\\usepackage{babel}\n";
   }
-  $header .= '% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+  $header .= '% use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 ';
   if ($self->{'output_encoding_name'}) {

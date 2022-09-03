@@ -369,7 +369,7 @@ $result_converted{'latex'}->{'footnote_in_center'} = '\\documentclass{book}
 \\usepackage{enumitem}
 \\usepackage{titleps}
 \\usepackage{float}
-% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+% use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \\usepackage[hidelinks]{hyperref}
 \\usepackage[utf8]{inputenc}
 

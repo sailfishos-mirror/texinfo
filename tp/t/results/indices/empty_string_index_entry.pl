@@ -1067,7 +1067,7 @@ $result_converted{'latex'}->{'empty_string_index_entry'} = '\\documentclass{book
 \\usepackage{enumitem}
 \\usepackage{titleps}
 \\usepackage{float}
-% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+% use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \\usepackage[hidelinks]{hyperref}
 \\usepackage[utf8]{inputenc}
 
