@@ -933,14 +933,11 @@ $result_converted{'latex'}->{'double_seeentry_seealso'} = '\\documentclass{book}
   \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
 {\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
 \\newenvironment{GNUTexinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
-% command that does nothing used to help with substitutions in commands
+% used for substitutions in commands
 \\newcommand{\\GNUTexinfoplaceholder}[1]{}
 
 \\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
                               {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
-
-% avoid pagebreak and headings setting for a sectioning command
-\\newcommand{\\GNUTexinfonopagebreakheading}[2]{{\\let\\clearpage\\relax \\let\\cleardoublepage\\relax \\let\\thispagestyle\\GNUTexinfoplaceholder #1{#2}}}
 
 \\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
 

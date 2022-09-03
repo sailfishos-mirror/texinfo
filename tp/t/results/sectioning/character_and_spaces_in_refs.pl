@@ -2329,7 +2329,7 @@ $result_converted{'latex_text'}->{'character_and_spaces_in_refs'} = '\\begin{doc
 \\chapter{{first chapter}}
 \\label{anchor:node-to-avoid-DocBook-or-LaTeX-ignored}%
 
-\\GNUTexinfonopagebreakheading{\\subsection*}{{Testing distant nodes}}
+\\subsection*{{Testing distant nodes}}
 
 Section ``a  node\'\' in \\texttt{manual}
 Section ``:\'\' in \\texttt{manual}
@@ -2337,7 +2337,7 @@ Section ``top\'\' in \\texttt{manual}
 (texinfo)Cross References
 Section ``node\'\' in \\texttt{../manual/doc}
 
-\\GNUTexinfonopagebreakheading{\\subsection*}{{Testing local nodes}}
+\\subsection*{{Testing local nodes}}
 
 \\hyperref[anchor:_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e]{\\chaptername~\\ref*{anchor:_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e} [!\\_"\\#\\$\\%\\&\'()*+-.], page~\\pageref*{anchor:_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}}
 \\hyperref[anchor:_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e]{\\chaptername~\\ref*{anchor:_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e} [/;<=>?[\\textbackslash{}]\\^{}\\_`|\\~{}], page~\\pageref*{anchor:_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}}

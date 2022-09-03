@@ -1314,7 +1314,7 @@ In float with caption.
 
 \\index[cp]{index"! After punc}%
 
-\\GNUTexinfonopagebreakheading{\\section*}{{heading! After punc}}
+\\section*{{heading! After punc}}
 
 {\\huge \\bfseries titlefont! After punc}
 

@@ -1,5 +1,18 @@
 2022-09-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	\GNUTexinfonopagebreakheading
+
+	* tp/Texinfo/Convert/LaTeX.pm (%section_map): Only use
+	\GNUTexinfonopagebreakheading for @chapheading and @majorheading.
+	This macro can cause broken vertical spacing, evidently due to
+	the grouping characters used, and it is not necessary for these
+	commands.
+	(_latex_header): Output \GNUTexinfonopagebreakheading definition
+	on demand with $self->{'extra_definitions'} hash.  Reword a
+	comment.
+
+2022-09-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Structuring Command Types):
 	Correct number of groups.
 
@@ -27,7 +40,7 @@
 
 	Shorter LaTeX preamble
 
-	* tp/Texinfo/Convert/LaTeX.pm: (_latex_header):
+	* tp/Texinfo/Convert/LaTeX.pm (_latex_header):
 	Do not redefine 'plain' page style.  Condense lines in some
 	definitions.  Fix a spelling error.
 	($titleps_preamble): Remove unused.

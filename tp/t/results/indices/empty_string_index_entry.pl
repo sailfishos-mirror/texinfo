@@ -1086,14 +1086,11 @@ $result_converted{'latex'}->{'empty_string_index_entry'} = '\\documentclass{book
 % set defaults for lists that match Texinfo TeX formatting
 \\setlist[description]{style=nextline, font=\\normalfont}
 
-% command that does nothing used to help with substitutions in commands
+% used for substitutions in commands
 \\newcommand{\\GNUTexinfoplaceholder}[1]{}
 
 \\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
                               {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
-
-% avoid pagebreak and headings setting for a sectioning command
-\\newcommand{\\GNUTexinfonopagebreakheading}[2]{{\\let\\clearpage\\relax \\let\\cleardoublepage\\relax \\let\\thispagestyle\\GNUTexinfoplaceholder #1{#2}}}
 
 % braces are upright in italic and slanted only in @def*
 % so it is turned off here, and turned on @def* lines

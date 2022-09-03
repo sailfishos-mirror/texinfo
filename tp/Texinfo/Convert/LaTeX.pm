@@ -293,9 +293,9 @@ my %section_map = (
    # embed in a \GNUTexinfonopagebreakheading call to remove pagebreaks
    'chapheading' => 'GNUTexinfonopagebreakheading{\chapter*}',
    'majorheading' => 'GNUTexinfonopagebreakheading{\chapter*}',
-   'heading' => 'GNUTexinfonopagebreakheading{\section*}',
-   'subheading' => 'GNUTexinfonopagebreakheading{\subsection*}',
-   'subsubheading' => 'GNUTexinfonopagebreakheading{\subsubsection*}',
+   'heading' => 'section*',
+   'subheading' => 'subsection*',
+   'subsubheading' => 'subsubsection*',
    'unnumbered' => 'chapter*',
    'centerchap' => 'chapter*',
    'unnumberedsec' => 'section*',
@@ -1294,7 +1294,7 @@ sub _latex_header() {
     }
     $header_code .= "\n";
   }
-  $header_code .= '% command that does nothing used to help with substitutions in commands
+  $header_code .= '% used for substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
 
 ';
@@ -1315,11 +1315,14 @@ sub _latex_header() {
 ';
   }
 
-  $header_code .=
+  if ($self->{'extra_definitions'}->{'GNUTexinfonopagebreakheading'}) {
+    $header_code .=
 '% avoid pagebreak and headings setting for a sectioning command
 \newcommand{\GNUTexinfonopagebreakheading}[2]{{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}}
 
 ';
+  }
+
   if ($self->{'packages'}->{'mdframed'}) {
    $header_code .= '% the mdframed style for @cartouche
 \mdfdefinestyle{GNUTexinfocartouche}{
@@ -3185,6 +3188,8 @@ sub _convert($$)
           }
           # NOTE we used an extra layer of { } to avoid buggy interactions with
           # square brackets when the titleps package is being used.
+          $self->{'extra_definitions'}->{'GNUTexinfonopagebreakheading'} = 1
+            if $section_cmd =~ /^GNUTexinfonopagebreakheading\{/;
         }
         # we add a label even if in_skipped_node_top (should only
         # be for the Top node, as another node ends in_skipped_node_top).
