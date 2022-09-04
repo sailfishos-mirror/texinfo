@@ -627,7 +627,8 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @chapter Index
 
 @cindex aaa @sortas{A---S} continue @seeentry{other second} aagain @seealso{toto}
-@cindex other @sortas{OO} second
+@cindex other @sortas{BB} second
+@cindex entry @seeentry{something else} secret
 
 @printindex cp
 ', {'test_formats' => ['docbook']}],

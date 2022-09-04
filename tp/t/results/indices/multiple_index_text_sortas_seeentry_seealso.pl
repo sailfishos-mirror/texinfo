@@ -314,7 +314,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                       'contents' => [
                         {
                           'parent' => {},
-                          'text' => 'OO'
+                          'text' => 'BB'
                         }
                       ],
                       'parent' => {},
@@ -361,15 +361,91 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
               'index_type_command' => 'cindex',
               'node' => {},
               'number' => 1,
-              'sortas' => 'OO'
+              'sortas' => 'BB'
             },
-            'sortas' => 'OO',
+            'sortas' => 'BB',
             'spaces_before_argument' => ' '
           },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 8,
+            'macro' => ''
+          },
+          'type' => 'index_entry_command'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'entry'
+                },
+                {
+                  'parent' => {},
+                  'text' => ' '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'something else'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'seeentry',
+                  'contents' => [],
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 9,
+                    'macro' => ''
+                  }
+                },
+                {
+                  'parent' => {},
+                  'text' => ' ',
+                  'type' => 'empty_spaces_after_close_brace'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'secret'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'index_entry' => {
+              'command' => {},
+              'content' => [],
+              'content_normalized' => [],
+              'index_at_command' => 'cindex',
+              'index_ignore_chars' => {},
+              'index_name' => 'cp',
+              'index_type_command' => 'cindex',
+              'node' => {},
+              'number' => 2
+            },
+            'seeentry' => {},
+            'spaces_before_argument' => ' '
+          },
+          'parent' => {},
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 9,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -407,7 +483,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
           'parent' => {},
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 10,
+            'line_nr' => 11,
             'macro' => ''
           }
         }
@@ -481,10 +557,24 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'con
 $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'node'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[3];
 $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4];
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0];
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0];
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[2];
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0];
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0];
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0];
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3];
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'command'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3];
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'content'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'node'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[3];
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'extra'}{'seeentry'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4];
-$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'args'}[0];
-$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[4];
 $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4];
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'args'}[0];
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[5];
+$result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4];
 $result_trees{'multiple_index_text_sortas_seeentry_seealso'}{'contents'}[4]{'parent'} = $result_trees{'multiple_index_text_sortas_seeentry_seealso'};
 
 $result_texis{'multiple_index_text_sortas_seeentry_seealso'} = '@node Top
@@ -494,7 +584,8 @@ $result_texis{'multiple_index_text_sortas_seeentry_seealso'} = '@node Top
 @chapter Index
 
 @cindex aaa @sortas{A---S} continue @seeentry{other second} aagain @seealso{toto}
-@cindex other @sortas{OO} second
+@cindex other @sortas{BB} second
+@cindex entry @seeentry{something else} secret
 
 @printindex cp
 ';
@@ -607,7 +698,7 @@ $result_floats{'multiple_index_text_sortas_seeentry_seealso'} = {};
 
 $result_indices_sort_strings{'multiple_index_text_sortas_seeentry_seealso'} = {
   'cp' => [
-    'OO'
+    'BB'
   ]
 };
 
@@ -618,6 +709,7 @@ $result_converted{'docbook'}->{'multiple_index_text_sortas_seeentry_seealso'} = 
 
 <indexterm role="cp"><primary>aaa continue aagain</primary><see>other second</see><seealso>toto</seealso></indexterm>
 <indexterm role="cp"><primary>other second</primary></indexterm>
+<indexterm role="cp"><primary>entry secret</primary><see>something else</see></indexterm>
 
 <index role="cp"></index>
 </chapter>
@@ -692,7 +784,7 @@ $result_converted{'html_text'}->{'multiple_index_text_sortas_seeentry_seealso'} 
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_i_cp_letter-O">O</th><td></td><td></td></tr>
+<tr><th id="t_i_cp_letter-B">B</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-other-second">other second</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
@@ -750,7 +842,8 @@ $result_converted{'latex'}->{'multiple_index_text_sortas_seeentry_seealso'} = '\
 \\label{anchor:chapter-index}%
 
 \\index[cp]{A---S@aaa continue aagain|see{other second}}%
-\\index[cp]{OO@other second}%
+\\index[cp]{BB@other second}%
+\\index[cp]{entry secret|see{something else}}%
 
 \\printindex[cp]
 \\end{document}
