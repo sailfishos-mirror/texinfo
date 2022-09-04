@@ -383,7 +383,7 @@ $result_directions_text{'top_node_part_top'} = 'element: @top top
 ';
 
 
-$result_converted{'info'}->{'top_node_part_top'} = 'This is , produced from .
+$result_converted{'info'}->{'top_node_part_top'} = 'This is , produced from top_node_part_top.texi.
 
 
 File: ,  Node: Top,  Up: (dir)
@@ -394,7 +394,7 @@ top
 
 
 Tag Table:
-Node: Top27
+Node: Top49
 
 End Tag Table
 
@@ -466,54 +466,6 @@ $result_converted{'latex_text'}->{'top_node_part_top'} = '\\begin{document}
 
 \\part*{{top}}
 \\label{anchor:Top}%
-';
-
-
-$result_converted{'file_latex'}->{'top_node_part_top'} = '\\documentclass{book}
-\\usepackage{amsfonts}
-\\usepackage{amsmath}
-\\usepackage[gen]{eurosym}
-\\usepackage[T1]{fontenc}
-\\usepackage{textcomp}
-\\usepackage{graphicx}
-\\usepackage{etoolbox}
-\\usepackage{titleps}
-\\usepackage{float}
-% use hidelinks to remove boxes around links to be similar to Texinfo TeX
-\\usepackage[hidelinks]{hyperref}
-\\usepackage[utf8]{inputenc}
-
-\\makeatletter
-\\newcommand{\\GNUTexinfosettitle}{No Title}%
-
-% redefine the \\mainmatter command such that it does not clear page
-% as if in double page
-\\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
-\\newenvironment{GNUTexinfopreformatted}{%
-  \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
-{\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
-\\newenvironment{GNUTexinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
-% used for substitutions in commands
-\\newcommand{\\GNUTexinfoplaceholder}[1]{}
-
-\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
-                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
-
-\\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
-
-\\makeatother
-% set default for @setchapternewpage
-\\makeatletter
-\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
-\\makeatother
-\\pagestyle{single}%
-
-\\begin{document}
-\\part{{part}}
-
-\\part*{{top}}
-\\label{anchor:Top}%
-\\end{document}
 ';
 
 1;

@@ -10,43 +10,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
     {
       'contents' => [
         {
-          'contents' => [
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'section_before_after_top_node_last_node.info'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'setfilename',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'section_before_after_top_node_last_node.info'
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line'
-            }
-          ],
+          'contents' => [],
           'parent' => {},
           'type' => 'preamble_before_content'
         }
@@ -86,7 +50,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 1,
         'macro' => ''
       }
     },
@@ -127,7 +91,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 5,
+        'line_nr' => 3,
         'macro' => ''
       }
     },
@@ -163,7 +127,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 4,
         'macro' => ''
       }
     },
@@ -216,7 +180,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 8,
+        'line_nr' => 6,
         'macro' => ''
       }
     },
@@ -257,17 +221,13 @@ $result_trees{'section_before_after_top_node_last_node'} = {
       'parent' => {},
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 12,
+        'line_nr' => 10,
         'macro' => ''
       }
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0];
-$result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0];
 $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0];
 $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'};
 $result_trees{'section_before_after_top_node_last_node'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[1]{'args'}[0];
@@ -296,9 +256,7 @@ $result_trees{'section_before_after_top_node_last_node'}{'contents'}[5]{'extra'}
 $result_trees{'section_before_after_top_node_last_node'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'section_before_after_top_node_last_node'}{'contents'}[5]{'parent'} = $result_trees{'section_before_after_top_node_last_node'};
 
-$result_texis{'section_before_after_top_node_last_node'} = '@setfilename section_before_after_top_node_last_node.info
-
-@unnumbered before
+$result_texis{'section_before_after_top_node_last_node'} = '@unnumbered before
 
 @node Top
 @top top section
@@ -311,8 +269,7 @@ in chapter
 ';
 
 
-$result_texts{'section_before_after_top_node_last_node'} = '
-before
+$result_texts{'section_before_after_top_node_last_node'} = 'before
 ******
 
 top section
@@ -416,7 +373,7 @@ $result_errors{'section_before_after_top_node_last_node'} = [
     'error_line' => 'warning: lowering the section level of @top appearing after a lower element
 ',
     'file_name' => '',
-    'line_nr' => 6,
+    'line_nr' => 4,
     'macro' => '',
     'text' => 'lowering the section level of @top appearing after a lower element',
     'type' => 'warning'
@@ -428,13 +385,13 @@ $result_floats{'section_before_after_top_node_last_node'} = {};
 
 
 
-$result_converted{'info'}->{'section_before_after_top_node_last_node'} = 'This is section_before_after_top_node_last_node.info, produced from .
+$result_converted{'info'}->{'section_before_after_top_node_last_node'} = 'This is , produced from section_before_after_top_node_last_node.texi.
 
 before
 ******
 
 
-File: section_before_after_top_node_last_node.info,  Node: Top,  Next: node after,  Up: (dir)
+File: ,  Node: Top,  Next: node after,  Up: (dir)
 
 top section
 ***********
@@ -445,13 +402,13 @@ top section
 in chapter
 
 
-File: section_before_after_top_node_last_node.info,  Node: node after,  Prev: Top
+File: ,  Node: node after,  Prev: Top
 
 
 
 Tag Table:
 Node: Top86
-Node: node after241
+Node: node after197
 
 End Tag Table
 
@@ -481,7 +438,6 @@ $result_converted{'html'}->{'section_before_after_top_node_last_node'} = '<!DOCT
 </head>
 
 <body lang="en">
-
 <div class="unnumbered-level-extent" id="before">
 <div class="nav-panel">
 <p>
@@ -522,8 +478,7 @@ $result_converted{'docbook'}->{'section_before_after_top_node_last_node'} = '<ch
 ';
 
 
-$result_converted{'latex_text'}->{'section_before_after_top_node_last_node'} = '
-\\begin{document}
+$result_converted{'latex_text'}->{'section_before_after_top_node_last_node'} = '\\begin{document}
 \\chapter*{{before}}
 
 \\label{anchor:Top}%

@@ -863,9 +863,7 @@ ref to ref @ref{ref}.
 # in the Top node is not output, while the closing element is output
 # at the end of the document
 ['chapter_between_nodes',
-'@setfilename chapter_between_nodes.info
-
-@node Top
+'@node Top
 @top top section
 Top node
 
@@ -885,9 +883,7 @@ section.
 @contents
 ', {}, {'CONTENTS_OUTPUT_LOCATION' => 'inline'}],
 ['section_before_after_top_node_last_node',
-'@setfilename section_before_after_top_node_last_node.info
-
-@unnumbered before
+'@unnumbered before
 
 @node Top
 @top top section
@@ -899,9 +895,7 @@ in chapter
 @node node after
 '],
 ['section_before_after_top_node',
-'@setfilename section_before_after_top_node.info
-
-@unnumbered before
+'@unnumbered before
 
 @node Top
 @top top section
@@ -1111,9 +1105,7 @@ Top node
 @end menu
 '],
 ['section_chapter_before_top_nodes',
-'@setfilename section_chapter_before_top_nodes.info
-
-@node section node
+'@node section node
 @section section 
 
 @node chapter node
@@ -2157,6 +2149,7 @@ foreach my $test (@tests_info) {
   }
   if (grep {$_ eq $test->[0]} @file_latex_tests_info_tests) {
     push @{$test->[2]->{'test_formats'}}, 'file_latex';
+    $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
     $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
   }
 }
