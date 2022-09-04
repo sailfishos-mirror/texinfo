@@ -619,6 +619,8 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @printindex fn
 ', {'test_formats' => ['docbook']}
 ],
+# note that Texinfo TeX ignores everything after index brace commands,
+# texi2any parsers keep them and they end up in the entry.
 ['multiple_index_text_sortas_seeentry_seealso',
 '@node Top
 @top
