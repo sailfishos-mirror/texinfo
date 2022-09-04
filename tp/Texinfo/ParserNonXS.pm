@@ -3954,8 +3954,8 @@ sub _parse_texi($$$)
           and $current->{'contents'}->[-1]->{'type'}
           and $current->{'contents'}->[-1]->{'type'}
                eq 'empty_spaces_before_argument') {
+        # Empty spaces after brace or comma till the end of line.
         # Remove this element and update 'extra' values.
-        # FIXME: should we continue with this element instead?
         _abort_empty_line($self, $current);
       }
       $line =~ s/^([^\S\r\n]*)//;

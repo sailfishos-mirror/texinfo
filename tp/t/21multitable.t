@@ -205,6 +205,51 @@ my @test_invalid = (
 @item it
 @end multitable
 '],
+['multitable_empty_bracketed_prototype',
+'
+@multitable {} {a}
+@end multitable
+'],
+['multitable_bracketed_no_inter_space_prototype',
+'
+@multitable {a}{b}
+@end multitable
+'],
+['multitable_bracketed_prototype_empty_not_closed',
+'
+@multitable {
+@end multitable
+'],
+['multitable_bracketed_prototype_empty_not_closed_comment',
+'
+@multitable {@comment comment
+@end multitable
+'],
+['multitable_bracketed_prototype_empty_spaces_not_closed',
+'
+@multitable { 
+@end multitable
+'],
+['multitable_bracketed_prototype_empty_spaces_not_closed_comment',
+'
+@multitable { @comment comment
+@end multitable
+'],
+['multitable_bracketed_prototype_not_closed',
+'
+@multitable { a
+@end multitable
+'],
+['multitable_bracketed_prototype_not_closed_comment',
+'
+@multitable {a@c comment
+@end multitable
+'],
+['multitable_bracketed_prototype_not_closed_space_comment',
+'
+@multitable {a @c comment
+@end multitable
+'],
 );
 
 foreach my $test (@test_cases) {

@@ -477,7 +477,7 @@ classes like summary-letter-printindex, cp-entries-printindex or
 cp-letters-header-printindex for the different parts of the @printindex
 formatting.
 
-ref- and -ref are used for classes related to @def*, in general without
+def- and -def are used for classes related to @def*, in general without
 the specific command name used.
 
 For the classes not associated with @-commands, the names were selected to
