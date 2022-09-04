@@ -1,3 +1,12 @@
+2022-09-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	ttsl @var on def line for @set txicodevaristt
+
+	* doc/texinfo.tex (\defargs) <@set txicodevartt>:
+	Reinstate code using a ttsl font for @var.  This gives
+	consistency for @var between @deffn and @deftypefn.  Report
+	from Vincent Lefèvre <vincent@vinc17.net>.
+
 2022-09-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	\GNUTexinfonopagebreakheading
