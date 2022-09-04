@@ -6717,23 +6717,22 @@ at the beginning of a line by itself.  The @code{@@end verbatim} will
 also disappear from the output.
 
 For example:
-@c oops, got to trick this a bit: can't use @end verbatim inside @verbatim
 
 @example
-@exdent @t{@@verbatim}
-@exdent @t{@{}
-@exdent @key{TAB}@t{@@command with strange characters: @@'e}
-@exdent @t{expand@key{TAB}me}
-@exdent @t{@}}
-@exdent @t{@@end verbatim}
+@@verbatim
+@{
+@var{[tab]}@@command with strange characters: @@'e
+expand@var{[tab]}me
+@}
+@@end verbatim
 @end example
 
 @noindent
-This produces:
+(where @var{[tab]} stands for a literal tab character).  This produces:
 
 @verbatim
 {
-        @command with strange characters: @'e
+	@command with strange characters: @'e
 expand	me
 }
 @end verbatim
@@ -6749,14 +6748,13 @@ the ending @code{@@end verbatim} will appear in the output.
 You can get a ``small'' verbatim by enclosing the @code{@@verbatim} in
 an @code{@@smallformat} environment, as shown here:
 
-@c more cheating ...
-@smallexample
-@exdent @t{@@smallformat}
-@exdent @t{@@verbatim}
-@exdent @t{... still verbatim, but in a smaller font ...}
-@exdent @t{@@end verbatim}
-@exdent @t{@@end smallformat}
-@end smallexample
+@example
+@@smallformat
+@@verbatim
+... still verbatim, but in a smaller font ...
+@@end verbatim
+@@end smallformat
+@end example
 
 Finally, a word of warning: it is not reliable to use
 @code{@@verbatim} inside other Texinfo constructs.
