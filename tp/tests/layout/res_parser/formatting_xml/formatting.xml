@@ -2296,7 +2296,7 @@ in verbatim ''
 <!-- c  Paragraph ended before @deffngeneral was complete. -->
 <deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="52"><var>invalid</var></indexterm><defcategory>fsetinv</defcategory> <deffunction><var>invalid</var></deffunction> <defparam>a</defparam> <defparam>g</defparam></definitionterm>
 <deffnx spaces=" "><definitionterm><defcategory><b>id <samp>i</samp> ule</b></defcategory>    </definitionterm></deffnx>
-<deffnx><definitionterm></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><defcategory>aaa</defcategory></definitionterm></deffnx>
 <deffnx><definitionterm><defcategory bracketed="on"></defcategory></definitionterm></deffnx>
 <deffnx><definitionterm><defcategory bracketed="on">truc</defcategory></definitionterm></deffnx>
@@ -3435,7 +3435,7 @@ in verbatim ''
 <!-- c  Paragraph ended before @deffngeneral was complete. -->
 <deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="104"><var>invalid</var></indexterm><defcategory>fsetinv</defcategory> <deffunction><var>invalid</var></deffunction> <defparam>a</defparam> <defparam>g</defparam></definitionterm>
 <deffnx spaces=" "><definitionterm><defcategory><b>id <samp>i</samp> ule</b></defcategory>    </definitionterm></deffnx>
-<deffnx><definitionterm></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><defcategory>aaa</defcategory></definitionterm></deffnx>
 <deffnx><definitionterm><defcategory bracketed="on"></defcategory></definitionterm></deffnx>
 <deffnx><definitionterm><defcategory bracketed="on">truc</defcategory></definitionterm></deffnx>
@@ -4601,7 +4601,7 @@ in verbatim ''
 <!-- c  Paragraph ended before @deffngeneral was complete. -->
 <deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="156"><var>invalid</var></indexterm><defcategory>fsetinv</defcategory> <deffunction><var>invalid</var></deffunction> <defparam>a</defparam> <defparam>g</defparam></definitionterm>
 <deffnx spaces=" "><definitionterm><defcategory><b>id <samp>i</samp> ule</b></defcategory>    </definitionterm></deffnx>
-<deffnx><definitionterm></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><defcategory>aaa</defcategory></definitionterm></deffnx>
 <deffnx><definitionterm><defcategory bracketed="on"></defcategory></definitionterm></deffnx>
 <deffnx><definitionterm><defcategory bracketed="on">truc</defcategory></definitionterm></deffnx>
@@ -5735,7 +5735,7 @@ Various deff lines
 <!-- c  Paragraph ended before @deffngeneral was complete. -->
 </pre><deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="208"><var>invalid</var></indexterm><defcategory>fsetinv</defcategory> <deffunction><var>invalid</var></deffunction> <defparam>a</defparam> <defparam>g</defparam></definitionterm>
 <deffnx spaces=" "><definitionterm><defcategory><b>id <samp>i</samp> ule</b></defcategory>    </definitionterm></deffnx>
-<deffnx><definitionterm></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><defcategory>aaa</defcategory></definitionterm></deffnx>
 <deffnx><definitionterm><defcategory bracketed="on"></defcategory></definitionterm></deffnx>
 <deffnx><definitionterm><defcategory bracketed="on">truc</defcategory></definitionterm></deffnx>

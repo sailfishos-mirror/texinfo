@@ -274,11 +274,6 @@ parse_def (enum command_id command, ELEMENT *current)
   ret = malloc (sizeof (DEF_INFO));
   memset (ret, 0, sizeof (DEF_INFO));
 
-  if (current->contents.number > 0
-      && (current->contents.list[0]->type == ET_empty_spaces_after_command
-          || current->contents.list[0]->type == ET_empty_line_after_command))
-    contents_idx++;
-
   split_def_args (current, contents_idx);
 
   /* Check for "def alias" - for example @defun for @deffn. */

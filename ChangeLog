@@ -1,5 +1,18 @@
 2022-09-04  Patrice Dumas  <pertusus@free.fr>
 
+	Abort empty line for empty @def* command line
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_def, _end_line),
+	tp/Texinfo/XS/parsetexi/def.c (parse_def),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line): call
+	abort_empty_line before parsing definition command line to
+	collect space after command in case there are no arguments at all.
+
+	* tp/Texinfo/Convert/TexinfoXML.pm (_convert): remove end of line
+	from @def* leading spaces.
+
+2022-09-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line): no empty content in
 	'bracketed_multitable_prototype'.
 

@@ -2170,6 +2170,9 @@ end_line (ELEMENT *current)
           free (stripped);
         }
 
+      /* in case there are no arguments at all, it needs to be called here. */
+      abort_empty_line (&current, NULL);
+
       def_info = parse_def (def_command, current);
 
       /* Record the index entry if def_info is not empty. */

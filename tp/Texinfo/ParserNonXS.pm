@@ -2517,18 +2517,9 @@ sub _parse_def($$$)
   my ($self, $command, $current) = @_;
 
   my $contents = $current->{'contents'};
-  my $empty_spaces_after_command;
   
   my @new_contents;
   my @contents = @$contents;
-  if ($contents[0] and $contents[0]->{'type'}
-        and ($contents[0]->{'type'} eq 'empty_spaces_after_command'
-          or $contents[0]->{'type'} eq 'empty_line_after_command')) {
-    # FIXME this only happens if there is no argument at all, otherwise the
-    # types should already be put in extra by _abort_empty_line.  Would
-    # probably be better to call _abort_empty_line before.
-    $empty_spaces_after_command = shift @contents;
-  }
 
   if ($def_aliases{$command}) {
     my $real_command = $def_aliases{$command};
@@ -2650,8 +2641,6 @@ sub _parse_def($$$)
   if (scalar(@contents) > 0) {
     splice @new_contents, -scalar(@contents);
   }
-  unshift @new_contents, $empty_spaces_after_command
-    if $empty_spaces_after_command;
 
   @contents = map (_split_delimiters($self, $_), @contents );
   @new_contents = (@new_contents, @contents);
@@ -2971,7 +2960,8 @@ sub _end_line($$$)
             and $current->{'parent'}->{'type'} eq 'def_line') {
     my ($error) = $self->_pop_context(['ct_def'], $source_info, $current);
     die if ($error);
-    #_abort_empty_line($self, $current);
+    # in case there are no arguments at all, it needs to be called here.
+    _abort_empty_line($self, $current);
     my $def_command = $current->{'parent'}->{'extra'}->{'def_command'};
     my $arguments = _parse_def($self, $def_command, $current);
     if (scalar(@$arguments)) {
@@ -2985,7 +2975,7 @@ sub _end_line($$$)
         $def_parsed_hash->{$arg->[0]} = $arg->[1];
       }
       $current->{'parent'}->{'extra'}->{'def_parsed_hash'} = $def_parsed_hash;
-      # do an standard index entry tree
+      # do a standard index entry tree
       my $index_entry;
       if (defined($def_parsed_hash->{'name'})) {
         $index_entry = $def_parsed_hash->{'name'}

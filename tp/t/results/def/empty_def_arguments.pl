@@ -220,17 +220,7 @@ $result_trees{'empty_def_arguments'} = {
             {
               'args' => [
                 {
-                  'contents' => [
-                    {
-                      'extra' => {
-                        'command' => {}
-                      },
-                      'parent' => {},
-                      'text' => ' 
-',
-                      'type' => 'empty_line_after_command'
-                    }
-                  ],
+                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -238,7 +228,9 @@ $result_trees{'empty_def_arguments'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'original_def_cmdname' => 'deffnx'
+                'original_def_cmdname' => 'deffnx',
+                'spaces_before_argument' => ' 
+'
               },
               'parent' => {},
               'source_info' => {
@@ -680,8 +672,6 @@ $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[1
 $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
 $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0];
 $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];

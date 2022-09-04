@@ -1547,8 +1547,19 @@ sub _convert($$;$)
     }
     if ($element->{'type'} eq 'def_line') {
       if ($element->{'cmdname'}) {
+        my $leading_spaces_attribute_spec = [];
+        if ($element->{'extra'}
+            and $element->{'extra'}->{'spaces_before_argument'}
+            and $element->{'extra'}->{'spaces_before_argument'} ne '') {
+          my $leading_spaces = $element->{'extra'}->{'spaces_before_argument'};
+          # may happen without any argument, remove as a \n is added below
+          $leading_spaces =~ s/\n//;
+          $leading_spaces_attribute_spec = ['spaces', _protect_in_spaces(
+                                                          $leading_spaces)]
+            if ($leading_spaces ne '');
+        }
         $result .= $self->open_element($element->{'cmdname'},
-                            [_leading_spaces_before_argument($element)]);
+                                       $leading_spaces_attribute_spec);
       }
       $result .= $self->open_element('definitionterm');
       $result .= $self->_index_entry($element);
