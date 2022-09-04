@@ -24,7 +24,7 @@ $result_trees{'center'} = {
                 },
                 {
                   'extra' => {
-                    'command' => {}
+                    'spaces_associated_command' => {}
                   },
                   'parent' => {},
                   'text' => ' ',
@@ -1392,7 +1392,7 @@ $result_trees{'center'} = {
   'type' => 'document_root'
 };
 $result_trees{'center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'command'} = $result_trees{'center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'spaces_associated_command'} = $result_trees{'center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0];
 $result_trees{'center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];

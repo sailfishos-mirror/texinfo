@@ -208,7 +208,7 @@ $result_trees{'misc_raw_comments'} = {
           'contents' => [
             {
               'extra' => {
-                'command' => {}
+                'spaces_associated_command' => {}
               },
               'parent' => {},
               'text' => '
@@ -272,7 +272,7 @@ $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{
 $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
 $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'misc_raw_comments'}{'contents'}[0];
 $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'misc_raw_comments'}{'contents'}[0];
-$result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'command'} = $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5];
+$result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5];
 $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5];
 $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5];
 $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5];

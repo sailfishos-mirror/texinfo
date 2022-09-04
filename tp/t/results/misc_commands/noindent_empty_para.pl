@@ -20,7 +20,7 @@ $result_trees{'noindent_empty_para'} = {
         },
         {
           'extra' => {
-            'command' => {}
+            'spaces_associated_command' => {}
           },
           'parent' => {},
           'text' => '
@@ -60,7 +60,7 @@ $result_trees{'noindent_empty_para'} = {
   'type' => 'document_root'
 };
 $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
-$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[1]{'extra'}{'command'} = $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[0];
+$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[1]{'extra'}{'spaces_associated_command'} = $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[0];
 $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
 $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
 $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];

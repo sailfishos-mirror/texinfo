@@ -2264,7 +2264,7 @@ $result_trees{'value_in_misc_commands'} = {
         },
         {
           'extra' => {
-            'command' => {}
+            'spaces_associated_command' => {}
           },
           'parent' => {},
           'text' => '     ',
@@ -2288,7 +2288,7 @@ $result_trees{'value_in_misc_commands'} = {
             },
             {
               'extra' => {
-                'command' => {}
+                'spaces_associated_command' => {}
               },
               'parent' => {},
               'text' => '
@@ -2315,7 +2315,7 @@ $result_trees{'value_in_misc_commands'} = {
             },
             {
               'extra' => {
-                'command' => {}
+                'spaces_associated_command' => {}
               },
               'parent' => {},
               'text' => '    ',
@@ -3058,16 +3058,16 @@ $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[100]{'args'}[
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[100]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[101]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[102]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2];
-$result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[103]{'extra'}{'command'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[102];
+$result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[103]{'extra'}{'spaces_associated_command'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[102];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[103]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[0]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[1]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104];
-$result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[2]{'extra'}{'command'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[1];
+$result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[2]{'extra'}{'spaces_associated_command'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[1];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[2]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[3]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[4]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[5]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104];
-$result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[6]{'extra'}{'command'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[5];
+$result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[6]{'extra'}{'spaces_associated_command'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[5];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[6]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'contents'}[7]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[104]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2];

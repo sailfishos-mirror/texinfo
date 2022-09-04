@@ -34,7 +34,7 @@ $result_trees{'indent_in_quotation'} = {
             },
             {
               'extra' => {
-                'command' => {}
+                'spaces_associated_command' => {}
               },
               'parent' => {},
               'text' => '
@@ -105,7 +105,7 @@ $result_trees{'indent_in_quotation'} = {
 };
 $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0];
 $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'command'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'spaces_associated_command'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0];
 $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0];

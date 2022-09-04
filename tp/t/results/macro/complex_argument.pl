@@ -329,7 +329,7 @@ $result_trees{'complex_argument'} = {
           'contents' => [
             {
               'extra' => {
-                'command' => {}
+                'spaces_associated_command' => {}
               },
               'parent' => {},
               'text' => '
@@ -361,7 +361,7 @@ $result_trees{'complex_argument'} = {
           'contents' => [
             {
               'extra' => {
-                'command' => {}
+                'spaces_associated_command' => {}
               },
               'parent' => {},
               'text' => '
@@ -586,12 +586,12 @@ $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[9]{'contents'}[8]{'
 $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[9]{'contents'}[9]{'parent'} = $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[9];
 $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[9]{'contents'}[10]{'parent'} = $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[9];
 $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'complex_argument'}{'contents'}[0];
-$result_trees{'complex_argument'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'extra'}{'command'} = $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[10];
+$result_trees{'complex_argument'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[10];
 $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[10];
 $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'parent'} = $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[10];
 $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'complex_argument'}{'contents'}[0];
 $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'complex_argument'}{'contents'}[0];
-$result_trees{'complex_argument'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'extra'}{'command'} = $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[12];
+$result_trees{'complex_argument'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[12];
 $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'parent'} = $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[12];
 $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'parent'} = $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[12];
 $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[12]{'contents'}[2]{'parent'} = $result_trees{'complex_argument'}{'contents'}[0]{'contents'}[12];

@@ -66,7 +66,7 @@ $result_trees{'table_in_itemize'} = {
               'contents' => [
                 {
                   'extra' => {
-                    'command' => {}
+                    'spaces_associated_command' => {}
                   },
                   'parent' => {},
                   'text' => '
@@ -378,7 +378,7 @@ $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'pare
 $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0];
-$result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'table_in_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];

@@ -1,5 +1,14 @@
 2022-09-04  Patrice Dumas  <pertusus@free.fr>
 
+	Rename spaces type extra command as spaces_associated_command
+
+	* tp/Texinfo/ParserNonXS.pm, tp/Texinfo/XS/parsetexi/parser.c:
+	use 'spaces_associated_command' as 'extra' key for spaces
+	of 'empty_spaces_before_argument' and 'empty_line_after_command'
+	types.
+
+2022-09-04  Patrice Dumas  <pertusus@free.fr>
+
 	Abort empty line for empty @def* command line
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_def, _end_line),

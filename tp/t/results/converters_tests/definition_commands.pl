@@ -10808,7 +10808,7 @@ $result_trees{'definition_commands'} = {
         },
         {
           'extra' => {
-            'command' => {}
+            'spaces_associated_command' => {}
           },
           'parent' => {},
           'text' => ' ',
@@ -23087,7 +23087,7 @@ $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'extra'}{'en
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[17]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[18]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[19]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4];
-$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'extra'}{'command'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[19];
+$result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'extra'}{'spaces_associated_command'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[19];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[20]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[21];
 $result_trees{'definition_commands'}{'contents'}[4]{'contents'}[21]{'parent'} = $result_trees{'definition_commands'}{'contents'}[4];

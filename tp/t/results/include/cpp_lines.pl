@@ -169,7 +169,7 @@ $result_trees{'cpp_lines'} = {
           'contents' => [
             {
               'extra' => {
-                'command' => {}
+                'spaces_associated_command' => {}
               },
               'parent' => {},
               'text' => '
@@ -1166,7 +1166,7 @@ $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[1];
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1];
-$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'extra'}{'command'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[3];
+$result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[3];
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[3];
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[3];
 $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'cpp_lines'}{'contents'}[1]{'contents'}[3];

@@ -111,7 +111,7 @@ $result_trees{'east_asian_in_w'} = {
         },
         {
           'extra' => {
-            'command' => {}
+            'spaces_associated_command' => {}
           },
           'parent' => {},
           'text' => '
@@ -164,7 +164,7 @@ $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'p
 $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
 $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
 $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[4]{'extra'}{'command'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[3];
+$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[4]{'extra'}{'spaces_associated_command'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[3];
 $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
 $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5];
 $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5];

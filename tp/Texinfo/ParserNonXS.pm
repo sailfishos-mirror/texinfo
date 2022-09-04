@@ -2326,8 +2326,8 @@ sub _abort_empty_line {
 
     my $owning_element;
     if ($spaces_element->{'extra'}
-        and $spaces_element->{'extra'}->{'command'}) {
-      $owning_element = $spaces_element->{'extra'}->{'command'};
+        and $spaces_element->{'extra'}->{'spaces_associated_command'}) {
+      $owning_element = $spaces_element->{'extra'}->{'spaces_associated_command'};
     }
 
     print STDERR "ABORT EMPTY "
@@ -3674,7 +3674,7 @@ sub _start_empty_line_after_command($$$) {
                                     'parent' => $current,
                                   };
   if (defined($command)) {
-    $current->{'contents'}->[-1]->{'extra'} = {'command' => $command};
+    $current->{'contents'}->[-1]->{'extra'} = {'spaces_associated_command' => $command};
   }
   return $line;
 }
@@ -5336,11 +5336,11 @@ sub _parse_texi($$$)
               # empty_spaces_before_argument is a transient internal type,
               # which should end up in extra spaces_before_argument.
               push @{$current->{'contents'}}, {
-                            'type' => 'empty_spaces_before_argument',
-                            'text' => $1,
-                            'parent' => $current,
-                            'extra' => {'command' => $current->{'parent'}}
-                          };
+                'type' => 'empty_spaces_before_argument',
+                'text' => $1,
+                'parent' => $current,
+                'extra' => {'spaces_associated_command' => $current->{'parent'}}
+              };
             } else {
               $current->{'type'} = 'brace_command_arg';
               # only put spaces in spaces_before_argument if the @-command
@@ -5354,7 +5354,7 @@ sub _parse_texi($$$)
                             'type' => 'empty_spaces_before_argument',
                             'text' => '',
                             'parent' => $current,
-                            'extra' => {'command' => $current}
+                            'extra' => {'spaces_associated_command' => $current}
                           };
               }
               $self->_push_context('ct_inlineraw', $command)
@@ -5383,7 +5383,7 @@ sub _parse_texi($$$)
                 {'type' => 'empty_spaces_before_argument',
                  'text' => '',
                  'parent' => $current,
-                 'extra' => {'command' => $current}
+                 'extra' => {'spaces_associated_command' => $current}
                };
             print STDERR "BRACKETED in def/multitable\n" if ($self->{'DEBUG'});
           # lone braces accepted right in a rawpreformatted
@@ -5779,7 +5779,7 @@ sub _parse_texi($$$)
                  {'type' => 'empty_spaces_before_argument',
                   'text' => '',
                   'parent' => $current,
-                  'extra' => {'command' => $current}
+                  'extra' => {'spaces_associated_command' => $current}
                 };
         } elsif ($separator eq ',' and $current->{'type'}
             and $current->{'type'} eq 'line_arg'
@@ -7438,7 +7438,7 @@ The corresponding Perl encoding name is in I<input_perl_encoding>.
 
 =item empty_line_after_command
 
-The corresponding command is in I<command>.
+The corresponding command is in I<spaces_associated_command>.
 
 =item C<@end>
 

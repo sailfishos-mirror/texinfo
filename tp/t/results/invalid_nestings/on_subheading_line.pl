@@ -24,7 +24,7 @@ $result_trees{'on_subheading_line'} = {
                 },
                 {
                   'extra' => {
-                    'command' => {}
+                    'spaces_associated_command' => {}
                   },
                   'parent' => {},
                   'text' => ' ',
@@ -172,7 +172,7 @@ $result_trees{'on_subheading_line'} = {
   'type' => 'document_root'
 };
 $result_trees{'on_subheading_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'on_subheading_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'on_subheading_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'command'} = $result_trees{'on_subheading_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'on_subheading_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'spaces_associated_command'} = $result_trees{'on_subheading_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'on_subheading_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'on_subheading_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'on_subheading_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'on_subheading_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'on_subheading_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'on_subheading_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'args'}[0];

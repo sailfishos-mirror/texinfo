@@ -14,7 +14,7 @@ $result_trees{'xml_protected_in_verb'} = {
           'contents' => [
             {
               'extra' => {
-                'command' => {}
+                'spaces_associated_command' => {}
               },
               'parent' => {},
               'text' => '
@@ -127,7 +127,7 @@ $result_trees{'xml_protected_in_verb'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0];
+$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0];
 $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0];
 $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0];
 $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0];

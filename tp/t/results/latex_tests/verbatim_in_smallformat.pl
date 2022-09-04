@@ -33,7 +33,7 @@ $result_trees{'verbatim_in_smallformat'} = {
               'contents' => [
                 {
                   'extra' => {
-                    'command' => {}
+                    'spaces_associated_command' => {}
                   },
                   'parent' => {},
                   'text' => '
@@ -110,7 +110,7 @@ $result_trees{'verbatim_in_smallformat'} = {
 };
 $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0];
 $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1];

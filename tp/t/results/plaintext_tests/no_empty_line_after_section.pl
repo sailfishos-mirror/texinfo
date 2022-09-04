@@ -284,7 +284,7 @@ $result_trees{'no_empty_line_after_section'} = {
         },
         {
           'extra' => {
-            'command' => {}
+            'spaces_associated_command' => {}
           },
           'parent' => {},
           'text' => '
@@ -359,7 +359,7 @@ $result_trees{'no_empty_line_after_section'}{'contents'}[3]{'parent'} = $result_
 $result_trees{'no_empty_line_after_section'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_empty_line_after_section'}{'contents'}[4]{'args'}[0];
 $result_trees{'no_empty_line_after_section'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'no_empty_line_after_section'}{'contents'}[4];
 $result_trees{'no_empty_line_after_section'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'no_empty_line_after_section'}{'contents'}[4];
-$result_trees{'no_empty_line_after_section'}{'contents'}[4]{'contents'}[1]{'extra'}{'command'} = $result_trees{'no_empty_line_after_section'}{'contents'}[4]{'contents'}[0];
+$result_trees{'no_empty_line_after_section'}{'contents'}[4]{'contents'}[1]{'extra'}{'spaces_associated_command'} = $result_trees{'no_empty_line_after_section'}{'contents'}[4]{'contents'}[0];
 $result_trees{'no_empty_line_after_section'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'no_empty_line_after_section'}{'contents'}[4];
 $result_trees{'no_empty_line_after_section'}{'contents'}[4]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'no_empty_line_after_section'}{'contents'}[4]{'contents'}[2];
 $result_trees{'no_empty_line_after_section'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'no_empty_line_after_section'}{'contents'}[4];

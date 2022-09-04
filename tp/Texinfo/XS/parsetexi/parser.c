@@ -622,7 +622,7 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
 
       retval = 1;
 
-      k = lookup_extra (last_child, "command");
+      k = lookup_extra (last_child, "spaces_associated_command");
       if (k)
         owning_element = (ELEMENT *) k->value;
 
@@ -809,7 +809,7 @@ start_empty_line_after_command (ELEMENT *current, char **line_inout,
   line += len;
 
   if (command)
-    add_extra_element (e, "command", command);
+    add_extra_element (e, "spaces_associated_command", command);
 
   *line_inout = line;
 }
