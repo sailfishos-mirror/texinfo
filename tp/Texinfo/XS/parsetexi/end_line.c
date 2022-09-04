@@ -1780,6 +1780,18 @@ end_line_misc_line (ELEMENT *current)
                                  current->args.list[0]);
               current->type = ET_index_entry_command;
             }
+          /* if there is a brace command interrupting an index or subentry
+             command, replace the internal spaces_before_brace_in_index
+             text type with its final type depending on whether there is
+             text after the brace command. */
+          if ((command_flags(current) & CF_index_entry_command
+                || current->cmd == CM_subentry))
+            {
+              if (lookup_extra (current, "sortas")
+                   || lookup_extra (current, "seealso")
+                   || lookup_extra (current, "seeentry"))
+                set_non_ignored_space_in_index_before_command(current->args.list[0]);
+            }
         }
     }
 

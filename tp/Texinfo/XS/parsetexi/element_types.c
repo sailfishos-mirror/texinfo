@@ -12,6 +12,7 @@ char *element_type_names[] = {
 "empty_line_after_command",
 "empty_spaces_after_command",
 "spaces_at_end",
+"spaces_before_brace_in_index",
 "empty_space_at_end_def_bracketed",
 "space_at_end_block_command",
 "empty_spaces_before_argument",

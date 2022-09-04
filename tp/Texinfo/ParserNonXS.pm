@@ -2282,6 +2282,31 @@ sub _expand_macro_body($$$$) {
   return $result;
 }
 
+# turn spaces that are ignored before @-commands like @sortas{} and
+# @seeentry{} back to regular spaces if there is content after the @-command
+sub _set_non_ignored_space_in_index_before_command($)
+{
+  my $contents = shift;
+  my $pending_spaces_element = 0;
+  foreach my $content (@$contents) {
+    if ($content->{'type'}
+        and $content->{'type'} eq 'spaces_before_brace_in_index') {
+      # set to "spaces_at_end" in case there are only spaces after
+      $content->{'type'} = 'spaces_at_end';
+      $pending_spaces_element = $content;
+    } elsif ($pending_spaces_element
+             and not (($content->{'cmdname'}
+                       and $in_index_commands{$content->{'cmdname'}}
+                       and defined($brace_commands{$content->{'cmdname'}}))
+                      or ($content->{'type'}
+              and $content->{'type'} eq 'empty_spaces_after_close_brace'))
+             and (! _check_empty_expansion([$content]))) {
+      delete $pending_spaces_element->{'type'};
+      $pending_spaces_element = 0;
+    }
+  }
+}
+
 # each time a new line appeared, a container is opened to hold the text
 # consisting only of spaces.  This container is removed here, typically
 # this is called when non-space happens on a line.
@@ -3439,6 +3464,18 @@ sub _end_line($$$)
                              undef, $source_info);
           $current->{'type'} = 'index_entry_command';
         }
+        # if there is a brace command interrupting an index or subentry
+        # command, replace the internal spaces_before_brace_in_index
+        # text type with its final type depending on whether there is
+        # text after the brace command.
+        if (_is_index_element($self, $current)) {
+          if (defined($current->{'extra'}->{'sortas'})
+              or defined($current->{'extra'}->{'seealso'})
+              or defined($current->{'extra'}->{'seeentry'})) {
+            _set_non_ignored_space_in_index_before_command(
+                           $current->{'args'}->[0]->{'contents'});
+          }
+        }
       }
     }
     $current = $current->{'parent'};
@@ -4554,15 +4591,27 @@ sub _parse_texi($$$)
         if ($in_index_commands{$command}
             and $current->{'contents'}
             and $current->{'contents'}->[-1]
-            and $current->{'contents'}->[-1]->{'text'}) {
+            and $current->{'contents'}->[-1]->{'text'}
+            # it is important to check if in an index command, as otherwise
+            # the internal space type is not processed and remains as is in
+            # the final tree.
+            and _is_index_element($self, $current->{'parent'})) {
           $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
+          # an internal and temporary space type that is converted to
+          # a normal space without type if followed by text or a
+          # "spaces_at_end" if followed by spaces only when the
+          # index or subentry command is done.
+          my $space_type = 'spaces_before_brace_in_index';
+          if ($command eq 'subentry') {
+            $space_type = 'spaces_at_end';
+          }
           if ($1 ne '') {
             if ($current->{'contents'}->[-1]->{'text'} eq '') {
               $current->{'contents'}->[-1]->{'text'} = $1;
-              $current->{'contents'}->[-1]->{'type'} = 'spaces_at_end';
+              $current->{'contents'}->[-1]->{'type'} = $space_type;
             } else {
               my $new_spaces = { 'text' => $1, 'parent' => $current,
-                'type' => 'spaces_at_end' };
+                'type' => $space_type };
               push @{$current->{'contents'}}, $new_spaces;
             }
           }

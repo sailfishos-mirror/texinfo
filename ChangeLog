@@ -1,3 +1,29 @@
+2022-09-04  Patrice Dumas  <pertusus@free.fr>
+
+	Space before brace special index command is a regular space if
+	followed by text
+
+	* tp/Texinfo/ParserNonXS.pm
+	(_set_non_ignored_space_in_index_before_command, _end_line)
+	(_parse_texi), tp/Texinfo/XS/parsetexi/element_types.txt,
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/indices.c
+	(set_non_ignored_space_in_index_before_command),
+	tp/Texinfo/XS/parsetexi/parser.c (check_space_element)
+	(process_remaining_on_line), tp/Texinfo/XS/parsetexi/separator.c
+	(check_empty_expansion): use an internal temporary space
+	type "spaces_before_brace_in_index" before index brace @-commands.
+	After index command or subentry is done, call
+	set_non_ignored_space_in_index_before_command to go through the
+	index command or subentry contents and turn internal spaces
+	before index brace @-commands (@sortas...) to
+	regular text if followed by text after the brace command in
+	set_non_ignored_space_in_index_before_command, or to
+	"spaces_at_end" otherwise.
+	Split check_space_element() out of check_empty_expansion().
+	Do not process spaces before index brace @-commands is they are
+	not in an index command nor in a @subentry.
+
 2022-09-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	ttsl @var on def line for @set txicodevaristt

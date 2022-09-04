@@ -169,6 +169,7 @@ int is_end_current_command (ELEMENT *current, char **line,
 void set_documentlanguage (char *);
 void set_accept_internalvalue (void);
 char *element_type_name (ELEMENT *e);
+int check_space_element (ELEMENT *e);
 
 /* Return values */
 #define GET_A_NEW_LINE 0

@@ -165,8 +165,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                 },
                 {
                   'parent' => {},
-                  'text' => ' ',
-                  'type' => 'spaces_at_end'
+                  'text' => ' '
                 },
                 {
                   'args' => [
@@ -201,8 +200,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                 },
                 {
                   'parent' => {},
-                  'text' => ' ',
-                  'type' => 'spaces_at_end'
+                  'text' => ' '
                 },
                 {
                   'args' => [
@@ -308,8 +306,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                 },
                 {
                   'parent' => {},
-                  'text' => ' ',
-                  'type' => 'spaces_at_end'
+                  'text' => ' '
                 },
                 {
                   'args' => [
@@ -619,8 +616,8 @@ $result_indices_sort_strings{'multiple_index_text_sortas_seeentry_seealso'} = {
 $result_converted{'docbook'}->{'multiple_index_text_sortas_seeentry_seealso'} = '<chapter label="1" id="chapter-index">
 <title>Index</title>
 
-<indexterm role="cp"><primary>aaacontinueaagain</primary><see>other second</see><seealso>toto</seealso></indexterm>
-<indexterm role="cp"><primary>othersecond</primary></indexterm>
+<indexterm role="cp"><primary>aaa continue aagain</primary><see>other second</see><seealso>toto</seealso></indexterm>
+<indexterm role="cp"><primary>other second</primary></indexterm>
 
 <index role="cp"></index>
 </chapter>
@@ -645,7 +642,7 @@ File: ,  Node: chapter index,  Prev: Top,  Up: Top
  [index ]
 * Menu:
 
-* othersecond:                           chapter index.         (line 6)
+* other second:                          chapter index.         (line 6)
 
 
 
@@ -667,7 +664,7 @@ $result_converted{'plaintext'}->{'multiple_index_text_sortas_seeentry_seealso'} 
 
 * Menu:
 
-* othersecond:                           chapter index.         (line 3)
+* other second:                          chapter index.         (line 3)
 
 ';
 
@@ -689,14 +686,14 @@ $result_converted{'html_text'}->{'multiple_index_text_sortas_seeentry_seealso'} 
 </div>
 <h2 class="chapter" id="Index">1 Index</h2>
 
-<a class="index-entry-id" id="index-othersecond"></a>
+<a class="index-entry-id" id="index-other-second"></a>
 
 <div class="printindex cp-printindex">
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-O">O</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-othersecond">othersecond</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-other-second">other second</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 </div>
@@ -752,8 +749,8 @@ $result_converted{'latex'}->{'multiple_index_text_sortas_seeentry_seealso'} = '\
 \\chapter{{Index}}
 \\label{anchor:chapter-index}%
 
-\\index[cp]{A---S@aaacontinueaagain|see{other second}}%
-\\index[cp]{OO@othersecond}%
+\\index[cp]{A---S@aaa continue aagain|see{other second}}%
+\\index[cp]{OO@other second}%
 
 \\printindex[cp]
 \\end{document}

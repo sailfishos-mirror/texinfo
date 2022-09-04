@@ -325,6 +325,40 @@ enter_index_entry (enum command_id index_type_command,
     line_warn ("entry for index `%s' outside of any node", idx->name);
 }
 
+/* turn spaces that are ignored before @-commands like @sortas{} and
+   @seeentry{} back to regular spaces if there is content after the @-command
+ */
+void
+set_non_ignored_space_in_index_before_command (ELEMENT *content)
+{
+  ELEMENT *e;
+  ELEMENT *pending_spaces_element = 0;
+  int i;
+  for (i = 0; i < content->contents.number; i++)
+    {
+      /* could also be, but it does not seems to be needed here:
+         e = contents_child_by_index (content, i); */
+      e = content->contents.list[i];
+      if (e->type == ET_spaces_before_brace_in_index)
+        {
+          pending_spaces_element = e;
+          /* set to "spaces_at_end" in case there are only spaces after */
+          e->type = ET_spaces_at_end;
+        }
+      else if (pending_spaces_element
+                && ! (e->cmd == CM_sortas
+                       || e->cmd == CM_seeentry
+                       || e->cmd == CM_seealso
+                       || e->type == ET_empty_spaces_after_close_brace)
+                && (! check_space_element(e)))
+        {
+          pending_spaces_element->type = ET_NONE;
+          pending_spaces_element = 0;
+        }
+    }
+}
+
+
 
 INDEX *
 ultimate_index (INDEX *index)

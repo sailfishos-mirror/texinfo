@@ -215,19 +215,7 @@ check_empty_expansion (ELEMENT *e)
   for (i = 0; i < e->contents.number; i++)
     {
       ELEMENT *f = e->contents.list[i];
-      if (!(
-               f->cmd == CM_SPACE
-            || f->cmd == CM_TAB
-            || f->cmd == CM_NEWLINE
-            || f->cmd == CM_c
-            || f->cmd == CM_comment
-            || f->cmd == CM_COLON
-            || f->type == ET_empty_spaces_before_argument
-            || f->type == ET_spaces_at_end
-            || (!f->cmd && !f->type && f->text.end == 0)
-            || (f->text.end > 0
-                && !*(f->text.text + strspn (f->text.text, whitespace_chars)))
-         ))
+      if (!check_space_element(f))
         {
           return 0;
         }

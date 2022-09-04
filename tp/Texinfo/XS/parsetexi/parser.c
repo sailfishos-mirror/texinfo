@@ -87,6 +87,29 @@ element_type_name (ELEMENT *e)
   return element_type_names[(e)->type];
 }
 
+/* Return 1 if the element expansion is all whitespace */
+int
+check_space_element (ELEMENT *e)
+{
+  if (!(
+          e->cmd == CM_SPACE
+        || e->cmd == CM_TAB
+        || e->cmd == CM_NEWLINE
+        || e->cmd == CM_c
+        || e->cmd == CM_comment
+        || e->cmd == CM_COLON
+        || e->type == ET_empty_spaces_before_argument
+        || e->type == ET_spaces_at_end
+        || (!e->cmd && !e->type && e->text.end == 0)
+        || (e->text.end > 0
+            && !*(e->text.text + strspn (e->text.text, whitespace_chars)))
+     ))
+    {
+      return 0;
+    }
+  return 1;
+}
+
 
 
 /* Current node, section and part. */
@@ -1785,9 +1808,25 @@ value_invalid:
            || cmd == CM_seealso
            || cmd == CM_subentry)
           && current->contents.number > 0
-          && last_contents_child(current)->text.end > 0)
+          && last_contents_child(current)->text.end > 0
+       /* it is important to check if in an index command, as otherwise
+          the internal space type is not processed and remains as is in
+          the final tree. */
+          && (command_flags(current->parent) & CF_index_entry_command
+               || current->parent->cmd == CM_subentry))
         {
-          isolate_trailing_space (current, ET_spaces_at_end);
+          if (cmd == CM_subentry)
+            {
+              isolate_trailing_space (current, ET_spaces_at_end);
+            }
+          else
+           /* an internal and temporary space type that is converted to
+              a normal space without type if followed by text or a
+              "spaces_at_end" if followed by spaces only when the
+              index or subentry command is done. */
+            {
+              isolate_trailing_space (current, ET_spaces_before_brace_in_index);
+            }
         }
 
       if (cmd == CM_item && item_line_parent (current))
