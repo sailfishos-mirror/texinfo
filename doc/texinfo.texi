@@ -18293,14 +18293,14 @@ well as the manual rendered in HTML.
 @vindex EPUB_CREATE_CONTAINER_FILE @subentry @r{avoiding} @code{Archive::Zip} @r{dependency}
 The generation of the EPUB file depends on the @code{Archive::Zip}
 Perl module being installed.  This dependency is checked at runtime.
-In the default case, trying to output EPUB without that dependency raises an
+In the default case, trying to output EPUB without this dependency raises an
 error.  However, if the EPUB output file is not generated, with the
 customization variable @code{EPUB_CREATE_CONTAINER_FILE} set to 0, it is
 not an error if @code{Archive::Zip} is not installed.
 
 The @command{texi2any} tests related to EPUB generation do not require the
 installation of @code{Archive::Zip}, as they set
-@code{EPUB_CREATE_CONTAINER_FILE} set to 0 and keep the directory containing
+@code{EPUB_CREATE_CONTAINER_FILE} to 0 and keep the directory containing
 the files and directories needed for the EPUB file by setting the
 @code{EPUB_KEEP_CONTAINER_FOLDER} customization variable to 1.
 
@@ -18312,10 +18312,10 @@ the files and directories needed for the EPUB file by setting the
 @cindex EPUB Container directory
 A directory containing the files and directories needed for the
 EPUB format is created when outputting EPUB.  The name of this
-container directory is derived from the base name (that is, any
-extension is removed), with @code{_epub_package} postpended.
+container directory is derived from the base name of the input file (that
+is, any extension is removed), with @code{_epub_package} postpended.
 If an output directory is specified, with @option{--output},
-or with the @code{SUBDIR} customization function,
+or with the @code{SUBDIR} customization variable,
 the container directory is created in that directory instead of
 the current directory.  At the beginning of a new run, the container
 directory and all its contents are removed.  The container directory
@@ -18332,8 +18332,8 @@ The file name is derived from the base name, with the @code{.epub}
 extension postpended.  If an output file is specified, with
 @option{--output}, or with the @code{OUTFILE} customization function,
 this file name is used instead.  The output EPUB file is never placed
-in the directory specified by @option{--output} or @code{SUBDIR},
-the container directory only is placed there as explained just above.
+in the directory specified by @option{--output} or @code{SUBDIR};
+only the container directory is placed there, as explained just above.
 
 The EPUB output file is not generated if the customization variable
 @code{EPUB_CREATE_CONTAINER_FILE} is set to 0.  The container directory
@@ -18346,22 +18346,23 @@ is left after the final EPUB file has been generated if
 @node EPUB Cross-References
 @subsection EPUB Cross-References
 
-There is no possibility to refer to another EPUB file.  Therefore the
-references to ``external'' Texinfo manuals should resolve to an external
-URL@:.  This is achieved with HTML cross-references configuration
-(@pxref{HTML Xref Configuration}).  Since the links in the resulting EPUB
-are incorrect if no information is found for the cross-references, a warning
-is issued for missing cross-references information, by setting the
-@code{CHECK_HTMLXREF} customization variable in the default case.  If these
-warnings are unwanted, set @code{CHECK_HTMLXREF} to 0.
+The EPUB format does not support references from an EPUB file to
+another EPUB file.  Therefore any references to ``external'' Texinfo
+manuals should resolve to an external URL@:.  @command{texi2any}
+produces these links with HTML cross-reference configuration
+(@pxref{HTML Xref Configuration}).  Since the links in the
+resulting EPUB are incorrect if no information is found for the
+cross-references, @command{texi2any} issues a warning by default for
+missing cross-references information.  If these warnings are unwanted,
+set @code{CHECK_HTMLXREF} to 0.
 
 
 @node EPUB HTML
 @subsection HTML Generated for EPUB
 
-The HTML generated for EPUB is XHTML conformant, UTF-8 encoded,
+The HTML generated for EPUB is XHTML conformant, UTF-8 encoded, and
 formatted without the usual HTML navigation headers and footers.
-Most of these features are set with customization variables, such as
+Most of these features are enabled with customization variables, such as
 @code{USE_XML_SYNTAX} or @code{OUTPUT_FILE_NAME_ENCODING}.  Some
 features of printed output are used in EPUB.  In particular, the Top
 node does not appear in the EPUB output, while a title page is
@@ -18372,10 +18373,10 @@ correspond initially to the EPUB directory container and/or the
 EPUB output file (@pxref{EPUB Output File and Directory}).  These
 customization variables values are undefined or reset to the
 locations in the container directory where the XHTML files are output
-for the HTML generation.  Resetting customization variables
-is unusual, this is why it is reported, however, the variables
-reset are used internally for the conversion, and should not
-interact with customization set by the user.
+for the HTML generation.  It is mentioned here because resetting
+customization variables is unusual; however, the variables reset are
+used internally for the conversion, and should not interact with any
+customization set by the user.
 
 @xref{HTML Customization Variables}.
 

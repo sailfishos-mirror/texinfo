@@ -1,5 +1,9 @@
 2022-09-04  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Generating EPUB): Edit.
+
+2022-09-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@verbatim): Use @example environment for
 	examples rather than @exdent with @t.  Put actual tab characters
 	in the output for the example as was shown.
