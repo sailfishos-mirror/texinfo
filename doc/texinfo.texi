@@ -8726,7 +8726,7 @@ generates the indexing formatting commands, takes care of placing
 commas in the correct places for you.
 
 Do not interrupt an index or @code{@@subentry} entry by @code{@@sortas}
-or advanced commands with braces, place the commands with braces at
+or advanced commands with braces; place the commands with braces at
 the beginning or at the end of the entry.
 
 These features are the most useful with printed documents, and
