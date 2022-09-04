@@ -2971,6 +2971,7 @@ sub _end_line($$$)
             and $current->{'parent'}->{'type'} eq 'def_line') {
     my ($error) = $self->_pop_context(['ct_def'], $source_info, $current);
     die if ($error);
+    #_abort_empty_line($self, $current);
     my $def_command = $current->{'parent'}->{'extra'}->{'def_command'};
     my $arguments = _parse_def($self, $def_command, $current);
     if (scalar(@$arguments)) {
@@ -3051,8 +3052,14 @@ sub _end_line($$$)
       my @prototype_row;
       foreach my $content (@{$current->{'contents'}}) {
         if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
-          push @prototype_row, { 'contents' => $content->{'contents'},
-                                 'type' => 'bracketed_multitable_prototype'};
+          my $bracketed_prototype
+            = { 'type' => 'bracketed_multitable_prototype' };
+          if ($content->{'contents'}
+              and scalar(@{$content->{'contents'}}) > 0) {
+            # avoid empty content to match with XS parser.
+            $bracketed_prototype->{'contents'} = $content->{'contents'};
+          }
+          push @prototype_row, $bracketed_prototype;
         } elsif ($content->{'text'}) {
           # TODO: this should be a warning or an error - all prototypes
           # on a @multitable line should be in braces, as documented in the
@@ -5336,6 +5343,8 @@ sub _parse_texi($$$)
               }
               $line =~ s/([^\S\f\n]*)//;
               $current->{'type'} = 'brace_command_context';
+              # empty_spaces_before_argument is a transient internal type,
+              # which should end up in extra spaces_before_argument.
               push @{$current->{'contents'}}, {
                             'type' => 'empty_spaces_before_argument',
                             'text' => $1,
@@ -5344,9 +5353,13 @@ sub _parse_texi($$$)
                           };
             } else {
               $current->{'type'} = 'brace_command_arg';
+              # only put spaces in spaces_before_argument if the @-command
+              # has an explicit positive number of arguments.
               if ($brace_commands{$command}
                   and $brace_commands{$command} =~ /^\d$/
                   and $brace_commands{$command} > 0) {
+                # empty_spaces_before_argument is a transient internal type,
+                # which should end up in extra spaces_before_argument.
                 push @{$current->{'contents'}}, {
                             'type' => 'empty_spaces_before_argument',
                             'text' => '',
@@ -5374,6 +5387,8 @@ sub _parse_texi($$$)
             $current->{'source_info'} = $source_info
               if ($current->{'parent'}->{'parent'}->{'type'}
                   and $current->{'parent'}->{'parent'}->{'type'} eq 'def_line');
+            # empty_spaces_before_argument is a transient internal type,
+            # which should end up in extra spaces_before_argument.
             push @{$current->{'contents'}},
                 {'type' => 'empty_spaces_before_argument',
                  'text' => '',
@@ -5768,6 +5783,8 @@ sub _parse_texi($$$)
           push @{$current->{'args'}},
                { 'type' => $type, 'parent' => $current, 'contents' => [] };
           $current = $current->{'args'}->[-1];
+          # empty_spaces_before_argument is a transient internal type,
+          # which should end up in extra spaces_before_argument.
           push @{$current->{'contents'}},
                  {'type' => 'empty_spaces_before_argument',
                   'text' => '',
@@ -6884,8 +6901,8 @@ I<brace_command_arg> for the container holding the brace @-commands
 contents, I<line_arg> and I<block_line_arg> contain the arguments
 appearing on the line of @-commands.  Text fragments may have a type to
 give an information of the kind of text fragment, for example
-I<empty_spaces_before_argument> is associated to spaces after a brace
-opening and before the argument.  Many @-commands elements do not have
+I<empty_spaces_before_paragraph> is associated to spaces appearing
+before a paragraph beginning.  Many @-commands elements do not have
 a type associated.
 
 =item args
@@ -7035,12 +7052,7 @@ takes an argument on the line or a block @-command.
 =item empty_spaces_after_close_brace
 
 Spaces appearing after a closing brace, for some rare commands for which
-this space should be ignorable (like C<@caption>).
-
-=item empty_spaces_before_argument
-
-The text is spaces appearing after an opening brace or after a
-comma separating a command's arguments.
+this space should be ignorable (like C<@caption> or C<@sortas>).
 
 =item empty_spaces_before_paragraph
 
@@ -7339,14 +7351,6 @@ C<@frenchspacing>, C<@alias>, C<@synindex>, C<@columnfractions>.
 Also filled for C<@set>, C<@clickstyle>, C<@unmacro> or C<@comment>
 arguments.
 
-=item spaces_before_argument
-
-For @-commands with opening brace or comma followed by spaces held in a
-I<empty_spaces_before_argument> element, a reference to those spaces.
-For context brace commands, I<spaces_before_argument> is associated
-with the @-command element, for other brace commands it is associated
-with each argument elements.
-
 =item spaces
 
 For accent commands acting on one letter only, like C<@ringaccent>
@@ -7358,6 +7362,21 @@ there is a I<spaces> key which holds the spaces appearing between
 the command and the argument.
 
 =back
+
+=item spaces_before_argument
+
+A reference to spaces following some @-commands and bracketed content type
+with opening brace, line commands and block command lines taking Texinfo
+as argument and comma delimited arguments.  For context brace commands,
+line commands and block commands, I<spaces_before_argument> is associated with
+the @-command element, for other brace commands and for spaces after comma,
+it is associated with each argument element.
+
+=item spaces_after_argument
+
+A reference to spaces after @-command arguments before a comma, a closing
+brace or at end of line.  The @-commands with I<spaces_after_argument>
+should be the same as those with I<spaces_before_argument>.
 
 =head3 Extra keys specific of certain @-commands or containers
 
