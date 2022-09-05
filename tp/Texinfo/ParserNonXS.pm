@@ -2350,7 +2350,11 @@ sub _abort_empty_line {
       }
     } elsif ($spaces_element->{'type'} eq 'empty_line_after_command'
              or $spaces_element->{'type'} eq 'empty_spaces_before_argument') {
-      if ($owning_element) {
+      if ($owning_element
+          # indent and noindent are never directly associated with the spaces
+          and (not ($owning_element->{'cmdname'}
+                    and ($owning_element->{'cmdname'} eq 'indent'
+                         or $owning_element->{'cmdname'} eq 'noindent')))) {
         # Remove element from main tree. It will still be referenced in
         # the 'extra' hash as 'spaces_before_argument'.
         pop @{$current->{'contents'}};
@@ -4729,27 +4733,6 @@ sub _parse_texi($$$)
               push @{$current->{'contents'}}, $misc;
             }
             $line = _start_empty_line_after_command($line, $current, $misc);
-            if ($command eq 'indent'
-                or $command eq 'noindent') {
-              if ($line !~ /\n/) {
-                my ($new_line, $new_line_source_info) = _new_line($self, $source_info);
-                $line .= $new_line if (defined($new_line));
-              }
-              $line =~ s/^(\s*)//;
-              if ($1) {
-                $current = _merge_text($self, $current, $1);
-              }
-              if ($line ne ''
-      and $current->{'contents'}->[-1]->{'type'} eq 'empty_line_after_command') {
-                $current->{'contents'}->[-1]->{'type'}
-                              = 'empty_spaces_after_command';
-              }
-              my $paragraph = _begin_paragraph($self, $current, $source_info);
-              $current = $paragraph if $paragraph;
-              if ($line eq '') {
-                last;
-              }
-            }
           }
         # line commands
         } elsif (defined($self->{'line_commands'}->{$command})) {

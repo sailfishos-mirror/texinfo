@@ -308,25 +308,25 @@ $result_trees{'comments_on_misc_command_line'} = {
           'type' => 'empty_spaces_after_command'
         },
         {
-          'contents' => [
+          'args' => [
             {
-              'args' => [
-                {
-                  'parent' => {},
-                  'text' => ' indent (skipspace)
+              'parent' => {},
+              'text' => ' indent (skipspace)
 ',
-                  'type' => 'misc_arg'
-                }
-              ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' indent (skipspace)
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'c',
+          'extra' => {
+            'misc_args' => [
+              ' indent (skipspace)
 '
-                ]
-              },
-              'parent' => {}
-            },
+            ]
+          },
+          'parent' => {}
+        },
+        {
+          'contents' => [
             {
               'parent' => {},
               'text' => 'Para.
@@ -382,10 +382,10 @@ $result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[7]{'pa
 $result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[0];
 $result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[9]{'extra'}{'spaces_associated_command'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[8];
 $result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[0];
-$result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[10]{'contents'}[0];
-$result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[10];
-$result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[10];
+$result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[10];
 $result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[0];
+$result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[11];
+$result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[0];
 $result_trees{'comments_on_misc_command_line'}{'contents'}[0]{'parent'} = $result_trees{'comments_on_misc_command_line'};
 
 $result_texis{'comments_on_misc_command_line'} = '@setfilename  comments_on_misc_command_line.info  @c setfilename (text)
@@ -430,8 +430,8 @@ $result_converted{'xml'}->{'comments_on_misc_command_line'} = '<setfilename file
 <pagesizes spaces=" ">200mm </pagesizes><!-- c pagesizes  (line) -->
 <everyheading spaces=" "><thispage></thispage> <divideheading/> aaa </everyheading><!-- c everyheading (lineraw) -->
 
-<indent></indent><para><!-- c indent (skipspace) -->
-Para.
+<indent></indent><!-- c indent (skipspace) -->
+<para>Para.
 </para>';
 
 1;

@@ -28,14 +28,6 @@ $result_trees{'noindent_empty_para'} = {
           'type' => 'empty_line_after_command'
         },
         {
-          'contents' => [],
-          'extra' => {
-            'noindent' => 1
-          },
-          'parent' => {},
-          'type' => 'paragraph'
-        },
-        {
           'parent' => {},
           'text' => '
 ',
@@ -63,9 +55,8 @@ $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[0]{'parent'} = $
 $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[1]{'extra'}{'spaces_associated_command'} = $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[0];
 $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
 $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
+$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[3];
 $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
-$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[4];
-$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
 $result_trees{'noindent_empty_para'}{'contents'}[0]{'parent'} = $result_trees{'noindent_empty_para'};
 
 $result_texis{'noindent_empty_para'} = '@noindent
@@ -85,8 +76,7 @@ $result_floats{'noindent_empty_para'} = {};
 
 
 
-$result_converted{'plaintext'}->{'noindent_empty_para'} = '
-   aaa
+$result_converted{'plaintext'}->{'noindent_empty_para'} = 'aaa
 ';
 
 

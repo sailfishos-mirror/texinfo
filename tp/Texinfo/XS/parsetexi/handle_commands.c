@@ -254,48 +254,6 @@ handle_other_command (ELEMENT *current, char **line_inout,
           add_to_element_contents (current, misc);
         }
       start_empty_line_after_command (current, &line, misc);
-      if (cmd == CM_indent || cmd == CM_noindent)
-        {
-          /* Start a new paragraph if not in one already. */
-          int spaces;
-          ELEMENT *paragraph;
-
-          /* Check if if we should change an ET_empty_line_after_command
-             element to ET_empty_spaces_after_command by looking ahead
-             to see what comes next. */
-          if (!strchr (line, '\n'))
-            {
-              char *line2;
-              input_push_text (strdup (line), 0);
-              line2 = new_line ();
-              if (line2)
-                line = line2;
-            }
-          spaces = strspn (line, whitespace_chars);
-          if (spaces > 0)
-            {
-              char saved = line[spaces];
-              line[spaces] = '\0';
-              current = merge_text (current, line);
-              line[spaces] = saved;
-              line += spaces;
-            }
-          if (*line
-              && last_contents_child(current)->type
-              == ET_empty_line_after_command)
-            {
-              last_contents_child(current)->type
-                = ET_empty_spaces_after_command;
-            }
-          paragraph = begin_paragraph (current);
-          if (paragraph)
-            current = paragraph;
-          if (!*line)
-            {
-              *status = GET_A_NEW_LINE;
-              goto funexit;
-            }
-        }
     }
 
 funexit:

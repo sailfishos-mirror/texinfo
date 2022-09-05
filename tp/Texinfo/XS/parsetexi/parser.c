@@ -647,7 +647,9 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
       else if (last_child->type == ET_empty_line_after_command
                || last_child->type == ET_empty_spaces_before_argument)
         {
-          if (owning_element)
+        /* indent and noindent are never directly associated with the spaces */
+          if (owning_element && ! (owning_element->cmd == CM_indent
+                                    || owning_element->cmd == CM_noindent))
             {
               /* Remove element from main tree. */
               ELEMENT *e = pop_element_from_contents (current);
