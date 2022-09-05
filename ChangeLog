@@ -1,3 +1,8 @@
+2022-09-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Heading Format):
+	Revise.  Mention that chapter pages might be different.
+
 2022-09-04  Patrice Dumas  <pertusus@free.fr>
 
 	Rename spaces type extra command as spaces_associated_command
