@@ -7424,10 +7424,6 @@ The corresponding Perl encoding name is in I<input_perl_encoding>.
 
 The corresponding command is in I<spaces_associated_command>.
 
-=item C<@end>
-
-The corresponding @-command is in I<command>.
-
 =item C<@enumerate>
 
 The extra key I<enumerate_specification> contains the enumerate
