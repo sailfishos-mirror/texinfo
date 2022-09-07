@@ -497,6 +497,25 @@ $result_trees{'block_commands_in_menu_description'} = {
                           'text' => '
 ',
                           'type' => 'raw'
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'parent' => {},
+                                  'text' => 'verbatim'
+                                }
+                              ],
+                              'parent' => {},
+                              'type' => 'line_arg'
+                            }
+                          ],
+                          'cmdname' => 'end',
+                          'extra' => {
+                            'spaces_before_argument' => ' '
+                          },
+                          'parent' => {}
                         }
                       ],
                       'parent' => {},
@@ -649,6 +668,9 @@ $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1
 $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[4]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[4];
 $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[4];
 $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[4];
+$result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[4]{'contents'}[2]{'args'}[0];
+$result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[4]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[4]{'contents'}[2];
+$result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[4];
 $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[4]{'parent'} = $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3];
 $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[5]{'parent'} = $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3];
 $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'block_commands_in_menu_description'}{'contents'}[2]{'contents'}[1]{'contents'}[0];
@@ -889,7 +911,7 @@ Text.
 &lt;b&gt; in html &lt;/b&gt;
 
 </html>
-</pre><verbatim xml:space="preserve">
+</pre><verbatim xml:space="preserve" endspaces=" ">
 
 </verbatim>
 </menudescription></menuentry></menu>

@@ -19,7 +19,7 @@
 <defindex value="truc" line="truc"></defindex>
 <defcodeindex value="codeidx" line="codeidx"></defcodeindex>
 
-<macro name="mymacro" line=" mymacro">
+<macro name="mymacro" line=" mymacro" endspaces=" ">
 &lt;
 &gt;
 &quot;
@@ -1427,7 +1427,7 @@ After clickstyle &result;
 <!-- c  Missing $ inserted. -->
 <!-- c Therefore, if inexample is set, condition on valid.  Not that -->
 <!-- c This type of nesting may not be valid. -->
-<ignore>
+<ignore endspaces=" ">
 in the displaymath below, as in math, backslash are doubled because 
 we are in a macro.
 </ignore>
@@ -2103,7 +2103,7 @@ more text
 
 <verbatiminclude file="simplest.texi" spaces=" ">simplest.texi</verbatiminclude>
 
-<verbatim xml:space="preserve">
+<verbatim xml:space="preserve" endspaces=" ">
 in verbatim ''
 </verbatim>
 
@@ -2566,7 +2566,7 @@ After clickstyle &result;
 <!-- c  Missing $ inserted. -->
 <!-- c Therefore, if inexample is set, condition on valid.  Not that -->
 <!-- c This type of nesting may not be valid. -->
-<ignore>
+<ignore endspaces=" ">
 in the displaymath below, as in math, backslash are doubled because 
 we are in a macro.
 </ignore>
@@ -3242,7 +3242,7 @@ more text
 
 <verbatiminclude file="simplest.texi" spaces=" ">simplest.texi</verbatiminclude>
 
-<verbatim xml:space="preserve">
+<verbatim xml:space="preserve" endspaces=" ">
 in verbatim ''
 </verbatim>
 
@@ -3732,7 +3732,7 @@ After clickstyle &result;
 <!-- c  Missing $ inserted. -->
 <!-- c Therefore, if inexample is set, condition on valid.  Not that -->
 <!-- c This type of nesting may not be valid. -->
-<ignore>
+<ignore endspaces=" ">
 in the displaymath below, as in math, backslash are doubled because 
 we are in a macro.
 </ignore>
@@ -4408,7 +4408,7 @@ more text
 
 <verbatiminclude file="simplest.texi" spaces=" ">simplest.texi</verbatiminclude>
 
-<verbatim xml:space="preserve">
+<verbatim xml:space="preserve" endspaces=" ">
 in verbatim ''
 </verbatim>
 
@@ -4866,7 +4866,7 @@ After clickstyle &result;
 <!-- c  Missing $ inserted. -->
 <!-- c Therefore, if inexample is set, condition on valid.  Not that -->
 <!-- c This type of nesting may not be valid. -->
-<ignore>
+<ignore endspaces=" ">
 in the displaymath below, as in math, backslash are doubled because 
 we are in a macro.
 </ignore>
@@ -5542,7 +5542,7 @@ more text
 <pre xml:space="preserve">
 </pre><verbatiminclude file="simplest.texi" spaces=" ">simplest.texi</verbatiminclude>
 <pre xml:space="preserve">
-</pre><verbatim xml:space="preserve">
+</pre><verbatim xml:space="preserve" endspaces=" ">
 in verbatim ''
 </verbatim>
 <pre xml:space="preserve">

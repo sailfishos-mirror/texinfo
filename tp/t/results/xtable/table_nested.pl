@@ -149,6 +149,25 @@ $result_trees{'table_nested'} = {
               'text' => '
 ',
               'type' => 'last_raw_newline'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'macro'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {}
             }
           ],
           'extra' => {
@@ -2031,6 +2050,9 @@ $result_trees{'table_nested'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'par
 $result_trees{'table_nested'}{'contents'}[0]{'contents'}[0]{'contents'}[19]{'parent'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[0];
 $result_trees{'table_nested'}{'contents'}[0]{'contents'}[0]{'contents'}[20]{'parent'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[0];
 $result_trees{'table_nested'}{'contents'}[0]{'contents'}[0]{'contents'}[21]{'parent'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[0];
+$result_trees{'table_nested'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'args'}[0];
+$result_trees{'table_nested'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'args'}[0]{'parent'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[0]{'contents'}[22];
+$result_trees{'table_nested'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'parent'} = $result_trees{'table_nested'}{'contents'}[0]{'contents'}[0];
 $result_trees{'table_nested'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'table_nested'}{'contents'}[0];
 $result_trees{'table_nested'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'table_nested'}{'contents'}[0];
 $result_trees{'table_nested'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'table_nested'}{'contents'}[0];
@@ -2739,7 +2761,7 @@ Something.
 ';
 
 
-$result_converted{'xml'}->{'table_nested'} = '<macro name="myvtable" line=" myvtable">@vtable @asis
+$result_converted{'xml'}->{'table_nested'} = '<macro name="myvtable" line=" myvtable" endspaces=" ">@vtable @asis
 @item first item
 @itemx second itemx
 

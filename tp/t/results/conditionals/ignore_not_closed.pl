@@ -58,7 +58,7 @@ $result_trees{'ignore_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'ign
 $result_texis{'ignore_not_closed'} = '@ignore
 
 This is ignored
-@end ignore';
+';
 
 
 $result_texts{'ignore_not_closed'} = '';

@@ -848,12 +848,15 @@ command_with_command_as_argument (ELEMENT *current)
 }
 
 /* Check if line is "@end ..." for current command.  If so, advance LINE. */
+/* the caller should free *spaces if the function returns 1 */
 int
-is_end_current_command (ELEMENT *current, char **line,
+is_end_current_command (ELEMENT *current, char **line, char **spaces,
                         enum command_id *end_cmd)
 {
   char *linep;
   char *cmdname;
+  char *begin_spaces;
+  char *end_spaces;
 
   linep = *line;
 
@@ -865,9 +868,13 @@ is_end_current_command (ELEMENT *current, char **line,
   if (!strchr (whitespace_chars, *linep))
     return 0;
 
+  begin_spaces = linep;
+
   linep += strspn (linep, whitespace_chars);
   if (!*linep)
     return 0;
+
+  end_spaces = linep;
 
   cmdname = read_command_name (&linep);
   if (!cmdname)
@@ -879,6 +886,7 @@ is_end_current_command (ELEMENT *current, char **line,
     return 0;
 
   *line = linep;
+  *spaces = strndup (begin_spaces, end_spaces - begin_spaces);
   return 1;
 }
 
@@ -1078,6 +1086,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       && (command_data(current->cmd).data == BLOCK_raw
           || command_data(current->cmd).data == BLOCK_conditional))
     {
+      char *spaces_after_end;
       /* Check if we are using a macro within a macro. */
       if (current->cmd == CM_macro || current->cmd == CM_rmacro)
         {
@@ -1134,7 +1143,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
       /* Else check if line is "@end ..." for current command. */
       p = line;
-      if (is_end_current_command (current, &line, &end_cmd))
+      if (is_end_current_command (current, &line, &spaces_after_end, &end_cmd))
         {
           ELEMENT *last_child;
           char *tmp = 0;
@@ -1254,16 +1263,33 @@ superfluous_arg:
             }
           else
             {
+              ELEMENT *e_cmd;
+              ELEMENT *e_cmd_text;
               ELEMENT *e;
+              ELEMENT *last = last_contents_child (current);
+              ELEMENT *line_arg;
+              char *end_command_name = command_name(end_cmd);
               int n;
 
-              debug ("CLOSED raw %s", command_name(end_cmd));
+              debug ("CLOSED raw %s", end_command_name);
+              e_cmd = new_element (ET_NONE);
+              e_cmd->cmd = CM_end;
+              add_extra_string_dup (e_cmd, "spaces_before_argument",
+                                    spaces_after_end);
+              add_to_element_contents (last, e_cmd);
+              line_arg = new_element (ET_line_arg);
+              add_to_element_args (e_cmd, line_arg);
+              e_cmd_text = new_element (ET_NONE);
+              text_append (&e_cmd_text->text, end_command_name);
+              add_to_element_contents (line_arg, e_cmd_text);
+
               e = new_element (ET_empty_line_after_command);
               n = strspn (line, whitespace_chars_except_newline);
               text_append_n (&e->text, line, n);
               line += n;
               add_to_element_contents (current, e);
             }
+          free (spaces_after_end);
         }
       else /* save the line verbatim */
         {

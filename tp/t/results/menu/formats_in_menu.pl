@@ -323,6 +323,25 @@ $result_trees{'formats_in_menu'} = {
                           'text' => '* texinfo:: in @ verbatim
 ',
                           'type' => 'raw'
+                        },
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'parent' => {},
+                                  'text' => 'verbatim'
+                                }
+                              ],
+                              'parent' => {},
+                              'type' => 'line_arg'
+                            }
+                          ],
+                          'cmdname' => 'end',
+                          'extra' => {
+                            'spaces_before_argument' => ' '
+                          },
+                          'parent' => {}
                         }
                       ],
                       'parent' => {},
@@ -799,6 +818,9 @@ $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'a
 $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[1];
 $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[1];
 $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[1];
+$result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[1]{'contents'}[3]{'args'}[0];
+$result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[1]{'contents'}[3];
+$result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[1];
 $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[1]{'parent'} = $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3];
 $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[2]{'parent'} = $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3];
 $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[3]{'parent'} = $result_trees{'formats_in_menu'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[3];
@@ -1074,7 +1096,7 @@ $result_converted{'xml'}->{'formats_in_menu'} = '<node name="Top" spaces=" "><no
 </pre></tableitem></tableentry></table>
 </menudescription></menuentry><menucomment><pre xml:space="preserve">
 </pre></menucomment><menuentry leadingtext="* "><menunode separator="::">(info)</menunode><menudescription><pre xml:space="preserve">
-</pre><verbatim xml:space="preserve">
+</pre><verbatim xml:space="preserve" endspaces=" ">
 some @ verb{x atim
 * texinfo:: in @ verbatim
 </verbatim>

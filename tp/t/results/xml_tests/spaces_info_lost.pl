@@ -102,6 +102,25 @@ $result_trees{'spaces_info_lost'} = {
               'text' => 'in verbatim @g 
 ',
               'type' => 'raw'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'verbatim'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'spaces_before_argument' => '  '
+              },
+              'parent' => {}
             }
           ],
           'parent' => {},
@@ -136,6 +155,9 @@ $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[1]{'parent'} = $res
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2];
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2];
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2];
+$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
+$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
+$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2];
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0];
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0];
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'};
@@ -146,7 +168,7 @@ in bad display
 
 @verbatim  
 in verbatim @g 
-@end verbatim 
+@end  verbatim 
 ';
 
 
@@ -166,7 +188,7 @@ $result_converted{'xml'}->{'spaces_info_lost'} = '<display spaces="  " endspaces
 <pre xml:space="preserve">in bad display
 </pre></display> 
 
-<verbatim xml:space="preserve">  
+<verbatim xml:space="preserve" endspaces="  ">  
 in verbatim @g 
 </verbatim> 
 ';

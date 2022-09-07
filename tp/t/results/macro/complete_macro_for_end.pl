@@ -29,6 +29,25 @@ $result_trees{'complete_macro_for_end'} = {
               'text' => '
 ',
               'type' => 'last_raw_newline'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'macro'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {}
             }
           ],
           'extra' => {
@@ -111,6 +130,9 @@ $result_trees{'complete_macro_for_end'} = {
 $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[0];
 $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[0];
 $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[0];
+$result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[0];
 $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'complete_macro_for_end'}{'contents'}[0];
 $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'complete_macro_for_end'}{'contents'}[0];
 $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'complete_macro_for_end'}{'contents'}[0];

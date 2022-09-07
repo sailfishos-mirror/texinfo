@@ -37,6 +37,25 @@ $result_trees{'raw_in_para'} = {
               'text' => 'in verbatim
 ',
               'type' => 'raw'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'verbatim'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {}
             }
           ],
           'parent' => {},
@@ -255,6 +274,9 @@ $result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_t
 $result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[1];
 $result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[1];
 $result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[1];
+$result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[1];
 $result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'raw_in_para'}{'contents'}[0];
 $result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'raw_in_para'}{'contents'}[0];
 $result_trees{'raw_in_para'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'raw_in_para'}{'contents'}[0];

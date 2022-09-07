@@ -164,7 +164,7 @@ void start_empty_line_after_command (ELEMENT *current, char **line_inout,
                                      ELEMENT *command);
 ELEMENT *begin_paragraph (ELEMENT *current);
 int format_expanded_p (char *format);
-int is_end_current_command (ELEMENT *current, char **line,
+int is_end_current_command (ELEMENT *current, char **line, char **spaces,
                             enum command_id *end_cmd);
 void set_documentlanguage (char *);
 void set_accept_internalvalue (void);

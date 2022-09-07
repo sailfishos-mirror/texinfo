@@ -51,7 +51,7 @@ $result_trees{'macro_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'macr
 
 $result_texis{'macro_not_closed'} = '@macro name
 in macro
-@end macro';
+';
 
 
 $result_texts{'macro_not_closed'} = '';

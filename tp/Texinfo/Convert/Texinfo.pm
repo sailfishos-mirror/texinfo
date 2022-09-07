@@ -146,11 +146,6 @@ sub convert_to_texinfo($;$)
     $result .= '}' if ($element->{'type'}
                        and ($element->{'type'} eq 'bracketed'
                             or $element->{'type'} eq 'bracketed_def_content'));
-    if ($element->{'cmdname'} and defined($block_commands{$element->{'cmdname'}})
-        and $block_commands{$element->{'cmdname'}} eq 'raw') {
-      $result .= '@end '.$element->{'cmdname'};
-      $result .= "\n" if ($block_commands{$element->{'cmdname'}} ne 'raw');
-    }
   }
   return $result;
 }

@@ -1,5 +1,19 @@
 2022-09-07  Patrice Dumas  <pertusus@free.fr>
 
+	Add @end element for macro, verbatim and ignore @-commands
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	tp/Texinfo/XS/parsetexi/parser.c (is_end_current_command)
+	(process_remaining_on_line), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_block_command):
+	collect spaces after @end for 'raw' commands, verbatim,
+	ignore, or (r)macro and add an element for the @end command.
+	* tp/Texinfo/Convert/Texinfo.pm (convert_to_texinfo),
+	tp/Texinfo/XS/parsetexi/convert.c (convert_to_texinfo_internal):
+	do not add an @end command for 'raw' block commands.
+
+2022-09-07  Patrice Dumas  <pertusus@free.fr>
+
 	Remove end_command extra key
 
 	* tp/Texinfo/ParserNonXS.pm (_end_line),

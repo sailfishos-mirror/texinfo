@@ -33,7 +33,7 @@ $result_trees{'macro_no_argument'} = {
 $result_trees{'macro_no_argument'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_no_argument'}{'contents'}[0];
 $result_trees{'macro_no_argument'}{'contents'}[0]{'parent'} = $result_trees{'macro_no_argument'};
 
-$result_texis{'macro_no_argument'} = '@macro@end macro';
+$result_texis{'macro_no_argument'} = '@macro';
 
 
 $result_texts{'macro_no_argument'} = '';

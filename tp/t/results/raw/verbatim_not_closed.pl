@@ -82,7 +82,7 @@ some verbatim @
 
 @macro
 
-@end verbatim';
+';
 
 
 $result_texts{'verbatim_not_closed'} = '

@@ -98,6 +98,25 @@ $result_trees{'at_commands_in_raw'} = {
               'text' => '
 ',
               'type' => 'last_raw_newline'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'macro'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {}
             }
           ],
           'extra' => {
@@ -916,6 +935,9 @@ $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[0]{'parent'} = $r
 $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1];
 $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1];
 $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1];
+$result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1]{'contents'}[2];
+$result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1];
 $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[2];
 $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[2];
 $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[2];
@@ -1476,7 +1498,7 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<div class="top-level-
 $result_converted{'xml'}->{'at_commands_in_raw'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
-<macro name="othermacro" line=" othermacro{}">Other macro
+<macro name="othermacro" line=" othermacro{}" endspaces=" ">Other macro
 </macro>
 
 </top>

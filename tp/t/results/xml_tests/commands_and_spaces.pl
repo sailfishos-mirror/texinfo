@@ -1095,6 +1095,25 @@ $result_trees{'commands_and_spaces'} = {
               'text' => 'in verbatim @g 
 ',
               'type' => 'raw'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'verbatim'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {}
             }
           ],
           'parent' => {},
@@ -1964,6 +1983,9 @@ $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[28]{'parent'} = 
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[29]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[29];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[29]{'contents'}[0]{'parent'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[29];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[29]{'contents'}[1]{'parent'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[29];
+$result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[29]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[29]{'contents'}[2]{'args'}[0];
+$result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[29]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[29]{'contents'}[2];
+$result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[29]{'contents'}[2]{'parent'} = $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[29];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[29]{'parent'} = $result_trees{'commands_and_spaces'}{'contents'}[1];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[30]{'parent'} = $result_trees{'commands_and_spaces'}{'contents'}[1];
 $result_trees{'commands_and_spaces'}{'contents'}[1]{'contents'}[31]{'parent'} = $result_trees{'commands_and_spaces'}{'contents'}[1];
@@ -2316,7 +2338,7 @@ $result_converted{'xml'}->{'commands_and_spaces'} = '<set name="foo" line="  foo
 <multitable spaces="  " endspaces=" "><columnprototypes><columnprototype bracketed="on">aa b</columnprototype>  <columnprototype bracketed="on" spaces=" ">r </columnprototype>  <columnprototype><var>cmd</var></columnprototype><columnprototype>gg</columnprototype> <columnprototype>hh</columnprototype> <columnprototype>j</columnprototype></columnprototypes>
 </multitable>
 
-<verbatim xml:space="preserve">  
+<verbatim xml:space="preserve" endspaces=" ">  
 in verbatim @g 
 </verbatim> 
 

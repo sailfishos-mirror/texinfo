@@ -38,6 +38,25 @@ $result_trees{'simple_imbricated_macro'} = {
                   'text' => '
 ',
                   'type' => 'last_raw_newline'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'macro'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {}
                 }
               ],
               'extra' => {
@@ -51,6 +70,25 @@ $result_trees{'simple_imbricated_macro'} = {
               'text' => '
 ',
               'type' => 'empty_line_after_command'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'macro'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {}
             }
           ],
           'extra' => {
@@ -103,6 +141,25 @@ $result_trees{'simple_imbricated_macro'} = {
                   'text' => '
 ',
                   'type' => 'last_raw_newline'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'macro'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {}
                 }
               ],
               'extra' => {
@@ -154,8 +211,14 @@ $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'args'}[0
 $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0];
 $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0];
 $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0];
+$result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
+$result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0];
 $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0];
 $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0];
 $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0];
@@ -163,6 +226,9 @@ $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents
 $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
 $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
 $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[2];
+$result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
 $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3];
 $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3];
 $result_trees{'simple_imbricated_macro'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'simple_imbricated_macro'}{'contents'}[0];

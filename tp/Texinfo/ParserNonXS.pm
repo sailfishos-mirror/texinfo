@@ -3965,7 +3965,7 @@ sub _parse_texi($$$)
     }
 
     while (1) {
-      # in a raw or ignored conditional block command
+      # in a 'raw' (verbatim, ignore, (r)macro) or ignored conditional block command
       if ($current->{'cmdname'}
           and $block_commands{$current->{'cmdname'}}
           and ($block_commands{$current->{'cmdname'}} eq 'raw'
@@ -3997,8 +3997,10 @@ sub _parse_texi($$$)
         } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
                  and ($2 eq $current->{'cmdname'})) {
           my $end_command = $2;
-          $line =~ s/^(\s*?)(\@end\s+$current->{'cmdname'})//;
-          if ($1 eq '') {
+          $line =~ s/^(\s*?)(\@end(\s+)$current->{'cmdname'})//;
+          my $spaces_before_end = $1;
+          my $space_after_end = $3;
+          if ($spaces_before_end eq '') {
             # FIXME exclude other formats, like @macro, @ifset, @ignore?
             if ($current->{'cmdname'} ne 'verbatim'
                 and @{$current->{'contents'}}
@@ -4006,12 +4008,13 @@ sub _parse_texi($$$)
                 and $current->{'contents'}->[-1]->{'type'} eq 'raw') {
               if ($current->{'contents'}->[-1]->{'text'} =~ s/(\n)//) {
                 push @{$current->{'contents'}}, {'type' => 'last_raw_newline',
-                                          'text' => $1, 'parent' => $current};
+                             'text' => $1, 'parent' => $current};
               }
             }
           } else {
             push @{$current->{'contents'}},
-              { 'text' => $1, 'type' => 'raw', 'parent' => $current };
+              { 'text' => $spaces_before_end,
+                'type' => 'raw', 'parent' => $current };
             $self->_line_warn(sprintf(
                   __("\@end %s should only appear at the beginning of a line"),
                                      $end_command), $source_info);
@@ -4075,6 +4078,16 @@ sub _parse_texi($$$)
             last;
           } else {
             print STDERR "CLOSED raw $end_command\n" if ($self->{'DEBUG'});
+            my $end_element = {'cmdname' => 'end', 'args' => [],
+                'parent' => $current->{'contents'}->[-1],
+                'extra' => {'spaces_before_argument' => $space_after_end}};
+            push @{$current->{'contents'}->[-1]->{'contents'}}, $end_element;
+            my $line_arg = {'type' => 'line_arg', 'contents' => [],
+                            'parent' => $end_element};
+            push @{$end_element->{'args'}}, $line_arg;
+            my $end_text = {'text' => $end_command, 'parent' => $line_arg};
+            push @{$line_arg->{'contents'}}, $end_text;
+
             $line =~ s/^([^\S\r\n]*)//;
             # Start an element to have the spaces at the end of the line
             # ignored.

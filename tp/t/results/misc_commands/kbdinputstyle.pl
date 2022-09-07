@@ -95,6 +95,25 @@ $result_trees{'kbdinputstyle'} = {
               'text' => '
 ',
               'type' => 'last_raw_newline'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'macro'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {}
             }
           ],
           'extra' => {
@@ -1782,6 +1801,9 @@ $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'par
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[13];
+$result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0];
 $result_trees{'kbdinputstyle'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'kbdinputstyle'}{'contents'}[0];

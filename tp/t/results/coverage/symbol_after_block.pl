@@ -187,6 +187,25 @@ $result_trees{'symbol_after_block'} = {
               'text' => 'In verbatim
 ',
               'type' => 'raw'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'verbatim'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {}
             }
           ],
           'parent' => {},
@@ -230,6 +249,25 @@ $result_trees{'symbol_after_block'} = {
               'text' => 'In verbatim
 ',
               'type' => 'raw'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'verbatim'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'parent' => {}
             }
           ],
           'parent' => {},
@@ -1566,6 +1604,9 @@ $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[5]{'parent'} = $r
 $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[6];
 $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[6];
 $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[6];
+$result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0];
+$result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[6]{'contents'}[2];
+$result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[6];
 $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0];
 $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[7];
 $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0];
@@ -1573,6 +1614,9 @@ $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[8]{'parent'} = $r
 $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[9];
 $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[9];
 $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[9];
+$result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[9]{'contents'}[2]{'args'}[0];
+$result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[9]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[9]{'contents'}[2];
+$result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[9]{'contents'}[2]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[9];
 $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0];
 $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[10];
 $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'parent'} = $result_trees{'symbol_after_block'}{'contents'}[0]{'contents'}[10];
