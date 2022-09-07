@@ -1512,23 +1512,24 @@ sub new_block_command($$$)
   my $parent = shift;
   my $command_name = shift;
 
-  my $end = {'cmdname' => 'end', 'extra' =>
-                 {'spaces_before_argument' => ' ',
-                  'text_arg' => $command_name}};
-  push @{$end->{'args'}},
-    {'type' => 'line_arg', 'parent' => $end,
-     'extra' => {'spaces_after_argument' => "\n"}};
-  push @{$end->{'args'}->[0]->{'contents'}},
-         {'text' => $command_name, 'parent' => $end->{'args'}->[0]};
   my $new_block = {'cmdname' => $command_name, 'parent' => $parent};
-  my $block_line_arg = {'type' => 'block_line_arg',
-                        'parent' => $new_block,
-                        'extra' => { 'spaces_after_argument' => "\n",}};
-  $new_block->{'args'} = [$block_line_arg];
-  $new_block->{'contents'} = [@$block_contents, $end];
-  foreach my $content (@{$new_block->{'contents'}}) {
+  $new_block->{'args'} = [{'type' => 'block_line_arg', 'parent' => $new_block,
+                           'extra' => { 'spaces_after_argument' => "\n",}}];
+
+  foreach my $content (@$block_contents) {
     $content->{'parent'} = $new_block;
   }
+
+  my $end = {'cmdname' => 'end', 'parent' => $new_block,
+             'extra' => {'spaces_before_argument' => ' ',
+                         'text_arg' => $command_name}};
+  $end->{'args'} = [{'type' => 'line_arg', 'parent' => $end,
+                     'extra' => {'spaces_after_argument' => "\n"}}];
+  push @{$end->{'args'}->[0]->{'contents'}},
+         {'text' => $command_name, 'parent' => $end->{'args'}->[0]};
+
+  $new_block->{'contents'} = [@$block_contents, $end];
+
   return $new_block;
 }
 
