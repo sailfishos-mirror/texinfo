@@ -80,7 +80,8 @@ $result_trees{'value_in_macro_body'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'macro'
               },
               'parent' => {}
             }

@@ -1276,12 +1276,14 @@ superfluous_arg:
               e_cmd->cmd = CM_end;
               add_extra_string_dup (e_cmd, "spaces_before_argument",
                                     spaces_after_end);
-              add_to_element_contents (last, e_cmd);
+              add_extra_string_dup (e_cmd, "text_arg",
+                                    end_command_name);
               line_arg = new_element (ET_line_arg);
               add_to_element_args (e_cmd, line_arg);
               e_cmd_text = new_element (ET_NONE);
               text_append (&e_cmd_text->text, end_command_name);
               add_to_element_contents (line_arg, e_cmd_text);
+              add_to_element_contents (last, e_cmd);
 
               e = new_element (ET_empty_line_after_command);
               n = strspn (line, whitespace_chars_except_newline);

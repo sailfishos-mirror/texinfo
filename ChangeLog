@@ -1,5 +1,13 @@
 2022-09-07  Patrice Dumas  <pertusus@free.fr>
 
+	Add extra text_arg to macro, verbatim and ignore @-commands @end
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	add command name in 'text_arg' extra @end command.
+
+2022-09-07  Patrice Dumas  <pertusus@free.fr>
+
 	Add @end element for macro, verbatim and ignore @-commands
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi),

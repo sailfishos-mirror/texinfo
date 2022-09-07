@@ -54,7 +54,8 @@ $result_trees{'simple_imbricated_macro'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'macro'
                   },
                   'parent' => {}
                 }
@@ -86,7 +87,8 @@ $result_trees{'simple_imbricated_macro'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'macro'
               },
               'parent' => {}
             }
@@ -157,7 +159,8 @@ $result_trees{'simple_imbricated_macro'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'macro'
                   },
                   'parent' => {}
                 }

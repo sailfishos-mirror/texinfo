@@ -55,7 +55,8 @@ $result_trees{'bad_macro_name_with_underscore'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'macro'
               },
               'parent' => {}
             }

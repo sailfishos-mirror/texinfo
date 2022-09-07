@@ -50,7 +50,8 @@ $result_trees{'recursive_call_in_argument'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'macro'
               },
               'parent' => {}
             }

@@ -1111,7 +1111,8 @@ $result_trees{'commands_and_spaces'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'verbatim'
               },
               'parent' => {}
             }

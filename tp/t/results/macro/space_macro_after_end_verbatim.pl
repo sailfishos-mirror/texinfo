@@ -45,7 +45,8 @@ $result_trees{'space_macro_after_end_verbatim'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'macro'
               },
               'parent' => {}
             }
@@ -106,7 +107,8 @@ $result_trees{'space_macro_after_end_verbatim'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'verbatim'
               },
               'parent' => {}
             }

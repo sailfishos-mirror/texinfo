@@ -77,7 +77,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'macro'
                   },
                   'parent' => {}
                 }
@@ -237,7 +238,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' '
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'macro'
                   },
                   'parent' => {}
                 }

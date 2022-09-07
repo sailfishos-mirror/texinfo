@@ -4078,15 +4078,14 @@ sub _parse_texi($$$)
             last;
           } else {
             print STDERR "CLOSED raw $end_command\n" if ($self->{'DEBUG'});
-            my $end_element = {'cmdname' => 'end', 'args' => [],
-                'parent' => $current->{'contents'}->[-1],
-                'extra' => {'spaces_before_argument' => $space_after_end}};
-            push @{$current->{'contents'}->[-1]->{'contents'}}, $end_element;
-            my $line_arg = {'type' => 'line_arg', 'contents' => [],
-                            'parent' => $end_element};
-            push @{$end_element->{'args'}}, $line_arg;
-            my $end_text = {'text' => $end_command, 'parent' => $line_arg};
-            push @{$line_arg->{'contents'}}, $end_text;
+            # code similar to code in Texinfo::Structuring::new_block_command
+            my $end = {'cmdname' => 'end', 'parent' => $current->{'contents'}->[-1],
+                       'extra' => {'spaces_before_argument' => $space_after_end,
+                                   'text_arg' => $end_command}};
+            $end->{'args'} = [{'type' => 'line_arg', 'parent' => $end}];
+            push @{$end->{'args'}->[0]->{'contents'}},
+                    {'text' => $end_command, 'parent' => $end->{'args'}->[0]};
+            push @{$current->{'contents'}->[-1]->{'contents'}}, $end;
 
             $line =~ s/^([^\S\r\n]*)//;
             # Start an element to have the spaces at the end of the line

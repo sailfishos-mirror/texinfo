@@ -83,7 +83,8 @@ $result_trees{'end_ifset_in_format'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'ignore'
               },
               'parent' => {}
             }
@@ -151,7 +152,8 @@ $result_trees{'end_ifset_in_format'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'verbatim'
               },
               'parent' => {}
             }

@@ -78,7 +78,8 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'verbatim'
               },
               'parent' => {}
             }

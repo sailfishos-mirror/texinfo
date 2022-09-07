@@ -1001,7 +1001,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'verbatim'
               },
               'parent' => {}
             }
@@ -1069,7 +1070,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'verbatim'
               },
               'parent' => {}
             }
@@ -1147,7 +1149,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'verbatim'
               },
               'parent' => {}
             }
@@ -1225,7 +1228,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'verbatim'
               },
               'parent' => {}
             }
@@ -1302,7 +1306,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'verbatim'
               },
               'parent' => {}
             }
@@ -1380,7 +1385,8 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'verbatim'
               },
               'parent' => {}
             }

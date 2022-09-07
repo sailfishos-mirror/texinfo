@@ -91,7 +91,8 @@ $result_trees{'ignore_in_xref'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' '
+                            'spaces_before_argument' => ' ',
+                            'text_arg' => 'ignore'
                           },
                           'parent' => {}
                         }

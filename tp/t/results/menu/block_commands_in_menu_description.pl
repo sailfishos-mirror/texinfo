@@ -513,7 +513,8 @@ $result_trees{'block_commands_in_menu_description'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' '
+                            'spaces_before_argument' => ' ',
+                            'text_arg' => 'verbatim'
                           },
                           'parent' => {}
                         }

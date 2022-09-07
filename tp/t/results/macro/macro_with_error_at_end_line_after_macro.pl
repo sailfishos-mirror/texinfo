@@ -50,7 +50,8 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'macro'
               },
               'parent' => {}
             }
