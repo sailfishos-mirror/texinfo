@@ -7290,25 +7290,15 @@ X<Texinfo tree element extra key>
 
 =over
 
-=item end_command
-
-The C<@end> associated to the block @-command.
-
-=item missing_argument
-
-Set for some @-commands with line arguments and a missing argument.
-
 =item arg_line
 
 The string correspond to the line after the @-command
 for @-commands that have special arguments on their line,
 and for C<@macro> line.
 
-=item text_arg
+=item end_command
 
-The string correspond to the line after the @-command for @-commands
-that have an argument interpreted as simple text, like C<@setfilename>,
-C<@end> or C<@documentencoding>.
+The C<@end> associated to the block @-command.
 
 =item index_entry
 
@@ -7324,17 +7314,28 @@ C<@frenchspacing>, C<@alias>, C<@synindex>, C<@columnfractions>.
 Also filled for C<@set>, C<@clickstyle>, C<@unmacro> or C<@comment>
 arguments.
 
+=item missing_argument
+
+Set for some @-commands with line arguments and a missing argument.
+
 =item spaces
 
-For accent commands acting on one letter only, like C<@ringaccent>
-appearing like
+For accent commands with spaces following the @-command, like:
 
  @ringaccent A
+ @^ u
 
-there is a I<spaces> key which holds the spaces appearing between
-the command and the argument.
+there is a I<spaces> key which holds the spaces appearing after
+the command.
 
-=back
+=item spaces_after_argument
+
+A reference to spaces after @-command arguments before a comma, a closing
+brace or at end of line, for some @-commands and bracketed content type
+with opening brace, and line commands and block command lines taking Texinfo
+as argument and comma delimited arguments.  Depending on the @-command,
+the I<spaces_after_argument> is associated with the @-command element, or
+with each argument element.
 
 =item spaces_before_argument
 
@@ -7345,11 +7346,13 @@ line commands and block commands, I<spaces_before_argument> is associated with
 the @-command element, for other brace commands and for spaces after comma,
 it is associated with each argument element.
 
-=item spaces_after_argument
+=item text_arg
 
-A reference to spaces after @-command arguments before a comma, a closing
-brace or at end of line.  The @-commands with I<spaces_after_argument>
-should be the same as those with I<spaces_before_argument>.
+The string correspond to the line after the @-command for @-commands
+that have an argument interpreted as simple text, like C<@setfilename>,
+C<@end> or C<@documentencoding>.
+
+=back
 
 =head3 Extra keys specific of certain @-commands or containers
 
