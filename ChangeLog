@@ -1,3 +1,8 @@
+2022-09-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (new_block_command): do a tree with
+	spaces_after/before_argument instead of text space types.
+
 2022-09-05  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\cartouche): Use \vtop instead of \vbox
