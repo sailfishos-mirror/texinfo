@@ -141,7 +141,6 @@ $result_trees{'leading_space_in_def_arg'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -175,7 +174,6 @@ $result_trees{'leading_space_in_def_arg'}{'contents'}[0]{'contents'}[0]{'content
 $result_trees{'leading_space_in_def_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'leading_space_in_def_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'leading_space_in_def_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'leading_space_in_def_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'leading_space_in_def_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'leading_space_in_def_arg'}{'contents'}[0]{'contents'}[0];
-$result_trees{'leading_space_in_def_arg'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'leading_space_in_def_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'leading_space_in_def_arg'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'leading_space_in_def_arg'}{'contents'}[0];
 $result_trees{'leading_space_in_def_arg'}{'contents'}[0]{'parent'} = $result_trees{'leading_space_in_def_arg'};
 

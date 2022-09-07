@@ -256,9 +256,6 @@ $result_trees{'split_nocopying'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'split_nocopying.texi',
@@ -426,7 +423,6 @@ $result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'p
 $result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0];
 $result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3];
-$result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'split_nocopying'}{'contents'}[2];
 $result_trees{'split_nocopying'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'split_nocopying'}{'contents'}[2];
 $result_trees{'split_nocopying'}{'contents'}[2]{'parent'} = $result_trees{'split_nocopying'};
@@ -540,8 +536,7 @@ $result_nodes{'split_nocopying'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'

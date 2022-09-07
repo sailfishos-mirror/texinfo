@@ -85,7 +85,6 @@ $result_trees{'multitable_bracketed_prototype_not_closed_comment'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'max_columns' => 1,
             'prototypes' => [
               {
@@ -121,7 +120,6 @@ $result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0
 $result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
 $result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0]{'contents'}[1];
-$result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0]{'contents'}[1]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0]{'contents'}[1]{'extra'}{'prototypes'}[0]{'contents'}[1] = $result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'multitable_bracketed_prototype_not_closed_comment'}{'contents'}[0];

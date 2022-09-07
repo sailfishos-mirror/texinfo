@@ -377,9 +377,6 @@ $result_trees{'two_footnotes_in_nodes'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'two_footnotes_in_nodes.texi',
@@ -682,7 +679,6 @@ $result_trees{'two_footnotes_in_nodes'}{'contents'}[2]{'contents'}[5]{'contents'
 $result_trees{'two_footnotes_in_nodes'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_footnotes_in_nodes'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'args'}[0];
 $result_trees{'two_footnotes_in_nodes'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'two_footnotes_in_nodes'}{'contents'}[2]{'contents'}[5]{'contents'}[1];
 $result_trees{'two_footnotes_in_nodes'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'two_footnotes_in_nodes'}{'contents'}[2]{'contents'}[5];
-$result_trees{'two_footnotes_in_nodes'}{'contents'}[2]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'two_footnotes_in_nodes'}{'contents'}[2]{'contents'}[5]{'contents'}[1];
 $result_trees{'two_footnotes_in_nodes'}{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'two_footnotes_in_nodes'}{'contents'}[2];
 $result_trees{'two_footnotes_in_nodes'}{'contents'}[2]{'contents'}[6]{'parent'} = $result_trees{'two_footnotes_in_nodes'}{'contents'}[2];
 $result_trees{'two_footnotes_in_nodes'}{'contents'}[2]{'parent'} = $result_trees{'two_footnotes_in_nodes'};
@@ -832,8 +828,7 @@ $result_nodes{'two_footnotes_in_nodes'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'

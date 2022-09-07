@@ -96,7 +96,6 @@ $result_trees{'comment_first_on_enumerate_line'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'enumerate_specification' => '1',
             'spaces_before_argument' => ' '
           },
@@ -123,7 +122,6 @@ $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'
 $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0];
 $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'parent'} = $result_trees{'comment_first_on_enumerate_line'};
 

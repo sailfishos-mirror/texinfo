@@ -245,9 +245,6 @@ $result_trees{'navigation_section_vertical'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'navigation.texi',
@@ -439,9 +436,6 @@ $result_trees{'navigation_section_vertical'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'navigation.texi',
@@ -859,9 +853,6 @@ $result_trees{'navigation_section_vertical'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'navigation.texi',
@@ -1033,7 +1024,6 @@ $result_trees{'navigation_section_vertical'}{'contents'}[2]{'contents'}[1]{'cont
 $result_trees{'navigation_section_vertical'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'navigation_section_vertical'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
 $result_trees{'navigation_section_vertical'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[2]{'contents'}[1];
-$result_trees{'navigation_section_vertical'}{'contents'}[2]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'navigation_section_vertical'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
 $result_trees{'navigation_section_vertical'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[2];
 $result_trees{'navigation_section_vertical'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[2];
 $result_trees{'navigation_section_vertical'}{'contents'}[2]{'parent'} = $result_trees{'navigation_section_vertical'};
@@ -1059,7 +1049,6 @@ $result_trees{'navigation_section_vertical'}{'contents'}[4]{'contents'}[1]{'cont
 $result_trees{'navigation_section_vertical'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'navigation_section_vertical'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[4]{'contents'}[1]{'contents'}[1];
 $result_trees{'navigation_section_vertical'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[4]{'contents'}[1];
-$result_trees{'navigation_section_vertical'}{'contents'}[4]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'navigation_section_vertical'}{'contents'}[4]{'contents'}[1]{'contents'}[1];
 $result_trees{'navigation_section_vertical'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[4];
 $result_trees{'navigation_section_vertical'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[4];
 $result_trees{'navigation_section_vertical'}{'contents'}[4]{'parent'} = $result_trees{'navigation_section_vertical'};
@@ -1125,7 +1114,6 @@ $result_trees{'navigation_section_vertical'}{'contents'}[6]{'contents'}[27]{'con
 $result_trees{'navigation_section_vertical'}{'contents'}[6]{'contents'}[27]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[6]{'contents'}[27]{'contents'}[1]{'args'}[0];
 $result_trees{'navigation_section_vertical'}{'contents'}[6]{'contents'}[27]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[6]{'contents'}[27]{'contents'}[1];
 $result_trees{'navigation_section_vertical'}{'contents'}[6]{'contents'}[27]{'contents'}[1]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[6]{'contents'}[27];
-$result_trees{'navigation_section_vertical'}{'contents'}[6]{'contents'}[27]{'extra'}{'end_command'} = $result_trees{'navigation_section_vertical'}{'contents'}[6]{'contents'}[27]{'contents'}[1];
 $result_trees{'navigation_section_vertical'}{'contents'}[6]{'contents'}[27]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[6];
 $result_trees{'navigation_section_vertical'}{'contents'}[6]{'contents'}[28]{'parent'} = $result_trees{'navigation_section_vertical'}{'contents'}[6];
 $result_trees{'navigation_section_vertical'}{'contents'}[6]{'parent'} = $result_trees{'navigation_section_vertical'};
@@ -1353,8 +1341,7 @@ $result_nodes{'navigation_section_vertical'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'
@@ -1372,8 +1359,7 @@ $result_nodes{'navigation_section_vertical'} = {
         },
         'menus' => [
           {
-            'cmdname' => 'menu',
-            'extra' => {}
+            'cmdname' => 'menu'
           }
         ],
         'normalized' => 'chapter'
@@ -1391,8 +1377,7 @@ $result_nodes{'navigation_section_vertical'} = {
             },
             'menus' => [
               {
-                'cmdname' => 'menu',
-                'extra' => {}
+                'cmdname' => 'menu'
               }
             ],
             'normalized' => 'section'

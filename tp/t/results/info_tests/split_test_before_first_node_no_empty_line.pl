@@ -243,9 +243,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -399,7 +396,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'cont
 $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0];
 $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2];
 $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2];
 $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'};
@@ -511,8 +507,7 @@ $result_nodes{'split_test_before_first_node_no_empty_line'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'

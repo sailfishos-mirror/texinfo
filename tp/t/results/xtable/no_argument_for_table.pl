@@ -117,8 +117,7 @@ $result_trees{'no_argument_for_table'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
-            'end_command' => {}
+            'command_as_argument' => {}
           },
           'parent' => {},
           'source_info' => {
@@ -148,7 +147,6 @@ $result_trees{'no_argument_for_table'}{'contents'}[0]{'contents'}[0]{'contents'}
 $result_trees{'no_argument_for_table'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_argument_for_table'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'no_argument_for_table'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'no_argument_for_table'}{'contents'}[0]{'contents'}[0];
 $result_trees{'no_argument_for_table'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'no_argument_for_table'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'no_argument_for_table'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'no_argument_for_table'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'no_argument_for_table'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_argument_for_table'}{'contents'}[0];
 $result_trees{'no_argument_for_table'}{'contents'}[0]{'parent'} = $result_trees{'no_argument_for_table'};
 

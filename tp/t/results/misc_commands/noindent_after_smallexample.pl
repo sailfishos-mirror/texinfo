@@ -80,9 +80,6 @@ $result_trees{'noindent_after_smallexample'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -138,7 +135,6 @@ $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'cont
 $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0];
 $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0];
 $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[3]{'extra'}{'spaces_associated_command'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[2];

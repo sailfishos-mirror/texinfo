@@ -237,7 +237,6 @@ $result_trees{'defcondx_Ubar'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -301,7 +300,6 @@ $result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'par
 $result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
 $result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
 $result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[2];
-$result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
 $result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'defcondx_Ubar'}{'contents'}[0];
 $result_trees{'defcondx_Ubar'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'defcondx_Ubar'}{'contents'}[0];
 $result_trees{'defcondx_Ubar'}{'contents'}[0]{'parent'} = $result_trees{'defcondx_Ubar'};

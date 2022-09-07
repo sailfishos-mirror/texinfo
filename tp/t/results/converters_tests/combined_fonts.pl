@@ -1382,9 +1382,6 @@ $result_trees{'combined_fonts'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -1594,7 +1591,6 @@ $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'p
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'args'}[0];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[13]{'contents'}[1];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[13]{'contents'}[1]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[13];
-$result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[13]{'extra'}{'end_command'} = $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[13]{'contents'}[1];
 $result_trees{'combined_fonts'}{'contents'}[4]{'contents'}[13]{'parent'} = $result_trees{'combined_fonts'}{'contents'}[4];
 $result_trees{'combined_fonts'}{'contents'}[4]{'parent'} = $result_trees{'combined_fonts'};
 

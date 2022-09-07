@@ -166,7 +166,6 @@ $result_trees{'def_in_example'} = {
                 }
               ],
               'extra' => {
-                'end_command' => {},
                 'spaces_before_argument' => ' '
               },
               'parent' => {},
@@ -206,9 +205,6 @@ $result_trees{'def_in_example'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -244,12 +240,10 @@ $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'co
 $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
 $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0];
 $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0];
-$result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'def_in_example'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'def_in_example'}{'contents'}[0];
 $result_trees{'def_in_example'}{'contents'}[0]{'parent'} = $result_trees{'def_in_example'};
 

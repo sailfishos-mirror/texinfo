@@ -267,9 +267,6 @@ $result_trees{'double_index_entry'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'double_index_entry.texi',
@@ -510,7 +507,6 @@ $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[0]
 $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0];
 $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[1];
 $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7];
-$result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'contents'}[1];
 $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'double_index_entry'}{'contents'}[1];
 $result_trees{'double_index_entry'}{'contents'}[1]{'contents'}[8]{'parent'} = $result_trees{'double_index_entry'}{'contents'}[1];
 $result_trees{'double_index_entry'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'double_index_entry'}{'contents'}[1]{'args'}[0]{'contents'}[0];
@@ -579,8 +575,7 @@ $result_nodes{'double_index_entry'} = {
   'extra' => {
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'

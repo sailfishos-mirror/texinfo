@@ -133,9 +133,6 @@ $result_trees{'paragraph_indent_asis'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -172,7 +169,6 @@ $result_trees{'paragraph_indent_asis'}{'contents'}[0]{'contents'}[5]{'contents'}
 $result_trees{'paragraph_indent_asis'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_indent_asis'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0];
 $result_trees{'paragraph_indent_asis'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'paragraph_indent_asis'}{'contents'}[0]{'contents'}[5]{'contents'}[2];
 $result_trees{'paragraph_indent_asis'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'paragraph_indent_asis'}{'contents'}[0]{'contents'}[5];
-$result_trees{'paragraph_indent_asis'}{'contents'}[0]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'paragraph_indent_asis'}{'contents'}[0]{'contents'}[5]{'contents'}[2];
 $result_trees{'paragraph_indent_asis'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'paragraph_indent_asis'}{'contents'}[0];
 $result_trees{'paragraph_indent_asis'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'paragraph_indent_asis'}{'contents'}[0];
 $result_trees{'paragraph_indent_asis'}{'contents'}[0]{'parent'} = $result_trees{'paragraph_indent_asis'};

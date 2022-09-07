@@ -105,9 +105,6 @@ $result_trees{'sp_with_text_before_in_example'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -133,7 +130,6 @@ $result_trees{'sp_with_text_before_in_example'}{'contents'}[0]{'contents'}[1]{'c
 $result_trees{'sp_with_text_before_in_example'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sp_with_text_before_in_example'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'sp_with_text_before_in_example'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'sp_with_text_before_in_example'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'sp_with_text_before_in_example'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'sp_with_text_before_in_example'}{'contents'}[0]{'contents'}[1];
-$result_trees{'sp_with_text_before_in_example'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'sp_with_text_before_in_example'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'sp_with_text_before_in_example'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'sp_with_text_before_in_example'}{'contents'}[0];
 $result_trees{'sp_with_text_before_in_example'}{'contents'}[0]{'parent'} = $result_trees{'sp_with_text_before_in_example'};
 

@@ -1520,8 +1520,7 @@ sub new_block_command($$$)
      'extra' => {'spaces_after_argument' => "\n"}};
   push @{$end->{'args'}->[0]->{'contents'}},
          {'text' => $command_name, 'parent' => $end->{'args'}->[0]};
-  my $new_block = {'cmdname' => $command_name, 'parent' => $parent,
-                  'extra'=>{'end_command' => $end}};
+  my $new_block = {'cmdname' => $command_name, 'parent' => $parent};
   my $block_line_arg = {'type' => 'block_line_arg',
                         'parent' => $new_block,
                         'extra' => { 'spaces_after_argument' => "\n",}};

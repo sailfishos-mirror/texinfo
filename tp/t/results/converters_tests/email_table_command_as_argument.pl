@@ -132,7 +132,6 @@ $result_trees{'email_table_command_as_argument'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -165,7 +164,6 @@ $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'
 $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0];
 $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0];
 $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'};
 

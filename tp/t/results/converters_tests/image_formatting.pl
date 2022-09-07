@@ -2061,9 +2061,6 @@ $result_trees{'image_formatting'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -2557,7 +2554,6 @@ $result_trees{'image_formatting'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'
 $result_trees{'image_formatting'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_formatting'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0];
 $result_trees{'image_formatting'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'image_formatting'}{'contents'}[4]{'contents'}[3]{'contents'}[1];
 $result_trees{'image_formatting'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'image_formatting'}{'contents'}[4]{'contents'}[3];
-$result_trees{'image_formatting'}{'contents'}[4]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'image_formatting'}{'contents'}[4]{'contents'}[3]{'contents'}[1];
 $result_trees{'image_formatting'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'image_formatting'}{'contents'}[4];
 $result_trees{'image_formatting'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'image_formatting'}{'contents'}[4];
 $result_trees{'image_formatting'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_formatting'}{'contents'}[4]{'contents'}[5]{'args'}[0];

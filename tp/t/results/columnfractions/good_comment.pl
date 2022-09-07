@@ -97,7 +97,6 @@ $result_trees{'good_comment'} = {
           ],
           'extra' => {
             'columnfractions' => {},
-            'end_command' => {},
             'max_columns' => 3,
             'spaces_before_argument' => ' '
           },
@@ -125,7 +124,6 @@ $result_trees{'good_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args
 $result_trees{'good_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'good_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'good_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'good_comment'}{'contents'}[0]{'contents'}[0];
 $result_trees{'good_comment'}{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'good_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'good_comment'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'good_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'good_comment'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'good_comment'}{'contents'}[0];
 $result_trees{'good_comment'}{'contents'}[0]{'parent'} = $result_trees{'good_comment'};
 

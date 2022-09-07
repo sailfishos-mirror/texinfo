@@ -70,9 +70,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -153,9 +150,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -239,9 +233,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -325,9 +316,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -406,9 +394,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -492,9 +477,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -567,9 +549,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -645,9 +624,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -731,9 +707,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -817,9 +790,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -898,9 +868,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -984,9 +951,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1339,7 +1303,6 @@ $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[1]{'co
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[1];
-$result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3];
@@ -1350,7 +1313,6 @@ $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3]{'co
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
@@ -1362,7 +1324,6 @@ $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[5]{'co
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
-$result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[5];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[5];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
@@ -1374,7 +1335,6 @@ $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[7]{'co
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
-$result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[7];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
@@ -1385,7 +1345,6 @@ $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[9]{'co
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[9]{'contents'}[1];
-$result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[9];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[9]{'contents'}[2]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[9];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
@@ -1397,7 +1356,6 @@ $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[11]{'c
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[11]{'contents'}[1];
-$result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[11];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
@@ -1407,7 +1365,6 @@ $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[13]{'c
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'args'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[13]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[13];
-$result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[13]{'extra'}{'end_command'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[13]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15]{'contents'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15];
@@ -1417,7 +1374,6 @@ $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15]{'c
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15]{'contents'}[1];
-$result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15]{'contents'}[2]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
@@ -1429,7 +1385,6 @@ $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[17]{'c
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[17]{'contents'}[1];
-$result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[17];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[17]{'contents'}[2]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[17];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
@@ -1441,7 +1396,6 @@ $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[19]{'c
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[19]{'contents'}[1];
-$result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[19];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[19]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[20]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
@@ -1452,7 +1406,6 @@ $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[21]{'c
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[21]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[21]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[21]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[21]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[21]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[21]{'contents'}[1];
-$result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[21]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[21]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[21]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[21];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[21]{'contents'}[2]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[21];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[21]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
@@ -1464,7 +1417,6 @@ $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[23]{'c
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[23]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[23]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[23]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[23]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[23]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[23]{'contents'}[1];
-$result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[23]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[23]{'contents'}[1]{'contents'}[1];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[23]{'contents'}[1]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[23];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[23]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];
 $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0]{'contents'}[24]{'parent'} = $result_trees{'raw_commands_and_end_of_lines'}{'contents'}[0];

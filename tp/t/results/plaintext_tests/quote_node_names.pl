@@ -1980,9 +1980,6 @@ $result_trees{'quote_node_names'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'nodequote.texi',
@@ -2571,7 +2568,6 @@ $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[5]{
 $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[6]{'args'}[0];
 $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[6];
 $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[6]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27];
-$result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'extra'}{'end_command'} = $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'contents'}[6];
 $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[27]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2];
 $result_trees{'quote_node_names'}{'contents'}[2]{'contents'}[28]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[2];
 $result_trees{'quote_node_names'}{'contents'}[2]{'parent'} = $result_trees{'quote_node_names'};
@@ -2856,8 +2852,7 @@ $result_nodes{'quote_node_names'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'

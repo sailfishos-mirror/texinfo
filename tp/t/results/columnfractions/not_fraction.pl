@@ -75,7 +75,6 @@ $result_trees{'not_fraction'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'max_columns' => 0,
             'spaces_before_argument' => ' '
           },
@@ -100,7 +99,6 @@ $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'}
 $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0];
-$result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_fraction'}{'contents'}[0];
 $result_trees{'not_fraction'}{'contents'}[0]{'parent'} = $result_trees{'not_fraction'};
 

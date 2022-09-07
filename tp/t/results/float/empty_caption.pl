@@ -113,7 +113,6 @@ $result_trees{'empty_caption'} = {
           ],
           'extra' => {
             'caption' => {},
-            'end_command' => {},
             'node_content' => [
               {}
             ],
@@ -232,7 +231,6 @@ $result_trees{'empty_caption'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'node_content' => [
               {}
             ],
@@ -365,7 +363,6 @@ $result_trees{'empty_caption'} = {
           ],
           'extra' => {
             'caption' => {},
-            'end_command' => {},
             'shortcaption' => {},
             'type' => {
               'normalized' => ''
@@ -400,7 +397,6 @@ $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'arg
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0];
@@ -417,7 +413,6 @@ $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'par
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[3];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[3];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[0];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'extra'}{'shortcaption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0];
@@ -437,7 +432,6 @@ $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5]{'arg
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'extra'}{'caption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[3];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'extra'}{'shortcaption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0];
 $result_trees{'empty_caption'}{'contents'}[0]{'parent'} = $result_trees{'empty_caption'};

@@ -367,9 +367,6 @@ $result_trees{'special_docbook_unnumbered'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -823,7 +820,6 @@ $result_trees{'special_docbook_unnumbered'}{'contents'}[2]{'contents'}[3]{'conte
 $result_trees{'special_docbook_unnumbered'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'special_docbook_unnumbered'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'args'}[0];
 $result_trees{'special_docbook_unnumbered'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'special_docbook_unnumbered'}{'contents'}[2]{'contents'}[3]{'contents'}[4];
 $result_trees{'special_docbook_unnumbered'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'parent'} = $result_trees{'special_docbook_unnumbered'}{'contents'}[2]{'contents'}[3];
-$result_trees{'special_docbook_unnumbered'}{'contents'}[2]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'special_docbook_unnumbered'}{'contents'}[2]{'contents'}[3]{'contents'}[4];
 $result_trees{'special_docbook_unnumbered'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'special_docbook_unnumbered'}{'contents'}[2];
 $result_trees{'special_docbook_unnumbered'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'special_docbook_unnumbered'}{'contents'}[2];
 $result_trees{'special_docbook_unnumbered'}{'contents'}[2]{'parent'} = $result_trees{'special_docbook_unnumbered'};
@@ -1068,8 +1064,7 @@ $result_nodes{'special_docbook_unnumbered'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'

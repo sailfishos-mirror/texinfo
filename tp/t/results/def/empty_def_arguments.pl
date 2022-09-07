@@ -626,7 +626,6 @@ $result_trees{'empty_def_arguments'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -717,7 +716,6 @@ $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[8
 $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0];
 $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[9];
 $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[9];
 $result_trees{'empty_def_arguments'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_def_arguments'}{'contents'}[0];
 $result_trees{'empty_def_arguments'}{'contents'}[0]{'parent'} = $result_trees{'empty_def_arguments'};
 

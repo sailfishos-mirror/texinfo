@@ -244,7 +244,6 @@ $result_trees{'multitable_with_empty_item_tab'} = {
           ],
           'extra' => {
             'columnfractions' => {},
-            'end_command' => {},
             'max_columns' => 2,
             'spaces_before_argument' => ' '
           },
@@ -288,7 +287,6 @@ $result_trees{'multitable_with_empty_item_tab'}{'contents'}[0]{'contents'}[0]{'c
 $result_trees{'multitable_with_empty_item_tab'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multitable_with_empty_item_tab'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'multitable_with_empty_item_tab'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'multitable_with_empty_item_tab'}{'contents'}[0]{'contents'}[0];
 $result_trees{'multitable_with_empty_item_tab'}{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'multitable_with_empty_item_tab'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'multitable_with_empty_item_tab'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'multitable_with_empty_item_tab'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'multitable_with_empty_item_tab'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multitable_with_empty_item_tab'}{'contents'}[0];
 $result_trees{'multitable_with_empty_item_tab'}{'contents'}[0]{'parent'} = $result_trees{'multitable_with_empty_item_tab'};
 

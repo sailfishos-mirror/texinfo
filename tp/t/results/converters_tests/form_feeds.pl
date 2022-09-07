@@ -386,9 +386,6 @@ $result_trees{'form_feeds'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -739,7 +736,6 @@ $result_trees{'form_feeds'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -958,7 +954,6 @@ $result_trees{'form_feeds'} = {
           ],
           'extra' => {
             'caption' => {},
-            'end_command' => {},
             'shortcaption' => {},
             'type' => {
               'normalized' => ''
@@ -1060,7 +1055,6 @@ $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[0]{'paren
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[1]{'args'}[0];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[1];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[1]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'extra'}{'end_command'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'contents'}[1];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[20]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[21]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[22]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[22]{'args'}[0];
@@ -1105,7 +1099,6 @@ $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[27]{'contents'}[1]{'paren
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[0];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[27]{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[27]{'contents'}[2]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[27];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[27]{'extra'}{'end_command'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[27]{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[27]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[28]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
@@ -1141,7 +1134,6 @@ $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7]{'args'
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'caption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[1];
-$result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'end_command'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[7];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'extra'}{'shortcaption'} = $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'contents'}[4];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[29]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];
 $result_trees{'form_feeds'}{'contents'}[2]{'contents'}[30]{'parent'} = $result_trees{'form_feeds'}{'contents'}[2];

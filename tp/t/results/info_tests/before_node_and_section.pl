@@ -321,9 +321,6 @@ $result_trees{'before_node_and_section'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -573,9 +570,6 @@ $result_trees{'before_node_and_section'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -764,7 +758,6 @@ $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents
 $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
 $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
 $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2];
-$result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
 $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'before_node_and_section'}{'contents'}[0];
 $result_trees{'before_node_and_section'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'before_node_and_section'}{'contents'}[0];
 $result_trees{'before_node_and_section'}{'contents'}[0]{'parent'} = $result_trees{'before_node_and_section'};
@@ -805,7 +798,6 @@ $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents
 $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0];
 $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3];
-$result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'before_node_and_section'}{'contents'}[2];
 $result_trees{'before_node_and_section'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'before_node_and_section'}{'contents'}[2];
 $result_trees{'before_node_and_section'}{'contents'}[2]{'parent'} = $result_trees{'before_node_and_section'};
@@ -930,8 +922,7 @@ $result_nodes{'before_node_and_section'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'

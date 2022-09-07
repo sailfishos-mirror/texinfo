@@ -238,9 +238,6 @@ $result_trees{'section_below_unnumbered'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -438,9 +435,6 @@ $result_trees{'section_below_unnumbered'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -606,7 +600,6 @@ $result_trees{'section_below_unnumbered'}{'contents'}[2]{'contents'}[3]{'content
 $result_trees{'section_below_unnumbered'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0];
 $result_trees{'section_below_unnumbered'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'section_below_unnumbered'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[2]{'contents'}[3];
-$result_trees{'section_below_unnumbered'}{'contents'}[2]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'section_below_unnumbered'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'section_below_unnumbered'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[2];
 $result_trees{'section_below_unnumbered'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[2];
 $result_trees{'section_below_unnumbered'}{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[2];
@@ -633,7 +626,6 @@ $result_trees{'section_below_unnumbered'}{'contents'}[4]{'contents'}[1]{'content
 $result_trees{'section_below_unnumbered'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'section_below_unnumbered'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[4]{'contents'}[1]{'contents'}[1];
 $result_trees{'section_below_unnumbered'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[4]{'contents'}[1];
-$result_trees{'section_below_unnumbered'}{'contents'}[4]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'section_below_unnumbered'}{'contents'}[4]{'contents'}[1]{'contents'}[1];
 $result_trees{'section_below_unnumbered'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[4];
 $result_trees{'section_below_unnumbered'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[4];
 $result_trees{'section_below_unnumbered'}{'contents'}[4]{'parent'} = $result_trees{'section_below_unnumbered'};
@@ -779,8 +771,7 @@ $result_nodes{'section_below_unnumbered'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'
@@ -796,8 +787,7 @@ $result_nodes{'section_below_unnumbered'} = {
         },
         'menus' => [
           {
-            'cmdname' => 'menu',
-            'extra' => {}
+            'cmdname' => 'menu'
           }
         ],
         'normalized' => 'Unn'

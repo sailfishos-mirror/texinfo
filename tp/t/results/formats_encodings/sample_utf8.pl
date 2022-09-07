@@ -236,9 +236,6 @@ $result_trees{'sample_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
@@ -382,9 +379,6 @@ $result_trees{'sample_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
@@ -756,9 +750,6 @@ $result_trees{'sample_utf8'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'sample_utf8.texi',
@@ -1172,7 +1163,6 @@ $result_trees{'sample_utf8'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'enumerate_specification' => '1'
           },
           'parent' => {},
@@ -1450,7 +1440,6 @@ $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'conte
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[3]{'args'}[0];
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[3];
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[3];
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7];
@@ -1468,7 +1457,6 @@ $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'conte
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[4]{'args'}[0];
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[4];
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[4]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[4];
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[9];
@@ -1524,7 +1512,6 @@ $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'paren
 $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'args'}[0];
 $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[3];
 $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3];
-$result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'contents'}[3];
 $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[2];
 $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[2];
 $result_trees{'sample_utf8'}{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[2];
@@ -1585,7 +1572,6 @@ $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[7]{'contents'}[1]{'paren
 $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'args'}[0];
 $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[7]{'contents'}[2];
 $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[7];
-$result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[7]{'contents'}[2];
 $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[4];
 $result_trees{'sample_utf8'}{'contents'}[4]{'contents'}[8]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[4];
 $result_trees{'sample_utf8'}{'contents'}[4]{'parent'} = $result_trees{'sample_utf8'};
@@ -1835,8 +1821,7 @@ $result_nodes{'sample_utf8'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'

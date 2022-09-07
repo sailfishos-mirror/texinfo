@@ -639,9 +639,6 @@ $result_trees{'test_image'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -1804,9 +1801,6 @@ $result_trees{'test_image'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -2949,7 +2943,6 @@ $result_trees{'test_image'} = {
           ],
           'extra' => {
             'caption' => {},
-            'end_command' => {},
             'node_content' => [
               {}
             ],
@@ -3145,7 +3138,6 @@ $result_trees{'test_image'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent
 $result_trees{'test_image'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0];
 $result_trees{'test_image'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[3]{'contents'}[3];
 $result_trees{'test_image'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[3];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[3]{'contents'}[3];
 $result_trees{'test_image'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[0];
 $result_trees{'test_image'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[0];
 $result_trees{'test_image'}{'contents'}[0]{'parent'} = $result_trees{'test_image'};
@@ -3342,7 +3334,6 @@ $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'parent
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[1];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'extra'}{'end_command'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[1];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'args'}[0];
@@ -3538,7 +3529,6 @@ $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[7]{'args'
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[7];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'extra'}{'caption'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'extra'}{'end_command'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[7];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'extra'}{'node_content'}[0] = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'args'}[1]{'contents'}[0];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'extra'}{'type'}{'content'}[0] = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'args'}[0]{'contents'}[0];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'parent'} = $result_trees{'test_image'}{'contents'}[1];

@@ -158,7 +158,6 @@ $result_trees{'long_item'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -193,7 +192,6 @@ $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[
 $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0];
 $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0];
 $result_trees{'long_item'}{'contents'}[0]{'parent'} = $result_trees{'long_item'};
 

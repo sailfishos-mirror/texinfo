@@ -448,9 +448,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
               }
             }
           ],
-          "extra" => {
-            "end_command" => {}
-          },
           "parent" => {},
           "source_info" => {
             "file_name" => "in_menu_only_special_spaces_node.texi",
@@ -985,7 +982,6 @@ $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{
 $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[6]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[6]{"args"}[0];
 $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[6]{"args"}[0]{"parent"} = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[6];
 $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[6]{"parent"} = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1];
-$result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"extra"}{"end_command"} = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[6];
 $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[1]{"parent"} = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2];
 $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[2]{"parent"} = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2];
 $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2]{"contents"}[3]{"parent"} = $result_trees{'in_menu_only_special_spaces_node'}{"contents"}[2];
@@ -1284,8 +1280,7 @@ $result_nodes{'in_menu_only_special_spaces_node'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'

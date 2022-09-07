@@ -222,9 +222,6 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -268,7 +265,6 @@ $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}
 $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
 $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
 $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
 $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0];
 $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'};
 

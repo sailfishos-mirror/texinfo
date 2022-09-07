@@ -125,7 +125,6 @@ $result_trees{'not_letters_in_prototype'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'max_columns' => 2,
             'prototypes' => [
               {
@@ -180,7 +179,6 @@ $result_trees{'not_letters_in_prototype'}{'contents'}[0]{'contents'}[0]{'content
 $result_trees{'not_letters_in_prototype'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_letters_in_prototype'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'not_letters_in_prototype'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'not_letters_in_prototype'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'not_letters_in_prototype'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'not_letters_in_prototype'}{'contents'}[0]{'contents'}[0];
-$result_trees{'not_letters_in_prototype'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'not_letters_in_prototype'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'not_letters_in_prototype'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_letters_in_prototype'}{'contents'}[0];
 $result_trees{'not_letters_in_prototype'}{'contents'}[0]{'parent'} = $result_trees{'not_letters_in_prototype'};
 

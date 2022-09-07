@@ -152,9 +152,6 @@ $result_trees{'texi_cond'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'cond.texi',
@@ -270,9 +267,6 @@ $result_trees{'texi_cond'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {}
         },
         {
@@ -360,7 +354,6 @@ $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'
 $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
 $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[1];
-$result_trees{'texi_cond'}{'contents'}[1]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
 $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'texi_cond'}{'contents'}[1];
 $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'texi_cond'}{'contents'}[1];
 $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[3];
@@ -378,7 +371,6 @@ $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[11]{'contents'}[1]{'parent
 $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[11]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[11]{'contents'}[2]{'args'}[0];
 $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[11]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[11]{'contents'}[2];
 $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[11]{'contents'}[2]{'parent'} = $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[11];
-$result_trees{'texi_cond'}{'contents'}[1]{'contents'}[11]{'extra'}{'end_command'} = $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[11]{'contents'}[2];
 $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[11]{'parent'} = $result_trees{'texi_cond'}{'contents'}[1];
 $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[12]{'parent'} = $result_trees{'texi_cond'}{'contents'}[1];
 $result_trees{'texi_cond'}{'contents'}[1]{'contents'}[13]{'parent'} = $result_trees{'texi_cond'}{'contents'}[1];

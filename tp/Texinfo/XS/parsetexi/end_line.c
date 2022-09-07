@@ -1824,7 +1824,6 @@ end_line_misc_line (ELEMENT *current)
             destroy_element_and_children (end_elt);
           else
             {
-              add_extra_element (closed_command, "end_command", end_elt);
               close_command_cleanup (closed_command);
 
               add_to_element_contents (closed_command, end_elt);

@@ -124,7 +124,6 @@ $result_trees{'headitem_itemx_in_enumerate'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'enumerate_specification' => '1'
           },
           'parent' => {},
@@ -154,7 +153,6 @@ $result_trees{'headitem_itemx_in_enumerate'}{'contents'}[0]{'contents'}[0]{'cont
 $result_trees{'headitem_itemx_in_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'headitem_itemx_in_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'headitem_itemx_in_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'headitem_itemx_in_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'headitem_itemx_in_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'headitem_itemx_in_enumerate'}{'contents'}[0]{'contents'}[0];
-$result_trees{'headitem_itemx_in_enumerate'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'headitem_itemx_in_enumerate'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'headitem_itemx_in_enumerate'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'headitem_itemx_in_enumerate'}{'contents'}[0];
 $result_trees{'headitem_itemx_in_enumerate'}{'contents'}[0]{'parent'} = $result_trees{'headitem_itemx_in_enumerate'};
 

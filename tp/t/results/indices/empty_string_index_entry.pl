@@ -267,7 +267,6 @@ $result_trees{'empty_string_index_entry'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -607,7 +606,6 @@ $result_trees{'empty_string_index_entry'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -716,7 +714,6 @@ $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[3]{'content
 $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[3];
 $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'empty_string_index_entry'}{'contents'}[2];
 $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'empty_string_index_entry'}{'contents'}[2];
 $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
@@ -760,7 +757,6 @@ $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[5]{'content
 $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'args'}[0];
 $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[5]{'contents'}[2];
 $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[5];
-$result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[5]{'contents'}[2];
 $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'empty_string_index_entry'}{'contents'}[2];
 $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[6]{'parent'} = $result_trees{'empty_string_index_entry'}{'contents'}[2];
 $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_string_index_entry'}{'contents'}[2]{'contents'}[7]{'args'}[0];

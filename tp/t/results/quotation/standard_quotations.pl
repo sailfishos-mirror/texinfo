@@ -70,7 +70,6 @@ $result_trees{'standard_quotations'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -147,7 +146,6 @@ $result_trees{'standard_quotations'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -224,7 +222,6 @@ $result_trees{'standard_quotations'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -301,7 +298,6 @@ $result_trees{'standard_quotations'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -378,7 +374,6 @@ $result_trees{'standard_quotations'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -455,7 +450,6 @@ $result_trees{'standard_quotations'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -479,7 +473,6 @@ $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[0
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'args'}[0];
@@ -489,7 +482,6 @@ $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[0
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'args'}[0];
@@ -499,7 +491,6 @@ $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[0
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'args'}[0];
@@ -509,7 +500,6 @@ $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[0
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'extra'}{'end_command'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'args'}[0];
@@ -519,7 +509,6 @@ $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[0
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[1];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'extra'}{'end_command'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[1];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'args'}[0];
@@ -529,7 +518,6 @@ $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[1];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'extra'}{'end_command'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[1];
 $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
 $result_trees{'standard_quotations'}{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'};
 

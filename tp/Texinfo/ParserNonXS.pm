@@ -3500,7 +3500,6 @@ sub _end_line($$$)
           = _close_commands($self, $current, $source_info, $end_command);
         my $inline_copying;
         if ($closed_command) {
-          $closed_command->{'extra'}->{'end_command'} = $misc_cmd;
           _close_command_cleanup($self, $closed_command);
           $end->{'parent'} = $closed_command;
 
@@ -7295,10 +7294,6 @@ X<Texinfo tree element extra key>
 The string correspond to the line after the @-command
 for @-commands that have special arguments on their line,
 and for C<@macro> line.
-
-=item end_command
-
-The C<@end> associated to the block @-command.
 
 =item index_entry
 

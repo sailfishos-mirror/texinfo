@@ -167,9 +167,6 @@ $result_trees{'menutextorder'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -354,9 +351,6 @@ $result_trees{'menutextorder'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -822,9 +816,6 @@ $result_trees{'menutextorder'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -1100,7 +1091,6 @@ $result_trees{'menutextorder'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'par
 $result_trees{'menutextorder'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'menutextorder'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
 $result_trees{'menutextorder'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'menutextorder'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'menutextorder'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'menutextorder'}{'contents'}[0]{'contents'}[0];
-$result_trees{'menutextorder'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'menutextorder'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'menutextorder'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'menutextorder'}{'contents'}[0];
 $result_trees{'menutextorder'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'menutextorder'}{'contents'}[0];
 $result_trees{'menutextorder'}{'contents'}[0]{'parent'} = $result_trees{'menutextorder'};
@@ -1126,7 +1116,6 @@ $result_trees{'menutextorder'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'par
 $result_trees{'menutextorder'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'menutextorder'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'menutextorder'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'menutextorder'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
 $result_trees{'menutextorder'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'menutextorder'}{'contents'}[2]{'contents'}[1];
-$result_trees{'menutextorder'}{'contents'}[2]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'menutextorder'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
 $result_trees{'menutextorder'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'menutextorder'}{'contents'}[2];
 $result_trees{'menutextorder'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'menutextorder'}{'contents'}[2];
 $result_trees{'menutextorder'}{'contents'}[2]{'parent'} = $result_trees{'menutextorder'};
@@ -1191,7 +1180,6 @@ $result_trees{'menutextorder'}{'contents'}[8]{'contents'}[1]{'contents'}[2]{'par
 $result_trees{'menutextorder'}{'contents'}[8]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'menutextorder'}{'contents'}[8]{'contents'}[1]{'contents'}[3]{'args'}[0];
 $result_trees{'menutextorder'}{'contents'}[8]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'menutextorder'}{'contents'}[8]{'contents'}[1]{'contents'}[3];
 $result_trees{'menutextorder'}{'contents'}[8]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'menutextorder'}{'contents'}[8]{'contents'}[1];
-$result_trees{'menutextorder'}{'contents'}[8]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'menutextorder'}{'contents'}[8]{'contents'}[1]{'contents'}[3];
 $result_trees{'menutextorder'}{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'menutextorder'}{'contents'}[8];
 $result_trees{'menutextorder'}{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'menutextorder'}{'contents'}[8];
 $result_trees{'menutextorder'}{'contents'}[8]{'parent'} = $result_trees{'menutextorder'};
@@ -1453,8 +1441,7 @@ $result_nodes{'menutextorder'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'bar'
@@ -1505,8 +1492,7 @@ $result_nodes{'menutextorder'} = {
         },
         'menus' => [
           {
-            'cmdname' => 'menu',
-            'extra' => {}
+            'cmdname' => 'menu'
           }
         ],
         'normalized' => 'foo'

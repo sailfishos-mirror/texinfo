@@ -241,7 +241,6 @@ $result_trees{'code_in_def'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -291,7 +290,6 @@ $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'paren
 $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
 $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0];
 $result_trees{'code_in_def'}{'contents'}[0]{'parent'} = $result_trees{'code_in_def'};
 

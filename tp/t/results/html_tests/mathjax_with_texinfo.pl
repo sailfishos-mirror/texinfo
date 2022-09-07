@@ -157,9 +157,6 @@ $result_trees{'mathjax_with_texinfo'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -321,7 +318,6 @@ $result_trees{'mathjax_with_texinfo'}{'contents'}[0]{'contents'}[0]{'contents'}[
 $result_trees{'mathjax_with_texinfo'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0];
 $result_trees{'mathjax_with_texinfo'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo'}{'contents'}[0]{'contents'}[0]{'contents'}[5];
 $result_trees{'mathjax_with_texinfo'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'mathjax_with_texinfo'}{'contents'}[0]{'contents'}[0];
-$result_trees{'mathjax_with_texinfo'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'mathjax_with_texinfo'}{'contents'}[0]{'contents'}[0]{'contents'}[5];
 $result_trees{'mathjax_with_texinfo'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo'}{'contents'}[0];
 $result_trees{'mathjax_with_texinfo'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'mathjax_with_texinfo'}{'contents'}[0];
 $result_trees{'mathjax_with_texinfo'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo'}{'contents'}[0]{'contents'}[2];

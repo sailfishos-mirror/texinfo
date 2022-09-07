@@ -93,7 +93,6 @@ $result_trees{'asis_as_itemize_argument'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -119,7 +118,6 @@ $result_trees{'asis_as_itemize_argument'}{'contents'}[0]{'contents'}[0]{'content
 $result_trees{'asis_as_itemize_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'asis_as_itemize_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'asis_as_itemize_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'asis_as_itemize_argument'}{'contents'}[0]{'contents'}[0];
 $result_trees{'asis_as_itemize_argument'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'asis_as_itemize_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'asis_as_itemize_argument'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'asis_as_itemize_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'asis_as_itemize_argument'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'asis_as_itemize_argument'}{'contents'}[0];
 $result_trees{'asis_as_itemize_argument'}{'contents'}[0]{'parent'} = $result_trees{'asis_as_itemize_argument'};
 

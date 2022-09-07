@@ -420,9 +420,6 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'char_latin2_latin2_in_refs.texi',
@@ -599,7 +596,6 @@ $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[6]{'conte
 $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'args'}[0];
 $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[6]{'contents'}[1];
 $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[6];
-$result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[6]{'extra'}{'end_command'} = $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[6]{'contents'}[1];
 $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[6]{'parent'} = $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2];
 $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'contents'}[7]{'parent'} = $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2];
 $result_trees{'char_latin2_latin2_in_refs'}{'contents'}[2]{'parent'} = $result_trees{'char_latin2_latin2_in_refs'};
@@ -722,8 +718,7 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
     'isindex' => 1,
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'

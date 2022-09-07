@@ -101,9 +101,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -261,9 +258,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -532,7 +526,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'conte
 $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0];
 $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0];
 $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
@@ -553,7 +546,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'conte
 $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[6]{'args'}[0];
 $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[6];
 $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[6]{'parent'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[6];
 $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0];
 $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0];
 $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_in_copying_insertcopying_titlepage'}{'contents'}[0];

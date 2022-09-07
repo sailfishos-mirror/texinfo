@@ -529,9 +529,6 @@ $result_trees{'index_split'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'index_split.texi',
@@ -1441,9 +1438,6 @@ $result_trees{'index_split'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'index_split.texi',
@@ -1740,9 +1734,6 @@ $result_trees{'index_split'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'index_split.texi',
@@ -3191,7 +3182,6 @@ $result_trees{'index_split'}{'contents'}[2]{'contents'}[10]{'contents'}[2]{'pare
 $result_trees{'index_split'}{'contents'}[2]{'contents'}[10]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_split'}{'contents'}[2]{'contents'}[10]{'contents'}[3]{'args'}[0];
 $result_trees{'index_split'}{'contents'}[2]{'contents'}[10]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'index_split'}{'contents'}[2]{'contents'}[10]{'contents'}[3];
 $result_trees{'index_split'}{'contents'}[2]{'contents'}[10]{'contents'}[3]{'parent'} = $result_trees{'index_split'}{'contents'}[2]{'contents'}[10];
-$result_trees{'index_split'}{'contents'}[2]{'contents'}[10]{'extra'}{'end_command'} = $result_trees{'index_split'}{'contents'}[2]{'contents'}[10]{'contents'}[3];
 $result_trees{'index_split'}{'contents'}[2]{'contents'}[10]{'parent'} = $result_trees{'index_split'}{'contents'}[2];
 $result_trees{'index_split'}{'contents'}[2]{'contents'}[11]{'parent'} = $result_trees{'index_split'}{'contents'}[2];
 $result_trees{'index_split'}{'contents'}[2]{'parent'} = $result_trees{'index_split'};
@@ -3336,7 +3326,6 @@ $result_trees{'index_split'}{'contents'}[4]{'contents'}[4]{'contents'}[5]{'paren
 $result_trees{'index_split'}{'contents'}[4]{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_split'}{'contents'}[4]{'contents'}[4]{'contents'}[6]{'args'}[0];
 $result_trees{'index_split'}{'contents'}[4]{'contents'}[4]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'index_split'}{'contents'}[4]{'contents'}[4]{'contents'}[6];
 $result_trees{'index_split'}{'contents'}[4]{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'index_split'}{'contents'}[4]{'contents'}[4];
-$result_trees{'index_split'}{'contents'}[4]{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'index_split'}{'contents'}[4]{'contents'}[4]{'contents'}[6];
 $result_trees{'index_split'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'index_split'}{'contents'}[4];
 $result_trees{'index_split'}{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'index_split'}{'contents'}[4];
 $result_trees{'index_split'}{'contents'}[4]{'parent'} = $result_trees{'index_split'};
@@ -3380,7 +3369,6 @@ $result_trees{'index_split'}{'contents'}[6]{'contents'}[3]{'contents'}[1]{'paren
 $result_trees{'index_split'}{'contents'}[6]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_split'}{'contents'}[6]{'contents'}[3]{'contents'}[2]{'args'}[0];
 $result_trees{'index_split'}{'contents'}[6]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'index_split'}{'contents'}[6]{'contents'}[3]{'contents'}[2];
 $result_trees{'index_split'}{'contents'}[6]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'index_split'}{'contents'}[6]{'contents'}[3];
-$result_trees{'index_split'}{'contents'}[6]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'index_split'}{'contents'}[6]{'contents'}[3]{'contents'}[2];
 $result_trees{'index_split'}{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'index_split'}{'contents'}[6];
 $result_trees{'index_split'}{'contents'}[6]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'index_split'}{'contents'}[6]{'contents'}[4];
 $result_trees{'index_split'}{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'index_split'}{'contents'}[6];
@@ -3971,8 +3959,7 @@ $result_nodes{'index_split'} = {
     'isindex' => 1,
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'
@@ -3992,8 +3979,7 @@ $result_nodes{'index_split'} = {
         'isindex' => 1,
         'menus' => [
           {
-            'cmdname' => 'menu',
-            'extra' => {}
+            'cmdname' => 'menu'
           }
         ],
         'normalized' => 'first'
@@ -4012,8 +3998,7 @@ $result_nodes{'index_split'} = {
             'isindex' => 1,
             'menus' => [
               {
-                'cmdname' => 'menu',
-                'extra' => {}
+                'cmdname' => 'menu'
               }
             ],
             'normalized' => 'section-1'

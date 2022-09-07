@@ -122,7 +122,6 @@ $result_trees{'empty_multitable_with_cells'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'max_columns' => 0,
             'prototypes' => []
           },
@@ -157,7 +156,6 @@ $result_trees{'empty_multitable_with_cells'}{'contents'}[0]{'contents'}[0]{'cont
 $result_trees{'empty_multitable_with_cells'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_multitable_with_cells'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'empty_multitable_with_cells'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_multitable_with_cells'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'empty_multitable_with_cells'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_multitable_with_cells'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_multitable_with_cells'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'empty_multitable_with_cells'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'empty_multitable_with_cells'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_multitable_with_cells'}{'contents'}[0];
 $result_trees{'empty_multitable_with_cells'}{'contents'}[0]{'parent'} = $result_trees{'empty_multitable_with_cells'};
 

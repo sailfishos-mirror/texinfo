@@ -137,9 +137,6 @@ $result_trees{'ref_in_copying'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -351,9 +348,6 @@ $result_trees{'ref_in_copying'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -433,7 +427,6 @@ $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'co
 $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0];
 $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0];
 $result_trees{'ref_in_copying'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying'}{'contents'}[0];
@@ -463,7 +456,6 @@ $result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'pa
 $result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0];
 $result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[3];
-$result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'ref_in_copying'}{'contents'}[2];
 $result_trees{'ref_in_copying'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'ref_in_copying'}{'contents'}[2];
 $result_trees{'ref_in_copying'}{'contents'}[2]{'parent'} = $result_trees{'ref_in_copying'};
@@ -563,8 +555,7 @@ $result_nodes{'ref_in_copying'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'

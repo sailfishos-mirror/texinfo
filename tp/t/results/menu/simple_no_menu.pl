@@ -449,9 +449,6 @@ $result_trees{'simple_no_menu'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -560,7 +557,6 @@ $result_trees{'simple_no_menu'}{'contents'}[0]{'contents'}[3]{'contents'}[6]{'pa
 $result_trees{'simple_no_menu'}{'contents'}[0]{'contents'}[3]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple_no_menu'}{'contents'}[0]{'contents'}[3]{'contents'}[7]{'args'}[0];
 $result_trees{'simple_no_menu'}{'contents'}[0]{'contents'}[3]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'simple_no_menu'}{'contents'}[0]{'contents'}[3]{'contents'}[7];
 $result_trees{'simple_no_menu'}{'contents'}[0]{'contents'}[3]{'contents'}[7]{'parent'} = $result_trees{'simple_no_menu'}{'contents'}[0]{'contents'}[3];
-$result_trees{'simple_no_menu'}{'contents'}[0]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'simple_no_menu'}{'contents'}[0]{'contents'}[3]{'contents'}[7];
 $result_trees{'simple_no_menu'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'simple_no_menu'}{'contents'}[0];
 $result_trees{'simple_no_menu'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'simple_no_menu'}{'contents'}[0];
 $result_trees{'simple_no_menu'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'simple_no_menu'}{'contents'}[0]{'contents'}[5];

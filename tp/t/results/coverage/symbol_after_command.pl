@@ -342,7 +342,6 @@ $result_trees{'symbol_after_command'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -489,7 +488,6 @@ $result_trees{'symbol_after_command'}{'contents'}[0]{'contents'}[0]{'contents'}[
 $result_trees{'symbol_after_command'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'symbol_after_command'}{'contents'}[0]{'contents'}[0]{'contents'}[7];
 $result_trees{'symbol_after_command'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'symbol_after_command'}{'contents'}[0]{'contents'}[0];
 $result_trees{'symbol_after_command'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'symbol_after_command'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'symbol_after_command'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'symbol_after_command'}{'contents'}[0]{'contents'}[0]{'contents'}[7];
 $result_trees{'symbol_after_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'symbol_after_command'}{'contents'}[0];
 $result_trees{'symbol_after_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'symbol_after_command'}{'contents'}[0];
 $result_trees{'symbol_after_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'symbol_after_command'}{'contents'}[0]{'contents'}[2];

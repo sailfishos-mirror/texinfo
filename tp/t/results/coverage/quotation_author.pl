@@ -169,8 +169,7 @@ $result_trees{'quotation_author'} = {
             'authors' => [
               {},
               {}
-            ],
-            'end_command' => {}
+            ]
           },
           'parent' => {},
           'source_info' => {
@@ -209,7 +208,6 @@ $result_trees{'quotation_author'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'
 $result_trees{'quotation_author'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'quotation_author'}{'contents'}[0]{'contents'}[0];
 $result_trees{'quotation_author'}{'contents'}[0]{'contents'}[0]{'extra'}{'authors'}[0] = $result_trees{'quotation_author'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'quotation_author'}{'contents'}[0]{'contents'}[0]{'extra'}{'authors'}[1] = $result_trees{'quotation_author'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'quotation_author'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'quotation_author'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
 $result_trees{'quotation_author'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'quotation_author'}{'contents'}[0];
 $result_trees{'quotation_author'}{'contents'}[0]{'parent'} = $result_trees{'quotation_author'};
 

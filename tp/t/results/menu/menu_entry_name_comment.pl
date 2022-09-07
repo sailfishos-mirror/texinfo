@@ -558,9 +558,6 @@ $result_trees{'menu_entry_name_comment'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -675,7 +672,6 @@ $result_trees{'menu_entry_name_comment'}{'contents'}[0]{'contents'}[0]{'contents
 $result_trees{'menu_entry_name_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_entry_name_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0];
 $result_trees{'menu_entry_name_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'menu_entry_name_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[5];
 $result_trees{'menu_entry_name_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'menu_entry_name_comment'}{'contents'}[0]{'contents'}[0];
-$result_trees{'menu_entry_name_comment'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'menu_entry_name_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[5];
 $result_trees{'menu_entry_name_comment'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_entry_name_comment'}{'contents'}[0];
 $result_trees{'menu_entry_name_comment'}{'contents'}[0]{'parent'} = $result_trees{'menu_entry_name_comment'};
 

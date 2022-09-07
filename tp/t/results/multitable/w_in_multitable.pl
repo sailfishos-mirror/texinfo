@@ -173,7 +173,6 @@ $result_trees{'w_in_multitable'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'max_columns' => 2,
             'prototypes' => [
               {
@@ -234,7 +233,6 @@ $result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'p
 $result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0];
-$result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[1]{'contents'}[0] = $result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'contents'}[0];
 $result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes_line'}[0] = $result_trees{'w_in_multitable'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];

@@ -432,7 +432,6 @@ $result_trees{'no_element'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'node_content' => [
               {}
             ],
@@ -609,9 +608,6 @@ $result_trees{'no_element'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -734,7 +730,6 @@ $result_trees{'no_element'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'paren
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_element'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'args'}[0];
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_element'}{'contents'}[0]{'contents'}[13]{'contents'}[1];
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'parent'} = $result_trees{'no_element'}{'contents'}[0]{'contents'}[13];
-$result_trees{'no_element'}{'contents'}[0]{'contents'}[13]{'extra'}{'end_command'} = $result_trees{'no_element'}{'contents'}[0]{'contents'}[13]{'contents'}[1];
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[13]{'extra'}{'node_content'}[0] = $result_trees{'no_element'}{'contents'}[0]{'contents'}[13]{'args'}[1]{'contents'}[0];
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'no_element'}{'contents'}[0];
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'no_element'}{'contents'}[0];
@@ -761,7 +756,6 @@ $result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'paren
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'args'}[0];
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'contents'}[1];
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'parent'} = $result_trees{'no_element'}{'contents'}[0]{'contents'}[17];
-$result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'extra'}{'end_command'} = $result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'contents'}[1];
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'no_element'}{'contents'}[0];
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[18]{'parent'} = $result_trees{'no_element'}{'contents'}[0];
 $result_trees{'no_element'}{'contents'}[0]{'contents'}[19]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_element'}{'contents'}[0]{'contents'}[19]{'args'}[0];

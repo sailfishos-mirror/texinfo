@@ -653,9 +653,6 @@ $result_trees{'macro_in_menu'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -769,7 +766,6 @@ $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[19]{'contents'}[5]{'pa
 $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[19]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[19]{'contents'}[6]{'args'}[0];
 $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[19]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[19]{'contents'}[6];
 $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[19]{'contents'}[6]{'parent'} = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[19];
-$result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[19]{'extra'}{'end_command'} = $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[19]{'contents'}[6];
 $result_trees{'macro_in_menu'}{'contents'}[0]{'contents'}[19]{'parent'} = $result_trees{'macro_in_menu'}{'contents'}[0];
 $result_trees{'macro_in_menu'}{'contents'}[0]{'parent'} = $result_trees{'macro_in_menu'};
 

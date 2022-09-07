@@ -661,9 +661,6 @@ $result_trees{'special_spaces_in_nodes'} = {
               }
             }
           ],
-          "extra" => {
-            "end_command" => {}
-          },
           "parent" => {},
           "source_info" => {
             "file_name" => "special_spaces_in_nodes.texi",
@@ -1221,7 +1218,6 @@ $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents
 $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[8]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[8]{"args"}[0];
 $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[8]{"args"}[0]{"parent"} = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[8];
 $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[8]{"parent"} = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2];
-$result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"extra"}{"end_command"} = $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"contents"}[8];
 $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[2]{"parent"} = $result_trees{'special_spaces_in_nodes'}{"contents"}[4];
 $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"contents"}[3]{"parent"} = $result_trees{'special_spaces_in_nodes'}{"contents"}[4];
 $result_trees{'special_spaces_in_nodes'}{"contents"}[4]{"parent"} = $result_trees{'special_spaces_in_nodes'};
@@ -1425,8 +1421,7 @@ $result_nodes{'special_spaces_in_nodes'} = {
         },
         'menus' => [
           {
-            'cmdname' => 'menu',
-            'extra' => {}
+            'cmdname' => 'menu'
           }
         ],
         'normalized' => 'EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c'

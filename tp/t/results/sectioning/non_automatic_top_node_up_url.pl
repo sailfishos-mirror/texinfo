@@ -249,9 +249,6 @@ $result_trees{'non_automatic_top_node_up_url'} = [
                       }
                     }
                   ],
-                  'extra' => {
-                    'end_command' => {}
-                  },
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -428,7 +425,6 @@ $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'}{'cont
 $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
 $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'contents'}[1];
-$result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
 $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
 $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
 $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'parent'} = $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'};
@@ -646,8 +642,7 @@ $result_nodes{'non_automatic_top_node_up_url'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'

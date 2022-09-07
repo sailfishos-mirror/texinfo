@@ -219,9 +219,6 @@ $result_trees{'nodes_before_top'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -535,9 +532,6 @@ $result_trees{'nodes_before_top'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -665,7 +659,6 @@ $result_trees{'nodes_before_top'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'
 $result_trees{'nodes_before_top'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'nodes_before_top'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
 $result_trees{'nodes_before_top'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[1]{'contents'}[1];
-$result_trees{'nodes_before_top'}{'contents'}[1]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'nodes_before_top'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
 $result_trees{'nodes_before_top'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[1];
 $result_trees{'nodes_before_top'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[1];
 $result_trees{'nodes_before_top'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'nodes_before_top'}{'contents'}[1]{'args'}[0]{'contents'}[0];
@@ -710,7 +703,6 @@ $result_trees{'nodes_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'
 $result_trees{'nodes_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'nodes_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[1];
 $result_trees{'nodes_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[4]{'contents'}[1];
-$result_trees{'nodes_before_top'}{'contents'}[4]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'nodes_before_top'}{'contents'}[4]{'contents'}[1]{'contents'}[1];
 $result_trees{'nodes_before_top'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[4];
 $result_trees{'nodes_before_top'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[4];
 $result_trees{'nodes_before_top'}{'contents'}[4]{'parent'} = $result_trees{'nodes_before_top'};
@@ -818,8 +810,7 @@ $result_nodes{'nodes_before_top'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'
@@ -846,8 +837,7 @@ $result_nodes{'nodes_before_top'} = {
       'extra' => {
         'menus' => [
           {
-            'cmdname' => 'menu',
-            'extra' => {}
+            'cmdname' => 'menu'
           }
         ],
         'normalized' => 'first'

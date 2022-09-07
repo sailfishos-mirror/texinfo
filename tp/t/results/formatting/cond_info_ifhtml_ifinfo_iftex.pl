@@ -152,9 +152,6 @@ $result_trees{'cond_info_ifhtml_ifinfo_iftex'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'cond.texi',
@@ -281,9 +278,6 @@ $result_trees{'cond_info_ifhtml_ifinfo_iftex'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'cond.texi',
@@ -376,7 +370,6 @@ $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[1]{'co
 $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
 $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[1];
-$result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
 $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1];
 $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1];
 $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[3];
@@ -395,7 +388,6 @@ $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[11]{'c
 $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[11]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[11]{'contents'}[1]{'args'}[0];
 $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[11]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[11]{'contents'}[1];
 $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[11];
-$result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[11]{'extra'}{'end_command'} = $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[11]{'contents'}[1];
 $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[11]{'parent'} = $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1];
 $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[12]{'parent'} = $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1];
 $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[13]{'contents'}[0]{'parent'} = $result_trees{'cond_info_ifhtml_ifinfo_iftex'}{'contents'}[1]{'contents'}[13];

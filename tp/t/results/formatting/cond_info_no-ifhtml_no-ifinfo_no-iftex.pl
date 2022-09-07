@@ -141,9 +141,6 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {}
         },
         {
@@ -254,9 +251,6 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {}
         },
         {
@@ -343,7 +337,6 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents
 $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0];
 $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[1]{'contents'}[2];
 $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[1];
-$result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[1]{'contents'}[2];
 $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1];
 $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1];
 $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1];
@@ -361,7 +354,6 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents
 $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[11]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[11]{'contents'}[2]{'args'}[0];
 $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[11]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[11]{'contents'}[2];
 $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[11]{'contents'}[2]{'parent'} = $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[11];
-$result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[11]{'extra'}{'end_command'} = $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[11]{'contents'}[2];
 $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[11]{'parent'} = $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1];
 $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[12]{'parent'} = $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1];
 $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1]{'contents'}[13]{'parent'} = $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'}{'contents'}[1];

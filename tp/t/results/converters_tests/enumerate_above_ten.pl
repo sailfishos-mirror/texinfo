@@ -85,7 +85,6 @@ $result_trees{'enumerate_above_ten'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'enumerate_specification' => '14',
             'spaces_before_argument' => ' '
           },
@@ -111,7 +110,6 @@ $result_trees{'enumerate_above_ten'}{'contents'}[0]{'contents'}[0]{'contents'}[0
 $result_trees{'enumerate_above_ten'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_above_ten'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'enumerate_above_ten'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'enumerate_above_ten'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'enumerate_above_ten'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'enumerate_above_ten'}{'contents'}[0]{'contents'}[0];
-$result_trees{'enumerate_above_ten'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'enumerate_above_ten'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'enumerate_above_ten'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_above_ten'}{'contents'}[0];
 $result_trees{'enumerate_above_ten'}{'contents'}[0]{'parent'} = $result_trees{'enumerate_above_ten'};
 

@@ -86,7 +86,6 @@ $result_trees{'ref_to_float'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'node_content' => [
               {}
             ],
@@ -179,7 +178,6 @@ $result_trees{'ref_to_float'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'node_content' => [
               {}
             ],
@@ -309,7 +307,6 @@ $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'pare
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ref_to_float'}{'contents'}[0];
@@ -322,7 +319,6 @@ $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'pare
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[3];
-$result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[0];
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'ref_to_float'}{'contents'}[0];
 $result_trees{'ref_to_float'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'ref_to_float'}{'contents'}[0];

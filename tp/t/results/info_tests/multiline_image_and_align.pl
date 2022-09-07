@@ -452,9 +452,6 @@ $result_trees{'multiline_image_and_align'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -1183,9 +1180,6 @@ $result_trees{'multiline_image_and_align'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -1256,7 +1250,6 @@ $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'conten
 $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[5]{'args'}[0];
 $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[5];
 $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[5]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'extra'}{'end_command'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[5];
 $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0];
 $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0];
 $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'args'}[0];
@@ -1355,7 +1348,6 @@ $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[18]{'conte
 $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[18]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[18]{'contents'}[5]{'args'}[0];
 $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[18]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[18]{'contents'}[5];
 $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[18]{'contents'}[5]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[18];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[18]{'extra'}{'end_command'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[18]{'contents'}[5];
 $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[18]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0];
 $result_trees{'multiline_image_and_align'}{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'};
 

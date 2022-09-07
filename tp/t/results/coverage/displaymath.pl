@@ -107,9 +107,6 @@ $result_trees{'displaymath'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -265,9 +262,6 @@ $result_trees{'displaymath'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -450,9 +444,6 @@ $result_trees{'displaymath'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -544,9 +535,6 @@ $result_trees{'displaymath'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -574,7 +562,6 @@ $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'paren
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'args'}[0];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3];
@@ -597,7 +584,6 @@ $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'paren
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[6]{'args'}[0];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[6];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[6];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[6];
@@ -623,7 +609,6 @@ $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[7]{'paren
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[8]{'args'}[0];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[8];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[8]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[8];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[9];
@@ -635,7 +620,6 @@ $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'pare
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[2]{'args'}[0];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[2];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'extra'}{'end_command'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[2];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
 $result_trees{'displaymath'}{'contents'}[0]{'parent'} = $result_trees{'displaymath'};
 

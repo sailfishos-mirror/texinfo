@@ -289,9 +289,6 @@ $result_trees{'kbd'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -412,9 +409,6 @@ $result_trees{'kbd'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -471,7 +465,6 @@ $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $r
 $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0];
 $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[1];
 $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[8];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'extra'}{'end_command'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[1];
 $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
 $result_trees{'kbd'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
 $result_trees{'kbd'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[10];
@@ -489,7 +482,6 @@ $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'parent'} = $
 $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0];
 $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[1];
 $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[12];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'extra'}{'end_command'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[1];
 $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
 $result_trees{'kbd'}{'contents'}[0]{'parent'} = $result_trees{'kbd'};
 

@@ -262,9 +262,6 @@ $result_trees{'anchor_in_footnote'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -447,7 +444,6 @@ $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[3]{'contents'}[0]
 $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0];
 $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[3];
-$result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'anchor_in_footnote'}{'contents'}[2];
 $result_trees{'anchor_in_footnote'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'anchor_in_footnote'}{'contents'}[2];
 $result_trees{'anchor_in_footnote'}{'contents'}[2]{'parent'} = $result_trees{'anchor_in_footnote'};
@@ -558,8 +554,7 @@ $result_nodes{'anchor_in_footnote'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'

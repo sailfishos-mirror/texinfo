@@ -454,7 +454,6 @@ $result_trees{'placed_things_before_element'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'node_content' => [
               {}
             ],
@@ -631,9 +630,6 @@ $result_trees{'placed_things_before_element'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'placed_things_before_element.texi',
@@ -920,7 +916,6 @@ $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[11]{'co
 $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'args'}[0];
 $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[11]{'contents'}[1];
 $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[11];
-$result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[11]{'extra'}{'end_command'} = $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[11]{'contents'}[1];
 $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[11]{'extra'}{'node_content'}[0] = $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[11]{'args'}[1]{'contents'}[0];
 $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'placed_things_before_element'}{'contents'}[0];
 $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'placed_things_before_element'}{'contents'}[0];
@@ -947,7 +942,6 @@ $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[15]{'co
 $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'args'}[0];
 $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[15]{'contents'}[1];
 $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[15]{'contents'}[1]{'parent'} = $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[15];
-$result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[15]{'extra'}{'end_command'} = $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[15]{'contents'}[1];
 $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'placed_things_before_element'}{'contents'}[0];
 $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'placed_things_before_element'}{'contents'}[0];
 $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[17]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'placed_things_before_element'}{'contents'}[0]{'contents'}[17]{'args'}[0];

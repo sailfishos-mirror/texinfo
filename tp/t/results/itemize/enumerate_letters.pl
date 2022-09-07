@@ -5415,7 +5415,6 @@ $result_trees{'enumerate_letters'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'enumerate_specification' => 'c',
             'spaces_before_argument' => ' '
           },
@@ -6056,7 +6055,6 @@ $result_trees{'enumerate_letters'}{'contents'}[0]{'contents'}[0]{'contents'}[205
 $result_trees{'enumerate_letters'}{'contents'}[0]{'contents'}[0]{'contents'}[206]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_letters'}{'contents'}[0]{'contents'}[0]{'contents'}[206]{'args'}[0];
 $result_trees{'enumerate_letters'}{'contents'}[0]{'contents'}[0]{'contents'}[206]{'args'}[0]{'parent'} = $result_trees{'enumerate_letters'}{'contents'}[0]{'contents'}[0]{'contents'}[206];
 $result_trees{'enumerate_letters'}{'contents'}[0]{'contents'}[0]{'contents'}[206]{'parent'} = $result_trees{'enumerate_letters'}{'contents'}[0]{'contents'}[0];
-$result_trees{'enumerate_letters'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'enumerate_letters'}{'contents'}[0]{'contents'}[0]{'contents'}[206];
 $result_trees{'enumerate_letters'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_letters'}{'contents'}[0];
 $result_trees{'enumerate_letters'}{'contents'}[0]{'parent'} = $result_trees{'enumerate_letters'};
 

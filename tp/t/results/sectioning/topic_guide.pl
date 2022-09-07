@@ -282,9 +282,6 @@ $result_trees{'topic_guide'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'topic_guide.texi',
@@ -607,9 +604,6 @@ $result_trees{'topic_guide'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'topic_guide.texi',
@@ -811,9 +805,6 @@ $result_trees{'topic_guide'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'topic_guide.texi',
@@ -1046,9 +1037,6 @@ $result_trees{'topic_guide'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'topic_guide.texi',
@@ -1230,9 +1218,6 @@ $result_trees{'topic_guide'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'topic_guide.texi',
@@ -1447,9 +1432,6 @@ $result_trees{'topic_guide'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'topic_guide.texi',
@@ -1728,9 +1710,6 @@ $result_trees{'topic_guide'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'topic_guide.texi',
@@ -2015,9 +1994,6 @@ $result_trees{'topic_guide'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => 'topic_guide.texi',
@@ -2098,7 +2074,6 @@ $result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'paren
 $result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'args'}[0];
 $result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[2];
 $result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3];
-$result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'contents'}[2];
 $result_trees{'topic_guide'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'topic_guide'}{'contents'}[2];
 $result_trees{'topic_guide'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'topic_guide'}{'contents'}[2];
 $result_trees{'topic_guide'}{'contents'}[2]{'parent'} = $result_trees{'topic_guide'};
@@ -2147,7 +2122,6 @@ $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'paren
 $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[3]{'args'}[0];
 $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[3];
 $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3];
-$result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'contents'}[3];
 $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'topic_guide'}{'contents'}[4];
 $result_trees{'topic_guide'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'topic_guide'}{'contents'}[4];
 $result_trees{'topic_guide'}{'contents'}[4]{'parent'} = $result_trees{'topic_guide'};
@@ -2177,7 +2151,6 @@ $result_trees{'topic_guide'}{'contents'}[5]{'contents'}[3]{'contents'}[1]{'paren
 $result_trees{'topic_guide'}{'contents'}[5]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[5]{'contents'}[3]{'contents'}[2]{'args'}[0];
 $result_trees{'topic_guide'}{'contents'}[5]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[5]{'contents'}[3]{'contents'}[2];
 $result_trees{'topic_guide'}{'contents'}[5]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'topic_guide'}{'contents'}[5]{'contents'}[3];
-$result_trees{'topic_guide'}{'contents'}[5]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'topic_guide'}{'contents'}[5]{'contents'}[3]{'contents'}[2];
 $result_trees{'topic_guide'}{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'topic_guide'}{'contents'}[5];
 $result_trees{'topic_guide'}{'contents'}[5]{'contents'}[4]{'parent'} = $result_trees{'topic_guide'}{'contents'}[5];
 $result_trees{'topic_guide'}{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[5]{'args'}[0]{'contents'}[0];
@@ -2212,7 +2185,6 @@ $result_trees{'topic_guide'}{'contents'}[6]{'contents'}[3]{'contents'}[1]{'paren
 $result_trees{'topic_guide'}{'contents'}[6]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[6]{'contents'}[3]{'contents'}[2]{'args'}[0];
 $result_trees{'topic_guide'}{'contents'}[6]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[6]{'contents'}[3]{'contents'}[2];
 $result_trees{'topic_guide'}{'contents'}[6]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'topic_guide'}{'contents'}[6]{'contents'}[3];
-$result_trees{'topic_guide'}{'contents'}[6]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'topic_guide'}{'contents'}[6]{'contents'}[3]{'contents'}[2];
 $result_trees{'topic_guide'}{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'topic_guide'}{'contents'}[6];
 $result_trees{'topic_guide'}{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'topic_guide'}{'contents'}[6];
 $result_trees{'topic_guide'}{'contents'}[6]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[6]{'args'}[0]{'contents'}[0];
@@ -2238,7 +2210,6 @@ $result_trees{'topic_guide'}{'contents'}[7]{'contents'}[3]{'contents'}[0]{'paren
 $result_trees{'topic_guide'}{'contents'}[7]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[7]{'contents'}[3]{'contents'}[1]{'args'}[0];
 $result_trees{'topic_guide'}{'contents'}[7]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[7]{'contents'}[3]{'contents'}[1];
 $result_trees{'topic_guide'}{'contents'}[7]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'topic_guide'}{'contents'}[7]{'contents'}[3];
-$result_trees{'topic_guide'}{'contents'}[7]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'topic_guide'}{'contents'}[7]{'contents'}[3]{'contents'}[1];
 $result_trees{'topic_guide'}{'contents'}[7]{'contents'}[3]{'parent'} = $result_trees{'topic_guide'}{'contents'}[7];
 $result_trees{'topic_guide'}{'contents'}[7]{'contents'}[4]{'parent'} = $result_trees{'topic_guide'}{'contents'}[7];
 $result_trees{'topic_guide'}{'contents'}[7]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[7]{'args'}[0]{'contents'}[0];
@@ -2270,7 +2241,6 @@ $result_trees{'topic_guide'}{'contents'}[8]{'contents'}[3]{'contents'}[1]{'paren
 $result_trees{'topic_guide'}{'contents'}[8]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[8]{'contents'}[3]{'contents'}[2]{'args'}[0];
 $result_trees{'topic_guide'}{'contents'}[8]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[8]{'contents'}[3]{'contents'}[2];
 $result_trees{'topic_guide'}{'contents'}[8]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'topic_guide'}{'contents'}[8]{'contents'}[3];
-$result_trees{'topic_guide'}{'contents'}[8]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'topic_guide'}{'contents'}[8]{'contents'}[3]{'contents'}[2];
 $result_trees{'topic_guide'}{'contents'}[8]{'contents'}[3]{'parent'} = $result_trees{'topic_guide'}{'contents'}[8];
 $result_trees{'topic_guide'}{'contents'}[8]{'contents'}[4]{'parent'} = $result_trees{'topic_guide'}{'contents'}[8];
 $result_trees{'topic_guide'}{'contents'}[8]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[8]{'args'}[0]{'contents'}[0];
@@ -2313,7 +2283,6 @@ $result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[2]{'paren
 $result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[3]{'args'}[0];
 $result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[3];
 $result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3];
-$result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'contents'}[3];
 $result_trees{'topic_guide'}{'contents'}[9]{'contents'}[3]{'parent'} = $result_trees{'topic_guide'}{'contents'}[9];
 $result_trees{'topic_guide'}{'contents'}[9]{'contents'}[4]{'parent'} = $result_trees{'topic_guide'}{'contents'}[9];
 $result_trees{'topic_guide'}{'contents'}[9]{'extra'}{'node_content'}[0] = $result_trees{'topic_guide'}{'contents'}[9]{'args'}[0]{'contents'}[0];
@@ -2355,7 +2324,6 @@ $result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[1]{'pare
 $result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[2]{'args'}[0];
 $result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[2];
 $result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3];
-$result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'contents'}[2];
 $result_trees{'topic_guide'}{'contents'}[11]{'contents'}[3]{'parent'} = $result_trees{'topic_guide'}{'contents'}[11];
 $result_trees{'topic_guide'}{'contents'}[11]{'contents'}[4]{'parent'} = $result_trees{'topic_guide'}{'contents'}[11];
 $result_trees{'topic_guide'}{'contents'}[11]{'parent'} = $result_trees{'topic_guide'};
@@ -2596,8 +2564,7 @@ $result_nodes{'topic_guide'} = {
     },
     'menus' => [
       {
-        'cmdname' => 'menu',
-        'extra' => {}
+        'cmdname' => 'menu'
       }
     ],
     'normalized' => 'Top'
@@ -2615,8 +2582,7 @@ $result_nodes{'topic_guide'} = {
         },
         'menus' => [
           {
-            'cmdname' => 'menu',
-            'extra' => {}
+            'cmdname' => 'menu'
           }
         ],
         'normalized' => 'guide1'
@@ -2627,8 +2593,7 @@ $result_nodes{'topic_guide'} = {
           'extra' => {
             'menus' => [
               {
-                'cmdname' => 'menu',
-                'extra' => {}
+                'cmdname' => 'menu'
               }
             ],
             'normalized' => 'topic1'
@@ -2640,8 +2605,7 @@ $result_nodes{'topic_guide'} = {
               'extra' => {
                 'menus' => [
                   {
-                    'cmdname' => 'menu',
-                    'extra' => {}
+                    'cmdname' => 'menu'
                   }
                 ],
                 'normalized' => 'topic2'
@@ -2653,8 +2617,7 @@ $result_nodes{'topic_guide'} = {
                   'extra' => {
                     'menus' => [
                       {
-                        'cmdname' => 'menu',
-                        'extra' => {}
+                        'cmdname' => 'menu'
                       }
                     ],
                     'normalized' => 'topic3'
@@ -2665,8 +2628,7 @@ $result_nodes{'topic_guide'} = {
                       'extra' => {
                         'menus' => [
                           {
-                            'cmdname' => 'menu',
-                            'extra' => {}
+                            'cmdname' => 'menu'
                           }
                         ],
                         'normalized' => 'topic5'
@@ -2696,8 +2658,7 @@ $result_nodes{'topic_guide'} = {
             },
             'menus' => [
               {
-                'cmdname' => 'menu',
-                'extra' => {}
+                'cmdname' => 'menu'
               }
             ],
             'normalized' => 'guide2'

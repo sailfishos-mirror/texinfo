@@ -94,9 +94,6 @@ $result_trees{'complete_macro_for_end'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -121,7 +118,6 @@ $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[3]{'args'}[0]
 $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0];
 $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
 $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[3];
-$result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
 $result_trees{'complete_macro_for_end'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'complete_macro_for_end'}{'contents'}[0];
 $result_trees{'complete_macro_for_end'}{'contents'}[0]{'parent'} = $result_trees{'complete_macro_for_end'};
 

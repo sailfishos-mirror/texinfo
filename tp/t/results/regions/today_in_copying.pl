@@ -83,9 +83,6 @@ $result_trees{'today_in_copying'} = {
                   }
                 }
               ],
-              'extra' => {
-                'end_command' => {}
-              },
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -260,7 +257,6 @@ $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'
 $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0];
 $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0];
 $result_trees{'today_in_copying'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'today_in_copying'}{'contents'}[0];

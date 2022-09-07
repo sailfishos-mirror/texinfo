@@ -114,7 +114,6 @@ $result_trees{'enumerate_in_style_command'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'enumerate_specification' => '1',
             'spaces_before_argument' => ' '
           },
@@ -144,7 +143,6 @@ $result_trees{'enumerate_in_style_command'}{'contents'}[0]{'contents'}[1]{'conte
 $result_trees{'enumerate_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'enumerate_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'enumerate_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'enumerate_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'enumerate_in_style_command'}{'contents'}[0]{'contents'}[1];
-$result_trees{'enumerate_in_style_command'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'enumerate_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'enumerate_in_style_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'enumerate_in_style_command'}{'contents'}[0];
 $result_trees{'enumerate_in_style_command'}{'contents'}[0]{'parent'} = $result_trees{'enumerate_in_style_command'};
 

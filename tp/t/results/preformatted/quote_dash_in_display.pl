@@ -76,9 +76,6 @@ $result_trees{'quote_dash_in_display'} = {
               }
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -101,7 +98,6 @@ $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}
 $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1];
-$result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[0];
 $result_trees{'quote_dash_in_display'}{'contents'}[0]{'parent'} = $result_trees{'quote_dash_in_display'};
 

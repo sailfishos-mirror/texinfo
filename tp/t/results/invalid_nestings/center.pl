@@ -628,7 +628,6 @@ $result_trees{'center'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -785,7 +784,6 @@ $result_trees{'center'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
-            'end_command' => {},
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -1240,7 +1238,6 @@ $result_trees{'center'} = {
             }
           ],
           'extra' => {
-            'end_command' => {},
             'max_columns' => 2,
             'prototypes' => [
               {
@@ -1468,7 +1465,6 @@ $result_trees{'center'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'args'}[0]
 $result_trees{'center'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[20]{'contents'}[1];
 $result_trees{'center'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[20];
 $result_trees{'center'}{'contents'}[0]{'contents'}[20]{'extra'}{'command_as_argument'} = $result_trees{'center'}{'contents'}[0]{'contents'}[20]{'args'}[0]{'contents'}[0];
-$result_trees{'center'}{'contents'}[0]{'contents'}[20]{'extra'}{'end_command'} = $result_trees{'center'}{'contents'}[0]{'contents'}[20]{'contents'}[1];
 $result_trees{'center'}{'contents'}[0]{'contents'}[20]{'parent'} = $result_trees{'center'}{'contents'}[0];
 $result_trees{'center'}{'contents'}[0]{'contents'}[21]{'parent'} = $result_trees{'center'}{'contents'}[0];
 $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'args'}[0];
@@ -1488,7 +1484,6 @@ $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'args'}[0]
 $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'contents'}[1];
 $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[22];
 $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'extra'}{'command_as_argument'} = $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'args'}[0]{'contents'}[0];
-$result_trees{'center'}{'contents'}[0]{'contents'}[22]{'extra'}{'end_command'} = $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'contents'}[1];
 $result_trees{'center'}{'contents'}[0]{'contents'}[22]{'parent'} = $result_trees{'center'}{'contents'}[0];
 $result_trees{'center'}{'contents'}[0]{'contents'}[23]{'parent'} = $result_trees{'center'}{'contents'}[0];
 $result_trees{'center'}{'contents'}[0]{'contents'}[24]{'contents'}[0]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[24];
@@ -1546,7 +1541,6 @@ $result_trees{'center'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'parent'} 
 $result_trees{'center'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'args'}[0];
 $result_trees{'center'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[33]{'contents'}[1];
 $result_trees{'center'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[33];
-$result_trees{'center'}{'contents'}[0]{'contents'}[33]{'extra'}{'end_command'} = $result_trees{'center'}{'contents'}[0]{'contents'}[33]{'contents'}[1];
 $result_trees{'center'}{'contents'}[0]{'contents'}[33]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'center'}{'contents'}[0]{'contents'}[33]{'args'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'center'}{'contents'}[0]{'contents'}[33]{'extra'}{'prototypes'}[1]{'contents'}[0] = $result_trees{'center'}{'contents'}[0]{'contents'}[33]{'args'}[0]{'contents'}[2]{'contents'}[0];
 $result_trees{'center'}{'contents'}[0]{'contents'}[33]{'parent'} = $result_trees{'center'}{'contents'}[0];
