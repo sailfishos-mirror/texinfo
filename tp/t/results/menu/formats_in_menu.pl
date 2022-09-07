@@ -326,7 +326,6 @@ $result_trees{'formats_in_menu'} = {
                           'type' => 'raw'
                         }
                       ],
-                      'extra' => {},
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

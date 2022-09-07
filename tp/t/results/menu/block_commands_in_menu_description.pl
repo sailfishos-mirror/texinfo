@@ -504,7 +504,6 @@ $result_trees{'block_commands_in_menu_description'} = {
                           'type' => 'raw'
                         }
                       ],
-                      'extra' => {},
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

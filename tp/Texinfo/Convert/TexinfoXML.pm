@@ -1351,7 +1351,14 @@ sub _convert($$;$)
       if ($self->{'expanded_formats_hash'}->{$element->{'cmdname'}}) {
         $self->{'document_context'}->[-1]->{'raw'} = 1;
       } else {
-        my $end_command = $element->{'extra'}->{'end_command'};
+        my $end_command;
+        if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0
+            # TODO when the raw commands have a proper end comment, the following
+            # will become true and code may need to change
+            and $element->{'contents'}->[-1]->{'cmdname'}
+            and $element->{'contents'}->[-1]->{'cmdname'} eq 'end') {
+          $end_command = $element->{'contents'}->[-1];
+        }
         my $end_command_space = [_leading_spaces_before_argument($end_command)];
         if (scalar(@$end_command_space)) {
           $end_command_space->[0] = 'endspaces';
@@ -1681,8 +1688,12 @@ sub _convert($$;$)
       and exists($Texinfo::Common::block_commands{$element->{'cmdname'}})) {
     if ($self->{'expanded_formats_hash'}->{$element->{'cmdname'}}) {
     } else {
-      my $end_command = $element->{'extra'}->{'end_command'};
-      if ($end_command) {
+      if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0
+          # TODO when the raw commands have a proper end comment, the following
+          # will become true and code may need to change
+          and $element->{'contents'}->[-1]->{'cmdname'}
+          and $element->{'contents'}->[-1]->{'cmdname'} eq 'end') {
+        my $end_command = $element->{'contents'}->[-1];
         $result .= _end_line_spaces($self, $end_command);
         $result .= $self->format_comment_or_return_end_line($end_command);
       }

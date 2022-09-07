@@ -1101,7 +1101,6 @@ $result_trees{'commands_and_spaces'} = {
               'type' => 'raw'
             }
           ],
-          'extra' => {},
           'parent' => {},
           'source_info' => {
             'file_name' => '',

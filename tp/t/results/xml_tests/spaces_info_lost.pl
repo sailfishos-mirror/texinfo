@@ -105,7 +105,6 @@ $result_trees{'spaces_info_lost'} = {
               'type' => 'raw'
             }
           ],
-          'extra' => {},
           'parent' => {},
           'source_info' => {
             'file_name' => '',
