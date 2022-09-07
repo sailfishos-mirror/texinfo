@@ -178,10 +178,8 @@ close_command_cleanup (ELEMENT *current)
       if (before_item)
         {
           /* Reparent @end from a ET_before_item to the block command */
-          KEY_PAIR *k = lookup_extra (current, "end_command");
-          ELEMENT *e = k ? k->value : 0;
-          if (k && last_contents_child (before_item)
-              && last_contents_child (before_item) == e)
+          ELEMENT *e = last_contents_child (before_item);
+          if (e && e->cmd == CM_end)
             {
               add_to_element_contents (current,
                                      pop_element_from_contents (before_item));

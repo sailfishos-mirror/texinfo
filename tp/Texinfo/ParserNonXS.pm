@@ -1717,9 +1717,11 @@ sub _close_command_cleanup($$) {
         $before_item = $current->{'contents'}->[0];
       }
       if ($before_item) {
-        if ($current->{'extra'}->{'end_command'}
+        if ($before_item->{'contents'}
+            and scalar(@{$before_item->{'contents'}}) > 0
             and @{$before_item->{'contents'}}
-  and $before_item->{'contents'}->[-1] eq $current->{'extra'}->{'end_command'}) {
+            and $before_item->{'contents'}->[-1]->{'cmdname'}
+            and $before_item->{'contents'}->[-1]->{'cmdname'} eq 'end') {
           my $end = pop @{$before_item->{'contents'}};
           $end->{'parent'} = $current;
           push @{$current->{'contents'}}, $end;

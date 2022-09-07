@@ -1,5 +1,13 @@
 2022-09-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_close_command_cleanup),
+	tp/Texinfo/XS/parsetexi/close.c (close_command_cleanup):
+	detect @end as being the last content to reparent from
+	before_item to parent command, instead of using extra key
+	end_command.
+
+2022-09-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoXML.pm (_convert): instead of
 	extra key end_command, determine the end command of a block
 	command as the last in contents.
