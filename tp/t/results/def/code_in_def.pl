@@ -229,7 +229,6 @@ $result_trees{'code_in_def'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypefn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
               },

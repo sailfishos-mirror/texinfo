@@ -87,7 +87,6 @@ $result_trees{'macro_in_end_argument'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'cartouche',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'cartouche'
               },

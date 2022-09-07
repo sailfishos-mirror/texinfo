@@ -83,7 +83,6 @@ $result_trees{'complete_macro_for_end'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'cartouche',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'cartouche'
               },

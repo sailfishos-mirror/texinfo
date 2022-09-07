@@ -47,7 +47,6 @@ $result_trees{'text_on_example_command_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -125,7 +124,6 @@ $result_trees{'text_on_example_command_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -198,7 +196,6 @@ $result_trees{'text_on_example_command_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example text after end'
               },
@@ -273,7 +270,6 @@ $result_trees{'text_on_example_command_line'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'example',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'example text after end example nested in example'
                   },
@@ -314,7 +310,6 @@ $result_trees{'text_on_example_command_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

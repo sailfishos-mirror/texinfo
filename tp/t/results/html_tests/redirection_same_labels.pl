@@ -292,7 +292,6 @@ $result_trees{'redirection_same_labels'} = [
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'menu',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },
@@ -598,7 +597,6 @@ $result_trees{'redirection_same_labels'} = [
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'menu',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },
@@ -961,7 +959,6 @@ $result_trees{'redirection_same_labels'} = [
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'menu',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },

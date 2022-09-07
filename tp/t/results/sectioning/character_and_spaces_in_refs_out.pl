@@ -226,7 +226,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'menu',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },
@@ -1474,7 +1473,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'menu',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },

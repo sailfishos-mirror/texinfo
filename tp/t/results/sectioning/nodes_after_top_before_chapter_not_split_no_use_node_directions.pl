@@ -195,7 +195,6 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

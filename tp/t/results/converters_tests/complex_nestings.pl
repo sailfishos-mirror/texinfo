@@ -1038,7 +1038,6 @@ $result_trees{'complex_nestings'} = {
                                           ],
                                           'cmdname' => 'end',
                                           'extra' => {
-                                            'command_argument' => 'table',
                                             'spaces_before_argument' => ' ',
                                             'text_arg' => 'table'
                                           },
@@ -1102,7 +1101,6 @@ $result_trees{'complex_nestings'} = {
                                   ],
                                   'cmdname' => 'end',
                                   'extra' => {
-                                    'command_argument' => 'defvar',
                                     'spaces_before_argument' => ' ',
                                     'text_arg' => 'defvar'
                                   },
@@ -1148,7 +1146,6 @@ $result_trees{'complex_nestings'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'deffn',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'deffn'
                           },
@@ -1194,7 +1191,6 @@ $result_trees{'complex_nestings'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'defun',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'defun'
                   },
@@ -1248,7 +1244,6 @@ $result_trees{'complex_nestings'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

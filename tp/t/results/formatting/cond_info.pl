@@ -130,7 +130,6 @@ $result_trees{'cond_info'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'html',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'html'
               },
@@ -244,7 +243,6 @@ $result_trees{'cond_info'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'tex',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'tex'
               },

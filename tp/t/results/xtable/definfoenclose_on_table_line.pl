@@ -183,7 +183,6 @@ $result_trees{'definfoenclose_on_table_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },

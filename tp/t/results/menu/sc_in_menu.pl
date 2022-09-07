@@ -391,7 +391,6 @@ $result_trees{'sc_in_menu'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'example',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'example'
                       },
@@ -436,7 +435,6 @@ $result_trees{'sc_in_menu'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -768,7 +766,6 @@ $result_trees{'sc_in_menu'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'menu',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'menu'
                   },
@@ -809,7 +806,6 @@ $result_trees{'sc_in_menu'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

@@ -150,7 +150,6 @@ $result_trees{'heading_command_in_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -239,7 +238,6 @@ $result_trees{'heading_command_in_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },

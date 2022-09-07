@@ -454,7 +454,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -649,7 +648,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -921,7 +919,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -1250,7 +1247,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -1616,7 +1612,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -2119,7 +2114,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -2625,7 +2619,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -2991,7 +2984,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -3571,7 +3563,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -3843,7 +3834,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -4115,7 +4105,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -4387,7 +4376,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -4753,7 +4741,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

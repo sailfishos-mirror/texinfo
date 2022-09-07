@@ -192,7 +192,6 @@ $result_trees{'empty_deftypeop_name'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypeop',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
               },

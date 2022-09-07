@@ -144,7 +144,6 @@ $result_trees{'submenu_in_example'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'menu',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },
@@ -234,7 +233,6 @@ $result_trees{'submenu_in_example'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'menu',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },
@@ -334,7 +332,6 @@ $result_trees{'submenu_in_example'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'command_argument' => 'quotation',
                                 'spaces_before_argument' => ' ',
                                 'text_arg' => 'quotation'
                               },
@@ -379,7 +376,6 @@ $result_trees{'submenu_in_example'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'menu',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },
@@ -514,7 +510,6 @@ $result_trees{'submenu_in_example'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'enumerate',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'enumerate'
                           },
@@ -572,7 +567,6 @@ $result_trees{'submenu_in_example'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'menu',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'menu'
                   },
@@ -613,7 +607,6 @@ $result_trees{'submenu_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

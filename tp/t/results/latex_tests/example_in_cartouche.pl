@@ -75,7 +75,6 @@ $result_trees{'example_in_cartouche'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'cartouche',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'cartouche'
               },
@@ -166,7 +165,6 @@ $result_trees{'example_in_cartouche'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'example',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'example'
                   },
@@ -207,7 +205,6 @@ $result_trees{'example_in_cartouche'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'cartouche',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'cartouche'
               },

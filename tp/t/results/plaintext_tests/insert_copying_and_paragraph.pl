@@ -53,7 +53,6 @@ $result_trees{'insert_copying_and_paragraph'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'copying',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
               },

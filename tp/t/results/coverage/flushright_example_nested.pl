@@ -73,7 +73,6 @@ $result_trees{'flushright_example_nested'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'flushright',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'flushright'
                   },
@@ -114,7 +113,6 @@ $result_trees{'flushright_example_nested'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -211,7 +209,6 @@ $result_trees{'flushright_example_nested'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'example',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'example'
                   },
@@ -252,7 +249,6 @@ $result_trees{'flushright_example_nested'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'flushright',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'flushright'
               },

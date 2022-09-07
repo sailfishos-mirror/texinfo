@@ -129,7 +129,6 @@ $result_trees{'caption_not_closed'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },

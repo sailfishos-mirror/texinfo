@@ -142,7 +142,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defvr',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defvr'
               },
@@ -297,7 +296,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
@@ -437,7 +435,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
@@ -608,7 +605,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypefn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
               },
@@ -764,7 +760,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypefn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
               },
@@ -957,7 +952,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypeop',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
               },
@@ -1135,7 +1129,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypeop',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
               },
@@ -1291,7 +1284,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypevr',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypevr'
               },
@@ -1447,7 +1439,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defcv',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defcv'
               },
@@ -1618,7 +1609,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defcv',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defcv'
               },
@@ -1796,7 +1786,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypecv',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
               },
@@ -1989,7 +1978,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypecv',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
               },
@@ -2166,7 +2154,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defop',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defop'
               },
@@ -2328,7 +2315,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defop',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defop'
               },
@@ -2483,7 +2469,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftp',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftp'
               },
@@ -2644,7 +2629,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defun',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defun'
               },
@@ -2805,7 +2789,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defmac',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defmac'
               },
@@ -2966,7 +2949,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defspec',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defspec'
               },
@@ -3112,7 +3094,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defvar',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defvar'
               },
@@ -3288,7 +3269,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defvar',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defvar'
               },
@@ -3434,7 +3414,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defopt',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defopt'
               },
@@ -3611,7 +3590,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypefun',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefun'
               },
@@ -3773,7 +3751,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypevar',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypevar'
               },
@@ -3941,7 +3918,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defivar',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defivar'
               },
@@ -4125,7 +4101,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypeivar',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeivar'
               },
@@ -4308,7 +4283,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defmethod',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defmethod'
               },
@@ -4507,7 +4481,6 @@ $result_trees{'all_commands_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypemethod',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypemethod'
               },

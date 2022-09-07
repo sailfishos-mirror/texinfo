@@ -363,7 +363,6 @@ $result_trees{'top_node_up_explicit'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

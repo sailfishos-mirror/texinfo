@@ -162,7 +162,6 @@ $result_trees{'accent_on_table_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -352,7 +351,6 @@ $result_trees{'accent_on_table_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },

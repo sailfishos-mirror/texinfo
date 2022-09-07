@@ -353,7 +353,6 @@ $result_trees{'invalid_node_name_warning'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

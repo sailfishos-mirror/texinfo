@@ -399,7 +399,6 @@ $result_trees{'omit_def_space'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defun',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defun'
               },

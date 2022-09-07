@@ -75,7 +75,6 @@ $result_trees{'format_in_titlepage_titlepage'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'format',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'format'
                       },
@@ -122,7 +121,6 @@ $result_trees{'format_in_titlepage_titlepage'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'titlepage',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
                   },

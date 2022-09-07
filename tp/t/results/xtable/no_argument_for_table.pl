@@ -105,7 +105,6 @@ $result_trees{'no_argument_for_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },

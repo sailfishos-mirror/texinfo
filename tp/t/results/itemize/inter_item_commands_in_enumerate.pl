@@ -250,7 +250,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
@@ -397,7 +396,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
@@ -538,7 +536,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
@@ -679,7 +676,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
@@ -825,7 +821,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
@@ -1060,7 +1055,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },

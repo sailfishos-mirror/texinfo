@@ -225,7 +225,6 @@ $result_trees{'defcondx_Ubar'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },

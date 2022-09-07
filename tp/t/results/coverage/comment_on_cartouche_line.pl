@@ -69,7 +69,6 @@ $result_trees{'comment_on_cartouche_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'cartouche',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'cartouche'
               },

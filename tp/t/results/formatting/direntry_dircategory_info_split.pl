@@ -267,7 +267,6 @@ $result_trees{'direntry_dircategory_info_split'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'direntry',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
               },
@@ -447,7 +446,6 @@ $result_trees{'direntry_dircategory_info_split'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'direntry',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
               },
@@ -703,7 +701,6 @@ $result_trees{'direntry_dircategory_info_split'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'direntry',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
               },
@@ -821,7 +818,6 @@ $result_trees{'direntry_dircategory_info_split'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

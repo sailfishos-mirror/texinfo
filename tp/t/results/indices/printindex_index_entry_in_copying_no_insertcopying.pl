@@ -305,7 +305,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'defun',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'defun'
                       },
@@ -471,7 +470,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'ftable',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'ftable'
                       },
@@ -557,7 +555,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'copying',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
@@ -766,7 +763,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

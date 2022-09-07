@@ -1,5 +1,15 @@
 2022-09-07  Patrice Dumas  <pertusus@free.fr>
 
+	Remove command_argument extra key
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line), 
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/Structuring.pm (new_block_command): remove
+	'command_argument' extra @end command element key, it is
+	redundant.
+
+2022-09-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (new_block_command): do a tree with
 	spaces_after/before_argument instead of text space types.
 

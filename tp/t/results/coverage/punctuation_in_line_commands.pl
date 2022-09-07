@@ -171,7 +171,6 @@ $result_trees{'punctuation_in_line_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -278,7 +277,6 @@ $result_trees{'punctuation_in_line_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
@@ -403,7 +401,6 @@ $result_trees{'punctuation_in_line_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
@@ -540,7 +537,6 @@ $result_trees{'punctuation_in_line_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },

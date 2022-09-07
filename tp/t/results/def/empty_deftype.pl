@@ -208,7 +208,6 @@ $result_trees{'empty_deftype'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypefun',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefun'
               },
@@ -414,7 +413,6 @@ $result_trees{'empty_deftype'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defun',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defun'
               },
@@ -664,7 +662,6 @@ $result_trees{'empty_deftype'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypemethod',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypemethod'
               },
@@ -892,7 +889,6 @@ $result_trees{'empty_deftype'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defmethod',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defmethod'
               },

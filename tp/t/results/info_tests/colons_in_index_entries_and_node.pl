@@ -235,7 +235,6 @@ $result_trees{'colons_in_index_entries_and_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -531,7 +530,6 @@ $result_trees{'colons_in_index_entries_and_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

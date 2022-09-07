@@ -591,7 +591,6 @@ $result_trees{'float_copying'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'float',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'float'
                       },
@@ -644,7 +643,6 @@ $result_trees{'float_copying'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'copying',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
@@ -1010,7 +1008,6 @@ $result_trees{'float_copying'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

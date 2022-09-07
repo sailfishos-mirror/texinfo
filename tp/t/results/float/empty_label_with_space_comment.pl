@@ -74,7 +74,6 @@ $result_trees{'empty_label_with_space_comment'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },

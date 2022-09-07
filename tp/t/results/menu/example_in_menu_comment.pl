@@ -149,7 +149,6 @@ $result_trees{'example_in_menu_comment'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'example',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'example'
                       },
@@ -217,7 +216,6 @@ $result_trees{'example_in_menu_comment'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

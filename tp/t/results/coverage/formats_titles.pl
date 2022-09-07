@@ -92,7 +92,6 @@ $result_trees{'formats_titles'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -197,7 +196,6 @@ $result_trees{'formats_titles'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
@@ -328,7 +326,6 @@ $result_trees{'formats_titles'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -471,7 +468,6 @@ $result_trees{'formats_titles'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'vtable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'vtable'
               },
@@ -646,7 +642,6 @@ $result_trees{'formats_titles'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },

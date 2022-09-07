@@ -443,7 +443,6 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -638,7 +637,6 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -967,7 +965,6 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

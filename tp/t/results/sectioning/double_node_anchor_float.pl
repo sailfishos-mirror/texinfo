@@ -253,7 +253,6 @@ $result_trees{'double_node_anchor_float'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
@@ -337,7 +336,6 @@ $result_trees{'double_node_anchor_float'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
@@ -421,7 +419,6 @@ $result_trees{'double_node_anchor_float'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },

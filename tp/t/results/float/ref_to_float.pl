@@ -74,7 +74,6 @@ $result_trees{'ref_to_float'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
@@ -168,7 +167,6 @@ $result_trees{'ref_to_float'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },

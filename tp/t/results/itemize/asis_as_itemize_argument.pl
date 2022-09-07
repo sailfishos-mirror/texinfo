@@ -80,7 +80,6 @@ $result_trees{'asis_as_itemize_argument'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },

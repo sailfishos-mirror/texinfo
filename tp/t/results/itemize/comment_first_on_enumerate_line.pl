@@ -84,7 +84,6 @@ $result_trees{'comment_first_on_enumerate_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },

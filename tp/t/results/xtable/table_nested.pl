@@ -494,7 +494,6 @@ $result_trees{'table_nested'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'vtable',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'vtable'
                   },
@@ -694,7 +693,6 @@ $result_trees{'table_nested'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'table',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
@@ -748,7 +746,6 @@ $result_trees{'table_nested'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
@@ -1096,7 +1093,6 @@ $result_trees{'table_nested'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'vtable',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'vtable'
                   },
@@ -1296,7 +1292,6 @@ $result_trees{'table_nested'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'table',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
@@ -1350,7 +1345,6 @@ $result_trees{'table_nested'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -1712,7 +1706,6 @@ $result_trees{'table_nested'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'vtable',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'vtable'
                       },
@@ -1912,7 +1905,6 @@ $result_trees{'table_nested'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'table',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'table'
                       },
@@ -1966,7 +1958,6 @@ $result_trees{'table_nested'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -2007,7 +1998,6 @@ $result_trees{'table_nested'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },

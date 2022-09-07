@@ -264,7 +264,6 @@ $result_trees{'documentdescription'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'documentdescription',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'documentdescription'
               },

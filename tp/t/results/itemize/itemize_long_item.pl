@@ -121,7 +121,6 @@ $result_trees{'itemize_long_item'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'example',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'example'
                       },
@@ -256,7 +255,6 @@ $result_trees{'itemize_long_item'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'example',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'example'
                       },
@@ -345,7 +343,6 @@ $result_trees{'itemize_long_item'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'quotation',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'quotation'
                       },
@@ -446,7 +443,6 @@ $result_trees{'itemize_long_item'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'quotation',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'quotation'
                       },
@@ -498,7 +494,6 @@ $result_trees{'itemize_long_item'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },

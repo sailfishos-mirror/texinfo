@@ -105,7 +105,6 @@ $result_trees{'long_uref_after_item'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },

@@ -75,7 +75,6 @@ $result_trees{'style_not_closed_in_block_command'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'cartouche',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'cartouche'
               },

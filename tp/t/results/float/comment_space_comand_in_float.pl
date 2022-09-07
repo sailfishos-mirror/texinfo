@@ -127,7 +127,6 @@ $result_trees{'comment_space_comand_in_float'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },

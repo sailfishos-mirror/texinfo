@@ -53,7 +53,6 @@ $result_trees{'paragraph_count_and_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

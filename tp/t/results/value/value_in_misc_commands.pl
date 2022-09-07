@@ -1117,7 +1117,6 @@ $result_trees{'value_in_misc_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

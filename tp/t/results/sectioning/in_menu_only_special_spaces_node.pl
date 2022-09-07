@@ -437,7 +437,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
               ],
               "cmdname" => "end",
               "extra" => {
-                "command_argument" => "menu",
                 "spaces_before_argument" => " ",
                 "text_arg" => "menu"
               },

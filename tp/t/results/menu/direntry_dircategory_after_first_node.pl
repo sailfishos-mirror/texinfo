@@ -219,7 +219,6 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'direntry',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
               },

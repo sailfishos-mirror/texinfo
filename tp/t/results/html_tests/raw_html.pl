@@ -53,7 +53,6 @@ $result_trees{'raw_html'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'html',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'html'
               },

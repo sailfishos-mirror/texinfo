@@ -221,7 +221,6 @@ $result_trees{'simple'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defivar',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defivar'
               },

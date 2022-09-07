@@ -70,7 +70,6 @@ $result_trees{'preformatted'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -231,7 +230,6 @@ $result_trees{'preformatted'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'vtable',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'vtable'
                   },
@@ -274,7 +272,6 @@ $result_trees{'preformatted'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'format',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'format'
               },

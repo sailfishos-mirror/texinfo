@@ -276,7 +276,6 @@ $result_trees{'empty_headitem'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },

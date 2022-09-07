@@ -58,7 +58,6 @@ $result_trees{'misc_raw'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'html',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'html'
               },
@@ -124,7 +123,6 @@ $result_trees{'misc_raw'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'tex',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'tex'
               },

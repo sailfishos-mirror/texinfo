@@ -628,7 +628,6 @@ $result_trees{'test_image'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'copying',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
               },
@@ -1794,7 +1793,6 @@ $result_trees{'test_image'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -2938,7 +2936,6 @@ $result_trees{'test_image'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },

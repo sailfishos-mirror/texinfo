@@ -63,7 +63,6 @@ $result_trees{'format_on_first_footnote_line'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'quotation',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'quotation'
                           },
@@ -168,7 +167,6 @@ $result_trees{'format_on_first_footnote_line'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'example',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'example'
                           },

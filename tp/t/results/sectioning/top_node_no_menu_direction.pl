@@ -184,7 +184,6 @@ $result_trees{'top_node_no_menu_direction'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

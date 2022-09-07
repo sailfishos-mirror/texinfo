@@ -99,7 +99,6 @@ $result_trees{'quotation_and_author'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
@@ -220,7 +219,6 @@ $result_trees{'quotation_and_author'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'smallquotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'smallquotation'
               },
@@ -329,7 +327,6 @@ $result_trees{'quotation_and_author'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },

@@ -92,7 +92,6 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'titlepage',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
                   },

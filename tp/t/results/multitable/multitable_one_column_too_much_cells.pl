@@ -304,7 +304,6 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },

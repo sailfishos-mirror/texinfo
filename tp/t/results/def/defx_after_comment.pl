@@ -269,7 +269,6 @@ $result_trees{'defx_after_comment'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },

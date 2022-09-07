@@ -119,7 +119,6 @@ $result_trees{'email_table_command_as_argument'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },

@@ -197,7 +197,6 @@ $result_trees{'protect_spaces_on_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },

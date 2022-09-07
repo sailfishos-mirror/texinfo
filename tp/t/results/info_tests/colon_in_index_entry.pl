@@ -219,7 +219,6 @@ $result_trees{'colon_in_index_entry'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'vtable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'vtable'
               },
@@ -536,7 +535,6 @@ $result_trees{'colon_in_index_entry'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defvr',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defvr'
               },

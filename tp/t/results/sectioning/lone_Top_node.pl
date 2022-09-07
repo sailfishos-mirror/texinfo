@@ -170,7 +170,6 @@ $result_trees{'lone_Top_node'} = [
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'menu',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },

@@ -94,7 +94,6 @@ $result_trees{'sp_with_text_before_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

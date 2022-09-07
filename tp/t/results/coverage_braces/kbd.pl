@@ -278,7 +278,6 @@ $result_trees{'kbd'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -402,7 +401,6 @@ $result_trees{'kbd'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'format',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'format'
               },

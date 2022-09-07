@@ -145,7 +145,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'copying',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
@@ -606,7 +605,6 @@ $result_trees{'references_to_top_no_top_output'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
@@ -1197,7 +1195,6 @@ $result_trees{'references_to_top_no_top_output'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },

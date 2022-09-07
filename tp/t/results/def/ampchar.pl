@@ -188,7 +188,6 @@ $result_trees{'ampchar'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defop',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defop'
               },

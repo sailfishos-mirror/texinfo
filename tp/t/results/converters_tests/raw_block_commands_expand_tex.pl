@@ -63,7 +63,6 @@ $result_trees{'raw_block_commands_expand_tex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'html',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'html'
               },
@@ -139,7 +138,6 @@ $result_trees{'raw_block_commands_expand_tex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'xml',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'xml'
               },
@@ -215,7 +213,6 @@ $result_trees{'raw_block_commands_expand_tex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'docbook',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'docbook'
               },
@@ -332,7 +329,6 @@ $result_trees{'raw_block_commands_expand_tex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'tex',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'tex'
               },
@@ -457,7 +453,6 @@ $result_trees{'raw_block_commands_expand_tex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'latex',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'latex'
               },

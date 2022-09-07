@@ -523,7 +523,6 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

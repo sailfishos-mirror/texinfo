@@ -151,7 +151,6 @@ $result_trees{'mathjax_with_texinfo_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'displaymath',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'displaymath'
               },

@@ -553,7 +553,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'deffn',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'deffn'
                   },
@@ -595,7 +594,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

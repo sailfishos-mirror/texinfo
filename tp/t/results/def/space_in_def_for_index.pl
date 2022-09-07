@@ -311,7 +311,6 @@ $result_trees{'space_in_def_for_index'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },

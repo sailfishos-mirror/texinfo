@@ -282,7 +282,6 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'deffn',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'deffn'
                           },

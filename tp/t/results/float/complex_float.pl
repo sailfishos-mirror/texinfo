@@ -236,7 +236,6 @@ $result_trees{'complex_float'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -527,7 +526,6 @@ $result_trees{'complex_float'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'table',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
@@ -644,7 +642,6 @@ $result_trees{'complex_float'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'itemize',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'itemize'
                   },
@@ -1127,7 +1124,6 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'example',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'example'
                           },
@@ -1308,7 +1304,6 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'table',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'table'
                           },
@@ -1533,7 +1528,6 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'multitable',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'multitable'
                           },
@@ -1716,7 +1710,6 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'itemize',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'itemize'
                           },
@@ -2448,7 +2441,6 @@ $result_trees{'complex_float'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
@@ -2705,7 +2697,6 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'example',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'example'
                           },
@@ -2846,7 +2837,6 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'table',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'table'
                           },
@@ -3071,7 +3061,6 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'multitable',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'multitable'
                           },
@@ -3254,7 +3243,6 @@ $result_trees{'complex_float'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'itemize',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'itemize'
                           },
@@ -3734,7 +3722,6 @@ $result_trees{'complex_float'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },

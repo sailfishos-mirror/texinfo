@@ -68,7 +68,6 @@ $result_trees{'no_category_or_no_name'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
@@ -188,7 +187,6 @@ $result_trees{'no_category_or_no_name'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
@@ -422,7 +420,6 @@ $result_trees{'no_category_or_no_name'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },

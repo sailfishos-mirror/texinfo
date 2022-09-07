@@ -126,7 +126,6 @@ $result_trees{'ref_in_copying'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'copying',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
@@ -341,7 +340,6 @@ $result_trees{'ref_in_copying'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

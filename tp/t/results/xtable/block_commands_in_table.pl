@@ -294,7 +294,6 @@ $result_trees{'block_commands_in_table'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'example',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'example'
                           },
@@ -469,7 +468,6 @@ $result_trees{'block_commands_in_table'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'quotation',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'quotation'
                           },
@@ -593,7 +591,6 @@ $result_trees{'block_commands_in_table'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'quotation',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'quotation'
                           },
@@ -642,7 +639,6 @@ $result_trees{'block_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -897,7 +893,6 @@ $result_trees{'block_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'vtable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'vtable'
               },
@@ -1099,7 +1094,6 @@ $result_trees{'block_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'vtable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'vtable'
               },
@@ -1299,7 +1293,6 @@ $result_trees{'block_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },

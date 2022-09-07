@@ -266,7 +266,6 @@ $result_trees{'table_in_itemize'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'table',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'table'
                       },
@@ -342,7 +341,6 @@ $result_trees{'table_in_itemize'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },

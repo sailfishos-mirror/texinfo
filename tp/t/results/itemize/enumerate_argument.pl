@@ -47,7 +47,6 @@ $result_trees{'enumerate_argument'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
@@ -131,7 +130,6 @@ $result_trees{'enumerate_argument'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
@@ -216,7 +214,6 @@ $result_trees{'enumerate_argument'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },

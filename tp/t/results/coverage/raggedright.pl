@@ -59,7 +59,6 @@ $result_trees{'raggedright'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'raggedright',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'raggedright'
               },

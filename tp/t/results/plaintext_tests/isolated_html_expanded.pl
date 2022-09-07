@@ -59,7 +59,6 @@ $result_trees{'isolated_html_expanded'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'html',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'html'
               },

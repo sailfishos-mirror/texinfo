@@ -70,7 +70,6 @@ $result_trees{'expanded_tex'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'tex',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'tex'
                   },

@@ -96,7 +96,6 @@ $result_trees{'quotation_author_in_example'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -140,7 +139,6 @@ $result_trees{'quotation_author_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

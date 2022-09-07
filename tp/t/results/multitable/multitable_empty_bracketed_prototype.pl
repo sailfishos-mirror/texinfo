@@ -68,7 +68,6 @@ $result_trees{'multitable_empty_bracketed_prototype'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },

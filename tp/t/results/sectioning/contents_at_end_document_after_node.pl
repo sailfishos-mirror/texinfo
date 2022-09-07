@@ -234,7 +234,6 @@ $result_trees{'contents_at_end_document_after_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

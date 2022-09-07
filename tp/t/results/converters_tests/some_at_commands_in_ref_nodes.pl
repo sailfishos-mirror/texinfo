@@ -474,7 +474,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

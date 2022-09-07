@@ -292,7 +292,6 @@ $result_trees{'multitable_two_columns_too_much_cells'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },

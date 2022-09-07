@@ -441,7 +441,6 @@ $result_trees{'multiline_image_and_align'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'flushright',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'flushright'
               },
@@ -1173,7 +1172,6 @@ $result_trees{'multiline_image_and_align'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'flushright',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'flushright'
               },

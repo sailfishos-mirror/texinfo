@@ -60,7 +60,6 @@ $result_trees{'html_expanded'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'html',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'html'
                   },

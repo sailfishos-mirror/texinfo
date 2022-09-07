@@ -236,7 +236,6 @@ $result_trees{'multiple_in_preamble'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'defivar',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'defivar'
                       },
@@ -278,7 +277,6 @@ $result_trees{'multiple_in_preamble'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'copying',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
@@ -668,7 +666,6 @@ $result_trees{'multiple_in_preamble'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defivar',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defivar'
               },
@@ -874,7 +871,6 @@ $result_trees{'multiple_in_preamble'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defivar',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defivar'
               },

@@ -43,7 +43,6 @@ $result_trees{'group_beginning_and_end_on_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },

@@ -69,7 +69,6 @@ $result_trees{'comment_on_group_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },

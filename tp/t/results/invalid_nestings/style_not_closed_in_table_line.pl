@@ -177,7 +177,6 @@ $result_trees{'style_not_closed_in_table_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },

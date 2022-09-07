@@ -222,7 +222,6 @@ $result_trees{'example_at_commands_arguments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

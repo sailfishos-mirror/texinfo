@@ -584,7 +584,6 @@ $result_trees{'invalid_info_menu_entry'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

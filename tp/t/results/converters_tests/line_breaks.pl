@@ -61,7 +61,6 @@ $result_trees{'line_breaks'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'documentdescription',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'documentdescription'
               },
@@ -355,7 +354,6 @@ $result_trees{'line_breaks'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -442,7 +440,6 @@ $result_trees{'line_breaks'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },

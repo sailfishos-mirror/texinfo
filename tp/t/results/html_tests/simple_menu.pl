@@ -207,7 +207,6 @@ $result_trees{'simple_menu'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'command_argument' => 'itemize',
                                 'spaces_before_argument' => ' ',
                                 'text_arg' => 'itemize'
                               },
@@ -276,7 +275,6 @@ $result_trees{'simple_menu'} = {
                                   ],
                                   'cmdname' => 'end',
                                   'extra' => {
-                                    'command_argument' => 'html',
                                     'spaces_before_argument' => ' ',
                                     'text_arg' => 'html'
                                   },
@@ -415,7 +413,6 @@ $result_trees{'simple_menu'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'itemize',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'itemize'
                   },
@@ -490,7 +487,6 @@ $result_trees{'simple_menu'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'html',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'html'
                       },
@@ -599,7 +595,6 @@ $result_trees{'simple_menu'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'itemize',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'itemize'
                   },
@@ -976,7 +971,6 @@ $result_trees{'simple_menu'} = {
                                   ],
                                   'cmdname' => 'end',
                                   'extra' => {
-                                    'command_argument' => 'itemize',
                                     'spaces_before_argument' => ' ',
                                     'text_arg' => 'itemize'
                                   },
@@ -1045,7 +1039,6 @@ $result_trees{'simple_menu'} = {
                                       ],
                                       'cmdname' => 'end',
                                       'extra' => {
-                                        'command_argument' => 'html',
                                         'spaces_before_argument' => ' ',
                                         'text_arg' => 'html'
                                       },
@@ -1184,7 +1177,6 @@ $result_trees{'simple_menu'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'itemize',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'itemize'
                       },
@@ -1259,7 +1251,6 @@ $result_trees{'simple_menu'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'html',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'html'
                           },
@@ -1368,7 +1359,6 @@ $result_trees{'simple_menu'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'itemize',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'itemize'
                       },
@@ -1637,7 +1627,6 @@ $result_trees{'simple_menu'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'detailmenu',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'detailmenu'
                   },
@@ -1678,7 +1667,6 @@ $result_trees{'simple_menu'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

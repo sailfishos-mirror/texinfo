@@ -354,7 +354,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
@@ -612,7 +611,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
@@ -906,7 +904,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
@@ -5105,7 +5102,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defspec',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defspec'
               },
@@ -7235,7 +7231,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defspec',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defspec'
               },
@@ -8357,7 +8352,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
@@ -10020,7 +10014,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defspec',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defspec'
               },
@@ -10376,7 +10369,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypefn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
               },
@@ -10768,7 +10760,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypefn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
               },
@@ -10983,7 +10974,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defcv',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defcv'
               },
@@ -11207,7 +11197,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypecv',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
               },
@@ -11577,7 +11566,6 @@ $result_trees{'definition_commands'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'deftypefn',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'deftypefn'
                   },
@@ -11619,7 +11607,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
@@ -11883,7 +11870,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defun',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defun'
               },
@@ -12162,7 +12148,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defun',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defun'
               },
@@ -12660,7 +12645,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
@@ -17306,7 +17290,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypefn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
               },
@@ -21566,7 +21549,6 @@ $result_trees{'definition_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypefn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
               },

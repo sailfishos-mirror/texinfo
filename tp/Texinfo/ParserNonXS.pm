@@ -3306,8 +3306,6 @@ sub _end_line($$$)
                   $end_command = undef;
                 }
               }
-              $current->{'extra'}->{'command_argument'} = $end_command
-                if (defined($end_command));
             }
             # non ascii spaces are also superfluous arguments
             if (($superfluous_arg or $line =~ /\S/)
@@ -7428,7 +7426,6 @@ The corresponding command is in I<spaces_associated_command>.
 
 =item C<@end>
 
-The textual argument is in I<command_argument>.
 The corresponding @-command is in I<command>.
 
 =item C<@enumerate>

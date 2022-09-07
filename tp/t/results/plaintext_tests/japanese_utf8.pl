@@ -390,7 +390,6 @@ $result_trees{'japanese_utf8'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'copying',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
               },
@@ -588,7 +587,6 @@ $result_trees{'japanese_utf8'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

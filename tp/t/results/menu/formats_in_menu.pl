@@ -196,7 +196,6 @@ $result_trees{'formats_in_menu'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'table',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'table'
                           },
@@ -456,7 +455,6 @@ $result_trees{'formats_in_menu'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'command_argument' => 'html',
                                 'spaces_before_argument' => ' ',
                                 'text_arg' => 'html'
                               },
@@ -662,7 +660,6 @@ $result_trees{'formats_in_menu'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'example',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'example'
                       },
@@ -719,7 +716,6 @@ $result_trees{'formats_in_menu'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

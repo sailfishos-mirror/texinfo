@@ -134,7 +134,6 @@ $result_trees{'node_up_external_node'} = [
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'menu',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },

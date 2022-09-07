@@ -254,7 +254,6 @@ $result_trees{'empty_string_index_entry'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'ftable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ftable'
               },
@@ -596,7 +595,6 @@ $result_trees{'empty_string_index_entry'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defun',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defun'
               },

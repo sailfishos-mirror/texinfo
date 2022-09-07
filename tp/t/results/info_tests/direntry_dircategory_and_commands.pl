@@ -202,7 +202,6 @@ $result_trees{'direntry_dircategory_and_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'direntry',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
               },
@@ -382,7 +381,6 @@ $result_trees{'direntry_dircategory_and_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'direntry',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
               },

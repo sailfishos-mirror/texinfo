@@ -261,7 +261,6 @@ $result_trees{'nodes_after_top_before_chapter_use_nodes_chapter'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

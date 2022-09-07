@@ -72,7 +72,6 @@ $result_trees{'two_paragraphindent_in_preamble'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'copying',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },

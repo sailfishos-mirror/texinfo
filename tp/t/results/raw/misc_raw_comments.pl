@@ -90,7 +90,6 @@ $result_trees{'misc_raw_comments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'html',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'html'
               },
@@ -174,7 +173,6 @@ $result_trees{'misc_raw_comments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'tex',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'tex'
               },

@@ -349,7 +349,6 @@ $result_trees{'nested_itemize'} = {
                                       ],
                                       'cmdname' => 'end',
                                       'extra' => {
-                                        'command_argument' => 'itemize',
                                         'spaces_before_argument' => ' ',
                                         'text_arg' => 'itemize'
                                       },
@@ -403,7 +402,6 @@ $result_trees{'nested_itemize'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'command_argument' => 'itemize',
                                 'spaces_before_argument' => ' ',
                                 'text_arg' => 'itemize'
                               },
@@ -457,7 +455,6 @@ $result_trees{'nested_itemize'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'itemize',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'itemize'
                       },
@@ -511,7 +508,6 @@ $result_trees{'nested_itemize'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },

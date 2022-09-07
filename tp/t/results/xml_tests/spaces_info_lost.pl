@@ -58,7 +58,6 @@ $result_trees{'spaces_info_lost'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'display',
                 'spaces_before_argument' => '  ',
                 'text_arg' => 'display'
               },

@@ -296,7 +296,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -422,7 +421,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -566,7 +564,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'table',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
@@ -686,7 +683,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'table',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
@@ -730,7 +726,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -904,7 +899,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -1030,7 +1024,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -1171,7 +1164,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'table',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
@@ -1287,7 +1279,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'table',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
@@ -1330,7 +1321,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -1501,7 +1491,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -1623,7 +1612,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -1763,7 +1751,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'table',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
@@ -1879,7 +1866,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'table',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
@@ -1922,7 +1908,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

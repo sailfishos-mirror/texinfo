@@ -90,7 +90,6 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },

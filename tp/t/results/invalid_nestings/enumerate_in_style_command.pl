@@ -102,7 +102,6 @@ $result_trees{'enumerate_in_style_command'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },

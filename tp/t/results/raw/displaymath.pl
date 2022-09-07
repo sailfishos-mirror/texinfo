@@ -85,7 +85,6 @@ $result_trees{'displaymath'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'displaymath',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'displaymath'
               },
@@ -200,7 +199,6 @@ $result_trees{'displaymath'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'displaymath',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'displaymath'
               },

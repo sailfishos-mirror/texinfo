@@ -383,7 +383,6 @@ $result_trees{'def_in_copying'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'deffn',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'deffn'
                   },
@@ -425,7 +424,6 @@ $result_trees{'def_in_copying'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'copying',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
               },
@@ -679,7 +677,6 @@ $result_trees{'def_in_copying'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },

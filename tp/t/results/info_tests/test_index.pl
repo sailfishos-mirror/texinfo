@@ -741,7 +741,6 @@ $result_trees{'test_index'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
@@ -994,7 +993,6 @@ $result_trees{'test_index'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'ftable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ftable'
               },
@@ -1171,7 +1169,6 @@ $result_trees{'test_index'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

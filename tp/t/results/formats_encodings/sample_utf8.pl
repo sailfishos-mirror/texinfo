@@ -225,7 +225,6 @@ $result_trees{'sample_utf8'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'copying',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
@@ -372,7 +371,6 @@ $result_trees{'sample_utf8'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'titlepage',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
                   },
@@ -747,7 +745,6 @@ $result_trees{'sample_utf8'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -1163,7 +1160,6 @@ $result_trees{'sample_utf8'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },

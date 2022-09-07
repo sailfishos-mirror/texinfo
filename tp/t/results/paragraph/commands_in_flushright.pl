@@ -73,7 +73,6 @@ $result_trees{'commands_in_flushright'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'group',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'group'
                   },
@@ -150,7 +149,6 @@ $result_trees{'commands_in_flushright'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -270,7 +268,6 @@ $result_trees{'commands_in_flushright'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'enumerate',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'enumerate'
                   },
@@ -446,7 +443,6 @@ $result_trees{'commands_in_flushright'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'table',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
@@ -696,7 +692,6 @@ $result_trees{'commands_in_flushright'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'multitable',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'multitable'
                   },
@@ -835,7 +830,6 @@ $result_trees{'commands_in_flushright'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'float',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'float'
                   },
@@ -967,7 +961,6 @@ $result_trees{'commands_in_flushright'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'smallexample',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'smallexample'
                   },
@@ -1039,7 +1032,6 @@ $result_trees{'commands_in_flushright'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'format',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'format'
                   },
@@ -1111,7 +1103,6 @@ $result_trees{'commands_in_flushright'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'flushleft',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'flushleft'
                   },
@@ -1192,7 +1183,6 @@ $result_trees{'commands_in_flushright'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'flushright',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'flushright'
               },

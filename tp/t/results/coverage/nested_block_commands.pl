@@ -78,7 +78,6 @@ $result_trees{'nested_block_commands'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -119,7 +118,6 @@ $result_trees{'nested_block_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },
@@ -205,7 +203,6 @@ $result_trees{'nested_block_commands'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -246,7 +243,6 @@ $result_trees{'nested_block_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },
@@ -343,7 +339,6 @@ $result_trees{'nested_block_commands'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -395,7 +390,6 @@ $result_trees{'nested_block_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },
@@ -498,7 +492,6 @@ $result_trees{'nested_block_commands'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -539,7 +532,6 @@ $result_trees{'nested_block_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },
@@ -648,7 +640,6 @@ $result_trees{'nested_block_commands'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -689,7 +680,6 @@ $result_trees{'nested_block_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },
@@ -792,7 +782,6 @@ $result_trees{'nested_block_commands'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -833,7 +822,6 @@ $result_trees{'nested_block_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },
@@ -925,7 +913,6 @@ $result_trees{'nested_block_commands'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -966,7 +953,6 @@ $result_trees{'nested_block_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },
@@ -1064,7 +1050,6 @@ $result_trees{'nested_block_commands'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -1105,7 +1090,6 @@ $result_trees{'nested_block_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },
@@ -1197,7 +1181,6 @@ $result_trees{'nested_block_commands'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -1238,7 +1221,6 @@ $result_trees{'nested_block_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },
@@ -1324,7 +1306,6 @@ $result_trees{'nested_block_commands'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -1382,7 +1363,6 @@ $result_trees{'nested_block_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },
@@ -1468,7 +1448,6 @@ $result_trees{'nested_block_commands'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -1526,7 +1505,6 @@ $result_trees{'nested_block_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },
@@ -1612,7 +1590,6 @@ $result_trees{'nested_block_commands'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },
@@ -1676,7 +1653,6 @@ $result_trees{'nested_block_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },

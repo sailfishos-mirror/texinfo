@@ -69,7 +69,6 @@ $result_trees{'multitable_bracketed_no_inter_space_prototype'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },

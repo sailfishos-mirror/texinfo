@@ -177,7 +177,6 @@ $result_trees{'commands_in_math'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'displaymath',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'displaymath'
               },
@@ -1090,7 +1089,6 @@ $result_trees{'commands_in_math'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'displaymath',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'displaymath'
               },
@@ -1943,7 +1941,6 @@ $result_trees{'commands_in_math'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'displaymath',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'displaymath'
               },
@@ -2365,7 +2362,6 @@ $result_trees{'commands_in_math'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'displaymath',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'displaymath'
               },

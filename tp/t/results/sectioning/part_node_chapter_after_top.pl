@@ -226,7 +226,6 @@ $result_trees{'part_node_chapter_after_top'} = [
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'menu',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },

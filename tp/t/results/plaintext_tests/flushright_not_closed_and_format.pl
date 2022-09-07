@@ -84,7 +84,6 @@ $result_trees{'flushright_not_closed_and_format'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'quotation',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'quotation'
                   },

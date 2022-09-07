@@ -332,7 +332,6 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'table',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
@@ -375,7 +374,6 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

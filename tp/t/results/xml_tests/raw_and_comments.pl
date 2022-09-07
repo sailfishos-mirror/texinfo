@@ -86,7 +86,6 @@ $result_trees{'raw_and_comments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'tex',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'tex'
               },
@@ -199,7 +198,6 @@ $result_trees{'raw_and_comments'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'xml',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'xml'
                   },

@@ -595,7 +595,6 @@ $result_trees{'comment_space_command_on_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },

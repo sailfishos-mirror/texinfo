@@ -59,7 +59,6 @@ $result_trees{'empty_line_in_example_end'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

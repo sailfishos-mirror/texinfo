@@ -79,7 +79,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -172,7 +171,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -309,7 +307,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -402,7 +399,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -495,7 +491,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -588,7 +583,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -709,7 +703,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -915,7 +908,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -1043,7 +1035,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -1175,7 +1166,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -1275,7 +1265,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -1407,7 +1396,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -1508,7 +1496,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -1609,7 +1596,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -1737,7 +1723,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -1869,7 +1854,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -1997,7 +1981,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -2129,7 +2112,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -2342,7 +2324,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -2555,7 +2536,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -2956,7 +2936,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -3357,7 +3336,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -3734,7 +3712,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -3855,7 +3832,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -3990,7 +3966,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -4128,7 +4103,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -4291,7 +4265,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -4429,7 +4402,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -4557,7 +4529,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -4689,7 +4660,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -4846,7 +4816,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -4978,7 +4947,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },

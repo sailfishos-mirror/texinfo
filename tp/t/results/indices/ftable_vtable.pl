@@ -261,7 +261,6 @@ $result_trees{'ftable_vtable'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'ftable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ftable'
               },
@@ -514,7 +513,6 @@ $result_trees{'ftable_vtable'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'vtable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'vtable'
               },

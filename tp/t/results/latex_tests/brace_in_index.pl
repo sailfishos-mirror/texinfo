@@ -116,7 +116,6 @@ $result_trees{'brace_in_index'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'displaymath',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'displaymath'
               },
@@ -479,7 +478,6 @@ $result_trees{'brace_in_index'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defun',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defun'
               },

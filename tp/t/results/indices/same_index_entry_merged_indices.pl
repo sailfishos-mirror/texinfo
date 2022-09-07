@@ -280,7 +280,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
@@ -426,7 +425,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defvar',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defvar'
               },

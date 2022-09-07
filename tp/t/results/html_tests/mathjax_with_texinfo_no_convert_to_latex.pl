@@ -146,7 +146,6 @@ $result_trees{'mathjax_with_texinfo_no_convert_to_latex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'displaymath',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'displaymath'
               },

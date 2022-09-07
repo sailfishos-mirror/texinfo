@@ -86,7 +86,6 @@ $result_trees{'titlepage_long_title'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'titlepage',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
                   },

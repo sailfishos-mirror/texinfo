@@ -278,7 +278,6 @@ $result_trees{'non_empty_part_no_top_node_output'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

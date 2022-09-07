@@ -87,7 +87,6 @@ $result_trees{'braces_in_tex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'tex',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'tex'
               },
@@ -209,7 +208,6 @@ $result_trees{'braces_in_tex'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'tex',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'tex'
                       },
@@ -254,7 +252,6 @@ $result_trees{'braces_in_tex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

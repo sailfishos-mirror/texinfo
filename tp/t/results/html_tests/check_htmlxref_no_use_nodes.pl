@@ -523,7 +523,6 @@ $result_trees{'check_htmlxref_no_use_nodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

@@ -55,7 +55,6 @@ $result_trees{'titlepage_classical'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'copying',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
@@ -341,7 +340,6 @@ $result_trees{'titlepage_classical'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'titlepage',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
                   },

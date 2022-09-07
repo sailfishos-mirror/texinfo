@@ -231,7 +231,6 @@ $result_trees{'multitable_with_empty_item_tab'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },

@@ -69,7 +69,6 @@ $result_trees{'raw_in_example'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'html',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'html'
                       },
@@ -114,7 +113,6 @@ $result_trees{'raw_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -220,7 +218,6 @@ $result_trees{'raw_in_example'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'html',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'html'
                       },
@@ -332,7 +329,6 @@ $result_trees{'raw_in_example'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'tex',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'tex'
                       },
@@ -383,7 +379,6 @@ $result_trees{'raw_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

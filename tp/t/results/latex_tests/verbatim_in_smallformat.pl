@@ -79,7 +79,6 @@ $result_trees{'verbatim_in_smallformat'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'smallformat',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'smallformat'
               },

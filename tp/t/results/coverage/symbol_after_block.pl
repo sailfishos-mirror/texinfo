@@ -53,7 +53,6 @@ $result_trees{'symbol_after_block'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'html',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'html. On the line.'
               },
@@ -133,7 +132,6 @@ $result_trees{'symbol_after_block'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'html',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'html@ On the line.'
               },
@@ -387,7 +385,6 @@ $result_trees{'symbol_after_block'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table+'
               },
@@ -523,7 +520,6 @@ $result_trees{'symbol_after_block'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table@'
               },
@@ -641,7 +637,6 @@ $result_trees{'symbol_after_block'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize\'\''
               },
@@ -746,7 +741,6 @@ $result_trees{'symbol_after_block'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize@'
               },
@@ -987,7 +981,6 @@ $result_trees{'symbol_after_block'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable^'
               },
@@ -1216,7 +1209,6 @@ $result_trees{'symbol_after_block'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable{'
               },
@@ -1308,7 +1300,6 @@ $result_trees{'symbol_after_block'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'flushleft',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'flushleft!'
               },
@@ -1384,7 +1375,6 @@ $result_trees{'symbol_after_block'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'flushleft',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'flushleft@'
               },
@@ -1473,7 +1463,6 @@ $result_trees{'symbol_after_block'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'copying',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying*'
               },
@@ -1549,7 +1538,6 @@ $result_trees{'symbol_after_block'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'copying',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying@'
               },

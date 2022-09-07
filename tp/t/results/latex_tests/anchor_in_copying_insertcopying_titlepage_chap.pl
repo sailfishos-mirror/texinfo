@@ -90,7 +90,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'copying',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
@@ -214,7 +213,6 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'titlepage',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
                   },

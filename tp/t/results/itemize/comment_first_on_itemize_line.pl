@@ -91,7 +91,6 @@ $result_trees{'comment_first_on_itemize_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },

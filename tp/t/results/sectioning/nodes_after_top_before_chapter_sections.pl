@@ -190,7 +190,6 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'menu',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },

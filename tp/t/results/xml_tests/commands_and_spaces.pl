@@ -595,7 +595,6 @@ $result_trees{'commands_and_spaces'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
@@ -772,7 +771,6 @@ $result_trees{'commands_and_spaces'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
@@ -875,7 +873,6 @@ $result_trees{'commands_and_spaces'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
@@ -997,7 +994,6 @@ $result_trees{'commands_and_spaces'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
@@ -1169,7 +1165,6 @@ $result_trees{'commands_and_spaces'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'tex',
                 'spaces_before_argument' => '  ',
                 'text_arg' => 'tex'
               },
@@ -1241,7 +1236,6 @@ $result_trees{'commands_and_spaces'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => '  ',
                 'text_arg' => 'example'
               },
@@ -1354,7 +1348,6 @@ $result_trees{'commands_and_spaces'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => '   ',
                 'text_arg' => 'table'
               },
@@ -1765,7 +1758,6 @@ $result_trees{'commands_and_spaces'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },

@@ -47,7 +47,6 @@ $result_trees{'text_on_display_command_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'display',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'display'
               },
@@ -125,7 +124,6 @@ $result_trees{'text_on_display_command_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'display',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'display'
               },
@@ -198,7 +196,6 @@ $result_trees{'text_on_display_command_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'display',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'display text after end'
               },
@@ -273,7 +270,6 @@ $result_trees{'text_on_display_command_line'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'display',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'display text after end display nested in display'
                   },
@@ -314,7 +310,6 @@ $result_trees{'text_on_display_command_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'display',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'display'
               },

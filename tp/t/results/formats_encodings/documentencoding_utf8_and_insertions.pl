@@ -211,7 +211,6 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

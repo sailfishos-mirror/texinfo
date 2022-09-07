@@ -78,7 +78,6 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'flushleft',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'flushleft'
                   },
@@ -155,7 +154,6 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'flushright',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'flushright'
                   },
@@ -196,7 +194,6 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },

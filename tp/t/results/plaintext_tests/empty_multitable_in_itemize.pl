@@ -81,7 +81,6 @@ $result_trees{'empty_multitable_in_itemize'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'multitable',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'multitable'
                       },
@@ -142,7 +141,6 @@ $result_trees{'empty_multitable_in_itemize'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },

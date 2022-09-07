@@ -1396,11 +1396,6 @@ end_line_misc_line (ELEMENT *current)
                               free (end_command); end_command = 0;
                             }
                         }
-                      if (end_command)
-                        {
-                          add_extra_string (current, "command_argument",
-                                            end_command);
-                        }
                       if (end_command
                           && (superfluous_arg
                              || line[strspn (line, whitespace_chars)] != '\0'))

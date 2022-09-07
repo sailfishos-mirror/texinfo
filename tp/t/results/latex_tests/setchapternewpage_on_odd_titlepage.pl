@@ -129,7 +129,6 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'titlepage',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
                   },

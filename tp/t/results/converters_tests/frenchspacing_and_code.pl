@@ -299,7 +299,6 @@ $result_trees{'frenchspacing_and_code'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -631,7 +630,6 @@ $result_trees{'frenchspacing_and_code'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypeop',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
               },
@@ -937,7 +935,6 @@ $result_trees{'frenchspacing_and_code'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defop',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defop'
               },
@@ -1174,7 +1171,6 @@ $result_trees{'frenchspacing_and_code'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -1506,7 +1502,6 @@ $result_trees{'frenchspacing_and_code'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypeop',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
               },
@@ -1812,7 +1807,6 @@ $result_trees{'frenchspacing_and_code'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'defop',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defop'
               },

@@ -75,7 +75,6 @@ $result_trees{'indentedblock'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'indentedblock',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'indentedblock'
               },

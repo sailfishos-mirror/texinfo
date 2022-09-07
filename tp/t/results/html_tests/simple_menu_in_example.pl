@@ -152,7 +152,6 @@ $result_trees{'simple_menu_in_example'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'command_argument' => 'cartouche',
                                 'spaces_before_argument' => ' ',
                                 'text_arg' => 'cartouche'
                               },
@@ -253,7 +252,6 @@ $result_trees{'simple_menu_in_example'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'cartouche',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'cartouche'
                           },
@@ -478,7 +476,6 @@ $result_trees{'simple_menu_in_example'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'menu',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'menu'
                   },
@@ -519,7 +516,6 @@ $result_trees{'simple_menu_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

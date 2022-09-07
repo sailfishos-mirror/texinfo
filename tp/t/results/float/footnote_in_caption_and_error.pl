@@ -217,7 +217,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },

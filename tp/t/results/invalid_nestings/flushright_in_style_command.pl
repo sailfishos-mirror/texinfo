@@ -82,7 +82,6 @@ $result_trees{'flushright_in_style_command'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'flushright',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'flushright'
               },

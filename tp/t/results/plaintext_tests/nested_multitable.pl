@@ -202,7 +202,6 @@ $result_trees{'nested_multitable'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'command_argument' => 'multitable',
                                 'spaces_before_argument' => ' ',
                                 'text_arg' => 'multitable'
                               },
@@ -372,7 +371,6 @@ $result_trees{'nested_multitable'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },

@@ -95,7 +95,6 @@ $result_trees{'nested_example_and_comment'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'example',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'example'
                   },
@@ -147,7 +146,6 @@ $result_trees{'nested_example_and_comment'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -278,7 +276,6 @@ $result_trees{'nested_example_and_comment'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'example',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'example'
                   },
@@ -330,7 +327,6 @@ $result_trees{'nested_example_and_comment'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -461,7 +457,6 @@ $result_trees{'nested_example_and_comment'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'example',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'example'
                   },
@@ -530,7 +525,6 @@ $result_trees{'nested_example_and_comment'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

@@ -299,7 +299,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'vtable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'vtable'
               },
@@ -507,7 +506,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'vtable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'vtable'
               },
@@ -932,7 +930,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'ftable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ftable'
               },
@@ -1129,7 +1126,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -1302,7 +1298,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -1499,7 +1494,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -1672,7 +1666,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -1846,7 +1839,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -2014,7 +2006,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -2182,7 +2173,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -2444,7 +2434,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },

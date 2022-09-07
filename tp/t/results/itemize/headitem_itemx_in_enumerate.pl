@@ -112,7 +112,6 @@ $result_trees{'headitem_itemx_in_enumerate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },

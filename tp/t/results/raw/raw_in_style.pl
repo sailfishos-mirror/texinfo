@@ -64,7 +64,6 @@ $result_trees{'raw_in_style'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'html',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'html'
                           },

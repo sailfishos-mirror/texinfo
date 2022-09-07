@@ -168,7 +168,6 @@ $result_trees{'style_not_closed_root_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

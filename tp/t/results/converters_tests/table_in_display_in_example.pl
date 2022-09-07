@@ -139,7 +139,6 @@ $result_trees{'table_in_display_in_example'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'table',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'table'
                       },
@@ -182,7 +181,6 @@ $result_trees{'table_in_display_in_example'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'display',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'display'
                   },
@@ -223,7 +221,6 @@ $result_trees{'table_in_display_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

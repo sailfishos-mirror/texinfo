@@ -157,7 +157,6 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'multitable',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'multitable'
                   },
@@ -206,7 +205,6 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

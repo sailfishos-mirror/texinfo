@@ -340,7 +340,6 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'menu',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'menu'
                       },

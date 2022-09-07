@@ -1514,7 +1514,6 @@ sub new_block_command($$$)
 
   my $end = {'cmdname' => 'end', 'extra' =>
                  {'spaces_before_argument' => ' ',
-                  'command_argument' => $command_name,
                   'text_arg' => $command_name}};
   push @{$end->{'args'}},
     {'type' => 'line_arg', 'parent' => $end,

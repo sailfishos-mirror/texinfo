@@ -366,7 +366,6 @@ $result_trees{'two_footnotes_in_nodes_separated'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

@@ -87,7 +87,6 @@ $result_trees{'itemize_line_commands_with_brace'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -195,7 +194,6 @@ $result_trees{'itemize_line_commands_with_brace'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },

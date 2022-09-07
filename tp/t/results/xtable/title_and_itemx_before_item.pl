@@ -111,7 +111,6 @@ $result_trees{'title_and_itemx_before_item'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },

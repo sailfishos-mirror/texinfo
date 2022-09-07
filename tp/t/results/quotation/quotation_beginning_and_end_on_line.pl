@@ -43,7 +43,6 @@ $result_trees{'quotation_beginning_and_end_on_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },

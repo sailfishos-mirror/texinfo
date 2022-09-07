@@ -225,7 +225,6 @@ $result_trees{'block_commands_in_menu_description'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'itemize',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'itemize'
                           },
@@ -380,7 +379,6 @@ $result_trees{'block_commands_in_menu_description'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'command_argument' => 'table',
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'table'
                           },
@@ -462,7 +460,6 @@ $result_trees{'block_commands_in_menu_description'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'command_argument' => 'html',
                                 'spaces_before_argument' => ' ',
                                 'text_arg' => 'html'
                               },
@@ -561,7 +558,6 @@ $result_trees{'block_commands_in_menu_description'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

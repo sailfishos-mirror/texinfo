@@ -419,7 +419,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
@@ -805,7 +804,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },

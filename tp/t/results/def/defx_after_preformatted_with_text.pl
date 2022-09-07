@@ -287,7 +287,6 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'deffn',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'deffn'
                   },
@@ -329,7 +328,6 @@ $result_trees{'defx_after_preformatted_with_text'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

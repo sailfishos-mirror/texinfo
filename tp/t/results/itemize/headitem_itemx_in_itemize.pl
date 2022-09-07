@@ -119,7 +119,6 @@ $result_trees{'headitem_itemx_in_itemize'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },

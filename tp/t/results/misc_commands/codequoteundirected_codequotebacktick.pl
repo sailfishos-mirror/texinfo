@@ -624,7 +624,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'example',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'example'
                       },
@@ -1075,7 +1074,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'command_argument' => 'example',
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'example'
                       },
@@ -1498,7 +1496,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'copying',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
@@ -1581,7 +1578,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'titlepage',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
                   },
@@ -2149,7 +2145,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -2600,7 +2595,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -3407,7 +3401,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'example',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'example'
                   },
@@ -3858,7 +3851,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'example',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'example'
                   },
@@ -4281,7 +4273,6 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },

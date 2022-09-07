@@ -376,7 +376,6 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypefun',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefun'
               },
@@ -532,7 +531,6 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypefn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
               },
@@ -725,7 +723,6 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypeop',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
               },
@@ -903,7 +900,6 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypeop',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
               },
@@ -1081,7 +1077,6 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypecv',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
               },
@@ -1274,7 +1269,6 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypecv',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
               },
@@ -1414,7 +1408,6 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
@@ -1628,7 +1621,6 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypefun',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefun'
               },
@@ -1784,7 +1776,6 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypefn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
               },
@@ -1977,7 +1968,6 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypeop',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
               },
@@ -2155,7 +2145,6 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypeop',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
               },
@@ -2333,7 +2322,6 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypecv',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
               },
@@ -2526,7 +2514,6 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypecv',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
               },
@@ -2666,7 +2653,6 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deffn',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },

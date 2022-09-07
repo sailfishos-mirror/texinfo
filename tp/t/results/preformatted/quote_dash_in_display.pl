@@ -65,7 +65,6 @@ $result_trees{'quote_dash_in_display'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'display',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'display'
               },

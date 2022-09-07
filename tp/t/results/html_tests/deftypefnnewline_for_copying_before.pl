@@ -214,7 +214,6 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'deftypefun',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'deftypefun'
                   },
@@ -256,7 +255,6 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'copying',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
               },
@@ -502,7 +500,6 @@ $result_trees{'deftypefnnewline_for_copying_before'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'deftypefun',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefun'
               },

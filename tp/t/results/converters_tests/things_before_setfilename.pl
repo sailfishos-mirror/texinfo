@@ -369,7 +369,6 @@ $result_trees{'things_before_setfilename'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'float',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'float'
                   },
@@ -560,7 +559,6 @@ $result_trees{'things_before_setfilename'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'float',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'float'
                   },
@@ -713,7 +711,6 @@ $result_trees{'things_before_setfilename'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'menu',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'menu'
                   },

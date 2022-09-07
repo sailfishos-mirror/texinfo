@@ -69,7 +69,6 @@ $result_trees{'noindent_after_smallexample'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'smallexample',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'smallexample'
               },

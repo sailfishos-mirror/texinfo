@@ -194,7 +194,6 @@ $result_trees{'detailmenu'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'detailmenu',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'detailmenu'
                   },
@@ -235,7 +234,6 @@ $result_trees{'detailmenu'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

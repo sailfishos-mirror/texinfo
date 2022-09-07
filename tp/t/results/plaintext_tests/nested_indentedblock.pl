@@ -78,7 +78,6 @@ $result_trees{'nested_indentedblock'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'indentedblock',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'indentedblock'
                   },
@@ -119,7 +118,6 @@ $result_trees{'nested_indentedblock'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -221,7 +219,6 @@ $result_trees{'nested_indentedblock'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'example',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'example'
                   },
@@ -262,7 +259,6 @@ $result_trees{'nested_indentedblock'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'indentedblock',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'indentedblock'
               },

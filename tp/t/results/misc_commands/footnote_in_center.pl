@@ -159,7 +159,6 @@ $result_trees{'footnote_in_center'} = {
                                   ],
                                   'cmdname' => 'end',
                                   'extra' => {
-                                    'command_argument' => 'table',
                                     'spaces_before_argument' => ' ',
                                     'text_arg' => 'table'
                                   },
@@ -202,7 +201,6 @@ $result_trees{'footnote_in_center'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'command_argument' => 'example',
                                 'spaces_before_argument' => ' ',
                                 'text_arg' => 'example'
                               },

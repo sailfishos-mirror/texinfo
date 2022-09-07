@@ -59,7 +59,6 @@ $result_trees{'multitable_bracketed_prototype_not_closed'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },

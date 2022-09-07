@@ -510,7 +510,6 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'direntry',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
               },
@@ -795,7 +794,6 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -907,7 +905,6 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'copying',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
               },
@@ -1208,7 +1205,6 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'titlepage',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'titlepage'
               },
@@ -1347,7 +1343,6 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -2409,7 +2404,6 @@ $result_trees{'formatting_fr'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'menu',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'menu'
                   },
@@ -2450,7 +2444,6 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'format',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'format'
               },
@@ -2839,7 +2832,6 @@ $result_trees{'formatting_fr'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'detailmenu',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'detailmenu'
                   },
@@ -2880,7 +2872,6 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
@@ -3132,7 +3123,6 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },

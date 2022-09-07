@@ -92,7 +92,6 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'itemize',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
@@ -171,7 +170,6 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'enumerate',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
@@ -302,7 +300,6 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'table',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
@@ -393,7 +390,6 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
@@ -482,7 +478,6 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'group',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
               },
@@ -571,7 +566,6 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
@@ -744,7 +738,6 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'multitable',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
@@ -851,7 +844,6 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'float',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
@@ -951,7 +943,6 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'flushright',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'flushright'
               },
@@ -1040,7 +1031,6 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'raggedright',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'raggedright'
               },

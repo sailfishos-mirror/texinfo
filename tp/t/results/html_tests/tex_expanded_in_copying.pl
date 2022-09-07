@@ -67,7 +67,6 @@ $result_trees{'tex_expanded_in_copying'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'command_argument' => 'tex',
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'tex'
                   },
@@ -108,7 +107,6 @@ $result_trees{'tex_expanded_in_copying'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'copying',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
               },

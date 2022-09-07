@@ -742,7 +742,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'menu',
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
