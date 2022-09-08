@@ -45,6 +45,10 @@ $result_trees{'leading_spaces_no_ignore'} = {
                       'text' => 'macro'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -67,12 +71,6 @@ $result_trees{'leading_spaces_no_ignore'} = {
             'line_nr' => 1,
             'macro' => ''
           }
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
         },
         {
           'parent' => {},
@@ -118,10 +116,9 @@ $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[0]{'content
 $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0];
 $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0];
 $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0];
+$result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[3];
+$result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[3];
 $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0];
-$result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[4];
-$result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[4];
-$result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0];
 $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'parent'} = $result_trees{'leading_spaces_no_ignore'};
 
 $result_texis{'leading_spaces_no_ignore'} = '@macro mymacro

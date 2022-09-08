@@ -74,6 +74,10 @@ $result_trees{'value_in_macro_body'} = {
                       'text' => 'macro'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -96,12 +100,6 @@ $result_trees{'value_in_macro_body'} = {
             'line_nr' => 3,
             'macro' => ''
           }
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
         },
         {
           'parent' => {},
@@ -166,13 +164,12 @@ $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'contents'}[2
 $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2];
 $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0];
 $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0];
+$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[4];
+$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
+$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
+$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[4];
+$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[4];
 $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0];
-$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[5];
-$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0];
-$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
-$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[5];
-$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[5];
-$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0];
 $result_trees{'value_in_macro_body'}{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_body'};
 
 $result_texis{'value_in_macro_body'} = '@set bodyarg \\arg\\ 

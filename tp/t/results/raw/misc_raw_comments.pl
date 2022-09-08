@@ -232,6 +232,10 @@ $result_trees{'misc_raw_comments'} = {
                       'text' => 'verbatim'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -250,12 +254,6 @@ $result_trees{'misc_raw_comments'} = {
             'line_nr' => 8,
             'macro' => ''
           }
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
         }
       ],
       'parent' => {},
@@ -294,7 +292,6 @@ $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{
 $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5]{'contents'}[3];
 $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5];
 $result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'misc_raw_comments'}{'contents'}[0];
-$result_trees{'misc_raw_comments'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'misc_raw_comments'}{'contents'}[0];
 $result_trees{'misc_raw_comments'}{'contents'}[0]{'parent'} = $result_trees{'misc_raw_comments'};
 
 $result_texis{'misc_raw_comments'} = '

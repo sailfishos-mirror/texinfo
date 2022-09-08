@@ -56,6 +56,10 @@ $result_trees{'ifset_in_macro_set'} = {
                       'text' => 'macro'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -78,12 +82,6 @@ $result_trees{'ifset_in_macro_set'} = {
             'line_nr' => 1,
             'macro' => ''
           }
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
         },
         {
           'parent' => {},
@@ -126,10 +124,9 @@ $result_trees{'ifset_in_macro_set'}{'contents'}[0]{'contents'}[0]{'contents'}[4]
 $result_trees{'ifset_in_macro_set'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'ifset_in_macro_set'}{'contents'}[0]{'contents'}[0];
 $result_trees{'ifset_in_macro_set'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ifset_in_macro_set'}{'contents'}[0];
 $result_trees{'ifset_in_macro_set'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ifset_in_macro_set'}{'contents'}[0];
+$result_trees{'ifset_in_macro_set'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'ifset_in_macro_set'}{'contents'}[0]{'contents'}[2];
 $result_trees{'ifset_in_macro_set'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'ifset_in_macro_set'}{'contents'}[0];
-$result_trees{'ifset_in_macro_set'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'ifset_in_macro_set'}{'contents'}[0]{'contents'}[3];
 $result_trees{'ifset_in_macro_set'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'ifset_in_macro_set'}{'contents'}[0];
-$result_trees{'ifset_in_macro_set'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'ifset_in_macro_set'}{'contents'}[0];
 $result_trees{'ifset_in_macro_set'}{'contents'}[0]{'parent'} = $result_trees{'ifset_in_macro_set'};
 
 $result_texis{'ifset_in_macro_set'} = '@macro note {arg}

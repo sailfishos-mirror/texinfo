@@ -28,6 +28,10 @@ $result_trees{'empty_macro_no_arg'} = {
                       'text' => 'macro'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -50,12 +54,6 @@ $result_trees{'empty_macro_no_arg'} = {
             'line_nr' => 1,
             'macro' => ''
           }
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
         },
         {
           'parent' => {},
@@ -97,7 +95,6 @@ $result_trees{'empty_macro_no_arg'}{'contents'}[0]{'contents'}[1]{'parent'} = $r
 $result_trees{'empty_macro_no_arg'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'empty_macro_no_arg'}{'contents'}[0];
 $result_trees{'empty_macro_no_arg'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'empty_macro_no_arg'}{'contents'}[0];
 $result_trees{'empty_macro_no_arg'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'empty_macro_no_arg'}{'contents'}[0];
-$result_trees{'empty_macro_no_arg'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'empty_macro_no_arg'}{'contents'}[0];
 $result_trees{'empty_macro_no_arg'}{'contents'}[0]{'parent'} = $result_trees{'empty_macro_no_arg'};
 
 $result_texis{'empty_macro_no_arg'} = '@macro foo

@@ -55,6 +55,10 @@ $result_trees{'too_much_args'} = {
                       'text' => 'macro'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -77,12 +81,6 @@ $result_trees{'too_much_args'} = {
             'line_nr' => 1,
             'macro' => ''
           }
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
         },
         {
           'parent' => {},
@@ -124,10 +122,9 @@ $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'arg
 $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0];
 $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0];
 $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0];
+$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[2];
+$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[2];
 $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[3];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[3];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0];
 $result_trees{'too_much_args'}{'contents'}[0]{'parent'} = $result_trees{'too_much_args'};
 
 $result_texis{'too_much_args'} = '@macro twoargs {first, second}

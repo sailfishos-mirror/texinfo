@@ -39,6 +39,10 @@ $result_trees{'user_defined_txiinternalvalue'} = {
                       'text' => 'macro'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -61,12 +65,6 @@ $result_trees{'user_defined_txiinternalvalue'} = {
             'line_nr' => 1,
             'macro' => ''
           }
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
         },
         {
           'parent' => {},
@@ -100,9 +98,8 @@ $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0]{'co
 $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0];
 $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0];
 $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0];
+$result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[2];
 $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0];
-$result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[3];
-$result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0];
 $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'parent'} = $result_trees{'user_defined_txiinternalvalue'};
 
 $result_texis{'user_defined_txiinternalvalue'} = '@macro txiinternalvalue

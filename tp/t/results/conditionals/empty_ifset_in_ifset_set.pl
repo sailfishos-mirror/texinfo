@@ -72,6 +72,10 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
                       'text' => 'verbatim'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -90,12 +94,6 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
             'line_nr' => 5,
             'macro' => ''
           }
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
         }
       ],
       'parent' => {},
@@ -116,7 +114,6 @@ $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3]{'content
 $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3]{'contents'}[2];
 $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3];
 $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0];
-$result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0];
 $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'};
 
 $result_texis{'empty_ifset_in_ifset_set'} = '

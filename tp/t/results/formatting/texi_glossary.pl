@@ -100,6 +100,10 @@ $result_trees{'texi_glossary'} = {
                           'text' => 'macro'
                         }
                       ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'parent' => {},
                       'type' => 'line_arg'
                     }
@@ -122,12 +126,6 @@ $result_trees{'texi_glossary'} = {
                 'line_nr' => 5,
                 'macro' => ''
               }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
             },
             {
               'parent' => {},
@@ -177,6 +175,10 @@ $result_trees{'texi_glossary'} = {
                           'text' => 'macro'
                         }
                       ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'parent' => {},
                       'type' => 'line_arg'
                     }
@@ -199,12 +201,6 @@ $result_trees{'texi_glossary'} = {
                 'line_nr' => 9,
                 'macro' => ''
               }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
             },
             {
               'parent' => {},
@@ -323,6 +319,10 @@ $result_trees{'texi_glossary'} = {
                                   'text' => 'macro'
                                 }
                               ],
+                              'extra' => {
+                                'spaces_after_argument' => '
+'
+                              },
                               'parent' => {},
                               'type' => 'line_arg'
                             }
@@ -342,12 +342,6 @@ $result_trees{'texi_glossary'} = {
                       'parent' => {}
                     },
                     {
-                      'parent' => {},
-                      'text' => '
-',
-                      'type' => 'empty_line_after_command'
-                    },
-                    {
                       'args' => [
                         {
                           'contents' => [
@@ -356,6 +350,10 @@ $result_trees{'texi_glossary'} = {
                               'text' => 'macro'
                             }
                           ],
+                          'extra' => {
+                            'spaces_after_argument' => '
+'
+                          },
                           'parent' => {},
                           'type' => 'line_arg'
                         }
@@ -373,12 +371,6 @@ $result_trees{'texi_glossary'} = {
 '
                   },
                   'parent' => {}
-                },
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line_after_command'
                 },
                 {
                   'parent' => {},
@@ -406,6 +398,10 @@ $result_trees{'texi_glossary'} = {
                           'text' => 'macro'
                         }
                       ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'parent' => {},
                       'type' => 'line_arg'
                     }
@@ -428,12 +424,6 @@ $result_trees{'texi_glossary'} = {
                 'line_nr' => 15,
                 'macro' => ''
               }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
             },
             {
               'parent' => {},
@@ -754,6 +744,10 @@ $result_trees{'texi_glossary'} = {
                               'text' => 'macro'
                             }
                           ],
+                          'extra' => {
+                            'spaces_after_argument' => '
+'
+                          },
                           'parent' => {},
                           'type' => 'line_arg'
                         }
@@ -773,12 +767,6 @@ $result_trees{'texi_glossary'} = {
                   'parent' => {}
                 },
                 {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line_after_command'
-                },
-                {
                   'args' => [
                     {
                       'contents' => [
@@ -787,6 +775,10 @@ $result_trees{'texi_glossary'} = {
                           'text' => 'macro'
                         }
                       ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'parent' => {},
                       'type' => 'line_arg'
                     }
@@ -809,12 +801,6 @@ $result_trees{'texi_glossary'} = {
                 'line_nr' => 42,
                 'macro' => 'gentry'
               }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
             },
             {
               'args' => [
@@ -876,6 +862,10 @@ $result_trees{'texi_glossary'} = {
                           'text' => 'macro'
                         }
                       ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'parent' => {},
                       'type' => 'line_arg'
                     }
@@ -898,12 +888,6 @@ $result_trees{'texi_glossary'} = {
                 'line_nr' => 42,
                 'macro' => 'expandglossary'
               }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
             },
             {
               'parent' => {},
@@ -1131,6 +1115,10 @@ $result_trees{'texi_glossary'} = {
                               'text' => 'macro'
                             }
                           ],
+                          'extra' => {
+                            'spaces_after_argument' => '
+'
+                          },
                           'parent' => {},
                           'type' => 'line_arg'
                         }
@@ -1150,12 +1138,6 @@ $result_trees{'texi_glossary'} = {
                   'parent' => {}
                 },
                 {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line_after_command'
-                },
-                {
                   'args' => [
                     {
                       'contents' => [
@@ -1164,6 +1146,10 @@ $result_trees{'texi_glossary'} = {
                           'text' => 'macro'
                         }
                       ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'parent' => {},
                       'type' => 'line_arg'
                     }
@@ -1186,12 +1172,6 @@ $result_trees{'texi_glossary'} = {
                 'line_nr' => 43,
                 'macro' => 'gentry'
               }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
             },
             {
               'args' => [
@@ -1253,6 +1233,10 @@ $result_trees{'texi_glossary'} = {
                           'text' => 'macro'
                         }
                       ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'parent' => {},
                       'type' => 'line_arg'
                     }
@@ -1275,12 +1259,6 @@ $result_trees{'texi_glossary'} = {
                 'line_nr' => 43,
                 'macro' => 'expandglossary'
               }
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
             },
             {
               'parent' => {},
@@ -1369,53 +1347,48 @@ $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'con
 $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
 $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[4]{'args'}[0];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[4];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
 $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[4]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
 $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'args'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'args'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'args'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[5]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[6]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[4]{'args'}[0];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[4];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[2]{'args'}[0];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[2];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[8]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[9]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[10]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[11]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[11]{'args'}[0];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[11];
+$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[11]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
 $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'args'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'args'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'args'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[5]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[6]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1]{'contents'}[4]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[3]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[7]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[8]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[9]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[10]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[11]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[12]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[12]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[12];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'contents'}[12]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[9]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[10]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0];
 $result_trees{'texi_glossary'}{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'};
 $result_trees{'texi_glossary'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[1]{'args'}[0];
@@ -1463,79 +1436,73 @@ $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'con
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'contents'}[4];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[2]{'args'}[0];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[2];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[3]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[5];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[5]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[4]{'args'}[0];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[4];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7]{'contents'}[4]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[0];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[1];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'args'}[0];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'};
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'};
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'contents'}[1] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'};
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'};
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'};
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'args'}[0];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'};
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'};
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'};
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[2] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'};
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'};
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'};
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'parent'} = $result_trees{'texi_glossary'};
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[0]{'contents'}[0];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[9]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'args'}[0];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'args'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'args'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'contents'}[1] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'}{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'}{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'}{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[2] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'}{'parent'} = $result_trees{'texi_glossary'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'args'}[0]{'contents'}[0];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'args'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[4]{'args'}[0];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[4];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[2]{'args'}[0];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[2];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[12];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[12]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'args'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1]{'contents'}[4]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[3]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[3];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[4]{'args'}[0];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[4];
+$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[14]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[15]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[15];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[15]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16]{'contents'}[4]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[16]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[17]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[18]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2];
 $result_trees{'texi_glossary'}{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'};
@@ -1544,7 +1511,7 @@ $result_trees{'texi_glossary'}{'contents'}[3]{'args'}[0]{'parent'} = $result_tre
 $result_trees{'texi_glossary'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'texi_glossary'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'texi_glossary'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'texi_glossary'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'texi_glossary'}{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'};
-$result_trees{'texi_glossary'}{'contents'}[4] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'extra'}{'label'}{'parent'}{'parent'};
+$result_trees{'texi_glossary'}{'contents'}[4] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'};
 
 $result_texis{'texi_glossary'} = '\\input texinfo.tex
 

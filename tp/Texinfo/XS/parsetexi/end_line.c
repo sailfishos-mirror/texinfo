@@ -2242,20 +2242,6 @@ end_line (ELEMENT *current)
       current = end_line_starting_block (current);
     }
 
-  /* after an "@end verbatim" */
-  else if (current->contents.number
-           && last_contents_child(current)->type == ET_empty_line_after_command
-           && contents_child_by_index(current, -2)
-           && contents_child_by_index(current, -2)->cmd == CM_verbatim)
-    {
-      /*
-     if we are after a @end verbatim, we must restart a preformatted if needed,
-     since there is no @end command explicitly associated to raw commands
-     it won't be done elsewhere.
-      */
-
-      current = begin_preformatted (current);
-    }
   else if (current->type == ET_line_arg)
     {
       current = end_line_misc_line (current);

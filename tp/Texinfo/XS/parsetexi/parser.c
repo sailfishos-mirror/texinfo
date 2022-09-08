@@ -1176,28 +1176,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                 }
             }
 
-          /* 'line' is now advanced past the "@end ...".  Check if
-             there's anything after it. */
-          p = line + strspn (line, whitespace_chars);
-          if (*p && *p != '@')
-            goto superfluous_arg;
-          if (*p)
-            {
-              p++;
-              tmp = read_command_name (&p);
-              if (tmp && (!strcmp (tmp, "c") || !strcmp (tmp, "comment")))
-                {
-                }
-              else if (*p && p[strspn (p, whitespace_chars)])
-                {
-superfluous_arg:
-                  line_warn ("superfluous argument to @end %s: %s",
-                             command_name (current->cmd), line);
-                }
-              free (tmp);
-            }
-          
-
           /* For macros, define a new macro (unless we are in a nested
              macro definition). */
           if ((end_cmd == CM_macro || end_cmd == CM_rmacro)
@@ -1249,6 +1227,27 @@ superfluous_arg:
               if (popped->cmd != end_cmd)
                 fatal ("command mismatch for ignored block");
 
+              /* 'line' is now advanced past the "@end ...".  Check if
+                 there's anything after it. */
+              p = line + strspn (line, whitespace_chars);
+              if (*p && *p != '@')
+                goto superfluous_arg;
+              if (*p)
+                {
+                  p++;
+                  tmp = read_command_name (&p);
+                  if (tmp && (!strcmp (tmp, "c") || !strcmp (tmp, "comment")))
+                    {
+                   }
+                  else if (*p && p[strspn (p, whitespace_chars)])
+                    {
+superfluous_arg:
+                      line_warn ("superfluous argument to @end %s: %s",
+                                 command_name(end_cmd), line);
+                    }
+                  free (tmp);
+                }
+
               /* Ignore until end of line */
               if (!strchr (line, '\n'))
                 {
@@ -1280,16 +1279,15 @@ superfluous_arg:
                                     end_command_name);
               line_arg = new_element (ET_line_arg);
               add_to_element_args (e_cmd, line_arg);
+
+              push_context (ct_line, CM_end);
+
               e_cmd_text = new_element (ET_NONE);
               text_append (&e_cmd_text->text, end_command_name);
               add_to_element_contents (line_arg, e_cmd_text);
               add_to_element_contents (last, e_cmd);
 
-              e = new_element (ET_empty_line_after_command);
-              n = strspn (line, whitespace_chars_except_newline);
-              text_append_n (&e->text, line, n);
-              line += n;
-              add_to_element_contents (current, e);
+              current = line_arg;
             }
           free (spaces_after_end);
         }
@@ -2113,7 +2111,10 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
           if (status == FINISHED_TOTALLY)
             goto finished_totally;
           if (!line)
-            break;
+            {
+              current = end_line (current);
+              break;
+            }
         }
     }
 finished_totally:

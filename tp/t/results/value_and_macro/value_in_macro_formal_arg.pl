@@ -79,6 +79,10 @@ $result_trees{'value_in_macro_formal_arg'} = {
                       'text' => 'macro'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -102,12 +106,6 @@ $result_trees{'value_in_macro_formal_arg'} = {
             'line_nr' => 3,
             'macro' => ''
           }
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
         },
         {
           'parent' => {},
@@ -147,9 +145,8 @@ $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2]{'conten
 $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2];
 $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0];
 $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[4];
 $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0];
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[5];
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0];
 $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_formal_arg'};
 
 $result_texis{'value_in_macro_formal_arg'} = '@set argument arg 

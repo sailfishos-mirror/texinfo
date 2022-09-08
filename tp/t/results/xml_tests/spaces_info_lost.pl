@@ -112,6 +112,10 @@ $result_trees{'spaces_info_lost'} = {
                       'text' => 'verbatim'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => ' 
+'
+                  },
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -130,12 +134,6 @@ $result_trees{'spaces_info_lost'} = {
             'line_nr' => 5,
             'macro' => ''
           }
-        },
-        {
-          'parent' => {},
-          'text' => ' 
-',
-          'type' => 'empty_line_after_command'
         }
       ],
       'parent' => {},
@@ -160,7 +158,6 @@ $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2];
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0];
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'};
 
 $result_texis{'spaces_info_lost'} = '@display  text on display line 

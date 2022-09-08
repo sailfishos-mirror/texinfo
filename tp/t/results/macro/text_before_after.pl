@@ -42,9 +42,13 @@ $result_trees{'text_before_after'} = {
                       'contents' => [
                         {
                           'parent' => {},
-                          'text' => 'macro'
+                          'text' => 'macro after'
                         }
                       ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'parent' => {},
                       'type' => 'line_arg'
                     }
@@ -52,7 +56,7 @@ $result_trees{'text_before_after'} = {
                   'cmdname' => 'end',
                   'extra' => {
                     'spaces_before_argument' => ' ',
-                    'text_arg' => 'macro'
+                    'text_arg' => 'macro after'
                   },
                   'parent' => {}
                 }
@@ -67,16 +71,6 @@ $result_trees{'text_before_after'} = {
                 'line_nr' => 1,
                 'macro' => ''
               }
-            },
-            {
-              'parent' => {},
-              'text' => ' ',
-              'type' => 'empty_spaces_after_command'
-            },
-            {
-              'parent' => {},
-              'text' => 'after
-'
             }
           ],
           'parent' => {},
@@ -97,8 +91,6 @@ $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{
 $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2];
 $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0];
 $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0];
 $result_trees{'text_before_after'}{'contents'}[0]{'parent'} = $result_trees{'text_before_after'};
 
@@ -108,8 +100,7 @@ in macro
 ';
 
 
-$result_texts{'text_before_after'} = 'before after
-';
+$result_texts{'text_before_after'} = 'before ';
 
 $result_errors{'text_before_after'} = [
   {
@@ -122,13 +113,13 @@ $result_errors{'text_before_after'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: superfluous argument to @end macro:  after
+    'error_line' => 'superfluous argument to @end macro:  after
 ',
     'file_name' => '',
     'line_nr' => 3,
     'macro' => '',
     'text' => 'superfluous argument to @end macro:  after',
-    'type' => 'warning'
+    'type' => 'error'
   }
 ];
 

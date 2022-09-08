@@ -65,6 +65,10 @@ $result_trees{'verbatim_in_brace_command'} = {
                       'text' => 'verbatim'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -83,12 +87,6 @@ $result_trees{'verbatim_in_brace_command'} = {
             'line_nr' => 2,
             'macro' => ''
           }
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
         },
         {
           'parent' => {},
@@ -114,7 +112,6 @@ $result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1]{'conten
 $result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1];
 $result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0];
 $result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0];
-$result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0];
 $result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_brace_command'};
 
 $result_texis{'verbatim_in_brace_command'} = '@samp{

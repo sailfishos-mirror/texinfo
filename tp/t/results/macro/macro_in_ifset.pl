@@ -44,6 +44,10 @@ $result_trees{'macro_in_ifset'} = {
                       'text' => 'macro'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -71,12 +75,6 @@ $result_trees{'macro_in_ifset'} = {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
           'type' => 'empty_line'
         }
       ],
@@ -95,7 +93,6 @@ $result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'ar
 $result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0];
 $result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0];
-$result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0];
 $result_trees{'macro_in_ifset'}{'contents'}[0]{'parent'} = $result_trees{'macro_in_ifset'};
 
 $result_texis{'macro_in_ifset'} = '@macro macroone {arg}

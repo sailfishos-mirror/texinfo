@@ -630,8 +630,8 @@ sub _pop_context($;$$$$)
   if (defined($expected_contexts) and (
        not grep {$_ eq $popped_context} @$expected_contexts)) {
     my $error_message = "context $popped_context instead of "
-         .join(" or ".@$expected_contexts);
-    $error_message .= $message if (defined($message));
+         .join(" or ", @$expected_contexts);
+    $error_message .= "; $message" if (defined($message));
     $self->_bug_message($error_message, $source_info, $current);
     $error = 1;
   }
@@ -3245,17 +3245,6 @@ sub _end_line($$$)
     }
     $current = _begin_preformatted($self, $current);
 
-  # if we are after a @end verbatim, we must restart a preformatted if needed,
-  # since there is no @end command explicitly associated to raw commands
-  # it won't be done elsewhere.
-  } elsif ($current->{'contents'}
-           and $current->{'contents'}->[-1]
-           and $current->{'contents'}->[-1]->{'type'}
-           and $current->{'contents'}->[-1]->{'type'} eq 'empty_line_after_command'
-           and $current->{'contents'}->[-2]
-           and $current->{'contents'}->[-2]->{'cmdname'}
-           and $current->{'contents'}->[-2]->{'cmdname'} eq 'verbatim') {
-    $current = _begin_preformatted($self, $current);
   # misc command line arguments
   # Never go here if skipline/noarg/...
   } elsif ($current->{'type'} and $current->{'type'} eq 'line_arg') {
@@ -3315,6 +3304,8 @@ sub _end_line($$$)
               my $texi_line
                 = Texinfo::Convert::Texinfo::convert_to_texinfo(
                                                        $current->{'args'}->[0]);
+              # FIXME an @-command will truncate the identifier, while it will have
+              # been expanded above in $text
               $texi_line =~ s/^\s*([[:alnum:]][[:alnum:]-]+)//;
               $self->_command_error($current, $source_info,
                              __("superfluous argument to \@%s %s: %s"),
@@ -3498,7 +3489,6 @@ sub _end_line($$$)
         my $closed_command;
         ($closed_command, $current)
           = _close_commands($self, $current, $source_info, $end_command);
-        my $inline_copying;
         if ($closed_command) {
           _close_command_cleanup($self, $closed_command);
           $end->{'parent'} = $closed_command;
@@ -4019,12 +4009,6 @@ sub _parse_texi($$$)
                   __("\@end %s should only appear at the beginning of a line"),
                                      $end_command), $source_info);
           }
-          # if there is a user defined macro that expandes to spaces, there
-          # will be a spurious warning.
-          $self->_line_warn(sprintf(
-                __("superfluous argument to \@%s %s: %s"), 'end', $end_command,
-                                    $line), $source_info)
-            if ($line =~ /\S/ and $line !~ /^\s*\@c(omment)?\b/);
           # store toplevel macro specification
           if (($end_command eq 'macro' or $end_command eq 'rmacro')
                and (! $current->{'parent'}
@@ -4069,6 +4053,10 @@ sub _parse_texi($$$)
                                    $source_info, $conditional);
               die;
             }
+            $self->_line_warn(sprintf(
+                 __("superfluous argument to \@%s %s: %s"), 'end', $end_command,
+                                    $line), $source_info)
+              if ($line =~ /\S/ and $line !~ /^\s*\@c(omment)?\b/);
             # Ignore until end of line
             if ($line !~ /\n/) {
               ($line, $source_info) = _new_line($self, $source_info);
@@ -4083,18 +4071,14 @@ sub _parse_texi($$$)
                        'extra' => {'spaces_before_argument' => $space_after_end,
                                    'text_arg' => $end_command}};
             $end->{'args'} = [{'type' => 'line_arg', 'parent' => $end}];
+
+            $self->_push_context('ct_line', 'end');
+
             push @{$end->{'args'}->[0]->{'contents'}},
                     {'text' => $end_command, 'parent' => $end->{'args'}->[0]};
             push @{$current->{'contents'}->[-1]->{'contents'}}, $end;
 
-            $line =~ s/^([^\S\r\n]*)//;
-            # Start an element to have the spaces at the end of the line
-            # ignored.
-            push @{$current->{'contents'}},
-                        { 'type' => 'empty_line_after_command',
-                          'text' => $1,
-                          'parent' => $current,
-                        };
+            $current = $end->{'args'}->[0];
           }
         } else {
           if (@{$current->{'contents'}}

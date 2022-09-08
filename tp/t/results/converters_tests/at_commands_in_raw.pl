@@ -108,6 +108,10 @@ $result_trees{'at_commands_in_raw'} = {
                       'text' => 'macro'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -130,12 +134,6 @@ $result_trees{'at_commands_in_raw'} = {
             'line_nr' => 4,
             'macro' => ''
           }
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
         },
         {
           'parent' => {},
@@ -941,7 +939,6 @@ $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1]{'contents'}[2]
 $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1];
 $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[2];
 $result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[2];
-$result_trees{'at_commands_in_raw'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[2];
 $result_trees{'at_commands_in_raw'}{'contents'}[2]{'parent'} = $result_trees{'at_commands_in_raw'};
 $result_trees{'at_commands_in_raw'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[3]{'args'}[0];
 $result_trees{'at_commands_in_raw'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'at_commands_in_raw'}{'contents'}[3];

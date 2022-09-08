@@ -1,3 +1,22 @@
+2022-09-08  Patrice Dumas  <pertusus@free.fr>
+
+	After @end macro, verbatim and ignore like other block commands
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line, _parse_texi),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	do not start an empty line after @end macro, verbatim or
+	ignore, set the current element to the line_arg and push
+	ct_line on context stack.  That way, everything after the
+	@end and its argument is handled similarly than other block
+	commands.
+	do not warn for superfluous argument after @end macro, verbatim
+	and ignore, it is done when the line is processed.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (parse_texi): call end_line()
+	when there is no more content, even if no newline was seen.  Allows
+	to get the same output as perl Parser.
+
 2022-09-07  Patrice Dumas  <pertusus@free.fr>
 
 	Add extra text_arg to macro, verbatim and ignore @-commands @end
