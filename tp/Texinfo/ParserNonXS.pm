@@ -3231,7 +3231,8 @@ sub _end_line($$$)
       $current = $current->{'contents'}->[-1];
       print STDERR "MENU_COMMENT OPEN\n" if ($self->{'DEBUG'});
     }
-    if ($current->{'cmdname'} and $format_raw_commands{$current->{'cmdname'}}) {
+    if ($current->{'cmdname'} and $format_raw_commands{$current->{'cmdname'}}
+        and $self->{'expanded_formats_hash'}->{$current->{'cmdname'}}) {
       push @{$current->{'contents'}},
           { 'type' => 'rawpreformatted',
             'parent' => $current };
@@ -3923,10 +3924,12 @@ sub _parse_texi($$$)
          .join('|', $self->_get_context_stack())
          .":@{$self->{'conditionals_stack'}}:$line_text): $line";
       #print STDERR "CONTEXT_STACK ".join('|',$self->_get_context_stack())."\n";
+      #print STDERR "  $current: ".Texinfo::Common::debug_print_element_short($current)."\n";
     }
 
     if (not
-        # raw format or verb
+        # all the format handled early that have specific containers
+        # 'raw' format or verb or ignored raw format
           (($current->{'cmdname'}
            and $block_commands{$current->{'cmdname'}}
             and ($block_commands{$current->{'cmdname'}} eq 'raw'
@@ -3934,6 +3937,10 @@ sub _parse_texi($$$)
           or
            ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
             and $current->{'parent'}->{'cmdname'} eq 'verb')
+          or
+           ($current->{'cmdname'}
+            and $format_raw_commands{$current->{'cmdname'}}
+            and not $self->{'expanded_formats_hash'}->{$current->{'cmdname'}})
           )
         # not def line
         and $self->_top_context() ne 'ct_def') {
@@ -4112,8 +4119,30 @@ sub _parse_texi($$$)
           print STDERR "LINE VERB: $line" if ($self->{'DEBUG'});
           last;
         }
+      } elsif ($current->{'cmdname'}
+               and $format_raw_commands{$current->{'cmdname'}}
+               and not $self->{'expanded_formats_hash'}->{$current->{'cmdname'}}) {
+        push @{$current->{'contents'}}, { 'type' => 'elided_block',
+                                          'contents' => [],
+                                          'parent' => $current };
+        while (not $line =~ /^\s*\@end\s+$current->{'cmdname'}/) {
+          ($line, $source_info) = _new_line($self, $source_info);
+          if (!$line) {
+            # unclosed block
+            $line = '';
+            last;
+          }
+        }
+        # start a new line for the @end line, this is normally done
+        # at the beginning of a line, but not here, as we directly
+        # got the lines.
+        $line =~ s/^([^\S\r\n]*)//;
+        push @{$current->{'contents'}}, { 'type' => 'empty_line',
+                                          'text' => $1,
+                                          'parent' => $current };
+        # It is important to let the processing continue from here, such that
+        # the @end is catched and handled below, as the condition has not changed
       }
-
       # this mostly happens in the following cases:
       #   after expansion of user defined macro that doesn't end with EOL
       #   after a protection of @\n in @def* line
@@ -5118,29 +5147,6 @@ sub _parse_texi($$$)
               $self->_push_context('ct_math', $command);
             } elsif ($format_raw_commands{$command}) {
               $self->_push_context('ct_rawpreformatted', $command);
-              if (not $self->{'expanded_formats_hash'}->{$command}) {
-                push @{$current->{'contents'}}, {
-                  'parent' => $current,
-                  'type' => 'elided_block',
-                  'contents' => []
-                };
-                while (not $line =~ /^\s*\@end\s+$command/) {
-                  ($line, $source_info) = _new_line($self, $source_info);
-                  if (!$line) {
-                    # unclosed block
-                    $line = '';
-                    last;
-                  }
-                }
-                push @{$current->{'contents'}},
-                                   { 'type' => 'empty_line_after_command',
-                                     'text' => "\n",
-                                     'parent' => $current };
-                push @{$current->{'contents'}}, { 'type' => 'empty_line',
-                                                  'text' => '',
-                                                  'parent' => $current };
-                next;
-              }
             }
             if ($region_commands{$command}) {
               if (@{$self->{'regions_stack'}}) {

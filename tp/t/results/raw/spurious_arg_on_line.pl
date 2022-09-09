@@ -158,18 +158,28 @@ $result_trees{'spurious_arg_on_line'} = {
           'type' => 'empty_line'
         },
         {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'argh'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'block_line_arg'
+            }
+          ],
           'cmdname' => 'html',
           'contents' => [
             {
               'contents' => [],
               'parent' => {},
               'type' => 'elided_block'
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
             },
             {
               'args' => [
@@ -201,7 +211,15 @@ $result_trees{'spurious_arg_on_line'} = {
               }
             }
           ],
-          'parent' => {}
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'parent' => {},
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 10,
+            'macro' => ''
+          }
         }
       ],
       'parent' => {},
@@ -228,11 +246,12 @@ $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[
 $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[3];
 $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'spurious_arg_on_line'}{'contents'}[0];
 $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'spurious_arg_on_line'}{'contents'}[0];
+$result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'args'}[0];
+$result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5];
 $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5];
+$result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0];
+$result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
 $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5];
-$result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0];
-$result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[2];
-$result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5];
 $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'spurious_arg_on_line'}{'contents'}[0];
 $result_trees{'spurious_arg_on_line'}{'contents'}[0]{'parent'} = $result_trees{'spurious_arg_on_line'};
 
@@ -245,7 +264,7 @@ in tex
 in verbatim
 @end verbatim
 
-@html
+@html argh
 @end html
 ';
 

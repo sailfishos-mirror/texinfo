@@ -1,5 +1,16 @@
 2022-09-09  Patrice Dumas  <pertusus@free.fr>
 
+	Parse ignored raw format line like other block commands
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line, _parse_texi),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line, parse_texi):
+	do not process ignored format content when the command is
+	found, instead do it after the line has been parsed.
+
+2022-09-09  Patrice Dumas  <pertusus@free.fr>
+
 	Handle macro, verbatim and ignore line like other block commands
 
 	* tp/Texinfo/ParserNonXS.pm (_end_line, _parse_texi),

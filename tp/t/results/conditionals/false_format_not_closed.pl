@@ -10,6 +10,17 @@ $result_trees{'false_format_not_closed'} = {
     {
       'contents' => [
         {
+          'args' => [
+            {
+              'contents' => [],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'block_line_arg'
+            }
+          ],
           'cmdname' => 'html',
           'contents' => [
             {
@@ -19,17 +30,16 @@ $result_trees{'false_format_not_closed'} = {
             },
             {
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
-            {
-              'parent' => {},
               'text' => '',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {}
+          'parent' => {},
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          }
         }
       ],
       'parent' => {},
@@ -38,9 +48,9 @@ $result_trees{'false_format_not_closed'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0];
 $result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0];
 $result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0];
 $result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'false_format_not_closed'}{'contents'}[0];
 $result_trees{'false_format_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'false_format_not_closed'};
 

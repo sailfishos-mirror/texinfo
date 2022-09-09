@@ -897,37 +897,6 @@ handle_block_command (ELEMENT *current, char **line_inout,
       else if (command_data(cmd).flags & CF_format_raw)
         {
           push_context (ct_rawpreformatted, cmd);
-          if (!format_expanded_p (command_name(cmd)))
-            {
-              ELEMENT *e;
-              enum command_id dummy;
-              char *line_dummy;
-              char *spaces_after_end;
-
-              e = new_element (ET_elided_block);
-              add_to_element_contents (current, e);
-              line_dummy = line;
-              while (!is_end_current_command (current, &line_dummy,
-                                              &spaces_after_end, &dummy))
-                {
-                  line = new_line ();
-                  if (!line)
-                    {
-                      line = "";
-                      break;
-                    }
-                  line_dummy = line;
-                }
-              free (spaces_after_end);
-              e = new_element (ET_empty_line_after_command);
-              text_append_n (&e->text, "\n", 1);
-              add_to_element_contents (current, e);
-
-              e = new_element (ET_empty_line);
-              text_append (&e->text, "");
-              add_to_element_contents (current, e);
-              goto funexit;
-            }
         }
       else if (command_data(cmd).data == BLOCK_region)
         {

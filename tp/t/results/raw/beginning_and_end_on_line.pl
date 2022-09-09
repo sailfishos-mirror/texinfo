@@ -138,26 +138,59 @@ $result_trees{'beginning_and_end_on_line'} = {
           'type' => 'empty_line'
         },
         {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'in html '
+                }
+              ],
+              'parent' => {},
+              'type' => 'block_line_arg'
+            }
+          ],
           'cmdname' => 'html',
           'contents' => [
             {
-              'contents' => [],
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'html'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'html'
+              },
               'parent' => {},
-              'type' => 'elided_block'
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
-            {
-              'parent' => {},
-              'text' => '',
-              'type' => 'empty_line'
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              }
             }
           ],
-          'parent' => {}
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'parent' => {},
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 6,
+            'macro' => ''
+          }
         }
       ],
       'parent' => {},
@@ -181,9 +214,11 @@ $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3]{'conten
 $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3];
 $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0];
 $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'args'}[0];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'args'}[0];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[0];
 $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5];
-$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5];
-$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5];
 $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0];
 $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'};
 
@@ -192,7 +227,7 @@ $result_texis{'beginning_and_end_on_line'} = '
 
 @verbatim in verbatim @end verbatim
 
-@html
+@html in html @end html
 ';
 
 
@@ -221,13 +256,13 @@ $result_errors{'beginning_and_end_on_line'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'no matching `@end html\'
+    'error_line' => 'warning: @end should only appear at the beginning of a line
 ',
     'file_name' => '',
     'line_nr' => 6,
     'macro' => '',
-    'text' => 'no matching `@end html\'',
-    'type' => 'error'
+    'text' => '@end should only appear at the beginning of a line',
+    'type' => 'warning'
   }
 ];
 

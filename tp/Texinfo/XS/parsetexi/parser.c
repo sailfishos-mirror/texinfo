@@ -1361,6 +1361,44 @@ superfluous_arg:
           retval = GET_A_NEW_LINE; goto funexit;  /* Get next line. */
         }
     } /* CM_verb */
+  else if (command_flags(current) & CF_format_raw
+           && !format_expanded_p (command_name(current->cmd)))
+    {
+      ELEMENT *e;
+      enum command_id dummy;
+      char *spaces_after_end;
+      char *line_dummy;
+      int n;
+
+      e = new_element (ET_elided_block);
+      add_to_element_contents (current, e);
+      line_dummy = line;
+      while (!is_end_current_command (current, &line_dummy,
+                                      &spaces_after_end, &dummy))
+        {
+          line = new_line ();
+          if (!line)
+            {
+              line = "";
+              break;
+            }
+          line_dummy = line;
+        }
+      if (strlen(line) > 0)
+        free (spaces_after_end);
+
+      /* start a new line for the @end line, this is normally done
+         at the beginning of a line, but not here, as we directly
+         got the lines. */
+      e = new_element (ET_empty_line);
+      add_to_element_contents (current, e);
+
+      n = strspn (line, whitespace_chars_except_newline);
+      text_append_n (&e->text, line, n);
+      line += n;
+      /* It is important to let the processing continue from here, such that
+         the @end is catched and handled below, as the condition has not changed */
+    } /* ignored raw format */
 
   /* Skip empty lines.  If we reach the end of input, continue in case there
      is an @include. */
@@ -2056,14 +2094,17 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
       debug_nonl ("NEW LINE %s", line);
 
-      /* If not in 'raw' or 'conditional' and parent isn't a 'verb', collect
+      /* If not in 'raw' or 'conditional' and parent isn't a 'verb',
+         and not an ignored raw format, collect
          leading whitespace and save as an "ET_empty_line" element.  This
          element type can be changed in 'abort_empty_line' when more text is
          read. */
       if (!((command_flags(current) & CF_block)
              && (command_data(current->cmd).data == BLOCK_raw
                  || command_data(current->cmd).data == BLOCK_conditional)
-            || current->parent && current->parent->cmd == CM_verb)
+            || current->parent && current->parent->cmd == CM_verb
+            || (command_flags(current) & CF_format_raw
+                && !format_expanded_p (command_name(current->cmd))))
           && current_context () != ct_def)
         {
           ELEMENT *e;
