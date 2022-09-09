@@ -1294,22 +1294,10 @@ superfluous_arg:
         }
       else /* save the line verbatim */
         {
-          ELEMENT *last = last_contents_child (current);
-          /* Append to existing element only if the text is all
-             whitespace.  */
-          if (last && last->type == ET_empty_line_after_command
-              && line[strspn (line, whitespace_chars)] == '\0'
-              && !strchr (last->text.text, '\n'))
-            {
-              text_append (&last->text, line);
-            }
-          else
-            {
-              ELEMENT *e;
-              e = new_element (ET_raw);
-              text_append (&e->text, line);
-              add_to_element_contents (current, e);
-            }
+          ELEMENT *e;
+          e = new_element (ET_raw);
+          text_append (&e->text, line);
+          add_to_element_contents (current, e);
 
           retval = GET_A_NEW_LINE;
           goto funexit;

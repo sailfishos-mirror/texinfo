@@ -10,17 +10,19 @@ $result_trees{'ignore_not_closed'} = {
     {
       'contents' => [
         {
-          'cmdname' => 'ignore',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'spaces_associated_command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'ignore',
+          'contents' => [
             {
               'parent' => {},
               'text' => '
@@ -48,10 +50,9 @@ $result_trees{'ignore_not_closed'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0];
+$result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0];
 $result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0];
 $result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0];
 $result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignore_not_closed'}{'contents'}[0];
 $result_trees{'ignore_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'ignore_not_closed'};
 

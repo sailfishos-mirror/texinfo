@@ -10,17 +10,19 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
     {
       'contents' => [
         {
-          'cmdname' => 'verbatim',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'spaces_associated_command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'verbatim',
+          'contents' => [
             {
               'parent' => {},
               'text' => 'In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb
@@ -77,17 +79,19 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
           'type' => 'paragraph'
         },
         {
-          'cmdname' => 'verbatim',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'spaces_associated_command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'verbatim',
+          'contents' => [
             {
               'parent' => {},
               'text' => 'in verbatime
@@ -169,17 +173,19 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'paragraph'
             },
             {
-              'cmdname' => 'verbatim',
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [],
                   'extra' => {
-                    'spaces_associated_command' => {}
+                    'spaces_after_argument' => '
+'
                   },
                   'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line_after_command'
-                },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'cmdname' => 'verbatim',
+              'contents' => [
                 {
                   'parent' => {},
                   'text' => 'In verbatim in quotation
@@ -279,17 +285,19 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
           'type' => 'paragraph'
         },
         {
-          'cmdname' => 'verbatim',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'spaces_associated_command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'verbatim',
+          'contents' => [
             {
               'parent' => {},
               'text' => 'In verbatim test text
@@ -569,17 +577,19 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'preformatted'
             },
             {
-              'cmdname' => 'verbatim',
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [],
                   'extra' => {
-                    'spaces_associated_command' => {}
+                    'spaces_after_argument' => '
+'
                   },
                   'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line_after_command'
-                },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'cmdname' => 'verbatim',
+              'contents' => [
                 {
                   'parent' => {},
                   'text' => 'In verbatim in example
@@ -711,17 +721,19 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'empty_line'
             },
             {
-              'cmdname' => 'verbatim',
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [],
                   'extra' => {
-                    'spaces_associated_command' => {}
+                    'spaces_after_argument' => '
+'
                   },
                   'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line_after_command'
-                },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'cmdname' => 'verbatim',
+              'contents' => [
                 {
                   'parent' => {},
                   'text' => 'In verbatim in quotation with spaces
@@ -847,17 +859,19 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'empty_line'
             },
             {
-              'cmdname' => 'verbatim',
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [],
                   'extra' => {
-                    'spaces_associated_command' => {}
+                    'spaces_after_argument' => '
+'
                   },
                   'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line_after_command'
-                },
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'cmdname' => 'verbatim',
+              'contents' => [
                 {
                   'parent' => {},
                   'text' => 'In verbatim in quotation
@@ -951,22 +965,20 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[2];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[4];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
@@ -974,13 +986,12 @@ $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[5]{'par
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[2];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[3];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[2];
@@ -989,12 +1000,11 @@ $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'par
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'contents'}[1];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'contents'}[2]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[10];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
@@ -1026,13 +1036,12 @@ $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'ar
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'contents'}[2];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'contents'}[3];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[2];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20];
@@ -1045,13 +1054,12 @@ $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'ar
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'contents'}[2]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'contents'}[2];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'contents'}[3];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'contents'}[4]{'args'}[0];
@@ -1063,12 +1071,11 @@ $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'ar
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2]{'contents'}[1]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2]{'contents'}[1];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[3];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24];

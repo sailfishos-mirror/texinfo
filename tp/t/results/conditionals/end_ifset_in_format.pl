@@ -46,17 +46,19 @@ $result_trees{'end_ifset_in_format'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'ignore',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'spaces_associated_command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'ignore',
+          'contents' => [
             {
               'parent' => {},
               'text' => '@end ifset',
@@ -118,17 +120,19 @@ $result_trees{'end_ifset_in_format'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'verbatim',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'spaces_associated_command' => {}
+                'spaces_after_argument' => '
+'
               },
               'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'verbatim',
+          'contents' => [
             {
               'parent' => {},
               'text' => '@end ifset
@@ -229,23 +233,21 @@ $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'p
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[1];
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3];
+$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3];
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3];
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3];
+$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0];
+$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[2];
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[3];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3];
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[4];
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6];
+$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6];
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6];
+$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0];
+$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[2];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6];
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
 $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0];

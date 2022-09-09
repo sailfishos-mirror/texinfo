@@ -1,5 +1,17 @@
 2022-09-09  Patrice Dumas  <pertusus@free.fr>
 
+	Handle macro, verbatim and ignore line like other block commands
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line, _parse_texi),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	do not make any difference among brace commands for line parsing.
+	Never start a preformatted after a 'raw' macro, verbatim and ignore
+	command line.
+
+2022-09-09  Patrice Dumas  <pertusus@free.fr>
+
 	Handle indent and noindent like other commands for following spaces
 
 	* tp/Texinfo/ParserNonXS.pm (_abort_empty_line),

@@ -370,12 +370,9 @@ foreach my $not_begin_line_command ('comment', 'c', 'sp', 'columnfractions',
   delete $begin_line_commands{$not_begin_line_command};
 }
 
-my %block_arg_commands;
 foreach my $block_command (keys(%block_commands)) {
   $begin_line_commands{$block_command} = 1;
   $default_no_paragraph_commands{$block_command} = 1;
-  $block_arg_commands{$block_command} = 1
-    if ($block_commands{$block_command} ne 'raw');
 }
 
 my %close_preformatted_commands = %close_paragraph_commands;
@@ -3240,7 +3237,9 @@ sub _end_line($$$)
             'parent' => $current };
       $current = $current->{'contents'}->[-1];
     }
-    $current = _begin_preformatted($self, $current);
+    $current = _begin_preformatted($self, $current)
+      unless ($current->{'cmdname'}
+              and $block_commands{$current->{'cmdname'}} eq 'raw');
 
   # misc command line arguments
   # Never go here if skipline/noarg/...
@@ -4083,17 +4082,8 @@ sub _parse_texi($$$)
             $current = $end->{'args'}->[0];
           }
         } else {
-          # TODO handle 'raw' @-commands line as other @-commands
-          if (@{$current->{'contents'}}
-              and $current->{'contents'}->[-1]->{'type'}
-              and $current->{'contents'}->[-1]->{'type'} eq 'empty_line_after_command'
-              and $current->{'contents'}->[-1]->{'text'} !~ /\n/
-              and $line !~ /\S/) {
-            $current->{'contents'}->[-1]->{'text'} .= $line;
-          } else {
-            push @{$current->{'contents'}},
-              { 'text' => $line, 'type' => 'raw', 'parent' => $current };
-          }
+          push @{$current->{'contents'}},
+            { 'text' => $line, 'type' => 'raw', 'parent' => $current };
           last;
         }
       # in @verb. type should be 'brace_command_arg'
@@ -5122,85 +5112,82 @@ sub _parse_texi($$$)
             }
             $current = $current->{'contents'}->[-1];
 
-            if ($block_arg_commands{$command}) {
-              if ($preformatted_commands{$command}) {
-                $self->_push_context('ct_preformatted', $command);
-              } elsif ($math_commands{$command}) {
-                $self->_push_context('ct_math', $command);
-              } elsif ($format_raw_commands{$command}) {
-                $self->_push_context('ct_rawpreformatted', $command);
-                if (not $self->{'expanded_formats_hash'}->{$command}) {
-                  push @{$current->{'contents'}}, {
-                    'parent' => $current,
-                    'type' => 'elided_block',
-                    'contents' => []
-                  };
-                  while (not $line =~ /^\s*\@end\s+$command/) {
-                    ($line, $source_info) = _new_line($self, $source_info);
-                    if (!$line) {
-                      # unclosed block
-                      $line = '';
-                      last;
-                    }
-                  }
-                  push @{$current->{'contents'}},
-                                     { 'type' => 'empty_line_after_command',
-                                       'text' => "\n",
-                                       'parent' => $current };
-                  push @{$current->{'contents'}}, { 'type' => 'empty_line',
-                                                    'text' => '',
-                                                    'parent' => $current };
-                  next;
-                }
-              }
-              if ($region_commands{$command}) {
-                if (@{$self->{'regions_stack'}}) {
-                  $self->_line_error(
-              sprintf(__("region %s inside region %s is not allowed"),
-                      $command, $self->{'regions_stack'}->[-1]->{'cmdname'}),
-                                    $source_info);
-                }
-                push @{$self->{'regions_stack'}}, $block;
-              }
-              if ($menu_commands{$command}) {
-                $self->_push_context('ct_preformatted', $command);
-                push @{$self->{'info'}->{'dircategory_direntry'}}, $block
-                  if ($command eq 'direntry');
-                if ($self->{'current_node'}) {
-                  if ($command eq 'direntry') {
-                    if ($self->{'FORMAT_MENU'} eq 'menu') {
-                      $self->_line_warn(__("\@direntry after first node"),
-                                $source_info);
-                    }
-                  } elsif ($command eq 'menu') {
-                    if (!(defined $current->{'parent'}->{'cmdname'})
-                        or $root_commands{$current->{'parent'}->{'cmdname'}}) {
-                      push @{$self->{'current_node'}->{'extra'}->{'menus'}}, $current;
-                    } else {
-                      $self->_line_warn(__("\@menu in invalid context"),
-                                        $source_info);
-                    }
+            if ($preformatted_commands{$command}) {
+              $self->_push_context('ct_preformatted', $command);
+            } elsif ($math_commands{$command}) {
+              $self->_push_context('ct_math', $command);
+            } elsif ($format_raw_commands{$command}) {
+              $self->_push_context('ct_rawpreformatted', $command);
+              if (not $self->{'expanded_formats_hash'}->{$command}) {
+                push @{$current->{'contents'}}, {
+                  'parent' => $current,
+                  'type' => 'elided_block',
+                  'contents' => []
+                };
+                while (not $line =~ /^\s*\@end\s+$command/) {
+                  ($line, $source_info) = _new_line($self, $source_info);
+                  if (!$line) {
+                    # unclosed block
+                    $line = '';
+                    last;
                   }
                 }
+                push @{$current->{'contents'}},
+                                   { 'type' => 'empty_line_after_command',
+                                     'text' => "\n",
+                                     'parent' => $current };
+                push @{$current->{'contents'}}, { 'type' => 'empty_line',
+                                                  'text' => '',
+                                                  'parent' => $current };
+                next;
               }
-              $current->{'args'} = [ {
-                 'type' => 'block_line_arg',
-                 'contents' => [],
-                 'parent' => $current } ];
-              
-              if ($block_commands{$command} =~ /^\d+$/
-                  and $block_commands{$command} - 1 > 0) {
-                $current->{'remaining_args'} = $block_commands{$command} - 1;
-              } elsif ($block_commands{$command} eq 'variadic') {
-                $current->{'remaining_args'} = -1; # unlimited args
-              }
-              $current = $current->{'args'}->[-1];
-              $self->_push_context('ct_line', $command)
-                unless ($def_commands{$command});
             }
+            if ($region_commands{$command}) {
+              if (@{$self->{'regions_stack'}}) {
+                $self->_line_error(
+            sprintf(__("region %s inside region %s is not allowed"),
+                    $command, $self->{'regions_stack'}->[-1]->{'cmdname'}),
+                                  $source_info);
+              }
+              push @{$self->{'regions_stack'}}, $block;
+            }
+            if ($menu_commands{$command}) {
+              $self->_push_context('ct_preformatted', $command);
+              push @{$self->{'info'}->{'dircategory_direntry'}}, $block
+                if ($command eq 'direntry');
+              if ($self->{'current_node'}) {
+                if ($command eq 'direntry') {
+                  if ($self->{'FORMAT_MENU'} eq 'menu') {
+                    $self->_line_warn(__("\@direntry after first node"),
+                              $source_info);
+                  }
+                } elsif ($command eq 'menu') {
+                  if (!(defined $current->{'parent'}->{'cmdname'})
+                      or $root_commands{$current->{'parent'}->{'cmdname'}}) {
+                    push @{$self->{'current_node'}->{'extra'}->{'menus'}}, $current;
+                  } else {
+                    $self->_line_warn(__("\@menu in invalid context"),
+                                      $source_info);
+                  }
+                }
+              }
+            }
+            $current->{'args'} = [ {
+               'type' => 'block_line_arg',
+               'contents' => [],
+               'parent' => $current } ];
+
+            if ($block_commands{$command} =~ /^\d+$/
+                and $block_commands{$command} - 1 > 0) {
+              $current->{'remaining_args'} = $block_commands{$command} - 1;
+            } elsif ($block_commands{$command} eq 'variadic') {
+              $current->{'remaining_args'} = -1; # unlimited args
+            }
+            $current = $current->{'args'}->[-1];
+            $self->_push_context('ct_line', $command)
+              unless ($def_commands{$command});
             $block->{'source_info'} = $source_info;
             _register_global_command($self, $block, $source_info);
-
             $line = _start_empty_line_after_command($line, $current, $block,
                                                     $command);
           }

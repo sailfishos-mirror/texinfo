@@ -86,17 +86,19 @@ $result_trees{'spaces_info_lost'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'verbatim',
-          'contents' => [
+          'args' => [
             {
+              'contents' => [],
               'extra' => {
-                'spaces_associated_command' => {}
+                'spaces_after_argument' => '  
+'
               },
               'parent' => {},
-              'text' => '  
-',
-              'type' => 'empty_line_after_command'
-            },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'verbatim',
+          'contents' => [
             {
               'parent' => {},
               'text' => 'in verbatim @g 
@@ -151,12 +153,11 @@ $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0];
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0];
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2];
+$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2];
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2];
+$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
+$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2];
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0];
 $result_trees{'spaces_info_lost'}{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'};
 

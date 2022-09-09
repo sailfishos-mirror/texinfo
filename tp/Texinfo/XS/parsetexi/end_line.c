@@ -1294,7 +1294,8 @@ end_line_starting_block (ELEMENT *current)
       add_to_element_contents (current, rawpreformatted);
       current = rawpreformatted;
     }
-  current = begin_preformatted (current);
+  if (command_data(current->cmd).data != BLOCK_raw)
+    current = begin_preformatted (current);
 
   return current;
 }

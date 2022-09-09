@@ -890,112 +890,109 @@ handle_block_command (ELEMENT *current, char **line_inout,
         }
 
       /* Check if 'block args command' */
-      if (command_data(cmd).data != BLOCK_raw)
+      if (command_data(cmd).flags & CF_preformatted)
+        push_context (ct_preformatted, cmd);
+      else if (cmd == CM_displaymath)
+        push_context (ct_math, cmd);
+      else if (command_data(cmd).flags & CF_format_raw)
         {
-          if (command_data(cmd).flags & CF_preformatted)
-            push_context (ct_preformatted, cmd);
-          else if (cmd == CM_displaymath)
-            push_context (ct_math, cmd);
-          else if (command_data(cmd).flags & CF_format_raw)
+          push_context (ct_rawpreformatted, cmd);
+          if (!format_expanded_p (command_name(cmd)))
             {
-              push_context (ct_rawpreformatted, cmd);
-              if (!format_expanded_p (command_name(cmd)))
-                {
-                  ELEMENT *e;
-                  enum command_id dummy;
-                  char *line_dummy;
-                  char *spaces_after_end;
+              ELEMENT *e;
+              enum command_id dummy;
+              char *line_dummy;
+              char *spaces_after_end;
 
-                  e = new_element (ET_elided_block);
-                  add_to_element_contents (current, e);
+              e = new_element (ET_elided_block);
+              add_to_element_contents (current, e);
+              line_dummy = line;
+              while (!is_end_current_command (current, &line_dummy,
+                                              &spaces_after_end, &dummy))
+                {
+                  line = new_line ();
+                  if (!line)
+                    {
+                      line = "";
+                      break;
+                    }
                   line_dummy = line;
-                  while (!is_end_current_command (current, &line_dummy,
-                                                  &spaces_after_end, &dummy))
-                    {
-                      line = new_line ();
-                      if (!line)
-                        {
-                          line = "";
-                          break;
-                        }
-                      line_dummy = line;
-                    }
-                  free (spaces_after_end);
-                  e = new_element (ET_empty_line_after_command);
-                  text_append_n (&e->text, "\n", 1);
-                  add_to_element_contents (current, e);
-
-                  e = new_element (ET_empty_line);
-                  text_append (&e->text, "");
-                  add_to_element_contents (current, e);
-                  goto funexit;
                 }
+              free (spaces_after_end);
+              e = new_element (ET_empty_line_after_command);
+              text_append_n (&e->text, "\n", 1);
+              add_to_element_contents (current, e);
+
+              e = new_element (ET_empty_line);
+              text_append (&e->text, "");
+              add_to_element_contents (current, e);
+              goto funexit;
             }
-          else if (command_data(cmd).data == BLOCK_region)
+        }
+      else if (command_data(cmd).data == BLOCK_region)
+        {
+          if (current_region_cmd ())
             {
-              if (current_region_cmd ())
-                {
-                  line_error ("region %s inside region %s is not allowed",
-                              command_name(cmd),
-                              command_name(current_region_cmd ()));
-                }
-              push_region (block);
+              line_error ("region %s inside region %s is not allowed",
+                          command_name(cmd),
+                          command_name(current_region_cmd ()));
             }
+          push_region (block);
+        }
 
-          if (command_data(cmd).flags & CF_menu)
+      if (command_data(cmd).flags & CF_menu)
+        {
+          push_context (ct_preformatted, cmd);
+
+          if (cmd == CM_direntry)
+            add_to_contents_as_array (&global_info.dircategory_direntry, 
+                                      block);
+
+          if (current_node)
             {
-              push_context (ct_preformatted, cmd);
-
-              if (cmd == CM_direntry)
-                add_to_contents_as_array (&global_info.dircategory_direntry, 
-                                          block);
-
-              if (current_node)
+              if (cmd == CM_direntry && conf.show_menu)
                 {
-                  if (cmd == CM_direntry && conf.show_menu)
-                    {
-                      line_warn ("@direntry after first node");
-                    }
-                  else if (cmd == CM_menu)
-                    {
-                      if (!(command_flags(current->parent) & CF_root))
-                        line_warn ("@menu in invalid context");
-                      /* Add to array of menus for current node.  Currently
-                         done in Perl code. */
-                    }
+                  line_warn ("@direntry after first node");
+                }
+              else if (cmd == CM_menu)
+                {
+                  if (!(command_flags(current->parent) & CF_root))
+                    line_warn ("@menu in invalid context");
+                  /* Add to array of menus for current node.  Currently
+                     done in Perl code. */
                 }
             }
+        }
 
-          if (cmd == CM_itemize || cmd == CM_enumerate)
-            counter_push (&count_items, current, 0);
-          /* Note that no equivalent thing is done in the Perl code, because
-             'item_count' is assumed to start at 0. */
+      if (cmd == CM_itemize || cmd == CM_enumerate)
+        counter_push (&count_items, current, 0);
+      /* Note that no equivalent thing is done in the Perl code, because
+         'item_count' is assumed to start at 0. */
 
-          {
-            ELEMENT *bla = new_element (ET_block_line_arg);
-            add_to_element_args (current, bla);
+        {
+          ELEMENT *bla = new_element (ET_block_line_arg);
+          add_to_element_args (current, bla);
 
-            if (command_data (current->cmd).data > 1)
-              {
-                counter_push (&count_remaining_args,
-                              current,
-                              command_data (current->cmd).data - 1);
-              }
-            else if (command_data (current->cmd).data == BLOCK_variadic)
-              {
-                /* Unlimited args */
-                counter_push (&count_remaining_args, current,
-                              COUNTER_VARIADIC);
-              }
+          if (command_data (current->cmd).data > 1)
+            {
+              counter_push (&count_remaining_args,
+                            current,
+                            command_data (current->cmd).data - 1);
+            }
+          else if (command_data (current->cmd).data == BLOCK_variadic)
+            {
+              /* Unlimited args */
+              counter_push (&count_remaining_args, current,
+                            COUNTER_VARIADIC);
+            }
 
-            current = bla;
-            if (!(command_data(cmd).flags & CF_def))
-              push_context (ct_line, cmd);
+          current = bla;
+          if (!(command_data(cmd).flags & CF_def))
+            push_context (ct_line, cmd);
 
-            /* Note that an ET_empty_line_after_command gets reparented in the 
-               contents in 'end_line'. */
+          /* Note that an ET_empty_line_after_command gets reparented in the 
+             contents in 'end_line'. */
 
-          }
         }
       block->source_info = current_source_info;
       register_global_command (block);
