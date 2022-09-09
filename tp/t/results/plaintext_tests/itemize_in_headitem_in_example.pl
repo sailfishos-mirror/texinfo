@@ -49,6 +49,9 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     {
                       'contents' => [
                         {
+                          'extra' => {
+                            'associated_missing_cmdname' => 'headitem'
+                          },
                           'parent' => {},
                           'text' => ' ',
                           'type' => 'empty_spaces_after_command'
@@ -156,6 +159,9 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     {
                       'contents' => [
                         {
+                          'extra' => {
+                            'associated_missing_cmdname' => 'headitem'
+                          },
                           'parent' => {},
                           'text' => ' ',
                           'type' => 'empty_spaces_after_command'
@@ -259,6 +265,9 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     {
                       'contents' => [
                         {
+                          'extra' => {
+                            'associated_missing_cmdname' => 'headitem'
+                          },
                           'parent' => {},
                           'text' => ' ',
                           'type' => 'empty_spaces_after_command'
@@ -392,6 +401,9 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                     {
                       'contents' => [
                         {
+                          'extra' => {
+                            'associated_missing_cmdname' => 'headitem'
+                          },
                           'parent' => {},
                           'text' => ' ',
                           'type' => 'empty_spaces_after_command'

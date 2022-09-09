@@ -73,6 +73,9 @@ $result_trees{'headitem_itemx_in_itemize'} = {
                   }
                 },
                 {
+                  'extra' => {
+                    'associated_missing_cmdname' => 'headitem'
+                  },
                   'parent' => {},
                   'text' => ' ',
                   'type' => 'empty_spaces_after_command'

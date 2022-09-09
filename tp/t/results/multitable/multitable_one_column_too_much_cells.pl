@@ -52,6 +52,9 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                           'type' => 'paragraph'
                         },
                         {
+                          'extra' => {
+                            'associated_missing_cmdname' => 'tab'
+                          },
                           'parent' => {},
                           'text' => ' ',
                           'type' => 'empty_spaces_after_command'
@@ -67,6 +70,9 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                           'type' => 'paragraph'
                         },
                         {
+                          'extra' => {
+                            'associated_missing_cmdname' => 'tab'
+                          },
                           'parent' => {},
                           'text' => ' ',
                           'type' => 'empty_spaces_after_command'
@@ -82,6 +88,9 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                           'type' => 'paragraph'
                         },
                         {
+                          'extra' => {
+                            'associated_missing_cmdname' => 'tab'
+                          },
                           'parent' => {},
                           'text' => ' ',
                           'type' => 'empty_spaces_after_command'
@@ -167,6 +176,9 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                           'type' => 'paragraph'
                         },
                         {
+                          'extra' => {
+                            'associated_missing_cmdname' => 'tab'
+                          },
                           'parent' => {},
                           'text' => ' ',
                           'type' => 'empty_spaces_after_command'
@@ -182,6 +194,9 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                           'type' => 'paragraph'
                         },
                         {
+                          'extra' => {
+                            'associated_missing_cmdname' => 'tab'
+                          },
                           'parent' => {},
                           'text' => ' ',
                           'type' => 'empty_spaces_after_command'
@@ -197,6 +212,9 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                           'type' => 'paragraph'
                         },
                         {
+                          'extra' => {
+                            'associated_missing_cmdname' => 'tab'
+                          },
                           'parent' => {},
                           'text' => ' ',
                           'type' => 'empty_spaces_after_command'
@@ -247,6 +265,9 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                           'type' => 'paragraph'
                         },
                         {
+                          'extra' => {
+                            'associated_missing_cmdname' => 'tab'
+                          },
                           'parent' => {},
                           'text' => ' ',
                           'type' => 'empty_spaces_after_command'

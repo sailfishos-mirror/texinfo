@@ -647,11 +647,10 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
       else if (last_child->type == ET_empty_line_after_command
                || last_child->type == ET_empty_spaces_before_argument)
         {
-        /* indent and noindent are never directly associated with the spaces */
-          if (owning_element && ! (owning_element->cmd == CM_indent
-                                    || owning_element->cmd == CM_noindent))
+          if (owning_element)
             {
-              /* Remove element from main tree. */
+              /* Remove element from main tree. It will still be referenced in
+                 the 'extra' hash as 'spaces_before_argument'. */
               ELEMENT *e = pop_element_from_contents (current);
               add_extra_string_dup (owning_element, "spaces_before_argument",
                                     e->text.text);
@@ -798,7 +797,7 @@ isolate_last_space (ELEMENT *current)
    a block. */
 void
 start_empty_line_after_command (ELEMENT *current, char **line_inout,
-                                ELEMENT *command)
+                                ELEMENT *command, char *command_name)
 {
   char *line = *line_inout;
   ELEMENT *e;
@@ -812,6 +811,8 @@ start_empty_line_after_command (ELEMENT *current, char **line_inout,
 
   if (command)
     add_extra_element (e, "spaces_associated_command", command);
+  else
+    add_extra_string (e, "associated_missing_cmdname", strdup (command_name));
 
   *line_inout = line;
 }

@@ -62,6 +62,9 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                             {
                               'contents' => [
                                 {
+                                  'extra' => {
+                                    'associated_missing_cmdname' => 'tab'
+                                  },
                                   'parent' => {},
                                   'text' => ' ',
                                   'type' => 'empty_spaces_after_command'
@@ -110,6 +113,9 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                               'type' => 'preformatted'
                             },
                             {
+                              'extra' => {
+                                'associated_missing_cmdname' => 'tab'
+                              },
                               'parent' => {},
                               'text' => '
 ',

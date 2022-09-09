@@ -376,7 +376,6 @@ foreach my $block_command (keys(%block_commands)) {
   $default_no_paragraph_commands{$block_command} = 1;
   $block_arg_commands{$block_command} = 1
     if ($block_commands{$block_command} ne 'raw');
-#        and ! $format_raw_commands{$block_command});
 }
 
 my %close_preformatted_commands = %close_paragraph_commands;
@@ -2352,11 +2351,7 @@ sub _abort_empty_line {
       }
     } elsif ($spaces_element->{'type'} eq 'empty_line_after_command'
              or $spaces_element->{'type'} eq 'empty_spaces_before_argument') {
-      if ($owning_element
-          # indent and noindent are never directly associated with the spaces
-          and (not ($owning_element->{'cmdname'}
-                    and ($owning_element->{'cmdname'} eq 'indent'
-                         or $owning_element->{'cmdname'} eq 'noindent')))) {
+      if ($owning_element) {
         # Remove element from main tree. It will still be referenced in
         # the 'extra' hash as 'spaces_before_argument'.
         pop @{$current->{'contents'}};
@@ -3091,6 +3086,8 @@ sub _end_line($$$)
     delete $current->{'remaining_args'};
     # don't consider empty argument of block @-commands as argument,
     # reparent them as contents
+    # TODO does not happen, likely because all the block commands empty_line_after_command
+    # are directly put in extra space_*_command.
     if ($current->{'args'}->[0]->{'contents'}->[0]
          and $current->{'args'}->[0]->{'contents'}->[0]->{'type'}
          and $current->{'args'}->[0]->{'contents'}->[0]->{'type'} eq 'empty_line_after_command')
@@ -3656,18 +3653,23 @@ sub _end_line($$$)
   return $current;
 }
 
-# $command may be undef if we are after a wrong misc command such as
+# $command may be undef if we are after a wrong other command such as
 # a buggy @tab.
-sub _start_empty_line_after_command($$$) {
-  my ($line, $current, $command) = @_;
+sub _start_empty_line_after_command($$$$) {
+  my ($line, $current, $command, $command_name) = @_;
 
   $line =~ s/^([^\S\r\n]*)//;
   push @{$current->{'contents'}}, { 'type' => 'empty_line_after_command',
                                     'text' => $1,
                                     'parent' => $current,
+                                    'extra' => {},
                                   };
   if (defined($command)) {
-    $current->{'contents'}->[-1]->{'extra'} = {'spaces_associated_command' => $command};
+    $current->{'contents'}->[-1]->{'extra'}->{'spaces_associated_command'}
+      = $command;
+  } else {
+    $current->{'contents'}->[-1]->{'extra'}->{'associated_missing_cmdname'}
+      = $command_name;
   }
   return $line;
 }
@@ -4081,6 +4083,7 @@ sub _parse_texi($$$)
             $current = $end->{'args'}->[0];
           }
         } else {
+          # TODO handle 'raw' @-commands line as other @-commands
           if (@{$current->{'contents'}}
               and $current->{'contents'}->[-1]->{'type'}
               and $current->{'contents'}->[-1]->{'type'} eq 'empty_line_after_command'
@@ -4659,57 +4662,51 @@ sub _parse_texi($$$)
                 $current = _begin_preformatted($self, $current);
               # @*table
               } elsif ($parent = _item_line_parent($current)) {
+                # @item and _item_line_parent is explicitely avoided in the if above
                 $self->_line_error(sprintf(__(
                       "\@%s not meaningful inside `\@%s' block"),
                     $command, $parent->{'cmdname'}), $source_info);
                 $current = _begin_preformatted($self, $current);
               # @multitable
               } elsif ($parent = _item_multitable_parent($current)) {
-                if ($command eq 'item' or $command eq 'headitem'
-                     or $command eq 'tab') {
-                  if (!$parent->{'extra'}->{'max_columns'}) {
-                    $self->_line_warn(
-                       sprintf(__("\@%s in empty multitable"),
-                               $command), $source_info);
-                  } elsif ($command eq 'tab') {
-                    my $row = $parent->{'contents'}->[-1];
-                    die if (!$row->{'type'});
-                    if ($row->{'type'} eq 'before_item') {
-                      $self->_line_error(__("\@tab before \@item"), $source_info);
-                    } elsif ($row->{'cells_count'} >= $parent->{'extra'}->{'max_columns'}) {
-                      $self->_line_error(sprintf(__(
-                              "too many columns in multitable item (max %d)"),
-                             $parent->{'extra'}->{'max_columns'}), $source_info);
-                    } else {
-                      $row->{'cells_count'}++;
-                      $misc = { 'cmdname' => $command,
-                                'parent' => $row,
-                                'contents' => [],
-                                'extra' =>
-                            {'cell_number' => $row->{'cells_count'}} };
-                      push @{$row->{'contents'}}, $misc;
-                      $current = $row->{'contents'}->[-1];
-                      print STDERR "TAB\n" if ($self->{'DEBUG'});
-                    }
+                if (!$parent->{'extra'}->{'max_columns'}) {
+                  $self->_line_warn(
+                     sprintf(__("\@%s in empty multitable"),
+                             $command), $source_info);
+                } elsif ($command eq 'tab') {
+                  my $row = $parent->{'contents'}->[-1];
+                  die if (!$row->{'type'});
+                  if ($row->{'type'} eq 'before_item') {
+                    $self->_line_error(__("\@tab before \@item"), $source_info);
+                  } elsif ($row->{'cells_count'} >= $parent->{'extra'}->{'max_columns'}) {
+                    $self->_line_error(sprintf(__(
+                            "too many columns in multitable item (max %d)"),
+                           $parent->{'extra'}->{'max_columns'}), $source_info);
                   } else {
-                    print STDERR "ROW\n" if ($self->{'DEBUG'});
-                    $parent->{'rows_count'}++;
-                    my $row = { 'type' => 'row', 'contents' => [],
-                                'cells_count' => 1,
-                                'extra' => {'row_number' => $parent->{'rows_count'} },
-                                'parent' => $parent };
-                    push @{$parent->{'contents'}}, $row;
-                    $misc =  { 'cmdname' => $command,
-                               'parent' => $row,
-                               'contents' => [],
-                               'extra' => {'cell_number' => 1}};
+                    $row->{'cells_count'}++;
+                    $misc = { 'cmdname' => $command,
+                              'parent' => $row,
+                              'contents' => [],
+                              'extra' =>
+                          {'cell_number' => $row->{'cells_count'}} };
                     push @{$row->{'contents'}}, $misc;
                     $current = $row->{'contents'}->[-1];
+                    print STDERR "TAB\n" if ($self->{'DEBUG'});
                   }
                 } else {
-                  $self->_line_error(sprintf(__(
-                           "\@%s not meaningful inside `\@%s' block"),
-                               $command, $parent->{'cmdname'}), $source_info);
+                  print STDERR "ROW\n" if ($self->{'DEBUG'});
+                  $parent->{'rows_count'}++;
+                  my $row = { 'type' => 'row', 'contents' => [],
+                              'cells_count' => 1,
+                              'extra' => {'row_number' => $parent->{'rows_count'} },
+                              'parent' => $parent };
+                  push @{$parent->{'contents'}}, $row;
+                  $misc =  { 'cmdname' => $command,
+                             'parent' => $row,
+                             'contents' => [],
+                             'extra' => {'cell_number' => 1}};
+                  push @{$row->{'contents'}}, $misc;
+                  $current = $row->{'contents'}->[-1];
                 }
                 $current = _begin_preformatted($self, $current);
               } elsif ($command eq 'tab') {
@@ -4727,7 +4724,7 @@ sub _parse_texi($$$)
                   'source_info' => $source_info };
               push @{$current->{'contents'}}, $misc;
             }
-            $line = _start_empty_line_after_command($line, $current, $misc);
+            $line = _start_empty_line_after_command($line, $current, $misc, $command);
           }
         # line commands
         } elsif (defined($self->{'line_commands'}->{$command})) {
@@ -4985,7 +4982,8 @@ sub _parse_texi($$$)
             $current = $current->{'args'}->[-1];
             $self->_push_context('ct_line', $command)
               unless ($def_commands{$command});
-            $line = _start_empty_line_after_command($line, $current, $misc);
+            $line = _start_empty_line_after_command($line, $current, $misc,
+                                                    $command);
           }
           _register_global_command($self, $misc, $source_info)
             if $misc;
@@ -5203,7 +5201,8 @@ sub _parse_texi($$$)
             $block->{'source_info'} = $source_info;
             _register_global_command($self, $block, $source_info);
 
-            $line = _start_empty_line_after_command($line, $current, $block);
+            $line = _start_empty_line_after_command($line, $current, $block,
+                                                    $command);
           }
         } elsif (defined($brace_commands{$command})) {
           push @{$current->{'contents'}}, { 'cmdname' => $command,

@@ -129,6 +129,9 @@ $result_trees{'section_in_table'} = {
           'type' => 'empty_line'
         },
         {
+          'extra' => {
+            'associated_missing_cmdname' => 'item'
+          },
           'parent' => {},
           'text' => ' ',
           'type' => 'empty_spaces_after_command'

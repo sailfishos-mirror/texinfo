@@ -1,3 +1,24 @@
+2022-09-09  Patrice Dumas  <pertusus@free.fr>
+
+	Handle indent and noindent like other commands for following spaces
+
+	* tp/Texinfo/ParserNonXS.pm (_abort_empty_line),
+	tp/Texinfo/XS/parsetexi/parser.c (abort_empty_line): do not treat
+	especially @indent and @noindent, add following spaces in extra
+	spaces key.
+
+	* tp/Texinfo/ParserNonXS.pm (_start_empty_line_after_command),
+	tp/Texinfo/XS/parsetexi/handle_commands.c
+	(start_empty_line_after_command),
+	tp/Texinfo/XS/parsetexi/parser.c (start_empty_line_after_command):
+	add extra associated_missing_cmdname field for spaces after commands
+	with a command that was removed because of an error.  Pass command
+	name to start_empty_line_after_command.
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_other_command):
+	remove a if redundant with a previous condition.
+
 2022-09-08  Patrice Dumas  <pertusus@free.fr>
 
 	After @end macro, verbatim and ignore like other block commands

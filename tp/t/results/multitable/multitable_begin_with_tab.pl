@@ -51,6 +51,9 @@ $result_trees{'multitable_begin_with_tab'} = {
             {
               'contents' => [
                 {
+                  'extra' => {
+                    'associated_missing_cmdname' => 'tab'
+                  },
                   'parent' => {},
                   'text' => ' ',
                   'type' => 'empty_spaces_after_command'
@@ -173,6 +176,9 @@ $result_trees{'multitable_begin_with_tab'} = {
             {
               'contents' => [
                 {
+                  'extra' => {
+                    'associated_missing_cmdname' => 'tab'
+                  },
                   'parent' => {},
                   'text' => ' ',
                   'type' => 'empty_spaces_after_command'

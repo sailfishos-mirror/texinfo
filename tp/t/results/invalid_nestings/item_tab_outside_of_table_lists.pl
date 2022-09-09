@@ -38,6 +38,9 @@ $result_trees{'item_tab_outside_of_table_lists'} = {
           }
         },
         {
+          'extra' => {
+            'associated_missing_cmdname' => 'headitem'
+          },
           'parent' => {},
           'text' => ' ',
           'type' => 'empty_spaces_after_command'
@@ -59,6 +62,9 @@ $result_trees{'item_tab_outside_of_table_lists'} = {
           'type' => 'paragraph'
         },
         {
+          'extra' => {
+            'associated_missing_cmdname' => 'tab'
+          },
           'parent' => {},
           'text' => ' ',
           'type' => 'empty_spaces_after_command'

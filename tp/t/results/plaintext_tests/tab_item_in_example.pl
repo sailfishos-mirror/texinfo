@@ -26,6 +26,9 @@ $result_trees{'tab_item_in_example'} = {
             {
               'contents' => [
                 {
+                  'extra' => {
+                    'associated_missing_cmdname' => 'tab'
+                  },
                   'parent' => {},
                   'text' => ' ',
                   'type' => 'empty_spaces_after_command'
@@ -42,6 +45,9 @@ $result_trees{'tab_item_in_example'} = {
             {
               'contents' => [
                 {
+                  'extra' => {
+                    'associated_missing_cmdname' => 'item'
+                  },
                   'parent' => {},
                   'text' => ' ',
                   'type' => 'empty_spaces_after_command'

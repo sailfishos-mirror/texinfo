@@ -55,6 +55,9 @@ $result_trees{'multitable_item_in_index'} = {
                     {
                       'contents' => [
                         {
+                          'extra' => {
+                            'associated_missing_cmdname' => 'item'
+                          },
                           'parent' => {},
                           'text' => ' ',
                           'type' => 'empty_spaces_after_command'

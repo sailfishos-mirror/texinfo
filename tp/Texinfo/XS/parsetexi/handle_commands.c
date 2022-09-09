@@ -148,87 +148,77 @@ handle_other_command (ELEMENT *current, char **line_inout,
           /* In a @multitable */
           else if ((parent = item_multitable_parent (current)))
             {
-              if (cmd != CM_item && cmd != CM_headitem
-                  && cmd != CM_tab)
-                {
-                  line_error ("@%s not meaningful inside @%s block",
-                              command_name(cmd),
-                              command_name(parent->cmd));
-                }
+              int max_columns = 0;
+              KEY_PAIR *prototypes;
+
+              prototypes = lookup_extra  (parent, "prototypes");
+              if (prototypes)
+                max_columns = prototypes->value->contents.number;
               else
                 {
-                  int max_columns = 0;
-                  KEY_PAIR *prototypes;
-
-                  prototypes = lookup_extra  (parent, "prototypes");
+                  prototypes = lookup_extra(parent, "columnfractions");
                   if (prototypes)
-                    max_columns = prototypes->value->contents.number;
+                    {
+                      prototypes = lookup_extra((ELEMENT *) prototypes->value,
+                                                "misc_args");
+                      if (prototypes)
+                        max_columns = prototypes->value->contents.number;
+                    }
+                }
+
+              if (max_columns == 0)
+                {
+                  line_warn ("@%s in empty multitable",
+                             command_name(cmd));
+                }
+              else if (cmd == CM_tab)
+                {
+                  ELEMENT *row;
+                  row = last_contents_child (parent);
+                  if (row->type == ET_before_item)
+                    line_error ("@tab before @item");
+                  else if (counter_value (&count_cells, row)
+                           >= max_columns)
+                    {
+                      line_error ("too many columns in multitable item"
+                                  " (max %d)", max_columns);
+                    }
                   else
                     {
-                      prototypes = lookup_extra(parent, "columnfractions");
-                      if (prototypes)
-                        {
-                          prototypes = lookup_extra((ELEMENT *) prototypes->value,
-                                                    "misc_args");
-                          if (prototypes)
-                            max_columns = prototypes->value->contents.number;
-                        }
-                    }
-
-                  if (max_columns == 0)
-                    {
-                      line_warn ("@%s in empty multitable",
-                                 command_name(cmd));
-                    }
-                  else if (cmd == CM_tab)
-                    {
-                      ELEMENT *row;
-                      row = last_contents_child (parent);
-                      if (row->type == ET_before_item)
-                        line_error ("@tab before @item");
-                      else if (counter_value (&count_cells, row)
-                               >= max_columns)
-                        {
-                          line_error ("too many columns in multitable item"
-                                      " (max %d)", max_columns);
-                        }
-                      else
-                        {
-                          counter_inc (&count_cells);
-                          misc = new_element (ET_NONE);
-                          misc->cmd = cmd;
-                          add_to_element_contents (row, misc);
-                          current = misc;
-                          debug ("TAB");
-
-                          add_extra_integer (current, "cell_number",
-                                             counter_value (&count_cells, row));
-                        }
-                    }
-                  else /* @item or @headitem */
-                    {
-                      ELEMENT *row;
-
-                      debug ("ROW");
-                      row = new_element (ET_row);
-                      add_to_element_contents (parent, row);
-
-                      /* Note that the "row_number" extra value,
-                         isn't actually used anywhere at present. */
-                      add_extra_integer (row, "row_number",
-                                         parent->contents.number - 1);
-
+                      counter_inc (&count_cells);
                       misc = new_element (ET_NONE);
                       misc->cmd = cmd;
                       add_to_element_contents (row, misc);
                       current = misc;
+                      debug ("TAB");
 
-                      if (counter_value (&count_cells, parent) != -1)
-                        counter_pop (&count_cells);
-                      counter_push (&count_cells, row, 1);
                       add_extra_integer (current, "cell_number",
                                          counter_value (&count_cells, row));
                     }
+                }
+              else /* @item or @headitem */
+                {
+                  ELEMENT *row;
+
+                  debug ("ROW");
+                  row = new_element (ET_row);
+                  add_to_element_contents (parent, row);
+
+                  /* Note that the "row_number" extra value,
+                     isn't actually used anywhere at present. */
+                  add_extra_integer (row, "row_number",
+                                     parent->contents.number - 1);
+
+                  misc = new_element (ET_NONE);
+                  misc->cmd = cmd;
+                  add_to_element_contents (row, misc);
+                  current = misc;
+
+                  if (counter_value (&count_cells, parent) != -1)
+                    counter_pop (&count_cells);
+                  counter_push (&count_cells, row, 1);
+                  add_extra_integer (current, "cell_number",
+                                     counter_value (&count_cells, row));
                 }
               current = begin_preformatted (current);
             } /* In @multitable */
@@ -253,7 +243,7 @@ handle_other_command (ELEMENT *current, char **line_inout,
           misc->source_info = current_source_info;
           add_to_element_contents (current, misc);
         }
-      start_empty_line_after_command (current, &line, misc);
+      start_empty_line_after_command (current, &line, misc, command_name(cmd));
     }
 
 funexit:
@@ -654,7 +644,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
          case while we read the argument on this line. */
       if (!(command_data(cmd).flags & CF_def))
         push_context (ct_line, cmd);
-      start_empty_line_after_command (current, &line, misc);
+      start_empty_line_after_command (current, &line, misc, command_name(cmd));
     }
 
   if (misc)
@@ -1009,7 +999,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
         }
       block->source_info = current_source_info;
       register_global_command (block);
-      start_empty_line_after_command (current, &line, block);
+      start_empty_line_after_command (current, &line, block, command_name(cmd));
     }
 
 funexit:
