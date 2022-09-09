@@ -385,9 +385,29 @@ some verbatim @
 ['inline_missing_first_arg',
 '@inlinefmt{ , aaa}. @inlineraw{, bbb}.
 '],
+['spurious_arg_on_line',
+'
+@tex argt
+in tex
+@end tex
+
+@verbatim argverbatim
+in verbatim
+@end verbatim
+
+@html argh
+in html
+@end html
+',
+{'EXPANDED_FORMATS' => ['tex']}
+],
 ['beginning_and_end_on_line',
 '
 @tex in tex @end tex
+
+@verbatim in verbatim @end verbatim
+
+@html in html @end html
 ',
 {'EXPANDED_FORMATS' => ['tex']}
 ],

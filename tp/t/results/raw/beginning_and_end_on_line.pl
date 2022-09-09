@@ -69,6 +69,95 @@ $result_trees{'beginning_and_end_on_line'} = {
             'line_nr' => 2,
             'macro' => ''
           }
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'in verbatim '
+                }
+              ],
+              'parent' => {},
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'verbatim',
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'verbatim'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'verbatim'
+              },
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              }
+            }
+          ],
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'parent' => {},
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 4,
+            'macro' => ''
+          }
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'cmdname' => 'html',
+          'contents' => [
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'elided_block'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => '',
+              'type' => 'empty_line'
+            }
+          ],
+          'parent' => {}
         }
       ],
       'parent' => {},
@@ -84,14 +173,32 @@ $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[1]{'conten
 $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
 $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[1];
 $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5];
+$result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'beginning_and_end_on_line'}{'contents'}[0];
 $result_trees{'beginning_and_end_on_line'}{'contents'}[0]{'parent'} = $result_trees{'beginning_and_end_on_line'};
 
 $result_texis{'beginning_and_end_on_line'} = '
 @tex in tex @end tex
+
+@verbatim in verbatim @end verbatim
+
+@html
 ';
 
 
 $result_texts{'beginning_and_end_on_line'} = '
+
+
 ';
 
 $result_errors{'beginning_and_end_on_line'} = [
@@ -103,6 +210,24 @@ $result_errors{'beginning_and_end_on_line'} = [
     'macro' => '',
     'text' => '@end should only appear at the beginning of a line',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @end should only appear at the beginning of a line
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => '@end should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'no matching `@end html\'
+',
+    'file_name' => '',
+    'line_nr' => 6,
+    'macro' => '',
+    'text' => 'no matching `@end html\'',
+    'type' => 'error'
   }
 ];
 
