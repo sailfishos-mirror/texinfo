@@ -1142,7 +1142,7 @@ foreach my $formattable_misc_command ('insertcopying',
   $formattable_misc_commands{$formattable_misc_command} = 1;
 }
 
-
+# used in converters, not in the parser
 our %misc_commands = (%line_commands, %other_commands);
 
 $root_commands{'node'} = 1;

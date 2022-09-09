@@ -42,7 +42,6 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 $VERSION = '6.8dev';
 
 
-my %misc_commands            = %Texinfo::Common::misc_commands;
 my %brace_commands           = %Texinfo::Common::brace_commands;
 my %block_commands           = %Texinfo::Common::block_commands;
 my %def_commands             = %Texinfo::Common::def_commands;
@@ -165,7 +164,7 @@ sub _expand_cmd_args_to_texi($;$) {
   if ($cmd->{'extra'} and exists ($cmd->{'extra'}->{'spaces'})) {
     $result .= $cmd->{'extra'}->{'spaces'};
   }
-  # must be before the next condition
+  # block line commands with arguments not separated by commas
   if ($block_commands{$cmdname}
          and ($def_commands{$cmdname}
               or $block_commands{$cmdname} eq 'multitable')

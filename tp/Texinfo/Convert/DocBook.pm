@@ -769,6 +769,9 @@ sub _convert($$;$)
       return $self->_index_entry($element).${end_line};
 
     } elsif (exists($docbook_misc_commands{$element->{'cmdname'}})) {
+      # FIXME redo code to use directly commands and not be based on the
+      # %misc_commands type.  Also probably ignore %other_commands
+      # right away
       #warn "  is dbk misc command\n";
       if ($docbook_global_commands{$element->{'cmdname'}}) {
         Texinfo::Common::set_informative_command_value($self, $element);
