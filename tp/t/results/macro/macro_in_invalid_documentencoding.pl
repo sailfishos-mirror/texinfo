@@ -21,14 +21,9 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'badm',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => 'badm
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -109,10 +104,9 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
 };
 $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0];
 $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_in_invalid_documentencoding'}{'contents'}[0]{'contents'}[1];

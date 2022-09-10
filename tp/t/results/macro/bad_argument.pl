@@ -14,14 +14,9 @@ $result_trees{'bad_argument'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'in macro',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => 'in macro
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -83,14 +78,9 @@ $result_trees{'bad_argument'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'in',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => 'in
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -157,14 +147,9 @@ $result_trees{'bad_argument'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'in macro',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => 'in macro
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -219,14 +204,9 @@ $result_trees{'bad_argument'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'in #',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => 'in #
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -278,34 +258,30 @@ $result_trees{'bad_argument'} = {
   'type' => 'document_root'
 };
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0];
+$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2];
+$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
+$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4];
+$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
+$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[2];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6];
+$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0];
+$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[2];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6];
 $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0];
 $result_trees{'bad_argument'}{'contents'}[0]{'parent'} = $result_trees{'bad_argument'};
 

@@ -44,14 +44,9 @@ $result_trees{'protect_comma_macro_line'} = {
             },
             {
               'parent' => {},
-              'text' => 'and a last in another paragraph',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => 'and a last in another paragraph
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -146,10 +141,9 @@ $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'content
 $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0];
 $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0];
 $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0];
+$result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0];
+$result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
 $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0];
-$result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'contents'}[5];
-$result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0];
 $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_comma_macro_line'}{'contents'}[0];
 $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'protect_comma_macro_line'}{'contents'}[0];
 $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'protect_comma_macro_line'}{'contents'}[0]{'contents'}[2];

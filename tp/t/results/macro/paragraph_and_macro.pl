@@ -78,14 +78,9 @@ $result_trees{'paragraph_and_macro'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => '   ',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => '   
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -146,14 +141,9 @@ $result_trees{'paragraph_and_macro'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'a word',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => 'a word
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -303,18 +293,16 @@ $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[0]{'parent'} = $
 $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0];
 $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2];
 $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2];
+$result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
+$result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
 $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2];
-$result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2];
 $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0];
 $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0];
 $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4];
 $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4];
+$result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
+$result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
 $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4];
-$result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0];
-$result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4]{'contents'}[2];
-$result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4];
 $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0];
 $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0];
 $result_trees{'paragraph_and_macro'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'paragraph_and_macro'}{'contents'}[0];

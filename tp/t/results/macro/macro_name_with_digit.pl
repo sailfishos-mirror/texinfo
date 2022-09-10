@@ -21,14 +21,9 @@ $result_trees{'macro_name_with_digit'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'macro1',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => 'macro1
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -94,14 +89,9 @@ $result_trees{'macro_name_with_digit'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'expand \\arg\\',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => 'expand \\arg\\
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -170,19 +160,17 @@ $result_trees{'macro_name_with_digit'} = {
 };
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2];
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2];
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2];
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[4];

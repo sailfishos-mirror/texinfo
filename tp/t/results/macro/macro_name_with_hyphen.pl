@@ -31,14 +31,9 @@ $result_trees{'macro_name_with_hyphen'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'This \\arg-one\\ and that \\arg2\\.',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => 'This \\arg-one\\ and that \\arg2\\.
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -135,10 +130,9 @@ $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'args'}[0]
 $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0];
 $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0];
 $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[2];

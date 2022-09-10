@@ -2965,14 +2965,9 @@ $result_trees{'texi_bib_example'} = {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => '@set mybibrefnode \\node\\',
-                  'type' => 'raw'
-                },
-                {
-                  'parent' => {},
-                  'text' => '
+                  'text' => '@set mybibrefnode \\node\\
 ',
-                  'type' => 'last_raw_newline'
+                  'type' => 'raw'
                 },
                 {
                   'args' => [
@@ -3075,14 +3070,9 @@ $result_trees{'texi_bib_example'} = {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => '@value{mybibrefnode}',
-                  'type' => 'raw'
-                },
-                {
-                  'parent' => {},
-                  'text' => '
+                  'text' => '@value{mybibrefnode}
 ',
-                  'type' => 'last_raw_newline'
+                  'type' => 'raw'
                 },
                 {
                   'args' => [
@@ -3214,14 +3204,9 @@ $result_trees{'texi_bib_example'} = {
                 },
                 {
                   'parent' => {},
-                  'text' => '@mybibsetrefnode{\\node\\}',
-                  'type' => 'raw'
-                },
-                {
-                  'parent' => {},
-                  'text' => '
+                  'text' => '@mybibsetrefnode{\\node\\}
 ',
-                  'type' => 'last_raw_newline'
+                  'type' => 'raw'
                 },
                 {
                   'args' => [
@@ -3353,14 +3338,9 @@ $result_trees{'texi_bib_example'} = {
                 },
                 {
                   'parent' => {},
-                  'text' => '@mybibsetrefnode{\\node\\}',
-                  'type' => 'raw'
-                },
-                {
-                  'parent' => {},
-                  'text' => '
+                  'text' => '@mybibsetrefnode{\\node\\}
 ',
-                  'type' => 'last_raw_newline'
+                  'type' => 'raw'
                 },
                 {
                   'args' => [
@@ -3498,14 +3478,9 @@ $result_trees{'texi_bib_example'} = {
                 },
                 {
                   'parent' => {},
-                  'text' => '',
-                  'type' => 'raw'
-                },
-                {
-                  'parent' => {},
                   'text' => '
 ',
-                  'type' => 'last_raw_newline'
+                  'type' => 'raw'
                 },
                 {
                   'args' => [
@@ -3576,14 +3551,9 @@ $result_trees{'texi_bib_example'} = {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => '(See item [\\ref\\] in @ref{\\node\\, \\ref\\}.)',
-                  'type' => 'raw'
-                },
-                {
-                  'parent' => {},
-                  'text' => '
+                  'text' => '(See item [\\ref\\] in @ref{\\node\\, \\ref\\}.)
 ',
-                  'type' => 'last_raw_newline'
+                  'type' => 'raw'
                 },
                 {
                   'args' => [
@@ -3751,14 +3721,9 @@ $result_trees{'texi_bib_example'} = {
                 },
                 {
                   'parent' => {},
-                  'text' => '',
-                  'type' => 'raw'
-                },
-                {
-                  'parent' => {},
                   'text' => '
 ',
-                  'type' => 'last_raw_newline'
+                  'type' => 'raw'
                 },
                 {
                   'args' => [
@@ -4976,10 +4941,9 @@ $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[163]
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'contents'}[1]{'args'}[0];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'contents'}[2]{'args'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'contents'}[2];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[165]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[166]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[166];
@@ -4989,10 +4953,9 @@ $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[167]
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[168]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169]{'contents'}[1]{'args'}[0];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169]{'contents'}[2]{'args'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169]{'contents'}[2];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[170]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[171]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[171];
@@ -5007,10 +4970,9 @@ $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'contents'}[3]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'contents'}[4]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'contents'}[5]{'args'}[0];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'contents'}[5];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'contents'}[5]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'contents'}[6]{'args'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'contents'}[6];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'contents'}[6]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[175]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176];
@@ -5025,10 +4987,9 @@ $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'contents'}[3]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'contents'}[4]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'contents'}[5]{'args'}[0];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'contents'}[5];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'contents'}[5]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'contents'}[6]{'args'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'contents'}[6];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'contents'}[6]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[180]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[181]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
@@ -5045,20 +5006,18 @@ $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'contents'}[5]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'contents'}[6]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'contents'}[7]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'contents'}[8]{'args'}[0];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'contents'}[8];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'contents'}[8]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'contents'}[9]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'contents'}[9]{'args'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'contents'}[9];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'contents'}[9]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[185]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'args'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'contents'}[1]{'args'}[0];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'contents'}[2]{'args'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'contents'}[2];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[187]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188];
@@ -5080,10 +5039,9 @@ $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'contents'}[11]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'contents'}[12]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'contents'}[13]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'contents'}[14]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'contents'}[14]{'args'}[0];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'contents'}[14];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'contents'}[14]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'contents'}[15]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'contents'}[15]{'args'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'contents'}[15]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'contents'}[15];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'contents'}[15]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[191]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[192]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[192];

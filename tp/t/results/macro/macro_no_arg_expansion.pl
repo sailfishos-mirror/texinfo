@@ -21,14 +21,9 @@ $result_trees{'macro_no_arg_expansion'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'res1',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => 'res1
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -97,10 +92,9 @@ $result_trees{'macro_no_arg_expansion'} = {
 };
 $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_no_arg_expansion'}{'contents'}[0];
 $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_no_arg_expansion'}{'contents'}[0];
 $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'macro_no_arg_expansion'}{'contents'}[0]{'contents'}[2];

@@ -56,14 +56,9 @@ $result_trees{'value_in_macro_body'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'result: @emph{\\@value{bodyarg}\\  }',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => 'result: @emph{\\@value{bodyarg}\\  }
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -163,10 +158,9 @@ $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[1]{'parent'} = $
 $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2];
 $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2];
 $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2];
+$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
+$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
 $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2];
-$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2];
 $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0];
 $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0];
 $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_body'}{'contents'}[0]{'contents'}[4];

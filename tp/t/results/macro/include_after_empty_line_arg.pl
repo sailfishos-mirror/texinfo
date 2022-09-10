@@ -26,14 +26,9 @@ $result_trees{'include_after_empty_line_arg'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => '@code{\\body\\}',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => '@code{\\body\\}
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -125,10 +120,9 @@ $result_trees{'include_after_empty_line_arg'} = {
 $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0];
 $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0];
 $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0];
+$result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0];
-$result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0];
 $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'include_after_empty_line_arg'}{'contents'}[0];
 $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'include_after_empty_line_arg'}{'contents'}[0];
 $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'include_after_empty_line_arg'}{'contents'}[0]{'contents'}[2]{'contents'}[0];

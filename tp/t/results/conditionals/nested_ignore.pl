@@ -31,14 +31,9 @@ $result_trees{'nested_ignore'} = {
             },
             {
               'parent' => {},
-              'text' => '',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
               'text' => '
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -105,14 +100,9 @@ $result_trees{'nested_ignore'} = {
             },
             {
               'parent' => {},
-              'text' => '@ifinfo',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => '@ifinfo
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -179,14 +169,9 @@ $result_trees{'nested_ignore'} = {
             },
             {
               'parent' => {},
-              'text' => '@ifclear',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => '@ifclear
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -235,28 +220,25 @@ $result_trees{'nested_ignore'} = {
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0];
-$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2];
-$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'contents'}[3];
-$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[2];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4];
-$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0];
-$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[3];
-$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0];
 $result_trees{'nested_ignore'}{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'};
 

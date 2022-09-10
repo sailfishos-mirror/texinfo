@@ -3987,17 +3987,6 @@ sub _parse_texi($$$)
             $self->_line_warn(sprintf(
                   __("\@end %s should only appear at the beginning of a line"),
                                      $current->{'cmdname'}), $source_info);
-          } else {
-            # FIXME exclude other formats, like @macro, @ifset, @ignore?
-            if ($current->{'cmdname'} ne 'verbatim'
-                and @{$current->{'contents'}}
-                and $current->{'contents'}->[-1]->{'type'}
-                and $current->{'contents'}->[-1]->{'type'} eq 'raw') {
-              if ($current->{'contents'}->[-1]->{'text'} =~ s/(\n)//) {
-                push @{$current->{'contents'}}, {'type' => 'last_raw_newline',
-                             'text' => $1, 'parent' => $current};
-              }
-            }
           }
           # store toplevel macro specification
           if (($current->{'cmdname'} eq 'macro' or $current->{'cmdname'} eq 'rmacro')
@@ -7021,10 +7010,6 @@ this space should be ignorable (like C<@caption> or C<@sortas>).
 =item empty_spaces_before_paragraph
 
 Space appearing before a paragraph beginning.
-
-=item last_raw_newline
-
-The last end of line in a raw block (except for C<@verbatim>).
 
 =item misc_arg
 

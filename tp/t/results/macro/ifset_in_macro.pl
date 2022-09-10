@@ -38,14 +38,9 @@ $result_trees{'ifset_in_macro'} = {
             },
             {
               'parent' => {},
-              'text' => '@end ifset',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => '@end ifset
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -106,10 +101,9 @@ $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent
 $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0];
 $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0];
 $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0];
+$result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
 $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0];
 $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ifset_in_macro'}{'contents'}[0];
 $result_trees{'ifset_in_macro'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ifset_in_macro'}{'contents'}[0];
 $result_trees{'ifset_in_macro'}{'contents'}[0]{'parent'} = $result_trees{'ifset_in_macro'};

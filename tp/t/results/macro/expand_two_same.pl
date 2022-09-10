@@ -32,14 +32,9 @@ $result_trees{'expand_two_same'} = {
             },
             {
               'parent' => {},
-              'text' => '',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
               'text' => '
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -210,10 +205,9 @@ $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'paren
 $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0];
 $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0];
 $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0];
+$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0];
 $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0];
 $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1];
 $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1];

@@ -8,7 +8,6 @@ char *element_type_names[] = {
 "definfoenclose_command",
 "empty_line",
 "raw",
-"last_raw_newline",
 "empty_line_after_command",
 "empty_spaces_after_command",
 "spaces_at_end",

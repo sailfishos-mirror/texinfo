@@ -31,14 +31,9 @@ $result_trees{'bad_macro_name_with_underscore'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'In macro',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => 'In macro
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -92,10 +87,9 @@ $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'a
 $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
 $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
 $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
+$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
 $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0];
 $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'};
 

@@ -1132,24 +1132,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               line_warn ("@end %s should only appear at the "
                          "beginning of a line", command_name(end_cmd));
             }
-          else
-            {
-              ELEMENT *last_child = last_contents_child (current);
-              if (last_child
-                   && last_child->type == ET_raw
-                   && current->cmd != CM_verbatim)
-                {
-                  if (last_child->text.end > 0
-                      && last_child->text.text[last_child->text.end - 1] == '\n')
-                    {
-                      ELEMENT *lrn;
-                      last_child->text.text[--last_child->text.end] = '\0';
-                      lrn = new_element (ET_last_raw_newline);
-                      text_append (&lrn->text, "\n");
-                      add_to_element_contents (current, lrn);
-                    }
-                }
-            }
 
           /* For macros, define a new macro (unless we are in a nested
              macro definition). */

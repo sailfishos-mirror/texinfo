@@ -1616,8 +1616,7 @@ sub _convert($$)
   if (defined($element->{'text'})) {
     if (!$type or $type ne 'untranslated') {
       if (!$formatter->{'_top_formatter'}) {
-        if ($type and ($type eq 'raw' 
-                                 or $type eq 'last_raw_newline')) {
+        if ($type and $type eq 'raw') {
           $result = _count_added($self, $formatter->{'container'},
                       add_next($formatter->{'container'}, $element->{'text'}));
         } else {

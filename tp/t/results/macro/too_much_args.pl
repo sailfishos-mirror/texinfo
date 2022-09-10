@@ -37,14 +37,9 @@ $result_trees{'too_much_args'} = {
             },
             {
               'parent' => {},
-              'text' => 'second arg: \\second\\',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '
+              'text' => 'second arg: \\second\\
 ',
-              'type' => 'last_raw_newline'
+              'type' => 'raw'
             },
             {
               'args' => [
@@ -121,10 +116,9 @@ $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'
 $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0];
 $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0];
 $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0];
+$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0];
 $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0];
 $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0];
 $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[2];
