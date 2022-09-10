@@ -1788,8 +1788,6 @@ sub trim_spaces_comment_from_content($)
   shift @$contents
     if ($contents->[0] and $contents->[0]->{'type'}
        and ($contents->[0]->{'type'} eq 'empty_line_after_command'
-            or $contents->[0]->{'type'} eq 'empty_spaces_after_command'
-            or $contents->[0]->{'type'} eq 'empty_spaces_before_argument'
             or $contents->[0]->{'type'} eq 'empty_spaces_after_close_brace'));
 
   while (@$contents
@@ -1797,8 +1795,7 @@ sub trim_spaces_comment_from_content($)
                and ($contents->[-1]->{'cmdname'} eq 'c'
                     or $contents->[-1]->{'cmdname'} eq 'comment'))
               or ($contents->[-1]->{'type'}
-                  and ($contents->[-1]->{'type'} eq 'spaces_at_end'
-                       or $contents->[-1]->{'type'} eq 'space_at_end_block_command')))) {
+                  and $contents->[-1]->{'type'} eq 'spaces_at_end'))) {
     pop @$contents;
   }
 }
@@ -2591,24 +2588,13 @@ sub move_index_entries_after_items($)
           foreach my $entry(@gathered_index_entries) {
             $entry->{'parent'} = $item_container;
           }
-          # TODO remove
-          if ($item->{'extra'}
-              and $item->{'extra'}->{'spaces_before_argument'}
-       and $item->{'extra'}->{'spaces_before_argument'} !~ /\n$/) {
-            $item->{'extra'}->{'spaces_before_argument'} .= "\n";
-          # TODO: could we delete some cases down here?
-          } elsif ($item_container->{'contents'}
+          if ($item_container->{'contents'}
               and $item_container->{'contents'}->[0]
-              and $item_container->{'contents'}->[0]->{'type'}) {
-            if ($item_container->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
-              $item_container->{'contents'}->[0]->{'text'} .= "\n"
-                if ($item_container->{'contents'}->[0]->{'text'} !~ /\n$/);
-              unshift @gathered_index_entries, shift @{$item_container->{'contents'}};
-            } elsif ($item_container->{'contents'}->[0]->{'type'} eq 'empty_spaces_after_command') {
-               unshift @gathered_index_entries, shift @{$item_container->{'contents'}};
-               $gathered_index_entries[0]->{'type'} = 'empty_line_after_command';
-               $gathered_index_entries[0]->{'text'} .= "\n";
-            }
+              and $item_container->{'contents'}->[0]->{'type'}
+              and $item_container->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
+            $item_container->{'contents'}->[0]->{'text'} .= "\n"
+              if ($item_container->{'contents'}->[0]->{'text'} !~ /\n$/);
+            unshift @gathered_index_entries, shift @{$item_container->{'contents'}};
           }
           unshift @{$item_container->{'contents'}}, @gathered_index_entries;
         }

@@ -372,9 +372,6 @@ my %defcommand_name_type = (
 
 my %ignored_types;
 foreach my $type (
-            # those are put as spaces in the corresponding @-command
-            'empty_spaces_after_command',
-            'empty_spaces_before_argument',
             # @-commands replaced in the tree
             'replaced',
   ) {
@@ -642,10 +639,8 @@ sub _collect_leading_trailing_spaces_arg($$)
       and defined($arg->{'contents'}->[0]->{'type'})) {
     #print STDERR "$arg->{'contents'}->[0]->{'type'}\n";
     warn "Unknown leading space type $arg->{'contents'}->[0]->{'type'}\n"
-      if ($arg->{'contents'}->[0]->{'type'} ne 'empty_spaces_after_command'
-          and $arg->{'contents'}->[0]->{'type'} ne 'empty_spaces_before_argument'
-          # FIXME should we really catch this too?
-          and $arg->{'contents'}->[0]->{'type'} ne 'empty_line_after_command'
+      if (# FIXME should we really catch this too?
+          $arg->{'contents'}->[0]->{'type'} ne 'empty_line_after_command'
          );
     $result[0] = $arg->{'contents'}->[0]->{'text'};
     return @result if (scalar(@{$arg->{'contents'}}) == 1);
@@ -1578,9 +1573,6 @@ sub _convert($$;$)
           $alias = 0;
         }
         foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
-          next if $arg->{'type'}
-                   and ($arg->{'type'} eq 'empty_spaces_after_command'
-                         or $arg->{'type'} eq 'empty_line_after_command');
           my $type = $arg->{'extra'}->{'def_role'};
           next if !$type and $arg->{'type'} eq 'spaces';
           my $content = $self->_convert($arg);

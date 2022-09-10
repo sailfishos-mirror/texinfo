@@ -241,13 +241,11 @@ sub _new_node($$$$)
   while (!defined($node)
          or ($labels
             and $labels->{$parsed_node->{'normalized'}})) {
-    $node = {'cmdname' => 'node', 'args' => [{}]};
+    $node = {'cmdname' => 'node', 'args' => [{}],
+             'extra' => {'spaces_before_argument' => ' '}};
     my $node_arg = $node->{'args'}->[0];
     $node_arg->{'parent'} = $node;
     @{$node_arg->{'contents'}} = (
-       {'extra' => {'command' => $node},
-        'text' => ' ',
-        'type' => 'empty_spaces_after_command'},
         @{$node_tree->{'contents'}});
     if ($appended_number) {
       splice (@{$node_arg->{'contents'}}, -1, 0,

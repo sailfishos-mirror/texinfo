@@ -1,5 +1,34 @@
 2022-09-10  Patrice Dumas  <pertusus@free.fr>
 
+	Remove empty_spaces_after_command. Remove empty_spaces_before_argument
+	from converters
+
+	* tp/Texinfo/ParserNonXS.pm (_merge_text, _abort_empty_line),
+	tp/Texinfo/XS/misc.c (xs_abort_empty_line, xs_merge_text),
+	tp/Texinfo/XS/parsetexi/parser.c (merge_text, abort_empty_line),
+	tp/Texinfo/XS/parsetexi/def.c,
+	tp/Texinfo/XS/parsetexi/element_types.txt,
+	tp/Texinfo/Transformations.pm (_new_node),
+	tp/Texinfo/Common.pm (trim_spaces_comment_from_content)
+	(move_index_entries_after_items),
+	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/LaTeX.pm,
+	tp/Texinfo/Convert/NodeNameNormalization.pm,
+	tp/Texinfo/Convert/Plaintext.pm, tp/Texinfo/Convert/TexinfoXML.pm,
+	tp/Texinfo/Convert/Text.pm, tp/Texinfo/Convert/TextContent.pm:
+	the container empty_spaces_after_command does not appear in the
+	tree anymore, remove it and remove the now unreachable code
+	that set it up.  Remove empty_spaces_before_argument from
+	converters as it is internal to parsers.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert): do not test for
+	empty_line_after_command in a place where it can not happen.
+
+	* tp/Texinfo/XS/misc.c b/tp/Texinfo/XS/misc.c (xs_abort_empty_line):
+	use correct extra spaces_associated_command key.
+
+2022-09-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line):
 	remove reparenting of empty_line_after_command space container

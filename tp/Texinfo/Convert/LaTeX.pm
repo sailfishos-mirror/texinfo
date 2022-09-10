@@ -527,8 +527,7 @@ foreach my $environment_command (@LaTeX_same_block_commands) {
 
 my %ignorable_space_types;
 foreach my $type ('empty_line_after_command',
-            'empty_spaces_after_command', 'spaces_at_end',
-            'empty_spaces_before_argument',
+            'spaces_at_end',
             'empty_spaces_after_close_brace') {
   $ignorable_space_types{$type} = 1;
 }

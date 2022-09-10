@@ -114,8 +114,8 @@ xs_abort_empty_line (HV *self, HV *current, SV *additional_spaces_in)
   if (svp)
     {
       test_extra = (HV *) SvRV (*svp);
-      svp = hv_fetch (test_extra, "command",
-                      strlen ("command"), 0);
+      svp = hv_fetch (test_extra, "spaces_associated_command",
+                      strlen ("spaces_associated_command"), 0);
       if (svp)
         {
           owning_elt = (HV *) SvRV (*svp);
@@ -200,31 +200,22 @@ delete_type:
       STRLEN len;
       char *ptr;
 
-      if (owning_elt)
-        {
-          /* Remove spaces_elt */
-          av_pop (contents_array);
+      /* Remove spaces_elt */
+      av_pop (contents_array);
 
-          ptr = SvPV(existing_text_sv, len);
-          /* Replace element reference with a simple string. */
-          if (!command_extra)
-            {
-              command_extra = newHV ();
-              hv_store (owning_elt, "extra", strlen ("extra"),
-                        newRV_inc((SV *)command_extra), 0);
-            }
-          hv_store (command_extra,
-                    "spaces_before_argument",
-                    strlen ("spaces_before_argument"),
-                    newSVpv(ptr, len),
-                    0);
-        }
-      else
+      ptr = SvPV(existing_text_sv, len);
+      /* Replace element reference with a simple string. */
+      if (!command_extra)
         {
-          hv_store (spaces_elt, "type", strlen ("type"),
-                    newSVpv ("empty_spaces_after_command", 0), 0);
-
+          command_extra = newHV ();
+          hv_store (owning_elt, "extra", strlen ("extra"),
+                    newRV_inc((SV *)command_extra), 0);
         }
+      hv_store (command_extra,
+                "spaces_before_argument",
+                strlen ("spaces_before_argument"),
+                newSVpv(ptr, len),
+                0);
     }
   return 1;
 }
@@ -295,7 +286,6 @@ xs_merge_text (HV *self, HV *current, SV *text_in)
               if (type
                   && (!strcmp (type, "empty_line_after_command")
                       || !strcmp (type, "internal_empty_line_after_command")
-                      || !strcmp (type, "empty_spaces_after_command")
                       || !strcmp (type, "empty_spaces_before_argument")
                       || !strcmp (type, "empty_spaces_after_close_brace")))
                 {

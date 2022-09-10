@@ -75,7 +75,6 @@ next_bracketed_or_word (ELEMENT *current, int *i)
       if (current->contents.list[*i]->type != ET_spaces
           && current->contents.list[*i]->type != ET_spaces_inserted
           && current->contents.list[*i]->type != ET_spaces_at_end
-          && current->contents.list[*i]->type != ET_empty_spaces_after_command
           && current->contents.list[*i]->type != ET_delimiter)
         break;
       (*i)++;
@@ -98,7 +97,6 @@ next_bracketed_or_word_agg (ELEMENT *current, int *i)
       if (e->type == ET_spaces
           || e->type == ET_spaces_inserted
           || e->type == ET_spaces_at_end
-          || e->type == ET_empty_spaces_after_command
           || e->type == ET_delimiter)
         {
           if (num > 0)
@@ -179,8 +177,6 @@ split_delimiters (ELEMENT *current, int starting_idx)
 
       if (e->type != ET_NONE
           || e->text.end == 0)
-        continue;
-      if (e->type == ET_empty_spaces_after_command)
         continue;
       p = e->text.text;
 

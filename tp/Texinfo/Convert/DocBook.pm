@@ -213,8 +213,6 @@ my %ignored_types;
 foreach my $type (
             'empty_line_after_command',
             'empty_spaces_after_close_brace', 
-            'empty_spaces_after_command', 
-            'empty_spaces_before_argument',
             'empty_spaces_before_paragraph',
             'menu_entry_leading_text',
             'menu_entry_separator',
@@ -1583,10 +1581,6 @@ sub _convert($$;$)
           $main_command = $element->{'extra'}->{'def_command'};
         }
         foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
-          next if $arg->{'type'}
-                   and ($arg->{'type'} eq 'empty_spaces_after_command'
-                        or $arg->{'type'} eq 'empty_line_after_command');
-
           my $type = $arg->{'extra'}->{'def_role'};
           next if !$type and $arg->{'type'} eq 'spaces';
 

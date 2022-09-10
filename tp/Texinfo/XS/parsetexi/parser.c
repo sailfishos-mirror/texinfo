@@ -544,7 +544,6 @@ merge_text (ELEMENT *current, char *text)
       if (last_child
           && (last_child->type == ET_empty_line_after_command
               || last_child->type == ET_internal_empty_line_after_command
-              || last_child->type == ET_empty_spaces_after_command
               || last_child->type == ET_empty_spaces_before_argument
               || last_child->type == ET_empty_spaces_after_close_brace))
         {
@@ -649,19 +648,12 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
       else if (last_child->type == ET_internal_empty_line_after_command
                || last_child->type == ET_empty_spaces_before_argument)
         {
-          if (owning_element)
-            {
-              /* Remove element from main tree. It will still be referenced in
-                 the 'extra' hash as 'spaces_before_argument'. */
-              ELEMENT *e = pop_element_from_contents (current);
-              add_extra_string_dup (owning_element, "spaces_before_argument",
-                                    e->text.text);
-              destroy_element (e);
-            }
-          else
-            {
-              last_child->type = ET_empty_spaces_after_command;
-            }
+          /* Remove element from main tree. It will still be referenced in
+             the 'extra' hash as 'spaces_before_argument'. */
+          ELEMENT *e = pop_element_from_contents (current);
+          add_extra_string_dup (owning_element, "spaces_before_argument",
+                                e->text.text);
+          destroy_element (e);
         }
     }
   else
@@ -793,10 +785,10 @@ isolate_last_space (ELEMENT *current)
 
 
 /* Add an "ET_empty_line_after_command" element containing the whitespace at 
-   the beginning of the rest of the line.  This element can be later changed to 
-   a "ET_empty_spaces_after_command" element in 'abort_empty_line' if more
-   text follows on the line.  Used after line commands or commands starting
-   a block. */
+   the beginning of the rest of the line after skipspaces commands,
+   if COMMAND is 0.  Otherwise add an "ET_internal_empty_line_after_command",
+   container, after line commands or commands starting
+   a block, that will end up in COMMAND extra spaces value. */
 void
 start_empty_line_after_command (ELEMENT *current, char **line_inout,
                                 ELEMENT *command)

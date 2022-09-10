@@ -1941,7 +1941,6 @@ sub _merge_text {
       and $current->{'contents'}->[-1]->{'type'}
       and ($current->{'contents'}->[-1]->{'type'} eq 'empty_line_after_command'
          or $current->{'contents'}->[-1]->{'type'} eq 'internal_empty_line_after_command'
-         or $current->{'contents'}->[-1]->{'type'} eq 'empty_spaces_after_command'
          or $current->{'contents'}->[-1]->{'type'} eq 'empty_spaces_before_argument'
          or $current->{'contents'}->[-1]->{'type'} eq 'empty_spaces_after_close_brace')) {
       $no_merge_with_following_text = 1;
@@ -2350,16 +2349,12 @@ sub _abort_empty_line {
       }
     } elsif ($spaces_element->{'type'} eq 'internal_empty_line_after_command'
              or $spaces_element->{'type'} eq 'empty_spaces_before_argument') {
-      if ($owning_element) {
-        # Remove element from main tree. It will still be referenced in
-        # the 'extra' hash as 'spaces_before_argument'.
-        pop @{$current->{'contents'}};
+      # Remove element from main tree. It will still be referenced in
+      # the 'extra' hash as 'spaces_before_argument'.
+      pop @{$current->{'contents'}};
 
-        $owning_element->{'extra'}->{'spaces_before_argument'}
-          = $spaces_element->{'text'};
-      } else {
-        $spaces_element->{'type'} = 'empty_spaces_after_command';
-      }
+      $owning_element->{'extra'}->{'spaces_before_argument'}
+        = $spaces_element->{'text'};
     }
 
     return 1;
@@ -6995,12 +6990,9 @@ An empty line (possibly containing whitespace characters only).
 
 =item empty_line_after_command
 
-=item empty_spaces_after_command
-
-The text is spaces for I<empty_spaces_after_command>
-or spaces followed by a newline for
-I<empty_line_after_command>, appearing after an @-command that
-takes an argument on the line or a block @-command.
+spaces appearing after an @-command without braces that does not
+take takes argument on the line, but which is followed by ignorable
+spaces, such as C<@item> in C<@itemize> of C<@multitable>, or C<@noindent>.
 
 =item empty_spaces_after_close_brace
 
